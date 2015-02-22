@@ -1,5 +1,1 @@
-<cfprocessingdirective preserveCase="true">
-
-<cfscript>
-	new JsonBuilder().buildAll();
-</cfscript>
+<cfset new JsonBuilder().buildAll() />

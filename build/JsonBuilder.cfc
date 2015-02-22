@@ -1,9 +1,11 @@
 /**
- * Logic to build json data sources
- * for the reference documentation
+ * Logic to build json data sources for the reference documentation
  *
  */
+
 component {
+
+	processingdirective preserveCase=true;
 
 // CONSTRUCTOR
 	public any function init(){
@@ -25,39 +27,37 @@ component {
 		var functions      = XmlSearch( referenceXml, "/func-lib/function" );
 
 		for( var func in functions ) {
-			var convertedFunc = {
-				  name         = func.name.xmlText  ?: ""
-				, class        = func.class.xmlText ?: ""
-				, description  = func.description.xmlText ?: ""
-				, returnType   = func.return.type.xmlText ?: ""
-				, argumentType = func["argument-type"].xmlText ?: ""
-				, keywords     = listToArray( func.keywords.xmlText ?: "" )
-				, memberName   = func[ "member-name" ].xmlText ?: ""
-				, arguments    = []
-			};
+			var convertedFunc = StructNew( "linked" );
+
+			convertedFunc.name         = func.name.xmlText  ?: "";
+			convertedFunc.memberName   = func[ "member-name" ].xmlText ?: "";
+			convertedFunc.description  = func.description.xmlText ?: "";
+			convertedFunc.status       = func.status.xmlText ?: "";
+			convertedFunc.deprecated   = convertedFunc.status == "deprecated";
+			convertedFunc.class        = func.class.xmlText ?: "";
+			convertedFunc.returnType   = func.return.type.xmlText ?: "";
+			convertedFunc.argumentType = func["argument-type"].xmlText ?: "";
+			convertedFunc.keywords     = listToArray( func.keywords.xmlText ?: "" );
+			convertedFunc.arguments    = [];
 
 			for( var child in func.xmlChildren ) {
 				if ( child.xmlName == "argument" ) {
-					convertedFunc.arguments.append( {
-						  name        = ( child.name.xmlText        ?: "" )
-						, type        = ( child.type.xmlText        ?: "" )
-						, required    = ( child.required.xmlText    ?: "" )
-						, default     = ( child.default.xmlText     ?: "" )
-						, description = ( child.description.xmlText ?: "" )
-					} );
+					var arg = StructNew( "linked" );
+
+					arg.name        = ( child.name.xmlText        ?: "" );
+					arg.description = ( child.description.xmlText ?: "" );
+					arg.type        = ( child.type.xmlText        ?: "" );
+					arg.required    = IsBoolean( child.required.xmlText    ?: "" ) && child.required.xmlText;
+					arg.default     = ( child.default.xmlText     ?: "" );
+
+					convertedFunc.arguments.append( arg );
 				}
 			}
 
 			convertedFuncs[ convertedFunc.name ] = convertedFunc;
 		}
 
-		var functionNames = convertedFuncs.keyArray().sort( "textnocase" );
-		var jsonDir       = buildProperties.getProperty( version, "rootJsonDirectory" );
-		if ( !DirectoryExists( jsonDir ) ) {
-			DirectoryCreate( jsonDir, true );
-		}
-
-		FileWrite( jsonDir & "/functions.json", _serializeJson( functionNames ) ) ;
+		_buildFunctionIndex( convertedFuncs, arguments.version );
 	}
 
 // PRIVATE HELPERS
@@ -103,4 +103,37 @@ component {
 
 		    return retval;
 		};
+
+	private void function _buildFunctionIndex( required struct convertedFuncs, required string version ) {
+		var functionNames              = arguments.convertedFuncs.keyArray().sort( "textnocase" );
+		var jsonDir                    = buildProperties.getProperty( version, "rootJsonDirectory" );
+		var individualFunctionsDir     = jsonDir & "functions/";
+		var functionsByCategory        = {};
+		var orderedFunctionsByCategory = StructNew( "linked" );
+
+		if ( !DirectoryExists( jsonDir ) ) {
+			DirectoryCreate( jsonDir, true );
+		}
+		if ( !DirectoryExists( individualFunctionsDir ) ) {
+			DirectoryCreate( individualFunctionsDir, true );
+		}
+
+		for( var functionName in convertedFuncs ) {
+			var func = convertedFuncs[ functionName ];
+
+			FileWrite( individualFunctionsDir & LCase( func.name ) & ".json", _serializeJson( func ) );
+
+			for( var keyWord in func.keywords ) {
+				functionsByCategory[ keyword ] = functionsByCategory[ keyword ] ?: [];
+				functionsByCategory[ keyword ].append( func.name )
+			}
+		}
+
+		for( var category in functionsByCategory.keyArray().sort( "textnocase" ) ) {
+			orderedFunctionsByCategory[ category ] = functionsByCategory[ category ].sort( "textnocase" );
+		}
+
+		FileWrite( jsonDir & "/functions.json", _serializeJson( functionNames ) ) ;
+		FileWrite( jsonDir & "/functions_by_category.json", _serializeJson( orderedFunctionsByCategory ) ) ;
+	}
 }
