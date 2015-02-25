@@ -1,1 +1,1 @@
-<cfset new JsonBuilder().buildAll() />
+<cfset new SpecificationImporter().importAll() />
