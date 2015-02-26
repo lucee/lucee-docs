@@ -1,0 +1,1 @@
+flush the component path cache

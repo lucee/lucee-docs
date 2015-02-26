@@ -1,0 +1,1 @@
+returns the timezone defined for the current request.

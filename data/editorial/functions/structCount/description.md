@@ -1,0 +1,1 @@
+Counts the keys in a structure.

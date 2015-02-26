@@ -1,0 +1,1 @@
+Draws a rectangle with beveled edges.

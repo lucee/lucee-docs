@@ -1,0 +1,1 @@
+Lets you call methods in COM, CORBA, and JAVA objects.

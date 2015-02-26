@@ -1,0 +1,1 @@
+Handles interactions with directories.

@@ -1,0 +1,1 @@
+return the default cache name for a specific type

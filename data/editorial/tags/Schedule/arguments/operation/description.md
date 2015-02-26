@@ -1,0 +1,1 @@
+The type of operation the scheduler performs when executing this task.

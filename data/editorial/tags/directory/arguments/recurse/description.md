@@ -1,0 +1,1 @@
+Whether Lucee performs the action on subdirectories

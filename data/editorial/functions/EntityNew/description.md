@@ -1,0 +1,1 @@
+Creates a new instance of the persistent CFC with the entity name that you provide.

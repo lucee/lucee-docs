@@ -1,0 +1,1 @@
+These functions performs a case-insensitive search in the array for the specified object.

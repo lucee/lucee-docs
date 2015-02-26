@@ -1,0 +1,1 @@
+Capitalizes the first character of the given string.

@@ -1,0 +1,1 @@
+list all pages in pools

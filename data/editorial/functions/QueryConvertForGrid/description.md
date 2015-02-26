@@ -1,0 +1,1 @@
+Use instead the function QuerySlice. Converts query data to a structure that contains a paged subset of the query.

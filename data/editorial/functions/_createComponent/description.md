@@ -1,0 +1,1 @@
+literal component definition, used by the serialize function

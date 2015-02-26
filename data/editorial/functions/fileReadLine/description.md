@@ -1,0 +1,1 @@
+Reads a line from an file.

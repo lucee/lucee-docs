@@ -1,0 +1,1 @@
+return information to a Tag as Struct

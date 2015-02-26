@@ -1,0 +1,1 @@
+Use the dump function to display objects. Useful for debugging. You can display the contents of simple and complex variables, objects, components, user-defined functions, and other elements.

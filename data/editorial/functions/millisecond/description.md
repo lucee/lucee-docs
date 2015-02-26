@@ -1,0 +1,1 @@
+Returns the milliseconds of the referenced date

@@ -1,0 +1,1 @@
+Closes the current ORM session.

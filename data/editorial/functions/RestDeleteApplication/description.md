@@ -1,0 +1,1 @@
+Deletes a existing REST mapping.

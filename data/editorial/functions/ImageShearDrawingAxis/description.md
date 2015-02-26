@@ -1,0 +1,1 @@
+Shears the drawing canvas.

@@ -1,0 +1,1 @@
+Yes or No. Yes displays row label text in boldface. Default is No.

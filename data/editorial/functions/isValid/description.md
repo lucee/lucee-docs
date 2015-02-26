@@ -1,0 +1,1 @@
+Tests whether a value meets a validation or data type rule.

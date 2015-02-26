@@ -1,0 +1,1 @@
+Vertical margin spacing above and below the tree control, in pixels.

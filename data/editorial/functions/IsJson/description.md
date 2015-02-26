@@ -1,0 +1,1 @@
+Evaluates whether a string is in valid JSON (JavaScript Object Notation) data interchange format.

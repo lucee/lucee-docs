@@ -1,0 +1,1 @@
+return the context (stacktrace) of the current position.

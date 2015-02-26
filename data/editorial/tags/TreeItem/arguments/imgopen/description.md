@@ -1,0 +1,1 @@
+Icon displayed with open tree item. You can specify the icon filename using a relative path.

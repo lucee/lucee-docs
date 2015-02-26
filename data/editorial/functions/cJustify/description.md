@@ -1,0 +1,1 @@
+Returns the given string justified to the center, padding out the words with spaces accordingly

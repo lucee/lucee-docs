@@ -1,0 +1,1 @@
+width of the kernel

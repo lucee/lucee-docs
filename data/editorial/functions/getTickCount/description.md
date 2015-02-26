@@ -1,0 +1,1 @@
+Returns the number of milliseconds since the start of the application server

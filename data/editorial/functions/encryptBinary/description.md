@@ -1,0 +1,1 @@
+Encrypts binary data using a specific algorithm and encoding method.

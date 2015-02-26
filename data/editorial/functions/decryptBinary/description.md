@@ -1,0 +1,1 @@
+Decrypts the given binary with the optional parameters

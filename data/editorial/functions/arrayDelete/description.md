@@ -1,0 +1,1 @@
+Deletes specified object from given array

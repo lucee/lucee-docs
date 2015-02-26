@@ -1,0 +1,1 @@
+array of strings containg interface pathes or a string list of interface pathes.

@@ -1,0 +1,1 @@
+this function is deprecated, use function QueryRowData instead.

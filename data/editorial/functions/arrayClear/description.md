@@ -1,0 +1,1 @@
+Removes all elements from an array.

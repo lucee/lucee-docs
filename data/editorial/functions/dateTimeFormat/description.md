@@ -1,0 +1,1 @@
+Formats a date/time string to a given output

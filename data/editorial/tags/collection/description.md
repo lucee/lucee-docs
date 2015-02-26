@@ -1,0 +1,1 @@
+Allows you to create and administer Search collections. 

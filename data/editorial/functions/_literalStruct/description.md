@@ -1,0 +1,1 @@
+internal function used as for literal struct defintion.

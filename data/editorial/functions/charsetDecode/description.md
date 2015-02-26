@@ -1,0 +1,1 @@
+Converts as string to a binary representation.

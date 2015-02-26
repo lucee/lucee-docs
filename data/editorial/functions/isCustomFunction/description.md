@@ -1,0 +1,1 @@
+Determines whether a name represents a custom function

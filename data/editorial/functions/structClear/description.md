@@ -1,0 +1,1 @@
+Removes all data from a structure.

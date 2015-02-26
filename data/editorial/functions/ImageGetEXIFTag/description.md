@@ -1,0 +1,1 @@
+Retrieves the specified EXIF tag in an image.

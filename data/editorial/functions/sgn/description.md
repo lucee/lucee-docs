@@ -1,0 +1,1 @@
+Determines the sign of a number.

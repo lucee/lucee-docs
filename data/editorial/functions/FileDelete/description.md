@@ -1,0 +1,1 @@
+Deletes the specified file on the server.

@@ -1,0 +1,1 @@
+Determines whether a user is logged in.

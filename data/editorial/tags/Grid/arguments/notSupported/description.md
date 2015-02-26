@@ -1,0 +1,1 @@
+Selection mode for items in the grid control.

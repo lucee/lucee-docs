@@ -1,0 +1,2 @@
+Specifies the character that cfldap uses to separate multiple attribute name/value pairs when more than one attribute is specified in the attribute attribute or the attribute that you want to use has the default delimiter character, which is the semicolon (;), such as mgrpmsgrejecttext;lang-en. The delimiter character is used by the query, add, and
+		modify action attributes, and is used by cfldap to output multi-value attributes

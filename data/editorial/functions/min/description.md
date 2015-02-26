@@ -1,0 +1,1 @@
+Determines the lesser of two numbers.

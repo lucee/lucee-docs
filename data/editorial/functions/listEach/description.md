@@ -1,0 +1,1 @@
+call the given UDF/Closure with every value in the string list.

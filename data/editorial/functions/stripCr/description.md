@@ -1,0 +1,1 @@
+Deletes return characters from a string.

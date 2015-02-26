@@ -1,0 +1,1 @@
+Creates an XML document object.

@@ -1,0 +1,1 @@
+Determines whether value is a query.

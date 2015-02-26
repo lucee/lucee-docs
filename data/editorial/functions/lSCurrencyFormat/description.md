@@ -1,0 +1,1 @@
+Formats a number in a locale-specific currency format.

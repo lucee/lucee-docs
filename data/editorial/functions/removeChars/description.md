@@ -1,0 +1,1 @@
+Removes characters from a string.

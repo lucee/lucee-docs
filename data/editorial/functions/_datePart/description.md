@@ -1,0 +1,1 @@
+Extracts the given date part from the date object

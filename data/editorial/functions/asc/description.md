@@ -1,0 +1,1 @@
+Determines the value of a character.

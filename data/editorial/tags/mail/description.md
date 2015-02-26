@@ -1,0 +1,1 @@
+Sends e-mail messages by an SMTP server.

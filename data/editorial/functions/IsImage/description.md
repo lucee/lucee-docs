@@ -1,0 +1,1 @@
+Determines whether a variable returns a image.

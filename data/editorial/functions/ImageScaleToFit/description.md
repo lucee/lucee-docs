@@ -1,0 +1,1 @@
+Creates a resized image with the aspect ratio maintained.

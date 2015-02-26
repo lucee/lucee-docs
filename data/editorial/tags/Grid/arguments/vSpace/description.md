@@ -1,0 +1,1 @@
+Vertical margin spacing above and below the grid control, in pixels.

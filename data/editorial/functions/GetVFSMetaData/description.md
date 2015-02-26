@@ -1,0 +1,1 @@
+Returns metadata for VFS

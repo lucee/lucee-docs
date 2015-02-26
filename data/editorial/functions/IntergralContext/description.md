@@ -1,0 +1,1 @@
+return the integral context information, FusionDebug has do be installed for this.

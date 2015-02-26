@@ -1,0 +1,1 @@
+Determines if the object represents a numeric

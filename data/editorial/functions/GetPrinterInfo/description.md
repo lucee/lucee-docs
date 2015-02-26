@@ -1,0 +1,1 @@
+Determines which print attributes are supported by a selected printer.

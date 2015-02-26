@@ -1,0 +1,1 @@
+clears all caches or the specified cache

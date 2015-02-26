@@ -1,0 +1,1 @@
+Registry value to access.

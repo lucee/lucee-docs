@@ -1,0 +1,1 @@
+Yes lets end users insert row data into the grid. Default is No.

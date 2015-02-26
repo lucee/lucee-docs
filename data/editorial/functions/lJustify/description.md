@@ -1,0 +1,1 @@
+Left justifies characters in a string of a specified length.

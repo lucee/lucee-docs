@@ -1,0 +1,1 @@
+Retrieves information about file.

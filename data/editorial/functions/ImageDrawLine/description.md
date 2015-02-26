@@ -1,0 +1,1 @@
+Draws a single line defined by two sets of x and y coordinates on a image.

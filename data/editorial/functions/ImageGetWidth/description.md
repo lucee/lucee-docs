@@ -1,0 +1,1 @@
+Retrieves the width of the specified image.

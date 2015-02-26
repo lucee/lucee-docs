@@ -1,0 +1,1 @@
+Sets the current drawing color for images. All subsequent graphics operations use the specified color.

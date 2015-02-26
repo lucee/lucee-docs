@@ -1,0 +1,1 @@
+Verifies whether an zip file is valid.

@@ -1,0 +1,1 @@
+Determines the number of elements in a list.

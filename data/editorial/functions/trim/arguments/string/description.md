@@ -1,0 +1,1 @@
+the string to trim

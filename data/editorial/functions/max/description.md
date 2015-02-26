@@ -1,0 +1,1 @@
+Determines the greater of two numbers.

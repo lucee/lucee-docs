@@ -1,0 +1,1 @@
+Encodes the URL with the CFTOKEN/CFID/JSESSIONID

@@ -1,0 +1,1 @@
+Causes an HTML href attribute to display link results in the current Ajax container.

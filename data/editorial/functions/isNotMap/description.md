@@ -1,0 +1,1 @@
+return true if the given Object is not of Type java.util.Map

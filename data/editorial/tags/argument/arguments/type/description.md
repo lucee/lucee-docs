@@ -1,0 +1,1 @@
+the type of the argumentany (array, binary, boolean, date, guid, numeric, query, string, struct, uuid)

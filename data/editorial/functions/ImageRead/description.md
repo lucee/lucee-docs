@@ -1,0 +1,1 @@
+Reads the source pathname or URL and creates a image.

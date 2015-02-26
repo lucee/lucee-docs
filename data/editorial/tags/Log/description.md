@@ -1,0 +1,1 @@
+Writes a message to a log file.

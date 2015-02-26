@@ -1,0 +1,1 @@
+Generates and displays a chart.

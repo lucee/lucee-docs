@@ -1,0 +1,1 @@
+Determines whether a value is stored as binary data.

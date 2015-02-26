@@ -1,0 +1,1 @@
+Inverts the pixel values of a image.

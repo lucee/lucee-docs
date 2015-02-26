@@ -1,0 +1,1 @@
+Gets server performance metrics.

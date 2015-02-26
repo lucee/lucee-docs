@@ -1,0 +1,1 @@
+Performs a bitwise logical OR operation.

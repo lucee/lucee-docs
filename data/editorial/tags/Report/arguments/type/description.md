@@ -1,0 +1,3 @@
+- standard (not valid for Crystal Reports 8.0)
+                    - netscape
+                    - microsoft

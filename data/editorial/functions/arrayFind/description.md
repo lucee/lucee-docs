@@ -1,0 +1,1 @@
+These functions searches the array for the specified object.

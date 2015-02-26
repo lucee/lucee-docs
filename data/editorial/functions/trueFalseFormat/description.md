@@ -1,0 +1,1 @@
+True, for a non-zero value; False, otherwise.

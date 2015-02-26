@@ -1,0 +1,1 @@
+Inserts a key-value pair into a structure.

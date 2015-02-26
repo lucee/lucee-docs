@@ -1,0 +1,1 @@
+Retrieves the value of the IPTC tag for a image.

@@ -1,0 +1,1 @@
+Gets a string list of available printers.

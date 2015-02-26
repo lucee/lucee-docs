@@ -1,0 +1,1 @@
+Rounds a number to the closest integer.

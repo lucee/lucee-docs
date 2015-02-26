@@ -1,0 +1,1 @@
+Right justifies characters of a string.

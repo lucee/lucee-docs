@@ -1,0 +1,1 @@
+Converts a number to a decimal-formatted string.

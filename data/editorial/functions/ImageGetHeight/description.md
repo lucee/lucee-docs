@@ -1,0 +1,1 @@
+Retrieves the height of the image in pixels.

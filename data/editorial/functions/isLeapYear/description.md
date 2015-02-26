@@ -1,0 +1,1 @@
+Determines whether a year is a leap year.

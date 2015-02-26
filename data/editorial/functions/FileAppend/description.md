@@ -1,0 +1,1 @@
+appends the entire content to the specified file. 

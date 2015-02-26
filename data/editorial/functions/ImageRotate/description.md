@@ -1,0 +1,1 @@
+Rotates a image at a specified point by a specified angle.

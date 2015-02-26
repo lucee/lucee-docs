@@ -1,0 +1,1 @@
+Handle one case of a cfswicth

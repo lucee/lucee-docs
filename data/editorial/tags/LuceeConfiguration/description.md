@@ -1,0 +1,1 @@
+Protects Lucee-web.xml from LFI

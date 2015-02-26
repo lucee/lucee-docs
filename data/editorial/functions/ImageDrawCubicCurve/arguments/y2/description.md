@@ -1,0 +1,1 @@
+The y coordinate of the end point of the cubic curve segment.

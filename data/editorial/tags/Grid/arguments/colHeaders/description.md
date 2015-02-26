@@ -1,0 +1,1 @@
+Yes or No. Yes displays column headers in the grid control. Default is Yes.

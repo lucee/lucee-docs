@@ -1,0 +1,1 @@
+Encloses a code segment containing cfscript.

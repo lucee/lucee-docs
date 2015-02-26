@@ -1,0 +1,1 @@
+Returns the mimetype of the given file

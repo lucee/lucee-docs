@@ -1,0 +1,1 @@
+Decodes a string that has been encoded with ESAPIEncode.

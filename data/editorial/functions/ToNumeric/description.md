@@ -1,0 +1,1 @@
+Converts given value to a number

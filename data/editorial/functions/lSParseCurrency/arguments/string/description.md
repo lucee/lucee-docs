@@ -1,0 +1,1 @@
+A locale-specific string

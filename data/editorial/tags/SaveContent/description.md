@@ -1,0 +1,1 @@
+Saves the generated content inside the tag body in a variable.

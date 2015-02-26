@@ -1,0 +1,1 @@
+Deletes a single element from the cache.

@@ -1,0 +1,1 @@
+The width of the column, in pixels. Default is the width of the column head text.

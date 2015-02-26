@@ -1,0 +1,1 @@
+Adds a rectangular border around the outside edge of a image.
