@@ -16,10 +16,8 @@ component {
 		};
 
 		properties.versions[ "4.5.1" ] = {
-		 	//  functionReferenceUrl = "https://bitbucket.org/lucee/lucee/raw/a6b37ad6463707576ec03f03e1a3493f1e366a12/lucee-java/lucee-core/src/resource/fld/web-cfmfunctionlibrary_1_0"
-		 	//, tagReferenceUrl      = "https://bitbucket.org/lucee/lucee/raw/a6b37ad6463707576ec03f03e1a3493f1e366a12/lucee-java/lucee-core/src/resource/tld/web-cfmtaglibrary_1_0"
-			  functionReferenceUrl = buildDir & "sampleFunctionRef.xml"
-			, tagReferenceUrl      = buildDir & "sampleTagRef.xml"
+		 	  functionReferenceUrl = "https://bitbucket.org/lucee/lucee/raw/a6b37ad6463707576ec03f03e1a3493f1e366a12/lucee-java/lucee-core/src/resource/fld/web-cfmfunctionlibrary_1_0"
+		 	, tagReferenceUrl      = "https://bitbucket.org/lucee/lucee/raw/a6b37ad6463707576ec03f03e1a3493f1e366a12/lucee-java/lucee-core/src/resource/tld/web-cfmtaglibrary_1_0"
 		};
 
 

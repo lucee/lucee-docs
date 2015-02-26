@@ -191,6 +191,7 @@ component {
 			var func = convertedFuncs[ functionName ];
 
 			FileWrite( individualFunctionsDir & LCase( func.name ) & ".json", _serializeJson( func ) );
+			_stubFunctionEditorialFiles( func );
 
 			for( var keyWord in func.keywords ) {
 				functionsByCategory[ keyword ] = functionsByCategory[ keyword ] ?: [];
@@ -218,6 +219,38 @@ component {
 			var tag = convertedTags[ tagName ];
 
 			FileWrite( tagsDir & LCase( tag.name ) & ".json", _serializeJson( tag ) );
+			_stubTagEditorialFiles( tag );
+		}
+	}
+
+	private void function _stubFunctionEditorialFiles( required struct func ) {
+		var editorialDir = buildProperties.getProperty( "editorialDirectory" );
+		var functionDir  = editorialDir & "functions/" & arguments.func.name & "/";
+
+		_createFileIfNotExists( functionDir & "description.md", arguments.func.description ?: "" );
+		_createFileIfNotExists( functionDir & "relatedResources.json", "[]" );
+		for( var arg in arguments.func.arguments ) {
+			_createFileIfNotExists( functionDir & "/arguments/#arg.name#/description.md", arg.description ?: "" );
+		}
+	}
+
+	private void function _stubTagEditorialFiles( required struct tag ) {
+		var editorialDir = buildProperties.getProperty( "editorialDirectory" );
+		var tagDir       = editorialDir & "tags/" & arguments.tag.name & "/";
+
+		_createFileIfNotExists( tagDir & "description.md", arguments.tag.description ?: "" );
+		_createFileIfNotExists( tagDir & "relatedResources.json", "[]" );
+		for( var attribute in arguments.tag.attributes ) {
+			_createFileIfNotExists( tagDir & "/arguments/#attribute.name#/description.md", attribute.description ?: "" );
+		}
+	}
+
+	private void function _createFileIfNotExists( filePath, content ) {
+		if ( !DirectoryExists( GetDirectoryFromPath( arguments.filePath ) ) ) {
+			DirectoryCreate( GetDirectoryFromPath( arguments.filePath ), true );
+		}
+		if ( !FileExists( arguments.filePath ) ) {
+			FileWrite( arguments.filePath, arguments.content );
 		}
 	}
 }
