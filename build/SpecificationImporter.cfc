@@ -14,15 +14,13 @@ component {
 
 // PUBLIC API
 	public void function importAll() {
-		for( version in buildProperties.listVersions() ){
-			importTagReference( version );
-			importFunctionReference( version );
-		}
+		importTagReference();
+		importFunctionReference();
 	}
 
-	public void function importFunctionReference( required string version ) {
+	public void function importFunctionReference() {
 		var convertedFuncs = {};
-		var referenceXml   = XmlParse( buildProperties.getProperty( version=version, property="functionReferenceUrl" ) );
+		var referenceXml   = XmlParse( buildProperties.getFunctionReferenceUrl() );
 		var functions      = XmlSearch( referenceXml, "/func-lib/function" );
 
 		for( var func in functions ) {
@@ -31,12 +29,12 @@ component {
 			convertedFuncs[ convertedFunc.name ] = convertedFunc;
 		}
 
-		_writeFunctionsToFile( convertedFuncs, arguments.version );
+		_writeFunctionsToFile( convertedFuncs );
 	}
 
-	public void function importTagReference( required string version ) {
+	public void function importTagReference() {
 		var convertedTags = {};
-		var referenceXml  = XmlParse( buildProperties.getProperty( version=version, property="tagReferenceUrl" ) );
+		var referenceXml  = XmlParse( buildProperties.getTagReferenceUrl() );
 		var tags          = XmlSearch( referenceXml, "/taglib/tag" );
 
 		var childNodeNames = {};
@@ -45,7 +43,7 @@ component {
 
 			convertedTags[ convertedTag.name ] = convertedTag;
 		}
-		_writeTagsToFile( convertedTags, arguments.version );
+		_writeTagsToFile( convertedTags );
 	}
 
 // PRIVATE HELPERS
@@ -173,9 +171,9 @@ component {
 		return parsedTag;
 	}
 
-	private void function _writeFunctionsToFile( required struct convertedFuncs, required string version ) {
+	private void function _writeFunctionsToFile( required struct convertedFuncs ) {
 		var functionNames              = arguments.convertedFuncs.keyArray().sort( "textnocase" );
-		var importDir                  = buildProperties.getProperty( "importDirectoy" ) & "/" & arguments.version;
+		var importDir                  = buildProperties.getImportDirectoy();
 		var individualFunctionsDir     = importDir & "/functions/";
 		var functionsByCategory        = {};
 		var orderedFunctionsByCategory = StructNew( "linked" );
@@ -207,8 +205,8 @@ component {
 		FileWrite( importDir & "/functions_by_category.json", _serializeJson( orderedFunctionsByCategory ) ) ;
 	}
 
-	private void function _writeTagsToFile( required struct convertedTags, required string version ) {
-		var importDir = buildProperties.getProperty( "importDirectoy" ) & "/" & arguments.version;
+	private void function _writeTagsToFile( required struct convertedTags ) {
+		var importDir = buildProperties.getImportDirectoy();
 		var tagsDir   = importDir & "/tags/";
 
 		if ( !DirectoryExists( tagsDir ) ) {
@@ -224,7 +222,7 @@ component {
 	}
 
 	private void function _stubFunctionEditorialFiles( required struct func ) {
-		var editorialDir = buildProperties.getProperty( "editorialDirectory" );
+		var editorialDir = buildProperties.getEditorialDirectory();
 		var functionDir  = editorialDir & "functions/" & arguments.func.name & "/";
 
 		_createFileIfNotExists( functionDir & "description.md", arguments.func.description ?: "" );
@@ -235,7 +233,7 @@ component {
 	}
 
 	private void function _stubTagEditorialFiles( required struct tag ) {
-		var editorialDir = buildProperties.getProperty( "editorialDirectory" );
+		var editorialDir = buildProperties.getEditorialDirectory();
 		var tagDir       = editorialDir & "tags/" & arguments.tag.name & "/";
 
 		_createFileIfNotExists( tagDir & "description.md", arguments.tag.description ?: "" );
