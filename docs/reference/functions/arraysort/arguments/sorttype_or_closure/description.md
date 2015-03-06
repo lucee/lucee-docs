@@ -1,6 +1,6 @@
 
 value can be a string or a closure/function.
-		
+
 a string must be one of the following values:
 - "numeric": sorts numbers
 - "text": sorts text alphabetically, taking case into account (case sensitive)

@@ -1,5 +1,5 @@
 
-Mask that has to be used for formatting. 
+Mask that has to be used for formatting.
 the following characters are pattern letters (case sensitive) representing the components of a datetime string. All other characters are not interpreted
 - a,..,aaaa: AM/PM marker (see also "t" and "tt"; Example:AM)
 - d: Day in month, no leading zero for single-digit days (Example:3)
@@ -42,7 +42,7 @@ the following characters are pattern letters (case sensitive) representing the c
 - z,zz,zzz: General time zone as a 3 to 4 lettesr abbreviation (Example:PST)
 - zzzz: General time zone as its full name (Example:Pacific Standard Time)
 - Z,..,ZZZZ: RFC 822 time zone (Example:-0800)
-  
+
 The following masks can be used to format the full date and time and may not be combined with other masks:
 - short: equivalent to "m/d/y h:mm tt"
 - medium: equivalent to "mmm d, yyyy h:mm:ss tt"

@@ -23,4 +23,4 @@ The type of parameter that is required. The default is 'any' and valid values ar
 - variableName: a string formatted according to ColdFusion variable naming conventions
 - xml: XML objects and XML strings
 - zipcode: U.S., 5- or 9-digit format ZIP codes
-			
+

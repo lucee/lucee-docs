@@ -16,5 +16,5 @@ Characters that show how Lucee displays a time:
 - medium: equivalent to h:mm:ss tt
 - long: equivalent to h:mm:ss tt {timezone-3-letters}
 - full: equivalent to h:mm:ss tt {timezone-3-letters}
-		
+
 		
