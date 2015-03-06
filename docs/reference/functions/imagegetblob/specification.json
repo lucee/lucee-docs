@@ -1,0 +1,28 @@
+{
+  "name":"ImageGetBlob",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageGetBlob",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"source",
+      "description":"{{include:arguments/source/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

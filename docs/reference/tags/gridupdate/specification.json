@@ -1,0 +1,277 @@
+{
+  "name":"GridUpdate",
+  "description":"{{include:description.md}}",
+  "status":"unimplemented",
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.GridUpdate",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"grid",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/grid/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"dataSource",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/dataSource/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"dbType",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/dbType/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"dbServer",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/dbServer/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"dbName",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/dbName/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"tableName",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/tableName/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"connectString",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/connectString/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"username",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/username/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"password",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/password/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"tableOwner",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/tableOwner/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"tableQualifier",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/tableQualifier/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"provider",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/provider/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"providerDSN",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/providerDSN/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"keyOnly",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/keyOnly/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ]
+}

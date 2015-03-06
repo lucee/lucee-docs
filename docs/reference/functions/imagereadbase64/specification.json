@@ -1,0 +1,28 @@
+{
+  "name":"ImageReadBase64",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageReadBase64",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"b64str",
+      "description":"{{include:arguments/b64str/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

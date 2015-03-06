@@ -1,0 +1,29 @@
+{
+  "name":"encodeForDN",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.owasp.EncodeForDN",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "ESAPI",
+    "DN"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

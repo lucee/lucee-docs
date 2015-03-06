@@ -1,0 +1,42 @@
+{
+  "name":"_dateAdd",
+  "memberName":"add",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dateTime.DateAddMember",
+  "returnType":"datetime",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"date",
+      "description":"{{include:arguments/date/description.md}}",
+      "type":"datetime",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"datepart",
+      "description":"{{include:arguments/datepart/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"number",
+      "description":"{{include:arguments/number/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

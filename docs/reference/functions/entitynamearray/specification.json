@@ -1,0 +1,22 @@
+{
+  "name":"EntityNameArray",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.EntityNameArray",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

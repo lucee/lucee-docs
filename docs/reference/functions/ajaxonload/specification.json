@@ -1,0 +1,28 @@
+{
+  "name":"AjaxOnLoad",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.displayFormatting.AjaxOnLoad",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "ajax"
+  ],
+  "arguments":[
+    {
+      "name":"functionName",
+      "description":"{{include:arguments/functionname/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name":"ESAPIEncode",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.owasp.ESAPIEncode",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "ESAPI",
+    "CSS",
+    "DN",
+    "HTML",
+    "JavaScript",
+    "ldap",
+    "URL",
+    "VBScript",
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"encodeFor",
+      "description":"{{include:arguments/encodefor/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

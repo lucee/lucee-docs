@@ -1,0 +1,43 @@
+{
+  "name":"ListRemoveDuplicates",
+  "memberName":"listRemoveDuplicates",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListRemoveDuplicates",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"{{include:arguments/list/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"{{include:arguments/delimiters/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"ignoreCase",
+      "description":"{{include:arguments/ignorecase/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

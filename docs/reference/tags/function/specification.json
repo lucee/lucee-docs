@@ -1,0 +1,313 @@
+{
+  "name":"function",
+  "description":"{{include:description.md}}",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"mixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Function",
+    "ttt":"lucee.transformer.bytecode.statement.tag.TagFunction",
+    "tdbt":null,
+    "att":"lucee.transformer.cfml.attributes.impl.Function",
+    "tte":"lucee.transformer.cfml.evaluator.impl.Function"
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/name/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"returnType",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/returnType/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"bufferoutput",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/bufferoutput/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"roles",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/roles/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"access",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/access/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"output",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/output/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"displayname",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/displayname/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"hint",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/hint/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"abstract",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/abstract/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"description",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/description/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"returnFormat",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/returnFormat/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"description",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/description/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"secureJson",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/secureJson/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"verifyClient",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/verifyClient/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"localMode",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/localMode/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cachedWithin",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/cachedWithin/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ]
+}

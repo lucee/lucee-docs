@@ -1,0 +1,56 @@
+{
+  "name":"DirectoryList",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.DirectoryList",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"path",
+      "description":"{{include:arguments/path/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"recurse",
+      "description":"{{include:arguments/recurse/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"listInfo",
+      "description":"{{include:arguments/listinfo/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"filter",
+      "description":"{{include:arguments/filter/description.md}}",
+      "type":"any",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"sort",
+      "description":"{{include:arguments/sort/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

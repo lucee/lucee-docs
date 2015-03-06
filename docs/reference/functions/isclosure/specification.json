@@ -1,0 +1,28 @@
+{
+  "name":"IsClosure",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsClosure",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"object",
+      "description":"{{include:arguments/object/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

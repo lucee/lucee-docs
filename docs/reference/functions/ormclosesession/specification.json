@@ -1,0 +1,28 @@
+{
+  "name":"ORMCloseSession",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.ORMCloseSession",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"datasource",
+      "description":"{{include:arguments/datasource/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

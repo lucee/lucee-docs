@@ -1,0 +1,56 @@
+{
+  "name":"ImageRotate",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageRotate",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"x",
+      "description":"{{include:arguments/x/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":"2"
+    },
+    {
+      "name":"y",
+      "description":"{{include:arguments/y/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"2"
+    },
+    {
+      "name":"angle",
+      "description":"{{include:arguments/angle/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"0"
+    },
+    {
+      "name":"interpolation",
+      "description":"{{include:arguments/interpolation/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"nearest"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

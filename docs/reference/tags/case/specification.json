@@ -1,0 +1,61 @@
+{
+  "name":"case",
+  "description":"{{include:description.md}}",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":"yes",
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Case",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":"lucee.transformer.cfml.evaluator.impl.Case"
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"value",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/value/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"delimiters",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/delimiters/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ]
+}

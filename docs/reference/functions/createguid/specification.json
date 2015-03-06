@@ -1,0 +1,22 @@
+{
+  "name":"createGUID",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.CreateGUID",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

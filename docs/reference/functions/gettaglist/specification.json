@@ -1,0 +1,22 @@
+{
+  "name":"getTagList",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.GetTagList",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

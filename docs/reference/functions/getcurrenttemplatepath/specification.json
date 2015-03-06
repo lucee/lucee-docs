@@ -1,0 +1,22 @@
+{
+  "name":"getCurrentTemplatePath",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetCurrentTemplatePath",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

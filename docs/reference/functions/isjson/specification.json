@@ -1,0 +1,30 @@
+{
+  "name":"IsJson",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.conversion.IsJSON",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "json",
+    "javascript"
+  ],
+  "arguments":[
+    {
+      "name":"var",
+      "description":"{{include:arguments/var/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

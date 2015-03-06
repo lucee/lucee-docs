@@ -1,0 +1,35 @@
+{
+  "name":"EntitySave",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.EntitySave",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"entity",
+      "description":"{{include:arguments/entity/description.md}}",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"forceInsert",
+      "description":"{{include:arguments/forceinsert/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

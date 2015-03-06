@@ -1,0 +1,35 @@
+{
+  "name":"dayOfWeek",
+  "memberName":"dayOfWeek",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dateTime.DayOfWeek",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"date",
+      "description":"{{include:arguments/date/description.md}}",
+      "type":"datetime",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"timezone",
+      "description":"{{include:arguments/timezone/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

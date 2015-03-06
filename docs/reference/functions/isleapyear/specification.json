@@ -1,0 +1,29 @@
+{
+  "name":"isLeapYear",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsLeapYear",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "date"
+  ],
+  "arguments":[
+    {
+      "name":"year",
+      "description":"{{include:arguments/year/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

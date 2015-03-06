@@ -1,0 +1,56 @@
+{
+  "name":"ImageResize",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageResize",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"width",
+      "description":"{{include:arguments/width/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"height",
+      "description":"{{include:arguments/height/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"interpolation",
+      "description":"{{include:arguments/interpolation/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"highestQuality"
+    },
+    {
+      "name":"blurFactor",
+      "description":"{{include:arguments/blurfactor/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":"1"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

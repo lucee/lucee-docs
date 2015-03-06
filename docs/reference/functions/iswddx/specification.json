@@ -1,0 +1,29 @@
+{
+  "name":"isWddx",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsWddx",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "wddx"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"{{include:arguments/value/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

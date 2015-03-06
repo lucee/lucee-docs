@@ -1,0 +1,22 @@
+{
+  "name":"getClientVariablesList",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.GetClientVariablesList",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name":"lSNumberFormat",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.international.LSNumberFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"{{include:arguments/number/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"mask",
+      "description":"{{include:arguments/mask/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"locale",
+      "description":"{{include:arguments/locale/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

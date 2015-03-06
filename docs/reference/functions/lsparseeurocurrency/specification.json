@@ -1,0 +1,37 @@
+{
+  "name":"lSParseEuroCurrency",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.international.LSParseEuroCurrency",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "currency",
+    "string",
+    "parsing"
+  ],
+  "arguments":[
+    {
+      "name":"currency_string",
+      "description":"{{include:arguments/currency_string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"locale",
+      "description":"{{include:arguments/locale/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

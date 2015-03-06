@@ -1,0 +1,57 @@
+{
+  "name":"listChangeDelims",
+  "memberName":"listChangeDelims,changeDelims",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListChangeDelims",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"{{include:arguments/list/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"new_delimiter",
+      "description":"{{include:arguments/new_delimiter/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"{{include:arguments/delimiters/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"includeEmptyFields",
+      "description":"{{include:arguments/includeemptyfields/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    },
+    {
+      "name":"multiCharacterDelimiter",
+      "description":"{{include:arguments/multicharacterdelimiter/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name":"IsDDX",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"unimplemeted",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsDDX",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"pathOrString",
+      "description":"{{include:arguments/pathorstring/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

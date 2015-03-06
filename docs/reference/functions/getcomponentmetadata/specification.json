@@ -1,0 +1,28 @@
+{
+  "name":"GetComponentMetaData",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.GetComponentMetaData",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"pathOrCFC",
+      "description":"{{include:arguments/pathorcfc/description.md}}",
+      "type":"object",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

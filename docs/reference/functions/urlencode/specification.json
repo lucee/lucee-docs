@@ -1,0 +1,42 @@
+{
+  "name":"uRLEncode",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.URLEncode",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"charset",
+      "description":"{{include:arguments/charset/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"utf-8"
+    },
+    {
+      "name":"force",
+      "description":"{{include:arguments/force/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":"true"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name":"monthShortAsString",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.MonthShortAsString",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"monthnumber",
+      "description":"{{include:arguments/monthnumber/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

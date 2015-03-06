@@ -1,0 +1,42 @@
+{
+  "name":"Invoke",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dynamicEvaluation.Invoke",
+  "returnType":"object",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"object",
+      "description":"{{include:arguments/object/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"arguments",
+      "description":"{{include:arguments/arguments/description.md}}",
+      "type":"any",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

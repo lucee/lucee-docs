@@ -1,0 +1,37 @@
+{
+  "name":"lSParseNumber",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.international.LSParseNumber",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "string",
+    "parsing"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"locale",
+      "description":"{{include:arguments/locale/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

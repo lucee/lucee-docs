@@ -1,0 +1,42 @@
+{
+  "name":"ImageShearDrawingAxis",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageShearDrawingAxis",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"shx",
+      "description":"{{include:arguments/shx/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"shy",
+      "description":"{{include:arguments/shy/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

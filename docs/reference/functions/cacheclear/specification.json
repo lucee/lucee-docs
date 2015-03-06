@@ -1,0 +1,35 @@
+{
+  "name":"CacheClear",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.cache.CacheClear",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"filter",
+      "description":"{{include:arguments/filter/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"cacheName",
+      "description":"{{include:arguments/cachename/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

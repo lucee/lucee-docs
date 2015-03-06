@@ -1,0 +1,43 @@
+{
+  "name":"structFind",
+  "memberName":"find",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructFind",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "struct",
+    "find"
+  ],
+  "arguments":[
+    {
+      "name":"structure",
+      "description":"{{include:arguments/structure/description.md}}",
+      "type":"struct",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"key",
+      "description":"{{include:arguments/key/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"defaultValue",
+      "description":"{{include:arguments/defaultvalue/description.md}}",
+      "type":"any",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

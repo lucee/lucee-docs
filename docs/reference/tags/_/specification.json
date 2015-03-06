@@ -1,0 +1,26 @@
+{
+  "name":"_",
+  "description":"{{include:description.md}}",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"free",
+  "attributeType":"dynamic",
+  "minimumAttributes":null,
+  "handleException":"true",
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.CFTag",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    
+  ]
+}

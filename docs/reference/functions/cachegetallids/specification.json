@@ -1,0 +1,35 @@
+{
+  "name":"CacheGetAllIds",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.cache.CacheGetAllIds",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"filter",
+      "description":"{{include:arguments/filter/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"cacheName",
+      "description":"{{include:arguments/cachename/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

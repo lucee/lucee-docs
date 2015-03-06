@@ -1,0 +1,50 @@
+{
+  "name":"listValueCountNoCase",
+  "memberName":"listValueCountNoCase",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListValueCountNoCase",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"{{include:arguments/list/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"value",
+      "description":"{{include:arguments/value/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiter",
+      "description":"{{include:arguments/delimiter/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"includeEmptyFields",
+      "description":"{{include:arguments/includeemptyfields/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

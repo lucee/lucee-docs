@@ -1,0 +1,43 @@
+{
+  "name":"xmlTransform",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.xml.XmlTransform",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "XML",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"xml",
+      "description":"{{include:arguments/xml/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"xsl",
+      "description":"{{include:arguments/xsl/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"parameters",
+      "description":"{{include:arguments/parameters/description.md}}",
+      "type":"struct",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

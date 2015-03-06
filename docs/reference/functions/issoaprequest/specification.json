@@ -1,0 +1,23 @@
+{
+  "name":"IsSOAPRequest",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"implemeted",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsSOAPRequest",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "webservice"
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

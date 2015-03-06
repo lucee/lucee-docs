@@ -1,0 +1,56 @@
+{
+  "name":"compress",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.Compress",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"format",
+      "description":"{{include:arguments/format/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"source",
+      "description":"{{include:arguments/source/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"target",
+      "description":"{{include:arguments/target/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"includeBaseFolder",
+      "description":"{{include:arguments/includebasefolder/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":"true"
+    },
+    {
+      "name":"mode",
+      "description":"{{include:arguments/mode/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"777"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

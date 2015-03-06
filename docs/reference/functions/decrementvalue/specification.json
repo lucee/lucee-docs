@@ -1,0 +1,28 @@
+{
+  "name":"decrementValue",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.math.DecrementValue",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"{{include:arguments/number/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

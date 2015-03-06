@@ -1,0 +1,43 @@
+{
+  "name":"find",
+  "memberName":"find",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.Find",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "find"
+  ],
+  "arguments":[
+    {
+      "name":"substring",
+      "description":"{{include:arguments/substring/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"start",
+      "description":"{{include:arguments/start/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":"1"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

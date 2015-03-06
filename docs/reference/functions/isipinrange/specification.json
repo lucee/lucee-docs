@@ -1,0 +1,35 @@
+{
+  "name":"IsIPInRange",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsIPInRange",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"ips",
+      "description":"{{include:arguments/ips/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"ip",
+      "description":"{{include:arguments/ip/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name":"createObject",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.CreateObject",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"type",
+      "description":"{{include:arguments/type/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"classname",
+      "description":"{{include:arguments/classname/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"context",
+      "description":"{{include:arguments/context/description.md}}",
+      "type":"object",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"arg4",
+      "description":"{{include:arguments/arg4/description.md}}",
+      "type":"object",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

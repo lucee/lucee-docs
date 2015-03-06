@@ -1,0 +1,36 @@
+{
+  "name":"bitSHLN",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.BitSHLN",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"{{include:arguments/number/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"count",
+      "description":"{{include:arguments/count/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name":"_jsonArray",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"hidden",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.JsonArray",
+  "returnType":"array",
+  "argumentType":"dynamic",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

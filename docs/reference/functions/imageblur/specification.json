@@ -1,0 +1,35 @@
+{
+  "name":"ImageBlur",
+  "memberName":"blur",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageBlur",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"image",
+      "description":"{{include:arguments/image/description.md}}",
+      "type":"image",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"blurRadius",
+      "description":"{{include:arguments/blurradius/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":"3"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

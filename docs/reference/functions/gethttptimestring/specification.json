@@ -1,0 +1,28 @@
+{
+  "name":"getHttpTimeString",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dateTime.GetHttpTimeString",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"date_time_object",
+      "description":"{{include:arguments/date_time_object/description.md}}",
+      "type":"datetime",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name":"hTMLEditFormat",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.displayFormatting.HTMLEditFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "html",
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"version",
+      "description":"{{include:arguments/version/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

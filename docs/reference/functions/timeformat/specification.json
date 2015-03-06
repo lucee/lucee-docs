@@ -1,0 +1,44 @@
+{
+  "name":"timeFormat",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.displayFormatting.TimeFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "date",
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"time",
+      "description":"{{include:arguments/time/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"mask",
+      "description":"{{include:arguments/mask/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"hh:mm tt"
+    },
+    {
+      "name":"timezone",
+      "description":"{{include:arguments/timezone/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

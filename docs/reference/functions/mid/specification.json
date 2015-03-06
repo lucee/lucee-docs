@@ -1,0 +1,42 @@
+{
+  "name":"mid",
+  "memberName":"mid",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.Mid",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"start",
+      "description":"{{include:arguments/start/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"count",
+      "description":"{{include:arguments/count/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":"-1"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

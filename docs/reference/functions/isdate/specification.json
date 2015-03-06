@@ -1,0 +1,29 @@
+{
+  "name":"isDate",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsDate",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "date"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

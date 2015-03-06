@@ -1,0 +1,35 @@
+{
+  "name":"ImageSetDrawingStroke",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageSetDrawingStroke",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"attributeCollection",
+      "description":"{{include:arguments/attributecollection/description.md}}",
+      "type":"struct",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

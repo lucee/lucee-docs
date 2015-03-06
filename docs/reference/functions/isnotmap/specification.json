@@ -1,0 +1,28 @@
+{
+  "name":"isNotMap",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.IsNotMap",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"obj",
+      "description":"{{include:arguments/obj/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name":"Canonicalize",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.owasp.Canonicalize",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"input",
+      "description":"{{include:arguments/input/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"restrictMultiple",
+      "description":"{{include:arguments/restrictmultiple/description.md}}",
+      "type":"boolean",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"restrictMixed",
+      "description":"{{include:arguments/restrictmixed/description.md}}",
+      "type":"boolean",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

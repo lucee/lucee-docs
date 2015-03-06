@@ -1,0 +1,28 @@
+{
+  "name":"queryColumnCount",
+  "memberName":"columnCount",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.query.QueryColumnCount",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "query"
+  ],
+  "arguments":[
+    {
+      "name":"query",
+      "description":"{{include:arguments/query/description.md}}",
+      "type":"query",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

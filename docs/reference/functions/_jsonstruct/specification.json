@@ -1,0 +1,22 @@
+{
+  "name":"_jsonStruct",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"hidden",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.JsonStruct",
+  "returnType":"struct",
+  "argumentType":"dynamic",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

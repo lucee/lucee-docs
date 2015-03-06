@@ -1,0 +1,79 @@
+{
+  "name":"login",
+  "description":"{{include:description.md}}",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":"yes",
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Login",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"idletimeout",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/idletimeout/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"applicationtoken",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/applicationtoken/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cookiedomain",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/cookiedomain/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ]
+}

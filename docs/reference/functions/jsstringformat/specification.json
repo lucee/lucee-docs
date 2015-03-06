@@ -1,0 +1,30 @@
+{
+  "name":"jSStringFormat",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.JSStringFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "javascript",
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

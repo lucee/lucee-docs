@@ -1,0 +1,28 @@
+{
+  "name":"trim",
+  "memberName":"trim",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.Trim",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

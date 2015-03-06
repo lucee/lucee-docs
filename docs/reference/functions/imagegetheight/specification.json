@@ -1,0 +1,28 @@
+{
+  "name":"ImageGetHeight",
+  "memberName":"getHeight",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageGetHeight",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"image",
+      "description":"{{include:arguments/image/description.md}}",
+      "type":"image",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

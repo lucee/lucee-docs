@@ -1,0 +1,22 @@
+{
+  "name":"PrecisionEvaluate",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dynamicEvaluation.PrecisionEvaluate",
+  "returnType":"any",
+  "argumentType":"dynamic",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

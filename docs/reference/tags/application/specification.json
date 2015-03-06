@@ -1,0 +1,910 @@
+{
+  "name":"application",
+  "description":"{{include:description.md}}",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Application",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/name/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"datasource",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/datasource/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"defaultdatasource",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/defaultdatasource/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"datasources",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/datasources/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":"create",
+      "description":"{{include:/attributes/action/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        "create",
+        "update"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"loginStorage",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/loginStorage/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        "cookie",
+        "session"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"clientManagement",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/clientManagement/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"clientStorage",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/clientStorage/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sessionType",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/sessionType/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        "cfml",
+        "j2ee"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sessionStorage",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/sessionStorage/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"clientCluster",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/clientCluster/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sessionCluster",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/sessionCluster/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"setClientCookies",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/setClientCookies/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"bufferOutput",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/bufferOutput/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sessionManagement",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/sessionManagement/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sessionTimeout",
+      "type":"timespan",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/sessionTimeout/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"clientTimeout",
+      "type":"timespan",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/clientTimeout/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"applicationTimeout",
+      "type":"timespan",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/applicationTimeout/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"requestTimeout",
+      "type":"timespan",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/requestTimeout/description.md}}",
+      "aliases":[
+        "timeout"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"setDomainCookies",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/setDomainCookies/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"scriptProtect",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/scriptProtect/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"mappings",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/mappings/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"customtagpaths",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/customtagpaths/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"componentpaths",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/componentpaths/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"secureJson",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/secureJson/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"wstype",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/wstype/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"typeChecking",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":"true",
+      "description":"{{include:/attributes/typeChecking/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"compression",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/compression/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"suppressRemoteComponentContent",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/suppressRemoteComponentContent/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"secureJsonPrefix",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/secureJsonPrefix/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"localmode",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/localmode/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"tag",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/tag/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"ormenabled",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/ormenabled/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"ormsettings",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/ormsettings/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"s3",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/s3/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"triggerDataMember",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/triggerDataMember/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"InvokeImplicitAccessor",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/InvokeImplicitAccessor/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheObject",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/cacheObject/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheFunction",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/cacheFunction/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheQuery",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/cacheQuery/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheTemplate",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/cacheTemplate/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheResource",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/cacheResource/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheInclude",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/cacheInclude/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"onMissingTemplate",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/onMissingTemplate/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"locale",
+      "type":"String",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/locale/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"timeZone",
+      "type":"String",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/timeZone/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"webcharset",
+      "type":"String",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/webcharset/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"resourcecharset",
+      "type":"String",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/resourcecharset/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"scopecascading",
+      "type":"String",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/scopecascading/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ]
+}

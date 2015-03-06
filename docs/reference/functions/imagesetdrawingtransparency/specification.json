@@ -1,0 +1,35 @@
+{
+  "name":"ImageSetDrawingTransparency",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageSetDrawingTransparency",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"percent",
+      "description":"{{include:arguments/percent/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":"1"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name":"DirectoryCreate",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.DirectoryCreate",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"path",
+      "description":"{{include:arguments/path/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"createPath",
+      "description":"{{include:arguments/createpath/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":"true"
+    },
+    {
+      "name":"ignoreExists",
+      "description":"{{include:arguments/ignoreexists/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

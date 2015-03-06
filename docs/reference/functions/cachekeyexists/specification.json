@@ -1,0 +1,35 @@
+{
+  "name":"CacheKeyExists",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.cache.CacheKeyExists",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"key",
+      "description":"{{include:arguments/key/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"cacheName",
+      "description":"{{include:arguments/cachename/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

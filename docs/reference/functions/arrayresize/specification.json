@@ -1,0 +1,35 @@
+{
+  "name":"arrayResize",
+  "memberName":"resize",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayResize",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"{{include:arguments/array/description.md}}",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"minimum_size",
+      "description":"{{include:arguments/minimum_size/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

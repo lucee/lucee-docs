@@ -1,5 +1,6 @@
 /**
  * Logic to build json data sources for the reference documentation
+ * from source files in Lucee's codebase
  *
  */
 component {
@@ -14,8 +15,8 @@ component {
 
 // PUBLIC API
 	public void function importAll() {
-		importTagReference();
 		importFunctionReference();
+		importTagReference();
 	}
 
 	public void function importFunctionReference() {
@@ -59,11 +60,15 @@ component {
 		var indentStr = '  ';
 		var newLine = Chr(10);
 		var char = '';
+		var nextChar = '';
+		var inStringLiteral = false;
+		var isEscaped = false;
 
 		for (var i=0; i<strLen; i++) {
 			char = str.substring(i,i+1);
+			nextChar = i >= strLen-1 ? "" : str.substring(i,i+2);
 
-			if (char == '}' || char == ']') {
+			if ( !inStringLiteral && !isEscaped && ( char == '}' || char == ']' ) ) {
 				retval = retval & newLine;
 				pos = pos - 1;
 
@@ -74,7 +79,7 @@ component {
 
 			retval = retval & char;
 
-			if (char == '{' || char == '[' || char == ',') {
+			if ( !inStringLiteral && !isEscaped && ( ( char == '{' && nextChar != '}' ) || ( char == '[' && nextChar != ']' ) || char == ',' ) ) {
 				retval = retval & newLine;
 
 				if (char == '{' || char == '[') {
@@ -85,6 +90,12 @@ component {
 					retval = retval & indentStr;
 				}
 			}
+
+			if ( char == '"' && !isEscaped ) {
+				inStringLiteral = !inStringLiteral;
+			}
+
+			isEscaped = !isEscaped && char == "\";
 		}
 
 		return retval;
@@ -172,14 +183,14 @@ component {
 	}
 
 	private void function _writeFunctionsToFile( required struct convertedFuncs ) {
-		var functionNames              = arguments.convertedFuncs.keyArray().sort( "textnocase" );
-		var importDir                  = buildProperties.getImportDirectoy();
-		var individualFunctionsDir     = importDir & "/functions/";
+		var functionNames              = [];
+		var referenceDirectory         = buildProperties.getReferenceDirectory();
+		var individualFunctionsDir     = referenceDirectory & "/functions/";
 		var functionsByCategory        = {};
 		var orderedFunctionsByCategory = StructNew( "linked" );
 
-		if ( !DirectoryExists( importDir ) ) {
-			DirectoryCreate( importDir, true );
+		if ( !DirectoryExists( referenceDirectory ) ) {
+			DirectoryCreate( referenceDirectory, true );
 		}
 		if ( !DirectoryExists( individualFunctionsDir ) ) {
 			DirectoryCreate( individualFunctionsDir, true );
@@ -188,12 +199,14 @@ component {
 		for( var functionName in convertedFuncs ) {
 			var func = convertedFuncs[ functionName ];
 
-			FileWrite( individualFunctionsDir & LCase( func.name ) & ".json", _serializeJson( func ) );
+			functionNames.append( LCase( functionName ) );
+
 			_stubFunctionEditorialFiles( func );
 
-			for( var keyWord in func.keywords ) {
+			for( var keyword in func.keywords ) {
+				keyword = LCase( keyword );
 				functionsByCategory[ keyword ] = functionsByCategory[ keyword ] ?: [];
-				functionsByCategory[ keyword ].append( func.name )
+				functionsByCategory[ keyword ].append( LCase( func.name ) )
 			}
 		}
 
@@ -201,13 +214,14 @@ component {
 			orderedFunctionsByCategory[ category ] = functionsByCategory[ category ].sort( "textnocase" );
 		}
 
-		FileWrite( importDir & "/functions.json", _serializeJson( functionNames ) ) ;
-		FileWrite( importDir & "/functions_by_category.json", _serializeJson( orderedFunctionsByCategory ) ) ;
+		FileWrite( referenceDirectory & "/functions.json", _serializeJson( functionNames.sort( "text" ) ) ) ;
+		FileWrite( referenceDirectory & "/functions_by_category.json", _serializeJson( orderedFunctionsByCategory ) ) ;
 	}
 
 	private void function _writeTagsToFile( required struct convertedTags ) {
-		var importDir = buildProperties.getImportDirectoy();
-		var tagsDir   = importDir & "/tags/";
+		var referenceDirectory = buildProperties.getReferenceDirectory();
+		var tagsDir   = referenceDirectory & "/tags/";
+		var tagNames = [];
 
 		if ( !DirectoryExists( tagsDir ) ) {
 			DirectoryCreate( tagsDir, true );
@@ -215,32 +229,42 @@ component {
 
 		for( var tagName in convertedTags ) {
 			var tag = convertedTags[ tagName ];
+			tagNames.append( LCase( tagName ) );
 
-			FileWrite( tagsDir & LCase( tag.name ) & ".json", _serializeJson( tag ) );
 			_stubTagEditorialFiles( tag );
 		}
+		FileWrite( referenceDirectory & "/tags.json", _serializeJson( tagNames.sort( "text" ) ) ) ;
 	}
 
 	private void function _stubFunctionEditorialFiles( required struct func ) {
-		var editorialDir = buildProperties.getEditorialDirectory();
-		var functionDir  = editorialDir & "functions/" & arguments.func.name & "/";
+		var referenceDir = buildProperties.getReferenceDirectory();
+		var functionDir  = referenceDir & "functions/" &   LCase( arguments.func.name ) & "/";
 
 		_createFileIfNotExists( functionDir & "description.md", arguments.func.description ?: "" );
-		_createFileIfNotExists( functionDir & "relatedResources.json", "[]" );
+
+		arguments.func.description      = "{{include:description.md}}";
+		arguments.func.relatedResources = [];
+		arguments.func.examples         = [];
+
 		for( var arg in arguments.func.arguments ) {
-			_createFileIfNotExists( functionDir & "/arguments/#arg.name#/description.md", arg.description ?: "" );
+			_createFileIfNotExists( functionDir & "/arguments/#LCase( arg.name )#/description.md", arg.description ?: "" );
+			arg.description = "{{include:arguments/#LCase( arg.name )#/description.md}}";
 		}
+		_createFileIfNotExists( functionDir & "specification.json", _serializeJson( arguments.func ) );
 	}
 
 	private void function _stubTagEditorialFiles( required struct tag ) {
-		var editorialDir = buildProperties.getEditorialDirectory();
-		var tagDir       = editorialDir & "tags/" & arguments.tag.name & "/";
+		var referenceDir = buildProperties.getReferenceDirectory();
+		var tagDir       = referenceDir & "tags/" & LCase( arguments.tag.name ) & "/";
 
 		_createFileIfNotExists( tagDir & "description.md", arguments.tag.description ?: "" );
-		_createFileIfNotExists( tagDir & "relatedResources.json", "[]" );
+		arguments.tag.description = "{{include:description.md}}";
 		for( var attribute in arguments.tag.attributes ) {
-			_createFileIfNotExists( tagDir & "/arguments/#attribute.name#/description.md", attribute.description ?: "" );
+			_createFileIfNotExists( tagDir & "/attributes/#attribute.name#/description.md", attribute.description ?: "" );
+			attribute.description = "{{include:/attributes/#attribute.name#/description.md}}";
 		}
+		_createFileIfNotExists( tagDir & "/specification.json", _serializeJson( arguments.tag ) );
+
 	}
 
 	private void function _createFileIfNotExists( filePath, content ) {

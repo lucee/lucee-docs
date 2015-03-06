@@ -1,0 +1,38 @@
+{
+  "name":"DeserializeJSON",
+  "memberName":"deserializeJSON",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.conversion.DeserializeJSON",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "parsing",
+    "json",
+    "javascript"
+  ],
+  "arguments":[
+    {
+      "name":"JSONVar",
+      "description":"{{include:arguments/jsonvar/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"strictMapping",
+      "description":"{{include:arguments/strictmapping/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":"true"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

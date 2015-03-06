@@ -1,0 +1,37 @@
+{
+  "name":"numberFormat",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.displayFormatting.NumberFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"{{include:arguments/number/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"mask",
+      "description":"{{include:arguments/mask/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

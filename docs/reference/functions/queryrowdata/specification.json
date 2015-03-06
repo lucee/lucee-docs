@@ -1,0 +1,35 @@
+{
+  "name":"queryRowData",
+  "memberName":"rowData",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.query.QueryRowData",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    "query"
+  ],
+  "arguments":[
+    {
+      "name":"query",
+      "description":"{{include:arguments/query/description.md}}",
+      "type":"query",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"rowNumber",
+      "description":"{{include:arguments/rownumber/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

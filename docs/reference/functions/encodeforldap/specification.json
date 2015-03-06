@@ -1,0 +1,29 @@
+{
+  "name":"encodeForLDAP",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.owasp.EncodeForLDAP",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "ESAPI",
+    "ldap"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

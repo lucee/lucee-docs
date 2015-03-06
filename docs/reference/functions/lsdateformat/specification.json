@@ -1,0 +1,51 @@
+{
+  "name":"lSDateFormat",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.international.LSDateFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "date",
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"date",
+      "description":"{{include:arguments/date/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"mask",
+      "description":"{{include:arguments/mask/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"medium"
+    },
+    {
+      "name":"locale",
+      "description":"{{include:arguments/locale/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"timezone",
+      "description":"{{include:arguments/timezone/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

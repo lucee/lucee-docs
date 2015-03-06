@@ -1,0 +1,28 @@
+{
+  "name":"arrayNew",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayNew",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"dimension",
+      "description":"{{include:arguments/dimension/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":"1"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

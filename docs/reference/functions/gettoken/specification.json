@@ -1,0 +1,42 @@
+{
+  "name":"getToken",
+  "memberName":"getToken",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.GetToken",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"index",
+      "description":"{{include:arguments/index/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"{{include:arguments/delimiters/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

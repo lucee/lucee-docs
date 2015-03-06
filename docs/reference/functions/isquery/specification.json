@@ -1,0 +1,29 @@
+{
+  "name":"isQuery",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.query.IsQuery",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "query",
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"{{include:arguments/value/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

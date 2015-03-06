@@ -1,0 +1,29 @@
+{
+  "name":"encodeForURL",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.owasp.EncodeForURL",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "ESAPI",
+    "URL"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

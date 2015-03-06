@@ -1,0 +1,43 @@
+{
+  "name":"listLen",
+  "memberName":"ListLen",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListLen",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"{{include:arguments/list/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"{{include:arguments/delimiters/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"includeEmptyFields",
+      "description":"{{include:arguments/includeemptyfields/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

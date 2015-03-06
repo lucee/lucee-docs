@@ -1,0 +1,22 @@
+{
+  "name":"_literalArray",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"hidden",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.LiteralArray",
+  "returnType":"array",
+  "argumentType":"dynamic",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

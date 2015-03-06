@@ -1,0 +1,457 @@
+{
+  "name":"loop",
+  "description":"{{include:description.md}}",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":"yes",
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Loop",
+    "ttt":"lucee.transformer.bytecode.statement.tag.TagLoop",
+    "tdbt":null,
+    "att":null,
+    "tte":"lucee.transformer.cfml.evaluator.impl.Loop"
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":"loop"
+  },
+  "attributes":[
+    {
+      "name":"index",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/index/description.md}}",
+      "aliases":[
+        "key"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"from",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/from/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"to",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/to/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"step",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/step/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"condition",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/condition/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":false
+    },
+    {
+      "name":"query",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/query/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"startRow",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/startRow/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"endRow",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/endRow/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"maxRows",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/maxRows/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"list",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/list/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"array",
+      "type":"array",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/array/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"delimiters",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/delimiters/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"collection",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/collection/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"struct",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/struct/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"item",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/item/description.md}}",
+      "aliases":[
+        "value"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"file",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/file/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"characters",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/characters/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"startline",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/startline/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"endline",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/endline/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"charset",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/charset/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"group",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/group/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"groupCaseSensitive",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/groupCaseSensitive/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"implemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"label",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/label/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"implemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"times",
+      "type":"numeric",
+      "default":false,
+      "defaultValue":null,
+      "description":"{{include:/attributes/times/description.md}}",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"implemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ]
+}

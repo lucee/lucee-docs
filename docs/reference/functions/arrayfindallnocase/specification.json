@@ -1,0 +1,37 @@
+{
+  "name":"arrayFindAllNoCase",
+  "memberName":"findAllNoCase",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayFindAllNoCase",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "array",
+    "find",
+    "iterator"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"{{include:arguments/array/description.md}}",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"value",
+      "description":"{{include:arguments/value/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

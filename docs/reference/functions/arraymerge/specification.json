@@ -1,0 +1,42 @@
+{
+  "name":"arrayMerge",
+  "memberName":"merge",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayMerge",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"array1",
+      "description":"{{include:arguments/array1/description.md}}",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"array2",
+      "description":"{{include:arguments/array2/description.md}}",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"leaveIndex",
+      "description":"{{include:arguments/leaveindex/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

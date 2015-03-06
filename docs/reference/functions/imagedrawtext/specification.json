@@ -1,0 +1,56 @@
+{
+  "name":"ImageDrawText",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageDrawText",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"str",
+      "description":"{{include:arguments/str/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"x",
+      "description":"{{include:arguments/x/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"y",
+      "description":"{{include:arguments/y/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"attributeCollection",
+      "description":"{{include:arguments/attributecollection/description.md}}",
+      "type":"struct",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

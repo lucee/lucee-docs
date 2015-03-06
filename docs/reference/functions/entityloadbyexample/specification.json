@@ -1,0 +1,35 @@
+{
+  "name":"EntityLoadByExample",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.EntityLoadByExample",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"sampleEntity",
+      "description":"{{include:arguments/sampleentity/description.md}}",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"unique",
+      "description":"{{include:arguments/unique/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

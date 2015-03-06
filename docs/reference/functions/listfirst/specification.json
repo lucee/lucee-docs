@@ -1,0 +1,50 @@
+{
+  "name":"listFirst",
+  "memberName":"listFirst",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListFirst",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"{{include:arguments/list/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"{{include:arguments/delimiters/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"includeEmptyFields",
+      "description":"{{include:arguments/includeemptyfields/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"count",
+      "description":"{{include:arguments/count/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

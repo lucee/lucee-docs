@@ -1,0 +1,28 @@
+{
+  "name":"xmlNew",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.xml.XmlNew",
+  "returnType":"xml",
+  "argumentType":"",
+  "keywords":[
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"caseSensitive",
+      "description":"{{include:arguments/casesensitive/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

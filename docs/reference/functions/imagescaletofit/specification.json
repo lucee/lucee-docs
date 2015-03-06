@@ -1,0 +1,56 @@
+{
+  "name":"ImageScaleToFit",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageScaleToFit",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"fitWidth",
+      "description":"{{include:arguments/fitwidth/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"fitHeight",
+      "description":"{{include:arguments/fitheight/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"interpolation",
+      "description":"{{include:arguments/interpolation/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"highestQuality"
+    },
+    {
+      "name":"blurFactor",
+      "description":"{{include:arguments/blurfactor/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":"1"
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

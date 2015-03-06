@@ -1,0 +1,56 @@
+{
+  "name":"ImageDrawLines",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageDrawLines",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"xcoords",
+      "description":"{{include:arguments/xcoords/description.md}}",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"ycoords",
+      "description":"{{include:arguments/ycoords/description.md}}",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"isPolygon",
+      "description":"{{include:arguments/ispolygon/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"filled",
+      "description":"{{include:arguments/filled/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

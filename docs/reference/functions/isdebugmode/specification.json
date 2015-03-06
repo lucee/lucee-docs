@@ -1,0 +1,22 @@
+{
+  "name":"isDebugMode",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsDebugMode",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name":"getMetadata",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.GetMetaData",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"object",
+      "description":"{{include:arguments/object/description.md}}",
+      "type":"any",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"source",
+      "description":"{{include:arguments/source/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

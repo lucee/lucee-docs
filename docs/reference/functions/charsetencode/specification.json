@@ -1,0 +1,35 @@
+{
+  "name":"charsetEncode",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.conversion.CharsetEncode",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"binary",
+      "description":"{{include:arguments/binary/description.md}}",
+      "type":"binary",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"encoding",
+      "description":"{{include:arguments/encoding/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

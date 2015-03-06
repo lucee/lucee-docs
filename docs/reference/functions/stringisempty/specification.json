@@ -1,0 +1,28 @@
+{
+  "name":"StringIsEmpty",
+  "memberName":"isEmpty",
+  "description":"{{include:description.md}}",
+  "status":"hidden",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.StringIsEmpty",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"{{include:arguments/value/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

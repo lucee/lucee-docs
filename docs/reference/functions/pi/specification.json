@@ -1,0 +1,23 @@
+{
+  "name":"pi",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.Pi",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name":"GetWriteableImageFormats",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.GetWriteableImageFormats",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name":"ArrayContains",
+  "memberName":"contains",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayContains",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"haystack",
+      "description":"{{include:arguments/haystack/description.md}}",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"needle",
+      "description":"{{include:arguments/needle/description.md}}",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"substringMatch",
+      "description":"{{include:arguments/substringmatch/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "relatedResources":[
+    
+  ],
+  "examples":[
+    
+  ]
+}
