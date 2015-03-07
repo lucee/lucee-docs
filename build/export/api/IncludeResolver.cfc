@@ -9,6 +9,31 @@
  		return this;
  	}
 
+ 	public any function resolveAllIncludes( required any target, required string rootDirectory ) {
+
+		if ( IsSimpleValue( arguments.target ) ) {
+			return resolveIncludes( arguments.target, arguments.rootDirectory );
+		}
+
+		if ( IsArray( arguments.target ) ) {
+			for( var i=1; i<=arguments.target.len(); i++ ) {
+				arguments.target[ i ] = resolveAllIncludes( arguments.target[ i ], arguments.rootDirectory );
+			}
+
+			return arguments.target;
+		}
+
+		if ( IsStruct( arguments.target ) ) {
+			for( var key in arguments.target ) {
+				arguments.target[ key ] = resolveAllIncludes( arguments.target[ key ], arguments.rootDirectory );
+			}
+
+			return arguments.target;
+		}
+
+		return arguments.target;
+	}
+
  	public string function resolveIncludes( required string text, required string rootDirectory ) {
  		var complete = false;
  		var resolved = arguments.text;

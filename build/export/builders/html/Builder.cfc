@@ -3,6 +3,8 @@ component {
 		var functionNames = exportHelper.listFunctions();
 		var functionDir   = _getFunctionsDirectory( buildDirectory );
 
+		_copyStaticAssets( arguments.buildDirectory );
+
 		for( var functionName in functionNames ){
 			var renderedFunction = _renderFunction( exportHelper.getFunction( functionName ) );
 
@@ -19,7 +21,7 @@ component {
 			include template="templates/function.cfm";
 		}
 
-		args = { title=LuceeFunction.getName(), body=Trim( rendered ) };
+		args = { title=LuceeFunction.getName(), body=Trim( rendered ), base="../" };
 
 		saveContent variable="rendered" {
 			include template="layouts/page.cfm";
@@ -36,6 +38,10 @@ component {
 		}
 
 		return functionsDir;
+	}
+
+	private void function _copyStaticAssets( required string buildDirectory ) {
+		DirectoryCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets", arguments.buildDirectory & "/assets", true );
 	}
 
 }

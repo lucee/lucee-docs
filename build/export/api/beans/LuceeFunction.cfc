@@ -21,29 +21,6 @@ component {
 // HELPERS
 	private function _readDataFromFile( required string specificationJsonFile ) {
 		this.definition = DeSerializeJson( FileRead( arguments.specificationJsonFile ) );
-		this.definition = _resolveIncludes( this.definition, GetDirectoryFromPath( arguments.specificationJsonFile ) );
-	}
-
-	private any function _resolveIncludes( required any definition, required string rootDirectory ) {
-
-		if ( IsSimpleValue( arguments.definition ) ) {
-			return includeResolver.resolveIncludes( arguments.definition, arguments.rootDirectory );
-		}
-
-		if ( IsArray( arguments.definition ) ) {
-			for( var i=1; i<=arguments.definition.len(); i++ ) {
-				arguments.definition[ i ] = _resolveIncludes( arguments.definition[ i ], arguments.rootDirectory );
-			}
-
-			return arguments.definition;
-		}
-
-		if ( IsStruct( arguments.definition ) ) {
-			for( var key in arguments.definition ) {
-				arguments.definition[ key ] = _resolveIncludes( arguments.definition[ key ], arguments.rootDirectory );
-			}
-
-			return arguments.definition;
-		}
+		this.definition = includeResolver.resolveAllIncludes( this.definition, GetDirectoryFromPath( arguments.specificationJsonFile ) );
 	}
 }
