@@ -19,7 +19,7 @@ component {
 			include template="templates/function.cfm";
 		}
 
-		args = { title=LuceeFunction.getName(), body=rendered };
+		args = { title=LuceeFunction.getName(), body=Trim( rendered ) };
 
 		saveContent variable="rendered" {
 			include template="layouts/page.cfm";

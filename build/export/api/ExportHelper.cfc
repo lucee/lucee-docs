@@ -24,7 +24,10 @@ component {
 	}
 
 	public LuceeFunction function getFunction( required string functionName ) {
-		return new beans.LuceeFunction( _getRootDocsDirectory() & "/reference/functions/#LCase( arguments.functionName )#/specification.json" );
+		return new beans.LuceeFunction(
+			  specificationJsonFile = _getRootDocsDirectory() & "/reference/functions/#LCase( arguments.functionName )#/specification.json"
+			, includeResolver       = new IncludeResolver()
+		);
 	}
 
 	public LuceeTag function getTag( required string tagName ) {
