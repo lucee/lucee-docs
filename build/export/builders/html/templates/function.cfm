@@ -2,5 +2,5 @@
 
 <cfoutput>
 	<h1>#args.luceeFunction.getName()#</h1>
-	<blockquote>#args.luceeFunction.getDescription()#</blockquote>
+	<blockquote>#markdownToHtml( args.luceeFunction.getDescription() )#</blockquote>
 </cfoutput>
