@@ -1,7 +1,5 @@
 component {
 
-	import "../builders";
-
 // CONSTRUCTOR
 	public any function init() {
 		var cwd = GetDirectoryFromPath( GetCurrentTemplatePath() );

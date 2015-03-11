@@ -1,7 +1,5 @@
 component {
 
-	import "../../";
-
 	public string function renderReferences( required string text, required any builder ) {
 		var rendered  = arguments.text;
 		var reference = "";
