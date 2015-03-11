@@ -1,4 +1,18 @@
 component {
+	public string function renderReference( required any reference ) {
+		var ref = arguments.reference;
+		switch( ref.getType() ) {
+			case "function":
+				return '<a href="function/#LCase( ref.getReference() )#.html">#ref.getReference()#</a>';
+			case "tag":
+				return '<a href="tag/#LCase( ref.getReference() )#.html">#ref.getReference()#</a>';
+			case "external":
+				return '<a href="#ref.getReference()#">#ref.getTitle()#</a>';
+
+		}
+		return "<a>!notfound</a>";
+	}
+
 	public void function build( exportHelper, buildDirectory ) {
 		var functionNames = exportHelper.listFunctions();
 		var functionDir   = _getFunctionsDirectory( buildDirectory );
