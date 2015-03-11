@@ -67,8 +67,20 @@ component {
 	private void function _decorateBuilderWithHelpers( required any builder, required string builderName ) {
 		var rootPathForRenderer = "../builders/#arguments.builderName#/";
 
-		builder.renderTemplate = function(){
-			return new TemplateRenderer( rootPathForRenderer ).render( argumentCollection=arguments );
-		};
+		builder.$$injectMethod = this.injectMethod;
+
+		builder.$$injectMethod( "resolveReferences", function(){
+			return new ReferenceResolver( builder ).resolveAllReferences( argumentCollection=arguments );
+		} );
+
+		builder.$$injectMethod( "renderTemplate", function(){
+			var rendered = new TemplateRenderer( rootPathForRenderer ).render( argumentCollection=arguments );
+
+			return builder.resolveReferences( rendered );
+		} );
+	}
+
+	public void function injectMethod( required string methodName, required any method ) {
+		this[ methodName ] = variables[ methodName ] = arguments.method;
 	}
 }
