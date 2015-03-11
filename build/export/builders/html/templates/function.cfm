@@ -1,6 +1,6 @@
-<cfparam name="LuceeFunction" type="LuceeFunction" />
+<cfparam name="args.luceeFunction" type="LuceeFunction" />
 
 <cfoutput>
-	<h1>#LuceeFunction.getName()#</h1>
-	<p>#LuceeFunction.getDescription()#</p>
+	<h1>#args.luceeFunction.getName()#</h1>
+	<blockquote>#args.luceeFunction.getDescription()#</blockquote>
 </cfoutput>

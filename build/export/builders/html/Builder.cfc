@@ -14,20 +14,15 @@ component {
 
 // PRIVATE HELPERS
 	private string function _renderFunction( required any LuceeFunction ){
-		var args = { LuceeFunction = arguments.LuceeFunction };
-		var rendered = "";
+		var renderedFunction = this.renderTemplate(
+			  template = "templates/function.cfm"
+			, args     = { LuceeFunction = arguments.LuceeFunction }
+		);
 
-		saveContent variable="rendered" {
-			include template="templates/function.cfm";
-		}
-
-		args = { title=LuceeFunction.getName(), body=Trim( rendered ), base="../" };
-
-		saveContent variable="rendered" {
-			include template="layouts/page.cfm";
-		}
-
-		return rendered;
+		return this.renderTemplate(
+			  template = "layouts/page.cfm"
+			, args     = { title=LuceeFunction.getName(), body=Trim( renderedFunction ), base="../" }
+		);
 	}
 
 	private string function _getFunctionsDirectory( required string buildDirectory ) {

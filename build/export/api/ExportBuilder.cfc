@@ -47,7 +47,11 @@ component {
 
 // PRIVATE HELPERS
 	private any function _getBuilder( required string builderName ) {
-		return new "builders.#arguments.builderName#.Builder"()
+		var builder = new "builders.#arguments.builderName#.Builder"();
+
+		_decorateBuilderWithHelpers( builder, builderName );
+
+		return builder;
 	}
 
 	private string function _getBuilderBuildDirectory( required string builderName ) {
@@ -58,5 +62,13 @@ component {
 		}
 
 		return buildDirectory;
+	}
+
+	private void function _decorateBuilderWithHelpers( required any builder, required string builderName ) {
+		var rootPathForRenderer = "../builders/#arguments.builderName#/";
+
+		builder.renderTemplate = function(){
+			return new TemplateRenderer( rootPathForRenderer ).render( argumentCollection=arguments );
+		};
 	}
 }
