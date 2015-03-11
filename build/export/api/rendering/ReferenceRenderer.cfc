@@ -1,25 +1,19 @@
 component {
 
-// CONSTRUCTOR
-	public any function init( required any builder ) {
-		_setBuilder( arguments.builder );
-		return this;
-	}
+	import "../../";
 
-// PUBLIC API METHODS
-	public string function resolveAllReferences( required string text ) {
-		var resolved  = arguments.text;
+	public string function renderReferences( required string text, required any builder ) {
+		var rendered  = arguments.text;
 		var reference = "";
 
 		do {
-			reference = _getNextReference( resolved );
+			reference = _getNextReference( rendered );
 			if ( !IsNull( reference ) ) {
-				resolved = Replace( resolved, reference.getRaw(), _getBuilder().renderReference( reference ), "all" );
+				rendered = Replace( rendered, reference.getRaw(), arguments.builder.renderReference( reference ), "all" );
 			}
 		} while( !IsNull( reference ) );
 
-		return resolved;
-
+		return rendered;
 	}
 
 // PRIVATE HELPERS
@@ -36,7 +30,7 @@ component {
 		var referenceSubstring = Mid( arguments.text, regexFindResult.pos[2], regexFindResult.len[2] );
 		var referenceType      = ListFirst( referenceSubstring, ":" );
 		var referenceLink      = ListRest( referenceSubstring, ":" );
-		var reference          = new beans.Reference( type=referenceType, raw=rawMatch );
+		var reference          = new api.data.Reference( type=referenceType, raw=rawMatch );
 
 		switch( referenceType ) {
 			case "function":
@@ -61,13 +55,4 @@ component {
 
 		return reference;
 	}
-
-// GETTERS AND SETTERS
-	private any function _getBuilder() output=false {
-		return _builder;
-	}
-	private void function _setBuilder( required any builder ) output=false {
-		_builder = arguments.builder;
-	}
-
 }

@@ -1,8 +1,3 @@
-/**
- * Class for running export builds using a simple
- * convention of /build/export/builders/{buildername}/Builder.cfc
- *
- */
 component {
 
 	import "../builders";
@@ -11,9 +6,9 @@ component {
 	public any function init() {
 		var cwd = GetDirectoryFromPath( GetCurrentTemplatePath() );
 
-		variables.buildersDir  = ExpandPath( cwd & "../builders" );
-		variables.buildsDir    = ExpandPath( cwd & "../builds"   );
-		variables.exportHelper = new ExportHelper( ExpandPath( cwd & "../../../docs" ) );
+		variables.buildersDir   = ExpandPath( cwd & "../builders" );
+		variables.buildsDir     = ExpandPath( cwd & "../builds"   );
+		variables.documentation = new data.Documentation( rootDocsDirectory=ExpandPath( cwd & "../../../docs" ) );
 
 		return this;
 	}
@@ -29,7 +24,7 @@ component {
 		var builder  = _getBuilder( arguments.builderName );
 		var buildDir = _getBuilderBuildDirectory( arguments.builderName );
 
-		builder.build( exportHelper, buildDir );
+		builder.build( documentation, buildDir );
 	}
 
 	public array function listBuilders() {
@@ -65,19 +60,21 @@ component {
 	}
 
 	private void function _decorateBuilderWithHelpers( required any builder, required string builderName ) {
-		var rootPathForRenderer = "../builders/#arguments.builderName#/";
+		var rootPathForRenderer = "../../builders/#arguments.builderName#/";
 
-		builder.$$injectMethod = this.injectMethod;
+		builder.injectMethod = this.injectMethod;
 
-		builder.$$injectMethod( "resolveReferences", function(){
-			return new ReferenceResolver( builder ).resolveAllReferences( argumentCollection=arguments );
+		builder.injectMethod( "renderReferences", function( required string text ){
+			return new rendering.ReferenceRenderer().renderReferences( text=arguments.text, builder=builder );
+		} );
+		builder.injectMethod( "renderTemplate", function( required string template, struct args={} ){
+			var renderer = new rendering.TemplateRenderer();
+			var rendered = renderer.render( template=rootPathForRenderer & arguments.template, args=arguments.args );
+
+			return builder.renderReferences( rendered );
 		} );
 
-		builder.$$injectMethod( "renderTemplate", function(){
-			var rendered = new TemplateRenderer( rootPathForRenderer ).render( argumentCollection=arguments );
-
-			return builder.resolveReferences( rendered );
-		} );
+		StructDelete( builder, "injectMethod" );
 	}
 
 	public void function injectMethod( required string methodName, required any method ) {
