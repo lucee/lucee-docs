@@ -1,0 +1,27 @@
+{
+  "pageType":"function",
+  "title":"array",
+  "name":"array",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.Array_",
+  "returnType":"array",
+  "argumentType":"dynamic",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

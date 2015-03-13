@@ -1,0 +1,40 @@
+{
+  "pageType":"function",
+  "title":"SpreadSheetNew",
+  "name":"SpreadSheetNew",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.poi.SpreadSheetNew",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"sheetName",
+      "description":"{{include:arguments/sheetname/description.md}}",
+      "type":"any",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"xmlFormat",
+      "description":"{{include:arguments/xmlformat/description.md}}",
+      "type":"any",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

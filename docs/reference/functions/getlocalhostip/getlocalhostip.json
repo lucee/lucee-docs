@@ -1,0 +1,40 @@
+{
+  "pageType":"function",
+  "title":"GetLocalHostIP",
+  "name":"GetLocalHostIP",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetLocalHostIP",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"all",
+      "description":"{{include:arguments/all/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"refresh",
+      "description":"{{include:arguments/refresh/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

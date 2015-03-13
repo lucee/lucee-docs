@@ -1,0 +1,55 @@
+{
+  "pageType":"function",
+  "title":"structSort",
+  "name":"structSort",
+  "memberName":"sort",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructSort",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "struct",
+    "sort"
+  ],
+  "arguments":[
+    {
+      "name":"base",
+      "description":"{{include:arguments/base/description.md}}",
+      "type":"struct",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"sortType",
+      "description":"{{include:arguments/sorttype/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"text"
+    },
+    {
+      "name":"sortOrder",
+      "description":"{{include:arguments/sortorder/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"asc"
+    },
+    {
+      "name":"pathToSubElement",
+      "description":"{{include:arguments/pathtosubelement/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

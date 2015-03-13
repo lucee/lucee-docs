@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"beat",
+  "name":"beat",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dateTime.Beat",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"time",
+      "description":"{{include:arguments/time/description.md}}",
+      "type":"any",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

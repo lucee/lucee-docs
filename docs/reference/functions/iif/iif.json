@@ -1,0 +1,47 @@
+{
+  "pageType":"function",
+  "title":"iIf",
+  "name":"iIf",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dynamicEvaluation.IIf",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"condition",
+      "description":"{{include:arguments/condition/description.md}}",
+      "type":"boolean",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"string_expression1",
+      "description":"{{include:arguments/string_expression1/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"string_expression2",
+      "description":"{{include:arguments/string_expression2/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

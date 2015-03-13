@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"isDefined",
+  "name":"isDefined",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsDefined",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"variable",
+      "description":"{{include:arguments/variable/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

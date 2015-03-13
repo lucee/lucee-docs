@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"Empty",
+  "name":"Empty",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.system.Empty",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"variable",
+      "description":"{{include:arguments/variable/description.md}}",
+      "type":"variablestring",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

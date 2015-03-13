@@ -1,0 +1,40 @@
+{
+  "pageType":"function",
+  "title":"FileSeek",
+  "name":"FileSeek",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileSeek",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"fileObj",
+      "description":"{{include:arguments/fileobj/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"pos",
+      "description":"{{include:arguments/pos/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

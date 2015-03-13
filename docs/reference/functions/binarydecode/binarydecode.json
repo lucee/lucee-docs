@@ -1,0 +1,40 @@
+{
+  "pageType":"function",
+  "title":"binaryDecode",
+  "name":"binaryDecode",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.conversion.BinaryDecode",
+  "returnType":"binary",
+  "argumentType":"",
+  "keywords":[
+    "binary"
+  ],
+  "arguments":[
+    {
+      "name":"encoded_binary",
+      "description":"{{include:arguments/encoded_binary/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"binaryencoding",
+      "description":"{{include:arguments/binaryencoding/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

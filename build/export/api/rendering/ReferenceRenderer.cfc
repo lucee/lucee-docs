@@ -1,4 +1,6 @@
-component {
+component accessors=true {
+
+	property name="docTree";
 
 	public string function renderReferences( required string text, required any builder ) {
 		var rendered  = arguments.text;
@@ -7,7 +9,11 @@ component {
 		do {
 			reference = _getNextReference( rendered );
 			if ( !IsNull( reference ) ) {
-				rendered = Replace( rendered, reference.getRaw(), arguments.builder.renderReference( reference ), "all" );
+				if ( IsNull( reference.page ) ) {
+					rendered = Replace( rendered, reference.rawMatch, ReReplace( reference.rawMatch, "\${", "{!refNotFound" ), "all" );
+				} else {
+					rendered = Replace( rendered, reference.rawMatch, arguments.builder.renderReference( reference.page ), "all" );
+				}
 			}
 		} while( !IsNull( reference ) );
 
@@ -24,33 +30,13 @@ component {
 			return;
 		}
 
-		var rawMatch           = Mid( arguments.text, regexFindResult.pos[1], regexFindResult.len[1] );
-		var referenceSubstring = Mid( arguments.text, regexFindResult.pos[2], regexFindResult.len[2] );
-		var referenceType      = ListFirst( referenceSubstring, ":" );
-		var referenceLink      = ListRest( referenceSubstring, ":" );
-		var reference          = new api.data.Reference( type=referenceType, raw=rawMatch );
+		var rawMatch    = Mid( arguments.text, regexFindResult.pos[1], regexFindResult.len[1] );
+		var referenceId = Mid( arguments.text, regexFindResult.pos[2], regexFindResult.len[2] );
+		var page        = getDocTree().getPage( referenceId );
 
-		switch( referenceType ) {
-			case "function":
-				reference.setReference( referenceLink );
-			break;
-			case "tag":
-				reference.setReference( referenceLink );
-			break;
-			case "external":
-				if ( ListLen( referenceLink, "|" ) > 1 ) {
-					reference.setReference( ListFirst( referenceLink, "|" ) );
-					reference.setTitle( ListRest( referenceLink, "|" ) );
-				} else {
-					reference.setReference( referenceLink );
-					reference.setTitle( referenceLink );
-				}
-			break;
-
-			default:
-				return;
-		}
-
-		return reference;
+		return {
+			  rawMatch = rawMatch
+			, page     = page ?: NullValue()
+		};
 	}
 }

@@ -1,0 +1,47 @@
+{
+  "pageType":"function",
+  "title":"SystemOutput",
+  "name":"SystemOutput",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.SystemOutput",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"obj",
+      "description":"{{include:arguments/obj/description.md}}",
+      "type":"Object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"addNewLine",
+      "description":"{{include:arguments/addnewline/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"doErrorStream",
+      "description":"{{include:arguments/doerrorstream/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

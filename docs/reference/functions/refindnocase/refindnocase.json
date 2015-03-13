@@ -1,0 +1,56 @@
+{
+  "pageType":"function",
+  "title":"rEFindNoCase",
+  "name":"rEFindNoCase",
+  "memberName":"reFindNoCase",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.REFindNoCase",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "regex",
+    "find"
+  ],
+  "arguments":[
+    {
+      "name":"reg_expression",
+      "description":"{{include:arguments/reg_expression/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"start",
+      "description":"{{include:arguments/start/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":"1"
+    },
+    {
+      "name":"returnsubexpressions",
+      "description":"{{include:arguments/returnsubexpressions/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

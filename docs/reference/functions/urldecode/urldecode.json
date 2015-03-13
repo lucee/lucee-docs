@@ -1,0 +1,40 @@
+{
+  "pageType":"function",
+  "title":"uRLDecode",
+  "name":"uRLDecode",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.URLDecode",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"charset",
+      "description":"{{include:arguments/charset/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"utf-8"
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

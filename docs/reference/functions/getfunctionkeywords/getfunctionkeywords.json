@@ -1,0 +1,27 @@
+{
+  "pageType":"function",
+  "title":"getFunctionKeywords",
+  "name":"getFunctionKeywords",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.GetFunctionKeywords",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

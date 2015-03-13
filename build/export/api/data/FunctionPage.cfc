@@ -1,0 +1,29 @@
+component accessors=true extends="Page" {
+
+	property name="name"        type="string";
+	property name="description" type="string";
+	property name="returnType"  type="string";
+	property name="arguments"   type="array";
+	property name="examples"    type="array";
+
+	public string function getUsageSignature() {
+		var usage = this.getName() & "(";
+		var delim = " ";
+		var optionalCount = 0;
+
+		for( var argument in this.getArguments() ) {
+			if ( !argument.required ) {
+				usage &= " [";
+				optionalCount++;
+			}
+
+			usage &= delim & argument.name;
+			delim = ", ";
+		}
+
+		usage &= RepeatString( " ]", optionalCount );
+		usage &= " )";
+
+		return usage;
+	}
+}

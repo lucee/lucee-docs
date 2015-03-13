@@ -1,0 +1,47 @@
+{
+  "pageType":"function",
+  "title":"dateAdd",
+  "name":"dateAdd",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dateTime.DateAdd",
+  "returnType":"datetime",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"datepart",
+      "description":"{{include:arguments/datepart/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"number",
+      "description":"{{include:arguments/number/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"date",
+      "description":"{{include:arguments/date/description.md}}",
+      "type":"datetime",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

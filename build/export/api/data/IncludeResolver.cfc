@@ -16,7 +16,9 @@ component {
 
 		if ( IsStruct( arguments.data ) ) {
 			for( var key in arguments.data ) {
-				arguments.data[ key ] = resolveIncludesInStructuredData( arguments.data[ key ], arguments.rootDirectory );
+				if ( !IsNull( arguments.data[ key ] ) ) {
+					arguments.data[ key ] = resolveIncludesInStructuredData( arguments.data[ key ], arguments.rootDirectory );
+				}
 			}
 
 			return arguments.data;

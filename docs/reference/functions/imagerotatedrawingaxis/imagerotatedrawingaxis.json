@@ -1,0 +1,54 @@
+{
+  "pageType":"function",
+  "title":"ImageRotateDrawingAxis",
+  "name":"ImageRotateDrawingAxis",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageRotateDrawingAxis",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"angle",
+      "description":"{{include:arguments/angle/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"x",
+      "description":"{{include:arguments/x/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"y",
+      "description":"{{include:arguments/y/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

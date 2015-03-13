@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"fileReadLine",
+  "name":"fileReadLine",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileReadLine",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"fileObj",
+      "description":"{{include:arguments/fileobj/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

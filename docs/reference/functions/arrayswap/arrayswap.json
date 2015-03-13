@@ -1,0 +1,47 @@
+{
+  "pageType":"function",
+  "title":"arraySwap",
+  "name":"arraySwap",
+  "memberName":"swap",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArraySwap",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"{{include:arguments/array/description.md}}",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"position1",
+      "description":"{{include:arguments/position1/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"position2",
+      "description":"{{include:arguments/position2/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

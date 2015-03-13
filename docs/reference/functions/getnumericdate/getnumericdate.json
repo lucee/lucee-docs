@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"getNumericDate",
+  "name":"getNumericDate",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.GetNumericDate",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"arg1",
+      "description":"{{include:arguments/arg1/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"GetCPUUsage",
+  "name":"GetCPUUsage",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetCPUUsage",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"time",
+      "description":"{{include:arguments/time/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":"1000"
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

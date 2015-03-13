@@ -1,0 +1,27 @@
+{
+  "pageType":"function",
+  "title":"ORMCloseAllSessions",
+  "name":"ORMCloseAllSessions",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.ORMCloseAllSessions",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

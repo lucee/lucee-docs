@@ -1,1 +1,1 @@
-Applies a named filter to an image.
+the function ImageFilter allows to execute a filter against a image.

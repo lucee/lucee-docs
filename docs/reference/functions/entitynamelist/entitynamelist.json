@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"EntityNameList",
+  "name":"EntityNameList",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.EntityNameList",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"delimiter",
+      "description":"{{include:arguments/delimiter/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

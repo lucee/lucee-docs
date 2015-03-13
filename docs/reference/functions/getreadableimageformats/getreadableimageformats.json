@@ -1,0 +1,27 @@
+{
+  "pageType":"function",
+  "title":"GetReadableImageFormats",
+  "name":"GetReadableImageFormats",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.GetReadableImageFormats",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

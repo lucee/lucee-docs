@@ -1,0 +1,47 @@
+{
+  "pageType":"function",
+  "title":"xmlParse",
+  "name":"xmlParse",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.xml.XmlParse",
+  "returnType":"xml",
+  "argumentType":"",
+  "keywords":[
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"xmlString",
+      "description":"{{include:arguments/xmlstring/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"caseSensitive",
+      "description":"{{include:arguments/casesensitive/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"validator",
+      "description":"{{include:arguments/validator/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

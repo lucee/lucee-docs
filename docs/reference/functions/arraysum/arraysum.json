@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"arraySum",
+  "name":"arraySum",
+  "memberName":"sum",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArraySum",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"{{include:arguments/array/description.md}}",
+      "type":"array",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

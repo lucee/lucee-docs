@@ -1,0 +1,48 @@
+{
+  "pageType":"function",
+  "title":"ImageFilter",
+  "name":"ImageFilter",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageFilter",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image",
+    "filter"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"filtername",
+      "description":"{{include:arguments/filtername/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"parameters",
+      "description":"{{include:arguments/parameters/description.md}}",
+      "type":"struct",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

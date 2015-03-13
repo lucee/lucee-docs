@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"getGatewayHelper",
+  "name":"getGatewayHelper",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"unimplemeted",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.gateway.GetGatewayHelper",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"gatewayID",
+      "description":"{{include:arguments/gatewayid/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

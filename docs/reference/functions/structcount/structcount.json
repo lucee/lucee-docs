@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"structCount",
+  "name":"structCount",
+  "memberName":"len,count",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructCount",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "struct"
+  ],
+  "arguments":[
+    {
+      "name":"structure",
+      "description":"{{include:arguments/structure/description.md}}",
+      "type":"struct",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

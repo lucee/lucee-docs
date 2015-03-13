@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"CacheGetDefaultCacheName",
+  "name":"CacheGetDefaultCacheName",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.cache.CacheGetDefaultCacheName",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"type",
+      "description":"{{include:arguments/type/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

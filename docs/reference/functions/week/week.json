@@ -1,0 +1,40 @@
+{
+  "pageType":"function",
+  "title":"week",
+  "name":"week",
+  "memberName":"week",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dateTime.Week",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"date",
+      "description":"{{include:arguments/date/description.md}}",
+      "type":"datetime",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"timezone",
+      "description":"{{include:arguments/timezone/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

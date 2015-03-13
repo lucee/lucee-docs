@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"getException",
+  "name":"getException",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"unimplemeted",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetException",
+  "returnType":"throwable",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"object",
+      "description":"{{include:arguments/object/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

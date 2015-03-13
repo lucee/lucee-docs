@@ -28,10 +28,8 @@ component {
 		for( var func in functions ) {
 			var convertedFunc = _parseXmlFunctionDefinition( func );
 
-			convertedFuncs[ convertedFunc.name ] = convertedFunc;
+			_stubFunctionEditorialFiles( convertedFunc );
 		}
-
-		_writeFunctionsToFile( convertedFuncs );
 	}
 
 	public void function importTagReference() {
@@ -43,9 +41,8 @@ component {
 		for( var tag in tags ) {
 			var convertedTag = _parseXmlTagDefinition( tag );
 
-			convertedTags[ convertedTag.name ] = convertedTag;
+			_stubTagEditorialFiles( convertedTag );
 		}
-		_writeTagsToFile( convertedTags );
 	}
 
 // PRIVATE HELPERS
@@ -105,7 +102,9 @@ component {
 	private struct function _parseXmlFunctionDefinition( required xml func ) output=false {
 		var parsedFunction = StructNew( "linked" );
 
-		parsedFunction.name         = func.name.xmlText  ?: "";
+		parsedFunction.pageType     = "function";
+		parsedFunction.title        = func.name.xmlText  ?: "";
+		parsedFunction.name         = parsedFunction.title;
 		parsedFunction.memberName   = func[ "member-name" ].xmlText ?: "";
 		parsedFunction.description  = func.description.xmlText ?: "";
 		parsedFunction.status       = func.status.xmlText ?: "";
@@ -136,7 +135,9 @@ component {
 	private struct function _parseXmlTagDefinition( required xml tag ) output=false {
 		var parsedTag = StructNew( "linked" );
 
-		parsedTag.name                 = tag.name.xmlText ?: NullValue();
+		parsedTag.pageType             = "tag";
+		parsedTag.title                = tag.name.xmlText ?: NullValue();
+		parsedTag.name                 = parsedTag.title
 		parsedTag.description          = tag.description.xmlText ?: NullValue();
 		parsedTag.status               = tag.status.xmlText ?: NullValue();
 		parsedTag.appendix             = IsBoolean( tag.apppendix.xmlText ?: "" ) && tag.appendix.xmlText; // ? what does this mean exactly
@@ -183,60 +184,6 @@ component {
 		return parsedTag;
 	}
 
-	private void function _writeFunctionsToFile( required struct convertedFuncs ) {
-		var functionNames              = [];
-		var referenceDirectory         = buildProperties.getReferenceDirectory();
-		var individualFunctionsDir     = referenceDirectory & "/functions/";
-		var functionsByCategory        = {};
-		var orderedFunctionsByCategory = StructNew( "linked" );
-
-		if ( !DirectoryExists( referenceDirectory ) ) {
-			DirectoryCreate( referenceDirectory, true );
-		}
-		if ( !DirectoryExists( individualFunctionsDir ) ) {
-			DirectoryCreate( individualFunctionsDir, true );
-		}
-
-		for( var functionName in convertedFuncs ) {
-			var func = convertedFuncs[ functionName ];
-
-			functionNames.append( LCase( functionName ) );
-
-			_stubFunctionEditorialFiles( func );
-
-			for( var keyword in func.keywords ) {
-				keyword = LCase( keyword );
-				functionsByCategory[ keyword ] = functionsByCategory[ keyword ] ?: [];
-				functionsByCategory[ keyword ].append( LCase( func.name ) )
-			}
-		}
-
-		for( var category in functionsByCategory.keyArray().sort( "textnocase" ) ) {
-			orderedFunctionsByCategory[ category ] = functionsByCategory[ category ].sort( "textnocase" );
-		}
-
-		FileWrite( referenceDirectory & "/functions.json", _serializeJson( functionNames.sort( "text" ) ) ) ;
-		FileWrite( referenceDirectory & "/functions_by_category.json", _serializeJson( orderedFunctionsByCategory ) ) ;
-	}
-
-	private void function _writeTagsToFile( required struct convertedTags ) {
-		var referenceDirectory = buildProperties.getReferenceDirectory();
-		var tagsDir   = referenceDirectory & "/tags/";
-		var tagNames = [];
-
-		if ( !DirectoryExists( tagsDir ) ) {
-			DirectoryCreate( tagsDir, true );
-		}
-
-		for( var tagName in convertedTags ) {
-			var tag = convertedTags[ tagName ];
-			tagNames.append( LCase( tagName ) );
-
-			_stubTagEditorialFiles( tag );
-		}
-		FileWrite( referenceDirectory & "/tags.json", _serializeJson( tagNames.sort( "text" ) ) ) ;
-	}
-
 	private void function _stubFunctionEditorialFiles( required struct func ) {
 		var referenceDir = buildProperties.getReferenceDirectory();
 		var functionDir  = referenceDir & "functions/" &   LCase( arguments.func.name ) & "/";
@@ -249,13 +196,12 @@ component {
 		arguments.func.seeAlso     = [];
 		arguments.func.examples    = [];
 		arguments.func.history     = [];
-		arguments.func.returnInfo  = "";
 
 		for( var arg in arguments.func.arguments ) {
 			_createFileIfNotExists( functionDir & "/arguments/#LCase( arg.name )#/description.md", arg.description ?: "" );
 			arg.description = "{{include:arguments/#LCase( arg.name )#/description.md}}";
 		}
-		_createFileIfNotExists( functionDir & "specification.json", _serializeJson( arguments.func ) );
+		_createFileIfNotExists( functionDir & LCase( arguments.func.name ) & ".json", _serializeJson( arguments.func ) );
 	}
 
 	private void function _stubTagEditorialFiles( required struct tag ) {
@@ -275,7 +221,7 @@ component {
 			_createFileIfNotExists( tagDir & "/attributes/#attribute.name#/description.md", attribute.description ?: "" );
 			attribute.description = "{{include:/attributes/#attribute.name#/description.md}}";
 		}
-		_createFileIfNotExists( tagDir & "/specification.json", _serializeJson( arguments.tag ) );
+		_createFileIfNotExists( tagDir & "/#LCase( tag.name )#.json", _serializeJson( arguments.tag ) );
 
 	}
 

@@ -1,0 +1,40 @@
+{
+  "pageType":"function",
+  "title":"SSLCertificateInstall",
+  "name":"SSLCertificateInstall",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.SSLCertificateInstall",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"host",
+      "description":"{{include:arguments/host/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"port",
+      "description":"{{include:arguments/port/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":"443"
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

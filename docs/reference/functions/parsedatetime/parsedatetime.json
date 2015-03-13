@@ -1,0 +1,49 @@
+{
+  "pageType":"function",
+  "title":"parseDateTime",
+  "name":"parseDateTime",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.ParseDateTime",
+  "returnType":"datetime",
+  "argumentType":"",
+  "keywords":[
+    "date",
+    "string",
+    "parsing"
+  ],
+  "arguments":[
+    {
+      "name":"date",
+      "description":"{{include:arguments/date/description.md}}",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"popConversion",
+      "description":"{{include:arguments/popconversion/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"timezone",
+      "description":"{{include:arguments/timezone/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

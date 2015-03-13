@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"FileDelete",
+  "name":"FileDelete",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileDelete",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"source",
+      "description":"{{include:arguments/source/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

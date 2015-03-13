@@ -1,0 +1,34 @@
+{
+  "pageType":"function",
+  "title":"IsImageFile",
+  "name":"IsImageFile",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.IsImageFile",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"path",
+      "description":"{{include:arguments/path/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

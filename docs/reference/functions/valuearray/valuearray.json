@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"valueArray",
+  "name":"valueArray",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.query.ValueArray",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "query"
+  ],
+  "arguments":[
+    {
+      "name":"query_column",
+      "description":"{{include:arguments/query_column/description.md}}",
+      "type":"queryColumn",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

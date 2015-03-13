@@ -1,0 +1,34 @@
+{
+  "pageType":"function",
+  "title":"IsXmlNode",
+  "name":"IsXmlNode",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsXmlNode",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "xml"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"{{include:arguments/value/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

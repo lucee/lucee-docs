@@ -1,0 +1,47 @@
+{
+  "pageType":"function",
+  "title":"structAppend",
+  "name":"structAppend",
+  "memberName":"append",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructAppend",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "struct"
+  ],
+  "arguments":[
+    {
+      "name":"Struct1",
+      "description":"{{include:arguments/struct1/description.md}}",
+      "type":"struct",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"Struct2",
+      "description":"{{include:arguments/struct2/description.md}}",
+      "type":"struct",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"OverwriteFlag",
+      "description":"{{include:arguments/overwriteflag/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":"true"
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

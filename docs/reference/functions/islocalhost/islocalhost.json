@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"isLocalHost",
+  "name":"isLocalHost",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsLocalHost",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"ip",
+      "description":"{{include:arguments/ip/description.md}}",
+      "type":"String",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "pageType":"function",
+  "title":"StoreAddACL",
+  "name":"StoreAddACL",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.s3.StoreAddACL",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"url",
+      "description":"{{include:arguments/url/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"aclObject",
+      "description":"{{include:arguments/aclobject/description.md}}",
+      "type":"object",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

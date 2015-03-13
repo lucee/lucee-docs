@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"fix",
+  "name":"fix",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.Fix",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"{{include:arguments/number/description.md}}",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

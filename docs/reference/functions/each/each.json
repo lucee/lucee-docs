@@ -1,0 +1,40 @@
+{
+  "pageType":"function",
+  "title":"each",
+  "name":"each",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.closure.Each",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "iterator"
+  ],
+  "arguments":[
+    {
+      "name":"collection",
+      "description":"{{include:arguments/collection/description.md}}",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"closure",
+      "description":"{{include:arguments/closure/description.md}}",
+      "type":"function",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

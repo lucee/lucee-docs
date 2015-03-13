@@ -1,0 +1,40 @@
+{
+  "pageType":"function",
+  "title":"QueryDeleteRow",
+  "name":"QueryDeleteRow",
+  "memberName":"deleteRow",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.query.QueryDeleteRow",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "query"
+  ],
+  "arguments":[
+    {
+      "name":"query",
+      "description":"{{include:arguments/query/description.md}}",
+      "type":"query",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"row",
+      "description":"{{include:arguments/row/description.md}}",
+      "type":"number",
+      "required":false,
+      "default":"-9999"
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

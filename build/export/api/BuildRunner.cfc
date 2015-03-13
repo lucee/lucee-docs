@@ -4,9 +4,9 @@ component {
 	public any function init() {
 		var cwd = GetDirectoryFromPath( GetCurrentTemplatePath() );
 
-		variables.buildersDir   = ExpandPath( cwd & "../builders" );
-		variables.buildsDir     = ExpandPath( cwd & "../builds"   );
-		variables.documentation = new data.Documentation( rootDocsDirectory=ExpandPath( cwd & "../../../docs" ) );
+		variables.buildersDir = ExpandPath( cwd & "../builders" );
+		variables.buildsDir   = ExpandPath( cwd & "../builds"   );
+		variables.docTree     = new data.DocTree( ExpandPath( cwd & "../../../docs" ) );
 
 		return this;
 	}
@@ -22,7 +22,7 @@ component {
 		var builder  = _getBuilder( arguments.builderName );
 		var buildDir = _getBuilderBuildDirectory( arguments.builderName );
 
-		builder.build( documentation, buildDir );
+		builder.build( docTree, buildDir );
 	}
 
 	public array function listBuilders() {
@@ -63,7 +63,7 @@ component {
 		builder.injectMethod = this.injectMethod;
 
 		builder.injectMethod( "renderReferences", function( required string text ){
-			return new rendering.ReferenceRenderer().renderReferences( text=arguments.text, builder=builder );
+			return new rendering.ReferenceRenderer( docTree=docTree ).renderReferences( text=arguments.text, builder=builder );
 		} );
 		builder.injectMethod( "renderTemplate", function( required string template, struct args={} ){
 			var renderer = new rendering.TemplateRenderer();

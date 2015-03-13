@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"evaluateJava",
+  "name":"evaluateJava",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"hidden",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dynamicEvaluation.EvaluateJava",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"stringOrBinary",
+      "description":"{{include:arguments/stringorbinary/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

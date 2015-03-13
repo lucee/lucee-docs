@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"componentInfo",
+  "name":"componentInfo",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.component.ComponentInfo",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"component",
+      "description":"{{include:arguments/component/description.md}}",
+      "type":"component",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

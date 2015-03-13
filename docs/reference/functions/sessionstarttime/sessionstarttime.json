@@ -1,0 +1,27 @@
+{
+  "pageType":"function",
+  "title":"SessionStartTime",
+  "name":"SessionStartTime",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.SessionStartTime",
+  "returnType":"date",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

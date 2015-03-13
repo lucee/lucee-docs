@@ -1,0 +1,54 @@
+{
+  "pageType":"function",
+  "title":"getSOAPResponseHeader",
+  "name":"getSOAPResponseHeader",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.xml.GetSOAPResponseHeader",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "webservice"
+  ],
+  "arguments":[
+    {
+      "name":"webservice",
+      "description":"{{include:arguments/webservice/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"namespace",
+      "description":"{{include:arguments/namespace/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"name",
+      "description":"{{include:arguments/name/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"asXML",
+      "description":"{{include:arguments/asxml/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

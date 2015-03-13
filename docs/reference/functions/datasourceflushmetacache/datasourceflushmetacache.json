@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"datasourceFlushMetaCache",
+  "name":"datasourceFlushMetaCache",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.DatasourceFlushMetaCache",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"datasourceName",
+      "description":"{{include:arguments/datasourcename/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

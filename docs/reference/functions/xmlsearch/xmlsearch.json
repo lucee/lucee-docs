@@ -1,0 +1,40 @@
+{
+  "pageType":"function",
+  "title":"xmlSearch",
+  "name":"xmlSearch",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.xml.XmlSearch",
+  "returnType":"object",
+  "argumentType":"",
+  "keywords":[
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"xml",
+      "description":"{{include:arguments/xml/description.md}}",
+      "type":"xml",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"xpath",
+      "description":"{{include:arguments/xpath/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

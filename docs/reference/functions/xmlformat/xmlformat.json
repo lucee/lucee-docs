@@ -1,0 +1,35 @@
+{
+  "pageType":"function",
+  "title":"xMLFormat",
+  "name":"xMLFormat",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.XMLFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "XML",
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

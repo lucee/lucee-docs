@@ -1,0 +1,55 @@
+{
+  "pageType":"function",
+  "title":"rEReplace",
+  "name":"rEReplace",
+  "memberName":"rEReplace",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.REReplace",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "regex"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"reg_expression",
+      "description":"{{include:arguments/reg_expression/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"substring",
+      "description":"{{include:arguments/substring/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"scope",
+      "description":"{{include:arguments/scope/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":"one"
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,13 +1,8 @@
-<cfparam name="args.luceeFunction" type="LuceeFunction" />
+<cfparam name="args.page" type="page" />
 
-<cfset fn = args.luceeFunction />
+<cfset fn = args.page />
 
 <cfoutput>
-	<ol class="breadcrumb">
-		<li><a href="">home</a></li>
-		<li><a href="functions.html">functions</a></li>
-		<li class="active">#fn.getName()#</li>
-	</ol>
 	<h1>#fn.getName()#</h1>
 	#markdownToHtml( fn.getDescription() )#
 	<p><strong>Returns:</strong> #fn.getReturnType()#</p>

@@ -1,0 +1,35 @@
+{
+  "pageType":"function",
+  "title":"dollarFormat",
+  "name":"dollarFormat",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.displayFormatting.DollarFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "currency",
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"{{include:arguments/number/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

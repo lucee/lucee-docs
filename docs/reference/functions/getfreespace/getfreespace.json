@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"GetFreeSpace",
+  "name":"GetFreeSpace",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.GetFreeSpace",
+  "returnType":"numeric",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"filepath",
+      "description":"{{include:arguments/filepath/description.md}}",
+      "type":"object",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

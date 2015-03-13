@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"DotNetToCFType",
+  "name":"DotNetToCFType",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"unimplemeted",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.DotNetToCFType",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"input",
+      "description":"{{include:arguments/input/description.md}}",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

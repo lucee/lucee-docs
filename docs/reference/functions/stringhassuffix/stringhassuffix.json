@@ -1,0 +1,47 @@
+{
+  "pageType":"function",
+  "title":"StringHasSuffix",
+  "name":"StringHasSuffix",
+  "memberName":"hasSuffix",
+  "description":"{{include:description.md}}",
+  "status":"hidden",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.StringEndsWith",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"{{include:arguments/value/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"suffix",
+      "description":"{{include:arguments/suffix/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"ignoreCase",
+      "description":"{{include:arguments/ignorecase/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "pageType":"function",
+  "title":"_createComponent",
+  "name":"_createComponent",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"hidden",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other._CreateComponent",
+  "returnType":"any",
+  "argumentType":"dynamic",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

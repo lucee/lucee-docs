@@ -1,0 +1,42 @@
+{
+  "pageType":"function",
+  "title":"lSParseCurrency",
+  "name":"lSParseCurrency",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.international.LSParseCurrency",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "currency",
+    "string",
+    "parsing"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"{{include:arguments/string/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"locale",
+      "description":"{{include:arguments/locale/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

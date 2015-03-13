@@ -1,0 +1,33 @@
+{
+  "pageType":"function",
+  "title":"ORMGetSession",
+  "name":"ORMGetSession",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.ORMGetSession",
+  "returnType":"object",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"datasource",
+      "description":"{{include:arguments/datasource/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

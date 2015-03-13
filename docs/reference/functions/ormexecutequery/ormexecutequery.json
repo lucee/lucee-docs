@@ -1,0 +1,54 @@
+{
+  "pageType":"function",
+  "title":"ORMExecuteQuery",
+  "name":"ORMExecuteQuery",
+  "memberName":"",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.ORMExecuteQuery",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"hql",
+      "description":"{{include:arguments/hql/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"paramsOrUnique",
+      "description":"{{include:arguments/paramsorunique/description.md}}",
+      "type":"any",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"uniqueOrQueryOptions",
+      "description":"{{include:arguments/uniqueorqueryoptions/description.md}}",
+      "type":"any",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"queryOptions",
+      "description":"{{include:arguments/queryoptions/description.md}}",
+      "type":"any",
+      "required":false,
+      "default":""
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

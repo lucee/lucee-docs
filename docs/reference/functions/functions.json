@@ -1,0 +1,5 @@
+{
+  "pageType" : "functionindex",
+  "title"    : "Lucee functions",
+  "intro"    : "{{include:functions.md}}"
+}

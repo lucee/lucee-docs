@@ -1,0 +1,48 @@
+{
+  "pageType":"function",
+  "title":"listAvg",
+  "name":"listAvg",
+  "memberName":"listAvg",
+  "description":"{{include:description.md}}",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListAvg",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"{{include:arguments/list/description.md}}",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"{{include:arguments/delimiters/description.md}}",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"multiCharacterDelimiter",
+      "description":"{{include:arguments/multicharacterdelimiter/description.md}}",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    }
+  ],
+  "seeAlso":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}
