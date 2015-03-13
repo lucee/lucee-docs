@@ -12,7 +12,8 @@ component {
 
 	public string function markdownToHtml( required string markdown ) {
 		var processor = CreateObject( "java", "com.petebevin.markdown.MarkdownProcessor", [ "../lib/markdownj-1.0.2b4-0.3.0.jar" ] ).init();
+		var rendered = Trim( processor.markdown( arguments.markdown ) );
 
-		return Trim( processor.markdown( arguments.markdown ) );
+		return ReReplace( rendered, "\n", "<br>", "all" );
 	}
 }

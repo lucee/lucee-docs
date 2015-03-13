@@ -19,10 +19,14 @@
       "default":"browser"
     }
   ],
-  "relatedResources":[
+  "seeAlso":[
     
   ],
   "examples":[
     
-  ]
+  ],
+  "history":[
+    
+  ],
+  "returnInfo":""
 }

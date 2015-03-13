@@ -35,7 +35,7 @@ component {
 
 		return renderTemplate(
 			  template = "layouts/page.cfm"
-			, args     = { title=LuceeFunction.getName(), body=Trim( renderedFunction ), base="../" }
+			, args     = { title=LuceeFunction.getName() & _getPageTitleSuffix(), body=Trim( renderedFunction ), base="../" }
 		);
 	}
 
@@ -51,6 +51,10 @@ component {
 
 	private void function _copyStaticAssets( required string buildDirectory ) {
 		DirectoryCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets", arguments.buildDirectory & "/assets", true );
+	}
+
+	private string function _getPageTitleSuffix() {
+		return " :: Lucee Documentation";
 	}
 
 }

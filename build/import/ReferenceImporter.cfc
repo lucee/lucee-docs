@@ -245,9 +245,11 @@ component {
 		_createFileIfNotExists( functionDir & "README.md", readme );
 		_createFileIfNotExists( functionDir & "description.md", arguments.func.description ?: "" );
 
-		arguments.func.description      = "{{include:description.md}}";
-		arguments.func.relatedResources = [];
-		arguments.func.examples         = [];
+		arguments.func.description = "{{include:description.md}}";
+		arguments.func.seeAlso     = [];
+		arguments.func.examples    = [];
+		arguments.func.history     = [];
+		arguments.func.returnInfo  = "";
 
 		for( var arg in arguments.func.arguments ) {
 			_createFileIfNotExists( functionDir & "/arguments/#LCase( arg.name )#/description.md", arg.description ?: "" );
@@ -265,6 +267,10 @@ component {
 		_createFileIfNotExists( tagDir & "description.md", arguments.tag.description ?: "" );
 
 		arguments.tag.description = "{{include:description.md}}";
+		arguments.tag.seeAlso     = [];
+		arguments.tag.examples    = [];
+		arguments.tag.history     = [];
+
 		for( var attribute in arguments.tag.attributes ) {
 			_createFileIfNotExists( tagDir & "/attributes/#attribute.name#/description.md", attribute.description ?: "" );
 			attribute.description = "{{include:/attributes/#attribute.name#/description.md}}";
