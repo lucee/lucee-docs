@@ -1,0 +1,5 @@
+{
+  "pageType" : "page",
+  "title"    : "Lucee Koans",
+  "body"     : "{{include:koans.md}}"
+}

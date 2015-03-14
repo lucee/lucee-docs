@@ -1,0 +1,6 @@
+{
+  "pageType" : "aToZIndex",
+  "title"    : "Data types",
+  "intro"    : "{{include:types.md}}",
+  "sortOrder": 3
+}

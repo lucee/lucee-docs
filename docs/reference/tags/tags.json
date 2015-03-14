@@ -1,5 +1,6 @@
 {
-  "pageType" : "tagindex",
-  "title"    : "Lucee tags",
-  "intro"    : "{{include:tags.md}}"
+  "pageType" : "aToZIndex",
+  "title"    : "Tags",
+  "intro"    : "{{include:tags.md}}",
+  "sortOrder": 2
 }

@@ -1,0 +1,5 @@
+{
+  "pageType" : "page",
+  "title"    : "Date and Time masks",
+  "body"     : "{{include:dateTimeMasks.md}}"
+}

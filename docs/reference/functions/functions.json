@@ -1,5 +1,6 @@
 {
-  "pageType" : "functionindex",
-  "title"    : "Lucee functions",
-  "intro"    : "{{include:functions.md}}"
+  "pageType" : "aToZIndex",
+  "title"    : "Functions",
+  "intro"    : "{{include:functions.md}}",
+  "sortOrder": 1
 }

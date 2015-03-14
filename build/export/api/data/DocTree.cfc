@@ -24,13 +24,14 @@ component accessors=true {
 			}
 		}
 
+		_sortChildren( tree );
+
 		return this;
 	}
 
 	public any function getPage( required string id ) {
 		return treeMap[ arguments.id ] ?: NullValue();
 	}
-
 
 // private helpers
 	private array function _readPageFilesFromDocsDirectory( required string rootDirectory ) {
@@ -95,5 +96,19 @@ component accessors=true {
 		parts.deleteAt( parts.len() );
 
 		return "/" & parts.toList( "/" );
+	}
+
+	private void function _sortChildren( required array children ){
+		children.sort( function( childA, childB ) {
+			if ( childA.getSortOrder() == childB.getSortOrder() ) {
+				return childA.getTitle() > childB.getTitle() ? 1 : -1;
+			}
+			return childA.getSortOrder() > childB.getSortOrder() ? 1 : -1;
+		} );
+
+
+		for( var child in children ) {
+			_sortChildren( child.getChildren() );
+		}
 	}
 }
