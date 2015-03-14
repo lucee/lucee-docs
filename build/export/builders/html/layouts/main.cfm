@@ -14,6 +14,7 @@
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="assets/css/highlight.css" rel="stylesheet">
 
 		<link rel="icon" type="image/png" href="assets/img/luceelogoicon.png">
 

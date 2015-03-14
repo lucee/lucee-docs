@@ -8,7 +8,7 @@
 	<p><strong>Returns:</strong> #fn.getReturnType()#</p>
 
 	<h2>Usage</h2>
-	<pre class="signature"><code>#fn.getUsageSignature()#</code></pre>
+	{{highlight:java}}#fn.getUsageSignature()#{{highlight}}
 
 	<h2>Arguments</h2>
 	<cfif !fn.getArguments().len()>
