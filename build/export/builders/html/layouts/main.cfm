@@ -15,6 +15,8 @@
 		<link href="assets/css/docs.css" rel="stylesheet">
 
 		<link rel="icon" type="image/png" href="assets/img/luceelogoicon.png">
+
+		<meta name="robots" content="noindex, nofollow">
 	</head>
 	<body>
 		<nav class="navigation" role="navigation">
