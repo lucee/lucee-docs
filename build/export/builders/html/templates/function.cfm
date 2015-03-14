@@ -10,26 +10,25 @@
 	<h2>Usage</h2>
 	<pre class="signature"><code>#fn.getUsageSignature()#</code></pre>
 
-
 	<h2>Arguments</h2>
 	<cfif !fn.getArguments().len()>
 		<p><em>This function does not take any arguments.</em></p>
 	<cfelse>
 		<dl class="dl-horizontal">
 			<cfloop array="#fn.getArguments()#" item="arg" index="i">
-				<dt>#arg.name#</dt>
-				<dd>
+				<dt>
+					#arg.name#<br>
 					<aside class="light">(#arg.type#, #( arg.required ? 'required' : 'optional' )#)</aside>
+				</dt>
+				<dd>
 					#markdownToHtml( arg.description )#
 				</dd>
 			</cfloop>
 		</dl>
 	</cfif>
 
-	<h2>Examples</h2>
-	<cfif !fn.getExamples().len()>
-		<p><em>There are no examples for this function</em></p>
-	<cfelse>
-
+	<cfif fn.getExamples().len()>
+		<h2>Examples</h2>
+		<!--- TODO --->
 	</cfif>
 </cfoutput>

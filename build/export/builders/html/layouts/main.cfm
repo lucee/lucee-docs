@@ -2,6 +2,7 @@
 <cfparam name="args.page"    type="any" />
 <cfparam name="args.crumbs"  type="string" />
 <cfparam name="args.navTree" type="string" />
+<cfparam name="args.seeAlso" type="string" />
 
 <cfoutput><!DOCTYPE html>
 <html>
@@ -26,6 +27,7 @@
 			<article class="body">
 				#args.crumbs#
 				#args.body#
+				#args.seeAlso#
 			</article>
 		</div>
 	</body>

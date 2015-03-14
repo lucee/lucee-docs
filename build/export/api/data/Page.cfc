@@ -11,6 +11,7 @@ component accessors=true {
 	property name="intro"     type="string"  default="";
 	property name="body"      type="string"  default="";
 	property name="sortOrder" type="numeric" default="0";
+	property name="seeAlso"   type="array";
 
 	public void function addChild( required any childPage ) {
 		getChildren().append( arguments.childPage );

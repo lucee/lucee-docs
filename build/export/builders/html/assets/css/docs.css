@@ -47,6 +47,11 @@ body, html {
 	    padding   : 0 2px;
 	}
 
+	.dl-horizontal dt,
+	.dl-horizontal dd {
+		margin-bottom : 0.5em;
+	}
+
 .navigation {
 	background-color : #fff;
 	border-right     : 1px solid #dfdfdf;
