@@ -6,7 +6,7 @@ component {
 
 		variables.buildersDir = ExpandPath( cwd & "../builders" );
 		variables.buildsDir   = ExpandPath( cwd & "../builds"   );
-		variables.docTree     = new data.DocTree( ExpandPath( cwd & "../../../docs" ) );
+		variables.docTree     = new data.DocTree( ExpandPath( cwd & "../docs" ) );
 
 		return this;
 	}
