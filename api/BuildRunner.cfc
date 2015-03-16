@@ -4,8 +4,8 @@ component {
 	public any function init() {
 		var cwd = GetDirectoryFromPath( GetCurrentTemplatePath() );
 
-		variables.buildersDir = ExpandPath( cwd & "../builders" );
-		variables.buildsDir   = ExpandPath( cwd & "../builds"   );
+		variables.buildersDir = cwd & "../builders";
+		variables.buildsDir   = cwd & "../builds";
 		variables.docTree     = new data.DocTree( ExpandPath( cwd & "../docs" ) );
 
 		return this;

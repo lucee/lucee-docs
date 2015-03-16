@@ -35,7 +35,7 @@ component accessors=true {
 
 // private helpers
 	private array function _readPageFilesFromDocsDirectory( required string rootDirectory ) {
-		var pageFiles = DirectoryList( arguments.rootDirectory, true, "path", "*.json" );
+		var pageFiles = DirectoryList( arguments.rootDirectory, true, "path", "*.md" );
 
 		pageFiles = pageFiles.map( function( path ){
 			return path.replace( rootDirectory, "" );
@@ -59,20 +59,22 @@ component accessors=true {
 
 	private any function _preparePageObject( required string pageFilePath, required string rootDirectory ) {
 		var page = "";
-		var pageData = new StructuredDataFileReader().readDataFile( arguments.rootDirectory & pageFilePath )
+		var pageData = new PageReader().readPageFile( arguments.rootDirectory & pageFilePath )
 
 		switch( pageData.pageType ?: "" ) {
 			case "function":
+				pageData.append( _readFunctionOrTagSpecificationData( arguments.rootDirectory & pageFilePath ), false );
 				page = new FunctionPage( argumentCollection=pageData );
 			break;
 			case "tag":
+				pageData.append( _readFunctionOrTagSpecificationData( arguments.rootDirectory & pageFilePath ), false );
 				page = new TagPage( argumentCollection=pageData );
 			break;
 			default:
 				page = new Page( argumentCollection=pageData );
 		}
 
-		page.setId( _getPageIdFromJsonFilePath( arguments.pageFilePath ) );
+		page.setId( _getPageIdFromMdFilePath( arguments.pageFilePath ) );
 		page.setParentId( _getParentPageIdFromPageId( page.getId() ) );
 		page.setChildren( [] );
 		page.setDepth( ListLen( page.getId(), "/" ) );
@@ -80,12 +82,14 @@ component accessors=true {
 		return page;
 	}
 
-	private string function _getPageIdFromJsonFilePath( required string filePath ) {
-		var withoutExtension = ReReplace( arguments.filePath, "\.json$", "" );
+	private string function _getPageIdFromMdFilePath( required string filePath ) {
+		var withoutExtension = ReReplace( arguments.filePath, "[^\\\/]+\.md$", "" );
 		var parts            = withoutExtension.listToArray( "\/" );
 
-		if ( parts.len() > 1 && parts[ parts.len() ] == parts[ parts.len()-1 ] ) {
-			parts.deleteAt( parts.len() );
+		for( var i=1; i <= parts.len(); i++ ) {
+			if ( parts[ i ].listLen( "." ) > 1 ) {
+				parts[ i ] = parts[ i ].listRest( "." );
+			}
 		}
 
 		return "/" & parts.toList( "/" );
@@ -109,6 +113,14 @@ component accessors=true {
 
 		for( var child in children ) {
 			_sortChildren( child.getChildren() );
+		}
+	}
+
+	private struct function _readFunctionOrTagSpecificationData( required string pageFilePath ) {
+		var specFile = GetDirectoryFromPath( pageFilePath ) & "specification.json";
+
+		if ( FileExists( specFile ) ) {
+			return new JsonDataFileReader().readDataFile( specFile );
 		}
 	}
 }

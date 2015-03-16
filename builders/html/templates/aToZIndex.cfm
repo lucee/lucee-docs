@@ -4,9 +4,7 @@
 <cfset currentLetter = "" />
 
 <cfoutput>
-	<h1>#pg.getTitle()#</h1>
-
-	#markdownToHtml( pg.getIntro() )#
+	#markdownToHtml( pg.getBody() )#
 
 	<div class="row">
 		<cfloop array="#pg.getChildren()#" index="i" item="child">
