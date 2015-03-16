@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"structCount",
+  "name":"structCount",
+  "memberName":"len,count",
+  "description":"Counts the keys in a structure.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructCount",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "struct"
+  ],
+  "arguments":[
+    {
+      "name":"structure",
+      "description":"Structure to access",
+      "type":"struct",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

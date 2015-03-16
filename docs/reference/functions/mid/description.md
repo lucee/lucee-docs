@@ -1,1 +1,0 @@
-Extracts a substring from a string.

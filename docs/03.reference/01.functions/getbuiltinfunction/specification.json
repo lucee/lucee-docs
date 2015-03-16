@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"GetBuiltInFunction",
+  "name":"GetBuiltInFunction",
+  "memberName":"",
+  "description":"return a build in function as a object, matching the given name, throws a exception when the function does not exist.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetBuiltInFunction",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"name of the build in function, for example \"StructKeyExists\"",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

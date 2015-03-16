@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"GetPrinterList",
+  "name":"GetPrinterList",
+  "memberName":"",
+  "description":"Gets a string list of available printers.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetPrinterList",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"delimiters",
+      "description":"Characters that separate list elements. The default value is comma.",
+      "type":"string",
+      "required":false,
+      "default":","
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

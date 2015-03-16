@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"getSOAPRequest",
+  "name":"getSOAPRequest",
+  "memberName":"",
+  "description":"Returns an XML object that contains the entire SOAP\n        request. Usually called from within a web service CFC.",
+  "status":"implemeted",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.xml.GetSOAPRequest",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "webservice"
+  ],
+  "arguments":[
+    {
+      "name":"webservice",
+      "description":"A webservice object as returned from the cfobject tag or the CreateObject function.",
+      "type":"any",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

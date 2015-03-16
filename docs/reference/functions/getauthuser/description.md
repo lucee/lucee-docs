@@ -1,1 +1,0 @@
-Gets the name of an authenticated user.

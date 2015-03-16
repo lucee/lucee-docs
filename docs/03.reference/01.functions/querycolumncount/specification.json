@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"queryColumnCount",
+  "name":"queryColumnCount",
+  "memberName":"columnCount",
+  "description":"column count of given query",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.query.QueryColumnCount",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "query"
+  ],
+  "arguments":[
+    {
+      "name":"query",
+      "description":"",
+      "type":"query",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

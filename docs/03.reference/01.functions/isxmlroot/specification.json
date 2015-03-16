@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"isXmlRoot",
+  "name":"isXmlRoot",
+  "memberName":"",
+  "description":"Determines whether a function parameter is the root element of\n        an Extended Markup language (XML) document object.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsXmlRoot",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "xml"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"Name of an XML document object",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"xmlParse",
+  "name":"xmlParse",
+  "memberName":"",
+  "description":"Converts an XML document that is represented as a string\n        variable into an XML document object.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.xml.XmlParse",
+  "returnType":"xml",
+  "argumentType":"",
+  "keywords":[
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"xmlString",
+      "description":"Any of the following:",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"caseSensitive",
+      "description":"Maintains the case of document elements and attributes.\n            Default: false",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"validator",
+      "description":"Any of the following:\n- A string containing a DTD or Schema\n- The name of a DTD or Schema file\n- The URL of a DTD or Schema file; valid protocol identifiers include http, https, ftp, and file",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

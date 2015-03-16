@@ -1,1 +1,0 @@
-list all Certificates availble on a specific host

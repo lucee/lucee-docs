@@ -1,1 +1,0 @@
-Text to use for the delete action button. The default is delete.

@@ -1,0 +1,24 @@
+{
+  "pageType":"function",
+  "title":"isK2ServerOnline",
+  "name":"isK2ServerOnline",
+  "memberName":"",
+  "description":"This function is deprecated.",
+  "status":"hidden",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsK2ServerOnline",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

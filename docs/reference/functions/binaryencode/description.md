@@ -1,1 +1,0 @@
-Converts binary data to a string.

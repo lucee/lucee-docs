@@ -1,0 +1,177 @@
+{
+  "pageType":"tag",
+  "title":"Formitem",
+  "name":"Formitem",
+  "description":"Inserts a horizontal line, a vertical line, a spacer, or text in a Flash form. Used in the cfform or cfformgroup tag body for Flash and XML forms. Ignored in HTML forms.",
+  "status":"unimplemented",
+  "appendix":false,
+  "bodyContentType":"free",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Formitem",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"type",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Form item type. See docs for more details.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"style",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Flash: Must be a style specification in CSS format.\n            Ignored if the type attribute is html or text.\n            XML: Lucee passes the style attribute to the XML.\n            Lucee skins include the style attribute to the\n            generated HTML.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"width",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Width of the item, in pixels. If you omit this attribute, Flash\n            automatically sizes the width. In Lucee XSL skins,\n            use the style attribute, instead.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"height",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Height of the item, in pixels. If you omit this attribute,\n            Flash automatically sizes the width. In Lucee XSL\n            skins, use the style attribute, instead.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"enabled",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Boolean value specifying whether the control is enabled.\n            Disabled text appear in light gray. Has no effect on\n            spacers and rules.\n            Default: true",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"visible",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Boolean value specifying whether to show the control.\n            Space that would be occupied by an invisible control is\n            blank. Has no effect on spacers.\n            Default: true",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"tooltip",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Text to display when the mouse pointer hovers over the\n            control. Has no effect on spacers.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"bind",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"A Flash bind expression that populates the field with\n            information from other form fields. If you use this\n            attribute, Lucee ignores any text that you\n            specify in the body of the cftextitem tag. This attribute\n            can be useful if the cfformitem tag is in a cfformgroup\n            type=\"repeater\" tag.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

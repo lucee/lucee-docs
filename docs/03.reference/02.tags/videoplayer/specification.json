@@ -1,0 +1,556 @@
+{
+  "pageType":"tag",
+  "title":"videoPlayer",
+  "name":"videoPlayer",
+  "description":"The tag CFVIDEOPLAYER allows you to display a video in flash (flv) format.\n\t\tIt includes the complete functionality to display the player with the necessary html code. Read more on the multimedia functionality.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"free",
+  "attributeType":null,
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.VideoPlayerJW",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"passthrough",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"attribute to pass natively vales to player",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"preview",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"set this to the path of a preview image.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"id",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"video",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"path to Movie File (flv/mp4)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"autostart",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Set this to true in the player to automatically start playing when the page loads",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"group",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"if multiple video are defined, you have to define if this videos should be break a part or played as a single video",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"playlist",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"define if and where the playlist will be displayed",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"playlistSize",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"size of the playlist, if playlist is right of display this is the width otherwise the height",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"playlistThumbnails",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"using Thumbnails in playlist or not",
+      "aliases":[
+        "thumbs",
+        "thumbnails"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"showPlay",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"showPause",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"showTimeline",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"width",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"height",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"foregroundcolor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"alias for fgcolor",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"foreground",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"alias for fgcolor",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"fgcolor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"foreground color",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"bgcolor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"background color",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"backgroundcolor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"alias for bgcolor",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"background",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"alias for bgcolor",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"screencolor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"lightcolor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"debug",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"allowfullscreen",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"linktarget",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"target",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"linkfromdisplay",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"overstretch",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Sets how to stretch images/movies to make them fit the display. Set this to true to stretch them proportionally to fill the display, fit to stretch them disproportionally and none to keep original dimensions",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"download",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Set this to true to show a download button in the player controlbar",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

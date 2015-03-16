@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"CSRFVerifyToken",
+  "name":"CSRFVerifyToken",
+  "memberName":"",
+  "description":"Validates the given token against the same stored in the session for a specific key.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.csrf.CSRFVerifyToken",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"token",
+      "description":"Token that to be validated against the token stored in the session.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"key",
+      "description":"The key against which the token be searched.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

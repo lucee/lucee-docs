@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"arrayLen",
+  "name":"arrayLen",
+  "memberName":"len",
+  "description":"Returns the length of a given array",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayLen",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"array to check",
+      "type":"array",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,1 +1,0 @@
-this funciton is just a alias for lsCurrencyFormat

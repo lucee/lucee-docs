@@ -1,3 +1,0 @@
-
-- one (default): function returns one matching key
-- all: function returns all matching keys

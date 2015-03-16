@@ -1,0 +1,321 @@
+{
+  "pageType":"tag",
+  "title":"function",
+  "name":"function",
+  "description":"Defines table column header, width, alignment, and text. Used only inside a cftable.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"mixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Function",
+    "ttt":"lucee.transformer.bytecode.statement.tag.TagFunction",
+    "tdbt":null,
+    "att":"lucee.transformer.cfml.attributes.impl.Function",
+    "tte":"lucee.transformer.cfml.evaluator.impl.Function"
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"A string; a component method that is used within the cfcomponent tag.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"returnType",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"String; a type name; data type of the function return value",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"bufferoutput",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"this attribute is only used when output of the function is set to false. if this attribute is set to true (default) the output written to the body of the function is buffered and in case of a exception also outputted.\n\t\t\tif set to false the content to body is ignored and not disabled when a failure in the body of the tag occur.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"roles",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"This attribute is used only for a component. If this attribute is omitted, all roles can invoke the method.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"access",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"This attribute is used only for a component.\nThe client security context from which the method can be invoked",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"output",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"This attribute is used only for a component.\n\nyes: the function is processed as if it were within a cfoutput tag\nno: the function is processed as if it were within a cfsilent tag ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"displayname",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Display Name of the Function",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"hint",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Hint of the Function",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"abstract",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"is the function abstract or not, abstract functions are only allowed inside interface or component tags",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"description",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Supplies a short text description of the function.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"returnFormat",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The format in which to return values to a remote caller.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"description",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Supplies a short text description of the function.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"secureJson",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"A Boolean value that specifies whether to add a security prefix in front of any value that the function returns in JSON-format in response to a remote call.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"verifyClient",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"A Boolean value that specifies whether to require remote function calls to include an encrypted security token. For use with AJAX applications only.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"localMode",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Defines how the local scope of this function is invoked when a variable with no scope definition is used.  Accepted values include:\n\n- classic (default): The local scope is only invoked when the key already exists in it.\n- modern: The local scope is always invoked.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cachedWithin",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"\npossible values are:\nString \"request\": If original content was created within the current request, cached content data isused.\na timespan (created with function CreateTimeSpan): If original content date falls within the time span, cached content data isused.\n\nTo use cached data, the function must be called with the exact same arguments.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

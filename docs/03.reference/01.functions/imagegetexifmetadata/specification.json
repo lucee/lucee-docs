@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"ImageGetEXIFMetadata",
+  "name":"ImageGetEXIFMetadata",
+  "memberName":"",
+  "description":"Retrieves the Exchangeable Image File Format (EXIF) headers in an image as a CFML structure.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageGetEXIFMetadata",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"The image on which this operation is performed.",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

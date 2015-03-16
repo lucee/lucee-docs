@@ -1,1 +1,0 @@
-Places a border around the tree. Default is Yes.

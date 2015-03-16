@@ -1,1 +1,0 @@
-Sends an outgoing message through a event gateway.

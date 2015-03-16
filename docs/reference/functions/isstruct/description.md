@@ -1,1 +1,0 @@
-Determines if the object is a structure

@@ -1,0 +1,45 @@
+{
+  "pageType":"function",
+  "title":"structFind",
+  "name":"structFind",
+  "memberName":"find",
+  "description":"Determines the value associated with a key in a structure.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructFind",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "struct",
+    "find"
+  ],
+  "arguments":[
+    {
+      "name":"structure",
+      "description":"Structure that contains the value to return",
+      "type":"struct",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"key",
+      "description":"Key whose value to return",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"defaultValue",
+      "description":"Default value which will be returned if the key does not exist or if null was found",
+      "type":"any",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

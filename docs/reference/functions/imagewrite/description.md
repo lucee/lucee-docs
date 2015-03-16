@@ -1,1 +1,0 @@
-Writes a image to the specified filename or destination.

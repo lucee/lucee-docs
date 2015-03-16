@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"sizeOf",
+  "name":"sizeOf",
+  "memberName":"",
+  "description":"this function is experimentell, to not use in productive enviroment. this function returns the size in bytes of a given object.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.SizeOf",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"obj",
+      "description":"object to get size for",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"complex",
+      "description":"if set to false, the size is returned, if set to true a struct containing the element count and the size is returned",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

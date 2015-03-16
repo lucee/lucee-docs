@@ -1,1 +1,0 @@
-The secret key to create HMAC. The key can be a String or a byte array.

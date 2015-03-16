@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"getMetadata",
+  "name":"getMetadata",
+  "memberName":"",
+  "description":"Returns back meta information depending on the object passed in",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.GetMetaData",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"object",
+      "description":"A component, user-defined function, query object, XML, ... . Within a CFC, the parameter can also specify the This scope",
+      "type":"any",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"source",
+      "description":"return information of the source of the object",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,1 +1,0 @@
-Beginning value of index.

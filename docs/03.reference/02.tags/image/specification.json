@@ -1,0 +1,401 @@
+{
+  "pageType":"tag",
+  "title":"Image",
+  "name":"Image",
+  "description":"Lets you resize and add labels to GIF and JPEG format images.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Image",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":"read",
+      "description":"Action to execute.",
+      "aliases":[
+        
+      ],
+      "values":[
+        "border",
+        "captcha",
+        "convert",
+        "writetobrowser",
+        "write",
+        "rotate",
+        "resize",
+        "read",
+        "info"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"angle",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Angle in degrees to rotate the image.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"passthrough",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n\t\t\tHTML attributes that are not explicitly supported by cfimage.\n\t\t\t\tIf you specify an attribute and value,\n\t\t\t\tthey are passed to the tag \"img\".\n\t\t\t",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"color",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Border color. Hexadecimal value or supported named color. For a hexadecimal value, use the form \"#xxxxxx\" or \"xxxxxx\", where x = 0-9 or A-F; use two number signs or none.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"destination",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Absolute or relative pathname where the image output is written.\n\t\t\t\tThe image format is determined by the file extension.\n\t\t\t\tThe convert and write actions require a destination attribute.\n\t\t\t\tThe border, captcha, resize, and rotate actions require a name attribute or a destination attribute.\n\t\t\t\tYou can specify both.\n\t\t\t\tIf you do not enter a destination,\n\t\t\t\tthe CAPTCHA image is placed inline in the HTML output and displayed in the web browser.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"difficulty",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Level of complexity of the CAPTCHA text.\n\t\t\tSpecify one of the following levels of text distortion:\n\t\t\tlow, medium, high\n\t\t\t",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"fonts",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"One or more valid fonts to use for the CAPTCHA text. Separate multiple fonts with commas.\n\t\t\tLucee supports only the system fonts that the JDK can recognize. For example, TTF fonts in the Windows directory are supported on Windows.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"fontSize",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"font size of the text in the CAPTCHA image.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"format",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Format of the image displayed in the browser.\n\t\t\tIf you do not specify a format, the image is displayed in PNG format.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"height",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Height in pixels of the image.\n\t\t\tFor the resize attribute, you also can specify the height as a percentage.\n\t\t\tWhen you resize an image, if you specify a value for the width.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"isBase64",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies whether the source is a Base64 string",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of the image variable to create.\n\t\t\tThe read action requires a name attribute.\n\t\t\tThe border, resize, and rotate actions require a name attribute or a destination attribute.\n\t\t\tYou can specify both.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"overwrite",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"If the destination file already exists, Lucee generates an error if the overwrite action is not set to yes.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"quality",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Quality of the JPEG destination file. Applies only to files with an extension of JPG or JPEG. Valid values are fractions that range from 0 through 1 (the lower the number, the lower the quality).",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"source",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"source file",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"structName",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of the structure to be created.",
+      "aliases":[
+        "result"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"text",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Text string displayed in the CAPTCHA image. Use capital letters for better readability. Do not include spaces because users cannot detect them in the resulting CAPTCHA image.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"thickness",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Border thickness in pixels. The border is added to the outside edge of the source image, increasing the image area accordingly.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"width",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Width in pixels of the image.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"base64",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"should action \"writetobrowser\" embed the source of the image as base64 encoded string, default is false.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

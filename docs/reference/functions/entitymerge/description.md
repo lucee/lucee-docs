@@ -1,1 +1,0 @@
-Attaches given enity to current ORM session

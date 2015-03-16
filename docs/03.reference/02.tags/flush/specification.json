@@ -1,0 +1,51 @@
+{
+  "pageType":"tag",
+  "title":"flush",
+  "name":"flush",
+  "description":"Flushes currently available data to the client.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Flush",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"single",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"interval",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Flush the output each time at least the specified number of bytes become available. HTML\n\t\theaders, and any data that is already available when you make this call, are not included in\n\t\tthe count.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":"optional",
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

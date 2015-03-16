@@ -1,1 +1,0 @@
-Invalidates or cleans up the current session.

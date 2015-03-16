@@ -1,0 +1,32 @@
+{
+  "pageType":"function",
+  "title":"IsJson",
+  "name":"IsJson",
+  "memberName":"",
+  "description":"Evaluates whether a string is in valid JSON (JavaScript Object Notation) data interchange format.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.conversion.IsJSON",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "json",
+    "javascript"
+  ],
+  "arguments":[
+    {
+      "name":"var",
+      "description":"A string or variable that represents one.",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

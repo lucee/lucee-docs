@@ -1,0 +1,195 @@
+{
+  "pageType":"tag",
+  "title":"videoPlayerParam",
+  "name":"videoPlayerParam",
+  "description":"play a video",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.VideoPlayerParam",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"video",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Path to the FLV file. Can be a URL or local file.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"flash",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Path to the SWF file. Can be a URL or local file.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"show",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Defines whether the video should be displayed or not.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"title",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Title of the video. Displayed in the playlist as the title.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"index",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Layer in which the video is displayed. (not supported yet)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"preview",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Path to a preview image for playlist and main video display. Can be URL or local file.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"image",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"This is just an alias for the attribute preview.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"link",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Displays a tiny image and allows linking to any target. (HTML link, Ajax etc.)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"author",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of the author.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

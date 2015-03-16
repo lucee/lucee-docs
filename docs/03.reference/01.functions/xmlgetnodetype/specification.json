@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"XmlGetNodeType",
+  "name":"XmlGetNodeType",
+  "memberName":"",
+  "description":"Determines the type of an XML document object node.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.xml.XmlGetNodeType",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"xml",
+      "description":"An XML DOM object node",
+      "type":"xml",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

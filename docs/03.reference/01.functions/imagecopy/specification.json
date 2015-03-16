@@ -1,0 +1,72 @@
+{
+  "pageType":"function",
+  "title":"ImageCopy",
+  "name":"ImageCopy",
+  "memberName":"",
+  "description":"Copies a rectangular area of an image.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageCopy",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"The image on which this operation is performed.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"x",
+      "description":"The x coordinate of the source rectangle.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"y",
+      "description":"The y coordinate of the source rectangle.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"width",
+      "description":"The width of the source rectangle.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"height",
+      "description":"The height of the source rectangle.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"dx",
+      "description":"The x coordinate of the destination rectangle.",
+      "type":"number",
+      "required":false,
+      "default":"-999"
+    },
+    {
+      "name":"dy",
+      "description":"The y coordinate of the destination rectangle.",
+      "type":"number",
+      "required":false,
+      "default":"-999"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

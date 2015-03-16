@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"insert",
+  "name":"insert",
+  "memberName":"insert",
+  "description":"Inserts a substring in a string after a specified character\n        position. If position = 0, prefixes the substring to the\n        string.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.Insert",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"substring",
+      "description":"String to insert.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"string",
+      "description":"String into which to insert substring.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"position",
+      "description":"position in string after which to insert substring.",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

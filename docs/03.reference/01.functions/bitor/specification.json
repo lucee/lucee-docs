@@ -1,0 +1,38 @@
+{
+  "pageType":"function",
+  "title":"bitOr",
+  "name":"bitOr",
+  "memberName":"",
+  "description":"Performs a bitwise logical OR operation.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.BitOr",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    {
+      "name":"number1",
+      "description":"a integer",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"number2",
+      "description":"a integer",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

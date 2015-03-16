@@ -1,0 +1,285 @@
+{
+  "pageType":"tag",
+  "title":"Formgroup",
+  "name":"Formgroup",
+  "description":"Creates a container control for multiple form controls.\n\t\tIgnored in HTML forms.",
+  "status":"unimplemented",
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Formgroup",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"type",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"For XML forms can be any XForms group type defined in the XSLT.\n            For Flash see the value options and docs for more information.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"query",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The query to use with the repeater. Flash creates an\n            instance of each of the cfformgroup tag's child tags for\n            each row in the query. You can use the bind attribute in\n            the child tags to use data from the query row for the\n            instance.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"startrow",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Used only for the repeater type; ignored otherwise.\n            Specifies the row number of the first row of the query to\n            use in the Flash form repeater. This attribute is zerobased:\n            the first row is row 0, not row 1 (as in most Lucee tags).\n            Default: 0",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"maxrows",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Used only for for the repeater type; ignored otherwise.\n            Specifies the maximum number of query rows to use in\n            the Flash form repeater. If the query has more rows than\n            the sum of the startrow attribute and this value, the\n            repeater does not use the remaining rows.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"label",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Label to apply to the form group. In Flash, does the following:\n            - For a page or panel form group, determines the label to\n            put on the corresponding accordion pleat, the tab navigator tab,\n            or the panel title bar. For a Flash horizontal or vertical form\n            group, specifies the label to put to the left of the group.\n            - Ignored in Flash for repeater, hbox, hdividedbox, vbox,\n            vdividedbox, tile, accordion, and tabnavigator types.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"style",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Flash: A Flash style specification in CSS format.\n            XML: An inline CSS style specification.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"selectedIndex",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Used only for accordion and tabnavigator types; ignored\n            otherwise. Specifies the page control to display as open,\n            where 0 (not 1) specifies the first page control defined in\n            the group.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"width",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Width of the group container, in pixels. If you omit this\n            attribute, Flash automatically sizes the container width.\n            Ignored for Flash repeater type.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"height",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Height of the group container, in pixels. If you omit this\n            attribute, Flash automatically sizes the container height.\n            Ignored for Flash repeater type.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"enabled",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Flash only: Boolean value specifying whether the controls in the\n            form group are enabled. Disabled controls appear in\n            light gray.\n            Default: true",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"visible",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Flash only: Boolean value specifying whether the controls in the\n            form group are visible. If the controls are invisible, the\n            space that would be occupied by visible controls is blank.\n            Default: true",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"onChange",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Flash only: tabnavigator and accordion types only: ActionScript\n            expression or expressions to execute when a new tab or\n            accordion page is selected. Note: The onChange event\n            occurs when the form first displays.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"tooltip",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Flash only: Text to display when the mouse pointer hovers in the\n            form group area. If a control in the form group also\n            specifies a tooltip, Flash displays the control's tooltip\n            when the mouse pointer hovers over the control.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"id",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"ID for form input element.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

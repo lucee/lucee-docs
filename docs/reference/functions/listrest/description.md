@@ -1,1 +1,0 @@
-Gets a list, without its first element.

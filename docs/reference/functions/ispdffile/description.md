@@ -1,1 +1,0 @@
-Verifies whether a PDF file is valid.

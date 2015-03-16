@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"fileClose",
+  "name":"fileClose",
+  "memberName":"",
+  "description":"Closes an file that is open.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileClose",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"fileObj",
+      "description":"The file to close.",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

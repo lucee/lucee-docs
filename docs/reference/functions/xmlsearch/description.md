@@ -1,1 +1,0 @@
-Uses an XPath language expression to search an XML document object.

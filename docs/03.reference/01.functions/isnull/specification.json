@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"isNull",
+  "name":"isNull",
+  "memberName":"",
+  "description":"Determines whether given object is null or not",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.IsNull",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"object",
+      "description":"Object for which you perform the null check. ",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

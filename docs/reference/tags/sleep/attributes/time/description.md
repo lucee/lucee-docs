@@ -1,1 +1,0 @@
-Expressed in milli seconds.

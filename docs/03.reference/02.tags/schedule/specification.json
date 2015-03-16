@@ -1,0 +1,524 @@
+{
+  "pageType":"tag",
+  "title":"Schedule",
+  "name":"Schedule",
+  "description":"Provides a programmatic interface to the scheduling engine. You can run a specified\n  page at scheduled intervals with the option to write out static HTML pages. This lets you offer users\n  access to pages that publish data, such as reports, without forcing users to wait while a database transaction\n  is performed in order to populate the data on the page.\n  ",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Schedule",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n- delete: deletes the specified task\n- update: updates an existing task or creates a new task, if one with the name specified by the task attribute does not exist\n- run: executes the specified task\n- list: list all scheduled tasks defined\n- pause: pause execution of the defined scheduled task\n- resume: resume execution of a paused scheduled task\n",
+      "aliases":[
+        
+      ],
+      "values":[
+        "delete",
+        "run",
+        "update",
+        "list",
+        "resume",
+        "pause"
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"serverpassword",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"allow you to access filesystem, also when access is denied for your context",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"hidden",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"if set to true the scheduled task is not displayed in the Lucee Administrator.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"readonly",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"if set to true the scheduled task can not be modified or deleted in the Lucee Administrator.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"task",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The name of the task to delete, update, or run.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"operation",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The type of operation the scheduler performs when executing this task.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"paused",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"if set to true the scheduled task is paused.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"file",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Required with publish ='Yes' A valid filename for the published file.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"path",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Required with publish ='Yes' The path location for the published file.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"startDate",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Required when action ='update'. The date when scheduling of the task should start.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"startTime",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Required when creating tasks with action = 'update'. Enter a value in seconds. The time when\n\tscheduling of the task starts.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"url",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Required when action = 'update'. The URL to be executed.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"publish",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies whether the result should be saved to a file.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"endDate",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"The date when the scheduled task ends.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"endTime",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"The time when the scheduled task ends. Enter a value in seconds.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"interval",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Required when creating tasks with action = 'update'. Interval at which task should be scheduled.\n\t\tCan be set in seconds or as Once, Daily, Weekly, and Monthly. The default interval is one hour. The\n\t\tminimum interval is one minute.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"requestTimeOut",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Customizes the requestTimeOut for the task operation. Can be used to extend the default timeout\n\t\tfor operations that require more time to execute.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"username",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Username if URL is protected.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"password",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Password if URL is protected.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyServer",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Host name or IP address of a proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyUser",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"User name to provide to the proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyPassword",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Password to provide to the proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"resolveURL",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies whether to resolve links in the result page to absolute references.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"port",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"The port number on the server from which the task is being scheduled. Default is 80. When used\n\t\twith resolveURL, the URLs of retrieved documents that specify a port number are automatically resolved\n\t\tto preserve links in the retrieved document.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyPort",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"The port number on the proxy server from which the task is being requested. Default is 80. When\n\t\tused with resolveURL, the URLs of retrieved documents that specify a port number are automatically\n\t\tresolved to preserve links in the retrieved document.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"returnvariable",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"return variable name of action list",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"autoDelete",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"if set to true, the scheduled task get deleted when there is no possible future execution.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"hidden",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"wrap",
+  "name":"wrap",
+  "memberName":"wrap",
+  "description":"Wraps text so that each line has a specified maximum number of characters.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.Wrap",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"The text to wrap.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"limit",
+      "description":"Positive integer maximum number of characters to allow on a line.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"strip",
+      "description":"Whether to remove all existing newline and carriage return characters in the input string with spaces before wrapping the text.",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

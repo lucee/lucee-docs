@@ -1,1 +1,0 @@
-Performs a bitwise logical XOR operation.

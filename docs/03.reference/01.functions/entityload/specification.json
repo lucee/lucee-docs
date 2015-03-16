@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"entityLoad",
+  "name":"entityLoad",
+  "memberName":"",
+  "description":"Loads and returns an array of entities of the specified entityname.\nEntityLoad (entityname, filtercriteria [,unique]\nEntityLoad(entityname, filtercriteria, sortorder [, options])",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.EntityLoad",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"Name of the entity to be loaded.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"idOrFilter",
+      "description":"The primary key value of the entity that must be loaded or Key-value pair (Struct) of property names and values.\n\t\tIf there are more than one key-value pair, then the AND operator is used.If specified, loads and returns an array of entities of the specified entity name that matches the filtercriteria.",
+      "type":"any",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"uniqueOrOrder",
+      "description":"when the second argument is a id then this argument defines the boolean \"unique\" otherwise it defines the order.\n\n- unique:\nIf unique is set to true, then the entity is returned.\nIf you are sure that only one record exists that matches this filtercriteria, then you can specify unique=true, so that a single entity is returned instead of an array.\nIf you set unique=true and multiple records are returned, then an exception occurs.\n\n- order:\nString used to specify the sortorder of the entities that are returned.If specified, loads and returns an array of entities that satisfy the filtercriteria sorted as specified by the sortorder.\n\n\t\t",
+      "type":"any",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"options",
+      "description":"\nThe following options to customize the output (only used when second argument is \"id\"):\n- ignorecase: Ignores the case of sort order when set to true. Use only if you specify the sortorder parameter.\n- offset: Specifies the position from which to retrieve the objects.\n- maxResults: Specifies the maximum number of objects to be retrieved.\n- cacheable: Whether the result has to be cached in the secondary cache. Default is false.\n- cachename: Name of the cache in secondary cache.\n- timeout: Specifies the timeout value (in seconds) for the query.\n\t\t",
+      "type":"any",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

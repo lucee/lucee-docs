@@ -1,1 +1,0 @@
-image used for tickmarks

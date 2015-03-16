@@ -1,1 +1,0 @@
-this function return a array containing all keys inside the cache.

@@ -1,1 +1,0 @@
-Determines whether a CFC is being called as a web service.

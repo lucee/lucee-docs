@@ -1,1 +1,0 @@
-the encoding used, default encoding is the web charset of the enviroment.

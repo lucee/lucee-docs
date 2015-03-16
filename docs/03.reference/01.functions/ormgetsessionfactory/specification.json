@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"ORMGetSessionFactory",
+  "name":"ORMGetSessionFactory",
+  "memberName":"",
+  "description":"Returns ORM session factory instance",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.ORMGetSessionFactory",
+  "returnType":"object",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"datasource",
+      "description":"datasource used for the session, if nor defined the datasource defined in application.cfc/cfapplication is used.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

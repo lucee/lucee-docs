@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"replace",
+  "name":"replace",
+  "memberName":"replace",
+  "description":"Replaces occurrences of substring1 in a string with substring2,\n        in a specified scope. The search is case-sensitive.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.Replace",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"String in which to search. ",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"substring1",
+      "description":"Substring for which to search.  Optionally pass a Struct with key/value pairs to do a replace all",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"substring2",
+      "description":"Substring with which to replace the found matches.  This arg is required if the substring1 arg is a string",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"scope",
+      "description":"scope for the execution:\n- one (default): replaces only the first occurrence\n- all: replaces all occurrences",
+      "type":"string",
+      "required":false,
+      "default":"one"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

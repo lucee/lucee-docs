@@ -1,0 +1,39 @@
+{
+  "pageType":"function",
+  "title":"lSParseNumber",
+  "name":"lSParseNumber",
+  "memberName":"",
+  "description":"Converts a string that is a valid numeric representation in\n        the current locale into a formatted number.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.international.LSParseNumber",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "string",
+    "parsing"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"A string or a variable that contains one",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"locale",
+      "description":"Locale to use instead of the locale of the page when processing the function",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

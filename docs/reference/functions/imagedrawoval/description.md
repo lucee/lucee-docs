@@ -1,1 +1,0 @@
-Draws an oval.

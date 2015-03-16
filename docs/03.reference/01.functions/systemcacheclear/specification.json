@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"SystemCacheClear",
+  "name":"SystemCacheClear",
+  "memberName":"",
+  "description":"clears all caches or the specified cache",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.SystemCacheClear",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"cacheName",
+      "description":"Name of the cache to clear, if not defined all caches will be cleared:\n      the following cache Names are supported:\n      - all: clear all caches\n      - template: clears the template cache\n      - component: clears the component path cache\n      - customtag: clears the custom tag path cache\n      - query: clears the query cache\n      - tag: clears the cfml/cfc based built in tag cache\n      - function: clears the cfml based built in function cache\n\t\t",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

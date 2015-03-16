@@ -1,1 +1,0 @@
-Converts CFML data into a JSON (JavaScript Object Notation) representation of the data.

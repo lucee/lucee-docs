@@ -1,1 +1,0 @@
-Resizes a image.

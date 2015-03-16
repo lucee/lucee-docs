@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"structUpdate",
+  "name":"structUpdate",
+  "memberName":"update",
+  "description":"Updates a key with a value.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructUpdate",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "struct"
+  ],
+  "arguments":[
+    {
+      "name":"structure",
+      "description":"Structure to update",
+      "type":"struct",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"key",
+      "description":"Key, the value of which to update",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"value",
+      "description":"New value",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

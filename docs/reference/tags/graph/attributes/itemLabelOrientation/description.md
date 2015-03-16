@@ -1,3 +1,0 @@
-
-      Orientation of item labels.
-    

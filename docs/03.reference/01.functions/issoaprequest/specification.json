@@ -1,0 +1,25 @@
+{
+  "pageType":"function",
+  "title":"IsSOAPRequest",
+  "name":"IsSOAPRequest",
+  "memberName":"",
+  "description":"Determines whether a CFC is being called as a web service.",
+  "status":"implemeted",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsSOAPRequest",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "webservice"
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

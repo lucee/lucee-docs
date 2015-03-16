@@ -1,1 +1,0 @@
-Name of variable to write time to it

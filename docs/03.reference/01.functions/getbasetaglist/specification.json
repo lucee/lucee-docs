@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"getBaseTagList",
+  "name":"getBaseTagList",
+  "memberName":"",
+  "description":"Gets ancestor tag names, starting with the parent tag.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.GetBaseTagList",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"delimiter",
+      "description":"delimiter used for the list",
+      "type":"string",
+      "required":false,
+      "default":","
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

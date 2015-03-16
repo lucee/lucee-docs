@@ -1,0 +1,24 @@
+{
+  "pageType":"function",
+  "title":"componentCacheList",
+  "name":"componentCacheList",
+  "memberName":"",
+  "description":"list elements in the component path cache",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.component.ComponentCacheList",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

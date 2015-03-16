@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"RestDeleteApplication",
+  "name":"RestDeleteApplication",
+  "memberName":"",
+  "description":"Deletes a existing REST mapping.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.rest.RestDeleteApplication",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"dirPath",
+      "description":"Path to the directory to be registered or reseted.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"password",
+      "description":"password for the web administrator, this is needed delete a REST mapping.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"FileWriteLine",
+  "name":"FileWriteLine",
+  "memberName":"",
+  "description":"Opens up the file (or uses the existing file object) and appends the given line of text",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileWriteLine",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"file",
+      "description":"the file object to which to write the line.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"data",
+      "description":"data to add to the file object.",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"EntityNameList",
+  "name":"EntityNameList",
+  "memberName":"",
+  "description":"return all loaded entities as string list",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.EntityNameList",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"delimiter",
+      "description":"delimter used for the list",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

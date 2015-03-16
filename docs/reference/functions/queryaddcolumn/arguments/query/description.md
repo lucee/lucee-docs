@@ -1,1 +1,0 @@
-Name of a query object.

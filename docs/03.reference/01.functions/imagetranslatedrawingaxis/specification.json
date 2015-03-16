@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"ImageTranslateDrawingAxis",
+  "name":"ImageTranslateDrawingAxis",
+  "memberName":"",
+  "description":"Translates the origin of the image context to the point (x,y) in the current coordinate system.\n\t\tModifies the image context so that its new origin corresponds to the point (x,y) in the image's original coordinate system.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageTranslateDrawingAxis",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"The image on which this operation is performed.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"x",
+      "description":"x coordinate",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"y",
+      "description":"y coordinate",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

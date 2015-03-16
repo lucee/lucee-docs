@@ -1,0 +1,24 @@
+{
+  "pageType":"function",
+  "title":"GetSystemTotalMemory",
+  "name":"GetSystemTotalMemory",
+  "memberName":"",
+  "description":"The amount of memory that is available to the operating system, in bytes.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetSystemTotalMemory",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

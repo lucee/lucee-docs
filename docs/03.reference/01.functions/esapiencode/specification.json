@@ -1,0 +1,45 @@
+{
+  "pageType":"function",
+  "title":"ESAPIEncode",
+  "name":"ESAPIEncode",
+  "memberName":"",
+  "description":"Encodes the given string for safe output to stop Cross Site Scripting attacks.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.owasp.ESAPIEncode",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "ESAPI",
+    "CSS",
+    "DN",
+    "HTML",
+    "JavaScript",
+    "ldap",
+    "URL",
+    "VBScript",
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"encodeFor",
+      "description":"encode for what, valid values are:\n- css: for output inside Cascading Style Sheets (CSS)\n- dn: for output in LDAP Distinguished Names\n- html: for output inside HTML\n- html_attr: for output inside HTML Attributes\n- javascript: for output inside Javascript\n- ldap: for output in LDAP queries\n- url: for output in URL\n- vbscript: for output inside vbscript\n- xml: for output inside XML\n- xml_attr: for output inside XML Attributes\n- xpath: for output in XPath\n",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"string",
+      "description":"string to encode",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

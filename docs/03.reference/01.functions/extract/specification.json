@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"extract",
+  "name":"extract",
+  "memberName":"",
+  "description":"extract data out of a compressed file",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.Extract",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"format",
+      "description":"\n\t\t\tFormat to extract (bzip,gzip,tar,tbz (tar bzip),tgz (tar gzip) and zip)\n\t\t\t",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"source",
+      "description":"\n\t\t\tsource file or directory with zip files to extract\n\t\t\t",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"target",
+      "description":"\n\t\t\tname of the target directory\n\t\t\t",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

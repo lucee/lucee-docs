@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"Sleep",
+  "name":"Sleep",
+  "memberName":"",
+  "description":"Causes the current thread to stop processing for a specified period of time.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.Sleep",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"duration",
+      "description":"Time, in milliseconds, to stop processing the thread.",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

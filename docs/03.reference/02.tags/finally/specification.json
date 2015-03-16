@@ -1,0 +1,34 @@
+{
+  "pageType":"tag",
+  "title":"Finally",
+  "name":"Finally",
+  "description":"Used inside a cftry tag.\n\t\tCode in the cffinally block is processed after the main cftry code and, if an exception occurs, the cfcatch code.\n\t\tThe cffinally block code always executes, whether or not there is an exception.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":"yes",
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Finally",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

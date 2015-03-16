@@ -1,1 +1,0 @@
-This function is deprecated.

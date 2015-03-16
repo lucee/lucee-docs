@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"lTrim",
+  "name":"lTrim",
+  "memberName":"ltrim",
+  "description":"Removes leading spaces from a string.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.LTrim",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"A string or a variable that contains one",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

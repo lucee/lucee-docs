@@ -1,0 +1,249 @@
+{
+  "pageType":"tag",
+  "title":"invoke",
+  "name":"invoke",
+  "description":"\n\t\t\tInvokes component methods from within a page or component.\n\t\t\tYou use this tag to reference a WSDL file and consume a web service from within a block of CFML code.\n\t\t",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"free",
+  "attributeType":"mixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Invoke",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"component",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"String or component object; a reference to a component, or\n            component to instantiate.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"method",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of a method. For a web service, the name of an\n            operation.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"returnvariable",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of a variable for the invocation result.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"username",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Overrides username specified in Administrator > Web Services",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"password",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Overrides password specified in Administrator > Web Services",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"webservice",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The URL of the WSDL file for the web service.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"timeout",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The timeout for the web service request, in seconds",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyserver",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The proxy server required to access the webservice URL.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyport",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The port to use on The proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyuser",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The user ID to send to the proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxypassword",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The user's password on the proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"serviceport",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The port name for the web service. This value is\n            case-sensitive and corresponds to the port element's\n            name attribute under the service element. Specify this\n            attribute if the web service contains multiple ports.\n            Default: first port found in the WSDL.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

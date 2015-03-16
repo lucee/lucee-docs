@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"decodeFromURL",
+  "name":"decodeFromURL",
+  "memberName":"",
+  "description":"Decodes a string that has been encoded in the URL using the encodeForURL.\n\t\tthis function is deprecated, use function ESAPIDecode('url',...) instead.",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.owasp.DecodeFromURL",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "ESAPI",
+    "URL"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"string to encode",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

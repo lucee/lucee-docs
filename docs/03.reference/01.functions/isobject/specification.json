@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"isObject",
+  "name":"isObject",
+  "memberName":"",
+  "description":"Determines whether a value is an object.\n        True, if the value represents a CFML object. False if\n        the value is any other type of data, such as an integer, string,\n        date, or struct.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsObject",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"A value, typically the name of a variable.",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

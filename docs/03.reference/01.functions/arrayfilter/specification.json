@@ -1,0 +1,52 @@
+{
+  "pageType":"function",
+  "title":"arrayFilter",
+  "name":"arrayFilter",
+  "memberName":"filter",
+  "description":"This function creates a new Array that returns all the values from an array that match the given filter.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayFilter",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "array",
+    "iterator"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"array to filter values from",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"filter",
+      "description":"filter can be a function/closure that implements the following constructor [function(any arg):boolean].",
+      "type":"function",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"parallel",
+      "description":"execute closures parallel",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"maxThreads",
+      "description":"maximum number of threads executed, ignored when argument \"parallel\" is set to false",
+      "type":"number",
+      "required":false,
+      "default":"20"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

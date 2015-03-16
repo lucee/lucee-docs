@@ -1,1 +1,0 @@
-Renames given directory

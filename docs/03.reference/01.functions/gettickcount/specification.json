@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"getTickCount",
+  "name":"getTickCount",
+  "memberName":"",
+  "description":"Returns the number of milliseconds since the start of the application server",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.GetTickCount",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"unit",
+      "description":"base unit for the function, valid values are:\n- nano: nano seconds\n- milli (default): milli seconds\n- second: seconds",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

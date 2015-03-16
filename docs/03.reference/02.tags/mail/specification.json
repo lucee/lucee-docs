@@ -1,0 +1,611 @@
+{
+  "pageType":"tag",
+  "title":"mail",
+  "name":"mail",
+  "description":"Sends e-mail messages by an SMTP server.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":"false",
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Mail",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":"lucee.transformer.cfml.evaluator.impl.Mail"
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"from",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"The sender of the e-mail message.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"to",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"The name of the e-mail message recipient.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cc",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"Indicates addresses to copy the e-mail message to; \"cc\" stands for \"carbon copy.\"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"bcc",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"Indicates addresses to copy the e-mail message to, without listing them in the message header.\n\t\t\"bcc\" stands for \"blind carbon copy.\"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"replyto",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"Address(es) to which the recipient is directed to send replies.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"failto",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"Address to which mailing systems should send delivery failure notifications. Sets the mail envelope reverse-path value.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"subject",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The subject of the mail message. This field may be driven dynamically on\n\t\ta message-by-message basis",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"type",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies extended type attributes for the message.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"maxRows",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the maximum number of e-mail messages to send.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"mimeattach",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the path of the file to be attached to the e-mail message. An attached file\n\t\tis MIME-encoded.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"query",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The name of the cfquery from which to draw data for message(s) to send. Specify this\n\t\tattribute to send more than one mail message, or to send the results of a query within a message.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"group",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the query column to use when you group sets of records together to send as an e-mail\n\t\tmessage. For example, if you send a set of billing statements to customers, you might group on\n\t\t\"Customer_ID.\" The group attribute, which is case sensitive, eliminates adjacent duplicates when the\n\t\tdata is sorted by the specified field. See the Usage section for exceptions.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"groupCaseSensitive",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Boolean indicating whether to group with regard to case or not. The default value is NO;\n\t\tcase is considered while grouping. If the query attribute specifies a query object that was generated\n\t\tby a case-insensitive SQL query, set the groupCaseSensitive attribute to NO to keep the recordset\n\t\tintact.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"implemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"startRow",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the row in the query to start from.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"server",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The address of the SMTP server to use for sending messages. If no server is specified, the\n\t\tserver name specified in the Lucee Administrator is used.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"port",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The TCP/IP port on which the SMTP server listens for requests. This is normally 25.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"mailerID",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies a mailer ID to be passed in the X-Mailer SMTP header, which identifies the mailer\n\t\tapplication.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"timeout",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The number of seconds to wait before timing out the connection to the SMTP server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"username",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"A user name to send to SMTP servers that require authentication. Requires a password attribute.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"password",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"A password to send to SMTP servers that require authentication. Requires a username attribute.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"wraptext",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the maximum line length, in characters of the mail text. If a line has more than the specified number of characters, replaces the last white space character, such as a tab or space, preceding the specified position with a line break. If there are no white space characters, inserts a line break at the specified position. A common value for this attribute is 72.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"charset",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Character encoding of the mail message",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"async",
+      "type":"boolean",
+      "default":true,
+      "defaultValue":null,
+      "description":"if set to true, the mail is sent asynchronously by the Lucee Task manager (with multiple tries),\n\t\t\tif set to false the mail is sent in the same thread that executes the request, which is useful for troubleshooting because you get an error message if there is one.\n\t\t\tThis setting overrides the setting with the same name in the Lucee Administrator.\n\t\t\tThis attribute replaces the old \"spoolenable\" attribute which is still supported as an alias.",
+      "aliases":[
+        "spoolenable"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"usetls",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Whether to use Transport Level Security.",
+      "aliases":[
+        "tls",
+        "starttls"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"priority",
+      "type":"String",
+      "default":false,
+      "defaultValue":null,
+      "description":"The message priority level. Can be one of the following values:\n    * An integer in the range 1-5; 1 represents the highest priority.\n    * One of the following string values, which correspond to the numeric values: highest or urgent, high, normal, low, and lowest or non-urgent.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"usessl",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Whether to use Secure Sockets Layer.",
+      "aliases":[
+        "ssl",
+        "secure"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyServer",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Host name or IP address of a proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyPort",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The port number on the proxy server from which the object is requested. Default is 80. When\n\tused with resolveURL, the URLs of retrieved documents that specify a port number are automatically\n\tresolved to preserve links in the retrieved document.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyUser",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"When required by a proxy server, a valid username.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyPassword",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"When required by a proxy server, a valid password.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"remove",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"remove all attachments from filesystem after the mail is successfully sent",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sendTime",
+      "type":"datetime",
+      "default":false,
+      "defaultValue":null,
+      "description":"Set a future date time to send an email in the future via the spooler.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

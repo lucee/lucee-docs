@@ -1,1 +1,0 @@
-Calculates the sine of an angle that is entered in radians.

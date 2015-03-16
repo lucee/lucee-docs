@@ -1,1 +1,0 @@
-A structure that contains datasources defintions.

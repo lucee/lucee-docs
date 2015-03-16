@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"isNotMap",
+  "name":"isNotMap",
+  "memberName":"",
+  "description":"return true if the given Object is not of Type java.util.Map",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.IsNotMap",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"obj",
+      "description":"object to check",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

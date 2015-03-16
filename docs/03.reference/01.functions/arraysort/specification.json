@@ -1,0 +1,52 @@
+{
+  "pageType":"function",
+  "title":"arraySort",
+  "name":"arraySort",
+  "memberName":"sort",
+  "description":"Sorts array elements numerically or alphanumerically.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArraySort",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "array",
+    "sort"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"Name of an array ",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"sorttype_or_closure",
+      "description":"\nvalue can be a string or a closure/function.\n\na string must be one of the following values:\n- \"numeric\": sorts numbers\n- \"text\": sorts text alphabetically, taking case into account (case sensitive)\n- \"textnocase\": sorts text alphabetically, without regard to case (case insensitive)\n\nif you define a closure/function, the closure/function must accept 2 parameters of any type and return:\n-1, if first parameter is \"smaller\" than second parameter\n0, if first parameter is equal to second parameter\n1, first parameter is \"bigger\" than second parameter\n\n",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"sort_order",
+      "description":"\nsort direction:\n- asc(default): ascending sort order\n- desc: descending sort order.",
+      "type":"string",
+      "required":false,
+      "default":"asc"
+    },
+    {
+      "name":"locale_sensitive",
+      "description":"if true it does a locale sensitive sorting.",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

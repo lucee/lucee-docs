@@ -1,1 +1,0 @@
-return true if the string starts with the passed prefix.

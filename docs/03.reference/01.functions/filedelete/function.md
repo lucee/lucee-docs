@@ -1,0 +1,7 @@
+---
+title: FileDelete
+related:
+categories:
+---
+
+Deletes the specified file on the server.

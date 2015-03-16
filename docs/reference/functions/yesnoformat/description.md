@@ -1,1 +1,0 @@
-Yes, for a non-zero value; No, otherwise.

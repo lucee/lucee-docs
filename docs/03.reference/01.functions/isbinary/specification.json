@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"isBinary",
+  "name":"isBinary",
+  "memberName":"",
+  "description":"Determines whether a value is stored as binary data.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsBinary",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "binary"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"Number or string",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

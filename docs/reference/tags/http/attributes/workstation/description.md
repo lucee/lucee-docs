@@ -1,1 +1,0 @@
-The workstation the authentication request is originating from. Essentially, the computer name for this machine. this attribute is only used when authenication type is "NTLM"

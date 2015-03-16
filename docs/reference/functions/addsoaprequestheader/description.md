@@ -1,1 +1,0 @@
-Adds a SOAP header to a web service request before making the request.

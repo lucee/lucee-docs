@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"querySetCell",
+  "name":"querySetCell",
+  "memberName":"setCell",
+  "description":"Sets a cell to a value. If no row number is specified,\n        the cell on the last row is set.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.query.QuerySetCell",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "query"
+  ],
+  "arguments":[
+    {
+      "name":"query",
+      "description":"Name of an executed query. ",
+      "type":"query",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"column_name",
+      "description":"",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"value",
+      "description":"",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"row_number",
+      "description":"",
+      "type":"number",
+      "required":false,
+      "default":"-9999"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

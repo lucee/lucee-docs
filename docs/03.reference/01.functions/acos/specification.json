@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"aCos",
+  "name":"aCos",
+  "memberName":"",
+  "description":"Returns the angle whose cosine is the value passed as the argument.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.ACos",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"The value to be converted into an angle. Must be between -1 and 1.",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

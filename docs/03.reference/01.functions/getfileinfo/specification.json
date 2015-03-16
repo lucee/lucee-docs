@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"GetFileInfo",
+  "name":"GetFileInfo",
+  "memberName":"",
+  "description":"Retrieves information about file.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.GetFileInfo",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"file",
+      "description":"file path",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

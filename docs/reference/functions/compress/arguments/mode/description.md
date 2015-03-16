@@ -1,3 +1,0 @@
-
-			mode of the values
-			

@@ -1,0 +1,24 @@
+{
+  "pageType":"function",
+  "title":"componentCacheClear",
+  "name":"componentCacheClear",
+  "memberName":"",
+  "description":"flush the component path cache",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.component.ComponentCacheClear",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

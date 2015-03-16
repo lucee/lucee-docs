@@ -1,1 +1,0 @@
-Returns the java.awt.BufferedImage object underlying the current image.

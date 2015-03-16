@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"ImageGetBufferedImage",
+  "name":"ImageGetBufferedImage",
+  "memberName":"",
+  "description":"Returns the java.awt.BufferedImage object underlying the current image.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageGetBufferedImage",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"The image on which this operation is performed.",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

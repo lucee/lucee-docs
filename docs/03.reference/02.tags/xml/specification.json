@@ -1,0 +1,87 @@
+{
+  "pageType":"tag",
+  "title":"xml",
+  "name":"xml",
+  "description":"Creates a CFML XML document object that contains the markup in the tag body. This tag can include XML and CFML tags.\n\t\tLucee processes the CFML code in the tag body, then assigns the resulting text to an XML document object variable. ",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Xml",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"variable",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"name of an xml variable",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"caseSensitive",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"if set to true maintains the case of document elements and attributes ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"validator",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Any of the following:\n- A string containing a DTD or Schema\n- The name of a DTD or Schema file\n- The URL of a DTD or Schema file; valid protocol identifiers include http, https, ftp, and file",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

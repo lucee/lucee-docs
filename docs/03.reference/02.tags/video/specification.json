@@ -1,0 +1,632 @@
+{
+  "pageType":"tag",
+  "title":"video",
+  "name":"video",
+  "description":"play a video",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Video",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"execution",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"values can be \"quality\" or \"performance\"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Type of video manipulation that the tag performs.",
+      "aliases":[
+        
+      ],
+      "values":[
+        "concat",
+        "convert",
+        "cutImage",
+        "info",
+        "install",
+        "uninstall"
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"source",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"source video to read in",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"source1",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\"left\" source video to read in for concatenation",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"source2",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\"right\" source video to read in for concatenation",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"destination",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"directory of the destination video to create",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"name of the destination video",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"nameconflict",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Action to take if filename is the same as that of a file in the directory. (error,skip,overwrite,makeunique)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"width",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"width of destination video",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"height",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"height of destination video",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"debug",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"buffersize",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"profile",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"standard profile definition (declared in video.xml)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"quality",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"alias for profile",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"audiobitrate",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"audio bitrate, default same as input or part of defined quality (example: 10kbps, 10mbps, 10bps)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"audiosamplerate",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"audio sampling rate, default same as input or part of defined quality",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"aspectRatio",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"aspect ratio (16:9,4:3)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"fps",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"how many frames are used per second",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"framerate",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"how many frames are used per second (alias for fps)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"videoBitrate",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"video bitrate, default same as input or part of defined quality (example: 10kbps, 10mbps, 10bps)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"videoBitrateMin",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"minimal video bitrate of variable bitrate, default same as input or part of defined quality  (example: 10kbps, 10mbps, 10bps)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"videoBitrateMax",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"maximum video bitrate of variable bitrate, default same as input or part of defined quality (example: 10kbps, 10mbps, 10bps)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"videoBitrateTolerance",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"video bitrate tolerance of variable bitrate, default same as input or part of defined quality (example: 10kbps, 10mbps, 10bps)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"author",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"author meta data of the destination video",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"title",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"title meta data of the destination video",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"comment",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"comment meta data of the destination video",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"copyright",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"copyright meta data of the destination video",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"max",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"maximum length of destination video, you can defines max frame (10f) or max time (1145ms,3.123s)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"start",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"offset of destination video based on source, you can defines frames (10f) or time (1145ms,3.123s)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"result",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"name of struct that hold action info (default:cfvideo)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"videocodec",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"force video codec",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"audiocodec",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"force audio codec",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"data",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"for internal use only",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

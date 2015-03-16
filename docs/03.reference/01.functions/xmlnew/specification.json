@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"xmlNew",
+  "name":"xmlNew",
+  "memberName":"",
+  "description":"Creates an XML document object.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.xml.XmlNew",
+  "returnType":"xml",
+  "argumentType":"",
+  "keywords":[
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"caseSensitive",
+      "description":"Determines how Lucee processes the case of XML document object component identifiers:",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

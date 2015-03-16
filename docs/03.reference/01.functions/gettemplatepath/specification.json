@@ -1,0 +1,24 @@
+{
+  "pageType":"function",
+  "title":"getTemplatePath",
+  "name":"getTemplatePath",
+  "memberName":"",
+  "description":"This function is deprecated.\n\n        Use the GetBaseTemplatePath function instead.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetTemplatePath",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

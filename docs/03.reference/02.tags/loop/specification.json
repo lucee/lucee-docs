@@ -1,0 +1,465 @@
+{
+  "pageType":"tag",
+  "title":"loop",
+  "name":"loop",
+  "description":"Looping is a very powerful programming technique that lets you repeat a set of instructions or\n  display output repeatedly until one or more conditions are met. cfloop supports five types of loops.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":"yes",
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Loop",
+    "ttt":"lucee.transformer.bytecode.statement.tag.TagLoop",
+    "tdbt":null,
+    "att":null,
+    "tte":"lucee.transformer.cfml.evaluator.impl.Loop"
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":"loop"
+  },
+  "attributes":[
+    {
+      "name":"index",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Index value. Lucee sets it to from value and increments or decrements by step value, until it equals to value.",
+      "aliases":[
+        "key"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"from",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Beginning value of index.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"to",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Ending value of index. ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"step",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Step by which to increment or decrement the index value. ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"condition",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Condition that controls the loop.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":false
+    },
+    {
+      "name":"query",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"Query that controls the loop. this can be a variable name or the query itself.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"startRow",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"First row of query that is included in the loop.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"endRow",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":" Last row of query that is included in the loop. You cannot use this attribute together with the attribute maxRows.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"maxRows",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the maximum number of rows to display in the output section. You cannot use this attribute together with the attribute endrow.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"list",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"A list, variable, or file name; contains a list ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"array",
+      "type":"array",
+      "default":false,
+      "defaultValue":null,
+      "description":"An array.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"delimiters",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Character(s) that separates items in list ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"collection",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Collection to loop over",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"struct",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"struct to loop over",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"item",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Key for the collection",
+      "aliases":[
+        "value"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"file",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"file path",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"characters",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The number of characters to read during each iteration of the loop from the file specified in the file attribute.\nIf the value of the characters attribute is more than the number of characters in the file,\nLucee uses the number of characters in the file.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"startline",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"start line",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"endline",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"end line",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"charset",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"charset for read the file",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"group",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the query column to use when you group sets of records together to send as an e-mail\n\t\tmessage. For example, if you send a set of billing statements to customers, you might group on\n\t\t\"Customer_ID.\" The group attribute, which is case sensitive, eliminates adjacent duplicates when the\n\t\tdata is sorted by the specified field. See the Usage section for exceptions.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"groupCaseSensitive",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Boolean indicating whether to group with regard to case or not. The default value is NO;\n\t\tcase is considered while grouping. If the query attribute specifies a query object that was generated\n\t\tby a case-insensitive SQL query, set the groupCaseSensitive attribute to NO to keep the recordset\n\t\tintact.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"implemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"label",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"used to a address this loop from a \"break\" or \"continue\" statement (instead of the nearest one).",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"implemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"times",
+      "type":"numeric",
+      "default":false,
+      "defaultValue":null,
+      "description":"used for a simple loop that is looping n times",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"implemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

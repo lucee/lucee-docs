@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"ImageShear",
+  "name":"ImageShear",
+  "memberName":"",
+  "description":"Shears an image either horizontally or vertically.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageShear",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"The image on which this operation is performed.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"shear",
+      "description":"Shear value. Coordinates can be integers or real numbers.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"direction",
+      "description":"Shear direction:\n- horizontal (default)\n- vertical",
+      "type":"string",
+      "required":false,
+      "default":"horizontal"
+    },
+    {
+      "name":"interpolation",
+      "description":"Type of interpolation:\n- nearest (default): Applies the nearest neighbor method of interpolation. Image quality is lower than the other interpolation methods, but processing is fastest.\n- bilinear: Applies the bilinear method of interpolation. The quality of the image is less pixelated than the default, but processing is slower.\n- bicubic: Applies the bicubic method of interpolation. Generally, the quality of image is highest with this method and processing is slowest.",
+      "type":"string",
+      "required":false,
+      "default":"nearest"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,1 +1,0 @@
-Gets ancestor tag names, starting with the parent tag.

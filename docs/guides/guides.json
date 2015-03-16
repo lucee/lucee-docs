@@ -1,5 +1,0 @@
-{
-  "pageType" : "page",
-  "title"    : "Guides",
-  "body"     : "{{include:guides.md}}"
-}

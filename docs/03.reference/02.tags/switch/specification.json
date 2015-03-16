@@ -1,0 +1,51 @@
+{
+  "pageType":"tag",
+  "title":"Switch",
+  "name":"Switch",
+  "description":"Used with cfcase and cfdefaultcase. Evaluates a passed expression and passes control to the\n  cfcase tag that matches the expression result. You can optionally code a cfdefaultcase tag, which\n  receives control if there is no matching cfcase tag value. ",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":"yes",
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Switch",
+    "ttt":"lucee.transformer.bytecode.statement.tag.TagSwitch",
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"expression",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Any CFML expression that yields a scalar value. CFML converts integers, real numbers,\n\t\tBooleans, and dates to numeric values.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

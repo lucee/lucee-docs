@@ -1,1 +1,0 @@
-Evaluates one or more string expressions.

@@ -1,0 +1,32 @@
+{
+  "pageType":"function",
+  "title":"isNumericDate",
+  "name":"isNumericDate",
+  "memberName":"",
+  "description":"Evaluates whether a real number is a valid representation of a\n        date (date/time object).",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsNumericDate",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "number",
+    "date"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"A real number",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"ImagePaste",
+  "name":"ImagePaste",
+  "memberName":"",
+  "description":"Takes two images and an (x,y) coordinate and draws the second image over the first image with the upper-left corner at coordinate (x,y).",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImagePaste",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"image1",
+      "description":"The bottom image.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"image2",
+      "description":"The image that is pasted on top of image1.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"x",
+      "description":" The x coordinate where the upper-left corner of image2 is pasted.",
+      "type":"number",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"y",
+      "description":" The y coordinate where the upper-left corner of image2 is pasted.",
+      "type":"number",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

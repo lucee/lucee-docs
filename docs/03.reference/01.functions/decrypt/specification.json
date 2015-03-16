@@ -1,0 +1,65 @@
+{
+  "pageType":"function",
+  "title":"decrypt",
+  "name":"decrypt",
+  "memberName":"",
+  "description":"Decrypts a string that is encrypted with the Encrypt function.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.Decrypt",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"encrypted_string",
+      "description":"String to decrypt.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"key",
+      "description":"Key or seed used to encrypt the string.\n- For the CFMX_COMPAT algorithm, any combination of any number of characters; used as a seed used to generate a 32-bit encryption key.\n- For all other algorithms, a key in the format used by the algorithm. For these algorithms, use the GenerateSecretKey function to generate the key.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"algorithm",
+      "description":"The algorithm to use to decrypt the string. Must be the same as the algorithm used to encrypt the string.\n- CFMX_COMPAT(default): the CFML specific algorithm. This algorithm is the least secure option\n- AES: the Advanced Encryption Standard specified by the National Institute of Standards and Technology (NIST) FIPS-197\n- BLOWFISH: the Blowfish algorithm defined by Bruce Schneier\n- DES: the Data Encryption Standard algorithm defined by NIST FIPS-46-3\n- DESEDE: the \"Triple DES\" algorithm defined by NIST FIPS-46-3\nYou may also specify other algorithm names as well as the feedback mode and padding scheme where applicable (in the format algorithm/mode/padding) as documented in the Java Cryptography Architecture (JCA) Reference Guide.",
+      "type":"string",
+      "required":false,
+      "default":"cfmx_compat"
+    },
+    {
+      "name":"encoding",
+      "description":"The binary encoding used to represent the data as a string. Must be the same as the algorithm used to encrypt the string.\n- Base64: the Base64 algorithm, as specified by IETF RFC 2045\n- Hex: the characters A-F and 0-9 represent the hexadecimal byte values\n- UU(default): the UNIX standard UUEncode algorithm",
+      "type":"string",
+      "required":false,
+      "default":"uu"
+    },
+    {
+      "name":"IVorSalt",
+      "description":"Initialization Vector for algorithms with Feedback Mode that is not ECB, or Salt for Password Based Encryption algorithms",
+      "type":"any",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"iterations",
+      "description":"number of Iterations for Password Based Encryption algorithms (ignored for all other algorithms). NIST recommends a minimum value of 1000.",
+      "type":"number",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

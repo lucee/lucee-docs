@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"GetApplicationSettings",
+  "name":"GetApplicationSettings",
+  "memberName":"",
+  "description":"return all data from this scope, when using a application.cfc or all setting defined in tag cfapplication",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetApplicationSettings",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"suppressFunction",
+      "description":"if true only data members from this scope are returned (no functions), default is false",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

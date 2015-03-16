@@ -1,1 +1,0 @@
-The user name to use to access the web service. If the webservice attribute specifies a web service configured name in the Lucee Administrator, overrides any user name specified in the Administrator entry.

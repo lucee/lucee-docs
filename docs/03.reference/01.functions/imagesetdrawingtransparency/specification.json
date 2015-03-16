@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"ImageSetDrawingTransparency",
+  "name":"ImageSetDrawingTransparency",
+  "memberName":"",
+  "description":"Specifies the degree of transparency of drawing functions.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageSetDrawingTransparency",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"The image on which this operation is performed.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"percent",
+      "description":"Percent of transparency, a floating point number in range 0-100",
+      "type":"number",
+      "required":false,
+      "default":"1"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

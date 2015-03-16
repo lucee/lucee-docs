@@ -1,0 +1,61 @@
+{
+  "pageType":"function",
+  "title":"isValid",
+  "name":"isValid",
+  "memberName":"",
+  "description":"Tests whether a value meets a validation or data type rule.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsValid",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "binary",
+    "array",
+    "boolean",
+    "component",
+    "date",
+    "email",
+    "query",
+    "string",
+    "struct",
+    "regex"
+  ],
+  "arguments":[
+    {
+      "name":"type",
+      "description":"\n\t\t\tThe valid format for the data; one of the following:\n\t\t\t- any: any simple value. Returns false for complex values, such as query objects; equivalent to the IsSimpleValue function.\n\t\t\t- array: an array; equivalent to the IsArray function.\n\t\t\t- binary: a binary value; equivalent to the IsBinary function.\n\t\t\t- boolean: a Boolean value; equivalent to the IsBoolean function.\n\t\t\t- component: a component (CFC).\n\t\t\t- creditcard: a 13-16 digit number conforming to the mod10 algorithm.\n\t\t\t- date or time: any date-time value, including dates or times; equivalent to the IsDate function.\n\t\t\t- email: a string containig a valid email address.\n\t\t\t- eurodate: this functionality is only supported for compatibility reasion, we do not suggest to use this functionality. Use instead function isDate or lsIsDate. A date in the form d/m/y, d-m-y, or d.m.y. The m and d format can be 1 or 2 digits; y can be 2 or 4 digits.\n\t\t\t- float or numeric: a numeric value; equivalent to the IsNumeric function.\n\t\t\t- guid: a Globally Unique Identifier in the format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX where X is a hexadecimal number.\n\t\t\t- integer: an integer.\n\t\t\t- query: a query object; equivalent to the IsQuery function.\n\t\t\t- range: a numeric range, specified by the min and max attributes.\n\t\t\t- regex or regular_expression: matches input against pattern attribute.\n\t\t\t- ssn or social_security_number: A U.S. social security number.\n\t\t\t- string: a string value, including single characters and numbers\n\t\t\t- struct: a structure; equivalent to the IsStruct function.\n\t\t\t- telephone: a standard US telephone number.\n\t\t\t- URL: an http, https, ftp, file, mailto, or news URL,\n\t\t\t- UUID: a Universally Unique Identifier in the format XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXX, where X is a hexadecimal number. See CreateUUID.\n\t\t\t- USdate: this functionality is only supported for compatibility reasion, we do not suggest to use this functionality. Use instead function isDate or lsIsDate. A U.S. date of the format mm/dd/yy, with 1-2 digit days and months, 1-4 digit years.\n\t\t\t- variableName: a string formatted according to ColdFusion variable naming conventions.\n\t\t\t- zipcode: U.S., 5- or 9-digit format ZIP codes.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"value",
+      "description":"The value to test.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"min_or_pattern",
+      "description":"\n\t\tThe minimum valid value; used only for range validation or\n\t\ta JavaScript regular expression that the parameter must match; used only for regex or regular_expression validation.",
+      "type":"any",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"max",
+      "description":"The maximum valid value; used only for range validation.",
+      "type":"any",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

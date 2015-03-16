@@ -1,0 +1,483 @@
+{
+  "pageType":"tag",
+  "title":"Query",
+  "name":"Query",
+  "description":"Passes SQL statements to a data source. Not limited to queries.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":"true",
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Query",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":"lucee.transformer.cfml.evaluator.impl.Query"
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":"query"
+  },
+  "attributes":[
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The name query. Must begin with a letter and may consist of letters, numbers, and the underscore\n\t\tcharacter, spaces are not allowed. The query name is used later in the page to reference the query's\n\t\trecord set.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"result",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies a name for the structure in which cfquery returns\n            the result variables.\n            - SQL: The SQL statement that was executed. (string)\n            - Cached: If the query was cached. (boolean)\n            - SqlParameters: An ordered Array of cfqueryparam values. (array)\n            - RecordCount: Total number of records in the query. (numeric)\n            - ColumnList: Column list, comma separated. (numeric)\n            - ExecutionTime: Execution time for the SQL request. (numeric)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"dataSource",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"The name of the data source from which this query should retrieve data.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"dbType",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"support the following values:\n\t\t\t- query: for doing a query on a existing query object\n\t\t\t- hql: for doing a query on orm ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"dbServer",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"This attribute has been deprecated and is non-functional.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"deprecated",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"dbName",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"This attribute has been deprecated and is non-functional.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"deprecated",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"connectString",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"This attribute has been deprecated and is non-functional.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"deprecated",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"username",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"If specified, username overrides the username value specified in the data source setup.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"password",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"If specified, password overrides the password value specified in the data source setup.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"maxRows",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the maximum number of rows to return in the record set.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"blockFactor",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the maximum number of rows to fetch at a time from the server. The range is 1,\n\t\tdefault to 100. This parameter applies to ORACLE native database drivers and to ODBC drivers.\n\t\tCertain ODBC drivers may dynamically reduce the block factor at runtime.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"timeout",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The maximum number of milliseconds for the query to execute before returning an error\n\t\tindicating that the query has timed-out. This attribute is not supported by most ODBC drivers.\n\t\ttimeout is supported by the SQL Server 6.x or above driver. The minimum and maximum allowable values\n\t\tvary, depending on the driver.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cachedAfter",
+      "type":"datetime",
+      "default":false,
+      "defaultValue":null,
+      "description":"This is the age of which the query data can be",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cachedWithin",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"\npossible values are:\nString \"request\": If original query was created within the current request, cached query data isused.\na timespan (created with function CreateTimeSpan): If original query date falls within the time span, cached query data isused.\n\nTo use cached data, the current query must use the same SQL statement, data source, query name, user name, and password.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"provider",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"This attribute has been deprecated and is non-functional.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"deprecated",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"providerDSN",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"This attribute has been deprecated and is non-functional.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"deprecated",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"debug",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Used for debugging queries. Specifying this attribute causes the SQL statement submitted to the\n\t\tdata source and the number of records returned from the query to be returned.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cachename",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"This attribute has been deprecated and is non-functional.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"deprecated",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"psq",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"preserve single quote or not",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"unique",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies if the object parameter is unique, used only for dbtype=orm or hql",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"ormoptions",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"Object parameter for the entity.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"returntype",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"one of the following values:\n\t\t\t- query: default for all dbtype expect \"hql\", returns a query object\n\t\t\t- array_of_entity: works only with dbtype \"hql\" and is also the default value for dbtype \"hql\"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"timezone",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n\t\t\tthe timezone used to convert a date object to a timestamp (string), this value is needed when your database runs in another timezone and you are not using cfqueryparam to to insert dates.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"lazy",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n\t\t\tif \"lazy\" is set to true (default \"false\") Lucee does not initially load all the data from the datasource,\n\t\t\tin that case the data are only loaded when requested, so this means the data are depending on the datasource connection.\n\t\t\tif the datasource connection is gone and the data are not requested yet, lucee throws a error if you try to access the data.\n\t\t\tlazy is only working when the following attributes are not used: cachewithin,cacheafter,result\n\t\t\t",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"params",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

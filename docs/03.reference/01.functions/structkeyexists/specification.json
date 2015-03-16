@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"structKeyExists",
+  "name":"structKeyExists",
+  "memberName":"keyExists",
+  "description":"Determines whether a specific key is present in a structure.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructKeyExists",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "struct"
+  ],
+  "arguments":[
+    {
+      "name":"structure",
+      "description":"Name of structure to test",
+      "type":"struct",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"key",
+      "description":"Key to test",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "pageType":"function",
+  "title":"getLocale",
+  "name":"getLocale",
+  "memberName":"",
+  "description":"Gets the current geographic/language locale value.\n        To set the default display format of date, time, number, and\n        currency values in a CFML application session, you use\n        the SetLocale function.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.international.GetLocale",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

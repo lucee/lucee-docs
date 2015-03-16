@@ -1,1 +1,0 @@
-Specifies the degree of transparency of drawing functions.

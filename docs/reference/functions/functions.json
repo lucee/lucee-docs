@@ -1,6 +1,0 @@
-{
-  "pageType" : "aToZIndex",
-  "title"    : "Functions",
-  "intro"    : "{{include:functions.md}}",
-  "sortOrder": 1
-}

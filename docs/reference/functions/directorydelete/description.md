@@ -1,1 +1,0 @@
-Deltes directory for given path

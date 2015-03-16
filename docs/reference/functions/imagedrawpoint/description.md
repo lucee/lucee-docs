@@ -1,1 +1,0 @@
-Draws a point at the specified (x,y) coordinate.

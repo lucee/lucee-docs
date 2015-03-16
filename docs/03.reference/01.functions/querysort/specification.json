@@ -1,0 +1,45 @@
+{
+  "pageType":"function",
+  "title":"querySort",
+  "name":"querySort",
+  "memberName":"sort",
+  "description":"Sorts the query based on the column specified and the order criteria given. Modifies the original query object",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.query.QuerySort",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "query",
+    "sort"
+  ],
+  "arguments":[
+    {
+      "name":"query",
+      "description":"the query to sort",
+      "type":"query",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"column_name",
+      "description":"a list of names or a single column name",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"direction",
+      "description":"a list of directions or a single direction defintion (asc,desc), the list must have the same length as the columnName list",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

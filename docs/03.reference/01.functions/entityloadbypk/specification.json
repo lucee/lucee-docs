@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"EntityLoadByPK",
+  "name":"EntityLoadByPK",
+  "memberName":"",
+  "description":"Loads and returns an array of objects for given primary key.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.EntityLoadByPK",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"Name of the entity to be loaded.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"id",
+      "description":"The primary key value of the entity that must be loaded",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"unique",
+      "description":"If unique is set to true, then the entity is returned.\nIf you are sure that only one record exists that matches this filtercriteria, then you can specify unique=true, so that a single entity is returned instead of an array.\nIf you set unique=true and multiple records are returned, then an exception occurs.",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

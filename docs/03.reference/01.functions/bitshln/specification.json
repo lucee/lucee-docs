@@ -1,0 +1,38 @@
+{
+  "pageType":"function",
+  "title":"bitSHLN",
+  "name":"bitSHLN",
+  "memberName":"",
+  "description":"Performs a bitwise shift-left, no-rotation operation.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.BitSHLN",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"a integer",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"count",
+      "description":"Integer, in the range 0-31, inclusive; number of bits to shift the number",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

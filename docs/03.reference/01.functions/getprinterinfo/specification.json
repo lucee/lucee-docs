@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"GetPrinterInfo",
+  "name":"GetPrinterInfo",
+  "memberName":"",
+  "description":"Determines which print attributes are supported by a selected printer.",
+  "status":"unimplemeted",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetPrinterInfo",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"printer",
+      "description":"The name of a printer",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

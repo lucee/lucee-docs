@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"collectionMap",
+  "name":"collectionMap",
+  "memberName":"",
+  "description":"Calls the given closure with every element in the given collection.\n\t\tthe function returns a array or struct (depending on the input) that contains all values returned by the closure.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.closure.Map",
+  "returnType":"object",
+  "argumentType":"",
+  "keywords":[
+    "iterator"
+  ],
+  "arguments":[
+    {
+      "name":"collection",
+      "description":"collection to iterate",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"closure",
+      "description":"UDF/Closure that is called with every value in the collection",
+      "type":"function",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"parallel",
+      "description":"execute closures parallel",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"maxThreads",
+      "description":"maximum number of threads executed, ignored when argument \"parallel\" is set to false",
+      "type":"number",
+      "required":false,
+      "default":"20"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

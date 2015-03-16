@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"queryNew",
+  "name":"queryNew",
+  "memberName":"",
+  "description":"Creates an empty query (query object).",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.query.QueryNew",
+  "returnType":"query",
+  "argumentType":"",
+  "keywords":[
+    "query"
+  ],
+  "arguments":[
+    {
+      "name":"columnNames",
+      "description":"column names for the query created, allowed are comma-delimited string lists or a array.",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"columnTypes",
+      "description":"column types for the query created, allowed are comma-delimited string lists or a array.",
+      "type":"object",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"data",
+      "description":"data to populate the new Query, a array of arrays or a array of structs.\n\t\t\tExample usage:\n\t\t\tqueryNew(\"name,age\",\"varchar,numeric\",[[\"Susi\",20],[\"Urs\",24]]);\n\t\t\tqueryNew(\"name,age\",\"varchar,numeric\",[[name:\"Susi\",age:20],[name:\"Urs\",age:24]]);\n\t\t\tqueryNew(\"name,age\",\"varchar,numeric\",{name:[\"Susi\",\"Urs\"],age:[20,24]});\n\t\t\t",
+      "type":"any",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

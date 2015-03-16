@@ -1,1 +1,0 @@
-Determines if the object represents a boolean value

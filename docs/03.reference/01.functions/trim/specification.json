@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"trim",
+  "name":"trim",
+  "memberName":"trim",
+  "description":"Removes leading and trailing spaces from a string.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.Trim",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"the string to trim",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

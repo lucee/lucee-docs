@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"charsetEncode",
+  "name":"charsetEncode",
+  "memberName":"",
+  "description":"Uses the specified encoding to convert binary data to a string.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.conversion.CharsetEncode",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"binary",
+      "description":"A variable containing binary data to decode into text.",
+      "type":"binary",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"encoding",
+      "description":"The character encoding that was used to encode the string into binary format.",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

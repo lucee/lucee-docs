@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"binaryDecode",
+  "name":"binaryDecode",
+  "memberName":"",
+  "description":"Converts a string to a binary object. Used to convert\n        binary data that has been encoded into string format\n        back into binary data.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.conversion.BinaryDecode",
+  "returnType":"binary",
+  "argumentType":"",
+  "keywords":[
+    "binary"
+  ],
+  "arguments":[
+    {
+      "name":"encoded_binary",
+      "description":"A string containing encoded binary data.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"binaryencoding",
+      "description":"A string specifying the algorithm used to encode the original\n            binary data into a string; must be one of the following:\n- hex: characters 0-9 and A-F represent the hexadecimal value of each byte\n- UU: data is encoded using the UNIX UUencode algorithm\n- base64: data is encoded using the Base64 algorithm",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

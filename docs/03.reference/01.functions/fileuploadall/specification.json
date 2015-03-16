@@ -1,0 +1,65 @@
+{
+  "pageType":"function",
+  "title":"FileUploadAll",
+  "name":"FileUploadAll",
+  "memberName":"",
+  "description":"Uploads file to a directory on the server.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileUploadAll",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"destination",
+      "description":"Absolute pathname of directory or file on web server.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"accept",
+      "description":"Limits the MIME types to accept. Comma-delimited list. For example, to permit JPG and Microsoft Word file uploads:\naccept = \"image/jpg, application/msword\"\nThe browser uses file extension to determine file type. ",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"nameConflict",
+      "description":"Action to take if filename is the same as that of a file in the directory.",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"mode",
+      "description":"Applies only to Solaris and HP-UX. Permissions. Octal values of UNIX chmod command. Assigned to owner, group, and other, respectively.",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"attributes",
+      "description":"One attribute (Windows) or a comma-delimited list of attributes (other platforms) to set on the file.\nIf omitted, the file's attributes are maintained.",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"acl",
+      "description":"only used for S3 Resources",
+      "type":"object",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

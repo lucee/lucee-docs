@@ -1,1 +1,0 @@
-Removes leading spaces from a string.

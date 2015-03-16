@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"echo",
+  "name":"echo",
+  "memberName":"",
+  "description":"Writes the given string to the main response buffer regardless of\n        conditions established by the cfsetting tag. see also function writeOutput.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.WriteOutput",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"A string to write to the buffer.",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

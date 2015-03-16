@@ -1,1 +1,0 @@
-Sets the ACL for object or bucket.

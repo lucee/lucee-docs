@@ -1,1 +1,0 @@
-return the column names as array

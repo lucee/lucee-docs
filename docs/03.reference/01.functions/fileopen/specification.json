@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"fileOpen",
+  "name":"fileOpen",
+  "memberName":"",
+  "description":"Opens an file to read, write, or append.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileOpen",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"path",
+      "description":"a file path",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"mode",
+      "description":"\nAction to perform on the file, including the following:\n- read\n- readBinary\n- write\n- append\n\nIf you do not specify the mode, Lucee opens the file in read mode.",
+      "type":"string",
+      "required":false,
+      "default":"read"
+    },
+    {
+      "name":"charset",
+      "description":"The character set of the file.",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"seekable",
+      "description":"can be used for function fileseek",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

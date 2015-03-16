@@ -1,1 +1,0 @@
-function/closure that implements the following constructor [function(any result, object value, [, numericindex [, array]]):any].

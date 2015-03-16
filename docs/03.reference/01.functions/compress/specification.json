@@ -1,0 +1,58 @@
+{
+  "pageType":"function",
+  "title":"compress",
+  "name":"compress",
+  "memberName":"",
+  "description":"Compress given source to different formats.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.Compress",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"format",
+      "description":"\n\t\t\tFormat to compress (bzip,gzip,tar,tbz (tar bzip),tgz (tar gzip) and zip)\n\t\t\t",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"source",
+      "description":"\n\t\t\tsource file or directory to compress\n\t\t\t",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"target",
+      "description":"\n\t\t\tname of the target compressed file\n\t\t\t",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"includeBaseFolder",
+      "description":"\n\t\t\ttake the folder or only content of folder\n\t\t\t",
+      "type":"boolean",
+      "required":false,
+      "default":"true"
+    },
+    {
+      "name":"mode",
+      "description":"\n\t\t\tmode of the values\n\t\t\t",
+      "type":"string",
+      "required":false,
+      "default":"777"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

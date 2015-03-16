@@ -1,0 +1,47 @@
+{
+  "pageType":"function",
+  "title":"SerializeJSON",
+  "name":"SerializeJSON",
+  "memberName":"",
+  "description":"Converts CFML data into a JSON (JavaScript Object Notation) representation of the data.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.conversion.SerializeJSON",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "formatting",
+    "json",
+    "javascript"
+  ],
+  "arguments":[
+    {
+      "name":"var",
+      "description":"A CFML data value or variable that represents one.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"serializeQueryByColumns",
+      "description":"A Boolean value that specifies how to serialize CFML queries.",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"charset",
+      "description":"string characters that cannot be encoded by this charset get escaped,\n\t\t\tif not set the web charset is used.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

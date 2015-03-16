@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"arrayLast",
+  "name":"arrayLast",
+  "memberName":"last",
+  "description":"Returns the last element of an array",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayLast",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"a array",
+      "type":"array",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

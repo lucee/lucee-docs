@@ -1,1 +1,0 @@
-Copies the contents of a directory to a destination directory.

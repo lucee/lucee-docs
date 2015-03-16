@@ -1,1 +1,0 @@
-Yes or No. Yes displays tree control text in italic. Default is No.

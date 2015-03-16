@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"AjaxOnLoad",
+  "name":"AjaxOnLoad",
+  "memberName":"",
+  "description":"Causes the specified JavaScript function to run when the page loads.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.displayFormatting.AjaxOnLoad",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "ajax"
+  ],
+  "arguments":[
+    {
+      "name":"functionName",
+      "description":"The name of the function to run when the page loads. The specified function does not take a parameter.",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

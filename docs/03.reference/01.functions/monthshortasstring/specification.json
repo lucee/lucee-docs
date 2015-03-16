@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"monthShortAsString",
+  "name":"monthShortAsString",
+  "memberName":"",
+  "description":"Returns the string label for the given month in short format",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.MonthShortAsString",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"monthnumber",
+      "description":"",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

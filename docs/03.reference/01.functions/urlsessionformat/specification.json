@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"uRLSessionFormat",
+  "name":"uRLSessionFormat",
+  "memberName":"",
+  "description":"Encodes the URL with the CFTOKEN/CFID/JSESSIONID",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.URLSessionFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"url",
+      "description":"URL of a cfml template",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

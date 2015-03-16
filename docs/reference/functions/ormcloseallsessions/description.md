@@ -1,1 +1,0 @@
-Closes all ORM session.

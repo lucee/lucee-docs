@@ -1,0 +1,39 @@
+{
+  "pageType":"function",
+  "title":"arrayToList",
+  "name":"arrayToList",
+  "memberName":"toList",
+  "description":"Transform the array to a list of elements delimiter by the given string",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ArrayToList",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "array",
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"Name of array ",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiter",
+      "description":"Character or multicharacter string to separate list elements. The default value is comma.",
+      "type":"string",
+      "required":false,
+      "default":","
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

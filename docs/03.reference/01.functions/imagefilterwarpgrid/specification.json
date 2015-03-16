@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"ImageFilterWarpGrid",
+  "name":"ImageFilterWarpGrid",
+  "memberName":"",
+  "description":"A warp grid. These are passed to the function ImageFilters (see ImageFilter documentation).",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageFilterWarpGrid",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"rows",
+      "description":"rows of the warp grid",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"cols",
+      "description":"cols of the warp grid",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"width",
+      "description":"width of the warp grid",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"height",
+      "description":"height of the warp grid",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

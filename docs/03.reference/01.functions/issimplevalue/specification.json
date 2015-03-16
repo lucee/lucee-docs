@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"isSimpleValue",
+  "name":"isSimpleValue",
+  "memberName":"",
+  "description":"Determines if the object represents a simple value like a string, number, boolean etc",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsSimpleValue",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"Variable or expression",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

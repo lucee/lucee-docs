@@ -1,5 +1,0 @@
-{
-  "pageType" : "page",
-  "title"    : "Reference",
-  "body"     : "{{include:reference.md}}"
-}

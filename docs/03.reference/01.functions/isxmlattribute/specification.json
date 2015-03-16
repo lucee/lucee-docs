@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"IsXmlAttribute",
+  "name":"IsXmlAttribute",
+  "memberName":"",
+  "description":"Determines whether the function parameter is an\n        XML Document Object Model (DOM) attribute node.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsXmlAttribute",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"Name of an XML attribute",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

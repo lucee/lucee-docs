@@ -1,1 +1,0 @@
-Draws a circular or elliptical arc.

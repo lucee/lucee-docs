@@ -1,0 +1,753 @@
+{
+  "pageType":"tag",
+  "title":"chart",
+  "name":"chart",
+  "description":"Generates and displays a chart.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"free",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Chart",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"backgroundColor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Color of the area between the data background and the chart\n            border, around labels and around the legend. Hexadecimal\n            value or supported named color. For a hex value, use the form:\n            textColor = \"##xxxxxx\", where x = 0-9 or A-F; use two hash\n            signs or none.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"chartHeight",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Chart height; integer number of pixels",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"chartWidth",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Chart width; integer number of pixels",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"dataBackgroundColor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"color for control. For a hex value, use the form:\n            textColor = \"##xxxxxx\", where x = 0-9 or A-F; use two hash\n            signs or none.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"font",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Font of data in column.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"fontBold",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Yes: displays grid control text in bold",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"fontItalic",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Yes: displays grid control text in italics",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"fontSize",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Size of text in column.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"foregroundColor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"color for control. For a hex value, use the form:\n            textColor = \"##xxxxxx\", where x = 0-9 or A-F; use two hash\n            signs or none.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"format",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"File format in which to save graph.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"gridlines",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Number of grid lines to display on value axis, including\n            axis; positive integer.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"labelFormat",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Format for Y-axis labels.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"categoryLabelPositions",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Label postion relative to axis: standard, up_45, up_90, down_45, down_90 or horizontal (standard) and vertical (down_90).  Default is horizontal.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"markerSize",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Size of data point marker. in pixels. Integer.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Page variable name. String. Generates the the graph as\n            binary data and assigns it to the specified variable.\n            Suppresses chart display. You can use the name value in\n            the cffile tag to write the chart to a file.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"pieSliceStyle",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Applies to chartseries type attribute value pie.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"scaleFrom",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Y-axis minimum value; integer",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"scaleTo",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Y-axis max value; integer",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"seriesPlacement",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Applies to charts that have more than one data series.\n            Relative positions of series.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"show3D",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Display chart with three-dimensional appearance.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"showBorder",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Whether to display a border around the chart",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"showLegend",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"yes: if chart contains more than one data series, display\n            legend",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"showMarkers",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Applies to chartseries type attribute values line, curve\n            and scatter.\n            yes: display markers at data points",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"showXGridlines",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"yes: display X-axis gridlines",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"showXLabel",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"yes: shows the x-axis labels",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"showTooltip",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"show the tooltip or not",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"source",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"variable name of the source path, if set the path to the source file is returned and no image tag is written to response strea.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"showYGridlines",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"yes: display Y-axis gridlines",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sortXAxis",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Display column labels in alphabetic order along X-axis.\n            Ignored if the xAxisType attribute is scale.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"style",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"XML file or string to use to specify the style of the chart.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"title",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Title of the chart.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"tipbgcolor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"color for control. For a hex value, use the form:\n            textColor = \"##xxxxxx\", where x = 0-9 or A-F; use two hash\n            signs or none.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"tipStyle",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Determines the action that opens a popup window to display\n            information about the current chart element.\n            - mouseDown: display if the user positions the cursor at the element\n            and clicks the mouse. Applies only to Flash format graph files (Flash not supported).\n            - mouseOver: displays if the user positions the cursor at the element\n            - none: suppresses display",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"url",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"URL to open if the user clicks item in a data series; the\n            onClick destination page.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"xAxisTitle",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"text; X-axis title",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"xAxisType",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n\t\t\t- category The axis indicates the data category. Data is\n            sorted according to the sortXAxis attribute.\n            - scale The axis is numeric. All cfchartdata item attribute\n            values must numeric. The X axis is automatically sorted\n            numerically.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"xOffset",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Applies if show3D=\"yes\". Number of units by which to\n            display the chart as angled, horizontally",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"yAxisTitle",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"text; X-axis title",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"yAxisType",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Currently has no effect, as Y axis is always used for data\n            values. Valid values are category and scale",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"yOffset",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Applies if show3D=\"yes\". Number of units by which to\n            display the chart as angled, horizontally.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

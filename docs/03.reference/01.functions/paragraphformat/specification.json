@@ -1,0 +1,32 @@
+{
+  "pageType":"function",
+  "title":"paragraphFormat",
+  "name":"paragraphFormat",
+  "memberName":"",
+  "description":"Formats the carriage returns in a string to a HTML alternatives",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.displayFormatting.ParagraphFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "formatting",
+    "HTML"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"A string or a variable that contains one ",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

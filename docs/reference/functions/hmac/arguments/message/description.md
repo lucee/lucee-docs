@@ -1,1 +1,0 @@
-The message to transmit. The message can be a String or a byte array.

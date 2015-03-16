@@ -1,1 +1,0 @@
-Specifies the location of files to index when the computer that contains the K2 Search Service is not the computer on which you installed Lucee, and when you index files with the type attribute set to path.

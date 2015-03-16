@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"ObjectSave",
+  "name":"ObjectSave",
+  "memberName":"",
+  "description":"serialize a (Serialiable) object to a binary repersentation of th object",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.ObjectSave",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"input",
+      "description":"object to serialize",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"filepath",
+      "description":"path where lucee should save the object",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

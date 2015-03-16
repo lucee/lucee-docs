@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"isUserInAnyRole",
+  "name":"isUserInAnyRole",
+  "memberName":"",
+  "description":"Determines whether an authenticated user belongs to any role in a list of roles.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsUserInAnyRole",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"role_list",
+      "description":"A comma-delimited list of one or more roles to be tested.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

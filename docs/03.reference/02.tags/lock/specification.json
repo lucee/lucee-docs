@@ -1,0 +1,123 @@
+{
+  "pageType":"tag",
+  "title":"Lock",
+  "name":"Lock",
+  "description":"Provides two types of locks to ensure the integrity of shared data: Exclusive lock and Read-only\n  lock. An exclusive lock single-threads access to the CFML constructs in its body. Single-threaded access\n  implies that the body of the tag can be executed by at most one request at a time. A request executing\n  inside a cflock tag has an \"exclusive lock\" on the tag. No other requests can start executing inside the\n  tag while a request has an exclusive lock. Lucee issues exclusive locks on a first-come, first-served\n  basis. A read-only lock allows multiple requests to access the CFML constructs inside its body concurrently.\n  Therefore, read-only locks should be used only when the shared data is read only and not modified. If another\n  request already has an exclusive lock on the shared data, the request waits for the exclusive lock to be\n  released.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":"true",
+  "allowRemovingLiteral":"yes",
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Lock",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":"lucee.transformer.cfml.evaluator.impl.Lock"
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":"lock"
+  },
+  "attributes":[
+    {
+      "name":"timeout",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the maximum amount of time, in seconds, to wait to obtain a lock. If a lock can be\n\t\tobtained within the specified period, execution continues inside the body of the tag. Otherwise, the\n\t\tbehavior depends on the value of the throwOnTimeout attribute.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"scope",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the scope as one of the following: Application, Server, or Session. This attribute is mutually\n\texclusive with the name attribute.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the name of the lock. Only one request can execute inside a cflock tag with a given\n\tname. Therefore, providing the name attribute allows for synchronizing access to resources from\n\tdifferent parts of an application. Lock names are global to a server. They are shared\n\tbetween applications and user sessions, but not across clustered servers. This attribute is mutually\n\texclusive with the scope attribute. Therefore, do not specify the scope attribute and the name attribute\n\tin a tag. The value of name cannot be an empty string.",
+      "aliases":[
+        "id"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"throwOnTimeout",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Yes or No. Specifies how timeout conditions are handled. If the value is Yes, an exception is\n\tgenerated to provide notification of the timeout. If the value is No, execution continues past the\n   cfclock tag. Default is Yes.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"type",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"readOnly or Exclusive. Specifies the type of lock: read-only or exclusive. Default is Exclusive.\n\tA read-only lock allows more than one request to read shared data. An exclusive lock allows only one\n\trequest to read or write to shared data.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

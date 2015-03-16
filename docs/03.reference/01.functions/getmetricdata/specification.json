@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"getMetricData",
+  "name":"getMetricData",
+  "memberName":"",
+  "description":"Gets server performance metrics.",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.system.GetMetricData",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"monitor_name",
+      "description":"name of the monitor",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,1 +1,0 @@
-return true if a string is "empty".

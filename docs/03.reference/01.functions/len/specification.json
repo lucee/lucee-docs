@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"len",
+  "name":"len",
+  "memberName":"",
+  "description":"Determines the length of a string, array,struct,query ...",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.Len",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"the length of a string",
+      "type":"object",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

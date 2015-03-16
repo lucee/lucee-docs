@@ -1,0 +1,66 @@
+{
+  "pageType":"function",
+  "title":"ListReduce",
+  "name":"ListReduce",
+  "memberName":"listReduce,reduce",
+  "description":"Iterates over every entry of the given array and calls the closure with every element.\n\t\tThis function will reduce the array to a single value and will return the value.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListReduce",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "array",
+    "iterator"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"string list to iterate",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"closure",
+      "description":"function/closure that implements the following constructor [function(any result, object value, numeric index , string list, string delimiter):any].",
+      "type":"function",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"initalValue",
+      "description":"inital value passed as part of the first closure call",
+      "type":"object",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"delimiter",
+      "description":"delimiter used to separate the string list",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"includeEmptyFields",
+      "description":"include empty fields or not",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    },
+    {
+      "name":"multiCharacterDelimiter",
+      "description":"specifying whether the delimiters parameter specifies a multi-character delimiter. If this parameter is true, the delimiters parameter must specify a single delimiter consisting of multiple characters. This parameter enables the ListToArray function to convert a list such as the following to an array of color names: red:|orange:|yellow:|green:|blue:|indigo:|violet.",
+      "type":"boolean",
+      "required":false,
+      "default":"true"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

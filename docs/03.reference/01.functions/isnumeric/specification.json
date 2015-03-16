@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"isNumeric",
+  "name":"isNumeric",
+  "memberName":"",
+  "description":"Determines if the object represents a numeric",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsNumeric",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "number"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"A string or a variable that contains one. ",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,1 +1,0 @@
-name of an xml variable

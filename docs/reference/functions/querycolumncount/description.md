@@ -1,1 +1,0 @@
-column count of given query

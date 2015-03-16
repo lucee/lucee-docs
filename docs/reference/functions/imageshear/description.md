@@ -1,1 +1,0 @@
-Shears an image either horizontally or vertically.

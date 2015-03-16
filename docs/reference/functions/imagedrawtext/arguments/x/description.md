@@ -1,1 +1,0 @@
-The x coordinate for the start point of the string.

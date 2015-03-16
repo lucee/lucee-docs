@@ -1,0 +1,358 @@
+{
+  "pageType":"tag",
+  "title":"Feed",
+  "name":"Feed",
+  "description":"Reads or creates an RSS or Atom syndication feed.\n\t\tThis tag can read various RSS and Atom 0.3 versions. It can create RSS 2.0 or Atom 1.0 feeds.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Feed",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":"read",
+      "description":"The name to use for the JavaScript proxy class.\n        The action to take, one of the following values:\n        - create: Creates an RSS 2.0 or Atom 1.0 feed XML document and saves it in a variable, writes it to a file, or both.\n        - read (default): Parses an RSS or Atom feed from a URL or an XML file and saves it in a structure or query.\n        You can also get query metadata in a separate structure. ",
+      "aliases":[
+        
+      ],
+      "values":[
+        "create",
+        "read"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"columnMap",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"Used only for the create action with a query attribute.\n            A structure specifying a mapping between the names of the columns in the object specified by the query attribute\n            and the columns of the feed format, as described in the Query attribute section.\n            The key for each field must be a column name listed in the Query columns section. The value of the field must be\n            the name of the corresponding column in the query object used as input to the create action. ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"enclosureDir",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Used only for the read action.\n            Path to the directory in which to save any enclosures that are available in the feed being read.\n            The path can be absolute or relative to the CFML file.\n            If the directory does not exist, Lucee generates an error.\n            If you omit this attribute, Lucee does not save enclosures.\n            To specify the directory that contains the current page, set this attribute to .(period). ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"ignoreEnclosureError",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"If this attribute is true, Lucee attempts to save all enclosures.\n            If it encounters an error downloading one enclosure, it continues downloading other enclosures and writes the\n            error information in the server log.\n            If this attribute is false, Lucee stops downloading all enclosures and generates an error when it encounters\n            an error downloading an enclosure.\n            Note: Enclosure errors can occur if the specified enclosure is of a type that the web server does not allow to be\n            downloaded. (optional, default=false)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"name",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"A structure that contains complete feed data:\n             The output of a read action.\n             The input definition of the feed to create.\n            This structure contains complete feed information.\n            When you specify the name attribute for a create action, you must put it in pound signs (#). ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"outputFile",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Path of the file in which to write the feed as XML text.\n            The path can be absolute, or relative to the CFML file. ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"overwrite",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Whether to overwrite the XML feed file if it already exists.\n            If you do not set this attribute to true and the cffeed tag tries to write to a file that exists, Lucee\n            generates an error. (optional, default=false)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"overwriteEnclosure",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Used only for the read action.\n            Whether to overwrite files in the enclosure directory if they already exist.\n            If you do not set this attribute to true and the cffeed tag tries to write to a file that exists, Lucee\n            generates an error. (optional, default=false)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"properties",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"A structure containing the feed metadata, the information about the entire feed.\n            Can contain either of the following:\n             The output of a read action.\n             Input to a create action.\n            The properties and query attributes combined provide complete feed information.\n            When you specify the properties attribute for a create action, you must put it in pound signs (#) ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyPassword",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Password required by the proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyPort",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The port to connect to on the proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyServer",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Host name or IP address of a proxy server to which to send the request.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyUser",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"User name to provide to the proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"query",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"A query object containing the Atom entries or RSS items in the feed. Can contain either of the following:\n             The output of a read action.\n             Input to a create action.\n            The properties and query attributes combined provide complete feed information.\n            When you specify the query attribute for a create action, you must put it in pound signs (#) ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"source",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Used only for the read action.\n            The URL of the feed or the path to the XML file that contains the feed contents.\n            A path can be absolute, or relative to the CFML file.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"timeout",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The number of seconds to wait for a response from the feed source. A value of 0 specifies that the request does not time out.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"userAgent",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Text to put in the HTTP User-Agent request header field. Used to identify the request client software.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"xmlVar",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"A variable in which to save the read or created feed as XML text.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

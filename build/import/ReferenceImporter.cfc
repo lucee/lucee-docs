@@ -28,7 +28,10 @@ component {
 		for( var func in functions ) {
 			var convertedFunc = _parseXmlFunctionDefinition( func );
 
-			_stubFunctionEditorialFiles( convertedFunc );
+			if ( !convertedFunc.name.startsWith( '_' ) ) {
+				_stubFunctionEditorialFiles( convertedFunc );
+			}
+
 		}
 	}
 
@@ -41,7 +44,9 @@ component {
 		for( var tag in tags ) {
 			var convertedTag = _parseXmlTagDefinition( tag );
 
-			_stubTagEditorialFiles( convertedTag );
+			if ( !convertedTag.name.startsWith( '_' ) ) {
+				_stubTagEditorialFiles( convertedTag );
+			}
 		}
 	}
 
@@ -185,44 +190,48 @@ component {
 	}
 
 	private void function _stubFunctionEditorialFiles( required struct func ) {
-		var referenceDir = buildProperties.getReferenceDirectory();
-		var functionDir  = referenceDir & "functions/" &   LCase( arguments.func.name ) & "/";
-		var readme       = Replace( FileRead( cwd & "resources/functionReadmeTemplate.md" ), "{{functionname}}", arguments.func.name );
+		var referenceDir = buildProperties.getFunctionReferenceDirectory();
+		var functionDir  = referenceDir & LCase( arguments.func.name ) & "/";
+		var pageContent  = "---
+title: #arguments.func.name#
+related:
+categories:";
 
-		_createFileIfNotExists( functionDir & "README.md", readme );
-		_createFileIfNotExists( functionDir & "description.md", arguments.func.description ?: "" );
+		for( var keyword in arguments.func.keywords ){
+			pageContent &= Chr(10) & "    - " & keyword;
+		}
 
-		arguments.func.description = "{{include:description.md}}";
-		arguments.func.seeAlso     = [];
+		pageContent &= Chr(10) & "---
+
+#arguments.func.description#";
+
+		_createFileIfNotExists( functionDir & "function.md", pageContent );
+
+
 		arguments.func.examples    = [];
 		arguments.func.history     = [];
 
-		for( var arg in arguments.func.arguments ) {
-			_createFileIfNotExists( functionDir & "/arguments/#LCase( arg.name )#/description.md", arg.description ?: "" );
-			arg.description = "{{include:arguments/#LCase( arg.name )#/description.md}}";
-		}
-		_createFileIfNotExists( functionDir & LCase( arguments.func.name ) & ".json", _serializeJson( arguments.func ) );
+		_createFileIfNotExists( functionDir & "specification.json", _serializeJson( arguments.func ) );
 	}
 
 	private void function _stubTagEditorialFiles( required struct tag ) {
-		var referenceDir = buildProperties.getReferenceDirectory();
-		var tagDir       = referenceDir & "tags/" & LCase( arguments.tag.name ) & "/";
-		var readme       = Replace( FileRead( cwd & "resources/tagReadmeTemplate.md" ), "{{tagname}}", arguments.tag.name );
+		var referenceDir = buildProperties.getTagReferenceDirectory();
+		var tagDir       = referenceDir & LCase( arguments.tag.name ) & "/";
+		var pageContent  =
+"---
+title: #arguments.tag.name#
+related:
+categories:
+---
 
-		_createFileIfNotExists( tagDir & "README.md", readme );
-		_createFileIfNotExists( tagDir & "description.md", arguments.tag.description ?: "" );
+#arguments.tag.description#";
 
-		arguments.tag.description = "{{include:description.md}}";
-		arguments.tag.seeAlso     = [];
+		_createFileIfNotExists( tagDir & "tag.md", arguments.tag.description ?: "" );
+
+
 		arguments.tag.examples    = [];
 		arguments.tag.history     = [];
-
-		for( var attribute in arguments.tag.attributes ) {
-			_createFileIfNotExists( tagDir & "/attributes/#attribute.name#/description.md", attribute.description ?: "" );
-			attribute.description = "{{include:/attributes/#attribute.name#/description.md}}";
-		}
-		_createFileIfNotExists( tagDir & "/#LCase( tag.name )#.json", _serializeJson( arguments.tag ) );
-
+		_createFileIfNotExists( tagDir & "/specification.json", _serializeJson( arguments.tag ) );
 	}
 
 	private void function _createFileIfNotExists( filePath, content ) {

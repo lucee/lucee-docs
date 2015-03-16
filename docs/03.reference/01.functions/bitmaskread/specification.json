@@ -1,0 +1,45 @@
+{
+  "pageType":"function",
+  "title":"bitMaskRead",
+  "name":"bitMaskRead",
+  "memberName":"",
+  "description":"Performs a bitwise mask read operation.\n        Returns an integer, created from length bits of number,\n        beginning at start.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.BitMaskRead",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"a integer to mask",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"start",
+      "description":"Integer, in the range 0-31, inclusive; start bit for read",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"length",
+      "description":"Integer, in the range 0-31, inclusive; length of mask",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

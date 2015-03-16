@@ -1,1 +1,0 @@
-Closes an file that is open.

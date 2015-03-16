@@ -1,0 +1,46 @@
+{
+  "pageType":"function",
+  "title":"timeFormat",
+  "name":"timeFormat",
+  "memberName":"",
+  "description":"Formats a time string to a given output",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.displayFormatting.TimeFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "date",
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"time",
+      "description":"A date/time value or string to convert",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"mask",
+      "description":"\nCharacters that show how Lucee displays a time:\n- h: hours; no leading zero for single-digit hours (12-hour clock)\n- hh: hours; leading zero for single-digit hours (12-hour clock)\n- H: hours; no leading zero for single-digit hours (24-hour clock)\n- HH: hours; leading zero for single-digit hours (24-hour clock)\n- m: minutes; no leading zero for single-digit minutes\n- mm: minutes; a leading zero for single-digit minutes\n- s: seconds; no leading zero for single-digit seconds\n- ss: seconds; leading zero for single-digit seconds\n- l or L: milliseconds, with no leading zeros\n- t: one-character time marker string, such as A or P\n- tt: multiple-character time marker string, such as AM or PM\n\n- short: equivalent to h:mm tt\n- medium: equivalent to h:mm:ss tt\n- long: equivalent to h:mm:ss tt {timezone-3-letters}\n- full: equivalent to h:mm:ss tt {timezone-3-letters}\n\n\t\t",
+      "type":"string",
+      "required":false,
+      "default":"hh:mm tt"
+    },
+    {
+      "name":"timezone",
+      "description":"\nA datetime object is independent of a specific timezone, it is only a offset in milliseconds from 1970-1-1 00.00:00 UTC (Coordinated Universal Time).\nThis means that the timezone only comes into play when you need specific information like hours in a day, minutes in a hour or which day it is since those calculations depend on the timezone.\nFor these calculations, a timezone must be specified in order to translate the date object to something else. If you do not provide the timezone in the function call, it will default to the timezone specified in the Lucee Administrator (Settings/Regional), or the timezone specified for the current request using the function setTimezone.\nYou can find a list of all available timezones in the Lucee administrator (Settings/Regional). Some examples of valid timezones:\n       - AGT (for time in Argentina)\n       - Europe/Zurich (for time in Zurich/Switzerland)\n       - HST (Hawaiian Standard Time in the USA)\n\t\t",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"GetCPUUsage",
+  "name":"GetCPUUsage",
+  "memberName":"",
+  "description":"returns the CPU usage for a defined time range (default: 1000ms).",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetCPUUsage",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"time",
+      "description":"time range for a certain range.",
+      "type":"number",
+      "required":false,
+      "default":"1000"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

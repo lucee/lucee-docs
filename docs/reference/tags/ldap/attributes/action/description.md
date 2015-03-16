@@ -1,1 +1,0 @@
-Specifies the LDAP action.

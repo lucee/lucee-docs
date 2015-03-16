@@ -1,1 +1,0 @@
-authentication type for a request with username and password, valid values are "BASIC" (default) and "NTLM" 

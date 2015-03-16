@@ -1,0 +1,149 @@
+{
+  "pageType":"tag",
+  "title":"httpparam",
+  "name":"httpparam",
+  "description":"Required for cfhttp POST operations, cfhttpparam is used to specify the parameters necessary to\n\t build a cfhttp POST.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.HttpParam",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"A variable name for the data being passed.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"type",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"valid values are:\n- header: specifies an HTTP header.\n- CGI: specifies an HTTP header. encodes the value depending on the attribute \"encoded\n- body: specifies the body of the HTTP request.\n- XML: identifies the request as having a content-type of text/xml. Specifies that the value attribute contains the body of the HTTP request. Used to send XML to the destination URL.\n- file: tells Lucee to send the contents of the specified file.\n- URL: specifies a URL query string name-value pair to append to the cfhttp url attribute.\n- form,formField: specifies a form field to send.\n- cookie: specifies a cookie to send as an HTTP header.\n\n\n\n\n\t\t\t",
+      "aliases":[
+        
+      ],
+      "values":[
+        "body",
+        "CGI",
+        "cookie",
+        "file",
+        "form",
+        "formfield",
+        "header",
+        "URL",
+        "XML"
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"value",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the value of the URL, FormField, Cookie, File, or CGI variable being passed.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"file",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Required for type = \"File\".",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"encoded",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n\t\t\t\tApplies to type \"cgi\" and \"url\", ignored for all other types.\n\t\t\t\t Specifies whether to URL encode the the values defined with the tag, but only if necessary (no double encoding).",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"mimetype",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Applies to File type; invalid for all other types. Specifies the MIME media type of the file contents. The content type can include an identifier for the character encoding of the file; for example, text/html; charset=ISO-8859-1 indicates that the file is HTML text in the ISO Latin-1 character encoding.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"arraySum",
+  "name":"arraySum",
+  "memberName":"sum",
+  "description":"The sum of values in an array. If the array parameter value is\n        an empty array, returns zero.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArraySum",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"Name of an array ",
+      "type":"array",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

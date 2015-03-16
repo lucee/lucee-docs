@@ -1,1 +1,0 @@
-Extracts keys from a struct.

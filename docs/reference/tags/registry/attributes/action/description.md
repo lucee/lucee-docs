@@ -1,1 +1,0 @@
-action to the registry

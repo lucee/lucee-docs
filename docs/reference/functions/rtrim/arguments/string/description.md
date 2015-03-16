@@ -1,1 +1,0 @@
-A string or a variable that contains one 

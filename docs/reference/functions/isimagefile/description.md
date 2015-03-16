@@ -1,1 +1,0 @@
-Verifies whether an image file is valid.

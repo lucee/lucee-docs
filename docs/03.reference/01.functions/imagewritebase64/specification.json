@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"ImageWriteBase64",
+  "name":"ImageWriteBase64",
+  "memberName":"",
+  "description":"Writes Base64 images to the specified filename and destination.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageWriteBase64",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"The image on which this operation is performed.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"destination",
+      "description":"The path for the destination file.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"format",
+      "description":"the image format",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"inHTMLFormat",
+      "description":"Specify whether Base64 output includes the headers used by the Base64 images in the HTML \"img\" tag (\"data:image/{format};base64,...\") :\n- true\n- false (default)",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

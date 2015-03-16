@@ -1,0 +1,105 @@
+{
+  "pageType":"tag",
+  "title":"col",
+  "name":"col",
+  "description":"Defines table column header, width, alignment, and text. Used only inside a cftable.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Col",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"header",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The text for the column's header.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"width",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The width of the column in characters (the default is 20). If the length of the data displayed exceeds the width value,\n\t\tthe data is truncated to fit.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"align",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Column alignment, Left, Right, or Center.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"text",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Double-quote delimited text that determines what displays in the column. The rules for the text\n\t\tattribute are identical to the rules for cfoutput sections; it can consist of a combination of\n\t\tliteral text, HTML tags, and query record set field references. You can embed hyperlinks, image\n\t\treferences, and input controls in columns.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

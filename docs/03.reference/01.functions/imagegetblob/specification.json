@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"ImageGetBlob",
+  "name":"ImageGetBlob",
+  "memberName":"",
+  "description":"Retrieves the bytes of the underlying image. The bytes are in the same image format as the source image.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageGetBlob",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"source",
+      "description":"The image on which this operation is performed.",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

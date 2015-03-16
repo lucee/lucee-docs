@@ -1,1 +1,0 @@
-ODBC lock type.

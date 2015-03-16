@@ -1,0 +1,52 @@
+{
+  "pageType":"function",
+  "title":"ListIndexExists",
+  "name":"ListIndexExists",
+  "memberName":"listIndexExists",
+  "description":"Determines if an element at the given position exists or not",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListIndexExists",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"a string list",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"index",
+      "description":"index to check for.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiter",
+      "description":"Characters that separate list elements. The default value is comma.",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"includeEmptyFields",
+      "description":"if set to true, empty values are included as well",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

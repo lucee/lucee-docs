@@ -1,0 +1,38 @@
+{
+  "pageType":"function",
+  "title":"REMatchNoCase",
+  "name":"REMatchNoCase",
+  "memberName":"REMatchNoCase",
+  "description":"Uses a regular expression (RE) to search a string for a pattern, starting from a specified position.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.REMatchNoCase",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "regex"
+  ],
+  "arguments":[
+    {
+      "name":"reg_expression",
+      "description":"Regular expression for which to search. Case-insensitive.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"string",
+      "description":"String in which to search.",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

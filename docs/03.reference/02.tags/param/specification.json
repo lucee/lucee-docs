@@ -1,0 +1,159 @@
+{
+  "pageType":"tag",
+  "title":"Param",
+  "name":"Param",
+  "description":"Tests for a parameter's existence, tests its data type, and provides a default value if one\n  is not assigned.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"mixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Param",
+    "ttt":"lucee.transformer.bytecode.statement.tag.TagParam",
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The name of the parameter to test, such as Client.Email or Cookie.BackgroundColor. If\n\t\tyou omit the DEFAULT attribute, an error occurs if the specified parameter does not exist",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"type",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The type of parameter that is required. The default is 'any' and valid values are:\n- any: any type of value\n- array: an array of values\n- binary: a binary value\n- boolean: a Boolean value\n- creditcard: a 13-16 digit number conforming to the mod10 algorithm\n- date or time: a date-time value\n- email: a valid e-mail address\n- eurodate: a date-time value. Any date part must be in the format dd/mm/yy. The format can use /, -, or . characters as delimiters\n- float or numeric: a numeric value\n- guid: a Universally Unique Identifier of the form \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\" where X is a hexadecimal number\n- integer: an integer\n- query: a query object\n- range: a numeric range, specified by the min and max attributes\n- regex or regular_expression: matches input against pattern attribute\n- ssn or social_security_number: a U.S. social security number\n- string: a string value or single character\n- struct: a structure\n- telephone: a standard U.S. telephone number\n- url: an http, https, ftp, file, mailto, or news URL\n- uuid: a ColdFusion Universally Unique Identifier, formatted XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXX, where X is a hexadecimal number. See CreateUUID\n- usdate: a U.S. date of the format mm/dd/yy, with 1-2 digit days and months, 1-4 digit years\n- variableName: a string formatted according to ColdFusion variable naming conventions\n- xml: XML objects and XML strings\n- zipcode: U.S., 5- or 9-digit format ZIP codes\n\n",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"default",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Default value to set the parameter to if it does not exist.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"min",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"define the smallest size of a numeric value, used for type range",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"max",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"define the biggest size of a numeric value, used for type range",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"pattern",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"define a regular expression pattern, to check value against ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"maxlength",
+      "type":"int",
+      "default":false,
+      "defaultValue":null,
+      "description":"define the maxlength of a value for this types: email, url and string",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

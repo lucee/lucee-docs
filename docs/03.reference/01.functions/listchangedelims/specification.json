@@ -1,0 +1,59 @@
+{
+  "pageType":"function",
+  "title":"listChangeDelims",
+  "name":"listChangeDelims",
+  "memberName":"listChangeDelims,changeDelims",
+  "description":"Changes a list delimiter.\n        Returns a copy of the list, with each delimiter character\n        replaced by new_delimiter.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListChangeDelims",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"a string list",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"new_delimiter",
+      "description":"new delimiter to set. a delimiter is a characters that separate list elements.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"existing delimiter to replace. a delimiter is a characters that separate list elements. The default value is comma.",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"includeEmptyFields",
+      "description":"if set to true, empty values are included as well",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    },
+    {
+      "name":"multiCharacterDelimiter",
+      "description":"specifying whether the delimiters parameter specifies a multi-character delimiter. If this parameter is true, the delimiters parameter must specify a single delimiter consisting of multiple characters. This parameter enables the ListToArray function to convert a list such as the following to an array of color names: red:|orange:|yellow:|green:|blue:|indigo:|violet.",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

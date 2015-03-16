@@ -1,0 +1,59 @@
+{
+  "pageType":"function",
+  "title":"listSetAt",
+  "name":"listSetAt",
+  "memberName":"listSetAt",
+  "description":"Replaces the contents of a list element.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListSetAt",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"a string list",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"position",
+      "description":"Position at which to set a value. The first list position is 1.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"value",
+      "description":"An element or a list of elements to set.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"Characters that separate list elements. The default value is comma.",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"includeEmptyFields",
+      "description":"if set to true, empty values are included as well",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

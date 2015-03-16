@@ -1,1 +1,0 @@
-Creates an ODBC date-time object.

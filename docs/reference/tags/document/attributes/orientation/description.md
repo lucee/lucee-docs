@@ -1,1 +1,0 @@
-is the orientation landscape or portrait

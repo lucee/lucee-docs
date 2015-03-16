@@ -1,1 +1,0 @@
-A CFML data value or variable that represents one.

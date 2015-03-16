@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"getEncoding",
+  "name":"getEncoding",
+  "memberName":"",
+  "description":"Returns the encoding (character set) of the Form or URL scope.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.international.GetEncoding",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"scope",
+      "description":"one of the following\n- form\n- url",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

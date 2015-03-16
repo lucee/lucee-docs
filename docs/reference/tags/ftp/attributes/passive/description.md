@@ -1,1 +1,0 @@
-enable passive mode

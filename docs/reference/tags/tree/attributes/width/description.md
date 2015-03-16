@@ -1,1 +1,0 @@
-Width of the tree control, in pixels.

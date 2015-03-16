@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"ORMEvictEntity",
+  "name":"ORMEvictEntity",
+  "memberName":"",
+  "description":"This will remove all the entries for the specified component name from the entity cache.\normEvictEntity(componentName,[id])",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.ORMEvictEntity",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"entityName",
+      "description":"",
+      "type":"String",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"primaryKey",
+      "description":"",
+      "type":"String",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "pageType":"function",
+  "title":"listAppend",
+  "name":"listAppend",
+  "memberName":"listAppend",
+  "description":"Concatenates a list or element to a list.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListAppend",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"a string list",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"value",
+      "description":"a string value",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"Characters that separate list elements. The default value is comma.\n\t\t\tIf this string contains more than one character, only the first character is used.",
+      "type":"string",
+      "required":false,
+      "default":","
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

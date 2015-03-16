@@ -1,1 +1,0 @@
-Font to use for column data in the grid control.

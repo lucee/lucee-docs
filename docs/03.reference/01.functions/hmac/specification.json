@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"HMAC",
+  "name":"HMAC",
+  "memberName":"",
+  "description":"Creates Hash-based Message Authentication Code for the given string based on the algorithm and encoding.\n\t\tHash-based Message Authentication Code (HMAC) is used to verify the data integrity and authenticity of a messagetransmitted.\n\t\tIt involves a cryptographic hash function in combination with a secret key.\n\t\tThe cryptographic hashfunction can be Message Digest 5 (MD5), Secure Hash Algorithm (SHA), and so on",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.displayFormatting.HMAC",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"message",
+      "description":"The message to transmit. The message can be a String or a byte array.",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"key",
+      "description":"The secret key to create HMAC. The key can be a String or a byte array.",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"algorithm",
+      "description":"the algorithm used, default is \"HmacMD5\"",
+      "type":"string",
+      "required":false,
+      "default":"HmacMD5"
+    },
+    {
+      "name":"encoding",
+      "description":"the encoding used, default encoding is the web charset of the enviroment.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

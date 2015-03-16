@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"GetTotalSpace",
+  "name":"GetTotalSpace",
+  "memberName":"",
+  "description":"Returns the size of the partition named by this abstract pathname.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.GetTotalSpace",
+  "returnType":"numeric",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"filepath",
+      "description":"file path",
+      "type":"object",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

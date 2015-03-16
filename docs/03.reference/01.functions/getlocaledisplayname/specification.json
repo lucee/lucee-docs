@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"getLocaleDisplayName",
+  "name":"getLocaleDisplayName",
+  "memberName":"",
+  "description":"Gets a locale value and displays the name in a manner\n        that is appropriate to a specific locale. By default,\n        gets the current locale in the current locale's language.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.displayFormatting.GetLocaleDisplayName",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"locale",
+      "description":"Locale to use instead of the locale of the page when processing the function",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"dspLocale",
+      "description":"The locale in which to return the name. The default is the locale defined for the request.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

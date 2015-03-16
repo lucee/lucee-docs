@@ -1,0 +1,52 @@
+{
+  "pageType":"function",
+  "title":"ToScript",
+  "name":"ToScript",
+  "memberName":"",
+  "description":"Creates a JavaScript expression that assigns the value of a variable to a JavaScript variable.\n\t\tThis function can convert strings, numbers, arrays, structures, and queries to JavaScript syntax that defines equivalent variables and values.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.conversion.ToScript",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "javascript"
+  ],
+  "arguments":[
+    {
+      "name":"cfvar",
+      "description":"A variable.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"javascriptvar",
+      "description":"A string that specifies the name of the JavaScript variable\n            that the ToScript function creates.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"outputformat",
+      "description":"A Boolean value that determines whether to create\n            WDDX (JavaScript) or ActionScript style output for\n            structures and queries.\n            Default: true",
+      "type":"boolean",
+      "required":false,
+      "default":"true"
+    },
+    {
+      "name":"ASFormat",
+      "description":"A Boolean value that specifies whether to use\n            ActionScript shortcuts in the script.\n            Default: false",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

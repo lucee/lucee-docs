@@ -1,1 +1,0 @@
-Height value of the grid control, in pixels.

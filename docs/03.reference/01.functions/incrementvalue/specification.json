@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"incrementValue",
+  "name":"incrementValue",
+  "memberName":"",
+  "description":"this function is deprecated, use instead the ++ operator;Increments the current number by one",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.math.IncrementValue",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"Number to increment",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

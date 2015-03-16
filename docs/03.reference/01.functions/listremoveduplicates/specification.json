@@ -1,0 +1,45 @@
+{
+  "pageType":"function",
+  "title":"ListRemoveDuplicates",
+  "name":"ListRemoveDuplicates",
+  "memberName":"listRemoveDuplicates",
+  "description":"Removes duplicate values from list.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListRemoveDuplicates",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"a string list",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"Characters that separate list elements. The default value is comma.",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"ignoreCase",
+      "description":"if set to true, the duplicate value test will not be case sensitive",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

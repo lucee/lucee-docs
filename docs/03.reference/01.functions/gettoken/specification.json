@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"getToken",
+  "name":"getToken",
+  "memberName":"getToken",
+  "description":"Determines whether a token of the list in the delimiters\n        parameter is present in a string.\n        Returns the token found at position index of the string, as a\n        string. If index is greater than the number of tokens in the\n        string, returns an empty string.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.GetToken",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"String in which to search. ",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"index",
+      "description":"Positive integer. The position of a token.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"A delimited list of delimiters. Elements may consist of multiple characters.\nDefault list of delimiters: space character, tab character, newline character; or their codes: \"chr(32)\", \"chr(9)\", chr(10).\nDefault list delimiter: comma character.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

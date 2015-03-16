@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"sqr",
+  "name":"sqr",
+  "memberName":"",
+  "description":"Calculates the square root of a number.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.Sqr",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"A positive integer. Number whose square root to get.",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

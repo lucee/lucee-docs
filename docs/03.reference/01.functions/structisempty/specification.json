@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"structIsEmpty",
+  "name":"structIsEmpty",
+  "memberName":"isEmpty",
+  "description":"Determines whether a structure contains data.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructIsEmpty",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "struct",
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"structure",
+      "description":"Structure to test",
+      "type":"struct",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"isDefined",
+  "name":"isDefined",
+  "memberName":"",
+  "description":"Evaluates a string value to determine whether the variable\n        named in it exists.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsDefined",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"variable",
+      "description":"String, enclosed in quotation marks. Name of variable to test for.",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

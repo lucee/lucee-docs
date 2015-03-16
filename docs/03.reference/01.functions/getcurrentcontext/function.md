@@ -1,0 +1,7 @@
+---
+title: getCurrentContext
+related:
+categories:
+---
+
+this function is deprecated, use function CallStackGet instead.

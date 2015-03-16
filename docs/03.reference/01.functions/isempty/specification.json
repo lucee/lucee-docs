@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"IsEmpty",
+  "name":"IsEmpty",
+  "memberName":"",
+  "description":"return true if a value is \"empty\".\nThe following things are considered to be empty:\n- string:\"\" (an empty string)\n- array: [] (an empty array)\n- struct: {} (an empty struct)\n...\n\t\t ",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsEmpty",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

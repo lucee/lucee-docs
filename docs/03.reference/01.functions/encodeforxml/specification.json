@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"encodeForXML",
+  "name":"encodeForXML",
+  "memberName":"",
+  "description":"Encodes the given string for safe output in XML to stop Cross Site Scripting attacks.\n\t\tthis function is deprecated, use function ESAPIEncode('xml',...) instead.",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.owasp.EncodeForXML",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "ESAPI",
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"string to encode",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

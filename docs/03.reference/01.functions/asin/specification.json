@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"aSin",
+  "name":"aSin",
+  "memberName":"",
+  "description":"Determines the arcsine of a number. The arcsine is the angle\n        whose sine is number.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.ASin",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"Sine of an angle. The value must be between -1 and 1, inclusive.",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

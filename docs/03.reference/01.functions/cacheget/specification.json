@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"cacheGet",
+  "name":"cacheGet",
+  "memberName":"",
+  "description":"Gets an object that is stored in the cache.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.cache.CacheGet",
+  "returnType":"object",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"id",
+      "description":"name of the element to return",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"throwWhenNotExist",
+      "description":"define if the functions throws a exception when the element does not exist (default is false).",
+      "type":"object",
+      "required":false,
+      "default":"false"
+    },
+    {
+      "name":"cacheName",
+      "description":"definition of the cache used by name, when not set the \"default Object Cache\" defined in Lucee Administrator is used instead.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "pageType":"function",
+  "title":"lJustify",
+  "name":"lJustify",
+  "memberName":"lJustify",
+  "description":"Left justifies characters in a string of a specified length.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.LJustify",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"A string or a variable that contains one",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"length",
+      "description":"Length of field in which to justify string",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

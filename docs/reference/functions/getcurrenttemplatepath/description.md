@@ -1,1 +1,0 @@
-Gets the absolute path of the page that calls this function.

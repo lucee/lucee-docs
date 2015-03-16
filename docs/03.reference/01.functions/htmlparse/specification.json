@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"htmlParse",
+  "name":"htmlParse",
+  "memberName":"",
+  "description":"parse the given html (not only xhtml) as xml Object, work similar to xmlParse, but this function is very forgiving with the syntax..",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.xml.HtmlParse",
+  "returnType":"xml",
+  "argumentType":"",
+  "keywords":[
+    "HTML"
+  ],
+  "arguments":[
+    {
+      "name":"html",
+      "description":"",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"caseSensitive",
+      "description":"",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

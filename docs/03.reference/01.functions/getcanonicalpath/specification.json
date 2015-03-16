@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"GetCanonicalPath",
+  "name":"GetCanonicalPath",
+  "memberName":"",
+  "description":"Returns the canonical pathname string based on the given string.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.GetCanonicalPath",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"path",
+      "description":"path to a component or component itself",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

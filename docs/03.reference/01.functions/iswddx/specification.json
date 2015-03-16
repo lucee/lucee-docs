@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"isWddx",
+  "name":"isWddx",
+  "memberName":"",
+  "description":"Determines whether a value is a well-formed WDDX packet.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsWddx",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "wddx"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"A WDDX packet",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

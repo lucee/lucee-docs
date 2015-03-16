@@ -1,1 +1,0 @@
-Label of the stopwatch

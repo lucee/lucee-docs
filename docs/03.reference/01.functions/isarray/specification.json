@@ -1,0 +1,38 @@
+{
+  "pageType":"function",
+  "title":"isArray",
+  "name":"isArray",
+  "memberName":"",
+  "description":"Determines whether a value is an array.\n        True, if value is an array, a query column object, or xml.\n        also number = Dimension; function tests whether the array has\n        exactly this dimension",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsArray",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"Variable or array name",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"dimension",
+      "description":"function tests whether the array has exactly this dimension.",
+      "type":"number",
+      "required":false,
+      "default":"-999"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

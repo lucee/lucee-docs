@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"evaluateJava",
+  "name":"evaluateJava",
+  "memberName":"",
+  "description":"literal representation of a serializable Java Object, used by the serialize method.",
+  "status":"hidden",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dynamicEvaluation.EvaluateJava",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"stringOrBinary",
+      "description":"",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

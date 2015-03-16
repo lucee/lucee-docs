@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"arrayIsEmpty",
+  "name":"arrayIsEmpty",
+  "memberName":"isEmpty",
+  "description":"Determines if the array is empty.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayIsEmpty",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "array",
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"Name of an array",
+      "type":"array",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

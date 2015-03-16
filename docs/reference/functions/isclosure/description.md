@@ -1,1 +1,0 @@
-checks if given Object is a closure or not.

@@ -1,0 +1,45 @@
+{
+  "pageType":"function",
+  "title":"structFindValue",
+  "name":"structFindValue",
+  "memberName":"findValue",
+  "description":"Searches recursively through a substructure of nested arrays,\n        structures, and other elements for structures with values that\n        match the search key in the value parameter.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructFindValue",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "struct",
+    "find"
+  ],
+  "arguments":[
+    {
+      "name":"Top",
+      "description":"structure from which to start search. This parameter requires an object, not a name of an object.",
+      "type":"struct",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"Key",
+      "description":"",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"Scope",
+      "description":"\n- one (default): function returns one matching key\n- all: function returns all matching keys",
+      "type":"string",
+      "required":false,
+      "default":"one"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

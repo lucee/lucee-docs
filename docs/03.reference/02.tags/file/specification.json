@@ -1,0 +1,386 @@
+{
+  "pageType":"tag",
+  "title":"File",
+  "name":"File",
+  "description":"Handles all interactions with files. The attributes you use with cffile depend on the value of the action attribute.\n For example, if the action = \"write\", use the attributes associated with writing a text file.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"free",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.FileTag",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":"lucee.transformer.cfml.evaluator.impl.File"
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"storeacl",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"An array of struct where each struct represents a permission or grant.\nExample:\n[{email=\"xxx@yyy.com\", permission=\"full_control\"}, {group=\"all\", permission=\"read\"}]\n\t\t\t",
+      "aliases":[
+        "acl"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Type of file manipulation that the tag performs.",
+      "aliases":[
+        
+      ],
+      "values":[
+        "info",
+        "move",
+        "rename",
+        "copy",
+        "delete",
+        "read",
+        "readbinary",
+        "write",
+        "append",
+        "upload",
+        "uploadall",
+        "touch"
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"serverpassword",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"allow you to access filesystem, also when access is denied for your context",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"source",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Absolute pathname of file on web server.\nOn Windows, use backward slashes; on UNIX, use forward slashes.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"attributes",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"One attribute (Windows) or a comma-delimited list of attributes (other platforms) to set on the file.\nIf omitted, the file's attributes are maintained.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"destination",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Absolute pathname of directory or file on web server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"mode",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Applies only to Solaris and HP-UX. Permissions. Octal values of UNIX chmod command. Assigned to owner, group, and other, respectively.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"filefield",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of form field used to select the file.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"charset",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Character set name for the file contents.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"nameconflict",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Action to take if filename is the same as that of a file in the directory.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"accept",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"list of supported extensions or/and mimetypes.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"strict",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n   for action \"upload\" and \"uploadAll\":\n   if set to true (default), only mimetypes are supported.\n   ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"createPath",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n   for action \"append\", \"touch\" and \"write\":\n   if set to false (default), expects all parent directories to exist, true will generate necessary directories\n   ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"file",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Absolute pathname of file on web server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"variable",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of variable to contain contents of text file.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"output",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Content of the file to be created. ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"addNewLine",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":" Yes: appends newline character to text written to file",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"fixnewline",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"- true: changes embedded line-ending characters in string\n            variables to operating-system specific line endings\n            - false: (default) do not change embedded line-ending\n            characters in string variables.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"result",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of the result value (default:cffile)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

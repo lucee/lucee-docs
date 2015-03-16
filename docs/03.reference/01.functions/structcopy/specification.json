@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"structCopy",
+  "name":"structCopy",
+  "memberName":"copy",
+  "description":"Copies a structure. Copies top-level keys, values, and arrays\n        in the structure by value; copies nested structures by\n        reference.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructCopy",
+  "returnType":"object",
+  "argumentType":"",
+  "keywords":[
+    "struct"
+  ],
+  "arguments":[
+    {
+      "name":"structure",
+      "description":"Structure to copy",
+      "type":"struct",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

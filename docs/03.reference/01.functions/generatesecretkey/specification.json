@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"GenerateSecretKey",
+  "name":"GenerateSecretKey",
+  "memberName":"",
+  "description":"Gets a secure key value for use in the encrypt function.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.conversion.GenerateSecretKey",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"algorithm",
+      "description":"The encryption algorithm for which to generate the key.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"keySize",
+      "description":"Number of bits requested in the key for the specified algorithm.",
+      "type":"number",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,1 +1,0 @@
-Creates an empty query (query object).

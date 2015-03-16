@@ -1,1 +1,0 @@
-Performs a bitwise shift-left, no-rotation operation.

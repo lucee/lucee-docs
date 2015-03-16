@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"isLocalHost",
+  "name":"isLocalHost",
+  "memberName":"",
+  "description":"Determines whether the specified IP address is the localhost.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsLocalHost",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision"
+  ],
+  "arguments":[
+    {
+      "name":"ip",
+      "description":"Valid IP address.",
+      "type":"String",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

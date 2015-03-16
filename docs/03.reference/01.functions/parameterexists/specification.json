@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"parameterExists",
+  "name":"parameterExists",
+  "memberName":"",
+  "description":"Determines if the parameter exists",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.ParameterExists",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"parameter",
+      "description":"",
+      "type":"variablestring",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

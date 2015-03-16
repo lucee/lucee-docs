@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"CacheGetDefaultCacheName",
+  "name":"CacheGetDefaultCacheName",
+  "memberName":"",
+  "description":"return the default cache name for a specific type",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.cache.CacheGetDefaultCacheName",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"type",
+      "description":"cache type, valid values are [object,resource,template,query]",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

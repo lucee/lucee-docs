@@ -1,1 +1,0 @@
-Determines whether given object is null or not

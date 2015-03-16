@@ -1,0 +1,429 @@
+{
+  "pageType":"tag",
+  "title":"TextInput",
+  "name":"TextInput",
+  "description":"Lets you place a single-line text entry box in a cfform. The tag also gives you control over\n  font characteristics.",
+  "status":"deprecated",
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.TextInput",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"A name for the cftextinput control.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"value",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Initial value that displays in the text control.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"required",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Yes or No. If Yes, the user must enter or change text. Default is No.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"range",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Minimum value, maximum value range, separated by a comma. Valid only for numeric data.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"validate",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"date: verifies format mm/dd/yy.\n            eurodate: verifies date format dd/mm/yyyy.\n            time: verifies time format hh:mm:ss.\n            float: verifies floating point format.\n            integer: verifies integer format.\n            telephone: verifies telephone format ###-###-####. The\n                separator can be a blank. Area code and exchange must\n                begin with digit 1 - 9.\n            zipcode: verifies, in U.S. formats only, 5- or 9-digit\n                format #####-####. The separator can be a blank.\n            creditcard: strips blanks and dashes; verifies number using\n                mod10 algorithm. Number must have 13-16 digits.\n            social_security_number: verifies format ###-##-####. The\n                separator can be a blank.\n            regular_expression: matches input against pattern\n                attribute.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"onValidate",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The name of a JavaScript function used to validate user input. The form object, input object,\n\tand input object value are passed to the routine, which should return TRUE if validation succeeds and\n\tFALSE otherwise. When used, the validate attribute is ignored.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"message",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Message text to display if validation fails.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"onError",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of a JavaScript function to execute in the event of a failed validation.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"size",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Number of characters displayed before horizontal scroll bar displays.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"font",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Font name for text.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"fontSize",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Font size for text.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"italic",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Yes for italicized text, No for normal text. Default is No.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"bold",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Yes for boldface text, No for medium text. Default is No.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"height",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Height value of the control, in pixels.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"width",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Width value of the control, in pixels.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"vSpace",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Vertical spacing of the control, in pixels.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"hSpace",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Horizontal spacing of the control, in pixels.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"align",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Alignment value.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"bgColor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Background color of the control.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"textColor",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Text color for the control. See bgColor for color options.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"maxLength",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The maximum length of text entered.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"notSupported",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The text to display if the page containing a Java applet-based\n\tcfform control is opened by a browser that does not support Java or has Java support disabled. ",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

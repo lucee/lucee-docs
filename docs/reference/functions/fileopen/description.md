@@ -1,1 +1,0 @@
-Opens an file to read, write, or append.

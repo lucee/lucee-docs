@@ -1,1 +1,0 @@
-Font size for text in the column. Default is the font specified by cfgrid.

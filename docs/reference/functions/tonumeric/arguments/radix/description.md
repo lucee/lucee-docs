@@ -1,1 +1,0 @@
-the base for tranlation of the given value, default is 10, possible values are [2-36,bin,oct,dec,hex]

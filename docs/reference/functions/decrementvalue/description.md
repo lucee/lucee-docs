@@ -1,1 +1,0 @@
-this function is deprecated, use instead the -- operator;Decrements the current number by one

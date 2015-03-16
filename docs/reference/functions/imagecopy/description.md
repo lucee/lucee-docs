@@ -1,1 +1,0 @@
-Copies a rectangular area of an image.

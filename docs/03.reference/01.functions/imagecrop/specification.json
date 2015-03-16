@@ -1,0 +1,58 @@
+{
+  "pageType":"function",
+  "title":"ImageCrop",
+  "name":"ImageCrop",
+  "memberName":"",
+  "description":"Crops a image to a specified rectangular area.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageCrop",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"The image on which this operation is performed.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"x",
+      "description":"The X origin of the crop area.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"y",
+      "description":"The Y origin of the crop area.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"width",
+      "description":"The width of the crop area.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"height",
+      "description":"The height of the crop area.",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

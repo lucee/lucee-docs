@@ -1,1 +1,0 @@
-The database driver type

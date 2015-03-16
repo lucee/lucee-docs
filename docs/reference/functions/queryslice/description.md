@@ -1,1 +1,0 @@
-creates a new query containing a part of the given query

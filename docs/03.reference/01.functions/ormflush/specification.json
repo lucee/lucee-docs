@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"ORMFlush",
+  "name":"ORMFlush",
+  "memberName":"",
+  "description":"Flushes the current ORM session. ORMFlush flushes all the pending CRUD operations in that request. Any changes made in the objects, in the current ORM session, are saved to the database.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.orm.ORMFlush",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"datasource",
+      "description":"datasource used for the session, if nor defined the datasource defined in application.cfc/cfapplication is used.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

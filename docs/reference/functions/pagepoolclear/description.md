@@ -1,1 +1,0 @@
-clear pages in pools

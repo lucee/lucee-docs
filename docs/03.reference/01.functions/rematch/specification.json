@@ -1,0 +1,38 @@
+{
+  "pageType":"function",
+  "title":"REMatch",
+  "name":"REMatch",
+  "memberName":"REMatch",
+  "description":"Uses a regular expression (RE) to search a string for a pattern, starting from a specified position.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.REMatch",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "regex"
+  ],
+  "arguments":[
+    {
+      "name":"regex",
+      "description":"Regular expression for which to search. Case sensitive.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"string",
+      "description":"String in which to search.",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

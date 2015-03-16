@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"FileExists",
+  "name":"FileExists",
+  "memberName":"",
+  "description":"Determines whether a file exists",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileExists",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"source",
+      "description":"a file path.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"allowRealPath",
+      "description":"boolean that defines if relative paths are interpreted or not",
+      "type":"object",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

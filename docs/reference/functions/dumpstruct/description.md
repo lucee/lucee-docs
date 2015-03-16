@@ -1,1 +1,0 @@
-creates out of given object dump infomration as struct

@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"setVariable",
+  "name":"setVariable",
+  "memberName":"",
+  "description":"Sets the value",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dynamicEvaluation.SetVariable",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"Variable name, can be contain \".\" for structures.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"value",
+      "description":"the value to set",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

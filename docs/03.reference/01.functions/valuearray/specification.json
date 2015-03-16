@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"valueArray",
+  "name":"valueArray",
+  "memberName":"",
+  "description":"Returns a array of all the values, for a given column within the query.\n\t\tthis function is deprecated, use instead the function queryColumnData",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.query.ValueArray",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "query"
+  ],
+  "arguments":[
+    {
+      "name":"query_column",
+      "description":"",
+      "type":"queryColumn",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

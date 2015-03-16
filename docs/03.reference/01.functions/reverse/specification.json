@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"reverse",
+  "name":"reverse",
+  "memberName":"reverse",
+  "description":"Reverses the order of items, such as the characters in a\n        string, the digits in a number, or the elements in an array.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.Reverse",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"A string or a variable that contains one ",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

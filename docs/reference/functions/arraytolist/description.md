@@ -1,1 +1,0 @@
-Transform the array to a list of elements delimiter by the given string

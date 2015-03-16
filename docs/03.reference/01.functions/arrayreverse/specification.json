@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"arrayReverse",
+  "name":"arrayReverse",
+  "memberName":"reverse",
+  "description":"Returns a new array, with all the elements reversed",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayReverse",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"the array to reverse",
+      "type":"array",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

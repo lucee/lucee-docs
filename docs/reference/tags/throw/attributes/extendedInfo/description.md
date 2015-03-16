@@ -1,1 +1,0 @@
-extended information to the exception.

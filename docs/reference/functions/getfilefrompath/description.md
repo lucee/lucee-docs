@@ -1,1 +1,0 @@
-Extracts a filename from an absolute path.

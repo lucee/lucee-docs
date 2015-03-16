@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"RestInitApplication",
+  "name":"RestInitApplication",
+  "memberName":"",
+  "description":"Registers the directory path with the service mapping provided.\n\t\tIf no service mapping is provided, the application name is used.\n\t\tIf the rest application is already registered, it is refreshed.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.rest.RestInitApplication",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"dirPath",
+      "description":"Path to the directory to be registered or reseted.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"serviceMapping",
+      "description":"Alternate string to be used for application name while calling the REST service.",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"default",
+      "description":"set if the mapping is a default mapping or not",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"password",
+      "description":"password for the web administrator, this is needed when you update/create a REST mapping.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

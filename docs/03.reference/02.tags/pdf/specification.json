@@ -1,0 +1,726 @@
+{
+  "pageType":"tag",
+  "title":"pdf",
+  "name":"pdf",
+  "description":"\nManipulates existing PDF documents. The following list describes some of the tasks you can perform with the cfpdf tag:\n- Merge several PDF documents into one PDF document.\n- Delete pages from a PDF document.\n- Merge pages from one or more PDF documents and generate a new PDF document.\n- Linearize PDF documents for faster web display.\n- Remove interactivity from forms created in Acrobat(c) to generate flat PDF documents.\n- Encrypt and add password protection to PDF documents.\n- Generate thumbnail images from PDF documents or pages.\n- Add or remove watermarks from PDF documents or pages.\n- Retrieve information associated with a PDF document, such as the software used to generate the file or the author, and set information for a PDF document, such as the title, author and keywords.\n- Create PDF portfolios\n- Add and remove header/footer from PDF documents\n- Optimize PDF documents\n\t\t",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"free",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.PDF",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"action to take",
+      "aliases":[
+        
+      ],
+      "values":[
+        "addWatermark",
+        "deletePages",
+        "getInfo",
+        "merge",
+        "protect",
+        "read",
+        "removeWatermark",
+        "setInfo",
+        "thumbnail",
+        "write"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"ascending",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Order in which the PDF files are sorted",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"type",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"used for action \"extractText\", defines the format type of the extraction, valid values are: string,xml",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"copyFrom",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Pathname of the PDF document from which to use the first page as a watermark",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"ddxfile",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Pathname of the DDX file, or a string with DDX instructions",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"destination",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Pathname of the modified PDF document. If the destination file exists, you must set the overwrite attribute to yes. If the destination file does not exist, CFML creates the file, if the parent directory exists.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"directory",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Directory of the PDF documents to merge. You must specify either the directory attribute or the source attribute. If you specify the directory attribute, CFML orders the documents by filename in descending order, by default. To change the order of the files, use the order attribute.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"encrypt",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Encryption type for the PDF output file",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"flatten",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Applies to forms created in Acrobat only (not forms created in LiveCycle); specifies whether interactivity is turned off",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"foreground",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Placement of the watermark on the page",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"format",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"File type of thumbnail image output",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"image",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Image used as a watermark. You can specify a pathname, a variable that contains an image file, or a image variable",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"imagePrefix",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"prefix used for each image thumbnail file generated. The image filenames use the format: imagePrefix_page_n.format.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"filter",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"file filter, used with attribute directory",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"info",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"Structure variable for relevant information",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"inputFiles",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"Structure that maps the PDF source files to the input variables in the DDX file, or a string of elements and their pathname.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"isBase64",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Valid only when the image attribute is specified. Specifies whether the image used as a watermark is in Base64 format",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"keepBookmark",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies whether bookmarks from the source PDF documents are retained in the merged document",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"PDF document variable name",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"newOwnerPassword",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Password used to set permissions on a PDF document",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"newUserPassword",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Password used to open PDF document",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"opacity",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Opacity of the watermark. Valid values are integers in the range 0 (transparent) through 10 (opaque).",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"order",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Order in which the PDF documents in the directory are merged",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"outputFiles",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"Structure that contains the output files in the DDX file or string as keys and the pathname to the result file as the value.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"overwrite",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies whether PDF output overwrites the destination file",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"pages",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Page or pages in the source PDF document on which to perform the action. You can specify multiple pages and page ranges as follows: \"1,6-9,56-89,100, 110-120\".",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"password",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Owner or user password of the source PDF document, if the document is password-protected.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"permissions",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"type of permissions on the PDF document",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"position",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Position on the page where the watermark is placed. The position represents the top-left corner of the watermark. Specify the x and y coordinates; for example \"50,30\".",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"resolution",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Image quality used to generate thumbnail images",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"rotation",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Degree of rotation of the watermark image on the page.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"saveOption",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Save options for the PDF output",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"scale",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Size of the thumbnail relative to the source page. The value represents a percentage from 1 through 100.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"showOnPrint",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specify whether to print the watermark with the PDF document",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":"unimplemented",
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"source",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"PDF document used as the source.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"stopOnError",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Valid only if the directory attribute is specified. If the specified directory contains files other then readable PDF files, Lucee either stops merge process or continues.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"transparent",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"(format=\"png\" only) Specifies whether the image background is transparent or opaque",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"version",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Version of the PDF used to write the document",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,1 +1,0 @@
-Switches antialiasing on or off in rendered graphics.

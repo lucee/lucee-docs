@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"ImageShearDrawingAxis",
+  "name":"ImageShearDrawingAxis",
+  "memberName":"",
+  "description":"Shears the drawing canvas.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageShearDrawingAxis",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"The image on which this operation is performed.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"shx",
+      "description":"The multiplier by which coordinates are shifted in the positive x axis direction as a function of the y coordinate.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"shy",
+      "description":"the multiplier by which coordinates are shifted in the positive y axis direction as a function of the x coordinate.",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

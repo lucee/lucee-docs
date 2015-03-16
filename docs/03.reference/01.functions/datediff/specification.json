@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"dateDiff",
+  "name":"dateDiff",
+  "memberName":"diff",
+  "description":"Determines the number of given date parts between two different dates",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dateTime.DateDiff",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"datepart",
+      "description":"String that specifies the units in which to count:\n- yyyy: Years\n- q: Quarters\n- m: Months\n- y: Days of year (same as d)\n- d: Days\n- w: Weekdays (same as ww)\n- ww: Weeks\n- h: Hours\n- n: Minutes\n- s: Seconds\n",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"date1",
+      "description":"date time object to compare",
+      "type":"datetime",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"date2",
+      "description":"date time object to compare",
+      "type":"datetime",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,1 +1,0 @@
-Yes or No. Use to hide columns. Default is Yes to display the column.

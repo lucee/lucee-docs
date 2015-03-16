@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"IsXmlNode",
+  "name":"IsXmlNode",
+  "memberName":"",
+  "description":"Determines whether the function parameter is\n        an XML document object node.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsXmlNode",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "xml"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"Name of an XML document object node.",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

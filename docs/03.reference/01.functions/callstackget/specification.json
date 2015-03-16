@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"CallStackGet",
+  "name":"CallStackGet",
+  "memberName":"",
+  "description":"return the context (stacktrace) of the current position.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.CallStackGet",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"type",
+      "description":"the type of the returned value, possible values are: [array], string, html, json",
+      "type":"string",
+      "required":false,
+      "default":"array"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

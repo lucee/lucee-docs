@@ -1,1 +1,0 @@
-Determines the value associated with a key in a structure.

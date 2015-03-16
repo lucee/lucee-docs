@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"isXML",
+  "name":"isXML",
+  "memberName":"",
+  "description":"Determines whether a string is well-formed XML text.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.decision.IsXML",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "decision",
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"value",
+      "description":"A string containing the XML document text",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,1 +1,0 @@
-Returns all the currently registered functions

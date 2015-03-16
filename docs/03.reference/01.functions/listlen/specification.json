@@ -1,0 +1,45 @@
+{
+  "pageType":"function",
+  "title":"listLen",
+  "name":"listLen",
+  "memberName":"ListLen",
+  "description":"Determines the number of elements in a list.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListLen",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "list",
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"a string list",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiters",
+      "description":"Characters that separate list elements. The default value is comma.",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"includeEmptyFields",
+      "description":"if set to true, empty values are included as well",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

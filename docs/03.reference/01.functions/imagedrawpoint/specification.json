@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"ImageDrawPoint",
+  "name":"ImageDrawPoint",
+  "memberName":"",
+  "description":"Draws a point at the specified (x,y) coordinate.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageDrawPoint",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"name",
+      "description":"The image on which this operation is performed.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"x",
+      "description":"The x coordinate of the point.",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"y",
+      "description":"The y coordinate of the point.",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

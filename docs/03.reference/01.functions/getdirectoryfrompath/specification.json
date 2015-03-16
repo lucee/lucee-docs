@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"getDirectoryFromPath",
+  "name":"getDirectoryFromPath",
+  "memberName":"",
+  "description":"Extracts a directory from an absolute path.\n        Returns the absolute path, without the filename.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.GetDirectoryFromPath",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"path",
+      "description":"file path",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,498 @@
+{
+  "pageType":"tag",
+  "title":"ftp",
+  "name":"ftp",
+  "description":"Lets users implement File Transfer Protocol (FTP) operations.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Ftp",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"the action that should be execute",
+      "aliases":[
+        
+      ],
+      "values":[
+        "copy",
+        "exists",
+        "existsfile",
+        "existsdir",
+        "open",
+        "close",
+        "changedir",
+        "createdir",
+        "listdir",
+        "removedir",
+        "getfile",
+        "putfile",
+        "rename",
+        "remove",
+        "getcurrentdir",
+        "getcurrenturl"
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"username",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The Username for the connection",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"password",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The Password for the connection",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"server",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The Server to connect",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"timeout",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"timeout for the connection",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"port",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"server port of the connection",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"connection",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"the name for the connection, used to cache the connection",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyServer",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Host name or IP address of a proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyPort",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The port number on the proxy server from which the object is requested. Default is 80. When\n\tused with resolveURL, the URLs of retrieved documents that specify a port number are automatically\n\tresolved to preserve links in the retrieved document.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyUser",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"When required by a proxy server, a valid username.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyPassword",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"When required by a proxy server, a valid password.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"retrycount",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"retry count",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"stoponerror",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"define if execution halt on error or not",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"passive",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"enable passive mode",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"name of the query for list directory",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"directory",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"remote directory to list",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"ASCIIExtensionList",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Delimited list of file extensions that force ASCII transfer mode, if transferMode = \"auto\".\n",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"transferMode",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"ASCII, binary or auto mode",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"remoteFile",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"File on the Server",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"localFile",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"File on the current machine",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"failIfExists",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"throw a error if local file already exist or overwrite it",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"existing",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"source or existing file or directory to rename",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"new",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"new name for file or directory",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"item",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"item on the server",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"result",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of the result value (default:cfftp)",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

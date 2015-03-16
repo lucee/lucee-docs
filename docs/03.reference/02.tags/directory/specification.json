@@ -1,0 +1,344 @@
+{
+  "pageType":"tag",
+  "title":"directory",
+  "name":"directory",
+  "description":"Handles interactions with directories.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Directory",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":"list",
+      "description":"Defines the action to be taken with directory(ies) specified in directory.",
+      "aliases":[
+        
+      ],
+      "values":[
+        "list",
+        "create",
+        "delete",
+        "forcedelete",
+        "rename",
+        "copy"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"listinfo",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n\t\t\t-  all: includes all information in the result set.\n    \t\t- name: includes only filenames in the result set.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"storeacl",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"An array of struct where each struct represents a permission or grant.\nExample:\n[{email=\"xxx@yyy.com\", permission=\"full_control\"}, {group=\"all\", permission=\"read\"}]\n",
+      "aliases":[
+        "acl"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"storelocation",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Only used for S3 Resources. The location of the created bucket/object. The location can either be EU,US or US-WEST. The default location is US.",
+      "aliases":[
+        "storage"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"type",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n\t- file: includes only filenames.\n    - dir: includes only directory names.\n    - all: includes both filenames and directory names.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"serverpassword",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"allow you to access filesystem, also when access is denied for your context",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"directory",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The name of the directory to perform the action against.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Required for action = \"list\". Ignored by all other actions. Name of output query for directory\n\t\tlisting.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"filter",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Optional for action = \"list\". Ignored by all other actions. Can be either a wildcard filter,\n\t\t\te.g. \"m*\", or a UDF/Closure which accepts the file/directory name and returns a boolean value to indicate\n\t\t\twhether that item should be included in the result or not.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"filterDelimiters",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Optional when passing a filter pattern. This value is used as a delimiter for the patterns.\n\t\t\tDefault is the pipe \"|\" character.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"mode",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Used with action = \"Create\" to define the permissions for a directory on UNIX and Linux\n\t\tplatforms. Ignored on Windows. Options correspond to the octal values of the UNIX chmod command. From\n\t\tleft to right, permissions are assigned for owner, group, and other.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sort",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Optional for action = \"list\". Ignored by all other actions. The query columns by which to sort\n\t\tthe directory listing. Any combination of columns from query output can be specified in comma-separated list.\n\t\tYou can specify ASC (ascending) or DESC (descending) as qualifiers for column names. ASC is the default",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"newDirectory",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Required for action = \"rename\". Ignored by all other actions. The new name of the directory\n\t\tspecified in the directory attribute.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"destination",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Required for action = \"copy\". Ignored by all other actions. Path of the destination directory. If not an absolute path, it is relative to the source directory.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"recurse",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Whether Lucee performs the action on subdirectories",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"nameconflict",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"When used with action=\"copy\" the possible values are: [Overwrite]|Error.  When used with action=\"create\" the possible values are: [Error]|Skip. Ignored for all other actions.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"createPath",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n\t   \t\t\tif set to false, expects all parent directories to exist, true (default) will generate necessary directories\n\t   \t\t",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

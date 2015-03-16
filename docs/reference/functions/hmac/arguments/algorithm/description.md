@@ -1,1 +1,0 @@
-the algorithm used, default is "HmacMD5"

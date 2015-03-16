@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"beat",
+  "name":"beat",
+  "memberName":"",
+  "description":"\n\t\tOutputs the actuell swatch time.\n\t\tIt is a new system of time developed by Swatch, the Swiss watch maker.\n\t\tIt involves setting the current day into 1000 \"beats\" instead of 24 hours.\n\t\tInternet Time eliminates the need for geographical time zones, perfect for the internet.\n\t\t",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.dateTime.Beat",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"time",
+      "description":"\n\t\t\tthe local time to geat beat time from\n\t\t\t",
+      "type":"any",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "pageType":"function",
+  "title":"rEReplace",
+  "name":"rEReplace",
+  "memberName":"rEReplace",
+  "description":"Uses a regular expression (RE) to search a string for a string\n        pattern and replace it with another. The search is\n        case-sensitive.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.REReplace",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "regex"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"String within which to search. ",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"reg_expression",
+      "description":"Regular expression to replace.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"substring",
+      "description":"replacement",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"scope",
+      "description":"\n- one (default): Replace the first occurrence of the regular expression.\n- all: Replace all occurrences of the regular expression.",
+      "type":"string",
+      "required":false,
+      "default":"one"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

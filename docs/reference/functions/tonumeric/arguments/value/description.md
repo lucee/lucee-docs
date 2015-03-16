@@ -1,1 +1,0 @@
-value that should be translated to a numeric value

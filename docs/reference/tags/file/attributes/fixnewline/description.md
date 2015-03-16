@@ -1,4 +1,0 @@
-- true: changes embedded line-ending characters in string
-            variables to operating-system specific line endings
-            - false: (default) do not change embedded line-ending
-            characters in string variables.

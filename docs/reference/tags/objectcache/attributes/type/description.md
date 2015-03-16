@@ -1,1 +1,0 @@
-cache type to manipulate, query is the default type

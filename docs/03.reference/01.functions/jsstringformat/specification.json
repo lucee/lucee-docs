@@ -1,0 +1,32 @@
+{
+  "pageType":"function",
+  "title":"jSStringFormat",
+  "name":"jSStringFormat",
+  "memberName":"",
+  "description":"Escapes special JavaScript characters, such as single quotation\n        mark, double quotation mark, and newline",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.JSStringFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "javascript",
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"A string or a variable that contains one.",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

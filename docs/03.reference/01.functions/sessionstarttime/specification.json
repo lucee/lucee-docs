@@ -1,0 +1,24 @@
+{
+  "pageType":"function",
+  "title":"SessionStartTime",
+  "name":"SessionStartTime",
+  "memberName":"",
+  "description":"Provides information about the time when the current users session scope was created.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.SessionStartTime",
+  "returnType":"date",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

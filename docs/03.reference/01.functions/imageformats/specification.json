@@ -1,0 +1,24 @@
+{
+  "pageType":"function",
+  "title":"ImageFormats",
+  "name":"ImageFormats",
+  "memberName":"",
+  "description":"return all available readers and writers",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageFormats",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

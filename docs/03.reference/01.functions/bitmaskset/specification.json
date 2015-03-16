@@ -1,0 +1,52 @@
+{
+  "pageType":"function",
+  "title":"bitMaskSet",
+  "name":"bitMaskSet",
+  "memberName":"",
+  "description":"Performs a bitwise mask set operation.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.BitMaskSet",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"a integer",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"mask",
+      "description":"integer mask",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"start",
+      "description":"Integer, in the range 0-31, inclusive; start bit for mask",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"length",
+      "description":"Integer, in the range 0-31, inclusive; length of mask",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

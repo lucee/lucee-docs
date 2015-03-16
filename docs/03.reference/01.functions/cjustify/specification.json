@@ -1,0 +1,38 @@
+{
+  "pageType":"function",
+  "title":"cJustify",
+  "name":"cJustify",
+  "memberName":"cJustify",
+  "description":"Returns the given string justified to the center, padding out the words with spaces accordingly",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.CJustify",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"May be empty. If it is a variable that is defined as a number, the function processes it as a string. ",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"length",
+      "description":"A positive integer. Length of field.",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

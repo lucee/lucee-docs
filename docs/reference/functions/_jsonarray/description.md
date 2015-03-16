@@ -1,1 +1,0 @@
-internal function used for literal array defintion

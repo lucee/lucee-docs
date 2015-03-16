@@ -1,1 +1,0 @@
-Determines if the array is empty.

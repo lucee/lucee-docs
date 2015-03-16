@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"CacheRemoveAll",
+  "name":"CacheRemoveAll",
+  "memberName":"",
+  "description":"this function is deprecated, use instead cacheClear. Removes all elements from the cache",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.cache.CacheRemoveAll",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"cacheName",
+      "description":"definition of the cache used by name, when not set the \"default Object Cache\" defined in Lucee Administrator is used instead.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

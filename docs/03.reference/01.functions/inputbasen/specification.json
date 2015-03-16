@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"inputBaseN",
+  "name":"inputBaseN",
+  "memberName":"",
+  "description":"Converts string, using the base specified by radix, to an\n        integer. For example: #InputBaseN(\"3ff\",16)#",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.InputBaseN",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"String that represents a number, in the base specified by radix.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"radix",
+      "description":"Base of the number represented by string, in the range 2-36.",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

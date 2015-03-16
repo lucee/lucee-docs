@@ -1,1 +1,0 @@
-Enter Left, Right, or Center to position data within a row header. Default is Left.

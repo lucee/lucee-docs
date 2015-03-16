@@ -1,1 +1,0 @@
-Tangent of an angle

@@ -1,1 +1,0 @@
-The x coordinate of the end point of the cubic curve segment.

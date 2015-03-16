@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"stringlen",
+  "name":"stringlen",
+  "memberName":"len",
+  "description":"returns the len of a string",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.StringLen",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "string"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

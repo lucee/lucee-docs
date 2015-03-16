@@ -1,1 +1,0 @@
-Specifies the output format.

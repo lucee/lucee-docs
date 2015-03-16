@@ -1,0 +1,52 @@
+{
+  "pageType":"function",
+  "title":"arrayMap",
+  "name":"arrayMap",
+  "memberName":"map",
+  "description":"Calls the given closure with every element in the given array.\n\t\tthe function returns a array that contains all values returned by the closure.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayMap",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "array",
+    "iterator"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"array to iterate",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"closure",
+      "description":"filter can be a function/closure that implements the following constructor [function(any value[, number index, array array]):any].",
+      "type":"function",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"parallel",
+      "description":"execute closures parallel",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"maxThreads",
+      "description":"maximum number of threads executed, ignored when argument \"parallel\" is set to false",
+      "type":"number",
+      "required":false,
+      "default":"20"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

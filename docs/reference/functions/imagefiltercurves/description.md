@@ -1,1 +1,0 @@
-the curves for the wrap grid

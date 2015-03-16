@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"FileReadBinary",
+  "name":"FileReadBinary",
+  "memberName":"",
+  "description":"Reads an on-disk or in-memory binary file (such as an executable or image file) on the server, into a binary object",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileReadBinary",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "binary"
+  ],
+  "arguments":[
+    {
+      "name":"source",
+      "description":"file path",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

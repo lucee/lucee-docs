@@ -1,1 +1,0 @@
-Returns the character represented by the ascii value

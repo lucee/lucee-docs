@@ -1,0 +1,24 @@
+{
+  "pageType":"function",
+  "title":"nullValue",
+  "name":"nullValue",
+  "memberName":"",
+  "description":"returns null",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.NullValue",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

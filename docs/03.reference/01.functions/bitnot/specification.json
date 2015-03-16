@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"bitNot",
+  "name":"bitNot",
+  "memberName":"",
+  "description":"Performs a bitwise logical NOT operation.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.BitNot",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"a integer",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

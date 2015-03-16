@@ -1,0 +1,24 @@
+{
+  "pageType":"function",
+  "title":"getK2ServerDocCount",
+  "name":"getK2ServerDocCount",
+  "memberName":"",
+  "description":"This function is deprecated. ",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.other.GetK2ServerDocCount",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

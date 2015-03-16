@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"arrayMax",
+  "name":"arrayMax",
+  "memberName":"max",
+  "description":"Returns the largest numeric value in an array. If the array\n        parameter value is an empty array, returns zero.\n        All elements must contain values that can be automatically\n        converted to numeric values.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayMax",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"Name of an array",
+      "type":"array",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

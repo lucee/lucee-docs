@@ -1,0 +1,46 @@
+{
+  "pageType":"function",
+  "title":"lSCurrencyFormat",
+  "name":"lSCurrencyFormat",
+  "memberName":"",
+  "description":"Formats a number in a locale-specific currency format.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.international.LSCurrencyFormat",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "date",
+    "string",
+    "formatting"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"Currency value",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"type",
+      "description":"",
+      "type":"string",
+      "required":false,
+      "default":"local"
+    },
+    {
+      "name":"locale",
+      "description":"Locale to use instead of the locale of the page when processing the function",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

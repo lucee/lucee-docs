@@ -1,1 +1,0 @@
-the function ImageFilter allows to execute a filter against a image.

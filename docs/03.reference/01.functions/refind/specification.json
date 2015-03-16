@@ -1,0 +1,53 @@
+{
+  "pageType":"function",
+  "title":"rEFind",
+  "name":"rEFind",
+  "memberName":"reFind",
+  "description":"Uses a regular expression (RE) to search a string for a pattern. The search is case sensitive.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.REFind",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "regex",
+    "find"
+  ],
+  "arguments":[
+    {
+      "name":"reg_expression",
+      "description":"Regular expression for which to search. Case sensitive.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"string",
+      "description":"String in which\n            to search.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"start",
+      "description":"A positive integer. Position in the string at which to start search. The default value is 1.",
+      "type":"number",
+      "required":false,
+      "default":"1"
+    },
+    {
+      "name":"returnsubexpressions",
+      "description":"",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

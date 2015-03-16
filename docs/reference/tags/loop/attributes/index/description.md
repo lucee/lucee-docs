@@ -1,1 +1,0 @@
-Index value. Lucee sets it to from value and increments or decrements by step value, until it equals to value.

@@ -1,0 +1,74 @@
+{
+  "pageType":"function",
+  "title":"listMap",
+  "name":"listMap",
+  "memberName":"listMap,map",
+  "description":"Calls the given closure with every element in the given array.\n\t\tthe function returns a array that contains all values returned by the closure.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.list.ListMap",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "string",
+    "list",
+    "iterator"
+  ],
+  "arguments":[
+    {
+      "name":"list",
+      "description":"list to iterate",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"closure",
+      "description":"filter can be a function/closure that implements the following constructor [function(any value, number index, string list, string delimiter):any].",
+      "type":"function",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiter",
+      "description":"delimiter used to separate the string list",
+      "type":"string",
+      "required":false,
+      "default":","
+    },
+    {
+      "name":"includeEmptyFields",
+      "description":"include empty fields or not",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    },
+    {
+      "name":"multiCharacterDelimiter",
+      "description":"specifying whether the delimiters parameter specifies a multi-character delimiter. If this parameter is true, the delimiters parameter must specify a single delimiter consisting of multiple characters. This parameter enables the ListToArray function to convert a list such as the following to an array of color names: red:|orange:|yellow:|green:|blue:|indigo:|violet.",
+      "type":"boolean",
+      "required":false,
+      "default":"true"
+    },
+    {
+      "name":"parallel",
+      "description":"execute closures parallel",
+      "type":"boolean",
+      "required":false,
+      "default":"false"
+    },
+    {
+      "name":"maxThreads",
+      "description":"maximum number of threads executed, ignored when argument \"parallel\" is set to false",
+      "type":"number",
+      "required":false,
+      "default":"20"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

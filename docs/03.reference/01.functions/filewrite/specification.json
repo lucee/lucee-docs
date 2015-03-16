@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"FileWrite",
+  "name":"FileWrite",
+  "memberName":"",
+  "description":"If you specify a file path, writes the entire content to the specified file. If you specify a file object, writes text or binary data to the file object.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileWrite",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "binary"
+  ],
+  "arguments":[
+    {
+      "name":"file",
+      "description":"file path or object",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"data",
+      "description":"data o write to the file",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"charset",
+      "description":"The character encoding in which the file contents is encoded.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

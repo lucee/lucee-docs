@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"expandPath",
+  "name":"expandPath",
+  "memberName":"",
+  "description":"Creates an absolute, platform-appropriate path that is\n        equivalent to the value of relative_path, appended to the base\n        path. This function (despite its name) can accept an absolute\n        or relative path in the relative_path attribute",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.ExpandPath",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"relative_path",
+      "description":"Relative or absolute directory reference or filename, within the current directory, (.\\\\ and ..\\\\) to convert to an absolute path. Can include forward or backward slashes.",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

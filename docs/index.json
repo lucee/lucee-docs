@@ -1,5 +1,0 @@
-{
-  "pageType" : "page",
-  "title"    : "Welcome to Lucee Docs",
-  "body"     : "{{include:index.md}}"
-}

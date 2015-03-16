@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"FileDelete",
+  "name":"FileDelete",
+  "memberName":"",
+  "description":"Deletes the specified file on the server.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileDelete",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"source",
+      "description":"file to delete.",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

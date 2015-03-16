@@ -1,0 +1,322 @@
+{
+  "pageType":"tag",
+  "title":"Object",
+  "name":"Object",
+  "description":"Lets you call methods in COM, CORBA, and JAVA objects.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":null,
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.ObjectTag",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"name for the instantiated component.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"component",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of component to instantiate.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"type",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The object type. You can omit this attribute or specify component. Lucee automatically sets the type to component.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n- create: instantiates a COM object (typically, a DLL) before invoking methods or properties.\n- connect: connects to a COM object (typically, an EXE) running on server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        "create",
+        "connect"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"class",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Component ProgID for the object to invoke. When using Java stubs to connect to the COM object, the class must be the ProgID of the COM object.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"context",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"-  inproc\n    - local\n    - remote\n\nIn Windows, if not specified, uses Registry setting.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"delimiters",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"if specified a classpath, use as delimiter for the entries, default is comma.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"server",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Server name, using Universal Naming Convention (UNC) or Domain Name Serve (DNS) convention, in one of these forms:\n\n    * \\\\lanserver\n    * lanserver\n    * http://www.servername.com\n    * www.servername.com\n    * 127.0.0.1",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"locale",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\nSets arguments for a call to init_orb. Use this attribute only for VisiBroker ORBs. It is available on C++, Version 3.2. The value must be in the form:\nlocale = \" -ORBagentAddr 199.99.129.33 -ORBagentPort 19000\"\n\nEach type-value pair must start with a hyphen.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"webservice",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The absolute URL of the web service.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"username",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The user name to use to access the web service. If the webservice attribute specifies a web service configured name in the Lucee Administrator, overrides any user name specified in the Administrator entry.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"password",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The password to use to access the web service. If the webservice attribute specifies a web service name configured in the Lucee Administrator, overrides any password specified in the Administrator entry.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyServer",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The proxy server required to access the web service URL.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyPort",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"The port to use on the proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyUser",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The user ID to send to the proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"proxyPassword",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The user's password on the proxy server.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"fileReadLine",
+  "name":"fileReadLine",
+  "memberName":"",
+  "description":"Reads a line from an file.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.file.FileReadLine",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"fileObj",
+      "description":"The file object",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

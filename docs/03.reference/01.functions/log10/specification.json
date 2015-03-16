@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"log10",
+  "name":"log10",
+  "memberName":"",
+  "description":"Calculates the logarithm of number, to base 10.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.Log10",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"Positive real number for which to calculate the logarithm",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

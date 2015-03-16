@@ -1,0 +1,45 @@
+{
+  "pageType":"function",
+  "title":"bitMaskClear",
+  "name":"bitMaskClear",
+  "memberName":"",
+  "description":"Performs a bitwise mask clear operation.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.BitMaskClear",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number",
+    "math"
+  ],
+  "arguments":[
+    {
+      "name":"number",
+      "description":"a integer",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"start",
+      "description":"Integer, in the range 0-31, inclusive; start bit for mask",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"length",
+      "description":"Integer, in the range 0-31, inclusive; length of mask",
+      "type":"number",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

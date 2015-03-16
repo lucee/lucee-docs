@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"arrayDelete",
+  "name":"arrayDelete",
+  "memberName":"delete",
+  "description":"Deletes specified object from given array",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayDelete",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"The array to delete from",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"value",
+      "description":"The value to delete",
+      "type":"object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"scope",
+      "description":"\n\t\t\t\tone: replaces the first occurrence (default)\n\t\t\t\tall: replaces all occurrences\n\t\t\t",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "pageType":"function",
+  "title":"getSOAPResponseHeader",
+  "name":"getSOAPResponseHeader",
+  "memberName":"",
+  "description":"Returns a SOAP response header. Call this function\n        from within code that is invoking a web service after\n        making a web service request.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.xml.GetSOAPResponseHeader",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "webservice"
+  ],
+  "arguments":[
+    {
+      "name":"webservice",
+      "description":"A webservice object as returned from the cfobject tag or the CreateObject function.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"namespace",
+      "description":"A String that is the namespace for the header.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"name",
+      "description":"A String that is the name of the SOAP header.",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"asXML",
+      "description":"If True, the header is returned as a XML object;\n            if false (default), the header is returned as a Java object.",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

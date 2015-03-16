@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"encodeForXPath",
+  "name":"encodeForXPath",
+  "memberName":"",
+  "description":"Encodes the given string for safe use in an XPath Query.\n\t\tthis function is deprecated, use function ESAPIEncode('xpath',...) instead.",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.owasp.EncodeForXPath",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "ESAPI",
+    "XML"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"string to encode",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

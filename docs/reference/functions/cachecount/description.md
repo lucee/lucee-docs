@@ -1,1 +1,0 @@
-Returns the amount (integer) of keys stored in the cache.

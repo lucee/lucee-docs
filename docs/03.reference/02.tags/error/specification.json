@@ -1,0 +1,105 @@
+{
+  "pageType":"tag",
+  "title":"error",
+  "name":"error",
+  "description":"Enables the display of customized HTML pages when errors occur. This lets you maintain a\n  consistent look and feel within your application, even when errors occur.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Error",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"type",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The type of error that the custom error page handles.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"Template",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The relative path to the custom error page.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"mailTo",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The e-mail address of the administrator to notify of the error. The value\n\tis available to your custom error page in the MailTo property of the error object.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"exception",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Type of exception. Required if type = \"exception\" or \"monitor\".",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

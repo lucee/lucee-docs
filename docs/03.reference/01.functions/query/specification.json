@@ -1,0 +1,24 @@
+{
+  "pageType":"function",
+  "title":"query",
+  "name":"query",
+  "memberName":"",
+  "description":"create ans populates a query object in the form query(columnName1:[1,2,3],columnName2:[4,5,6])",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.query.Query_",
+  "returnType":"query",
+  "argumentType":"dynamic",
+  "keywords":[
+    "query"
+  ],
+  "arguments":[
+    
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

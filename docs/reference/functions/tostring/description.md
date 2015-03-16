@@ -1,1 +1,0 @@
-Converts a value to a string.

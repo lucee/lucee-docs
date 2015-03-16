@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"createODBCDateTime",
+  "name":"createODBCDateTime",
+  "memberName":"",
+  "description":"Creates an ODBC date-time object.",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.dateTime.CreateODBCDateTime",
+  "returnType":"datetime",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"date",
+      "description":"date object",
+      "type":"datetime",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

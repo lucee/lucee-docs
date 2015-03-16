@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"preserveSingleQuotes",
+  "name":"preserveSingleQuotes",
+  "memberName":"",
+  "description":"Returns back string without letting the engine escape the single quotes. Used within CFQUERY blocks usually",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.PreserveSingleQuotes",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"Variable that contains a string in which to preserve single-quotation marks.",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

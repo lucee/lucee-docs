@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"randRange",
+  "name":"randRange",
+  "memberName":"",
+  "description":"Generates a random integer between two specified numbers.\n        Requests for random integers that are greater than 100,000,000\n        result in non-random numbers, to prevent overflow during\n        internal computations.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.math.RandRange",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "number"
+  ],
+  "arguments":[
+    {
+      "name":"number1",
+      "description":"smaller number",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"number2",
+      "description":"bigger number",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"algorithm",
+      "description":"\n\t\t\tThe algorithm to use to generate the random number.\n\t\t\t- CFMX_COMPAT (very simple and not very secure algorithm (default)).\n            - SHA1PRNG (generates a number using the Sun Java SHA1PRNG algorithm. This algorithm provides greater randomness than the default algorithm)\n            - IBMSecureRandom (IBM JVM does not support the SHA1PRNG algorithm)",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

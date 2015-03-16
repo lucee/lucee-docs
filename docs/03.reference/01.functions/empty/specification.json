@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"Empty",
+  "name":"Empty",
+  "memberName":"",
+  "description":"this function is deprcated, use instead \"IsEmpty\".\n\t\tthis function returns true if a value exists and is not \"empty\".\nThe following things are considered to be empty:\n- string:\"\" (an empty string)\n- number:return always false\n- boolean: return always false\n- array: [] (an empty array)\n- struct: {} (an empty struct)\n\t\t ",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.system.Empty",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"variable",
+      "description":"",
+      "type":"variablestring",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

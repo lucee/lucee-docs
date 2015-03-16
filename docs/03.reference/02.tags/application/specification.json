@@ -1,0 +1,918 @@
+{
+  "pageType":"tag",
+  "title":"application",
+  "name":"application",
+  "description":"\n\t\t\tDefines scoping for a application, enables or disables storing client variables,\n\t\t\tand specifies a client variable storage mechanism.\n\t\t\tBy default, client variables are disabled. Also, enables session variables and sets timeouts\n\t\t\tfor session and application variables. Session and application variables are stored in memory.\n\t\t",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"empty",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":null,
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Application",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"name",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The name of your application. This name can be up to 64 characters long.\n   \t\tRequired for application and session variables, optional for client variables",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"datasource",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"alias for default datasource",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"defaultdatasource",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"the default datasource for this environment",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"datasources",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"A structure that contains datasources defintions.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":"create",
+      "description":"action for the data set:\n\t\t\t- create (default): creates a new application context and overwrite the existing\n\t\t\t- update: update the existing application context when there is already one, otherwise a new one is created",
+      "aliases":[
+        
+      ],
+      "values":[
+        "create",
+        "update"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"loginStorage",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n\t\t\tstorage for the login data:\n\t\t\t- cookie: store login information in the Cookie scope\n\t\t\t- session: store login information in the Session scope\n\t\t\t",
+      "aliases":[
+        
+      ],
+      "values":[
+        "cookie",
+        "session"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"clientManagement",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Yes or No. Enables client variables. Default is No.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"clientStorage",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\nSpecifies how Lucee stores client variables:\n- memory: the session is only kept in memory\n- cookie: the session is stored in the client cookie\n- file (default): the session is stored in a local file\n- \"datasource-name\"|\"cache-name\": when you select a name of an available datasource or cache, the client scope will be stored in there",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sessionType",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\nLucee provide 2 kind of sessions:\n- cfml: session handled by Lucee\n- j2ee: session handled by the Servlet Engine used\nDefault value is defined in the Lucee Web Administrator. \"j2ee\" can not use a session storage.\n",
+      "aliases":[
+        
+      ],
+      "values":[
+        "cfml",
+        "j2ee"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sessionStorage",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\nSpecifies how Lucee stores session variables:\n- memory (default): the session is only kept in memory\n- cookie: the session is stored in the client cookie\n- file: the session is stored in a local file\n- \"datasource-name\"|\"cache-name\": when you select a name of an available datasource or cache, the session scope will be stored in there\n",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"clientCluster",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"if set to true, lucee uses the storage backend for the client scope as master and Lucee checks for changes in the storage backend with every request,\n\t\t\tif set to false (default), the storage is only used as slave, lucee only initially gets the data from the storage. Ignored for storage type \"memory\".",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sessionCluster",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"if set to true, lucee uses the storage backend for the session scope as master and Lucee checks for changes in the storage backend with every request,\n\t\t\tif set to false (default), the storage is only used as slave, lucee only initially gets the data from the storage. Ignored for storage type \"memory\".",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"setClientCookies",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Yes or No. Yes enables client cookies. Default is Yes. If you set this attribute to\n\t\t\"No\", Lucee does not automatically send the CFID and CFTOKEN cookies to the client browser;\n\t\tyou must manually code CFID and CFTOKEN on the URL for every page that uses Session or Client variables.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"bufferOutput",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"if set to true (default) the output written to the body of the tag is buffered and in case of a exception also outputted.\n\t\t\tif set to false the content to body is ignored and not disabled when a failure in the body of the tag occur.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sessionManagement",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Yes or No. Yes enables session variables. Default is No.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"sessionTimeout",
+      "type":"timespan",
+      "default":false,
+      "defaultValue":null,
+      "description":"Enter the CreateTimeSpan function and values in days, hours, minutes, and seconds, separated\n\t\tby commas, to specify the lifespan of session variables. The default value is specified in the\n\t\tVariables page of the Lucee Administrator.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"clientTimeout",
+      "type":"timespan",
+      "default":false,
+      "defaultValue":null,
+      "description":"Enter the CreateTimeSpan function and values in days, hours, minutes, and seconds, separated\n\t\tby commas, to specify the lifespan of client variables. The default value is specified in the\n\t\tVariables page of the Lucee Administrator.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"applicationTimeout",
+      "type":"timespan",
+      "default":false,
+      "defaultValue":null,
+      "description":"Enter the CreateTimeSpan function and values in days, hours, minutes, and seconds, separated\n\t\tby commas, to specify the lifespan of application variables. The default value is specified in\n\t\tthe Variables page of the Lucee Administrator.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"requestTimeout",
+      "type":"timespan",
+      "default":false,
+      "defaultValue":null,
+      "description":"Sets the amount of time Lucee will wait for a request to finish before a request timeout will be raised. This means that the execution of the request will be stopped.",
+      "aliases":[
+        "timeout"
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"setDomainCookies",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Yes or No. Sets the CFID and CFTOKEN cookies for a domain, not just a single host.\n\t\tApplications that are running on clusters must set this value to Yes. The default is No.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"scriptProtect",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies whether to protect variables from cross-site scripting attacks",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"mappings",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"A structure that contains mappings. Each element in the structure consists of a key and a value.\n\t\t\tThe logical path is the key and the absolute path is the value.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"customtagpaths",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Contains custom tag paths.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"componentpaths",
+      "type":"any",
+      "default":false,
+      "defaultValue":null,
+      "description":"Contains component paths.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"secureJson",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"A Boolean value that specifies whether to add a security prefix in front of the value that a function returns in JSON-format\n\t\t\tin response to a remote call.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"wstype",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"webservice type used, this can be one of the following values\n- Axis1 (default): The Apache Axis 1 implementation is used\n- CXF: The CXF implementation is used",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"typeChecking",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":"true",
+      "description":"If disabled, Lucee ignores type defintions with function arguments and return values",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"compression",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Enable compression (GZip) for the Lucee Response stream for text-based responses when supported by the client (Web Browser).",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"suppressRemoteComponentContent",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Suppress content written to response stream when a Component is invoked remotely. Only works if the content was not flushed before.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"secureJsonPrefix",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"The security prefix to put in front of the value that a function returns in JSON-format in response to a remote call if the secureJSON setting is true.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"localmode",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Defines how the local scope of a function is invoked when a variable with no scope definition is used (default value set in the lucee administrator).\n- modern: the local scope is always invoked\n- classic (CFML standard): the local scope is only invoked when the key already exists in it",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"tag",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"tags/attributes default value in the following structure:\n#{location:{addtoken=false}}#",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"ormenabled",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies whether ORM should be enabled for the current application context.The default is false.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"ormsettings",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"\nA struct that defines all the ORM settings, the following keys are supported:\n- autogenmap(default:true): Specifies whether Lucee should automatically generate mapping for the persistent CFCs. If autogenmap=false, mapping should be provided in the form of \"{cfc-name}.cfc.hbm.xml\" files.\n- automanageSession(default:true; not supported yet): Lets you specify if Lucee must manage Hibernate session automatically. If enabled: Lucee manages the session completely. That is, it decides when to flush the session, when to clear the session, and when to close the session. If disabled: The application is responsible for managing flushing, clearing, or closing of the session. The only exception is (in the case of transaction), when the transaction commits, the application flushes the session. Lucee closes the ORM session at the end of request irrespective of this flag being enabled or disabled.\n- cacheconfig: Specifies the location of the configuration file that should be used by the secondary cache provider.This setting is used only when secondarycacheenabled=true.\n- cacheprovider: Specifies the cache provider that should be used by ORM as secondary cache.\n- catalog: Specifies the default Catalog that should be used by ORM.\n- cfclocation: Specifies the directory (or array of directories) that should be used by Lucee to search for persistent CFCs to generate the mapping. If cfclocation is set, Lucee looks at only the paths specified in it. If it is not set, Lucee looks at the application directory, its sub-directories, and its mapped directories to search for persistent CFCs.\n- datasource: Specifies the data source that should be used by ORM. If it is not specified here, then the data source specified for the application is picked up.\n- dbcreate(default:none): Hibernate can automatically create the tables for your application in the database. dbCreate takes the following values:\n-- update: Setting this value creates the table if it does not exist or update the table if it exists.\n-- dropcreate: Setting this value drops the table if it exists and then creates it.\n-- none: Setting this value does not change anything in the database schema.\n- dialect: Specifies the dialect.Lucee supports the following dialects: [Cache 2007.1, Cache71, Cache 2007.1, DB2, DB2/390, DB2/400, DB2390, DB2400, DB2AS400, DB2OS390, DataDirectOracle9, Derby, Firebird, FrontBase, H2, H2DB, HSQL, HSQLDB, Informix, Ingres, Interbase, JDataStore, MSSQL, Mckoi, MckoiSQL, MicrosoftSQLServer, Mimer, MimerSQL, MySQL, MySQL/InnoDB, MySQL/MyISAM, MySQL5, MySQL5/InnoDB, MySQL5InnoDB, MySQLInnoDB, MySQLMyISAM, MySQLwithInnoDB, MySQLwithMyISAM, Oracle, Oracle10g, Oracle8i, Oracle9, Oracle9i, Pointbase, PostgreSQL, PostgresPlus, Progress, SAPDB, SQLServer, Sybase, Sybase11, SybaseASE15, SybaseAnywhere, com.ddtek.jdbc.db2.DB2Driver, com.microsoft.jdbc.sqlserver.SQLServerDriver, oracle.jdbc.driver.OracleDriver, org.firebirdsql.jdbc.FBDriver, org.gjt.mm.mysql.Driver, org.h2.Driver, org.hsqldb.jdbcDriver, org.postgresql.Driver]\n- eventHandling(default:false): Specifies whether ORM Event callbacks should be given.\n- flushatrequestend(default:true): Specifies whether ormflush should be called automatically at request end. If flushatrequestend is false, ormflush is not called automatically at request end.\n- logSQL(default:false): Specifies whether the SQL queries that are executed by ORM will be logged. If LogSQL=true, the SQL queries are logged to the console.\n- ormconfig: The Hibernate configuration file. This file contains various configuration parameters like, dialect, cache settings, and mapping files that are required for the application. For more details, see www.hibernate.org/hib_docs/reference/en/html/session-configuration.html. The settings defined in the ormsettings override the settings defined in the Hibernate Configuration XML file.The connection information in the Hibernate Configuration XML file is however ignored because Lucee uses its own connection pool. You will need to use this only when you need to use a hibernate setting that is not available using ormsetting.\n- savemapping(default:false): Specifies whether the generated Hibernate mapping file has to be saved to disc. If you set the value to true, the Hibernate mapping XML file is saved with the filename \"CFC name\".hbm.xml in the same directory as the CFC. If any value of savemapping is specified in CFC, it will override the value specified in the ormsetting.\n- schema: Specifies the default Schema that should be used by ORM.\n- secondarycacheenabled(default:false): Specifies whether secondary caching should be enabled\n- skipCFCWithError(default:false;not implemented yet): Lets you specify if Lucee must skip the CFCs that have errors. If set to true, Lucee ignores the CFCs that have errors.\n- sqlscript: Path to the SQL script file that gets executed after ORM is initialized. This applies if dbcreate is set to dropcreate. This must be the absolute file path or the path relative to the application.The SQL script file lets you populate the tables before the application is accessed.\n- useDBForMapping(default:true): Specifies whether the database has to be inspected to identify the missing information required to generate the Hibernate mapping. The database is inspected to get the column data type, primary key and foreign key information.\n",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"s3",
+      "type":"struct",
+      "default":false,
+      "defaultValue":null,
+      "description":"\nA struct that defines default S3 settings, this settings can be overwritten as part of the S3 file path, the following keys are supported:\n- accessKeyId: S3 access key id\n- awsSecretKey: AWS (Amazon Web Service) Secret Key\n- defaultLocation(default:us): region for the bucket, possible values are [eu,us,us-west]\n- host(default:\"s3.amazonaws.com\"): hostname of the service\n",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"triggerDataMember",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"If there is no accessible data member (property, element of the this scope) inside a component,\n\t\t\tLucee searches for available matching &quot;getters&quot; or &quot;setters&quot; for the requested property.\n\t\t\tThe following example should clarify this behaviour.\n\t\t\t&quot;somevar = myComponent.properyName&quot;.\n\t\t\tIf &quot;myComponent&quot; has no accessible data member named &quot;propertyName&quot;,\n\t\t\tLucee searches for a function member (method) named &quot;getPropertyName&quot;.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"InvokeImplicitAccessor",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"alias for triggerDataMember",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheObject",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"name of the cache used for object caching in this context",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheFunction",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"name of the cache used for function caching in this context",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheQuery",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"name of the cache used for query caching in this context",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheTemplate",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"name of the cache used for template caching in this context",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheResource",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"name of the cache used to store data from ram resource in this context",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"cacheInclude",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"name of the cache used to store data from a include",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"onMissingTemplate",
+      "type":"object",
+      "default":false,
+      "defaultValue":null,
+      "description":"closure/udf executed when the requested template does not exist",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"locale",
+      "type":"String",
+      "default":false,
+      "defaultValue":null,
+      "description":"Sets the country/language locale for CFML processing. The locale value\n        determines the default format of date, time, number, and\n        currency values, according to language and regional\n        conventions.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"timeZone",
+      "type":"String",
+      "default":false,
+      "defaultValue":null,
+      "description":"change the timezone defintion for the current application context.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"webcharset",
+      "type":"String",
+      "default":false,
+      "defaultValue":null,
+      "description":"character set used for output streams, form-, url-, and cgi scope variables and reading/writing the header",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"resourcecharset",
+      "type":"String",
+      "default":false,
+      "defaultValue":null,
+      "description":"character set used for reading from/writing to various resources",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"scopecascading",
+      "type":"String",
+      "default":false,
+      "defaultValue":null,
+      "description":"\nDepending on this setting Lucee scans certain scopes to find a variable called from the CFML source. This will only happen, when the variable is called without a scope. (Example: #myVar# instead of #variables.myVar#), the following values are supported:\n- strict: scans only the variables scope\n- small: scans the scopes variables,url,form\n- standard: scans the scopes variables,cgi,url,form,cookie\n\t\t\t",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

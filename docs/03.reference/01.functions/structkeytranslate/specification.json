@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"structKeyTranslate",
+  "name":"structKeyTranslate",
+  "memberName":"keyTranslate",
+  "description":"",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructKeyTranslate",
+  "returnType":"number",
+  "argumentType":"",
+  "keywords":[
+    "struct"
+  ],
+  "arguments":[
+    {
+      "name":"structure",
+      "description":"",
+      "type":"struct",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"deepTranslation",
+      "description":"\n\t\t\t\talso translate keys of child structures\n\t\t\t",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"leaveOriginalKey",
+      "description":"\n\t\t\t\tleave original key in struct\n\t\t\t",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

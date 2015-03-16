@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"structGet",
+  "name":"structGet",
+  "memberName":"",
+  "description":"Gets a structure(s) from a specified path.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructGet",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "struct"
+  ],
+  "arguments":[
+    {
+      "name":"PathDesired",
+      "description":"Pathname of variable that contains structure or array from which Lucee retrieves structure.",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

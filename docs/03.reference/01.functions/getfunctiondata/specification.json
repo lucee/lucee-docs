@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"getFunctionData",
+  "name":"getFunctionData",
+  "memberName":"",
+  "description":"returns information to a single function",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.GetFunctionData",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"functionName",
+      "description":"name of the function getting information for",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

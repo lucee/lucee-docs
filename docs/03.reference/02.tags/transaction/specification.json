@@ -1,0 +1,72 @@
+{
+  "pageType":"tag",
+  "title":"Transaction",
+  "name":"Transaction",
+  "description":"Groups multiple queries into a single unit. The cftransaction\n  tag provides commit and rollback processing.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":"true",
+  "allowRemovingLiteral":"yes",
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Transaction",
+    "ttt":null,
+    "tdbt":null,
+    "att":"lucee.transformer.cfml.attributes.impl.Transaction",
+    "tte":null
+  },
+  "script":{
+    "type":"multiple",
+    "runtimeExpressionValue":"true",
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"action",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"\n- begin: The start of the block of code to execute.\n- commit: Commits a pending transaction.\n- rollback: Rolls back a pending transaction.\n- setsavepoint: Saves a specific state within a transaction\n",
+      "aliases":[
+        
+      ],
+      "values":[
+        "begin",
+        "commit",
+        "setsavepoint",
+        "rollback"
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"isolation",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"ODBC lock type.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

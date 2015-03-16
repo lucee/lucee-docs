@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"valueList",
+  "name":"valueList",
+  "memberName":"",
+  "description":"Returns a list of all the values, for a given column within the query, delimited by the value given.\n\t\tthis function is deprecated, use instead the function queryColumnData",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.query.ValueList",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "query"
+  ],
+  "arguments":[
+    {
+      "name":"query_column",
+      "description":"Name of an executed query and column. Separate query name and column name with a period.",
+      "type":"queryColumn",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiter",
+      "description":"A delimiter character to separate column data items.\n            Default: comma (,).",
+      "type":"string",
+      "required":false,
+      "default":","
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

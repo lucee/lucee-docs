@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"encodeForHTMLAttribute",
+  "name":"encodeForHTMLAttribute",
+  "memberName":"",
+  "description":"Encodes the given string for safe output in HTML to stop Cross Site Scripting attacks.\n\t\tthis function is deprecated, use function ESAPIEncode('html_attr',...) instead.",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.owasp.EncodeForHTMLAttribute",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "ESAPI",
+    "HTML"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"string to encode",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

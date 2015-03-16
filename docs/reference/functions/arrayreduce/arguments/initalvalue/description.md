@@ -1,1 +1,0 @@
-inital value passed as part of the first closure call

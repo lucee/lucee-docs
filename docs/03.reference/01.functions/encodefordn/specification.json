@@ -1,0 +1,31 @@
+{
+  "pageType":"function",
+  "title":"encodeForDN",
+  "name":"encodeForDN",
+  "memberName":"",
+  "description":"Encodes the given string for safe output in LDAP Distinguished Names.\n\t\tthis function is deprecated, use function ESAPIEncode('dn',...) instead.",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.owasp.EncodeForDN",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    "ESAPI",
+    "DN"
+  ],
+  "arguments":[
+    {
+      "name":"string",
+      "description":"string to encode",
+      "type":"string",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

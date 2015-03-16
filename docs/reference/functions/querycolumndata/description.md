@@ -1,1 +1,0 @@
-Returns all the data in a query for a given column

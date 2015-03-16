@@ -1,0 +1,58 @@
+{
+  "pageType":"function",
+  "title":"ImageNew",
+  "name":"ImageNew",
+  "memberName":"",
+  "description":"Creates a image.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageNew",
+  "returnType":"any",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"source",
+      "description":"The source image path, URL, a variable that is read into the new image, or a Java buffered image.",
+      "type":"any",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"width",
+      "description":"The width of the new image. Valid when the height is specified and the source is not.",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"height",
+      "description":"The height of the new image. Valid when the width is specified and the source is not.",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"imageType",
+      "description":"The type of the image to create (Valid only when width and height are specified):\n- rgb\n- argb\n- grayscale",
+      "type":"string",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"canvasColor",
+      "description":"Color of the image canvas (The default value is \"black\"):\n- Hexadecimal value of RGB color. For example, specify the color white as ##FFFFFF or FFFFFF.\n- String value of color (for example, \"black\", \"red\", \"green\").\n- List of three numbers for (R,G,B) values. Each value must be in the range 0-255.",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

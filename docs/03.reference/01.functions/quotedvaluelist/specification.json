@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"quotedValueList",
+  "name":"quotedValueList",
+  "memberName":"",
+  "description":"Returns a quoted list of all the values, for a given column within the query, delimited by the value given.\n\t\tthis function is deprecated, use instead the function queryColumnData",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.other.QuotedValueList",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"query_column",
+      "description":"Name of an executed query and column. Separate query name and column name with a period.",
+      "type":"queryColumn",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"delimiter",
+      "description":"",
+      "type":"string",
+      "required":false,
+      "default":","
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

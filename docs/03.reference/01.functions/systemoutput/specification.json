@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"SystemOutput",
+  "name":"SystemOutput",
+  "memberName":"",
+  "description":"writes the given string to the output stream",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.other.SystemOutput",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"obj",
+      "description":"",
+      "type":"Object",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"addNewLine",
+      "description":"",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"doErrorStream",
+      "description":"",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

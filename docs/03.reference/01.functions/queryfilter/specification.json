@@ -1,0 +1,52 @@
+{
+  "pageType":"function",
+  "title":"queryFilter",
+  "name":"queryFilter",
+  "memberName":"filter",
+  "description":"This function creates a new Query that returns all rows from an query that match the given filter.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.query.QueryFilter",
+  "returnType":"query",
+  "argumentType":"",
+  "keywords":[
+    "query",
+    "iterator"
+  ],
+  "arguments":[
+    {
+      "name":"query",
+      "description":"query to filter entries from",
+      "type":"query",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"filter",
+      "description":"filter can be a function/closure that implements the following constructor [function(struct row[, number rowNumber, query query]):boolean].",
+      "type":"function",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"parallel",
+      "description":"execute closures parallel",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    },
+    {
+      "name":"maxThreads",
+      "description":"maximum number of threads executed, ignored when argument \"parallel\" is set to false",
+      "type":"number",
+      "required":false,
+      "default":"20"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

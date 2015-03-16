@@ -1,1 +1,0 @@
-Converts a real number to an integer.

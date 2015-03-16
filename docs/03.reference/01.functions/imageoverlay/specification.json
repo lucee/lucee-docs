@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"ImageOverlay",
+  "name":"ImageOverlay",
+  "memberName":"",
+  "description":"Reads two source images and overlays the second source image on the first source image.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.image.ImageOverlay",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    "image"
+  ],
+  "arguments":[
+    {
+      "name":"source1",
+      "description":"The image that is the bottom layer in the image.",
+      "type":"any",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"source2",
+      "description":"the image that is the top layer (overlaid on the source1 image) in the image.",
+      "type":"any",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

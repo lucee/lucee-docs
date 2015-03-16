@@ -1,1 +1,0 @@
-Calculates the closest integer that is smaller than number.

@@ -1,1 +1,0 @@
-Crops a image to a specified rectangular area.

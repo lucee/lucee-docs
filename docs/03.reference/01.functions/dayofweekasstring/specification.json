@@ -1,0 +1,37 @@
+{
+  "pageType":"function",
+  "title":"dayOfWeekAsString",
+  "name":"dayOfWeekAsString",
+  "memberName":"",
+  "description":"Determines the day of the week as a string from 1-7",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.string.DayOfWeekAsString",
+  "returnType":"string",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"day_of_week",
+      "description":"Integer, in the range 1 (Sunday) - 7 (Saturday).",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"locale",
+      "description":"Locale to use instead of the locale of the page when processing the function",
+      "type":"string",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

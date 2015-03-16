@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"structDelete",
+  "name":"structDelete",
+  "memberName":"delete",
+  "description":"Removes an element from a structure.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.struct.StructDelete",
+  "returnType":"boolean",
+  "argumentType":"",
+  "keywords":[
+    "struct"
+  ],
+  "arguments":[
+    {
+      "name":"structure",
+      "description":"Structure contains element to remove.",
+      "type":"struct",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"key",
+      "description":"Element to remove",
+      "type":"string",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"indicatenotexisting",
+      "description":"",
+      "type":"boolean",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

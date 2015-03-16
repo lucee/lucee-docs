@@ -1,0 +1,44 @@
+{
+  "pageType":"function",
+  "title":"arrayMid",
+  "name":"arrayMid",
+  "memberName":"mid",
+  "description":"Extracts a sub array from a array.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.arrays.ArrayMid",
+  "returnType":"array",
+  "argumentType":"",
+  "keywords":[
+    "array"
+  ],
+  "arguments":[
+    {
+      "name":"array",
+      "description":"array to substract data from",
+      "type":"array",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"start",
+      "description":"The position of the first element to retrieve. ",
+      "type":"number",
+      "required":true,
+      "default":""
+    },
+    {
+      "name":"count",
+      "description":"The number of elements to retrieve. If not set, all elements until the end of the array will be returned. ",
+      "type":"number",
+      "required":false,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

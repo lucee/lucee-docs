@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"componentInfo",
+  "name":"componentInfo",
+  "memberName":"",
+  "description":"this function is deprecated, use function getMetadata instead.",
+  "status":"deprecated",
+  "deprecated":true,
+  "class":"lucee.runtime.functions.component.ComponentInfo",
+  "returnType":"struct",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"component",
+      "description":"component to return info for it",
+      "type":"component",
+      "required":true,
+      "default":""
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

@@ -1,1 +1,0 @@
-A string, the name of a string, or a binary object.

@@ -1,0 +1,177 @@
+{
+  "pageType":"tag",
+  "title":"Table",
+  "name":"Table",
+  "description":"Builds a table in a CFML page. Use the cfcol tag to define table column and row\n  characteristics. The cftable tag renders data either as preformatted text, or, with the HTMLTable\n  attribute, as an HTML table. Use cftable to create tables if you don't want to write HTML table tag\n  code, or if your data can be well presented as preformatted text.",
+  "status":null,
+  "appendix":false,
+  "bodyContentType":"must",
+  "attributeType":"fixed",
+  "minimumAttributes":null,
+  "handleException":"true",
+  "allowRemovingLiteral":null,
+  "sourceClasses":{
+    "tag":"lucee.runtime.tag.Table",
+    "ttt":null,
+    "tdbt":null,
+    "att":null,
+    "tte":null
+  },
+  "script":{
+    "type":null,
+    "runtimeExpressionValue":null,
+    "context":null
+  },
+  "attributes":[
+    {
+      "name":"query",
+      "type":"string",
+      "default":false,
+      "defaultValue":null,
+      "description":"Name of the cfquery from which to draw data.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":true,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"maxRows",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Maximum number of rows to display in the table.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"colSpacing",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Number of spaces to insert between columns 'default is 2'.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"headerLines",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Number of lines to use for the table header. The default is 2, which leaves one line between\n\t\tthe headers and the first row of the table.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"HTMLTable",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Renders the table as an HTML 3.0 table.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"border",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Adds a border to the table. Use only when you specify the HTMLTable attribute for the table.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"colHeaders",
+      "type":"boolean",
+      "default":false,
+      "defaultValue":null,
+      "description":"Displays headers for each column, as specified in the cfcol tag.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    },
+    {
+      "name":"startRow",
+      "type":"number",
+      "default":false,
+      "defaultValue":null,
+      "description":"Specifies the query row from which to start processing.",
+      "aliases":[
+        
+      ],
+      "values":[
+        
+      ],
+      "status":null,
+      "required":false,
+      "noname":false,
+      "scriptSupport":null,
+      "runTimeExpressionValue":true
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}

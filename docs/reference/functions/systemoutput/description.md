@@ -1,1 +1,0 @@
-writes the given string to the output stream

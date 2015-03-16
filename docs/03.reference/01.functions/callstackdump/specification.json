@@ -1,0 +1,30 @@
+{
+  "pageType":"function",
+  "title":"CallStackDump",
+  "name":"CallStackDump",
+  "memberName":"",
+  "description":"dump the context (stacktrace) of the current position.",
+  "status":"",
+  "deprecated":false,
+  "class":"lucee.runtime.functions.system.CallStackDump",
+  "returnType":"void",
+  "argumentType":"",
+  "keywords":[
+    
+  ],
+  "arguments":[
+    {
+      "name":"output",
+      "description":"Where to send the results of cfdump. The following values are valid:\n- browser: outputs in browser window\n- console: outputs on (System.out stream; see also setting in lucee-server.xml {system-out})\n- filename: outputs in a file",
+      "type":"string",
+      "required":false,
+      "default":"browser"
+    }
+  ],
+  "examples":[
+    
+  ],
+  "history":[
+    
+  ]
+}
