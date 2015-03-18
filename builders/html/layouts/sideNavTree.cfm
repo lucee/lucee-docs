@@ -4,7 +4,7 @@
 <cfoutput>
 	<ol class="list-unstyled sidebar-nav" role="navigation">
 		<cfloop array="#args.docTree.getTree()#" item="firstLevelPage" index="i">
-			<cfif firstLevelPage.getId() neq "/index">
+			<cfif firstLevelPage.getId() neq "/home">
 				<li>
 					<h2>{{ref:#firstLevelPage.getId()#}}</h2>
 

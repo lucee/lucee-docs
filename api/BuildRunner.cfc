@@ -2,11 +2,9 @@ component {
 
 // CONSTRUCTOR
 	public any function init() {
-		var cwd = GetDirectoryFromPath( GetCurrentTemplatePath() );
-
-		variables.buildersDir = cwd & "../builders";
-		variables.buildsDir   = cwd & "../builds";
-		variables.docTree     = new data.DocTree( ExpandPath( cwd & "../docs" ) );
+		variables.buildersDir = ExpandPath( "/builders" );
+		variables.buildsDir   = ExpandPath( "/builds" );
+		variables.docTree     = new data.DocTree( ExpandPath( "/docs" ) );
 
 		return this;
 	}
@@ -26,7 +24,7 @@ component {
 	}
 
 	public array function listBuilders() {
-		var dirs = DirectoryList( buildersDir, false, "query" );
+		var dirs     = DirectoryList( buildersDir, false, "query" );
 		var builders = [];
 
 		for( var dir in dirs ){

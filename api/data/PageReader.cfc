@@ -43,11 +43,7 @@ component {
 	}
 
 	private struct function _parseYaml( required string yaml ) {
-		var javaLib = [ "../lib/snakeyaml-1.15.jar" ];
-		var parser  = CreateObject( "java", "org.yaml.snakeyaml.Yaml", javaLib ).init();
-
-		// todo, catch errors here and report them well
-		return parser.load( yaml )
+		return new api.parsers.ParserFactory().getYamlParser().yamlToCfml( arguments.yaml );
 	}
 
 }

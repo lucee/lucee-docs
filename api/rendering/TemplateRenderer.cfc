@@ -13,8 +13,6 @@ component {
 	}
 
 	public string function markdownToHtml( required string markdown ) {
-		var processor = CreateObject( "java", "com.petebevin.markdown.MarkdownProcessor", [ "../lib/markdownj-1.0.2b4-0.3.0.jar" ] ).init();
-
-		return processor.markdown( arguments.markdown );
+		return new api.parsers.ParserFactory().getMarkdownParser().markdownToHtml( arguments.markdown );
 	}
 }

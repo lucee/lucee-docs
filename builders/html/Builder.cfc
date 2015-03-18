@@ -17,7 +17,7 @@ component {
 
 // PRIVATE HELPERS
 	private void function _writePage( required any page, required string buildDirectory, required any docTree ) {
-		var filePath      = arguments.buildDirectory & arguments.page.getId() & ".html";
+		var filePath      = _getHtmlFilePath( arguments.page, arguments.buildDirectory );
 		var fileDirectory = GetDirectoryFromPath( filePath );
 
 		if ( !DirectoryExists( fileDirectory ) ) {
@@ -29,6 +29,14 @@ component {
 		for( var childPage in arguments.page.getChildren() ) {
 			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
 		}
+	}
+
+	private string function _getHtmlFilePath( required any page, required string buildDirectory ) {
+		if ( arguments.page.getId() == "/home" ) {
+			return arguments.buildDirectory & "/index.html";
+		}
+
+		return arguments.buildDirectory & arguments.page.getId() & ".html";
 	}
 
 	private string function _renderPage( required any page, required any docTree ){
