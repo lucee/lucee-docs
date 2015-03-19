@@ -1,5 +1,6 @@
 component accessors=true {
 	property name="id"           type="string";
+	property name="slug"         type="string";
 	property name="parentId"     type="string";
 	property name="parent"       type="any";
 	property name="pageType"     type="string";

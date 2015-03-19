@@ -1,8 +1,13 @@
 component {
-	public string function renderReference( required any page ) {
+	public string function renderLink( required any page, required string title ) {
+
+		if ( IsNull( arguments.page ) ) {
+			return '<a class="missing-link">#arguments.title#</a>';
+		}
+
 		var link = ReReplace( page.getId(), "^/", "" ) & ".html";
 
-		return '<a href="#link#">#page.getTitle()#</a>';
+		return '<a href="#link#">#arguments.title#</a>';
 	}
 
 	public void function build( docTree, buildDirectory ) {
@@ -48,7 +53,7 @@ component {
 		var parent = arguments.page.getParent();
 
 		while( !IsNull( parent ) ) {
-			crumbs.prepend( parent.getId() );
+			crumbs.prepend( parent.getSlug() );
 			parent = parent.getParent();
 		}
 

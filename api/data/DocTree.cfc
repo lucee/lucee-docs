@@ -1,24 +1,27 @@
 component accessors=true {
 
 	property name="tree"    type="array";
-	property name="treeMap" type="struct";
+	property name="idMap"   type="struct";
+	property name="slugMap" type="struct";
 
 	public any function init( required string rootDirectory ) {
 		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
 
-		tree      = [];
-		treeMap   = {}
+		tree    = [];
+		idMap   = {};
+		slugMap = {};
 
 		_sortPageFilesByDepth( pageFiles );
 
 		for( var pageFile in pageFiles ) {
 			page = _preparePageObject( pageFile, arguments.rootDirectory );
 
-			treeMap[ page.getId() ] = page;
+			idMap[ page.getId() ] = page;
+			slugMap[ page.getSlug() ] = page;
 
-			if ( treeMap.keyExists( page.getParentId() ) ) {
-				treeMap[ page.getParentId() ].addChild( page );
-				page.setParent( treeMap[ page.getParentId() ] )
+			if ( idMap.keyExists( page.getParentId() ) ) {
+				idMap[ page.getParentId() ].addChild( page );
+				page.setParent( idMap[ page.getParentId() ] )
 			} else {
 				tree.append( page );
 			}
@@ -30,7 +33,11 @@ component accessors=true {
 	}
 
 	public any function getPage( required string id ) {
-		return treeMap[ arguments.id ] ?: NullValue();
+		return idMap[ arguments.id ] ?: NullValue();
+	}
+
+	public any function getPageBySlug( required string slug ) {
+		return slugMap[ arguments.slug ] ?: NullValue();
 	}
 
 // private helpers

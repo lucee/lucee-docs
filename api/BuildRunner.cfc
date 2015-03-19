@@ -60,14 +60,14 @@ component {
 
 		builder.injectMethod = this.injectMethod;
 
-		builder.injectMethod( "renderReferences", function( required string text ){
-			return new rendering.ReferenceRenderer( docTree=docTree ).renderReferences( text=arguments.text, builder=builder );
+		builder.injectMethod( "renderLinks", function( required string text ){
+			return new rendering.WikiLinksRenderer( docTree=docTree ).renderLinks( text=arguments.text, builder=builder );
 		} );
 		builder.injectMethod( "renderTemplate", function( required string template, struct args={} ){
 			var renderer = new rendering.TemplateRenderer();
 			var rendered = renderer.render( template=rootPathForRenderer & arguments.template, args=arguments.args );
 
-			return builder.renderReferences( rendered );
+			return builder.renderLinks( rendered );
 		} );
 
 		StructDelete( builder, "injectMethod" );
