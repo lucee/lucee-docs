@@ -5,29 +5,7 @@ component accessors=true {
 	property name="slugMap" type="struct";
 
 	public any function init( required string rootDirectory ) {
-		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
-
-		tree    = [];
-		idMap   = {};
-		slugMap = {};
-
-		_sortPageFilesByDepth( pageFiles );
-
-		for( var pageFile in pageFiles ) {
-			page = _preparePageObject( pageFile, arguments.rootDirectory );
-
-			idMap[ page.getId() ] = page;
-			slugMap[ page.getSlug() ] = page;
-
-			if ( idMap.keyExists( page.getParentId() ) ) {
-				idMap[ page.getParentId() ].addChild( page );
-				page.setParent( idMap[ page.getParentId() ] )
-			} else {
-				tree.append( page );
-			}
-		}
-
-		_sortChildren( tree );
+		_loadTree( arguments.rootDirectory );
 
 		return this;
 	}
@@ -41,12 +19,45 @@ component accessors=true {
 	}
 
 // private helpers
+	private void function _loadTree( required string rootDirectory ) {
+		_initializeEmptyTree();
+
+		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
+		for( var pageFile in pageFiles ) {
+			page = _preparePageObject( pageFile, arguments.rootDirectory );
+
+			_addPageToTree( page );
+		}
+
+		_sortChildren( tree );
+	}
+
+	private void function _initializeEmptyTree() {
+		setTree( [] );
+		setIdMap( {} );
+		setSlugMap( {} );
+	}
+
+	private void function _addPageToTree( required any page ) {
+		idMap[ arguments.page.getId() ] = arguments.page;
+		slugMap[ arguments.page.getSlug() ] = arguments.page;
+
+		if ( idMap.keyExists( arguments.page.getParentId() ) ) {
+			idMap[ arguments.page.getParentId() ].addChild( arguments.page );
+			arguments.page.setParent( idMap[ arguments.page.getParentId() ] )
+		} else {
+			tree.append( arguments.page );
+		}
+	}
+
 	private array function _readPageFilesFromDocsDirectory( required string rootDirectory ) {
 		var pageFiles = DirectoryList( arguments.rootDirectory, true, "path", "*.md" );
 
 		pageFiles = pageFiles.map( function( path ){
 			return path.replace( rootDirectory, "" );
 		} );
+
+		_sortPageFilesByDepth( pageFiles );
 
 		return pageFiles;
 	}
