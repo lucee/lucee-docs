@@ -1,3 +1,9 @@
+---
+title: <cfapplication>
+related:
+categories:
+---
+
 
 			Defines scoping for a application, enables or disables storing client variables,
 			and specifies a client variable storage mechanism.

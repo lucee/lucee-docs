@@ -1,3 +1,9 @@
+---
+title: <cfimap>
+related:
+categories:
+---
+
 Retrieves and deletes e-mail messages from a Imap mail server.
 		This tag works exactly the same way as the cfmail tag. It has the same attributes.
 		The Internet Message Access Protocol or IMAP is one of two of the most prevalent Internet standard protocols for e-mail retrieval,

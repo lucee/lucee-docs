@@ -130,14 +130,14 @@ categories:";
 		var tagDir       = referenceDir & LCase( arguments.tag.name ) & "/";
 		var pageContent  =
 "---
-title: #arguments.tag.name#
+title: <cf#LCase( arguments.tag.name )#>
 related:
 categories:
 ---
 
 #arguments.tag.description#";
 
-		_createFileIfNotExists( tagDir & "tag.md", arguments.tag.description ?: "" );
+		_createFileIfNotExists( tagDir & "tag.md", pageContent );
 
 		var attribs = arguments.tag.attributes ?: "";
 		for( var attrib in attribs ) {

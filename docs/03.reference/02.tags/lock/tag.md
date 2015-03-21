@@ -1,3 +1,9 @@
+---
+title: <cflock>
+related:
+categories:
+---
+
 Provides two types of locks to ensure the integrity of shared data: Exclusive lock and Read-only
   lock. An exclusive lock single-threads access to the CFML constructs in its body. Single-threaded access
   implies that the body of the tag can be executed by at most one request at a time. A request executing
