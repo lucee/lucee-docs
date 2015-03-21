@@ -11,7 +11,6 @@ component {
 
 // PUBLIC API
 	public void function buildAll() {
-		writeOutput( listBuilders().toString() );
 		listBuilders().each( function( builderName ){
 			build( builderName );
 		} );
