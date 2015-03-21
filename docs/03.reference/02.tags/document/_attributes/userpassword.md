@@ -1,0 +1,1 @@
+Specifies a user password (format="PDF" only).

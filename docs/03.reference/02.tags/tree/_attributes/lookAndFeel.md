@@ -1,0 +1,1 @@
+Stylistic choice for the slider.

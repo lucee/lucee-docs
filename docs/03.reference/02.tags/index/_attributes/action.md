@@ -1,0 +1,1 @@
+Specifies the index action.

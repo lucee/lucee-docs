@@ -1,0 +1,1 @@
+Permits horizontal scrolling. Default is Yes.

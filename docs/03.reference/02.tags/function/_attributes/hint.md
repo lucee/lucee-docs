@@ -1,0 +1,1 @@
+Hint of the Function

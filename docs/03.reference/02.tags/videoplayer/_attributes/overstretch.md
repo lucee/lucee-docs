@@ -1,0 +1,1 @@
+Sets how to stretch images/movies to make them fit the display. Set this to true to stretch them proportionally to fill the display, fit to stretch them disproportionally and none to keep original dimensions

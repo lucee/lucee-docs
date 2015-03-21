@@ -1,0 +1,1 @@
+Specifies an owner password. PDF format only.

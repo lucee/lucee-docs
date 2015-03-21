@@ -1,0 +1,1 @@
+Identifier of the gateway that provides the GatewayHelper object.

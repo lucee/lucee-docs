@@ -1,0 +1,1 @@
+Directory of the PDF documents to merge. You must specify either the directory attribute or the source attribute. If you specify the directory attribute, CFML orders the documents by filename in descending order, by default. To change the order of the files, use the order attribute.

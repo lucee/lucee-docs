@@ -1,0 +1,1 @@
+User name sent to the target URL for Basic Authentication. Combined with password to form a base64 encoded string that is passed in the Authenticate header. Does not provide support for Integrated Windows, NTLM, or Kerberos authentication.

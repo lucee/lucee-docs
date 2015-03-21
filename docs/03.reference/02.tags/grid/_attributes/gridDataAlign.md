@@ -1,0 +1,1 @@
+Enter Left, Right, or Center to position data in the grid within a column. Default is Left.

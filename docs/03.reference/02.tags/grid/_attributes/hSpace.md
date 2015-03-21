@@ -1,0 +1,1 @@
+Horizontal margin spacing to the left and right of the grid control, in pixels.

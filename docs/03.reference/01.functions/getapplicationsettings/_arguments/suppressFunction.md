@@ -1,0 +1,1 @@
+if true only data members from this scope are returned (no functions), default is false

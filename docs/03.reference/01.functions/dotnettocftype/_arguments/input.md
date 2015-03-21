@@ -1,0 +1,1 @@
+Name of the .NET variable to convert

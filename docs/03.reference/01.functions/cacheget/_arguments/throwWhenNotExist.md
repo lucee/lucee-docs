@@ -1,0 +1,1 @@
+define if the functions throws a exception when the element does not exist (default is false).
