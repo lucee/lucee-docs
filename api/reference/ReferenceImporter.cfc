@@ -116,6 +116,10 @@ categories:";
 
 		_createFileIfNotExists( functionDir & "function.md", pageContent );
 
+		var args = arguments.func.arguments ?: "";
+		for( var arg in args ) {
+			_createFileIfNotExists( functionDir & "_arguments/#arg.name#.md", arg.description ?: "" );
+		}
 
 		arguments.func.examples    = [];
 		arguments.func.history     = [];
@@ -135,9 +139,10 @@ categories:
 
 		_createFileIfNotExists( tagDir & "tag.md", arguments.tag.description ?: "" );
 
-
-		arguments.tag.examples    = [];
-		arguments.tag.history     = [];
+		var attribs = arguments.tag.attributes ?: "";
+		for( var attrib in attribs ) {
+			_createFileIfNotExists( tagDir & "_attributes/#attrib.name#.md", attrib.description ?: "" );
+		}
 	}
 
 	private void function _createFileIfNotExists( filePath, content ) {
