@@ -53,16 +53,33 @@ component accessors=true {
 	private array function _readPageFilesFromDocsDirectory( required string rootDirectory ) {
 		var pageFiles = DirectoryList( arguments.rootDirectory, true, "path", "*.md" );
 
-		pageFiles = pageFiles.map( function( path ){
-			return path.replace( rootDirectory, "" );
-		} );
-
-		_sortPageFilesByDepth( pageFiles );
+		pageFiles = _removeRootDirectoryFromFilePaths( pageFiles, arguments.rootDirectory );
+		pageFiles = _removeHiddenPages( pageFiles );
+		pageFiles = _sortPageFilesByDepth( pageFiles );
 
 		return pageFiles;
 	}
 
-	private void function _sortPageFilesByDepth( required array pageFiles ) {
+	private array function _removeRootDirectoryFromFilePaths( required any pageFiles, required string rootDirectory ) {
+		var args = arguments;
+
+		return args.pageFiles.map( function( path ){
+			return path.replace( args.rootDirectory, "" );
+		} );
+	}
+
+	private array function _removeHiddenPages( required any pageFiles ) {
+		for( var i = pageFiles.len(); i > 0; i-- ){
+			var pathParts = pageFiles[ i ].listToArray( "/\" );
+			if ( pathParts.len() > 1 && pathParts[ pathParts.len() - 1 ].startsWith( "_" ) ) {
+				pageFiles.deleteAt( i );
+			}
+		}
+
+		return pageFiles;
+	}
+
+	private array function _sortPageFilesByDepth( required array pageFiles ) {
 		arguments.pageFiles.sort( function( page1, page2 ){
 			var depth1 = page1.listLen( "\/" );
 			var depth2 = page2.listLen( "\/" );
@@ -73,6 +90,8 @@ component accessors=true {
 
 			return depth1 > depth2 ? 1 : -1;
 		} );
+
+		return arguments.pageFiles;
 	}
 
 	private any function _preparePageObject( required string pageFilePath, required string rootDirectory ) {
