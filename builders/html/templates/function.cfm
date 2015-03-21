@@ -28,4 +28,11 @@
 			</cfloop>
 		</dl>
 	</cfif>
+
+	<h2>Examples</h2>
+	<cfif Len( Trim( fn.getExamples() ) )>
+		#markdownToHtml( fn.getExamples() )#
+	<cfelse>
+		<em>There are currently no examples for this function</em>
+	</cfif>
 </cfoutput>

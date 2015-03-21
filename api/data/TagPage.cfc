@@ -10,5 +10,5 @@ component accessors=true extends="Page" {
 	property name="allowRemovingLiteral" type="boolean" default=false;
 	property name="script"               type="struct";
 	property name="attributes"           type="array";
-	property name="examples"             type="array";
+	property name="examples"             type="string";
 }

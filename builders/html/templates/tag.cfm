@@ -22,4 +22,11 @@
 			</cfloop>
 		</dl>
 	</cfif>
+
+	<h2>Examples</h2>
+	<cfif Len( Trim( tag.getExamples() ) )>
+		#markdownToHtml( tag.getExamples() )#
+	<cfelse>
+		<em>There are currently no examples for this tag</em>
+	</cfif>
 </cfoutput>

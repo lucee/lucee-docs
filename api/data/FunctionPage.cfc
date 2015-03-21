@@ -4,7 +4,7 @@ component accessors=true extends="Page" {
 	property name="description" type="string";
 	property name="returnType"  type="string";
 	property name="arguments"   type="array";
-	property name="examples"    type="array";
+	property name="examples"    type="string";
 
 	public string function getUsageSignature() {
 		var usage = this.getName() & "(";

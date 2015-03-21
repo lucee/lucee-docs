@@ -70,8 +70,7 @@ component accessors=true {
 
 	private array function _removeHiddenPages( required any pageFiles ) {
 		for( var i = pageFiles.len(); i > 0; i-- ){
-			var pathParts = pageFiles[ i ].listToArray( "/\" );
-			if ( pathParts.len() > 1 && pathParts[ pathParts.len() - 1 ].startsWith( "_" ) ) {
+			if ( ReFindNoCase( "/_", pageFiles[ i ] ) ) {
 				pageFiles.deleteAt( i );
 			}
 		}
@@ -164,6 +163,11 @@ component accessors=true {
 			}
 		}
 
+		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
+		if ( FileExists( examplesFile ) ) {
+			tag.examples = FileRead( examplesFile );
+		}
+
 		return tag;
 	}
 
@@ -177,6 +181,11 @@ component accessors=true {
 			if ( FileExists( argsDescriptionFile ) ) {
 				arg.description = FileRead( argsDescriptionFile );
 			}
+		}
+
+		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
+		if ( FileExists( examplesFile ) ) {
+			func.examples = FileRead( examplesFile );
 		}
 
 		return func;

@@ -7,12 +7,12 @@ component {
 			include template=arguments.template;
 		}
 
-		rendered = new SyntaxHighlighter().renderHighlights( rendered );
-
 		return Trim( rendered );
 	}
 
 	public string function markdownToHtml( required string markdown ) {
-		return new api.parsers.ParserFactory().getMarkdownParser().markdownToHtml( arguments.markdown );
+		var rendered = new SyntaxHighlighter().renderHighlights( arguments.markdown );
+
+		return new api.parsers.ParserFactory().getMarkdownParser().markdownToHtml( rendered );
 	}
 }
