@@ -1,1 +1,1 @@
-<cfset new api.BuildRunner().buildAll() />
+<cfset new api.build.BuildRunner().buildAll() />

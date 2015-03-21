@@ -8,7 +8,8 @@
 
 	<div class="row">
 		<cfloop array="#pg.getChildren()#" index="i" item="child">
-			<cfset firstLetter = child.getTitle()[1] />
+			<cfset slug = child.getSlug() />
+			<cfset firstLetter = slug[1] />
 			<cfif firstLetter != currentLetter>
 			<cfif currentLetter.len()>
 					</ul>

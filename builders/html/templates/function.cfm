@@ -28,9 +28,4 @@
 			</cfloop>
 		</dl>
 	</cfif>
-
-	<cfif fn.getExamples().len()>
-		<h2>Examples</h2>
-		<!--- TODO --->
-	</cfif>
 </cfoutput>

@@ -4,7 +4,7 @@ component {
 	public any function init() {
 		variables.buildersDir = ExpandPath( "/builders" );
 		variables.buildsDir   = ExpandPath( "/builds" );
-		variables.docTree     = new data.DocTree( ExpandPath( "/docs" ) );
+		variables.docTree     = new api.data.DocTree( ExpandPath( "/docs" ) );
 
 		return this;
 	}
@@ -61,10 +61,10 @@ component {
 		builder.injectMethod = this.injectMethod;
 
 		builder.injectMethod( "renderLinks", function( required string text ){
-			return new rendering.WikiLinksRenderer( docTree=docTree ).renderLinks( text=arguments.text, builder=builder );
+			return new api.rendering.WikiLinksRenderer( docTree=docTree ).renderLinks( text=arguments.text, builder=builder );
 		} );
 		builder.injectMethod( "renderTemplate", function( required string template, struct args={} ){
-			var renderer = new rendering.TemplateRenderer();
+			var renderer = new api.rendering.TemplateRenderer();
 			var rendered = renderer.render( template=rootPathForRenderer & arguments.template, args=arguments.args );
 
 			return builder.renderLinks( rendered );

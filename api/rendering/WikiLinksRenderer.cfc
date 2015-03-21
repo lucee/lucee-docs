@@ -34,8 +34,8 @@ component accessors=true {
 
 		return {
 			  rawMatch = rawMatch
-			, page     = page ?: NullValue()
-			, title    = title
+			, page     = page  ?: NullValue()
+			, title    = title ?: slug
 		};
 	}
 }

@@ -2,12 +2,12 @@ component {
 	public string function renderLink( required any page, required string title ) {
 
 		if ( IsNull( arguments.page ) ) {
-			return '<a class="missing-link">#arguments.title#</a>';
+			return '<a class="missing-link">#HtmlEditFormat( arguments.title )#</a>';
 		}
 
 		var link = ReReplace( page.getId(), "^/", "" ) & ".html";
 
-		return '<a href="#link#">#arguments.title#</a>';
+		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
 	}
 
 	public void function build( docTree, buildDirectory ) {

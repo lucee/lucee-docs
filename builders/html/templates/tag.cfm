@@ -3,7 +3,7 @@
 <cfset tag = args.page />
 
 <cfoutput>
-	<h1>#tag.getTitle()#</h1>
+	<h1>#HtmlEditFormat( tag.getTitle() )#</h1>
 
 	#markdownToHtml( tag.getBody() )#
 
@@ -21,12 +21,5 @@
 				</dd>
 			</cfloop>
 		</dl>
-	</cfif>
-
-	<h2>Examples</h2>
-	<cfif !tag.getExamples().len()>
-		<p><em>There are no examples for this function</em></p>
-	<cfelse>
-		<!--- TODO --->
 	</cfif>
 </cfoutput>

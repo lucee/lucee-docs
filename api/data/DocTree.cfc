@@ -97,14 +97,13 @@ component accessors=true {
 	private any function _preparePageObject( required string pageFilePath, required string rootDirectory ) {
 		var page = "";
 		var pageData = new PageReader().readPageFile( arguments.rootDirectory & pageFilePath )
-
 		switch( pageData.pageType ?: "" ) {
 			case "function":
-				pageData.append( _readFunctionOrTagSpecificationData( arguments.rootDirectory & pageFilePath ), false );
+				pageData.append( _getFunctionSpecification( pageData.slug, arguments.rootDirectory & pageFilePath ), false );
 				page = new FunctionPage( argumentCollection=pageData );
 			break;
 			case "tag":
-				pageData.append( _readFunctionOrTagSpecificationData( arguments.rootDirectory & pageFilePath ), false );
+				pageData.append( _getTagSpecification( pageData.slug, arguments.rootDirectory & pageFilePath ), false );
 				page = new TagPage( argumentCollection=pageData );
 			break;
 			default:
@@ -153,11 +152,49 @@ component accessors=true {
 		}
 	}
 
-	private struct function _readFunctionOrTagSpecificationData( required string pageFilePath ) {
-		var specFile = GetDirectoryFromPath( pageFilePath ) & "specification.json";
+	private struct function _getTagSpecification( required string tagName, required string pageFilePath ) {
+		var tag           = _getTagReferenceReader().getTag( arguments.tagName );
+		var attributes    = tag.attributes ?: [];
+		var attributesDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributes/";
 
-		if ( FileExists( specFile ) ) {
-			return new JsonDataFileReader().readDataFile( specFile );
+		for( var attrib in attributes ) {
+			var attribDescriptionFile = attributesDir & attrib.name & ".md";
+			if ( FileExists( attribDescriptionFile ) ) {
+				attrib.description = FileRead( attribDescriptionFile );
+			}
 		}
+
+		return tag;
+	}
+
+	private struct function _getFunctionSpecification( required string functionName, required string pageFilePath ) {
+		var func    = _getFunctionReferenceReader().getFunction( arguments.functionName );
+		var args    = tag.arguments ?: [];
+		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
+
+		for( var arg in args ) {
+			var argDescriptionFile = argsDir & arg.name & ".md";
+			if ( FileExists( argsDescriptionFile ) ) {
+				arg.description = FileRead( argsDescriptionFile );
+			}
+		}
+
+		return func;
+	}
+
+	private any function _getFunctionReferenceReader() {
+		var buildProperties = new api.build.BuildProperties();
+
+		return new api.reference.ReferenceReaderFactory().getFunctionReferenceReader(
+			sourceFileOrUrl = buildProperties.getFunctionReferenceUrl()
+		);
+	}
+
+	private any function _getTagReferenceReader() {
+		var buildProperties = new api.build.BuildProperties();
+
+		return new api.reference.ReferenceReaderFactory().getTagReferenceReader(
+			sourceFileOrUrl = buildProperties.getTagReferenceUrl()
+		);
 	}
 }
