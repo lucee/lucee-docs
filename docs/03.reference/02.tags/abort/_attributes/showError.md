@@ -1,4 +1,1 @@
-
-				The error to display when cfabort executes.
-				The error message displays in the standard CFML error page.
-			
+The error to display when **cfabort** executes. When supplied, the error message will be displayed using the configured error template for the server or web context.
