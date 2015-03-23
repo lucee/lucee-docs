@@ -30,6 +30,7 @@ component accessors=true {
 		}
 
 		_sortChildren( tree );
+		_calculateNextAndPreviousPageLinks( tree );
 	}
 
 	private void function _initializeEmptyTree() {
@@ -169,6 +170,35 @@ component accessors=true {
 
 		for( var child in children ) {
 			_sortChildren( child.getChildren() );
+		}
+	}
+
+	private void function _calculateNextAndPreviousPageLinks( required array pages, any nextParentPage, any lastPageTouched ) {
+		var pageCount = arguments.pages.len();
+
+		for( var i=1; i <= pageCount; i++ ) {
+			var page = arguments.pages[i];
+
+			if ( i==1 ) {
+				page.setPreviousPage( arguments.lastPageTouched ?: NullValue() );
+			} else {
+				page.setPreviousPage( arguments.pages[i-1] );
+			}
+
+			if( page.getChildren().len() ) {
+				page.setNextPage( page.getChildren()[1] );
+			} elseif ( i == pageCount ) {
+				page.setNextPage( arguments.nextParentPage ?: NullValue() );
+			} else {
+				page.setNextPage( arguments.pages[i+1] );
+			}
+
+			arguments.lastPageTouched = page;
+
+			var nextParent = ( i == pageCount ) ? ( arguments.nextParentPage ?: NullValue() ) : arguments.pages[i+1];
+			for( var child in page.getChildren() ){
+				_calculateNextAndPreviousPageLinks( page.getChildren(), ( nextParent ?: NullValue() ), arguments.lastPageTouched )
+			}
 		}
 	}
 

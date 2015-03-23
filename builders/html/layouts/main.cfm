@@ -29,7 +29,17 @@
 				#args.crumbs#
 				#args.body#
 				#args.seeAlso#
+
 			</article>
+
+			<div class="prev-next-container" role="navigation">
+				<cfif not IsNull( args.page.getPreviousPage() )>
+					<div class="prev-page-link">[[#args.page.getPreviousPage().getId()#|Previous page]]</div>
+				</cfif>
+				<cfif not IsNull( args.page.getNextPage() )>
+					<div class="next-page-link">[[#args.page.getNextPage().getId()#|Next page]]</div>
+				</cfif>
+			</div>
 		</div>
 	</body>
 </html></cfoutput>
