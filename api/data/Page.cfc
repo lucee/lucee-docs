@@ -2,6 +2,8 @@ component accessors=true {
 	property name="id"           type="string" default="";
 	property name="path"         type="string" default="";
 	property name="slug"         type="string" default="";
+	property name="ancestors"    type="array";
+	property name="lineage"      type="array";
 	property name="parent"       type="any";
 	property name="pageType"     type="string" default="";
 	property name="children"     type="array";

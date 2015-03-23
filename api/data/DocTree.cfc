@@ -39,14 +39,24 @@ component accessors=true {
 	}
 
 	private void function _addPageToTree( required any page ) {
-		var parent = _getPageParent( arguments.page );
+		var parent    = _getPageParent( arguments.page );
+		var ancestors = [];
+		var lineage   = [];
 
 		if ( !IsNull( parent ) ) {
 			parent.addChild( arguments.page );
 			arguments.page.setParent( parent );
+
+			ancestors = parent.getAncestors();
+			ancestors.append( parent.getId() );
 		} else {
 			tree.append( arguments.page );
 		}
+
+		arguments.page.setAncestors( ancestors );
+		lineage = Duplicate( ancestors );
+		lineage.append( arguments.page.getId() );
+		arguments.page.setLineage( lineage );
 
 		idMap[ arguments.page.getId() ]     = arguments.page;
 		pathMap[ arguments.page.getPath() ] = arguments.page;

@@ -63,7 +63,7 @@ component {
 				  body    = Trim( renderedPage )
 				, page    = arguments.page
 				, crumbs  = renderTemplate( template="layouts/breadcrumbs.cfm", args={ crumbs=crumbs, page=arguments.page } )
-				, navTree = renderTemplate( template="layouts/sideNavTree.cfm", args={ crumbs=crumbs, docTree=arguments.docTree } )
+				, navTree = renderTemplate( template="layouts/sideNavTree.cfm", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage() } )
 				, seeAlso = renderTemplate( template="layouts/seeAlso.cfm", args={ links=arguments.page.getRelated() } )
 			  }
 		);
