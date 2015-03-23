@@ -1,5 +1,6 @@
 ---
 title: listValueCountNoCase
+id: function-listvaluecountnocase
 related:
 categories:
     - list

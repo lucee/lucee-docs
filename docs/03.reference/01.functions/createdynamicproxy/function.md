@@ -1,5 +1,6 @@
 ---
 title: CreateDynamicProxy
+id: function-createdynamicproxy
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: structClear
+id: function-structclear
 related:
 categories:
     - struct

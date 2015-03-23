@@ -1,5 +1,6 @@
 ---
 title: rEFindNoCase
+id: function-refindnocase
 related:
 categories:
     - string

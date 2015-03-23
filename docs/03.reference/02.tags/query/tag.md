@@ -1,5 +1,6 @@
 ---
 title: <cfquery>
+id: tag-query
 related:
 categories:
 ---

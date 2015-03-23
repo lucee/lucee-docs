@@ -1,5 +1,6 @@
 ---
 title: structKeyExists
+id: function-structkeyexists
 related:
 categories:
     - struct

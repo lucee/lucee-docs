@@ -1,5 +1,6 @@
 ---
 title: IsDDX
+id: function-isddx
 related:
 categories:
     - decision

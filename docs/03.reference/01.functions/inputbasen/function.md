@@ -1,5 +1,6 @@
 ---
 title: inputBaseN
+id: function-inputbasen
 related:
 categories:
     - number

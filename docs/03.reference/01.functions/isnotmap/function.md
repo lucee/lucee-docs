@@ -1,5 +1,6 @@
 ---
 title: isNotMap
+id: function-isnotmap
 related:
 categories:
     - decision

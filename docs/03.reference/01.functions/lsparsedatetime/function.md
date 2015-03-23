@@ -1,5 +1,6 @@
 ---
 title: lSParseDateTime
+id: function-lsparsedatetime
 related:
 categories:
 ---

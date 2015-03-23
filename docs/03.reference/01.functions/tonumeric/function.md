@@ -1,5 +1,6 @@
 ---
 title: ToNumeric
+id: function-tonumeric
 related:
 categories:
 ---

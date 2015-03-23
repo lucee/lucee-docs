@@ -1,5 +1,6 @@
 ---
 title: getException
+id: function-getexception
 related:
 categories:
 ---

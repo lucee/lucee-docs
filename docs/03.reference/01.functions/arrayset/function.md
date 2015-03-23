@@ -1,5 +1,6 @@
 ---
 title: arraySet
+id: function-arrayset
 related:
 categories:
     - array

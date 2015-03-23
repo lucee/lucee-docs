@@ -1,5 +1,6 @@
 ---
 title: <cfswitch>
+id: tag-switch
 related:
 categories:
 ---

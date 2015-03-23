@@ -1,5 +1,6 @@
 ---
 title: datePart
+id: function-datepart
 related:
 categories:
 ---

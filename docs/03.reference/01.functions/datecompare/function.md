@@ -1,5 +1,6 @@
 ---
 title: dateCompare
+id: function-datecompare
 related:
 categories:
 ---

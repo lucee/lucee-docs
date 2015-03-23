@@ -1,5 +1,6 @@
 ---
 title: GetLuceeId
+id: function-getluceeid
 related:
 categories:
 ---

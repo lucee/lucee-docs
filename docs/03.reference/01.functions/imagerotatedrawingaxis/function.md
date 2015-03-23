@@ -1,5 +1,6 @@
 ---
 title: ImageRotateDrawingAxis
+id: function-imagerotatedrawingaxis
 related:
 categories:
     - image

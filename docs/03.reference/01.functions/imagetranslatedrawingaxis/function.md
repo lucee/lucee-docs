@@ -1,5 +1,6 @@
 ---
 title: ImageTranslateDrawingAxis
+id: function-imagetranslatedrawingaxis
 related:
 categories:
     - image

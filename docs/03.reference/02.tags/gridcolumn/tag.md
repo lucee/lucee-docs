@@ -1,5 +1,6 @@
 ---
 title: <cfgridcolumn>
+id: tag-gridcolumn
 related:
 categories:
 ---

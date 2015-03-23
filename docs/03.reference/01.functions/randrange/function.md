@@ -1,5 +1,6 @@
 ---
 title: randRange
+id: function-randrange
 related:
 categories:
     - number

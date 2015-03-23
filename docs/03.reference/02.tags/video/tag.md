@@ -1,5 +1,6 @@
 ---
 title: <cfvideo>
+id: tag-video
 related:
 categories:
 ---

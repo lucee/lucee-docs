@@ -1,5 +1,6 @@
 ---
 title: duplicate
+id: function-duplicate
 related:
 categories:
 ---

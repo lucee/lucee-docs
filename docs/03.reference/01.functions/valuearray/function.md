@@ -1,5 +1,6 @@
 ---
 title: valueArray
+id: function-valuearray
 related:
 categories:
     - query

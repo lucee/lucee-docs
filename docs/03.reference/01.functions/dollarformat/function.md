@@ -1,5 +1,6 @@
 ---
 title: dollarFormat
+id: function-dollarformat
 related:
 categories:
     - currency

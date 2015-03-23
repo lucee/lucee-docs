@@ -1,5 +1,6 @@
 ---
 title: GetReadableImageFormats
+id: function-getreadableimageformats
 related:
 categories:
     - image

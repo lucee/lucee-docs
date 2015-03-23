@@ -1,5 +1,6 @@
 ---
 title: StringIsEmpty
+id: function-stringisempty
 related:
 categories:
 ---

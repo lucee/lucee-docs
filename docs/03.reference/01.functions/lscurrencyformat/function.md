@@ -1,5 +1,6 @@
 ---
 title: lSCurrencyFormat
+id: function-lscurrencyformat
 related:
 categories:
     - date

@@ -1,5 +1,6 @@
 ---
 title: QueryMap
+id: function-querymap
 related:
 categories:
     - query

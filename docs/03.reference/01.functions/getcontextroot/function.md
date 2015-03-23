@@ -1,5 +1,6 @@
 ---
 title: getContextRoot
+id: function-getcontextroot
 related:
 categories:
 ---

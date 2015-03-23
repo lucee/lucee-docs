@@ -1,5 +1,6 @@
 ---
 title: listContainsNoCase
+id: function-listcontainsnocase
 related:
 categories:
     - list

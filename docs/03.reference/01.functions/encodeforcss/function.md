@@ -1,5 +1,6 @@
 ---
 title: encodeForCSS
+id: function-encodeforcss
 related:
 categories:
     - ESAPI

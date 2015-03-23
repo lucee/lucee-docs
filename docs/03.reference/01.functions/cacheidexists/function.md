@@ -1,5 +1,6 @@
 ---
 title: CacheIdExists
+id: function-cacheidexists
 related:
 categories:
 ---

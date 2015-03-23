@@ -1,5 +1,6 @@
 ---
 title: ORMGetSession
+id: function-ormgetsession
 related:
 categories:
 ---

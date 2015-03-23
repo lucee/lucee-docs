@@ -1,5 +1,6 @@
 ---
 title: array
+id: function-array
 related:
 categories:
     - array

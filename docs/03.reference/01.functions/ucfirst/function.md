@@ -1,5 +1,6 @@
 ---
 title: ucFirst
+id: function-ucfirst
 related:
 categories:
     - string

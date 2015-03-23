@@ -1,5 +1,6 @@
 ---
 title: SessionRotate
+id: function-sessionrotate
 related:
 categories:
 ---

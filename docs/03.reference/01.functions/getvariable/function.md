@@ -1,5 +1,6 @@
 ---
 title: getVariable
+id: function-getvariable
 related:
 categories:
 ---

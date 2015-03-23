@@ -1,5 +1,6 @@
 ---
 title: ImageSetDrawingTransparency
+id: function-imagesetdrawingtransparency
 related:
 categories:
     - image

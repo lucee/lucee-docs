@@ -1,5 +1,6 @@
 ---
 title: findNoCase
+id: function-findnocase
 related:
 categories:
     - string

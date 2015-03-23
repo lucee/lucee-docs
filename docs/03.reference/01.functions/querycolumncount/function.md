@@ -1,5 +1,6 @@
 ---
 title: queryColumnCount
+id: function-querycolumncount
 related:
 categories:
     - query

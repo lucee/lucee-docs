@@ -1,5 +1,6 @@
 ---
 title: dateAdd
+id: function-dateadd
 related:
 categories:
 ---

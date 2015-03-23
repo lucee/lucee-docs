@@ -1,5 +1,6 @@
 ---
 title: arrayMin
+id: function-arraymin
 related:
 categories:
     - array

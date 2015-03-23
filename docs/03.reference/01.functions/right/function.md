@@ -1,5 +1,6 @@
 ---
 title: right
+id: function-right
 related:
 categories:
     - string

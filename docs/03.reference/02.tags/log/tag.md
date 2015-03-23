@@ -1,5 +1,6 @@
 ---
 title: <cflog>
+id: tag-log
 related:
 categories:
 ---

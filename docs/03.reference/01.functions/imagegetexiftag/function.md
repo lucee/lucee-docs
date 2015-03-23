@@ -1,5 +1,6 @@
 ---
 title: ImageGetEXIFTag
+id: function-imagegetexiftag
 related:
 categories:
     - image

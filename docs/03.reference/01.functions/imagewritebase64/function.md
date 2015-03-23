@@ -1,5 +1,6 @@
 ---
 title: ImageWriteBase64
+id: function-imagewritebase64
 related:
 categories:
     - image

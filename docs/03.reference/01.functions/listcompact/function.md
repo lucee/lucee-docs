@@ -1,5 +1,6 @@
 ---
 title: ListCompact
+id: function-listcompact
 related:
 categories:
     - list

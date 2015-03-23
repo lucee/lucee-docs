@@ -1,5 +1,6 @@
 ---
 title: firstDayOfMonth
+id: function-firstdayofmonth
 related:
 categories:
 ---

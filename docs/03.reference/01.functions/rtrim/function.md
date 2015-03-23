@@ -1,5 +1,6 @@
 ---
 title: rTrim
+id: function-rtrim
 related:
 categories:
     - string

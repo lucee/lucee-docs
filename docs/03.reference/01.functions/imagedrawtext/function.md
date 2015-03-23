@@ -1,5 +1,6 @@
 ---
 title: ImageDrawText
+id: function-imagedrawtext
 related:
 categories:
     - image

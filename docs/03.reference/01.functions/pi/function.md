@@ -1,5 +1,6 @@
 ---
 title: pi
+id: function-pi
 related:
 categories:
     - number

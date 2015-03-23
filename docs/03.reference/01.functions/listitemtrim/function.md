@@ -1,5 +1,6 @@
 ---
 title: ListItemTrim
+id: function-listitemtrim
 related:
 categories:
     - list

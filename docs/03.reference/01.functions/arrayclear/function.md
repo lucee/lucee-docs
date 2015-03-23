@@ -1,5 +1,6 @@
 ---
 title: arrayClear
+id: function-arrayclear
 related:
 categories:
     - array

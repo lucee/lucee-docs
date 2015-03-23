@@ -1,5 +1,6 @@
 ---
 title: aCos
+id: function-acos
 related:
 categories:
     - number

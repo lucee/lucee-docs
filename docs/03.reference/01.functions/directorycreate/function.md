@@ -1,5 +1,6 @@
 ---
 title: DirectoryCreate
+id: function-directorycreate
 related:
 categories:
 ---

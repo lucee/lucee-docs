@@ -1,5 +1,6 @@
 ---
 title: REMatch
+id: function-rematch
 related:
 categories:
     - string

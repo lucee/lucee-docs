@@ -1,5 +1,6 @@
 ---
 title: Empty
+id: function-empty
 related:
 categories:
 ---

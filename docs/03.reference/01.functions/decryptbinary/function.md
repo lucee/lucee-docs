@@ -1,5 +1,6 @@
 ---
 title: decryptBinary
+id: function-decryptbinary
 related:
 categories:
     - binary

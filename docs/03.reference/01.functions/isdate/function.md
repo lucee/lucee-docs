@@ -1,5 +1,6 @@
 ---
 title: isDate
+id: function-isdate
 related:
 categories:
     - decision

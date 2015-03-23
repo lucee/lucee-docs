@@ -1,5 +1,6 @@
 ---
 title: <cfcontent>
+id: tag-content
 related:
 categories:
 ---

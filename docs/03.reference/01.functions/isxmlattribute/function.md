@@ -1,5 +1,6 @@
 ---
 title: IsXmlAttribute
+id: function-isxmlattribute
 related:
 categories:
     - decision

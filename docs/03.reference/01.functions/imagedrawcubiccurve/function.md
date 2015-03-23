@@ -1,5 +1,6 @@
 ---
 title: ImageDrawCubicCurve
+id: function-imagedrawcubiccurve
 related:
 categories:
     - image

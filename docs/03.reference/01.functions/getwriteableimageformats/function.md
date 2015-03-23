@@ -1,5 +1,6 @@
 ---
 title: GetWriteableImageFormats
+id: function-getwriteableimageformats
 related:
 categories:
     - image

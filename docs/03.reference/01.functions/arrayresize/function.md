@@ -1,5 +1,6 @@
 ---
 title: arrayResize
+id: function-arrayresize
 related:
 categories:
     - array

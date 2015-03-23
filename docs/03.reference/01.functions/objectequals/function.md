@@ -1,5 +1,6 @@
 ---
 title: ObjectEquals
+id: function-objectequals
 related:
 categories:
 ---

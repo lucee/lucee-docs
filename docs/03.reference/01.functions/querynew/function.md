@@ -1,5 +1,6 @@
 ---
 title: queryNew
+id: function-querynew
 related:
 categories:
     - query

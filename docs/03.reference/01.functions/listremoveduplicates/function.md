@@ -1,5 +1,6 @@
 ---
 title: ListRemoveDuplicates
+id: function-listremoveduplicates
 related:
 categories:
     - list

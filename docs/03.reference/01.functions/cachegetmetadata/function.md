@@ -1,5 +1,6 @@
 ---
 title: CacheGetMetadata
+id: function-cachegetmetadata
 related:
 categories:
 ---

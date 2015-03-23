@@ -1,5 +1,6 @@
 ---
 title: uCase
+id: function-ucase
 related:
 categories:
     - string

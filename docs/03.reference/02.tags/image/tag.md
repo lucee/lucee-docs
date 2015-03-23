@@ -1,5 +1,6 @@
 ---
 title: <cfimage>
+id: tag-image
 related:
 categories:
 ---

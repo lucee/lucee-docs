@@ -1,5 +1,6 @@
 ---
 title: arrayEach
+id: function-arrayeach
 related:
 categories:
     - array

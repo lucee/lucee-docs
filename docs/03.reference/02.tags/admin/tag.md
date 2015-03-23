@@ -1,5 +1,6 @@
 ---
 title: <cfadmin>
+id: tag-admin
 related:
 categories:
 ---

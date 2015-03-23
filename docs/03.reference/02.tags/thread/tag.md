@@ -1,5 +1,6 @@
 ---
 title: <cfthread>
+id: tag-thread
 related:
 categories:
 ---

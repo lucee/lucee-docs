@@ -1,5 +1,6 @@
 ---
 title: getPageContext
+id: function-getpagecontext
 related:
 categories:
 ---

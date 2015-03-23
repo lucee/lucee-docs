@@ -1,5 +1,6 @@
 ---
 title: getFileFromPath
+id: function-getfilefrompath
 related:
 categories:
 ---

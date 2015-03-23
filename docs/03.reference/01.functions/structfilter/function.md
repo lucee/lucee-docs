@@ -1,5 +1,6 @@
 ---
 title: structFilter
+id: function-structfilter
 related:
 categories:
     - struct

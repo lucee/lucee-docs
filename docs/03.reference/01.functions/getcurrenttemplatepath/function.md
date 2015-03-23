@@ -1,5 +1,6 @@
 ---
 title: getCurrentTemplatePath
+id: function-getcurrenttemplatepath
 related:
 categories:
 ---

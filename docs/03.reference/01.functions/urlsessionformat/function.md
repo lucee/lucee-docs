@@ -1,5 +1,6 @@
 ---
 title: uRLSessionFormat
+id: function-urlsessionformat
 related:
 categories:
     - string

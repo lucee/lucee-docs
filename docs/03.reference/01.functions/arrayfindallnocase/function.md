@@ -1,5 +1,6 @@
 ---
 title: arrayFindAllNoCase
+id: function-arrayfindallnocase
 related:
 categories:
     - array

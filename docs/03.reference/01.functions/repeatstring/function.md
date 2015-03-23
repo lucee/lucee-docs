@@ -1,5 +1,6 @@
 ---
 title: repeatString
+id: function-repeatstring
 related:
 categories:
     - string

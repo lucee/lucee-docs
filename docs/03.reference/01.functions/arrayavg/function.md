@@ -1,5 +1,6 @@
 ---
 title: arrayAvg
+id: function-arrayavg
 related:
 categories:
     - array

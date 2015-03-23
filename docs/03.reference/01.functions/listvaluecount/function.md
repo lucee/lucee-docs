@@ -1,5 +1,6 @@
 ---
 title: listValueCount
+id: function-listvaluecount
 related:
 categories:
     - list

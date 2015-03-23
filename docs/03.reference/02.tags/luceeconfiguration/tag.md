@@ -1,5 +1,6 @@
 ---
 title: <cfluceeconfiguration>
+id: tag-luceeconfiguration
 related:
 categories:
 ---

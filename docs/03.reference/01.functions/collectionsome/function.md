@@ -1,5 +1,6 @@
 ---
 title: collectionSome
+id: function-collectionsome
 related:
 categories:
     - iterator

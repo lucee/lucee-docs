@@ -1,5 +1,6 @@
 ---
 title: timeFormat
+id: function-timeformat
 related:
 categories:
     - date

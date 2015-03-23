@@ -1,5 +1,6 @@
 ---
 title: <cfsearch>
+id: tag-search
 related:
 categories:
 ---

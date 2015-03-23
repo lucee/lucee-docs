@@ -1,5 +1,6 @@
 ---
 title: isSimpleValue
+id: function-issimplevalue
 related:
 categories:
     - decision

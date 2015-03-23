@@ -1,5 +1,6 @@
 ---
 title: decimalFormat
+id: function-decimalformat
 related:
 categories:
     - number

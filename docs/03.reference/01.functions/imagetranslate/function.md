@@ -1,5 +1,6 @@
 ---
 title: ImageTranslate
+id: function-imagetranslate
 related:
 categories:
     - image

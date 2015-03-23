@@ -1,5 +1,6 @@
 ---
 title: sin
+id: function-sin
 related:
 categories:
     - number

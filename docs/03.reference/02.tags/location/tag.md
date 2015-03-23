@@ -1,5 +1,6 @@
 ---
 title: <cflocation>
+id: tag-location
 related:
 categories:
 ---

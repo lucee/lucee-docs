@@ -1,5 +1,6 @@
 ---
 title: replace
+id: function-replace
 related:
 categories:
     - string

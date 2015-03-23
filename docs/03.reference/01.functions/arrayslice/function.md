@@ -1,5 +1,6 @@
 ---
 title: arraySlice
+id: function-arrayslice
 related:
 categories:
     - array

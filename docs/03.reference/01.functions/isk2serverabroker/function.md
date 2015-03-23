@@ -1,5 +1,6 @@
 ---
 title: isK2ServerABroker
+id: function-isk2serverabroker
 related:
 categories:
 ---

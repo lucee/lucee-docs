@@ -1,5 +1,6 @@
 ---
 title: <cfvideoplayer>
+id: tag-videoplayer
 related:
 categories:
 ---

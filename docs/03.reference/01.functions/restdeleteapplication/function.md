@@ -1,5 +1,6 @@
 ---
 title: RestDeleteApplication
+id: function-restdeleteapplication
 related:
 categories:
 ---

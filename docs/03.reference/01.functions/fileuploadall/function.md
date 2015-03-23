@@ -1,5 +1,6 @@
 ---
 title: FileUploadAll
+id: function-fileuploadall
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: sgn
+id: function-sgn
 related:
 categories:
     - number

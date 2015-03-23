@@ -1,5 +1,6 @@
 ---
 title: serialize
+id: function-serialize
 related:
 categories:
 ---

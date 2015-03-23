@@ -1,5 +1,6 @@
 ---
 title: <cfdbinfo>
+id: tag-dbinfo
 related:
 categories:
 ---

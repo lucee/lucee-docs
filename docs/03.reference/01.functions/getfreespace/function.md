@@ -1,5 +1,6 @@
 ---
 title: GetFreeSpace
+id: function-getfreespace
 related:
 categories:
 ---

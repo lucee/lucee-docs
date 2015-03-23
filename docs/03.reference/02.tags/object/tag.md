@@ -1,5 +1,6 @@
 ---
 title: <cfobject>
+id: tag-object
 related:
 categories:
 ---

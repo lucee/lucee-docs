@@ -1,5 +1,6 @@
 ---
 title: cJustify
+id: function-cjustify
 related:
 categories:
     - string

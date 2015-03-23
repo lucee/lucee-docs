@@ -1,5 +1,6 @@
 ---
 title: getTickCount
+id: function-gettickcount
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: ImageFilterColorMap
+id: function-imagefiltercolormap
 related:
 categories:
     - image

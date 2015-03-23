@@ -1,5 +1,6 @@
 ---
 title: decrementValue
+id: function-decrementvalue
 related:
 categories:
 ---

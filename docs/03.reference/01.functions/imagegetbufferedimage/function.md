@@ -1,5 +1,6 @@
 ---
 title: ImageGetBufferedImage
+id: function-imagegetbufferedimage
 related:
 categories:
     - image

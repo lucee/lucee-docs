@@ -1,5 +1,6 @@
 ---
 title: ImageResize
+id: function-imageresize
 related:
 categories:
     - image

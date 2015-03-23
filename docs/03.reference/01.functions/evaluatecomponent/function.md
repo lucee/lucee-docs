@@ -1,5 +1,6 @@
 ---
 title: evaluateComponent
+id: function-evaluatecomponent
 related:
 categories:
 ---

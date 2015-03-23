@@ -1,5 +1,6 @@
 ---
 title: ImageDrawArc
+id: function-imagedrawarc
 related:
 categories:
     - image

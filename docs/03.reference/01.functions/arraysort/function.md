@@ -1,5 +1,6 @@
 ---
 title: arraySort
+id: function-arraysort
 related:
 categories:
     - array

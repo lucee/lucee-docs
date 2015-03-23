@@ -1,5 +1,6 @@
 ---
 title: dumpStruct
+id: function-dumpstruct
 related:
 categories:
 ---

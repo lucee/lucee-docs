@@ -1,5 +1,6 @@
 ---
 title: <cffunction>
+id: tag-function
 related:
 categories:
 ---

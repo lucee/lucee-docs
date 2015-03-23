@@ -1,5 +1,6 @@
 ---
 title: arrayLen
+id: function-arraylen
 related:
 categories:
     - array

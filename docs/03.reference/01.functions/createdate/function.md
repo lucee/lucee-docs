@@ -1,5 +1,6 @@
 ---
 title: createDate
+id: function-createdate
 related:
 categories:
 ---

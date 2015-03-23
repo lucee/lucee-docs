@@ -1,5 +1,6 @@
 ---
 title: lCase
+id: function-lcase
 related:
 categories:
     - string

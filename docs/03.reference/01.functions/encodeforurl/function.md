@@ -1,5 +1,6 @@
 ---
 title: encodeForURL
+id: function-encodeforurl
 related:
 categories:
     - ESAPI

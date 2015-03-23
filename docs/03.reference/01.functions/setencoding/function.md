@@ -1,5 +1,6 @@
 ---
 title: setEncoding
+id: function-setencoding
 related:
 categories:
 ---

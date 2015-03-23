@@ -1,5 +1,6 @@
 ---
 title: <cfinput>
+id: tag-input
 related:
 categories:
 ---

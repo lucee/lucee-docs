@@ -1,5 +1,6 @@
 ---
 title: parseDateTime
+id: function-parsedatetime
 related:
 categories:
     - date

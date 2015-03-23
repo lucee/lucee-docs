@@ -1,5 +1,6 @@
 ---
 title: EntityReload
+id: function-entityreload
 related:
 categories:
 ---

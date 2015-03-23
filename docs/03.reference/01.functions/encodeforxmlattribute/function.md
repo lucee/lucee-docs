@@ -1,5 +1,6 @@
 ---
 title: encodeForXMLAttribute
+id: function-encodeforxmlattribute
 related:
 categories:
     - ESAPI

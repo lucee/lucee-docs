@@ -1,5 +1,6 @@
 ---
 title: GetCPUUsage
+id: function-getcpuusage
 related:
 categories:
 ---

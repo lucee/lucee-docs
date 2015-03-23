@@ -1,5 +1,6 @@
 ---
 title: collectionEvery
+id: function-collectionevery
 related:
 categories:
     - iterator

@@ -1,5 +1,6 @@
 ---
 title: IsClosure
+id: function-isclosure
 related:
 categories:
     - decision

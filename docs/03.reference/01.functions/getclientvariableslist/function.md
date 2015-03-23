@@ -1,5 +1,6 @@
 ---
 title: getClientVariablesList
+id: function-getclientvariableslist
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: ToScript
+id: function-toscript
 related:
 categories:
     - string

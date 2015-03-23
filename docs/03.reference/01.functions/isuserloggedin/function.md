@@ -1,5 +1,6 @@
 ---
 title: IsUserLoggedIn
+id: function-isuserloggedin
 related:
 categories:
     - decision

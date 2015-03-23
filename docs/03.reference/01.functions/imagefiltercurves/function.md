@@ -1,5 +1,6 @@
 ---
 title: ImageFilterCurves
+id: function-imagefiltercurves
 related:
 categories:
     - image

@@ -1,5 +1,6 @@
 ---
 title: ImageXORDrawingMode
+id: function-imagexordrawingmode
 related:
 categories:
     - image

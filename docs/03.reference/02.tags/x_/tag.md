@@ -1,5 +1,6 @@
 ---
 title: <cfx_>
+id: tag-x_
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: <cfsetting>
+id: tag-setting
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: FileWriteLine
+id: function-filewriteline
 related:
 categories:
 ---

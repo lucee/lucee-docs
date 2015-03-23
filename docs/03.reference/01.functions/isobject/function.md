@@ -1,5 +1,6 @@
 ---
 title: isObject
+id: function-isobject
 related:
 categories:
     - decision

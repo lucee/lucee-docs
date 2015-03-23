@@ -1,5 +1,6 @@
 ---
 title: createTimeSpan
+id: function-createtimespan
 related:
 categories:
 ---

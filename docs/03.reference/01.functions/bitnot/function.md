@@ -1,5 +1,6 @@
 ---
 title: bitNot
+id: function-bitnot
 related:
 categories:
     - number

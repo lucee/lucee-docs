@@ -1,5 +1,6 @@
 ---
 title: ListReduce
+id: function-listreduce
 related:
 categories:
     - array

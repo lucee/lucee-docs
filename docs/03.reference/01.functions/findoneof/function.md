@@ -1,5 +1,6 @@
 ---
 title: findOneOf
+id: function-findoneof
 related:
 categories:
     - string

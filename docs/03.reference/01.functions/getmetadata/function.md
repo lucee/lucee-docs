@@ -1,5 +1,6 @@
 ---
 title: getMetadata
+id: function-getmetadata
 related:
 categories:
 ---

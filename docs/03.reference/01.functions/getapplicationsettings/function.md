@@ -1,5 +1,6 @@
 ---
 title: GetApplicationSettings
+id: function-getapplicationsettings
 related:
 categories:
 ---

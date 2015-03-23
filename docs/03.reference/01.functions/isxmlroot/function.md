@@ -1,5 +1,6 @@
 ---
 title: isXmlRoot
+id: function-isxmlroot
 related:
 categories:
     - decision

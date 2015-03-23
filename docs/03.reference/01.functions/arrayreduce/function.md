@@ -1,5 +1,6 @@
 ---
 title: arrayReduce
+id: function-arrayreduce
 related:
 categories:
     - array

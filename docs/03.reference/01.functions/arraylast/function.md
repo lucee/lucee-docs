@@ -1,5 +1,6 @@
 ---
 title: arrayLast
+id: function-arraylast
 related:
 categories:
     - array

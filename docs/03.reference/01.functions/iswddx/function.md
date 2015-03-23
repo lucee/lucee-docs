@@ -1,5 +1,6 @@
 ---
 title: isWddx
+id: function-iswddx
 related:
 categories:
     - decision

@@ -1,5 +1,6 @@
 ---
 title: SystemCacheClear
+id: function-systemcacheclear
 related:
 categories:
 ---

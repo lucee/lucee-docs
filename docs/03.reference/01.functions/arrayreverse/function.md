@@ -1,5 +1,6 @@
 ---
 title: arrayReverse
+id: function-arrayreverse
 related:
 categories:
     - array

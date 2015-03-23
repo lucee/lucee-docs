@@ -1,5 +1,6 @@
 ---
 title: listChangeDelims
+id: function-listchangedelims
 related:
 categories:
     - list

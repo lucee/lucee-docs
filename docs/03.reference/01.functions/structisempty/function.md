@@ -1,5 +1,6 @@
 ---
 title: structIsEmpty
+id: function-structisempty
 related:
 categories:
     - struct

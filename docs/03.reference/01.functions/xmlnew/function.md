@@ -1,5 +1,6 @@
 ---
 title: xmlNew
+id: function-xmlnew
 related:
 categories:
     - XML

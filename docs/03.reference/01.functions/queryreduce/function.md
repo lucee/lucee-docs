@@ -1,5 +1,6 @@
 ---
 title: QueryReduce
+id: function-queryreduce
 related:
 categories:
     - query

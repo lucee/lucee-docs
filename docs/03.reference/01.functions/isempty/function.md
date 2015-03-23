@@ -1,5 +1,6 @@
 ---
 title: IsEmpty
+id: function-isempty
 related:
 categories:
     - decision

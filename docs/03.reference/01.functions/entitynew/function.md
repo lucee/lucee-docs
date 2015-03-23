@@ -1,5 +1,6 @@
 ---
 title: EntityNew
+id: function-entitynew
 related:
 categories:
 ---

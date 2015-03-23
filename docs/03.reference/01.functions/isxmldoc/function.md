@@ -1,5 +1,6 @@
 ---
 title: isXmlDoc
+id: function-isxmldoc
 related:
 categories:
     - decision

@@ -1,5 +1,6 @@
 ---
 title: CacheGetProperties
+id: function-cachegetproperties
 related:
 categories:
 ---

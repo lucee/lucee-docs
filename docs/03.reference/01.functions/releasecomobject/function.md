@@ -1,5 +1,6 @@
 ---
 title: releaseComObject
+id: function-releasecomobject
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: ListSome
+id: function-listsome
 related:
 categories:
     - array

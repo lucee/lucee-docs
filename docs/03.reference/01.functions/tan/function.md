@@ -1,5 +1,6 @@
 ---
 title: tan
+id: function-tan
 related:
 categories:
     - number

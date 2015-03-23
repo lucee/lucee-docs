@@ -1,5 +1,6 @@
 ---
 title: IsJson
+id: function-isjson
 related:
 categories:
     - decision

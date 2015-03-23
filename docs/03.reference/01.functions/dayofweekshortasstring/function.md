@@ -1,5 +1,6 @@
 ---
 title: dayOfWeekShortAsString
+id: function-dayofweekshortasstring
 related:
 categories:
 ---

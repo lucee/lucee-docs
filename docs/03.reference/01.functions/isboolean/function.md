@@ -1,5 +1,6 @@
 ---
 title: isBoolean
+id: function-isboolean
 related:
 categories:
     - decision

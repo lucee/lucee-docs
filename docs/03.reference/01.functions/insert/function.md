@@ -1,5 +1,6 @@
 ---
 title: insert
+id: function-insert
 related:
 categories:
     - string

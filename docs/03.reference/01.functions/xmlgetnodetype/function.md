@@ -1,5 +1,6 @@
 ---
 title: XmlGetNodeType
+id: function-xmlgetnodetype
 related:
 categories:
     - XML

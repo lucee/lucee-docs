@@ -1,5 +1,6 @@
 ---
 title: GetFileInfo
+id: function-getfileinfo
 related:
 categories:
 ---

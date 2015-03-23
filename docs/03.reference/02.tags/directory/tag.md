@@ -1,5 +1,6 @@
 ---
 title: <cfdirectory>
+id: tag-directory
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: querySlice
+id: function-queryslice
 related:
 categories:
     - query

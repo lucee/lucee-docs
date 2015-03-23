@@ -1,5 +1,6 @@
 ---
 title: ImageWrite
+id: function-imagewrite
 related:
 categories:
     - image

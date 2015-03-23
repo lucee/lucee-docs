@@ -1,5 +1,6 @@
 ---
 title: XmlValidate
+id: function-xmlvalidate
 related:
 categories:
     - XML

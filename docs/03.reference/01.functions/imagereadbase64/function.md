@@ -1,5 +1,6 @@
 ---
 title: ImageReadBase64
+id: function-imagereadbase64
 related:
 categories:
     - image

@@ -1,5 +1,6 @@
 ---
 title: AjaxLink
+id: function-ajaxlink
 related:
 categories:
     - ajax

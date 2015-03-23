@@ -1,5 +1,6 @@
 ---
 title: javaCast
+id: function-javacast
 related:
 categories:
 ---

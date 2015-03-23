@@ -1,5 +1,6 @@
 ---
 title: StringHasSuffix
+id: function-stringhassuffix
 related:
 categories:
 ---

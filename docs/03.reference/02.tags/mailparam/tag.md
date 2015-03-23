@@ -1,5 +1,6 @@
 ---
 title: <cfmailparam>
+id: tag-mailparam
 related:
 categories:
 ---

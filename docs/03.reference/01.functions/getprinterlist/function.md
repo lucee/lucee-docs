@@ -1,5 +1,6 @@
 ---
 title: GetPrinterList
+id: function-getprinterlist
 related:
 categories:
 ---

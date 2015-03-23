@@ -1,5 +1,6 @@
 ---
 title: ESAPIEncode
+id: function-esapiencode
 related:
 categories:
     - ESAPI

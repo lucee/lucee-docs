@@ -1,5 +1,6 @@
 ---
 title: structMap
+id: function-structmap
 related:
 categories:
     - struct

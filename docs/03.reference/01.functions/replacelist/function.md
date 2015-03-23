@@ -1,5 +1,6 @@
 ---
 title: replaceList
+id: function-replacelist
 related:
 categories:
 ---

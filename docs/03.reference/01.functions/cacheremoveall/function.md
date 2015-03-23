@@ -1,5 +1,6 @@
 ---
 title: CacheRemoveAll
+id: function-cacheremoveall
 related:
 categories:
 ---

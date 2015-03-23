@@ -103,6 +103,7 @@ component {
 		var functionDir  = referenceDir & LCase( arguments.func.name ) & "/";
 		var pageContent  = "---
 title: #arguments.func.name#
+id: function-#LCase( arguments.func.name )#
 related:
 categories:";
 
@@ -131,6 +132,7 @@ categories:";
 		var pageContent  =
 "---
 title: <cf#LCase( arguments.tag.name )#>
+id: tag-#LCase( arguments.tag.name )#
 related:
 categories:
 ---

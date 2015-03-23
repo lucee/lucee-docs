@@ -1,5 +1,6 @@
 ---
 title: getGatewayHelper
+id: function-getgatewayhelper
 related:
 categories:
 ---

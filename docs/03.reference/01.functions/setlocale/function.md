@@ -1,5 +1,6 @@
 ---
 title: setLocale
+id: function-setlocale
 related:
 categories:
 ---

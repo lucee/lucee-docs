@@ -1,5 +1,6 @@
 ---
 title: SystemOutput
+id: function-systemoutput
 related:
 categories:
 ---

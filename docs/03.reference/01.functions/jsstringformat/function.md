@@ -1,5 +1,6 @@
 ---
 title: jSStringFormat
+id: function-jsstringformat
 related:
 categories:
     - javascript

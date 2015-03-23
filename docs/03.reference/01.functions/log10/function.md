@@ -1,5 +1,6 @@
 ---
 title: log10
+id: function-log10
 related:
 categories:
     - number

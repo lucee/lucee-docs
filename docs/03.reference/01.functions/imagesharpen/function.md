@@ -1,5 +1,6 @@
 ---
 title: ImageSharpen
+id: function-imagesharpen
 related:
 categories:
     - image

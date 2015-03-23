@@ -1,5 +1,6 @@
 ---
 title: sizeOf
+id: function-sizeof
 related:
 categories:
 ---

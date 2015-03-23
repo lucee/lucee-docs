@@ -1,5 +1,6 @@
 ---
 title: GetApplicationMetadata
+id: function-getapplicationmetadata
 related:
 categories:
 ---

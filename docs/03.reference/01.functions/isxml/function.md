@@ -1,5 +1,6 @@
 ---
 title: isXML
+id: function-isxml
 related:
 categories:
     - decision

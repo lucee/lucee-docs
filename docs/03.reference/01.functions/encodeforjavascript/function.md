@@ -1,5 +1,6 @@
 ---
 title: encodeForJavaScript
+id: function-encodeforjavascript
 related:
 categories:
     - ESAPI

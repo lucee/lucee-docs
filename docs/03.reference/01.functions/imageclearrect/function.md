@@ -1,5 +1,6 @@
 ---
 title: ImageClearRect
+id: function-imageclearrect
 related:
 categories:
     - image

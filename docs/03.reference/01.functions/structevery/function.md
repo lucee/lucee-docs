@@ -1,5 +1,6 @@
 ---
 title: structEvery
+id: function-structevery
 related:
 categories:
     - struct

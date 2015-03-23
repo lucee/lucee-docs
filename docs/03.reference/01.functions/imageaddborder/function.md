@@ -1,5 +1,6 @@
 ---
 title: ImageAddBorder
+id: function-imageaddborder
 related:
 categories:
     - image

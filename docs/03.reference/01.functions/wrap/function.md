@@ -1,5 +1,6 @@
 ---
 title: wrap
+id: function-wrap
 related:
 categories:
     - string

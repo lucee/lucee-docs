@@ -1,5 +1,6 @@
 ---
 title: ImageFormats
+id: function-imageformats
 related:
 categories:
     - image

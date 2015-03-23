@@ -1,5 +1,6 @@
 ---
 title: cos
+id: function-cos
 related:
 categories:
     - number

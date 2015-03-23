@@ -1,5 +1,6 @@
 ---
 title: fileRead
+id: function-fileread
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: EntityLoadByPK
+id: function-entityloadbypk
 related:
 categories:
 ---

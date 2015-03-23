@@ -1,5 +1,6 @@
 ---
 title: getProfileSections
+id: function-getprofilesections
 related:
 categories:
 ---

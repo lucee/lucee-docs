@@ -1,5 +1,6 @@
 ---
 title: queryRecordCount
+id: function-queryrecordcount
 related:
 categories:
     - query

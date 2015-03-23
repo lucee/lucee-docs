@@ -1,5 +1,6 @@
 ---
 title: getTemplatePath
+id: function-gettemplatepath
 related:
 categories:
 ---

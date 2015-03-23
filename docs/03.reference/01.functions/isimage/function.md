@@ -1,5 +1,6 @@
 ---
 title: IsImage
+id: function-isimage
 related:
 categories:
     - image

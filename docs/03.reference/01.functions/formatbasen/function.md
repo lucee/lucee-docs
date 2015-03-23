@@ -1,5 +1,6 @@
 ---
 title: formatBaseN
+id: function-formatbasen
 related:
 categories:
 ---

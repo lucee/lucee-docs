@@ -1,5 +1,6 @@
 ---
 title: ObjectLoad
+id: function-objectload
 related:
 categories:
 ---

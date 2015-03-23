@@ -1,5 +1,6 @@
 ---
 title: ImageSetDrawingColor
+id: function-imagesetdrawingcolor
 related:
 categories:
     - image

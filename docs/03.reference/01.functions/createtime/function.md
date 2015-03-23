@@ -1,5 +1,6 @@
 ---
 title: createTime
+id: function-createtime
 related:
 categories:
 ---

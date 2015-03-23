@@ -1,5 +1,6 @@
 ---
 title: getMetricData
+id: function-getmetricdata
 related:
 categories:
 ---

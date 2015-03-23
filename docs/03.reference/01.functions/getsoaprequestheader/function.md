@@ -1,5 +1,6 @@
 ---
 title: getSOAPRequestHeader
+id: function-getsoaprequestheader
 related:
 categories:
     - webservice

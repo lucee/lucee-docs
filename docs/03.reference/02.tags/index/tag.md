@@ -1,5 +1,6 @@
 ---
 title: <cfindex>
+id: tag-index
 related:
 categories:
 ---

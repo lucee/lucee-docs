@@ -1,5 +1,6 @@
 ---
 title: randomize
+id: function-randomize
 related:
 categories:
     - number

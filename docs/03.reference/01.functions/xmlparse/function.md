@@ -1,5 +1,6 @@
 ---
 title: xmlParse
+id: function-xmlparse
 related:
 categories:
     - XML

@@ -1,5 +1,6 @@
 ---
 title: minute
+id: function-minute
 related:
 categories:
 ---

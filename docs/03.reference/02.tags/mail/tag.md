@@ -1,5 +1,6 @@
 ---
 title: <cfmail>
+id: tag-mail
 related:
 categories:
 ---

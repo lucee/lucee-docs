@@ -1,5 +1,6 @@
 ---
 title: collectionReduce
+id: function-collectionreduce
 related:
 categories:
     - iterator

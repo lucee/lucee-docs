@@ -1,5 +1,6 @@
 ---
 title: compareNoCase
+id: function-comparenocase
 related:
 categories:
     - string

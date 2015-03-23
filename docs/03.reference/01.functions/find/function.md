@@ -1,5 +1,6 @@
 ---
 title: find
+id: function-find
 related:
 categories:
     - string

@@ -1,5 +1,6 @@
 ---
 title: ImageNew
+id: function-imagenew
 related:
 categories:
     - image

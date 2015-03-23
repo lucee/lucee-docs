@@ -1,5 +1,6 @@
 ---
 title: structFindKey
+id: function-structfindkey
 related:
 categories:
     - struct

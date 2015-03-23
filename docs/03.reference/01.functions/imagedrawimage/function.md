@@ -1,5 +1,6 @@
 ---
 title: ImageDrawImage
+id: function-imagedrawimage
 related:
 categories:
     - image

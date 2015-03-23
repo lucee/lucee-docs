@@ -1,5 +1,6 @@
 ---
 title: ImageSetBackgroundColor
+id: function-imagesetbackgroundcolor
 related:
 categories:
     - image

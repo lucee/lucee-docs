@@ -1,13 +1,13 @@
 component accessors=true {
-	property name="id"           type="string";
-	property name="slug"         type="string";
-	property name="parentId"     type="string";
+	property name="id"           type="string" default="";
+	property name="path"         type="string" default="";
+	property name="slug"         type="string" default="";
 	property name="parent"       type="any";
-	property name="pageType"     type="string";
+	property name="pageType"     type="string" default="";
 	property name="children"     type="array";
-	property name="depth"        type="numeric";
-	property name="filePath"     type="string";
-	property name="title"        type="string";
+	property name="depth"        type="numeric" default=0;
+	property name="filePath"     type="string"  default="";
+	property name="title"        type="string"  default="";
 	property name="body"         type="string"  default="";
 	property name="sortOrder"    type="numeric" default="0";
 	property name="visible"      type="boolean" default=false;

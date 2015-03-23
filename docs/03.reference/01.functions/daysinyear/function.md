@@ -1,5 +1,6 @@
 ---
 title: daysInYear
+id: function-daysinyear
 related:
 categories:
 ---

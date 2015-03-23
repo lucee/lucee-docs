@@ -1,5 +1,6 @@
 ---
 title: GenerateSecretKey
+id: function-generatesecretkey
 related:
 categories:
 ---

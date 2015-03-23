@@ -1,5 +1,6 @@
 ---
 title: isDebugMode
+id: function-isdebugmode
 related:
 categories:
     - decision

@@ -1,5 +1,6 @@
 ---
 title: encodeForHTML
+id: function-encodeforhtml
 related:
 categories:
     - ESAPI

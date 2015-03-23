@@ -1,5 +1,6 @@
 ---
 title: hash40
+id: function-hash40
 related:
 categories:
 ---

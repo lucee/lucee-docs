@@ -1,5 +1,6 @@
 ---
 title: trim
+id: function-trim
 related:
 categories:
     - string

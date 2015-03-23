@@ -1,5 +1,6 @@
 ---
 title: daysInMonth
+id: function-daysinmonth
 related:
 categories:
 ---

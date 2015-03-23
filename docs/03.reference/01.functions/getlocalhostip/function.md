@@ -1,5 +1,6 @@
 ---
 title: GetLocalHostIP
+id: function-getlocalhostip
 related:
 categories:
 ---

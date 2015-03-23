@@ -1,5 +1,6 @@
 ---
 title: EntityNameList
+id: function-entitynamelist
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: QueryDeleteColumn
+id: function-querydeletecolumn
 related:
 categories:
     - query

@@ -1,5 +1,6 @@
 ---
 title: <cfdocument>
+id: tag-document
 related:
 categories:
 ---

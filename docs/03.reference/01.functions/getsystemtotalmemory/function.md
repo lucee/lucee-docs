@@ -1,5 +1,6 @@
 ---
 title: GetSystemTotalMemory
+id: function-getsystemtotalmemory
 related:
 categories:
 ---

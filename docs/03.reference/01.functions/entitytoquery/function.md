@@ -1,5 +1,6 @@
 ---
 title: EntityToQuery
+id: function-entitytoquery
 related:
 categories:
 ---

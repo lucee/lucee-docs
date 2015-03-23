@@ -1,5 +1,6 @@
 ---
 title: isLocalHost
+id: function-islocalhost
 related:
 categories:
     - decision

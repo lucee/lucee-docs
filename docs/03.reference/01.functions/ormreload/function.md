@@ -1,5 +1,6 @@
 ---
 title: ORMReload
+id: function-ormreload
 related:
 categories:
 ---

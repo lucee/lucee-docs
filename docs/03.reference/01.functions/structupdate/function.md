@@ -1,5 +1,6 @@
 ---
 title: structUpdate
+id: function-structupdate
 related:
 categories:
     - struct

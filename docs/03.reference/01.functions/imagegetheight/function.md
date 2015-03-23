@@ -1,5 +1,6 @@
 ---
 title: ImageGetHeight
+id: function-imagegetheight
 related:
 categories:
     - image

@@ -1,5 +1,6 @@
 ---
 title: listMap
+id: function-listmap
 related:
 categories:
     - string

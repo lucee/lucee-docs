@@ -1,5 +1,6 @@
 ---
 title: ImageGetEXIFMetadata
+id: function-imagegetexifmetadata
 related:
 categories:
     - image

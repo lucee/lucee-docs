@@ -1,5 +1,6 @@
 ---
 title: isXmlElem
+id: function-isxmlelem
 related:
 categories:
     - decision

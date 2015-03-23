@@ -1,5 +1,6 @@
 ---
 title: xmlChildPos
+id: function-xmlchildpos
 related:
 categories:
     - XML

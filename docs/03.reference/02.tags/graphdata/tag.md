@@ -1,5 +1,6 @@
 ---
 title: <cfgraphdata>
+id: tag-graphdata
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: hTMLEditFormat
+id: function-htmleditformat
 related:
 categories:
     - html

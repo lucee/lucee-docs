@@ -1,5 +1,6 @@
 ---
 title: abs
+id: function-abs
 related:
 categories:
     - number

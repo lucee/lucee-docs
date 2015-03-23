@@ -1,5 +1,6 @@
 ---
 title: DirectoryDelete
+id: function-directorydelete
 related:
 categories:
 ---

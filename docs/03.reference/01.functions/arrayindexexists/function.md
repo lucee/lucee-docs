@@ -1,5 +1,6 @@
 ---
 title: ArrayIndexExists
+id: function-arrayindexexists
 related:
 categories:
     - array

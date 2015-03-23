@@ -1,5 +1,6 @@
 ---
 title: preserveSingleQuotes
+id: function-preservesinglequotes
 related:
 categories:
 ---

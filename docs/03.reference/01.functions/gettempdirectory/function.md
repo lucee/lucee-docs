@@ -1,5 +1,6 @@
 ---
 title: getTempDirectory
+id: function-gettempdirectory
 related:
 categories:
 ---

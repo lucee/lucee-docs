@@ -1,5 +1,6 @@
 ---
 title: ImageGetWidth
+id: function-imagegetwidth
 related:
 categories:
     - image

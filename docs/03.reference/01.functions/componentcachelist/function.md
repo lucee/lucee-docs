@@ -1,5 +1,6 @@
 ---
 title: componentCacheList
+id: function-componentcachelist
 related:
 categories:
 ---

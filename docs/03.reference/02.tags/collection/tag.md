@@ -1,5 +1,6 @@
 ---
 title: <cfcollection>
+id: tag-collection
 related:
 categories:
 ---

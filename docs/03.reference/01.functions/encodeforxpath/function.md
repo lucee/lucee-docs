@@ -1,5 +1,6 @@
 ---
 title: encodeForXPath
+id: function-encodeforxpath
 related:
 categories:
     - ESAPI

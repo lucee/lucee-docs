@@ -1,5 +1,6 @@
 ---
 title: CacheGetAll
+id: function-cachegetall
 related:
 categories:
 ---

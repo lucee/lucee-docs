@@ -1,5 +1,6 @@
 ---
 title: sqr
+id: function-sqr
 related:
 categories:
     - number

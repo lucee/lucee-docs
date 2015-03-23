@@ -1,5 +1,6 @@
 ---
 title: <cflogout>
+id: tag-logout
 related:
 categories:
 ---

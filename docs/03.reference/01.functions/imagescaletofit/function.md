@@ -1,5 +1,6 @@
 ---
 title: ImageScaleToFit
+id: function-imagescaletofit
 related:
 categories:
     - image

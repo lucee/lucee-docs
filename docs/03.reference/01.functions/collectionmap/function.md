@@ -1,5 +1,6 @@
 ---
 title: collectionMap
+id: function-collectionmap
 related:
 categories:
     - iterator

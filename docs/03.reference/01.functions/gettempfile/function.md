@@ -1,5 +1,6 @@
 ---
 title: getTempFile
+id: function-gettempfile
 related:
 categories:
 ---

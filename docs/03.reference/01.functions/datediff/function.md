@@ -1,5 +1,6 @@
 ---
 title: dateDiff
+id: function-datediff
 related:
 categories:
 ---

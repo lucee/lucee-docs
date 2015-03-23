@@ -1,5 +1,6 @@
 ---
 title: ImageSetDrawingAlpha
+id: function-imagesetdrawingalpha
 related:
 categories:
     - image

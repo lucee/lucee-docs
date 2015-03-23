@@ -1,5 +1,6 @@
 ---
 title: queryColumnArray
+id: function-querycolumnarray
 related:
 categories:
     - query

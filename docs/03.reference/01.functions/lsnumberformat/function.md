@@ -1,5 +1,6 @@
 ---
 title: lSNumberFormat
+id: function-lsnumberformat
 related:
 categories:
     - number

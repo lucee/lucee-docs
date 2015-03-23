@@ -1,5 +1,6 @@
 ---
 title: rEReplaceNoCase
+id: function-rereplacenocase
 related:
 categories:
     - string

@@ -1,5 +1,6 @@
 ---
 title: lsdayOfWeek
+id: function-lsdayofweek
 related:
 categories:
 ---

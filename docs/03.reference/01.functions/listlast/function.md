@@ -1,5 +1,6 @@
 ---
 title: listLast
+id: function-listlast
 related:
 categories:
     - list

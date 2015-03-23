@@ -1,5 +1,6 @@
 ---
 title: <cfcookie>
+id: tag-cookie
 related:
 categories:
 ---

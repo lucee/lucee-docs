@@ -1,5 +1,6 @@
 ---
 title: ORMEvictCollection
+id: function-ormevictcollection
 related:
 categories:
 ---

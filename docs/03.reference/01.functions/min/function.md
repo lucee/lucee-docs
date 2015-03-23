@@ -1,5 +1,6 @@
 ---
 title: min
+id: function-min
 related:
 categories:
     - number

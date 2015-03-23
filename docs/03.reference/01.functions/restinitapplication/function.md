@@ -1,5 +1,6 @@
 ---
 title: RestInitApplication
+id: function-restinitapplication
 related:
 categories:
 ---

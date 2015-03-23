@@ -1,5 +1,6 @@
 ---
 title: getTimeZoneInfo
+id: function-gettimezoneinfo
 related:
 categories:
 ---

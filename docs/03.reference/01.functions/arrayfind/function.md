@@ -1,5 +1,6 @@
 ---
 title: arrayFind
+id: function-arrayfind
 related:
 categories:
     - array

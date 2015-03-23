@@ -1,5 +1,6 @@
 ---
 title: GetPrinterInfo
+id: function-getprinterinfo
 related:
 categories:
 ---

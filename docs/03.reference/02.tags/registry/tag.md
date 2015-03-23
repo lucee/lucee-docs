@@ -1,5 +1,6 @@
 ---
 title: <cfregistry>
+id: tag-registry
 related:
 categories:
 ---

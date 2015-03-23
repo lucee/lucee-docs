@@ -1,5 +1,6 @@
 ---
 title: <cfflush>
+id: tag-flush
 related:
 categories:
 ---

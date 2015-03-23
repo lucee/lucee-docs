@@ -1,5 +1,6 @@
 ---
 title: <cffeed>
+id: tag-feed
 related:
 categories:
 ---

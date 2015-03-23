@@ -1,5 +1,6 @@
 ---
 title: fileMove
+id: function-filemove
 related:
 categories:
 ---

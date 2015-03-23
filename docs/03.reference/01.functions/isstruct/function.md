@@ -1,5 +1,6 @@
 ---
 title: isStruct
+id: function-isstruct
 related:
 categories:
     - decision

@@ -1,5 +1,6 @@
 ---
 title: IsXmlNode
+id: function-isxmlnode
 related:
 categories:
     - decision

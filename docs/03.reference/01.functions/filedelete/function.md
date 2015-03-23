@@ -1,5 +1,6 @@
 ---
 title: FileDelete
+id: function-filedelete
 related:
 categories:
 ---

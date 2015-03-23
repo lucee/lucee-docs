@@ -1,5 +1,6 @@
 ---
 title: encodeForDN
+id: function-encodefordn
 related:
 categories:
     - ESAPI

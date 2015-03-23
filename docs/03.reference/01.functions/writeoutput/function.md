@@ -1,5 +1,6 @@
 ---
 title: writeOutput
+id: function-writeoutput
 related:
 categories:
 ---

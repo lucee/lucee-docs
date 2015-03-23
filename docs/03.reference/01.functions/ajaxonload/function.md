@@ -1,5 +1,6 @@
 ---
 title: AjaxOnLoad
+id: function-ajaxonload
 related:
 categories:
     - ajax

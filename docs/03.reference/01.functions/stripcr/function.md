@@ -1,5 +1,6 @@
 ---
 title: stripCr
+id: function-stripcr
 related:
 categories:
     - string

@@ -1,5 +1,6 @@
 ---
 title: DirectoryRename
+id: function-directoryrename
 related:
 categories:
 ---

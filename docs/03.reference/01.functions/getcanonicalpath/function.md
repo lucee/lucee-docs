@@ -1,5 +1,6 @@
 ---
 title: GetCanonicalPath
+id: function-getcanonicalpath
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: xMLFormat
+id: function-xmlformat
 related:
 categories:
     - XML

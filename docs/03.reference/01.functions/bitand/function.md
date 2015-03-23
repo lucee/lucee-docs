@@ -1,5 +1,6 @@
 ---
 title: bitAnd
+id: function-bitand
 related:
 categories:
     - number

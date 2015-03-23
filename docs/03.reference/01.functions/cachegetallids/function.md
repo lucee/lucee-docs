@@ -1,5 +1,6 @@
 ---
 title: CacheGetAllIds
+id: function-cachegetallids
 related:
 categories:
 ---

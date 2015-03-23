@@ -1,5 +1,6 @@
 ---
 title: GetTotalSpace
+id: function-gettotalspace
 related:
 categories:
 ---

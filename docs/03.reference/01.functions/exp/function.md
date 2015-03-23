@@ -1,5 +1,6 @@
 ---
 title: exp
+id: function-exp
 related:
 categories:
     - number

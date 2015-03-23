@@ -1,5 +1,6 @@
 ---
 title: bitXor
+id: function-bitxor
 related:
 categories:
     - number

@@ -1,5 +1,6 @@
 ---
 title: cfusion_decrypt
+id: function-cfusion_decrypt
 related:
 categories:
 ---

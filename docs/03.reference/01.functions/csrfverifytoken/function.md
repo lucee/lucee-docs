@@ -1,5 +1,6 @@
 ---
 title: CSRFVerifyToken
+id: function-csrfverifytoken
 related:
 categories:
 ---

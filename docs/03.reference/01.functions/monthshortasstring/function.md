@@ -1,5 +1,6 @@
 ---
 title: monthShortAsString
+id: function-monthshortasstring
 related:
 categories:
 ---

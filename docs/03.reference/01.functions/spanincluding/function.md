@@ -1,5 +1,6 @@
 ---
 title: spanIncluding
+id: function-spanincluding
 related:
 categories:
     - string

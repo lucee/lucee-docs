@@ -1,5 +1,6 @@
 ---
 title: arrayMerge
+id: function-arraymerge
 related:
 categories:
     - array

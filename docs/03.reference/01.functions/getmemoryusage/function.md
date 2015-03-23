@@ -1,5 +1,6 @@
 ---
 title: GetMemoryUsage
+id: function-getmemoryusage
 related:
 categories:
 ---

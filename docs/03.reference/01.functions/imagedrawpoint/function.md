@@ -1,5 +1,6 @@
 ---
 title: ImageDrawPoint
+id: function-imagedrawpoint
 related:
 categories:
     - image

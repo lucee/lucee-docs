@@ -1,5 +1,6 @@
 ---
 title: rEReplace
+id: function-rereplace
 related:
 categories:
     - string

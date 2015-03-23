@@ -1,5 +1,6 @@
 ---
 title: lSDateTimeFormat
+id: function-lsdatetimeformat
 related:
 categories:
     - date

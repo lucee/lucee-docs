@@ -1,5 +1,6 @@
 ---
 title: <cfcol>
+id: tag-col
 related:
 categories:
 ---

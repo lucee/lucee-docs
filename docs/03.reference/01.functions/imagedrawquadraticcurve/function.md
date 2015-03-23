@@ -1,5 +1,6 @@
 ---
 title: ImageDrawQuadraticCurve
+id: function-imagedrawquadraticcurve
 related:
 categories:
     - image

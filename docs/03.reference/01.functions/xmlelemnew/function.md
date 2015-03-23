@@ -1,5 +1,6 @@
 ---
 title: xmlElemNew
+id: function-xmlelemnew
 related:
 categories:
     - XML

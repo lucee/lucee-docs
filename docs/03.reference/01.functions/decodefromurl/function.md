@@ -1,5 +1,6 @@
 ---
 title: decodeFromURL
+id: function-decodefromurl
 related:
 categories:
     - ESAPI

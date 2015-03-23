@@ -1,5 +1,6 @@
 ---
 title: isBinary
+id: function-isbinary
 related:
 categories:
     - decision

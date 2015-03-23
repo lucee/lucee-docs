@@ -1,5 +1,6 @@
 ---
 title: FileIsEOF
+id: function-fileiseof
 related:
 categories:
 ---

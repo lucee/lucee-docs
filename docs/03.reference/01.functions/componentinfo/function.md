@@ -1,5 +1,6 @@
 ---
 title: componentInfo
+id: function-componentinfo
 related:
 categories:
 ---

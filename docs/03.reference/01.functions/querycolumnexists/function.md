@@ -1,5 +1,6 @@
 ---
 title: queryColumnExists
+id: function-querycolumnexists
 related:
 categories:
     - query

@@ -1,5 +1,6 @@
 ---
 title: lSIsCurrency
+id: function-lsiscurrency
 related:
 categories:
     - currency

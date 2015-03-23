@@ -1,5 +1,6 @@
 ---
 title: DirectoryCopy
+id: function-directorycopy
 related:
 categories:
 ---

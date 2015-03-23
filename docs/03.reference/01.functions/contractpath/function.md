@@ -1,5 +1,6 @@
 ---
 title: ContractPath
+id: function-contractpath
 related:
 categories:
 ---

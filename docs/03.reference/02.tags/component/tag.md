@@ -1,5 +1,6 @@
 ---
 title: <cfcomponent>
+id: tag-component
 related:
 categories:
 ---

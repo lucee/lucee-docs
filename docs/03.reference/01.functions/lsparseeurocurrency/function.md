@@ -1,5 +1,6 @@
 ---
 title: lSParseEuroCurrency
+id: function-lsparseeurocurrency
 related:
 categories:
     - currency

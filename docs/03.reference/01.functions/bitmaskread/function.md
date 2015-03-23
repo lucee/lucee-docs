@@ -1,5 +1,6 @@
 ---
 title: bitMaskRead
+id: function-bitmaskread
 related:
 categories:
     - number

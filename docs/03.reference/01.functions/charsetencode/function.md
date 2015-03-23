@@ -1,5 +1,6 @@
 ---
 title: charsetEncode
+id: function-charsetencode
 related:
 categories:
 ---

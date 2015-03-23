@@ -1,5 +1,6 @@
 ---
 title: getToken
+id: function-gettoken
 related:
 categories:
     - string

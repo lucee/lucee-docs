@@ -1,5 +1,6 @@
 ---
 title: queryCurrentRow
+id: function-querycurrentrow
 related:
 categories:
     - query

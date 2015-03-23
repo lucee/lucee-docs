@@ -1,5 +1,6 @@
 ---
 title: structSort
+id: function-structsort
 related:
 categories:
     - struct

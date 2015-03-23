@@ -1,5 +1,6 @@
 ---
 title: IsZipFile
+id: function-iszipfile
 related:
 categories:
     - decision

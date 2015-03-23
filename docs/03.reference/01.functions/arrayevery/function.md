@@ -1,5 +1,6 @@
 ---
 title: arrayEvery
+id: function-arrayevery
 related:
 categories:
     - array

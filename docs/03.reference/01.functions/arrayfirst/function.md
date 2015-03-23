@@ -1,5 +1,6 @@
 ---
 title: arrayFirst
+id: function-arrayfirst
 related:
 categories:
     - array

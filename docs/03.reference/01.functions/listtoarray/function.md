@@ -1,5 +1,6 @@
 ---
 title: listToArray
+id: function-listtoarray
 related:
 categories:
     - list

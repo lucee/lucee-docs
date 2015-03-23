@@ -1,5 +1,6 @@
 ---
 title: each
+id: function-each
 related:
 categories:
     - iterator

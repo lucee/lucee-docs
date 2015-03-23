@@ -1,5 +1,6 @@
 ---
 title: encodeForXML
+id: function-encodeforxml
 related:
 categories:
     - ESAPI

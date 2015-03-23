@@ -1,5 +1,6 @@
 ---
 title: <cfchartseries>
+id: tag-chartseries
 related:
 categories:
 ---

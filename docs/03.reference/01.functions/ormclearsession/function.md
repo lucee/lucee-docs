@@ -1,5 +1,6 @@
 ---
 title: ORMClearSession
+id: function-ormclearsession
 related:
 categories:
 ---

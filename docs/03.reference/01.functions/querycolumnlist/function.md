@@ -1,5 +1,6 @@
 ---
 title: queryColumnList
+id: function-querycolumnlist
 related:
 categories:
     - query

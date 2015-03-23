@@ -1,5 +1,6 @@
 ---
 title: arrayFindAll
+id: function-arrayfindall
 related:
 categories:
     - array

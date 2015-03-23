@@ -1,5 +1,6 @@
 ---
 title: paragraphFormat
+id: function-paragraphformat
 related:
 categories:
     - string

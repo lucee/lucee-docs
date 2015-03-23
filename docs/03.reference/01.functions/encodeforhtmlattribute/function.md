@@ -1,5 +1,6 @@
 ---
 title: encodeForHTMLAttribute
+id: function-encodeforhtmlattribute
 related:
 categories:
     - ESAPI

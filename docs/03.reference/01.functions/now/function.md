@@ -1,5 +1,6 @@
 ---
 title: now
+id: function-now
 related:
 categories:
 ---

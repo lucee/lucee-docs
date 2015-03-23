@@ -1,5 +1,6 @@
 ---
 title: structFindValue
+id: function-structfindvalue
 related:
 categories:
     - struct

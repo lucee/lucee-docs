@@ -1,5 +1,6 @@
 ---
 title: structGet
+id: function-structget
 related:
 categories:
     - struct

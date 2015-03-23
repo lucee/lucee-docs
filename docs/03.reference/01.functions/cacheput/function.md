@@ -1,5 +1,6 @@
 ---
 title: cachePut
+id: function-cacheput
 related:
 categories:
 ---

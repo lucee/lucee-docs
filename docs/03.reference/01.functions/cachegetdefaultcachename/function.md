@@ -1,5 +1,6 @@
 ---
 title: CacheGetDefaultCacheName
+id: function-cachegetdefaultcachename
 related:
 categories:
 ---

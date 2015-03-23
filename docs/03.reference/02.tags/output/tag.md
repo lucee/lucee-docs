@@ -1,5 +1,6 @@
 ---
 title: <cfoutput>
+id: tag-output
 related:
 categories:
 ---

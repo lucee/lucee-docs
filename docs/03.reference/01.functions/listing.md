@@ -1,5 +1,6 @@
 ---
 title: Lucee functions
+id: functions
 listingStyle: a-z
 ---
 

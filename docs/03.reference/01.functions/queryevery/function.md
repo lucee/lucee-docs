@@ -1,5 +1,6 @@
 ---
 title: queryEvery
+id: function-queryevery
 related:
 categories:
     - query

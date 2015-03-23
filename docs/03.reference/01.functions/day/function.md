@@ -1,5 +1,6 @@
 ---
 title: day
+id: function-day
 related:
 categories:
 ---

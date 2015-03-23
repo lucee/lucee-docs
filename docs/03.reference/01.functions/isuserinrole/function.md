@@ -1,5 +1,6 @@
 ---
 title: isUserInRole
+id: function-isuserinrole
 related:
 categories:
     - decision

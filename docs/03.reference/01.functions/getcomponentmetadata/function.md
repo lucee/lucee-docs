@@ -1,5 +1,6 @@
 ---
 title: GetComponentMetaData
+id: function-getcomponentmetadata
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: dayOfWeek
+id: function-dayofweek
 related:
 categories:
 ---

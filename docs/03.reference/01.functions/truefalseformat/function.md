@@ -1,5 +1,6 @@
 ---
 title: trueFalseFormat
+id: function-truefalseformat
 related:
 categories:
     - boolean

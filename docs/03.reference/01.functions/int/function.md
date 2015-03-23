@@ -1,5 +1,6 @@
 ---
 title: int
+id: function-int
 related:
 categories:
     - number

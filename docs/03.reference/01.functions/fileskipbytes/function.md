@@ -1,5 +1,6 @@
 ---
 title: FileSkipBytes
+id: function-fileskipbytes
 related:
 categories:
 ---

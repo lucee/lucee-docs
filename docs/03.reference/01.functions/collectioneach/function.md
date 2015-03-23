@@ -1,5 +1,6 @@
 ---
 title: collectionEach
+id: function-collectioneach
 related:
 categories:
     - iterator

@@ -1,5 +1,6 @@
 ---
 title: IsPDFObject
+id: function-ispdfobject
 related:
 categories:
     - decision

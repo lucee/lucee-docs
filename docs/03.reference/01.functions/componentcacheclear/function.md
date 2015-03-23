@@ -1,5 +1,6 @@
 ---
 title: componentCacheClear
+id: function-componentcacheclear
 related:
 categories:
 ---

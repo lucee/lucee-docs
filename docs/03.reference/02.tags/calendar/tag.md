@@ -1,5 +1,6 @@
 ---
 title: <cfcalendar>
+id: tag-calendar
 related:
 categories:
 ---

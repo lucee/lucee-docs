@@ -1,5 +1,6 @@
 ---
 title: structAppend
+id: function-structappend
 related:
 categories:
     - struct

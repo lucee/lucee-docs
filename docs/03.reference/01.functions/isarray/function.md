@@ -1,5 +1,6 @@
 ---
 title: isArray
+id: function-isarray
 related:
 categories:
     - decision

@@ -1,5 +1,6 @@
 ---
 title: SerializeJSON
+id: function-serializejson
 related:
 categories:
     - string

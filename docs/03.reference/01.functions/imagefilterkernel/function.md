@@ -1,5 +1,6 @@
 ---
 title: ImageFilterKernel
+id: function-imagefilterkernel
 related:
 categories:
     - image

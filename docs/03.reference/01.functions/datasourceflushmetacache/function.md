@@ -1,5 +1,6 @@
 ---
 title: datasourceFlushMetaCache
+id: function-datasourceflushmetacache
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: structEach
+id: function-structeach
 related:
 categories:
     - struct

@@ -1,5 +1,6 @@
 ---
 title: echo
+id: function-echo
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: addSOAPResponseHeader
+id: function-addsoapresponseheader
 related:
 categories:
     - webservice

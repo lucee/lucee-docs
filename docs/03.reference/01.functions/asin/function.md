@@ -1,5 +1,6 @@
 ---
 title: aSin
+id: function-asin
 related:
 categories:
     - number

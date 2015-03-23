@@ -1,5 +1,6 @@
 ---
 title: year
+id: function-year
 related:
 categories:
 ---

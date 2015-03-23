@@ -1,5 +1,6 @@
 ---
 title: structInsert
+id: function-structinsert
 related:
 categories:
     - struct

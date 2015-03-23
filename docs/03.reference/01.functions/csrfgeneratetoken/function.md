@@ -1,5 +1,6 @@
 ---
 title: CSRFGenerateToken
+id: function-csrfgeneratetoken
 related:
 categories:
 ---

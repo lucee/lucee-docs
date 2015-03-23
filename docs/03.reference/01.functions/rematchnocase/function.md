@@ -1,5 +1,6 @@
 ---
 title: REMatchNoCase
+id: function-rematchnocase
 related:
 categories:
     - string

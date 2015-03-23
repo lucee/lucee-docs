@@ -1,5 +1,6 @@
 ---
 title: <cfcache>
+id: tag-cache
 related:
 categories:
 ---

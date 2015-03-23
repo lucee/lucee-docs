@@ -6,12 +6,12 @@
 		<cfloop array="#args.docTree.getTree()#" item="firstLevelPage" index="i">
 			<cfif firstLevelPage.getId() neq "/home">
 				<li>
-					<h2>[[#firstLevelPage.getSlug()#]]</h2>
+					<h2>[[#firstLevelPage.getId()#]]</h2>
 
 					<cfif firstLevelPage.getChildren().len()>
 						<ol class="list-unstyled" role="navigation">
 							<cfloop array="#firstLevelPage.getChildren()#" item="secondLevelPage" index="n">
-								<li>[[#secondLevelPage.getSlug()#]]</li>
+								<li>[[#secondLevelPage.getId()#]]</li>
 							</cfloop>
 						</ol>
 					</cfif>

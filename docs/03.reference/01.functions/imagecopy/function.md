@@ -1,5 +1,6 @@
 ---
 title: ImageCopy
+id: function-imagecopy
 related:
 categories:
     - image

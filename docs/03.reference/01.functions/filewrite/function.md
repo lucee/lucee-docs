@@ -1,5 +1,6 @@
 ---
 title: FileWrite
+id: function-filewrite
 related:
 categories:
     - binary

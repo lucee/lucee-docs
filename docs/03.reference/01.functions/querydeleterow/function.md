@@ -1,5 +1,6 @@
 ---
 title: QueryDeleteRow
+id: function-querydeleterow
 related:
 categories:
     - query

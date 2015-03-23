@@ -1,5 +1,6 @@
 ---
 title: fileClose
+id: function-fileclose
 related:
 categories:
 ---

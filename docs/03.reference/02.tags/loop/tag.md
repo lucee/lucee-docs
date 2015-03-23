@@ -1,5 +1,6 @@
 ---
 title: <cfloop>
+id: tag-loop
 related:
 categories:
 ---

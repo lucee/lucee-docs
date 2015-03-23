@@ -1,5 +1,6 @@
 ---
 title: StringHasPrefix
+id: function-stringhasprefix
 related:
 categories:
 ---

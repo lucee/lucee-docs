@@ -1,5 +1,6 @@
 ---
 title: lSParseCurrency
+id: function-lsparsecurrency
 related:
 categories:
     - currency

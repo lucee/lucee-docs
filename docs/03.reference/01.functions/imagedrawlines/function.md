@@ -1,5 +1,6 @@
 ---
 title: ImageDrawLines
+id: function-imagedrawlines
 related:
 categories:
     - image

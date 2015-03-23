@@ -1,5 +1,6 @@
 ---
 title: QueryGetRow
+id: function-querygetrow
 related:
 categories:
     - query

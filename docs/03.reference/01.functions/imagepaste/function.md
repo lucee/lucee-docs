@@ -1,5 +1,6 @@
 ---
 title: ImagePaste
+id: function-imagepaste
 related:
 categories:
     - image

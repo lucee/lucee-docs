@@ -1,5 +1,6 @@
 ---
 title: <cfapplet>
+id: tag-applet
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: toString
+id: function-tostring
 related:
 categories:
 ---

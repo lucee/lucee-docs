@@ -1,5 +1,6 @@
 ---
 title: hour
+id: function-hour
 related:
 categories:
 ---

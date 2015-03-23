@@ -28,14 +28,14 @@ component accessors=true {
 
 		var rawMatch  = Mid( arguments.text, regexFindResult.pos[1], regexFindResult.len[1] );
 		var reference = Mid( arguments.text, regexFindResult.pos[2], regexFindResult.len[2] );
-		var slug      = ListFirst( reference, "|" );
-		var page      = getDocTree().getPageBySlug( slug );
-		var title     = ListLen( reference, "|" ) > 1 ? ListRest( reference, "|" ) : ( IsNull( page ) ? slug : page.getTitle() );
+		var pageId    = ListFirst( reference, "|" );
+		var page      = getDocTree().getPage( pageId );
+		var title     = ListLen( reference, "|" ) > 1 ? ListRest( reference, "|" ) : ( IsNull( page ) ? pageId : page.getTitle() );
 
 		return {
 			  rawMatch = rawMatch
 			, page     = page  ?: NullValue()
-			, title    = title ?: slug
+			, title    = title ?: pageId
 		};
 	}
 }

@@ -1,5 +1,6 @@
 ---
 title: collectionFilter
+id: function-collectionfilter
 related:
 categories:
     - iterator

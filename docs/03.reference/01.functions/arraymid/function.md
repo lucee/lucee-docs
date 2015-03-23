@@ -1,5 +1,6 @@
 ---
 title: arrayMid
+id: function-arraymid
 related:
 categories:
     - array

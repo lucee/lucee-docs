@@ -1,5 +1,6 @@
 ---
 title: structNew
+id: function-structnew
 related:
 categories:
     - struct

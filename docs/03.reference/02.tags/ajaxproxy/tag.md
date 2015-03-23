@@ -1,5 +1,6 @@
 ---
 title: <cfajaxproxy>
+id: tag-ajaxproxy
 related:
 categories:
 ---

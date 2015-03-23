@@ -2,7 +2,7 @@ component accessors=true {
 
 	property name="tree"    type="array";
 	property name="idMap"   type="struct";
-	property name="slugMap" type="struct";
+	property name="pathMap" type="struct";
 
 	public any function init( required string rootDirectory ) {
 		_loadTree( arguments.rootDirectory );
@@ -14,8 +14,8 @@ component accessors=true {
 		return idMap[ arguments.id ] ?: NullValue();
 	}
 
-	public any function getPageBySlug( required string slug ) {
-		return slugMap[ arguments.slug ] ?: NullValue();
+	public any function getPageByPath( required string path ) {
+		return pathMap[ arguments.path ] ?: NullValue();
 	}
 
 // private helpers
@@ -35,19 +35,21 @@ component accessors=true {
 	private void function _initializeEmptyTree() {
 		setTree( [] );
 		setIdMap( {} );
-		setSlugMap( {} );
+		setPathMap( {} );
 	}
 
 	private void function _addPageToTree( required any page ) {
-		idMap[ arguments.page.getId() ] = arguments.page;
-		slugMap[ arguments.page.getSlug() ] = arguments.page;
+		var parent = _getPageParent( arguments.page );
 
-		if ( idMap.keyExists( arguments.page.getParentId() ) ) {
-			idMap[ arguments.page.getParentId() ].addChild( arguments.page );
-			arguments.page.setParent( idMap[ arguments.page.getParentId() ] )
+		if ( !IsNull( parent ) ) {
+			parent.addChild( arguments.page );
+			arguments.page.setParent( parent );
 		} else {
 			tree.append( arguments.page );
 		}
+
+		idMap[ arguments.page.getId() ]     = arguments.page;
+		pathMap[ arguments.page.getPath() ] = arguments.page;
 	}
 
 	private array function _readPageFilesFromDocsDirectory( required string rootDirectory ) {
@@ -109,17 +111,20 @@ component accessors=true {
 				page = new Page( argumentCollection=pageData );
 		}
 
-		page.setId( _getPageIdFromMdFilePath( arguments.pageFilePath ) );
-		page.setParentId( _getParentPageIdFromPageId( page.getId() ) );
+		page.setPath( _getPagePathFromMdFilePath( arguments.pageFilePath ) )
+		if ( !page.getId().len() ) {
+			page.setId( page.getPath() );
+		}
+
 		page.setChildren( [] );
-		page.setDepth( ListLen( page.getId(), "/" ) );
+		page.setDepth( ListLen( page.getPath(), "/" ) );
 
 		return page;
 	}
 
-	private string function _getPageIdFromMdFilePath( required string filePath ) {
-		var withoutExtension = ReReplace( arguments.filePath, "[^\\\/]+\.md$", "" );
-		var parts            = withoutExtension.listToArray( "\/" );
+	private string function _getPagePathFromMdFilePath( required string filePath ) {
+		var fileDir = GetDirectoryFromPath(  arguments.filePath );
+		var parts   = fileDir.listToArray( "\/" );
 
 		for( var i=1; i <= parts.len(); i++ ) {
 			if ( parts[ i ].listLen( "." ) > 1 ) {
@@ -130,11 +135,17 @@ component accessors=true {
 		return "/" & parts.toList( "/" );
 	}
 
-	private string function _getParentPageIdFromPageId( required string pageId ) {
-		var parts = arguments.pageId.listToArray( "/" );
+	private string function _getParentPagePathFromPagePath( required string pagePath ) {
+		var parts = arguments.pagePath.listToArray( "/" );
 		parts.deleteAt( parts.len() );
 
 		return "/" & parts.toList( "/" );
+	}
+
+	private any function _getPageParent( required any page ) {
+		var parentPath = _getParentPagePathFromPagePath( arguments.page.getPath() );
+
+		return getPageByPath( parentPath );
 	}
 
 	private void function _sortChildren( required array children ){

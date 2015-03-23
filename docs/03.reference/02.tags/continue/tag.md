@@ -1,5 +1,6 @@
 ---
 title: <cfcontinue>
+id: tag-continue
 related:
 categories:
 ---

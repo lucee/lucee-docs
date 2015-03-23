@@ -1,5 +1,6 @@
 ---
 title: bitSHLN
+id: function-bitshln
 related:
 categories:
     - number

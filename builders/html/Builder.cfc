@@ -5,7 +5,7 @@ component {
 			return '<a class="missing-link">#HtmlEditFormat( arguments.title )#</a>';
 		}
 
-		var link = ReReplace( page.getId(), "^/", "" ) & ".html";
+		var link = ReReplace( page.getPath(), "^/", "" ) & ".html";
 
 		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
 	}
@@ -37,11 +37,11 @@ component {
 	}
 
 	private string function _getHtmlFilePath( required any page, required string buildDirectory ) {
-		if ( arguments.page.getId() == "/home" ) {
+		if ( arguments.page.getPath() == "/home" ) {
 			return arguments.buildDirectory & "/index.html";
 		}
 
-		return arguments.buildDirectory & arguments.page.getId() & ".html";
+		return arguments.buildDirectory & arguments.page.getPath() & ".html";
 	}
 
 	private string function _renderPage( required any page, required any docTree ){
@@ -53,7 +53,7 @@ component {
 		var parent = arguments.page.getParent();
 
 		while( !IsNull( parent ) ) {
-			crumbs.prepend( parent.getSlug() );
+			crumbs.prepend( parent.getId() );
 			parent = parent.getParent();
 		}
 

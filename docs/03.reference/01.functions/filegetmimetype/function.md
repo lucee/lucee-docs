@@ -1,5 +1,6 @@
 ---
 title: FileGetMimeType
+id: function-filegetmimetype
 related:
 categories:
 ---

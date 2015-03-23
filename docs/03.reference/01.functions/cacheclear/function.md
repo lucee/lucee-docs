@@ -1,5 +1,6 @@
 ---
 title: CacheClear
+id: function-cacheclear
 related:
 categories:
 ---

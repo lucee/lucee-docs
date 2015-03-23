@@ -1,5 +1,6 @@
 ---
 title: len
+id: function-len
 related:
 categories:
 ---

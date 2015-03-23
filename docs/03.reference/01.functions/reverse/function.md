@@ -1,5 +1,6 @@
 ---
 title: reverse
+id: function-reverse
 related:
 categories:
     - string

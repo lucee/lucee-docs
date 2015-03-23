@@ -1,5 +1,6 @@
 ---
 title: createUUID
+id: function-createuuid
 related:
 categories:
 ---

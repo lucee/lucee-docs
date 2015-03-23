@@ -1,5 +1,6 @@
 ---
 title: isQuery
+id: function-isquery
 related:
 categories:
     - query

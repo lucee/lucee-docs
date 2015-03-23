@@ -1,5 +1,6 @@
 ---
 title: hTMLCodeFormat
+id: function-htmlcodeformat
 related:
 categories:
     - html

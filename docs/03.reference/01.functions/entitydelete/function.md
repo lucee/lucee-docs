@@ -1,5 +1,6 @@
 ---
 title: EntityDelete
+id: function-entitydelete
 related:
 categories:
 ---

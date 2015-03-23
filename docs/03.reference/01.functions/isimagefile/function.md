@@ -1,5 +1,6 @@
 ---
 title: IsImageFile
+id: function-isimagefile
 related:
 categories:
     - decision

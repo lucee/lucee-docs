@@ -1,5 +1,6 @@
 ---
 title: FileSeek
+id: function-fileseek
 related:
 categories:
 ---

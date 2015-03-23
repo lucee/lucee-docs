@@ -1,5 +1,6 @@
 ---
 title: isDefined
+id: function-isdefined
 related:
 categories:
     - decision

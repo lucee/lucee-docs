@@ -1,5 +1,6 @@
 ---
 title: queryGetCell
+id: function-querygetcell
 related:
 categories:
     - query

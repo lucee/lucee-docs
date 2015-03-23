@@ -1,5 +1,6 @@
 ---
 title: IsPDFFile
+id: function-ispdffile
 related:
 categories:
     - decision

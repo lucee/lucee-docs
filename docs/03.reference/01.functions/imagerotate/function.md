@@ -1,5 +1,6 @@
 ---
 title: ImageRotate
+id: function-imagerotate
 related:
 categories:
     - image

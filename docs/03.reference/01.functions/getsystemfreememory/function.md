@@ -1,5 +1,6 @@
 ---
 title: GetSystemFreeMemory
+id: function-getsystemfreememory
 related:
 categories:
 ---

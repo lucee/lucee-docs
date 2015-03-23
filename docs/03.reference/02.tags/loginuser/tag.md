@@ -1,5 +1,6 @@
 ---
 title: <cfloginuser>
+id: tag-loginuser
 related:
 categories:
 ---

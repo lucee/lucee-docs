@@ -1,5 +1,6 @@
 ---
 title: SessionInvalidate
+id: function-sessioninvalidate
 related:
 categories:
 ---

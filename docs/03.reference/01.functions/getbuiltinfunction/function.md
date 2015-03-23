@@ -1,5 +1,6 @@
 ---
 title: GetBuiltInFunction
+id: function-getbuiltinfunction
 related:
 categories:
 ---

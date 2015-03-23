@@ -1,5 +1,6 @@
 ---
 title: expandPath
+id: function-expandpath
 related:
 categories:
 ---

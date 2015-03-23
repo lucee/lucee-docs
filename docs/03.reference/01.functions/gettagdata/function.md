@@ -1,5 +1,6 @@
 ---
 title: getTagData
+id: function-gettagdata
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: CacheSetProperties
+id: function-cachesetproperties
 related:
 categories:
 ---

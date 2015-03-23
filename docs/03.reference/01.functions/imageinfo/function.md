@@ -1,5 +1,6 @@
 ---
 title: ImageInfo
+id: function-imageinfo
 related:
 categories:
     - image

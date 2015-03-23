@@ -1,5 +1,6 @@
 ---
 title: encodeForLDAP
+id: function-encodeforldap
 related:
 categories:
     - ESAPI

@@ -1,5 +1,6 @@
 ---
 title: xmlTransform
+id: function-xmltransform
 related:
 categories:
     - XML

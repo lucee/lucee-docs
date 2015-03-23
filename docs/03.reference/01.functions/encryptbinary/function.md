@@ -1,5 +1,6 @@
 ---
 title: encryptBinary
+id: function-encryptbinary
 related:
 categories:
     - binary

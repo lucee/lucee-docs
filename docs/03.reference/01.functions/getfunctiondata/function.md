@@ -1,5 +1,6 @@
 ---
 title: getFunctionData
+id: function-getfunctiondata
 related:
 categories:
 ---

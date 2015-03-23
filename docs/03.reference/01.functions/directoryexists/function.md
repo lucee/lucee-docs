@@ -1,5 +1,6 @@
 ---
 title: directoryExists
+id: function-directoryexists
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: queryAddRow
+id: function-queryaddrow
 related:
 categories:
     - query

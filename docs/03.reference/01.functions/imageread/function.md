@@ -1,5 +1,6 @@
 ---
 title: ImageRead
+id: function-imageread
 related:
 categories:
     - image

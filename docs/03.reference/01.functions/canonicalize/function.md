@@ -1,5 +1,6 @@
 ---
 title: Canonicalize
+id: function-canonicalize
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: structSome
+id: function-structsome
 related:
 categories:
     - struct

@@ -1,5 +1,6 @@
 ---
 title: getClassPath
+id: function-getclasspath
 related:
 categories:
 ---

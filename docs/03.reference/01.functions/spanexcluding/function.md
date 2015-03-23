@@ -1,5 +1,6 @@
 ---
 title: spanExcluding
+id: function-spanexcluding
 related:
 categories:
     - string

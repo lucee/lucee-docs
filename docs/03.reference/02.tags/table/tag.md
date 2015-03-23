@@ -1,5 +1,6 @@
 ---
 title: <cftable>
+id: tag-table
 related:
 categories:
 ---

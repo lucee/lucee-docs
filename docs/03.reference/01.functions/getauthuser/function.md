@@ -1,5 +1,6 @@
 ---
 title: getAuthUser
+id: function-getauthuser
 related:
 categories:
 ---

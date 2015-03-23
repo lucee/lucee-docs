@@ -1,5 +1,6 @@
 ---
 title: yesNoFormat
+id: function-yesnoformat
 related:
 categories:
     - boolean

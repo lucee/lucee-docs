@@ -20,7 +20,7 @@
 				<ul class="list-unstyled">
 			</cfif>
 
-			<li>[[#child.getSlug()#]]</li>
+			<li>[[#child.getId()#]]</li>
 
 			<cfset currentLetter = firstLetter />
 		</cfloop>

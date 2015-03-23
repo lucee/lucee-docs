@@ -1,5 +1,6 @@
 ---
 title: ImageGetIPTCTag
+id: function-imagegetiptctag
 related:
 categories:
     - image

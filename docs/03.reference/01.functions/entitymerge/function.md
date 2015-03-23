@@ -1,5 +1,6 @@
 ---
 title: EntityMerge
+id: function-entitymerge
 related:
 categories:
 ---

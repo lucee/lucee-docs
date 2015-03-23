@@ -1,5 +1,6 @@
 ---
 title: cfusion_encrypt
+id: function-cfusion_encrypt
 related:
 categories:
 ---

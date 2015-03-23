@@ -1,5 +1,6 @@
 ---
 title: arrayAppend
+id: function-arrayappend
 related:
 categories:
     - array

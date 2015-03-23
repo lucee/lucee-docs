@@ -1,5 +1,6 @@
 ---
 title: getProfileString
+id: function-getprofilestring
 related:
 categories:
 ---

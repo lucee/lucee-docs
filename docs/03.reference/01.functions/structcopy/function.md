@@ -1,5 +1,6 @@
 ---
 title: structCopy
+id: function-structcopy
 related:
 categories:
     - struct

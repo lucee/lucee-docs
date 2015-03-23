@@ -1,5 +1,6 @@
 ---
 title: CacheDelete
+id: function-cachedelete
 related:
 categories:
 ---

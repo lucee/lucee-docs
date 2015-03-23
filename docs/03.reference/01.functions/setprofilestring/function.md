@@ -1,5 +1,6 @@
 ---
 title: setProfileString
+id: function-setprofilestring
 related:
 categories:
 ---

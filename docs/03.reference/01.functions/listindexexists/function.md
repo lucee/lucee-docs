@@ -1,5 +1,6 @@
 ---
 title: ListIndexExists
+id: function-listindexexists
 related:
 categories:
     - list

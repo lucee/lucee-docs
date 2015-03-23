@@ -1,5 +1,6 @@
 ---
 title: ImageGetBlob
+id: function-imagegetblob
 related:
 categories:
     - image

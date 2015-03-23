@@ -1,5 +1,6 @@
 ---
 title: IsSOAPRequest
+id: function-issoaprequest
 related:
 categories:
     - decision

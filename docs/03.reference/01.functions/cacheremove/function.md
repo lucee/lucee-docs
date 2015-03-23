@@ -1,5 +1,6 @@
 ---
 title: cacheRemove
+id: function-cacheremove
 related:
 categories:
 ---

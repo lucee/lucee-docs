@@ -1,5 +1,6 @@
 ---
 title: EntityNameArray
+id: function-entitynamearray
 related:
 categories:
 ---

@@ -1,5 +1,6 @@
 ---
 title: getBaseTagData
+id: function-getbasetagdata
 related:
 categories:
 ---

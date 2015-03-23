@@ -1,5 +1,6 @@
 ---
 title: ImageSetAntialiasing
+id: function-imagesetantialiasing
 related:
 categories:
     - image

@@ -1,5 +1,6 @@
 ---
 title: listDeleteAt
+id: function-listdeleteat
 related:
 categories:
     - list

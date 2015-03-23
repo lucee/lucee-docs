@@ -1,5 +1,6 @@
 ---
 title: millisecond
+id: function-millisecond
 related:
 categories:
 ---

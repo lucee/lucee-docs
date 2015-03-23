@@ -1,5 +1,6 @@
 ---
 title: DeserializeJSON
+id: function-deserializejson
 related:
 categories:
     - string

@@ -1,5 +1,6 @@
 ---
 title: xmlSearch
+id: function-xmlsearch
 related:
 categories:
     - XML

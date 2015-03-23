@@ -1,5 +1,6 @@
 ---
 title: FileExists
+id: function-fileexists
 related:
 categories:
 ---

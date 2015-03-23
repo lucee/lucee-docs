@@ -1,5 +1,6 @@
 ---
 title: <cfassociate>
+id: tag-associate
 related:
 categories:
 ---

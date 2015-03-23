@@ -1,5 +1,6 @@
 ---
 title: isCustomFunction
+id: function-iscustomfunction
 related:
 categories:
     - decision

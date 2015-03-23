@@ -1,5 +1,6 @@
 ---
 title: getEncoding
+id: function-getencoding
 related:
 categories:
 ---

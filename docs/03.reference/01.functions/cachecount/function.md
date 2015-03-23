@@ -1,5 +1,6 @@
 ---
 title: CacheCount
+id: function-cachecount
 related:
 categories:
 ---

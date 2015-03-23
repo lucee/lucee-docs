@@ -1,5 +1,6 @@
 ---
 title: getSOAPRequest
+id: function-getsoaprequest
 related:
 categories:
     - webservice

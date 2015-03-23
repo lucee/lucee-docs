@@ -1,5 +1,6 @@
 ---
 title: soundex
+id: function-soundex
 related:
 categories:
 ---

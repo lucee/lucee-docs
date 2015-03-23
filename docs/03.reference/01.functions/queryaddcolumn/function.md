@@ -1,5 +1,6 @@
 ---
 title: queryAddColumn
+id: function-queryaddcolumn
 related:
 categories:
     - query

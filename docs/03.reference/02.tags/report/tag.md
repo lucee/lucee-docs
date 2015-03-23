@@ -1,5 +1,6 @@
 ---
 title: <cfreport>
+id: tag-report
 related:
 categories:
 ---

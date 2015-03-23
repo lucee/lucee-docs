@@ -1,5 +1,6 @@
 ---
 title: <cfinsert>
+id: tag-insert
 related:
 categories:
 ---

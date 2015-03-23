@@ -1,5 +1,6 @@
 ---
 title: <cfobjectcache>
+id: tag-objectcache
 related:
 categories:
 ---

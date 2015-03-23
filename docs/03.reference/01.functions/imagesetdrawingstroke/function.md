@@ -1,5 +1,6 @@
 ---
 title: ImageSetDrawingStroke
+id: function-imagesetdrawingstroke
 related:
 categories:
     - image

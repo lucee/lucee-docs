@@ -1,5 +1,6 @@
 ---
 title: ImageDrawRoundRect
+id: function-imagedrawroundrect
 related:
 categories:
     - image

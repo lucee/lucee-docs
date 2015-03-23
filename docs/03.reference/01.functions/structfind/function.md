@@ -1,5 +1,6 @@
 ---
 title: structFind
+id: function-structfind
 related:
 categories:
     - struct

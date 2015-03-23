@@ -1,5 +1,6 @@
 ---
 title: <cfschedule>
+id: tag-schedule
 related:
 categories:
 ---

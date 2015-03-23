@@ -1,5 +1,6 @@
 ---
 title: ImageDrawBeveledRect
+id: function-imagedrawbeveledrect
 related:
 categories:
     - image

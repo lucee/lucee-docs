@@ -1,5 +1,6 @@
 ---
 title: arrayIsEmpty
+id: function-arrayisempty
 related:
 categories:
     - array

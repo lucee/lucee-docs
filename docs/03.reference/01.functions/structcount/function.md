@@ -1,5 +1,6 @@
 ---
 title: structCount
+id: function-structcount
 related:
 categories:
     - struct

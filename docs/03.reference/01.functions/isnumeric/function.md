@@ -1,5 +1,6 @@
 ---
 title: isNumeric
+id: function-isnumeric
 related:
 categories:
     - decision

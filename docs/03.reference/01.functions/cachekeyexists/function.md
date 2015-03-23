@@ -1,5 +1,6 @@
 ---
 title: CacheKeyExists
+id: function-cachekeyexists
 related:
 categories:
 ---

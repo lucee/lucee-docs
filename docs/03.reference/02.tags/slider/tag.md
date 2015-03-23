@@ -1,5 +1,6 @@
 ---
 title: <cfslider>
+id: tag-slider
 related:
 categories:
 ---

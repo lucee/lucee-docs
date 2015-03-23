@@ -1,5 +1,6 @@
 ---
 title: ORMCloseAllSessions
+id: function-ormcloseallsessions
 related:
 categories:
 ---

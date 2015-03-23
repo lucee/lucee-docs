@@ -1,5 +1,6 @@
 ---
 title: fileCopy
+id: function-filecopy
 related:
 categories:
 ---

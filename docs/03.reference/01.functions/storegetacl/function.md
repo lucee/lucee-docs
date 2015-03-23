@@ -1,5 +1,6 @@
 ---
 title: StoreGetACL
+id: function-storegetacl
 related:
 categories:
 ---

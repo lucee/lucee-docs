@@ -1,5 +1,6 @@
 ---
 title: isValid
+id: function-isvalid
 related:
 categories:
     - decision

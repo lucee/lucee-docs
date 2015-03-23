@@ -1,5 +1,6 @@
 ---
 title: EntityLoadByExample
+id: function-entityloadbyexample
 related:
 categories:
 ---

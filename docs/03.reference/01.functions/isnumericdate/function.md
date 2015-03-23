@@ -1,5 +1,6 @@
 ---
 title: isNumericDate
+id: function-isnumericdate
 related:
 categories:
     - decision

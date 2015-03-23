@@ -1,5 +1,6 @@
 ---
 title: GetUserRoles
+id: function-getuserroles
 related:
 categories:
 ---

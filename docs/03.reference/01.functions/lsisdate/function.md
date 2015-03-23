@@ -1,5 +1,6 @@
 ---
 title: lSIsDate
+id: function-lsisdate
 related:
 categories:
 ---

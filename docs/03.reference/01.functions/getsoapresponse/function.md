@@ -1,5 +1,6 @@
 ---
 title: getSOAPResponse
+id: function-getsoapresponse
 related:
 categories:
     - webservice

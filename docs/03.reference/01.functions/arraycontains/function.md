@@ -1,5 +1,6 @@
 ---
 title: ArrayContains
+id: function-arraycontains
 related:
 categories:
     - array

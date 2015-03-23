@@ -1,5 +1,6 @@
 ---
 title: <cfcase>
+id: tag-case
 related:
 categories:
 ---

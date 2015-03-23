@@ -1,5 +1,6 @@
 ---
 title: IsIPv6
+id: function-isipv6
 related:
 categories:
     - decision

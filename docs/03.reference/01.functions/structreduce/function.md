@@ -1,5 +1,6 @@
 ---
 title: structReduce
+id: function-structreduce
 related:
 categories:
     - struct

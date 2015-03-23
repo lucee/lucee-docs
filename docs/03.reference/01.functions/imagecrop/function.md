@@ -1,5 +1,6 @@
 ---
 title: ImageCrop
+id: function-imagecrop
 related:
 categories:
     - image

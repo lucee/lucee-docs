@@ -1,5 +1,6 @@
 ---
 title: FileUpload
+id: function-fileupload
 related:
 categories:
 ---

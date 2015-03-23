@@ -1,5 +1,6 @@
 ---
 title: structDelete
+id: function-structdelete
 related:
 categories:
     - struct

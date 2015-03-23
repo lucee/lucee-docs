@@ -1,5 +1,6 @@
 ---
 title: dateTimeFormat
+id: function-datetimeformat
 related:
 categories:
     - date

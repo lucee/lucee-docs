@@ -1,5 +1,6 @@
 ---
 title: SendGatewayMessage
+id: function-sendgatewaymessage
 related:
 categories:
 ---

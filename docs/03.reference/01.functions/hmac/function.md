@@ -1,5 +1,6 @@
 ---
 title: HMAC
+id: function-hmac
 related:
 categories:
 ---

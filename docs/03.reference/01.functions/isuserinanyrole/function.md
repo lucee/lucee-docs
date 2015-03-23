@@ -1,5 +1,6 @@
 ---
 title: isUserInAnyRole
+id: function-isuserinanyrole
 related:
 categories:
     - decision

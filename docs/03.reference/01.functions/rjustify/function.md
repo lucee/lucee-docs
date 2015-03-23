@@ -1,5 +1,6 @@
 ---
 title: rJustify
+id: function-rjustify
 related:
 categories:
     - string

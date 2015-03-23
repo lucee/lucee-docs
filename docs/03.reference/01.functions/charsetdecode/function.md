@@ -1,5 +1,6 @@
 ---
 title: charsetDecode
+id: function-charsetdecode
 related:
 categories:
 ---

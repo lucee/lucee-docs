@@ -1,5 +1,6 @@
 ---
 title: lSEuroCurrencyFormat
+id: function-lseurocurrencyformat
 related:
 categories:
     - currency

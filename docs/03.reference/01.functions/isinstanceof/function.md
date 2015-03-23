@@ -1,5 +1,6 @@
 ---
 title: IsInstanceOf
+id: function-isinstanceof
 related:
 categories:
     - decision

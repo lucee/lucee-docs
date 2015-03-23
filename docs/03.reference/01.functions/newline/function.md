@@ -1,5 +1,6 @@
 ---
 title: newLine
+id: function-newline
 related:
 categories:
 ---

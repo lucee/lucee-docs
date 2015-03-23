@@ -1,5 +1,6 @@
 ---
 title: rEFind
+id: function-refind
 related:
 categories:
     - string

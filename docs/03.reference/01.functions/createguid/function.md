@@ -1,5 +1,6 @@
 ---
 title: createGUID
+id: function-createguid
 related:
 categories:
 ---

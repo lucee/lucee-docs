@@ -1,5 +1,6 @@
 ---
 title: <cfsilent>
+id: tag-silent
 related:
 categories:
 ---

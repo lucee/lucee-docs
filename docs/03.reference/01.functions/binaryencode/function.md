@@ -1,5 +1,6 @@
 ---
 title: binaryEncode
+id: function-binaryencode
 related:
 categories:
     - binary
