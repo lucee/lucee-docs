@@ -7,6 +7,8 @@ component {
 			include template=arguments.template;
 		}
 
+		rendered = new SyntaxHighlighter().renderHighlights( rendered );
+
 		return Trim( rendered );
 	}
 
