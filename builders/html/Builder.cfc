@@ -20,31 +20,7 @@ component {
 		_copyStaticAssets( arguments.buildDirectory );
 	}
 
-// PRIVATE HELPERS
-	private void function _writePage( required any page, required string buildDirectory, required any docTree ) {
-		var filePath      = _getHtmlFilePath( arguments.page, arguments.buildDirectory );
-		var fileDirectory = GetDirectoryFromPath( filePath );
-
-		if ( !DirectoryExists( fileDirectory ) ) {
-			DirectoryCreate( fileDirectory );
-		}
-
-		FileWrite( filePath, _renderPage( arguments.page, arguments.docTree ) );
-
-		for( var childPage in arguments.page.getChildren() ) {
-			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
-		}
-	}
-
-	private string function _getHtmlFilePath( required any page, required string buildDirectory ) {
-		if ( arguments.page.getPath() == "/home" ) {
-			return arguments.buildDirectory & "/index.html";
-		}
-
-		return arguments.buildDirectory & arguments.page.getPath() & ".html";
-	}
-
-	private string function _renderPage( required any page, required any docTree ){
+	public string function renderPage( required any page, required any docTree ){
 		var renderedPage = renderTemplate(
 			  template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
 			, args     = { page = arguments.page }
@@ -67,6 +43,30 @@ component {
 				, seeAlso = renderTemplate( template="layouts/seeAlso.cfm", args={ links=arguments.page.getRelated() } )
 			  }
 		);
+	}
+
+// PRIVATE HELPERS
+	private void function _writePage( required any page, required string buildDirectory, required any docTree ) {
+		var filePath      = _getHtmlFilePath( arguments.page, arguments.buildDirectory );
+		var fileDirectory = GetDirectoryFromPath( filePath );
+
+		if ( !DirectoryExists( fileDirectory ) ) {
+			DirectoryCreate( fileDirectory );
+		}
+
+		FileWrite( filePath, renderPage( arguments.page, arguments.docTree ) );
+
+		for( var childPage in arguments.page.getChildren() ) {
+			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
+		}
+	}
+
+	private string function _getHtmlFilePath( required any page, required string buildDirectory ) {
+		if ( arguments.page.getPath() == "/home" ) {
+			return arguments.buildDirectory & "/index.html";
+		}
+
+		return arguments.buildDirectory & arguments.page.getPath() & ".html";
 	}
 
 	private void function _copyStaticAssets( required string buildDirectory ) {

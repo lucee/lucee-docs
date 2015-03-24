@@ -14,4 +14,12 @@
         <from>^(/((.*?)(\.html|/))?)$</from>
         <to last="true">%{context-path}/index.cfm</to>
     </rule>
+
+    <rule>
+        <note>
+            All assets requests to be served by the server too
+        </note>
+        <from>^/assets/.*$</from>
+        <to last="true">%{context-path}/index.cfm</to>
+    </rule>
 </urlrewrite>

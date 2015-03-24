@@ -1,1 +1,0 @@
-<cfdump var="#ExpandPath( "/api" )#" /><cfabort />
