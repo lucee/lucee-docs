@@ -21,7 +21,7 @@ component {
 // PRIVATE
 	private void function _renderPage() {
 		var pagePath    = _getPagePathFromRequest();
-		var buildRunner = new api.build.BuildRunner();
+		var buildRunner = _getBuildRunner();
 		var docTree     = buildRunner.getDocTree();
 		var page        = docTree.getPageByPath( pagePath );
 
@@ -40,7 +40,7 @@ component {
 			_404();
 		}
 
-		header name="cache-control" value="max-age=31536000";
+		header name="cache-control" value="no-cache";
 		content file=assetPath type=_getMimeTypeForAsset( assetPath );abort;
 	}
 
@@ -88,5 +88,26 @@ component {
 		}
 
 		return "application/octet-stream";
+	}
+
+	private any function _getBuildRunner() {
+		var appKey    = application.buildRunnerKey ?: "";
+		var newAppKey = _calculateBuildRunnerAppKey()
+
+		if ( appKey != newAppKey || !application.keyExists( appKey ) ) {
+			application.delete( appKey );
+			application[ newAppKey ] = new api.build.BuildRunner();
+			application.buildRunnerKey = newAppKey;
+		}
+
+		return application[ newAppKey ];
+
+	}
+
+	private string function _calculateBuildRunnerAppKey() {
+		var filesEtc = DirectoryList( "/docs", true, "query" );
+		var sig      = Hash( SerializeJson( filesEtc ) );
+
+		return "buildrunner" & sig;
 	}
 }
