@@ -8,7 +8,7 @@
 			<cfloop array="#args.crumbs#" item="pageSlug" index="i">
 				<li>[[#pageSlug#]]</li>
 			</cfloop>
-			<li>#args.page.getTitle()#</li>
+			<li>#HtmlEditFormat( args.page.getTitle() )#</li>
 		</ol>
 	</cfoutput>
 </cfif>
