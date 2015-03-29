@@ -10,7 +10,7 @@
 		<title>Lucee Documentation :: #args.page.getTitle()#</title>
 		<base href="#( repeatString( '../', args.page.getDepth()-1 ) )#">
 
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic&subset=latin-ext">
+		<link href='http://fonts.googleapis.com/css?family=Muli:400,400italic,300italic,300' rel='stylesheet' type='text/css'>
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 		<link href="assets/css/docs.css" rel="stylesheet">
@@ -20,7 +20,7 @@
 
 		<meta name="robots" content="noindex, nofollow">
 	</head>
-	<body>
+	<body class="#LCase( args.page.getPageType() )#">
 		<nav class="navigation" role="navigation">
 			#args.navTree#
 		</nav>
@@ -30,16 +30,18 @@
 				#args.body#
 				#args.seeAlso#
 
+				<div class="prev-next-container" role="navigation">
+					<cfset prevPage = args.page.getPreviousPage() />
+					<cfset nextPage = args.page.getNextPage() />
+					<cfif not IsNull( prevPage )>
+						<a href="#prevPage.getPath()#.html" title="Previous page: #HtmlEditFormat( prevPage.getTitle() )#"><i class="fa fa-fw fa-angle-left prev nav-link"></i></a>
+					</cfif>
+					<cfif not IsNull( nextPage )>
+						<a href="#nextPage.getPath()#.html" title="Next page: #HtmlEditFormat( nextPage.getTitle() )#"><i class="fa fa-fw fa-angle-right next nav-link"></i></a>
+					</cfif>
+				</div>
 			</article>
 
-			<div class="prev-next-container" role="navigation">
-				<cfif not IsNull( args.page.getPreviousPage() )>
-					<div class="prev-page-link">[[#args.page.getPreviousPage().getId()#|Previous page]]</div>
-				</cfif>
-				<cfif not IsNull( args.page.getNextPage() )>
-					<div class="next-page-link">[[#args.page.getNextPage().getId()#|Next page]]</div>
-				</cfif>
-			</div>
 		</div>
 	</body>
 </html></cfoutput>
