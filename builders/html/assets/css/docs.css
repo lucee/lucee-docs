@@ -8,8 +8,9 @@ html {
 }
 
 body, html {
-	height           : 100%;
-	font-size        : 15px;
+	height      : 100%;
+	font-size   : 18px;
+	font-weight : 300;
 }
 
 .main {
@@ -77,7 +78,6 @@ body, html {
 
 		.navigation .sidebar-nav > li {
 			padding   : 8px 12px;
-			font-size : 105%;
 		}
 
 			.navigation .sidebar-nav > li > a {
