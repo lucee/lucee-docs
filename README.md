@@ -34,6 +34,8 @@ This will spin up a server using CommandBox on port 4040 and open it in your bro
 
 ## Pitch in
 
+There is a lot of work to do. The issues list can be found here: https://bitbucket.org/lucee/documentation/issues.
+
 ### Formatting of the website
 
 The source code for building the HTML website can be found at `./builders/html/`. The build process will call `./builders/html/Builder.cfc$build()` and hopefully you should be able to follow the logic from there (and/or figure out what you want to edit based on the folder and file structure).
@@ -76,5 +78,5 @@ All input is welcome here.
 
 ## Raise issues and suggestions
 
-Issues and suggestions are always welcome (though pull requests are preferred!). Please use the issue tracker in BitBucket.
+Issues and suggestions are always welcome (though pull requests are preferred!). Please use the [issue tracker in BitBucket](https://bitbucket.org/lucee/documentation/issues).
 
