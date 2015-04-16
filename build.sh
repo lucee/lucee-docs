@@ -1,4 +1,6 @@
 #!/bin/bash
 
-CWD="$(dirname $(readlink -f $0))"
+cd `dirname $0`
+CWD="`pwd`"
+
 box $CWD/build.cfm
