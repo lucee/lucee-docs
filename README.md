@@ -1,5 +1,7 @@
 # Lucee documentation source and builder
 
+[![Build Status](https://drone.io/bitbucket.org/lucee/documentation/status.png)](https://drone.io/bitbucket.org/lucee/documentation/latest)
+
 This repository contains the source and build scripts for creating Lucee's documentation. 
 
 It is currently a work in progress and we are working as fast as we can to deliver a published product that is ready for general consumption.
