@@ -4,4 +4,4 @@ Pathname used:
             the ZIP or JAR file.
              For cfzip action="unzip", it is the pathname to unzip.
              For cfzip action="delete", it is the pathname to delete from the
-            ZIP or JAR file. 
+            ZIP or JAR file.

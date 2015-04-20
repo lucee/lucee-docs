@@ -1,3 +1,1 @@
-
-      Where value labels are placed.
-    
+Where value labels are placed.

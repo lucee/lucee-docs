@@ -23,7 +23,7 @@
 					<aside class="light">(#arg.type#, #( arg.required ? 'required' : 'optional' )#)</aside>
 				</dt>
 				<dd>
-					#markdownToHtml( arg.description )#
+					#markdownToHtml( Trim( arg.description ) )#
 				</dd>
 			</cfloop>
 		</dl>

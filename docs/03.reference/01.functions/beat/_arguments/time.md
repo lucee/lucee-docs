@@ -1,1 +1,1 @@
-The local time from which to translate into beat time. If no time is supplied, the current time will be used instead.			
+The local time to geat beat time from

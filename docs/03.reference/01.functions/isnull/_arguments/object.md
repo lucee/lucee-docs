@@ -1,1 +1,1 @@
-Object for which you perform the null check. 
+Object for which you perform the null check.

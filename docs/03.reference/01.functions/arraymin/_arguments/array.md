@@ -1,1 +1,1 @@
-Name of an array 
+Name of an array

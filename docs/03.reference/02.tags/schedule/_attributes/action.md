@@ -1,4 +1,3 @@
-
 - delete: deletes the specified task
 - update: updates an existing task or creates a new task, if one with the name specified by the task attribute does not exist
 - run: executes the specified task

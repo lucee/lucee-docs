@@ -1,3 +1,1 @@
-
-      Specifies whether values are displayed for the data points.
-    
+Specifies whether values are displayed for the data points.

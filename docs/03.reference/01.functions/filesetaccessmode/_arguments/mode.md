@@ -1,4 +1,3 @@
-
 A three-digit value, in which each digit specifies the file access for individuals and groups:
 - The first digit represents the owner.
 - The second digit represents a group.

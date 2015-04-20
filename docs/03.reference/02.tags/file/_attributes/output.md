@@ -1,1 +1,1 @@
-Content of the file to be created. 
+Content of the file to be created.

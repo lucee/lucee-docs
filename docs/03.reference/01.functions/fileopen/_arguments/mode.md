@@ -1,4 +1,3 @@
-
 Action to perform on the file, including the following:
 - read
 - readBinary

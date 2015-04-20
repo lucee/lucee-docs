@@ -1,1 +1,1 @@
-Exponent to apply to the base e 
+Exponent to apply to the base e

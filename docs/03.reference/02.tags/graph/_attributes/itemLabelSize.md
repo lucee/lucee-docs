@@ -1,3 +1,1 @@
-
-      The size of the item labels, in points.
-    
+The size of the item labels, in points.

@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-This function is deprecated. 
+This function is deprecated.

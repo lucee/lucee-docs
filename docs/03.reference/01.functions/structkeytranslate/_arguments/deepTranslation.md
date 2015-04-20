@@ -1,3 +1,1 @@
-
-				also translate keys of child structures
-			
+also translate keys of child structures

@@ -5,6 +5,4 @@ related:
 categories:
 ---
 
-
-		returns information to a tag as struct
-		
+returns information to a tag as struct

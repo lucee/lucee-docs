@@ -7,4 +7,3 @@ Name of the cache to clear, if not defined all caches will be cleared:
       - query: clears the query cache
       - tag: clears the cfml/cfc based built in tag cache
       - function: clears the cfml based built in function cache
-		

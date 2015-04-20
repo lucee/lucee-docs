@@ -28,7 +28,6 @@ component accessors=true {
 
 			_addPageToTree( page );
 		}
-
 		_sortChildren( tree );
 		_calculateNextAndPreviousPageLinks( tree );
 	}
@@ -224,13 +223,13 @@ component accessors=true {
 
 	private struct function _getFunctionSpecification( required string functionName, required string pageFilePath ) {
 		var func    = _getFunctionReferenceReader().getFunction( arguments.functionName );
-		var args    = tag.arguments ?: [];
+		var args    = func.arguments ?: [];
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
 
 		for( var arg in args ) {
 			var argDescriptionFile = argsDir & arg.name & ".md";
-			if ( FileExists( argsDescriptionFile ) ) {
-				arg.description = FileRead( argsDescriptionFile );
+			if ( FileExists( argDescriptionFile ) ) {
+				arg.description = FileRead( argDescriptionFile );
 			}
 		}
 

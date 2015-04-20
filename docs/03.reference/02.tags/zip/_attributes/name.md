@@ -10,4 +10,4 @@ Record set name in which the result of the list action is stored.
             type: type of entry (directory or file).
             dateLastModified: last modified date of the entry, cfdate object.
             comment: any comment, if present, for the entry.
-            crc: crc-32 checksum of the uncompressed entry data. 
+            crc: crc-32 checksum of the uncompressed entry data.

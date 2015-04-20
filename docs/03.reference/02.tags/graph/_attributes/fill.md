@@ -1,3 +1,1 @@
-
-      Width of the graph line, in pixels.
-    
+Width of the graph line, in pixels.

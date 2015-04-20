@@ -1,3 +1,1 @@
-
-      The font used for the item labels.
-    
+The font used for the item labels.

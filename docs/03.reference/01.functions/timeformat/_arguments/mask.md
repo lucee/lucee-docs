@@ -1,4 +1,3 @@
-
 Characters that show how Lucee displays a time:
 - h: hours; no leading zero for single-digit hours (12-hour clock)
 - hh: hours; leading zero for single-digit hours (12-hour clock)
@@ -16,5 +15,3 @@ Characters that show how Lucee displays a time:
 - medium: equivalent to h:mm:ss tt
 - long: equivalent to h:mm:ss tt {timezone-3-letters}
 - full: equivalent to h:mm:ss tt {timezone-3-letters}
-		
-		

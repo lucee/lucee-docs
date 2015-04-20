@@ -1,1 +1,1 @@
-define a regular expression pattern, to check value against 
+define a regular expression pattern, to check value against

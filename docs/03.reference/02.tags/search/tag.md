@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-Executes searches against data indexed 
+Executes searches against data indexed

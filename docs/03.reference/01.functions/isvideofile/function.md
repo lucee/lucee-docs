@@ -7,6 +7,4 @@ categories:
     - video
 ---
 
-
-		Check if a String is a Video file
-		
+Check if a String is a Video file

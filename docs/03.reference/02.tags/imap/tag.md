@@ -12,4 +12,3 @@ Retrieves and deletes e-mail messages from a Imap mail server.
 		such as those used by Gmail, to a client, such as Mozilla Thunderbird and Microsoft Outlook.
 		Many implementations of webmail use IMAP to retrieve e-mail messages from a server and display them within a web browser,
 		making the use of this protocol transparent to the user.
-		

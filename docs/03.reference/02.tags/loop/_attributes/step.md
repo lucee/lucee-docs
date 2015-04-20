@@ -1,1 +1,1 @@
-Step by which to increment or decrement the index value. 
+Step by which to increment or decrement the index value.

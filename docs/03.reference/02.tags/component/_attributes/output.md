@@ -1,4 +1,2 @@
-
-				- true: permits component method output
+- true: permits component method output
 				- false: suppresses component method output
-			

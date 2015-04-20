@@ -1,3 +1,1 @@
-
-			source file or directory to compress
-			
+source file or directory to compress

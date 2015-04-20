@@ -1,3 +1,1 @@
-
-      Width of the graph, in pixels. Default is 320.
-    
+Width of the graph, in pixels. Default is 320.

@@ -10,4 +10,3 @@ when type task, this attribute define a execution plan for additional tries of e
 			#[{interval:createTimeSpan(0,0,0,5),tries:5},{interval:createTimeSpan(0,0,0,10),tries:5}]#
 
 			in this case Lucee replay the thread for maximum of 10 times, when the execution fails, 5 times every 5 seconds, then 5 times every 10 seconds.
-			

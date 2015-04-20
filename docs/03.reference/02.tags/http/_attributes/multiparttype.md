@@ -1,3 +1,1 @@
-
-			This attribute has been deprecated, use instead the attribute "multipart".
-			
+This attribute has been deprecated, use instead the attribute "multipart".

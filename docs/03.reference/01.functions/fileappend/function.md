@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-appends the entire content to the specified file. 
+appends the entire content to the specified file.

@@ -1,1 +1,2 @@
-Either *page* or *request* (default). If *page*, only the current template execution will be aborted. If *request*, or not supplied, the entire request will be aborted.
+define if only current page execution will aborted or the hole request.
+				values are "page" for the current page or "request" for all.

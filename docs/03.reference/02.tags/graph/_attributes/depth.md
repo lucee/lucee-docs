@@ -1,3 +1,1 @@
-
-      Depth of 3D chart appearance, in pixels.
-    
+Depth of 3D chart appearance, in pixels.

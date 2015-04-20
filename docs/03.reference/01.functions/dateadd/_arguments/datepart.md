@@ -10,4 +10,3 @@ one of the following:
 - n: Minute
 - s: Second
 - l: Millisecond
-		

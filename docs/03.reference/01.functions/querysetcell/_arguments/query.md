@@ -1,1 +1,1 @@
-Name of an executed query. 
+Name of an executed query.

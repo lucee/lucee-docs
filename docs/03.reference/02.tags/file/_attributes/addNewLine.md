@@ -1,1 +1,1 @@
- Yes: appends newline character to text written to file
+Yes: appends newline character to text written to file

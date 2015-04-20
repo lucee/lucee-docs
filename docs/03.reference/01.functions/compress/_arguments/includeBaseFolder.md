@@ -1,3 +1,1 @@
-
-			take the folder or only content of folder
-			
+take the folder or only content of folder

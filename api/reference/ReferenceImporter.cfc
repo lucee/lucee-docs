@@ -1,8 +1,3 @@
-/**
- * Logic to build json data sources for the reference documentation
- * from source files in Lucee's codebase
- *
- */
 component {
 	processingdirective preserveCase=true;
 
@@ -26,7 +21,7 @@ component {
 		for( var functionName in referenceReader.listFunctions() ) {
 			var convertedFunc = referenceReader.getFunction( functionName );
 
-			if ( !convertedFunc.name.startsWith( '_' ) ) {
+			if ( !_isHiddenFeature( convertedFunc ) ) {
 				_stubFunctionEditorialFiles( convertedFunc );
 			}
 		}
@@ -38,7 +33,7 @@ component {
 		for( var tagName in referenceReader.listTags() ) {
 			var convertedTag = referenceReader.getTag( tagName );
 
-			if ( !convertedTag.name.startsWith( '_' ) ) {
+			if ( !_isHiddenFeature( convertedTag ) ) {
 				_stubTagEditorialFiles( convertedTag );
 			}
 		}
@@ -113,13 +108,13 @@ categories:";
 
 		pageContent &= Chr(10) & "---
 
-#arguments.func.description#";
+#Trim( arguments.func.description )#";
 
 		_createFileIfNotExists( functionDir & "function.md", pageContent );
 
 		var args = arguments.func.arguments ?: "";
 		for( var arg in args ) {
-			_createFileIfNotExists( functionDir & "_arguments/#arg.name#.md", arg.description ?: "" );
+			_createFileIfNotExists( functionDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
 		}
 
 		arguments.func.examples    = [];
@@ -137,13 +132,13 @@ related:
 categories:
 ---
 
-#arguments.tag.description#";
+#Trim( arguments.tag.description )#";
 
 		_createFileIfNotExists( tagDir & "tag.md", pageContent );
 
 		var attribs = arguments.tag.attributes ?: "";
 		for( var attrib in attribs ) {
-			_createFileIfNotExists( tagDir & "_attributes/#attrib.name#.md", attrib.description ?: "" );
+			_createFileIfNotExists( tagDir & "_attributes/#attrib.name#.md", Trim( attrib.description ?: "" ) );
 		}
 	}
 
@@ -154,5 +149,9 @@ categories:
 		if ( !FileExists( arguments.filePath ) ) {
 			FileWrite( arguments.filePath, arguments.content );
 		}
+	}
+
+	private boolean function _isHiddenFeature( required struct feature ) {
+		return arguments.feature.name.startsWith( "_" ) || ListFindNoCase( "hidden,unimplemeted", arguments.feature.status ?: "" );
 	}
 }

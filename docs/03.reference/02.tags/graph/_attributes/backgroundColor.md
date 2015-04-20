@@ -1,3 +1,1 @@
-
-      Color of the chart background.
-    
+Color of the chart background.

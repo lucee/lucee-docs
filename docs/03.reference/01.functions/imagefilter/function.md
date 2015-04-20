@@ -7,7 +7,6 @@ categories:
     - filter
 ---
 
-
 the function ImageFilter allows to execute a filter against a image. Below you find a list of filter names supported by the function.
 every filter need other parameters for the configuration, listed as well below.
 

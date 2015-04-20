@@ -9,5 +9,3 @@ Type of information to get:
 - index: information to all indexes
 
 ,tables,columns,version,procedures,foreignkeys,index,users
-
-

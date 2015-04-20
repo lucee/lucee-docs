@@ -1,3 +1,1 @@
-
-      The font used to display data values.
-    
+The font used to display data values.

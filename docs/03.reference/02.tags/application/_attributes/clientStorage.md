@@ -1,4 +1,3 @@
-
 Specifies how Lucee stores client variables:
 - memory: the session is only kept in memory
 - cookie: the session is stored in the client cookie

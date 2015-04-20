@@ -1,3 +1,1 @@
-
-      The size the value text, in points.
-    
+The size the value text, in points.

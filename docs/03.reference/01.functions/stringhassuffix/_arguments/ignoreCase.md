@@ -1,1 +1,0 @@
-pass true for a case-insensitive match

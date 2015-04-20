@@ -1,3 +1,1 @@
-
-      Border color.
-    
+Border color.

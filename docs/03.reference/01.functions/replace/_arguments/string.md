@@ -1,1 +1,1 @@
-String in which to search. 
+String in which to search.

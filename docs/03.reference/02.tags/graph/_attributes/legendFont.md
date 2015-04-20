@@ -1,3 +1,1 @@
-
-      The font used to display the legend.
-    
+The font used to display the legend.

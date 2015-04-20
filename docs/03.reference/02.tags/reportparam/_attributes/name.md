@@ -1,3 +1,1 @@
-
-				Variable name for data that is passed.
-			
+Variable name for data that is passed.

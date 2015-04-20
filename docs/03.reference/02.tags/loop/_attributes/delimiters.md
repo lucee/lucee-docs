@@ -1,1 +1,1 @@
-Character(s) that separates items in list 
+Character(s) that separates items in list

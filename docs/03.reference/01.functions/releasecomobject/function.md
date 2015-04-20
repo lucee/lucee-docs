@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-Releases a COM Object and frees up resources that it used. 
+Releases a COM Object and frees up resources that it used.

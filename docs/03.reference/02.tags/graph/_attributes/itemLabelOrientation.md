@@ -1,3 +1,1 @@
-
-      Orientation of item labels.
-    
+Orientation of item labels.

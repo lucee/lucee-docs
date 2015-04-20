@@ -1,3 +1,1 @@
-
-      Spacing between bars in the chart, in pixels.
-    
+Spacing between bars in the chart, in pixels.

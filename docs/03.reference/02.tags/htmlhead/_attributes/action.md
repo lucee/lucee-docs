@@ -4,4 +4,3 @@ possible actions are:
 - reset: reset/remove text already set to hrml head
 - write: write text to html head, overwrite already existing text in html head
 - flush: writes the buffer in the html head to the response stream
-			
