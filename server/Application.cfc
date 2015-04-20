@@ -49,7 +49,7 @@ component {
 
 		path = ReReplace( path, "\.html$", "" );
 
-		if ( path == "/" ) {
+		if ( path == "/" || path == "/index" ) {
 			path = "/home";
 		}
 
