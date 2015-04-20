@@ -7,20 +7,32 @@
 
 	#markdownToHtml( tag.getBody() )#
 
+	<h2>Usage</h2>
+	{{highlight:html}}#tag.getUsageSignature()#{{highlight}}
+
 	<h2>Attributes</h2>
 	<cfif !tag.getAttributes().len()>
 		<p><em>This tag does not use any attributes.</em></p>
 	<cfelse>
-		<dl class="dl-horizontal">
-			<cfloop array="#tag.getAttributes()#" item="attrib" index="i">
-				<dt>#attrib.name#</dt>
-				<dd>
-					<aside class="light">(#attrib.type#, #( attrib.required ? 'required' : 'optional' )#)</aside>
-
-					#markdownToHtml( attrib.description ?: "" )#
-				</dd>
-			</cfloop>
-		</dl>
+		<table class="table table-striped argument-table">
+			<thead>
+				<tr>
+					<th>Attribute</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<cfloop array="#tag.getAttributes()#" item="attrib" index="i">
+					<tr>
+						<td>
+							#attrib.name#<br>
+							<aside class="light">(#attrib.type#, #( attrib.required ? 'required' : 'optional' )#)</aside>
+						</td>
+						<td>#markdownToHtml( attrib.description ?: "" )#</td>
+					</tr>
+				</cfloop>
+			</tbody>
+		</table>
 	</cfif>
 
 	<h2>Examples</h2>
