@@ -46,16 +46,37 @@ component accessors=true extends="Page" {
 			case "free":
 				closingTag &=  "><!--- body --->[</#tagName#>]"
 			break;
-			case "prohibited":
-				closingTag &= ">";
+			case "required":
+				closingTag &=  "><!--- body ---></#tagName#>"
 			break;
 			default:
-				closingTag &=  "><!--- body ---></#tagName#>"
+				closingTag &= ">";
 			break;
 		}
 
 		usage &= closingTag;
 
 		return usage;
+	}
+
+	public string function getBodyTypeDescription(){
+		switch( this.getBodyContentType() ) {
+			case "prohibited" :
+			case "empty"      : return "This tag **cannot** have a body.";
+			case "free"       : return "This tag **may** have a body.";
+			case "required"   : return "This tag **must** have a body.";
+		}
+
+		return "";
+	}
+
+	public string function getScriptSupportDescription(){
+		var scriptType = this.script.type ?: "";
+
+		if ( scriptType == "none" ) {
+			return "This tag has no cfscript support or it uses a different syntax.";
+		}
+
+		return "This tag is also supported within cfscript";
 	}
 }

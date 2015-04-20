@@ -10,6 +10,9 @@
 	<h2>Usage</h2>
 	{{highlight:html}}#tag.getUsageSignature()#{{highlight}}
 
+	#markdownToHtml( Trim( tag.getBodyTypeDescription() ) )#
+	#markdownToHtml( Trim( tag.getScriptSupportDescription() ) )#
+
 	<h2>Attributes</h2>
 	<cfif !tag.getAttributes().len()>
 		<p><em>This tag does not use any attributes.</em></p>
