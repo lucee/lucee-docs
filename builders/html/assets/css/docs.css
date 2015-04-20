@@ -87,7 +87,7 @@ body, html {
 				.navigation .sidebar-nav > li > ol > li > a {
 					color : #999;
 				}
-		
+
 		.navigation .sidebar-nav > .active {
 			background-color       : #FFF;
 			position               : relative;
@@ -135,4 +135,7 @@ body, html {
 	.prev-next-container .next {
 		right : 0;
 	}
+
+.argument-table {
+	font-size: 85%;
 }

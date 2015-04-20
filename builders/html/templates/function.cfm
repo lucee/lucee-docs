@@ -16,17 +16,25 @@
 	<cfif !fn.getArguments().len()>
 		<p><em>This function does not take any arguments.</em></p>
 	<cfelse>
-		<dl class="dl-horizontal">
-			<cfloop array="#fn.getArguments()#" item="arg" index="i">
-				<dt>
-					#arg.name#<br>
-					<aside class="light">(#arg.type#, #( arg.required ? 'required' : 'optional' )#)</aside>
-				</dt>
-				<dd>
-					#markdownToHtml( Trim( arg.description ) )#
-				</dd>
-			</cfloop>
-		</dl>
+		<table class="table table-striped argument-table">
+			<thead>
+				<tr>
+					<th>Argument</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<cfloop array="#fn.getArguments()#" item="arg" index="i">
+					<tr>
+						<td>
+							#arg.name#<br>
+							<aside class="light">(#arg.type#, #( arg.required ? 'required' : 'optional' )#)</aside>
+						</td>
+						<td>#markdownToHtml( Trim( arg.description ) )#</td>
+					</tr>
+				</cfloop>
+			</tbody>
+		</table>
 	</cfif>
 
 	<h2>Examples</h2>
