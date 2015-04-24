@@ -39,19 +39,27 @@ component {
 
 // PRIVATE HELPERS
 	private any function _getNextHighlight( required string text ) {
-		var referenceRegex  = "\{\{highlight:([a-z]+)\}\}(.*?)\{\{highlight\}\}";
+		var referenceRegex  = "```([a-z]+)?\s(.*?)```";
 		var regexFindResult = ReFind( referenceRegex, arguments.text, 1, true );
 		var found           = regexFindResult.len[1] > 0;
+		var result          = {};
 
 		if ( !found ) {
 			return;
 		}
 
-		return {
+		result = {
 			  rawMatch = Mid( arguments.text, regexFindResult.pos[1], regexFindResult.len[1] )
-			, language = Mid( arguments.text, regexFindResult.pos[2], regexFindResult.len[2] )
 			, code     = Trim( Mid( arguments.text, regexFindResult.pos[3], regexFindResult.len[3] ) )
 		}
+
+		if ( regexFindResult.pos[2] ) {
+			result.language = Mid( arguments.text, regexFindResult.pos[2], regexFindResult.len[2] );
+		} else {
+			result.language = "html"; // todo, plain?/text?
+		}
+
+		return result;
 	}
 
 }
