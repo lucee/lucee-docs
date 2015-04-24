@@ -147,53 +147,40 @@ blockquote {
 
 	blockquote blockquote {
 		position : static;
+		margin-bottom : 0;
 	}
 
-		blockquote > blockquote > p {
-			border-top       : 30px solid #1abc9c;
-			background-color : #dbfaf4;
+		blockquote > blockquote > blockquote {
+			padding : 0;
+		}
+
+		blockquote > blockquote > blockquote > p {
+			border-top       : 30px solid #6ab0de;
+			background-color : #e7f2fa;
 			padding          : 15px;
 			display          : block;
 			font-size        : 1rem;
-			margin-top       : 0px;
-			margin-bottom    : 0px;
 			margin           : -20px -40px;
 		}
-
-			blockquote > blockquote > p:first-child::before {
+			blockquote > blockquote > blockquote > p:first-child::before {
 				position    : absolute;
 				top         : 2px;
 				color       : #fff;
 				font-family : FontAwesome;
 				left        : 10px;
-				content     : "\f06a";
+				content     : "\f05a";
 			}
-
-			blockquote > blockquote > p:first-child::after {
+			blockquote > blockquote > blockquote > p:first-child::after {
 				position    : absolute;
 				top         : 2px;
 				color       : #fff;
 				left        : 2rem;
 				font-weight : bold;
-				content     : "Tip";
-			}
-
-		blockquote > blockquote > blockquote > p {
-			margin           : -30px -60px;
-			border-top-color : #6ab0de;
-			background-color : #e7f2fa;
-		}
-
-			blockquote > blockquote > blockquote > p:first-child::before {
-				content : "\f05a";
-			}
-			blockquote > blockquote > blockquote > p:first-child::after {
-				content : "Info";
+				content     : "Info";
 			}
 
 
 		blockquote > blockquote > blockquote > blockquote > p {
-			margin           : -40px -80px;
 			border-top-color : #f0b37e;
 			background-color : #fff2db;
 		}
@@ -205,7 +192,6 @@ blockquote {
 			}
 
 		blockquote > blockquote > blockquote > blockquote > blockquote > p {
-			margin           : -50px -100px;
 			border-top-color : #e06f6c;
 			background-color : #fae2e2;
 		}
@@ -214,4 +200,15 @@ blockquote {
 			}
 			blockquote > blockquote > blockquote > blockquote > blockquote > p:first-child::after {
 				content : "Important";
+			}
+
+		blockquote > blockquote > blockquote > blockquote > blockquote > blockquote p {
+			border-top-color : #1abc9c;
+			background-color : #dbfaf4;
+		}
+			blockquote > blockquote > blockquote > blockquote > blockquote > blockquote p:first-child::before {
+				content     : "\f06a";
+			}
+			blockquote > blockquote > blockquote > blockquote > blockquote > blockquote p:first-child::after {
+				content     : "Tip";
 			}
