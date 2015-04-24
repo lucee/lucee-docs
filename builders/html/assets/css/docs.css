@@ -142,25 +142,26 @@ body, html {
 
 blockquote {
 	position : relative;
-	border   : none;
+	padding : 0;
 }
+
+	blockquote > p {
+		padding : 15px;
+	}
 
 	blockquote blockquote {
 		position : static;
 		margin-bottom : 0;
+		border : none;
 	}
-
-		blockquote > blockquote > blockquote {
-			padding : 0;
-		}
 
 		blockquote > blockquote > blockquote > p {
 			border-top       : 30px solid #6ab0de;
 			background-color : #e7f2fa;
-			padding          : 15px;
+
 			display          : block;
 			font-size        : 1rem;
-			margin           : -20px -40px;
+			margin           : 10px -5px;
 		}
 			blockquote > blockquote > blockquote > p:first-child::before {
 				position    : absolute;
