@@ -44,7 +44,7 @@ component {
 		if ( regexFindResult.pos[2] ) {
 			result.language = Mid( arguments.text, regexFindResult.pos[2], regexFindResult.len[2] );
 		} else {
-			result.language = "html"; // todo, plain?/text?
+			result.language = "text";
 		}
 
 		return result;
