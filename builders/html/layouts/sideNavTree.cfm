@@ -6,7 +6,7 @@
 	<div class="navigation-container">
 		<ol class="sidebar-nav" role="navigation">
 			<cfloop array="#args.docTree.getTree()#" item="firstLevelPage" index="i">
-				<cfif firstLevelPage.getId() neq "/home">
+				<cfif firstLevelPage.getId() neq "/home" && firstLevelPage.getVisible()>
 					<cfset firstLevelActive = args.pageLineage.find( firstLevelPage.getId() ) />
 					<li<cfif firstLevelActive> class="active"</cfif>>
 
@@ -15,8 +15,10 @@
 						<cfif firstLevelActive and firstLevelPage.getChildren().len()>
 							<ol role="navigation">
 								<cfloop array="#firstLevelPage.getChildren()#" item="secondLevelPage" index="n">
-									<cfset secondLevelActive = args.pageLineage.find( secondLevelPage.getId() ) />
-									<li<cfif secondLevelActive> class="active"</cfif>>[[#secondLevelPage.getId()#]]</li>
+									<cfif secondLevelPage.getVisible()>
+										<cfset secondLevelActive = args.pageLineage.find( secondLevelPage.getId() ) />
+										<li<cfif secondLevelActive> class="active"</cfif>>[[#secondLevelPage.getId()#]]</li>
+									</cfif>
 								</cfloop>
 							</ol>
 						</cfif>

@@ -18,6 +18,7 @@ component accessors=true {
 	property name="parent"       type="any";
 	property name="nextPage"     type="any";
 	property name="previousPage" type="any";
+	property name="categories"   type="array";
 
 	public void function addChild( required any childPage ) {
 		getChildren().append( arguments.childPage );

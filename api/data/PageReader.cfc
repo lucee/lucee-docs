@@ -9,12 +9,12 @@ component {
 		var sortOrder       = "";
 
 		if ( ListLen( slug, "." ) > 1 && IsNumeric( ListFirst( slug, "." ) ) ) {
-			sortOrder = ListFirst( slug, "." );
-			slug      = ListRest( slug, "." );
-		} else {
-			data.visible = data.visible ?: false;
+			sortOrder    = ListFirst( slug, "." );
+			slug         = ListRest( slug, "." );
+			data.visible = true;
 		}
 
+		data.visible   = data.visible   ?: false;
 		data.pageType  = data.pageType  ?: defaultPageType;
 		data.slug      = data.slug      ?: slug;
 		data.sortOrder = data.sortOrder ?: sortOrder;
