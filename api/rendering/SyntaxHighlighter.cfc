@@ -15,26 +15,14 @@ component {
 	}
 
 	public string function renderHighlight( required string code, required string language ) {
-		var jars      = [ "../lib/jygments/com.threecrickets.jygments.jar", "../lib/jygments/com.threecrickets.jygments.jar", "../lib/jygments/org.codehaus.jackson.jar", "../lib/jygments/org.codehaus.jackson.map.jar" ]
-		var formatter = CreateObject( "java", "com.threecrickets.jygments.format.Formatter", jars ).getByName( "html" );
-		var lexer     = CreateObject( "java", "com.threecrickets.jygments.grammar.Lexer", jars ).getByName( arguments.language );
+		var jars        = [ "../lib/pyg-in-blankets-1.0-SNAPSHOT-jar-with-dependencies.jar" ];
+		var highlighter = CreateObject( 'java', 'com.dominicwatson.pyginblankets.PygmentsWrapper', jars );
 
-		if ( IsNull( lexer ) ) {
-			return arguments.code;
+		if ( arguments.language == "lucee" ) {
+			arguments.language = "java"; // they're close enough for this alias to work well (while there is no official pygments lexer for lucee)
 		}
 
-		var tokens = lexer.getTokens( arguments.code );
-		var stringWriter = CreateObject( "java", "java.io.StringWriter" ).init();
-		formatter.format( tokens, stringWriter );
-
-		var rendered = stringWriter.toString();
-		    rendered = ReReplace( rendered, "^.*?<body>(.*?)</body>.*$", "\1" );
-		    rendered = ReReplace( rendered, "^.*?<div>(.*?)</div>.*$", "\1" );
-		    rendered = Replace( rendered, "<pre>", '<pre class="signature"><code>' );
-		    rendered = Replace( rendered, "</pre>", '</code></pre>' );
-		    rendered = ReReplace( rendered, "<code>\n+", '<code>' );
-
-		return Trim( rendered );
+		return Trim( highlighter.highlight( arguments.code, arguments.language, false ) );
 	}
 
 // PRIVATE HELPERS
