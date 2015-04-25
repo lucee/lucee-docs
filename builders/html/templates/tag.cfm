@@ -8,7 +8,9 @@
 	#markdownToHtml( tag.getBody() )#
 
 	<h2>Usage</h2>
-	{{highlight:html}}#tag.getUsageSignature()#{{highlight}}
+```cfm
+#tag.getUsageSignature()#
+```
 
 	#markdownToHtml( Trim( tag.getBodyTypeDescription() ) )#
 	#markdownToHtml( Trim( tag.getScriptSupportDescription() ) )#

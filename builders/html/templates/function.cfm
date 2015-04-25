@@ -10,7 +10,9 @@
 	<p><strong>Returns:</strong> #fn.getReturnType()#</p>
 
 	<h2>Usage</h2>
-	{{highlight:java}}#fn.getUsageSignature()#{{highlight}}
+```cfm
+#fn.getUsageSignature()#
+```
 
 	<h2>Arguments</h2>
 	<cfif !fn.getArguments().len()>
