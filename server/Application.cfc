@@ -9,7 +9,9 @@ component {
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 
 	public boolean function onRequest( required string requestedTemplate ) output=true {
-		if ( _isAssetRequest() ) {
+		if ( _isSearchIndexRequest() ) {
+			_renderSearchIndex();
+		} elseif ( _isAssetRequest() ) {
 			_renderAsset();
 		} else {
 			_renderPage();
@@ -44,6 +46,17 @@ component {
 		content file=assetPath type=_getMimeTypeForAsset( assetPath );abort;
 	}
 
+	private void function _renderSearchIndex() {
+		var buildRunner = _getBuildRunner();
+		var docTree = buildRunner.getDocTree();
+		var searchIndex = buildRunner.getBuilder( "html" ).renderSearchIndex( docTree );
+
+		header name="cache-control" value="no-cache";
+		content type="application/json" reset=true;
+		writeOutput( searchIndex );
+		abort;
+	}
+
 	private string function _getPagePathFromRequest() {
 		var path = _getRequestUri();
 
@@ -65,6 +78,10 @@ component {
 		header statuscode=404;
 		WriteOutput( "404 Not found" );
 		abort;
+	}
+
+	private boolean function _isSearchIndexRequest() {
+		return _getRequestUri() == "/assets/js/searchIndex.json";
 	}
 
 	private boolean function _isAssetRequest() {

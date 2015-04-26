@@ -18,6 +18,7 @@ component {
 		}
 
 		_copyStaticAssets( arguments.buildDirectory );
+		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
 	}
 
 	public string function renderPage( required any page, required any docTree ){
@@ -60,6 +61,23 @@ component {
 		);
 	}
 
+	public string function renderSearchIndex( required any docTree ) {
+		var pages           = arguments.docTree.getIdMap();
+		var searchIndex     = [];
+
+		for( var pageId in pages ) {
+			var page = pages[ pageId ];
+
+			searchIndex.append( {
+				  "value" = page.getPath() & ".html"
+				, "text"  = page.getTitle()
+				, "type"  = page.getPageType()
+			} );
+		}
+
+		return SerializeJson( searchIndex );
+	}
+
 // PRIVATE HELPERS
 	private void function _writePage( required any page, required string buildDirectory, required any docTree ) {
 		var filePath      = _getHtmlFilePath( arguments.page, arguments.buildDirectory );
@@ -88,6 +106,12 @@ component {
 		DirectoryCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets", arguments.buildDirectory & "/assets", true );
 	}
 
+	private void function _writeSearchIndex( required any docTree, required string buildDirectory ) {
+		var searchIndexFile = arguments.buildDirectory & "/assets/js/searchIndex.json";
+
+		FileWrite( searchIndexFile, renderSearchIndex( arguments.docTree ) );
+	}
+
 	private string function _getPageLayoutFile( required any page ) {
 		switch( arguments.page.getPageType() ) {
 			case "function":
@@ -101,5 +125,7 @@ component {
 
 		return "page";
 	}
+
+
 
 }
