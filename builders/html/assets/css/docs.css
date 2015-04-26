@@ -57,13 +57,13 @@ body, html {
 	}
 
 .navigation {
-	background       : none repeat scroll 0% 0% #FAFAFA;
-	border-right     : 1px solid #dfdfdf;
+	background       : none repeat scroll 0% 0% #38424D;
+/*	border-right     : 1px solid #dfdfdf;*/
 	height           : 100%;
 	max-width        : 300px;
 	width            : 20%;
 	float            : left;
-	color            : #364149;
+	color            : #eee;
 }
 
 .navigation-container {
@@ -71,43 +71,39 @@ body, html {
 }
 
 	.navigation .sidebar-nav {
-		margin-left  : 20px;
+		margin       : 0;
 		list-style   : none;
 		padding-left : 0;
 	}
 
-		.navigation .sidebar-nav > li {
-			padding   : 8px 12px;
+		.navigation .sidebar-nav li {
+			padding   : 0;
 		}
 
-			.navigation .sidebar-nav > li > a {
-				color : #666;
+			.navigation .sidebar-nav li a {
+				color : #eee;
+				padding : 7px 0 7px 20px;
+				display: block;
 			}
 
-				.navigation .sidebar-nav > li > ol > li > a {
-					color : #999;
+				.navigation .sidebar-nav li li a {
+					padding-left: 40px;
 				}
 
 		.navigation .sidebar-nav > .active {
-			background-color       : #FFF;
-			position               : relative;
-			right                  : -1px;
-			border                 : 1px solid #dfdfdf;
-			border-right           : none;
-			border-top-left-radius : 5px;
-			text-indent            : -2px;
-			padding-top            : 7px;
-			padding-bottom         : 7px;
+			background-color  : #2d353e;
+			position          : relative;
 		}
 
-			.navigation .sidebar-nav > li .active a {
+			.navigation .sidebar-nav > li .active a,
+			.navigation .sidebar-nav > .current > a {
+				background-color: #fff;
 				color : #333;
 			}
 
 		.navigation .sidebar-nav ol {
 			list-style : none;
-			padding-left : 1.5em;
-			padding-top  : 5px;
+			padding : 0;
 		}
 
 	.prev-next-container .nav-link {
