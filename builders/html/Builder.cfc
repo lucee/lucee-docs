@@ -23,7 +23,7 @@ component {
 	public string function renderPage( required any page, required any docTree ){
 		var renderedPage = renderTemplate(
 			  template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
-			, args     = { page = arguments.page }
+			, args     = { page = arguments.page, docTree=arguments.docTree }
 		);
 		var crumbs = [];
 		var parent = arguments.page.getParent();
@@ -77,6 +77,7 @@ component {
 		switch( arguments.page.getPageType() ) {
 			case "function":
 			case "tag":
+			case "category":
 				return LCase( arguments.page.getPageType() );
 
 			case "listing":

@@ -18,6 +18,33 @@ component accessors=true {
 		return pathMap[ arguments.path ] ?: NullValue();
 	}
 
+	public array function getPagesByCategory( required string category ) {
+		var matchedPages = [];
+
+		for( var id in idMap ) {
+			var pageCategories = idMap[ id ].getCategories();
+
+			if ( !IsNull( pageCategories ) && pageCategories.indexOf( arguments.category ) != -1 ) {
+				matchedPages.append( idMap[ id ] );
+			}
+		}
+
+		return matchedPages;
+	}
+
+	public array function sortPagesByType( required array pages ) {
+		return arguments.pages.sort( function( pageA, pageB ) {
+			if ( pageA.getPageType() > pageB.getPageType() ) {
+				return 1;
+			}
+			if ( pageA.getPageType() < pageB.getPageType() ) {
+				return -1;
+			}
+
+			return pageA.getTitle() > pageB.getTitle() ? 1 : -1;
+		} );
+	}
+
 // private helpers
 	private void function _loadTree( required string rootDirectory ) {
 		_initializeEmptyTree();
