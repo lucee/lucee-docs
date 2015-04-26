@@ -22,6 +22,11 @@
 	</head>
 	<body class="#LCase( args.page.getPageType() )#">
 		<nav class="navigation" role="navigation">
+			<div class="brand-container">
+				<a class="home-link pull-left" href="/">Lucee Documentation Home</a>
+				<a class="search-link pull-right" href="##"><i class="fa fa-fw fa-search"></i></a>
+				<div class="clearfix"></div>
+			</div>
 			#args.navTree#
 		</nav>
 		<div class="main" role="main">
