@@ -18,6 +18,10 @@ component accessors=true {
 		return pathMap[ arguments.path ] ?: NullValue();
 	}
 
+	public boolean function pageExists( required string id ) {
+		return idMap.keyExists( arguments.id );
+	}
+
 	public array function getPagesByCategory( required string category ) {
 		var matchedPages = [];
 

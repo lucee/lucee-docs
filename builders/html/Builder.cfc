@@ -27,20 +27,35 @@ component {
 		);
 		var crumbs = [];
 		var parent = arguments.page.getParent();
+		var links = [];
+
 
 		while( !IsNull( parent ) ) {
 			crumbs.prepend( parent.getId() );
 			parent = parent.getParent();
 		}
 
+		if ( !IsNull( arguments.page.getCategories() ) ) {
+			for( var category in arguments.page.getCategories() ) {
+				if ( arguments.docTree.pageExists( "category-" & category ) ) {
+					links.append( "[[category-" & category & "]]" );
+				}
+			}
+		}
+		if ( !IsNull( arguments.page.getRelated() ) ) {
+			for( var link in arguments.page.getRelated() ) {
+				links.append( link );
+			}
+		}
+
 		return renderTemplate(
 			  template = "layouts/main.cfm"
 			, args     = {
-				  body    = Trim( renderedPage )
-				, page    = arguments.page
-				, crumbs  = renderTemplate( template="layouts/breadcrumbs.cfm", args={ crumbs=crumbs, page=arguments.page } )
-				, navTree = renderTemplate( template="layouts/sideNavTree.cfm", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage() } )
-				, seeAlso = renderTemplate( template="layouts/seeAlso.cfm", args={ links=arguments.page.getRelated() } )
+				  body       = Trim( renderedPage )
+				, page       = arguments.page
+				, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", args={ crumbs=crumbs, page=arguments.page } )
+				, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage() } )
+				, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , args={ links=links } )
 			  }
 		);
 	}
