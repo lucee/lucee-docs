@@ -67,11 +67,22 @@ component {
 
 		for( var pageId in pages ) {
 			var page = pages[ pageId ];
+			var icon = "";
+
+			switch( page.getPageType() ){
+				case "function":
+				case "tag":
+					icon = "code";
+					break;
+				default:
+					icon = "file-o";
+			}
 
 			searchIndex.append( {
 				  "value" = page.getPath() & ".html"
 				, "text"  = page.getTitle()
 				, "type"  = page.getPageType()
+				, "icon"  = icon
 			} );
 		}
 

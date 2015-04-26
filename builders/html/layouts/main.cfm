@@ -31,7 +31,10 @@
 		</nav>
 		<div class="main" role="main">
 			<article class="body">
-				<input id="lucee-docs-search-input">
+				<div class="search-container">
+					<input id="lucee-docs-search-input" class="search-input" placeholder="Search the lucee documentation">
+				</div>
+
 				#args.crumbs#
 				#args.body#
 				#args.seeAlso#
@@ -53,6 +56,7 @@
 		<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script src="/assets/js/twitter.typeahead.0.11.0.min.js"></script>
+		<script src="/assets/js/mustache.min.js"></script>
 		<script src="/assets/js/search.js"></script>
 	</body>
 </html></cfoutput>

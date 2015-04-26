@@ -240,3 +240,58 @@ blockquote {
 			blockquote > blockquote > blockquote > blockquote > blockquote > blockquote p:first-child::after {
 				content     : "Tip";
 			}
+
+.search-container {
+	display          : none;
+	position         : fixed;
+	top              : 0px;
+	right            : 0px;
+	bottom           : 0px;
+	left             : 0px;
+	overflow         : hidden;
+	background-color : #444;
+	opacity          : 0.95;
+	z-index          : 1;
+}
+
+	.search-container .twitter-typeahead {
+		display : block;
+		width   : calc( 100% - 80px );
+		margin  : 40px 0 0 40px;
+	}
+
+	.search-container .search-input {
+		border-radius : 5px;
+		width         : 100%;
+		padding       : 10px;
+		font-size     : 150%;
+		color         : #555;
+		border        : none;
+	}
+
+.tt-menu {
+	background-color : #fff;
+	width            : 100%;
+	padding          : 8px;
+	border-top       : none;
+	margin-top       : -5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+	.tt-menu .tt-dataset {
+		background-color : #fff;
+	}
+		.tt-menu .tt-dataset .tt-suggestion {
+			background-color : #fff;
+			padding          : 4px;
+		}
+
+			.tt-menu .tt-dataset .tt-suggestion:last-child {
+				border-bottom : none;
+			}
+
+			.tt-menu .tt-dataset .tt-suggestion.tt-cursor {
+				background-color : #eee;
+				border-radius    : 5px;
+			}

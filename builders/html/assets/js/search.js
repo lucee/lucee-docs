@@ -1,7 +1,9 @@
 ( function( $ ){
 
 	var $searchBox = $( "#lucee-docs-search-input" )
-	  , setupTypeahead, setupBloodhound, renderSuggestion, itemSelectedHandler;
+	  , $searchLink = $( ".search-link" )
+	  , $searchContainer = $( ".search-container" )
+	  , setupTypeahead, setupBloodhound, renderSuggestion, itemSelectedHandler, tokenizer;
 
 	setupTypeahead = function(){
 		setupBloodhound( function( bloodhound ){
@@ -26,8 +28,8 @@
 			  local          : []
 			, prefetch       : "/assets/js/searchIndex.json"
 			, remote         : null
-			, datumTokenizer : function(d) { return Bloodhound.tokenizers.whitespace( d.text ); }
-		 	, queryTokenizer : Bloodhound.tokenizers.whitespace
+			, datumTokenizer : function(d) { return tokenizer( d.text ); }
+		 	, queryTokenizer : tokenizer
 		 	, limit          : 1000
 		 	, dupDetector    : function( remote, local ){ return remote.value == local.value }
 		} );
@@ -38,19 +40,24 @@
 	};
 
 	renderSuggestion = function( item ) {
-		var icon = "page";
-		switch( item.type ) {
-			case "function": case "tag": icon="code"; break;
-		}
-		return '<i class="fa fa-fw fa-' + icon + '"></i> ' + item.text;
+		return Mustache.render( '<div><i class="fa fa-fw fa-{{icon}}"></i> {{text}}</div>', item );
 	};
 
 	itemSelectedHandler = function( item ) {
 		window.location = item.value;
 	};
 
-	if ( $searchBox.length ) {
-		setupTypeahead();
+	tokenizer = function( input ) {
+		var strippedInput = input.replace( /\W/g, "" );
+		return Bloodhound.tokenizers.whitespace( strippedInput );
 	}
+
+	setupTypeahead();
+	$searchLink.click( function( e ){
+		e.preventDefault();
+		$searchContainer.fadeIn( 400 );
+		$searchBox.focus();
+
+	} );
 
 } )( jQuery );
