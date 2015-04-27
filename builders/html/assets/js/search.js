@@ -3,7 +3,7 @@
 	var $searchBox = $( "#lucee-docs-search-input" )
 	  , $searchLink = $( ".search-link" )
 	  , $searchContainer = $( ".search-container" )
-	  , setupTypeahead, setupBloodhound, renderSuggestion, itemSelectedHandler, tokenizer;
+	  , setupTypeahead, setupBloodhound, renderSuggestion, itemSelectedHandler, tokenizer, showSearch, hideSearch;
 
 	setupTypeahead = function(){
 		setupBloodhound( function( bloodhound ){
@@ -52,12 +52,29 @@
 		return Bloodhound.tokenizers.whitespace( strippedInput );
 	}
 
+	showSearch = function(){
+		$searchContainer.fadeIn( 400, function(){
+			$searchBox.focus();
+		} );
+	};
+
+	hideSearch = function(){
+		$searchBox.blur();
+		$searchContainer.fadeOut( 200 );
+	};
+
 	setupTypeahead();
+
 	$searchLink.click( function( e ){
 		e.preventDefault();
-		$searchContainer.fadeIn( 400 );
-		$searchBox.focus();
-
+		showSearch();
+	} );
+	$searchBox.keydown( "esc", function(){ hideSearch(); } );
+	$( document ).keydown( "esc", function(){ hideSearch(); } );
+	$( document ).keydown( "/", function( e ){
+		e.preventDefault();
+		e.stopPropagation();
+		showSearch();
 	} );
 
 } )( jQuery );

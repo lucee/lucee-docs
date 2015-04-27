@@ -57,6 +57,7 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script src="/assets/js/twitter.typeahead.0.11.0.min.js"></script>
 		<script src="/assets/js/mustache.min.js"></script>
+		<script src="/assets/js/jquery.hotkeys.js"></script>
 		<script src="/assets/js/search.js"></script>
 	</body>
 </html></cfoutput>
