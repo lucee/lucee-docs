@@ -79,10 +79,11 @@ component {
 			}
 
 			searchIndex.append( {
-				  "value" = page.getPath() & ".html"
-				, "text"  = page.getTitle()
-				, "type"  = page.getPageType()
-				, "icon"  = icon
+				  "value"   = page.getPath() & ".html"
+				, "display" = page.getTitle()
+				, "text"    = HtmlEditFormat( page.getTitle() )
+				, "type"    = page.getPageType()
+				, "icon"    = icon
 			} );
 		}
 
