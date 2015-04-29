@@ -1,8 +1,8 @@
 ```cfm
 <cfoutput>
-  #formatBaseN( 15, 2  )# <!--- 1111 (binary) --->
-  #formatBaseN( 15, 16 )# <!--- f    (hex)    --->
-  #formatBaseN( 15, 8  )# <!--- 17   (octal)  --->
+  #formatBaseN( 15, 2  )# <!--- 1111 --->
+  #formatBaseN( 15, 16 )# <!--- f --->
+  #formatBaseN( 15, 8  )# <!--- 17 --->
 </cfoutput>
 ```
 
@@ -13,7 +13,7 @@ Please note that the value to convert is limited to a maximum equal to `java.lan
 ```cfm
 <cfset max = CreateObject( "java", "java.lang.Integer" ).MAX_VALUE >
 <cfoutput>
-  #formatBaseN( 15, 2  )# <!---  7fffffff (correct) --->
-  #formatBaseN( 15, 16 )# <!---  7fffffff (incorrect)    --->
+  #formatBaseN( max, 2  )# <!---  7fffffff (correct) --->
+  #formatBaseN( max, 16 )# <!---  7fffffff (incorrect) --->
 </cfoutput>
 ```
