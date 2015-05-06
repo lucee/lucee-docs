@@ -22,12 +22,12 @@ component {
 			arguments.language = "java"; // they're close enough for this alias to work well (while there is no official pygments lexer for lucee)
 		}
 
-		return Trim( highlighter.highlight( arguments.code, arguments.language, false ) );
+		return highlighter.highlight( arguments.code, arguments.language, false );
 	}
 
 // PRIVATE HELPERS
 	private any function _getNextHighlight( required string text ) {
-		var referenceRegex  = "```([a-z]+)?\s(.*?)```";
+		var referenceRegex  = "```([a-z]+)?\n(.*?)\n```";
 		var regexFindResult = ReFind( referenceRegex, arguments.text, 1, true );
 		var found           = regexFindResult.len[1] > 0;
 		var result          = {};
@@ -36,10 +36,17 @@ component {
 			return;
 		}
 
+		var precedingContent = Trim( Left( arguments.text, regexFindResult.pos[1]-1 ) );
+		var matchIsWithinCodeBlock = precedingContent.endsWith( "<pre>" ) || precedingContent.endsWith( "<code>" );
+
+		if ( matchIsWithinCodeBlock ) {
+			return;
+		}
+
 		result = {
 			  rawMatch = Mid( arguments.text, regexFindResult.pos[1], regexFindResult.len[1] )
-			, code     = Trim( Mid( arguments.text, regexFindResult.pos[3], regexFindResult.len[3] ) )
-		}
+			, code     = Mid( arguments.text, regexFindResult.pos[3], regexFindResult.len[3] )
+		};
 
 		if ( regexFindResult.pos[2] ) {
 			result.language = Mid( arguments.text, regexFindResult.pos[2], regexFindResult.len[2] );
