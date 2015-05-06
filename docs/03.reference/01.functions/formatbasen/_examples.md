@@ -13,7 +13,7 @@ Please note that the value to convert is limited to a maximum equal to `java.lan
 ```cfm
 <cfset max = CreateObject( "java", "java.lang.Integer" ).MAX_VALUE >
 <cfoutput>
-  #formatBaseN( max, 16 )# <!---  7fffffff (correct) --->
-  #formatBaseN( max, 16 )# <!---  7fffffff (incorrect) --->
+  #formatBaseN( max  , 16 )# <!---  7fffffff (correct) --->
+  #formatBaseN( max+1, 16 )# <!---  7fffffff (incorrect) --->
 </cfoutput>
 ```
