@@ -1,5 +1,6 @@
 ---
 title: Guides and tutorials
+id: guides
 ---
 
 # Guides and tutorials
