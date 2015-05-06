@@ -26,9 +26,9 @@ component {
 	}
 
 // PRIVATE HELPERS
-	private any function _getNextHighlight( required string text ) {
+	private any function _getNextHighlight( required string text, required string startPos=1 ) {
 		var referenceRegex  = "```([a-z]+)?\n(.*?)\n```";
-		var regexFindResult = ReFind( referenceRegex, arguments.text, 1, true );
+		var regexFindResult = ReFind( referenceRegex, arguments.text, arguments.startPos, true );
 		var found           = regexFindResult.len[1] > 0;
 		var result          = {};
 
@@ -40,7 +40,7 @@ component {
 		var matchIsWithinCodeBlock = precedingContent.endsWith( "<pre>" ) || precedingContent.endsWith( "<code>" );
 
 		if ( matchIsWithinCodeBlock ) {
-			return;
+			return _getNextHighlight( arguments.text, regexFindResult.pos[1]+regexFindResult.len[1] );
 		}
 
 		result = {
