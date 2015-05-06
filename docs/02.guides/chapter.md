@@ -5,4 +5,6 @@ id: guides
 
 # Guides and tutorials
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+In this section, you should expect to find an ever growing repository of guides to do with developing, setting up and configuring applications using the Lucee server.
+
+We are currently working on pooling the content that we have and presenting it in a manner that is acceptable for public consumption. Head over to the [[about]] section to see how you can help with this effort.
