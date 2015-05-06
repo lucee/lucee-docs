@@ -33,5 +33,60 @@ WriteOutput( x );
 
 >>> For a complete list of available lexers, see the [Pygments website](http://pygments.org/docs/lexers/). We have added a 'lucee' alias in anticipation of an official lexer at some point in the future.
 
+## Cross referencing
 
+Cross referencing between pages can be achieved using a double square bracket syntax surrounding the id of the page you wish to link to. For example:
 
+```html
+[[function-abs]]
+```
+
+When the link is rendered, the title of the page will be passed to the renderer. To provide a custom text for the link, use the following syntax:
+
+```html
+[[function-abs|Custom link text]]
+```
+
+## Notice boxes
+
+Various "notice boxes" can be rendered by using a nested blockquote syntax. The nesting level dictates the type of notice rendered.
+
+### Info boxes
+
+Info boxes use three levels of blockquote indentation:
+
+```html
+>>> An example info box
+```
+
+>>> An example info box
+
+### Warning boxes
+
+Warning boxes use four levels of blockquote indentation:
+
+```html
+>>>> An example warning box
+```
+
+>>>> An example warning box
+
+### Important boxes
+
+Important boxes use five levels of blockquote indentation:
+
+```html
+>>>>> An example 'important' box
+```
+
+>>>>> An example 'important' box
+
+### Tip boxes
+
+Tip boxes use six levels of blockquote indentation:
+
+```html
+>>>>>> An example tip box
+```
+
+>>>>>> An example tip box
