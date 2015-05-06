@@ -17,13 +17,20 @@ component accessors=true {
 	}
 
 // PRIVATE HELPERS
-	private any function _getNextLink( required string text ) {
+	private any function _getNextLink( required string text, required string startPos=1 ) {
 		var referenceRegex  = "\[\[(.*?)\]\]";
-		var regexFindResult = ReFind( referenceRegex, arguments.text, 1, true );
+		var regexFindResult = ReFind( referenceRegex, arguments.text, arguments.startPos, true );
 		var found           = regexFindResult.len[1] > 0;
 
 		if ( !found ) {
 			return;
+		}
+
+		var precedingContent = Trim( Left( arguments.text, regexFindResult.pos[1]-1 ) );
+		var matchIsWithinCodeBlock = precedingContent.endsWith( "<pre>" ) || precedingContent.endsWith( "<code>" );
+
+		if ( matchIsWithinCodeBlock ) {
+			return _getNextLink( arguments.text, regexFindResult.pos[1]+regexFindResult.len[1] );
 		}
 
 		var rawMatch  = Mid( arguments.text, regexFindResult.pos[1], regexFindResult.len[1] );
