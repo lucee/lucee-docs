@@ -90,3 +90,35 @@ Tip boxes use six levels of blockquote indentation:
 ```
 
 >>>>>> An example tip box
+
+## YAML Front Matter
+
+YAML Front Matter is used to add metadata to pages that can then be used by the build system. The syntax takes the form of three dashes `---` at the very beginning of a markdown document, followed by a YAML block, followed by three dashes on their own line. For example:
+
+```html
+---
+variableName: value
+arrayVariable:
+    - arrayValue 1
+    - arrayValue 2
+---
+```
+
+### Standard metadata
+
+The system relies upon an **id** variable and **title** variable to be present in all pages in order to build its tree and perform cross referencing tasks. It will also allow you to tag pages with categories and 'related' links.
+
+A full example might look like:
+
+```html
+---
+id: function-abs
+title: Abs()
+related:
+    - [Problem with Abs()](http://someblog.com/somearticle.html)
+categories:
+    - number
+    - math
+```
+
+Category links will be rendered as ```[[category-categoryname]]```. Related links will be rendered using the markdown renderer so can use any valid link format, including our custom cross referencing syntax (see above).
