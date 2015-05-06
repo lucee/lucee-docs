@@ -44,8 +44,5 @@ title: Abs()
 ---
 ```
 
-
-
 >>>>>> The name of the folder, without any preceding order number, will be used when an ID is not supplied in the markdown file's YAML front matter.
 See [[docs-markdown]] for a full guide to cross referencing and YAML front matter. 
-
