@@ -36,7 +36,7 @@ component {
 			return;
 		}
 
-		var precedingContent = Trim( Left( arguments.text, regexFindResult.pos[1]-1 ) );
+		var precedingContent = regexFindResult.pos[1] == 1 ? "" : Trim( Left( arguments.text, regexFindResult.pos[1]-1 ) );
 		var matchIsWithinCodeBlock = precedingContent.endsWith( "<pre>" ) || precedingContent.endsWith( "<code>" );
 
 		if ( matchIsWithinCodeBlock ) {
