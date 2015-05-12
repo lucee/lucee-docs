@@ -19,6 +19,7 @@ body, html {
 	height      : 100%;
 	position    : relative;
 	max-width   : 850px;
+	margin-left : 300px;
 }
 
 	.body {
@@ -58,11 +59,11 @@ body, html {
 
 .navigation {
 	background       : none repeat scroll 0% 0% #38424D;
-/*	border-right     : 1px solid #dfdfdf;*/
 	height           : 100%;
-	max-width        : 300px;
-	width            : 20%;
-	float            : left;
+	width            : 300px;
+	position         : fixed;
+	top              : 0;
+	bottom           : 9;
 	color            : #eee;
 }
 
