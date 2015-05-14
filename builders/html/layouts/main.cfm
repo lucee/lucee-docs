@@ -17,8 +17,6 @@
 		<link href="assets/css/highlight.css" rel="stylesheet">
 
 		<link rel="icon" type="image/png" href="assets/img/luceelogoicon.png">
-
-		<meta name="robots" content="noindex, nofollow">
 	</head>
 	<body class="#LCase( args.page.getPageType() )#">
 		<nav class="navigation" role="navigation">
