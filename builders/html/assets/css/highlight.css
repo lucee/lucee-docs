@@ -2,9 +2,9 @@ pre.signature span { font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 
 .hll { background-color: #ffffcc }
 .c { color: #999988; font-style: italic } /* Comment */
-.err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.err { color: #a61717; } /* Error */
 .k { color: #000000; font-weight: bold } /* Keyword */
-.o { color: #000000; font-weight: bold } /* Operator */
+.o { color: #000000 } /* Operator */
 .cm { color: #999988; font-style: italic } /* Comment.Multiline */
 .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
 .c1 { color: #999988; font-style: italic } /* Comment.Single */
@@ -27,6 +27,7 @@ pre.signature span { font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 .kt { color: #445588; font-weight: bold } /* Keyword.Type */
 .m { color: #009999 } /* Literal.Number */
 .s { color: #d01040 } /* Literal.String */
+.n { color: #a61717; } /* name */
 .na { color: #008080 } /* Name.Attribute */
 .nb { color: #0086B3 } /* Name.Builtin */
 .nc { color: #445588; font-weight: bold } /* Name.Class */
