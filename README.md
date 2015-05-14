@@ -6,6 +6,8 @@ This repository contains the source and build scripts for creating Lucee's docum
 
 It is currently a work in progress and we are working as fast as we can to deliver a published product that is ready for general consumption.
 
+Any issues, please report via the issue tracker: https://luceeserver.atlassian.net
+
 Until that time, read on below to see how you can get involved.
 
 ## Build and experiment locally
@@ -81,4 +83,3 @@ All input is welcome here.
 ## Raise issues and suggestions
 
 Issues and suggestions are always welcome (though pull requests are preferred!). Please use the [issue tracker in BitBucket](https://bitbucket.org/lucee/documentation/issues).
-
