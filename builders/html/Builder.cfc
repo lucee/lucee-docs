@@ -1,5 +1,5 @@
 component {
-	public string function renderLink( required any page, required string title ) {
+	public string function renderLink( any page, required string title ) {
 
 		if ( IsNull( arguments.page ) ) {
 			return '<a class="missing-link">#HtmlEditFormat( arguments.title )#</a>';
