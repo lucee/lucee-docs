@@ -6,7 +6,7 @@ This repository contains the source and build scripts for creating Lucee's docum
 
 It is currently a work in progress and we are working as fast as we can to deliver a published product that is ready for general consumption.
 
-Any issues, please report via the issue tracker: https://luceeserver.atlassian.net
+Any issues, please report via the issue tracker: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD)
 
 Until that time, read on below to see how you can get involved.
 

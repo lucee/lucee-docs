@@ -18,7 +18,7 @@ Good documentation is at the heart of all successful open source projects. With 
 
 This documentation is built from an open source repository that is open to all to contribute. The repository can be found at under the official Lucee team's BitBucket account at [https://bitbucket.org/lucee/documentation/](https://bitbucket.org/lucee/documentation/).
 
-You'll find information on ways in which you can contribute in the [[docs-content]] and [[docs-build]] sections. However, if you're ever in doubt, we encourage you to use the [issue tracker](https://bitbucket.org/lucee/documentation/issues?status=new&status=open) and [community forums](http://lucee.org/get-involved.html) to help get you started or discuss your ideas.
+You'll find information on ways in which you can contribute in the [[docs-content]] and [[docs-build]] sections. However, if you're ever in doubt, we encourage you to use the [issue tracker](https://luceeserver.atlassian.net/projects/LD) and [community forums](http://lucee.org/get-involved.html) to help get you started or discuss your ideas.
 
 ## Technology
 
