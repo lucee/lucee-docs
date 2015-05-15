@@ -16,7 +16,7 @@ Good documentation is at the heart of all successful open source projects. With 
 
 ## Contributing
 
-This documentation is built from an open source repository that is open to all to contribute. The repository can be found at under the official Lucee team's BitBucket account at [https://bitbucket.org/lucee/documentation/](https://bitbucket.org/lucee/documentation/).
+This documentation is built from an open source repository that is open to all to contribute. The repository can be found under the official Lucee team's BitBucket account at [https://bitbucket.org/lucee/documentation/](https://bitbucket.org/lucee/documentation/).
 
 You'll find information on ways in which you can contribute in the [[docs-content]] and [[docs-build]] sections. However, if you're ever in doubt, we encourage you to use the [issue tracker](https://luceeserver.atlassian.net/projects/LD) and [community forums](http://lucee.org/get-involved.html) to help get you started or discuss your ideas.
 
@@ -32,7 +32,7 @@ This choice was both obvious and difficult. Difficult because there are multiple
 
 While we could stomach writing a build system from scratch using Lucee (which was both rapid and joyous), we absolutely did not want to reinvent the wheel when it came to the source of the documentation.
 
-With that in mind, we chose to use [Markdown](http://daringfireball.net/projects/markdown/) with a few common and custom enhancements. 
+With that in mind, we chose to use [Markdown](http://daringfireball.net/projects/markdown/) with a few common and custom enhancements.
 
 We also based the system on a popular open source static CMS system called [Grav](http://getgrav.org). This gives us a proven foundation to build the source from and should help make contributing as easy as it can be.
 
