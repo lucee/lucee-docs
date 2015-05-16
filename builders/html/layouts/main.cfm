@@ -49,6 +49,14 @@
 				</div>
 			</article>
 
+			<footer class="footer">
+				<p>The Lucee Documentation is developed and maintained by the Lucee Association Switzerland and is licensed under a
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+						<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png">
+						Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+				</p>
+			</footer>
+
 		</div>
 
 		<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>

@@ -15,7 +15,7 @@ pre {
 .main {
 	float       : left;
 	width       : 80%;
-	height      : 100%;
+	min-height  : 100%;
 	position    : relative;
 	max-width   : 850px;
 	margin-left : 300px;
@@ -24,7 +24,7 @@ pre {
 	.body {
 		background-color : #fff;
 		margin           : 55px;
-		padding          : 0 25px;
+		padding          : 0 25px 100px;
 	}
 
 	h2 {
@@ -295,3 +295,16 @@ blockquote {
 				background-color : #eee;
 				border-radius    : 5px;
 			}
+
+.footer {
+	border-top : 1px #eee solid;
+	position   : absolute;
+	bottom     : 0;
+	width      : 100%;
+}
+
+	.footer p {
+		padding : 10px 25px 0;
+		font-size : 85%;
+		color     : #999;
+	}
