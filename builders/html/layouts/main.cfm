@@ -41,7 +41,7 @@
 					<cfset prevPage = args.page.getPreviousPage() />
 					<cfset nextPage = args.page.getNextPage() />
 					<cfif not IsNull( prevPage )>
-						<a href="#prevPage.getPath()#.html" title="Previous page: #HtmlEditFormat( prevPage.getTitle() )#"><i class="fa fa-fw fa-angle-left prev nav-link"></i></a>
+						<a href="#Iif( prevPage.getPath() EQ '/home', DE('/'), DE('#prevPage.getPath()#.html') )#" title="Previous page: #HtmlEditFormat( prevPage.getTitle() )#"><i class="fa fa-fw fa-angle-left prev nav-link"></i></a>
 					</cfif>
 					<cfif not IsNull( nextPage )>
 						<a href="#nextPage.getPath()#.html" title="Next page: #HtmlEditFormat( nextPage.getTitle() )#"><i class="fa fa-fw fa-angle-right next nav-link"></i></a>
