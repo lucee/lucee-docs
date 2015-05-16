@@ -2,15 +2,11 @@
 
 [![Build Status](https://drone.io/bitbucket.org/lucee/documentation/status.png)](https://drone.io/bitbucket.org/lucee/documentation/latest)
 
-This repository contains the source and build scripts for creating Lucee's documentation. 
+This repository contains the source and build scripts for creating Lucee's documentation. The website output of the docs can be found at [http://docs.lucee.org](http://docs.lucee.org).
 
-It is currently a work in progress and we are working as fast as we can to deliver a published product that is ready for general consumption.
+Issues can be reported and tracked at [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD)
 
-Any issues, please report via the issue tracker: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD)
-
-Until that time, read on below to see how you can get involved.
-
-## Build and experiment locally
+## Build locally
 
 ### Prerequisites
 
@@ -38,7 +34,7 @@ This will spin up a server using CommandBox on port 4040 and open it in your bro
 
 ## Pitch in
 
-There is a lot of work to do. The issues list can be found here: https://bitbucket.org/lucee/documentation/issues.
+There is a lot of work to do. The issues list can be found and expanded upon here: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD) 
 
 ### Formatting of the website
 
@@ -46,28 +42,9 @@ The source code for building the HTML website can be found at `./builders/html/`
 
 All the css, js and imagery for the website can be found in `./builders/html/assets`.
 
-Right now, the biggest need is for formatting and creating features for the function and tag documentation pages.
-
 ### Better and more accurate tag and function descriptions
 
-The content of the tag and function reference could do with improving. These pages of the documentation are built by taking descriptions found in markdown files (e.g. `/docs/03.reference/01.functions/abs/function.md`) and merging them with specifications from the source code.
-
-#### Functions
-
-Function descriptions can be edited in the `function.md` file in the given function's folder.
-
-Descriptions for a function's arguments can be edited in the `/_arguments/argumentName.md` file within the given function's folder.
-
-Examples can be provided and edited in a `_examples.md` file in the root of the function's folder.
-
-#### Tags
-
-Tag descriptions can be edited in the `tag.md` file in the given tag's folder.
-
-Descriptions for a tag's attributes can be edited in the `/_attributes/attributeName.md` file within the given tag's folder.
-
-Examples can be provided and edited in a `_examples.md` file in the root of the tag's folder.
-
+The content of the tag and function reference could do with improving. For a full guide on how to edit these reference pages, see: [http://docs.lucee.org/docs/content/docsreference.html](http://docs.lucee.org/docs/content/docsreference.html).
 
 ### Documentation articles
 
@@ -82,4 +59,8 @@ All input is welcome here.
 
 ## Raise issues and suggestions
 
-Issues and suggestions are always welcome (though pull requests are preferred!). Please use the [issue tracker in BitBucket](https://bitbucket.org/lucee/documentation/issues).
+Issues and suggestions are always welcome (though pull requests are preferred!). Please use the issue tracker: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD).
+
+## License
+
+The project is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/).
