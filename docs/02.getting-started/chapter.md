@@ -13,12 +13,11 @@ It is easy to get started with Lucee using Ortus Solutions CommandBox. CommandBo
 5. Type "box" to start up CommandBox. The first time you run CommandBox it will take slightly longer than normal as it has to initialize the configuration on your machine. 
 6. Once you are at the CommandBox prompt type "server start" to start the embedded Lucee server within CommandBox. The Lucee server will then start, on a random port and open in your default browser and show a directory listing for the directory in which you started it, which is currently empty.
 7. Next type ```touch index.cfm``` to create and index.cfm file in your directory.
-8. Then type ```edit index.cfm``` to open the index.cfm file in your default text editor for ".cfm" files, if you don't have one assigned the operating system should ask you which editor to use. Once index.cfm is open in an editor add the following two lines to it.
+8. Then type ```edit index.cfm``` to open the index.cfm file in your default text editor for ".cfm" files, if you don't have one assigned the operating system should ask you which editor to use. Once index.cfm is open in an editor add the following two lines to it and save it.
 
-    ```ColdFusion
-    <cfset testVar = "Hello World">
-    <h1><cfoutput>#testVar#</cfoutput></h1>
-    ```
+    ```<cfset testVar = "Hello World">```
+    
+    ```<h1><cfoutput>#testVar#</cfoutput></h1>```
 
 9. Refresh the browser window and your browser should automatically display the index page you just created, displaying "Hello World" in the browsers default H1 styling.
 
