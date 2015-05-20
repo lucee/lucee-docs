@@ -1,13 +1,26 @@
+The following statements all evaluate to true:
+
 ```lucee
-WriteOutput( IsEmpty( '' ) ); // true
-WriteOutput( IsEmpty( ' ' ) ); // false
-WriteOutput( IsEmpty( 'string' ) ); // false
-WriteOutput( IsEmpty( [] ) ); // true
-WriteOutput( IsEmpty( [ 1, 2, 3 ] ) ); // false
-WriteOutput( IsEmpty( {} ) ); // true
-WriteOutput( IsEmpty( { key="value" } ) ); // false
-WriteOutput( IsEmpty( 0 ) ); // false
-WriteOutput( IsEmpty( 1 ) ); // false
-WriteOutput( IsEmpty( QueryNew( 'column' ) ) ); // true
-WriteOutput( IsEmpty( QueryNew( 'column', 'varchar', [ [ 'value' ] ] ) ) ); // false
+// Strings
+IsEmpty( '' ) == true;
+IsEmpty( ' ' ) == false;
+IsEmpty( '0' ) == false;
+
+// arrays
+IsEmpty( [] ) == true;
+IsEmpty( [ 1, 2, 3 ] ) == false;
+
+// structs
+IsEmpty( {} ) == true;
+IsEmpty( { key="value" } ) == false;
+
+// queries
+IsEmpty( QueryNew( 'column' ) ) == true;
+IsEmpty( QueryNew( 'column', 'varchar', [ [ 'value' ] ] ) ) == false;
+
+// numerics (always non-empty)
+IsEmpty( 0 ) == false;
+IsEmpty( 1 ) == false;
 ```
+
+>>>> At the time of writing `IsEmpty( 0 );` returns `true`. This is unexpected behaviour and we advise not to use this function with numeric types.
