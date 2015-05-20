@@ -6,9 +6,9 @@ categories:
     - decision
 ---
 
-return true if a value is "empty".
-The following things are considered to be empty:
-- string:"" (an empty string)
-- array: [] (an empty array)
-- struct: {} (an empty struct)
-...
+Returns whether or not a given value is "empty". The following data types can be checked:
+
+* Strings (a zero length string will return `true`)
+* Arrays (an array with no elements will return `true`)
+* Structs (a struct with no keys will return `true`)
+* Query (a query with no rows will return `true`)
