@@ -21,6 +21,10 @@ IsEmpty( QueryNew( 'column', 'varchar', [ [ 'value' ] ] ) ) == false;
 // numerics (always non-empty)
 IsEmpty( 0 ) == false;
 IsEmpty( 1 ) == false;
+
+// booleans (always non-empty)
+IsEmpty( false ) == false;
+IsEmpty( true ) == false;
 ```
 
->>>> At the time of writing `IsEmpty( 0 );` returns `true`. This is unexpected behaviour and we advise not to use this function with numeric types.
+>>>> Prior to Lucee 4.5.1.016, `IsEmpty( 0 )` and `IsEmpty( false )` both returned true.
