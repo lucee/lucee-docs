@@ -1,27 +1,27 @@
 The following statements evaluate to `true`:
 
 ```lucee
-IsBoolean( true    );
-IsBoolean( false   );
-IsBoolean( 0       );
-IsBoolean( -10.4   );
-IsBoolean( 3.6     );
-IsBoolean( "yes"   );
-IsBoolean( "no"    );
-IsBoolean( "true"  );
+IsBoolean( true );
+IsBoolean( false );
+IsBoolean( 0 );
+IsBoolean( -10.4 );
+IsBoolean( 3.6 );
+IsBoolean( "yes" );
+IsBoolean( "no" );
+IsBoolean( "true" );
 IsBoolean( "false" );
-IsBoolean( "0"     );
+IsBoolean( "0" );
 IsBoolean( "-10.4" );
-IsBoolean( "3.6"   );
+IsBoolean( "3.6" );
 ```
 
 The following statements evaluate to `false`:
 
 ```lucee
-IsBoolean( Now()        )
-IsBoolean( {}           )
-IsBoolean( []           )
-IsBoolean( QueryNew('') )
-IsBoolean( ""           )
-IsBoolean( "a string"   )
+IsBoolean( Now() );
+IsBoolean( {} );
+IsBoolean( [] );
+IsBoolean( QueryNew('') );
+IsBoolean( "" );
+IsBoolean( "a string" );
 ```
