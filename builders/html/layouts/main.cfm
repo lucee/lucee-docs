@@ -12,6 +12,12 @@
 
 		<link href="assets/css/base.min.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="assets/images/luceelogoicon.png">
+
+		<!-- ie -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.js" type="text/javascript"></script>
+			<script src="assets/js/respond.js" type="text/javascript"></script>
+		<![endif]-->
 	</head>
 
 	<body class="avoid-fout #LCase( args.page.getPageType() )#">
