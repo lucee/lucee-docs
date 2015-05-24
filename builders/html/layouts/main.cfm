@@ -106,6 +106,33 @@
 			</div>
 		</form>
 
+		<div class="content">
+			<div class="content-heading">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-10 col-lg-push-1">
+							<h1 class="heading">#args.page.getTitle()#</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="content-inner">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-10 col-lg-push-1">
+							<div class="tile-wrap">
+								<div class="tile">
+									#args.crumbs#
+								</div>
+							</div>
+							#args.body#
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<script src="assets/js/base.min.js" type="text/javascript"></script>
 	</body>
 </html></cfoutput>
