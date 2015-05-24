@@ -1,5 +1,6 @@
 ---
 title: Reference
+id: reference
 ---
 
 # Reference documentation
