@@ -1,16 +1,27 @@
-The following examples tests a boolean and non-boolean variable using the isBoolean() and outputs the return.
+The following statements evaluate to `true`:
 
 ```lucee
-<cfset booleanValue = true>
-<cfset stringValue = "Hello World">
-<cfset numericValue = 10>
-<cfset anArray = []>
-<cfset aStruct = {}>
-<cfoutput>
-	Boolean Value: #isBoolean(booleanValue)#<br>
-	String Value: #isBoolean(stringValue)#<br>
-	Numeric Value: #isBoolean(numericValue)#<br>
-	An Array: #isBoolean(anArray)#<br>
-	A Structure: #isBoolean(aStruct)#<br>
-</cfoutput>
+IsBoolean( true    );
+IsBoolean( false   );
+IsBoolean( 0       );
+IsBoolean( -10.4   );
+IsBoolean( 3.6     );
+IsBoolean( "yes"   );
+IsBoolean( "no"    );
+IsBoolean( "true"  );
+IsBoolean( "false" );
+IsBoolean( "0"     );
+IsBoolean( "-10.4" );
+IsBoolean( "3.6"   );
+```
+
+The following statements evaluate to `false`:
+
+```lucee
+IsBoolean( Now()        )
+IsBoolean( {}           )
+IsBoolean( []           )
+IsBoolean( QueryNew('') )
+IsBoolean( ""           )
+IsBoolean( "a string"   )
 ```
