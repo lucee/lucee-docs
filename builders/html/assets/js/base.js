@@ -113,14 +113,20 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 // close menu and/or tile if esc key is pressed
 	$(document).keyup(function(e) {
-		if (e.which == '27') {
+		if ( e.which == '27' ) {
 			if ($('.menu.open').length) {
 				mReset();
 			} else if (!$('body').hasClass('modal-open')) {
 				tReset();
 			}
-		};
-	});
+		}
+	})
+	.keydown(function(e) {
+		if ( e.which == "191" ) {
+			e.preventDefault();
+			$( '.menu-toggle' ).click();
+		}
+	});;
 // footer push
 	footerPush = function () {
 		if ($('.footer').length) {
