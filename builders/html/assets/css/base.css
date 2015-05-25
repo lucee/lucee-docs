@@ -11379,28 +11379,28 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   font-weight: 300;
 }
 
-.content-sub-heading {
+h2 {
   color: #01798a;
   font-size: 20px;
   font-weight: 400;
   line-height: 28px;
 }
-.page-alt .content-sub-heading {
+.page-alt h2 {
   color: #01798a;
 }
-.page-blue .content-sub-heading {
+.page-blue h2 {
   color: #2196f3;
 }
-.page-green .content-sub-heading {
+.page-green h2 {
   color: #8bc34a;
 }
-.page-purple .content-sub-heading {
+.page-purple h2 {
   color: #9c27b0;
 }
-.page-red .content-sub-heading {
+.page-red h2 {
   color: #f44336;
 }
-.page-yellow .content-sub-heading {
+.page-yellow h2 {
   color: #ffc107;
 }
 
