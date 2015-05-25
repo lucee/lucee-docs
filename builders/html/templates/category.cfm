@@ -15,6 +15,8 @@
 
 
 <cfoutput>
+	<a class="pull-right" href="#getSourceLink( path=category.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
+
 	#markdownToHtml( category.getBody() )#
 
 	<cfif not pages.len()>

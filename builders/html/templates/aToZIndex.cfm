@@ -4,6 +4,7 @@
 <cfset currentLetter = "" />
 
 <cfoutput>
+	<a class="pull-right" href="#getSourceLink( path=pg.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 	#markdownToHtml( pg.getBody() )#
 
 	<div class="tile-wrap tile-wrap-animation">
