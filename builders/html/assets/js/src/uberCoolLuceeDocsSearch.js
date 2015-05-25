@@ -4,8 +4,7 @@
 	  , $searchLink = $( ".search-link" )
 	  , $searchContainer = $( ".search-container" )
 	  , setupTypeahead, setupBloodhound, renderSuggestion
-	  , itemSelectedHandler, tokenizer, showSearch, hideSearch
-	  , generateRegexForInput, search, searchIndex;
+	  , itemSelectedHandler, tokenizer, generateRegexForInput, search, searchIndex;
 
 	setupTypeahead = function(){
 		setupSearchEngine( function( bloodhound ){
@@ -103,29 +102,6 @@
 		return Bloodhound.tokenizers.whitespace( strippedInput );
 	}
 
-	showSearch = function(){
-		$searchContainer.fadeIn( 400, function(){
-			$searchBox.focus();
-		} );
-	};
-
-	hideSearch = function(){
-		$searchBox.blur();
-		$searchContainer.fadeOut( 200 );
-	};
-
 	setupTypeahead();
-
-	$searchLink.click( function( e ){
-		e.preventDefault();
-		showSearch();
-	} );
-	$searchBox.keydown( "esc", function(){ hideSearch(); } );
-	$( document ).keydown( "esc", function(){ hideSearch(); } );
-	$( document ).keydown( "/", function( e ){
-		e.preventDefault();
-		e.stopPropagation();
-		showSearch();
-	} );
 
 } )( jQuery );

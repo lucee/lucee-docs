@@ -7,62 +7,145 @@
 <cfoutput><!DOCTYPE html>
 <html>
 	<head>
-		<title>Lucee Documentation :: #args.page.getTitle()#</title>
+		<title>Lucee Documentation :: #HtmlEditFormat( args.page.getTitle() )#</title>
 		<base href="#( repeatString( '../', args.page.getDepth()-1 ) )#">
 
-		<link href='http://fonts.googleapis.com/css?family=Muli:400,400italic,300italic,300' rel='stylesheet' type='text/css'>
-		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="assets/css/base.min.css" rel="stylesheet">
 		<link href="assets/css/highlight.css" rel="stylesheet">
+		<link rel="icon" type="image/png" href="assets/images/favicon.png">
 
-		<link rel="icon" type="image/png" href="assets/img/luceelogoicon.png">
+		<!-- ie -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.js" type="text/javascript"></script>
+			<script src="assets/js/respond.js" type="text/javascript"></script>
+		<![endif]-->
 	</head>
-	<body class="#LCase( args.page.getPageType() )#">
-		<nav class="navigation" role="navigation">
-			<div class="brand-container">
-				<a class="home-link pull-left" href="/">Lucee Documentation Home</a>
-				<a class="search-link pull-right" href="##"><i class="fa fa-fw fa-search"></i></a>
-				<div class="clearfix"></div>
+
+	<body class="avoid-fout #LCase( args.page.getPageType() )#">
+		<div class="avoid-fout-indicator avoid-fout-indicator-fixed">
+			<div class="progress-circular progress-circular-alt progress-circular-center">
+				<div class="progress-circular-wrapper">
+					<div class="progress-circular-inner">
+						<div class="progress-circular-left">
+							<div class="progress-circular-spinner"></div>
+						</div>
+						<div class="progress-circular-gap"></div>
+						<div class="progress-circular-right">
+							<div class="progress-circular-spinner"></div>
+						</div>
+					</div>
+				</div>
 			</div>
-			#args.navTree#
-		</nav>
-		<div class="main" role="main">
-			<article class="body">
-				<div class="search-container">
-					<input id="lucee-docs-search-input" class="search-input" placeholder="Search the lucee documentation">
-				</div>
-
-				#args.crumbs#
-				#args.body#
-				#args.seeAlso#
-
-				<div class="prev-next-container" role="navigation">
-					<cfset prevPage = args.page.getPreviousPage() />
-					<cfset nextPage = args.page.getNextPage() />
-					<cfif not IsNull( prevPage )>
-						<a href="#( prevPage.getPath() == '/home' ? '/' : '#prevPage.getPath()#.html' )#" title="Previous page: #HtmlEditFormat( prevPage.getTitle() )#"><i class="fa fa-fw fa-angle-left prev nav-link"></i></a>
-					</cfif>
-					<cfif not IsNull( nextPage )>
-						<a href="#nextPage.getPath()#.html" title="Next page: #HtmlEditFormat( nextPage.getTitle() )#"><i class="fa fa-fw fa-angle-right next nav-link"></i></a>
-					</cfif>
-				</div>
-			</article>
-
-			<footer class="footer">
-				<p>The Lucee Documentation is developed and maintained by the Lucee Association Switzerland and is licensed under a
-					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
-						<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png">
-						Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
-				</p>
-			</footer>
-
 		</div>
 
-		<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-		<script src="/assets/js/twitter.typeahead.0.11.0.min.js"></script>
-		<script src="/assets/js/mustache.min.js"></script>
-		<script src="/assets/js/jquery.hotkeys.js"></script>
-		<script src="/assets/js/search.js"></script>
+		<nav class="menu menu-left nav-drawer" id="menu">
+			<div class="menu-scroll">
+				<div class="menu-wrap">
+					<div class="menu-content">
+						<a class="nav-drawer-logo" href="index.html"><img class="Lucee" src="assets/images/lucee-logo-bw.png"></a>
+						#args.navTree#
+						<hr>
+						<ul class="nav">
+							<li>
+								<a href="http://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
+							</li>
+							<li>
+								<a href="https://bitbucket.org/lucee/lucee"><span class="fa fa-fw fa-bitbucket"></span>Source repository</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<header class="header">
+			<ul class="hidden-lg nav nav-list pull-left">
+				<li>
+					<a class="menu-toggle" href="##menu">
+						<span class="access-hide">Menu</span>
+						<span class="icon icon-menu icon-lg"></span>
+						<span class="header-close icon icon-close icon-lg"></span>
+					</a>
+				</li>
+			</ul>
+			<a class="header-logo hidden-lg" href="index.html"><img alt="Lucee" src="assets/images/lucee-logo.png"></a>
+			<ul class="nav nav-list pull-right">
+				<cfset prevPage = args.page.getPreviousPage() />
+				<cfset nextPage = args.page.getNextPage() />
+				<cfif not IsNull( prevPage )>
+					<li>
+						<a href="#( prevPage.getPath() == '/home' ? '/' : '#prevPage.getPath()#.html' )#">
+							<span class="access-hide">Previous page: #HtmlEditFormat( prevPage.getTitle() )#</span>
+							<span class="icon icon-arrow-back icon-lg"></span>
+						</a>
+					</li>
+				</cfif>
+				<cfif not IsNull( nextPage )>
+					<li>
+						<a href="#( nextPage.getPath() == '/home' ? '/' : '#nextPage.getPath()#.html' )#">
+							<span class="access-hide">Previous page: #HtmlEditFormat( nextPage.getTitle() )#</span>
+							<span class="icon icon-arrow-forward icon-lg"></span>
+						</a>
+					</li>
+				</cfif>
+				<li>
+					<a class="menu-toggle" href="##search">
+						<span class="access-hide">Search</span>
+						<span class="icon icon-search icon-lg"></span>
+						<span class="header-close icon icon-close icon-lg"></span>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div class="menu menu-right menu-search" id="search">
+			<div class="menu-scroll">
+				<div class="menu-wrap">
+					<div class="menu-content">
+						<div class="menu-content-inner">
+							<label class="access-hide" for="lucee-docs-search-input">Search</label>
+							<input class="form-control form-control-lg menu-search-focus" id="lucee-docs-search-input" placeholder="Search" type="search">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="content-heading">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-10 col-lg-push-1">
+							<h1 class="heading">#HtmlEditFormat( args.page.getTitle() )#</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="content-inner">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-10 col-lg-push-1 body">
+							<div class="tile-wrap">
+								<div class="tile">
+									#args.crumbs#
+								</div>
+							</div>
+							#args.body#
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<div class="container">
+				<p>The Lucee Documentation is developed and maintained by the Lucee Association Switzerland and is licensed under a
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png"></a>
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+				</p>
+			</div>
+		</footer>
+
+		<script src="assets/js/base.min.js" type="text/javascript"></script>
 	</body>
 </html></cfoutput>

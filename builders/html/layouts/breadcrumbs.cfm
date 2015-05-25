@@ -3,12 +3,12 @@
 
 <cfif args.page.getId() neq "/home">
 	<cfoutput>
-		<ol class="breadcrumb" role="navigation">
+		<ul class="breadcrumb margin-no-top margin-right margin-no-bottom margin-left">
 			<li><a href="index.html">Home</a></li>
 			<cfloop array="#args.crumbs#" item="pageSlug" index="i">
 				<li>[[#pageSlug#]]</li>
 			</cfloop>
-			<li>#HtmlEditFormat( args.page.getTitle() )#</li>
-		</ol>
+			<li class="active">#HtmlEditFormat( args.page.getTitle() )#</li>
+		</ul>
 	</cfoutput>
 </cfif>

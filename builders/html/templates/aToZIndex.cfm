@@ -6,26 +6,31 @@
 <cfoutput>
 	#markdownToHtml( pg.getBody() )#
 
-	<div class="row">
+	<div class="tile-wrap tile-wrap-animation">
 		<cfloop array="#pg.getChildren()#" index="i" item="child">
 			<cfset slug = child.getSlug() />
 			<cfset firstLetter = slug[1] />
 			<cfif firstLetter != currentLetter>
-			<cfif currentLetter.len()>
-					</ul>
-				</div>
-			</cfif>
-			<div class="col-md-4">
-				<h3 id="letter-index-#firstLetter#">#firstLetter#</h3>
-				<ul class="list-unstyled">
+				<cfif currentLetter.len()>
+						</div>
+					</div>
+				</cfif>
+				<div class="tile tile-collapse tile-collapse-full">
+					<div class="tile-toggle" data-target="##function-#LCase( firstLetter )#" data-toggle="tile">
+						<div class="tile-inner">
+							<div class="text-overflow"><strong>#UCase( firstLetter )#</strong></div>
+						</div>
+					</div>
+					<div class="tile-active-show collapse" id="function-#LCase( firstLetter )#">
 			</cfif>
 
-			<li>[[#child.getId()#]]</li>
+			<span class="tile">
+				<div class="tile-inner">
+					<div class="text-overflow">[[#child.getId()#]]</div>
+				</div>
+			</span>
 
 			<cfset currentLetter = firstLetter />
 		</cfloop>
-
-			</ul>
-		</div>
 	</div>
 </cfoutput>
