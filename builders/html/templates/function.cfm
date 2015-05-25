@@ -3,6 +3,7 @@
 <cfset fn = args.page />
 
 <cfoutput>
+	<a class="pull-right" href="#getSourceLink( path=fn.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 	#markdownToHtml( fn.getBody() )#
 
 	<p><strong>Returns:</strong> #fn.getReturnType()#</p>
@@ -31,7 +32,10 @@
 								#arg.name#<br>
 								<sub>(#arg.type#, #( arg.required ? 'required' : 'optional' )#)</sub>
 							</td>
-							<td>#markdownToHtml( Trim( arg.description ) )#</td>
+							<td>
+								<a class="pull-right" href="#getSourceLink( path=fn.getSourceDir() & '_arguments/#arg.name#.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
+								#markdownToHtml( Trim( arg.description ) )#
+							</td>
 						</tr>
 					</cfloop>
 				</tbody>
@@ -41,6 +45,7 @@
 
 	<h2>Examples</h2>
 	<cfif Len( Trim( fn.getExamples() ) )>
+		<a class="pull-right" href="#getSourceLink( path=fn.getSourceDir() & '_examples.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 		#markdownToHtml( fn.getExamples() )#
 	<cfelse>
 		<em>There are currently no examples for this function</em>
