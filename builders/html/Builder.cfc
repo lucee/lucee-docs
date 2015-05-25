@@ -19,6 +19,7 @@ component {
 
 		_copyStaticAssets( arguments.buildDirectory );
 		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
+		_zipDocsForOffline( arguments.buildDirectory );
 	}
 
 	public string function renderPage( required any page, required any docTree ){
@@ -138,6 +139,10 @@ component {
 		}
 
 		return "page";
+	}
+
+	private string function _zipDocsForOffline( required string buildDir ) {
+		zip action="zip" source=arguments.buildDir file=arguments.buildDir & "/lucee-docs.zip";
 	}
 
 

@@ -17,15 +17,6 @@
 
 	<body class="#LCase( args.page.getPageType() )#" style="margin-bottom:150px;">
 		<header class="header">
-			<ul class="hidden-lg nav nav-list pull-left">
-				<li>
-					<a class="menu-toggle" href="##menu">
-						<span class="access-hide">Menu</span>
-						<span class="icon icon-menu icon-lg"></span>
-						<span class="header-close icon icon-close icon-lg"></span>
-					</a>
-				</li>
-			</ul>
 			<a class="header-logo hidden-lg" href="index.html"><img alt="Lucee" src="assets/images/lucee-logo.png"></a>
 			<ul class="nav nav-list pull-right">
 				<cfset prevPage = args.page.getPreviousPage() />

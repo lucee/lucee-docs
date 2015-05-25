@@ -52,6 +52,9 @@
 							<li>
 								<a href="https://bitbucket.org/lucee/lucee"><span class="fa fa-fw fa-bitbucket"></span>Source repository</a>
 							</li>
+							<li>
+								<a href="download.html"><span class="fa fa-fw fa-download"></span>Download</a>
+							</li>
 						</ul>
 					</div>
 				</div>
