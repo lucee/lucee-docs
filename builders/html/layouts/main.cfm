@@ -12,7 +12,7 @@
 
 		<link href="assets/css/base.min.css" rel="stylesheet">
 		<link href="assets/css/highlight.css" rel="stylesheet">
-		<link rel="icon" type="image/png" href="assets/images/luceelogoicon.png">
+		<link rel="icon" type="image/png" href="assets/images/favicon.png">
 
 		<!-- ie -->
 		<!--[if lt IE 9]>
