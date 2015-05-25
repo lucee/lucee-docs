@@ -14,4 +14,5 @@ component accessors=true {
 	// property name="tagReferenceUrl"      default="https://bitbucket.org/lucee/lucee/raw/a6b37ad6463707576ec03f03e1a3493f1e366a12/lucee-java/lucee-core/src/resource/tld/web-cfmtaglibrary_1_0";
 	property name="functionReferenceUrl" default="#cwd#funclib.xml";
 	property name="tagReferenceUrl"      default="#cwd#taglib.xml";
+	property name="editSourceLink"       default="https://bitbucket.org/lucee/documentation/src/master{path}";
 }

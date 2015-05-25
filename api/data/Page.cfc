@@ -1,6 +1,8 @@
 component accessors=true {
 	property name="id"           type="string" default="";
 	property name="path"         type="string" default="";
+	property name="sourceDir"    type="string" default="";
+	property name="sourceFile"   type="string" default="";
 	property name="slug"         type="string" default="";
 	property name="pageType"     type="string" default="";
 	property name="children"     type="array";

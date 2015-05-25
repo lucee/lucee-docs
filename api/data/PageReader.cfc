@@ -7,6 +7,7 @@ component {
 		var fileContent     = FileRead( arguments.filePath );
 		var data            = _parsePage( fileContent );
 		var sortOrder       = "";
+		var docsBase        = ExpandPath( "/docs" );
 
 		if ( ListLen( slug, "." ) > 1 && IsNumeric( ListFirst( slug, "." ) ) ) {
 			sortOrder    = ListFirst( slug, "." );
@@ -14,10 +15,12 @@ component {
 			data.visible = true;
 		}
 
-		data.visible   = data.visible   ?: false;
-		data.pageType  = data.pageType  ?: defaultPageType;
-		data.slug      = data.slug      ?: slug;
-		data.sortOrder = data.sortOrder ?: sortOrder;
+		data.visible    = data.visible   ?: false;
+		data.pageType   = data.pageType  ?: defaultPageType;
+		data.slug       = data.slug      ?: slug;
+		data.sortOrder  = data.sortOrder ?: sortOrder;
+		data.sourceFile = "/docs" & Replace( arguments.filePath, docsBase, "" );
+		data.sourceDir  = "/docs" & Replace( fileDirectory     , docsBase, "" );
 
 		return data;
 	}

@@ -68,7 +68,7 @@ component accessors=true {
 		} );
 		builder.injectMethod( "renderTemplate", function( required string template, struct args={} ){
 			var renderer = new api.rendering.TemplateRenderer();
-			var rendered = renderer.render( template=rootPathForRenderer & arguments.template, args=arguments.args );
+			var rendered = renderer.render( argumentCollection=arguments, template=rootPathForRenderer & arguments.template );
 
 			return builder.renderLinks( rendered );
 		} );
