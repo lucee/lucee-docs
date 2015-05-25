@@ -8,7 +8,7 @@
 	<p><strong>Returns:</strong> #fn.getReturnType()#</p>
 
 	<h2>Usage</h2>
-```cfm
+```lucee
 #fn.getUsageSignature()#
 ```
 
