@@ -7,7 +7,7 @@
 <cfoutput><!DOCTYPE html>
 <html>
 	<head>
-		<title>Lucee Documentation :: #args.page.getTitle()#</title>
+		<title>Lucee Documentation :: #HtmlEditFormat( args.page.getTitle() )#</title>
 		<base href="#( repeatString( '../', args.page.getDepth()-1 ) )#">
 
 		<link href="assets/css/base.min.css" rel="stylesheet">
@@ -115,7 +115,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-10 col-lg-push-1">
-							<h1 class="heading">#args.page.getTitle()#</h1>
+							<h1 class="heading">#HtmlEditFormat( args.page.getTitle() )#</h1>
 						</div>
 					</div>
 				</div>

@@ -3,8 +3,6 @@
 <cfset tag = args.page />
 
 <cfoutput>
-	<h1>#HtmlEditFormat( tag.getTitle() )#</h1>
-
 	#markdownToHtml( tag.getBody() )#
 
 	<h2>Usage</h2>

@@ -3,8 +3,6 @@
 <cfset fn = args.page />
 
 <cfoutput>
-	<h1>#fn.getTitle()#</h1>
-
 	#markdownToHtml( fn.getBody() )#
 
 	<p><strong>Returns:</strong> #fn.getReturnType()#</p>

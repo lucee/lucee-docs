@@ -15,8 +15,6 @@
 
 
 <cfoutput>
-	<h1>#category.getTitle()#</h1>
-
 	#markdownToHtml( category.getBody() )#
 
 	<cfif not pages.len()>
