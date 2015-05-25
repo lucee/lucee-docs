@@ -124,7 +124,7 @@
 			<div class="content-inner">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-10 col-lg-push-1">
+						<div class="col-lg-10 col-lg-push-1 body">
 							<div class="tile-wrap">
 								<div class="tile">
 									#args.crumbs#

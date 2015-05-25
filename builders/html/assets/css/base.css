@@ -7712,6 +7712,10 @@ body.el-loading {
   text-decoration: none;
 }
 
+.body {
+  max-width: 900px;
+}
+
 .btn {
   background-color: #ffffff;
   background-image: none;
