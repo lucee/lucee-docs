@@ -17,25 +17,27 @@
 	<cfif !tag.getAttributes().len()>
 		<p><em>This tag does not use any attributes.</em></p>
 	<cfelse>
-		<table class="table table-striped argument-table">
-			<thead>
-				<tr>
-					<th>Attribute</th>
-					<th>Description</th>
-				</tr>
-			</thead>
-			<tbody>
-				<cfloop array="#tag.getAttributes()#" item="attrib" index="i">
+		<div class="table-responsive">
+			<table class="table" title="Attributes">
+				<thead>
 					<tr>
-						<td>
-							#attrib.name#<br>
-							<aside class="light">(#attrib.type#, #( attrib.required ? 'required' : 'optional' )#)</aside>
-						</td>
-						<td>#markdownToHtml( attrib.description ?: "" )#</td>
+						<th>Attribute</th>
+						<th>Description</th>
 					</tr>
-				</cfloop>
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					<cfloop array="#tag.getAttributes()#" item="attrib" index="i">
+						<tr>
+							<td>
+								#attrib.name#<br>
+								<sub>(#attrib.type#, #( attrib.required ? 'required' : 'optional' )#)</sub>
+							</td>
+							<td>#markdownToHtml( attrib.description ?: "" )#</td>
+						</tr>
+					</cfloop>
+				</tbody>
+			</table>
+		</div>
 	</cfif>
 
 	<h2>Examples</h2>

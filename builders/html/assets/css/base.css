@@ -10909,6 +10909,9 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   margin-top: 0;
   margin-bottom: 0;
 }
+.table-responsive .table td > p:first-child {
+  margin-top: 0;
+}
 
 .tile {
   background-color: #ffffff;

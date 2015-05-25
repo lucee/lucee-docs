@@ -44,5 +44,9 @@
 		.table {
 			margin-top: 0;
 			margin-bottom: 0;
+
+			td > p:first-child {
+				margin-top : 0;
+			}
 		}
 	}
