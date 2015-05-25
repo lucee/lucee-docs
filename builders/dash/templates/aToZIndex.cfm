@@ -7,31 +7,24 @@
 	<a class="pull-right" href="#getSourceLink( path=pg.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 	#markdownToHtml( pg.getBody() )#
 
-	<div class="tile-wrap tile-wrap-animation">
+	<div class="row row-clear">
 		<cfloop array="#pg.getChildren()#" index="i" item="child">
 			<cfset slug = child.getSlug() />
 			<cfset firstLetter = slug[1] />
 			<cfif firstLetter != currentLetter>
 				<cfif currentLetter.len()>
-						</div>
+						</ul>
 					</div>
 				</cfif>
-				<div class="tile tile-collapse tile-collapse-full">
-					<div class="tile-toggle" data-target="##function-#LCase( firstLetter )#" data-toggle="tile">
-						<div class="tile-inner">
-							<div class="text-overflow"><strong>#UCase( firstLetter )#</strong></div>
-						</div>
-					</div>
-					<div class="tile-active-show collapse" id="function-#LCase( firstLetter )#">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xx-12">
+					<h2 class="content-sub-heading">#UCase( firstLetter )#</h2>
+					<ul class="nav tile-wrap">
 			</cfif>
 
-			<span class="tile">
-				<div class="tile-inner">
-					<div class="text-overflow">[[#child.getId()#]]</div>
-				</div>
-			</span>
+			<li><a class="tile" href="#child.getId()#.html"><span class="text-overflow">#HtmlEditFormat( child.getTitle() )#</span></a></li>
 
 			<cfset currentLetter = firstLetter />
 		</cfloop>
+		</ul></div>
 	</div>
 </cfoutput>

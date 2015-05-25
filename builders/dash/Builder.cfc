@@ -7,6 +7,7 @@ component extends="builders.html.Builder" {
 		var contentRoot   = docsetRoot & "Contents/";
 		var resourcesRoot = contentRoot & "Resources/";
 		var docsRoot      = resourcesRoot & "Documents/";
+		var ignorePages   = [ "download" ]
 
 
 		if ( !DirectoryExists( arguments.buildDirectory ) ) { DirectoryCreate( arguments.buildDirectory ); }
@@ -19,8 +20,10 @@ component extends="builders.html.Builder" {
 			_setupSqlLite( resourcesRoot );
 
 			for( var page in tree ) {
-				_writePage( page, docsRoot, docTree );
-				_storePageInSqliteDb( page );
+				if ( !ignorePages.find( page.getId() ) ) {
+					_writePage( page, docsRoot, docTree );
+					_storePageInSqliteDb( page );
+				}
 			}
 		} catch ( any e ) {
 			rethrow;
