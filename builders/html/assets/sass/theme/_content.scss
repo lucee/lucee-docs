@@ -69,6 +69,12 @@ h2 {
 	}
 }
 
+.body {
+	h2:first-of-type {
+		margin-top : 0;
+	}
+}
+
 .row-fix {
 	position: relative;
 }

@@ -11407,6 +11407,10 @@ h2 {
   color: #ffc107;
 }
 
+.body h2:first-of-type {
+  margin-top: 0;
+}
+
 .row-fix {
   position: relative;
 }
