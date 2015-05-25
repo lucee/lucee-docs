@@ -30,6 +30,7 @@ component extends="builders.html.Builder" {
 
 		_copyResources( docsetRoot );
 		_renameSqlLiteDb( resourcesRoot );
+		_setupFeedXml( arguments.buildDirectory & "/" );
 	}
 
 	public string function renderLink( any page, required string title ) {
@@ -55,6 +56,7 @@ component extends="builders.html.Builder" {
 	private void function _copyResources( required string rootDir ) {
 		FileCopy( "/builders/dash/resources/Info.plist", arguments.rootDir & "Contents/Info.plist" );
 		FileCopy( "/builders/dash/resources/icon.png", arguments.rootDir & "icon.png" );
+		DirectoryCopy( "/builders/html/assets/css/", arguments.rootDir & "Contents/Resources/Documents/assets/css", true, "*", true );
 	}
 
 	private void function _setupSqlLite( required string rootDir ) {
@@ -83,7 +85,7 @@ component extends="builders.html.Builder" {
 				data = { name=page.getSlug(), type="Function" };
 			break;
 			case "tag":
-				data = { name=page.getSlug(), type="Tag" };
+				data = { name="cf" & page.getSlug(), type="Tag" };
 			break;
 			case "category":
 				data = { name=Replace( page.getTitle(), "'", "''", "all" ), type="Category" };
@@ -92,7 +94,7 @@ component extends="builders.html.Builder" {
 				data = { name=Replace( page.getTitle(), "'", "''", "all" ), type="Guide" };
 		}
 
-		data.path = ReReplace( page.getPath(), "^/", "" ) & ".html";
+		data.path = page.getId() & ".html";
 
 		sqlite.executeSql( dbFile, "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('#data.name#', '#data.type#', '#data.path#')", false, dbConnection );
 
@@ -109,5 +111,16 @@ component extends="builders.html.Builder" {
 
 	private void function _renameSqlLiteDb( required string rootDir ) {
 		FileMove( rootDir & "docSet.db", rootDir & "docSet.dsidx" );
+	}
+
+	private void function _setupFeedXml( required string rootDir ) {
+		var feedXml = FileRead( "/builders/dash/resources/feed.xml" );
+		var buildProps = new api.build.BuildProperties();
+
+		feedXml = Replace( feedXml, "{url}"    , buildProps.getDashDownloadUrl(), "all" );
+		feedXml = Replace( feedXml, "{version}", buildProps.getDashBuildNumber(), "all" );
+
+		FileWrite( arguments.rootDir & "Lucee.xml", feedXml );
+
 	}
 }
