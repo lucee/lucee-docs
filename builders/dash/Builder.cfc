@@ -120,7 +120,7 @@ component extends="builders.html.Builder" {
 		feedXml = Replace( feedXml, "{url}"    , buildProps.getDashDownloadUrl(), "all" );
 		feedXml = Replace( feedXml, "{version}", buildProps.getDashBuildNumber(), "all" );
 
-		FileWrite( arguments.rootDir & "Lucee.xml", feedXml );
+		FileWrite( arguments.rootDir & "lucee.xml", feedXml );
 
 	}
 }

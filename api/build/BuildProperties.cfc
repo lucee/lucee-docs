@@ -16,5 +16,5 @@ component accessors=true {
 	property name="tagReferenceUrl"      default="#cwd#taglib.xml";
 	property name="editSourceLink"       default="https://bitbucket.org/lucee/documentation/src/master{path}";
 	property name="dashBuildNumber"      default="1.0.0";
-	property name="dashDownloadUrl"      default="http://docs.lucee.org/dash/Lucee.tgz";
+	property name="dashDownloadUrl"      default="http://docs.lucee.org/dash/lucee.tgz";
 }
