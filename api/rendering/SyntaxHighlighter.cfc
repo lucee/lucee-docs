@@ -19,10 +19,10 @@ component {
 		var highlighter = CreateObject( 'java', 'com.dominicwatson.pyginblankets.PygmentsWrapper', jars );
 
 		if ( arguments.language == "luceescript" ) {
-			arguments.language = "java"; // they're close enough for this alias to work well (while there is no official pygments lexer for lucee)
+			arguments.language = "cfs";
 		}
 		if ( arguments.language == "lucee" ) {
-			arguments.language = "cfm"; // they're close enough for this alias to work well (while there is no official pygments lexer for lucee)
+			arguments.language = "cfm";
 		}
 
 		return highlighter.highlight( arguments.code, arguments.language, false );
