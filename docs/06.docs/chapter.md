@@ -3,8 +3,6 @@ title: About the docs
 id: about
 ---
 
-# About the documentation
-
 ## Mission statement
 
 Good documentation is at the heart of all successful open source projects. With this platform, we aim to:

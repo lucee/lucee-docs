@@ -3,8 +3,6 @@ title: Reference pages
 id: docs-reference-pages
 ---
 
-# Reference pages
-
 Pages that document [[functions]] and [[tags]] are a little more involved than standard documentation page types. They still use the same basic [[docs-structure|page tree system]] but pull in extra information from Lucee source code and make use of multiple markdown files to produce the final output.
 
 >>>>>> Folders and markdown files that begin with an underscore, `_`, are ignored by the documentation tree builder and are used to supplement various page types such as function and tag reference pages.
