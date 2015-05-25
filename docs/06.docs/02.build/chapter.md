@@ -3,10 +3,6 @@ title: Build
 id: docs-build
 ---
 
-# Building the documentation
-
->>> The commands listed here are all **bash** scripts and there is currently no batch file equivalent for Windows. We hope to remedy this soon; however, if you are running Windows, it should be fairly trivial to copy and adapt what is found in the `.sh` file into a `.bat` file.
-
 ## Prerequisites
 
 The only dependency required is [CommandBox](http://www.ortussolutions.com/products/commandbox). Ensure that commandbox is installed and that the `box` command is in your path.
