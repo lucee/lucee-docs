@@ -11293,6 +11293,20 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   text-transform: uppercase;
 }
 
+.twitter-typeahead {
+  display: block !important;
+}
+.twitter-typeahead .tt-menu {
+  margin-top: 24px;
+  width: 100%;
+}
+.twitter-typeahead .tt-menu .tt-suggestion {
+  padding: 3px;
+}
+.twitter-typeahead .tt-menu .tt-cursor {
+  background-color: #bbdefb;
+}
+
 .content {
   padding-bottom: 24px;
 }

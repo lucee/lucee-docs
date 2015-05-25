@@ -97,21 +97,18 @@
 				</li>
 			</ul>
 		</header>
-		<form class="menu menu-right menu-search" id="search">
+		<div class="menu menu-right menu-search" id="search">
 			<div class="menu-scroll">
 				<div class="menu-wrap">
 					<div class="menu-content">
 						<div class="menu-content-inner">
-							<label class="access-hide" for="menu-search">Search</label>
-							<input class="form-control form-control-lg menu-search-focus" id="menu-search" placeholder="Search" type="search">
-							<button class="access-hide" type="submit">Search</button>
-							<div class="p">
-							</div>
+							<label class="access-hide" for="lucee-docs-search-input">Search</label>
+							<input class="form-control form-control-lg menu-search-focus" id="lucee-docs-search-input" placeholder="Search" type="search">
 						</div>
 					</div>
 				</div>
 			</div>
-		</form>
+		</div>
 
 		<div class="content">
 			<div class="content-heading">
