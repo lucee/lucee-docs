@@ -6,7 +6,7 @@
 	#markdownToHtml( tag.getBody() )#
 
 	<h2>Usage</h2>
-```cfm
+```lucee
 #tag.getUsageSignature()#
 ```
 
