@@ -238,7 +238,7 @@ body.el-loading {
 	overflow: hidden;
 }
 
-.p {
+.para {
 	display: block;
 	margin-top: $line-height;
 	margin-bottom: $line-height;
@@ -318,7 +318,7 @@ body.el-loading {
 
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.text-#{$color} {
 			color: nth($palette-color, $i);
 		}

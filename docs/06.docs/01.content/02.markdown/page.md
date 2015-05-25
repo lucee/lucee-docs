@@ -11,10 +11,10 @@ On top of this base layer, the Lucee Documentation system processes its own spec
 
 Syntax highlighted code blocks start and end with three backticks on their own line with an optional lexer after the first set of ticks. 
 
-For example, a code block using a 'lucee' lexer, would look like this:
+For example, a code block using a 'luceescript' lexer, would look like this:
 
 <pre>
-```lucee
+```luceescript
 x = y;
 WriteOutput( x );
 ```
@@ -29,7 +29,7 @@ WriteOutput( x );
 ```
 </pre>
 
->>> For a complete list of available lexers, see the [Pygments website](http://pygments.org/docs/lexers/). We have added a 'lucee' alias in anticipation of an official lexer at some point in the future.
+>>> We have implemented two lexers for Lucee, `lucee` and `luceescript`. The former is used for tag based code, the latter, script based. For a complete list of available lexers, see the [Pygments website](http://pygments.org/docs/lexers/).
 
 ## Cross referencing
 

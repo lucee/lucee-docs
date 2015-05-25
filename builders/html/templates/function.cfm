@@ -9,7 +9,7 @@
 	<p><strong>Returns:</strong> #fn.getReturnType()#</p>
 
 	<h2>Usage</h2>
-```lucee
+```luceescript
 #fn.getUsageSignature()#
 ```
 

@@ -18,8 +18,11 @@ component {
 		var jars        = [ "../lib/pyg-in-blankets-1.0-SNAPSHOT-jar-with-dependencies.jar" ];
 		var highlighter = CreateObject( 'java', 'com.dominicwatson.pyginblankets.PygmentsWrapper', jars );
 
-		if ( arguments.language == "lucee" ) {
+		if ( arguments.language == "luceescript" ) {
 			arguments.language = "java"; // they're close enough for this alias to work well (while there is no official pygments lexer for lucee)
+		}
+		if ( arguments.language == "lucee" ) {
+			arguments.language = "cfm"; // they're close enough for this alias to work well (while there is no official pygments lexer for lucee)
 		}
 
 		return highlighter.highlight( arguments.code, arguments.language, false );
