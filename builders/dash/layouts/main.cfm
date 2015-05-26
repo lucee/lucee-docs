@@ -61,6 +61,7 @@
 								</div>
 							</div>
 							#args.body#
+							#args.seeAlso#
 						</div>
 					</div>
 				</div>
