@@ -15,7 +15,11 @@
 
 	<h2>Arguments</h2>
 	<cfif !fn.getArguments().len()>
-		<p><em>This function does not take any arguments.</em></p>
+		<cfif fn.getArgumentType() == "dynamic">
+			<p><em>This function takes zero or more dynamic arguments. See examples for details.</em></p>
+		<cfelse>
+			<p><em>This function does not take any arguments.</em></p>
+		</cfif>
 	<cfelse>
 		<div class="table-responsive">
 			<table class="table" title="Arguments">
