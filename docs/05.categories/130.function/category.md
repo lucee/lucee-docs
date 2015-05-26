@@ -1,5 +1,5 @@
 ---
-title: 'Category: Function'
+title: 'Function'
 id: category-function
 related:
 ---

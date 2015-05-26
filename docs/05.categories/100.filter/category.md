@@ -1,5 +1,5 @@
 ---
-title: 'Category: Filter'
+title: 'Filter'
 id: category-filter
 related:
 ---

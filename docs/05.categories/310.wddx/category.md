@@ -1,5 +1,5 @@
 ---
-title: 'Category: Wddx'
+title: 'Wddx'
 id: category-wddx
 related:
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'Category: Image'
+title: 'Image'
 id: category-image
 related:
 ---

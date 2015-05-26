@@ -1,5 +1,5 @@
 ---
-title: 'Category: Currency'
+title: 'Currency'
 id: category-currency
 related:
 ---

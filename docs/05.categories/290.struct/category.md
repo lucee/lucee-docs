@@ -1,5 +1,5 @@
 ---
-title: 'Category: Struct'
+title: 'Struct'
 id: category-struct
 related:
 ---

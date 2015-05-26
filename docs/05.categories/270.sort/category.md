@@ -1,5 +1,5 @@
 ---
-title: 'Category: Sort'
+title: 'Sort'
 id: category-sort
 related:
 ---

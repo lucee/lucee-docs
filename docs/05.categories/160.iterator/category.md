@@ -1,5 +1,5 @@
 ---
-title: 'Category: Iterator'
+title: 'Iterator'
 id: category-iterator
 related:
 ---

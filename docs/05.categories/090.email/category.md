@@ -1,5 +1,5 @@
 ---
-title: 'Category: Email'
+title: 'Email'
 id: category-email
 related:
 ---

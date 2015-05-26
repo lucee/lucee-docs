@@ -1,5 +1,5 @@
 ---
-title: 'Category: Query'
+title: 'Query'
 id: category-query
 related:
 ---

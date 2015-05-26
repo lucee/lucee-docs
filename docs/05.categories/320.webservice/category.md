@@ -1,5 +1,5 @@
 ---
-title: 'Category: Webservice'
+title: 'Webservice'
 id: category-webservice
 related:
 ---

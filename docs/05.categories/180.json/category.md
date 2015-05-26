@@ -1,5 +1,5 @@
 ---
-title: 'Category: Json'
+title: 'Json'
 id: category-json
 related:
 ---

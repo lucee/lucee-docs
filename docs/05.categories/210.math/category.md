@@ -1,5 +1,5 @@
 ---
-title: 'Category: Math'
+title: 'Math'
 id: category-math
 related:
 ---

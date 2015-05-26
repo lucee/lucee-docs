@@ -1,5 +1,5 @@
 ---
-title: 'Category: String'
+title: 'String'
 id: category-string
 related:
 ---

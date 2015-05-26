@@ -1,5 +1,5 @@
 ---
-title: 'Category: Zip'
+title: 'Zip'
 id: category-zip
 related:
 ---

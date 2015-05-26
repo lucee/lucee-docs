@@ -1,5 +1,5 @@
 ---
-title: 'Category: Ajax'
+title: 'Ajax'
 id: category-ajax
 related:
 ---

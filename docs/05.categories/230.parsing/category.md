@@ -1,5 +1,5 @@
 ---
-title: 'Category: Parsing'
+title: 'Parsing'
 id: category-parsing
 related:
 ---

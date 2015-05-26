@@ -1,5 +1,5 @@
 ---
-title: 'Category: Regex'
+title: 'Regex'
 id: category-regex
 related:
 ---

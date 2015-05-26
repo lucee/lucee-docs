@@ -1,5 +1,5 @@
 ---
-title: 'Category: Component'
+title: 'Component'
 id: category-component
 related:
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'Category: Array'
+title: 'Array'
 id: category-array
 related:
 ---

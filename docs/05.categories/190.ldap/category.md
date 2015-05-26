@@ -1,5 +1,5 @@
 ---
-title: 'Category: Ldap'
+title: 'Ldap'
 id: category-ldap
 related:
 ---

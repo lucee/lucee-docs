@@ -1,5 +1,5 @@
 ---
-title: 'Category: Binary'
+title: 'Binary'
 id: category-binary
 related:
 ---

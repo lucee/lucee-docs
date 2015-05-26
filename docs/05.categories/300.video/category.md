@@ -1,5 +1,5 @@
 ---
-title: 'Category: Video'
+title: 'Video'
 id: category-video
 related:
 ---

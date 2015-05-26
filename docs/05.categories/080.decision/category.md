@@ -1,5 +1,5 @@
 ---
-title: 'Category: Decision'
+title: 'Decision'
 id: category-decision
 related:
 ---

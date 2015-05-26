@@ -1,5 +1,5 @@
 ---
-title: 'Category: Javascript'
+title: 'Javascript'
 id: category-javascript
 related:
 ---

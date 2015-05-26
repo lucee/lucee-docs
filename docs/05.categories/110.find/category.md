@@ -1,5 +1,5 @@
 ---
-title: 'Category: Find'
+title: 'Find'
 id: category-find
 related:
 ---

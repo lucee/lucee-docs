@@ -1,5 +1,5 @@
 ---
-title: 'Category: Boolean'
+title: 'Boolean'
 id: category-boolean
 related:
 ---
