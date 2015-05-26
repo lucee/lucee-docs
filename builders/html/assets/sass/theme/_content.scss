@@ -55,18 +55,8 @@
 	}
 }
 
-h2 {
+h2, h3, h4, h5, h6 {
 	color: $brand-color;
-	font-size: $font-size-h4;
-	font-weight: 400;
-	line-height: $line-height-h4;
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
-
-		.page-#{$color} & {
-			color: nth($palette-color, $i);
-		}
-	}
 }
 
 .body {
