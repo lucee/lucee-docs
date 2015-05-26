@@ -1,5 +1,5 @@
 ---
-title: listFilter
+title: ListFilter
 id: function-listfilter
 related:
 categories:

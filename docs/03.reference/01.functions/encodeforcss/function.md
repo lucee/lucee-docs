@@ -1,5 +1,5 @@
 ---
-title: encodeForCSS
+title: EncodeForCSS
 id: function-encodeforcss
 related:
 categories:

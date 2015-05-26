@@ -1,5 +1,5 @@
 ---
-title: xmlSearch
+title: XmlSearch
 id: function-xmlsearch
 related:
 categories:

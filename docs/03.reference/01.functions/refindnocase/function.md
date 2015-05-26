@@ -1,5 +1,5 @@
 ---
-title: rEFindNoCase
+title: REFindNoCase
 id: function-refindnocase
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: removeChars
+title: RemoveChars
 id: function-removechars
 related:
 categories:

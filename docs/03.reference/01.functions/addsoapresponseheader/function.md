@@ -1,5 +1,5 @@
 ---
-title: addSOAPResponseHeader
+title: AddSOAPResponseHeader
 id: function-addsoapresponseheader
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: arrayDeleteAt
+title: ArrayDeleteAt
 id: function-arraydeleteat
 related:
 categories:

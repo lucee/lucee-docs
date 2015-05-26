@@ -1,5 +1,5 @@
 ---
-title: arrayToStruct
+title: ArrayToStruct
 id: function-arraytostruct
 related:
 categories:

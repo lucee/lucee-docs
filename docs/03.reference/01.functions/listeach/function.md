@@ -1,5 +1,5 @@
 ---
-title: listEach
+title: ListEach
 id: function-listeach
 related:
 categories:

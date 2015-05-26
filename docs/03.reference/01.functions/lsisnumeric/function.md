@@ -1,5 +1,5 @@
 ---
-title: lSIsNumeric
+title: LSIsNumeric
 id: function-lsisnumeric
 related:
 categories:

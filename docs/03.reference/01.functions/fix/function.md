@@ -1,5 +1,5 @@
 ---
-title: fix
+title: Fix
 id: function-fix
 related:
 categories:

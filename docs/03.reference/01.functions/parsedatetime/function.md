@@ -1,5 +1,5 @@
 ---
-title: parseDateTime
+title: ParseDateTime
 id: function-parsedatetime
 related:
 categories:

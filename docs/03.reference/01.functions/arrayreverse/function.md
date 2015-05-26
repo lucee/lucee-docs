@@ -1,5 +1,5 @@
 ---
-title: arrayReverse
+title: ArrayReverse
 id: function-arrayreverse
 related:
 categories:

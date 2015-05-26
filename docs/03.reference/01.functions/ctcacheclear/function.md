@@ -1,5 +1,5 @@
 ---
-title: ctCacheClear
+title: CtCacheClear
 id: function-ctcacheclear
 related:
 categories:

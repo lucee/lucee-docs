@@ -1,5 +1,5 @@
 ---
-title: rTrim
+title: RTrim
 id: function-rtrim
 related:
 categories:

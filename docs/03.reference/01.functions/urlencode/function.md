@@ -1,5 +1,5 @@
 ---
-title: uRLEncode
+title: URLEncode
 id: function-urlencode
 related:
 categories:

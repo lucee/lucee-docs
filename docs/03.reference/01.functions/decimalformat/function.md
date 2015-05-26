@@ -1,5 +1,5 @@
 ---
-title: decimalFormat
+title: DecimalFormat
 id: function-decimalformat
 related:
 categories:

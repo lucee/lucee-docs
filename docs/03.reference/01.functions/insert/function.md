@@ -1,5 +1,5 @@
 ---
-title: insert
+title: Insert
 id: function-insert
 related:
 categories:

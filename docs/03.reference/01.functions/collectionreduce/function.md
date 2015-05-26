@@ -1,5 +1,5 @@
 ---
-title: collectionReduce
+title: CollectionReduce
 id: function-collectionreduce
 related:
 categories:

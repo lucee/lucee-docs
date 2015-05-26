@@ -1,5 +1,5 @@
 ---
-title: lsweek
+title: Lsweek
 id: function-lsweek
 related:
 categories:

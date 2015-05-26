@@ -1,5 +1,5 @@
 ---
-title: expandPath
+title: ExpandPath
 id: function-expandpath
 related:
 categories:

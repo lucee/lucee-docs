@@ -1,5 +1,5 @@
 ---
-title: createDateTime
+title: CreateDateTime
 id: function-createdatetime
 related:
 categories:

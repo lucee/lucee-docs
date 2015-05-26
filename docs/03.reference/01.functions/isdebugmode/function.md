@@ -1,5 +1,5 @@
 ---
-title: isDebugMode
+title: IsDebugMode
 id: function-isdebugmode
 related:
 categories:

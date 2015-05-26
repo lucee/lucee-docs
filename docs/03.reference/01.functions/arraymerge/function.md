@@ -1,5 +1,5 @@
 ---
-title: arrayMerge
+title: ArrayMerge
 id: function-arraymerge
 related:
 categories:

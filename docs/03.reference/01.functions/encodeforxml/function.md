@@ -1,5 +1,5 @@
 ---
-title: encodeForXML
+title: EncodeForXML
 id: function-encodeforxml
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: metaphone
+title: Metaphone
 id: function-metaphone
 related:
 categories:

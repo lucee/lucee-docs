@@ -1,5 +1,5 @@
 ---
-title: evaluate
+title: Evaluate
 id: function-evaluate
 related:
 categories:

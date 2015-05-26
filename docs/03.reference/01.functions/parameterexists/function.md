@@ -1,5 +1,5 @@
 ---
-title: parameterExists
+title: ParameterExists
 id: function-parameterexists
 related:
 categories:

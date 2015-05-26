@@ -1,5 +1,5 @@
 ---
-title: structGet
+title: StructGet
 id: function-structget
 related:
 categories:

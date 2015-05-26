@@ -1,5 +1,5 @@
 ---
-title: lSParseDateTime
+title: LSParseDateTime
 id: function-lsparsedatetime
 related:
 categories:

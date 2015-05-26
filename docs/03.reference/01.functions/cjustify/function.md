@@ -1,5 +1,5 @@
 ---
-title: cJustify
+title: CJustify
 id: function-cjustify
 related:
 categories:

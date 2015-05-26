@@ -1,5 +1,5 @@
 ---
-title: querySetCell
+title: QuerySetCell
 id: function-querysetcell
 related:
 categories:

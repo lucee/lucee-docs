@@ -1,5 +1,5 @@
 ---
-title: getTempDirectory
+title: GetTempDirectory
 id: function-gettempdirectory
 related:
 categories:

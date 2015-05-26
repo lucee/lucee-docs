@@ -1,5 +1,5 @@
 ---
-title: valueList
+title: ValueList
 id: function-valuelist
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: asc
+title: Asc
 id: function-asc
 related:
 categories:

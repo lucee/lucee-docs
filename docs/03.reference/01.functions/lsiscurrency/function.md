@@ -1,5 +1,5 @@
 ---
-title: lSIsCurrency
+title: LSIsCurrency
 id: function-lsiscurrency
 related:
 categories:

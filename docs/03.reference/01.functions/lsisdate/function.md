@@ -1,5 +1,5 @@
 ---
-title: lSIsDate
+title: LSIsDate
 id: function-lsisdate
 related:
 categories:

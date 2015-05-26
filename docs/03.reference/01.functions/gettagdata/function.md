@@ -1,5 +1,5 @@
 ---
-title: getTagData
+title: GetTagData
 id: function-gettagdata
 related:
 categories:

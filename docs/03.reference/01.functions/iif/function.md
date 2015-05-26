@@ -1,5 +1,5 @@
 ---
-title: iIf
+title: IIf
 id: function-iif
 related:
 categories:

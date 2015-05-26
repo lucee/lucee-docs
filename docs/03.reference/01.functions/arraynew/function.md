@@ -1,5 +1,5 @@
 ---
-title: arrayNew
+title: ArrayNew
 id: function-arraynew
 related:
 categories:

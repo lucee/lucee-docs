@@ -1,5 +1,5 @@
 ---
-title: structDelete
+title: StructDelete
 id: function-structdelete
 related:
 categories:

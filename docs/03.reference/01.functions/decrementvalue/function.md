@@ -1,5 +1,5 @@
 ---
-title: decrementValue
+title: DecrementValue
 id: function-decrementvalue
 related:
 categories:

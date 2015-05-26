@@ -1,5 +1,5 @@
 ---
-title: arrayFindAll
+title: ArrayFindAll
 id: function-arrayfindall
 related:
 categories:

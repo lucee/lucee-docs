@@ -1,5 +1,5 @@
 ---
-title: getDirectoryFromPath
+title: GetDirectoryFromPath
 id: function-getdirectoryfrompath
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: arrayResize
+title: ArrayResize
 id: function-arrayresize
 related:
 categories:

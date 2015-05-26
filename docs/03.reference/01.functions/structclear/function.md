@@ -1,5 +1,5 @@
 ---
-title: structClear
+title: StructClear
 id: function-structclear
 related:
 categories:

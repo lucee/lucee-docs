@@ -1,5 +1,5 @@
 ---
-title: dayOfWeek
+title: DayOfWeek
 id: function-dayofweek
 related:
 categories:

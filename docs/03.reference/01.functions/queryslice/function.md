@@ -1,5 +1,5 @@
 ---
-title: querySlice
+title: QuerySlice
 id: function-queryslice
 related:
 categories:

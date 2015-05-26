@@ -1,5 +1,5 @@
 ---
-title: getClientVariablesList
+title: GetClientVariablesList
 id: function-getclientvariableslist
 related:
 categories:

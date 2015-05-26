@@ -1,5 +1,5 @@
 ---
-title: getFileFromPath
+title: GetFileFromPath
 id: function-getfilefrompath
 related:
 categories:

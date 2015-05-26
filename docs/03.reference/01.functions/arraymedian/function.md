@@ -1,5 +1,5 @@
 ---
-title: arrayMedian
+title: ArrayMedian
 id: function-arraymedian
 related:
 categories:

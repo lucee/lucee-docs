@@ -1,5 +1,5 @@
 ---
-title: minute
+title: Minute
 id: function-minute
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: pagePoolClear
+title: PagePoolClear
 id: function-pagepoolclear
 related:
 categories:

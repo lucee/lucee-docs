@@ -1,5 +1,5 @@
 ---
-title: decodeFromURL
+title: DecodeFromURL
 id: function-decodefromurl
 related:
 categories:

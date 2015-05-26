@@ -1,5 +1,5 @@
 ---
-title: isBoolean
+title: IsBoolean
 id: function-isboolean
 related:
 categories:

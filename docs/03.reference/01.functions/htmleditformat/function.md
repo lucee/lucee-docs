@@ -1,5 +1,5 @@
 ---
-title: hTMLEditFormat
+title: HTMLEditFormat
 id: function-htmleditformat
 related:
 categories:

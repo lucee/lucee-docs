@@ -1,5 +1,5 @@
 ---
-title: isStruct
+title: IsStruct
 id: function-isstruct
 related:
 categories:

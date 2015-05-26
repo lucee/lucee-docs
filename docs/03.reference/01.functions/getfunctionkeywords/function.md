@@ -1,5 +1,5 @@
 ---
-title: getFunctionKeywords
+title: GetFunctionKeywords
 id: function-getfunctionkeywords
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: bitNot
+title: BitNot
 id: function-bitnot
 related:
 categories:

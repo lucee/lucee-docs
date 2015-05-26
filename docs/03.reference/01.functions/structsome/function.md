@@ -1,5 +1,5 @@
 ---
-title: structSome
+title: StructSome
 id: function-structsome
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: binaryDecode
+title: BinaryDecode
 id: function-binarydecode
 related:
 categories:

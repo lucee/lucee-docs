@@ -1,5 +1,5 @@
 ---
-title: lCase
+title: LCase
 id: function-lcase
 related:
 categories:

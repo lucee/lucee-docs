@@ -1,5 +1,5 @@
 ---
-title: componentInfo
+title: ComponentInfo
 id: function-componentinfo
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: lSTimeFormat
+title: LSTimeFormat
 id: function-lstimeformat
 related:
 categories:

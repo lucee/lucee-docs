@@ -1,5 +1,5 @@
 ---
-title: cfusion_decrypt
+title: Cfusion_decrypt
 id: function-cfusion_decrypt
 related:
 categories:

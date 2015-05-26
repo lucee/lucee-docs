@@ -1,5 +1,5 @@
 ---
-title: arrayMid
+title: ArrayMid
 id: function-arraymid
 related:
 categories:

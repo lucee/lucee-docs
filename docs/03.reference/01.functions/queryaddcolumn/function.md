@@ -1,5 +1,5 @@
 ---
-title: queryAddColumn
+title: QueryAddColumn
 id: function-queryaddcolumn
 related:
 categories:

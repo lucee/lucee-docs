@@ -1,5 +1,5 @@
 ---
-title: queryEvery
+title: QueryEvery
 id: function-queryevery
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: dollarFormat
+title: DollarFormat
 id: function-dollarformat
 related:
 categories:

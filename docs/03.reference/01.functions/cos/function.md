@@ -1,5 +1,5 @@
 ---
-title: cos
+title: Cos
 id: function-cos
 related:
 categories:

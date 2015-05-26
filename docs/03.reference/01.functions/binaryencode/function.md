@@ -1,5 +1,5 @@
 ---
-title: binaryEncode
+title: BinaryEncode
 id: function-binaryencode
 related:
 categories:

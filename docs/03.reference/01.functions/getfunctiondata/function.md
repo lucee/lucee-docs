@@ -1,5 +1,5 @@
 ---
-title: getFunctionData
+title: GetFunctionData
 id: function-getfunctiondata
 related:
 categories:

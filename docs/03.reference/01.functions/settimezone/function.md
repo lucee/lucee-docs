@@ -1,5 +1,5 @@
 ---
-title: setTimeZone
+title: SetTimeZone
 id: function-settimezone
 related:
 categories:

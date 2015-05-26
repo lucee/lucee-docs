@@ -1,5 +1,5 @@
 ---
-title: createGUID
+title: CreateGUID
 id: function-createguid
 related:
 categories:

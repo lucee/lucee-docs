@@ -1,5 +1,5 @@
 ---
-title: hash40
+title: Hash40
 id: function-hash40
 related:
 categories:

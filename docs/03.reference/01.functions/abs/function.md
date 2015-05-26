@@ -1,5 +1,5 @@
 ---
-title: abs
+title: Abs
 id: function-abs
 related:
 categories:

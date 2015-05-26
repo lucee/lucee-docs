@@ -1,5 +1,5 @@
 ---
-title: isLocalHost
+title: IsLocalHost
 id: function-islocalhost
 related:
 categories:

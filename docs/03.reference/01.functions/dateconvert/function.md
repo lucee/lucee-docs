@@ -1,5 +1,5 @@
 ---
-title: dateConvert
+title: DateConvert
 id: function-dateconvert
 related:
 categories:

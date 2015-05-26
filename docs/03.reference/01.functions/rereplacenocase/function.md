@@ -1,5 +1,5 @@
 ---
-title: rEReplaceNoCase
+title: REReplaceNoCase
 id: function-rereplacenocase
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: isBinary
+title: IsBinary
 id: function-isbinary
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: rJustify
+title: RJustify
 id: function-rjustify
 related:
 categories:

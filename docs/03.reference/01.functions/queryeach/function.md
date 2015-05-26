@@ -1,5 +1,5 @@
 ---
-title: queryEach
+title: QueryEach
 id: function-queryeach
 related:
 categories:

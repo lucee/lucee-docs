@@ -1,5 +1,5 @@
 ---
-title: arraySome
+title: ArraySome
 id: function-arraysome
 related:
 categories:

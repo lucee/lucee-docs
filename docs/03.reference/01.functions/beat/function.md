@@ -1,5 +1,5 @@
 ---
-title: beat
+title: Beat
 id: function-beat
 related:
 categories:

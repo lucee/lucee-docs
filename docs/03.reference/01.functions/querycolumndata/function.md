@@ -1,5 +1,5 @@
 ---
-title: queryColumnData
+title: QueryColumnData
 id: function-querycolumndata
 related:
 categories:

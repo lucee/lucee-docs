@@ -1,5 +1,5 @@
 ---
-title: encodeForLDAP
+title: EncodeForLDAP
 id: function-encodeforldap
 related:
 categories:

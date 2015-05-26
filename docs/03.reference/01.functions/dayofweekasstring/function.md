@@ -1,5 +1,5 @@
 ---
-title: dayOfWeekAsString
+title: DayOfWeekAsString
 id: function-dayofweekasstring
 related:
 categories:

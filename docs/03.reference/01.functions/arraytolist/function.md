@@ -1,5 +1,5 @@
 ---
-title: arrayToList
+title: ArrayToList
 id: function-arraytolist
 related:
 categories:

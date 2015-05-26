@@ -1,5 +1,5 @@
 ---
-title: isXML
+title: IsXML
 id: function-isxml
 related:
 categories:

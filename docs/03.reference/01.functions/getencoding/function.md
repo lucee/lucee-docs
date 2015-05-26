@@ -1,5 +1,5 @@
 ---
-title: getEncoding
+title: GetEncoding
 id: function-getencoding
 related:
 categories:

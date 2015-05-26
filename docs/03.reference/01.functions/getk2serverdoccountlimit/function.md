@@ -1,5 +1,5 @@
 ---
-title: getK2ServerDocCountLimit
+title: GetK2ServerDocCountLimit
 id: function-getk2serverdoccountlimit
 related:
 categories:

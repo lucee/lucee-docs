@@ -1,5 +1,5 @@
 ---
-title: getK2ServerDocCount
+title: GetK2ServerDocCount
 id: function-getk2serverdoccount
 related:
 categories:

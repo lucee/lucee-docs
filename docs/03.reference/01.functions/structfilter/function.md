@@ -1,5 +1,5 @@
 ---
-title: structFilter
+title: StructFilter
 id: function-structfilter
 related:
 categories:

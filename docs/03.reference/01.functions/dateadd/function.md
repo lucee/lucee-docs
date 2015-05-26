@@ -1,5 +1,5 @@
 ---
-title: dateAdd
+title: DateAdd
 id: function-dateadd
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: structCopy
+title: StructCopy
 id: function-structcopy
 related:
 categories:

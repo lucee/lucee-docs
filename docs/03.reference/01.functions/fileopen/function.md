@@ -1,5 +1,5 @@
 ---
-title: fileOpen
+title: FileOpen
 id: function-fileopen
 related:
 categories:

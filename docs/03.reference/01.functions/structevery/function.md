@@ -1,5 +1,5 @@
 ---
-title: structEvery
+title: StructEvery
 id: function-structevery
 related:
 categories:

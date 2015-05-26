@@ -1,5 +1,5 @@
 ---
-title: timeFormat
+title: TimeFormat
 id: function-timeformat
 related:
 categories:

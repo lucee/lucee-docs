@@ -1,5 +1,5 @@
 ---
-title: getTempFile
+title: GetTempFile
 id: function-gettempfile
 related:
 categories:

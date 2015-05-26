@@ -1,5 +1,5 @@
 ---
-title: createODBCDate
+title: CreateODBCDate
 id: function-createodbcdate
 related:
 categories:

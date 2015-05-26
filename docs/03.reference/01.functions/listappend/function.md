@@ -1,5 +1,5 @@
 ---
-title: listAppend
+title: ListAppend
 id: function-listappend
 related:
 categories:

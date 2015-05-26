@@ -1,5 +1,5 @@
 ---
-title: compare
+title: Compare
 id: function-compare
 related:
 categories:

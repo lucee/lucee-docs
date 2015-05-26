@@ -1,5 +1,5 @@
 ---
-title: listQualify
+title: ListQualify
 id: function-listqualify
 related:
 categories:

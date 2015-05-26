@@ -1,5 +1,5 @@
 ---
-title: listTrim
+title: ListTrim
 id: function-listtrim
 related:
 categories:

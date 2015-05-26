@@ -1,5 +1,5 @@
 ---
-title: isNumeric
+title: IsNumeric
 id: function-isnumeric
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: compress
+title: Compress
 id: function-compress
 related:
 categories:

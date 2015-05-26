@@ -1,5 +1,5 @@
 ---
-title: fileReadLine
+title: FileReadLine
 id: function-filereadline
 related:
 categories:

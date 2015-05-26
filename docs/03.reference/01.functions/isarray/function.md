@@ -1,5 +1,5 @@
 ---
-title: isArray
+title: IsArray
 id: function-isarray
 related:
 categories:

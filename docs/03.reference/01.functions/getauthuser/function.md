@@ -1,5 +1,5 @@
 ---
-title: getAuthUser
+title: GetAuthUser
 id: function-getauthuser
 related:
 categories:

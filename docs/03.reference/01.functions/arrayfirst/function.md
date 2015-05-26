@@ -1,5 +1,5 @@
 ---
-title: arrayFirst
+title: ArrayFirst
 id: function-arrayfirst
 related:
 categories:

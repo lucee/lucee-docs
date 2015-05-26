@@ -1,5 +1,5 @@
 ---
-title: daysInYear
+title: DaysInYear
 id: function-daysinyear
 related:
 categories:

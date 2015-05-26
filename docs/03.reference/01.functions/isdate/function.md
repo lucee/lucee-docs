@@ -1,5 +1,5 @@
 ---
-title: isDate
+title: IsDate
 id: function-isdate
 related:
 categories:

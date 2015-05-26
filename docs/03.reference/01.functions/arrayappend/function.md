@@ -1,5 +1,5 @@
 ---
-title: arrayAppend
+title: ArrayAppend
 id: function-arrayappend
 related:
 categories:

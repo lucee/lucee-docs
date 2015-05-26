@@ -1,5 +1,5 @@
 ---
-title: arrayLast
+title: ArrayLast
 id: function-arraylast
 related:
 categories:

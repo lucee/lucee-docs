@@ -1,5 +1,5 @@
 ---
-title: isNumericDate
+title: IsNumericDate
 id: function-isnumericdate
 related:
 categories:

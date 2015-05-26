@@ -1,5 +1,5 @@
 ---
-title: queryFilter
+title: QueryFilter
 id: function-queryfilter
 related:
 categories:

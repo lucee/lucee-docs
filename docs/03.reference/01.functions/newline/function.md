@@ -1,5 +1,5 @@
 ---
-title: newLine
+title: NewLine
 id: function-newline
 related:
 categories:

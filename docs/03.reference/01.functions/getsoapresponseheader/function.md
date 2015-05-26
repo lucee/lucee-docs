@@ -1,5 +1,5 @@
 ---
-title: getSOAPResponseHeader
+title: GetSOAPResponseHeader
 id: function-getsoapresponseheader
 related:
 categories:

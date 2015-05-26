@@ -1,5 +1,5 @@
 ---
-title: createODBCTime
+title: CreateODBCTime
 id: function-createodbctime
 related:
 categories:

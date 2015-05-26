@@ -1,5 +1,5 @@
 ---
-title: arraySet
+title: ArraySet
 id: function-arrayset
 related:
 categories:

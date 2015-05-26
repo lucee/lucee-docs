@@ -1,5 +1,5 @@
 ---
-title: arrayMax
+title: ArrayMax
 id: function-arraymax
 related:
 categories:

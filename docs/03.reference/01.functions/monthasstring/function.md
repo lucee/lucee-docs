@@ -1,5 +1,5 @@
 ---
-title: monthAsString
+title: MonthAsString
 id: function-monthasstring
 related:
 categories:

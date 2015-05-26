@@ -1,5 +1,5 @@
 ---
-title: dateFormat
+title: DateFormat
 id: function-dateformat
 related:
 categories:

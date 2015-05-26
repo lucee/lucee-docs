@@ -1,5 +1,5 @@
 ---
-title: collectionEach
+title: CollectionEach
 id: function-collectioneach
 related:
 categories:

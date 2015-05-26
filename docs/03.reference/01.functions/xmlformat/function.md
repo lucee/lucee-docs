@@ -1,5 +1,5 @@
 ---
-title: xMLFormat
+title: XMLFormat
 id: function-xmlformat
 related:
 categories:

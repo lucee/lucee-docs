@@ -1,5 +1,5 @@
 ---
-title: stripCr
+title: StripCr
 id: function-stripcr
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: setEncoding
+title: SetEncoding
 id: function-setencoding
 related:
 categories:

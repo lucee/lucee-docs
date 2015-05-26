@@ -1,5 +1,5 @@
 ---
-title: toBase64
+title: ToBase64
 id: function-tobase64
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: left
+title: Left
 id: function-left
 related:
 categories:

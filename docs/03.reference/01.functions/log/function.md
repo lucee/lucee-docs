@@ -1,5 +1,5 @@
 ---
-title: log
+title: Log
 id: function-log
 related:
 categories:

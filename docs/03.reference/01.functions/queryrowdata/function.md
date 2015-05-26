@@ -1,5 +1,5 @@
 ---
-title: queryRowData
+title: QueryRowData
 id: function-queryrowdata
 related:
 categories:

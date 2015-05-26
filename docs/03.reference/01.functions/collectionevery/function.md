@@ -1,5 +1,5 @@
 ---
-title: collectionEvery
+title: CollectionEvery
 id: function-collectionevery
 related:
 categories:

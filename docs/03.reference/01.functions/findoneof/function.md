@@ -1,5 +1,5 @@
 ---
-title: findOneOf
+title: FindOneOf
 id: function-findoneof
 related:
 categories:

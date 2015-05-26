@@ -1,5 +1,5 @@
 ---
-title: bitSHLN
+title: BitSHLN
 id: function-bitshln
 related:
 categories:

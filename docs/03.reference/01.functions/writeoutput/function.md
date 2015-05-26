@@ -1,5 +1,5 @@
 ---
-title: writeOutput
+title: WriteOutput
 id: function-writeoutput
 related:
 categories:

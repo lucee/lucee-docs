@@ -1,5 +1,5 @@
 ---
-title: encodeForXMLAttribute
+title: EncodeForXMLAttribute
 id: function-encodeforxmlattribute
 related:
 categories:

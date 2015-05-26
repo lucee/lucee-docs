@@ -1,5 +1,5 @@
 ---
-title: queryCurrentRow
+title: QueryCurrentRow
 id: function-querycurrentrow
 related:
 categories:

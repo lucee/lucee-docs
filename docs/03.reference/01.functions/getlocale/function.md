@@ -1,5 +1,5 @@
 ---
-title: getLocale
+title: GetLocale
 id: function-getlocale
 related:
 categories:

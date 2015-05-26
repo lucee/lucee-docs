@@ -1,5 +1,5 @@
 ---
-title: jSStringFormat
+title: JSStringFormat
 id: function-jsstringformat
 related:
 categories:

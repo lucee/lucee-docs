@@ -1,5 +1,5 @@
 ---
-title: encrypt
+title: Encrypt
 id: function-encrypt
 related:
 categories:

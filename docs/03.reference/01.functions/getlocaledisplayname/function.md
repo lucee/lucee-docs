@@ -1,5 +1,5 @@
 ---
-title: getLocaleDisplayName
+title: GetLocaleDisplayName
 id: function-getlocaledisplayname
 related:
 categories:

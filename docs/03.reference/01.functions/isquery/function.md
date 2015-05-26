@@ -1,5 +1,5 @@
 ---
-title: isQuery
+title: IsQuery
 id: function-isquery
 related:
 categories:

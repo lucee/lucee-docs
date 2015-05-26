@@ -1,5 +1,5 @@
 ---
-title: now
+title: Now
 id: function-now
 related:
 categories:

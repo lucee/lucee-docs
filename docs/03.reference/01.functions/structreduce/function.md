@@ -1,5 +1,5 @@
 ---
-title: structReduce
+title: StructReduce
 id: function-structreduce
 related:
 categories:

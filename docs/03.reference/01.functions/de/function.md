@@ -1,5 +1,5 @@
 ---
-title: dE
+title: DE
 id: function-de
 related:
 categories:

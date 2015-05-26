@@ -1,5 +1,5 @@
 ---
-title: getMetricData
+title: GetMetricData
 id: function-getmetricdata
 related:
 categories:

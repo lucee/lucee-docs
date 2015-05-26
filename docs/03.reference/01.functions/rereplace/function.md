@@ -1,5 +1,5 @@
 ---
-title: rEReplace
+title: REReplace
 id: function-rereplace
 related:
 categories:

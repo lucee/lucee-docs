@@ -1,5 +1,5 @@
 ---
-title: bitMaskSet
+title: BitMaskSet
 id: function-bitmaskset
 related:
 categories:

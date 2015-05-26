@@ -1,5 +1,5 @@
 ---
-title: listSort
+title: ListSort
 id: function-listsort
 related:
 categories:

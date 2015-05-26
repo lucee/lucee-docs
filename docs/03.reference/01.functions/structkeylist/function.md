@@ -1,5 +1,5 @@
 ---
-title: structKeyList
+title: StructKeyList
 id: function-structkeylist
 related:
 categories:

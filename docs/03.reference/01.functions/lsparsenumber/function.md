@@ -1,5 +1,5 @@
 ---
-title: lSParseNumber
+title: LSParseNumber
 id: function-lsparsenumber
 related:
 categories:

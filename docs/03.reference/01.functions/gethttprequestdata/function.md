@@ -1,5 +1,5 @@
 ---
-title: getHTTPRequestData
+title: GetHTTPRequestData
 id: function-gethttprequestdata
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: directoryExists
+title: DirectoryExists
 id: function-directoryexists
 related:
 categories:

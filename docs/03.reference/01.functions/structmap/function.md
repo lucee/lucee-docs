@@ -1,5 +1,5 @@
 ---
-title: structMap
+title: StructMap
 id: function-structmap
 related:
 categories:

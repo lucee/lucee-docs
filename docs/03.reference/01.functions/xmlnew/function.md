@@ -1,5 +1,5 @@
 ---
-title: xmlNew
+title: XmlNew
 id: function-xmlnew
 related:
 categories:

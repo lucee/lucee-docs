@@ -1,5 +1,5 @@
 ---
-title: hash
+title: Hash
 id: function-hash
 related:
 categories:

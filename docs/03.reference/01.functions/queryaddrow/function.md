@@ -1,5 +1,5 @@
 ---
-title: queryAddRow
+title: QueryAddRow
 id: function-queryaddrow
 related:
 categories:

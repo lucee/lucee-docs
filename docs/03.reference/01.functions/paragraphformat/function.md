@@ -1,5 +1,5 @@
 ---
-title: paragraphFormat
+title: ParagraphFormat
 id: function-paragraphformat
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: fileMove
+title: FileMove
 id: function-filemove
 related:
 categories:

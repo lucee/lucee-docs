@@ -1,5 +1,5 @@
 ---
-title: toBinary
+title: ToBinary
 id: function-tobinary
 related:
 categories:

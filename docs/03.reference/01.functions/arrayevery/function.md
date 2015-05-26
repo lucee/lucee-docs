@@ -1,5 +1,5 @@
 ---
-title: arrayEvery
+title: ArrayEvery
 id: function-arrayevery
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: pagePoolList
+title: PagePoolList
 id: function-pagepoollist
 related:
 categories:

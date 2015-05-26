@@ -1,5 +1,5 @@
 ---
-title: toString
+title: ToString
 id: function-tostring
 related:
 categories:

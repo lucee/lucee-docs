@@ -1,5 +1,5 @@
 ---
-title: isNull
+title: IsNull
 id: function-isnull
 related:
 categories:

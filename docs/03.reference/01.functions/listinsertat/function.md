@@ -1,5 +1,5 @@
 ---
-title: listInsertAt
+title: ListInsertAt
 id: function-listinsertat
 related:
 categories:

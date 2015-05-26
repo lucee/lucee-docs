@@ -1,5 +1,5 @@
 ---
-title: getTimeZone
+title: GetTimeZone
 id: function-gettimezone
 related:
 categories:

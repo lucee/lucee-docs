@@ -1,5 +1,5 @@
 ---
-title: quotedValueList
+title: QuotedValueList
 id: function-quotedvaluelist
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: lJustify
+title: LJustify
 id: function-ljustify
 related:
 categories:

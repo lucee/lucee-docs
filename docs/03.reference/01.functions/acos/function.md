@@ -1,5 +1,5 @@
 ---
-title: aCos
+title: ACos
 id: function-acos
 related:
 categories:

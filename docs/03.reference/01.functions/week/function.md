@@ -1,5 +1,5 @@
 ---
-title: week
+title: Week
 id: function-week
 related:
 categories:

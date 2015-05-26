@@ -1,5 +1,5 @@
 ---
-title: daysInMonth
+title: DaysInMonth
 id: function-daysinmonth
 related:
 categories:

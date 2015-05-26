@@ -1,5 +1,5 @@
 ---
-title: arrayInsertAt
+title: ArrayInsertAt
 id: function-arrayinsertat
 related:
 categories:

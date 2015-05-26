@@ -1,5 +1,5 @@
 ---
-title: month
+title: Month
 id: function-month
 related:
 categories:

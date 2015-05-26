@@ -1,5 +1,5 @@
 ---
-title: getBaseTagList
+title: GetBaseTagList
 id: function-getbasetaglist
 related:
 categories:

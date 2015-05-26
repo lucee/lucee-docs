@@ -1,5 +1,5 @@
 ---
-title: serialize
+title: Serialize
 id: function-serialize
 related:
 categories:

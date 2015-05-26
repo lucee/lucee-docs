@@ -1,5 +1,5 @@
 ---
-title: getNumericDate
+title: GetNumericDate
 id: function-getnumericdate
 related:
 categories:

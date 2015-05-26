@@ -1,5 +1,5 @@
 ---
-title: extract
+title: Extract
 id: function-extract
 related:
 categories:

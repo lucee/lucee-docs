@@ -1,5 +1,5 @@
 ---
-title: arrayFilter
+title: ArrayFilter
 id: function-arrayfilter
 related:
 categories:

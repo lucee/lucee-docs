@@ -1,5 +1,5 @@
 ---
-title: xmlChildPos
+title: XmlChildPos
 id: function-xmlchildpos
 related:
 categories:

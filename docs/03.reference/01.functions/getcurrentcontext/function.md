@@ -1,5 +1,5 @@
 ---
-title: getCurrentContext
+title: GetCurrentContext
 id: function-getcurrentcontext
 related:
 categories:

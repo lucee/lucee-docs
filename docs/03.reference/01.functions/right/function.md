@@ -1,5 +1,5 @@
 ---
-title: right
+title: Right
 id: function-right
 related:
 categories:

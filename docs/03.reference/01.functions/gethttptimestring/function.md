@@ -1,5 +1,5 @@
 ---
-title: getHttpTimeString
+title: GetHttpTimeString
 id: function-gethttptimestring
 related:
 categories:

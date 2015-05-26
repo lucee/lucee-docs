@@ -1,5 +1,5 @@
 ---
-title: getToken
+title: GetToken
 id: function-gettoken
 related:
 categories:

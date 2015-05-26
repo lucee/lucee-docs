@@ -1,5 +1,5 @@
 ---
-title: arrayReduce
+title: ArrayReduce
 id: function-arrayreduce
 related:
 categories:

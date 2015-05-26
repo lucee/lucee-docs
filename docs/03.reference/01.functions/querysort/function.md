@@ -1,5 +1,5 @@
 ---
-title: querySort
+title: QuerySort
 id: function-querysort
 related:
 categories:

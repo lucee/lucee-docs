@@ -1,5 +1,5 @@
 ---
-title: collectionFilter
+title: CollectionFilter
 id: function-collectionfilter
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: firstDayOfMonth
+title: FirstDayOfMonth
 id: function-firstdayofmonth
 related:
 categories:

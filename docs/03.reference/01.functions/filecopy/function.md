@@ -1,5 +1,5 @@
 ---
-title: fileCopy
+title: FileCopy
 id: function-filecopy
 related:
 categories:

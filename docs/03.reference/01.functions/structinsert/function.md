@@ -1,5 +1,5 @@
 ---
-title: structInsert
+title: StructInsert
 id: function-structinsert
 related:
 categories:

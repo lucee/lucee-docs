@@ -1,5 +1,5 @@
 ---
-title: getSOAPRequest
+title: GetSOAPRequest
 id: function-getsoaprequest
 related:
 categories:

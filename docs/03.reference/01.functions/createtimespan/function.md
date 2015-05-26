@@ -1,5 +1,5 @@
 ---
-title: createTimeSpan
+title: CreateTimeSpan
 id: function-createtimespan
 related:
 categories:

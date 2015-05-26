@@ -1,5 +1,5 @@
 ---
-title: rEFind
+title: REFind
 id: function-refind
 related:
 categories:

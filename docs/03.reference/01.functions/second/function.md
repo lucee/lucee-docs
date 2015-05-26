@@ -1,5 +1,5 @@
 ---
-title: second
+title: Second
 id: function-second
 related:
 categories:

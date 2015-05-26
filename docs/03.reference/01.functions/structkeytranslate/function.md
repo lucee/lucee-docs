@@ -1,5 +1,5 @@
 ---
-title: structKeyTranslate
+title: StructKeyTranslate
 id: function-structkeytranslate
 related:
 categories:

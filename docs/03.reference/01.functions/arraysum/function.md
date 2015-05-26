@@ -1,5 +1,5 @@
 ---
-title: arraySum
+title: ArraySum
 id: function-arraysum
 related:
 categories:

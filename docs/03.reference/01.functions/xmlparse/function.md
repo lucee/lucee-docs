@@ -1,5 +1,5 @@
 ---
-title: xmlParse
+title: XmlParse
 id: function-xmlparse
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: nowServer
+title: NowServer
 id: function-nowserver
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: listFirst
+title: ListFirst
 id: function-listfirst
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: log10
+title: Log10
 id: function-log10
 related:
 categories:

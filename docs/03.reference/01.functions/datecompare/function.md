@@ -1,5 +1,5 @@
 ---
-title: dateCompare
+title: DateCompare
 id: function-datecompare
 related:
 categories:

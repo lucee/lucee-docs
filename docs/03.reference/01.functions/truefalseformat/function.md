@@ -1,5 +1,5 @@
 ---
-title: trueFalseFormat
+title: TrueFalseFormat
 id: function-truefalseformat
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: uCase
+title: UCase
 id: function-ucase
 related:
 categories:

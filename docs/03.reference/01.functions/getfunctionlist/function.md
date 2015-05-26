@@ -1,5 +1,5 @@
 ---
-title: getFunctionList
+title: GetFunctionList
 id: function-getfunctionlist
 related:
 categories:

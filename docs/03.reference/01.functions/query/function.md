@@ -1,5 +1,5 @@
 ---
-title: query
+title: Query
 id: function-query
 related:
 categories:

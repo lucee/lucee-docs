@@ -1,5 +1,5 @@
 ---
-title: bitOr
+title: BitOr
 id: function-bitor
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: lSCurrencyFormat
+title: LSCurrencyFormat
 id: function-lscurrencyformat
 related:
 categories:

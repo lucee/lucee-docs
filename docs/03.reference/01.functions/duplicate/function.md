@@ -1,5 +1,5 @@
 ---
-title: duplicate
+title: Duplicate
 id: function-duplicate
 related:
 categories:

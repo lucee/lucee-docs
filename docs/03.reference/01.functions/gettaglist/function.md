@@ -1,5 +1,5 @@
 ---
-title: getTagList
+title: GetTagList
 id: function-gettaglist
 related:
 categories:

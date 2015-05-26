@@ -1,5 +1,5 @@
 ---
-title: day
+title: Day
 id: function-day
 related:
 categories:

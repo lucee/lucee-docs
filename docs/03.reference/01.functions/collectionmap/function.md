@@ -1,5 +1,5 @@
 ---
-title: collectionMap
+title: CollectionMap
 id: function-collectionmap
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: cachePut
+title: CachePut
 id: function-cacheput
 related:
 categories:

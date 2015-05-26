@@ -1,5 +1,5 @@
 ---
-title: cacheGet
+title: CacheGet
 id: function-cacheget
 related:
 categories:

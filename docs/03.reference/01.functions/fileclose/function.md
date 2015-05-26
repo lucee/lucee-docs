@@ -1,5 +1,5 @@
 ---
-title: fileClose
+title: FileClose
 id: function-fileclose
 related:
 categories:

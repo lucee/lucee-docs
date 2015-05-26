@@ -1,5 +1,5 @@
 ---
-title: randomize
+title: Randomize
 id: function-randomize
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: isValid
+title: IsValid
 id: function-isvalid
 related:
 categories:

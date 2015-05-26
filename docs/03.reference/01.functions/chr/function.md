@@ -1,5 +1,5 @@
 ---
-title: chr
+title: Chr
 id: function-chr
 related:
 categories:

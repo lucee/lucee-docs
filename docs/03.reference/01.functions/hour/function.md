@@ -1,5 +1,5 @@
 ---
-title: hour
+title: Hour
 id: function-hour
 related:
 categories:

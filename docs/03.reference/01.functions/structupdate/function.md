@@ -1,5 +1,5 @@
 ---
-title: structUpdate
+title: StructUpdate
 id: function-structupdate
 related:
 categories:

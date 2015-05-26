@@ -1,5 +1,5 @@
 ---
-title: encodeForXPath
+title: EncodeForXPath
 id: function-encodeforxpath
 related:
 categories:

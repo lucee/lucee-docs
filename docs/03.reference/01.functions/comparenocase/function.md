@@ -1,5 +1,5 @@
 ---
-title: compareNoCase
+title: CompareNoCase
 id: function-comparenocase
 related:
 categories:

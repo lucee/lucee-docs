@@ -1,5 +1,5 @@
 ---
-title: decryptBinary
+title: DecryptBinary
 id: function-decryptbinary
 related:
 categories:

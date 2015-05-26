@@ -1,5 +1,5 @@
 ---
-title: listRest
+title: ListRest
 id: function-listrest
 related:
 categories:

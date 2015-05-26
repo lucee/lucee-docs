@@ -1,5 +1,5 @@
 ---
-title: arraySort
+title: ArraySort
 id: function-arraysort
 related:
 categories:

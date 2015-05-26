@@ -1,5 +1,5 @@
 ---
-title: listLast
+title: ListLast
 id: function-listlast
 related:
 categories:

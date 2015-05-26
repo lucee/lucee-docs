@@ -1,5 +1,5 @@
 ---
-title: val
+title: Val
 id: function-val
 related:
 categories:

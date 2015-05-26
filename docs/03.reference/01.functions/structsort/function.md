@@ -1,5 +1,5 @@
 ---
-title: structSort
+title: StructSort
 id: function-structsort
 related:
 categories:

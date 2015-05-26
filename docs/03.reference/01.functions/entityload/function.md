@@ -1,5 +1,5 @@
 ---
-title: entityLoad
+title: EntityLoad
 id: function-entityload
 related:
 categories:

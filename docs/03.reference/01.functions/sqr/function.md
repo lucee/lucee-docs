@@ -1,5 +1,5 @@
 ---
-title: sqr
+title: Sqr
 id: function-sqr
 related:
 categories:

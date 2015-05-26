@@ -1,5 +1,5 @@
 ---
-title: getSOAPRequestHeader
+title: GetSOAPRequestHeader
 id: function-getsoaprequestheader
 related:
 categories:

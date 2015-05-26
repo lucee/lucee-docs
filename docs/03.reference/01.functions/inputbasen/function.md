@@ -1,5 +1,5 @@
 ---
-title: inputBaseN
+title: InputBaseN
 id: function-inputbasen
 related:
 categories:

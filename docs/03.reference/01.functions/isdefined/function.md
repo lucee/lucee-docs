@@ -1,5 +1,5 @@
 ---
-title: isDefined
+title: IsDefined
 id: function-isdefined
 related:
 categories:

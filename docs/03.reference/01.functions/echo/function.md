@@ -1,5 +1,5 @@
 ---
-title: echo
+title: Echo
 id: function-echo
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: encodeForJavaScript
+title: EncodeForJavaScript
 id: function-encodeforjavascript
 related:
 categories:

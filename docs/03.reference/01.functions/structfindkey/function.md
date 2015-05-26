@@ -1,5 +1,5 @@
 ---
-title: structFindKey
+title: StructFindKey
 id: function-structfindkey
 related:
 categories:

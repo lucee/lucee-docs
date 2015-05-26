@@ -1,5 +1,5 @@
 ---
-title: encodeForHTML
+title: EncodeForHTML
 id: function-encodeforhtml
 related:
 categories:

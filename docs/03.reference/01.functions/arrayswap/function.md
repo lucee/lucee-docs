@@ -1,5 +1,5 @@
 ---
-title: arraySwap
+title: ArraySwap
 id: function-arrayswap
 related:
 categories:

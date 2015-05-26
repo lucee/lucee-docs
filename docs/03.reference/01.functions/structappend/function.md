@@ -1,5 +1,5 @@
 ---
-title: structAppend
+title: StructAppend
 id: function-structappend
 related:
 categories:

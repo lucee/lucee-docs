@@ -1,5 +1,5 @@
 ---
-title: listEvery
+title: ListEvery
 id: function-listevery
 related:
 categories:

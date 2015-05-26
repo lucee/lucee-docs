@@ -1,5 +1,5 @@
 ---
-title: tan
+title: Tan
 id: function-tan
 related:
 categories:

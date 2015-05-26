@@ -1,5 +1,5 @@
 ---
-title: millisecond
+title: Millisecond
 id: function-millisecond
 related:
 categories:

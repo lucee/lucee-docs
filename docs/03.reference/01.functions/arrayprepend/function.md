@@ -1,5 +1,5 @@
 ---
-title: arrayPrepend
+title: ArrayPrepend
 id: function-arrayprepend
 related:
 categories:

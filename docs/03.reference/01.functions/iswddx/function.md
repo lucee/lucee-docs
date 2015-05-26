@@ -1,5 +1,5 @@
 ---
-title: isWddx
+title: IsWddx
 id: function-iswddx
 related:
 categories:

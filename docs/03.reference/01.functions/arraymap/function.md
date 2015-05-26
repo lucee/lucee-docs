@@ -1,5 +1,5 @@
 ---
-title: arrayMap
+title: ArrayMap
 id: function-arraymap
 related:
 categories:

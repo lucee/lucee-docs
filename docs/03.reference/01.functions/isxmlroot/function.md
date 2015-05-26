@@ -1,5 +1,5 @@
 ---
-title: isXmlRoot
+title: IsXmlRoot
 id: function-isxmlroot
 related:
 categories:

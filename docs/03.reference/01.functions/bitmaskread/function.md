@@ -1,5 +1,5 @@
 ---
-title: bitMaskRead
+title: BitMaskRead
 id: function-bitmaskread
 related:
 categories:

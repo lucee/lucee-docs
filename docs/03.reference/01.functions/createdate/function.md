@@ -1,5 +1,5 @@
 ---
-title: createDate
+title: CreateDate
 id: function-createdate
 related:
 categories:

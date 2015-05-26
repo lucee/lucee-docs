@@ -1,5 +1,5 @@
 ---
-title: uRLDecode
+title: URLDecode
 id: function-urldecode
 related:
 categories:

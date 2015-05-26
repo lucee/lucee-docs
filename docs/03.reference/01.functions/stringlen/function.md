@@ -1,5 +1,5 @@
 ---
-title: stringlen
+title: Stringlen
 id: function-stringlen
 related:
 categories:

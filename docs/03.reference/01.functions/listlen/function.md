@@ -1,5 +1,5 @@
 ---
-title: listLen
+title: ListLen
 id: function-listlen
 related:
 categories:

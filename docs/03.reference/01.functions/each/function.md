@@ -1,5 +1,5 @@
 ---
-title: each
+title: Each
 id: function-each
 related:
 categories:

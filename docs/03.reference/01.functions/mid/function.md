@@ -1,5 +1,5 @@
 ---
-title: mid
+title: Mid
 id: function-mid
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: xmlTransform
+title: XmlTransform
 id: function-xmltransform
 related:
 categories:

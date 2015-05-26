@@ -1,5 +1,5 @@
 ---
-title: structKeyArray
+title: StructKeyArray
 id: function-structkeyarray
 related:
 categories:

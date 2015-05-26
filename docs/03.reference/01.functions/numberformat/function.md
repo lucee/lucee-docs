@@ -1,5 +1,5 @@
 ---
-title: numberFormat
+title: NumberFormat
 id: function-numberformat
 related:
 categories:

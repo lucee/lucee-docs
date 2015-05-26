@@ -1,5 +1,5 @@
 ---
-title: deleteClientVariable
+title: DeleteClientVariable
 id: function-deleteclientvariable
 related:
 categories:

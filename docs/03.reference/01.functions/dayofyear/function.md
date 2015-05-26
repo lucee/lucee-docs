@@ -1,5 +1,5 @@
 ---
-title: dayOfYear
+title: DayOfYear
 id: function-dayofyear
 related:
 categories:

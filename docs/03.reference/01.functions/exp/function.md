@@ -1,5 +1,5 @@
 ---
-title: exp
+title: Exp
 id: function-exp
 related:
 categories:

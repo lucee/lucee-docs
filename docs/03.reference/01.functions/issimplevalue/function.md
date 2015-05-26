@@ -1,5 +1,5 @@
 ---
-title: isSimpleValue
+title: IsSimpleValue
 id: function-issimplevalue
 related:
 categories:

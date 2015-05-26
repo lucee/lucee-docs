@@ -1,5 +1,5 @@
 ---
-title: queryColumnArray
+title: QueryColumnArray
 id: function-querycolumnarray
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: int
+title: Int
 id: function-int
 related:
 categories:

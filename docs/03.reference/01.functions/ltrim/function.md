@@ -1,5 +1,5 @@
 ---
-title: lTrim
+title: LTrim
 id: function-ltrim
 related:
 categories:

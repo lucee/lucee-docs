@@ -1,5 +1,5 @@
 ---
-title: ctCacheList
+title: CtCacheList
 id: function-ctcachelist
 related:
 categories:

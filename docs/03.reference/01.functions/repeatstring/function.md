@@ -1,5 +1,5 @@
 ---
-title: repeatString
+title: RepeatString
 id: function-repeatstring
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: sin
+title: Sin
 id: function-sin
 related:
 categories:

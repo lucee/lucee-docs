@@ -1,5 +1,5 @@
 ---
-title: structEach
+title: StructEach
 id: function-structeach
 related:
 categories:

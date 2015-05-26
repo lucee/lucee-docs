@@ -1,5 +1,5 @@
 ---
-title: releaseComObject
+title: ReleaseComObject
 id: function-releasecomobject
 related:
 categories:

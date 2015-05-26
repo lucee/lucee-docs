@@ -1,5 +1,5 @@
 ---
-title: quarter
+title: Quarter
 id: function-quarter
 related:
 categories:

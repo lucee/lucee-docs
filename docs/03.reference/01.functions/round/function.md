@@ -1,5 +1,5 @@
 ---
-title: round
+title: Round
 id: function-round
 related:
 categories:

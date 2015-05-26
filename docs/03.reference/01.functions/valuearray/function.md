@@ -1,5 +1,5 @@
 ---
-title: valueArray
+title: ValueArray
 id: function-valuearray
 related:
 categories:

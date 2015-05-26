@@ -1,5 +1,5 @@
 ---
-title: isObject
+title: IsObject
 id: function-isobject
 related:
 categories:

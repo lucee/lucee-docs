@@ -1,5 +1,5 @@
 ---
-title: getBaseTemplatePath
+title: GetBaseTemplatePath
 id: function-getbasetemplatepath
 related:
 categories:

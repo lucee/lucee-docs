@@ -1,5 +1,5 @@
 ---
-title: decrypt
+title: Decrypt
 id: function-decrypt
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: rand
+title: Rand
 id: function-rand
 related:
 categories:

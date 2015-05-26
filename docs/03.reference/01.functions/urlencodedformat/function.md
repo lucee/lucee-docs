@@ -1,5 +1,5 @@
 ---
-title: uRLEncodedFormat
+title: URLEncodedFormat
 id: function-urlencodedformat
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: htmlParse
+title: HtmlParse
 id: function-htmlparse
 related:
 categories:

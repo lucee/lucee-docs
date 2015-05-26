@@ -1,5 +1,5 @@
 ---
-title: queryNew
+title: QueryNew
 id: function-querynew
 related:
 categories:

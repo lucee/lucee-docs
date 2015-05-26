@@ -1,5 +1,5 @@
 ---
-title: min
+title: Min
 id: function-min
 related:
 categories:

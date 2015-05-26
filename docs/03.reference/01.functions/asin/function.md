@@ -1,5 +1,5 @@
 ---
-title: aSin
+title: ASin
 id: function-asin
 related:
 categories:

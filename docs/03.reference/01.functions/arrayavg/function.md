@@ -1,5 +1,5 @@
 ---
-title: arrayAvg
+title: ArrayAvg
 id: function-arrayavg
 related:
 categories:

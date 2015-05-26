@@ -1,5 +1,5 @@
 ---
-title: getVariable
+title: GetVariable
 id: function-getvariable
 related:
 categories:

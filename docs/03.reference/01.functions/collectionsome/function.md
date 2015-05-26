@@ -1,5 +1,5 @@
 ---
-title: collectionSome
+title: CollectionSome
 id: function-collectionsome
 related:
 categories:

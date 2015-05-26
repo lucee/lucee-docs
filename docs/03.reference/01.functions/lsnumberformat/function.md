@@ -1,5 +1,5 @@
 ---
-title: lSNumberFormat
+title: LSNumberFormat
 id: function-lsnumberformat
 related:
 categories:

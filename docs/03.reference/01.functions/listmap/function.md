@@ -1,5 +1,5 @@
 ---
-title: listMap
+title: ListMap
 id: function-listmap
 related:
 categories:

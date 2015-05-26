@@ -1,5 +1,5 @@
 ---
-title: isCustomFunction
+title: IsCustomFunction
 id: function-iscustomfunction
 related:
 categories:

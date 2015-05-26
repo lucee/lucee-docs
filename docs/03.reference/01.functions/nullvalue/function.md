@@ -1,5 +1,5 @@
 ---
-title: nullValue
+title: NullValue
 id: function-nullvalue
 related:
 categories:

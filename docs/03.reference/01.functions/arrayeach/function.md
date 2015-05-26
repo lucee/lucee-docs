@@ -1,5 +1,5 @@
 ---
-title: arrayEach
+title: ArrayEach
 id: function-arrayeach
 related:
 categories:

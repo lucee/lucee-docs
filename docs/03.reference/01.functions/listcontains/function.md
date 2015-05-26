@@ -1,5 +1,5 @@
 ---
-title: listContains
+title: ListContains
 id: function-listcontains
 related:
 categories:

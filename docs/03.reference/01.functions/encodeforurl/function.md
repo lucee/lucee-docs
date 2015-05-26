@@ -1,5 +1,5 @@
 ---
-title: encodeForURL
+title: EncodeForURL
 id: function-encodeforurl
 related:
 categories:

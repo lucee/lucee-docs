@@ -1,5 +1,5 @@
 ---
-title: listFind
+title: ListFind
 id: function-listfind
 related:
 categories:

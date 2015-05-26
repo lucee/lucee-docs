@@ -1,5 +1,5 @@
 ---
-title: getContextRoot
+title: GetContextRoot
 id: function-getcontextroot
 related:
 categories:

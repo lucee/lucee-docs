@@ -1,5 +1,5 @@
 ---
-title: parseNumber
+title: ParseNumber
 id: function-parsenumber
 related:
 categories:

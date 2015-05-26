@@ -1,5 +1,5 @@
 ---
-title: pi
+title: Pi
 id: function-pi
 related:
 categories:

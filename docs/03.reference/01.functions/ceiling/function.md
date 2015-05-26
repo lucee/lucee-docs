@@ -1,5 +1,5 @@
 ---
-title: ceiling
+title: Ceiling
 id: function-ceiling
 related:
 categories:

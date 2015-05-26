@@ -1,5 +1,5 @@
 ---
-title: listFindNoCase
+title: ListFindNoCase
 id: function-listfindnocase
 related:
 categories:

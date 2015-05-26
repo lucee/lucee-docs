@@ -1,5 +1,5 @@
 ---
-title: bitXor
+title: BitXor
 id: function-bitxor
 related:
 categories:

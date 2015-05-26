@@ -1,5 +1,5 @@
 ---
-title: bitAnd
+title: BitAnd
 id: function-bitand
 related:
 categories:

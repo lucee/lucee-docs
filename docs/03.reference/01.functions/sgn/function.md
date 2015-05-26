@@ -1,5 +1,5 @@
 ---
-title: sgn
+title: Sgn
 id: function-sgn
 related:
 categories:

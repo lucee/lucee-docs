@@ -1,5 +1,5 @@
 ---
-title: incrementValue
+title: IncrementValue
 id: function-incrementvalue
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: yesNoFormat
+title: YesNoFormat
 id: function-yesnoformat
 related:
 categories:

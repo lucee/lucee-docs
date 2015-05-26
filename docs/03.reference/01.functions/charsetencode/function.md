@@ -1,5 +1,5 @@
 ---
-title: charsetEncode
+title: CharsetEncode
 id: function-charsetencode
 related:
 categories:

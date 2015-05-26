@@ -1,5 +1,5 @@
 ---
-title: createObject
+title: CreateObject
 id: function-createobject
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: isNotMap
+title: IsNotMap
 id: function-isnotmap
 related:
 categories:

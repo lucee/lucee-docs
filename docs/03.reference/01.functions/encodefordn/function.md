@@ -1,5 +1,5 @@
 ---
-title: encodeForDN
+title: EncodeForDN
 id: function-encodefordn
 related:
 categories:

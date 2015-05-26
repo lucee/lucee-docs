@@ -1,5 +1,5 @@
 ---
-title: queryRecordCount
+title: QueryRecordCount
 id: function-queryrecordcount
 related:
 categories:

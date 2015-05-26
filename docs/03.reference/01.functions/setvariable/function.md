@@ -1,5 +1,5 @@
 ---
-title: setVariable
+title: SetVariable
 id: function-setvariable
 related:
 categories:

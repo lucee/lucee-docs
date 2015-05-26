@@ -1,5 +1,5 @@
 ---
-title: getMetadata
+title: GetMetadata
 id: function-getmetadata
 related:
 categories:

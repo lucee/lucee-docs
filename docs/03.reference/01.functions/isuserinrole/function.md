@@ -1,5 +1,5 @@
 ---
-title: isUserInRole
+title: IsUserInRole
 id: function-isuserinrole
 related:
 categories:

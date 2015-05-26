@@ -1,5 +1,5 @@
 ---
-title: max
+title: Max
 id: function-max
 related:
 categories:

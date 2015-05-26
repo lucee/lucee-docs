@@ -1,5 +1,5 @@
 ---
-title: bitMaskClear
+title: BitMaskClear
 id: function-bitmaskclear
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: isLeapYear
+title: IsLeapYear
 id: function-isleapyear
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: listToArray
+title: ListToArray
 id: function-listtoarray
 related:
 categories:
