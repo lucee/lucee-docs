@@ -86,7 +86,7 @@ component extends="builders.html.Builder" {
 
 		switch( page.getPageType() ){
 			case "function":
-				data = { name=page.getSlug(), type="Function" };
+				data = { name=page.getTitle(), type="Function" };
 			break;
 			case "tag":
 				data = { name="cf" & page.getSlug(), type="Tag" };
