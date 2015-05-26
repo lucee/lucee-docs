@@ -7,7 +7,7 @@ component accessors=true extends="Page" {
 	property name="examples"    type="string";
 
 	public string function getUsageSignature() {
-		var usage = this.getName() & "(";
+		var usage = this.getTitle() & "(";
 		var delim = " ";
 		var optionalCount = 0;
 
