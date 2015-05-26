@@ -4,7 +4,7 @@ id: function-arrayreduce
 related:
 categories:
     - array
-    - iterator
+    - collection
 ---
 
 Iterates over every entry of the given array and calls the closure with every element.

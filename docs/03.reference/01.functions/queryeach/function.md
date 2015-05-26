@@ -4,7 +4,7 @@ id: function-queryeach
 related:
 categories:
     - query
-    - iterator
+    - collection
 ---
 
 call the given UDF/Closure with every row (struct) in the query.

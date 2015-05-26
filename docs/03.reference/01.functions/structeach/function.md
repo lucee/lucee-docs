@@ -4,7 +4,7 @@ id: function-structeach
 related:
 categories:
     - struct
-    - iterator
+    - collection
 ---
 
 call the given UDF/Closure with every entry (key/value) in the struct.

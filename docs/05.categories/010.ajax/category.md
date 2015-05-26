@@ -1,5 +1,5 @@
 ---
-title: 'Ajax'
+title: Ajax features
 id: category-ajax
 related:
 ---

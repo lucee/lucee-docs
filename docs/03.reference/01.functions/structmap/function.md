@@ -4,7 +4,7 @@ id: function-structmap
 related:
 categories:
     - struct
-    - iterator
+    - collection
 ---
 
 Calls the given closure with every element in the given struct.

@@ -1,5 +1,5 @@
 ---
-title: 'Pdf'
+title: PDFs
 id: category-pdf
 related:
 ---

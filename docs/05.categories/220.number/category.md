@@ -1,5 +1,5 @@
 ---
-title: 'Number'
+title: Numbers
 id: category-number
 related:
 ---

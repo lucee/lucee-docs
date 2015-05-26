@@ -3,7 +3,7 @@ title: CollectionReduce
 id: function-collectionreduce
 related:
 categories:
-    - iterator
+    - collection
 ---
 
 Iterates over every entry of the collection and calls the closure with every element.

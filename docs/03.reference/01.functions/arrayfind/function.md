@@ -4,8 +4,7 @@ id: function-arrayfind
 related:
 categories:
     - array
-    - find
-    - iterator
+    - collection
 ---
 
 These functions searches the array for the specified object.

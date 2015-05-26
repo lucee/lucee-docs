@@ -4,7 +4,7 @@ id: function-querymap
 related:
 categories:
     - query
-    - iterator
+    - collection
 ---
 
 Calls the given closure with every row in the given query.

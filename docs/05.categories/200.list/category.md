@@ -1,5 +1,5 @@
 ---
-title: 'List'
+title: Lists
 id: category-list
 related:
 ---

@@ -3,7 +3,7 @@ title: CollectionMap
 id: function-collectionmap
 related:
 categories:
-    - iterator
+    - collection
 ---
 
 Calls the given closure with every element in the given collection.

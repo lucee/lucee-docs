@@ -1,5 +1,5 @@
 ---
-title: 'Ldap'
+title: LDAP
 id: category-ldap
 related:
 ---

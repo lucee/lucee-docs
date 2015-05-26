@@ -4,7 +4,6 @@ id: function-findnocase
 related:
 categories:
     - string
-    - find
 ---
 
 Finds the first occurrence of a substring in a string, from a

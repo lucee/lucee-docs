@@ -4,7 +4,7 @@ id: function-structinsert
 related:
 categories:
     - struct
-    - iterator
+    - collection
 ---
 
 Inserts a key-value pair into a structure.

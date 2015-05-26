@@ -1,5 +1,5 @@
 ---
-title: 'Image'
+title: Image manipulation
 id: category-image
 related:
 ---

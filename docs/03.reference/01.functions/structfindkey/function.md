@@ -4,7 +4,6 @@ id: function-structfindkey
 related:
 categories:
     - struct
-    - find
 ---
 
 Searches recursively through a substructure of nested arrays,

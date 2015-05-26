@@ -1,5 +1,5 @@
 ---
-title: Browse by category
+title: Categories
 id: categories
 listingStyle: a-z
 ---

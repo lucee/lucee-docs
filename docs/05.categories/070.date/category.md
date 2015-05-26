@@ -1,5 +1,5 @@
 ---
-title: 'Date'
+title: Date and time
 id: category-date
 related:
 ---

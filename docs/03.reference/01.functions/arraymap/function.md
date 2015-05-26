@@ -4,7 +4,7 @@ id: function-arraymap
 related:
 categories:
     - array
-    - iterator
+    - collection
 ---
 
 Calls the given closure with every element in the given array.

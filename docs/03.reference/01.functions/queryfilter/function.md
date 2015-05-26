@@ -4,7 +4,7 @@ id: function-queryfilter
 related:
 categories:
     - query
-    - iterator
+    - collection
 ---
 
 This function creates a new Query that returns all rows from an query that match the given filter.

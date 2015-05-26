@@ -4,7 +4,7 @@ id: function-queryreduce
 related:
 categories:
     - query
-    - iterator
+    - collection
 ---
 
 Iterates over every row of the given query and calls the closure with that row.

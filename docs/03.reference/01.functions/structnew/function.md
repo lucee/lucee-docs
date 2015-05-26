@@ -4,7 +4,7 @@ id: function-structnew
 related:
 categories:
     - struct
-    - iterator
+    - collection
 ---
 
 Creates a structure.

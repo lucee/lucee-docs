@@ -1,5 +1,5 @@
 ---
-title: 'Sort'
+title: Sorting
 id: category-sort
 related:
 ---

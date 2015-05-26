@@ -9,7 +9,6 @@ categories:
     - boolean
     - component
     - date
-    - email
     - query
     - string
     - struct

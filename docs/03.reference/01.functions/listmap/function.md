@@ -5,7 +5,7 @@ related:
 categories:
     - string
     - list
-    - iterator
+    - collection
 ---
 
 Calls the given closure with every element in the given array.
