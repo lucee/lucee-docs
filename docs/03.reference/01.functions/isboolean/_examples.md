@@ -1,6 +1,6 @@
 The following statements evaluate to `true`:
 
-```lucee
+```luceescript
 IsBoolean( true );
 IsBoolean( false );
 IsBoolean( 0 );
@@ -17,7 +17,7 @@ IsBoolean( "3.6" );
 
 The following statements evaluate to `false`:
 
-```lucee
+```luceescript
 IsBoolean( Now() );
 IsBoolean( {} );
 IsBoolean( [] );
