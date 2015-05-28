@@ -9,7 +9,7 @@
 	<head>
 		<title>Lucee Documentation :: #HtmlEditFormat( args.page.getTitle() )#</title>
 		<base href="">
-
+		<meta content="initial-scale=1.0, width=device-width" name="viewport">
 		<link href="assets/css/base.min.css" rel="stylesheet">
 		<link href="assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="assets/images/favicon.png">
