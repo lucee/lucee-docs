@@ -85,6 +85,7 @@
 					</a>
 				</li>
 			</ul>
+			<span class="header-fix-show header-logo pull-none text-overflow">#HtmlEditFormat( args.page.getTitle() )#</span>
 		</header>
 		<div class="menu menu-right menu-search" id="search">
 			<div class="menu-scroll">

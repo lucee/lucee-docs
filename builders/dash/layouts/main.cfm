@@ -38,6 +38,7 @@
 					</li>
 				</cfif>
 			</ul>
+			<span class="header-fix-show header-logo pull-none text-overflow">#HtmlEditFormat( args.page.getTitle() )#</span>
 		</header>
 
 		<div class="content">
