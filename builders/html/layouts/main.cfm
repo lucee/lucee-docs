@@ -39,6 +39,9 @@
 								<a href="https://bitbucket.org/lucee/lucee"><span class="fa fa-fw fa-bitbucket"></span>Source repository</a>
 							</li>
 							<li>
+								<a href="http://javadoc.lucee.org"><span class="fa fa-fw fa-code"></span>JavaDocs</a>
+							</li>
+							<li>
 								<a href="download.html"><span class="fa fa-fw fa-download"></span>Download</a>
 							</li>
 						</ul>
