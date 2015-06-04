@@ -1,0 +1,10 @@
+language: java
+sudo: required
+before_install:
+- echo "deb http://downloads.ortussolutions.com/debs/noarch /" > commandbox.list
+- sudo mv commandbox.list /etc/apt/sources.list.d/commandbox.list
+- sudo apt-get update
+install:
+- sudo apt-get install -q -y commandbox=1.0.0-1 zip
+script:
+- ./build.sh
