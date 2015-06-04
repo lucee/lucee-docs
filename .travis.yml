@@ -5,7 +5,7 @@ before_install:
 - sudo mv commandbox.list /etc/apt/sources.list.d/commandbox.list
 - sudo apt-get update
 install:
-- sudo apt-get install -q -y --force-yes commandbox=1.0.0-1 zip
+- sudo apt-get install -q -y --force-yes commandbox zip
 script:
 - ./build.sh
 - cd builds/html
