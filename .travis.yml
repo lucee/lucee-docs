@@ -8,3 +8,12 @@ install:
 - sudo apt-get install -q -y --force-yes commandbox=1.0.0-1 zip
 script:
 - ./build.sh
+- cd builds/html
+- zip -r lucee-docs.zip *
+- cd ../../
+- cp -r builds/html builds/artefacts
+- mkdir builds/artefacts/dash
+- cp builds/dash/lucee.xml builds/artefacts/dash/
+- cd builds/dash
+- tar -cvzf ../../builds/artefacts/dash/lucee.tgz lucee.docset
+- cd ../../
