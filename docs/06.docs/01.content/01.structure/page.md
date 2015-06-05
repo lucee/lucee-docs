@@ -3,7 +3,7 @@ title: Documentation structure
 id: docs-structure
 ---
 
-All of the source files for this documentation can be found in the `/docs` folder of the public repository; i.e. [https://bitbucket.org/lucee/documentation/src/master/docs/](https://bitbucket.org/lucee/documentation/src/master/docs/).
+All of the source files for this documentation can be found in the `/docs` folder of the public repository; i.e. [https://github.com/lucee/lucee-docs/tree/master/docs](https://github.com/lucee/lucee-docs/tree/master/docs).
 
 The content is organised by a very simple system of folders and markdown files.
 

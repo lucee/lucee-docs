@@ -1,6 +1,6 @@
 # Lucee documentation source and builder
 
-[![Build Status](https://drone.io/bitbucket.org/lucee/documentation/status.png)](https://drone.io/bitbucket.org/lucee/documentation/latest)
+[![Build Status](https://travis-ci.org/lucee/lucee-docs.svg?branch=master)](https://travis-ci.org/lucee/lucee-docs)
 
 This repository contains the source and build scripts for creating Lucee's documentation. The website output of the docs can be found at [http://docs.lucee.org](http://docs.lucee.org).
 

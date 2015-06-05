@@ -36,7 +36,7 @@
 								<a href="http://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
 							</li>
 							<li>
-								<a href="https://bitbucket.org/lucee/lucee"><span class="fa fa-fw fa-bitbucket"></span>Source repository</a>
+								<a href="https://github.com/lucee/lucee-docs"><span class="fa fa-fw fa-github"></span>Source repository</a>
 							</li>
 							<li>
 								<a href="http://javadoc.lucee.org"><span class="fa fa-fw fa-code"></span>JavaDocs</a>
