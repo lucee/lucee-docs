@@ -18,6 +18,6 @@ if [[ $TRAVIS_BRANCH == 'master' ]] ; then
   tar -cvzf ../../builds/artefacts/dash/lucee.tgz lucee.docset
   cd ../../
   echo "Syncing with S3..."
-  s3_website push --headless
+  s3_website push
   echo "All done :)"
 fi
