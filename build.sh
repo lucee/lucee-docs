@@ -8,15 +8,17 @@ echo "Building complete"
 if [[ $TRAVIS_BRANCH == 'master' ]] ; then
   echo "Zipping up docs for offline download..."
   cd builds/html
-  zip -r lucee-docs.zip *
+  zip -q -r lucee-docs.zip *
   cd ../../
-  cp -r builds/html builds/artefacts
+  echo "Zipped."
   echo "Preparing dash artifacts..."
-  mkdir builds/artefacts/dash
-  cp builds/dash/lucee.xml builds/artefacts/dash/
+  cp -r builds/html builds/artifacts
+  mkdir builds/artifacts/dash
+  cp builds/dash/lucee.xml builds/artifacts/dash/
   cd builds/dash
-  tar -cvzf ../../builds/artefacts/dash/lucee.tgz lucee.docset
+  tar -cvzf ../../builds/artifacts/dash/lucee.tgz lucee.docset
   cd ../../
+  echo "Prepared."
   echo "Syncing with S3..."
   s3_website push
   echo "All done :)"
