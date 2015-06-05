@@ -16,7 +16,7 @@ if [[ $TRAVIS_BRANCH == 'master' ]] ; then
   mkdir builds/artifacts/dash
   cp builds/dash/lucee.xml builds/artifacts/dash/
   cd builds/dash
-  tar -cvzf ../../builds/artifacts/dash/lucee.tgz lucee.docset
+  tar -czf ../../builds/artifacts/dash/lucee.tgz lucee.docset
   cd ../../
   echo "Prepared."
   echo "Syncing with S3..."
