@@ -1,6 +1,6 @@
-Define if only current page execution will aborted or the whole request.
+Define the abort type.
 
 Allowed Values:
 
-* **page**: abort the the current page execution
-* **request**: abort the entire request
+* **request** (default): abort the entire request
+* **page**: abort the current page execution
