@@ -1,7 +1,5 @@
 ```luceescript
-words = [ 'Hello' , 'World' ];
-// Returns the array position of the string 'world' in the 'words' array using a non-case sensitive search
+words           = [ 'Hello' , 'World' ];
 positionOfWorld = ArrayContainsNoCase( words, 'world' ); 
-
-echo( positionOfWorld ); // outputs 2
+Echo( positionOfWorld ); // outputs 2
 ```
