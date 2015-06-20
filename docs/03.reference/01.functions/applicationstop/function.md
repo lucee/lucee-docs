@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-stops the current application context
+Stops the current application context and causes the application to restart on the next request.
