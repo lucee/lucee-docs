@@ -1,8 +1,13 @@
-```lucee
-<cfoutput>
-abs( 1    ) = #abs( 1   )#<br><!--- 1   --->
-abs( 1.1  ) = #abs( 1.1 )#<br><!--- 1.1 --->
-abs( -1   ) = #abs( -1  )#<br><!--- 1   --->
-abs( -1.1 ) = #abs( -1.1)#<br><!--- 1.1 --->
-</cfoutput>
+```luceescript
+absVal = abs( 1 ); 
+echo( absVal ); // Outputs 1
+
+absVal = abs( 1.1 );
+echo( absVal ); // Outputs 1.1
+
+absVal = abs( -1 );
+echo( absVal ); Outputs 1
+
+absVal = abs( -1.1 );
+echo( absVal ); // Outputs 1.1
 ```
