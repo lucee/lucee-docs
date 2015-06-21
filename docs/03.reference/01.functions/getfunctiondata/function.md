@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-returns information to a single function
+Returns information about a function

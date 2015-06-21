@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-returns all keywords defined with all functions
+Returns all keywords defined with all functions
