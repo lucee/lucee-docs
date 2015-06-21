@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-wrap the given component with a java class that implements the given interfaces.
+Wrap the given component with a Java class that implements the given interfaces.
