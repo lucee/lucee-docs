@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-This tag has been deprecated and is non-functional.
+This tag has been obsoleted and removed from the language. It is non-functional.
