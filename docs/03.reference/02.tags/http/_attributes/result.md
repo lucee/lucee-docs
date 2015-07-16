@@ -1,1 +1,1 @@
-return variable name, default "cfhhtp"
+return variable name, default "cfhttp"
