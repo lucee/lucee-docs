@@ -6,4 +6,4 @@ categories:
     - query
 ---
 
-removes a row from a query and return removed row as array
+removes a column from a query and returns the removed column as array
