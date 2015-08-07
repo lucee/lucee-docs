@@ -7,4 +7,4 @@ categories:
     - collection
 ---
 
-Creates a structure.
+Creates an empty structure.
