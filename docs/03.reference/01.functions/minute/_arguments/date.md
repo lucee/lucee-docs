@@ -1,1 +1,1 @@
-date object
+date object; for example, `now()`
