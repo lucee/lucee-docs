@@ -1,1 +1,1 @@
-date object; for example, [[now|now()]]
+date object; for example, [[function-now|now()]]
