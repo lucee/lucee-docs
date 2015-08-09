@@ -1,6 +1,8 @@
-the type the struct created:
-  - normal (default): a regular struct
-  - weak: a struct containing weak referenced values, which do not prevent their referents from being made garbage collected. Weak references are most often used to implement simple caches.
-  - soft: a struct with soft reference values, which are cleared at the discretion of the garbage collector in response to memory demand.
-  - linked: a struct with linked keys, maintain their creation order
-  the type "synchronized" is no longer supported and get ignored, because since version 4.1 all struct/scopes are "thread safe"
+the type of structure created:
+
+  - **linked**: a struct with linked or ordered keys that maintain their insertion order
+  - **normal** (default): a regular struct
+  - **soft**: a struct with soft reference values, which are cleared at the discretion of the garbage collector in response to memory demand.
+  - **weak**: a struct containing weakly referenced values, which do not prevent their referents from being garbage collected. Weak references are most often used to implement simple caches.
+  
+  _Note, the type "synchronized" is no longer supported and will be ignored; all struct/scopes are "thread safe" since version 4.1._
