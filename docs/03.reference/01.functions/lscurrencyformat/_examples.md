@@ -1,4 +1,4 @@
-```cfml
+```lucee
 <cfscript>
   amount = 100;
   
