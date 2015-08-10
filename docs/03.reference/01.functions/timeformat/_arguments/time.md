@@ -1,1 +1,1 @@
-A date/time value or string to convert
+date object; for example, [[function-now|now()]]
