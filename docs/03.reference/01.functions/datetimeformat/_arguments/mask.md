@@ -1,5 +1,5 @@
-Mask that has to be used for formatting.
-the following characters are pattern letters (case sensitive) representing the components of a datetime string. All other characters are not interpreted
+Date time formatting mask (case sensitive): 
+
 - a,..,aaaa: AM/PM marker (see also "t" and "tt"; Example:AM)
 - d: Day in month, no leading zero for single-digit days (Example:3)
 - dd: Day in month, leading zero for single-digit days (Example:03)
@@ -38,15 +38,16 @@ the following characters are pattern letters (case sensitive) representing the c
 - WW: Week in month, leading zero for single-digit hours (Example:02)
 - y,yy,yyy: Year as last two digits, leading zero for single-digit (Example:09)
 - yyyy: Year represented by four digits (Example:2009)
-- z,zz,zzz: General time zone as a 3 to 4 lettesr abbreviation (Example:PST)
+- z,zz,zzz: General time zone as a 3 to 4 letter abbreviation (Example:PST)
 - zzzz: General time zone as its full name (Example:Pacific Standard Time)
 - Z,..,ZZZZ: RFC 822 time zone (Example:-0800)
 
 The following masks can be used to format the full date and time and may not be combined with other masks:
+
 - short: equivalent to "m/d/y h:mm tt"
 - medium: equivalent to "mmm d, yyyy h:mm:ss tt"
 - long: medium followed by three-letter time zone; i.e. "mmmm d, yyyy h:mm:ss tt zzz"
 - full: equivalent to "dddd, mmmm d, yyyy h:mm:ss tt zz"
 - ISO8601: equivalent to "yyyy-mm-dd'T'HH:nn:ss'Z'Z"
 
-The function follows Java date time mask.  For details, see the section Date and Time Patterns at http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+The function follows Java date time mask.  For details, see the Java documentation section [Date and Time Patterns](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html). 
