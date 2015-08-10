@@ -1,1 +1,1 @@
-A date/time object
+date object; for example, [[function-now|now()]]

@@ -1,1 +1,1 @@
-date time object to compare
+date object; for example, [[function-now|now()]]

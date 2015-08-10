@@ -1,4 +1,5 @@
-one of the following:
+One of the following units:
+
 - yyyy: Year
 - q: Quarter
 - m: Month

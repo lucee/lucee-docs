@@ -8,4 +8,4 @@ categories:
     - formatting
 ---
 
-Formats a time string to a given output
+Formats a time object to a given string output.

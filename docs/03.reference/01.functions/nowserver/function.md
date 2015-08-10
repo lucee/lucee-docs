@@ -3,6 +3,7 @@ title: NowServer
 id: function-nowserver
 related:
 categories:
+ - date
 ---
 
-this function is deprecated, returns the current time on the server independend on lucee timezone definition
+>>>> This function is deprecated. Returns the current time on the server independent of Lucee timezone definition.
