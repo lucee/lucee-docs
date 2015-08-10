@@ -3,6 +3,7 @@ title: GetTimeZoneInfo
 id: function-gettimezoneinfo
 related:
 categories:
+ - date
 ---
 
-Returns back a structure regarding the current timezone; utctotaloffset, utchouroffset, utcminuteoffset, isdston
+Returns a structure representing the current timezone; utctotaloffset, utchouroffset, utcminuteoffset, isdston.
