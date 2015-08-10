@@ -1,4 +1,5 @@
-String that specifies the units in which to count:
+The specific units in which to count:
+
 - yyyy: Years
 - q: Quarters
 - m: Months

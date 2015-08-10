@@ -8,4 +8,4 @@ categories:
     - formatting
 ---
 
-Formats a date string to a given output using the current locale
+Formats a date string to a given output using the current locale.

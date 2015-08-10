@@ -8,4 +8,4 @@ categories:
     - formatting
 ---
 
-Formats a date string to a given output
+Formats a date object to a given string output.
