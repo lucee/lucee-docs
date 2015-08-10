@@ -1,1 +1,1 @@
-dateobject the get part from
+date object; for example, [[function-now|now()]]

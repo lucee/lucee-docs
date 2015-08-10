@@ -1,4 +1,5 @@
-one of the following:
+Date part type:
+
 - yyyy: Year
 - q: Quarter
 - m: Month
