@@ -113,10 +113,11 @@ A full example might look like:
 id: function-abs
 title: Abs()
 related:
-    - [Problem with Abs()](http://someblog.com/somearticle.html)
+    - "[Problem with Abs()](http://someblog.com/somearticle.html)"
 categories:
     - number
     - math
 ```
 
-Category links will be rendered as ```[[category-categoryname]]```. Related links will be rendered using the markdown renderer so can use any valid link format, including our custom cross referencing syntax (see above).
+Category links will be rendered as ```[[category-categoryname]]```. Related links will be rendered using the markdown renderer so can use any valid link format, including our custom cross referencing syntax (see above, and note the required double quotes to escape the special characters).
+
