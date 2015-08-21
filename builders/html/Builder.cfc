@@ -22,11 +22,16 @@ component {
 	}
 
 	public string function renderPage( required any page, required any docTree ){
-		var renderedPage = renderTemplate(
-			  template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
-			, args     = { page = arguments.page, docTree=arguments.docTree }
-			, helpers  = "/builders/html/helpers"
-		);
+		try {
+			var renderedPage = renderTemplate(
+				  template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
+				, args     = { page = arguments.page, docTree=arguments.docTree }
+				, helpers  = "/builders/html/helpers"
+			);
+		} catch( any e ) {
+			e.additional.luceeDocsPageId = arguments.page.getid();
+			rethrow;
+		}
 		var crumbs = [];
 		var parent = arguments.page.getParent();
 		var links = [];
