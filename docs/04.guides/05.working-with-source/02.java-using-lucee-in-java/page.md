@@ -107,13 +107,13 @@ pc.setVariable( "Application.javaTime", System.currentTimeMillis() );
 
 then in your CFML code, you can use this value like so:
 
-```coldfusion
+```lucee
 <cfoutput>The Tick Count set from Java was: #Application.javaTime#</cfoutput>
 ```
 
 in the same way you can get a reference to other objects in the different scopes.  for example, if in onApplicationStart() (of  Application.cfc) your Lucee code creates somewhere a component and sets a reference to it in Application.myCfc
 
-```coldfusion
+```lucee
 <cffunction name="onApplicationStart">
 
 	<cfset Application.myCfc = createObject( "component", "my.lib.Comp" )>
