@@ -86,14 +86,14 @@ Java for OS X 2013-005 Developer Package
 
 Download this package and install it. Once installed go to the terminal window and run ```javac -version``` and make sure it is version 1.6. If not then you already have another version of the Java SDK installed and need to override the Java home by adding the following to either your .profile or .bash_profile file in your home folder (whichever already exists):
 
-```export JAVA_HOME="/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home/"```
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home/"
 
-Once you have added this, exit terminal and open a new terminal and check the Java version again using the ```javac -version``` command.
+Once you have added this, exit terminal and open a new terminal and check the Java version again using the `javac -version` command.
 
 ### Ant notes
 If when you run Ant you get an error message that says:
 
-```java.lang.OutOfMemoryError: Java heap space```
+    java.lang.OutOfMemoryError: Java heap space
 
 This means you need to give Ant more memory to run. To do this you can set an environment variable, ANT_OPTS, with the JVM memory settings in it, like so:
 
