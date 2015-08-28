@@ -97,8 +97,9 @@ If when you run Ant you get an error message that says:
 
 This means you need to give Ant more memory to run. To do this you can set an environment variable, ANT_OPTS, with the JVM memory settings in it, like so:
 
-Linux / Mac: export ANT_OPTS="-Xms256m -Xmx1024m" 
-Windows: set ANT_OPTS=-Xms256m -Xmx1024m 
+Linux / Mac: `export ANT_OPTS="-Xms256m -Xmx1024m"`
+
+Windows: `set ANT_OPTS=-Xms256m -Xmx1024m`
 
 Once set this should allow Ant to run without issue. For Linux and Mac you can add this export to your bash profile to load automatically.
 
