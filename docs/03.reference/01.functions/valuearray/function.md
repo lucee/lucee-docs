@@ -7,4 +7,5 @@ categories:
 ---
 
 Returns a array of all the values, for a given column within the query.
-		this function is deprecated, use instead the function queryColumnData
+
+>>>> This function has been deprecated. We advise that you use the [[function-queryColumnData]] function instead.
