@@ -1,5 +1,4 @@
 ```luceescript
-<cfscript>
 people = QueryNew( "name,dob,age", "varchar,date,int", [
     [ "Susi", CreateDate( 1970, 1, 1 ), 0 ],
     [ "Urs" , CreateDate( 1995, 1, 1 ), 0 ],
@@ -36,5 +35,4 @@ Dump( var=people, label='people - with calculated age' );
 | Jim  | 1988-01-01 00:00:00 | 27  |
 
 */
-</cfscript>
 ```
