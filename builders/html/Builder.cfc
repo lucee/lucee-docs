@@ -17,6 +17,7 @@ component {
 			_writePage( page, arguments.buildDirectory, docTree );
 		}
 
+		_renderStaticPages( arguments.buildDirectory, arguments.docTree );
 		_copyStaticAssets( arguments.buildDirectory );
 		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
 	}
@@ -125,6 +126,13 @@ component {
 		DirectoryCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets", arguments.buildDirectory & "/assets", true );
 	}
 
+	private void function _renderStaticPages( required string buildDirectory, required any docTree ) {
+		var staticPagesDir = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/staticPages";
+		var _404Page = _renderStaticPage( staticPagesDir & "/404.html", "404 - Page not found", arguments.docTree );
+
+		FileWrite( buildDirectory & "/404.html", _404Page );
+	}
+
 	private void function _writeSearchIndex( required any docTree, required string buildDirectory ) {
 		var searchIndexFile = arguments.buildDirectory & "/assets/js/searchIndex.json";
 
@@ -143,5 +151,22 @@ component {
 		}
 
 		return "page";
+	}
+
+	private string function _renderStaticPage( required string filePath, required string pageTitle, required any docTree ){
+		var renderedPage = FileRead( arguments.filePath );
+		var crumbs = [];
+		var links = [];
+
+		return renderTemplate(
+			  template = "layouts/static.cfm"
+			, helpers  = "/builders/html/helpers"
+			, args     = {
+				  body       = Trim( renderedPage )
+				, title      = arguments.pageTitle
+				, crumbs     = renderTemplate( template="layouts/staticbreadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ title=arguments.pageTitle } )
+				, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=[ "/home" ] } )
+			  }
+		);
 	}
 }
