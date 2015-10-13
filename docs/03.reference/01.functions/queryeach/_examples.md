@@ -1,3 +1,5 @@
+[run on trycf.com](http://trycf.com/gist/de3f8f70e045f0645a38/lucee)
+
 ```luceescript
 people = QueryNew( "name,dob,age", "varchar,date,int", [
     [ "Susi", CreateDate( 1970, 1, 1 ), 0 ],
@@ -16,7 +18,6 @@ Dump( var=people, label="people - origional query" );
 | Urs  | 1995-01-01 00:00:00 | 0   |
 | Fred | 1960-01-01 00:00:00 | 0   |
 | Jim  | 1988-01-01 00:00:00 | 0   |
-
 */
 
 people.each( function( row, rowNumber, recordset ){
