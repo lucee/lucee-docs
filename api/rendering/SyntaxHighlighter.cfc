@@ -17,20 +17,29 @@ component {
 	public string function renderHighlight( required string code, required string language ) {
 		var jars        = [ "../lib/pyg-in-blankets-1.0-SNAPSHOT-jar-with-dependencies.jar" ];
 		var highlighter = CreateObject( 'java', 'com.dominicwatson.pyginblankets.PygmentsWrapper', jars );
+		var useTryCf    = reFind( "\+trycf$", arguments.language ) > 0;
 
-		if ( arguments.language == "luceescript" ) {
+		if ( arguments.language.startsWith( "luceescript" ) ) {
 			arguments.language = "cfs";
-		}
-		if ( arguments.language == "lucee" ) {
+		} else if ( arguments.language.startsWith( "lucee" ) ) {
 			arguments.language = "cfm";
 		}
 
-		return highlighter.highlight( arguments.code, arguments.language, false );
+		var highlighted = highlighter.highlight( arguments.code, arguments.language, false );
+
+		if ( useTryCf ) {
+			var rawCode = '<script type="text/template" id="code-#LCase( Hash( highlighted ) )#" data-trycf="true" data-script="#( arguments.language == 'cfs' )#">'
+						&     arguments.code
+						& '</script>' & Chr(10);
+			return rawCode & highlighted;
+		}
+
+		return highlighted;
 	}
 
 // PRIVATE HELPERS
 	private any function _getNextHighlight( required string text, required string startPos=1 ) {
-		var referenceRegex  = "```([a-z]+)?\n(.*?)\n```";
+		var referenceRegex  = "```([a-z\+]+)?\n(.*?)\n```";
 		var regexFindResult = ReFind( referenceRegex, arguments.text, arguments.startPos, true );
 		var found           = regexFindResult.len[1] > 0;
 		var result          = {};

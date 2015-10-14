@@ -13,6 +13,8 @@ component {
 			_renderSearchIndex();
 		} elseif ( _isAssetRequest() ) {
 			_renderAsset();
+		} elseif ( _isCodeEditorRequest() ) {
+			_renderCodeEditor();
 		} else {
 			_renderPage();
 		}
@@ -44,6 +46,13 @@ component {
 
 		header name="cache-control" value="no-cache";
 		content file=assetPath type=_getMimeTypeForAsset( assetPath );abort;
+	}
+
+	private void function _renderCodeEditor() {
+		var editorPath = "/builders/html/assets/trycf/index.html";
+		var content    = FileRead( editorPath );
+
+		content reset=true;echo(content);abort;
 	}
 
 	private void function _renderSearchIndex() {
@@ -86,6 +95,10 @@ component {
 
 	private boolean function _isAssetRequest() {
 		return _getRequestUri().startsWith( "/assets" );
+	}
+
+	private boolean function _isCodeEditorRequest() {
+		return _getRequestUri().startsWith( "/editor.html" );
 	}
 
 	private string function _getMimeTypeForAsset( required string filePath ) {

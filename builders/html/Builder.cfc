@@ -131,6 +131,7 @@ component {
 		var _404Page = _renderStaticPage( staticPagesDir & "/404.html", "404 - Page not found", arguments.docTree );
 
 		FileWrite( buildDirectory & "/404.html", _404Page );
+		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", buildDirectory & "/editor.html" );
 	}
 
 	private void function _writeSearchIndex( required any docTree, required string buildDirectory ) {
