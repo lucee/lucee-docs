@@ -1,1 +1,0 @@
-Size for row label text in the grid control, in points.

@@ -1,1 +1,0 @@
-Yes displays grid control text in boldface. Default is No.

@@ -1,1 +1,0 @@
-Text to use for the Sort button. Default is "A - Z".

@@ -1,1 +1,0 @@
-Size for column header text in the grid control, in points.

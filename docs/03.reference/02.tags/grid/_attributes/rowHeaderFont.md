@@ -1,1 +1,0 @@
-Font to use for the row label.
