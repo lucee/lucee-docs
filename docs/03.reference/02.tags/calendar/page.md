@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-Unfortunately the tag &lt;cfcalendar&gt; is not supported by Lucee.
+The tag &lt;cfcalendar&gt; is not supported by Lucee.
