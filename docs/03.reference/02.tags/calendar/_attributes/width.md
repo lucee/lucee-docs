@@ -1,1 +1,0 @@
-The horizontal dimension of the calendar specified in pixels.
