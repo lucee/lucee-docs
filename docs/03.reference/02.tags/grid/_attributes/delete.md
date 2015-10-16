@@ -1,1 +1,0 @@
-Yes lets end users delete row data from the grid. Default is No.

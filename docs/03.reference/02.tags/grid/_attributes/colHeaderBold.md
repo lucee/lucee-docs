@@ -1,1 +1,0 @@
-Yes or No. Yes displays column header text in boldface. Default is No.
