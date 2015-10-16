@@ -1,1 +1,0 @@
-Alignment for the column header text. Default is as specified by cfgrid.

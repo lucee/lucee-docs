@@ -1,1 +1,0 @@
-URL to associate with the grid item. You can specify a URL that is relative to the current page
