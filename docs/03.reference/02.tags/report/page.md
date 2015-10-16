@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-Runs a predefined Crystal Reports report.
+The `<cfreport>` tag is not supported by Lucee.
