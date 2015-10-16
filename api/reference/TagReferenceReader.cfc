@@ -27,18 +27,17 @@ component accessors=true {
 		for( var tag in xmlTags ) {
 			_parseXmlTagDefinition( tag, tags);
 		}
-
 		setTags( tags );
 	}
 
-	private void function _parseXmlTagDefinition( required xml tag, struct tags) output=false {
+	private void function _parseXmlTagDefinition( required xml tag, required struct tags) output=false {
 		var parsedTag = StructNew( "linked" );
 
 		parsedTag.name                 = tag.name.xmlText ?: NullValue();
 		parsedTag.description          = tag.description.xmlText ?: NullValue();
 		parsedTag.status               = tag.status.xmlText ?: NullValue();
 
-		if(!isNull(parsedTag.status) && (parsedTag.status=="hidden" || parsedTag.status=="unimplemented")) return ;
+		if(!isNull(parsedTag.status) && (parsedTag.status=="hidden" || parsedTag.status=="unimplemented"))  return;
 
 		parsedTag.appendix             = IsBoolean( tag.apppendix.xmlText ?: "" ) && tag.appendix.xmlText; // ? what does this mean exactly
 		parsedTag.bodyContentType      = tag[ "body-content" ].xmlText ?: NullValue(); // better name here?

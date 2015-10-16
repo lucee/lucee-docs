@@ -56,8 +56,7 @@ component accessors=true {
 		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
 		for( var pageFile in pageFiles ) {
 			page = _preparePageObject( pageFile, arguments.rootDirectory );
-
-			_addPageToTree( page );
+			if(!isNull(page))_addPageToTree( page );
 		}
 		_sortChildren( tree );
 		_calculateNextAndPreviousPageLinks( tree );
@@ -141,11 +140,15 @@ component accessors=true {
 		var pageData = new PageReader().readPageFile( arguments.rootDirectory & pageFilePath )
 		switch( pageData.pageType ?: "" ) {
 			case "function":
-				pageData.append( _getFunctionSpecification( pageData.slug, arguments.rootDirectory & pageFilePath ), false );
+				var func=_getFunctionSpecification( pageData.slug, arguments.rootDirectory & pageFilePath );
+				if(isNull(func.name)) return; // happens when a .md exist but the function is hidden or unimplemented
+				pageData.append(func , false );
 				page = new FunctionPage( argumentCollection=pageData );
 			break;
 			case "tag":
-				pageData.append( _getTagSpecification( pageData.slug, arguments.rootDirectory & pageFilePath ), false );
+				var tag=_getTagSpecification( pageData.slug, arguments.rootDirectory & pageFilePath );
+				if(isNull(tag.name)) return; // happens when a .md exist but the tag is hidden or unimplemented
+				pageData.append(tag , false );
 				page = new TagPage( argumentCollection=pageData );
 			break;
 			default:

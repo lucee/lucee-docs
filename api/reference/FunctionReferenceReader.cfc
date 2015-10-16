@@ -35,7 +35,7 @@ component accessors=true {
 		var parsedFunction = StructNew( "linked" );
 		parsedFunction.status       = func.status.xmlText ?: "";
 		
-		if(parsedFunction.status=="hidden" || parsedFunction.status=="unimplemented") return ;
+		if(!isNull(parsedFunction.status) && (parsedFunction.status=="hidden" || parsedFunction.status=="unimplemented")) return;
 
 		parsedFunction.name         = func.name.xmlText ?: "";
 		parsedFunction.memberName   = func[ "member-name" ].xmlText ?: "";
@@ -54,7 +54,7 @@ component accessors=true {
 				var arg = StructNew( "linked" );
 				arg.status      = ( child.status.xmlText 	  ?: "");
 
-				if(arg.status=="hidden" || arg.status=="unimplemented") continue;
+				if(!isNull(arg.status) && (arg.status=="hidden" || arg.status=="unimplemented")) continue;
 				
 				arg.name        = ( child.name.xmlText        ?: "" );
 				arg.description = ( child.description.xmlText ?: "" );
