@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-Unfortunately the tag &lt;cfgrid&gt; is not supported by Lucee.
+The `<cfgrid>` tag is not supported by Lucee.
