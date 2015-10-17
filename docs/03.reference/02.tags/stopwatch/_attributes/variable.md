@@ -1,1 +1,1 @@
-Name of variable to write time to it
+The name of the variable which will contain the value of the time taken.
