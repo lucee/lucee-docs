@@ -1,1 +1,0 @@
-Specifies a user password. PDF format only.

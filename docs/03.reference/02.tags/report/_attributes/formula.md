@@ -1,1 +1,0 @@
-Specifies one or more named formulas. Terminate each formula specification with a semicolon.
