@@ -17,6 +17,6 @@ stopwatch variable="stopwatchVar" {
     loop from="1" to="10000" index="j" {
         i++;
     }
-    dump(variables.stopwatchVar)
 }
+dump(variables.stopwatchVar);
 ```
