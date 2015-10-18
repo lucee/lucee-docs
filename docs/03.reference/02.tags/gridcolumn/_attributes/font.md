@@ -1,1 +1,0 @@
-Font name to use for data in the column. Defaults is the font specified by cfgrid.

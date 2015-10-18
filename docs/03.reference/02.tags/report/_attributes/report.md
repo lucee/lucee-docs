@@ -1,1 +1,0 @@
-Specifies the report path. Store Crystal Reports files in the same directories as cfml templates.

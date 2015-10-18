@@ -1,1 +1,0 @@
-Font size for text in the tree control, in points.

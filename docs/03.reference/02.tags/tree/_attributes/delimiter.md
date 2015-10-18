@@ -1,1 +1,0 @@
-The character used to separate elements in the form variable path.

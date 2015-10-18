@@ -1,1 +1,0 @@
-Yes or No. Whether user must select an item in the tree control. Default is No.

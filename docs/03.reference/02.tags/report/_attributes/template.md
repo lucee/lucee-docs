@@ -1,1 +1,0 @@
-Specifies the path to the report definition file, relative to the web root.
