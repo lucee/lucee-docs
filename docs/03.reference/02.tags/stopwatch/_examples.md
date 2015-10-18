@@ -7,7 +7,7 @@
     </cfloop>
 </cfstopwatch>
 
-<cfdump var="#variables.stopwatchVar#">
+<cfdump var="#stopwatchVar#">
 ```
 
 ### Script
@@ -18,5 +18,5 @@ stopwatch variable="stopwatchVar" {
         i++;
     }
 }
-dump(variables.stopwatchVar);
+dump(stopwatchVar);
 ```
