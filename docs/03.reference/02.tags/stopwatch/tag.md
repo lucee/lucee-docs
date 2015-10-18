@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-Stops the time from starttag to endtag
+Measures the time taken, in milliseconds, for the code between the start tag and end tag to execute.

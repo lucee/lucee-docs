@@ -1,1 +1,1 @@
-Label of the stopwatch
+The label for the stopwatch, used in debugging output.
