@@ -7,18 +7,14 @@ id: cookbook-application-context-update
 Lucee allows to update a existing application context defined for example with a Application.cfc.
 So for example add a per application mapping
 
-```
-#!html
-
+```lucee
 <!--- creates a mapping with name "/test" that is pointing to the current directory --->
 <cfapplication action="update" mappings="#{'/test':getDirectoryFromPath(getCurrentTemplatePath())}#">
-
 ```
 
 this examples does not extend the already defined per application mappings with this new one, it replaces them. So when you plan to add a mapping best read the existing mappings with help of the function getApplicationSettings() and extend this mappings as follows:
 
-```
-#!cfm
+```lucee
 <!--- read the existing per application mappings --->
 <cfset mappings=getApplicationSettings().mappings>
 
