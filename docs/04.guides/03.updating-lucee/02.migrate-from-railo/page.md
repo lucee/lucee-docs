@@ -44,8 +44,8 @@ Lucee only converts the Railo config settings, it does not touch your Servlet En
 
 ### web.xml (jetty)/webdefault.xml (tomcat) ###
 You **can** for example change the class names in the servlet definitions from
-```  
-#!xml
+
+```xml
 <servlet>
     <servlet-name>GlobalCFMLServlet</servlet-name>
     <description>CFML runtime Engine</description>
@@ -62,11 +62,11 @@ You **can** for example change the class names in the servlet definitions from
     </init-param>
     <load-on-startup>1</load-on-startup>
 </servlet>
+```
 
-```
 to
-```
-#!xml
+
+```xml
 <servlet>
     <servlet-name>GlobalCFMLServlet</servlet-name>
     <description>CFML runtime Engine</description>
@@ -84,6 +84,7 @@ to
     <load-on-startup>1</load-on-startup>
 </servlet>
 ```
+
 but doing so isn't necessary and makes no difference to Lucee.
 **When you change a path like "D:\projects/whatever/railo/server" to "D:\projects/whatever/lucee/server", Lucee will no longer find the original configuration and because of that not migrating it, so it is really better to changes paths like this AFTER the migration! **
 
@@ -114,12 +115,13 @@ If you have installed the Video extension, you may see the following error: `jav
 ##org.railo.cfml... component paths
 
 If you have used the component path *org.railo.cfml...* as a **return or argument type**, it must be changed to *org.lucee.cfml*, eg.
-```
-#!javascript
+
+```javascript
 org.railo.cfml.Query function newQuery(){
    return new Query();
 }
 ```
+
 These CFCs may be affected:
 
    ![cfcs.jpg](https://bitbucket.org/repo/rX87Rq/images/2979463242-cfcs.jpg)
