@@ -40,8 +40,6 @@ That's it, at least for the application folder. Tomcat requires approximately 10
 Command line:
 
 ```
-#!dos
-
 md "C:\Program Files\Tomcat"
 copy D:\temp\apache-tomcat-8.0.18\*.* "C:\Program Files\Tomcat" /Y
 
@@ -54,6 +52,7 @@ copy D:\temp\apache-tomcat-8.0.18\bin\*.xml "C:\Program Files\Tomcat\bin" /Y
 md "C:\Program Files\Tomcat\lib"
 copy D:\temp\apache-tomcat-8.0.18\lib\*.jar "C:\Program Files\Tomcat\lib" /Y
 ```
+
 Note: You can paste the content of the container above directly into the command line of the server.
 
 Now lets do the same for the configuration and data folder:
@@ -69,7 +68,6 @@ Now lets do the same for the configuration and data folder:
 Command line:
 
 ```
-#!dos
 md D:\Tomcat
 md D:\Tomcat\conf
 copy D:\temp\apache-tomcat-8.0.18\conf\*.* D:\Tomcat\conf /Y
@@ -95,29 +93,25 @@ Let's go to the folder **D:\Tomcat\conf**.
 
 Catalina's default host needs some tweaking. Find the line:
 
-```
-#!java
+```xml
 <Host name="localhost"  appBase="webapps"
             unpackWARs="true" autoDeploy="true">
 ```
 
 Change this line to:
 
-```
-#!java
+```xml
 <Host name="localhost" appBase="D:\Tomcat\webapps" workDir="D:\Tomcat\work\Catalina\localhost" unpackWARs="true" autoDeploy="true">
 ```
 
 A few lines below, you will find the line:
 
-```
-#!java
+```xml
 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
 ```
 We need to specify the full path to the log directory:
 
-```
-#!java
+```xml
 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="D:\Tomcat\logs"
 ```
 
@@ -127,8 +121,7 @@ The next step is optional. Tomcat and Lucee are listening on port **8080** to ac
 
 Find the setting:
 
-```
-#!java
+```xml
 <Connector port="8080" protocol="HTTP/1.1"
                connectionTimeout="20000"
                redirectPort="8443" />
@@ -139,7 +132,6 @@ Change the port *8080* to the new port.
 If you like to access the Tomcat Administration from outside of the server, the Windows firewall needs to be opened with a rule:
 
 ```
-#!dos
 netsh advfirewall firewall add rule name="Apache Tomcat" dir=in action=allow protocol=TCP localport=8888 program="C:\Program Files\Tomcat\bin\tomcat8.exe" profile=ANY
 ```
 
@@ -155,9 +147,7 @@ Be sure, that the port is limited to the main exe file **C:\Program Files\Tomcat
 This file holds rules, usernames and passwords to access the administrator interface of Tomcat. The access to the administrator interface is disabled by default:
 
 
-```
-#!java
-
+```xml
 <!--
   <role rolename="tomcat"/>
   <role rolename="role1"/>
@@ -165,18 +155,14 @@ This file holds rules, usernames and passwords to access the administrator inter
   <user username="both" password="tomcat" roles="tomcat,role1"/>
   <user username="role1" password="tomcat" roles="role1"/>
 -->
-
 ```
 
 Replace the content with this:
 
-```
-#!java
-
+```xml
 <role rolename="admin-gui"/>
 <role rolename="manager-gui"/>
 <user name="AccountName" password="VeryStrongPassword" roles="admin-gui,manager-gui" />
-
 ```
 
 Choose a clever name for the administrator account. For security reasons, do not choose *admin* oder *administrator*!
@@ -189,13 +175,11 @@ This is an optional task, which cuts the time Tomcat takes to start:
 Find the line:
 
 ```
-#!dos
 tomcat.util.scan.StandardJarScanFilter.jarsToSkip=\
 ```
 Remove the lines below until the next comment and change the line to:
 
 ```
-#!dos
 tomcat.util.scan.StandardJarScanFilter.jarsToSkip=\*.jar
 ```
 Instead of skipping the list of JAR's at startup, Tomcat will skip all JAR's.
@@ -203,13 +187,12 @@ Instead of skipping the list of JAR's at startup, Tomcat will skip all JAR's.
 Find the line:
 
 ```
-#!dos
 tomcat.util.scan.StandardJarScanFilter.jarsToScan=log4j-core*.jar,log4j-taglib*.jar
 ```
+
 Add a **remark** in front of the line:
 
 ```
-#!dos
 #tomcat.util.scan.StandardJarScanFilter.jarsToScan=log4j-core*.jar,log4j-taglib*.jar
 ```
 
