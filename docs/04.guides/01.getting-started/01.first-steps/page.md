@@ -13,8 +13,7 @@ If you've read the page about [[getting to know Lucee]], you'll know that Lucee 
 
 In your file explorer, find the website folder, create a file called `myFirstPage.cfm` and add the following to it:
 
-```
-#!cfm
+```lucee
 	<html>
 		<head>
 			<title>My first page</title>
@@ -27,8 +26,6 @@ In your file explorer, find the website folder, create a file called `myFirstPag
 		</body>
 	</html>
 ```
-
-
 
 Save the file, then head to http://localhost:8888/myFirstPage.cfm
 
@@ -56,8 +53,7 @@ The example above was  pure tag code, tag code is perfect to create output, to m
 ### Tag ###
 The following fragment outputs some employee details from an employee object.  As you can see, the tag language slots right into your presentation format.  It's HTML in this case, but could just as easily be used to make RSS, XML, or indeed any data type you like.  
 
-```
-#!cfm
+```lucee
 <cfoutput>
 <h1>Employee details</h1>
 <div>
@@ -78,8 +74,7 @@ Script code can be used in code island or with complete files, similar you can u
 
 This example gets a record from a database and populates an object.
 
-```
-#!java
+```luceescript
 var qry = new QueryExecute("select * from employee where id="&url.id);
 var employee = new Employee();
 employee.setName(qry.name);
@@ -90,13 +85,12 @@ employee.setDOB(qry.dob);
 
 Of course you can use tag and script in the same file...
 
-```
-#!cfm
+```lucee
 <cfscript>
-var qry = new QueryExecute("select * from employee where id="&url.id);
-var employee = new Employee();
-employee.setName(qry.name);
-employee.setDOB(qry.dob);
+    var qry = new QueryExecute("select * from employee where id="&url.id);
+    var employee = new Employee();
+    employee.setName(qry.name);
+    employee.setDOB(qry.dob);
 </cfscript>
 
 <cfoutput>
