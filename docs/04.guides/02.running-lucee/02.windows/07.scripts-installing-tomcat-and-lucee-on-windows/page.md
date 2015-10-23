@@ -4,8 +4,6 @@ id: running-lucee-scripts-installing-tomcat-and-lucee-on-windows
 ---
 
 ```
-#!dos
-
 set catalina.home=C:\Program Files\Tomcat
 set catalina.base=D:\Tomcat
 set jvm.dir=C:\Program Files\Oracle Java Server
@@ -50,5 +48,4 @@ rem Expand the Lucee files now
 pause
 
 "%catalina.home%\bin\tomcat8.exe" //US//Tomcat8 ++JvmOptions="-javaagent:%lucee.home%\lucee-inst.jar"
-
 ```
