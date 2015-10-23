@@ -1,5 +1,5 @@
 ---
-title: Starting Tomcat and verifying the installation on windows
+title: Starting Tomcat and verifying the installation on Windows
 id: running-lucee-starting-tomcat-and-verifying-the-installation-on-windows
 ---
 
@@ -9,8 +9,6 @@ Go to the services applet of the Windows control panel and start the service. Mu
 
 
 ```
-#!DOS
-
 net start tomcat8
 ```
 
@@ -41,8 +39,6 @@ To access these pages, *you need to login* with your previously created account.
 *Tip*: Save this script as a CMD-file to your desktop as a convenient Tomcat restarter:
 
 ```
-#!dos
-
 net stop Tomcat8
 ping -n 11 127.0.0.1
 del D:\Tomcat\Logs\*.* /Q
