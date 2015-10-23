@@ -17,7 +17,6 @@ Choose the **Windows x64** edition. Once downloaded, unzip the content to a temp
 
 Command line:
 ```
-#!DOS
 md "C:\Program Files\Oracle Java Server"
 xcopy D:\Temp\jdk1.8.0_31\*.* "C:\Program Files\Oracle Java Server" /s
 ```
@@ -35,7 +34,6 @@ Finally we need to set an environment variable to point to our new Java installa
 
 Or using the command line:
 ```
-#!DOS
 setx JAVA_HOME "C:\Program Files\Oracle Java Server" /m
 ```
 
@@ -47,5 +45,3 @@ To check the environment variable has been set correctly:
 ## Update ##
 
 It is important to keep Java updated with the latest security patches. To do so, simply *Stop your Tomcat-Service* and repeat the installation steps from above, overwriting the existing files. Don't forget to re-start Tomcat after the update.
-
-- - -
