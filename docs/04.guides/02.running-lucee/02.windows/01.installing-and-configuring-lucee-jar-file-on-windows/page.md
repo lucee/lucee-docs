@@ -17,11 +17,9 @@ The jar files require approximately 71MB of diskspace.
 Command line:
 
 ```
-#!dos
 md "C:\Program Files\Lucee"
 copy D:\temp\*.* "C:\Program Files\Lucee" /Y
 md D:\Lucee
-
 ```
 
 ## Configuration##
@@ -29,36 +27,27 @@ md D:\Lucee
 We have to take care, that Apache Tomcat is able find the jar files of Lucee. The file **D:\Tomcat\conf\catalina.properties** needs to be edited. Find the line:
 
 ```
-#!dos
-
 common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.home}/lib","${catalina.home}/lib/*.jar"
-
 ```
 Append the path to Lucee's program directory, which is **C:/Program Files/Lucee/*.jar**. Did you notice the *foward slashes*?
 
 ```
-#!dos
-
 common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.home}/lib","${catalina.home}/lib/*.jar","C:/Program Files/Lucee/*.jar"
-
 ```
 
 The next step is to tell Apache Tomcat, that we need a new *welcome file*, which we add in the file **D:\Tomcat\conf\web.xml**. At the end of the file, you will find this list:
 
-```
-#!dos
-
+```xml
 <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
 </welcome-file-list>
 ```
+
 **Append** new line containing **index.cfm** as the **last line**:
 
-```
-#!dos
-
+```xml
 <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -69,8 +58,7 @@ The next step is to tell Apache Tomcat, that we need a new *welcome file*, which
 
 Below this list, new servlets and their mappings must be added:
 
-```
-#!dos
+```xml
 <servlet>
     <servlet-name>CFMLServlet</servlet-name>
     <description>CFML runtime Engine</description>
@@ -113,10 +101,8 @@ Below this list, new servlets and their mappings must be added:
 
 *Note:* After the last  **</servlet-mapping>**, the file ends by having the closing **</web-app>**
 
- Finally a Java option needs to be added:
+Finally a Java option needs to be added:
 
 ```
-#!dos
-
 "C:\Program Files\Tomcat\bin\tomcat8.exe" //US//Tomcat8 ++JvmOptions="-javaagent:C:\Program Files\Lucee\lucee-inst.jar"
 ```
