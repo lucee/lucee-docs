@@ -31,7 +31,6 @@ Finally we need to set an environment variable to point to our new Java installa
 
 Or using the command line:
 ```
-#!DOS
 setx JDK_HOME "C:\Program Files\Oracle Java JDK" /m
 ```
 To check the environment variable has been set correctly:
@@ -47,7 +46,6 @@ It is important to keep Java updated with the latest security patches. To do so 
 
 If you need to install this product on several servers then a silent installation will make your life easier:
 ```
-#!DOS
 jdk-8u31-windows-x64.exe /s addlocal="ToolsFeature" installdir="C:\Program Files\Oracle Java JDK"
 setx JDK_HOME "C:\Program Files\Oracle Java JDK" /m
 ```
