@@ -8,8 +8,6 @@ id: running-lucee-configuring-tomcat-as-a-windows-service
 Creating the Windows service is only possible on the command line. The basic syntax is:
 
 ```
-#!dos
-
 "C:\Program Files\Tomcat\bin\tomcat8.exe" //IS//Tomcat8 --DisplayName="Apache Tomcat"
 ```
 This line would install the service. The argument **//IS//** installs the service without starting it. Probably the service wouldn't start anyway: A lot of configuration data needs to be stored into the registry first. Actually Tomcat is blind like a mole.
@@ -19,16 +17,12 @@ The basic installation from above can be *extended* with configuration data. The
 Let's use this line as the first action to create the service on your server:
 
 ```
-#!dos
-
 "C:\Program Files\Tomcat\bin\tomcat8.exe" //IS//Tomcat8 --DisplayName="Apache Tomcat" --Description="Apache Tomcat" --Startup="auto"
 ```
 
 Now we append the path to the **jvm.dll** and the **class path**:
 
 ```
-#!dos
-
 "C:\Program Files\Tomcat\bin\tomcat8.exe" //US//Tomcat8 --Classpath="C:\Program Files\Tomcat\bin\bootstrap.jar;C:\Program Files\Tomcat\bin\tomcat-juli.jar"
 "C:\Program Files\Tomcat\bin\tomcat8.exe" //US//Tomcat8 --Jvm="C:\Program Files\Oracle Java Server\jre\bin\server\jvm.dll"
 ```
@@ -39,23 +33,17 @@ Now we append the path to the **jvm.dll** and the **class path**:
 Now let's add the remaining **Java Options**:
 
 ```
-#!dos
-
 "C:\Program Files\Tomcat\bin\tomcat8.exe" //US//Tomcat8 ++JvmOptions="-Dcatalina.home=C:\Program Files\Tomcat;-Dcatalina.base=D:\Tomcat;-Djava.endorsed.dirs=D:\Tomcat\endorsed;-Djava.io.tmpdir=D:\Tomcat\Temp;-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager;-Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties"
 ```
 
 Let's continue by adding the **logging** properties:
 
 ```
-#!dos
-
 "C:\Program Files\Tomcat\bin\tomcat8.exe" //US//Tomcat8 --LogLevel="Info" --LogPrefix="tomcat_service_" --LogPath="D:\Tomcat\Logs" --StdOutput="auto" --StdError="auto" --PidFile="tomcat8.pid"
 ```
 
 And finally we add the **Startup** and **Shutdown** properties:
 ```
-#!dos
-
 "C:\Program Files\Tomcat\bin\tomcat8.exe" //US//Tomcat8 --StartClass="org.apache.catalina.startup.Bootstrap" --StartMode="jvm" ++StartParams="start"  
 "C:\Program Files\Tomcat\bin\tomcat8.exe" //US//Tomcat8 --StopClass="org.apache.catalina.startup.Bootstrap" --StopMode="jvm" ++StopParams="stop" --StopTimeout="0"
 ```
@@ -71,12 +59,13 @@ Please check the configuration by starting the Tomcat applet:
 - - -
 Reference: [Apache Tomcat - Windows Service](http://tomcat.apache.org/tomcat-8.0-doc/windows-service-howto.html)
 - - -
+
 ## Tomcat runtime configuration##
 
 One very important thing is left: Tomcat needs to know about his memory configuration and how he should behave in general.
 
 >**Disclaimer: The following values are working well on the authors servers. You can take these settings as a starting point.**
-> **These settings are *NOT* an official recommendation of the *Lucee Association Switzerland*.**  
+>**These settings are *NOT* an official recommendation of the *Lucee Association Switzerland*.**  
 
 So, stop this shouting and let's get back to business. For this guide, we will use the following values:
 > -Xms4096m
@@ -106,8 +95,6 @@ So, stop this shouting and let's get back to business. For this guide, we will u
 Let's apply these settings on the server:
 
 ```
-#!DOS
-
 "C:\Program Files\Tomcat\bin\tomcat8.exe" //US//Tomcat8 ++JvmOptions="-Xms4096m;-Xmx4096m;-Xss512k;-XX:NewSize=1024M;-XX:MaxNewSize=1024M;-XX:GCTimeRatio=5;-XX:ThreadPriorityPolicy=42;-XX:ParallelGCThreads=4;-XX:MaxGCPauseMillis=50;-XX:+DisableExplicitGC;-XX:MaxHeapFreeRatio=70;-XX:MinHeapFreeRatio=40;-XX:+OptimizeStringConcat;-XX:+UseTLAB;-XX:+ScavengeBeforeFullGC;-XX:CompileThreshold=1500;-XX:+TieredCompilation;-XX:+UseBiasedLocking;-Xverify:none;-XX:+UseThreadPriorities;-XX:+UseFastAccessorMethods;-XX:+UseCompressedOops;-XX:ReservedCodeCacheSize=256m"
 ```
 For you convenience, these command line snippets are available [here](Scripts Installing Tomcat and Lucee on Windows) as a script.
