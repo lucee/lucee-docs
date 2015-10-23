@@ -26,44 +26,26 @@ Install Tomcat by extracting the downloaded archive. Extract the archive to your
 
 9. Create a file called //setenv.sh//. Tomcat uses this file to set environment variables on startup. Open the file and add this line:
 
-{{{
-#!java
-
-
-    JAVA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=128m  -javaagent:${CATALINA_HOME}/lucee/lucee-inst.jar";  
-}}}
-
+```
+JAVA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=128m  -javaagent:${CATALINA_HOME}/lucee/lucee-inst.jar";
+```
 
 10. Go into //./tomcat/conf//.
 
 11. Open //catalina.properties//. Replace the commented line in this text with the new line:
 
-
-
-
-{{{
-#!shell
-
-
- #common.loader=${catalina.base}/lib,${catalina.base}/lib/*.jar,${catalina.home}/lib,${catalina.home}/lib/*.jar
-  common.loader=${catalina.home}/lib,${catalina.home}/lib/*.jar,${catalina.home}/lucee,${catalina.home}/lucee/*.jar
-
-}}}
-
-
+```
+#common.loader=${catalina.base}/lib,${catalina.base}/lib/*.jar,${catalina.home}/lib,${catalina.home}/lib/*.jar
+common.loader=${catalina.home}/lib,${catalina.home}/lib/*.jar,${catalina.home}/lucee,${catalina.home}/lucee/*.jar
+```
 
 12. Open a Terminal prompt. Follow these commands:
 
-
-{{{
-#!java
-
-    $ cd tomcat/bin
-    $ chmod 775 *
-​    $ ./startup.sh
-
-}}}
-
+```
+$ cd tomcat/bin
+$ chmod 775 *
+$ ./startup.sh
+```
 
 13. Next, open a web browser to localhost:8080/lucee/admin/web.cfm. You should see the Lucee Web admin login screen. Lucee is now installed.
 
