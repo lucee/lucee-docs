@@ -31,7 +31,6 @@ Both packages can be installed on a server without any drawbacks. Switching from
 ##  Switch from Server JRE to JDK ##
 
 ```
-#!DOS
 setx JAVA_HOME "" /m
 setx JDK_HOME "C:\Program Files\Oracle Java JDK" /m
 ```
@@ -39,9 +38,6 @@ setx JDK_HOME "C:\Program Files\Oracle Java JDK" /m
 ## Switch from JDK to Server JRE ##
 
 ```
-#!DOS
 setx JDK_HOME "" /m
 setx JAVA_HOME "C:\Program Files\Oracle Java Server" /m
 ```
-
-- - -
