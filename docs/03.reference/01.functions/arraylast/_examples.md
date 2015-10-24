@@ -1,1 +1,9 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+<cfscript>
+aNames = array("Marcus","Sarah","Josefine");
+arrayLast(aNames);
+
+dump( var=aNames, label="aNames - origional array" );
+dump(var=arrayLast(aNames),label="last element of array aNames");
+</cfscript>
+```
