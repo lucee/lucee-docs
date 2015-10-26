@@ -31,6 +31,26 @@ WriteOutput( x );
 
 >>> We have implemented two lexers for Lucee, `lucee` and `luceescript`. The former is used for tag based code, the latter, script based. For a complete list of available lexers, see the [Pygments website](http://pygments.org/docs/lexers/).
 
+### Embedded TryCF code runner
+
+In addition to syntax highlighting, we also will take any lexer that is suffixed with `+trycf`, and convert the contained code into a runnable and editable sample using [TryCF](http://trycf.com) (in the website only). For example:
+
+<pre>
+```luceescript+trycf
+x = 10;
+WriteOutput( x );
+```
+</pre>
+
+or:
+
+<pre>
+```lucee+trycf
+&lt;cfset x = 10&gt;
+&lt;cfoutput&gt;#x#&lt;/cfoutput&gt;
+```
+</pre>
+
 ## Cross referencing
 
 Cross referencing between pages can be achieved using a double square bracket syntax surrounding the id of the page you wish to link to. For example:
