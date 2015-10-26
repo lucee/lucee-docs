@@ -1,4 +1,4 @@
-```luceescript
+```luceescript+trycf
 numbers = [ 1, 2, 3, 4 ];
 ArrayAppend( numbers, 5 );
 Dump( numbers ); // Outputs [ 1, 2, 3, 4, 5 ]
