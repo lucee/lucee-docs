@@ -1,3 +1,4 @@
+```luceescript+trycf
 aNames = array("Marcus","Sarah","Josefine");
 
 arrayEach(
@@ -13,3 +14,4 @@ aNames.each(
         dump(var="#lcase(element)#",label="lcase element");
     }
 );
+```
