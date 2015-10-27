@@ -1,1 +1,8 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+aNames = array("Marcus","Sarah","Josefine");
+
+iArrayLength = ArrayLen(aNames);
+
+dump(var=iArrayLength, label="array length");
+```
+  
