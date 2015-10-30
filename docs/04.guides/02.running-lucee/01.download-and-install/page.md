@@ -12,14 +12,13 @@ Lucee Server comes in different flavors to match your needs.
 Simply download a zip, unzip that file and execute a batch file, that's all!
 If you are done using that version, simply delete it and it is gone for good!
 
-Download the latest "Express" version [here](https://bitbucket.org/lucee/lucee/downloads) and have fun!
+Download the latest "Express" version [here](http://lucee.org/downloads.html) and have fun!
 
 By default the Express version listens on port 8888.
 
 ## Installers ##
 We provide installers to install Lucee on your platform, bundled with the Tomcat Servlet Engine and the web server connectors necessary.
-Simply download the installer for your platform [here](https://bitbucket.org/lucee/lucee/downloads).
+Simply download the installer for your platform [here](http://lucee.org/downloads.html).
 
 ## Custom Installation ##
-If you want to use Lucee in different environment (with different Servlet Engine), simply download our "Lucee Custom" package [here](https://bitbucket.org/lucee/lucee/downloads), it contains everything you need for this task.
-Consult this  [page](Custom_Installation) to get info for how to do this exactly.
+If you want to use Lucee in a different environment, e.g. with a different servlet engine, simply download our "Lucee Custom" package [here](http://lucee.org/downloads.html), it contains everything you need for this task. Consult this [page](Custom_Installation) for information on how to perform a custom install.
