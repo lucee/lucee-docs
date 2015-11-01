@@ -3,7 +3,7 @@ title: LSCurrencyFormat
 id: function-lscurrencyformat
 related:
 categories:
-    - date
+    - currency
     - string
     - formatting
 ---
