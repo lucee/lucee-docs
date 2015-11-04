@@ -14,8 +14,7 @@ id: lucee-5-updating-railo
 * Remove "MessageBrokerServlet" definition with mapping from your web.xml (Tomcat: conf/web.xml, Jetty etc/webdefault.xml)
 * Add Lucee Servlet to /conf/web.xml (pay attention to the load-on-startup values for your servlets)
 
-```
-#!xml
+```xml
 
  	<servlet>
  		<servlet-name>LuceeServlet</servlet-name>
@@ -32,7 +31,6 @@ id: lucee-5-updating-railo
 * Add the following code to to catalina.properties (Tomcat: conf/catalina.properties) at the and of **common.loader=...**
 
 ```
-#!xml
 ,"${catalina.base}/lib/ext","${catalina.base}/lib/ext/*.jar","${catalina.home}/lib/ext","${catalina.home}/lib/ext/*.jar"
 ```
 
@@ -46,8 +44,7 @@ With Lucee 5 the JARs used by Lucee (except lucee.jar and org-apache-felix-main-
 
 **Sample Lucee Servlet Definition in web.xml**
 
-```
-#!xml
+```xml
 
     <!-- ===================================================================== -->
     <!-- Lucee CFML Servlet - this is the main Lucee servlet                   -->
