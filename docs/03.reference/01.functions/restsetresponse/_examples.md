@@ -21,5 +21,6 @@ RestSetResponse(
     {
         "status":"404",
         "content":"This resource does not exist"
+    }
 );
 ```
