@@ -1,1 +1,1 @@
-The local time to geat beat time from
+The local time to get beat time from
