@@ -8,8 +8,7 @@ id: lucee-5-access=modifiers
 
 Access modifiers can be defined for all variables defined within the body of a component, for example:
 
-```
-#!javascript
+```luceescript
 component {
    private this.lastName="Sorglos"; // cannot be accessed from outside
    public this.comment="This is a comment"; // can be accessed from outside
