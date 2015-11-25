@@ -7,8 +7,7 @@ id: lucee-5-component-static
 **Lucee 5 supports static variables and functions inside components.**
 
 Example:
-```
-#!javascript
+```luceescript
 component {
      // inside the static constructor you can define static variables, this code is executed when the "class" instance is loaded
      static {
@@ -26,11 +25,12 @@ component {
      }
 }
 ```
-The "static" constructor ```static {...}```  is executed once before the component is loaded for the first time, so every component of the same type shares the same static scope.
+
+The "static" constructor `static {...}`  is executed once before the component is loaded for the first time, so every component of the same type shares the same static scope.
 
 You can use static functions and data as follows.
-```
-#!javascript
+
+```luceescript
 component Test {
    static {
       staticValue=1;
@@ -38,8 +38,8 @@ component Test {
    public static function testStatic(){}
 }
 ```
-```
-#!javascript
+
+```luceescript
 Test::testStatic();
 x=Test:: staticValue;
 ```
