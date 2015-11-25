@@ -10,8 +10,7 @@ id: lucee-5-abstract-final
 Abstract component / functions cannot be used directly, you can only extend them.
 
 **AContext.cfc**
-```
-#!javascript
+```luceescript
 abstract component {
    abstract function getFile();
 
@@ -33,8 +32,7 @@ The "final" modifier is the opposite to the "abstract" modifier and means you ca
 Unlike "abstract" a function can be "final" even if the component is not "final".
 
 **Context.cfc**
-```
-#!javascript
+```luceescript
 final component extends="AContext" {
    function getFile() {
       return getCurrentTemplatePath();
@@ -44,8 +42,8 @@ final component extends="AContext" {
 Here we are extending the component "AContext" from above and implementing the required "getFile" function.
 
 In contrast to "abstract", a "final" method also can be defined in a non-final component.
-```
-#!javascript
+
+```luceescript
 component  {
    final function getFile() {
       return getCurrentTemplatePath();
@@ -55,8 +53,7 @@ component  {
 
 ## Tag syntax ##
 Modifiers can also be used within tags, for example:
-```
-#!coldfusion
+```lucee
 <cfcomponent modifier="abstract">
    <cffunction name="time" modifier="final">
       <cfreturn now()>
