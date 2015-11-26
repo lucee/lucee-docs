@@ -7,8 +7,8 @@ id: lucee-5-tags
 **Lucee 5 also extends the popular `cfloop` tag with a new way to do a very simple and fast loop. If you have simply to loop something a certain number of times and you do not require an index, this is the fastest way to do it.**
 
 Example:
-```
-#!coldfusion
+
+```lucee
 <cfloop times="5">
     Hi There
 </cfloop>
