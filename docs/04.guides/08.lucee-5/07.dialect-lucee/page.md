@@ -40,6 +40,7 @@ You can also mix the "Lucee" dialect with the "CFML" dialect, so you can for exa
 Let's do some examples to get a feeling for the syntax.
 
 Tag based template with a script island:
+
 ```lucee
 <:script>
   mail=evaluate(url.mail);
@@ -58,9 +59,9 @@ Let's take a look into some details, of course this does not cover everything, a
 
 #### Full Null Support ####
 The Lucee dialect has full null support, so the following is possible:
+
 ```luceescript
 test=null;
-
 // some code here that maybe change "test"
 if(test==null)
   dump(test);
@@ -68,10 +69,11 @@ if(test==null)
 
 #### Local Scope ####
 Inside a function if the scope has not been defined for a variable then the nearest scope is used, so in the following that would be the "local" scope and not the "variables" scope that the CFML dialect would use.
+
 ```luceescript
 function test(){
-    test=1; // sets "test" to the local scope
-    variables.whatever=2; // sets "whatever" to the variables scope.
+  test=1; // sets "test" to the local scope
+  variables.whatever=2; // sets "whatever" to the variables scope.
 }
 ```
 
@@ -82,6 +84,7 @@ In the CFML dialect variables in the `this` scope are accessible from outside (p
 
 #### Scope Cascading ####
 In the CFML dialect if you call a variable, for example `#susi#`, the engine will look for "susi" in the following scopes [local,arguments,variables,cgi,url,form,cookie] however in the Lucee dialect it only checks the following scopes [local,arguments,variables].
+
 ```luceescript
  url.susi="Susanne";
  form.susi="Sorglos";
@@ -92,21 +95,24 @@ In the CFML dialect if you call a variable, for example `#susi#`, the engine wil
 In the CFML dialect if an attribute value is defined without (single or double) quotes, it is handled as a String, in the Lucee dialect the same is handled as a variable.
 
 Take this example
+
 ```lucee
- <cfmail subject=mail.subject from=mail.from to=mail.to>
- </cfmail>
+<cfmail subject=mail.subject from=mail.from to=mail.to>
+</cfmail>
 ```
 
 In CFML this is handled the same way as this
+
 ```lucee
- <cfmail subject="mail.subject" from="mail.from" to="mail.to">
- </cfmail>
+<cfmail subject="mail.subject" from="mail.from" to="mail.to">
+</cfmail>
 ```
 
 and in Lucee this is handled the same way as this
+
 ```luceescript
- <:mail subject="#mail.subject#" from="#mail.from#" to="#mail.to#">
- </:mail>
+<:mail subject="#mail.subject#" from="#mail.from#" to="#mail.to#">
+</:mail>
 ```
 
 **This is just a first peek of what is possible with the Lucee dialect, more will come soon!**
