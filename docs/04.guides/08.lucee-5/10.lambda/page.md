@@ -10,8 +10,8 @@ id: lucee-5-lambda
 Lambda expressions reduce much of the syntax around creating anonymous functions. In its simplest form, you can eliminate the `function` keyword, curly braces and `return` statement. Lambda expressions implicitly return the results of the expression body.
 
 A simple lambda expression with no arguments:
-```
-#!javascript
+
+```luceescript
 // Using a traditional function
 makeSix = function() { return 5 + 1; }
 
@@ -23,8 +23,8 @@ dump(makeSix());
 ```
 
 A simple lambda expression with multiple arguments:
-```
-#!javascript
+
+```luceescript
 // Takes two numeric values and adds them
 add = (numeric x, numeric y) -> x + y;
 
@@ -33,8 +33,8 @@ dump(add(1, 3));
 ```
 
 A complex lambda expression with an argument:
-```
-#!javascript
+
+```luceescript
 // Takes a numeric value and returns a string
 isOdd = (numeric n) -> {
   if ( n % 2 == 0 ) {
