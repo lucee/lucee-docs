@@ -7,6 +7,7 @@ id: lucee-5-component-static
 **Lucee 5 supports static variables and functions inside components.**
 
 Example:
+
 ```luceescript
 component {
      // inside the static constructor you can define static variables, this code is executed when the "class" instance is loaded
