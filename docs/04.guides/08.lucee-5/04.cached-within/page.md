@@ -9,8 +9,7 @@ id: lucee-5-cached-within
 ##Supported with cffile and cfhttp##
 The possibility to cache the result of the tags `cffile` and `cfhttp` has been added in Lucee 5 using the attribute `cachedWithin` for these tags.
 
-```
-#!html
+```lucee
 <cffile action="read" file="test.txt" variable="content" cachedWithin="request"/>
 <cfhttp url="http://lucee.org" name="http" cachedWithin="#createTimespan(0,0,0,10)#"/>
 ```
