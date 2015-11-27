@@ -50,5 +50,6 @@ Lucee 5 has had a complete overhaul under the hood, we have not only redone a lo
 Lucee 5 has had a complete overhaul of the existing extension framework, to make them more flexible and far easier for anyone to create an extension. See [[lucee-5-extensions]]
 
 ## Install/Upgrade instructions ##
+* Fresh install (TODO)
+* Updating from Lucee 4.5 (TODO)
 * [[lucee-5-updating-railo]]
-* [Fresh install](running-lucee-download-and-install)
