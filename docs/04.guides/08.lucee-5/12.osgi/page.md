@@ -24,14 +24,13 @@ Today you use `createObject('java',"my.class.Path")` to create Java Objects, but
 
 Lucee 5 introduces the function `javaProxy()` to load Java objects, this functions interface is optimized to OSGi, so you can do something like this:
 
-```
-#!javascript
+```luceescript
 dtf=javaProxy("org.joda.time.format.DateTimeFormat", "org-joda-time", "2.1.0");
 ```
+
 The function syntax is:
 
-```
-#!javascript
+```luceescript
 javaProxy(string className [, string bundleName, string bundleVersion]);
 ```
 
