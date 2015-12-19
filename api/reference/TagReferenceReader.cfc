@@ -25,20 +25,20 @@ component accessors=true {
 		var tags          = StructNew( "linked" );
 
 		for( var tag in xmlTags ) {
-			var convertedTag = _parseXmlTagDefinition( tag );
-
-			tags[ convertedTag.name ] = convertedTag;
+			_parseXmlTagDefinition( tag, tags);
 		}
-
 		setTags( tags );
 	}
 
-	private struct function _parseXmlTagDefinition( required xml tag ) output=false {
+	private void function _parseXmlTagDefinition( required xml tag, required struct tags) output=false {
 		var parsedTag = StructNew( "linked" );
 
 		parsedTag.name                 = tag.name.xmlText ?: NullValue();
 		parsedTag.description          = tag.description.xmlText ?: NullValue();
 		parsedTag.status               = tag.status.xmlText ?: NullValue();
+
+		if(!isNull(parsedTag.status) && (parsedTag.status=="hidden" || parsedTag.status=="unimplemented"))  return;
+
 		parsedTag.appendix             = IsBoolean( tag.apppendix.xmlText ?: "" ) && tag.appendix.xmlText; // ? what does this mean exactly
 		parsedTag.bodyContentType      = tag[ "body-content" ].xmlText ?: NullValue(); // better name here?
 		parsedTag.attributeType        = tag[ "attribute-type" ].xmlText ?: NullValue(); // better name here?
@@ -61,8 +61,11 @@ component accessors=true {
 		parsedTag.attributes = [];
 		for( var child in tag.xmlChildren ) {
 			if ( child.xmlName == "attribute" ) {
-				var parsedAttribute = StructNew( "linked" );
+				var parsedAttribute = StructNew( "linked" );				
+				parsedAttribute.status                 = child.status.xmlText ?: NullValue();
 
+				if(!isNull(parsedAttribute.status) && (parsedAttribute.status=="hidden" || parsedAttribute.status=="unimplemented")) continue;
+				
 				parsedAttribute.name                   = child.name.xmlText ?: NullValue();
 				parsedAttribute.type                   = child.type.xmlText ?: NullValue();
 				parsedAttribute.default                = IsBoolean( child.default.xmlText ?: "" ) && child.default.xmlText;
@@ -70,7 +73,6 @@ component accessors=true {
 				parsedAttribute.description            = child.description.xmlText ?: NullValue();
 				parsedAttribute.aliases                = ListToArray( child.alias.xmlText ?: "" );
 				parsedAttribute.values                 = ListToArray( child.values.xmlText ?: "" );
-				parsedAttribute.status                 = child.status.xmlText ?: NullValue();
 				parsedAttribute.required               = IsBoolean( child.required.xmlText ?: "" ) && child.required.xmlText;
 				parsedAttribute.noname                 = IsBoolean( child.noname.xmlText ?: "" ) && child.noname.xmlText;
 				parsedAttribute.scriptSupport          = child[ "script-support" ].xmlText ?: NullValue();
@@ -79,8 +81,7 @@ component accessors=true {
 				parsedTag.attributes.append( parsedAttribute );
 			}
 		}
-
-		return parsedTag;
+		tags[ parsedTag.name ] = parsedTag;
 	}
 
 }

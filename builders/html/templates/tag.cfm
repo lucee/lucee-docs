@@ -18,12 +18,21 @@
 	<cfif !tag.getAttributes().len()>
 		<p><em>This tag does not use any attributes.</em></p>
 	<cfelse>
+<cfscript>
+		// do we have default values?
+		hasDefaultValue=false;
+		loop array=tag.getAttributes() item="attr" {
+			if(!isNull(attr.defaultValue))
+				hasDefaultValue=true;
+		}
+</cfscript>
 		<div class="table-responsive">
 			<table class="table" title="Attributes">
 				<thead>
 					<tr>
 						<th>Attribute</th>
 						<th>Description</th>
+						<cfif hasDefaultValue><th>Default</th></cfif>
 					</tr>
 				</thead>
 				<tbody>
@@ -37,6 +46,11 @@
 								<a class="pull-right" href="#getSourceLink( path=tag.getSourceDir() & '_attributes/#attrib.name#.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 								#markdownToHtml( attrib.description ?: "" )#
 							</td>
+							<cfif hasDefaultValue>
+								<td>
+									#markdownToHtml( attrib.defaultValue ?: "" )#
+								</td>
+							</cfif>
 						</tr>
 					</cfloop>
 				</tbody>
