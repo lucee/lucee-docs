@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-opposite of evaluate, this function serialize all cfml object and all serializble Java objects. can also serilize Components.
+Opposite of evaluate, this function serializes all cfml objects and all serializable Java objects. Can also serialize Components.
