@@ -37,7 +37,9 @@ The "convention based" approach means you simply have folders for different part
 This means that creating an extension for Lucee 5 is as simple as adding the stuff you need into certain folders, zipping it up and letting Lucee take care of the rest.
 
 ## OSGi Support ##
-The "OSGi support" means that Lucee makes sure that the jars you install are OSGi bundles and if they are not it converts them to OSGi bundles on the fly.
+The "OSGi support" means that Lucee makes sure that the jars you install are OSGi bundles and if they are not it converts them to OSGi bundles on the fly. 
+
+**Please note:** This only applies to JARs that are bundled with extensions and is not 100% guaranteed to work everytime. It is best practice for you to convert any JARs to OSGi before hand. Also, this automatic conversion to OSGi only occurs for JARs that come with an extension and not for JARs dropped into the Lucee bundles directory.
 
 ## But what if I have to define / check preconditions / relations? ##
 Every extension also needs a "META-INF/Manifest.mf" file, where you need to define certain settings, the following example is the content from the manifest file for the MongoDB extension:
