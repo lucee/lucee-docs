@@ -11,7 +11,6 @@ The following tags are specific to Lucee:
 * [[tag-graph]]
 * [[tag-graphdata]]
 * [[tag-htmlbody]]
-* [[tag-module]]
 * [[tag-pageencoding]]
 * [[tag-retry]]
 * [[tag-servlet]]
