@@ -9,6 +9,7 @@ component accessors=true {
 	property name="depth"        type="numeric" default=0;
 	property name="filePath"     type="string"  default="";
 	property name="title"        type="string"  default="";
+	property name="description"  type="string"  default="";
 	property name="body"         type="string"  default="";
 	property name="sortOrder"    type="numeric" default="0";
 	property name="visible"      type="boolean" default=false;

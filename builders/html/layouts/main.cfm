@@ -7,9 +7,9 @@
 <cfoutput><!DOCTYPE html>
 <html>
 	<head>
-		<title>Lucee Documentation :: #HtmlEditFormat( args.page.getTitle() )#</title>
+		<title>#HtmlEditFormat( args.page.getTitle() )# :: Lucee Documentation</title>
 		<base href="#( repeatString( '../', args.page.getDepth()-1 ) )#">
-
+		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
 
 		<link href="assets/css/base.min.css" rel="stylesheet">

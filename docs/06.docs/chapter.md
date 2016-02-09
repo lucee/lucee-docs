@@ -1,6 +1,7 @@
 ---
 title: About the docs
 id: about
+description: Good documentation is at the heart of all successful open source projects. This section of the documentation describes how the documentation is built and how you can get involved with contribution.
 ---
 
 ## Mission statement
