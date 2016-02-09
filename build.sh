@@ -13,6 +13,7 @@ if [ -f .exitcode ]; then
 fi
 
 echo "Building complete"
+echo "Travis branch: $TRAVIS_BRANCH. Pull request: $TRAVIS_PULL_REQUEST"
 if [ '$TRAVIS_BRANCH' == 'master' ] && [ '$TRAVIS_PULL_REQUEST' == 'false' ] ; then
   echo "Zipping up docs for offline download..."
   cd builds/html
