@@ -17,7 +17,7 @@ Before you can start building Lucee from source, you will need a few things inst
 
 ### 2. Get the source code
 
-Lucee's source code is version-controlled with GIT and is hosted on bitbucket.com [Bitbucket](https://bitbucket.org/lucee/lucee) (chances are that this is where you're reading this right now ;]).
+Lucee's source code is version-controlled with GIT and is hosted on github.com [GitHub](https://github.com/lucee/lucee).
 
 The repository contains a few branches, with the most important ones being "Master" (current release) and "Develop" (alpha and beta releases).
 
