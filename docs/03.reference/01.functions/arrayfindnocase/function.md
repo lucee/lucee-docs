@@ -6,4 +6,4 @@ categories:
     - array
 ---
 
-These functions performs a case-insensitive search in the array for the specified object.
+Performs a case-insensitive search in the array for the specified object. Returns the index of the object found, or 0 if the object was not found.
