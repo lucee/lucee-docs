@@ -30,7 +30,11 @@ component accessors=true extends="Page" {
 					usage &= "[";
 				}
 
-				usage &= '#attribute.name#="#attribute.type#"';
+				if(!isNull(attribute.values) && isArray(attribute.values) && attribute.values.len())
+ 					local.val=attribute.values.toList("|");
+ 				else 
+ 					local.val=attribute.type;
+ 				usage &= '#attribute.name#="#val#"';
 
 				if ( !attribute.required ) {
 					usage &= "]";
