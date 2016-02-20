@@ -143,12 +143,22 @@ categories:
 	}
 
 	private void function _createFileIfNotExists( filePath, content ) {
-		if ( !DirectoryExists( GetDirectoryFromPath( arguments.filePath ) ) ) {
-			DirectoryCreate( GetDirectoryFromPath( arguments.filePath ), true );
+		var fileDirectory = GetDirectoryFromPath( arguments.filePath );
+		var fileName      = ListLast( arguments.filePath, "/\" );
+
+		if ( !DirectoryExists( fileDirectory ) ) {
+			DirectoryCreate( fileDirectory, true );
 		}
-		if ( !FileExists( arguments.filePath ) ) {
-			FileWrite( arguments.filePath, arguments.content );
+
+		var filesInDir = DirectoryList( fileDirectory, false, "name" );
+
+		for( var fileInDir in filesInDir ) {
+			if ( fileInDir == fileName ) {
+				return; // case insensitive file exists check!
+			}
 		}
+
+		FileWrite( arguments.filePath, arguments.content );
 	}
 
 	private boolean function _isHiddenFeature( required struct feature ) {
