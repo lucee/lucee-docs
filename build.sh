@@ -2,7 +2,11 @@
 
 cd `dirname $0`
 CWD="`pwd`"
-echo "Building documentation with Lucee :)"
+
+echo "Importing reference docs from previously undocumented functions and tags..."
+box $CWD/import.cfm
+
+echo "Building documentation..."
 
 box $CWD/build.cfm
 if [ -f .exitcode ]; then
