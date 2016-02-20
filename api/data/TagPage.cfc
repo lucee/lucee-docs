@@ -22,6 +22,7 @@ component accessors=true extends="Page" {
 		var unnamedAttributes = ( this.getAttributeType() ?: "" ) == "noname";
 
 		for( var attribute in this.getAttributes() ) {
+
 			if ( unnamedAttributes ) {
 				usage &= " ###attribute.type# #attribute.name###";
 			} else {
@@ -30,11 +31,13 @@ component accessors=true extends="Page" {
 					usage &= "[";
 				}
 
-				if(!isNull(attribute.values) && isArray(attribute.values) && attribute.values.len())
- 					local.val=attribute.values.toList("|");
- 				else 
- 					local.val=attribute.type;
- 				usage &= '#attribute.name#="#val#"';
+				usage &= '#attribute.name#=';
+
+				if ( IsArray( attribute.values ?: "" ) && attribute.values.len() ) {
+ 					usage &= attribute.values.toList( "|" );
+				} else {
+ 					usage &= attribute.type;
+				}
 
 				if ( !attribute.required ) {
 					usage &= "]";

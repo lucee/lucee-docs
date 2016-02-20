@@ -1,0 +1,17 @@
+{
+    "force":"true",
+    "trayIcon":"/home/dom/code/lucee-docs/luceelogoicon.png",
+    "name":"luceedocslocalserver",
+    "JVM":{
+        "heapSize":"1024"
+    },
+    "web":{
+        "rewrites":{
+            "enabled":"true",
+            "config":"/home/dom/code/lucee-docs/server/urlrewrite.xml"
+        },
+        "http":{
+            "port":"4040"
+        }
+    }
+}
