@@ -2,8 +2,8 @@ component accessors=true {
 
 	property name="tags" type="struct";
 
-	public any function init( required string sourceFileOrUrl ) {
-		_loadTagsFromXmlDefinition( arguments.sourceFileOrUrl );
+	public any function init() {
+		_loadTagDefinitions();
 
 		return this;
 	}
@@ -19,13 +19,11 @@ component accessors=true {
 	}
 
 // private helpers
-	public void function _loadTagsFromXmlDefinition( required string sourceFileOrUrl ) {
-		var referenceXml  = XmlParse( arguments.sourceFileOrUrl );
-		var xmlTags       = XmlSearch( referenceXml, "/taglib/tag" );
-		var tags          = StructNew( "linked" );
+	public void function _loadTagDefinitions() {
+		var tagNames = getTagList().cf.keyArray().sort( "textnocase" );
 
-		for( var tag in xmlTags ) {
-			var convertedTag = _parseXmlTagDefinition( tag );
+		for( var tagName in tagNames ) {
+			var convertedTag = _getTagDefinition( tagName );
 
 			tags[ convertedTag.name ] = convertedTag;
 		}
@@ -33,54 +31,50 @@ component accessors=true {
 		setTags( tags );
 	}
 
-	private struct function _parseXmlTagDefinition( required xml tag ) output=false {
-		var parsedTag = StructNew( "linked" );
+	private struct function _getTagDefinition( required string tagName ) {
+		var coreDefinition = getTagData( "cf", arguments.tagName );
+		var parsedTag      = StructNew( "linked" );
 
-		parsedTag.name                 = tag.name.xmlText ?: NullValue();
-		parsedTag.description          = tag.description.xmlText ?: NullValue();
-		parsedTag.status               = tag.status.xmlText ?: NullValue();
-		parsedTag.appendix             = IsBoolean( tag.apppendix.xmlText ?: "" ) && tag.appendix.xmlText; // ? what does this mean exactly
-		parsedTag.bodyContentType      = tag[ "body-content" ].xmlText ?: NullValue(); // better name here?
-		parsedTag.attributeType        = tag[ "attribute-type" ].xmlText ?: NullValue(); // better name here?
-		parsedTag.minimumAttributes    = tag[ "attribute-min" ].xmlText ?: NullValue(); // better name here?
-		parsedTag.handleException      = tag[ "handle-exception" ].xmlText ?: NullValue(); // better name here?
-		parsedTag.allowRemovingLiteral = tag[ "allow-removing-literal" ].xmlText ?: NullValue(); // better name here? what does it mean?! It's always "yes".
-
-		parsedTag.sourceClasses = StructNew( "linked" );
-		parsedTag.sourceClasses.tag  = tag[ "tag-class" ].xmlText  ?: NullValue();
-		parsedTag.sourceClasses.ttt  = tag[ "ttt-class" ].xmlText  ?: NullValue();
-		parsedTag.sourceClasses.tdbt = tag[ "tdbt-class" ].xmlText ?: NullValue();
-		parsedTag.sourceClasses.att  = tag[ "att-class" ].xmlText  ?: NullValue();
-		parsedTag.sourceClasses.tte  = tag[ "tte-class" ].xmlText  ?: NullValue();
+		parsedTag.name                 = coreDefinition.name ?: NullValue();
+		parsedTag.type                 = coreDefinition.type ?: NullValue();
+		parsedTag.description          = coreDefinition.description ?: NullValue();
+		parsedTag.status               = coreDefinition.status ?: NullValue();
+		parsedTag.appendix             = IsBoolean( coreDefinition.hasNameAppendix ?: "" ) && coreDefinition.hasNameAppendix; // ? what does this mean exactly
+		parsedTag.bodyContentType      = coreDefinition.bodyType ?: "" // better name here?
+		parsedTag.parseBody            = IsBoolean( coreDefinition.parseBody ?: "" ) && coreDefinition.parseBody;
+		parsedTag.attributeType        = coreDefinition.attributeType ?: NullValue(); // better name here?
+		parsedTag.attributeCollection  = IsBoolean( coreDefinition.attributeCollection ?: "" ) && coreDefinition.attributeCollection;
+		parsedTag.minimumAttributes    = NullValue(); // ???
+		parsedTag.handleException      = NullValue(); // ???
+		parsedTag.allowRemovingLiteral = NullValue(); // ???
 
 		parsedTag.script = StructNew( "linked" );
-		parsedTag.script.type                   = tag.script.type.xmlText        ?: NullValue();
-		parsedTag.script.runtimeExpressionValue = tag.script.rtexprvalue.xmlText ?: NullValue();
-		parsedTag.script.context                = tag.script.context.xmlText     ?: NullValue();
+		parsedTag.script.type                   = coreDefinition.script.type       ?: NullValue();
+		parsedTag.script.context                = coreDefinition.script.singletype ?: NullValue(); // ???
+		parsedTag.script.runtimeExpressionValue = IsBoolean( coreDefinition.script.rtexpr ?: "" ) && coreDefinition.script.rtexpr;
 
 		parsedTag.attributes = [];
-		for( var child in tag.xmlChildren ) {
-			if ( child.xmlName == "attribute" ) {
-				var parsedAttribute = StructNew( "linked" );
+		var attribs = coreDefinition.attributes ?: {};
+		for( var attribName in attribs ) {
+			var attrib = attribs[ attribName ];
+			var parsedAttribute = StructNew( "linked" );
 
-				parsedAttribute.name                   = child.name.xmlText ?: NullValue();
-				parsedAttribute.type                   = child.type.xmlText ?: NullValue();
-				parsedAttribute.default                = IsBoolean( child.default.xmlText ?: "" ) && child.default.xmlText;
-				parsedAttribute.defaultValue           = child[ "default-value" ].xmlText ?: NullValue();
-				parsedAttribute.description            = child.description.xmlText ?: NullValue();
-				parsedAttribute.aliases                = ListToArray( child.alias.xmlText ?: "" );
-				parsedAttribute.values                 = ListToArray( child.values.xmlText ?: "" );
-				parsedAttribute.status                 = child.status.xmlText ?: NullValue();
-				parsedAttribute.required               = IsBoolean( child.required.xmlText ?: "" ) && child.required.xmlText;
-				parsedAttribute.noname                 = IsBoolean( child.noname.xmlText ?: "" ) && child.noname.xmlText;
-				parsedAttribute.scriptSupport          = child[ "script-support" ].xmlText ?: NullValue();
-				parsedAttribute.runTimeExpressionValue = IsBoolean( child.rtexprvalue.xmlText ?: "" ) && child.rtexprvalue.xmlText;
+			parsedAttribute.name                   = attribName
+			parsedAttribute.type                   = attrib.type ?: NullValue();
+			parsedAttribute.description            = attrib.description ?: NullValue();
+			parsedAttribute.status                 = attrib.status ?: NullValue();
+			parsedAttribute.required               = IsBoolean( attrib.required ?: "" ) && attrib.required;
+			parsedAttribute.default                = IsBoolean( attrib.default ?: "" ) && attrib.default;
+			parsedAttribute.defaultValue           = attrib.defaultValue ?: NullValue();
+			parsedAttribute.scriptSupport          = attrib.scriptSupport ?: NullValue();
+			parsedAttribute.aliases                = ListToArray( attrib.alias ?: "" );
+			parsedAttribute.values                 = attrib.values ?: [];
+			parsedAttribute.noname                 = IsBoolean( attrib.noname ?: "" ) && attrib.noname;
+			parsedAttribute.runTimeExpressionValue = IsBoolean( attrib.rtexpr ?: "" ) && attrib.rtexpr;
 
-				parsedTag.attributes.append( parsedAttribute );
-			}
+			parsedTag.attributes.append( parsedAttribute );
 		}
 
 		return parsedTag;
 	}
-
 }

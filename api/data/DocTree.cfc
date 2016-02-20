@@ -273,18 +273,12 @@ component accessors=true {
 	}
 
 	private any function _getFunctionReferenceReader() {
-		var buildProperties = new api.build.BuildProperties();
-
-		return new api.reference.ReferenceReaderFactory().getFunctionReferenceReader(
-			sourceFileOrUrl = buildProperties.getFunctionReferenceUrl()
-		);
+		return new api.reference.ReferenceReaderFactory().getFunctionReferenceReader();
 	}
 
 	private any function _getTagReferenceReader() {
 		var buildProperties = new api.build.BuildProperties();
 
-		return new api.reference.ReferenceReaderFactory().getTagReferenceReader(
-			sourceFileOrUrl = buildProperties.getTagReferenceUrl()
-		);
+		return new api.reference.ReferenceReaderFactory().getTagReferenceReader();
 	}
 }

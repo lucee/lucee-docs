@@ -2,8 +2,8 @@ component accessors=true {
 
 	property name="functions" type="struct";
 
-	public any function init( required string sourceFileOrUrl ) {
-		_loadFunctionsFromXmlDefinition( arguments.sourceFileOrUrl );
+	public any function init() {
+		_loadFunctions();
 
 		return this;
 	}
@@ -19,46 +19,45 @@ component accessors=true {
 	}
 
 // private helpers
-	public void function _loadFunctionsFromXmlDefinition( required string sourceFileOrUrl ) {
-		var referenceXml = XmlParse( arguments.sourceFileOrUrl );
-		var xmlFunctions = XmlSearch( referenceXml, "/func-lib/function" );
-		var functions    = StructNew( "linked" );
+	public void function _loadFunctions() {
+		var functionNames = getFunctionList().keyArray().sort( "textnocase" );
 
-		for( var func in xmlFunctions ) {
-			var convertedFunc = _parseXmlFunctionDefinition( func );
 
-			functions[ convertedFunc.name ] = convertedFunc;
+		for( var functionName in functionNames ) {
+			var convertedFunc = _getFunctionDefinition( functionName );
+
+			functions[ functionName ] = convertedFunc;
 		}
 
 		setFunctions( functions );
 	}
 
-	private struct function _parseXmlFunctionDefinition( required xml func ) output=false {
+	private struct function _getFunctionDefinition( required string functionName ) {
+		var coreDefinition = getFunctionData( arguments.functionName );
 		var parsedFunction = StructNew( "linked" );
 
-		parsedFunction.name         = func.name.xmlText ?: "";
-		parsedFunction.memberName   = func[ "member-name" ].xmlText ?: "";
-		parsedFunction.description  = func.description.xmlText ?: "";
-		parsedFunction.status       = func.status.xmlText ?: "";
+		parsedFunction.name         = coreDefinition.name ?: "";
+		parsedFunction.memberName   = coreDefinition.member.name ?: "";
+		parsedFunction.description  = coreDefinition.description ?: "";
+		parsedFunction.status       = coreDefinition.status ?: "";
 		parsedFunction.deprecated   = parsedFunction.status == "deprecated";
-		parsedFunction.class        = func.class.xmlText ?: "";
-		parsedFunction.returnType   = func.return.type.xmlText ?: "";
-		parsedFunction.argumentType = func["argument-type"].xmlText ?: "";
-		parsedFunction.keywords     = listToArray( func.keywords.xmlText ?: "" );
+		parsedFunction.class        = coreDefinition.class ?: "";
+		parsedFunction.returnType   = coreDefinition.returntype ?: "";
+		parsedFunction.argumentType = coreDefinition.argumentType ?: "";
+		parsedFunction.keywords     = coreDefinition.keywords ?: [];
 		parsedFunction.arguments    = [];
 
-		for( var child in func.xmlChildren ) {
-			if ( child.xmlName == "argument" ) {
-				var arg = StructNew( "linked" );
+		var args = coreDefinition.arguments ?: [];
+		for( var arg in args ) {
+			var convertedArg = StructNew( "linked" );
 
-				arg.name        = ( child.name.xmlText        ?: "" );
-				arg.description = ( child.description.xmlText ?: "" );
-				arg.type        = ( child.type.xmlText        ?: "" );
-				arg.required    = IsBoolean( child.required.xmlText    ?: "" ) && child.required.xmlText;
-				arg.default     = ( child.default.xmlText     ?: "" );
+			convertedArg.name        = arg.name        ?: "";
+			convertedArg.description = arg.description ?: "";
+			convertedArg.type        = arg.type        ?: "";
+			convertedArg.required    = IsBoolean( arg.required ?: "" ) && arg.required;
+			convertedArg.default     = arg.defaultValue ?: NullValue();
 
-				parsedFunction.arguments.append( arg );
-			}
+			parsedFunction.arguments.append( convertedArg );
 		}
 
 		return parsedFunction;

@@ -16,7 +16,7 @@ component {
 	}
 
 	public void function importFunctionReference() {
-		var referenceReader = new ReferenceReaderFactory().getFunctionReferenceReader( buildProperties.getFunctionReferenceUrl() );
+		var referenceReader = new ReferenceReaderFactory().getFunctionReferenceReader();
 
 		for( var functionName in referenceReader.listFunctions() ) {
 			var convertedFunc = referenceReader.getFunction( functionName );
@@ -28,7 +28,7 @@ component {
 	}
 
 	public void function importTagReference() {
-		var referenceReader = new ReferenceReaderFactory().getTagReferenceReader( buildProperties.getTagReferenceUrl() );
+		var referenceReader = new ReferenceReaderFactory().getTagReferenceReader();
 
 		for( var tagName in referenceReader.listTags() ) {
 			var convertedTag = referenceReader.getTag( tagName );
