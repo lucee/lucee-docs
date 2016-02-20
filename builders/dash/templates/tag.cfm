@@ -1,6 +1,7 @@
 <cfparam name="args.page" type="page" />
 
 <cfset tag = args.page />
+<cfset attributesHaveDefaultValues = tag.attributesHaveDefaultValues() />
 
 <cfoutput>
 	<a class="pull-right" href="#getSourceLink( path=tag.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
@@ -24,6 +25,7 @@
 					<tr>
 						<th>Attribute</th>
 						<th>Description</th>
+						<cfif attributesHaveDefaultValues><th>Default</th></cfif>
 					</tr>
 				</thead>
 				<tbody>
@@ -37,6 +39,11 @@
 								<a class="pull-right" href="#getSourceLink( path=tag.getSourceDir() & '_attributes/#attrib.name#.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 								#markdownToHtml( attrib.description ?: "" )#
 							</td>
+							<cfif attributesHaveDefaultValues>
+ 								<td>
+ 									#markdownToHtml( attrib.defaultValue ?: "" )#
+ 								</td>
+ 							</cfif>
 						</tr>
 					</cfloop>
 				</tbody>

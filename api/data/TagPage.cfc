@@ -86,4 +86,13 @@ component accessors=true extends="Page" {
 
 		return "This tag is also supported within cfscript";
 	}
+
+	public boolean function attributesHaveDefaultValues() {
+		for( var attr in getAttributes() ) {
+			if ( !IsNull( attr.defaultValue ) ) {
+ 				return true;
+			}
+		}
+		return false;
+	}
 }

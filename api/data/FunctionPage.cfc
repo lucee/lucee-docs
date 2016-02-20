@@ -27,4 +27,14 @@ component accessors=true extends="Page" {
 
 		return usage;
 	}
+
+	public boolean function argumentsHaveDefaultValues() {
+ 		for( var arg in getArguments() ) {
+ 			if ( !IsNull( arg.default ) ) {
+ 				return true;
+ 			}
+ 		}
+
+ 		return false;
+	}
 }
