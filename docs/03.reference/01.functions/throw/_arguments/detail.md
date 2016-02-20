@@ -1,0 +1,1 @@
+addional detailed description of the exception.
