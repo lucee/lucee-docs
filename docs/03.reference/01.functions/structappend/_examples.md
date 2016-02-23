@@ -17,7 +17,7 @@
 		cat: "meow"
 	};
 
-	// Append the newAnimal to animals
+	// Append to animals the newAnimal
 	animals.append(newAnimal);
 
 	// Show animals, now includes cat
@@ -46,7 +46,7 @@
 		cat: "meow"
 	};
 
-	// Append the newAnimal to animals
+	// Append to animals the newAnimal
 	StructAppend(animals, newAnimal);
 
 	// Show animals, now includes cat
