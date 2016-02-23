@@ -7,6 +7,7 @@ animals = {
 	snail: ""
 };
 
+// Show all animals
 Dump(
 	label: "All animals",
 	var: animals
@@ -52,6 +53,7 @@ animals = {
 	snail: ""
 };
 
+// Show all animals
 Dump(
 	label: "All animals",
 	var: animals
