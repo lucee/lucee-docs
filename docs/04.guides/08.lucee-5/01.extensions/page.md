@@ -30,9 +30,30 @@ You can install extensions by declaring the "id" of the extension as a JVM argum
 ## Convention Based ##
 The "convention based" approach means you simply have folders for different parts of your application, for example:
 
-/applications - for cfm & cfc files that need to be installed in the webroot
-/functions - for build-in functions to install
-/jars - for libraries used by your extension
+- /applications - for cfm & cfc files that need to be installed in the webroot
+- /functions - for built-in functions to install
+- /jars - for libraries used by your extension
+- /plugins/{plugin name}/* - for adding an admin plugin
+
+The complete list of directories and file extensions which you can add to a .lex archive is (distilled from [the source code](https://github.com/lucee/Lucee/blob/master/core/src/main/java/lucee/runtime/config/XMLConfigAdmin.java#L4527)):
+`/jars/*.jar`
+`/jar/*.jar`
+`/bundles/*.jar`
+`/bundle/*.jar`
+`/lib/*.jar`
+`/libs/*.jar`
+`/flds/.../*.fld`
+`/tlds/.../*.tld`
+`/archives/.../*.lar`
+`/mappings/.../*.lar`
+`/event-gateway/.../*.cfc|*.lucee`
+`/eventGateway/.../*.cfc|*.lucee`
+`/tags/*`
+`/functions/*`
+`/context/*`
+`/webcontexts/*`
+`/applications/*`
+`/plugins/*`
 
 This means that creating an extension for Lucee 5 is as simple as adding the stuff you need into certain folders, zipping it up and letting Lucee take care of the rest.
 
