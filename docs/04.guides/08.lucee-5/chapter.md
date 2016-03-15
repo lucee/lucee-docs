@@ -48,4 +48,4 @@ Lucee 5 has had a complete overhaul of the existing extension framework, to make
 
 ## Install/Upgrade instructions ##
 * Fresh install - We provide various possibilities to install Lucee in different ways, simply download your favorite package from [[http://download.lucee.org]].
-* [[lucee-5-upgrading-lucee-45]] - Update from Lucee is as simple as replacing a single file, but you can do a little bit more to have a clean system.
+* [[lucee-5-upgrading-lucee-45]] - Update from Lucee (or Railo) is as simple as replacing a single file, but you can do a little bit more to have a clean system.
