@@ -12,7 +12,7 @@ This brings Lucee and CFML to a whole new level!
 ## Language Enhancements ##
 Lucee 5 provides the following core language enhancements:
 
-* [[lucee-5-abstract-final]] - Lucee already supports interfaces, but interfaces have not been well adopted by the community, because they are only used to do "sign a contract" when you implement them. Abstract and Final modifiers are a much more intuitive and flexible way to do the same and even more.
+* [[lucee-5-abstract-final]] - Lucee already supports interfaces, but interfaces have not been well adopted by the community, because they are only used to do "sign a contract" when you implement them. Abstract and Final modifiers are a much more intuitive and flexible way to do the same and more.
 
 * [[lucee-5-access=modifiers]] - Lucee already supports access modifiers for functions, but with Lucee 4 this was limited to functions, Lucee 5 now also supports the same for variables.
 
@@ -28,18 +28,18 @@ Lucee 5 provides the following core language enhancements:
 
 * [[lucee-5-unquoted-arguments]]
 
-* [[lucee-5-java-interface]] - (TODO) - Lucee provides a interface to interact with Lucee from within Java, Lucee 5 has extended this interface with a lot of new functionality, which makes it far easier to write Extensions for Lucee.
+* [[lucee-5-java-interface]] - (TODO) - Lucee provides a interface to interact with Lucee from within Java, Lucee 5 has extended this interface with lots of new functionality, which makes it far easier to write Extensions for Lucee.
 
 ## Architecture Enhancements ##
-Lucee 5 has had a complete overhaul under the hood, we have not only redone a lot of the existing functionality, we have also extended the interfaces to the engine to make way for a lot of possible functionality in the future.
+Lucee 5 has had a complete overhaul under the hood. A lot of the existing functionality has been completely re-worked, as well as extending the interfaces to the engine to make way for a lot of possible functionality in the future.
 
 * [[lucee-5-osgi]] - Lucee 5 is completely [OSGi](http://en.wikipedia.org/wiki/OSGi) based, OSGi is the defacto standard in most Java enterprise environments, to manage bundles (jar libraries) used by the environment.
 
-* Scripting (JSR 223) - Lucee 5 fully supports the [Java Scripting](http://en.wikipedia.org/wiki/Scripting_for_the_Java_Platform) standard. Java scripting allows to use Lucee in places you could not dream before. As an Example, we use this interface to use Lucee within ANT, so we run for example our CFML testcases within ANT as part of the build process and of course the CFML code has full accesson the ANT enviroment.
+* Scripting (JSR 223) - Lucee 5 fully supports the [Java Scripting](http://en.wikipedia.org/wiki/Scripting_for_the_Java_Platform) standard. Java scripting allow you to use Lucee in places you could not previously. For example, this interface to used by the Lucee build process within ANT, to run the CFML testcases and the CFML code has full access to the ANT enviroment.
 
-* [[lucee-5-class-updating]] - Previously an optional feature in Lucee 4, class updating is now an integral part of Lucee 5. Lucee 5 is able to update existing classes and this has a huge impact on memory consumption, especially in environments where a lot of CFML templates are used and this no longer need any configuration, Lucee does this automatically.
+* [[lucee-5-class-updating]] - Previously an optional feature in Lucee 4, class updating is now an integral part of Lucee 5. Lucee 5 is able to update existing classes and this has a large impact on memory consumption, particularly in environments where a lot of CFML templates are used. This feature no longer requires any configuration and is "always on".
 
-* Modularity - CFML is coming a long way and on that way it has collected a lot of very useful functionality, but every functionality you are not using is simply a burden to carry around. So with Lucee 5 we decided to move a lot of functionality out of the core to extensions, all this Extensions are installed by default, so you have the same experience as you had before out of the box. But now you can simply uninstall what you not use to lighten up Lucee. Things that have moved to Extensions are: Hibernate (ORM), Lucene (Search), all Datasource drivers, S3 Resource, PDF/Document tags, Chart tags and we just have started on this.
+* Modularity - CFML is come a long way over the years and along the way it has collected a lot of very useful functionality, but every bit of functionality you are not using is a burden. With Lucee 5 we have moved a lot of functionality out of the core and into extensions. All these extensions are installed by default, so you have the same experience as you had before out of the box. However now you can uninstall what you are not using to reduce Lucee's footprint. Functionality that has so far been moved to extensions is: Hibernate (ORM), Lucene (Search), all Datasource drivers, S3 Resource, PDF/Document tags and chart tags. This is simply the beginning and we will be moving more functionality out into extensions over the coming months.
 
 * Bytecode Handling - We have improved the generated Java Bytecode produced in general by optimizing it for Java >=7 and we have done specific improvements of the generated bytecode in multiple places.
 
@@ -48,4 +48,4 @@ Lucee 5 has had a complete overhaul of the existing extension framework, to make
 
 ## Install/Upgrade instructions ##
 * Fresh install - We provide various possibilities to install Lucee in different ways, simply download your favorite package from [[http://download.lucee.org]].
-* [[lucee-5-upgrading-lucee-45]] - Update from Lucee (or Railo) is as simple as replacing a single file, but you can do a little bit more to have a clean system.
+* [[lucee-5-upgrading-lucee-45]] - Updating from Lucee 4.5 (or Railo) is as simple as replacing a single file, but you can do a little bit more to have a clean system, see the instructions for more details.
