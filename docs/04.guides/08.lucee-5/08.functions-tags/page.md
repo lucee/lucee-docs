@@ -117,3 +117,7 @@ The functions are:
 * cacheregionexists()
 * cacheregionnew()
 * cacheregionremove()
+
+# Encryption Functions #
+
+`GeneratePBKDFKey(string algorithm, string passphrase, string salt, numeric iterations [, numeric keysize])`
