@@ -1,6 +1,6 @@
 ---
 title: Access Modifiers for variables
-id: lucee-5-access=modifiers
+id: lucee-5-access-modifiers
 ---
 
 #Access Modifiers for variables#

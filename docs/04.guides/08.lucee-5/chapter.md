@@ -14,7 +14,7 @@ Lucee 5 provides the following core language enhancements:
 
 * [[lucee-5-abstract-final]] - Lucee already supports interfaces, but interfaces have not been well adopted by the community, because they are only used to do "sign a contract" when you implement them. Abstract and Final modifiers are a much more intuitive and flexible way to do the same and more.
 
-* [[lucee-5-access=modifiers]] - Lucee already supports access modifiers for functions, but with Lucee 4 this was limited to functions, Lucee 5 now also supports the same for variables.
+* [[lucee-5-access-modifiers]] - Lucee already supports access modifiers for functions, but with Lucee 4 this was limited to functions, Lucee 5 now also supports the same for variables.
 
 * [[lucee-5-component-static]] - Lucee 5 supports static variables and functions inside components.
 
@@ -28,14 +28,16 @@ Lucee 5 provides the following core language enhancements:
 
 * [[lucee-5-unquoted-arguments]]
 
-* [[lucee-5-java-interface]] - (TODO) - Lucee provides a interface to interact with Lucee from within Java, Lucee 5 has extended this interface with lots of new functionality, which makes it far easier to write Extensions for Lucee.
+* [[lucee-5-dialect-lucee]] - In addition to the existing "CFML" language dialect, Lucee 5 comes with a completely new dialect simply called "Lucee".
+
+* [[lucee-5-java-interface]] - (TODO) - Lucee provides an interface to interact with Lucee from within Java, Lucee 5 has extended this interface with lots of new functionality, which makes it far easier to write Extensions for Lucee.
 
 ## Architecture Enhancements ##
 Lucee 5 has had a complete overhaul under the hood. A lot of the existing functionality has been completely re-worked, as well as extending the interfaces to the engine to make way for a lot of possible functionality in the future.
 
 * [[lucee-5-osgi]] - Lucee 5 is completely [OSGi](http://en.wikipedia.org/wiki/OSGi) based, OSGi is the defacto standard in most Java enterprise environments, to manage bundles (jar libraries) used by the environment.
 
-* Scripting (JSR 223) - Lucee 5 fully supports the [Java Scripting](http://en.wikipedia.org/wiki/Scripting_for_the_Java_Platform) standard. Java scripting allow you to use Lucee in places you could not previously. For example, this interface to used by the Lucee build process within ANT, to run the CFML testcases and the CFML code has full access to the ANT enviroment.
+* Scripting (JSR 223) - Lucee 5 fully supports the [Java Scripting](http://en.wikipedia.org/wiki/Scripting_for_the_Java_Platform) standard. Java scripting allows you to use Lucee in places you could not previously. For example, this interface used by the Lucee build process within ANT, to run the CFML testcases and the CFML code has full access to the ANT environment.
 
 * [[lucee-5-class-updating]] - Previously an optional feature in Lucee 4, class updating is now an integral part of Lucee 5. Lucee 5 is able to update existing classes and this has a large impact on memory consumption, particularly in environments where a lot of CFML templates are used. This feature no longer requires any configuration and is "always on".
 

@@ -53,7 +53,7 @@ So the function `getLocale()` now returns a locale object and `getTimeZone()` no
 ###GetLocaleInfo (new)###
 `getLocaleInfo([,locale locale [, locale displayLocale]]):struct`
 
-This function merges the `locale` functions `getLocaleCountry, getLocaleDisplayName, getLocaleInfo, getLocaleLanguage` to a single function and "deprecate" the existin locale functions.
+This function merges the `locale` functions `getLocaleCountry, getLocaleDisplayName, getLocaleInfo, getLocaleLanguage` to a single function and "deprecate" the existing locale functions.
 
 ```luceescript
 dump(getLocaleInfo(getLocale())); // shows information from a locale object
