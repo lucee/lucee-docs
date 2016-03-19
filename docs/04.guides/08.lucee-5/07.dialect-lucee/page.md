@@ -14,7 +14,7 @@ Lucee has its roots in the ColdFusion Markup Language (CFML). Continuing to supp
 Lucee will continue to support CFML and you can continue to build CFML applications that run on Lucee. “Supporting CFML” means providing compatibility to Adobe ColdFusion (ACF) and the Lucee Association Switzerland (LAS) are committed to the following:
 
 * If you find a compatibility issue between Lucee’s CFML implementation and ACF please raise a bug report and it will be reviewed and responded to.
-* If Adobe develop something new that is seen as a popular enhancement then Lucee will add it to the roadmap, features with the most interest are added as a matter of priority.
+* If Adobe develops something new that is seen as a popular enhancement then Lucee will add it to the roadmap, features with the most interest are added as a matter of priority.
 * CFML applications will continue to run on Lucee.
 
 Lucee, like Railo before it, has been trying to propel the CFML language forward. However, the more we advance the language the more we muddy the water of what CFML is.

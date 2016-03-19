@@ -60,7 +60,7 @@ This means that creating an extension for Lucee 5 is as simple as adding the stu
 ## OSGi Support ##
 The "OSGi support" means that Lucee makes sure that the jars you install are OSGi bundles and if they are not it converts them to OSGi bundles on the fly. 
 
-**Please note:** This only applies to JARs that are bundled with extensions and is not 100% guaranteed to work everytime. It is best practice for you to convert any JARs to OSGi before hand. Also, this automatic conversion to OSGi only occurs for JARs that come with an extension and not for JARs dropped into the Lucee bundles directory.
+**Please note:** This only applies to JARs that are bundled with extensions and is not 100% guaranteed to work every time. It is best practice for you to convert any JARs to OSGi before hand. Also, this automatic conversion to OSGi only occurs for JARs that come with an extension and not for JARs dropped into the Lucee bundles directory.
 
 ## But what if I have to define / check preconditions / relations? ##
 Every extension also needs a "META-INF/Manifest.mf" file, where you need to define certain settings, the following example is the content from the manifest file for the MongoDB extension:
@@ -71,7 +71,7 @@ Built-Date: 2015-03-11 16:11:16
 version: "1.0.0.40"
 id: "E6634E1A-4CC5-4839-A83C67549ECA8D5B"
 name: "MongoDB Datasource and Cache"
-description: "This Extensions allows to use MongoDB direcly in your code or as a Cache (Experimentel). MongoDB (from humongous) is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster."
+description: "This Extensions allows to use MongoDB directly in your code or as a Cache (Experimental). MongoDB (from humongous) is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster."
 start-bundles: false
 trial: false
 lucee-core-version: "5.0.0.021"
