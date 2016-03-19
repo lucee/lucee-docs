@@ -1,0 +1,1 @@
+the name of the cache connection to remove (also known as Region in other CFML engines).

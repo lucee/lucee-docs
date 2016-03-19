@@ -1,0 +1,1 @@
+a structure specifying the cache properties

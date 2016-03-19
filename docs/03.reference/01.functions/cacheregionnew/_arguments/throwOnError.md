@@ -1,0 +1,1 @@
+specifies whether the function should throw an exception if a cache connection with that name already exists (default is true)
