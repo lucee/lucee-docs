@@ -3,7 +3,7 @@ title: How to get help
 id: about-lucee-how-to-get-help
 ---
 
-There are a variety of ways to get help - including free community-driven options and commercial options provided by [Lucee Association Switzerland's professional service providers](http://www.lucee.org/services)
+There are a variety of ways to get help - including free community-driven options and commercial options provided by the [Lucee Association Switzerland member companies](http://lucee.org/members.html).
 
 ## Community support options
 ### Lucee mailing list
@@ -14,14 +14,11 @@ The Lucee documentation is a project not only of the Lucee Association Switzerla
 
 
 ## Member support options
-Get a member of the Lucee Association Switzerland and profited from the support options you get with it.
-
-### Moderated Lucee mailing list
-Our moderated Lucee mailing list is moderated by employees from the Lucee Association Switzerland and their professional partners. Maybe the biggest CFML knowledge base you can get!  - They will be happy to help you with any aspect of using Lucee, whether that's installation, configuration, architecting or coding.  So get a Lucee Association Switzerland member today and join our moderated mailing list [Lucee Pro](http://groups.google.com/group/luceepro).
+Become a member of the Lucee Association Switzerland and benefit from the support options that come with being a member.
 
 ## Commercial support options
 ### Support, training & consulting
 
-There's a great community behind Lucee, but if your project needs more, the [Lucee Association Switzerland's professional service providers](http://www.lucee.org/services) are here to help.
+There is a great community behind Lucee, but if your project needs more, the [Lucee Association Switzerland's member companies](http://lucee.org/members.html) are here to help.
 
-They offer a range of training, support packages & consultancy services to get your project on track and keep it there.  Whether you need up-front consultancy about the best way to design your project, or ongoing support for your developers, we can help.  
+They offer a range of training, support packages & consultancy services to get your project on track and keep it there.  Whether you need up-front consultancy about the best way to design your project, or ongoing support for your developers, they can help.  
