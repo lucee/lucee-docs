@@ -16,7 +16,7 @@ A simple lambda expression with no arguments:
 makeSix = function() { return 5 + 1; }
 
 // Using a lambda expression
-makeSix = () -> 5 + 1;
+makeSix = () => 5 + 1;
 
 // returns 6
 dump(makeSix());
@@ -26,7 +26,7 @@ A simple lambda expression with multiple arguments:
 
 ```luceescript
 // Takes two numeric values and adds them
-add = (numeric x, numeric y) -> x + y;
+add = (numeric x, numeric y) => x + y;
 
 // returns 4
 dump(add(1, 3));
@@ -36,7 +36,7 @@ A complex lambda expression with an argument:
 
 ```luceescript
 // Takes a numeric value and returns a string
-isOdd = (numeric n) -> {
+isOdd = (numeric n) => {
   if ( n % 2 == 0 ) {
     return 'even';
   } else {
