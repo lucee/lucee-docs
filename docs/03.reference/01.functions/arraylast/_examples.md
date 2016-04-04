@@ -1,8 +1,13 @@
-```luceescript+trycf
-aNames = array("Marcus","Sarah","Josefine");
-arrayLast(aNames);
+### Member Function
 
-dump( var=aNames, label="aNames - origional array" );
-dump(var=arrayLast(aNames),label="last element of array aNames");
+```luceescript+trycf
+	names = ["Marcus", "Sarah", "Josefine"];
+	dump(names.last()); // outputs 'Josefine'
 ```
-  
+
+### Non-Member Function
+
+```luceescript+trycf
+	names = array("Marcus","Sarah","Josefine");
+	dump(arrayLast(names)); // outputs 'Josefine'
+```
