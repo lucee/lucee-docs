@@ -21,6 +21,7 @@ echo "Building complete"
 if [ $TRAVIS_BRANCH = 'master' ] && [ $TRAVIS_PULL_REQUEST = 'false' ] ; then
   echo "Zipping up docs for offline download..."
   cd builds/html
+  cp ../../.cloudfront-distribution-id ./
   zip -q -r lucee-docs.zip *
   cd ../../
   echo "Zipped."
