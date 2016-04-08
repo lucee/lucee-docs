@@ -1,0 +1,399 @@
+Lucee on CentOS 7 quick howto
+
+purpose:
+quick howto for setting up "lucee/tomcat8/nginx/sun-jdk8/samba" on CentOS 7.
+we dont go for securtiy here its a quick howto to get a clean lucee installation. lets call it a dev-machine. for security rtfm :)
+
+1. Installing minimal CentOS 7
+
+- Download CentOS 7 Minimal-ISO, http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso
+- create VM or install on a physical machine with at least 4GB RAM 1-4 cores
+
+- CentOS 7 comes with an step-by-step-installer, some notes about the installer:
+	a) there is only one language in the IT-business - stick to english
+	b) set Date/timezone correctly, enable network time
+	c) set your Keyboard language
+	d) leave the software selection untouched
+	e) check the partition layout as most of your harddisk will be in /home else (webroot in home would be ok too for a dev-server)
+	f) configure network, set eth0 ON, set hostname, configure IPv4 manual with an IP, netmask gateway, dns and search domain if wanted/needed
+	g) begin installation and while you wait set the root user password :)
+
+
+
+3. Installing the Software Stack (Samba, nginx, tomcat8, JDK8, Lucee)
+
+- ssh into your new server (f.e. with winscp in combination with putty, putty can be integrated in winscp, if you are a windows guy)
+- yum install -y epel-release
+- yum install -y unzip samba samba-client samba-common htop nginx nano
+- yum update -y
+- systemctl enable nginx
+- systemctl enable smb.service
+- systemctl enable nmb.service
+- mkdir /home/wwwroot
+- chmod -R 0755 /home/wwwroot
+- chown -R nobody:nobody /home/wwwroot
+- mv /etc/samba/smb.conf /etc/samba/smb.conf.bak
+- nano /etc/samba/smb.conf
+	paste these lines into smb.conf and change the netbios name to your hostname
+
+
+
+[global]
+workgroup = WORKGROUP
+server string = Samba Server %v
+netbios name = yourhostname
+security = user
+map to guest = bad user
+dns proxy = no
+#============================ Share Definitions ============================== 
+[wwwroot]
+path = /home/wwwroot
+browsable =yes
+writable = yes
+guest ok = yes
+read only = no
+
+
+
+
+
+- nano /etc/selinux/config
+	a) change: SELINUX=enforcing -> SELINUX=disabled
+
+- download and install JDK8 u77 (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+	for 64bit download this: Linux x64	152.76 MB  	jdk-8u77-linux-x64.rpm
+	copy it to your server or download it directly on the server into /opt or wherever
+	a) yum localinstall -y /opt/jdk-8u77-linux-x64.rpm
+	c) rm -f /opt/jdk-8u77-linux-x64.rpm
+
+- download and install tomcat 8.0.32 (http://tomcat.apache.org/download-80.cgi)
+	we want the core-version with .tar.gz: http://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.apache.org/dist/tomcat/tomcat-8/v8.0.32/bin/apache-tomcat-8.0.32.tar.gz
+	copy it to your server or download it directly on the server into /opt or wherever
+	a) mkdir /opt/tomcat
+	b) tar xvf /opt/apache-tomcat-8.0.32.tar.gz -C /opt/tomcat --strip-components=1
+	c) rm -f /opt/apache-tomcat-8.0.32.tar.gz
+	d) nano /etc/systemd/system/tomcat.service
+
+		paste this into tomcat.service:
+
+
+# Systemd unit file for tomcat
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=/usr/java/jdk1.8.0_77
+Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/bin/kill -15 $MAINPID
+
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
+
+
+	e) systemctl daemon-reload
+	f) systemctl enable tomcat
+	g) nano /opt/tomcat/conf/context.xml
+
+<!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--   	(remove this line)
+    <Manager pathname="" />
+	-->		(remove this line)
+
+	h) nano /opt/tomcat/bin/setenv.sh
+
+		paste this into setenv.sh (optimized for CONTENS CMS Version 4 and JDK8) or set your own JAVA-OPTS here:
+
+#! /bin/sh
+# ==================================================================
+
+CATALINA_HOME=/opt/tomcat
+
+export CATALINA_OPTS="$CATALINA_OPTS -server"
+export CATALINA_OPTS="$CATALINA_OPTS -Xms2048m"
+export CATALINA_OPTS="$CATALINA_OPTS -Xmx2048m"
+export CATALINA_OPTS="$CATALINA_OPTS -Xss256k"
+export CATALINA_OPTS="$CATALINA_OPTS -XX:+UseG1GC"
+export CATALINA_OPTS="$CATALINA_OPTS -XX:+ParallelRefProcEnabled"
+export CATALINA_OPTS="$CATALINA_OPTS -XX:MaxGCPauseMillis=200"
+export CATALINA_OPTS="$CATALINA_OPTS -XX:InitiatingHeapOccupancyPercent=70"
+export CATALINA_OPTS="$CATALINA_OPTS -XX:G1ReservePercent=15"
+export CATALINA_OPTS="$CATALINA_OPTS -XX:ParallelGCThreads=20"
+export CATALINA_OPTS="$CATALINA_OPTS -XX:ConcGCThreads=5"
+export CATALINA_OPTS="$CATALINA_OPTS -XX:+AggressiveOpts"
+export CATALINA_OPTS="$CATALINA_OPTS -Djava.security.egd=file:/dev/./urandom"
+export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/tomcat/lucee/lucee-inst.jar"
+
+# Check for application specific parameters at startup
+if [ -r "$CATALINA_BASE/bin/appenv.sh" ]; then
+  . "$CATALINA_BASE/bin/appenv.sh"
+fi
+
+echo "Using CATALINA_OPTS:"
+for arg in $CATALINA_OPTS
+do
+    echo ">> " $arg
+done
+echo ""
+
+echo "Using JAVA_OPTS:"
+for arg in $JAVA_OPTS
+do
+    echo ">> " $arg
+done
+echo "_______________________________________________"
+echo ""
+
+
+- download and install lucee 4.5 (http://lucee.org/downloads.html)
+	we will use just the jars-download: http://cdn.lucee.org/lucee-4.5.2.018-jars.zip
+	copy it to your server or download it directly on the server into /opt or wherever
+
+	a) mkdir /opt/tomcat/lucee
+	b) unzip /opt/lucee-4.5.2.018-jars.zip -d /opt/tomcat/lucee
+	c) rm -f /opt/lucee-4.5.2.018-jars.zip
+
+
+- configure tomcat (server.xml, web.xml and catalina.properties)
+
+	a) nano /opt/tomcat/conf/server.xml (change the hostname to whatever tomcat should listen to and change the docbase to your webroot)
+	paste these 3 lines nearly at the end before </Engine>	
+
+
+<Host name="YOURHOSTNAME" appBase="webapps" autoDeploy="false" deployOnStartup="false" unpackWARs="false">
+	<Context path="" docBase="/home/wwwroot"/>
+</Host>
+
+
+
+	b) nano /opt/tomcat/conf/web.xml
+	paste the following lines at line 24 (its not so important where exactly)
+
+
+    <!-- ===================================================================== -->
+    <!-- Lucee CFML Servlet - this is the main Lucee servlet                   -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <servlet>
+        <servlet-name>GlobalCFMLServlet</servlet-name>
+        <description>CFML runtime Engine</description>
+        <servlet-class>lucee.loader.servlet.CFMLServlet</servlet-class>
+        <init-param>
+            <param-name>lucee-web-directory</param-name>
+            <param-value>/opt/tomcat/lucee-web/{web-context-label}</param-value>
+            <description>Lucee Web Directory</description>
+        </init-param>
+        <init-param>
+            <param-name>lucee-server-directory</param-name>
+            <param-value>/opt/tomcat/</param-value>
+            <description>Directory where Lucee server root is stored</description>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GlobalCFMLServlet</servlet-name>
+        <url-pattern>*.cfm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GlobalCFMLServlet</servlet-name>
+        <url-pattern>*.cfml</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GlobalCFMLServlet</servlet-name>
+        <url-pattern>*.cfc</url-pattern>
+    </servlet-mapping>
+
+    <!-- ===================================================================== -->
+    <!-- Lucee REST Servlet - handles Lucee's RESTful web services             -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <servlet id="RESTServlet">
+        <description>Lucee Servlet for RESTful services</description>
+        <servlet-name>RESTServlet</servlet-name>
+        <servlet-class>lucee.loader.servlet.RestServlet</servlet-class>
+        <load-on-startup>4</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RESTServlet</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+
+	
+
+
+
+
+	c) nano /opt/tomcat/conf/catalina.properties
+	add this to the common.loader= line ,"/opt/tomcat/lucee/","/opt/tomcat/lucee/*.jar"
+
+	the complete line should look like this now:
+common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.home}/lib","${catalina.home}/lib/*.jar","/opt/tomcat/lucee/","/opt/tomcat/lucee/*.jar"
+
+
+
+- configure nginx (nginx.conf and the yourserver.conf)
+
+
+	a) nano /etc/nginx/nginx.conf
+	just replace the content of nginx.conf with these lines
+
+# For more information on configuration, see:
+#   * Official English Documentation: http://nginx.org/en/docs/
+#   * Official Russian Documentation: http://nginx.org/ru/docs/
+
+user root;
+worker_processes 4;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+events {
+    worker_connections  1024;
+    multi_accept        on;
+    use                 epoll;
+}
+
+http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile            on;
+    tcp_nopush          on;
+    tcp_nodelay         on;
+    keepalive_timeout   65;
+    types_hash_max_size 2048;
+
+    include             /etc/nginx/mime.types;
+    default_type        application/octet-stream;
+
+    # Load modular configuration files from the /etc/nginx/conf.d directory.
+    # See http://nginx.org/en/docs/ngx_core_module.html#include
+    # for more information.
+    include /etc/nginx/conf.d/*.conf;
+    }
+
+
+    b) nano /etc/nginx/conf.d/yourserver.conf
+    paste these lines into the new file and save it and please change the hostname hmkay ?
+
+
+
+    server {
+        listen       80;
+        server_name  srv-lucee;
+        root         /home/wwwroot;
+        autoindex	on;
+        access_log  /var/log/nginx/host.access.log  main;
+
+    ## Size Limits
+	client_body_buffer_size     128K;
+	client_header_buffer_size   128K;
+	client_max_body_size          1M;
+	large_client_header_buffers 1 1k;
+
+	## Timeouts
+	client_body_timeout   60;
+	client_header_timeout 60;
+	#expires              24h;
+	keepalive_timeout     60 60;
+
+	## Proxy Timeouts
+	proxy_connect_timeout	1200;
+	proxy_send_timeout		1200;
+	proxy_read_timeout		1200;
+	send_timeout			1200;
+
+	## General Options
+	ignore_invalid_headers  on;
+	keepalive_requests      100;
+	recursive_error_pages   on;
+	sendfile                off;
+	server_name_in_redirect off;
+	server_tokens           off;
+
+	## TCP options
+	tcp_nodelay on;
+	tcp_nopush  on;
+
+	## Compression
+	gzip              on;
+	gzip_buffers      16 8k;
+	gzip_comp_level   6;
+	gzip_http_version 1.0;
+	gzip_min_length   0;
+	gzip_types        text/plain text/css image/x-icon application/x-perl application/x-httpd-cgi;
+	gzip_vary         on;
+
+    location / {
+    	root   /home/wwwroot;
+        index  index.cfm index.html index.htm;
+	    autoindex on;
+        }
+	# Main Lucee proxy handler
+		location ~ \.(cfm|cfc)(.*)$ {
+			proxy_pass http://127.0.0.1:8080;
+			proxy_redirect off;
+			proxy_set_header Host $host;
+			proxy_set_header X-Forwarded-Host $host;
+			proxy_set_header X-Forwarded-Server $host;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+			proxy_set_header X-Real-IP $remote_addr;
+		}
+
+       error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+       }
+    }
+
+
+
+4. are you still with me ?
+quick cleanup of some unneeded things:
+- rm -rf /opt/tomcat/webapps/docs
+- rm -rf /opt/tomcat/webapps/examples
+- rm -rf /opt/tomcat/webapps/manager
+- rm -rf /opt/tomcat/webapps/host-manager
+
+congrats you made it so far and you didnt scream for an installer. now you know what components are needed to run lucee and you've set it up yourself. thats a good base.
+please reboot your server now.
+
+type "reboot"
+
+if everything was done correctly (i hope you added the hostname to your hostfile) you should now be able to login to lucee server for the first time
+
+http://yourhostname/lucee/admin/server.cfm
+http://yourhostname/lucee/admin/web.cfm
+
+dont forget to give the lucee server and the lucee web a password.
+
+you can also access your webroot now: \\yourhostname\wwwroot
+
+if you run into problems please let me know.
+
+some command you might need in the future:
+
+service tomcat start/stop/status
+service nginx start/stop/status
+
+log-file locations:
+/opt/tomcat/logs
+/var/log/nginx
+/opt/tomcat/lucee-server/….
+/opt/tomcat/lucee-web/….
+
+
+
+cheers 
+
+michael
+	
