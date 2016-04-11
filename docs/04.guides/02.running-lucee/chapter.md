@@ -11,4 +11,6 @@ Here you can find guides on how to run Lucee:
 
 [[running-lucee-osx]]
 
+[[running-lucee-centos]]
+
 [[running-lucee-configuring-lucee]]
