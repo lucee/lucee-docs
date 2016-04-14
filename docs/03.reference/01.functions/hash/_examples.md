@@ -24,6 +24,8 @@ dump( hash( input ) == hash( input, 'MD5' ) && hash( input, 'MD5' ) == hash( inp
 ```
 
 ```luceescript+trycf
+input = 'Hello World';
+
 // The number of iterations change the hash
 dump( hash( input = input, numIterations = 1 ) ); // B10A8DB164E0754105B7A99BE72E3FE5
 dump( hash( input = input, numIterations = 9 ) ); // 5E1C304FD939BBE1378ED977E2AD26B5
