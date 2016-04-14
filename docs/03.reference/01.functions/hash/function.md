@@ -5,7 +5,4 @@ related:
 categories:
 ---
 
-Converts a variable-length string to a 32-byte, hexadecimal
-        string, using the MD5 algorithm. (It is not possible to convert
-        the hash result back to the source string.)
-        32-byte, hexadecimal string
+Returns the one-way hash of a variable-length input string based on the algorithm, producing a fixed-length string. A one-way hash cannot be reversed back to the original input except by a brute force attack.
