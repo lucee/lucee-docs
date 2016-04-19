@@ -4,8 +4,8 @@ id: cookbook-configuration-administrator-cfc
 ---
 
 # Configure Lucee within your application #
-Lucee is providing a web frontend to configure the complete server and every single web context, but you can also do this configuration from within your application
-(For per request settings, please check out the" Application.cfc" Section in the [Cookbook](Cookbook)).
+Lucee provides a web frontend to configure the server and each web context, but you can also do this configuration from within your application
+(For per request settings, please check out the" Application.cfc" section in the [Cookbook](/guides/cookbooks.html)).
 
 
 ## Administrator.cfc ##
