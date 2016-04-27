@@ -4,8 +4,4 @@ id: function-hmac
 related:
 categories:
 ---
-
-Creates Hash-based Message Authentication Code for the given string based on the algorithm and encoding.
-		Hash-based Message Authentication Code (HMAC) is used to verify the data integrity and authenticity of a messagetransmitted.
-		It involves a cryptographic hash function in combination with a secret key.
-		The cryptographic hashfunction can be Message Digest 5 (MD5), Secure Hash Algorithm (SHA), and so on
+Creates a hash-based message authentication code (HMAC) for the given message combined with a given secret key using an optional algorithm and encoding. HMACs are used to verify the data integrity and authenticity of a transmitted message. The hash function used by the HMAC function depends on the algorithm specified.
