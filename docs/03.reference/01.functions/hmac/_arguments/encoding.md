@@ -1,1 +1,1 @@
-the encoding used, default encoding is the web charset of the enviroment.
+The encoding to use when converting the message and key to byte data.
