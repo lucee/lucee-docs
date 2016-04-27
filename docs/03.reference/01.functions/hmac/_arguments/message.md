@@ -1,1 +1,1 @@
-The message to transmit. The message can be a String or a byte array.
+The message to be hashed. Can be a string or a byte array.
