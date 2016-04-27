@@ -1,1 +1,1 @@
-The secret key to create HMAC. The key can be a String or a byte array.
+The secret cryptographic key to be combined with the message and hashed. Can be a string or a byte array.
