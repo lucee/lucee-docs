@@ -3,19 +3,23 @@ title: Migrate from Railo
 id: updating-lucee-migrate-from-railo
 ---
 
-# Migrate from Railo (c)#
-Lucee is forked from the Railo CFML Server (Version 4.2) so you can easily migrate an existing Railo installation as follows.
+# Migrate from Railo &copy;#
+Lucee 4.5 is forked from the Railo CFML Server (version 4.2) so you can easily migrate an existing Railo installation as follows.
 
 **Please read all the instructions before you get started.**
 
+**Please note, these instruction apply to Lucee 4.5 ONLY**
+
 *Lucee will rewrite some of the configuration files in your existing installation. It will also do a backup of the original contents as a zip file (see below) in case you need to roll back, but it's advisable to make a backup of the original installation just in case.*
 
-1. Download the `lucee-[version]-jars.zip` package from our [download section](https://bitbucket.org/lucee/lucee/downloads) and unzip it somewhere.
+1. Download the latest Lucee "custom" package "JARs 4.5 (Stable)" from the [download section](http://lucee.org/downloads.html) and unzip it somewhere.
 2. Stop your Railo server.
 3. In the zip file you will find a file called `lucee.jar`. Use that JAR to replace the existing `railo.jar` in your Railo installation's `lib` directory.
+
 **Important: make sure you *remove* the railo.jar completely. Do not just rename it (e.g. to "railo.jar.bak"), otherwise most servlet engines will still pick it up!**
-3. Replace the rest of the jars in the `lib` directory with the jars from the zip file. The jars have the same names as the original files so you can simply copy them to the directory.
-4. Restart your Railo Server which will now convert itself into a Lucee Server.
+
+4. Replace the rest of the jars in the `lib` directory with the jars from the zip file. The jars have the same names as the original files so you can simply copy them to the directory.
+5. Restart your Railo Server which will now convert itself into a Lucee Server.
 
 When it first starts, Lucee rewrites the server context and all individual web contexts. All the changes made are logged in detail to the `application.log` log file. To see these entries make sure the `application.log` file has set the log level "Info" or less. In the process Lucee does a backup of each original context in a zip file named using the pattern "railo-[server|web]-context-old.zip".
 
