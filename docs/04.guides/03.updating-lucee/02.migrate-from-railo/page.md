@@ -3,7 +3,7 @@ title: Migrate from Railo
 id: updating-lucee-migrate-from-railo
 ---
 
-# Migrate from Railo &copy;#
+# Migrate from Railo<sup>&copy;</sup>#
 Lucee 4.5 is forked from the Railo CFML Server (version 4.2) so you can easily migrate an existing Railo installation as follows.
 
 **Please read all the instructions before you get started.**
@@ -16,7 +16,7 @@ Lucee 4.5 is forked from the Railo CFML Server (version 4.2) so you can easily m
 2. Stop your Railo server.
 3. In the zip file you will find a file called `lucee.jar`. Use that JAR to replace the existing `railo.jar` in your Railo installation's `lib` directory.
 
-**Important: make sure you *remove* the railo.jar completely. Do not just rename it (e.g. to "railo.jar.bak"), otherwise most servlet engines will still pick it up!**
+    **Important: make sure you *remove* the railo.jar completely. Do not just rename it (e.g. to "railo.jar.bak"), otherwise most servlet engines will still pick it up!**
 
 4. Replace the rest of the jars in the `lib` directory with the jars from the zip file. The jars have the same names as the original files so you can simply copy them to the directory.
 5. Restart your Railo Server which will now convert itself into a Lucee Server.
