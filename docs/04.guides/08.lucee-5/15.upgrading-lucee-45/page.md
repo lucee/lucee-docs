@@ -12,3 +12,4 @@ id: lucee-5-upgrading-lucee-45
 
 **Important information**
 With Lucee 5 the JARs used by Lucee (except lucee.jar are handled by Lucee and no longer by the servlet engine, these JARs are also bundled with the lucee.jar file).
+Loading the lucee-inst.jar javaagent is no longer neccessary.
