@@ -3,13 +3,17 @@ title: Upgrading from Lucee 4.5
 id: lucee-5-upgrading-lucee-45
 ---
 
-#Upgrade from Lucee 4.5 (or Railo 4.2)#
+# Upgrade from Lucee 4.5 (or Railo 4.2)
 
-1. Stop the servlet engine.
-2. Add the lucee.jar you download from [here](http://lucee.org/downloads.html) to "/lib/etc" directory.
-3. Remove all other JARs (NOTE you must remove the JARs, DO NOT simply rename them) in the same directory, however *do not* remove the directory "lucee-server" (or "railo-server") if that directory is present, this is the case with default installations.
-3. Start the servlet engine.
+To upgrade your existing Lucee 4.5 (or Railo 4.2) install to Lucee 5 please follow the following instructions:
 
-**Important information**
-With Lucee 5 the JARs used by Lucee (except lucee.jar are handled by Lucee and no longer by the servlet engine, these JARs are also bundled with the lucee.jar file).
-Loading the lucee-inst.jar javaagent is no longer neccessary.
+1. Download the `lucee.jar` from (http://lucee.org/downloads.html).
+2. Stop the servlet engine on your server, this is normally Apache Tomcat, however if you have a custom install it might differ.
+3. Add the `lucee.jar` you downloaded to the "lib/etc" directory in your existing Lucee install.
+4. Remove all other JARs in the same directory, however *do not* remove the directory "lucee-server" (or "railo-server") if that directory is present, this is the case with default installations. *Please note* you must remove the JARs, *DO NOT* simply rename them.
+5. Start the servlet engine.
+
+## Important information
+
+1. With Lucee 5 the JARs used by Lucee, except lucee.jar are handled by Lucee and no longer by the servlet engine and these JARs are also bundled with the lucee.jar file.
+2. Loading the `lucee-inst.jar` javaagent is no longer necessary and should be removed from your JVM arguments if you have it in place.
