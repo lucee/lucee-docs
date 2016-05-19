@@ -21,4 +21,4 @@ We provide installers to install Lucee on your platform, bundled with the Tomcat
 Simply download the installer for your platform [here](http://lucee.org/downloads.html).
 
 ## Custom Installation ##
-If you want to use Lucee in a different environment, e.g. with a different servlet engine, simply download our "Lucee Custom" package [here](http://lucee.org/downloads.html), it contains everything you need for this task. Consult this [page](Custom_Installation) for information on how to perform a custom install.
+If you want to use Lucee in a different environment, e.g. with a different servlet engine, simply download our "Lucee Custom" package [here](http://lucee.org/downloads.html), it contains everything you need for this task.
