@@ -9,7 +9,7 @@ In this section, you should expect to find an ever growing repository of guides 
 
 [[running-lucee]] How to get Lucee installed annd running
 
-[[updating-lucee]] Updainting Lucee or migrating from Railo?
+[[updating-lucee]] Updating Lucee or migrating from Railo?
 
 [[cookbook]]
 
