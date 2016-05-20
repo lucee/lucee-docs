@@ -27,8 +27,6 @@ Lucee 5 provides the following core language enhancements:
 
 * [[lucee-5-abstract-final]] - Lucee already supports interfaces, but interfaces have not been well adopted by the community, because they are only used to do "sign a contract" when you implement them. Abstract and Final modifiers are a much more intuitive and flexible way to do the same and more.
 
-* [[lucee-5-access-modifiers]] - Lucee already supports access modifiers for functions, but with Lucee 4 this was limited to functions, Lucee 5 now also supports the same for variables.
-
 * [[lucee-5-component-static]] - Lucee 5 supports static variables and functions inside components.
 
 * [[lucee-5-lambda]] - Lucee 5 support Lambda Expression alongside closures, a shorthand notation for anonymous functions.
