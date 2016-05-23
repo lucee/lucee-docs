@@ -1,1 +1,1 @@
-alias for triggerDataMember
+An alias for `triggerDataMember`
