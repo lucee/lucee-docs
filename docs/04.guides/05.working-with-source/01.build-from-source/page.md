@@ -70,6 +70,14 @@ to builld Lucee and the Tomcat installers
 
 to build everything mention above
 
+    ant fast
+    
+to build without running the test cases
+
+You can also build Lucee using Maven via:
+
+    mvn clean install
+
 ### Java notes
 Currently the build process requires Java 6 to build successfully, however support for Java 7 and 8 will be added soon. Java 6 is available for Windows and Linux from the Oracle website at the following link:
 
