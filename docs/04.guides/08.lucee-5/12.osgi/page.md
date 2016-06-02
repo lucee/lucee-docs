@@ -18,23 +18,23 @@ OSGi allows for the running of different versions of the same library at the sam
 We can update *every* library Lucee is using at any time without issue and without the need to restart the JVM. This means that Lucee patches can include updated libraries, making Lucee a lot more flexible than it was in the past.
 
 ##Can I benefit from OSGi somehow?##
-Yes you can, Lucee 5.0 also comes with some new build in functions to use OSGi features directly.
+Yes you can, Lucee 5.0 also comes with some enhancements to the `createObject` function to use OSGi features directly.
 
-Today you use `createObject('java',"my.class.Path")` to create Java Objects, but with the power of OSGi under the hood we can do more!
+Today you use `createObject('java',"my.class.Path")` to create Java objects, but with the power of OSGi under the hood we can do more!
 
-Lucee 5 introduces the function `javaProxy()` to load Java objects, this functions interface is optimized to OSGi, so you can do something like this:
-
-```luceescript
-dtf=javaProxy("org.joda.time.format.DateTimeFormat", "org-joda-time", "2.1.0");
-```
-
-The function syntax is:
+Lucee 5 introduces two additional arguments to the `createObject()` function to load Java objects, this functions interface is optimized to OSGi:
 
 ```luceescript
-javaProxy(string className [, string bundleName, string bundleVersion]);
+createObject( string type , string className [, string bundleName, string bundleVersion]);
 ```
 
-Only the class name is required all other arguments are optional. Lucee will also download the bundles from the update provider automatically if they are not available locally.
+For example:
+
+```luceescript
+dtf=createObject( 'java' , 'org.joda.time.format.DateTimeFormat' , 'org-joda-time' , '2.1.0');
+```
+
+Only the type and class name are required all other arguments are optional. Lucee will also download the bundles from the update provider automatically if they are not available locally.
 
 The Lucee update provider already provides a wide range of bundles in various versions and this will be added to continuously overtime.
 
