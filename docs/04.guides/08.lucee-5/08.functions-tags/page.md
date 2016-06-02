@@ -5,31 +5,6 @@ id: lucee-5-functions-tags
 
 # Core Functions #
 
-###ObjectNew (new)###
-`objectNew(string componentName[, any arguments]):component`
-
-This function is a replacement for `createObject("component",...)` and you can use this function in the same way, however unlike `createObject("component",...)` this functions invokes the `init` method of the component, if there is one, and allows you to pass arguments to the `init` method.
-
-```luceescript
-// create a component from type `FullName` and invokes the constructor with 2 arguments in the form of an array
-c=objectNew("my.FullName", ["Susi","Sorglos"]);
-
-// create a component from type `FullName` and invokes the constructor with named arguments
-c=objectNew("my.FullName",{firstame:"Susi",lastname:"Sorglos"});
-```
-
-Maybe you ask yourself "why this function?" when I can do the same with the `new` operator as follows:
-
-```luceescript
-c=new my.FullName("Susi","Sorglos");
-```
-
-This is true, but this function is made for the dynamic loading of components, for example components defined in a configuration file.
-
-```luceescript
-c=objectNew(config.componentName, config.arguments);
-```
-
 ###Render (new) ###
 `render(string code [,string dialect]):string`
 
@@ -83,23 +58,23 @@ dump(manifestread("C:\whatever\whatever.jar")); // dumps the manifest from whate
 ```
 
 
-###JavaNew (new)###
-`javaNew(string className, string nameOrPath, string versionOrDelimiter):any`
+###CreateObject (extended)###
+`createObject("java", string className, string nameOrPath, string versionOrDelimiter)`
 
-This function is a replacement for `createObject("java",...)` and you can use this function in the same way, but in addition you can also load a class by defining a OSGi bundle and version. In that case Lucee will check if that class is available locally, if not it will try to download the necessary bundle from the update provider.
+The  `createObject("java",...)` function has been extended and you can use this function in the same way, but in addition you can also load a class by defining a OSGi bundle and version. In that case Lucee will check if that class is available locally, if not it will try to download the necessary bundle from the update provider.
 
 ```luceescript
 // Load a class with the definition of the bundle name and version, in this case we are using a different version than the one Lucee has in the core.
-POIFSFileSystem=javaNew("org.apache.poi.poifs.filesystem.POIFSFileSystem","apache.poi","3.11.0");
+POIFSFileSystem=createObject("java","org.apache.poi.poifs.filesystem.POIFSFileSystem","apache.poi","3.11.0");
 
 // The second and third argument are optional, if the version does not matter simply omit it.
-POIFSFileSystem=javaNew("org.apache.poi.poifs.filesystem.POIFSFileSystem","apache.poi");
+POIFSFileSystem=createObject("java","org.apache.poi.poifs.filesystem.POIFSFileSystem","apache.poi");
 
 // Or if the class is available in the environment
-POIFSFileSystem=javaNew("org.apache.poi.poifs.filesystem.POIFSFileSystem");
+POIFSFileSystem=createObject("java","org.apache.poi.poifs.filesystem.POIFSFileSystem");
 
 // You can also still load objects the classic way, but this is not recommended.
-POIFSFileSystem=javaNew("org.apache.poi.poifs.filesystem.POIFSFileSystem","C:\whatever\apache-poi.jar");
+POIFSFileSystem=createObject("java","org.apache.poi.poifs.filesystem.POIFSFileSystem","C:\whatever\apache-poi.jar");
 ```
 
 # Web Service Functions #
