@@ -1,4 +1,6 @@
-action for the data set:
+The action to perform on the CFML application.
 
-			- create (default): creates a new application context and overwrite the existing
-			- update: update the existing application context when there is already one, otherwise a new one is created
+- create: creates a new CFML application context and overwrites any existing application
+- update: updates the existing CFML application context if one exists, otherwise creates a new one
+
+The default value is: create.

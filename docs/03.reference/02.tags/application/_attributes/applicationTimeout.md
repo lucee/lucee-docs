@@ -1,3 +1,3 @@
-Enter the CreateTimeSpan function and values in days, hours, minutes, and seconds, separated
-		by commas, to specify the lifespan of application variables. The default value is specified in
-		the Variables page of the Lucee Administrator.
+Sets the lifespan of variables that live in the application scope. Accepts a TimeSpan created using the `createTimeSpan()` function.
+
+The default value is defined on the Variables page of the Lucee Administrator.

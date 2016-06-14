@@ -4,8 +4,4 @@ id: tag-application
 related:
 categories:
 ---
-
-Defines scoping for a application, enables or disables storing client variables,
-			and specifies a client variable storage mechanism.
-			By default, client variables are disabled. Also, enables session variables and sets timeouts
-			for session and application variables. Session and application variables are stored in memory.
+Defines a CFML application and various properties of that application: name, datasource, timeouts, client variable settings, session settings and more. By default, client variables are disabled, and session and application variables are stored in memory.
