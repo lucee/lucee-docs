@@ -2,82 +2,506 @@
 title: Extensions in Lucee 5
 id: lucee-5-extensions
 ---
+#Lucee 5 - Extensions#
 
-# Lucee 5 Extension Framework #
-**Lucee 5 has had a complete overhaul of the existing extension framework, to make them more flexible and easier for everyone to create extensions.**
+Creating an extension in Lucee is very straightforward as they are convention based. An extension is basically a ZIP file with the file extension .lex (Lucee EXtension) with the correct file structure.
 
-Lucee already had support for extensions and extensions could be Java and / or CFML based applications that could be installed inside the Lucee Administrator but this feature was not as well adopted by the community as we would have liked. The main reason for this was the lack of documentation and the complexity of creating an extension. With the launch of Lucee 5 we will change this, removing the complexity and creating detailed documentation. Also extensions will be "convention based" and have complete OSGi support removing the risk of library conflicts.
+The following is a simple example of a Lucee Extension and we will extend it step-by-step. 
 
-## Different ways to install ##
-In Lucee 4 you could only install extensions via the administrator however in Lucee 5 you can install extensions in the following ways:
+##Base structure (required)##
 
-**Administrator**
+At the heart of every extension is the manifest file. This file, “Manifest.mf”, is located in the “/META-INF/” folder inside your lex file.
 
-You can still install extension in the administrator as you could before.
+The manifest file is very powerful, but for the moment we’ll start with the base settings you need to have in place. Simply add the following settings to your manifest file.
 
-**Deploy Folder**
+###Manifest-Version###
 
-Lucee 5 extensions have the file extension ".lex" and you can install these by copying ".lex" files into the folder `{server|web-context}/deploy` and Lucee will pick them up and install them automatically.
+```Manifest-Version: 1.0```
 
-**JVM Argument**
+The manifest version number. This should be set to the value 1.0 as above.
 
-You can install extensions by declaring the "id" of the extension as a JVM argument in the startup script. The following is an example for installing the MySQL and the MSSQL Datasource driver
+###ID###
 
-```
--Dlucee-extensions=99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;7E673D15-D87C-41A6-8B5F1956528C605F
-```
+```id: <uuid>```
 
-## Convention Based ##
-The "convention based" approach means you simply have folders for different parts of your application, for example:
+A unique identifier for your extension. The value for the ID has to be a UUID, which you can create with the help of the Lucee function “createuuid”. This identifier will work across multiple extension providers, so if your extension is available on more than one extension provider, Lucee will recognize it and always obtain the newest version.
 
-- /applications - for cfm & cfc files that need to be installed in the webroot
-- /functions - for built-in functions to install
-- /jars - for libraries used by your extension
-- /plugins/{plugin name}/* - for adding an admin plugin
+###Version###
 
-The complete list of directories and file extensions which you can add to a .lex archive is (distilled from [the source code](https://github.com/lucee/Lucee/blob/master/core/src/main/java/lucee/runtime/config/XMLConfigAdmin.java#L4527)):
-`/jars/*.jar`
-`/jar/*.jar`
-`/bundles/*.jar`
-`/bundle/*.jar`
-`/lib/*.jar`
-`/libs/*.jar`
-`/flds/.../*.fld`
-`/tlds/.../*.tld`
-`/archives/.../*.lar`
-`/mappings/.../*.lar`
-`/event-gateway/.../*.cfc|*.lucee`
-`/eventGateway/.../*.cfc|*.lucee`
-`/tags/*`
-`/functions/*`
-`/context/*`
-`/webcontexts/*`
-`/applications/*`
-`/plugins/*`
+```version: 1.2.3.4```
 
-This means that creating an extension for Lucee 5 is as simple as adding the stuff you need into certain folders, zipping it up and letting Lucee take care of the rest.
+The version number of your extension. Please follow the following pattern for your version number.
 
-## OSGi Support ##
-The "OSGi support" means that Lucee makes sure that the jars you install are OSGi bundles and if they are not it converts them to OSGi bundles on the fly. 
+<major-number>.<minor-number>.<release-number>.<patches-number-or-string>
 
-**Please note:** This only applies to JARs that are bundled with extensions and is not 100% guaranteed to work every time. It is best practice for you to convert any JARs to OSGi before hand. Also, this automatic conversion to OSGi only occurs for JARs that come with an extension and not for JARs dropped into the Lucee bundles directory.
+###Name###
 
-## But what if I have to define / check preconditions / relations? ##
-Every extension also needs a "META-INF/Manifest.mf" file, where you need to define certain settings, the following example is the content from the manifest file for the MongoDB extension:
+```name: Beer```
+
+This is the name of the extension. You can also add double quotes to your name values to ensure it is interpreted as a string.
+
+These four items are everything we need to have a working extension, so are example MANIFEST.MF file looks like this:
 
 ```
 Manifest-Version: 1.0
-Built-Date: 2015-03-11 16:11:16
-version: "1.0.0.40"
-id: "E6634E1A-4CC5-4839-A83C67549ECA8D5B"
-name: "MongoDB Datasource and Cache"
-description: "This Extensions allows to use MongoDB directly in your code or as a Cache (Experimental). MongoDB (from humongous) is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster."
-start-bundles: false
-trial: false
-lucee-core-version: "5.0.0.021"
+id: "FAD1E8CB-4F45-4184-86359145767C29DE"
+version: "1.2.3.4"
+name: Beer
 ```
 
-In this case, for example, we have defined that Lucee "5.0.0.021" is necessary to install this extension.
+Now we create a ZIP file with the file META-INF/MANIFEST.MF in it and then change the file extension of the resulting ZIP to “.lex”.
 
-## Install script no longer required ##
-With pre-Lucee 5 extensions you had to create an install.cfc file and code the installation of the extension yourself, however with Lucee 5 this script is no longer required and Lucee now takes care of the install for you.
+To test your new extension simply copy it to /lucee-server/deploy/ a of a running Lucee 5 installation. Wait a little bit, it can take Lucee up to a minute to recognize and install the extension. After the extension disappears from the “deploy” directory it is installed. If you now go to the Lucee Server Admin and to the “Extension/Application” section, you should see it there as installed.
+
+##Base structure (optional)##
+Now let us make our extension richer by adding some optional settings to the MANIFEST.MF file.
+
+###Description###
+
+```description: "This extension installs a tag, that when used shows you where to have a Beer nearby."```
+
+The description for your extension.
+
+###Category###
+
+```category: Fun```
+
+Category of the extension, this can be a list of multiple categories (comma separated).
+
+###Built date###
+
+```Built-Date: 2016-02-05 11:39:44```
+
+Built date of the extension.
+
+###Lucee core version###
+
+```lucee-core-version: "5.0.0.157"```
+
+Minimal Lucee core version this extension needs to work properly.
+
+###Lucee loader version###
+
+```lucee-loader-version: "5.8"```
+
+The minimum Lucee loader version this extension needs to run properly.
+
+###Release type###
+
+```release-type: web```
+
+If this extension should be made available in the server context only, then set to “server”. If this extension only should be available in the web context, then set to “web”. If it should be available in web and server context then set to “all”. The “all” value is the default.
+
+We now have a MANIFEST.MF file that covers all the base settings, the extension still does not do anything, but it is more informative now. This is what the manifest file now has in it:
+
+```
+Manifest-Version: 1.0
+id: "FAD1E8CB-4F45-4184-86359145767C29DE"
+version: "1.2.3.4"
+name: Beer
+description: "This extension installs a tag, that when used shows you where to have a Beer nearby."
+category: Fun
+Built-Date: 2016-02-05 11:39:44
+lucee-core-version: "5.0.0.157"
+lucee-loader-version: "5.8"
+release-type: web
+```
+
+Now we create the .lex file with the file META-INF/MANIFEST.MF inside it again and we are done.
+
+###Logo###
+```
+/META-INF/logo.png
+```
+
+Adding a logo/icon for your extension is very simple. Copy a PNG image with the name “logo.png” to the folder “/META-INF/”.
+
+##Installing artifacts##
+Now that we have covered how the base settings for an extension work, we can make it do something useful.
+
+To begin with we start by installing some CFML based tags.
+
+##Adding CFML based tags##
+
+```
+/tags
+```
+
+To add CFML based tags create a directory with the name “/tags” and copy the CFML based tag(s) into this directory. After creating your tag(s), your .lex file (zip) will have the following structure.
+
+```
+/META-INF/MANIFEST.MF
+/tags/Beer.cfc
+```
+
+Documentation of the tag(s) is via the doc comments and/or hint attributes for the tag. You can add as many tags to the tags directory as you need.
+
+After copying this new extension file to the “deploy” directory (see above) you will see in the Lucee admin that the extension is installed and the new tag(s) will now be available globally.
+
+##Adding CFML based functions##
+
+```
+/functions
+```
+
+To add CFML based functions create a directory with name “/functions” and copy a CFML template containing the function to that directory. After creating your function(s), your .lex file (zip) will have the following structure.
+
+```
+/META-INF/MANIFEST.MF
+/tags/Beer.cfc
+/functions/beer.cfm
+```
+
+Documentation of the function(s) is via the doc comments and/or hint attributes for the function. You can add as many functions to the functions directory as you need.
+
+After copying this new extension file to the “deploy” directory (see above) you will see in the Lucee admin that the extension is installed and the new function(s) will now be available globally.
+
+##Install context files##
+
+```
+/context
+```
+
+The “context” files are files that are copied to the Lucee context directory. This directory is available via the mapping “/lucee” in the case of a web context extension (see “release-type” above) or “/lucee-server” in the case of a server context extension.
+
+The “context” file can be used for various things:
+* make a web service available 
+* make a component available
+* extend the Lucee admin with a plugin (by using the path /context/admin/plugin/MyPlugin)
+* extend the Lucee admin with a JDBC Driver (by using the path /context/admin/dbdriver/MyDB.cfc)
+* extend the Lucee admin with a cache (by using the path /context/admin/cdriver/MyCache.cfc)
+* extend the Lucee admin with a debug template (by using the path /context/admin/debug/MyDebugTemplate.cfc)
+
+The content of the extensions “context” folder could look something like this:
+
+```
+/META-INF/MANIFEST.MF
+/context/admin/plugin/NotePlus/Action.cfc
+/context/admin/plugin/NotePlus/language.xml
+/context/admin/plugin/NotePlus/overview.cfm
+```
+
+Web Contexts Files
+
+```
+/webcontexts
+```
+
+These are similar to the “context files”, the difference being that “context files” only define context files for the current context (server or web). The web contexts files however are used in a server context extension to install files to ALL existing and upcoming web contexts. This means that when you add a new web context after this extension is installed, the files defined in this folder will be available to this new web context. 
+
+The content of the extensions “webcontext” files could look something like this:
+
+```
+/META-INF/MANIFEST.MF
+/webcontexts/admin/debug/MyDebugTemplate.cfc
+```
+
+Applications
+
+```
+/application
+```
+
+If this extension is installed in a web context the content of this folder is copied to the web root directory of that context.
+
+The content of the extensions “application” folder could look something like this:
+
+```
+/META-INF/MANIFEST.MF
+/applications/Application.cfc
+/applications/index.cfm
+```
+
+Plugins
+```
+/plugins
+```
+
+Installs content from the folder /plugin to the plugin directory of the server or web context.
+
+This is a shortcut for “/context/admin/plugin” (see above).
+
+The content of the extensions “plugin” folder could look something like this:
+
+```
+/META-INF/MANIFEST.MF
+/plugins/NotePlus/Action.cfc
+/plugins/NotePlus/language.xml
+/plugins/NotePlus/overview.cfm
+```
+
+##Archives##
+
+```
+/archives
+```
+
+The folder /archives is used to install regular, component or custom tag archives. Lucee archives can be generated in the details view of regular, component or custom tag mappings in the administrator.
+ 
+The content of the extensions “archives” folder could look something like this:
+
+```
+/META-INF/MANIFEST.MF
+/archives/myapp.lar
+/archives/mycomponents.lar
+/archives/mycustomtag.lar
+```
+
+##JARs##
+
+```
+/jars
+start-bundles:true
+```
+
+Many Lucee extensions use Java libraries (jars) to work. 
+
+Lucee 5 support “classic” Jars and OSGI bundles (a subset of jars). Lucee will detect if the given input is a “classic” jar or an OSGi bundle and handle the file accordingly.
+
+##OSGi Bundles##
+
+OSGi is the framework Lucee 5 is based on, that allows for the loading and unload of JAR files on the fly at any time without a restart necessary. In addition you can have different versions of the same JAR in your environment without causing a conflict. 
+The term “Installing an OSGi bundle” is not accurate in this context, adding a bundle to the JARs directory makes the bundle available in the environment but does not “install” it.
+
+To make Lucee load (install) the JARs into the environment you need to define the setting “start-bundles” in the Manifest file, but in many cases this is not necessary, for example when your JAR contains a tag that you are defining in a tld, you simply define the bundle name and version with the class definition and Lucee will load the JAR automatically when required. This has the benefit that bundles are only loaded into the memory when used.
+
+*Please note:* It is not actually necessary to bundle the OSGi bundle with the extension, if Lucee cannot find the OSGi bundle locally, Lucee will attempt to download it from the update provider.
+
+##“Classic” JAR##
+AS “Classic” JAR we name all JARs that are not OSGi bundle, we highly suggest not to use them, but of course it is possible with all downsides they have.
+
+For example under MS Windows it is not possible to update an already loaded JAR, because Windows has a lock on that JAR. Every update also need a retart of the complete Lucee server.
+
+The content of the extensions “jars” folder could look something like this:
+
+```
+/META-INF/MANIFEST.MF
+/jars/mybundle.jar
+```
+
+##Components##
+
+```
+/components
+```
+
+You can make components globally available by adding them to the folder /components.
+
+The content of the extensions “components” folder could look something like this:
+
+```
+/META-INF/MANIFEST.MF
+/components/org/lucee/my/com/MyComp.cfc
+```
+
+##Installing##
+After we have looked at how to install artifacts and configure base settings, we will explain how to install specific functionality to extend Lucee.
+
+##Resources (Virtual file system)##
+
+```
+resource:{...}
+```
+
+Lucee has an interface to install a virtual file system that can be used in every aspect of the language.
+
+Lucee support a Java and a CFML interface for virtual file systems, so a virtual filesystem can be written in either Java or CFML.
+
+However the installation of a Java based virtual file system is different to the installation of a CFML based virtual file system, therefore we will cover these 2 things separately.
+
+##Java based Virtual File System##
+For a Java virtual file system we need to register the class that implements the interface “ResourceProvider” for this we add the following setting to the MANIFEST.MF File: 
+
+```
+resource:"[{'class':'my.very.special.fs.WhateverProvider','bundleName':'my.whatever','bundleVersion':'1.2.3.4','scheme':'we','lock-timeout':'10000'}]"
+```
+
+We define this setting as a JSON String. We define the class that implements the ResourceProvider and the bundle name and version. In addition we can also define other settings such as “lock-timeout”, in the case above. All of these configuration settings are simply forwarded to the “init” method of the class defined.
+
+Copy the OSGi bundle (JAR) containing your ResourceProvider to the “/jars” folder in your extension. It is not necessary to load the JAR with the help of the “start-bundles” setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
+
+##CFML based Virtual File System##
+For CFML based virtual File systems we need to register the Resource Provider as well, but this time as a CFML component:
+
+```
+Resource:"[
+{'component':'my.very.special.fs.WhateverProvider','scheme':'we','lock-timeout':'10000'}
+]"
+```
+
+Now we have to make that component available for Lucee, there are 2 ways to do this. You can make the component available as part of a component archive (see “Archives” above) or you simply add the component to the “/components” folder (see “Components” above).
+
+Example implementation:
+
+https://github.com/lucee/extension-s3
+
+##Mapping##
+
+```
+mapping:[]
+```
+
+You can define mappings that point to files, archives or virtual file systems you are installing. You can define as many mappings as you need in the following way:
+
+```
+mapping: "[
+{
+'virtual':'/org/lucee',
+'physical':'http://lucee.org',
+'inspect':'never'
+},
+{	
+'primary':'archive',
+'virtual':'/myApp',
+'toplevel':true,
+'archive':'/../myapp.lar'
+}]"
+```
+
+##JDBC##
+Installing a JDBC Driver.
+
+```
+jdbc: "[{
+'label':'${label}',
+'class':'${className}',
+'bundleName':'${symbolicName}',
+'bundleVersion':'${symbolicVersion}'
+}]"
+```
+
+Copy the OSGi bundle (JAR) containing your JDBC to the “/jars” folder in your extension. It is not necessary to load the JAR with the help of the “start-bundles” setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
+
+Example implementation:
+
+https://github.com/lucee/JDBC-extension-factory
+
+##Search## 
+Installing a Search Engine.
+
+To install a search engine you need to register the class that implements the interface “lucee.runtime.search.SearchEngine” for this we add the following setting to the MANIFEST.MF File: 
+
+```
+search: "[{
+'class':'${class}',
+'bundleName':'${bundlename}',
+'bundleVersion':'${bundleversion}${build.number}'
+}]"
+```
+
+Copy the OSGi bundle (JAR) containing your Search Engine implemenation  to the “/jars” folder in your extension. It is not necessary to load the JAR with the help of the “start-bundles” setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
+
+Example implementation:
+
+https://github.com/lucee/extension-lucene
+
+##ORM##
+To install an ORM Engine you need to register the class that implements the interface “lucee.runtime.orm.ORMEngine” for this we add the following setting to the MANIFEST.MF File: 
+
+```
+orm: "[{
+'class':'${class}',
+'name':'${bundlename}',
+'version':'${bundleversion}${build.number}'
+}]"
+```
+
+Copy the OSGi bundle (JAR) containing your ORM Engine implemenation  to the “/jars” folder in your extension. It is not necessary to load the JAR with the help of the “start-bundles” setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
+
+Example implementation:
+
+https://github.com/lucee/extension-hibernate
+
+Java based Tag/Function (TLD/FLD)
+
+```
+/jars
+/tlds
+/flds
+```
+
+Installing one or multiple Java based Tags or Functions. Installing a tag or a function is the same process, because of that we handle this 2 topics together. A Java based tag/Function needs 2 things:
+
+1. A OSGi Bundle (JAR) containing the class that implements the interface “javax.servlet.jsp.tagext.Tag” for tags or “lucee.runtime.ext.function.BIF” for a function.
+2.  A tld/fld file that contains the description of one or multiple the tags/functions
+
+So copy the OSGi bundles to the folder “/jars” and the tld/fld file to the folder “/tlds” or “/flds”.
+
+*Side note:* for TLD files better use the extension “.tldx”, otherwise it could break Tomcat when it attempts to read the .tld file. Lucee can handle the extension “.tld” and “.tldx”, tomcat will ignore it.
+
+Example implementation:
+
+https://github.com/lucee/extension-pdf
+
+##Monitor##
+
+Install a Monitor (more detailed documentation will follow).
+
+```
+monitor: "[{
+'name':'${actionMonitorName}',
+'type':'${actionMonitorType}',
+'class':'${actionMonitorClass}',
+'bundleName':'${bundlename}',
+'bundleVersion':'${bundleversion}${build.number}'
+},
+{
+'name':'${intervalMonitorName}',
+'type':'${intervalMonitorType}',
+'class':'${intervalMonitorClass}',
+'bundleName':'${bundlename}',
+'bundleVersion':'${bundleversion}${build.number}'
+},
+{
+'name':'${requestMonitorName}',
+'type':'${requestMonitorType}',
+'class':'${requestMonitorClass}',
+'bundleName':'${bundlename}',
+'bundleVersion':'${bundleversion}${build.number}'
+}]"
+```
+
+##Cache Handler##
+This has nothing to do with installing a “Cache” like “EHCache”, this extends the functionality of all “cachedwithin” attributes in Lucee.
+
+The Lucee core support 2 Cache Handler types out of the box:
+
+1. Time span cache (cachewithin=createTimeSpan(0,0,0,10))
+2. Request span cache (cachewithin="request")
+
+So with this option you can extend this functinality,
+To install a Cache Handler you need to register the class that implements the interface “lucee.runtime.cache.tag.CacheHandler” for this we add the following setting to the MANIFEST.MF File: 
+
+```
+cache-handler: "[{
+'id':'smart',
+'class':'${class}',
+'name':'${bundlename}',
+'version':'${bundleversion}'
+}]"
+```
+
+Copy the OSGi bundle (JAR) containing your Cache Handler implemenation  to the “/jars” folder in your extension. It is not necessary to load the JAR with the help of the “start-bundles” setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.l
+
+##AMF (Flex)##
+To install an AMF Engine you need to register the class that implements the interface “lucee.runtime.net.amf.AMFEngine” for this we add the following setting to the MANIFEST.MF file:
+
+```
+amf: "{
+'class':'${class}',
+'bundleName':'${bundlename}',
+'bundleVersion':'${bundleversion}',
+'caster':'modern',
+'configuration':'manual'
+}"
+```
+
+Example implementation:
+
+https://github.com/lucee/extension-flex
+
+##Event Handler##
+(TODO)
+
+##Event Gateway##
+(TODO)
