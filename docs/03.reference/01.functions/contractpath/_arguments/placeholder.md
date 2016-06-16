@@ -1,1 +1,3 @@
-If true (default false), Lucee also tries to create a placeholder for the begining of the Tag
+A boolean indicating whether Lucee placeholder names should be prefixed to the path.
+
+Default: false.
