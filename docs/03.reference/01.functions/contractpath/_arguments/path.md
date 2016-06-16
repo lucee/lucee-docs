@@ -1,1 +1,1 @@
-a absolute path
+An absolute path.
