@@ -1,10 +1,15 @@
 Assume the following folder structure:
 ```luceescript
 /homefolder
+
   /luceecode
+
     /contractpath
+
       /example.cfm
+
     /otherdirectory
+
       /example.cfm
 ```
 
