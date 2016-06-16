@@ -1,11 +1,11 @@
 Assume the following folder structure:
-```
+```luceescript
 /homefolder
-    /luceecode
-        /contractpath
-            /example.cfm
-        /otherdirectory
-            /example.cfm
+  /luceecode
+    /contractpath
+      /example.cfm
+    /otherdirectory
+      /example.cfm
 ```
 
 And assume the following mappings:
