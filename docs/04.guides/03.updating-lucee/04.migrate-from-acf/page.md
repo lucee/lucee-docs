@@ -31,3 +31,19 @@ We decided not to follow the ACF way for the following reasons:
 
 * Performance - copying the array for each function call adds a lot of unnecessary overhead
 * Consistency - Passing an array by value is inconsistent with all of the other _complex_ object types which are passed by pointer
+
+### CreateTimeSpan returns a timespan, not a date ###
+**What:**
+In ACF, CreateTimeSpan returns a date type, meaning that if you have a function that returns a timespan value, or takes a timespan as an argument, it will thow an error in Lucee.  This has two solutions: change the date to timespan, or use numeric, which works in both.
+
+For example:
+```coldfusion
+<cfscript>
+  setSessionTimeout(CreateTimeSpan(0,0,20,0));
+</cfscript>
+...
+<cffunction name="setSessionTimeout">
+  <cfargument name="timeout" type="numeric" required="true">
+  <cfset this.sessionTimeout = timeout>
+</cffunction>
+```
