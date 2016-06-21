@@ -12,14 +12,14 @@
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
 
-		<link href="assets/css/base.min.css" rel="stylesheet">
-		<link href="assets/css/highlight.css" rel="stylesheet">
-		<link rel="icon" type="image/png" href="assets/images/favicon.png">
+		<link href="/assets/css/base.min.css" rel="stylesheet">
+		<link href="/assets/css/highlight.css" rel="stylesheet">
+		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
 
 		<!-- ie -->
 		<!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.js" type="text/javascript"></script>
-			<script src="assets/js/respond.js" type="text/javascript"></script>
+			<script src="/assets/js/html5shiv.js" type="text/javascript"></script>
+			<script src="/assets/js/respond.js" type="text/javascript"></script>
 		<![endif]-->
 	</head>
 
@@ -28,7 +28,7 @@
 			<div class="menu-scroll">
 				<div class="menu-wrap">
 					<div class="menu-content">
-						<a class="nav-drawer-logo" href="index.html"><img class="Lucee" src="assets/images/lucee-logo-bw.png"></a>
+						<a class="nav-drawer-logo" href="index.html"><img class="Lucee" src="/assets/images/lucee-logo-bw.png"></a>
 						#args.navTree#
 						<hr>
 						<ul class="nav">
@@ -60,7 +60,7 @@
 					</a>
 				</li>
 			</ul>
-			<a class="header-logo hidden-lg" href="index.html"><img alt="Lucee" src="assets/images/lucee-logo.png"></a>
+			<a class="header-logo hidden-lg" href="index.html"><img alt="Lucee" src="/assets/images/lucee-logo.png"></a>
 			<ul class="nav nav-list pull-right">
 				<cfset prevPage = args.page.getPreviousPage() />
 				<cfset nextPage = args.page.getNextPage() />
@@ -141,6 +141,6 @@
 			</div>
 		</footer>
 
-		<script src="assets/js/base.min.js" type="text/javascript"></script>
+		<script src="/assets/js/base.min.js" type="text/javascript"></script>
 	</body>
 </html></cfoutput>
