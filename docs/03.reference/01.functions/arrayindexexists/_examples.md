@@ -1,5 +1,5 @@
- ### Check if index exists in array
- ```luceescript+trycf
+### Check if index exists in array
+```luceescript+trycf
 fruitArray = ['apple', 'kiwi', 'banana', 'orange', 'mango', 'kiwi'];
 
 dump(arrayIndexExists(fruitArray,3));

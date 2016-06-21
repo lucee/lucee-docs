@@ -6,5 +6,5 @@ dump(someArray);
 
 // member function
 doctorArray.prepend('Hurt');
-writeDump(doctorArray);
+dump(doctorArray);
 ```

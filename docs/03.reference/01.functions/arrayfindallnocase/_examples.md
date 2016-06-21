@@ -1,5 +1,5 @@
- ### find first occurance of string in array
- ```luceescript+trycf
+### Find first occurance of string in array
+```luceescript+trycf
 fruitArray = ['apple', 'kiwi', 'banana', 'orange', 'mango', 'kiwi'];
 
 favoriteFruits = arrayFindAll(fruitArray,'kiwi');
