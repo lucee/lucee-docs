@@ -1,4 +1,4 @@
-```luceescript
+```luceescript+trycf
 numbers         = [ 1, 2, 3, 4 ];
 positionOfThree = ArrayContains( numbers, 3 );
 Echo( positionOfThree ); // outputs 3

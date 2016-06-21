@@ -1,8 +1,9 @@
 ```luceescript+trycf
 aNames = array("Marcus","Sarah","Josefine");
 
-iArrayLength = ArrayLen(aNames);
+dump(var=ArrayLen(aNames), label="array length");
 
-dump(var=iArrayLength, label="array length");
+//member function
+dump(var=aNames.len(), label="array length");
 ```
   
