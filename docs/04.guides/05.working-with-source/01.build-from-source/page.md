@@ -22,7 +22,7 @@ Lucee's source code is version-controlled with GIT and is hosted on github.com [
 The repository contains a few branches, with the most important ones being "Master" (current release) and "Develop" (alpha and beta releases).
 
 So simply clone the repository to your local drive with the following command:
-$ git clone https://bitbucket.org/lucee/lucee.git
+$ git clone https://github.com/lucee/Lucee.git
 
 
 ### 3. Edit /lucee-core/src/lucee/runtime/Info.ini
