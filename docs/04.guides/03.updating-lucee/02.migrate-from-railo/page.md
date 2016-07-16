@@ -108,7 +108,9 @@ This list will be added to as issues come to light.
 
 The original [Railo extension produced by TeamCfAdvance](https://github.com/teamcfadvance/cfspreadsheet-railo) is not compatible with Lucee and should be removed.
 
-However a [modified version by Andrew Kretzer](https://github.com/Leftbower/cfspreadsheet-lucee) is now available and can be installed in Lucee by carefully following the instructions provided.
+However a [modified version by Andrew Kretzer for Lucee 4.5](https://github.com/Leftbower/cfspreadsheet-lucee) is now available and can be installed in the Lucee Admin with this Extension Provider: `http://cfspreadsheet.leftbower.com/ExtensionProvider.cfc` or manually by following the instructions provided.
+
+An updated version for Lucee 5 can be found at [https://github.com/Leftbower/cfspreadsheet-lucee-5](https://github.com/Leftbower/cfspreadsheet-lucee-5).
 
 Alternatively, a standalone (non-extension) [spreadsheet library for Lucee](https://github.com/cfsimplicity/lucee-spreadsheet) is available which supports almost all of the extension's functionality.
 
