@@ -45,6 +45,7 @@ in the following examples in this document "engine" will refer to a lucee.loader
 **Lucee 5**
 
 With Lucee 5 doing this is a lot easier now.
+
 ```java
 CFMLEngine engine = CFMLEngineFactory.getInstance();
 		// cookies for this simulated request, can also be null
