@@ -37,7 +37,7 @@ We decided not to follow the ACF way for the following reasons:
 In ACF, CreateTimeSpan returns a date type, meaning that if you have a function that returns a timespan value, or takes a timespan as an argument, it will thow an error in Lucee.  This has two solutions: change the date to timespan, or use numeric, which works in both.
 
 For example:
-```coldfusion
+```lucee
 <cfscript>
   setSessionTimeout(CreateTimeSpan(0,0,20,0));
 </cfscript>

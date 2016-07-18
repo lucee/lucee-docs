@@ -19,9 +19,9 @@ component {
 		var highlighter = CreateObject( 'java', 'com.dominicwatson.pyginblankets.PygmentsWrapper', jars );
 		var useTryCf    = reFind( "\+trycf$", arguments.language ) > 0;
 
-		if ( arguments.language.startsWith( "luceescript" ) || arguments.language == "cfs" ) {
+		if ( arguments.language.reFindNoCase( "^(luceescript|cfs)" ) ) {
 			arguments.language = "cfs";
-		} else {
+		} else if ( arguments.language.reFindNoCase( "^(lucee|cfm|coldfusion)" ) ) {
 			arguments.language = "cfm";
 		}
 
