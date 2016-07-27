@@ -6,4 +6,4 @@ categories:
  - date
 ---
 
-Determines the number of given date parts between two different dates.
+Determines the integer number of units by which date1 is less than date2.
