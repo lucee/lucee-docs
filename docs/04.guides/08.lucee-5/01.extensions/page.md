@@ -186,6 +186,7 @@ After copying this new extension file to the “deploy” directory (see above) 
 The “context” files are files that are copied to the Lucee context directory. This directory is available via the mapping “/lucee” in the case of a web context extension (see “release-type” above) or “/lucee-server” in the case of a server context extension.
 
 The “context” file can be used for various things:
+
 * make a web service available 
 * make a component available
 * extend the Lucee admin with a plugin (by using the path /context/admin/plugin/MyPlugin)
