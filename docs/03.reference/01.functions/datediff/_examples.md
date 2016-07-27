@@ -1,1 +1,9 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+echo( DateDiff( "d", "2016-06-27", "2016-06-28" ) & "<br>" ); // 1
+echo( DateDiff( "d", "2016-06-27", "2016-06-27" ) & "<br>" ); // 0
+echo( DateDiff( "d", "2016-06-27", "2016-06-26" ) & "<br>" ); // -1
+
+echo( DateDiff( "h", "2016-06-27 00:00:00", "2016-06-27 01:00:00" ) & "<br>" ); // 1
+echo( DateDiff( "h", "2016-06-27 00:00:00", "2016-06-27 00:00:00" ) & "<br>" ); // 0
+echo( DateDiff( "h", "2016-06-27 01:00:00", "2016-06-27 00:00:00" ) & "<br>" ); // -1
+```
