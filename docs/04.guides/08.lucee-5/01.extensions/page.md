@@ -360,7 +360,7 @@ Now we have to make that component available for Lucee, there are 2 ways to do t
 
 Example implementation:
 
-[https://github.com/lucee/extension-flex](https://github.com/lucee/extension-s3)
+[https://github.com/lucee/extension-s3](https://github.com/lucee/extension-s3)
 
 ### Mapping
 
@@ -402,7 +402,7 @@ Copy the OSGi bundle (JAR) containing your JDBC to the “/jars” folder in you
 
 Example implementation:
 
-[https://github.com/lucee/extension-flex](https://github.com/lucee/JDBC-extension-factory)
+[https://github.com/lucee/JDBC-extension-factory](https://github.com/lucee/JDBC-extension-factory)
 
 ### Search
 
@@ -422,7 +422,7 @@ Copy the OSGi bundle (JAR) containing your Search Engine implemenation  to the �
 
 Example implementation:
 
-[https://github.com/lucee/extension-flex](https://github.com/lucee/extension-lucene)
+[https://github.com/lucee/extension-lucene](https://github.com/lucee/extension-lucene)
 
 ### ORM
 
@@ -440,7 +440,7 @@ Copy the OSGi bundle (JAR) containing your ORM Engine implemenation  to the “/
 
 Example implementation:
 
-[https://github.com/lucee/extension-flex](https://github.com/lucee/extension-hibernate)
+[https://github.com/lucee/extension-hibernate](https://github.com/lucee/extension-hibernate)
 
 Java based Tag/Function (TLD/FLD)
 
@@ -461,7 +461,7 @@ So copy the OSGi bundles to the folder “/jars” and the tld/fld file to the f
 
 Example implementation:
 
-[https://github.com/lucee/extension-flex](https://github.com/lucee/extension-pdf)
+[https://github.com/lucee/extension-pdf](https://github.com/lucee/extension-pdf)
 
 ### Monitor
 
