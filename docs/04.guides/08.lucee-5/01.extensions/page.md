@@ -294,7 +294,7 @@ To make Lucee load (install) the JARs into the environment you need to define th
 
 As “Classic” JAR we name all JARs that are not OSGi bundle, we highly suggest not to use them, but of course it is possible with all downsides they have.
 
-For example under MS Windows it is not possible to update an already loaded JAR, because Windows has a lock on that JAR. Every update also need a retart of the complete Lucee server.
+For example under MS Windows it is not possible to update an already loaded JAR, because Windows has a lock on that JAR. Every update also need a restart of the complete Lucee server.
 
 The content of the extensions “jars” folder could look something like this:
 
