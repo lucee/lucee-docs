@@ -36,6 +36,7 @@ To run the test suite:
 
 To build the server:
 
+    cd loader
     mvn clean install
 
 ### 4. Deploy
