@@ -22,7 +22,7 @@ The returned struct contains the following data:
 |customTagPaths| Array | | Paths in which custom tags are searched |
 |datasource| String | | Name of the default datasource |
 |datasources| Struct | | Datasources that are defined in the Application |
-|defaultDatasource| String | Alias for `datasource` |
+|defaultDatasource| String | | Alias for `datasource` |
 |disablePlugins| Boolean | false | |
 |invokeImplicitAccessor| Boolean | false | |
 |javaSettings| Struct | | Settings that are used when creating a Java object |
