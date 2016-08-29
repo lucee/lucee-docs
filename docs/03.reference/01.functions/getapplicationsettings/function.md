@@ -1,7 +1,7 @@
 ---
 title: GetApplicationSettings
 id: function-getapplicationsettings
-related:
+related: GetApplicationMetaData()
 categories:
 ---
 
