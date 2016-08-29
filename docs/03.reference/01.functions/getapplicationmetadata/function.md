@@ -19,23 +19,23 @@ The returned struct contains the following data:
 |clientStorage| String | Cookie | Type of storage for the Client Scope |
 |clientTimeout| TimeSpan | | Client Scope timeout |
 |component| String | | Path to Application.cfc |
-|customTagPaths| Array | Paths in which custom tags are searched |
-|datasource| String | Name of the default datasource |
-|datasources| Struct | Datasources that are defined in the Application |
+|customTagPaths| Array | | Paths in which custom tags are searched |
+|datasource| String | | Name of the default datasource |
+|datasources| Struct | | Datasources that are defined in the Application |
 |defaultDatasource| String | Alias for `datasource` |
-|disablePlugins| Boolean | - |
-|invokeImplicitAccessor| Boolean | - |
-|javaSettings| Struct | Settings that are used when creating a Java object |
-|locale| String | Name of the default Locale |
-|localMode| Boolean | When `true`, functions use local mode and unscoped variables default to the Local Scope |
-|loginStorage| String | [Cookie] |
-|mappings| Struct | Application Mappings that map virtual directories to physical paths |
-|name| String | The Application's name |
-|sameformfieldsasarray| Boolean | If true, when a Form field is passed more than once then it is returned as an array |
-|sameurlfieldsasarray| Boolean | If true, when a URL field is passed more than once then it is returned as an array |
-|scriptProtect| String | [none] |
-|secureJson| Boolean | [false] |
-|secureJsonPrefix| String | Prefix to be used with `secureJson`, default is `//` |
+|disablePlugins| Boolean | false | |
+|invokeImplicitAccessor| Boolean | false | |
+|javaSettings| Struct | | Settings that are used when creating a Java object |
+|locale| String | | Name of the default Locale |
+|localMode| Boolean | false | When `true`, functions use local mode and unscoped variables default to the Local Scope |
+|loginStorage| String | Cookie | |
+|mappings| Struct | | Application Mappings that map virtual directories to physical paths |
+|name| String | | The Application's name |
+|sameformfieldsasarray| Boolean | false | If true, when a Form field is passed more than once then it is returned as an array |
+|sameurlfieldsasarray| Boolean false | | If true, when a URL field is passed more than once then it is returned as an array |
+|scriptProtect| String | none | |
+|secureJson| Boolean | false | |
+|secureJsonPrefix| String | `//` | Prefix to be used with `secureJson` |
 |serverSideFormValidation| Boolean | [false] |
 |sessionCluster| Boolean | [false] |
 |sessionManagement| Boolean | [true] |
