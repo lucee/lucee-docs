@@ -42,8 +42,8 @@ The returned struct contains the following data:
 |sessionStorage| String | "memory" | |
 |sessionTimeout| TimeSpan | | Session Scope timeout |
 |sessionType| Boolean | "cfml" | Either "cfml" or "j2ee" |
-|setClientCookies| Boolean | true |
-|setDomainCookies| Boolean | false |
+|setClientCookies| Boolean | true | |
+|setDomainCookies| Boolean | false | |
 |source| String | | Alias for `component` |
 |timezone| String | | Time Zone name, e.g. `America/Los_Angeles` |
 |triggerDataMember| Boolean | false | |
