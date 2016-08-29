@@ -35,7 +35,7 @@ The returned struct contains the following data:
 |sameurlfieldsasarray| Boolean false | | If true, when a URL field is passed more than once then it is returned as an array |
 |scriptProtect| String | "none" | |
 |secureJson| Boolean | false | |
-|secureJsonPrefix| String | `//` | Prefix to be used with `secureJson` |
+|secureJsonPrefix| String | "//" | Prefix to be used with `secureJson` |
 |serverSideFormValidation| Boolean | false | |
 |sessionCluster| Boolean | false | |
 |sessionManagement| Boolean | true | |
