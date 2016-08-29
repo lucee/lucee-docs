@@ -72,7 +72,7 @@ The opposite from "onSessionStart", this function is triggered when a specific s
 ```
 #!javascript
 component {
-   void function onSessionEnd(struct application,struct session) {
+   void function onSessionEnd(struct session,struct application) {
       arguments.session.whatever.finalize();
    }
 }
