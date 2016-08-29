@@ -33,17 +33,17 @@ The returned struct contains the following data:
 |name| String | | The Application's name |
 |sameformfieldsasarray| Boolean | false | If true, when a Form field is passed more than once then it is returned as an array |
 |sameurlfieldsasarray| Boolean false | | If true, when a URL field is passed more than once then it is returned as an array |
-|scriptProtect| String | none | |
+|scriptProtect| String | "none" | |
 |secureJson| Boolean | false | |
 |secureJsonPrefix| String | `//` | Prefix to be used with `secureJson` |
-|serverSideFormValidation| Boolean | [false] |
-|sessionCluster| Boolean | [false] |
-|sessionManagement| Boolean | [true] |
-|sessionStorage| String | [memory] |
-|sessionTimeout| TimeSpan | Session Scope timeout |
-|sessionType| Boolean | - |
-|setClientCookies| Boolean | [true] |
-|setDomainCookies| Boolean | [false] |
-|source| String | Alias for `component` |
-|timezone| String | Time Zone name, e.g. `America/Los_Angeles` |
-|triggerDataMember| Boolean | [false] |
+|serverSideFormValidation| Boolean | false | |
+|sessionCluster| Boolean | false | |
+|sessionManagement| Boolean | true | |
+|sessionStorage| String | "memory" | |
+|sessionTimeout| TimeSpan | | Session Scope timeout |
+|sessionType| Boolean | "cfml" | Either "cfml" or "j2ee" |
+|setClientCookies| Boolean | true |
+|setDomainCookies| Boolean | false |
+|source| String | | Alias for `component` |
+|timezone| String | | Time Zone name, e.g. `America/Los_Angeles` |
+|triggerDataMember| Boolean | false | |
