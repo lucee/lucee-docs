@@ -14,7 +14,7 @@ The returned struct contains the following data:
 | Key | Type | Default | Description |
 | --- | --- | --- | --- |
 |applicationTimeout| TimeSpan | | Application Scope timeout |
-|clientCluster| Boolean | | false | |
+|clientCluster| Boolean | false | |
 |clientManagement| Boolean | | |
 |clientStorage| String | Cookie | Type of storage for the Client Scope |
 |clientTimeout| TimeSpan | | Client Scope timeout |
