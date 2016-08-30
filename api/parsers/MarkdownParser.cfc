@@ -21,11 +21,6 @@ component {
 	}
 
 	private void function _setupNoticeBoxRenderer() {
-		// TODO: processor not used?  remove?
-		var javaLib   = [ "../lib/parboiled-core-1.1.7.jar", "../lib/parboiled-java-1.1.7.jar",  "../lib/pegdown-1.5.0.jar" ];
-		var extension = CreateObject( "java", "org.pegdown.Extensions", javaLib );
-		var processor = CreateObject( "java", "org.pegdown.PegDownProcessor", javaLib ).init(extension.TABLES);
-
 		_setNoticeBoxRenderer( new api.rendering.NoticeBoxRenderer() );
 	}
 
