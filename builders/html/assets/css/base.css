@@ -5867,7 +5867,6 @@ pre {
   padding: 12px 8px;
   word-break: break-all;
   word-wrap: break-word;
-  white-space: pre-wrap;
 }
 pre code {
   background-color: transparent;
@@ -10869,34 +10868,28 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   visibility: visible;
 }
 
-.body table th, .body table td {
-	padding: 0.25em 0.5em;
-}
-
-.body table tr:nth-child(odd) {
-  background-color: #f0f0f0;
-}
-
-
-.table {
+.body table, .table {
   background-color: #ffffff;
   margin-top: 24px;
   margin-bottom: 24px;
   width: 100%;
 }
-.table td,
+.body table td,
+.body table th, .table td,
 .table th {
   border: 1px solid #e0e0e0;
   line-height: 24px;
   padding: 12px 16px 11px;
   vertical-align: top;
 }
-.table td.nowrap,
+.body table td.nowrap,
+.body table th.nowrap, .table td.nowrap,
 .table th.nowrap {
   white-space: nowrap;
   width: 1%;
 }
-.table > thead td,
+.body table > thead td,
+.body table > thead th, .table > thead td,
 .table > thead th {
   background-color: #f5f5f5;
   color: #616161;
