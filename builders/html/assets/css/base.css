@@ -10869,6 +10869,15 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   visibility: visible;
 }
 
+.body table th, .body table td {
+	padding: 0.25em 0.5em;
+}
+
+.body table tr:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+
+
 .table {
   background-color: #ffffff;
   margin-top: 24px;
