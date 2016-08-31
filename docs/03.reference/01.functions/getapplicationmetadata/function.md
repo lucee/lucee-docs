@@ -31,8 +31,8 @@ The returned struct contains the following data:
 |loginStorage| String | Cookie | |
 |mappings| Struct | | Application Mappings that map virtual directories to physical paths |
 |name| String | | The Application's name |
-|sameformfieldsasarray| Boolean | false | If true, when a Form field is passed more than once then it is returned as an array |
-|sameurlfieldsasarray| Boolean false | | If true, when a URL field is passed more than once then it is returned as an array |
+|sameFormFieldAaAarray| Boolean | false | If true, when a Form field is passed more than once then it is returned as an array |
+|sameUrlFieldsAsArray| Boolean | false | If true, when a URL field is passed more than once then it is returned as an array |
 |scriptProtect| String | "none" | |
 |secureJson| Boolean | false | |
 |secureJsonPrefix| String | "//" | Prefix to be used with `secureJson` |
