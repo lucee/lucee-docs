@@ -1,6 +1,6 @@
 ```luceescript+trycf
-function squareRoot() {
-  Dump(Sqr(arguments.number));
+function squareRoot(number) {
+  Dump(Sqr(number));
 }
 
 numbers = [16, 64, 400];
