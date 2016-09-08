@@ -8,3 +8,5 @@ Here you can find guides on how to get started with Lucee:
 [[getting-started-first-steps]]
 
 [[getting-started-newbie-questions]]
+
+[[working-with-source-build-from-source]]
