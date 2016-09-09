@@ -47,3 +47,13 @@ For example:
   <cfset this.sessionTimeout = timeout>
 </cffunction>
 ```
+### Iterations argument for the Hash function is off by one###
+**What:**
+The iterations value represents the total number of hashes on Lucee, in Adobe CF the value is the number of additional iterations.
+
+For example:
+```luceescript
+Hash("somestring", "SHA-512", "utf-8", 100) //in ACF
+
+Hash("somestring", "SHA-512", "utf-8", 101) //Lucee
+```
