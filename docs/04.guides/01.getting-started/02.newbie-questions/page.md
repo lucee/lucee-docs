@@ -28,7 +28,7 @@ These instructions assume you know how to set up DNS, port forwarding for your r
 
 Substitute your host name and alias, and put in your local folder for docBase
 
-7) Save the XML file and Restart Lucy - in Windows 2012 R2, click the Start button, click the down arrow, select Lucy-Tomcat Service Control
+7) Save the XML file and Restart Lucee - in Windows 2012 R2, click the Start button, click the down arrow, select Lucy-Tomcat Service Control
 
 8) On the General tab, click the Stop button. When Service Status changes to Stopped, click the Start button.
 
