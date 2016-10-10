@@ -49,7 +49,7 @@ And finally we add the **Startup** and **Shutdown** properties:
 ```
 
 Please check the configuration by starting the Tomcat applet:
-> C:\Program Files\Tomcat\bin\tomcat8w.exe
+> "C:\Program Files\Tomcat\bin\tomcat8w.exe" //ES//Tomcat8
 
 ![apache-tomcat-properties-java1.png](https://bitbucket.org/repo/rX87Rq/images/2957749731-apache-tomcat-properties-java1.png)
 
