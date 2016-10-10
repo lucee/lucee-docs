@@ -60,9 +60,9 @@ Now lets do the same for the configuration and data folder:
 1. Create the folders: **D:\Tomcat**, **D:\Tomcat\conf** and **D:\Tomcat\webapps**.
 2. Goto the folder named *conf*.
 3. Copy all files to the folder **D:\Tomcat\conf**
-4. Create the folders **D:\Tomcat\webapps\host-manager**, **D:\Tomcat\webapps\manager** and **D:\Tomcat\webapps\root**.
+4. Create the folders **D:\Tomcat\webapps\host-manager**, **D:\Tomcat\webapps\manager** and **D:\Tomcat\webapps\ROOT**.
 5. Goto the folder named *webapps*.
-6. Copy the folders *host-manager*, *manager* and *root* to the matching folder on the target. All these folders have subfolders.
+6. Copy the folders *host-manager*, *manager* and *ROOT* to the matching folder on the target. All these folders have subfolders.
 7. Create the folders **D:\Tomcat\logs**, **D:\Tomcat\endorsed**, **D:\Tomcat\temp** and **D:\Tomcat\work**. Some of these directories remain empty until the very first start of Tomcat.
 
 Command line:
@@ -77,8 +77,8 @@ md D:\Tomcat\webapps\host-manager
 xcopy D:\temp\apache-tomcat-8.0.18\webapps\host-manager\*.* D:\Tomcat\webapps\host-manager /s /Y
 md D:\Tomcat\webapps\manager
 xcopy D:\temp\apache-tomcat-8.0.18\webapps\manager\*.* D:\Tomcat\webapps\manager /s /Y
-md D:\Tomcat\webapps\root
-xcopy D:\temp\apache-tomcat-8.0.18\webapps\root\*.* D:\Tomcat\webapps\root /s /Y
+md D:\Tomcat\webapps\ROOT
+xcopy D:\temp\apache-tomcat-8.0.18\webapps\ROOT\*.* D:\Tomcat\webapps\ROOT /s /Y
 
 md D:\Tomcat\endorsed
 md D:\Tomcat\logs
