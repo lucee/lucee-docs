@@ -20,7 +20,7 @@ follow a rough MVC format and allow for cross-language translations out of the b
   /myPlugin
 ```
 
-## Translation and menu item control
+## Translation and menu items
 
 Lucee will look for a file called `langauge.xml` in the root of your plugin folder.
 
