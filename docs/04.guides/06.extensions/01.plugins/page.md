@@ -33,7 +33,7 @@ Lucee will look for a file called `langauge.xml` in the root of your plugin fold
 This file provides a basic resource bundle so your code can handle multuple languages.  You don't need to worry about the user selecting the language-- Lucee already has that in the admin.
 Just provide each translation and it will get used automatically. Let's look at an example:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <languages action="myPlugin" position="5">
 	<language key="en">
@@ -107,7 +107,7 @@ Your controller methods can return one of the following things:
 
 Here is a simple `Action.cfc` for you to copy from.
 
-```
+```javascript
 component extends='lucee.admin.plugin.Plugin' {
 	
 	/**
@@ -169,7 +169,7 @@ There are no special requirements for views.  The HTML they output will be displ
 
 Here is a sample view.  Note the use of `action()` to generate the URL to the update page, the use of `req.note` to access data set in the controller, and `lang.btnSubmit` to get the correctly-translated text for the UI.
 
-```
+```html
 <cfoutput>
 	<form action="#action( 'update' )#" method="post">
 		<textarea name="note">#req.note#</textarea>
