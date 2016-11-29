@@ -38,7 +38,7 @@ version: 1.2.3.4
 
 The version number of your extension. Please follow the following pattern for your version number.
 
-<major-number>.<minor-number>.<release-number>.<patches-number-or-string>
+&lt;major-number>.&lt;minor-number>.&lt;release-number>.&lt;patches-number-or-string>
 
 ### Name
 
