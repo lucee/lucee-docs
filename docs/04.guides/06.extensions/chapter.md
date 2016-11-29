@@ -3,35 +3,10 @@ title: Extensions
 id: extensions
 ---
 
-##Folders##
+In this section, you'll find information about Lucee extensions, which can be used to contribute functions, tags, JDBC/Cache drivers and admin plugins to Lucee Server
 
-* /flds - contains .fld files
-* /tlds
-* /tags
-* /functions
-* /event-gateways or /eventGateways
-* /context - current context (server or web)
-* /webcontexts - all web context including future web context
-* /applications - ???
-* /plugins
-* /jars
-* /archives - lar files
+[[lucee-5-extensions]] Here is our guide in building Lucee 5 extensions.
 
-##Manifest##
+[[plugins]] Here is our guide to building admin plugins
 
-* version
-* id
-* name
-* description
-* image
-* category|categories
-* lucee-core-version
-* lucee-loader-version
-* start-bundles
-* search
-* orm
-* monitor
-* cache-handler
-* jdbc
-* event-handler
-* mapping
+
