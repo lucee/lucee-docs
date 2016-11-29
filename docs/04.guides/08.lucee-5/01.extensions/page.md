@@ -253,6 +253,8 @@ The content of the extensions “plugin” folder could look something like this
 /plugins/NotePlus/overview.cfm
 ```
 
+You can read more about creating plugins in our guide for [[plugins]]
+
 #### Archives
 
 ```luceescript
