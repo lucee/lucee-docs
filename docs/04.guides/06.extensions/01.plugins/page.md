@@ -57,7 +57,7 @@ Let's break down the pieces there.
 
 * **action** - The top level menu item to create.  If omitted, your plugin will go under a default menu item.
 * **position** - The optional numeric position of where to place the new top level menu item.
-* **Language tag** - Create one of these tags for each language you wish to support.  The `key` attribute specifies the language.
+* **language tag** - Create one of these tags for each language you wish to support.  The `key` attribute specifies the language.
  * **group tag** - This specifies the top level group to create your new menu item under
  * **title tag** - This is the human-readable menu name to create.
  * **description tag** - This text will automatically appear at the top of your views. 
@@ -105,6 +105,7 @@ Your controller methods can return one of the following things:
 #### Sample Controller
 
 Here is a simple `Action.cfc` for you to copy from.
+
 ```
 component extends='lucee.admin.plugin.Plugin' {
 	
@@ -153,7 +154,6 @@ component extends='lucee.admin.plugin.Plugin' {
 ## Views
 
 Lucee will look for a `.cfm` file that matches the name of the current action being run.  This will happen even if there is no controller method for the action which means the simplest plugin can just be a view all by itself.
-
 
 ```
 /plugins
