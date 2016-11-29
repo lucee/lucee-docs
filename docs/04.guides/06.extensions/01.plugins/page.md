@@ -101,7 +101,7 @@ Your controller methods can return one of the following things:
 
 * **Nothing** - If a view `.cfm` file exists with the same name of the method, it will be called
 * **The string "redirect:actionName"** - No view will be rendered and the browser will be redirected to the action name you specify.
-* **The string "_none"** - This tells Lucee not to try and render a view.
+* **The string "_none"** - This tells Lucee not to try and render a view.\
 
 #### Sample Controller
 
