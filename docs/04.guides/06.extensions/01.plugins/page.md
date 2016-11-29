@@ -8,7 +8,7 @@ id: plugins
 Lucee extensions can contribute pages to the web-based administrator that allow you to interact with the user, collection licensing details or display data.
 To bundle a plugin with your Lucee extension, create a directory called `plugins` in your extension.  Any folders inside the plugins directory will be a plugin named after the folder name they are contained in.
 
-[[lucee-5-extensions]]See our guide on building Lucee extensions.
+[[lucee-5-extensions]] - See our guide on building Lucee extensions.
 
 ## Conventions
 
