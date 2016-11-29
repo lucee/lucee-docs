@@ -62,10 +62,10 @@ Let's break down the pieces there.
  * **title tag** - This is the human-readable menu name to create.
  * **description tag** - This text will automatically appear at the top of your views. 
  * **custom tag** - Create one of these for each individual peice of text you wish to translate.  The `key` attribute will be how you access the translation.
- 
+
 ## Controller
- 
- Lucee will also look for a file called `Action.cfc` in your plugin folder.  This acts as a controller to help process your views.
+
+Lucee will also look for a file called `Action.cfc` in your plugin folder.  This acts as a controller to help process your views.
 
 ```
 /plugins
