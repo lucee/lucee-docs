@@ -72,7 +72,19 @@ Let's break down the pieces there.
   /myPlugin
     /Action.cfc
 ```
-This CFC needs to extend the class `lucee.admin.plugin.Plugin` and has no required method.  The following methods are looked for by convention though:
-* `init( struct lang, struct app )` - test
-* `overview( struct lang, struct app, struct req )` - test
-* `init( struct lang, struct app, struct req )` - test
+This CFC needs to extend the class `lucee.admin.plugin.Plugin` and has no required method.  The following methods are looked for by convention though.  Your `Action.cfc` will be created once and cached as a singleton. 
+* `init( struct lang, struct app )` - If this method exists, it will be called once when the component is initialized.  Use it to prepare the controller, set up variables, or initialize settings.  
+* `overview( struct lang, struct app, struct req )` - This is the default action for the plugin and will be run if it exists.  
+* `myCustomAction( struct lang, struct app, struct req )` - Create as many additional methods as you need to represent actions your plugin needs to perform.  You can create links or forms that submit to these actions.
+
+Here's an overview of the parameters described above:
+
+* `lang` is a struct of translated keys from your `langauge.xml` file based on the current language the user has selected.  You can refernce translated strings as a normal CFML variable like `#lang.sayhi#`.
+* `app` is a struct of data for this plugin persisted in the application scope
+* `req` is a struct containing `form` and `url` variables for the request.
+
+The base `lucee.admin.plugin.Plugin` component provides you with the following helper functions.
+
+* `load()` - Will return a struct of data that is specific to this plugin and persistend across restarts
+* `save( data )` - Pass in a struct of data to persist that will be returned by `load()`
+* `action( string action, string qs )` - Generates a URL to an action in your plugin.  `action` is the name of the action and `qs` is the query string to include.
