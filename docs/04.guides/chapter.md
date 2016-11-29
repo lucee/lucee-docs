@@ -15,7 +15,7 @@ In this section, you should expect to find an ever growing repository of guides 
 
 [[working-with-source]]
 
-[[lucee-5-extensions]]
+[[extensions]]
 
 [[about-lucee]]
 
