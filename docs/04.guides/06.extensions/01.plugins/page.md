@@ -166,7 +166,7 @@ There are no special requirements for views.  The HTML they output will be displ
 
 ### Sample View
 
-Here is a sample view.  Note the use of `action()` to generate the URL to the update page, the use of `req.note` to access data set in the controller, and `#lang.btnSubmit#` to get the correctly-translated text for the UI.
+Here is a sample view.  Note the use of `action()` to generate the URL to the update page, the use of `req.note` to access data set in the controller, and `lang.btnSubmit` to get the correctly-translated text for the UI.
 
 ```
 <cfoutput>
