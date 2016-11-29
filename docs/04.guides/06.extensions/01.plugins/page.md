@@ -72,6 +72,9 @@ Let's break down the pieces there.
   /myPlugin
     /Action.cfc
 ```
+
+#### Controller layout
+
 This CFC needs to extend the class `lucee.admin.plugin.Plugin` and has no required method.  The following methods are looked for by convention though.  Your `Action.cfc` will be created once and cached as a singleton. 
 * `init( struct lang, struct app )` - If this method exists, it will be called once when the component is initialized.  Use it to prepare the controller, set up variables, or initialize settings.  
 * `overview( struct lang, struct app, struct req )` - This is the default action for the plugin and will be run if it exists.  
@@ -83,8 +86,64 @@ Here's an overview of the parameters described above:
 * `app` is a struct of data for this plugin persisted in the application scope
 * `req` is a struct containing `form` and `url` variables for the request.
 
+#### Helper methods
+
 The base `lucee.admin.plugin.Plugin` component provides you with the following helper functions.
 
-* `load()` - Will return a struct of data that is specific to this plugin and persistend across restarts
-* `save( data )` - Pass in a struct of data to persist that will be returned by `load()`
+* `load()` - Will return data that is specific to this plugin and persistend across restarts
+* `save( data )` - Pass in data to persist that will be returned by `load()`
 * `action( string action, string qs )` - Generates a URL to an action in your plugin.  `action` is the name of the action and `qs` is the query string to include.
+
+#### Controlling flow
+
+Your controller methods can return one of the following things:
+* **Nothing** - If a view `.cfm` file exists with the same name of the method, it will be called
+* **The string "redirect:actionName"** - No view will be rendered and the browser will be redirected to the action name you specify.
+* **The string "_none"** - This tells Lucee not to try and render a view.
+
+#### Sample Controller
+
+Here is a simple `Action.cfc` for you to copy from.
+```
+component extends='lucee.admin.plugin.Plugin' {
+	
+	/**
+	* This function will be called once to initalize the plugin
+	* 
+	* @lang A struct of translated keys based on selected language
+	* @app A struct of data for this plugin persisted in the application scope
+	*/
+	function init( struct lang, struct app ) {
+		// Load up the plugin's data into memory
+		app.note = load();
+	}
+
+	/**
+	* The default action name by convention
+	* 
+	* @lang A struct of translated keys based on selected language
+	* @app A struct of data for this plugin persisted in the application scope
+	* @req A struct containing  form and url variables for the request.
+	*/
+	function overview( struct lang, struct app, struct req ) {
+		// Set the data into the req "scope"
+		req.note = app.note;
+	}
+
+	/**
+	* Save the form.  We'll submit here from the view
+	* 
+	* @lang A struct of translated keys based on selected language
+	* @app A struct of data for this plugin persisted in the application scope() and save()
+	* @req A struct containing  form and url variables for the request.
+	*/
+	function update( struct lang, struct app, struct req ) {
+		// Set data back into memory
+		app.note = req.note;
+		// Persist data to disk
+		save( app.note );
+		// Redirect back to main page
+		return 'redirect:overview';
+	}
+	 
+}```
