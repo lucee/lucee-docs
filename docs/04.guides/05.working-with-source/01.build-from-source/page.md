@@ -29,15 +29,25 @@ So simply clone the repository to your local drive with the following command:
 
 ### 3. Build it
 
-To run the test suite:
+To run the test suite using Maven:
 
     cd loader
     mvn test
 
-To build the server:
+To build the server using Maven:
 
     cd loader
     mvn clean install
+
+To build the server using Ant:
+
+    cd loader
+    ant
+
+To build the server using Ant but without running the test suite:
+
+    cd loader
+    ant fast
 
 ### 4. Deploy
 
