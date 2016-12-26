@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-Identifies an authenticated user to ColdFusion. Specifies the user ID and roles. Used within a cflogin tag.
+Identifies an authenticated user to Lucee. Specifies the user ID and roles. Used within a cflogin tag.
