@@ -14,4 +14,4 @@ System properties supported by Lucee
 * **lucee-extensions** - Commma-delimited list of GUID IDs that correspond to extensions Lucee should install automatically
 * **lucee.enable.dialect** - Enable the experiemental Lucee dialect (true/false)
 
-Find the ID of your extension for the `lucee-extensions` property on this page: http://stable.lucee.org/download/?type=extensions
+Find the ID of your extension for the `lucee-extensions` property on this page: [http://stable.lucee.org/download/?type=extensions](http://stable.lucee.org/download/?type=extensions)
