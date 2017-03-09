@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript
+  // This will create parent directory when not exist
+  directoryCreate( expandPath('images/uploads'), true, true);
+```
