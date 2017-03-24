@@ -6,4 +6,4 @@ categories:
     - number
 ---
 
-Determines the greater of two numbers.
+Returns the greater of two numbers.
