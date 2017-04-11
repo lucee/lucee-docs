@@ -1,4 +1,5 @@
-if "lazy" is set to true (default "false") Lucee does not initially load all the data from the datasource,
-			in that case the data are only loaded when requested, so this means the data are depending on the datasource connection.
-			if the datasource connection is gone and the data are not requested yet, lucee throws a error if you try to access the data.
-			lazy is only working when the following attributes are not used: cachewithin,cacheafter,result
+If "lazy" is set to true (default "false") Lucee does not initially load all the data from the datasource. 
+
+When "true" the data is only loaded when requested, this means the data is dependant on the datasource connection. If the datasource connection has been lost for some reason and the data has not yet been requested, Lucee throws an error if you try to access the data. 
+
+The "lazy" attribute only works if the following attributes are not used: cachewithin, cacheafter and result.
