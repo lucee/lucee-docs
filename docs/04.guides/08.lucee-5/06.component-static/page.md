@@ -12,7 +12,7 @@ Example:
 component {
      // inside the static constructor you can define static variables, this code is executed when the "class" instance is loaded
      static {
-            susi=1; // written to the static scope
+            susi=1; // written to the static scope (defining the scope is not necessary)
             static.sorglos=2; // again written to the static scope
      }
 
@@ -21,7 +21,7 @@ component {
     }
 
      public function testInstance() {
-          testStatic(); // calling a static function
+          static.testStatic(); // calling a static function
           return static.sorglos; // returning data from the static scope
      }
 }
