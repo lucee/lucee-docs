@@ -1,1 +1,1 @@
-The message text to log.
+An exception to log
