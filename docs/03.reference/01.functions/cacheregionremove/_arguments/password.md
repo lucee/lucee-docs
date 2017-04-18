@@ -1,0 +1,2 @@
+the password for the web administrator is required to interact with Cache Connections.
+            you can optionally set it for your Application in Application.cfc using the variable [this.webAdminPassword].

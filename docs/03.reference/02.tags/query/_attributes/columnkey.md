@@ -1,0 +1,1 @@
+When return type is set to "struct", the value of this column is used as key in the struct for every record.
