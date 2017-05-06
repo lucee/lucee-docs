@@ -8,7 +8,7 @@ id: lucee-5-functions-tags
 ###Render (new) ###
 `render(string code [,string dialect]):string`
 
-Similar to the function `evaluate`, this function allows to execute CFML/Lucee code that you provide as a string.
+Similar to the function `evaluate`, this function executes CFML/Lucee code that you provide as a string.
 
 ```luceescript
 render('<cfmail subject="Hi There!" from="#from#"  to="#to#">Salve!</cfmail> ');
