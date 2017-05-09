@@ -37,7 +37,10 @@ component {
 	}
 
 	private struct function _splitYamlAndBody( required string pageContent ) {
-		var splitterRegex = "^(\-\-\-\n(.*?)\n\-\-\-\n)?(.*)$";
+		if(_isWindows())
+			var splitterRegex = "^(\-\-\-\r\n(.*?)\r\n\-\-\-\r\n)?(.*)$";
+		else
+			var splitterRegex = "^(\-\-\-\n(.*?)\n\-\-\-\n)?(.*)$";
 
 		return {
 			  yaml = Trim( ReReplace( arguments.pageContent, splitterRegex, "\2" ) )
@@ -47,6 +50,10 @@ component {
 
 	private struct function _parseYaml( required string yaml ) {
 		return new api.parsers.ParserFactory().getYamlParser().yamlToCfml( arguments.yaml );
+	}
+
+	private boolean function _isWindows(){
+		return findNoCase("Windows", SERVER.os.name);
 	}
 
 }

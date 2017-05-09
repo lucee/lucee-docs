@@ -21,5 +21,5 @@ admin.updateCharset(resourceCharset:"UTF-8"); // set the resource charset
 ```
 
 ## cfadmin Tag ##
-The component "Administrator" is far from being feature complete, so if you miss a functionality, best consult the unofficial tag "cfadmin" (undocumented) and check out how this tag is used inside the [Lucee Administrator](https://bitbucket.org/lucee/lucee/src/baec0ab812123a904f5342a5f7362bc6c129fac2/lucee-cfml/lucee-admin/?at=master).
+The component "Administrator" is far from being feature complete, so if you miss a functionality, best consult the unofficial tag "cfadmin" (undocumented) and check out how this tag is used inside the [Lucee Administrator](https://github.com/lucee/Lucee/blob/5.2/core/src/main/java/resource/component/org/lucee/cfml/Administrator.cfc).
 Of course, it would be great if you could contribute your addition to the "Administrator" component.

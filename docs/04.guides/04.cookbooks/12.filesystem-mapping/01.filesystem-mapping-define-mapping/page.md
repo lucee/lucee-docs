@@ -1,5 +1,5 @@
 ---
-title: File system mapping - Define a mapping
+title: Define a mapping
 id: cookbook-filesystem-mapping-define-mapping
 ---
 # How to define a regular Mapping #

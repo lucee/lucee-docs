@@ -141,5 +141,4 @@ Now we simply can invoke that component to parse the XML file and get the result
 
 ```
 
-You can download the complete example here:
-https://bitbucket.org/lucee/lucee/downloads/lucee-sax-example.zip
+You can download the complete example [here](https://bitbucket.org/lucee/lucee/downloads/lucee-sax-example.zip)
