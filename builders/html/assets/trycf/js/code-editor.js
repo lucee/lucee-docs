@@ -201,9 +201,7 @@ angular.module('code.editor', [])
 					showOptions = typeof attrs.showOptions !== 'undefined' ? attrs.showOptions === "true" || attrs.showOptions === "1" : true,
 					showResults = typeof attrs.showResults !== 'undefined' ? attrs.showResults === "true" || attrs.showResults === "1" : true,
                     urlPool = {
-        			    "lucee" : [ "http://lucee4-sbx.trycf.com/lucee4/getremote.cfm" ],
-        			    "lucee5" : [ "http://lucee5-sbx.trycf.com/lucee5/getremote.cfm" ],
-        			    "lucee5.0.0.45" : [ "http://lucee5-sbx.trycf.com/lucee5/getremote.cfm" ]
+        			    "lucee5" : [ "https://lucee5-sbx.trycf.com/lucee5/getremote.cfm" ]
                     },
                     url = attrs.url || urlPool[scope.engine][Math.floor(Math.random()*urlPool[scope.engine].length)];
 
