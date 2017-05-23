@@ -1,5 +1,5 @@
 ---
-title: Get Involved1
+title: Get Involved
 id: get-involved
 ---
 

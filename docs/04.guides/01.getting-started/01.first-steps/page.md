@@ -14,17 +14,17 @@ If you've read the page about [[getting to know Lucee]], you'll know that Lucee 
 In your file explorer, find the website folder, create a file called `myFirstPage.cfm` and add the following to it:
 
 ```lucee
-	<html>
-		<head>
-			<title>My first page</title>
-		</head>
-		<body>
-			<h1>Hello World!</h1>
-			<cfoutput>
-			<p>The time is #now()#</p>
-			</cfoutput>
-		</body>
-	</html>
+<html>
+	<head>
+		<title>My first page</title>
+	</head>
+	<body>
+		<h1>Hello World!</h1>
+		<cfoutput>
+		<p>The time is #now()#</p>
+		</cfoutput>
+	</body>
+</html>
 ```
 
 Save the file, then head to http://localhost:8888/myFirstPage.cfm
