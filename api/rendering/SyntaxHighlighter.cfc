@@ -39,7 +39,10 @@ component {
 
 // PRIVATE HELPERS
 	private any function _getNextHighlight( required string text, required string startPos=1 ) {
-		var referenceRegex  = "```([a-z\+]+)?\n(.*?)\n```";
+		if(_isWindows())
+			var referenceRegex  = "```([a-z\+]+)?\r\n(.*?)\r\n```";
+		else
+			var referenceRegex  = "```([a-z\+]+)?\n(.*?)\n```";
 		var regexFindResult = ReFind( referenceRegex, arguments.text, arguments.startPos, true );
 		var found           = regexFindResult.len[1] > 0;
 		var result          = {};
@@ -67,6 +70,10 @@ component {
 		}
 
 		return result;
+	}
+
+	private boolean function _isWindows(){
+		return findNoCase("Windows", SERVER.os.name);
 	}
 
 }
