@@ -1,1 +1,1 @@
-CFML/Lucee code string to evaluate/excuute
+CFML/Lucee code string to evaluate/execute
