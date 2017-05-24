@@ -1,11 +1,8 @@
 ---
-title: Evaluate
-id: function-evaluate
-related:
+title: Render
+id: function-render
+related: function-evaluate
 categories:
 ---
 
-Evaluates one or more string expressions, dynamically, from
-        left to right. (The results of an evaluation on the left can
-        have meaning in an expression to the right.) Returns the
-        result of evaluating the rightmost expression.
+Similar to the function evaluate, this function executes CFML/Lucee code that you provide as a string.
