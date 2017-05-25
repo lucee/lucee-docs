@@ -1,0 +1,1 @@
+cfauthorization cookie behaviour
