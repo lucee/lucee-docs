@@ -1,8 +1,9 @@
 ( function( $ ){
 
-	var $searchBox = $( "#lucee-docs-search-input" )
-	  , $searchLink = $( ".search-link" )
+	var $searchBox       = $( "#lucee-docs-search-input" )
+	  , $searchLink      = $( ".search-link" )
 	  , $searchContainer = $( ".search-container" )
+	  , duckduckgoUrl    = "https://duckduckgo.com/?q=site:docs.lucee.org "
 	  , setupTypeahead, setupBloodhound, renderSuggestion
 	  , itemSelectedHandler, tokenizer, generateRegexForInput, search, searchIndex;
 
@@ -14,11 +15,11 @@
 					, minLength : 1
 				}
 			  , datasetSettings = {
-			  		  source     : bloodhound
-			  		, displayKey : 'display'
-			  		, limit      : 100
-			  		, templates  : { suggestion : renderSuggestion }
-			    }
+					  source     : bloodhound
+					, displayKey : 'display'
+					, limit      : 100
+					, templates  : { suggestion : renderSuggestion }
+				}
 
 			$searchBox.typeahead( typeAheadSettings, datasetSettings );
 			$searchBox.on( "typeahead:selected", function( e, result ){ itemSelectedHandler( result ); } );
@@ -42,7 +43,7 @@
 
 	search = function( input ){
 		var reg     = generateRegexForInput( input )
-		  , matches;
+		  , fulltextitem, matches;
 
 		matches = searchIndex.filter( function( item ) {
 			var titleLen = item.text.length
@@ -67,9 +68,22 @@
 			}
 		} );
 
-		return matches.sort( function( a, b ){
+		matches = matches.sort( function( a, b ){
 			return ( a.score - b.score ) || a.text.length - b.text.length;
 		} );
+
+		fulltextitem = {
+			  value     : duckduckgoUrl + encodeURIComponent( input )
+			, text      : 'Search all docs for "' + input + '"'
+			, highlight : '<em>Search all docs for <strong>"' + input + '</strong>"</em>'
+			, score     : 1000000
+			, icon      : "search"
+			, type      : ""
+		};
+		fulltextitem.display = fulltextitem.text;
+		matches.unshift( fulltextitem );
+
+		return matches;
 	}
 
 	generateRegexForInput = function( input ){
@@ -77,16 +91,16 @@
 		  , reg = {}, i;
 
 		reg.expr = new RegExp('(' + inputLetters.join( ')(.*?)(' ) + ')', 'i');
-  		reg.replace = ""
+		reg.replace = ""
 
-  		for( i=0; i < inputLetters.length; i++ ) {
-    		reg.replace += ( '<b>$' + (i*2+1) + '</b>' );
-    		if ( i + 1 < inputLetters.length ) {
-      			reg.replace += '$' + (i*2+2);
-    		}
-  		}
+		for( i=0; i < inputLetters.length; i++ ) {
+			reg.replace += ( '<b>$' + (i*2+1) + '</b>' );
+			if ( i + 1 < inputLetters.length ) {
+				reg.replace += '$' + (i*2+2);
+			}
+		}
 
-  		return reg
+		return reg
 	};
 
 	renderSuggestion = function( item ) {
