@@ -37,4 +37,8 @@ component accessors=true extends="Page" {
 
  		return false;
 	}
+
+	public array function getArguments() {
+		return IsNull( this.arguments ) ? [] : this.arguments;
+	}
 }

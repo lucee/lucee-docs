@@ -3,18 +3,34 @@
 cd `dirname $0`
 CWD="`pwd`"
 
+echo "Starting Lucee5 server with which to build the docs..."
+box server stop luceedocsbuilder
+box start \
+name="luceedocsbuilder" \
+cfengine="lucee@5" \
+port=8765 \
+openbrowser=false \
+directory=$CWD \
+heapSize=1024;
+
+echo "Done!";
 echo "Importing reference docs from previously undocumented functions and tags..."
-box $CWD/import.cfm
+curl http://localhost:8765/import.cfm
 
-echo "Building documentation..."
+echo "Building documentation (please be patient, it may take some time)..."
 
-box $CWD/build.cfm
+curl http://localhost:8765/build.cfm
+
+echo "Stopping Lucee5 server..."
+box server stop luceedocsbuilder
+
 if [ -f .exitcode ]; then
   exitcode=$(<.exitcode)
   rm -f .exitcode
   echo "Exiting build, documentation build failed."
   exit $exitcode
 fi
+
 
 echo "Building complete"
 

@@ -90,9 +90,13 @@ component accessors=true extends="Page" {
 	public boolean function attributesHaveDefaultValues() {
 		for( var attr in getAttributes() ) {
 			if ( !IsNull( attr.defaultValue ) ) {
- 				return true;
+				return true;
 			}
 		}
 		return false;
+	}
+
+	public array function getAttributes(){
+		return IsNull( this.attributes ) ? [] : this.attributes;
 	}
 }

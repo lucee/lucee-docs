@@ -139,6 +139,7 @@ component accessors=true {
 	private any function _preparePageObject( required string pageFilePath, required string rootDirectory ) {
 		var page = "";
 		var pageData = new PageReader().readPageFile( arguments.rootDirectory & pageFilePath )
+
 		switch( pageData.pageType ?: "" ) {
 			case "function":
 				pageData.append( _getFunctionSpecification( pageData.slug, arguments.rootDirectory & pageFilePath ), false );
@@ -150,6 +151,12 @@ component accessors=true {
 			break;
 			default:
 				page = new Page( argumentCollection=pageData );
+		}
+
+		for( var key in pageData ) {
+			if ( !IsNull( pageData[ key ] ) ) {
+				page[ key ] = pageData[ key ];
+			}
 		}
 
 		page.setPath( _getPagePathFromMdFilePath( arguments.pageFilePath ) )
