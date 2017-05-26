@@ -21,7 +21,7 @@ This is the temporary location where all the new links will be added.
 
 [[configuration-web-xml]]
 
-[[contributing-contributor's-agreement]]
+[[contributing-contributors-agreement]]
 
 [[event-gateways]]
 

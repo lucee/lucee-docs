@@ -1,6 +1,6 @@
 ---
 title: Contributing Contributor's Agreement
-id: contributing-contributor's-agreement
+id: contributing-contributors-agreement
 ---
 
 ### What is it about? ###
