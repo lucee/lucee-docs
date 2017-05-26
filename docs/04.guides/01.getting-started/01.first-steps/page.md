@@ -9,22 +9,22 @@ Most people start using "Lucee Express", so they will end up going to [http://lo
 
 The "Welcome to the Lucee World!" page is very helpful, because it tells us a lot of information about the Lucee CFML Server - the Lucee version, the Java version, and lots more besides - including the path where CFML files are served from.  You'll find the website's folder under "Important Notes".
 
-If you've read the page about [[getting to know Lucee]], you'll know that Lucee uses CFML files, and we'll create our first CFML file (or template) now.
+If you've read the page about [[getting-to-know-lucee]], you'll know that Lucee uses CFML files, and we'll create our first CFML file (or template) now.
 
 In your file explorer, find the website folder, create a file called `myFirstPage.cfm` and add the following to it:
 
 ```lucee
-	<html>
-		<head>
-			<title>My first page</title>
-		</head>
-		<body>
-			<h1>Hello World!</h1>
-			<cfoutput>
-			<p>The time is #now()#</p>
-			</cfoutput>
-		</body>
-	</html>
+<html>
+	<head>
+		<title>My first page</title>
+	</head>
+	<body>
+		<h1>Hello World!</h1>
+		<cfoutput>
+		<p>The time is #now()#</p>
+		</cfoutput>
+	</body>
+</html>
 ```
 
 Save the file, then head to http://localhost:8888/myFirstPage.cfm
