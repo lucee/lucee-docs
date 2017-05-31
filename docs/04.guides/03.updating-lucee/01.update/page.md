@@ -20,7 +20,7 @@ Simply choose one of the listed update providers or add your own. Lucee will the
 ## Updating the first release (4.5.0.042) ##
 Unfortunately the first Lucee release cannot be updated from within the Lucee Admimistrator and needs to be updated manually as follows:
 
-1. Download the "lucee.jar" from the [Lucee downloads page](https://bitbucket.org/lucee/lucee/downloads).
+1. Download the "lucee.jar" from the [Lucee downloads page](http://stable.lucee.org/download/?type=releases).
 2. Stop your Lucee Server (the Servlet Engine).
 3. Replace the existing lucee.jar, with the downloaded version.
 4. Restart your Lucee Server.
@@ -28,7 +28,7 @@ Unfortunately the first Lucee release cannot be updated from within the Lucee Ad
 ## Firewall ##
 Updating via the Administrator may not work if you are behind a firewall, in which case simply follow the instructions below:
 
-1. Download the latest ".lco" file from the [Lucee downloads page](https://bitbucket.org/lucee/lucee/downloads).
+1. Download the latest ".lco" file from the [Lucee downloads page](http://stable.lucee.org/download/?type=releases).
 2. Stop your Lucee Server
 3. Copy the downloaded file to "{server-context}/patches" (the server context is normally at  "{Lucee-Server}/lib/ext/lucee-server/patches").
 3. Restart Lucee.
