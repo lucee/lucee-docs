@@ -18,7 +18,7 @@ component accessors=true {
 
 // PRIVATE HELPERS
 	private any function _getNextLink( required string text, required string startPos=1 ) {
-		var referenceRegex  = "\[\[(.*?)\]\]";
+		var referenceRegex  = "\[\[([^\[\]]*[^\[\]]?)\]\]";
 		var regexFindResult = ReFind( referenceRegex, arguments.text, arguments.startPos, true );
 		var found           = regexFindResult.len[1] > 0;
 
