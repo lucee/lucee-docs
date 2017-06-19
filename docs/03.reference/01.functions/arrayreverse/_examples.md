@@ -6,6 +6,6 @@ arrayReverse(numbers);
 Dump( numbers );  //[4,3,2,1]
 
 //member function
-numbers.reverse(15);
-Dump( numbers ); 
+reversed = numbers.reverse();
+Dump( reversed ); 
 ```
