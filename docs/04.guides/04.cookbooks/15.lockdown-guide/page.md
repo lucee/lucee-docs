@@ -17,10 +17,13 @@ As with ACF, it is recommended best security practice to restrict access to URI'
 Examples that have been cited include:
 
 * /lucee
+* /WEB-INF
+* /META-INF
+
+If using Tomcat, then also restrict access to the following URIs that are installed by default by Tomcat:
+
 * /manager
 * /host-manager
-* /web-inf
-* /meta-inf
 
 An Apache directive that restricts access to /lucee, as an example, is given below:
 
