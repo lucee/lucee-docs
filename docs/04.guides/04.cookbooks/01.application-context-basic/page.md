@@ -27,7 +27,6 @@ You can define functions inside the Application.cfc that are called when certain
 This function is triggered when no application context is existing for this Application.cfc, so normally with the first request on this application context.
 
 ```
-#!javascript
 component {
    boolean function onApplicationStart() {
       application.whatever=new Whatever(); // init whatever
@@ -42,7 +41,6 @@ if the the function is returning false or throws a exception the application con
 The opposite from "onApplicationStart", this function is triggered when the application context ends, means when the timeout of the application context is reached (this.applicationTimeout).
 
 ```
-#!javascript
 component {
    void function onApplicationEnd(struct application) {
       arguments.application.whatever.finalize();
@@ -57,7 +55,6 @@ You get the application scope that ends as argument with the function.
 This function is triggered with every request that has no session definedin the current application context
 
 ```
-#!javascript
 component {
    void function onSessionStart() {
       session.whatever=new Whatever(session.cfid); // init whatever
@@ -70,7 +67,6 @@ This is normally used to initialize the environment for a specific session, so f
 The opposite from "onSessionStart", this function is triggered when a specific session context ends, means when the timeout of a session context is reached (this.sessionTimeout).
 
 ```
-#!javascript
 component {
    void function onSessionEnd(struct session,struct application) {
       arguments.session.whatever.finalize();
@@ -85,7 +81,6 @@ This is normally used to finalize the environment of your application, so for ex
 This function is triggered before every request, so you can prepare the environment for the request, for example produce the HTML header or loads some data/objects used within the request.
 
 ```
-#!javascript
 component {
    boolean function onRequestStart(string targetPage) {
        echo('<html><head/><body>'); // outputs the response html header
@@ -101,7 +96,6 @@ if the the function is returning false Lucee stops any further execution of this
 This function is triggered after every request, so you can cleanup the environment after the request, for example produce the HTML footer or unload some data/objects used within the request.
 
 ```
-#!javascript
 component {
    void function onRequestEnd(string targetPage) {
        echo('</body></html>'); // outputs the response html footer
@@ -118,7 +112,6 @@ So let's say you have the call "/index.cfm", if there is a "/index.cfm" in the f
 **Other CFML Engines will complain when the called target page does not exists physically even it is never used!**
 
 ```
-#!javascript
 component {
    void function onRequest(string targetPage) {
        echo('<html><bod>Hello World</body></html>');
@@ -130,7 +123,6 @@ component {
 ### OnCFCRequest ###
 Similar to "onRequest", but this function is used to handle remote component calls (HTTP Webservices).
 ```
-#!javascript
 component {
    void function onCFCRequest(string cfcName, string methodName, struct args) {
        echo('<html><bod>Hello World</body></html>');
@@ -142,7 +134,6 @@ component {
 This method is triggered when a uncaught exception occurs in this application context.
 
 ```
-#!javascript
 component {
    void function onError(struct exception, string eventName) {
        dump(var:exception,label:eventName);
@@ -155,7 +146,6 @@ As arguments you get the exception (cfcatch block) and the eventName.
 This method is triggered when a request is ended with help of the tag <cfabort>.
 
 ```
-#!javascript
 component {
    void function onAbort(string targetPage) {
        dump("request "&targetPage&" ended with a abort!");
@@ -167,7 +157,6 @@ component {
 This method is triggered when debugging is enabled for this request.
 
 ```
-#!javascript
 component {
    void function onDebug(struct debuggingData) {
        dump(var:debuggingData,label:"debug information");
@@ -180,7 +169,6 @@ This method is triggered when a requested page was not found and **no function "
 
 
 ```
-#!javascript
 component {
    void function onMissingTemplate(string targetPage) {
        echo("missing:"&targetPage);
