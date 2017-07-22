@@ -13,7 +13,7 @@ In that case you could define a Application.cfc at "/shop" that has session hand
 
 ## Location, Location, Location ##
 With the default setting Lucee is always picking the "nearest" Application.cfc, so it is searching from the current location down to the webroot.
-This is only one possible behavior of many, Lucee gives you the possibility in the Lucee Administartor under "Settings / Request" to decide where Lucee looks for the Application.cfc and if it looks at all.
+This is only one possible behavior of many, Lucee gives you the possibility in the Lucee Administrator under "Settings / Request" to decide where Lucee looks for the Application.cfc and if it looks at all.
 
 ![search mode](https://bitbucket.org/repo/rX87Rq/images/3223743265-APP-SEARCH-MODE.png)
 
