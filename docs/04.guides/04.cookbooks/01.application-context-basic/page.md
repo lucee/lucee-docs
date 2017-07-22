@@ -6,25 +6,25 @@ id: cookbook-application-context-basic
 # Application.cfc #
 The Application.cfc is a component you put in your web application that then is picked up by Lucee as part of the request.
 The Application.cfc is used to define context specific configurations/settings and event driven functions.
-Your website can have multiple Application.cfc files, every single file then defines a independent application context.
+Your website can have multiple Application.cfc files, every single file then defines an independent application context.
 
-Let's say you have a website that has a shop under the path "/shop" that needs users sessions, but the rest of the website does not.
-In that case you could define a Application.cfc at "/shop" that has session handling enabled and one in the webroot that has not.
+Let's say you have a website that has a shop under the path "/shop" that needs user sessions, but the rest of the website does not.
+In that case you could define an Application.cfc at "/shop" that has session handling enabled and one in the webroot that has not.
 
 ## Location, Location, Location ##
-With the default setting Lucee is always picking the "nearest" Application.cfc, so it is searching from the current location down to the webroot.
+With the default setting Lucee always picks the "nearest" Application.cfc, so it searches from the current location down to the webroot.
 This is only one possible behavior of many, Lucee gives you the possibility in the Lucee Administrator under "Settings / Request" to decide where Lucee looks for the Application.cfc and if it looks at all.
 
 ![search mode](https://bitbucket.org/repo/rX87Rq/images/3223743265-APP-SEARCH-MODE.png)
 
-So if you for example only have one Application.cfc in the webroot, define "Root" as setting.
+So, for example, if you only have one Application.cfc in the webroot, define "Root" as setting.
 
 ## Functions ##
-The Application.cfc is supporting multiple event driven functions, what does this means?
-You can define functions inside the Application.cfc that are called when certain events are happening, this way you can participate with this events.
+The Application.cfc supports multiple event driven functions, what does this mean?
+You can define functions inside the Application.cfc that are called when certain events happen.
 
 ### OnApplicationStart ###
-This function is triggered when no application context is existing for this Application.cfc, so normally with the first request on this application context.
+This function is triggered when no application context exists for this Application.cfc, so normally when the first request on this application context is made.
 
 ```
 component {
@@ -34,7 +34,7 @@ component {
 }
 ```
 This is normally used to initialize the environment for your application, so for example load data/objects and store them in the application scope.
-if the the function is returning false or throws a exception the application context is not initialized and the next request will call "onApplicationStart" again. "onApplicationStart" is thread safe.
+if the function returns false or throws an exception, the application context is not initialized and the next request will call "onApplicationStart" again. "onApplicationStart" is thread safe.
 
 
 ### OnApplicationEnd ###
@@ -48,11 +48,11 @@ component {
 }
 ```
 This is normally used to finalize the environment of your application, so for example unload data/objects.
-You get the application scope that ends as argument with the function.
+You receive the application scope that ends as an argument to the function.
 
 
 ### OnSessionStart ###
-This function is triggered with every request that has no session definedin the current application context
+This function is triggered with every request that has no session defined in the current application context.
 
 ```
 component {
@@ -64,7 +64,7 @@ component {
 This is normally used to initialize the environment for a specific session, so for example load data/objects and store them in the session scope.
 
 ### OnSessionEnd ###
-The opposite from "onSessionStart", this function is triggered when a specific session context ends, means when the timeout of a session context is reached (this.sessionTimeout).
+The opposite from "onSessionStart", this function is triggered when a specific session context ends, when the timeout of a session context is reached (this.sessionTimeout).
 
 ```
 component {
@@ -74,22 +74,22 @@ component {
 }
 ```
 This is normally used to finalize the environment of your application, so for example unload data/objects.
- You get the related application scope and the session scope that ends, as arguments with the function.
+ You receive the related application scope and the session scope that ends, as arguments to the function.
 
 
 ### OnRequestStart ###
-This function is triggered before every request, so you can prepare the environment for the request, for example produce the HTML header or loads some data/objects used within the request.
+This function is triggered before every request, so you can prepare the environment for the request, for example to produce the HTML header or load some data/objects used within the request.
 
 ```
 component {
    boolean function onRequestStart(string targetPage) {
        echo('<html><head/><body>'); // outputs the response html header
-       request.whatever=new Whatever(); // prepare a object to use within the request
+       request.whatever=new Whatever(); // prepare an object to use within the request
        return true;
    }
 }
 ```
-if the the function is returning false Lucee stops any further execution of this request and return the result to the client.
+If the the function returns false, Lucee stops any further execution of this request and return the result to the client.
 
 
 ### OnRequestEnd ###
@@ -106,10 +106,10 @@ component {
 
 
 ### OnRequest ###
-If this function exists, Lucee is only executing this function and no longer looks for the "targetPage" defined with the request.
-So let's say you have the call "/index.cfm", if there is a "/index.cfm" in the file system or not, does not matter, it is not executed anyway.
+If this function exists, Lucee only executes this function and no longer looks for the "targetPage" defined with the request.
+So let's say you have the call "/index.cfm", if there is an "/index.cfm" in the file system or not, does not matter, it is not executed anyway.
 
-**Other CFML Engines will complain when the called target page does not exists physically even it is never used!**
+**Other CFML Engines will complain when the called target page does not exist physically even it is never used!**
 
 ```
 component {
@@ -131,7 +131,7 @@ component {
 ```
 
 ### OnError ###
-This method is triggered when a uncaught exception occurs in this application context.
+This method is triggered when an uncaught exception occurs in this application context.
 
 ```
 component {
@@ -140,7 +140,7 @@ component {
    }
 }
 ```
-As arguments you get the exception (cfcatch block) and the eventName.
+As arguments you receive the exception (cfcatch block) and the eventName.
 
 ### OnAbort ###
 This method is triggered when a request is ended with help of the tag <cfabort>.
@@ -148,7 +148,7 @@ This method is triggered when a request is ended with help of the tag <cfabort>.
 ```
 component {
    void function onAbort(string targetPage) {
-       dump("request "&targetPage&" ended with a abort!");
+       dump("request "&targetPage&" ended with an abort!");
    }
 }
 ```
