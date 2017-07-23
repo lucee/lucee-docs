@@ -83,7 +83,7 @@ This function is triggered before every request, so you can prepare the environm
 ```
 component {
    boolean function onRequestStart(string targetPage) {
-       echo('<html><head/><body>'); // outputs the response html header
+       echo('<html><head><body>'); // outputs the response html header
        request.whatever=new Whatever(); // prepare an object to use within the request
        return true;
    }
@@ -114,7 +114,7 @@ So let's say you have the call "/index.cfm", if there is an "/index.cfm" in the 
 ```
 component {
    void function onRequest(string targetPage) {
-       echo('<html><bod>Hello World</body></html>');
+       echo('<html><body>Hello World</body></html>');
    }
 }
 ```
@@ -125,7 +125,7 @@ Similar to "onRequest", but this function is used to handle remote component cal
 ```
 component {
    void function onCFCRequest(string cfcName, string methodName, struct args) {
-       echo('<html><bod>Hello World</body></html>');
+       echo('<html><body>Hello World</body></html>');
    }
 }
 ```
