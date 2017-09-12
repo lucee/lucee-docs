@@ -1,3 +1,4 @@
+```luceescript
 <cfquery datasource="UserDB" name='qUser'>
 	Select Username, FirstName, LastName
 	From UserDB.User
@@ -8,3 +9,4 @@
 		#Username# - #FirstName# - #LastName# <br/>
 	</cfoutput>
 </cfloop>
+```
