@@ -12133,7 +12133,6 @@ h2, h3, h4, h5, h6 {
 @media only screen and (min-width: 480px) {
   .menu-wrap {
     padding-right: 32px;
-    right: -32px;
   }
 }
 
