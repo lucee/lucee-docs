@@ -42,6 +42,9 @@
 								<a href="http://javadoc.lucee.org"><span class="fa fa-fw fa-code"></span>JavaDocs</a>
 							</li>
 							<li>
+								<a href="https://rorylaitila.gitbooks.io/lucee/content/"><span class="fa fa-fw fa-book"></span>Git Book</a>
+							</li>
+							<li>
 								<a href="download.html"><span class="fa fa-fw fa-download"></span>Download</a>
 							</li>
 						</ul>
