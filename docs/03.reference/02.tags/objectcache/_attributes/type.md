@@ -1,1 +1,7 @@
-cache type to manipulate, query is the default type
+cache type to manipulate
+- function
+- include 
+- object 
+- query 
+- resource 
+- template
