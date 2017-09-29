@@ -3,7 +3,7 @@ title: SystemCacheClear
 id: function-systemcacheclear
 related:
 categories:
-	- server
+    - server
 ---
 
 clears all caches or the specified cache

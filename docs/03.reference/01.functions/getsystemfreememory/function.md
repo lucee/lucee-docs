@@ -3,7 +3,7 @@ title: GetSystemFreeMemory
 id: function-getsystemfreememory
 related:
 categories:
-	- server
+    - server
 ---
 
 The amount of memory that is currently free, in bytes.

@@ -3,7 +3,7 @@ title: CtCacheClear
 id: function-ctcacheclear
 related:
 categories:
-	- server
+    - server
 ---
 
 flush the customtag path cache

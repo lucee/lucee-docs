@@ -3,7 +3,7 @@ title: PagePoolList
 id: function-pagepoollist
 related:
 categories:
-	- server
+    - server
 ---
 
 list all pages in pools

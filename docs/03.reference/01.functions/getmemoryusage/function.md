@@ -3,7 +3,7 @@ title: GetMemoryUsage
 id: function-getmemoryusage
 related:
 categories:
-	- server
+    - server
 ---
 
 Returns detailed information to the memory usage of the container.

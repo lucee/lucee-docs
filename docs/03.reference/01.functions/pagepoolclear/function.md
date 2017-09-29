@@ -3,7 +3,7 @@ title: PagePoolClear
 id: function-pagepoolclear
 related:
 categories:
-	- server
+    - server
 ---
 
 clear pages in pools

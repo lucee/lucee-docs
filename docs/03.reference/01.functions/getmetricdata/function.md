@@ -3,7 +3,7 @@ title: GetMetricData
 id: function-getmetricdata
 related:
 categories:
-	- server
+    - server
 ---
 
 Gets server performance metrics.
