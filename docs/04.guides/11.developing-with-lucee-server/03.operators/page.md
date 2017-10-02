@@ -29,7 +29,8 @@ operators | Name           | Description |
 !           |  logical inversion      |     ! true is false   |
 NOT         |  logical inversion      |     not true is false |
 AND         |  logical and            |  Returns true if both operands are true, e.g. 1 eq 1 and 2 eq 2 is true|
-&&          |  logical or             | Returns true if either or both operands are true, e.g. 1 eq 1 or 2 eq 3 is true|
+&&         |  logical and            |  Returns true if both operands are true, e.g. 1 eq 1 && 2 eq 2 is true|
+OR          |  logical or             | Returns true if either or both operands are true, e.g. 1 eq 1 or 2 eq 3 is true|
 **||**          |  logical or             | Returns true if either or both operand are true, e.g. 1 == 1 **||** 2 == 3 is true |
 XOR         |  logical exclusive or   | Returns true if either operand is true, but not both, e.g. 1 == 1 XOR 2 == 3 is true, but 1 == 1 XOR 2 == 2 is false |
 
