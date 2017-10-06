@@ -1,3 +1,3 @@
-_ = optional didgit
+_ = optional digit
 . = decimal point
-0 = mandortory digit
+0 = mandatory digit
