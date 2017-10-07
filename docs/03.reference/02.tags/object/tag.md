@@ -3,7 +3,8 @@ title: <cfobject>
 id: tag-object
 related:
 categories:  
-    - webservice
+    - webservice    
+    - component
 ---
 
 Lets you call methods in COM, CORBA, and JAVA objects.
