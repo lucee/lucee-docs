@@ -3,6 +3,7 @@ title: CreateObject
 id: function-createobject
 related:
 categories:
+    - component
 ---
 
 The CreateObject function takes different arguments depending on the value of the first argument:
