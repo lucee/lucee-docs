@@ -3,6 +3,7 @@ title: <cfhttp>
 id: tag-http
 related:
 categories:
+    - cache
 ---
 
 Lets you execute HTTP POST and GET operations on files. Using cfhttp, you can execute standard

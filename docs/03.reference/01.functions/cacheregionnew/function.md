@@ -3,6 +3,7 @@ title: cacheregionnew
 id: function-cacheregionnew
 related:
 categories:
+    - cache
 ---
 
 this function exists solely for the purpose of compatibility with other CFML Engines.  we strongly recommend not to use this function.
