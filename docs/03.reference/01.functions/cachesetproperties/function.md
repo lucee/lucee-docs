@@ -3,6 +3,7 @@ title: CacheSetProperties
 id: function-cachesetproperties
 related:
 categories:
+    - cache
 ---
 
 This function is not supported by Lucee, because we see this as a security risk, you can modifie cache configuration without a password,

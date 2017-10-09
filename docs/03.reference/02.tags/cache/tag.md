@@ -3,6 +3,7 @@ title: <cfcache>
 id: tag-cache
 related:
 categories:
+    - cache
 ---
 
 Speeds up page rendering when dynamic content does not have to be retrieved each time a user accesses

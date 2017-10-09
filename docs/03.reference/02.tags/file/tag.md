@@ -3,6 +3,7 @@ title: <cffile>
 id: tag-file
 related:
 categories:
+    - cache
 ---
 
 Handles all interactions with files. The attributes you use with cffile depend on the value of the action attribute.

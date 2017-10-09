@@ -3,6 +3,7 @@ title: <cfobjectcache>
 id: tag-objectcache
 related:
 categories:
+    - cache
     - server
 ---
 

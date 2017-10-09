@@ -3,6 +3,7 @@ title: CtCacheList
 id: function-ctcachelist
 related:
 categories:
+    - cache
     - server
 ---
 

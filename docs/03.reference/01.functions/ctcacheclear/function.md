@@ -3,6 +3,7 @@ title: CtCacheClear
 id: function-ctcacheclear
 related:
 categories:
+    - cache
     - server
 ---
 
