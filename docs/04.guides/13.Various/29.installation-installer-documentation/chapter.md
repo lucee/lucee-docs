@@ -1,5 +1,5 @@
 ---
-title: Installation InstallerDocumentationInstallation InstallerDocumentation
+title: Installation
 id: installation-installer-documentation
 ---
 
