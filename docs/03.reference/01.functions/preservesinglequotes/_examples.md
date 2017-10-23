@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+<cfscript>
+  name_for_query = "Mr. Frank O'Brian";
+  dump(PreserveSingleQuotes(name_for_query));
+</cfscript>
