@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+this_week = Week(now());
+dump(this_week);
+```
