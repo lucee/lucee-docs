@@ -1,1 +1,6 @@
-*There are currently no examples for this function.*
+<cfscript>
+  // create variable with a string of text
+  foo = "Hello World!";
+  // output variable in lower case
+  writeOutput(LCase(foo));
+</cfscript>
