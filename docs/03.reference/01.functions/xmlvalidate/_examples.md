@@ -1,4 +1,4 @@
-<cfscript>
+```luceescript+trycf
   validator = "
 			<?xml version=""1.0""?>
 			<xs:schema xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
@@ -25,4 +25,4 @@
 
 		xml_document = XmlParse(xml_stream);
 		dump(xmlValidate(xml_document, validator));
-</cfscript>
+```
