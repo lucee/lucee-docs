@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+  paragraphs = "This is your brain.#chr(13)#This is your brain on Lucee.";
+  echo(ParagraphFormat(paragraphs));
+```
