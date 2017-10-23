@@ -1,4 +1,4 @@
-<cfscript>
+```luceescript+trycf
   xml_stream = '
 			<?xml version="1.0" encoding="UTF-8"?>
 			<notes>
@@ -19,4 +19,4 @@
 		xml_document = XmlParse(xml_stream);
 
 		dump(XmlSearch(xml_document,"/notes/note[last()]/body")); // I got your message; all is well.
-</cfscript>
+```
