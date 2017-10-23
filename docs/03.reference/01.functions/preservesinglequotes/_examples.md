@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+  name_for_query = "Mr. Frank O'Brian";
+  dump(PreserveSingleQuotes(name_for_query));
+```
