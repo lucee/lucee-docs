@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+<cfscript>
+  pool = PagePoolList();
+  dump(pool);
+</cfscript>
