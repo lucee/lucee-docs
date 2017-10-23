@@ -1,1 +1,3 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+fileCopy("path/to/my/file.md", "new/location/for/file.md")
+```
