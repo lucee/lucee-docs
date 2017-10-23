@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+  xml_document = XmlNew();
+	dump(xml_document);
+```
