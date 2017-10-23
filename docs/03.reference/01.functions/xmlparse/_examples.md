@@ -1,4 +1,4 @@
-<cfscript>
+```luceescript+trycf
   xml_stream = "
     <note>
       <to>Alice</to>
@@ -9,4 +9,4 @@
   ";
 
   dump(XmlParse(xml_stream));
-</cfscript>
+```
