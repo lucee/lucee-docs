@@ -1,4 +1,4 @@
-<cfscript>
+```luceescript+trycf
   bool = true;
 	string = "I'm a string";
 	numeric = 100;
@@ -10,4 +10,4 @@
 	dump(boolean_exists); //true
 	dump(string_exists); //true
 	dump(number_exists); //false
-</cfscript>
+```
