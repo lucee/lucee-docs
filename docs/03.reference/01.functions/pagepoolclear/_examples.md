@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+<cfscript>
+  result = PagePoolClear();
+  echo(result); // page pool has been cleared
+</cfscript>
