@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+<cfscript>
+  clear = PagePoolClear();
+	dump(clear); // true
+</cfscript>
