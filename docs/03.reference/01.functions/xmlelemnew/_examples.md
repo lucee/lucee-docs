@@ -1,4 +1,4 @@
-<cfscript>
+```luceescript+trycf
   xml_document = XmlNew(); // new XML document to populate
   xml_root = XmlElemNew(xml_document,"notes");
   xml_document.XmlRoot = xml_root; // set the root node of the XML document
@@ -11,4 +11,4 @@
   xml_root.XmlChildren.append(xml_child); // add the first child node to the XML document
 
   dump(xml_document);
-</cfscript>
+```
