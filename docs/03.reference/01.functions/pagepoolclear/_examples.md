@@ -1,4 +1,4 @@
-<cfscript>
+```luceescript+trycf
   clear = PagePoolClear();
-	dump(clear); // true
-</cfscript>
+  dump(clear); // true
+```
