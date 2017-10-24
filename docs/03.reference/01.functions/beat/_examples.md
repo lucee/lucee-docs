@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+current_time = now();
+dump(Beat(current_time));
+```
