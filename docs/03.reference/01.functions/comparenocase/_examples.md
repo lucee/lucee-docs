@@ -1,1 +1,3 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+dump(CompareNoCase("100 MAIN ST.", "675 EAST AVENUE")); // -1
+```
