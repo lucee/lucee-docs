@@ -1,1 +1,3 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+dump(CSRFGenerateToken("+nn7jqV+3hYHM++RuvE47g==", true));
+```
