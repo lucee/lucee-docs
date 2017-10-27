@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+q = new Query();
+dump(ComponentInfo(q));
+```
