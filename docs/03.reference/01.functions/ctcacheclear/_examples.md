@@ -1,1 +1,3 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+CtCacheClear();
+```
