@@ -1,1 +1,3 @@
-*There are currently no examples for this tag.*
+<cfif isdefined('arguments.id')>
+  <!--- process provided id --->
+</cfif>
