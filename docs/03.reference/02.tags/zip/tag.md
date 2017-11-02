@@ -3,6 +3,7 @@ title: <cfzip>
 id: tag-zip
 related:
 categories:
+    - zip
 ---
 
 Manipulates ZIP and Java Archive (JAR) files.
