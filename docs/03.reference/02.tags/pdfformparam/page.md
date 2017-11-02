@@ -3,6 +3,7 @@ title: <cfpdfformparam>
 id: tag-pdfformparam
 related:
 categories:
+    - pdf
 ---
 
 The `<cfpdfformparam>` tag  is not supported natively by Lucee.

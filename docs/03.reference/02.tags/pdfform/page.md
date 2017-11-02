@@ -3,6 +3,7 @@ title: <cfpdfform>
 id: tag-pdfform
 related:
 categories:
+    - pdf
 ---
 
 The `<cfpdfform>` tag is not supported natively by Lucee.
