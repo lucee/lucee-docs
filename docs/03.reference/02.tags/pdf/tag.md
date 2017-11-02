@@ -3,6 +3,7 @@ title: <cfpdf>
 id: tag-pdf
 related:
 categories:
+    - pdf
 ---
 
 Manipulates existing PDF documents. The following list describes some of the tasks you can perform with the cfpdf tag:

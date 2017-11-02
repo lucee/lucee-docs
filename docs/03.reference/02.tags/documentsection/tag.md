@@ -3,6 +3,7 @@ title: <cfdocumentsection>
 id: tag-documentsection
 related:
 categories:
+    - pdf
 ---
 
 Divides a PDF document into sections.
