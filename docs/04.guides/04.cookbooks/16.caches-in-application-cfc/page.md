@@ -42,13 +42,4 @@ Let's take a look at some of the keys used to define a cache connection.
 * **bundleVersion** -  Optional.  The version of the OSGI bundle to load the `class` from.
 * **storage** -  A boolean that flags whether this cache can be used for client or session storage
 * **custom** - A struct of key/value pairs for configuration the cache. This struct is entirely dependant on the cache driver in use, so refer to the docs for that cache driver to see the possible values.  Note, some of these custom values might be required for some cache drivers to work.
-* **default** - If you want this cache to be used as a default cache, then give this one of these values
-  * `function`
-  * `object`
-  * `template`
-  * `query`
-  * `resource`
-  * `include`
-  * `http`
-  * `file`
-  * `webservice`
+* **default** - Optional.  If you want this cache to be used as a default cache, then give this one of these values: `function`, `object`, `template`, `query`, `resource`, `include`, `http`, `file`, `webservice`
