@@ -43,3 +43,21 @@ Let's take a look at some of the keys used to define a cache connection.
 * **storage** -  A boolean that flags whether this cache can be used for client or session storage
 * **custom** - A struct of key/value pairs for configuration the cache. This struct is entirely dependant on the cache driver in use, so refer to the docs for that cache driver to see the possible values.  Note, some of these custom values might be required for some cache drivers to work.
 * **default** - Optional.  If you want this cache to be used as a default cache, then give this one of these values: `function`, `object`, `template`, `query`, `resource`, `include`, `http`, `file`, `webservice`
+
+## Default Caches
+
+When declaring a cache, you can make it the default cache for certaion operations, but it is also possible to configure the default caches for each operation all at once in your `Application.cfc` like so:
+
+```javascript
+this.cache.object = "myCache";
+this.cache.template = "AnotherCache";
+this.cache.query = "yetAnother";
+this.cache.resource = "<cache-name>";
+this.cache.function = "<cache-name>";
+this.cache.include = "<cache-name>";	
+this.cache.http = "<cache-name>";	
+this.cache.file = "<cache-name>";	
+this.cache.webservice = "<cache-name>";
+```
+
+A single cache can only be the default storage location for a single operation at a time.  For example, a cache named "myCache" cannot both be the default cache for objects as well as queries.  
