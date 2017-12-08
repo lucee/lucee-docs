@@ -1,1 +1,1 @@
-maximum elements to slice from offset
+number of elements to slice from offset
