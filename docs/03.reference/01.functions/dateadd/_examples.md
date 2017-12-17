@@ -1,22 +1,22 @@
 ```luceescript+trycf
   // the below code increments 10 milliseconds in actual date
-  dump(dateAdd("l",now(),10));
+  dump(dateAdd("l", 10, now()));
 
   // the below code increments 60 seconds in actual date
-  dump(dateAdd("s",now(),60));
+  dump(dateAdd("s", 60, now()));
 
   // the below code increments 60 minutes in actual date
-  dump(dateAdd("n",now(),60));
+  dump(dateAdd("n", 60, now()));
 
   // the below code increments 2 hours in actual date
-  dump(dateAdd("h",now(),2));
+  dump(dateAdd("h", 2, now()));
 
   // the below code increments 1 day in actual date
-  dump(dateAdd("d",now(),1));
+  dump(dateAdd("d", 1, now()));
 
   // the below code increments 1 month in actual date
-  dump(dateAdd("m",now(),1));
+  dump(dateAdd("m", 1, now()));
 
   // the below code increments 1 year in actual date
-  dump(dateAdd("yyyy",now(),1));
+  dump(dateAdd("yyyy", 1, now()));
 ```
