@@ -26,7 +26,7 @@ You can define functions inside the Application.cfc that are called when certain
 ### OnApplicationStart ###
 This function is triggered when no application context exists for this Application.cfc, so normally when the first request on this application context is made.
 
-```
+```cfs
 component {
    boolean function onApplicationStart() {
       application.whatever=new Whatever(); // init whatever
@@ -40,7 +40,7 @@ if the function returns false or throws an exception, the application context is
 ### OnApplicationEnd ###
 The opposite from "onApplicationStart", this function is triggered when the application context ends, means when the timeout of the application context is reached (this.applicationTimeout).
 
-```
+```cfs
 component {
    void function onApplicationEnd(struct application) {
       arguments.application.whatever.finalize();
@@ -54,7 +54,7 @@ You receive the application scope that ends as an argument to the function.
 ### OnSessionStart ###
 This function is triggered with every request that has no session defined in the current application context.
 
-```
+```cfs
 component {
    void function onSessionStart() {
       session.whatever=new Whatever(session.cfid); // init whatever
@@ -66,7 +66,7 @@ This is normally used to initialize the environment for a specific session, so f
 ### OnSessionEnd ###
 The opposite from "onSessionStart", this function is triggered when a specific session context ends, when the timeout of a session context is reached (this.sessionTimeout).
 
-```
+```cfs
 component {
    void function onSessionEnd(struct session,struct application) {
       arguments.session.whatever.finalize();
@@ -80,7 +80,7 @@ This is normally used to finalize the environment of your application, so for ex
 ### OnRequestStart ###
 This function is triggered before every request, so you can prepare the environment for the request, for example to produce the HTML header or load some data/objects used within the request.
 
-```
+```cfs
 component {
    boolean function onRequestStart(string targetPage) {
        echo('<html><head><body>'); // outputs the response html header
@@ -95,7 +95,7 @@ If the the function returns false, Lucee stops any further execution of this req
 ### OnRequestEnd ###
 This function is triggered after every request, so you can cleanup the environment after the request, for example produce the HTML footer or unload some data/objects used within the request.
 
-```
+```cfs
 component {
    void function onRequestEnd(string targetPage) {
        echo('</body></html>'); // outputs the response html footer
@@ -111,7 +111,7 @@ So let's say you have the call "/index.cfm", if there is an "/index.cfm" in the 
 
 **Other CFML Engines will complain when the called target page does not exist physically even it is never used!**
 
-```
+```cfs
 component {
    void function onRequest(string targetPage) {
        echo('<html><body>Hello World</body></html>');
@@ -122,7 +122,8 @@ component {
 
 ### OnCFCRequest ###
 Similar to "onRequest", but this function is used to handle remote component calls (HTTP Webservices).
-```
+
+```cfs
 component {
    void function onCFCRequest(string cfcName, string methodName, struct args) {
        echo('<html><body>Hello World</body></html>');
@@ -133,7 +134,7 @@ component {
 ### OnError ###
 This method is triggered when an uncaught exception occurs in this application context.
 
-```
+```cfs
 component {
    void function onError(struct exception, string eventName) {
        dump(var:exception,label:eventName);
@@ -145,7 +146,7 @@ As arguments you receive the exception (cfcatch block) and the eventName.
 ### OnAbort ###
 This method is triggered when a request is ended with help of the tag <cfabort>.
 
-```
+```cfs
 component {
    void function onAbort(string targetPage) {
        dump("request "&targetPage&" ended with an abort!");
@@ -156,7 +157,7 @@ component {
 ### OnDebug ###
 This method is triggered when debugging is enabled for this request.
 
-```
+```cfs
 component {
    void function onDebug(struct debuggingData) {
        dump(var:debuggingData,label:"debug information");
@@ -168,7 +169,7 @@ component {
 This method is triggered when a requested page was not found and **no function "onRequest" is defined **.
 
 
-```
+```cfs
 component {
    void function onMissingTemplate(string targetPage) {
        echo("missing:"&targetPage);

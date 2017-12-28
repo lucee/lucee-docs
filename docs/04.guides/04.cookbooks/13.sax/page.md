@@ -10,8 +10,7 @@ The function XMLParse is handy to get a object representation of a complete XML 
 
 Let's say we want to read in the following XML document:
 
-```
-#!xml
+```lucee
 
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <catalog>
@@ -35,8 +34,8 @@ Let's say we want to read in the following XML document:
 ```
 
 To read this we need to define a component that looks like the following and you need to add functions that are listening to certain events of the XML parser (startDocument, startElement, body, endElements, ...), it is completely up to your code to store the data for later use.
-```
-#!javascript
+
+```cfs
 component {
 	this.cds=[];
 	this.cd={};
@@ -129,8 +128,7 @@ component {
 
 Now we simply can invoke that component to parse the XML file and get the result as an array of structs:
 
-```
-#!html
+```coldfusion
 <!---
 	Calls XML Catalog Event Parser and converts the data to an array of structs
 	with a filter that limits the country to "USA"

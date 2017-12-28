@@ -7,11 +7,9 @@ id: cookbook-cached-within-request
 maybe you are familiar with the "cachedwithin" attribute of the tag <cfquery>, that is normally used as follows:
 
 
-```
-#!html
-
+```coldfusion
 <cfquery cachedWithin="#createTimeSpan(0,0,0,1)#">
-select * from whatever where whatsoever='#whatsoever#'
+  select * from whatever where whatsoever='#whatsoever#'
 </cfquery>
 ```
 
@@ -20,11 +18,9 @@ Problem is that this cache is for all request and because of that more complicat
 
 What you can do in this particular case is very simple, replace the timespan defined in the "cachedWithin" attribute with the value "request":
 
-```
-#!html
-
+```coldfusion
 <cfquery cachedWithin="request">
-select * from whatever where whatsoever='#whatsoever#'
+  select * from whatever where whatsoever='#whatsoever#'
 </cfquery>
 ```
 

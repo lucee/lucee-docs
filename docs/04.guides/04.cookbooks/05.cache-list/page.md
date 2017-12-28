@@ -6,8 +6,7 @@ id: cookbook-cache-list
 # List existing Cache Connections available #
 There is now a built in function in Lucee to list existing cache connections but you can also easily do this using the following
 
-```
-#!javascript
+```cfs
 /**
 * returns all available cache names as a array
 */
@@ -17,8 +16,7 @@ array function cacheNames(){
 ```
 This function returns an array containing all cache connections available.
 
-```
-#!javascript
+```cfs
 /**
 * checks if a cache with the given name is defined
 * @cacheName name of the cache to look for

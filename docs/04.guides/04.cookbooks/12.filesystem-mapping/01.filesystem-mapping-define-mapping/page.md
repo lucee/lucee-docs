@@ -21,8 +21,8 @@ With "Virtual" choose the virtual path for the mapping, this is the path you wil
 With "Archive" you can map a Lucee archive (more below) to the mapping.
 
 "Primary" defines where a template is searched first, let's say you have set primary to "archive" and you execute the following code
-```
-#!html
+
+```coldfusion
 <cfinclude template="/myMapping/test.cfm">
 ```
 in that case Lucee is first checking the archive associated with the "/myMapping" mapping for "test.cfm", if the template is not found it there, Lucee also checks the physical location.
@@ -54,8 +54,8 @@ By clicking the button "download archive" you create the archive and then you ca
 
 ## Create a Mapping in the Application.cfc ##
 Lucee allows to create mappings in your Application.cfc, this mappings are only valid for the current request.
-```
-#!javascript
+
+```cfs
 // Application.cfc
 component {
     this.mappings['/shop']=getDirectoryFromPath(getCurrentTemplatePath())&"shop";
@@ -64,15 +64,15 @@ component {
 We define the mappings as a struct, where the key of the struct is the virtual path.
 
 Now you can simply use that mapping in your code
-```
-#!html
-   <cfinclude template="/shop/whatever.cfm"> <!--- load a template from the "shop" mapping --->
-   <cfset cfc=new shop.Whatever()><!--- load a CFC from the "shop" mapping (see also "this.componentpaths" for handling components)  --->
+
+```coldfusion
+<cfinclude template="/shop/whatever.cfm"> <!--- load a template from the "shop" mapping --->
+<cfset cfc=new shop.Whatever()><!--- load a CFC from the "shop" mapping (see also "this.componentpaths" for handling components)  --->
 ```
 ## Advanced ##
 In the previous example we have simply set a path, like you can see in the Administrator, a mapping can contain more data than only a physical path, of course you can use this settings also with a mapping done in the Application.cfc.
-```
-#!javascript
+
+```cfs
 // Application.cfc
 component {
    this.mappings['/shop']={
@@ -83,16 +83,16 @@ component {
 }
 ```
 In that case we not only define a physical path, we also define a Lucee archive (.lar). "primary" defines where Lucee is checking first for a resource, let's say you have the following code
-```
-#!html
+
+```coldfusion
    <cfinclude template="/shop/whatever.cfm">
 ```
 In that case Lucee first checks in the archive for "whatever.cfm" , if not found there, it looks inside the physical path.
 
 ### Site Note ###
 Of course this can be done for all mapping types
-```
-#!javascript
+
+```cfs
 // Application.cfc
 component {
    this.componentpaths=[{archive:getDirectoryFromPath(getCurrentTemplatePath())&"testbox.lar"}];// loading testbox from a archive

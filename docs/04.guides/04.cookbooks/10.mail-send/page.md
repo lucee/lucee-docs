@@ -9,17 +9,17 @@ The following example shows you how you can send a mail.
 Before you can use this functionality, you have to define a Mail server in the Lucee Administrator.
 
 **Tags**
-```
-#!cfm
+
+```coldfusion
 <cfmail subject="Your Order" from="whatever@lucee.org" to="whatever@gmail.com">
-Hi there,
-This mail is sent to confirm that we have received your order.
+  Hi there,
+  This mail is sent to confirm that we have received your order.
 </cfmail>
 ```
 
 **Script**
-```
-#!javascript
+
+```cfs
 mail subject="Your Order" from="whatever@lucee.org" to="whatever@gmail.com" {
   writeOutput('Hi there,');
   writeOutput('This mail is sent to confirm that we have received your order.');
