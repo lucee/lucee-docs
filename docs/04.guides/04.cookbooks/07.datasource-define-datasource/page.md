@@ -31,8 +31,7 @@ After that you can delete the datasource you have defined in the Administrator.
 ### Advanced ###
 Like you can see, the code for a datasource definition has this pattern (class,  connectionString, username and password)
 
-```
-#!javascript
+```cfs
 
 this.datasources["myds"] = {
 	  class: 'org.gjt.mm.mysql.Driver'
@@ -44,8 +43,7 @@ this.datasources["myds"] = {
 ```
 but alternatively you can also use this pattern
 
-```
-#!javascript
+```cfs
 
 this.datasources["myds"] = {
          // required
@@ -71,15 +69,14 @@ this.datasources["myds"] = {
 ### Default Datasource ###
 With the [[cookbook-application-context-basic]] you can also define a default datasource that is used if not "datasource" attribute is defined with the tag cfquery, cfstoredproc, cfinsert, cfupdate, ..., simply do the following
 
-```
-#!javascript
+```cfs
 
 this.defaultdatasource = "myds"; // "this.datasource" is supported as well
 ```
 
 In that case the datasource "myds" is used, if there is no datasource defined. Instead of defining a datasource name, you can also define the datasource directly as follows
-```
-#!javascript
+
+```cfs
 
 this.datasource = {
 	  class: 'org.gjt.mm.mysql.Driver'

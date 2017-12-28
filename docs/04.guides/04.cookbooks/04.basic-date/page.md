@@ -7,18 +7,17 @@ id: cookbook-basic-date
 
 The following examples shows you how to output the current date.
 
-```
-#!cfm
-	<html>
-		<head>
-			<title>Current date</title>
-		</head>
-		<body>
-			<cfoutput>
-			<p>The time is #lsdateTimeFormat(now())#</p>
-			</cfoutput>
-		</body>
-	</html>
+```coldfusion
+<html>
+	<head>
+		<title>Current date</title>
+	</head>
+	<body>
+		<cfoutput>
+		<p>The time is #lsdateTimeFormat(now())#</p>
+		</cfoutput>
+	</body>
+</html>
 ```
 Executing this code you will see something like the following:
 
@@ -28,16 +27,16 @@ The tag `<cfoutput>` defines for the compiler that everything within a `##` is a
 
 You can define a different locale globally in the Lucee admin at "Settings/Regional".
 You can define a different locale for the current request in the Application.cfc file (for example: `this.locale="de_CH"`) or with help of the function `setLocale` or as argument of the function call itself as follows:
-```
-#!cfm
-	<html>
-		<head>
-			<title>Current date</title>
-		</head>
-		<body>
-			<cfoutput>
-			<p>The time is #lsDateTimeFormat(date:now(),locale:'de_CH')#</p>
-			</cfoutput>
-		</body>
-	</html>
+
+```coldfusion
+<html>
+	<head>
+		<title>Current date</title>
+	</head>
+	<body>
+		<cfoutput>
+		<p>The time is #lsDateTimeFormat(date:now(),locale:'de_CH')#</p>
+		</cfoutput>
+	</body>
+</html>
 ```

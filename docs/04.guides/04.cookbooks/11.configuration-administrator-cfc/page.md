@@ -12,8 +12,7 @@ Lucee provides a web frontend to configure the server and each web context, but 
 Lucee is providing the component "Administrator.cfc" in the package "org.lucee.cfml" a package auto imported in any template, so you can simply use that component as follows
 
 
-```
-#!javascript
+```cfs
 admin=new Administrator("web","myPassword"); // first argument is the admin type you wanna load (web|server), second the password for the Administrator
 dump(admin); // show me the doc for the component
 admin.updateCharset(resourceCharset:"UTF-8"); // set the resource charset
