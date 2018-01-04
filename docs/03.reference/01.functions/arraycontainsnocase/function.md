@@ -2,6 +2,7 @@
 title: ArrayContainsNoCase
 id: function-arraycontainsnocase
 related:
+    - function-arraycontains
 categories:
     - array
 ---
