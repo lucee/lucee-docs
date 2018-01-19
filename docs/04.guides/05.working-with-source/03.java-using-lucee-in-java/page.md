@@ -25,7 +25,7 @@ There are two cases in which you might want to use Lucee from your Java code:
 ### When your Java code was loaded by Lucee ###
 The easiest way to use Lucee from your Java code is when your Java code was loaded by Lucee.  this is a common case when, for example, your CFML code creates a Java object, and then that Java object creates Lucee objects and calls CFC methods.
 
-Your interaction with Lucee should start via an object that implements the lucee.loader.engine.CFMLEngine interface (http://www.lucee.org/javadoc/lucee/loader/engine/CFMLEngine.html) and the lucee.runtime.PageContext (http://www.lucee.org/javadoc/lucee/runtime/PageContext.html) object.  Since Lucee loaded your Java code, and it will be running in that very same JVM, you can get a reference to a CFMLEngine object by calling the getInstance() static method of the lucee.loader.engine.CFMLEngineFactory object.
+Your interaction with Lucee should start via an object that implements the [lucee.loader.engine.CFMLEngine interface](http://javadoc.lucee.org/lucee/loader/engine/CFMLEngine.html) and the [lucee.runtime.PageContext](http://javadoc.lucee.org/lucee/runtime/PageContext.html) object.  Since Lucee loaded your Java code, and it will be running in that very same JVM, you can get a reference to a CFMLEngine object by calling the getInstance() static method of the lucee.loader.engine.CFMLEngineFactory object.
 
 ```java
 import	lucee.loader.engine.*;
