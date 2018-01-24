@@ -1,1 +1,3 @@
-*There are currently no examples for this function.*
+<cfscript>
+  fileDelete("my/path/to/file.md")
+</cfscript>
