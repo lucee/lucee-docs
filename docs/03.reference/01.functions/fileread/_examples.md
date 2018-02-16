@@ -1,3 +1,3 @@
-<cfscript>
-  fileDelete("my/path/to/file.md")
-</cfscript>
+```luceescript
+    fileDelete("/path/to/file.ext");
+```
