@@ -5,7 +5,7 @@ id: server-2008-IIS-7.5
 
 ### Setting up Lucee with Tomcat on Server 2008 R2, IIS 7.5 and Plesk ###
 
-The following is an edited version of an original post | [Installing Lucee and Tomcat on Windows Server 2008 R2 IIS 7.5 with Plesk - The correct way](http://sidfishes.wordpress.com/2011/09/13/installing-luceetomcat-in-windows-server-2008-r2-iis-7-5-with-plesk-the-correct-way/)
+The following is an edited version of an original post | [Installing Lucee and Tomcat on Windows Server 2008 R2 IIS 7.5 with Plesk - The correct way](https://sidfishes.wordpress.com/2011/09/13/installing-railotomcat-in-windows-server-2008-r2-iis-7-5-with-plesk-the-correct-way/)
 
 There are 2 things (at minimum!) that can cause problems installing to this configuration; Plesk and confusion (or IIS 7.5 lack of clarity) as to what Enable 32 Bit Applications means. Plesk does quite a few funky things to IIS since it is a web based management tool. Much grief stems from the fact that Plesk is a 32 bit App and a Server 2008 R2 install is 64 bit (and only 64 bit). Plesk also uses but doesn't expose a version of Tomcat. The Lucee Tomcat instance may install itself on a different port than normal due to the Plesk instance. Now we don't want to break Plesk so we need a procedure to make it play nice and undo some of the problems it causes with IIS. The following outlines the steps needed to get Plesk, Lucee, Tomcat & IIS 7.5 all running happily.
 
