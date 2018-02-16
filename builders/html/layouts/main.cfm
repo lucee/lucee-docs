@@ -47,6 +47,9 @@
 							<li>
 								<a href="download.html"><span class="fa fa-fw fa-download"></span>Download</a>
 							</li>
+							<li>
+								<a href="https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA"><span class="fa fa-youtube-play"></span>Lucee on YouTube</a>
+							</li>
 						</ul>
 					</div>
 				</div>
