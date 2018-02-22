@@ -3,6 +3,7 @@ title: <cfindex>
 id: tag-index
 related:
 categories:
+    - search
 ---
 
 Populates collections with indexed data. The cfindex and cfsearch tags encapsulate the
