@@ -5,6 +5,8 @@ id: windows-upgrade-the-JRE
 
 The Java Runtime Environment (JRE) is the environment that your CFML code runs inside of. The Lucee installer ships with a default JRE, but over time this JRE will need to be updated in order to remain stable, secure, and bug free. The following is meant to guide users through the relatively simple process of upgrading the JRE that is running on your Windows Server. Keep in mind that these instructions were written using Windows 2008 R2 64-bit, and may need to be adapted slightly to your own system. For example, if you're running a 32-bit version of Windows, you will need to download the 32-bit JRE.
 
+Keep in mind that your Tomcat software also needs to be updated for security and performance fixes. The easiest way to achieve this is a fresh install of Lucee using the latest [Lucee Installer] (http://download.lucee.org/) which will install and configure the latest versions of Lucee, JRE and Tomcat.
+
 ### STEP 1 - Shut Down Lucee/Tomcat ###
 
 It could be problematic to copy over libraries while the server that utilizes them is still running, so we're just going to stop the Lucee/Tomcat server before we proceed with the Tomcat Upgrade:
