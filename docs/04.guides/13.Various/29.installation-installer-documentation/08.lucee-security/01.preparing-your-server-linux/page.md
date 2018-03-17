@@ -7,13 +7,13 @@ The following guide is written with examples based on RHEL/CentOS, but these exa
 
 ### Start with a "Blank Slate" ###
 
-It is recommended that your begin by installing a fresh copy of your Linux OS on to your server. The fresh copy of the Operating System will ensure that there are no lingering abnormalities in the system you'll be installing your Railo stack on to.
+It is recommended that your begin by installing a fresh copy of your Linux OS on to your server. The fresh copy of the Operating System will ensure that there are no lingering abnormalities in the system you'll be installing your Lucee stack on to.
 
 It is also recommended that you perform a "minimal" install of your OS, as it will mean that only the bare minimum will be installed initially. Anything that you need to add you can add manually. This also means that you won't have any superfluous programs running or even available on the server itself, and again it will minimize the initial attack vectors available on your server.
 
 ### Start With a Very Minimal and Restrictive Firewall ###
 
-During most Linux installation processes, the installer will prompt you if you want to configure any initial firewall rules. It is recommended that you both enable the firewall, and only allow the most basic firewall exceptions, such as SSH access (port 21), HTTP access (port 80), and HTTPS access (443). Again, this will minimize the attack vectors that an attacker could exploit.
+During most Linux installation processes, the installer will prompt you if you want to configure any initial firewall rules. It is recommended that you both enable the firewall, and only allow the most basic firewall exceptions, such as SSH access (port 22), HTTP access (port 80), and HTTPS access (443). Again, this will minimize the attack vectors that an attacker could exploit.
 
 Once the initial minimal firewall is configured by the installation process, you should only add rules as absolutely necessary and if you can, add incoming IP Address restrictions on them so that only connections coming from approved ranges will be able to connect. For example, the following rule (added by editing the /etc/sysconfig/iptables file which was created by the install process on CentOS 6) would restrict who can connect to your SSH port to only a specific Class-C range of IP Addresses:
 
@@ -35,6 +35,7 @@ It is important to install all available patches as soon as possible on your new
 or, on Ubuntu
 
 	$ sudo apt-get -y update
+	$ sudo apt-get -y dist-upgrade
 
 As long as your system has access to the Internet and is able to download files from public repositories, YUM or apt-get will go download all the latest patches that are available for your system.
 
@@ -60,9 +61,9 @@ or
 
 Just to be clear, files placed in cron.daily will be run every day, and files placed in cron.weekly will be run each week. The exact time that each are executed is controlled by the /etc/crontab file, which you can also customize as needed.
 
-Instructions for configuring automatic updates for Ubuntu (12.04 LTS) can be found here:
+Instructions for configuring automatic updates for Ubuntu (16.04 LTS) can be found here:
 
-[https://help.ubuntu.com/12.04/serverguide/automatic-updates.html](https://help.ubuntu.com/12.04/serverguide/automatic-updates.html)
+[https://help.ubuntu.com/16.04/serverguide/automatic-updates.html](https://help.ubuntu.com/16.04/serverguide/automatic-updates.html)
 
 ### Install Minimal Apache Modules ###
 
@@ -75,10 +76,10 @@ You can tell Apache to hide it's version number by modifying the "ServerTokens" 
 
 ServerTokens Prod
 
-Setting this attribute to simply "Prod" will cause apache to only report "Apache", and not include the version number or installed modules such as PHP or Perl. The attacker will simply have to guess - which increases your change of detecting intrusion attempts.
+Setting this attribute to simply "Prod" will cause apache to only report "Apache", and not include the version number or installed modules such as PHP or Perl. The attacker will simply have to guess - which increases your chance of detecting intrusion attempts.
 
 ### Additional Suggestions ###
 
 * Run SSH on a non-standard port (instead of default port 22 where it's easy to find)
 
-* Leave SELinux enabled and create rules to allow Railo to function through it. SELinux is complex, so if needed security consulting firms that specialize in secure CF deployments can be contracted to assist with this process.
+* Leave SELinux enabled and create rules to allow Lucee to function through it. SELinux is complex, so if needed security consulting firms that specialize in secure CF deployments can be contracted to assist with this process.
