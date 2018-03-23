@@ -20,9 +20,6 @@
 		echo( "Documentation built in #NumberFormat( getTickCount()-startTime )#ms" & newline );
 		echo( "---" & newline );
 	} catch ( any e ) {
-		exitCode( 1 );
-
-
 		echo( "" & newline );
 		echo( "Documentation build error" & newline );
 		echo( "-------------------------" & newline );
@@ -35,5 +32,7 @@
 				echo( "    " & tracepoint.template & " (line #tracepoint.line#)" & newline );
 			}
 		}
+
+		exitCode( 1 );
 	}
 </cfscript>
