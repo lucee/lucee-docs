@@ -26,4 +26,8 @@ component accessors=true {
 	public void function addChild( required any childPage ) {
 		getChildren().append( arguments.childPage );
 	}
+
+	public any function onMissingMethod() {
+		// allow missing setters - fix for change in Lucee 5.2
+	}
 }

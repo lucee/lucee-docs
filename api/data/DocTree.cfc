@@ -155,8 +155,9 @@ component accessors=true {
 			}
 		} catch (any e) {
 			writeOutput("Error preparing page: " & pageFilePath);
-			dump(pageData);
-			rethrow;
+			dump( pageData );
+			echo( e );
+			abort;
 		}
 
 		for( var key in pageData ) {
