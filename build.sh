@@ -27,7 +27,7 @@ box server stop luceedocsbuilder
 if [ -f .exitcode ]; then
   exitcode=$(<.exitcode)
   rm -f .exitcode
-  echo "Exiting build, documentation build failed."
+  echo "Exiting build, documentation build failed. Exit code: $exitcode"
   exit $exitcode
 fi
 
