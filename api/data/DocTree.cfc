@@ -140,17 +140,24 @@ component accessors=true {
 		var page = "";
 		var pageData = new PageReader().readPageFile( arguments.rootDirectory & pageFilePath )
 
-		switch( pageData.pageType ?: "" ) {
-			case "function":
-				pageData.append( _getFunctionSpecification( pageData.slug, arguments.rootDirectory & pageFilePath ), false );
-				page = new FunctionPage( argumentCollection=pageData );
-			break;
-			case "tag":
-				pageData.append( _getTagSpecification( pageData.slug, arguments.rootDirectory & pageFilePath ), false );
-				page = new TagPage( argumentCollection=pageData );
-			break;
-			default:
-				page = new Page( argumentCollection=pageData );
+		try {
+			switch( pageData.pageType ?: "" ) {
+				case "function":
+					pageData.append( _getFunctionSpecification( pageData.slug, arguments.rootDirectory & pageFilePath ), false );
+					page = new FunctionPage( argumentCollection=pageData );
+				break;
+				case "tag":
+					pageData.append( _getTagSpecification( pageData.slug, arguments.rootDirectory & pageFilePath ), false );
+					page = new TagPage( argumentCollection=pageData );
+				break;
+				default:
+					page = new Page( argumentCollection=pageData );
+			}
+		} catch (any e) {
+			writeOutput("Error preparing page: " & pageFilePath);
+			dump( pageData );
+			echo( e );
+			abort;
 		}
 
 		for( var key in pageData ) {

@@ -1,38 +1,39 @@
-#!/bin/bash
+set CWD=%cd%
 
-cd `dirname $0`
-CWD="`pwd`"
-
-echo "Starting Lucee5 server with which to build the docs..."
+echo Starting Lucee5 server with which to build the docs...
 box server stop luceedocsbuilder
-box start \
-name="luceedocsbuilder" \
-cfengine="lucee@5" \
-port=8765 \
-openbrowser=false \
-directory=$CWD \
-heapSize=1024;
+box start ^
+name="luceedocsbuilder" ^
+cfengine="lucee@5" ^
+port=8765 ^
+openbrowser=false ^
+directory=%CWD% ^
+heapSize=1024
 
-echo "Done!";
-echo "Importing reference docs from previously undocumented functions and tags..."
+echo Done!
+echo Importing reference docs from previously undocumented functions and tags...
 curl http://localhost:8765/import.cfm
 
-echo "Building documentation (please be patient, it may take some time)..."
+echo Building documentation (please be patient, it may take some time)...
 
 curl http://localhost:8765/build.cfm
 
 echo "Stopping Lucee5 server..."
 box server stop luceedocsbuilder
+@echo off
+IF EXIST .exitcode (
+  set /p exitcode=<.exitcode
+  del .exitcode
+  echo Exiting build, documentation build failed with exitcode %exitcode%
+  exit /b %exitcode%
+)
+echo on
 
-if [ -f .exitcode ]; then
-  exitcode=$(<.exitcode)
-  rm -f .exitcode
-  echo "Exiting build, documentation build failed. Exit code: $exitcode"
-  exit $exitcode
-fi
+echo Exporting docs TBD for Windows batch file
+exit /b
 
+echo Building complete
 
-echo "Building complete"
 
 if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ] ; then
   echo "Zipping up docs for offline download..."

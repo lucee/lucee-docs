@@ -1,4 +1,5 @@
 encode for what, valid values are:
+
 - css: for output inside Cascading Style Sheets (CSS)
 - dn: for output in LDAP Distinguished Names
 - html: for output inside HTML

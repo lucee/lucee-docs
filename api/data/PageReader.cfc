@@ -15,12 +15,13 @@ component {
 			data.visible = true;
 		}
 
-		data.visible    = data.visible   ?: false;
-		data.pageType   = data.pageType  ?: defaultPageType;
-		data.slug       = data.slug      ?: slug;
-		data.sortOrder  = data.sortOrder ?: sortOrder;
+		data.visible    = data.visible  ?: false;
+		data.pageType   = data.pageType ?: defaultPageType;
+		data.slug       = data.slug     ?: slug;
+		data.sortOrder  = Val( data.sortOrder ?: sortOrder );
 		data.sourceFile = "/docs" & Replace( arguments.filePath, docsBase, "" );
 		data.sourceDir  = "/docs" & Replace( fileDirectory     , docsBase, "" );
+		data.related    = isArray( data.related ?: "" ) ? data.related : ( Len( Trim( data.related ?: "" ) ) ? [ data.related ] : [ "" ] );
 
 		return data;
 	}
