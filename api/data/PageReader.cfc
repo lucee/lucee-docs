@@ -1,13 +1,17 @@
 component {
 
 	public any function readPageFile( required string filePath ) {
-		var fileDirectory   = GetDirectoryFromPath( arguments.filePath );
+		var path            = Replace(arguments.filePath,"\","/","all");
+		var fileDirectory   = GetDirectoryFromPath( path );
 		var slug            = ListLast( fileDirectory, "\/" );
-		var defaultPageType = ReReplace( arguments.filePath, "^.*?/([a-z]+)\.md$", "\1" );
-		var fileContent     = FileRead( arguments.filePath );
+		var defaultPageType = ReReplace(path, "^.*?/([a-z]+)\.md$", "\1" );
+		var fileContent     = REReplace(FileRead( path ), "\r\n","\n","all"); // convert all line endings to unix style
 		var data            = _parsePage( fileContent );
 		var sortOrder       = "";
-		var docsBase        = ExpandPath( "/docs" );
+		if (_isWindows())
+			var docsBase        = Replace(ExpandPath( "../docs" ),"\","/","all");
+		else
+			var docsBase        = ExpandPath("/docs");	
 
 		if ( ListLen( slug, "." ) > 1 && IsNumeric( ListFirst( slug, "." ) ) ) {
 			sortOrder    = ListFirst( slug, "." );
@@ -19,7 +23,7 @@ component {
 		data.pageType   = data.pageType ?: defaultPageType;
 		data.slug       = data.slug     ?: slug;
 		data.sortOrder  = Val( data.sortOrder ?: sortOrder );
-		data.sourceFile = "/docs" & Replace( arguments.filePath, docsBase, "" );
+		data.sourceFile = "/docs" & Replace( path, docsBase, "" );
 		data.sourceDir  = "/docs" & Replace( fileDirectory     , docsBase, "" );
 		data.related    = isArray( data.related ?: "" ) ? data.related : ( Len( Trim( data.related ?: "" ) ) ? [ data.related ] : [ "" ] );
 
@@ -38,10 +42,7 @@ component {
 	}
 
 	private struct function _splitYamlAndBody( required string pageContent ) {
-		if(_isWindows())
-			var splitterRegex = "^(\-\-\-\r\n(.*?)\r\n\-\-\-\r\n)?(.*)$";
-		else
-			var splitterRegex = "^(\-\-\-\n(.*?)\n\-\-\-\n)?(.*)$";
+		var splitterRegex = "^(\-\-\-\n(.*?)\n\-\-\-\n)?(.*)$";	
 
 		return {
 			  yaml = Trim( ReReplace( arguments.pageContent, splitterRegex, "\2" ) )
