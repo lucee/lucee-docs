@@ -51,9 +51,8 @@ component {
 			}
 		}
 		if ( !IsNull( arguments.page.getRelated() ) ) {
-			for( var link in arguments.page.getRelated() ) {				
-				if (len(link) gt 0)
-					links.append( link );
+			for( var link in arguments.page.getRelated() ) {
+				links.append( link );
 			}
 		}
 
