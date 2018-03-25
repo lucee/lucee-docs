@@ -51,7 +51,7 @@ component {
 			}
 		}
 		if ( !IsNull( arguments.page.getRelated() ) ) {
-			for( var link in arguments.page.getRelated() ) {				
+			for( var link in arguments.page.getRelated() ) {
 				if (len(link) gt 0)
 					links.append( link );
 			}
@@ -103,13 +103,13 @@ component {
 	private void function _writePage( required any page, required string buildDirectory, required any docTree ) {
 		var filePath      = _getHtmlFilePath( arguments.page, arguments.buildDirectory );
 		var fileDirectory = GetDirectoryFromPath( filePath );
-
+		//var starttime = getTickCount();
 		if ( !DirectoryExists( fileDirectory ) ) {
 			DirectoryCreate( fileDirectory );
 		}
 
 		FileWrite( filePath, renderPage( arguments.page, arguments.docTree ) );
-
+		//cflog(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
 		for( var childPage in arguments.page.getChildren() ) {
 			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
 		}
