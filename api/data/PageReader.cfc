@@ -11,7 +11,7 @@ component {
 		if (_isWindows())
 			var docsBase        = Replace(ExpandPath( "../docs" ),"\","/","all");
 		else
-			var docsBase        = ExpandPath("/docs");	
+			var docsBase        = ExpandPath("/docs");
 
 		if ( ListLen( slug, "." ) > 1 && IsNumeric( ListFirst( slug, "." ) ) ) {
 			sortOrder    = ListFirst( slug, "." );
@@ -20,7 +20,6 @@ component {
 		}
 
 		data.visible    = data.visible  ?: false;
-		data.pageType   = data.pageType ?: defaultPageType;
 		data.slug       = data.slug     ?: slug;
 		data.sortOrder  = Val( data.sortOrder ?: sortOrder );
 		data.sourceFile = "/docs" & Replace( path, docsBase, "" );
@@ -28,7 +27,7 @@ component {
 		data.related    = isArray( data.related ?: "" ) ? data.related : ( Len( Trim( data.related ?: "" ) ) ? [ data.related ] : [ "" ] );
 
 		new api.parsers.ParserFactory().getMarkdownParser().validateMarkdown( data );
-		
+
 		return data;
 	}
 
@@ -44,7 +43,7 @@ component {
 	}
 
 	private struct function _splitYamlAndBody( required string pageContent ) {
-		var splitterRegex = "^(\-\-\-\n(.*?)\n\-\-\-\n)?(.*)$";	
+		var splitterRegex = "^(\-\-\-\n(.*?)\n\-\-\-\n)?(.*)$";
 
 		return {
 			  yaml = Trim( ReReplace( arguments.pageContent, splitterRegex, "\2" ) )

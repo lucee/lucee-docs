@@ -1,8 +1,9 @@
 component accessors=true {
 
-	property name="tree"    type="array";
-	property name="idMap"   type="struct";
-	property name="pathMap" type="struct";
+	property name="tree"    type="array"; // top level folders
+	property name="idMap"   type="struct"; // pages by id
+	property name="pathMap" type="struct"; // pages by paths
+	property name="pageTypeMap" type="struct"; // tracks the total number of pages by type
 
 	public any function init( required string rootDirectory ) {
 		_loadTree( arguments.rootDirectory );
@@ -54,8 +55,8 @@ component accessors=true {
 		var start = getTickCount();
 		cflog(text="Starting Lucee Documentation Build");
 
-		_initializeEmptyTree();				
-		
+		_initializeEmptyTree();
+
 		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
 		for( var pageFile in pageFiles ) {
 			page = _preparePageObject( pageFile, arguments.rootDirectory );
@@ -67,6 +68,7 @@ component accessors=true {
 		_calculateNextAndPreviousPageLinks( tree );
 
 		//checkCategories();
+		cflog(text="Tree: #ArrayLen(tree)#, idMap: #structCount(idMap)#, pathMap: #structCount(pathMap)#,");
 		cflog(text="Documentation Built in #(getTickCount()-start)/1000#s");
 	}
 
@@ -74,15 +76,33 @@ component accessors=true {
 		setTree( [] );
 		setIdMap( {} );
 		setPathMap( {} );
+		setPageTypeMap( {} );
 	}
 
 	private void function _addPageToTree( required any page ) {
 		var parent    = _getPageParent( arguments.page );
 		var ancestors = [];
 		var lineage   = [];
+		var pageType = arguments.page.getPageType();
+
+		var isPage = false; // workaround for page types not being parsed out correctly in PageReader.readPageFile
+		switch (pageType){
+			case "homepage":
+			case "page":
+			case "chapter":
+			case "category":
+			case "function":
+			case "listing":
+			case "tag":
+				isPage = true;
+				break;
+			default:
+				isPage = false;
+		};
 
 		if ( !IsNull( parent ) ) {
-			parent.addChild( arguments.page );
+			if (isPage)
+				parent.addChild( arguments.page ); // don't add page subelements, i.e _attributes etc
 			arguments.page.setParent( parent );
 
 			ancestors = parent.getAncestors();
@@ -92,11 +112,17 @@ component accessors=true {
 			tree.append( arguments.page );
 		}
 
+		if (not isPage)
+			return; // only add main pages
+
+		if ( not StructKeyExists(pageTypeMap, pageType) )
+			pageTypeMap[pageType]=0;
+		pageTypeMap[pageType]++;
+
 		arguments.page.setAncestors( ancestors );
 		lineage = Duplicate( ancestors );
 		lineage.append( arguments.page.getId() );
 		arguments.page.setLineage( lineage );
-
 		idMap[ arguments.page.getId() ]     = arguments.page;
 		pathMap[ arguments.page.getPath() ] = arguments.page;
 	}
@@ -303,7 +329,7 @@ component accessors=true {
 
 		return new api.reference.ReferenceReaderFactory().getTagReferenceReader();
 	}
-	
+
 	// all categories should have content, all referenced categories should exist
 	public void function checkCategories() {
 		var pageCategories = {};
@@ -320,17 +346,17 @@ component accessors=true {
 				}
 			}
 		}
-		
+
 
 		for( var id in idMap ) {
-			var pageType = idMap[ id ].getPageType(); 
+			var pageType = idMap[ id ].getPageType();
 			if (pageType eq "category"){
-				var slug = idMap[ id ].getSlug(); 
+				var slug = idMap[ id ].getSlug();
 				if (not structKeyExists(pageCategories, slug )){
 					empty[slug]=idMap[ id ].getPath();
 				}
 				categories[slug] = "";
-			}			
+			}
 		}
 
 		var missing = {};
@@ -342,17 +368,17 @@ component accessors=true {
 
 		if (structCount(empty) gt 0){
 			var mess= "The following categories have no pages: " & structKeyList(empty);
-			writeOutput(mess);			
-			dump(empty);						
+			writeOutput(mess);
+			dump(empty);
 		}
 
 		if (structCount(missing) gt 0){
 			var mess= "The following categories referenced by pages don't exist: " & structKeyList(missing);
-			writeOutput(mess);			
-			dump(missing);						
+			writeOutput(mess);
+			dump(missing);
 		}
 
-		if (structCount(empty) gt 0 or structCount(missing) gt 0){			
+		if (structCount(empty) gt 0 or structCount(missing) gt 0){
 			abort;
 		}
 	}
