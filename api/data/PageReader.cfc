@@ -28,7 +28,7 @@ component {
 		data.sourceDir  = "/docs" & Replace( fileDirectory     , docsBase, "" );
 		data.related    = isArray( data.related ?: "" ) ? data.related : ( Len( Trim( data.related ?: "" ) ) ? [ data.related ] : [ "" ] );
 
-		new api.parsers.ParserFactory().getMarkdownParser().validateMarkdown( data );
+		//new api.parsers.ParserFactory().getMarkdownParser().validateMarkdown( data );
 
 		return data;
 	}
