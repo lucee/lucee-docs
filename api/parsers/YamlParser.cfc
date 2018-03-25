@@ -34,9 +34,9 @@ component {
 				} else if (isArray(data[d])) {
 					if (arrayLen(data[d]) eq 1 and len(trim(data[d][1])) eq 0 )
 						hasContent = false; // empty array
-				} else if (isStruct(data[d])) {		
-					if (structCount(data[d]) eq 0)	
-						hasContent = false; // empty struct	
+				} else if (isStruct(data[d])) {
+					if (structCount(data[d]) eq 0)
+						hasContent = false; // empty struct
 				} else if (len(trim(data[d])) eq 0){
 					hasContent = false; // empty string
 				}
