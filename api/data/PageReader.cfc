@@ -27,12 +27,14 @@ component {
 		data.sourceDir  = "/docs" & Replace( fileDirectory     , docsBase, "" );
 		data.related    = isArray( data.related ?: "" ) ? data.related : ( Len( Trim( data.related ?: "" ) ) ? [ data.related ] : [ "" ] );
 
+		new api.parsers.ParserFactory().getMarkdownParser().validateMarkdown( data );
+		
 		return data;
 	}
 
 	private struct function _parsePage( required string pageContent ) {
 		var yamlAndBody = _splitYamlAndBody( arguments.pageContent );
-		var parsed      = { body = yamlAndBody.body }
+		var parsed      = { body = yamlAndBody.body };
 
 		if ( yamlAndBody.yaml.len() ) {
 			parsed.append( _parseYaml( yamlAndBody.yaml ), false );
