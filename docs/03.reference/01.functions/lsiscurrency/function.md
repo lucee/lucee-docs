@@ -6,7 +6,7 @@ categories:
     - currency
     - string
     - formatting
-    - i18n
+    - internationalization
     - decision
 ---
 

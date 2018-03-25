@@ -1,4 +1,5 @@
 The structure used to specify the line attributes:
+
 - width: Pen width, which is measured perpendicularly to the pen trajectory.
 - endcaps: Decoration applied to the ends of unclosed subpaths and dash segments. Subpaths that start and end on the same point are considered unclosed if they do not have a close segment, valid values are ( butt.round,square )
 - lineJoins: Type of line joins, valid values are (bevel,miter,join)

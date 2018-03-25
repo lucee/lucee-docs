@@ -51,8 +51,11 @@ component accessors=true {
 
 // private helpers
 	private void function _loadTree( required string rootDirectory ) {
-		_initializeEmptyTree();
+		var start = getTickCount();
+		cflog(text="Starting Lucee Documentation Build");
 
+		_initializeEmptyTree();				
+		
 		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
 		for( var pageFile in pageFiles ) {
 			page = _preparePageObject( pageFile, arguments.rootDirectory );
@@ -60,7 +63,11 @@ component accessors=true {
 			_addPageToTree( page );
 		}
 		_sortChildren( tree );
+		cflog(text="Calculating Next and Previous Links");
 		_calculateNextAndPreviousPageLinks( tree );
+
+		//checkCategories();
+		cflog(text="Documentation Built in #(getTickCount()-start)/1000#s");
 	}
 
 	private void function _initializeEmptyTree() {
@@ -79,7 +86,8 @@ component accessors=true {
 			arguments.page.setParent( parent );
 
 			ancestors = parent.getAncestors();
-			ancestors.append( parent.getId() );
+			if (ancestors.len() eq 0) // avoid duplicates
+				ancestors.append( parent.getId() );
 		} else {
 			tree.append( arguments.page );
 		}
@@ -241,7 +249,7 @@ component accessors=true {
 
 			var nextParent = ( i == pageCount ) ? ( arguments.nextParentPage ?: NullValue() ) : arguments.pages[i+1];
 			for( var child in page.getChildren() ){
-				_calculateNextAndPreviousPageLinks( page.getChildren(), ( nextParent ?: NullValue() ), arguments.lastPageTouched )
+				_calculateNextAndPreviousPageLinks( child.getChildren(), ( nextParent ?: NullValue() ), arguments.lastPageTouched )
 			}
 		}
 	}
@@ -294,5 +302,58 @@ component accessors=true {
 		var buildProperties = new api.build.BuildProperties();
 
 		return new api.reference.ReferenceReaderFactory().getTagReferenceReader();
+	}
+	
+	// all categories should have content, all referenced categories should exist
+	public void function checkCategories() {
+		var pageCategories = {};
+		var categories = {};
+		var empty = {};
+
+		for( var id in idMap ) {
+			var cats = idMap[ id ].getCategories();
+			if (!IsNull( cats) ){
+				for (var cat in cats){
+					if (not structKeyExists(pageCategories, cat))
+						pageCategories[cat]=[];
+					arrayAppend(pageCategories[cat], idMap[ id ].getPath());
+				}
+			}
+		}
+		
+
+		for( var id in idMap ) {
+			var pageType = idMap[ id ].getPageType(); 
+			if (pageType eq "category"){
+				var slug = idMap[ id ].getSlug(); 
+				if (not structKeyExists(pageCategories, slug )){
+					empty[slug]=idMap[ id ].getPath();
+				}
+				categories[slug] = "";
+			}			
+		}
+
+		var missing = {};
+		for (var cat in pageCategories){
+			if (not structKeyExists(categories, cat )){
+				missing[slug]=pageCategories[cat];
+			}
+		}
+
+		if (structCount(empty) gt 0){
+			var mess= "The following categories have no pages: " & structKeyList(empty);
+			writeOutput(mess);			
+			dump(empty);						
+		}
+
+		if (structCount(missing) gt 0){
+			var mess= "The following categories referenced by pages don't exist: " & structKeyList(missing);
+			writeOutput(mess);			
+			dump(missing);						
+		}
+
+		if (structCount(empty) gt 0 or structCount(missing) gt 0){			
+			abort;
+		}
 	}
 }

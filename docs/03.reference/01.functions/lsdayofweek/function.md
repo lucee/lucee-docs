@@ -4,7 +4,7 @@ id: function-lsdayofweek
 related:
 categories:
     - date
-    - i18n
+    - internationalization
 ---
 
 Returns the day of the week the date represents in locale format.

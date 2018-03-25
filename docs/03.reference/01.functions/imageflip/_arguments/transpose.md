@@ -1,4 +1,5 @@
 Transpose the image:
+
 - vertical (default): Flip an image across an imaginary horizontal line that runs through the center of the image.
 - horizontal: Flip an image across an imaginary vertical line that runs through the center of the image.
 - diagonal: Flip an image across its main diagonal that runs from the upper-left to the lower-right corner.

@@ -6,7 +6,7 @@ categories:
     - currency
     - string
     - formatting
-    - i18n
+    - internationalization
 ---
 
 this funciton is just a alias for lsCurrencyFormat

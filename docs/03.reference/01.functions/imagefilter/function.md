@@ -13,6 +13,7 @@ average
 	A filter which averages the 3x3 neighbourhood of each pixel, providing a simple blur.
 
 	Parameters:
+
 	- edgeAction (String)
 		The action to perfomr for pixels off the image edges.
 		valid values are:
@@ -27,6 +28,7 @@ block
 	A Filter to pixellate images.
 
 	Parameters:
+
 	- blockSize (integer)
 		The pixel block size.
 		- min-value: 1
@@ -46,6 +48,7 @@ blur
 	A simple blur filter. You should probably use BoxBlurFilter instead.
 
 	Parameters:
+
 	- edgeAction (String)
 		The action to perfomr for pixels off the image edges.
 		valid values are:
@@ -60,6 +63,7 @@ border
 	A filter to add a border around an image using the supplied Paint, which may be null for no painting.
 
 	Parameters:
+
 	- left (integer)
 		The border size on the left edge.
 		- min-value: 0
@@ -78,6 +82,7 @@ bump
 	A simple embossing filter.
 
 	Parameters:
+
 	- edgeAction (String)
 		The action to perfomr for pixels off the image edges.
 		valid values are:
@@ -92,6 +97,7 @@ caustics
 	A filter which simulates underwater caustics. This can be animated to get a bottom-of-the-swimming-pool effect.
 
 	Parameters:
+
 	- amount (numeric)
 		The amount of effect.
 		- min-value: 0
@@ -122,6 +128,7 @@ cellular
 	A filter which produces an image with a cellular texture.
 
 	Parameters:
+
 	- amount (numeric)
 		The amount of effect.
 		- min-value: 0
@@ -157,6 +164,7 @@ check
 	A Filter to draw grids and check patterns.
 
 	Parameters:
+
 	- angle (numeric)
 		The angle of the texture.
 	- xScale (integer)
@@ -174,6 +182,7 @@ chrome
 	A filter which simulates chrome.
 
 	Parameters:
+
 	- amount (numeric)
 		The amount of effect.
 		- min-value: 0
@@ -195,6 +204,7 @@ circle
 	A filter which wraps an image around a circular arc.
 
 	Parameters:
+
 	- radius (numeric)
 		The radius of the effect.
 		- min-value: 0
@@ -223,6 +233,7 @@ contour
 	A filter which draws contours on an image at given brightness levels.
 
 	Parameters:
+
 	- levels (numeric)
 	- contourColor (String)
 	- offset (numeric)
@@ -234,6 +245,7 @@ contrast
 	A filter to change the brightness and contrast of an image.
 
 	Parameters:
+
 	- brightness (numeric)
 		The filter brightness.
 		- min-value: 0
@@ -247,6 +259,7 @@ crop
 	A filter which crops an image to a given rectangle.
 
 	Parameters:
+
 	- x (integer)
 		The left edge of the crop rectangle.
 	- y (integer)
@@ -259,6 +272,7 @@ crystallize
 	A filter which applies a crystallizing effect to an image, by producing Voronoi cells filled with colours from the image.
 
 	Parameters:
+
 	- edgeThickness (numeric)
 	- fadeEdges (boolean)
 	- edgeColor (String)
@@ -297,6 +311,7 @@ curl
 	A page curl effect.
 
 	Parameters:
+
 	- radius (numeric)
 	- angle (numeric)
 	- transition (numeric)
@@ -319,6 +334,7 @@ diffuse
 	This filter diffuses an image by moving its pixels in random directions.
 
 	Parameters:
+
 	- scale (numeric)
 		Specifies the scale of the texture.
 		- min-value: 1
@@ -338,6 +354,7 @@ diffusion
 	A filter which uses Floyd-Steinberg error diffusion dithering to halftone an image.
 
 	Parameters:
+
 	- levels (integer)
 		The number of dither levels.
 	- serpentine (boolean)
@@ -348,6 +365,7 @@ dilate
 	Given a binary image, this filter performs binary dilation, setting all added pixels to the given 'new' color.
 
 	Parameters:
+
 	- threshold (integer)
 		The threshold - the number of neighbouring pixels for dilation to occur.
 	- iterations (integer)
@@ -361,6 +379,7 @@ displace
 	pixels in the source image are displaced according to the gradient of the displacement map.
 
 	Parameters:
+
 	- amount (numeric)
 		The amount of distortion.
 		- min-value: 0
@@ -382,6 +401,7 @@ dissolve
 	A filter which "dissolves" an image by thresholding the alpha channel with random numbers.
 
 	Parameters:
+
 	- density (numeric)
 		The density of the image in the range 0..1.
 		- min-value: 0
@@ -395,6 +415,7 @@ dither
 	A filter which performs ordered dithering on an image.
 
 	Parameters:
+
 	- levels (integer)
 		The number of dither levels.
 	- colorDither (boolean)
@@ -408,6 +429,7 @@ emboss
 	A class to emboss an image.
 
 	Parameters:
+
 	- bumpHeight (numeric)
 	- azimuth (numeric)
 	- elevation (numeric)
@@ -420,6 +442,7 @@ erode
 	Given a binary image, this filter performs binary erosion, setting all removed pixels to the given 'new' color.
 
 	Parameters:
+
 	- threshold (integer)
 		The threshold - the number of neighbouring pixels for dilation to occur.
 	- iterations (integer)
@@ -432,6 +455,7 @@ exposure
 	A filter which changes the exposure of an image.
 
 	Parameters:
+
 	- exposure (numeric)
 		The exposure level.
 		- min-value: 0
@@ -441,6 +465,7 @@ fade
 	An abstract superclass for point filters. The interface is the same as the old RGBImageFilter.
 
 	Parameters:
+
 	- angle (numeric)
 		Specifies the angle of the texture.
 	- sides (integer)
@@ -452,6 +477,7 @@ feedback
 	A filter which priduces a video feedback effect by repeated transformations.
 
 	Parameters:
+
 	- iterations (integer)
 		The number of iterations.
 		- min-value: 0
@@ -480,6 +506,7 @@ fill
 	to go via a filter to fit in with an existing API.
 
 	Parameters:
+
 	- fillColor (String)
 		The fill color.
 	- dimensions (Array)
@@ -487,6 +514,7 @@ flare
 	An experimental filter for rendering lens flares.
 
 	Parameters:
+
 	- radius (numeric)
 		The radius of the effect.
 		- min-value: 0
@@ -502,12 +530,14 @@ flip
 	A filter which flips images or rotates by multiples of 90 degrees.
 
 	Parameters:
+
 	- operation (integer)
 		The filter operation.
 gain
 	A filter which changes the gain and bias of an image - similar to ContrastFilter.
 
 	Parameters:
+
 	- gain (numeric)
 		The gain.
 		- min-value:: 0
@@ -521,6 +551,7 @@ gamma
 	A filter for changing the gamma of an image.
 
 	Parameters:
+
 	- gamma (numeric)
 		The gamma levels.
 	- dimensions (Array)
@@ -529,6 +560,7 @@ gaussian
 	which simply creates a kernel with a Gaussian distribution for blurring.
 
 	Parameters:
+
 	- radius (numeric)
 		The radius of the kernel, and hence the amount of blur. The bigger the radius, the longer this filter will take.
 		- min-value: 0
@@ -547,6 +579,7 @@ glint
 	A filter which renders "glints" on bright parts of the image.
 
 	Parameters:
+
 	- amount (numeric)
 		The amount of glint.
 		- min-value: 0
@@ -565,6 +598,7 @@ glow
 	A filter which adds Gaussian blur to an image, producing a glowing effect.
 
 	Parameters:
+
 	- amount (numeric)
 		The amount of glow.
 		- min-value: 0
@@ -588,6 +622,7 @@ gradient
 	more gradient options.
 
 	Parameters:
+
 	- interpolation (integer)
 	- angle (numeric)
 		Specifies the angle of the texture.
@@ -603,16 +638,19 @@ gray
 	A filter which 'grays out' an image by averaging each pixel with white.
 
 	Parameters:
+
 	- dimensions (Array)
 grayscale
 	A filter which converts an image to grayscale using the NTSC brightness calculation.
 
 	Parameters:
+
 	- dimensions (Array)
 halftone
 	A filter which can be used to produce wipes by transferring the luma of a mask image into the alpha channel of the source.
 
 	Parameters:
+
 	- density (numeric)
 		The density of the image in the range 0..1.
 		*arg density The density
@@ -627,6 +665,7 @@ interpolate
 	to extrapolate images.
 
 	Parameters:
+
 	- destination (Image)
 		The destination image.
 	- interpolation (numeric)
@@ -635,11 +674,13 @@ invert
 	A filter which inverts the RGB channels of an image.
 
 	Parameters:
+
 	- dimensions (Array)
 kaleidoscope
 	A Filter which produces the effect of looking into a kaleidoscope.
 
 	Parameters:
+
 	- radius (numeric)
 		The radius of the effect.
 		- min-value: 0
@@ -669,6 +710,7 @@ levels
 	A filter which allows levels adjustment on an image.
 
 	Parameters:
+
 	- lowLevel (numeric)
 	- highLevel (numeric)
 	- lowOutputLevel (numeric)
@@ -677,6 +719,7 @@ life
 	A filter which performs one round of the game of Life on an image.
 
 	Parameters:
+
 	- iterations (integer)
 		The number of iterations the effect is performed.
 		- min-value: 0
@@ -687,6 +730,7 @@ light
 	A filter which produces lighting and embossing effects.
 
 	Parameters:
+
 	- colorSource (String)
 	- material (String)
 		 Use the following format [color,opacity]; Example: "red,0.5"
@@ -700,6 +744,7 @@ lookup
 	A filter which uses the brightness of each pixel to lookup a color from a colormap.
 
 	Parameters:
+
 	- colormap (Colormap)
 		The colormap to be used for the filter. Use function ImageFilterColorMap to create.
 	- dimensions (Array)
@@ -708,6 +753,7 @@ map
 	two methods to provide the mapping between source and destination pixels.
 
 	Parameters:
+
 	- edgeAction (String)
 		The action to perfomr for pixels off the image edges.
 		valid values are:
@@ -723,6 +769,7 @@ marble
 	This filter applies a marbling effect to an image, displacing pixels by random amounts.
 
 	Parameters:
+
 	- amount (numeric)
 		The amount of effect.
 		- min-value: 0
@@ -750,6 +797,7 @@ mask
 	Applies a bit mask to each ARGB pixel of an image. You can use this for, say, masking out the red channel.
 
 	Parameters:
+
 	- mask (integer)
 	- dimensions (Array)
 maximum
@@ -768,6 +816,7 @@ mirror
 
 
 	Parameters:
+
 	- angle (numeric)
 		Specifies the angle of the mirror.
 	- centreY (numeric)
@@ -780,6 +829,7 @@ noise
 	A filter which adds random noise into an image.
 
 	Parameters:
+
 	- amount (integer)
 		The amount of effect.
 		- min-value: 0
@@ -796,6 +846,7 @@ offset
 	two methods to provide the mapping between source and destination pixels.
 
 	Parameters:
+
 	- xOffset (integer)
 	- yOffset (integer)
 	- wrap (boolean)
@@ -814,6 +865,7 @@ oil
 	A filter which produces a "oil-painting" effect.
 
 	Parameters:
+
 	- levels (integer)
 		The number of levels for the effect.
 	- range (integer)
@@ -822,6 +874,7 @@ opacity
 	Sets the opacity (alpha) of every pixel in an image to a constant value.
 
 	Parameters:
+
 	- opacity (integer)
 		The opacity.
 	- dimensions (Array)
@@ -829,6 +882,7 @@ outline
 	Given a binary image, this filter converts it to its outline, replacing all interior pixels with the 'new' color.
 
 	Parameters:
+
 	- iterations (integer)
 		The number of iterations the effect is performed.
 		- min-value: 0
@@ -839,6 +893,7 @@ perspective
 	A filter which performs a perspective distortion on an image.
 
 	Parameters:
+
 	- xLT (numeric)
 		the new horizontal position of the top left corner, negative values are translated to image-width - x.
 	- yLT (numeric)
@@ -870,6 +925,7 @@ pinch
 	A filter which performs the popular whirl-and-pinch distortion effect.
 
 	Parameters:
+
 	- radius (numeric)
 		The radius of the effect.
 		- min-value: 0
@@ -899,6 +955,7 @@ plasma
 	to do their stuff.
 
 	Parameters:
+
 	- turbulence (numeric)
 		Specifies the turbulence of the texture.
 		- min-value: 0
@@ -913,6 +970,7 @@ pointillize
 	A filter which produces an image with a cellular texture.
 
 	Parameters:
+
 	- fuzziness (numeric)
 	- edgeThickness (numeric)
 	- fadeEdges (boolean)
@@ -952,6 +1010,7 @@ polar
 	A filter which distorts and image by performing coordinate conversions between rectangular and polar coordinates.
 
 	Parameters:
+
 	- type (String)
 		The distortion type, valid values are
 		- RECT_TO_POLAR = Convert from rectangular to polar coordinates
@@ -972,6 +1031,7 @@ posterize
 	A filter to posterize an image.
 
 	Parameters:
+
 	- numLevels (integer)
 		The number of levels in the output image.
 	- dimensions (Array)
@@ -985,6 +1045,7 @@ quantize
 	I hope to extend it to produce an IndexColorModel by request.
 
 	Parameters:
+
 	- serpentine (boolean)
 		Set whether to use a serpentine pattern for return or not. This can reduce 'avalanche' artifacts in the output.
 	- numColors (String)
@@ -996,6 +1057,7 @@ quilt
 	to do their stuff.
 
 	Parameters:
+
 	- iterations (integer)
 		The number of iterations the effect is performed.
 		- min-value: 0
@@ -1010,6 +1072,7 @@ rays
 	A filter which produces the effect of light rays shining out of an image.
 
 	Parameters:
+
 	- colormap (Colormap)
 		The colormap to be used for the filter. Use function ImageFilterColorMap to create.
 	- strength (numeric)
@@ -1030,6 +1093,7 @@ rescale
 	A filter which simply multiplies pixel values by a given scale factor.
 
 	Parameters:
+
 	- scale (numeric)
 		Specifies the scale factor.
 		- min-value: 1
@@ -1041,6 +1105,7 @@ ripple
 	pixels going off the edges are wrapped or not.
 
 	Parameters:
+
 	- xAmplitude (numeric)
 		The amplitude of ripple in the X direction.
 	- xWavelength (numeric)
@@ -1071,6 +1136,7 @@ rotate
 	A filter which rotates an image. These days this is easier done with Java2D, but this filter remains.
 
 	Parameters:
+
 	- angle (numeric)
 		Specifies the angle of rotation.
 	- edgeAction (String)
@@ -1089,6 +1155,7 @@ saturation
 	and then extrapolating away from it.
 
 	Parameters:
+
 	- amount (numeric)
 		The amount of saturation change. 1 leaves the image unchanged, values between 0 and 1 desaturate, 0 completely
 		desaturates it and values above 1 increase the saturation.
@@ -1097,12 +1164,14 @@ scale
 	Scales an image using the area-averaging algorithm, which can't be done with AffineTransformOp.
 
 	Parameters:
+
 	- width (integer)
 	- height (integer)
 scratch
 
 
 	Parameters:
+
 	- angle (numeric)
 	- density (numeric)
 	- angleVariation (numeric)
@@ -1115,6 +1184,7 @@ shade
 	to do their stuff.
 
 	Parameters:
+
 	- bumpHeight (numeric)
 	- bumpSoftness (numeric)
 	- bumpSource (integer)
@@ -1122,6 +1192,7 @@ shadow
 	A filter which draws a drop shadow based on the alpha channel of the image.
 
 	Parameters:
+
 	- radius (numeric)
 		The radius of the kernel, and hence the amount of blur. The bigger the radius, the longer this filter will take.
 	- angle (numeric)
@@ -1141,6 +1212,7 @@ shape
 	to do their stuff.
 
 	Parameters:
+
 	- useAlpha (boolean)
 	- colormap (Colormap)
 		The colormap to be used for the filter. Use function ImageFilterColorMap to create.
@@ -1152,6 +1224,7 @@ sharpen
 	A filter which performs a simple 3x3 sharpening operation.
 
 	Parameters:
+
 	- edgeAction (String)
 		The action to perfomr for pixels off the image edges.
 		valid values are:
@@ -1166,6 +1239,7 @@ shatter
 
 
 	Parameters:
+
 	- iterations (integer)
 	- centreX (numeric)
 	- centreY (numeric)
@@ -1181,6 +1255,7 @@ shear
 	two methods to provide the mapping between source and destination pixels.
 
 	Parameters:
+
 	- resize (boolean)
 	- xAngle (numeric)
 	- yAngle (numeric)
@@ -1199,6 +1274,7 @@ shine
 	A filter which simply multiplies pixel values by a given scale factor.
 
 	Parameters:
+
 	- radius (numeric)
 		The radius of the kernel, and hence the amount of blur. The bigger the radius, the longer this filter will take.
 	- brightness (numeric)
@@ -1213,6 +1289,7 @@ skeleton
 	Based on an algorithm by Zhang and Suen (CACM, March 1984, 236-239).
 
 	Parameters:
+
 	- iterations (integer)
 		The number of iterations the effect is performed.
 		- min-value: 0
@@ -1224,6 +1301,7 @@ smear
 	to do their stuff.
 
 	Parameters:
+
 	- angle (numeric)
 		Specifies the angle of the texture.
 	- density (numeric)
@@ -1237,11 +1315,13 @@ solarize
 	A filter which solarizes an image.
 
 	Parameters:
+
 	- dimensions (Array)
 sparkle
 	An abstract superclass for point filters. The interface is the same as the old RGBImageFilter.
 
 	Parameters:
+
 	- radius (integer)
 		The radius of the effect.
 		- min-value: 0
@@ -1257,6 +1337,7 @@ sphere
 	A filter which simulates a lens placed over an image.
 
 	Parameters:
+
 	- radius (numeric)
 		The radius of the effect.
 		- min-value: 0
@@ -1281,6 +1362,7 @@ stamp
 	A filter which produces a rubber-stamp type of effect by performing a thresholded blur.
 
 	Parameters:
+
 	- radius (numeric)
 		The radius of the effect.
 		- min-value: 0
@@ -1299,6 +1381,7 @@ swim
 	A filter which distorts an image as if it were underwater.
 
 	Parameters:
+
 	- amount (numeric)
 		The amount of swim.
 		- min-value: 0
@@ -1334,6 +1417,7 @@ texture
 	An abstract superclass for point filters. The interface is the same as the old RGBImageFilter.
 
 	Parameters:
+
 	- amount (numeric)
 		The amount of texture.
 		- min-value: 0
@@ -1360,6 +1444,7 @@ threshold
 	A filter which performs a threshold operation on an image.
 
 	Parameters:
+
 	- white (integer)
 		The color to be used for pixels above the upper threshold.
 	- black (integer)
@@ -1375,6 +1460,7 @@ twirl
 	the width and height. Pixels outside this radius are unaffected.
 
 	Parameters:
+
 	- radius (numeric)
 		The radius of the effect.
 		- min-value: 0
@@ -1399,6 +1485,7 @@ unsharp
 	A filter which subtracts Gaussian blur from an image, sharpening it.
 
 	Parameters:
+
 	- amount (numeric)
 		The amount of sharpening.
 		- min-value: 0
@@ -1423,6 +1510,7 @@ water
 	A filter which produces a water ripple distortion.
 
 	Parameters:
+
 	- radius (numeric)
 		The radius of the effect.
 		- min-value: 0
@@ -1451,6 +1539,7 @@ weave
 	An abstract superclass for point filters. The interface is the same as the old RGBImageFilter.
 
 	Parameters:
+
 	- useImageColors (boolean)
 	- xGap (numeric)
 	- xWidth (numeric)
@@ -1464,6 +1553,7 @@ wood
 	A filter which produces a simulated wood texture. This is a bit of a hack, but might be usefult to some people.
 
 	Parameters:
+
 	- turbulence (numeric)
 		Specifies the turbulence of the texture.
 		- min-value: 0
