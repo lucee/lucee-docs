@@ -13,6 +13,7 @@ component {
 		else
 			var docsBase        = ExpandPath("/docs");
 
+		// if the last directory is in the format 00.home, flag is as visible
 		if ( ListLen( slug, "." ) > 1 && IsNumeric( ListFirst( slug, "." ) ) ) {
 			sortOrder    = ListFirst( slug, "." );
 			slug         = ListRest( slug, "." );
@@ -20,6 +21,7 @@ component {
 		}
 
 		data.visible    = data.visible  ?: false;
+		data.pageType   = data.pageType ?: defaultPageType; // TODO this is sometimes still the .md file path
 		data.slug       = data.slug     ?: slug;
 		data.sortOrder  = Val( data.sortOrder ?: sortOrder );
 		data.sourceFile = "/docs" & Replace( path, docsBase, "" );
