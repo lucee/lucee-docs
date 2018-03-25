@@ -3,7 +3,7 @@ title: GetLocaleDisplayName
 id: function-getlocaledisplayname
 related:
 categories:
-    - i18n
+    - internationalization
 ---
 
 Gets a locale value and displays the name in a manner

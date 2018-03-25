@@ -3,7 +3,7 @@ title: LSIsNumeric
 id: function-lsisnumeric
 related:
 categories:
-    - i18n
+    - internationalization
     - number
     - decision
 ---

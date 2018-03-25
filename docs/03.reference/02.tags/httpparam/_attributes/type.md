@@ -1,4 +1,5 @@
 valid values are:
+
 - header: specifies an HTTP header.
 - CGI: specifies an HTTP header. encodes the value depending on the attribute "encoded
 - body: specifies the body of the HTTP request.

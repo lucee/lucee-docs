@@ -1,4 +1,5 @@
 The algorithm to use to hash the string. Supported are the following algorithms:
+
 - CFMX_COMPAT: generating a hash string using classic CFML algorithm.
 - MD5: (default) Generates a 32-character, hexadecimal string, using the MD5 algorithm.
 - SHA: Generates a 28-character string using the Secure Hash Standard SHA-1 algorithm specified by Nation Institute of Standards and Technology (NIST) FIPS-180-2.

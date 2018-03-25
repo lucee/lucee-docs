@@ -3,7 +3,7 @@ title: SetLocale
 id: function-setlocale
 related:
 categories:
-    - i18n
+    - internationalization
 ---
 
 Sets the country/language locale for CFML processing

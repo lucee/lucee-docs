@@ -6,7 +6,7 @@ categories:
     - currency
     - string
     - formatting
-    - i18n
+    - internationalization
 ---
 
 Formats a number in a locale-specific currency format.

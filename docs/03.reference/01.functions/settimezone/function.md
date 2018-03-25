@@ -3,7 +3,7 @@ title: SetTimeZone
 id: function-settimezone
 related:
 categories:
-    - i18n
+    - internationalization
     - date
 ---
 

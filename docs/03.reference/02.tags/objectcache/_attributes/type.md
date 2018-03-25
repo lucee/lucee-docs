@@ -1,7 +1,8 @@
 cache type to manipulate
+
 - function
-- include 
-- object 
-- query 
-- resource 
+- include
+- object
+- query
+- resource
 - template
