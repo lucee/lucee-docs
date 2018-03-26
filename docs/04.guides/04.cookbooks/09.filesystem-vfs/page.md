@@ -77,3 +77,15 @@ dump(sct);
 dir=directoryList(sct.s3);
 dump(dir);
 ```
+
+## HTTP ##
+HTTP allows you to use HTTP URLs as a virtual Filesystem. This is limited to read operation, because in most cases Webserver do not allow methods PUT,DELETE,UPDATE. 
+
+### Example Code: ###
+
+```cfs
+sct.uri="http://docs.lucee.org/reference/functions/abs.html";
+dump(sct);
+dump(fileRead(sct.uri));
+dump(directoryList("http://lucee.org/index.cfm"));
+```
