@@ -27,6 +27,13 @@ FTP allows you to use a FTP server as a virtual filesystem. You can define the c
 ### Example Code: ###
 
 ```cfs
+/* Application.cfc */
+	this.ftp.username="...";
+	this.ftp.password="...";
+	this.ftp.host="ftp.lucee.org";
+	this.ftp.port=21;
+
+/* index.cfm */
 ftp="ftp://#request.ftp.user#:#request.ftp.pass#@ftp53.world4you.com:21/"; // add credentials to path
 //ftp="ftp:///"; // take credentials and host/port from Application.cfc
 //ftp="ftp://ftp53.world4you.com:21/"; // take credentials from Application.cfc
@@ -51,4 +58,22 @@ dump(directoryList(sct.zip));
 dump(directoryList(sct.zip&"/myfolder"));
 echo("<pre>");echo(fileRead(sct.zip&"/myfolder/my.txt"));echo("</pre>");
 
+```
+
+## S3 ##
+S3 allows you to use S3, the Cloud Storage Service from Amazon to use a virtual Filesystem.
+
+### Example Code: ###
+
+```cfs
+/* Application.cfc */
+	this.s3.accessKeyId = "...";
+	this.s3.awsSecretKey = "...";
+
+/* index.cfm */
+sct.s3 = "s3://#request.s3.accessKeyId#:#request.s3.awsSecretKey#@/"; // add credentials to path
+sct.s3 = "s3:///"; // take credentials from Application.cfc
+dump(sct);
+dir=directoryList(sct.s3);
+dump(dir);
 ```
