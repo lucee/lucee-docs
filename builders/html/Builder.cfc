@@ -12,7 +12,7 @@ component {
 
 	public void function build( docTree, buildDirectory ) {
 		var tree = docTree.getTree();
-
+		cflog(text="Builder html directory: #arguments.buildDirectory#");
 		for( var page in tree ) {
 			_writePage( page, arguments.buildDirectory, docTree );
 		}
@@ -124,7 +124,13 @@ component {
 	}
 
 	private void function _copyStaticAssets( required string buildDirectory ) {
-		DirectoryCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets", arguments.buildDirectory & "/assets", true );
+		var subdirs = directoryList(path=GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets", type="dir", recurse="false");
+		for (var subdir in subdirs){
+			var dirName = listLast(subdir, "/\");
+			if (dirName neq "node_modules" and dirName neq "sass" and left(dirName,1) neq "."){
+				DirectoryCopy(subdir, arguments.buildDirectory & "/assets/" & dirName, true );
+			}
+		}
 	}
 
 	private void function _renderStaticPages( required string buildDirectory, required any docTree ) {

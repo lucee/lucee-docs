@@ -9,8 +9,7 @@ component extends="builders.html.Builder" {
 		var docsRoot      = resourcesRoot & "Documents/";
 		var ignorePages   = [ "download" ];
 
-		cflog(text="Dash Builder docroot: #docsetRoot# ");
-
+		cflog(text="Builder dash directory: #docsetRoot# ");
 
 		if ( !DirectoryExists( arguments.buildDirectory ) ) { DirectoryCreate( arguments.buildDirectory ); }
 		if ( !DirectoryExists( docsetRoot               ) ) { DirectoryCreate( docsetRoot               ); }
