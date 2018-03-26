@@ -4,6 +4,7 @@ component accessors=true {
 	property name="idMap"   type="struct"; // pages by id
 	property name="pathMap" type="struct"; // pages by paths
 	property name="pageTypeMap" type="struct"; // tracks the total number of pages by type
+	property name="relatedMap" type="struct"; // tracks related pages
 
 	public any function init( required string rootDirectory ) {
 		_loadTree( arguments.rootDirectory );
@@ -50,6 +51,13 @@ component accessors=true {
 		} );
 	}
 
+	public array function getPageRelated(required any page){
+		if (structKeyExists(relatedMap, arguments.page.getId()))
+			return relatedMap[arguments.page.getId()];
+		else
+			return [];
+	}
+
 // private helpers
 	private void function _loadTree( required string rootDirectory ) {
 		var start = getTickCount();
@@ -66,8 +74,9 @@ component accessors=true {
 		_sortChildren( tree );
 		cflog(text="Calculating Next and Previous Links");
 		_calculateNextAndPreviousPageLinks( tree );
+		_buildRelated();
 
-		//checkCategories();
+		//_checkCategories();
 		cflog(text="Tree: #ArrayLen(tree)#, idMap: #structCount(idMap)#, pathMap: #structCount(pathMap)#,");
 		cflog(text="Documentation Built in #(getTickCount()-start)/1000#s");
 	}
@@ -77,6 +86,7 @@ component accessors=true {
 		setIdMap( {} );
 		setPathMap( {} );
 		setPageTypeMap( {} );
+		setRelatedMap( {} );
 	}
 
 	private void function _addPageToTree( required any page ) {
@@ -330,8 +340,37 @@ component accessors=true {
 		return new api.reference.ReferenceReaderFactory().getTagReferenceReader();
 	}
 
+
+	private void function _buildRelated(){
+		var related = {};
+
+		for ( var id in idMap ) {
+			var relatedPageLinks = idMap[ id ].getRelated();
+			var pageId = idMap[ id ].getId();
+
+			if ( !IsNull( relatedPageLinks ) and ArrayLen(relatedPageLinks) gt 0) {
+				for( var link in relatedPageLinks ) {
+					if (len(trim(link)) gt 0){
+						if (not structKeyExists(related, id))
+							related[id] = {};
+						if (not structKeyExists(related, link))
+							related[link] = {};
+						related[link][pageId]="";
+						related[pageId][link]="";
+					}
+				}
+			}
+		}
+		relatedMap = {};
+		for (var id in related){
+			var links = ListToArray(structKeyList(related[id]));
+			ArraySort(links,"textnocase");
+			relatedMap[id] = links;
+		}
+	}
+
 	// all categories should have content, all referenced categories should exist
-	public void function checkCategories() {
+	public void function _checkCategories() {
 		var pageCategories = {};
 		var categories = {};
 		var empty = {};

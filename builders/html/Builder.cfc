@@ -50,11 +50,10 @@ component {
 				}
 			}
 		}
-		if ( !IsNull( arguments.page.getRelated() ) ) {
-			for( var link in arguments.page.getRelated() ) {
-				if (len(link) gt 0)
-					links.append( link );
-			}
+		var related = arguments.docTree.getPageRelated(arguments.page);
+		for( var link in related ) {
+			if (len(link) gt 0)
+				links.append( "[[" & link & "]]");
 		}
 
 		return renderTemplate(
