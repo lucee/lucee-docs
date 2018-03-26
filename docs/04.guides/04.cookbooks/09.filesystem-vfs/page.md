@@ -11,9 +11,12 @@ RAM is a in Memoy Filesystem that stores Files in the Memory of the Java Vitual 
 Every Web-Context does have it's own RAM Cache.
 
 ### Example Code: ###
+
+```cfs
 sct.ram="ram://"
 dump(sct);
 dump(directoryList(sct.ram));
 directoryCreate(sct.ram&"/heidi2/")
 fileWrite(sct.ram&"/susi2.txt","Sorglos");
-dump(directoryList(sct.ram));
+dump(directoryList(sct.ram))
+```
