@@ -4,7 +4,7 @@ id: cookbook-filesystem-vfs
 ---
 
 # Virtual Filesystems #
-A closer look on all filesystem supported by Lucee.
+A closer look on all virtual Filesystems supported by Lucee.
 
 ## RAM ##
 RAM is a in Memoy Filesystem that stores Files in the Memory of the Java Vitual Machine (JVM), unless you attach a Cache in the Lucee Administartor for this Resource.
@@ -19,4 +19,36 @@ dump(directoryList(sct.ram));
 directoryCreate(sct.ram&"/heidi2/")
 fileWrite(sct.ram&"/susi2.txt","Sorglos");
 dump(directoryList(sct.ram))
+```
+
+## FTP ##
+FTP allows you to use a FTP server as a virtual filesystem. You can define the credentials to connect the FTP Server as part of the path itself or in the Application.cfc (Lucee 5.3 and above).
+
+### Example Code: ###
+
+```cfs
+ftp="ftp://#request.ftp.user#:#request.ftp.pass#@ftp53.world4you.com:21/"; // add credentials to path
+//ftp="ftp:///"; // take credentials and host/port from Application.cfc
+//ftp="ftp://ftp53.world4you.com:21/"; // take credentials from Application.cfc
+//ftp="ftp://#request.ftp.user#:#request.ftp.pass#@/"; // take host/port from Application.cfc
+
+dump(directoryList(sct.ftp));
+
+```
+
+## ZIP ##
+ZIP allows you to use a ZIP File as a Filesystem, you can read files and folders from a zip and also manipulate it's content.
+
+### Example Code: ###
+
+```cfs
+sct.file=getCurrentTemplatePath();
+sct.directory=getDirectoryFromPath(sct.file);
+sct.zipFile=sct.directory&"my.zip";
+sct.zip="zip://"&sct.zipFile&"!";
+dump(sct);
+dump(directoryList(sct.zip));
+dump(directoryList(sct.zip&"/myfolder"));
+echo("<pre>");echo(fileRead(sct.zip&"/myfolder/my.txt"));echo("</pre>");
+
 ```
