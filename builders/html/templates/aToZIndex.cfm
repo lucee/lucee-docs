@@ -14,7 +14,7 @@
 			<cfloop array="#pg.getChildren()#" index="i" item="child">
 				<span class="tile">
 					<div class="tile-inner">
-						<div class="text-overflow">[[#child.getId()#]]</div>
+						<div class="text-overflow">[[#child.getId()#]] #htmleditformat(child.getDescription())#</div>
 					</div>
 				</span>
 			</cfloop>
@@ -40,7 +40,7 @@
 
 				<span class="tile">
 					<div class="tile-inner">
-						<div class="text-overflow">[[#htmleditformat(child.getId())#]]</div>
+						<div class="text-overflow">[[#htmleditformat(child.getId())#]] #htmleditformat(child.getDescription())#</div>
 					</div>
 				</span>
 				<cfset currentLetter = firstLetter />

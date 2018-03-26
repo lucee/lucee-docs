@@ -32,7 +32,7 @@
 				<ul class="list-unstyled">
 			</cfif>
 
-			<li>[[#page.getId()#]]</li>
+			<li>[[#htmleditformat(page.getId())#]] #htmleditformat(page.getDescription())#</li>
 		</cfloop>
 		</ul>
 	</cfif>
