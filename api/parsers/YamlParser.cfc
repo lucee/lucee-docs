@@ -9,9 +9,13 @@ component {
 		return _stripEmpty( _getYamlParser().load( arguments.yaml ) );
 	}
 
+	public any function cfmlToYaml( required struct data ) {
+		return _getYamlParser().dumpAsMap( _stripEmpty(arguments.data) );
+	}
+
 // PRIVATE
 	private void function _setupYamlParser() {
-		var javaLib = [ "../lib/snakeyaml-1.15.jar" ];
+		var javaLib = [ "../lib/snakeyaml-1.9.jar" ];
 		var parser  = CreateObject( "java", "org.yaml.snakeyaml.Yaml", javaLib ).init();
 
 		_setYamlParser( parser );
@@ -32,7 +36,9 @@ component {
 				if (IsNull(data[d])){
 					hasContent = false;
 				} else if (isArray(data[d])) {
-					if (arrayLen(data[d]) eq 1 and len(trim(data[d][1])) eq 0 )
+					if (arrayLen(data[d]) eq 0 )
+						hasContent = false; // empty array
+					else if (arrayLen(data[d]) eq 1 and len(trim(data[d][1])) eq 0 )
 						hasContent = false; // empty array
 				} else if (isStruct(data[d])) {
 					if (structCount(data[d]) eq 0)
@@ -40,7 +46,7 @@ component {
 				} else if (len(trim(data[d])) eq 0){
 					hasContent = false; // empty string
 				}
-				if (!hasContent)
+				if (not hasContent)
 					structDelete(data, d); // no need for empty attributes
 			}
 		} catch(e) {

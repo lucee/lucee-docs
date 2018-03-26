@@ -26,10 +26,33 @@ component {
 		data.sortOrder  = Val( data.sortOrder ?: sortOrder );
 		data.sourceFile = "/docs" & Replace( path, docsBase, "" );
 		data.sourceDir  = "/docs" & Replace( fileDirectory     , docsBase, "" );
-		data.related    = isArray( data.related ?: "" ) ? data.related : ( Len( Trim( data.related ?: "" ) ) ? [ data.related ] : [ "" ] );
+		data.related    = isArray( data.related ?: "" ) ? data.related : ( Len( Trim( data.related ?: "" ) ) ? [ data.related ] : [ ] );
 
 		//new api.parsers.ParserFactory().getMarkdownParser().validateMarkdown( data );
 
+		return data;
+	}
+
+	public any function savePageFile(required string pagePath, required string content,
+			required struct props){
+		var fileContent     = REReplace(content, "\r\n","\n","all"); // convert all line endings to unix style
+		var content = "";
+
+		if (structCount(props) gt 0){
+			var yaml = _toYaml(props);
+			content = "---#chr(10)##yaml#---#chr(10)##chr(10)##fileContent##chr(10)#";
+		} else {
+			content = fileContent;
+		}
+		FileWrite(pagePath, content);
+		return content;
+	}
+
+	public any function readPageFileSource( required string filePath ) {
+		var path            = Replace(arguments.filePath,"\","/","all");
+		cflog(text="readPageFileSource #path#");
+		var fileContent     = REReplace(FileRead( path ), "\r\n","\n","all"); // convert all line endings to unix style
+		var data            = _parsePage( fileContent );
 		return data;
 	}
 
@@ -55,6 +78,10 @@ component {
 
 	private struct function _parseYaml( required string yaml ) {
 		return new api.parsers.ParserFactory().getYamlParser().yamlToCfml( arguments.yaml );
+	}
+
+	private string function _toYaml( required any data ) {
+		return new api.parsers.ParserFactory().getYamlParser().cfmlToYaml( arguments.data );
 	}
 
 	private boolean function _isWindows(){

@@ -4,7 +4,7 @@
 <cfset argumentsHaveDefaultValues = fn.argumentsHaveDefaultValues() />
 
 <cfoutput>
-	<a class="pull-right" href="#getSourceLink( path=fn.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
+	<a class="pull-right edit-link" href="#getSourceLink( path=fn.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 	#markdownToHtml( fn.getBody() )#
 
 	<p><strong>Returns:</strong> #fn.getReturnType()#</p>
@@ -39,7 +39,7 @@
 								<sub>(#arg.type#, #( arg.required ? 'required' : 'optional' )#)</sub>
 							</td>
 							<td>
-								<a class="pull-right" href="#getSourceLink( path=fn.getSourceDir() & '_arguments/#arg.name#.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
+								<a class="pull-right edit-link" href="#getSourceLink( path=fn.getSourceDir() & '_arguments/#arg.name#.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 								#markdownToHtml( Trim( arg.description ) )#
 							</td>
 							<cfif argumentsHaveDefaultValues>
@@ -55,8 +55,10 @@
 	</cfif>
 
 	<h2>Examples</h2>
+	<cfif Len( Trim( fn.getExamples() ) ) or args.edit>
+		<a class="pull-right edit-link" href="#getSourceLink( path=fn.getSourceDir() & '_examples.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
+	</cfif>
 	<cfif Len( Trim( fn.getExamples() ) )>
-		<a class="pull-right" href="#getSourceLink( path=fn.getSourceDir() & '_examples.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 		#markdownToHtml( fn.getExamples() )#
 	<cfelse>
 		<em>There are currently no examples for this function</em>

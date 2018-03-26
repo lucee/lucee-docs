@@ -22,11 +22,11 @@ component {
 		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
 	}
 
-	public string function renderPage( required any page, required any docTree ){
+	public string function renderPage( required any page, required any docTree, required boolean edit ){
 		try {
 			var renderedPage = renderTemplate(
 				  template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
-				, args     = { page = arguments.page, docTree=arguments.docTree }
+				, args     = { page = arguments.page, docTree=arguments.docTree, edit=edit }
 				, helpers  = "/builders/html/helpers"
 			);
 		} catch( any e ) {
@@ -36,7 +36,6 @@ component {
 		var crumbs = [];
 		var parent = arguments.page.getParent();
 		var links = [];
-
 
 		while( !IsNull( parent ) ) {
 			crumbs.prepend( parent.getId() );
@@ -62,6 +61,7 @@ component {
 			, args     = {
 				  body       = Trim( renderedPage )
 				, page       = arguments.page
+				, edit       = arguments.edit
 				, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, page=arguments.page } )
 				, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage() } )
 				, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , helpers  = "/builders/html/helpers", args={ links=links } )
@@ -107,7 +107,7 @@ component {
 			DirectoryCreate( fileDirectory );
 		}
 
-		FileWrite( filePath, renderPage( arguments.page, arguments.docTree ) );
+		FileWrite( filePath, renderPage( arguments.page, arguments.docTree, false ) );
 		//cflog(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
 		for( var childPage in arguments.page.getChildren() ) {
 			_writePage( childPage, arguments.buildDirectory, arguments.docTree );

@@ -1,0 +1,11 @@
+.doc-editor LABEL {
+    padding: 2px 5px;
+}
+
+.doc-editor INPUT {
+    margin: 2px 5px;
+}
+
+.doc-editor .list-group {
+    margin-right: 5px;
+}

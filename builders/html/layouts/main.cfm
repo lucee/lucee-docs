@@ -15,6 +15,9 @@
 		<link href="/assets/css/base.min.css" rel="stylesheet">
 		<link href="/assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
+		<cfif args.edit>
+			<link href="/assets/css/docsEditor.css" rel="stylesheet">
+		</cfif>
 
 		<!-- ie -->
 		<!--[if lt IE 9]>
@@ -148,5 +151,8 @@
 		</footer>
 
 		<script src="/assets/js/base.2.min.js" type="text/javascript"></script>
+		<cfif args.edit>
+			<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
+		</cfif>
 	</body>
 </html></cfoutput>

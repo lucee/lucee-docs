@@ -15,6 +15,8 @@ component {
 			_renderAsset();
 		} elseif ( _isCodeEditorRequest() ) {
 			_renderCodeEditor();
+		} elseif ( _isSourceRequest() ) {
+			_renderSource();
 		} else {
 			_renderPage();
 		}
@@ -33,8 +35,66 @@ component {
 			_404();
 		}
 
-		WriteOutput( buildRunner.getBuilder( "html" ).renderPage( page, docTree ) );
+		WriteOutput( buildRunner.getBuilder( "html" ).renderPage( page, docTree, true ) );
+	}
 
+	private void function _renderSource() {
+		var buildRunner = _getBuildRunner();
+		var docTree     = buildRunner.getDocTree();
+
+		if (cgi.request_method eq "POST"){
+			param name="form.file" default="";
+			param name="form.content" default="";
+			param name="form.properties" default="";
+			var pagePath = form.file;
+		} else {
+			param name="url.file" default="";
+			var pagePath    = url.file;
+		}
+		cflog(text="#cgi.request_method# _renderSource #pagePath#");
+		var page = docTree.getPageSource(pagePath);
+		content type="application/json";
+
+		if (cgi.request_method eq "POST"){
+			param name="form.content" default="";
+			param name="form.properties" default="";
+			var props = {};
+			if (structCount(page.properties) and len(form.properties) eq 0){
+				// page had properties
+				WriteOutput( serializeJSON({error:["Properties missing"]}) );
+				abort;
+			} else if (isJson(form.properties)){
+				props = deserializeJSON(form.properties);
+			}
+			var result = docTree.updatePageSource(pagePath, form.content, props);
+			WriteOutput( serializeJSON(result) );
+		} else {
+			var pageSource = structNew("linked");
+			pageSource["file"] = pagePath;
+			pageSource["content"] = page.content;
+			pageSource["properties"] = page.properties;
+			if (structCount(page.properties)){
+				pageSource["reference"] = {
+					"categories": docTree.getCategories(),
+					"pages": docTree.getPageIds()
+				};
+				pageSource["propertyTypes"] = page.types;
+			} else {
+				structDelete(page, "properties");
+			}
+
+			WriteOutput( serializeJSON(pageSource) );
+		}
+
+		/*
+		if ( IsNull( page ) ) {
+			header statustext="File not found" statuscode="404";
+			//content type="application/json";
+			WriteOutput( "File not found: #htmleditformat(pagePath)#" );
+		} else {
+			*/
+
+		//}
 	}
 
 	private void function _renderAsset() {
@@ -99,6 +159,10 @@ component {
 
 	private boolean function _isCodeEditorRequest() {
 		return _getRequestUri().startsWith( "/editor.html" );
+	}
+
+	private boolean function _isSourceRequest() {
+		return _getRequestUri().startsWith( "/source" );
 	}
 
 	private string function _getMimeTypeForAsset( required string filePath ) {

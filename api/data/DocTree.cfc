@@ -1,12 +1,15 @@
 component accessors=true {
-
+	property name="rootDir"    type="string"; // top level folders
 	property name="tree"    type="array"; // top level folders
 	property name="idMap"   type="struct"; // pages by id
 	property name="pathMap" type="struct"; // pages by paths
 	property name="pageTypeMap" type="struct"; // tracks the total number of pages by type
 	property name="relatedMap" type="struct"; // tracks related pages
+	property name="categoryMap" type="struct"; // tracks categories pages
+	property name="referenceMap" type="struct"; // tracks references
 
 	public any function init( required string rootDirectory ) {
+		rootDir =  arguments.rootDirectory;
 		_loadTree( arguments.rootDirectory );
 
 		return this;
@@ -58,6 +61,37 @@ component accessors=true {
 			return [];
 	}
 
+	public struct function getPageIds(){
+		if (structCount(referenceMap) eq 0)
+			_buildReferenceMap();
+		return referenceMap;
+	}
+
+	public array function getCategories(){
+		var cats = [];
+		for (var cat in categoryMap){
+			cats.append(cat);
+		}
+		ArraySort(cats, "textnocase");
+		return cats;
+	}
+
+	public struct function getPageSource(required string pagePath){
+		var page = new PageReader().readPageFileSource( rootDir & pagePath );
+		var body = page.BODY;
+		structdelete(page, "BODY");
+		return {
+			content: body,
+			types: getComponentMetadata(new Page()).properties,
+			properties: page
+		};
+	}
+
+	public any function updatePageSource(required string pagePath, required string content,
+			required struct properties){
+		return new PageReader().savePageFile( rootDir & pagePath, content, properties);
+	}
+
 // private helpers
 	private void function _loadTree( required string rootDirectory ) {
 		var start = getTickCount();
@@ -76,7 +110,7 @@ component accessors=true {
 		_calculateNextAndPreviousPageLinks( tree );
 		_buildRelated();
 
-		//_checkCategories();
+		_checkCategories();
 		cflog(text="Tree: #ArrayLen(tree)#, idMap: #structCount(idMap)#, pathMap: #structCount(pathMap)#,");
 		cflog(text="Documentation Built in #(getTickCount()-start)/1000#s");
 	}
@@ -87,6 +121,8 @@ component accessors=true {
 		setPathMap( {} );
 		setPageTypeMap( {} );
 		setRelatedMap( {} );
+		setCategoryMap( {} );
+		setReferenceMap( {} );
 	}
 
 	private void function _addPageToTree( required any page ) {
@@ -386,7 +422,6 @@ component accessors=true {
 			}
 		}
 
-
 		for( var id in idMap ) {
 			var pageType = idMap[ id ].getPageType();
 			if (pageType eq "category"){
@@ -394,10 +429,10 @@ component accessors=true {
 				if (not structKeyExists(pageCategories, slug )){
 					empty[slug]=idMap[ id ].getPath();
 				}
-				categories[slug] = "";
+				categories[slug] = idMap[ id ].getPath();
 			}
 		}
-
+		/*
 		var missing = {};
 		for (var cat in pageCategories){
 			if (not structKeyExists(categories, cat )){
@@ -420,5 +455,26 @@ component accessors=true {
 		if (structCount(empty) gt 0 or structCount(missing) gt 0){
 			abort;
 		}
+		*/
+		categoryMap = categories;
+	}
+
+	private void function _buildReferenceMap(){
+		var pages = {};
+		var pagesByType = {};
+		for ( var id in idMap ) {
+			var pageType = "content";
+			if (listLen(id,"-") gt 1)
+				pageType = listFirst(id,"-");
+			if (not structKeyExists(pages, pageType))
+				pages[pageType] = {};
+			pages[pageType][id]="";
+		}
+		for (var types in pages){
+			var ids = ListToArray(structKeyList(pages[types]));
+			ArraySort(ids,"textnocase");
+			pagesByType[types] = ids;
+		}
+		referenceMap = pagesByType;
 	}
 }

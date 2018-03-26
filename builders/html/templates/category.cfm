@@ -15,7 +15,7 @@
 
 
 <cfoutput>
-	<a class="pull-right" href="#getSourceLink( path=category.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
+	<a class="pull-right edit-link" href="#getSourceLink( path=category.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 
 	#markdownToHtml( category.getBody() )#
 
