@@ -2,9 +2,26 @@
 <cfparam name="args.crumbs"      type="array" />
 <cfparam name="args.docTree"     type="any" />
 
+<cfscript>
+	srcTree = args.docTree.getTree();
+	navTree = [];
+	guideTree = [];
+	for (var folder in srcTree){
+		if (folder.getId() eq "guides"){
+			guideTree = folder.getChildren();
+		} else if (folder.getId() neq "/home" && folder.getVisible()){
+			navTree.append(folder);
+		}
+	}
+	// expose guides as a top level folder
+	for (var folder in guideTree){
+		navTree.append(folder);
+	}
+</cfscript>
+
 <cfoutput>
 	<ul class="nav">
-		<cfloop array="#args.docTree.getTree()#" item="firstLevelPage" index="i">
+		<cfloop array="#navTree#" item="firstLevelPage" index="i">
 			<cfif firstLevelPage.getId() neq "/home" && firstLevelPage.getVisible()>
 				<cfset firstLevelActive  = args.pageLineage.find( firstLevelPage.getId() ) />
 				<cfset firstLevelCurrent = args.pageLineage[ args.pageLineage.len() ] == firstLevelPage.getId() />
@@ -31,7 +48,7 @@
 							<i class="icon icon-close menu-collapse-toggle-close"></i>
 							<i class="icon icon-add menu-collapse-toggle-default"></i>
 						</span>
-						<ul class="menu-collapse <cfif subIsOpen>expand<cfelse>collapse</cfif>" id="#firstLevelPage.getId()#">
+						<ul class="menu-collapse <cfif subIsOpen>expand in<cfelse>collapse</cfif>" id="#firstLevelPage.getId()#">
 							#subnav#
 						</ul>
 					</cfif>
