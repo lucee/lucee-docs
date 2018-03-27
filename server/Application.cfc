@@ -1,4 +1,4 @@
-component {
+		component {
 	this.name = "luceeDocumentationLocalServer-" & Hash( GetCurrentTemplatePath() );
 
 	this.cwd     = GetDirectoryFromPath( GetCurrentTemplatePath() )
@@ -9,13 +9,14 @@ component {
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 
 	public boolean function onRequest( required string requestedTemplate ) output=true {
-		if ( _isSearchIndexRequest() ) {
+		var path = _getRequestUri();
+		if ( path eq "/assets/js/searchIndex.json" ) {
 			_renderSearchIndex();
-		} elseif ( _isAssetRequest() ) {
+		} elseif ( path.startsWith( "/assets" ) ) {
 			_renderAsset();
-		} elseif ( _isCodeEditorRequest() ) {
+		} elseif ( path.startsWith( "/editor.html" ) ) {
 			_renderCodeEditor();
-		} elseif ( _isSourceRequest() ) {
+		} elseif ( path.startsWith( "/source" ) ) {
 			_renderSource();
 		} else {
 			_renderPage();
@@ -41,16 +42,8 @@ component {
 	private void function _renderSource() {
 		var buildRunner = _getBuildRunner();
 		var docTree     = buildRunner.getDocTree();
+		var pagePath = Replace(_getRequestUri(), "/source", "");
 
-		if (cgi.request_method eq "POST"){
-			param name="form.file" default="";
-			param name="form.content" default="";
-			param name="form.properties" default="";
-			var pagePath = form.file;
-		} else {
-			param name="url.file" default="";
-			var pagePath    = url.file;
-		}
 		cflog(text="#cgi.request_method# _renderSource #pagePath#");
 		var page = docTree.getPageSource(pagePath);
 		content type="application/json";
@@ -61,10 +54,16 @@ component {
 			var props = {};
 			if (structCount(page.properties) and len(form.properties) eq 0){
 				// page had properties
-				WriteOutput( serializeJSON({error:["Properties missing"]}) );
+				header statuscode=422;
+				WriteOutput("Properties missing");
 				abort;
 			} else if (isJson(form.properties)){
 				props = deserializeJSON(form.properties);
+				if (structCount(page.properties) gt 0 and structCount(props) eq 0){
+					header statuscode=422 statustext="Properties missing";
+					WriteOutput("Page previously had properties defined");
+					abort;
+				}
 			}
 			var result = docTree.updatePageSource(pagePath, form.content, props);
 			WriteOutput( serializeJSON(result) );
@@ -85,16 +84,6 @@ component {
 
 			WriteOutput( serializeJSON(pageSource) );
 		}
-
-		/*
-		if ( IsNull( page ) ) {
-			header statustext="File not found" statuscode="404";
-			//content type="application/json";
-			WriteOutput( "File not found: #htmleditformat(pagePath)#" );
-		} else {
-			*/
-
-		//}
 	}
 
 	private void function _renderAsset() {
@@ -105,7 +94,8 @@ component {
 		}
 
 		header name="cache-control" value="no-cache";
-		content file=assetPath type=_getMimeTypeForAsset( assetPath );abort;
+		content file=assetPath type=_getMimeTypeForAsset( assetPath );
+		abort;
 	}
 
 	private void function _renderCodeEditor() {
@@ -145,24 +135,7 @@ component {
 	private void function _404() {
 		content reset="true" type="text/plain";
 		header statuscode=404;
-		WriteOutput( "404 Not found" );
 		abort;
-	}
-
-	private boolean function _isSearchIndexRequest() {
-		return _getRequestUri() == "/assets/js/searchIndex.json";
-	}
-
-	private boolean function _isAssetRequest() {
-		return _getRequestUri().startsWith( "/assets" );
-	}
-
-	private boolean function _isCodeEditorRequest() {
-		return _getRequestUri().startsWith( "/editor.html" );
-	}
-
-	private boolean function _isSourceRequest() {
-		return _getRequestUri().startsWith( "/source" );
 	}
 
 	private string function _getMimeTypeForAsset( required string filePath ) {

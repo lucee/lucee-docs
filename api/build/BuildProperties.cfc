@@ -14,4 +14,7 @@ component accessors=true {
 	property name="editSourceLink"       default="https://github.com/lucee/lucee-docs/edit/master{path}";
 	property name="dashBuildNumber"      default="1.0.2";
 	property name="dashDownloadUrl"      default="http://docs.lucee.org/dash/lucee.tgz";
+	property name="issueTrackerLink" 		default=
+	"https://luceeserver.atlassian.net/secure/QuickSearch.jspa?jql=#urlEncodedFormat('text ~ "')#{search}#urlEncodedFormat('" ORDER BY updated')#";
 }
+

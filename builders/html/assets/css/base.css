@@ -10873,7 +10873,7 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
 .table th {
   border: 1px solid #e0e0e0;
   line-height: 24px;
-  padding: 12px 16px 11px;
+  padding: 6px 16px 5px;
   vertical-align: top;
 }
 .body table td.nowrap,
@@ -11394,6 +11394,11 @@ h2, h3, h4, h5, h6 {
 
 .row-fix {
   position: relative;
+}
+
+.attribute, .argument {
+  font-weight: 600;
+  color: #01798a;
 }
 
 .footer {
@@ -12206,6 +12211,54 @@ h2, h3, h4, h5, h6 {
   .nav-drawer-open {
     overflow: auto;
   }
+}
+
+.doc-editor LABEL {
+  padding: 2px 5px;
+}
+
+.doc-editor INPUT {
+  margin: 2px 5px;
+}
+
+.doc-editor .list-group {
+  margin-right: 5px;
+}
+
+.doc-editor .property {
+  padding: 3px 5px;
+}
+
+.doc-editor .property-item {
+  min-width: 100px;
+  font-weight: bolder;
+}
+
+.doc-editor .btn {
+  margin-left: 15px;
+}
+
+.doc-editor textarea {
+  word-break: break-all;
+  padding: 0;
+}
+
+.panel-heading, .panel-footer {
+  padding: 8px;
+  color: white;
+  background-color: #01798a;
+}
+
+.doc-editor .list-group {
+  margin-left: 20px;
+}
+
+.panel-error {
+  color: red;
+}
+
+.panel {
+  border: #01798a 1px solid;
 }
 
 /*# sourceMappingURL=base.css.map */

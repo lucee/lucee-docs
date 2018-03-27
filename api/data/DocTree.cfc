@@ -218,7 +218,7 @@ component accessors=true {
 
 	private any function _preparePageObject( required string pageFilePath, required string rootDirectory ) {
 		var page = "";
-		var pageData = new PageReader().readPageFile( arguments.rootDirectory & pageFilePath )
+		var pageData = new PageReader().readPageFile( arguments.rootDirectory & pageFilePath );
 
 		try {
 			switch( pageData.pageType ?: "" ) {

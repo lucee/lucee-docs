@@ -10,6 +10,11 @@ component {
 		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
 	}
 
+	public string function _getIssueTrackerLink(required string name) {
+		var link = Replace( new api.build.BuildProperties().getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
+		return '<a href="#link#" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
+	}
+
 	public void function build( docTree, buildDirectory ) {
 		var tree = docTree.getTree();
 		cflog(text="Builder html directory: #arguments.buildDirectory#");
@@ -53,6 +58,20 @@ component {
 		for( var link in related ) {
 			if (len(link) gt 0)
 				links.append( "[[" & link & "]]");
+		}
+
+		if ( len(arguments.page.getId()) gt 0){
+			var name = listRest(arguments.page.getId(), "-");
+			switch (arguments.page.getPageType()){
+				case "tag":
+					// add a cf prefix, tried adding with jql "OR & name" but that didn't work
+					links.append( _getIssueTrackerLink("cf" & name ) );
+					break;
+				case "function":
+					links.append( _getIssueTrackerLink(name) );
+					break;
+				default:
+			}
 		}
 
 		return renderTemplate(

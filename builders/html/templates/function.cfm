@@ -4,7 +4,7 @@
 <cfset argumentsHaveDefaultValues = fn.argumentsHaveDefaultValues() />
 
 <cfoutput>
-	<a class="pull-right edit-link" href="#getSourceLink( path=fn.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
+	#getEditLink(path=fn.getSourceFile(), edit=args.edit)#
 	#markdownToHtml( fn.getBody() )#
 
 	<p><strong>Returns:</strong> #fn.getReturnType()#</p>
@@ -34,12 +34,11 @@
 				<tbody>
 					<cfloop array="#fn.getArguments()#" item="arg" index="i">
 						<tr>
-							<td>
-								#arg.name#<br>
+							<td><div class="argument">#arg.name#</div>
 								<sub>(#arg.type#, #( arg.required ? 'required' : 'optional' )#)</sub>
 							</td>
 							<td>
-								<a class="pull-right edit-link" href="#getSourceLink( path=fn.getSourceDir() & '_arguments/#arg.name#.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
+								#getEditLink(path=fn.getSourceDir() & '_arguments/#arg.name#.md', edit=args.edit)#
 								#markdownToHtml( Trim( arg.description ) )#
 							</td>
 							<cfif argumentsHaveDefaultValues>
@@ -56,7 +55,7 @@
 
 	<h2>Examples</h2>
 	<cfif Len( Trim( fn.getExamples() ) ) or args.edit>
-		<a class="pull-right edit-link" href="#getSourceLink( path=fn.getSourceDir() & '_examples.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
+		#getEditLink(path=fn.getSourceDir() & & '_examples.md', edit=args.edit)#
 	</cfif>
 	<cfif Len( Trim( fn.getExamples() ) )>
 		#markdownToHtml( fn.getExamples() )#

@@ -18,9 +18,6 @@
 		</cfif>
 		<link href="/assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
-		<cfif args.edit>
-			<link href="/assets/css/docsEditor.css" rel="stylesheet">
-		</cfif>
 
 		<!-- ie -->
 		<!--[if lt IE 9]>

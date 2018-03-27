@@ -2,12 +2,12 @@ $(function(){
     'use strict';
     var editors = {};
 
-    $("a.edit-link").on("click", function(ev){
+    $(".local-edit-link").on("click", function(ev){
         ev.stopPropagation();
 
         var $el = $(ev.currentTarget);
-        var source = $(this).attr('href');
-        var str = "/master/docs/";
+        var source = $(this).data('src');
+        var str = "/docs/";
         var offset = source.indexOf(str);
         var page = source.substr(offset+str.length-1);
 
@@ -16,21 +16,30 @@ $(function(){
             removeEditor($el, page);
             return false;
         }
+        var $icon = $el.find(".fa");
+        toggleLoadingIcon($icon, true);
 
         $.ajax({
-            url: "/source/",
-            type: "GET",
-            data: {
-                file: page
-            }
+            url: "/source" + page,
+            type: "GET"
         }).done(function(data) {
+            toggleLoadingIcon($icon, false);
             $el.data("editor-open", true);
             renderEditor(data, $el, page);
         }).error(function(jqXHR){
+            toggleLoadingIcon($icon, false);
             alert(jqXHR.statusText);
         });
         return false;
     });
+
+    var toggleLoadingIcon = function (icon,state){
+        if (state)
+            icon.removeClass("fa-pencil").addClass("fa-spin fa-spinner");
+        else
+            icon.addClass("fa-pencil").removeClass("fa-spin fa-spinner");
+    }
+
     var removeEditor = function($el, page){
         var $editor = editors[page];
         if ($editor.length === 0){
@@ -42,15 +51,18 @@ $(function(){
     };
     var renderEditor = function(data, $el, page){
         var $editor = $('<div class="panel panel-default doc-editor">').data("src", escape(page) );
-        $editor.append($('<div class="panel-heading tile-blue">Edit</div>'));
+        $editor.append($('<div class="panel-heading">Edit</div>'));
 
         var $body = $('<div class="panel-body"></div>');
         if (data.properties){
             renderProperties($body, data);
         }
-        var $textarea = $('<textarea class="content"/>').height("250px").width("100%").val(data.content);
+        var $textarea = $('<textarea class="content"/>').height("200px").width("100%").val(data.content);
         $body.append($textarea);
         $editor.append($body);
+
+        var $error = $('<div class="panel-error"></div>').hide();
+        $editor.append($error);
 
         var $footer = $('<div class="panel-footer text-right"></div>');
         $editor.append($footer);
@@ -64,6 +76,8 @@ $(function(){
             $(this).attr("disabled", true);
             var content = $editor.find(".content").val();
             var props = {};
+
+            $error.hide().html();
 
             $editor.find(".property").each(function(){
                 var cfg = $(this).data();
@@ -81,27 +95,22 @@ $(function(){
                         throw new Error("unknown input type");
                 }
             });
+            for (var p in props){
+                if (props[p].length === 0)
+                    delete props[p];
+            }
             $.ajax({
-                url: "/source/",
+                url: "/source" + page,
                 type: "POST",
                 data: {
-                    file: page,
                     content: content,
                     properties: JSON.stringify(props)
                 }
             }).done(function(data) {
-                if (data == "true"){
-                    document.location.reload();
-                } else {
-                    $save.attr("disabled", false);
-                    if (data.ERROR)
-                        alert(data.ERROR.join('\n'));
-                    else
-                        console.log(data);
-                }
+                document.location.reload();
             }).error(function(jqXHR){
                 $(this).attr("disabled", false);
-                alert(jqXHR.statusText);
+                $error.show().html(jqXHR.responseText);
             });
         });
         $footer.append($cancel, $save);
@@ -132,11 +141,13 @@ $(function(){
         console.log(data);
     }
     var renderProperties = function($body, data){
-        if (!data.properties.title)
-            data.properties.title = "";
-        if (!data.properties.id)
-            data.properties.id = "";
-        if(data.reference){
+        if (Object.keys(data.properties).length > 0){
+            if (!data.properties.title)
+                data.properties.title = "";
+            if (!data.properties.id)
+                data.properties.id = "";
+        }
+        if (data.reference){
             if (!data.properties.categories)
                 data.properties.categories = [];
             if (!data.properties.related)
@@ -144,25 +155,27 @@ $(function(){
         }
 
         for (var p in data.properties){
-            var $label = $("<div class='property'>" + p + "</div>").data("property", p).width("100%").data("name",p);
+            var $prop = $("<div class='property'/>").data("property", p).data("name",p);
+            $prop.append($('<div class="property-item"/>').text(p));
             switch (p){
                 case "related":
                     var related = {
-                        tag: data.reference.pages.tag,
-                        function: data.reference.pages.function
+                        tag: data.reference.pages.tag
+                        , function: data.reference.pages.function
                     };
-                    renderList($label, p, data.properties[p], related);
-                    $label.data("type","check");
+
+                    renderList($prop, p, data.properties[p], related);
+                    $prop.data("type","check");
                     break;
                 case "categories":
-                    renderList($label, p, data.properties[p], data.reference.categories);
-                    $label.data("type","check");
+                    renderList($prop, p, data.properties[p], data.reference.categories);
+                    $prop.data("type","check");
                     break;
                 default:
-                    $label.append($("<input type='text' size='75'>").val(data.properties[p])).width("100%");
-                    $label.data("type","text");
+                    $prop.append($("<input type='text' size='75'>").val(data.properties[p])).width("100%");
+                    $prop.data("type","text");
             }
-            $body.append($label);
+            $body.append($prop);
         }
     }
     var renderList = function($label, propery, v, data) {
@@ -186,6 +199,28 @@ $(function(){
             $label.append($ff, title);
             return $label;
         }
+        var renderGroup = function(item, group){
+            var $group = $('<div class="list-group"/>');
+            $group.append($('<b class="list-item-sub-group"/>').text(item));
+            var sel = 0,  prefix_len = item.length+1;
+            var subtitle, title, prefix, id;
+            var $subGroup = $('<span class="list-item"/>')
+            for (var subitem in group){
+                id = group[subitem];
+                prefix = id.indexOf(item);
+                if (selected[ id ])
+                    sel++;
+                if (prefix == 0)
+                    subtitle = id.substr(prefix_len);
+                else
+                    subtitle = id;
+                $subGroup.append(renderItem(id, subtitle));
+            }
+            if (sel === 0)
+                $subGroup.hide();
+            $group.append($subGroup);
+            $list.append($group);
+         }
 
         for (var item in data){
             var title = data[item];
@@ -193,30 +228,14 @@ $(function(){
                 $list.append(renderItem(title, title));
                 $label.addClass("list-item-sub-group");
             } else {
-                var $group = $('<div class="list-group"/>');
-                $group.append($('<b class="list-item-sub-group"/>').text(item));
-                var sel = 0,  prefix_len = item.length+1;
-                var subtitle, title, prefix, id;
-                var $subGroup = $('<span class="list-item"/>')
-                for (var subitem in data[item]){
-                    id = data[item][subitem];
-                    prefix = id.indexOf(item);
-                    if (selected[ id ])
-                        sel++;
-                    if (prefix == 0)
-                        subtitle = id.substr(prefix_len);
-                    else
-                        subtitle = id;
-                    $subGroup.append(renderItem(id, subtitle));
-                }
-                if (sel === 0)
-                    $subGroup.hide();
-                $group.append($subGroup);
-                $list.append($group);
+                renderGroup(item, data[item]);
             }
         }
+        // preserve/flag any list items not present in the dataset from the server
+        if (Object.keys(selected).length > 0){
+            renderGroup("other", Object.keys(selected));
+        }
 
-        // TODO need to preserve/flag any list items not present in the dataset from the server
         /*
         var $select = $('<button class="btn">Expand</button>').data("hidden", true);
         $select.click(function(){
