@@ -1,4 +1,5 @@
 $(function(){
+    'use strict';
     var editors = {};
 
     $("a.edit-link").on("click", function(ev){
@@ -194,7 +195,8 @@ $(function(){
             } else {
                 var $group = $('<div class="list-group"/>');
                 $group.append($('<b class="list-item-sub-group"/>').text(item));
-                var sel = 0, title, prefix, id, prefix_len = item.length+1;
+                var sel = 0,  prefix_len = item.length+1;
+                var subtitle, title, prefix, id;
                 var $subGroup = $('<span class="list-item"/>')
                 for (var subitem in data[item]){
                     id = data[item][subitem];
@@ -213,6 +215,8 @@ $(function(){
                 $list.append($group);
             }
         }
+
+        // TODO need to preserve/flag any list items not present in the dataset from the server
         /*
         var $select = $('<button class="btn">Expand</button>').data("hidden", true);
         $select.click(function(){
