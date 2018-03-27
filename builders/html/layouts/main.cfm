@@ -11,8 +11,11 @@
 		<base href="#( repeatString( '../', args.page.getDepth()-1 ) )#">
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
-
-		<link href="/assets/css/base.min.css" rel="stylesheet">
+		<cfif args.edit>
+			<link href="/assets/css/base.css" rel="stylesheet">
+		<cfelse>
+			<link href="/assets/css/base.min.css" rel="stylesheet">
+		</cfif>
 		<link href="/assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
 		<cfif args.edit>
@@ -39,6 +42,9 @@
 								<a href="http://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
 							</li>
 							<li>
+								<a href="https://luceeserver.atlassian.net/browse/"><span class="fa fa-fw fa-bug"></span>Issue Tracker</a>
+							</li>
+							<li>
 								<a href="https://github.com/lucee/lucee-docs"><span class="fa fa-fw fa-github"></span>Source repository</a>
 							</li>
 							<li>
@@ -51,7 +57,7 @@
 								<a href="download.html"><span class="fa fa-fw fa-download"></span>Download</a>
 							</li>
 							<li>
-								<a href="https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA"><span class="fa fa-youtube-play"></span>Lucee on YouTube</a>
+								<a href="https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA"><span class="fa fa-fw fa-youtube-play"></span>Lucee on YouTube</a>
 							</li>
 						</ul>
 					</div>
@@ -62,7 +68,7 @@
 		<header class="header">
 			<ul class="hidden-lg nav nav-list pull-left">
 				<li>
-					<a class="menu-toggle" href="##menu">
+					<a class="menu-toggle menu-toggle-sidebar" href="##menu">
 						<span class="access-hide">Menu</span>
 						<span class="icon icon-menu icon-lg"></span>
 						<span class="header-close icon icon-close icon-lg"></span>
@@ -150,9 +156,12 @@
 			</div>
 		</footer>
 
-		<script src="/assets/js/base.2.min.js" type="text/javascript"></script>
+
 		<cfif args.edit>
+			<script src="/assets/js/base.js" type="text/javascript"></script>
 			<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
+		<cfelse>
+			<script src="/assets/js/base.2.min.js" type="text/javascript"></script>
 		</cfif>
 	</body>
 </html></cfoutput>
