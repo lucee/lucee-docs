@@ -18,7 +18,7 @@
 	// colour
 		@each $color in $palette-list {
 			$i: index($palette-list, $color);
-			
+
 			.page-#{$color} & {
 				background-color: nth($palette-color, $i);
 				&.fixed,
@@ -93,7 +93,7 @@
 			// colour
 				@each $color in $palette-list {
 					$i: index($palette-list, $color);
-					
+
 					.page-#{$color} & {
 						background-color: nth($palette-color, $i);
 					}
@@ -151,7 +151,7 @@
 						        transition-property: transform;
 						@each $color in $palette-list {
 							$i: index($palette-list, $color);
-							
+
 							.page-#{$color} & {
 								background-color: nth($palette-color, $i);
 							}
@@ -223,7 +223,7 @@
 }
 
 .header-logo {
-	font-size: $font-size-h4;
+	font-size: $font-size-h3;
 	img {
 		display: block;
 		max-height: $line-height-h4;
