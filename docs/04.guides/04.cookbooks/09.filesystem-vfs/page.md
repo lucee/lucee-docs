@@ -7,7 +7,7 @@ id: cookbook-filesystem-vfs
 A closer look on all virtual Filesystems supported by Lucee.
 
 ## RAM ##
-RAM is a in Memoy Filesystem that stores Files in the Memory of the Java Vitual Machine (JVM), unless you attach a Cache in the Lucee Administartor for this Resource.
+RAM is a in Memory Filesystem that stores Files in the Memory of the Java Vitual Machine (JVM), unless you attach a Cache in the Lucee Administartor for this Resource.
 Every Web-Context does have it's own RAM Cache.
 
 ### Example Code: ###
