@@ -75,30 +75,8 @@ $(function(){
         $save.click(function(){
             $(this).attr("disabled", true);
             var content = $editor.find(".content").val();
-            var props = {};
-
             $error.hide().html();
-
-            $editor.find(".property").each(function(){
-                var cfg = $(this).data();
-                switch (cfg.type){
-                    case "check":
-                        props[cfg.name] = [];
-                        $(this).find("INPUT:checked").each(function(){
-                            props[cfg.name].push($(this).val());
-                        })
-                        break;
-                    case "text":
-                        props[cfg.name] = $(this).find("INPUT").val();
-                        break;
-                    default:
-                        throw new Error("unknown input type");
-                }
-            });
-            for (var p in props){
-                if (props[p].length === 0)
-                    delete props[p];
-            }
+            var props = getProperties($editor);
             $.ajax({
                 url: "/source" + page,
                 type: "POST",
@@ -140,6 +118,47 @@ $(function(){
         editors[page] = $editor;
         console.log(data);
     }
+    var orderProperties = function(unOrderedProps){
+        // preserve order
+        var props = JSON.parse( JSON.stringify(unOrderedProps) ); // deep copy;
+        var orderedProps = [];
+        var propOrder = ['title','id','related','categories','visible'];
+        for ( var po = 0; po < propOrder.length; po++){
+            if (props.hasOwnProperty(propOrder[po])){
+                orderedProps.push(propOrder[po]);
+                delete props[propOrder[po]];
+            }
+        }
+        for (var other in props){
+            if (props.hasOwnProperty(other))
+                orderedProps.push(props[other]);
+        }
+        return orderedProps;
+    }
+    var getProperties = function($editor){
+        var props = {};
+        $editor.find(".property").each(function(){
+            var cfg = $(this).data();
+            switch (cfg.type){
+                case "check":
+                    props[cfg.name] = [];
+                    $(this).find("INPUT:checked").each(function(){
+                        props[cfg.name].push($(this).val());
+                    })
+                    break;
+                case "text":
+                    props[cfg.name] = $(this).find("INPUT").val();
+                    break;
+                default:
+                    throw new Error("unknown input type");
+            }
+        });
+        for (var p in props){
+            if (props[p].length === 0)
+                delete props[p];
+        }
+        return props;
+    };
     var renderProperties = function($body, data){
         if (Object.keys(data.properties).length > 0){
             if (!data.properties.title)
@@ -154,7 +173,10 @@ $(function(){
                 data.properties.related = [];
         }
 
-        for (var p in data.properties){
+        var props = orderProperties(data.properties);
+
+        for (var idx in props){
+            var p = props[idx];
             var $prop = $("<div class='property'/>").data("property", p).data("name",p);
             $prop.append($('<div class="property-item"/>').text(p));
             switch (p){

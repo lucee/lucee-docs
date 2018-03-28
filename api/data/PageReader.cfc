@@ -39,7 +39,7 @@ component {
 		var content = "";
 
 		if (structCount(props) gt 0){
-			var yaml = _toYaml(props);
+			var yaml = _toYaml( _orderProperties(props) );
 			content = "---#chr(10)##yaml#---#chr(10)##chr(10)##fileContent##chr(10)#";
 		} else {
 			content = fileContent;
@@ -86,6 +86,25 @@ component {
 
 	private boolean function _isWindows(){
 		return findNoCase("Windows", SERVER.os.name);
+	}
+
+	private struct function _orderProperties(required struct unOrderedProperties){
+		var props = duplicate(arguments.unOrderedProperties);
+		// preserve order
+		var orderedProps = structNew("linked");
+        var propOrder = ['title','id','related','categories','visible'];
+
+        for ( var po = 1; po <= ArrayLen(propOrder); po++){
+            if (structKeyExists(props, propOrder[po])){
+                orderedProps[propOrder[po]] = props[propOrder[po]];
+                structDelete(props, propOrder[po]);
+            }
+        }
+		// add any other remaining properties which don't have an order defined
+        for (var other in props)
+            orderedProps[props[other]]=props[propOrder[other]];
+
+		return orderedProps;
 	}
 
 }
