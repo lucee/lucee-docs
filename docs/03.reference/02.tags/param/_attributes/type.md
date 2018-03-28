@@ -1,4 +1,5 @@
 The type of parameter that is required. The default is 'any' and valid values are:
+
 - any: any type of value
 - array: an array of values
 - binary: a binary value

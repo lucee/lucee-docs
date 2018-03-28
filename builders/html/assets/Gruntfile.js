@@ -12,6 +12,9 @@ module.exports = function(grunt) {
 			base: {
 				src: ['js/src/*.js'],
 				dest: 'js/base.js',
+			},
+			options : {
+				sourceMap :true
 			}
 		},
 
@@ -19,6 +22,12 @@ module.exports = function(grunt) {
 			base: {
 				src: ['css/base.css'],
 				dest: 'css/base.min.css'
+			},
+			options: {
+				sourcemap: true,
+				format: {
+					wrapAt: 150
+				}
 			}
 		},
 
@@ -32,7 +41,7 @@ module.exports = function(grunt) {
 					src: ['*.scss']
 				}],
 				options: {
-					sourcemap: 'none',
+					sourcemap: 'auto',
 					style: 'expanded'
 				}
 			}
@@ -42,6 +51,11 @@ module.exports = function(grunt) {
 			base: {
 				files: {
 					'js/base.2.min.js': ['js/base.js']
+				}
+			},
+			options: {
+				output: {
+					max_line_len: 150
 				}
 			}
 		},

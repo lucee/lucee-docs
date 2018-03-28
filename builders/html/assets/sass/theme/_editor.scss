@@ -1,0 +1,47 @@
+.doc-editor LABEL {
+    padding: 2px 5px;
+}
+
+.doc-editor INPUT {
+    margin: 2px 5px;
+}
+
+.doc-editor .list-group {
+    margin-right: 5px;
+}
+
+.doc-editor .property {
+    padding: 3px 5px;
+}
+
+.doc-editor .property-item {
+    min-width: 100px;
+    font-weight: bolder;
+}
+
+.doc-editor .btn {
+    margin-left: 15px;
+}
+
+.doc-editor textarea {
+    word-break: break-all;
+    padding: 0;
+}
+
+.panel-heading, .panel-footer {
+    padding: 8px;
+    color: white;
+    background-color: $brand-color;
+}
+
+.doc-editor .list-group {
+    margin-left: 20px;
+}
+
+.panel-error {
+    color: red;
+}
+
+.panel {
+    border: $brand-color 1px solid;
+}

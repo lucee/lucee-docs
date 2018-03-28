@@ -7,8 +7,9 @@ component extends="builders.html.Builder" {
 		var contentRoot   = docsetRoot & "Contents/";
 		var resourcesRoot = contentRoot & "Resources/";
 		var docsRoot      = resourcesRoot & "Documents/";
-		var ignorePages   = [ "download" ]
+		var ignorePages   = [ "download" ];
 
+		cflog(text="Builder dash directory: #docsetRoot# ");
 
 		if ( !DirectoryExists( arguments.buildDirectory ) ) { DirectoryCreate( arguments.buildDirectory ); }
 		if ( !DirectoryExists( docsetRoot               ) ) { DirectoryCreate( docsetRoot               ); }
@@ -18,19 +19,20 @@ component extends="builders.html.Builder" {
 
 		try {
 			_setupSqlLite( resourcesRoot );
-
+			_setAutoCommit(false);
 			for( var page in tree ) {
 				if ( !ignorePages.find( page.getId() ) ) {
 					_writePage( page, docsRoot, docTree );
 					_storePageInSqliteDb( page );
 				}
 			}
+			_setAutoCommit(true);
 		} catch ( any e ) {
 			rethrow;
 		} finally {
 			_closeDbConnection();
 		}
-
+		cflog(text="Dash builder, pages built");
 		_copyResources( docsetRoot );
 		_renameSqlLiteDb( resourcesRoot );
 		_setupFeedXml( arguments.buildDirectory & "/" );
@@ -110,6 +112,14 @@ component extends="builders.html.Builder" {
 	private void function _closeDbConnection() {
 		if ( StructKeyExists( variables, "dbConnection" ) ) {
 			dbConnection.close();
+		}
+	}
+
+	private void function _setAutoCommit(required boolean autoCommit) {
+		if ( StructKeyExists( variables, "dbConnection" ) ) {
+			dbConnection.setAutoCommit(arguments.autocommit);
+		} else {
+			throw message="_setAutoCommit: no active sqlLite dbConnection";
 		}
 	}
 

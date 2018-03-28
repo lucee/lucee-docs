@@ -6,7 +6,7 @@ categories:
     - number
     - string
     - parsing
-    - i18n
+    - internationalization
 ---
 
 Converts a string that is a valid numeric representation in

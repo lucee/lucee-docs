@@ -17,6 +17,14 @@
 
     <rule>
         <note>
+            All request to *.html or ending in / will be rewritten to /index.cfm
+        </note>
+        <from>^(/((.*?)(\.md|/))?)$</from>
+        <to last="true">%{context-path}/index.cfm</to>
+    </rule>
+
+    <rule>
+        <note>
             All assets requests to be served by the server too
         </note>
         <from>^/assets/.*$</from>

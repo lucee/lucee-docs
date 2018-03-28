@@ -39,7 +39,7 @@
 	background-color: $brand-color;
 	color: $white;
 	overflow: hidden;
-	padding-top: ($line-height * 2);
+	padding-top: ($line-height * 1.5);
 	position: relative;
 	z-index: 1;
 	@include transition(background-color 0.3s $timing, color 0.3s $timing);
@@ -67,4 +67,9 @@ h2, h3, h4, h5, h6 {
 
 .row-fix {
 	position: relative;
+}
+
+.attribute, .argument {
+	font-weight: 600;
+	color: $brand-color;
 }

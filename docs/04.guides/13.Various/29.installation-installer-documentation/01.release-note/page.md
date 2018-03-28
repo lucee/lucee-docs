@@ -221,6 +221,7 @@ Lucee 3.2.1.000 pl0 was released on December 25, 2010.
 ### Lucee 3.1.2.001 pl1 ###
 
 The Lucee 3.1.2.001 pl1 release contains MANY new features and improvements.
+
 - Beta released June 11, 2010
 - Officially released Oct 13, 2010
 
@@ -317,6 +318,7 @@ The Lucee 3.1.1 installer was released to the "lucee" mailing list on 8/21/2009 
 	http://[NO LONGER ACTIVE]/
 
 	Change Log:
+
 	- [UPDATE] Uses latest version of Lucee 3.1.1
 	- [UPDATE] Contains latest version of mod_jk (1.2.28)
 	- [FIX] Fixed an error that would occasionally install the 32-bit mod_jk
@@ -391,6 +393,7 @@ The BETA version of the Lucee 3.1 installer was released to the "lucee-dev" mail
 	http://[SERVER IP ADDRESS]/lucee-context/admin/web.cfm
 
 	Things to look for while testing:
+
 	- Anything unusual happen during the install process? Even if you're not sure if it's unusual or not, let
 	me know about it.
 	- Anything not clear about the install process? How can I make it more clear?

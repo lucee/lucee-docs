@@ -2,6 +2,7 @@
 title: Evaluate
 id: function-evaluate
 related:
+    - function-serialize
 categories:
 ---
 

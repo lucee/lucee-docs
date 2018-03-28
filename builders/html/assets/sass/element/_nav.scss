@@ -7,7 +7,7 @@
 	a,
 	.a {
 		display: block;
-		padding: ($line-height / 2) $grid-gutter;
+		padding: $nav-menu-padding;
 		position: relative;
 		&:focus,
 		&:hover {
