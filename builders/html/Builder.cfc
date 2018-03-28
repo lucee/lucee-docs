@@ -173,12 +173,11 @@ component {
 			case "tag":
 			case "category":
 				return LCase( arguments.page.getPageType() );
-
 			case "listing":
 				return "aToZIndex"; // todo, diff layouts depending on arguments.page.getListingStyle()
+			default:
+				return "page";	
 		}
-
-		return "page";
 	}
 
 	private string function _renderStaticPage( required string filePath, required string pageTitle, required any docTree ){

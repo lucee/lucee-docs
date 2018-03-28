@@ -107,7 +107,7 @@ component accessors=true {
 
 		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
 		for( var pageFile in pageFiles ) {
-			page = _preparePageObject( pageFile, arguments.rootDirectory );
+			var page = _preparePageObject( pageFile, arguments.rootDirectory );
 			_addPageToTree( page );
 		}
 		_sortChildren( tree );
@@ -131,7 +131,7 @@ component accessors=true {
 
 	private void function _addPageToTree( required any page ) {
 		var parent    = _getPageParent( arguments.page );
-		var ancestors = [];
+		var ancestors = []; 
 		var lineage   = [];
 		var pageType = arguments.page.getPageType();
 
@@ -250,7 +250,7 @@ component accessors=true {
 			}
 		}
 
-		page.setPath( _getPagePathFromMdFilePath( arguments.pageFilePath ) )
+		page.setPath( _getPagePathFromMdFilePath( arguments.pageFilePath ) );
 		if ( !page.getId().len() ) {
 			page.setId( page.getPath() );
 		}
@@ -313,7 +313,7 @@ component accessors=true {
 				page.setPreviousPage( arguments.pages[i-1] );
 			}
 
-			if( page.getChildren().len() ) {
+			if ( page.getChildren().len() ) {
 				page.setNextPage( page.getChildren()[1] );
 			} elseif ( i == pageCount ) {
 				page.setNextPage( arguments.nextParentPage ?: NullValue() );
@@ -375,7 +375,7 @@ component accessors=true {
 	}
 
 	private any function _getTagReferenceReader() {
-		var buildProperties = new api.build.BuildProperties();
+		//var buildProperties = new api.build.BuildProperties();
 
 		return new api.reference.ReferenceReaderFactory().getTagReferenceReader();
 	}

@@ -72,9 +72,8 @@ component accessors=true extends="Page" {
 			case "empty"      : return "This tag **cannot** have a body.";
 			case "free"       : return "This tag **may** have a body.";
 			case "required"   : return "This tag **must** have a body.";
-		}
-
-		return "";
+			default			  : return "";
+		}		
 	}
 
 	public string function getScriptSupportDescription(){
