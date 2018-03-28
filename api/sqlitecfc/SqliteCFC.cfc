@@ -329,8 +329,7 @@
 
 			for (i=1;i LTE arguments.srcQuery.recordcount;i=i+1) {
 				firstPos = 1; // this is the first column
-				theLine = "";
-
+				
 				for (j=1;j LTE ListLen(columnlist);j=j+1) {
 					col = ListGetAt(columnlist,j);
 					theValue = arguments.srcQuery[col][i];

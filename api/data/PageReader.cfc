@@ -5,7 +5,7 @@ component {
 		var fileDirectory   = GetDirectoryFromPath( path );
 		var slug            = ListLast( fileDirectory, "\/" );
 		var defaultPageType = ReReplace(path, "^.*?/([a-z]+)\.md$", "\1" );
-		var fileContent     = REReplace(FileRead( path ), "\r\n","\n","all"); // convert all line endings to unix style
+		var fileContent     = _convertToUnixLineEnding( FileRead( path ) ); 
 		var data            = _parsePage( fileContent );
 		var sortOrder       = "";
 
@@ -20,7 +20,7 @@ component {
 			slug         = ListRest( slug, "." );
 			data.visible = true;
 		}
-
+		
 		data.visible    = data.visible  ?: false;
 		data.pageType   = data.pageType ?: defaultPageType; // TODO this is sometimes still the .md file path
 		data.slug       = data.slug     ?: slug;
@@ -36,7 +36,7 @@ component {
 
 	public any function savePageFile(required string pagePath, required string content,
 			required struct props){
-		var fileContent     = REReplace(content, "\r\n","\n","all"); // convert all line endings to unix style
+		var fileContent     = _convertToUnixLineEnding(arguments.content); 
 		var content = "";
 
 		if (structCount(props) gt 0){
@@ -50,9 +50,8 @@ component {
 	}
 
 	public any function readPageFileSource( required string filePath ) {
-		var path            = Replace(arguments.filePath,"\","/","all");
-		cflog(text="readPageFileSource #path#");
-		var fileContent     = REReplace(FileRead( path ), "\r\n","\n","all"); // convert all line endings to unix style
+		var path            = Replace(arguments.filePath,"\","/","all");		
+		var fileContent     = _convertToUnixLineEnding(FileRead( path )); 
 		var data            = _parsePage( fileContent );
 		return data;
 	}
@@ -75,6 +74,10 @@ component {
 			  yaml = Trim( ReReplace( arguments.pageContent, splitterRegex, "\2" ) )
 			, body = Trim( ReReplace( arguments.pageContent, splitterRegex, "\3" ) )
 		}
+	}
+
+	private string function _convertToUnixLineEnding( required string content ){
+		return 	REReplace(arguments.content, "\r\n", chr(10), "all");
 	}
 
 	private struct function _parseYaml( required string yaml ) {
