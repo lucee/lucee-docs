@@ -54,7 +54,7 @@
 ```
 	<h2>Examples</h2>
 	<cfif Len( Trim( fn.getExamples() ) ) or args.edit>
-		#getEditLink(path=fn.getSourceDir() & & '_examples.md', edit=args.edit)#
+		#getEditLink(path=fn.getSourceDir() & '_examples.md', edit=args.edit)#
 	</cfif>
 	<cfif Len( Trim( fn.getExamples() ) )>
 		#markdownToHtml( fn.getExamples() )#

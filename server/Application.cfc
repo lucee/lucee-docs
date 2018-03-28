@@ -7,9 +7,26 @@
 	this.mappings[ "/api"      ] = this.baseDir & "api";
 	this.mappings[ "/builders" ] = this.baseDir & "builders";
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
+	this.mappings[ "/listener"     ] = this.baseDir;
+
+	/*
+	public void function onApplicationStart()  {
+		_addChangeWatcher();
+	}
+
+	public void function onApplicationEnd()  {
+		_removeChangeWatcher()
+	}
+	*/
 
 	public boolean function onRequest( required string requestedTemplate ) output=true {
 		var path = _getRequestUri();
+
+		if (path contains ".."){
+			header statuscode=401;
+			abort;
+		}	
+
 		if ( path eq "/assets/js/searchIndex.json" ) {
 			_renderSearchIndex();
 		} elseif ( path.startsWith( "/assets" ) ) {
@@ -28,7 +45,7 @@
 // PRIVATE
 	private void function _renderPage() {
 		var pagePath    = _getPagePathFromRequest();
-		var buildRunner = _getBuildRunner();
+		var buildRunner = _getBuildRunner(checkFiles = true);
 		var docTree     = buildRunner.getDocTree();
 		var page        = docTree.getPageByPath( pagePath );
 
@@ -40,15 +57,13 @@
 	}
 
 	private void function _renderSource() {
-		var buildRunner = _getBuildRunner();
+		var isUpdateRequest = (cgi.request_method eq "POST");
+		var buildRunner = _getBuildRunner(checkFiles = false); // no need to scan files
 		var docTree     = buildRunner.getDocTree();
 		var pagePath = Replace(_getRequestUri(), "/source", "");
-
-		cflog(text="#cgi.request_method# _renderSource #pagePath#");
 		var page = docTree.getPageSource(pagePath);
-		content type="application/json";
 
-		if (cgi.request_method eq "POST"){
+		if (isUpdateRequest){
 			param name="form.content" default="";
 			param name="form.properties" default="";
 			var props = {};
@@ -66,6 +81,7 @@
 				}
 			}
 			var result = docTree.updatePageSource(pagePath, form.content, props);
+			_resetBuildRunner(); // flag for update
 			WriteOutput( serializeJSON(result) );
 		} else {
 			var pageSource = structNew("linked");
@@ -81,7 +97,7 @@
 			} else {
 				structDelete(page, "properties");
 			}
-
+			content type="application/json";
 			WriteOutput( serializeJSON(pageSource) );
 		}
 	}
@@ -106,7 +122,7 @@
 	}
 
 	private void function _renderSearchIndex() {
-		var buildRunner = _getBuildRunner();
+		var buildRunner = _getBuildRunner(checkFiles = false);
 		var docTree = buildRunner.getDocTree();
 		var searchIndex = buildRunner.getBuilder( "html" ).renderSearchIndex( docTree );
 
@@ -157,24 +173,63 @@
 		return "application/octet-stream";
 	}
 
-	private any function _getBuildRunner() {
+	private any function _getBuildRunner(required boolean checkfiles) {
 		var appKey    = application.buildRunnerKey ?: "";
-		var newAppKey = _calculateBuildRunnerAppKey()
-
+		if (appKey neq ""){
+			if (application.keyExists( appKey ) and not checkfiles )
+				return application[ appKey ];
+		}
+		var newAppKey = _calculateBuildRunnerAppKey(); //  scans and fingerprints the entire doc src dir (SLOW)
 		if ( appKey != newAppKey || !application.keyExists( appKey ) ) {
 			application.delete( appKey );
 			application[ newAppKey ] = new api.build.BuildRunner();
 			application.buildRunnerKey = newAppKey;
 		}
-
 		return application[ newAppKey ];
-
 	}
 
-	private string function _calculateBuildRunnerAppKey() {
-		var filesEtc = DirectoryList( "/docs", true, "query" );
+	private string function _calculateBuildRunnerAppKey() {		
+		var filesEtc = DirectoryList( "/docs", true, "query" ); // this can be slow
 		var sig      = Hash( SerializeJson( filesEtc ) );
-
 		return "buildrunner" & sig;
 	}
+
+	private void function _resetBuildRunner() {
+		var appKey    = application.buildRunnerKey ?: "";
+		if (application.keyExists( appKey ) ){
+			application.delete( appKey );
+			application.buildRunnerKey = "";
+		}
+	}
+
+	/*
+	private void function _addChangeWatcher(){
+		var password 	= "lucee-docs";
+		var admin       = new Administrator( "web", password );
+
+		admin.updateGatewayEntry(
+			startupMode="automatic",
+			id="watchDocumentFilesForChange",
+			class="",
+			cfcpath="lucee.extension.gateway.DirectoryWatcher",
+			listenerCfcPath="api.build.DirectoryWatcher.cfc", // this doesn't work
+			custom='#{
+				directory="#expandPath('/docs/')#"
+				, recurse=true
+				, interval=5000
+				, extensions="*.md"
+				, changeFunction="onAdd"
+				, addFunction="onAdd"
+				, deleteFunction=""
+			}#',
+			readOnly=false
+		);
+	}
+	private void function _removeChangeWatcher(){
+		var password	= "lucee-docs";
+		var admin       = new Administrator( "web", password );
+		admin.removeGatewayEntry(id="watchDocumentFilesForChange");
+	}
+	*/
+
 }

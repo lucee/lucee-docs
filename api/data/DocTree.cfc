@@ -77,6 +77,12 @@ component accessors=true {
 	}
 
 	public struct function getPageSource(required string pagePath){
+		if (not FileExists(rootDir & pagePath)){
+			header statuscode="404";
+			writeOutput("File Not found")
+			abort;
+		}
+
 		var page = new PageReader().readPageFileSource( rootDir & pagePath );
 		var body = page.BODY;
 		structdelete(page, "BODY");
