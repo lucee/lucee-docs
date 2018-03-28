@@ -7,6 +7,7 @@ categories:
 ---
 
 Manipulates existing PDF documents. The following list describes some of the tasks you can perform with the cfpdf tag:
+
 - Merge several PDF documents into one PDF document.
 - Delete pages from a PDF document.
 - Merge pages from one or more PDF documents and generate a new PDF document.

@@ -3,7 +3,7 @@ title: LSParseDateTime
 id: function-lsparsedatetime
 related:
 categories:
-    - i18n
+    - internationalization
     - date
 ---
 
