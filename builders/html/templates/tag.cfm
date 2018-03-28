@@ -7,11 +7,6 @@
 	#getEditLink(path=tag.getSourceFile(), edit=args.edit)#
 	#markdownToHtml( tag.getBody() )#
 
-	<h2>Usage</h2>
-```lucee
-#tag.getUsageSignature()#
-```
-
 	#markdownToHtml( Trim( tag.getBodyTypeDescription() ) )#
 	#markdownToHtml( Trim( tag.getScriptSupportDescription() ) )#
 
@@ -50,6 +45,10 @@
 		</div>
 	</cfif>
 
+	<h2>Usage</h2>
+```lucee
+#tag.getUsageSignature()#
+```
 	<h2>Examples</h2>
 	<cfif Len( Trim( tag.getExamples() ) ) or args.edit>
 		#getEditLink(path=tag.getSourceDir() & '_examples.md', edit=args.edit)#

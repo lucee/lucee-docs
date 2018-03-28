@@ -9,11 +9,6 @@
 
 	<p><strong>Returns:</strong> #fn.getReturnType()#</p>
 
-	<h2>Usage</h2>
-```luceescript
-#fn.getUsageSignature()#
-```
-
 	<h2>Arguments</h2>
 	<cfif !fn.getArguments().len()>
 		<cfif fn.getArgumentType() == "dynamic">
@@ -53,6 +48,10 @@
 		</div>
 	</cfif>
 
+	<h2>Usage</h2>
+```luceescript
+#fn.getUsageSignature()#
+```
 	<h2>Examples</h2>
 	<cfif Len( Trim( fn.getExamples() ) ) or args.edit>
 		#getEditLink(path=fn.getSourceDir() & & '_examples.md', edit=args.edit)#
