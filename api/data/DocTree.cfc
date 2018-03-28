@@ -156,7 +156,8 @@ component accessors=true {
 			arguments.page.setParent( parent );
 
 			ancestors = parent.getAncestors();
-			ancestors.append( parent.getId() );
+			if (ancestors.len() eq 0) // avoid duplicates
+				ancestors.append( parent.getId() );
 		} else {
 			tree.append( arguments.page );
 		}
@@ -324,7 +325,7 @@ component accessors=true {
 
 			var nextParent = ( i == pageCount ) ? ( arguments.nextParentPage ?: NullValue() ) : arguments.pages[i+1];
 			for( var child in page.getChildren() ){
-				_calculateNextAndPreviousPageLinks( page.getChildren(), ( nextParent ?: NullValue() ), arguments.lastPageTouched )
+				_calculateNextAndPreviousPageLinks( child.getChildren(), ( nextParent ?: NullValue() ), arguments.lastPageTouched )
 			}
 		}
 	}
