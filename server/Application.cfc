@@ -9,16 +9,14 @@
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener"     ] = this.baseDir;
 
-	/*
 	public void function onApplicationStart()  {
-		_addChangeWatcher();
+		//_addChangeWatcher();				
 	}
 
 	public void function onApplicationEnd()  {
-		_removeChangeWatcher()
+		//_removeChangeWatcher()
 	}
-	*/
-
+	
 	public boolean function onRequest( required string requestedTemplate ) output=true {
 		var path = _getRequestUri();
 
@@ -202,7 +200,6 @@
 		}
 	}
 
-	/*
 	private void function _addChangeWatcher(){
 		var password 	= "lucee-docs";
 		var admin       = new Administrator( "web", password );
@@ -211,8 +208,11 @@
 			startupMode="automatic",
 			id="watchDocumentFilesForChange",
 			class="",
-			cfcpath="lucee.extension.gateway.DirectoryWatcher",
-			listenerCfcPath="api.build.DirectoryWatcher.cfc", // this doesn't work
+			cfcpath="lucee.extension.gateway.DirectoryWatcher",			
+			// this doesn't work, cfc must be under web-inf dir
+			// listenerCfcPath="api.build.DocsDirectoryWatcherListener", 
+			// i.e. WEB-INF\lucee-web\components\lucee\extension\gateway\docs
+			listenerCfcPath="lucee.extension.gateway.Docs.DocsDirectoryWatcherListener", 
 			custom='#{
 				directory="#expandPath('/docs/')#"
 				, recurse=true
@@ -220,7 +220,7 @@
 				, extensions="*.md"
 				, changeFunction="onAdd"
 				, addFunction="onAdd"
-				, deleteFunction=""
+				, deleteFunction="onDelete"
 			}#',
 			readOnly=false
 		);
@@ -229,7 +229,6 @@
 		var password	= "lucee-docs";
 		var admin       = new Administrator( "web", password );
 		admin.removeGatewayEntry(id="watchDocumentFilesForChange");
-	}
-	*/
+	}	
 
 }
