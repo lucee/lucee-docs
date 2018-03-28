@@ -1,6 +1,9 @@
 ---
 title: TIPS Serialize_all_types_of_data_by_using_serialize(data)
 id: tips-serialize-data
+related:
+    - function-serialize
+    - function-evaluate
 ---
 
 ### Serialize(anything) ###
