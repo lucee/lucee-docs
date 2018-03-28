@@ -4,7 +4,7 @@
 <cfset attributesHaveDefaultValues = tag.attributesHaveDefaultValues() />
 
 <cfoutput>
-	<a class="pull-right" href="#getSourceLink( path=tag.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
+	<a class="pull-right edit-link" href="#getSourceLink( path=tag.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 	#markdownToHtml( tag.getBody() )#
 
 	<h2>Usage</h2>

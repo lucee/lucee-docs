@@ -1,4 +1,4 @@
-component {
+		component {
 	this.name = "luceeDocumentationLocalServer-" & Hash( GetCurrentTemplatePath() );
 
 	this.cwd     = GetDirectoryFromPath( GetCurrentTemplatePath() )
@@ -7,14 +7,32 @@ component {
 	this.mappings[ "/api"      ] = this.baseDir & "api";
 	this.mappings[ "/builders" ] = this.baseDir & "builders";
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
+	this.mappings[ "/listener"     ] = this.baseDir;
 
+	public void function onApplicationStart()  {
+		//_addChangeWatcher();				
+	}
+
+	public void function onApplicationEnd()  {
+		//_removeChangeWatcher()
+	}
+	
 	public boolean function onRequest( required string requestedTemplate ) output=true {
-		if ( _isSearchIndexRequest() ) {
+		var path = _getRequestUri();
+
+		if (path contains ".."){
+			header statuscode=401;
+			abort;
+		}	
+
+		if ( path eq "/assets/js/searchIndex.json" ) {
 			_renderSearchIndex();
-		} elseif ( _isAssetRequest() ) {
+		} elseif ( path.startsWith( "/assets" ) ) {
 			_renderAsset();
-		} elseif ( _isCodeEditorRequest() ) {
+		} elseif ( path.startsWith( "/editor.html" ) ) {
 			_renderCodeEditor();
+		} elseif ( path.startsWith( "/source" ) ) {
+			_renderSource();
 		} else {
 			_renderPage();
 		}
@@ -25,7 +43,7 @@ component {
 // PRIVATE
 	private void function _renderPage() {
 		var pagePath    = _getPagePathFromRequest();
-		var buildRunner = _getBuildRunner();
+		var buildRunner = _getBuildRunner(checkFiles = true);
 		var docTree     = buildRunner.getDocTree();
 		var page        = docTree.getPageByPath( pagePath );
 
@@ -33,8 +51,53 @@ component {
 			_404();
 		}
 
-		WriteOutput( buildRunner.getBuilder( "html" ).renderPage( page, docTree ) );
+		WriteOutput( buildRunner.getBuilder( "html" ).renderPage( page, docTree, true ) );
+	}
 
+	private void function _renderSource() {
+		var isUpdateRequest = (cgi.request_method eq "POST");
+		var buildRunner = _getBuildRunner(checkFiles = false); // no need to scan files
+		var docTree     = buildRunner.getDocTree();
+		var pagePath = Replace(_getRequestUri(), "/source", "");
+		var page = docTree.getPageSource(pagePath);
+
+		if (isUpdateRequest){
+			param name="form.content" default="";
+			param name="form.properties" default="";
+			var props = {};
+			if (structCount(page.properties) and len(form.properties) eq 0){
+				// page had properties
+				header statuscode=422;
+				WriteOutput("Properties missing");
+				abort;
+			} else if (isJson(form.properties)){
+				props = deserializeJSON(form.properties);
+				if (structCount(page.properties) gt 0 and structCount(props) eq 0){
+					header statuscode=422 statustext="Properties missing";
+					WriteOutput("Page previously had properties defined");
+					abort;
+				}
+			}
+			var result = docTree.updatePageSource(pagePath, form.content, props);
+			_resetBuildRunner(); // flag for update
+			WriteOutput( serializeJSON(result) );
+		} else {
+			var pageSource = structNew("linked");
+			pageSource["file"] = pagePath;
+			pageSource["content"] = page.content;
+			pageSource["properties"] = page.properties;
+			if (structCount(page.properties)){
+				pageSource["reference"] = {
+					"categories": docTree.getCategories(),
+					"pages": docTree.getPageIds()
+				};
+				pageSource["propertyTypes"] = page.types;
+			} else {
+				structDelete(page, "properties");
+			}
+			content type="application/json";
+			WriteOutput( serializeJSON(pageSource) );
+		}
 	}
 
 	private void function _renderAsset() {
@@ -45,7 +108,8 @@ component {
 		}
 
 		header name="cache-control" value="no-cache";
-		content file=assetPath type=_getMimeTypeForAsset( assetPath );abort;
+		content file=assetPath type=_getMimeTypeForAsset( assetPath );
+		abort;
 	}
 
 	private void function _renderCodeEditor() {
@@ -56,7 +120,7 @@ component {
 	}
 
 	private void function _renderSearchIndex() {
-		var buildRunner = _getBuildRunner();
+		var buildRunner = _getBuildRunner(checkFiles = false);
 		var docTree = buildRunner.getDocTree();
 		var searchIndex = buildRunner.getBuilder( "html" ).renderSearchIndex( docTree );
 
@@ -85,20 +149,7 @@ component {
 	private void function _404() {
 		content reset="true" type="text/plain";
 		header statuscode=404;
-		WriteOutput( "404 Not found" );
 		abort;
-	}
-
-	private boolean function _isSearchIndexRequest() {
-		return _getRequestUri() == "/assets/js/searchIndex.json";
-	}
-
-	private boolean function _isAssetRequest() {
-		return _getRequestUri().startsWith( "/assets" );
-	}
-
-	private boolean function _isCodeEditorRequest() {
-		return _getRequestUri().startsWith( "/editor.html" );
 	}
 
 	private string function _getMimeTypeForAsset( required string filePath ) {
@@ -120,24 +171,64 @@ component {
 		return "application/octet-stream";
 	}
 
-	private any function _getBuildRunner() {
+	private any function _getBuildRunner(required boolean checkfiles) {
 		var appKey    = application.buildRunnerKey ?: "";
-		var newAppKey = _calculateBuildRunnerAppKey()
-
+		if (appKey neq ""){
+			if (application.keyExists( appKey ) and not checkfiles )
+				return application[ appKey ];
+		}
+		var newAppKey = _calculateBuildRunnerAppKey(); //  scans and fingerprints the entire doc src dir (SLOW)
 		if ( appKey != newAppKey || !application.keyExists( appKey ) ) {
 			application.delete( appKey );
 			application[ newAppKey ] = new api.build.BuildRunner();
 			application.buildRunnerKey = newAppKey;
 		}
-
 		return application[ newAppKey ];
-
 	}
 
-	private string function _calculateBuildRunnerAppKey() {
-		var filesEtc = DirectoryList( "/docs", true, "query" );
+	private string function _calculateBuildRunnerAppKey() {		
+		var filesEtc = DirectoryList( "/docs", true, "query" ); // this can be slow
 		var sig      = Hash( SerializeJson( filesEtc ) );
-
 		return "buildrunner" & sig;
 	}
+
+	private void function _resetBuildRunner() {
+		var appKey    = application.buildRunnerKey ?: "";
+		if (application.keyExists( appKey ) ){
+			application.delete( appKey );
+			application.buildRunnerKey = "";
+		}
+	}
+
+	private void function _addChangeWatcher(){
+		var password 	= "lucee-docs";
+		var admin       = new Administrator( "web", password );
+
+		admin.updateGatewayEntry(
+			startupMode="automatic",
+			id="watchDocumentFilesForChange",
+			class="",
+			cfcpath="lucee.extension.gateway.DirectoryWatcher",			
+			// this doesn't work, cfc must be under web-inf dir
+			// listenerCfcPath="api.build.DocsDirectoryWatcherListener", 
+			// i.e. WEB-INF\lucee-web\components\lucee\extension\gateway\docs
+			listenerCfcPath="lucee.extension.gateway.Docs.DocsDirectoryWatcherListener", 
+			custom='#{
+				directory="#expandPath('/docs/')#"
+				, recurse=true
+				, interval=5000
+				, extensions="*.md"
+				, changeFunction="onAdd"
+				, addFunction="onAdd"
+				, deleteFunction="onDelete"
+			}#',
+			readOnly=false
+		);
+	}
+	private void function _removeChangeWatcher(){
+		var password	= "lucee-docs";
+		var admin       = new Administrator( "web", password );
+		admin.removeGatewayEntry(id="watchDocumentFilesForChange");
+	}	
+
 }

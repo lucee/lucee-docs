@@ -10,9 +10,14 @@ component {
 		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
 	}
 
+	public string function _getIssueTrackerLink(required string name) {
+		var link = Replace( new api.build.BuildProperties().getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
+		return '<a href="#link#" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
+	}
+
 	public void function build( docTree, buildDirectory ) {
 		var tree = docTree.getTree();
-
+		cflog(text="Builder html directory: #arguments.buildDirectory#");
 		for( var page in tree ) {
 			_writePage( page, arguments.buildDirectory, docTree );
 		}
@@ -22,11 +27,11 @@ component {
 		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
 	}
 
-	public string function renderPage( required any page, required any docTree ){
+	public string function renderPage( required any page, required any docTree, required boolean edit ){
 		try {
 			var renderedPage = renderTemplate(
 				  template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
-				, args     = { page = arguments.page, docTree=arguments.docTree }
+				, args     = { page = arguments.page, docTree=arguments.docTree, edit=edit }
 				, helpers  = "/builders/html/helpers"
 			);
 		} catch( any e ) {
@@ -36,7 +41,6 @@ component {
 		var crumbs = [];
 		var parent = arguments.page.getParent();
 		var links = [];
-
 
 		while( !IsNull( parent ) ) {
 			crumbs.prepend( parent.getId() );
@@ -50,9 +54,25 @@ component {
 				}
 			}
 		}
-		if ( !IsNull( arguments.page.getRelated() ) ) {
-			for( var link in arguments.page.getRelated() ) {
-				links.append( link );
+
+		var related = arguments.docTree.getPageRelated(arguments.page);
+		for( var link in related ) {
+			if (len(link) gt 0)
+				links.append( "[[" & link & "]]");
+		}
+
+		if ( len(arguments.page.getId()) gt 0){
+			var name = listRest(arguments.page.getId(), "-");
+			switch (arguments.page.getPageType()){
+				case "tag":
+					// add a cf prefix, tried adding with jql "OR & name" but that didn't work
+					links.append( _getIssueTrackerLink("cf" & name ) );
+					break;
+				case "function":
+					links.append( _getIssueTrackerLink(name) );
+					break;
+				default:
+          break;
 			}
 		}
 
@@ -62,6 +82,7 @@ component {
 			, args     = {
 				  body       = Trim( renderedPage )
 				, page       = arguments.page
+				, edit       = arguments.edit
 				, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, page=arguments.page } )
 				, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage() } )
 				, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , helpers  = "/builders/html/helpers", args={ links=links } )
@@ -102,13 +123,13 @@ component {
 	private void function _writePage( required any page, required string buildDirectory, required any docTree ) {
 		var filePath      = _getHtmlFilePath( arguments.page, arguments.buildDirectory );
 		var fileDirectory = GetDirectoryFromPath( filePath );
-
+		//var starttime = getTickCount();
 		if ( !DirectoryExists( fileDirectory ) ) {
 			DirectoryCreate( fileDirectory );
 		}
 
-		FileWrite( filePath, renderPage( arguments.page, arguments.docTree ) );
-
+		FileWrite( filePath, renderPage( arguments.page, arguments.docTree, false ) );
+		//cflog(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
 		for( var childPage in arguments.page.getChildren() ) {
 			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
 		}
@@ -123,7 +144,13 @@ component {
 	}
 
 	private void function _copyStaticAssets( required string buildDirectory ) {
-		DirectoryCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets", arguments.buildDirectory & "/assets", true );
+		var subdirs = directoryList(path=GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets", type="dir", recurse="false");
+		for (var subdir in subdirs){
+			var dirName = listLast(subdir, "/\");
+			if (dirName neq "node_modules" and dirName neq "sass" and left(dirName,1) neq "."){
+				DirectoryCopy(subdir, arguments.buildDirectory & "/assets/" & dirName, true );
+			}
+		}
 	}
 
 	private void function _renderStaticPages( required string buildDirectory, required any docTree ) {

@@ -1,2 +1,7 @@
 jmimemagic.log
 .exitcode
+node_modules
+
+server-luceedocsbuilder.json
+server/server-luceedocslocalserver.json
+builders/html/assets/package-lock.json

@@ -15,8 +15,7 @@
 
 
 <cfoutput>
-	<a class="pull-right" href="#getSourceLink( path=category.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
-
+	#getEditLink(path=category.getSourceFile(), edit=args.edit)#
 	#markdownToHtml( category.getBody() )#
 
 	<cfif not pages.len()>
@@ -32,7 +31,7 @@
 				<ul class="list-unstyled">
 			</cfif>
 
-			<li>[[#page.getId()#]]</li>
+			<li>[[#htmleditformat(page.getId())#]] #htmleditformat(page.getDescription())#</li>
 		</cfloop>
 		</ul>
 	</cfif>

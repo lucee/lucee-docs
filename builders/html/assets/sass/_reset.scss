@@ -300,8 +300,8 @@
 		color: inherit;
 		font-family: $font-fam;
 		font-weight: 700;
-		margin-top: ($line-height * 2);
-		margin-bottom: $line-height;
+		margin-top: ($line-height / 2 );
+		margin-bottom: ($line-height / 3);
 	}
 
 	h1,
@@ -382,7 +382,7 @@
 	}
 
 	p {
-		margin: $line-height 0;
+		margin: ($line-height / 2) 0;
 	}
 
 	small {
@@ -402,7 +402,7 @@
 		// position
 			bottom: -0.25em;
 	}
-	
+
 	sup {
 		// position
 			top: -0.5em;

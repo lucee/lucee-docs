@@ -22,8 +22,12 @@ component accessors=true {
 	public void function build( required string builderName ) {
 		var builder  = getBuilder( arguments.builderName );
 		var buildDir = _getBuilderBuildDirectory( arguments.builderName );
+		var startTime = getTickCount();
+		cflog(text="Start builder: #arguments.builderName#");
 
 		builder.build( docTree, buildDir );
+
+		cflog(text="Finished builder: #arguments.builderName#, in #NumberFormat( getTickCount()-startTime)#ms");
 	}
 
 	public array function listBuilders() {

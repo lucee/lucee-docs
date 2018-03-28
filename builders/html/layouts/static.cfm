@@ -34,6 +34,9 @@
 								<a href="http://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
 							</li>
 							<li>
+								<a href="https://luceeserver.atlassian.net/browse/"><span class="fa fa-fw fa-bug"></span>Issue Tracker</a>
+							</li>
+							<li>
 								<a href="https://github.com/lucee/lucee-docs"><span class="fa fa-fw fa-github"></span>Source repository</a>
 							</li>
 							<li>
@@ -41,6 +44,9 @@
 							</li>
 							<li>
 								<a href="/download.html"><span class="fa fa-fw fa-download"></span>Download</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA"><span class="fa fa-fw fa-youtube-play"></span>Lucee on YouTube</a>
 							</li>
 						</ul>
 					</div>

@@ -6,14 +6,14 @@
 	width: 100%;
 	z-index: ($header-base - 1);
 	@include backface(hidden);
-	@include transition(all 0.3s $timing);
+	@include transition(all 0.1s $timing);
 	-webkit-transition-property: box-shadow, -webkit-transform;
 	        transition-property: box-shadow, transform;
 	&.open {
 		// position
 			left: 0;
 		@include box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-		@include transition(all 0.3s $timing);
+		@include transition(all 0.1s $timing);
 	}
 	// 480
 		@include responsive(xs) {
@@ -87,7 +87,7 @@
 	cursor: pointer;
 	display: block;
 	float: right;
-	padding: ($line-height / 2) $grid-gutter;
+	padding: $nav-menu-padding;
 	position: absolute;
 		top: 0;
 		right: 0;
@@ -97,9 +97,21 @@
 	}
 }
 
+.nav .menu-toggle{
+	padding-top: ($line-height / 2);
+}
+
+.header .menu-toggle{
+	padding-top: ($line-height / 5);
+}
+
+.header .menu-toggle-sidebar{
+	padding-top: ($line-height / 2);
+}
+
 .menu-collapse-toggle-close {
 	position: absolute;
-		top: (($line-height * 2 - $font-size) / 2);
+		top: ((($line-height / 2) ) / 2);
 		left: 0;
 	text-align: center;
 	width: 100%;
@@ -271,7 +283,7 @@
 	// colour
 		@each $color in $palette-list {
 			$i: index($palette-list, $color);
-			
+
 			.page-#{$color} & {
 				background-color: nth($palette-color-dark-m, $i);
 			}
