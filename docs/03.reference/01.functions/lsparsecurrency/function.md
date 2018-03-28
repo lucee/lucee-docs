@@ -6,7 +6,7 @@ categories:
     - currency
     - string
     - parsing
-    - i18n
+    - internationalization
 ---
 
 Converts a locale-specific currency string into a formatted

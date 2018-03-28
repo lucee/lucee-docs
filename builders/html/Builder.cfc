@@ -54,6 +54,7 @@ component {
 				}
 			}
 		}
+
 		var related = arguments.docTree.getPageRelated(arguments.page);
 		for( var link in related ) {
 			if (len(link) gt 0)
@@ -71,6 +72,7 @@ component {
 					links.append( _getIssueTrackerLink(name) );
 					break;
 				default:
+          break;
 			}
 		}
 

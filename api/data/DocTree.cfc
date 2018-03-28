@@ -103,20 +103,18 @@ component accessors=true {
 		var start = getTickCount();
 		cflog(text="Starting Lucee Documentation Build");
 
-		_initializeEmptyTree();
+    _initializeEmptyTree();
 
 		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
 		for( var pageFile in pageFiles ) {
 			page = _preparePageObject( pageFile, arguments.rootDirectory );
-
 			_addPageToTree( page );
 		}
 		_sortChildren( tree );
-		cflog(text="Calculating Next and Previous Links");
 		_calculateNextAndPreviousPageLinks( tree );
 		_buildRelated();
-
 		_checkCategories();
+    
 		cflog(text="Tree: #ArrayLen(tree)#, idMap: #structCount(idMap)#, pathMap: #structCount(pathMap)#,");
 		cflog(text="Documentation Built in #(getTickCount()-start)/1000#s");
 	}
@@ -158,8 +156,7 @@ component accessors=true {
 			arguments.page.setParent( parent );
 
 			ancestors = parent.getAncestors();
-			if (ancestors.len() eq 0) // avoid duplicates
-				ancestors.append( parent.getId() );
+			ancestors.append( parent.getId() );
 		} else {
 			tree.append( arguments.page );
 		}
@@ -327,7 +324,7 @@ component accessors=true {
 
 			var nextParent = ( i == pageCount ) ? ( arguments.nextParentPage ?: NullValue() ) : arguments.pages[i+1];
 			for( var child in page.getChildren() ){
-				_calculateNextAndPreviousPageLinks( child.getChildren(), ( nextParent ?: NullValue() ), arguments.lastPageTouched )
+				_calculateNextAndPreviousPageLinks( page.getChildren(), ( nextParent ?: NullValue() ), arguments.lastPageTouched )
 			}
 		}
 	}
@@ -381,7 +378,6 @@ component accessors=true {
 
 		return new api.reference.ReferenceReaderFactory().getTagReferenceReader();
 	}
-
 
 	private void function _buildRelated(){
 		var related = {};

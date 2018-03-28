@@ -4,7 +4,7 @@ id: function-lsisdate
 related:
 categories:
     - date
-    - i18n
+    - internationalization
     - decision
 ---
 

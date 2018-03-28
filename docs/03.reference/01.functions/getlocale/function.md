@@ -3,7 +3,7 @@ title: GetLocale
 id: function-getlocale
 related:
 categories:
-    - i18n
+    - internationalization
 ---
 
 Gets the current geographic/language locale value.

@@ -9,7 +9,7 @@ On top of this base layer, the Lucee Documentation system processes its own spec
 
 ## Syntax highlighting
 
-Syntax highlighted code blocks start and end with three backticks on their own line with an optional lexer after the first set of ticks. 
+Syntax highlighted code blocks start and end with three backticks on their own line with an optional lexer after the first set of ticks.
 
 For example, a code block using a 'luceescript' lexer, would look like this:
 
@@ -117,6 +117,7 @@ YAML Front Matter is used to add metadata to pages that can then be used by the 
 ---
 variableName: value
 arrayVariable:
+
     - arrayValue 1
     - arrayValue 2
 ---
@@ -133,10 +134,11 @@ A full example might look like:
 id: function-abs
 title: Abs()
 related:
-    - "[Problem with Abs()](http://someblog.com/somearticle.html)"
+
+    \- "[Problem with Abs()](http://someblog.com/somearticle.html)"
 categories:
-    - number
-    - math
+    \- number
+    \- math
 ```
 
 Category links will be rendered as ```[[category-categoryname]]```. Related links will be rendered using the markdown renderer so can use any valid link format, including our custom cross referencing syntax (see above, and note the required double quotes to escape the special characters).

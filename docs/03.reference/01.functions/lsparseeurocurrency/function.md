@@ -6,7 +6,7 @@ categories:
     - currency
     - string
     - parsing
-    - i18n
+    - internationalization
 ---
 
 use function lsParseCurrency instead
