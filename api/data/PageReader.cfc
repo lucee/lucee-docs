@@ -1,10 +1,11 @@
 component {
 
 	public any function readPageFile( required string filePath ) {
-		var fileDirectory   = GetDirectoryFromPath( arguments.filePath );
+		var path            = Replace(arguments.filePath,"\","/","all");
+		var fileDirectory   = GetDirectoryFromPath( path );
 		var slug            = ListLast( fileDirectory, "\/" );
-		var defaultPageType = ReReplace( arguments.filePath, "^.*?/([a-z]+)\.md$", "\1" );
-		var fileContent     = FileRead( arguments.filePath );
+		var defaultPageType = ReReplace(path, "^.*?/([a-z]+)\.md$", "\1" );
+		var fileContent     = REReplace(FileRead( path ), "\r\n","\n","all"); // convert all line endings to unix style
 		var data            = _parsePage( fileContent );
 		var sortOrder       = "";
 
@@ -24,7 +25,7 @@ component {
 		data.pageType   = data.pageType ?: defaultPageType; // TODO this is sometimes still the .md file path
 		data.slug       = data.slug     ?: slug;
 		data.sortOrder  = Val( data.sortOrder ?: sortOrder );
-		data.sourceFile = "/docs" & Replace( arguments.filePath, docsBase, "" );
+		data.sourceFile = "/docs" & Replace( path, docsBase, "" );
 		data.sourceDir  = "/docs" & Replace( fileDirectory     , docsBase, "" );
 		data.related    = isArray( data.related ?: "" ) ? data.related : ( Len( Trim( data.related ?: "" ) ) ? [ data.related ] : [ ] );
 
