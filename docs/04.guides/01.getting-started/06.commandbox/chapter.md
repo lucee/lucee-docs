@@ -1,6 +1,6 @@
 ---
-id: getting-started
-title: Getting Started
+id: getting-started-commandbox
+title: CommandBox
 ---
 
 The easiest way to get started with Lucee is by using Ortus Solutions' [CommandBox](http://www.ortussolutions.com/products/commandbox). CommandBox comes with an embedded Lucee server so you can be up and running in just minutes.

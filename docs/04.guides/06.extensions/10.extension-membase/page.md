@@ -1,5 +1,5 @@
 ---
-title: Extensions Membase
+title: Membase
 id: extension-membase
 ---
 

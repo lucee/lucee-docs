@@ -1,6 +1,7 @@
 ---
 title: About Lucee
 id: about-lucee
+forceSortOrder: 98
 ---
 
 Here you can find guides on how to work with the Lucee source:

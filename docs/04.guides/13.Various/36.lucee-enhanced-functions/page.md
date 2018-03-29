@@ -1,5 +1,5 @@
 ---
-title: Enhanced_Tags
+title: Enhanced Tags
 id: lucee-enhanced-tags
 ---
 
@@ -309,4 +309,3 @@ Lucee
 ```
 
 Output: Lucee
-

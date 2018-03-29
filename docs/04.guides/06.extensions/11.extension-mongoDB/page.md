@@ -1,5 +1,5 @@
 ---
-title: Extensions Mongodb
+title: Mongodb
 id: extension-mongodb
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Cookbook
+title: Developer Guides
 id: cookbook
 ---
 

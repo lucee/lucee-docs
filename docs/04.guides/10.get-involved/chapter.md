@@ -1,6 +1,7 @@
 ---
 title: Get Involved
 id: get-involved
+forceSortOrder: 97
 ---
 
 Get involved in the Lucee Project!

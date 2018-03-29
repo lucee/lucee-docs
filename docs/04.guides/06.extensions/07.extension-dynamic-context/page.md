@@ -1,5 +1,5 @@
 ---
-title: Extension Dynamic Content
+title: Dynamic Extension Content
 id: extension-dynamic-content
 ---
 

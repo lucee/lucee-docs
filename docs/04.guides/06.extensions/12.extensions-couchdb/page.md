@@ -1,5 +1,5 @@
 ---
-title: Extensions Couchdb
+title: Couchdb
 id: extension-couchdb
 ---
 
