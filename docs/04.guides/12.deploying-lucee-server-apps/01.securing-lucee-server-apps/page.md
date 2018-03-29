@@ -1,8 +1,7 @@
 ---
-title: Security
+title: Lucee Security Best Practices
 id: securing-lucee-server-apps
 ---
-
 
 ## Security ##
 

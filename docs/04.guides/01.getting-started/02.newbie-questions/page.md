@@ -1,13 +1,14 @@
 ---
 title: Newbie Questions
 id: getting-started-newbie-questions
+visible: false
 ---
 
 ## **Setting up multiple Lucee websites on Windows/IIS:** ##
 
 These instructions assume you know how to set up DNS, port forwarding for your router, and how to add a new site in IIS.
 
-1) Install Lucee (I installed http://railo.viviotech.net/downloader.cfm/id/134/file/lucee-4.5.1.000-pl0-windows-installer.exe from http://lucee.org/downloads.html )
+1) Install Lucee (http://lucee.org/downloads.html)
 
 2) Verify that Lucee is running (The internal IP of my Lucee server is 192.168.1.80, so I went to http://192.168.1.80:8888 to view the Hello Lucee page, which verified a successful deployment)
 

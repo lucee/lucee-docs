@@ -1,7 +1,7 @@
 ---
 title: Building Lucee
 id: working-with-source
-forceSortOrder: 22
+forceSortOrder: 23
 ---
 
 Here you can find guides on how to work with the Lucee source:
