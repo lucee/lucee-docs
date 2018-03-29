@@ -12,7 +12,7 @@
 			<cfif firstLevelPage.getId() neq "/home" && firstLevelPage.getVisible()>
 				<cfset firstLevelActive  = args.pageLineage.find( firstLevelPage.getId() ) />
 				<cfset firstLevelCurrent = args.pageLineage[ args.pageLineage.len() ] == firstLevelPage.getId() />
-				<li class="<cfif firstLevelActive>active</cfif> <cfif firstLevelCurrent>current</cfif>">
+			<li class="<cfif firstLevelActive>active</cfif> <cfif firstLevelCurrent>current</cfif>">
 
 					[[#firstLevelPage.getId()#]]
 
@@ -24,7 +24,7 @@
 								<cfif secondLevelActive>
 									<cfset subIsOpen = true />
 								</cfif>
-								<li<cfif secondLevelActive> class="active"</cfif>>[[#secondLevelPage.getId()#]]</li>
+							<li<cfif secondLevelActive> class="active"</cfif>>[[#secondLevelPage.getId()#]]</li>
 							</cfif>
 						</cfloop>
 					</cfsavecontent>
@@ -39,7 +39,7 @@
 							#subnav#
 						</ul>
 					</cfif>
-				</li>
+			</li>
 			</cfif>
 		</cfloop>
 	</ul>
