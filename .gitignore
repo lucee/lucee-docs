@@ -2,3 +2,5 @@ jmimemagic.log
 .exitcode
 node_modules
 .vscode
+
+server/server-luceedocslocalserver.json

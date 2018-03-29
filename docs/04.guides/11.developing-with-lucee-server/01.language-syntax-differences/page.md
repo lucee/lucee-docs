@@ -1,5 +1,5 @@
 ---
-title: Language_And_Syntax_Differences
+title: Lucee Language and Syntax Differences
 id: language-syntax-differences
 ---
 ## Architecture ##
