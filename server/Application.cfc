@@ -6,8 +6,9 @@
 
 	this.mappings[ "/api"      ] = this.baseDir & "api";
 	this.mappings[ "/builders" ] = this.baseDir & "builders";
+	this.mappings[ "/builds"   ] = this.baseDir & "builds";
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
-	this.mappings[ "/listener"     ] = this.baseDir;
+	this.mappings[ "/listener" ] = this.baseDir;
 
 	public void function onApplicationStart()  {
 		//_addChangeWatcher();				
@@ -33,6 +34,8 @@
 			_renderCodeEditor();
 		} elseif ( path.startsWith( "/source" ) ) {
 			_renderSource();
+		} elseif ( path.startsWith( "/static" ) ) {
+			_renderStatic();
 		} else {
 			_renderPage();
 		}
@@ -48,7 +51,7 @@
 		var page        = docTree.getPageByPath( pagePath );
 
 		if ( IsNull( page ) ) {
-			_404();
+			_404(pagePath, "/");
 		}
 
 		WriteOutput( buildRunner.getBuilder( "html" ).renderPage( page, docTree, true ) );
@@ -104,11 +107,27 @@
 		var assetPath = "/builders/html" & _getRequestUri();
 
 		if ( !FileExists( assetPath ) ) {
-			_404();
+			_404(assetPath, "/");
 		}
 
 		header name="cache-control" value="no-cache";
 		content file=assetPath type=_getMimeTypeForAsset( assetPath );
+		abort;
+	}
+
+	private void function _renderStatic() {
+		var staticFile = listRest(_getRequestUri(), "/");
+		if (len(staticFile) eq 0)
+			staticFile = "index.html";
+
+		var staticAssetPath = "/builds/html/" & staticFile ;
+
+		if ( !FileExists( staticAssetPath ) ) {			
+			_404(staticAssetPath, "/static/");			
+		}
+
+		header name="cache-control" value="no-cache";
+		content file=staticAssetPath type=_getMimeTypeForAsset( staticAssetPath );
 		abort;
 	}
 
@@ -146,9 +165,18 @@
 		return request[ "javax.servlet.forward.request_uri" ] ?: "/";
 	}
 
-	private void function _404() {
-		content reset="true" type="text/plain";
+	private void function _404(required string path, required string baseHref) {
 		header statuscode=404;
+		var reqType = listLast(arguments.path, ".");
+		if (reqType eq "html" or arguments.path does not contain "."){
+			var buildRunner = _getBuildRunner(checkFiles = false); // no need to scan files
+			var docTree     = buildRunner.getDocTree();
+			WriteOutput( buildRunner.getBuilder( "html" ).renderFileNotFound( arguments.path, docTree, arguments.baseHref ) );
+			abort;
+		} else {
+			content reset="true" type="text/plain";
+			writeOutput("File not found: #htmlEditFormat(arguments.path)#");
+		}
 		abort;
 	}
 
@@ -166,6 +194,7 @@
 			case "eot": return "application/vnd.ms-fontobject";
 			case "otf": return "font/otf";
 			case "ttf": return "application/octet-stream";
+			case "html": return "text/html";
 		}
 
 		return "application/octet-stream";
