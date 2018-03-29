@@ -801,7 +801,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 	var $searchBox       = $( "#lucee-docs-search-input" )
 	  , $searchLink      = $( ".search-link" )
-	  , $searchContainer = $( ".search-container" )
+		, $searchContainer = $( ".search-container" )		
 	  , duckduckgoUrl    = "https://duckduckgo.com/?q=site:docs.lucee.org "
 	  , setupTypeahead, setupBloodhound, renderSuggestion
 	  , itemSelectedHandler, tokenizer, generateRegexForInput, search, searchIndex;
@@ -822,6 +822,10 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 			$searchBox.typeahead( typeAheadSettings, datasetSettings );
 			$searchBox.on( "typeahead:selected", function( e, result ){ itemSelectedHandler( result ); } );
+			
+			$fileNotFound = $(".file-not-found-suggestions")
+			if ($fileNotFound.length)
+				renderFileNotFoundSuggestions($fileNotFound);			
 		} );
 	};
 
@@ -916,6 +920,19 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 	}
 
 	setupTypeahead();
+	// on the 404 page, lets try and make some suggestions based on filename
+	renderFileNotFoundSuggestions = function($fileNotFound){
+		var q = document.location.pathname.split(".")[0].split("/");		
+		var suggestions = 	search(q[q.length-1].split("-").join(" "));	
+
+		if (suggestions.length > 1)
+			$fileNotFound.append($("<p/>").text("Perhaps one of these pages is what your looking for?"));
+		for (var s = 0; s < suggestions.length; s++){
+			var item = suggestions[s];
+			var link = $("<a/>").text(item.display).attr("href", item.value.substr(1));			
+			$fileNotFound.append($("<div/>").append(link));
+		}
+	}		
 
 } )( jQuery );
 // waves v0.6.5
