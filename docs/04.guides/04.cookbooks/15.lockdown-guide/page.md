@@ -64,7 +64,7 @@ Detailed instructions for SSH tunneling:
 
 ## Some Good Resources written for Railo that can be adapted for Lucee ##
 
-* OWASP Securing Tomcat: https://www.owasp.org/index.php/Securing_tomcat
-* Railo installation on CentOS Best Practices : http://blog.getrailo.com/assets/content/RailoInstallationonCentOSLinux6BestPractices.pdf
-* Railo Admin Lock down guide for IIS : https://www.youtube.com/watch?v=dYt4rap7LWQ (What can be adapted)
-* Pete Freitag on securing railo-context: http://www.petefreitag.com/item/715.cfm
+* [OWASP Securing Tomcat](https://www.owasp.org/index.php/Securing_tomcat)
+* [Railo installation on CentOS Best Practices](http://blog.getrailo.com/assets/content/RailoInstallationonCentOSLinux6BestPractices.pdf)
+* [Railo Admin Lock down guide for IIS (What can be adapted)](https://www.youtube.com/watch?v=dYt4rap7LWQ)
+* [Pete Freitag on securing railo-context](http://www.petefreitag.com/item/715.cfm)
