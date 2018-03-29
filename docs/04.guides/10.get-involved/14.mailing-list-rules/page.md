@@ -17,4 +17,4 @@ Question - What is the definition of "abusing the goodwill of the community"?
 
 We're all here to help each other get through issues. The moment that conversation becomes personal, it's no longer about helping anymore. We also don't care if you ask a million questions, just know that the more code / issues you share with us, the more we, the community, can assist you.
 
-We also ask that you try to be proactive and search for the issue first. While this is a mailing list, there is a front end for searching this mailing list here: [http://groups.google.com/group/lucee/](http://groups.google.com/group/lucee/)
+We also ask that you try to be proactive and search for the issue first. While this is a mailing list, there is a front end for searching this mailing list here: [https://dev.lucee.org](https://dev.lucee.org)

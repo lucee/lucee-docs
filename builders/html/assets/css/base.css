@@ -369,8 +369,8 @@ img {
 
 ol,
 ul {
-  margin: 24px 0;
-  padding: 0 0 0 32px;
+  margin: 12px 0;
+  padding: 0 0 0 16px;
 }
 ol ol,
 ol ul,
@@ -5863,8 +5863,8 @@ pre {
   display: block;
   font-size: 12px;
   line-height: 20px;
-  margin: 24px 0;
-  padding: 12px 8px;
+  margin: 12px 0;
+  padding: 6px 8px;
   word-break: break-all;
   word-wrap: break-word;
 }
@@ -11940,7 +11940,7 @@ h2, h3, h4, h5, h6 {
 .menu-content .nav a,
 .menu-content .nav .a {
   color: #616161;
-  font-weight: 700;
+  font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -11980,7 +11980,7 @@ h2, h3, h4, h5, h6 {
 .menu-content .nav ul a,
 .menu-content .nav ul .a {
   font-weight: 400;
-  padding-left: 32px;
+  padding-left: 8px;
 }
 .menu-content .nav ul ul a,
 .menu-content .nav ul ul .a {

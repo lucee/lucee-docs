@@ -920,7 +920,8 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 	}
 
 	setupTypeahead();
-	// on the 404 page, lets try and make some suggestions based on filename
+	
+	// on the 404 page, try and make some suggestions based on filename
 	renderFileNotFoundSuggestions = function($fileNotFound){
 		var q = document.location.pathname.split(".")[0].split("/");		
 		var suggestions = 	search(q[q.length-1].split("-").join(" "));	

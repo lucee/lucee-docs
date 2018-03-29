@@ -44,7 +44,8 @@ component {
 
 		while( !IsNull( parent ) ) {
 			//excludeLinkMap[parent.getId()]="";
-			crumbs.prepend( parent.getId() );
+			if (parent.getVisible())
+				crumbs.prepend( parent.getId() );
 			parent = parent.getParent();
 		}
 
