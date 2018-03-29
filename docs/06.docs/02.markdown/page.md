@@ -1,5 +1,5 @@
 ---
-title: LuceeDocs-flavoured Markdown
+title: Lucee Docs Markdown
 id: docs-markdown
 ---
 
@@ -142,4 +142,3 @@ categories:
 ```
 
 Category links will be rendered as ```[[category-categoryname]]```. Related links will be rendered using the markdown renderer so can use any valid link format, including our custom cross referencing syntax (see above, and note the required double quotes to escape the special characters).
-

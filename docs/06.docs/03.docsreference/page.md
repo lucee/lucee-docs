@@ -1,5 +1,5 @@
 ---
-title: Cross referencing documentation pages
+title: Cross referencing
 id: docs-reference-pages
 ---
 
