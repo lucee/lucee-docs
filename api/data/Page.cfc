@@ -12,9 +12,11 @@ component accessors=true {
 	property name="description"  type="string"  default="";
 	property name="body"         type="string"  default="";
 	property name="sortOrder"    type="numeric" default="0";
+	property name="forceSortOrder"    type="numeric" default="-1";
 	property name="visible"      type="boolean" default=false;
 	property name="related"      type="array";
 	property name="listingStyle" type="string" default="";
+	property name="reference" 	 type="boolean" default="true"; // whether to include in see also
 
 	property name="ancestors"    type="array";
 	property name="lineage"      type="array";

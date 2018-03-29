@@ -4,21 +4,27 @@
 <cfparam name="args.navTree"    type="string" />
 <cfparam name="args.seeAlso"    type="string" />
 
+<cfscript>
+	baseHref = ( repeatString( '../', args.page.getDepth()-1 ) );
+	// this breaks the /static/ local server mode
+	//if (baseHref eq "")
+	//	baseHref = "/";
+</cfscript>
+
 <cfoutput><!DOCTYPE html>
 <html>
 	<head>
 		<title>#HtmlEditFormat( args.page.getTitle() )# :: Lucee Documentation</title>
-		<base href="#( repeatString( '../', args.page.getDepth()-1 ) )#">
+		<base href="#baseHref#">
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
 		<cfif args.edit>
-			<link href="/assets/css/base.css" rel="stylesheet">
+		<link href="/assets/css/base.css" rel="stylesheet">
 		<cfelse>
-			<link href="/assets/css/base.min.css" rel="stylesheet">
+		<link href="/assets/css/base.min.css" rel="stylesheet">
 		</cfif>
 		<link href="/assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
-
 		<!-- ie -->
 		<!--[if lt IE 9]>
 			<script src="/assets/js/html5shiv.js" type="text/javascript"></script>
@@ -37,6 +43,9 @@
 						<ul class="nav">
 							<li>
 								<a href="http://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
+							</li>
+							<li>
+								<a href="https://dev.lucee.org"><span class="fa fa-fw fa-comments"></span>Mailing List</a>
 							</li>
 							<li>
 								<a href="https://luceeserver.atlassian.net/browse/"><span class="fa fa-fw fa-bug"></span>Issue Tracker</a>
@@ -153,12 +162,11 @@
 			</div>
 		</footer>
 
-
 		<cfif args.edit>
-			<script src="/assets/js/base.js" type="text/javascript"></script>
-			<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
+		<script src="/assets/js/base.js" type="text/javascript"></script>
+		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-			<script src="/assets/js/base.2.min.js" type="text/javascript"></script>
+		<script src="/assets/js/base.2.min.js" type="text/javascript"></script>
 		</cfif>
 	</body>
 </html></cfoutput>

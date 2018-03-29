@@ -152,7 +152,7 @@
 		a,
 		.a {
 			color: $black-sec;
-			font-weight: 700;
+			font-weight: 600;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -190,7 +190,7 @@
 			a,
 			.a {
 				font-weight: 400;
-				padding-left: ($grid-gutter * 2);
+				padding-left: ($grid-gutter / 2);
 			}
 			ul {
 				a,

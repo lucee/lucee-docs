@@ -1,6 +1,6 @@
 ---
 title: Getting to know Lucee Server
-id:  getting-to-know-lucee
+id: getting-to-know-lucee
 ---
 
 ## What do you get with Lucee Server? ##
@@ -111,7 +111,7 @@ It's good practice to keep business logic and presentation separate, but if you 
 </cfoutput>
 ```
 
-## How CFML developed ##
+## The History of CFML ##
 
 CFML was invented by the Allaire brothers, back in 1995. Web pioneers, they had a vision of a language and platform that would allow easy connections between web pages and databases, freeing developers from the complexities of web development.
 

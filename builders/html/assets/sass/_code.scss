@@ -36,8 +36,8 @@ pre {
 	display: block;
 	font-size: $font-size-h5;
 	line-height: $line-height-h5;
-	margin: $line-height 0 ;
-	padding: ($line-height / 2) ($grid-gutter / 2);
+	margin: ($line-height / 2) 0 ;
+	padding: ($line-height / 4) ($grid-gutter / 2);
 	word-break: break-all;
 	word-wrap: break-word;
 	code {

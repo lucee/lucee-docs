@@ -4,3 +4,4 @@ node_modules
 .vscode
 
 server/server-luceedocslocalserver.json
+server-luceedocsbuilder.json

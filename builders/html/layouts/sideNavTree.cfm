@@ -3,29 +3,16 @@
 <cfparam name="args.docTree"     type="any" />
 
 <cfscript>
-	srcTree = args.docTree.getTree();
-	navTree = [];
-	guideTree = [];
-	for (var folder in srcTree){
-		if (folder.getId() eq "guides"){
-			guideTree = folder.getChildren();
-		} else if (folder.getId() neq "/home" && folder.getVisible()){
-			navTree.append(folder);
-		}
-	}
-	// expose guides as a top level folder
-	for (var folder in guideTree){
-		navTree.append(folder);
-	}
+	srcTree = args.docTree.getTree();	
 </cfscript>
 
 <cfoutput>
 	<ul class="nav">
-		<cfloop array="#navTree#" item="firstLevelPage" index="i">
+		<cfloop array="#srcTree#" item="firstLevelPage" index="i">
 			<cfif firstLevelPage.getId() neq "/home" && firstLevelPage.getVisible()>
 				<cfset firstLevelActive  = args.pageLineage.find( firstLevelPage.getId() ) />
 				<cfset firstLevelCurrent = args.pageLineage[ args.pageLineage.len() ] == firstLevelPage.getId() />
-				<li class="<cfif firstLevelActive>active</cfif> <cfif firstLevelCurrent>current</cfif>">
+			<li class="<cfif firstLevelActive>active</cfif> <cfif firstLevelCurrent>current</cfif>">
 
 					[[#firstLevelPage.getId()#]]
 
@@ -37,7 +24,7 @@
 								<cfif secondLevelActive>
 									<cfset subIsOpen = true />
 								</cfif>
-								<li<cfif secondLevelActive> class="active"</cfif>>[[#secondLevelPage.getId()#]]</li>
+							<li<cfif secondLevelActive> class="active"</cfif>>[[#secondLevelPage.getId()#]]</li>
 							</cfif>
 						</cfloop>
 					</cfsavecontent>
@@ -52,7 +39,7 @@
 							#subnav#
 						</ul>
 					</cfif>
-				</li>
+			</li>
 			</cfif>
 		</cfloop>
 	</ul>

@@ -45,6 +45,8 @@
 				</span>
 				<cfset currentLetter = firstLetter />
 			</cfloop>
+				</div>
+			</div>
 		</div>
 	</cfif>
 </cfoutput>
