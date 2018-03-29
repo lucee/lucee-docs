@@ -132,8 +132,10 @@ component {
 		if ( !DirectoryExists( fileDirectory ) ) {
 			DirectoryCreate( fileDirectory );
 		}
-
-		FileWrite( filePath, renderPage( arguments.page, arguments.docTree, false ) );
+		var pageContent = renderPage( arguments.page, arguments.docTree, false );
+		// regex strips left over whitespace multiple new lines
+		pageContent = ReReplace(pageContent, "[\r\n]\s*([\r\n]|\Z)", Chr(10), "ALL")
+		FileWrite( filePath, pageContent );
 		//cflog(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
 		for( var childPage in arguments.page.getChildren() ) {
 			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
