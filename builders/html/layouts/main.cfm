@@ -4,11 +4,18 @@
 <cfparam name="args.navTree"    type="string" />
 <cfparam name="args.seeAlso"    type="string" />
 
+<cfscript>
+	baseHref = ( repeatString( '../', args.page.getDepth()-1 ) );
+	// this breaks the /static/ local server mode
+	//if (baseHref eq "")
+	//	baseHref = "/";
+</cfscript>
+
 <cfoutput><!DOCTYPE html>
 <html>
 	<head>
 		<title>#HtmlEditFormat( args.page.getTitle() )# :: Lucee Documentation</title>
-		<base href="#( repeatString( '../', args.page.getDepth()-1 ) )#">
+		<base href="#baseHref#">
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
 		<cfif args.edit>

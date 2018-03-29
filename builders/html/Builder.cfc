@@ -15,7 +15,7 @@ component {
 	}
 
 	public void function build( docTree, buildDirectory ) {
-		var tree = docTree.getTree();
+		var tree = arguments.docTree.getTree();
 		cflog(text="Builder html directory: #arguments.buildDirectory#");
 		for( var page in tree ) {
 			_writePage( page, arguments.buildDirectory, docTree );
@@ -133,14 +133,18 @@ component {
 		if ( !DirectoryExists( fileDirectory ) ) {
 			DirectoryCreate( fileDirectory );
 		}
-		var pageContent = renderPage( arguments.page, arguments.docTree, false );
+		var pageContent = cleanHtml(renderPage( arguments.page, arguments.docTree, false ));
 		// regex strips left over whitespace multiple new lines
-		pageContent = ReReplace(pageContent, "[\r\n]\s*([\r\n]|\Z)", Chr(10), "ALL")
+		
 		FileWrite( filePath, pageContent );
 		//cflog(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
 		for( var childPage in arguments.page.getChildren() ) {
 			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
 		}
+	}
+
+	private function cleanHtml( required string content){
+		return ReReplace(arguments.content, "[\r\n]\s*([\r\n]|\Z)", Chr(10), "ALL")
 	}
 
 	private string function _getHtmlFilePath( required any page, required string buildDirectory ) {
@@ -165,7 +169,7 @@ component {
 		var staticPagesDir = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/staticPages";
 		var _404Page = _renderStaticPage( staticPagesDir & "/404.html", "404 - Page not found", arguments.docTree, arguments.baseHref, true );
 
-		FileWrite( buildDirectory & "/404.html", _404Page );
+		FileWrite( buildDirectory & "/404.html", cleanHtml(_404Page) );
 		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", buildDirectory & "/editor.html" );
 	}
 
@@ -189,7 +193,7 @@ component {
 	}
 
 	private string function _renderStaticPage( required string filePath, required string pageTitle, 
-			required any docTree, required string baseHref, required boolean noIndex default false){
+			required any docTree, required string baseHref, boolean noIndex="false"){
 		var renderedPage = FileRead( arguments.filePath );
 		var crumbs = [];
 		//var links = [];
