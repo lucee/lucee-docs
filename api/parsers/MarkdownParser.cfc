@@ -1,4 +1,7 @@
 component {
+	property name="_markdownProcessor" type="object"; 
+	property name="_noticeBoxRenderer" type="object"; 
+
 	public any function init() {
 		_setupMarkdownProcessor();
 		_setupNoticeBoxRenderer();

@@ -3,25 +3,12 @@
 <cfparam name="args.docTree"     type="any" />
 
 <cfscript>
-	srcTree = args.docTree.getTree();
-	navTree = [];
-	guideTree = [];
-	for (var folder in srcTree){
-		if (folder.getId() eq "guides"){
-			guideTree = folder.getChildren();
-		} else if (folder.getId() neq "/home" && folder.getVisible()){
-			navTree.append(folder);
-		}
-	}
-	// expose guides as a top level folder
-	for (var folder in guideTree){
-		navTree.append(folder);
-	}
+	srcTree = args.docTree.getTree();	
 </cfscript>
 
 <cfoutput>
 	<ul class="nav">
-		<cfloop array="#navTree#" item="firstLevelPage" index="i">
+		<cfloop array="#srcTree#" item="firstLevelPage" index="i">
 			<cfif firstLevelPage.getId() neq "/home" && firstLevelPage.getVisible()>
 				<cfset firstLevelActive  = args.pageLineage.find( firstLevelPage.getId() ) />
 				<cfset firstLevelCurrent = args.pageLineage[ args.pageLineage.len() ] == firstLevelPage.getId() />
