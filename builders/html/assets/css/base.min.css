@@ -24,7 +24,7 @@ font-weight:700;margin-top:12px;margin-bottom:8px}.h1,h1{font-size:32px;line-hei
 line-height:28px}.h4,h4{font-size:16px;line-height:24px}.h5,h5{font-size:12px;line-height:20px}.h6,h6{font-size:8px;line-height:16px}.h1 small,
 .h2 small,.h3 small,.h4 small,h1 small,h2 small,h3 small,h4 small{font-size:16px;font-weight:400}.hr,hr{border:0;border-top:1px solid #9e9e9e;display:
 block;height:0;margin-top:24px;margin-bottom:24px;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}img{border:0;
-vertical-align:middle}ol,ul{margin:24px 0;padding:0 0 0 32px}ol ol,ol ul,ul ol,ul ul{margin-top:0;margin-bottom:0}p{margin:12px 0}small{font-size:75%;
+vertical-align:middle}ol,ul{margin:12px 0;padding:0 0 0 16px}ol ol,ol ul,ul ol,ul ul{margin-top:0;margin-bottom:0}p{margin:12px 0}small{font-size:75%;
 line-height:1}sub,sup{font-size:80%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:
 collapse;border-spacing:0}td,th{padding:0}th{text-align:left}@font-face{font-family:FontAwesome;font-style:normal;font-weight:400;src:
 url(./fonts/fontawesome-webfont.eot?v=4.3.0);src:url(./fonts/fontawesome-webfont.eot?#iefix&v=4.3.0) format("embedded-opentype"),
@@ -433,8 +433,8 @@ background-image:-webkit-radial-gradient(rgba(255,193,7,.1) 0,#ffc107 100%);back
 .waves-notransition{-webkit-transition:none!important;transition:none!important}code,kbd,pre,samp{font-family:Monaco,Menlo,Consolas,"Courier New",
 monospace}code{background-color:#f5f5f5;border:1px solid #e0e0e0;border-radius:4px;color:#b71c1c;font-size:75%;line-height:1;padding:2px 4px}kbd{
 background-color:#212121;border-radius:4px;color:#fff;font-size:75%;padding:2px 4px}kbd kbd{font-size:100%;font-weight:700;padding:0}pre{
-background-color:#f5f5f5;border:1px solid #e0e0e0;border-radius:2px;color:#212121;display:block;font-size:12px;line-height:20px;margin:24px 0;padding:
-12px 8px;word-break:break-all;word-wrap:break-word}pre code{background-color:transparent;border-radius:0;color:inherit;font-size:inherit;padding:0;
+background-color:#f5f5f5;border:1px solid #e0e0e0;border-radius:2px;color:#212121;display:block;font-size:12px;line-height:20px;margin:12px 0;padding:
+6px 8px;word-break:break-all;word-wrap:break-word}pre code{background-color:transparent;border-radius:0;color:inherit;font-size:inherit;padding:0;
 white-space:pre-wrap}.col-lg-1,.col-lg-10,.col-lg-11,.col-lg-12,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,
 .col-md-1,.col-md-10,.col-md-11,.col-md-12,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-sm-1,.col-sm-10,
 .col-sm-11,.col-sm-12,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,
@@ -1159,7 +1159,7 @@ rotate(-225deg)}.menu-collapse-toggle-default{opacity:0;-webkit-transform:rotate
 -webkit-transition:all .3s cubic-bezier(.4,0,.2,1);transition:all .3s cubic-bezier(.4,0,.2,1);-webkit-transition-property:opacity,-webkit-transform;
 transition-property:opacity,transform}.menu-collapse-toggle.collapsed .menu-collapse-toggle-default{opacity:1;-webkit-transform:rotate(0);
 -ms-transform:rotate(0);transform:rotate(0)}.menu-content{padding-top:12px;padding-bottom:12px}.menu-content hr{border-top-color:#e0e0e0;margin-top:
-12px;margin-bottom:12px}.menu-content .nav{margin-top:0;margin-bottom:0}.menu-content .nav .a,.menu-content .nav a{color:#616161;font-weight:700;
+12px;margin-bottom:12px}.menu-content .nav{margin-top:0;margin-bottom:0}.menu-content .nav .a,.menu-content .nav a{color:#616161;font-weight:600;
 overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.menu-content .nav .a:focus,.menu-content .nav .a:hover,.menu-content .nav a:focus,
 .menu-content .nav a:hover{background-color:#f5f5f5}.menu-content .nav .a .breadcrumb>li+li:before,.menu-content .nav .a .fa,
 .menu-content .nav .a .icon,.menu-content .nav a .breadcrumb>li+li:before,.menu-content .nav a .fa,.menu-content .nav a .icon{margin-right:16px}
@@ -1167,7 +1167,7 @@ overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.menu-content .nav .a:
 .page-blue .menu-content .nav li.active>a{color:#2196f3}.page-green .menu-content .nav li.active>.a,.page-green .menu-content .nav li.active>a{color:
 #8bc34a}.page-purple .menu-content .nav li.active>.a,.page-purple .menu-content .nav li.active>a{color:#9c27b0}
 .page-red .menu-content .nav li.active>.a,.page-red .menu-content .nav li.active>a{color:#f44336}.page-yellow .menu-content .nav li.active>.a,
-.page-yellow .menu-content .nav li.active>a{color:#ffc107}.menu-content .nav ul .a,.menu-content .nav ul a{font-weight:400;padding-left:32px}
+.page-yellow .menu-content .nav li.active>a{color:#ffc107}.menu-content .nav ul .a,.menu-content .nav ul a{font-weight:400;padding-left:8px}
 .menu-content .nav ul ul .a,.menu-content .nav ul ul a{font-size:90%;font-weight:300;padding-top:6px;padding-bottom:6px;padding-left:48px}
 @media only screen and (min-width:480px){.menu-content{width:320px}}.no-boxshadow .menu-content .nav{margin-right:1px}
 .no-boxshadow .menu.menu-right .menu-content .nav{margin-right:0;margin-left:1px}.menu-content-inner{padding-right:16px;padding-left:16px}

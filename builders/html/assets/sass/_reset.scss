@@ -372,8 +372,8 @@
 
 	ol,
 	ul {
-		margin: $line-height 0;
-		padding: 0 0 0 ($grid-gutter * 2);
+		margin: ($line-height/2) 0;
+		padding: 0 0 0 ($grid-gutter);
 		ol,
 		ul {
 			margin-top: 0;
