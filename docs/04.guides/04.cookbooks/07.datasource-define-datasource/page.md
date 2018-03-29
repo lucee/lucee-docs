@@ -1,5 +1,5 @@
 ---
-title: Defining a datasource
+title: Datasources
 id: cookbook-datasource-define-datasource
 ---
 

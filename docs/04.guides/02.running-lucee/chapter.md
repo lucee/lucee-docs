@@ -1,6 +1,7 @@
 ---
 title: Running Lucee
 id: running-lucee
+forceSortOrder: 20
 ---
 
 Here you can find guides on how to run Lucee:

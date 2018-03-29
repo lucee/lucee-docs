@@ -110,11 +110,26 @@ component accessors=true {
 			var page = _preparePageObject( pageFile, arguments.rootDirectory );
 			_addPageToTree( page );
 		}
+
+		// expose guides as a top level folder
+		for (var folder in tree){
+			if (folder.getId() eq "guides"){				
+				var guideTree = folder.getChildren();
+				for (var guide in guideTree){
+					if (guide.getForceSortOrder() gt 0){						
+						guide.setSortOrder(guide.getForceSortOrder());
+					} else {
+						guide.setSortOrder(6 + NumberFormat(guide.getSortOrder()/100,"0.00"));						
+					}
+					tree.append(guide);
+				}						
+			}
+		}		
 		_sortChildren( tree );
 		_calculateNextAndPreviousPageLinks( tree );
 		_buildRelated();
 		_checkCategories();
-    
+
 		cflog(text="Tree: #ArrayLen(tree)#, idMap: #structCount(idMap)#, pathMap: #structCount(pathMap)#,");
 		cflog(text="Documentation Built in #(getTickCount()-start)/1000#s");
 	}

@@ -1,6 +1,8 @@
 component {
+	property name="_yamlParser" type="object"; 
+
 	public any function init() {
-		_setupYamlParser();
+		_setupYamlParser();		
 
 		return this;
 	}

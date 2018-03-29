@@ -1,12 +1,10 @@
 ---
-title: Cookbook
+title: Developer Guides
 id: cookbook
 ---
 
-# Cookbook #
-
 ## Basic ##
-Some base examples
+Some basic examples
 
 * [[cookbook-basic-date]]
 

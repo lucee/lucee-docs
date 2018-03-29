@@ -1,6 +1,7 @@
 ---
-title: Developing with Lucee Server
+title: Lucee Syntax
 id: developing-with-lucee-server
+forceSortOrder: 2
 ---
 
 ## Lucee Server language & environment reference ##

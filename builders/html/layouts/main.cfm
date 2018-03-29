@@ -39,6 +39,9 @@
 								<a href="http://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
 							</li>
 							<li>
+								<a href="https://dev.lucee.org"><span class="fa fa-fw fa-comments"></span>Mailing List</a>
+							</li>
+							<li>
 								<a href="https://luceeserver.atlassian.net/browse/"><span class="fa fa-fw fa-bug"></span>Issue Tracker</a>
 							</li>
 							<li>

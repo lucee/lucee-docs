@@ -1,6 +1,7 @@
 ---
 title: Updating Lucee
 id: updating-lucee
+forceSortOrder: 21
 ---
 
 Here you can find guides on how to update Lucee:

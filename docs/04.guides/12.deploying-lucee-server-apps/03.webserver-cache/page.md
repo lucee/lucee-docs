@@ -1,5 +1,5 @@
 ---
-title: Admin Web Server Cache
+title: Performance / Caching
 id: webserver-cache
 ---
 

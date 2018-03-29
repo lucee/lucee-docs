@@ -1,6 +1,7 @@
 ---
 title: Getting Started
 id: getting-started
+forceSortOrder: '1'
 ---
 
 Here you can find guides on how to get started with Lucee:
@@ -16,5 +17,7 @@ Here you can find guides on how to get started with Lucee:
 [[getting-started-system-requirements]]
 
 [[getting-started-release-changelogs]]
+
+[[installation-installer-documentation]]
 
 [Issue tracker](https://luceeserver.atlassian.net/)

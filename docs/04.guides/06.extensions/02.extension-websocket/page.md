@@ -1,5 +1,5 @@
 ---
-title: Extensions Websocket gateway
+title: Websocket gateway
 id: extensions-websocket-gateway
 ---
 

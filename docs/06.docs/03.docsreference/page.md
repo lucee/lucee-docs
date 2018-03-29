@@ -1,5 +1,5 @@
 ---
-title: Reference pages
+title: Cross referencing
 id: docs-reference-pages
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Guides and tutorials
 id: guides
+visible: false
 ---
 
 In this section, you should expect to find an ever growing repository of guides to do with developing, setting up and configuring applications using the Lucee server.

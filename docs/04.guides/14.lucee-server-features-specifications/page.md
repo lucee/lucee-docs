@@ -1,5 +1,5 @@
 ---
-title: Lucee Server features & specifications
+title: Lucee Features
 id: lucee-server-features-specifications
 ---
 

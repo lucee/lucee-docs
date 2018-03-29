@@ -131,7 +131,7 @@ $(function(){
         }
         for (var other in props){
             if (props.hasOwnProperty(other))
-                orderedProps.push(props[other]);
+                orderedProps.push(other);
         }
         return orderedProps;
     }

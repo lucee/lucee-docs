@@ -1,6 +1,5 @@
 component {
 	public string function renderLink( any page, required string title ) {
-
 		if ( IsNull( arguments.page ) ) {
 			return '<a class="missing-link">#HtmlEditFormat( arguments.title )#</a>';
 		}
@@ -22,7 +21,7 @@ component {
 			_writePage( page, arguments.buildDirectory, docTree );
 		}
 
-		_renderStaticPages( arguments.buildDirectory, arguments.docTree );
+		_renderStaticPages( arguments.buildDirectory, arguments.docTree, "/" );
 		_copyStaticAssets( arguments.buildDirectory );
 		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
 	}
@@ -37,12 +36,14 @@ component {
 		} catch( any e ) {
 			e.additional.luceeDocsPageId = arguments.page.getid();
 			rethrow;
-		}
+		}	
 		var crumbs = [];
+		var excludeLinkMap = {}; // tracks links to exclude from See also
 		var parent = arguments.page.getParent();
 		var links = [];
 
 		while( !IsNull( parent ) ) {
+			//excludeLinkMap[parent.getId()]="";
 			crumbs.prepend( parent.getId() );
 			parent = parent.getParent();
 		}
@@ -57,7 +58,7 @@ component {
 
 		var related = arguments.docTree.getPageRelated(arguments.page);
 		for( var link in related ) {
-			if (len(link) gt 0)
+			if (len(link) gt 0 and not StructKeyExists(excludeLinkMap, link))
 				links.append( "[[" & link & "]]");
 		}
 
@@ -89,6 +90,10 @@ component {
 			  }
 		);
 	}
+
+	public string function renderFileNotFound(required string filePath, required any docTree, required string baseHref) {
+		return _renderStaticPage( "/builders/html/staticPages/404.html", "File not found", arguments.docTree, arguments.baseHref, true );
+	}	
 
 	public string function renderSearchIndex( required any docTree ) {
 		var pages           = arguments.docTree.getIdMap();
@@ -153,9 +158,9 @@ component {
 		}
 	}
 
-	private void function _renderStaticPages( required string buildDirectory, required any docTree ) {
+	private void function _renderStaticPages( required string buildDirectory, required any docTree, required string baseHref ) {
 		var staticPagesDir = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/staticPages";
-		var _404Page = _renderStaticPage( staticPagesDir & "/404.html", "404 - Page not found", arguments.docTree );
+		var _404Page = _renderStaticPage( staticPagesDir & "/404.html", "404 - Page not found", arguments.docTree, arguments.baseHref, true );
 
 		FileWrite( buildDirectory & "/404.html", _404Page );
 		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", buildDirectory & "/editor.html" );
@@ -180,16 +185,19 @@ component {
 		}
 	}
 
-	private string function _renderStaticPage( required string filePath, required string pageTitle, required any docTree ){
+	private string function _renderStaticPage( required string filePath, required string pageTitle, 
+			required any docTree, required string baseHref, required boolean noIndex default false){
 		var renderedPage = FileRead( arguments.filePath );
 		var crumbs = [];
-		var links = [];
+		//var links = [];
 
 		return renderTemplate(
 			  template = "layouts/static.cfm"
 			, helpers  = "/builders/html/helpers"
 			, args     = {
 				  body       = Trim( renderedPage )
+				, baseHref   = arguments.baseHref  
+				, noIndex   = arguments.noIndex  
 				, title      = arguments.pageTitle
 				, crumbs     = renderTemplate( template="layouts/staticbreadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ title=arguments.pageTitle } )
 				, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=[ "/home" ] } )

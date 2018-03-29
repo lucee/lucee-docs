@@ -18,9 +18,10 @@ component {
 		if ( ListLen( slug, "." ) > 1 && IsNumeric( ListFirst( slug, "." ) ) ) {
 			sortOrder    = ListFirst( slug, "." );
 			slug         = ListRest( slug, "." );
-			data.visible = true;
+			if (not structKeyExists(data, "visible"))
+				data.visible = true;
 		}
-		
+	
 		data.visible    = data.visible  ?: false;
 		data.pageType   = data.pageType ?: defaultPageType; // TODO this is sometimes still the .md file path
 		data.slug       = data.slug     ?: slug;
@@ -29,6 +30,7 @@ component {
 		data.sourceDir  = "/docs" & Replace( fileDirectory     , docsBase, "" );
 		data.related    = isArray( data.related ?: "" ) ? data.related : ( Len( Trim( data.related ?: "" ) ) ? [ data.related ] : [ ] );
 
+		//_extractMarkdownLinks(data.related, data.body);
 		//new api.parsers.ParserFactory().getMarkdownParser().validateMarkdown( data );
 
 		return data;
@@ -103,12 +105,19 @@ component {
                 orderedProps[propOrder[po]] = props[propOrder[po]];
                 structDelete(props, propOrder[po]);
             }
-        }
+        }		
 		// add any other remaining properties which don't have an order defined
         for (var other in props)
-            orderedProps[props[other]]=props[propOrder[other]];
+            orderedProps[other] = props[other];
 
 		return orderedProps;
 	}
 
+	private void function _extractMarkdownLinks(required array related, required string bodyContent){
+		var links = REMatch("[^|\s]\[([^\]]+)\][^(]", arguments.bodyContent);
+		for (var l = 1; l lte arrayLen(links); l++)
+			links[l] = ListFirst(links[l],"[]");
+
+		arrayAppend(arguments.related, links , true )		
+	}
 }

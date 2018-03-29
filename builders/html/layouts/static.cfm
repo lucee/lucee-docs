@@ -2,6 +2,7 @@
 <cfparam name="args.title"      type="string" />
 <cfparam name="args.crumbs"     type="string" />
 <cfparam name="args.navTree"    type="string" />
+<cfparam name="args.noIndex"    type="boolean" default="false" />
 
 <cfoutput><!DOCTYPE html>
 <html>
@@ -9,6 +10,10 @@
 		<title>Lucee Documentation :: #HtmlEditFormat( args.title )#</title>
 
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
+		<base href="#args.baseHref#">
+		<cfif args.noindex>
+			<meta name="ROBOTS" content="NOINDEX">		
+		</cfif>
 
 		<link href="/assets/css/base.min.css" rel="stylesheet">
 		<link href="/assets/css/highlight.css" rel="stylesheet">
@@ -123,8 +128,7 @@
 					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
 				</p>
 			</div>
-		</footer>
-
+		</footer>		
 		<script src="/assets/js/base.2.min.js" type="text/javascript"></script>
 	</body>
 </html></cfoutput>
