@@ -172,6 +172,8 @@ component {
 		FileWrite( buildDirectory & "/404.html", cleanHtml(_404Page) );
 		// google analytics for @zackster
 		FileWrite( buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");		
+		FileWrite( buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow:#chr(10)#");		
+		
 		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", buildDirectory & "/editor.html" );
 	}
 
