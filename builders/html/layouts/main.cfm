@@ -29,7 +29,7 @@
 		<meta name="twitter:site" content="@lucee_server" />
 		<meta name="twitter:title" content="#pageTitle#" />
 		<meta name="twitter:description" content="#pageDescription#" />
-		<meta name="twitter:image" content="http://docs.lucee.org/assets/images/lucee-logo.png" />	
+		<meta name="twitter:image" content="http://docs.lucee.org/assets/images/favicon.png" />	
 		<meta name="twitter:image:alt" content="Lucee" />	
 		
 		<cfif args.edit>
@@ -180,7 +180,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/base.3.min.js" type="text/javascript"></script>
+		<script src="/assets/js/base.4.min.js" type="text/javascript"></script>
 		</cfif>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116664465-1"></script>
 		<script>
