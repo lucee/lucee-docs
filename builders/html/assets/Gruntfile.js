@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 					wrapAt: 150
 				}
 			}
-		},
+		}, 
 
 		sass: {
 			base: {

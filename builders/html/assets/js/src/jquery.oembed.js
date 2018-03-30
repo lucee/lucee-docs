@@ -87,7 +87,7 @@
                                 }
                             },
                             error: function () {
-                                settings.onError.call(container, resourceURL)
+                                settings.onError.call(container, resourceURL);
                             }
                         }, settings.longUrlAjaxOptions || settings.ajaxOptions || {});
 
@@ -133,7 +133,7 @@
         },
         onEmbed: false,
         onError: function (a, b, c, d) {
-            console.log('err:', a, b, c, d)
+            console.log('err:', a, b, c, d);
         },
         ajaxOptions: {},
         longUrlAjaxOptions: {}
@@ -228,7 +228,7 @@
                             }
                         }
                         if (!meta.hasOwnProperty("og:image") && data.query.results.hasOwnProperty("link")) {
-                            for (var i = 0, l = data.query.results.link.length; i < l; i++) {
+                            for (i = 0, l = data.query.results.link.length; i < l; i++) {
                                 if (data.query.results.link[i].hasOwnProperty("rel")) {
                                     if (data.query.results.link[i].rel == "apple-touch-icon") {
                                         if (data.query.results.link[i].href.charAt(0) == "/") {
@@ -471,10 +471,10 @@
                     from: 'xml',
                     apiendpoint: this.apiendpoint,
                     url: function (externalurl) {
-                        return this.apiendpoint + '?format=xml&url=' + externalurl
+                        return this.apiendpoint + '?format=xml&url=' + externalurl;
                     },
                     datareturn: function (results) {
-                        return results.html.replace(/.*\[CDATA\[(.*)\]\]>$/, '$1') || ''
+                        return results.html.replace(/.*\[CDATA\[(.*)\]\]>$/, '$1') || '';
                     }
                 };
             } else {
@@ -482,13 +482,13 @@
                     from: 'json',
                     apiendpoint: this.apiendpoint,
                     url: function (externalurl) {
-                        return this.apiendpoint + '?format=json&url=' + externalurl
+                        return this.apiendpoint + '?format=json&url=' + externalurl;
                     },
                     datareturn: function (results) {
                         if (results.json.type != 'video' && (results.json.url || results.json.thumbnail_url)) {
                             return '<img src="' + (results.json.url || results.json.thumbnail_url) + '" />';
                         }
-                        return results.json.html || ''
+                        return results.json.html || '';
                     }
                 };
             }
@@ -648,7 +648,7 @@
                     xpath: "json",
                     from: 'json',
                     url: function (externalurl) {
-                        return 'http://skitch.com/oembed/?format=json&url=' + externalurl
+                        return 'http://skitch.com/oembed/?format=json&url=' + externalurl;
                     },
                     datareturn: function (data) {
                         return $.fn.oembed.getPhotoCode(data.json.url, data.json);
@@ -875,7 +875,7 @@
                         + '</div><div class="oembedall-status"><strong>' + q.answer_count + '</strong>answer</div></div><div class="oembedall-views">' + q.view_count + ' view(s)</div></div>'
                         + '<div class="oembedall-summary"><h3><a class="oembedall-question-hyperlink" href="http://stackoverflow.com/questions/' + q.question_id + '/">' + q.title + '</a></h3>'
                         + '<div class="oembedall-excerpt">' + body.substring(0, 100) + '...</div><div class="oembedall-tags">';
-                    for (i in q.tags) {
+                    for (var i in q.tags) {
                         out += '<a title="" class="oembedall-post-tag" href="http://stackoverflow.com/questions/tagged/' + q.tags[i] + '">' + q.tags[i] + '</a>';
                     }
 
@@ -997,7 +997,7 @@
             }
         )
 
-    ];
-})(jQuery);
+    ]
+})(jQuery)
 //This is needed for gravatar :(
 String.prototype.md5=function(){var a=function(a,b){var c=(a&65535)+(b&65535);var d=(a>>16)+(b>>16)+(c>>16);return d<<16|c&65535};var b=function(a,b){return a<<b|a>>>32-b};var c=function(c,d,e,f,g,h){return a(b(a(a(d,c),a(f,h)),g),e)};var d=function(a,b,d,e,f,g,h){return c(b&d|~b&e,a,b,f,g,h)};var e=function(a,b,d,e,f,g,h){return c(b&e|d&~e,a,b,f,g,h)};var f=function(a,b,d,e,f,g,h){return c(b^d^e,a,b,f,g,h)};var g=function(a,b,d,e,f,g,h){return c(d^(b|~e),a,b,f,g,h)};var h=function(b){var c,h,i,j,k,l=b.length;var m=1732584193;var n=-271733879;var o=-1732584194;var p=271733878;for(k=0;k<l;k+=16){c=m;h=n;i=o;j=p;m=d(m,n,o,p,b[k+0],7,-680876936);p=d(p,m,n,o,b[k+1],12,-389564586);o=d(o,p,m,n,b[k+2],17,606105819);n=d(n,o,p,m,b[k+3],22,-1044525330);m=d(m,n,o,p,b[k+4],7,-176418897);p=d(p,m,n,o,b[k+5],12,1200080426);o=d(o,p,m,n,b[k+6],17,-1473231341);n=d(n,o,p,m,b[k+7],22,-45705983);m=d(m,n,o,p,b[k+8],7,1770035416);p=d(p,m,n,o,b[k+9],12,-1958414417);o=d(o,p,m,n,b[k+10],17,-42063);n=d(n,o,p,m,b[k+11],22,-1990404162);m=d(m,n,o,p,b[k+12],7,1804603682);p=d(p,m,n,o,b[k+13],12,-40341101);o=d(o,p,m,n,b[k+14],17,-1502002290);n=d(n,o,p,m,b[k+15],22,1236535329);m=e(m,n,o,p,b[k+1],5,-165796510);p=e(p,m,n,o,b[k+6],9,-1069501632);o=e(o,p,m,n,b[k+11],14,643717713);n=e(n,o,p,m,b[k+0],20,-373897302);m=e(m,n,o,p,b[k+5],5,-701558691);p=e(p,m,n,o,b[k+10],9,38016083);o=e(o,p,m,n,b[k+15],14,-660478335);n=e(n,o,p,m,b[k+4],20,-405537848);m=e(m,n,o,p,b[k+9],5,568446438);p=e(p,m,n,o,b[k+14],9,-1019803690);o=e(o,p,m,n,b[k+3],14,-187363961);n=e(n,o,p,m,b[k+8],20,1163531501);m=e(m,n,o,p,b[k+13],5,-1444681467);p=e(p,m,n,o,b[k+2],9,-51403784);o=e(o,p,m,n,b[k+7],14,1735328473);n=e(n,o,p,m,b[k+12],20,-1926607734);m=f(m,n,o,p,b[k+5],4,-378558);p=f(p,m,n,o,b[k+8],11,-2022574463);o=f(o,p,m,n,b[k+11],16,1839030562);n=f(n,o,p,m,b[k+14],23,-35309556);m=f(m,n,o,p,b[k+1],4,-1530992060);p=f(p,m,n,o,b[k+4],11,1272893353);o=f(o,p,m,n,b[k+7],16,-155497632);n=f(n,o,p,m,b[k+10],23,-1094730640);m=f(m,n,o,p,b[k+13],4,681279174);p=f(p,m,n,o,b[k+0],11,-358537222);o=f(o,p,m,n,b[k+3],16,-722521979);n=f(n,o,p,m,b[k+6],23,76029189);m=f(m,n,o,p,b[k+9],4,-640364487);p=f(p,m,n,o,b[k+12],11,-421815835);o=f(o,p,m,n,b[k+15],16,530742520);n=f(n,o,p,m,b[k+2],23,-995338651);m=g(m,n,o,p,b[k+0],6,-198630844);p=g(p,m,n,o,b[k+7],10,1126891415);o=g(o,p,m,n,b[k+14],15,-1416354905);n=g(n,o,p,m,b[k+5],21,-57434055);m=g(m,n,o,p,b[k+12],6,1700485571);p=g(p,m,n,o,b[k+3],10,-1894986606);o=g(o,p,m,n,b[k+10],15,-1051523);n=g(n,o,p,m,b[k+1],21,-2054922799);m=g(m,n,o,p,b[k+8],6,1873313359);p=g(p,m,n,o,b[k+15],10,-30611744);o=g(o,p,m,n,b[k+6],15,-1560198380);n=g(n,o,p,m,b[k+13],21,1309151649);m=g(m,n,o,p,b[k+4],6,-145523070);p=g(p,m,n,o,b[k+11],10,-1120210379);o=g(o,p,m,n,b[k+2],15,718787259);n=g(n,o,p,m,b[k+9],21,-343485551);m=a(m,c);n=a(n,h);o=a(o,i);p=a(p,j)}return[m,n,o,p]};var i=function(a){var b="0123456789abcdef",c="",d,e=a.length*4;for(d=0;d<e;d++){c+=b.charAt(a[d>>2]>>d%4*8+4&15)+b.charAt(a[d>>2]>>d%4*8&15)}return c};var j=function(a){var b=(a.length+8>>6)+1;var c=[],d,e=b*16,f,g=a.length;for(d=0;d<e;d++){c.push(0)}for(f=0;f<g;f++){c[f>>2]|=(a.charCodeAt(f)&255)<<f%4*8}c[f>>2]|=128<<f%4*8;c[b*16-2]=g*8;return c};return i(h(j(this)))};

@@ -1,5 +1,5 @@
 // tab switch
-	tabSwitch = function(newTab, oldTab) {
+	var tabSwitch = function(newTab, oldTab) {
 		var $nav = newTab.closest('.tab-nav'),
 		    $navIndicator = $('.tab-nav-indicator', $nav),
 		    navOffset = $nav.offset().left,
@@ -12,13 +12,13 @@
 			setTimeout(function() {
 				$navIndicator.removeClass('reverse');
 			}, 450);
-		};
+		}
 
 		$navIndicator.css({
 			left: (newTabOffset - navOffset),
 			right: navOffset + navWidth - newTabOffset - newTabWidth
 		});
-	}
+	};
 
 	$(document).on('show.bs.tab', '.tab-nav a[data-toggle="tab"]', function(e) {
 	 	tabSwitch($(e.target), $(e.relatedTarget));
