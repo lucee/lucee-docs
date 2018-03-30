@@ -1,9 +1,8 @@
 ---
-title: querykeyexists
+title: QueryKeyExists
 id: function-querykeyexists
-related:
 categories:
-    - query
+- query
 ---
 
 Determines whether a specific column is present in a query.

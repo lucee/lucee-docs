@@ -1,8 +1,10 @@
 ---
-title: threadjoin
+title: ThreadJoin
 id: function-threadjoin
 related:
-categories:
+- tag-thread
+- function-threadjoin
+- function-threadterminate
 ---
 
 Makes the current thread wait until the thread or threads specified in the name attribute complete processing, 

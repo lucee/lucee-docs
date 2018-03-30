@@ -1,8 +1,8 @@
 ---
 title: FileSetLastModified
 id: function-filesetlastmodified
-related:
 categories:
+- files
 ---
 
 For the given file, set the last modification date

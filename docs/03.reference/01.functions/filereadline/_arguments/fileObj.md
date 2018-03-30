@@ -1,1 +1,1 @@
-The file object
+The file object (i.e from FileOpen)

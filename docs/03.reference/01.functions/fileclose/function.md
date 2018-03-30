@@ -1,8 +1,8 @@
 ---
 title: FileClose
 id: function-fileclose
-related:
 categories:
+- files
 ---
 
 Closes an file that is open.

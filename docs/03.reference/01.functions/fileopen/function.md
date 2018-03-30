@@ -1,8 +1,8 @@
 ---
 title: FileOpen
 id: function-fileopen
-related:
 categories:
+- files
 ---
 
 Opens an file to read, write, or append.

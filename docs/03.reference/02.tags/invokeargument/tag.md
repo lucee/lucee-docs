@@ -1,8 +1,8 @@
 ---
 title: <cfinvokeargument>
 id: tag-invokeargument
-related:
 categories:
+- component
 ---
 
 Argument for the Invoke Tag

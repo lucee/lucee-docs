@@ -1,8 +1,8 @@
 ---
 title: FileGetMimeType
 id: function-filegetmimetype
-related:
 categories:
+- files
 ---
 
 Returns the mimetype of the given file

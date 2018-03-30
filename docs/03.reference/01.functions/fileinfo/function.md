@@ -1,8 +1,6 @@
 ---
-title: fileinfo
+title: FileInfo
 id: function-fileinfo
-related:
-categories:
 ---
 
-returns detailed info about the given file.
+Returns detailed info about the given file.
