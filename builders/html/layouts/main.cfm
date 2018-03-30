@@ -168,5 +168,13 @@
 		<cfelse>
 		<script src="/assets/js/base.2.min.js" type="text/javascript"></script>
 		</cfif>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116664465-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-116664465-1');
+		</script>
 	</body>
 </html></cfoutput>
