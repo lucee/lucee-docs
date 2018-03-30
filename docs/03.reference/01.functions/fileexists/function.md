@@ -1,8 +1,9 @@
 ---
 title: FileExists
 id: function-fileexists
-related:
 categories:
+- decision
+- files
 ---
 
 Determines whether a file exists

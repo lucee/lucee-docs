@@ -1,11 +1,10 @@
 ---
-title: decodeforhtml
+title: DecodeForHtml
 id: function-decodeforhtml
-related:
 categories:
-    - encode
-    - ESAPI
-    - HTML
+- encode
+- ESAPI
+- HTML
 ---
 
 Decodes the given encoded string.

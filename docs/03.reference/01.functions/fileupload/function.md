@@ -1,8 +1,8 @@
 ---
 title: FileUpload
 id: function-fileupload
-related:
 categories:
+- files
 ---
 
 Uploads file to a directory on the server.

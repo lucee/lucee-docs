@@ -1,8 +1,10 @@
 ---
-title: threadterminate
+title: ThreadTerminate
 id: function-threadterminate
 related:
-categories:
+- tag-thread
+- function-threadjoin
+- function-threadterminate
 ---
 
 Stops processing of the thread specified in the name attribute.

@@ -2,7 +2,7 @@
 title: UnserializeJava
 id: function-unserializejava
 related:
-categories:
+- function-serialize
 ---
 
 literal defintion of a serialized Java Object by function serialize

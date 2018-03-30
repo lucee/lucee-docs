@@ -1,8 +1,8 @@
 ---
-title: trace
+title: Trace
 id: function-trace
-related:
 categories:
+- debugging
 ---
 
 Displays and logs debugging data about the state of an application at the time this function executes. 

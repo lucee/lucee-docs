@@ -1,8 +1,8 @@
 ---
-title: transactionsetsavepoint
+title: TransactionSetSavePoint
 id: function-transactionsetsavepoint
-related:
 categories:
+- query
 ---
 
 Saves a specific state within a transaction

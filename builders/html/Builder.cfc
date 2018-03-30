@@ -56,7 +56,7 @@ component {
 				}
 			}
 		}
-
+		excludeLinkMap[arguments.page.getId()]=""; // don't link to itself
 		var related = arguments.docTree.getPageRelated(arguments.page);
 		for( var link in related ) {
 			if (len(link) gt 0 and not StructKeyExists(excludeLinkMap, link))
@@ -170,8 +170,10 @@ component {
 		var _404Page = _renderStaticPage( staticPagesDir & "/404.html", "404 - Page not found", arguments.docTree, arguments.baseHref, true );
 
 		FileWrite( buildDirectory & "/404.html", cleanHtml(_404Page) );
-		// google analytics
+		// google analytics for @zackster
 		FileWrite( buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");		
+		FileWrite( buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow:#chr(10)#");		
+		
 		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", buildDirectory & "/editor.html" );
 	}
 

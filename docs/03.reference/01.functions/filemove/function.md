@@ -1,8 +1,8 @@
 ---
 title: FileMove
 id: function-filemove
-related:
 categories:
+- files
 ---
 
 Moves file from source to destination
