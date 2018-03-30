@@ -28,7 +28,11 @@ $(function(){
             renderEditor(data, $el, page);
         }).error(function(jqXHR){
             toggleLoadingIcon($icon, false);
-            alert(jqXHR.statusText);
+            if (isExample(page)){
+                renderEditor({}, $el, page);
+            } else {
+                alert(jqXHR.statusText);
+            }
         });
         return false;
     });
@@ -91,6 +95,20 @@ $(function(){
                 $error.show().html(jqXHR.responseText);
             });
         });
+
+        if ( isExample(page) ){
+            if ($textarea.val().length === 0){ // empty, just default
+                $textarea.val(getExampleTemplate());
+            } else if ($textarea.val().indexOf("```") === -1){
+                var $example = $('<button class="btn">Load Example Template</button>');
+                $example.on("click", function(){
+                    $textarea.val(getExampleTemplate());
+                    $(this).hide();
+                });            
+                $footer.append($example);
+            }
+        }
+
         $footer.append($cancel, $save);
 
         $el.after($editor);
@@ -283,6 +301,14 @@ $(function(){
         */
         $label.append($list);
     };
+
+    var isExample = function(page){
+        return (page.indexOf("_examples.md") !== -1)
+    }
+    var getExampleTemplate = function(){
+        var nl = String.fromCharCode(10);
+        return "```luceescript+trycf" + nl + nl + "```" + nl;        
+    }   
 
 });
 
