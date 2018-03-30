@@ -2,7 +2,9 @@
 title: <cfqueryparam>
 id: tag-queryparam
 related:
+- function-querysetcell
 categories:
+- query
 ---
 
 Checks the data type of a query parameter. The cfqueryparam tag is nested within a cfquery tag.
