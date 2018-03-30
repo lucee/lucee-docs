@@ -2,8 +2,10 @@
 title: SSLCertificateList
 id: function-sslcertificatelist
 related:
+- function-sslcertificateinstall
 categories:
-    - server
+- crypto
+- server
 ---
 
 list all Certificates availble on a specific host

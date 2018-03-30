@@ -2,7 +2,7 @@
 title: <cfflush>
 id: tag-flush
 related:
-categories:
+- tag-content
 ---
 
 Flushes currently available data to the client.

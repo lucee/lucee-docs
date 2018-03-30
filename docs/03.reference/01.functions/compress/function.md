@@ -1,8 +1,8 @@
 ---
 title: Compress
 id: function-compress
-related:
 categories:
+- zip
 ---
 
 Compress given source to different formats.

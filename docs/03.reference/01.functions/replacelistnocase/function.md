@@ -1,10 +1,9 @@
 ---
-title: replacelistnocase
+title: ReplaceListNoCase
 id: function-replacelistnocase
-related:
 categories:
-    - string
-    - list
+- list
+- string
 ---
 
 Replaces occurrences of the elements from a delimited list

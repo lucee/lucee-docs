@@ -1,10 +1,9 @@
 ---
-title: booleanformat
+title: BooleanFormat
 id: function-booleanformat
-related:
 categories:
-    - boolean
-    - formatting
+- boolean
+- formatting
 ---
 
 True, for a non-zero value; False, otherwise.

@@ -2,7 +2,8 @@
 title: <cfelse>
 id: tag-else
 related:
-categories:
+- tag-elseif
+- tag-if
 ---
 
 Used with cfelse and cfelseif, cfif lets you create simple and compound conditional statements

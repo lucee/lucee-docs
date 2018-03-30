@@ -2,7 +2,9 @@
 title: <cfmail>
 id: tag-mail
 related:
-categories:
+- tag-imap
+- tag-mailparam
+- tag-mailpart
 ---
 
 Sends e-mail messages by an SMTP server.

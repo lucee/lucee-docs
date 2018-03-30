@@ -1,5 +1,5 @@
 ---
-title: writelog
+title: WriteLog
 id: function-writelog
 related:
 - tag-log

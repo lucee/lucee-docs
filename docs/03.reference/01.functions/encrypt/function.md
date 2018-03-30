@@ -2,7 +2,9 @@
 title: Encrypt
 id: function-encrypt
 related:
+- function-decrypt
 categories:
+- crypto
 ---
 
 Encrypts a string. Uses a symmetric key-based algorithm, in

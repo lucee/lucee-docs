@@ -1,9 +1,9 @@
 ---
 title: IsDebugMode
 id: function-isdebugmode
-related:
 categories:
-    - decision
+- debugging
+- decision
 ---
 
 Determines whether debugging output is enabled.

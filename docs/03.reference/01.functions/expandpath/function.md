@@ -1,8 +1,8 @@
 ---
 title: ExpandPath
 id: function-expandpath
-related:
 categories:
+- files
 ---
 
 Creates an absolute, platform-appropriate path that is

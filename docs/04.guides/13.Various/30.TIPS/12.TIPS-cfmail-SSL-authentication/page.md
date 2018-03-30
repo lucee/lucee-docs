@@ -1,6 +1,8 @@
 ---
-title: TIPS Use cfmail with SSL authentication
+title: Use cfmail with SSL authentication
 id: tips-cfmail-SSL-authentication
+related:
+- tag-mail
 ---
 
 More and more mail servers requires SSL authentication to send emails. Usually you send mail like

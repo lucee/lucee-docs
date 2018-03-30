@@ -2,9 +2,9 @@
 title: <cfswitch>
 id: tag-switch
 related:
-categories:
+- tag-defaultcase
 ---
 
-Used with cfcase and cfdefaultcase. Evaluates a passed expression and passes control to the
-  cfcase tag that matches the expression result. You can optionally code a cfdefaultcase tag, which
-  receives control if there is no matching cfcase tag value.
+Used with [[tag-case]] and [[tag-defaultcase]]. Evaluates a passed expression and passes control to the
+  [[tag-case]] tag that matches the expression result. You can optionally code a [[tag-defaultcase]] tag, which
+  receives control if there is no matching [[tag-case]] tag value.

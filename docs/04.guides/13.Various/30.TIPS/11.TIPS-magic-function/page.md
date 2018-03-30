@@ -71,6 +71,3 @@ The result?
 
 You could further expand on this so that setName() validates that the user actually exists and throws an error if it doesn't.
 
-### External resources ###
-
-Mark Drew's blog post on [Lucee ORM and Magic Functions](http://www.markdrew.co.uk/blog/post.cfm/lucee-orm-and-magic-functions)
