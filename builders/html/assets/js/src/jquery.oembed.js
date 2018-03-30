@@ -133,7 +133,7 @@
         },
         onEmbed: false,
         onError: function (a, b, c, d) {
-            console.log('err:', a, b, c, d);
+            //console.log('oembed err:', a, b, c, d);
         },
         ajaxOptions: {},
         longUrlAjaxOptions: {}
@@ -298,7 +298,10 @@
                     success: function (data) {
                         var oembedData = $.extend({}, data);
                         oembedData.code = embedProvider.templateData(data);
-                        success(oembedData, externalUrl, container);
+                        if (data.meta.status !== 200)
+                            settings.onError.call(container, externalUrl, embedProvider);
+                        else
+                            success(oembedData, externalUrl, container);
                     },
                     error: settings.onError.call(container, externalUrl, embedProvider)
                 }, settings.ajaxOptions || {});
