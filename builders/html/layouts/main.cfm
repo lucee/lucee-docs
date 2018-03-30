@@ -9,7 +9,7 @@
 	// this breaks the /static/ local server mode
 	//if (baseHref eq "")
 	//	baseHref = "/";
-	pageHref = "http://docs.lucee.org#cgi.script_name#";
+	pageHref = "http://docs.lucee.org#args.page.getPath()#.html";
 	pageTitle = HtmlEditFormat( args.page.getTitle() ) & " :: Lucee Documentation";
 	pageDescription = getMetaDescription( args.page, args.body );
 </cfscript>
