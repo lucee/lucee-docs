@@ -1,8 +1,8 @@
 ---
-title: location
+title: Location
 id: function-location
 related:
-categories:
+- tag-location
 ---
 
 Stops execution of the current request and rdirect to a other location.

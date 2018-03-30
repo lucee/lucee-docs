@@ -1,8 +1,8 @@
 ---
-title: generatepbkdfkey
+title: GeneratePBKDFkey
 id: function-generatepbkdfkey
-related:
 categories:
+- crypto
 ---
 
 Implementation of Password-Based Key-Derivation Function (PBKDF).

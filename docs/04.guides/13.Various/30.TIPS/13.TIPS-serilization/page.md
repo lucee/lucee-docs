@@ -1,12 +1,13 @@
 ---
-title: TIPS Serialize_all_types_of_data_by_using_serialize(data)
+title: Serialize all types of data by using serialize(data)
 id: tips-serialize-data
 related:
-    - function-serialize
-    - function-evaluate
+- function-evaluate
+- function-serialize
+- function-unserializejava
 ---
 
-### Serialize(anything) ###
+### Serialize (anything) ###
 
 Lucee has this great extra function: serialize(). What it does, is converting (almost) any data to a string. Now if you use the evaluate() function with that string, then the original data is rebuilt again!
 
@@ -41,5 +42,3 @@ Now, if you want to use this data again, you can just simply call evaluate() to 
 ```lucee
 <cfset myData = evaluate(mySerializedData) />
 ```
-
-Text copied from [luceedeveloper.com](http://www.luceedeveloper.com/post.cfm/lucee-tip-store-complex-data-by-using-serialize-data) (by the author ;)

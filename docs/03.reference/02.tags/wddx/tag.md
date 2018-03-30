@@ -2,7 +2,8 @@
 title: <cfwddx>
 id: tag-wddx
 related:
-categories:
+- function-deserializejson
+- function-serializejson
 ---
 
 Serializes and de-serializes CFML data structures to the XML-based WDDX format.

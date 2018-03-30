@@ -1,9 +1,9 @@
 ---
 title: GetFreeSpace
 id: function-getfreespace
-related:
 categories:
-    - server
+- files
+- server
 ---
 
 Returns the number of unallocated bytes in the partition named by this abstract path name.

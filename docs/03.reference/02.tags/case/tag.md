@@ -2,7 +2,8 @@
 title: <cfcase>
 id: tag-case
 related:
-categories:
+- tag-defaultcase
+- tag-switch
 ---
 
-Handle one case of a cfswicth
+Handle one case of a [[tag-switch]]

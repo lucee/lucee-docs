@@ -1,6 +1,11 @@
 ---
 title: Sending Emails
 id: cookbook-mail-send
+related:
+- tag-imap
+- tag-mail
+- tag-mailparam
+- tag-mailpart
 ---
 
 # How to send a Mail #

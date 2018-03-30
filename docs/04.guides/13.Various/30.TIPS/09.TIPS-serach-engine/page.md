@@ -1,6 +1,9 @@
 ---
-title: TIPS SearchEngine
+title: Lucee uses Apache Lucene for full text indexing
 id: tips-search-engine
+related:
+- tag-index
+- tag-search
 ---
 
 ### What engine does CFSEARCH use? ###

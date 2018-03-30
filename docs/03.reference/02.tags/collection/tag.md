@@ -2,8 +2,9 @@
 title: <cfcollection>
 id: tag-collection
 related:
+- tag-search
 categories:
-    - search
+- search
 ---
 
 Allows you to create and administer Search collections.

@@ -2,7 +2,9 @@
 title: <cfhtmlhead>
 id: tag-htmlhead
 related:
-categories:
+- tag-content
+- tag-header
+- tag-htmlbody
 ---
 
 Writes the text specified in the text attribute to the 'head' section of a generated HTML page.

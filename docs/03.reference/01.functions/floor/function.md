@@ -1,9 +1,8 @@
 ---
-title: floor
+title: Floor
 id: function-floor
-related:
 categories:
-    - number
+- number
 ---
 
 Calculates the closest integer that is smaller than number.

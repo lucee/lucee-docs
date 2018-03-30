@@ -2,8 +2,9 @@
 title: <cfrethrow>
 id: tag-rethrow
 related:
-categories:
+- tag-catch
+- tag-try
 ---
 
-Rethrows the currently active exception. Preserves the exception's cfcatch.type and cfcatch.
+Rethrows the currently active exception. Preserves the exception's cfcatch.type and [[tag-catch]].
   agContext information.

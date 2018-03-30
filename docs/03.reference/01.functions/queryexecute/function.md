@@ -1,8 +1,11 @@
 ---
-title: queryexecute
+title: QueryExecute
 id: function-queryexecute
 related:
+- tag-query
 categories:
-    - cache
+- cache
+- query
 ---
+
 

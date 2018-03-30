@@ -2,7 +2,8 @@
 title: <cfelseif>
 id: tag-elseif
 related:
-categories:
+- tag-else
+- tag-if
 ---
 
 Used with cfelse and cfelseif,

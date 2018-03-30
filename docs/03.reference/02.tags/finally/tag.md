@@ -2,7 +2,9 @@
 title: <cffinally>
 id: tag-finally
 related:
-categories:
+- tag-catch
+- tag-throw
+- tag-try
 ---
 
 Used inside a cftry tag.

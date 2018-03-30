@@ -1,8 +1,12 @@
 ---
-title: storesetmetadata
+title: StoreSetMetadata
 id: function-storesetmetadata
 related:
-categories:
+- function-storeaddacl
+- function-storegetacl
+- function-storegetmetadata
+- function-storesetacl
+- function-storesetmetadata
 ---
 
 Sets the metadata on bucket or object.

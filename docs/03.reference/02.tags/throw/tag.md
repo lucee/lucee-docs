@@ -2,7 +2,9 @@
 title: <cfthrow>
 id: tag-throw
 related:
-categories:
+- tag-catch
+- tag-rethrow
+- tag-try
 ---
 
 The cfthrow tag raises a developer-specified exception that can be caught with cfcatch tag

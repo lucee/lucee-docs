@@ -1,8 +1,6 @@
 ---
 title: <cfimap>
 id: tag-imap
-related:
-categories:
 ---
 
 Retrieves and deletes e-mail messages from a Imap mail server.

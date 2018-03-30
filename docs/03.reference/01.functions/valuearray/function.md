@@ -2,8 +2,9 @@
 title: ValueArray
 id: function-valuearray
 related:
+- function-querycolumndata
 categories:
-    - query
+- query
 ---
 
 Returns a array of all the values, for a given column within the query.

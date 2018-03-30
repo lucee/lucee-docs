@@ -2,7 +2,7 @@
 title: <cfhtmlbody>
 id: tag-htmlbody
 related:
-categories:
+- tag-header
 ---
 
 Writes the text specified in the text attribute to the 'body' section of a generated HTML page.

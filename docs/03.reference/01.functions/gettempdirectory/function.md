@@ -1,8 +1,8 @@
 ---
 title: GetTempDirectory
 id: function-gettempdirectory
-related:
 categories:
+- files
 ---
 
 Returns the full path to the currently assigned temporary directory
