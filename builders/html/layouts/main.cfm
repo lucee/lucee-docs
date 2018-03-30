@@ -29,7 +29,7 @@
 		<meta name="twitter:site" content="@lucee_server" />
 		<meta name="twitter:title" content="#pageTitle#" />
 		<meta name="twitter:description" content="#pageDescription#" />
-		<meta name="twitter:image" content="http://docs.lucee.org/images/lucee-logo.png" />	
+		<meta name="twitter:image" content="http://docs.lucee.org/assets/images/lucee-logo.png" />	
 		<meta name="twitter:image:alt" content="Lucee" />	
 		
 		<cfif args.edit>
