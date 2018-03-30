@@ -135,7 +135,7 @@
 				</p>
 			</div>
 		</footer>		
-		<script src="/assets/js/base.3.min.js" type="text/javascript"></script>
+		<script src="/assets/js/base.4.min.js" type="text/javascript"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116664465-1"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];

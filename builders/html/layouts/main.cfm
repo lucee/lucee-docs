@@ -180,7 +180,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/base.3.min.js" type="text/javascript"></script>
+		<script src="/assets/js/base.4.min.js" type="text/javascript"></script>
 		</cfif>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116664465-1"></script>
 		<script>
