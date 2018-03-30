@@ -2,7 +2,9 @@
 title: <cffunction>
 id: tag-function
 related:
-categories:
+- tag-argument
+- tag-component
+- tag-return
 ---
 
-Defines table column header, width, alignment, and text. Used only inside a cftable.
+Defines a function call
