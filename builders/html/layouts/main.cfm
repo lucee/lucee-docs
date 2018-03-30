@@ -9,15 +9,29 @@
 	// this breaks the /static/ local server mode
 	//if (baseHref eq "")
 	//	baseHref = "/";
+	pageHref = "http://docs.lucee.org#cgi.script_name#";
+	pageTitle = HtmlEditFormat( args.page.getTitle() ) & " :: Lucee Documentation";
+	pageDescription = getMetaDescription( args.page, args.body );
 </cfscript>
 
 <cfoutput><!DOCTYPE html>
 <html>
 	<head>
-		<title>#HtmlEditFormat( args.page.getTitle() )# :: Lucee Documentation</title>
+		<title>#pageTitle#</title>
 		<base href="#baseHref#">
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
+		<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#pageHref#&origin=lucee" 
+            type="application/json+oembed" />
+    	<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#pageHref#&origin=lucee&format=xml"
+            type="application/xml+oembed"/>
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@lucee_server" />
+		<meta name="twitter:title" content="#pageTitle#" />
+		<meta name="twitter:description" content="#pageDescription#" />
+		<meta name="twitter:image" content="http://docs.lucee.org/images/lucee-logo.png" />	
+		<meta name="twitter:image:alt" content="Lucee" />	
+		
 		<cfif args.edit>
 		<link href="/assets/css/base.css" rel="stylesheet">
 		<cfelse>
