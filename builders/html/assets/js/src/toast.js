@@ -24,7 +24,7 @@
 
 			if ($('.fbtn-container').length) {
 				$('.fbtn-container').css('margin-bottom', '');
-			};
+			}
 
 			$('.toast-inner').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 				$('.toast-toggled').tooltip('hide').removeClass('toast-toggled');
@@ -36,7 +36,7 @@
 				}
 			});
 		}, timer);
-	}
+	};
 
 // toast hover
 	$(document).on('mouseenter', '.toast', function() {
@@ -53,7 +53,7 @@
 
 		if (!$('.toast').length) {
 			$('body').append('<div class="toast"></div>');
-		};
+		}
 
 		if (!$this.hasClass('toast-toggled')) {
 			if ($('.toast').hasClass('toast-show')) {
@@ -61,7 +61,7 @@
 			} else {
 				$this.tooltip('show').addClass('toast-toggled');
 			}
-		};
+		}
 	});
 
 	$(document).on('shown.bs.tooltip', '[data-toggle="toast"]', function() {
@@ -71,7 +71,7 @@
 
 		if ($(window).width() < 768 && $('.fbtn-container').length) {
 			$('.fbtn-container').css('margin-bottom', $('.toast').outerHeight());
-		};
+		}
 
 		$('.toast-inner').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 			toastHide(6000);

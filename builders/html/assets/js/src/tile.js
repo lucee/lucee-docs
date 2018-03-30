@@ -6,23 +6,23 @@
 			var $trigger = $target.closest('[data-toggle="tile"]');
 			if ($trigger.attr('data-parent') != null) {
 				$($trigger.attr('data-parent')).find('.tile-active-show').collapse('hide');
-			};
+			}
 			$(getTargetFromTrigger($trigger)).collapse('toggle');
 		} else if ($target.is('[data-dismiss="tile"]')) {
 			$target.closest('.tile-collapse').find('.tile-active-show').collapse('hide');
 		} else if (!$target.is('.tile-collapse, .tile-collapse *')) {
 			tReset();
-		};
+		}
 	});
 
-	tReset = function () {
+	var tReset = function () {
 		$('.tile-collapse.active').each(function(index) {
 			var $collapse = $('.tile-active-show', $(this));
 			if (!$collapse.hasClass('tile-active-show-still')) {
 				$collapse.collapse('hide');
-			};
+			}
 		});
-	}
+	};
 
 // tile hide
 	$(document).on('hide.bs.collapse', '.tile-active-show', function() {
@@ -63,16 +63,16 @@
 		tileInView();
 	});
 
-	tileInView = function () {
+	var tileInView = function () {
 		$('.tile-wrap-animation:not(.isinview)').each(function() {
 			var $this = $(this);
 			if (tileInViewCheck($this) && (!$this.hasClass('avoid-fout') || ($this.hasClass('avoid-fout') && $this.hasClass('avoid-fout-done'))) && (!$this.hasClass('el-loading') || ($this.hasClass('el-loading') && $this.hasClass('el-loading-done'))) && !$this.parents('.avoid-fout:not(.avoid-fout-done)').length && !$this.parents('.el-loading:not(.el-loading-done)').length) {
 				$this.addClass('isinview');
-			};
+			}
 		});
-	}
+	};
 
-	tileInViewCheck = function (tile) {
+	var tileInViewCheck = function (tile) {
 		tile = tile[0];
 
 		var rect = tile.getBoundingClientRect();
@@ -83,4 +83,4 @@
 			rect.bottom >= 0 &&
 			rect.left <= window.innerWidth
 		);
-	}
+	};

@@ -19,12 +19,12 @@
 					, displayKey : 'display'
 					, limit      : 100
 					, templates  : { suggestion : renderSuggestion }
-				}
+				};
 
 			$searchBox.typeahead( typeAheadSettings, datasetSettings );
 			$searchBox.on( "typeahead:selected", function( e, result ){ itemSelectedHandler( result ); } );
 			
-			$fileNotFound = $(".file-not-found-suggestions")
+			var $fileNotFound = $(".file-not-found-suggestions");
 			if ($fileNotFound.length)
 				renderFileNotFoundSuggestions($fileNotFound);			
 		} );
@@ -88,14 +88,14 @@
 		matches.unshift( fulltextitem );
 
 		return matches;
-	}
+	};
 
 	generateRegexForInput = function( input ){
 		var inputLetters = input.replace(/\W/, '').split('')
 		  , reg = {}, i;
 
 		reg.expr = new RegExp('(' + inputLetters.join( ')(.*?)(' ) + ')', 'i');
-		reg.replace = ""
+		reg.replace = "";
 
 		for( i=0; i < inputLetters.length; i++ ) {
 			reg.replace += ( '<b>$' + (i*2+1) + '</b>' );
@@ -104,7 +104,7 @@
 			}
 		}
 
-		return reg
+		return reg;
 	};
 
 	renderSuggestion = function( item ) {
@@ -118,7 +118,7 @@
 	tokenizer = function( input ) {
 		var strippedInput = input.replace( /[^\w\s]/g, "" );
 		return Bloodhound.tokenizers.whitespace( strippedInput );
-	}
+	};
 
 	setupTypeahead();
 	
@@ -134,6 +134,6 @@
 			var link = $("<a/>").text(item.display).attr("href", item.value.substr(1));			
 			$fileNotFound.append($("<div/>").append(link));
 		}
-	}		
+	};		
 
 } )( jQuery );

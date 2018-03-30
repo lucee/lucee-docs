@@ -38,7 +38,7 @@ $(function(){
             icon.removeClass("fa-pencil").addClass("fa-spin fa-spinner");
         else
             icon.addClass("fa-pencil").removeClass("fa-spin fa-spinner");
-    }
+    };
 
     var removeEditor = function($el, page){
         var $editor = editors[page];
@@ -117,7 +117,7 @@ $(function(){
 
         editors[page] = $editor;
         console.log(data);
-    }
+    };
     var orderProperties = function(unOrderedProps){
         // preserve order
         var props = JSON.parse( JSON.stringify(unOrderedProps) ); // deep copy;
@@ -134,7 +134,7 @@ $(function(){
                 orderedProps.push(other);
         }
         return orderedProps;
-    }
+    };
     var getProperties = function($editor){
         var props = {};
         $editor.find(".property").each(function(){
@@ -144,7 +144,7 @@ $(function(){
                     props[cfg.name] = [];
                     $(this).find("INPUT:checked").each(function(){
                         props[cfg.name].push($(this).val());
-                    })
+                    });
                     break;
                 case "text":
                     props[cfg.name] = $(this).find("INPUT").val();
@@ -199,7 +199,8 @@ $(function(){
             }
             $body.append($prop);
         }
-    }
+    };
+
     var renderList = function($label, propery, v, data) {
         var selected = {};
         for (var p in v)
@@ -220,13 +221,13 @@ $(function(){
             }
             $label.append($ff, title);
             return $label;
-        }
+        };
         var renderGroup = function(item, group){
             var $group = $('<div class="list-group"/>');
             $group.append($('<b class="list-item-sub-group"/>').text(item));
             var sel = 0,  prefix_len = item.length+1;
-            var subtitle, title, prefix, id;
-            var $subGroup = $('<span class="list-item"/>')
+            var subtitle, prefix, id;
+            var $subGroup = $('<span class="list-item"/>');
             for (var subitem in group){
                 id = group[subitem];
                 prefix = id.indexOf(item);
@@ -242,7 +243,7 @@ $(function(){
                 $subGroup.hide();
             $group.append($subGroup);
             $list.append($group);
-         }
+         };
 
         for (var item in data){
             var title = data[item];
@@ -281,7 +282,7 @@ $(function(){
         $list.append($select);
         */
         $label.append($list);
-    }
+    };
 
 });
 

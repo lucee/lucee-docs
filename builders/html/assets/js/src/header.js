@@ -11,15 +11,15 @@
 			} else {
 				$header.removeClass('fixed');
 			}
-		};
+		}
 	});
 
 // header height
 	headerHeightCal = function () {
 		if ($('.header').length) {
 			headerHeight = $header.height();
-		};
-	}
+		}
+	};
 
 // header nav positioning
 	if ($('.header-nav-scroll').length) {
@@ -32,7 +32,7 @@
 				return false;
 			}
 		});
-	};
+	}
 
 	headerNavPos  = function () {
 		var $headerNav = $('.header-nav-scroll');
@@ -44,4 +44,4 @@
 		} else {
 			$headerNav.removeClass('pull-down');
 		}
-	}
+	};
