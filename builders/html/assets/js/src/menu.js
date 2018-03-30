@@ -1,7 +1,7 @@
 // menu backdrop
 	if ((($('html').hasClass('touch') && $('.menu').length) || $('.nav-drawer').length) && !$('.menu-backdrop').length) {
 		$('body').append('<div class="menu-backdrop"></div>');
-	};
+	}
 
 	var menuBD = document.getElementsByClassName('menu-backdrop')[0];
 
@@ -11,9 +11,9 @@
 		menuBDTap.on('tap', function(e) {
 			if ($('.menu.open').length) {
 				mReset();
-			};
+			}
 		});
-	};
+	}
 
 // menu close
 	$(document).on('click', function(e) {
@@ -21,28 +21,28 @@
 
 		if ($('.menu.open').length && !$target.is('.fbtn-container *, .menu *')) {
 			mReset();
-		};
+		}
 	});
 	
-	mReset = function () {
+	var mReset = function () {
 		var $bd = $('body');
 
 		if ($bd.hasClass('menu-open')) {
 			$bd.removeClass('menu-open');
-		};
+		}
 
 		if ($bd.hasClass('nav-drawer-open')) {
 			$bd.removeClass('nav-drawer-open');
-		};
+		}
 
 		$('.menu-toggle').closest('.active').removeClass('active');
 
 		if ($('.menu.open .menu-search-focus').length) {
 			$('.menu.open .menu-search-focus').blur();
-		};
+		}
 
 		$('.menu.open').removeClass('open');
-	}
+	};
 
 // menu open
 	$(document).on('click', '.menu-toggle', function(e) {
@@ -69,6 +69,6 @@
 
 			if ($('.menu-search-focus', $thisMenu).length) {
 				$('.menu-search-focus', $thisMenu).focus();
-			};
+			}
 		}
 	});

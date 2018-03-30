@@ -13,4 +13,4 @@
 			e.preventDefault();
 			$( '.menu-toggle' ).click();
 		}
-	});;
+	});

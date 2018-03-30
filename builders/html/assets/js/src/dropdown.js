@@ -3,7 +3,7 @@
 		// header affix
 			if ($(this).parents('.header').length) {
 				$('header').removeClass('open');
-			};
+			}
 	});
 		
 // dropdown menu show
@@ -26,6 +26,6 @@
 			// header affix
 				if ($dropdownMenu.parents('.header').length) {
 					$('header').addClass('open');
-				};
-		};
+				}
+		}
 	});

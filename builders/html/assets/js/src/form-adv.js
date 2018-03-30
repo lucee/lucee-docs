@@ -12,7 +12,7 @@
 		$('.form-group-label .form-control').each(function() {
 			floatingLabel($(this));
 		});
-	};
+	}
 
 	$(document).on('change', '.form-group-label .form-control', function() {
 		floatingLabel($(this));
@@ -54,7 +54,7 @@
 			setTimeout(function() {
 				$this.removeClass('switch-toggle-on');
 			}, 300);
-		};
+		}
 	});
 
 // textarea autosize v0.4.0
