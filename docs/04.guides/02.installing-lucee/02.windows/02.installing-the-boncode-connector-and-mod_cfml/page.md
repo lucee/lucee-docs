@@ -2,29 +2,32 @@
 title: Installing the Boncode connector and mod_cfml
 id: running-lucee-installing-the-boncode-connector-and-mod_cfml
 ---
+
 At the time of this writing : mod_cfml is at v1.1.05, Boncode AJP connector is at v1.0.32, Tomcat is at v8.5.6
 
-**Please note : These instrutions were written for Windows Server 2016 (64 bit)**
+**Please note : These instructions were written for Windows Server 2016 (64 bit)**
 
-Download & Install mod_cfml Tomcat Valve
-========================================
-mod_cfml dynamically creates hosts in Tomcat based on the request headers of the incoming request.
+## Download & Install mod_cfml Tomcat Valve
 
-* Download the latest mod_cfml JAR file from http://www.modcfml.org/index.cfm/downloads/
-* copy the .JAR file to  "C:\Program Files\Tomcat\lib\"
-* Restart the Tomcat service
+[[mod-cfml]] dynamically creates hosts in Tomcat based on the request headers of the incoming request.
 
-Download & Install Boncode AJP 1.3 Connector
-============================================
-BonCode AJP (Apache JServ Protocol version 1.3) Connector is used connect the IIS web server to the Apache Tomcat server.
+* [Download the latest mod_cfml](https://viviotech.github.io/mod_cfml/download.html)
+* [Install mod_cfml to Apache on Windows](https://viviotech.github.io/mod_cfml/install-win-apache.html)
+* [Install mod_cfml to Apache on Ubuntu](https://viviotech.github.io/mod_cfml/install-lin-ubuntu.html)
+* [Install mod_cfml to IIS on Windows](https://viviotech.github.io/mod_cfml/install-win-iis.html)
+* [Install mod_cfml to NGINX (any OS)](https://viviotech.github.io/mod_cfml/install-nginx.html)
+
+## Download & Install Boncode AJP 1.3 Connector
+
+BonCode AJP (Apache JServ Protocol version 1.3) Connector is used connect the IIS web server to the Apache Tomcat server.  Apache already supports AJP out of the box.
 
 ### Boncode AJP 1.3 Connector Prerequisites ###
 ASP dot NET Framework version 3.51 or higher must be installed
 
 ## Automatic Install of Boncode AJP connector with default settings ##
-For the purposes of simplcity, do an automatic install of the Boncode AJP 1.3 connector with the default settings.
+For the purposes of simplicity, do an automatic install of the Boncode AJP 1.3 connector with the default settings.
 
-* Download the Boncode AJP connector from http://www.boncode.net/boncode-connector
+* [Download the Boncode AJP connector](http://www.boncode.net/boncode-connector)
 * Extract the .zip file into a temporary directory
 * Launch Connector_Setup.exe
 * Accept defaults for each installation option
@@ -78,16 +81,9 @@ If you followed the instructions on previous pages, you already have a folder ca
 * Replace the '<param-value>' with _D:\Lucee\web-contexts\{web-context-label}_
 * Restart the Tomcat service
 
----
-**To-do's**
- * How to perform manual installation of Boncode
- * Document the settings for Boncode's automatic installer
+** To-do's **
 
----
-**References**
+* How to perform manual installation of Boncode
+* Document the settings for Boncode's automatic installer
 
-    * http://www.boncode.net/connector/webdocs/Tomcat_Connector.htm
-    * http://www.modcfml.org/index.cfm/install/web-server-components/iis-on-windows/
-    * http://www.modcfml.org/index.cfm/install/tomcat-component/tomcat-valve-on-windows/
-    * Last but not least, the helpful folks in the #lucee Slack channel http://cfml-slack.herokuapp.com
----
+If you need help try asking the helpful folks in the [#lucee Slack channel](http://cfml-slack.herokuapp.com) or have a search of [Lucee mailing list](https://dev.lucee.org) archives
