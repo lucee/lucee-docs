@@ -15,7 +15,7 @@
 </cfscript>
 
 <cfoutput><!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<title>#pageTitle#</title>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116664465-1"></script>
@@ -26,6 +26,7 @@
 			gtag('config', 'UA-116664465-1');
 		</script>
 		<base href="#baseHref#">
+		<link rel="canonical" href="#pageHref#" />
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
 		<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#pageHref#&origin=lucee" 
@@ -38,7 +39,11 @@
 		<meta name="twitter:description" content="#pageDescription#" />
 		<meta name="twitter:image" content="http://docs.lucee.org/assets/images/favicon.png" />	
 		<meta name="twitter:image:alt" content="Lucee" />	
-		
+		<meta property="og:title" content="#pageTitle#" />
+		<meta property="og:url" content="#pageHref#" />
+		<meta property="og:type" content="article" />
+		<meta property="og:image" content="http://docs.lucee.org/assets/images/favicon.png" />	
+		<meta property="og:image:alt" content="Lucee" />	
 		<cfif args.edit>
 		<link href="/assets/css/base.css" rel="stylesheet">
 		<cfelse>
