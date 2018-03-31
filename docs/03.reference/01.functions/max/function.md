@@ -2,8 +2,9 @@
 title: Max
 id: function-max
 related:
+- function-min
 categories:
-    - number
+- number
 ---
 
 Returns the greater of two numbers.

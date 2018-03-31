@@ -2,8 +2,9 @@
 title: Min
 id: function-min
 related:
+- function-max
 categories:
-    - number
+- number
 ---
 
 Determines the lesser of two numbers.

@@ -1,6 +1,9 @@
 ---
 title: Operators
 id: operators
+related:
+- function-max
+- function-min
 ---
 
 ## Mathematical operators ##
