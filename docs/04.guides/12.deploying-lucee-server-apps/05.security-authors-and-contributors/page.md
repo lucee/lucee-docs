@@ -7,15 +7,15 @@ The following people contributed to the authoring of the Security and Best Pract
 
 ### Authors ###
 
-* Gert Franz ([gert@getrailo.com](gert@getrailo.com))
-* Jordan Michaels ([jordan@viviotech.net](jordan@viviotech.net))
+* Gert Franz ([gert@getrailo.com](mailto:gert@getrailo.com))
+* Jordan Michaels ([jordan@viviotech.net](mailto:jordan@viviotech.net))
 
 ### Contributors ###
 
-* Pete Freitag ([pete@foundeo.com](pete@foundeo.com))
-* Matt Levine ([matt@blueriver.com](matt@blueriver.com))
-* Luke Blodgett ([luke@viviotech.net](luke@viviotech.net))
-* Brad Vogt ([brad@viviotech.net](brad@viviotech.net))
-* Scott Noel-Hemming ([scott@viviotech.net](scott@viviotech.net))
-* Brenton Maine ([brenton@viviotech.net](brenton@viviotech.net))
-* Jason Seerengan ([jason@viviotech.net](jason@viviotech.net))
+* Pete Freitag ([pete@foundeo.com](mailto:pete@foundeo.com))
+* Matt Levine ([matt@blueriver.com](mailto:matt@blueriver.com))
+* Luke Blodgett ([luke@viviotech.net](mailto:luke@viviotech.net))
+* Brad Vogt ([brad@viviotech.net](mailto:brad@viviotech.net))
+* Scott Noel-Hemming ([scott@viviotech.net](mailto:scott@viviotech.net))
+* Brenton Maine ([brenton@viviotech.net](mailto:brenton@viviotech.net))
+* Jason Seerengan ([jason@viviotech.net](mailto:jason@viviotech.net))
