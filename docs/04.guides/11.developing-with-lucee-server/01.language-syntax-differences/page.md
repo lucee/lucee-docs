@@ -87,8 +87,8 @@ If you convert a boolean value into a string Lucee generates the following value
 
 In the CFML standard a boolean will be converted into the above values only in compile time. At runtime boolean values are converted as follows:
 
-*true into "Yes"
-*false into "No"
+* true into "Yes"
+* false into "No"
 
 #### Example ####
 
@@ -139,14 +139,14 @@ By default and for performance reasons, this is not supported by Lucee Server, h
 
 If a variable key has a dot in ACF it allows you to address this variable as if you had 2 keys, for example:
 
-```lucee
+```luceescript
 variables["a.b.c"]="Susi";
 writedump(variables["a.b.c"]); // This works in ACF and Lucee Server
 writedump(variables.a.b.c); // This works in ACF but fails in Lucee Server, because there is no key "a" in the variables scope!
 ```
 The following construct also works in ACF:
 
-```lucee
+```luceescript
 1: variables["request.susi"]="Susi";
 2: writedump(request.susi); // This works in ACF even though there is no key "susi" in the request scope!
 ```
@@ -155,14 +155,14 @@ Lucee Server does not support implicit addressing of keys. The reason for this i
 
 To make handling these issues easier, Lucee Server has a built-in-function called structKeyTranslate() that converts a variable which contains dots in its name into cascading structures, for example:
 
-```lucee
+```luceescript
 variables["a.b.c"]="Susi";
 structKeyTranslate(variables, true, true);
 dump(variables);
 ```
 The above will generate a structure like this:
 
-```lucee
+```luceescript
 {a:{b:{c:"Susi"}}, "a.b.c":"Susi"}
 ```
 ### Annotations ###
@@ -171,7 +171,7 @@ In cfscript annotations can be used in order to "decorate" functions and their a
 
 Example:
 
-```lucee
+```luceescript
 /**
 * my Hint
 * @prop1 Property 1
@@ -180,7 +180,7 @@ Example:
 ```
 Now if you call getMetaData(test) you will get a struct that contains additional keys (in this case prop1). Other implementations allow you to define each possible argument of a function in annotation style, just like this:
 
-```lucee
+```luceescript
 /**
 *
 * @returntype string
@@ -190,7 +190,7 @@ function test(arg1) { }
 
 This notation and thus the functionality behind it means, that comments are affecting the code's behaviour, which Lucee Server does NOT support. The following example will throw a compiler error:
 
-```lucee
+```luceescript
 /**
 * @returntype string
 */
@@ -204,7 +204,7 @@ Attribute validation error. A duplicate attribute RETURNTYPE has been encountere
 
 Lucee will simply ignore the parts of the comment if it affects the code execution at runtime. In our opinion you should never receive a compiler error because of a comment you have made in your code. In ACF even the following would throw an error, which is wrong since it IS just a comment:
 
-```lucee
+```luceescript
 /**
 * please never ever use the comment
 @returntype since this might crash
@@ -224,7 +224,7 @@ In short, the doc comments will only provide data for the return of the function
 
 In ACF you can overwrite scope names as follows (this will only work inside UDF's):
 
-```lucee
+```luceescript
 function test(string url){
     writeDump(arguments.url);// outputs the string passed in Lucee Server and ACF
     writeDump(url);// in ACF outputs the string passed, in Lucee Server the url scope
@@ -254,7 +254,7 @@ Passing by value is not only inconsistent, it is also slower, so Lucee Server do
 
 Example:
 
-```lucee
+```luceescript
 function test(arr){
 		arr[1]="Two";
 }
@@ -279,7 +279,7 @@ There are several differences in using QoQ due to the underlying SQL engine used
 
 ACF makes a difference when it comes to accessing variables either through bracket or dot notation. In order to make this difference between ACF and Lucee Server a little clearer, have a look at this example:
 
-```lucee
+```luceescript
 function test(argNotPassed){
     var x=arguments['argNotPassed']; // assigns null to x in Lucee Server and ACF
     var x=arguments.argNotPassed; // assigns null to x in Lucee Server and throws an exception in ACF
@@ -293,7 +293,7 @@ From our perspective it makes absolutely no sense to handle dot and bracket nota
 
 A literal is a final value which does not change at runtime or is not a variable. So literals can be:
 
-```lucee
+```luceescript
 b=true;
 n=1234.5678;
 ```
@@ -309,7 +309,7 @@ The chances are high that the same value type is used for mathematical or Boolea
 
 Example:
 
-```lucee
+```luceescript
 max=1000000;
 for(1=0;i<max;i++); // ACF makes 1000000 string to number conversions in this case, Lucee Server not a single one.
 ```
@@ -318,6 +318,6 @@ for(1=0;i<max;i++); // ACF makes 1000000 string to number conversions in this ca
 
 If you convert these values into something else where the format is important, you get the wrong result, for example:
 
-```lucee
+```luceescript
 	serializeJSON(123); // outputs "123" in ACF, and not 123 like in Lucee Server
 ```
