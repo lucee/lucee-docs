@@ -131,7 +131,10 @@
 			$fileNotFound.append($("<p/>").text("Perhaps one of these pages is what your looking for?"));
 		for (var s = 0; s < suggestions.length; s++){
 			var item = suggestions[s];
-			var link = $("<a/>").text(item.display).attr("href", item.value.substr(1));			
+			var href = item.value;
+			if (href.indexOf("http") == -1 )
+				href = item.value.substr(1);
+			var link = $("<a/>").text(item.display).attr("href", href);			
 			$fileNotFound.append($("<div/>").append(link));
 		}
 	};		
