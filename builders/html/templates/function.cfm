@@ -7,7 +7,10 @@
 	#getEditLink(path=fn.getSourceFile(), edit=args.edit)#
 	#markdownToHtml( fn.getBody() )#
 
-	<p><strong>Returns:</strong> #fn.getReturnType()#</p>
+	<p><strong>Returns:</strong> #fn.getReturnType()#</p>	
+	<cfif len(fn.getIntroduced()) gt 0>
+		<p><strong>Introduced:</strong> #fn.getIntroduced()#</p>	
+	</cfif>
 
 	<h2>Arguments</h2>
 	<cfif !fn.getArguments().len()>
