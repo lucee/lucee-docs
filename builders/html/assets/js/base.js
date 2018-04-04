@@ -352,9 +352,18 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		}
 	})
 	.keydown(function(e) {
-		if ( e.which == "191" ) {
+		if (/input|textarea/i.test(e.target.tagName)){
+			if (e.which === 9 && e.target.tagName == "TEXTAREA"){ // tabs are nice for code examples
+				var ta = e.target;
+				ta.value = ta.value.slice(0, ta.selectionStart) + 
+					String.fromCharCode(9) + 
+					ta.value.slice(ta.selectionStart);				
+			} 
+			return;
+		}			
+		if ( e.which === 191 ) { // backslash /
 			e.preventDefault();
-			$( '.menu-toggle' ).click();
+			$( '.menu-toggle' ).click(); // open search menu
 		}
 	});
 // footer push
@@ -422,11 +431,11 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		}
 	});
 
-// textarea autosize v0.4.0
+// textarea autosize v0.4.2
 // Javier Julio: https://github.com/javierjulio/textarea-autosize
-	!function(t,e){function i(e){this.element=e,this.$element=t(e),this.init()}var n="textareaAutoSize",h="plugin_"+n,s=function(t){return t.replace(/\s/g,"").length>0};i.prototype={init:function(){var i=(this.$element.outerHeight(),parseInt(this.$element.css("paddingBottom"))+parseInt(this.$element.css("paddingTop")));s(this.element.value)&&this.$element.height(this.element.scrollHeight-i),this.$element.on("input keyup",function(){var n=t(e),h=n.scrollTop();t(this).height(0).height(this.scrollHeight-i),n.scrollTop(h)})}},t.fn[n]=function(e){return this.each(function(){t.data(this,h)||t.data(this,h,new i(this,e))}),this}}(jQuery,window,document);
+!function(t,e,i,n){function s(e,i){this.element=e,this.$element=t(e),this.init()}var h="textareaAutoSize",o="plugin_"+h,r=function(t){return t.replace(/\s/g,"").length>0};s.prototype={init:function(){var i=parseInt(this.$element.css("paddingBottom"))+parseInt(this.$element.css("paddingTop"))+parseInt(this.$element.css("borderTopWidth"))+parseInt(this.$element.css("borderBottomWidth"))||0;r(this.element.value)&&this.$element.height(this.element.scrollHeight-i),this.$element.on("input keyup",function(n){var s=t(e),h=s.scrollTop();t(this).height(0).height(this.scrollHeight-i),s.scrollTop(h)})}},t.fn[h]=function(e){return this.each(function(){t.data(this,o)||t.data(this,o,new s(this,e))}),this}}(jQuery,window,document);
 
-	$('.textarea-autosize').textareaAutoSize();
+$('.textarea-autosize').textareaAutoSize();
 // get target from trigger
 	var getTargetFromTrigger = function(trigger) {
 		var href;
@@ -1950,7 +1959,11 @@ $(function(){
 	};
 
 	itemSelectedHandler = function( item ) {
-		window.location = item.value;
+		var baseHref=$("base[href]").attr('href');
+		if (baseHref)
+			window.location = baseHref + item.value; // handle local static mode
+		else
+			window.location = item.value;
 	};
 
 	tokenizer = function( input ) {

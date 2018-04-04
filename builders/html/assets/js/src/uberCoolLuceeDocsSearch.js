@@ -112,7 +112,11 @@
 	};
 
 	itemSelectedHandler = function( item ) {
-		window.location = item.value;
+		var baseHref=$("base[href]").attr('href');
+		if (baseHref)
+			window.location = baseHref + item.value; // handle local /static/ mode
+		else
+			window.location = item.value;
 	};
 
 	tokenizer = function( input ) {

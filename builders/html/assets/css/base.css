@@ -12261,6 +12261,13 @@ h2, h3, h4, h5, h6 {
   border: #01798a 1px solid;
 }
 
+/* https://github.com/javierjulio/textarea-autosize#minimum-css-requirements */
+.content TEXTAREA {
+  min-height: 200px;
+  box-sizing: border-box;
+  max-height: 800px;
+}
+
 div.oembedall-githubrepos {
   border: 1px solid #DDD;
   border-radius: 4px 4px 4px 4px;

@@ -1,6 +1,8 @@
 $(function(){
     'use strict';
     var editors = {};
+    var nl = String.fromCharCode(10);
+	//var crlf = String.fromCharCode(10) + String.fromCharCode(13);
 
     $(".local-edit-link").on("click", function(ev){
         ev.stopPropagation();
@@ -51,7 +53,7 @@ $(function(){
         }
         $editor.remove();
         delete editors[page];
-        $el.data("editor-open", false);
+        $el.data("editor-open", false); 
     };
     var renderEditor = function(data, $el, page){
         var $editor = $('<div class="panel panel-default doc-editor">').data("src", escape(page) );
@@ -63,6 +65,7 @@ $(function(){
         }
         var $textarea = $('<textarea class="content"/>').height("200px").width("100%").val(data.content);
         $body.append($textarea);
+        $textarea.textareaAutoSize();
         $editor.append($body);
 
         var $error = $('<div class="panel-error"></div>').hide();
@@ -96,22 +99,39 @@ $(function(){
             });
         });
 
-        if ( isExample(page) ){
+        if ( isExample(page) ){            
+            $footer.append(
+                $('<button class="btn">Add CFScript</button>')
+                   .on("click", function(){                           
+                       $textarea.val( $textarea.val() + ["","","```luceescript+trycf","","","```"].join( nl ) );
+                       
+                   }
+                )
+           );   
+           $footer.append(
+            $('<button class="btn">Add CFML</button>')
+               .on("click", function(){                                              
+                   $textarea.val( $textarea.val() + ["","","```lucee+trycf","","","```"].join( nl ) );                   
+               })                
+            );
+            
             if ($textarea.val().length === 0){ // empty, just default
                 $textarea.val(getExampleTemplate());
-            } else if ($textarea.val().indexOf("```") === -1){
-                var $example = $('<button class="btn">Load Example Template</button>');
-                $example.on("click", function(){
-                    $textarea.val(getExampleTemplate());
-                    $(this).hide();
-                });            
-                $footer.append($example);
+            } else if ($textarea.val().indexOf("```") === -1){                
+                $footer.append(
+                     $('<button class="btn">Load Example Template</button>')
+                        .on("click", function(){
+                            $textarea.val(getExampleTemplate());
+                            $(this).hide();
+                        })
+                );            
             }
         }
 
         $footer.append($cancel, $save);
 
         $el.after($editor);
+        $textarea.trigger('input'); // trigger autosizing
 
         $(".list-item-sub-group").on("click", function(){
             var list = $(this).next();
@@ -303,12 +323,12 @@ $(function(){
     };
 
     var isExample = function(page){
-        return (page.indexOf("_examples.md") !== -1)
-    }
+        return (page.indexOf("_examples.md") !== -1);
+    };
     var getExampleTemplate = function(){
         var nl = String.fromCharCode(10);
         return "```luceescript+trycf" + nl + nl + "```" + nl;        
-    }   
+    };  
 
 });
 

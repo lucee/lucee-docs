@@ -25,7 +25,6 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-116664465-1');
 		</script>
-		<base href="#baseHref#">
 		<link rel="canonical" href="#pageHref#" />
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
@@ -192,7 +191,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/base.5.min.js" type="text/javascript"></script>
+		<script src="/assets/js/base.6.min.js" type="text/javascript"></script>
 		</cfif>		
 	</body>
 </html></cfoutput>
