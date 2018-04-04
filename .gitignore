@@ -5,3 +5,4 @@ node_modules
 
 server/server-luceedocslocalserver.json
 server-luceedocsbuilder.json
+.commandbox

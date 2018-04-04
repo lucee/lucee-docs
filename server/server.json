@@ -13,5 +13,8 @@
         "http":{
             "port":"4040"
         }
+    },
+    "app": {
+        "serverHomeDirectory": "../.commandbox/luceedocslocalserver"
     }
 }
