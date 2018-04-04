@@ -78,13 +78,27 @@ component accessors=true {
 
 	public struct function getPageSource(required string pagePath){
 		if (not FileExists(rootDir & arguments.pagePath)){
-			if (arguments.pagePath contains "_examples.md"){
-				FileWrite(rootDir & arguments.pagePath, "");
-			} else {	
-				header statuscode="404";
-				writeOutput("File Not found");
-				abort;
-			}
+			var reqType = listLast(arguments.pagePath,"/");
+			var dir = getDirectoryFromPath(rootDir & arguments.pagePath);
+			switch (reqType){
+				case "page.md":
+					if (not directoryExists(dir))
+						DirectoryCreate(dir)
+				case "_examples.md":				
+					try {
+						FileWrite(rootDir & arguments.pagePath, "");
+					} catch (any){
+						header statuscode="401";	
+						writeOutput("Can create file " & rootDir & arguments.pagePath);
+						dump(cfcatch);
+						abort;
+					}
+					break;
+				default:
+					header statuscode="404";
+					writeOutput("File Not found " & _reqType);
+					abort;
+			}			
 		}
 
 		var page = new PageReader().readPageFileSource( rootDir & pagePath );
