@@ -172,6 +172,8 @@
 			var buildRunner = _getBuildRunner(checkFiles = false); // no need to scan files
 			var docTree     = buildRunner.getDocTree();
 			WriteOutput( buildRunner.getBuilder( "html" ).renderFileNotFound( arguments.path, docTree, arguments.baseHref ) );
+			// add the editor to 404 pages
+			WriteOutput('<script src="/assets/js/docsEditor.js" type="text/javascript"></script>');
 			abort;
 		} else {
 			content reset="true" type="text/plain";

@@ -55,9 +55,15 @@ $(function(){
         delete editors[page];
         $el.data("editor-open", false); 
     };
-    var renderEditor = function(data, $el, page){
+
+    var renderEditor = function(data, $el, page, create){
         var $editor = $('<div class="panel panel-default doc-editor">').data("src", escape(page) );
-        $editor.append($('<div class="panel-heading">Edit</div>'));
+        var $title = $('<div class="panel-heading"></div>');
+        if (create)
+            $title.html("Create New Page");
+        else
+            $title.html("Edit");
+        $editor.append($title);
 
         var $body = $('<div class="panel-body"></div>');
         if (data.properties){
@@ -156,6 +162,7 @@ $(function(){
         editors[page] = $editor;
         console.log(data);
     };
+    
     var orderProperties = function(unOrderedProps){
         // preserve order
         var props = JSON.parse( JSON.stringify(unOrderedProps) ); // deep copy;
@@ -330,6 +337,34 @@ $(function(){
         return "```luceescript+trycf" + nl + nl + "```" + nl;        
     };  
 
+    // show the editor on a 404 page, allow you to create a new file
+    var $missing404 = $(".file-not-found-suggestions");
+    if ( $missing404.length === 1 ){
+        if (document.location.pathname.indexOf(".html") === -1)
+            return;
+        var filename = document.location.pathname.replace(".html","/page.md");
+        var title = String(document.location.pathname).split("/").pop().split(".").shift()
+        $missing404.append(
+            $('<button class="btn">Create New Page</button>').attr("title", filename).css("margin-bottom", "20px")
+                .on("click", function(){                                              
+                    var $newPage = $("<div>").addClass("new-page-from-404");
+                    
+                    $missing404.append($newPage);
+                    renderEditor ({
+                            properties: {
+                                title: title,
+                                id: title
+                            }   
+                        }, 
+                        $newPage, 
+                        filename, 
+                        true,
+
+                    );
+                }
+            )                                
+        );
+    }
 });
 
 
