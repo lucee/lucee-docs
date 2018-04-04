@@ -10,7 +10,7 @@ Here we can see how the lucee output the exception on web browser.
 ```lucee
 <cfscript>
 try {
-  throw "shit happens";
+  throw "an error happened";
 }
 catch ( any e ){
   dump(e);
@@ -28,7 +28,7 @@ Dump shows full exception structure without blocking your code. Dump include all
 ```lucee
 <cfscript>
 try {
-  throw "shit happens";
+  throw "an error happened";
 }
 catch ( any e ){
   echo(e);
