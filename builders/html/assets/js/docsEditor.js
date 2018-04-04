@@ -358,9 +358,9 @@ $(function(){
                         }, 
                         $newPage, 
                         filename, 
-                        true,
-
+                        true
                     );
+                    $(this).hide();
                 }
             )                                
         );
