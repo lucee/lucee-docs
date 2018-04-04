@@ -45,3 +45,9 @@
 .panel {
     border: $brand-color 1px solid;
 }
+/* https://github.com/javierjulio/textarea-autosize#minimum-css-requirements */
+.content TEXTAREA{
+    min-height: 200px;
+    box-sizing: border-box;
+    max-height: 800px;
+}
