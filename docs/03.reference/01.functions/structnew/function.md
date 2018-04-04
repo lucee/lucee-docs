@@ -1,10 +1,9 @@
 ---
 title: StructNew
 id: function-structnew
-related:
 categories:
-    - struct
-    - collection
+- collection
+- struct
 ---
 
-Creates an empty structure.
+Creates an empty structure. Shorthand syntax is {};
