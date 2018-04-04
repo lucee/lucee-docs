@@ -142,6 +142,6 @@
 				</p>
 			</div>
 		</footer>		
-		<script src="/assets/js/base.6.min.js" type="text/javascript"></script>		
+		<script src="/assets/js/base.7.min.js" type="text/javascript"></script>		
 	</body>
 </html></cfoutput>
