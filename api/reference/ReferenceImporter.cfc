@@ -200,7 +200,7 @@ listingStyle: a-z
 visible: true
 related:
 categories:
-- objects
+- object
 - #objectName#
 ---
 ";
