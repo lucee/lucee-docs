@@ -1,5 +1,5 @@
 ---
-title: Lucee tags
+title: Tags
 id: tags
 listingStyle: a-z
 ---

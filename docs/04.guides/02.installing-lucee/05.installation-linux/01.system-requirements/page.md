@@ -1,5 +1,5 @@
 ---
-title: System Requirements
+title: System Requirements Linux
 id: linux-system-requirements
 ---
 
