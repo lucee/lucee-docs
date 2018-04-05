@@ -8,6 +8,7 @@ component extends="builders.html.Builder" {
 		var resourcesRoot = contentRoot & "Resources/";
 		var docsRoot      = resourcesRoot & "Documents/";
 		var ignorePages   = [ "download" ];
+		request.filesWritten=[];
 
 		cflog(text="Builder dash directory: #docsetRoot# ");
 
@@ -23,6 +24,7 @@ component extends="builders.html.Builder" {
 			for( var page in tree ) {
 				if ( !ignorePages.find( page.getId() ) ) {
 					_writePage( page, docsRoot, docTree );
+					cflog (text ="dash folder " & page.getPath() & " built");
 					_storePageInSqliteDb( page );
 				}
 			}
@@ -32,7 +34,7 @@ component extends="builders.html.Builder" {
 		} finally {
 			_closeDbConnection();
 		}
-		cflog(text="Dash builder, pages built");
+		cflog (text="Dash Builder #request.filesWritten.len()# files produced");		
 		_copyResources( docsetRoot );
 		_renameSqlLiteDb( resourcesRoot );
 		_setupFeedXml( arguments.buildDirectory & "/" );

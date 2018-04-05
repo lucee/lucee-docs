@@ -151,7 +151,7 @@ component accessors=true {
 		_checkCategories();
 
 		cflog(text="Tree: #ArrayLen(tree)#, idMap: #structCount(idMap)#, pathMap: #structCount(pathMap)#,");
-		cflog(text="Documentation Built in #(getTickCount()-start)/1000#s");
+		cflog(text="Documentation Compiled in #(getTickCount()-start)/1000#s");
 	}
 
 	private void function _initializeEmptyTree() {
