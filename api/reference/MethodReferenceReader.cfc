@@ -22,7 +22,8 @@ component accessors=true {
 		try {
 			return getFunctionData(BIFName);
 		} catch (e) {
-			throw (text="couldn't find member #BIFName# [#objectName# #methodname#]");			
+			cflog (text="couldn't find member #BIFName# [#objectName# #methodname#]");			
+			return {};
 		}
 	}
 
