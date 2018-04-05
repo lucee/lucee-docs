@@ -3,7 +3,7 @@ title: Why Lucee Server's great
 id: why-lucee-server-great
 ---
 
-We all think Lucee Server's great... and hopefully you will too. Don't just take our word for it though. Join our community of Lucee Server developers and administrators to learn more at any time - see the section [[how-to-get-help]] to find out more.
+We all think Lucee Server's great... and hopefully you will too. Don't just take our word for it though. Join our community of Lucee Server developers and administrators to learn more at any time - see the section [[about-lucee-how-to-get-help]] to find out more.
 
 ### Free and open-source ###
 

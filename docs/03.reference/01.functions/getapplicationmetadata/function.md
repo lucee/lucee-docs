@@ -1,11 +1,11 @@
 ---
 title: GetApplicationMetadata
 id: function-getapplicationmetadata
-related: GetApplicationSettings()
+related: function-GetApplicationSettings
 categories:
 ---
 
-Return a struct with information about the Application, as defined in Application.cfc or Application.cfm for the current running Application.  
+Return a struct with information about the Application, as defined in Application.cfc or Application.cfm for the current running Application.
 
 Calling this function is equivalent to calling `getApplicationSettings(false)`
 
