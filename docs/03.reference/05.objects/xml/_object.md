@@ -1,10 +1,13 @@
 ---
-title: xml
+title: Xml
 id: object-xml
-listingStyle: a-z
-visible: true
 related:
+- function-xmlnew
 categories:
 - object
 - xml
+visible: 'true'
+listingStyle: a-z
 ---
+
+

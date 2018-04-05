@@ -1,10 +1,11 @@
 ---
-title: timezone
+title: Timezone
 id: object-timezone
-listingStyle: a-z
-visible: true
-related:
 categories:
 - object
 - timezone
+visible: 'true'
+listingStyle: a-z
 ---
+
+

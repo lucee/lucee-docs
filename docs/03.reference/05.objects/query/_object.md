@@ -1,5 +1,5 @@
 ---
-title: query
+title: Query
 id: object-query
 related:
 - function-querynew

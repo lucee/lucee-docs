@@ -1,10 +1,11 @@
 ---
-title: string
+title: String
 id: object-string
-listingStyle: a-z
-visible: true
-related:
 categories:
 - object
 - string
+visible: 'true'
+listingStyle: a-z
 ---
+
+
