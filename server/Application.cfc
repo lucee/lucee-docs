@@ -25,14 +25,32 @@
 			header statuscode=401;
 			abort;
 		}	
-
-		if ( path eq "/assets/js/searchIndex.json" ) {
+		if ( path.startsWith( "/lucee/admin") ){
+			cflog (text="ignoring /lucee/admin request #cgi.script_name#");
+			return;
+		}
+		if ( path eq "/build_docs/all/" ) {
+			writeOutput("<h1>importing references, exporting all </h1>");
+			new api.reference.ReferenceImporter().importAll()
+			new api.build.BuildRunner().buildAll();
+		} else if ( path eq "/build_docs/html/" ) {	
+			writeOutput("<h1>html export</h1>");
+			new api.build.BuildRunner().build("html");
+		} else if ( path eq "/build_docs/dash/" ) {	
+			writeOutput("<h1>dash export</h1>");
+			new api.build.BuildRunner().build("dash");
+		} else if ( path eq "/build_docs/import/" ) {	
+			writeOutput("<h1>importing references</h1>");
+			new api.reference.ReferenceImporter().importAll()
+		} else if ( path.startsWith( "/build_docs/" ) ){
+			throw "unknown build docs request: #path#";
+		} else if ( path eq "/assets/js/searchIndex.json" ) {
 			_renderSearchIndex();
-		} elseif ( path.startsWith( "/assets" ) ) {
+		} else if ( path.startsWith( "/assets" ) ) {
 			_renderAsset();
-		} elseif ( path.startsWith( "/static" ) ) {
+		} else if ( path.startsWith( "/static" ) ) {
 				_renderStatic();	
-		} elseif ( path.startsWith( "/editor.html" ) ) {
+		} else if ( path.startsWith( "/editor.html" ) ) {
 			_renderCodeEditor();
 		} else {
 			lock name="renderPage" timeout="8" type ="Exclusive" throwontimeout="no" { 
@@ -128,10 +146,13 @@
 		if ( !FileExists( staticAssetPath ) ) {			
 			_404(staticAssetPath, "/static/");			
 		}
+		var pageContent = fileRead(staticAssetPath);
+		pagecontent = reReplace(pagecontent, '\<a href="\/', '<a href="/static/', 'all');		
 
 		header name="cache-control" value="no-cache";
 		// TODO need to address hrefs due to removal of base hrefs links
-		content file=staticAssetPath type=_getMimeTypeForAsset( staticAssetPath );
+		content type=_getMimeTypeForAsset( staticAssetPath );
+		writeOutput(pagecontent);
 		abort;
 	}
 

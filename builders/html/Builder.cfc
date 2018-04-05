@@ -18,12 +18,16 @@ component {
 	public void function build( docTree, buildDirectory ) {
 		var tree = arguments.docTree.getTree();
 
+		request.filesWritten=[];
+
 		cflog (text="Builder html directory: #arguments.buildDirectory#");
 		
 		for ( var page in tree ) {			
-			_writePage( page, arguments.buildDirectory, docTree );
-			cflog (text ="html folder " & page.getPath() & " built");			
+			cflog (text = "building html folder " & page.getPath() );			
+			_writePage( page, arguments.buildDirectory, docTree );						
 		}
+		
+		cflog (text="Html Builder #request.filesWritten.len()# files produced");		
 
 		_renderStaticPages( arguments.buildDirectory, arguments.docTree, "/" );
 		_copyStaticAssets( arguments.buildDirectory );
@@ -150,6 +154,7 @@ component {
 	private void function _writePage( required any page, required string buildDirectory, required any docTree ) {
 		var filePath      = _getHtmlFilePath( arguments.page, arguments.buildDirectory );
 		var fileDirectory = GetDirectoryFromPath( filePath );
+
 		//var starttime = getTickCount();
 		if ( !DirectoryExists( fileDirectory ) ) {
 			DirectoryCreate( fileDirectory );
@@ -158,12 +163,34 @@ component {
 		// regex strips left over whitespace multiple new lines
 
 		FileWrite( filePath, pageContent );
+		/*
+		request.filesWritten.append(filePath);
+		if (request.filesWritten.len() gt 2000){
+			writeOutput("stopped at #request.filesWritten.len()# files");
+			dump(checkFilesWritten(request.filesWritten));
+			abort;
+		}
+		*/
+
 		//cflog(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
 		for( var childPage in arguments.page.getChildren() ) {
-			writeOutput("childPage " & childPage.getPath() & "<br>");
+			("childPage " & childPage.getPath() & "<br>");
 			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
 		}
 	}
+
+	/*
+	private query function checkFilesWritten (files){
+		var q = QueryNew("path", "varchar");
+		for (var file in files){
+			QueryAddRow(q);
+			querySetCell(q, "path", file);
+		}
+		q  = queryExecute("select path, count(*) files from q group by path order by path desc", {}, {dbtype="query"});		
+		//QuerySort(q, "path", "desc");		
+		return q;
+	}
+	*/
 
 	private function cleanHtml( required string content){
 		return ReReplace(arguments.content, "[\r\n]\s*([\r\n]|\Z)", Chr(10), "ALL")

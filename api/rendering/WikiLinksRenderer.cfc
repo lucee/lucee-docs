@@ -5,11 +5,12 @@ component accessors=true {
 	public string function renderLinks( required string text, required any builder ) {
 		var rendered = arguments.text;
 		var link     = "";
-
+		var startPos = 1;
 		do {
-			link = _getNextLink( rendered );
+			link = _getNextLink( rendered, startPos );
 			if ( !IsNull( link ) ) {
 				rendered = Replace( rendered, link.rawMatch, arguments.builder.renderLink( link.page ?: NullValue(), link.title ), "all" );
+				startPos = link.nextStartPos;
 			}
 		} while( !IsNull( link ) );
 
@@ -43,6 +44,7 @@ component accessors=true {
 			  rawMatch = rawMatch
 			, page     = page  ?: NullValue()
 			, title    = title ?: pageId
+			, nextStartPos: regexFindResult.pos[2] // not exact but saves reparsing the whole text again
 		};
 	}
 }
