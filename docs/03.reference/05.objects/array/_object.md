@@ -1,10 +1,13 @@
 ---
 title: array
 id: object-array
-listingStyle: a-z
-visible: true
 related:
+- function-arraynew
 categories:
-- object
 - array
+- object
+visible: 'true'
+listingStyle: a-z
 ---
+
+

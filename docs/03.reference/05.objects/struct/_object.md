@@ -1,10 +1,13 @@
 ---
 title: struct
 id: object-struct
-listingStyle: a-z
-visible: true
 related:
+- function-structnew
 categories:
 - object
 - struct
+visible: 'true'
+listingStyle: a-z
 ---
+
+
