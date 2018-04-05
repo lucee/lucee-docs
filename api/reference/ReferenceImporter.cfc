@@ -11,73 +11,74 @@ component {
 
 // PUBLIC API
 	public void function importAll() {
-		importFunctionReference();
-		importTagReference();
-		
-		importObjectReference();
-		importMethodReference();
+		lock name="importAll" timeout="1" type ="Exclusive" throwontimeout="yes" { 
+			cflog (text="Start Importing new tags and functions");
+			importFunctionReference();			
+			importTagReference();			
+			importObjectReference();			
+			importMethodReference();			
+			cflog (text="Finished importing new tags and functions");
+		}
 	}
 
 	public void function importFunctionReference() {
+		var filesImported = 0;
 		var referenceReader = new ReferenceReaderFactory().getFunctionReferenceReader();
-
+		var filesImported = 0;
 		for( var functionName in referenceReader.listFunctions() ) {
 			var convertedFunc = referenceReader.getFunction( functionName );
 
 			if ( !_isHiddenFeature( convertedFunc ) ) {
-				_stubFunctionEditorialFiles( convertedFunc );
-			}			
+				filesImported += _stubFunctionEditorialFiles( convertedFunc );
+			}					
 		}
+		cflog (text="#filesImported# functions imported");
 	}
 
 	public void function importObjectReference() {
+		var filesImported = 0;
 		var referenceReader = new ReferenceReaderFactory().getObjectReferenceReader();
 
 		for( var objectName in referenceReader.listObjects() ) {
 			var convertedObject = referenceReader.getObject( ObjectName );
-			_stubObjectEditorialFiles( objectName );
-
 			//if ( !_isHiddenFeature( convertedObject ) ) {
-			//_stubObjectEditorialFiles( convertedObject );
+				filesImported += _stubObjectEditorialFiles( objectName );
 			//}			
 		}
+		cflog (text="#filesImported# objects imported");
 	}
 
 
 	public void function importMethodReference() {
+		var filesImported = 0;
 		var referenceReader = new ReferenceReaderFactory().getMethodReferenceReader();
 		var objects = referenceReader.listMethods();
-		//dump(objects);
 		for( var object in objects ) {			
-			for (var method in objects[object] ){				
-				//dump(objects[method]);
-				//if ( objects[object].keyExists(method) )
-				//	dump(objects[object][method]);
-				//else 
-				//	dump("zzzzzz")	;
-				
+			for (var method in objects[object] ){
 				var methodData = referenceReader.getMethod( object, method);
 				//if ( !_isHiddenFeature( convertedMethod ) ) {
-				if (methodData.count() gt 0)
-					_stubMethodEditorialFiles( methodData );
-				
-				//}	
-				
+					if (methodData.count() gt 0)
+						filesImported += _stubMethodEditorialFiles( methodData );				
+				//}					
 			}				
 		}
-		abort;
+
+		cflog (text="#filesImported# methods imported");
 	}
 
 	public void function importTagReference() {
+		var filesImported = 0;
 		var referenceReader = new ReferenceReaderFactory().getTagReferenceReader();
 
 		for( var tagName in referenceReader.listTags() ) {
 			var convertedTag = referenceReader.getTag( tagName );
 
 			if ( !_isHiddenFeature( convertedTag ) ) {
-				_stubTagEditorialFiles( convertedTag );
+				filesImported += _stubTagEditorialFiles( convertedTag );
 			}
 		}
+		cflog (text="#filesImported# tags imported");
+		
 	}
 
 // PRIVATE HELPERS
@@ -134,7 +135,8 @@ component {
 		return retval;
 	};
 
-	private void function _stubFunctionEditorialFiles( required struct func ) {
+	private numeric function _stubFunctionEditorialFiles( required struct func ) {
+		var filesCreated = 0;
 		var referenceDir = buildProperties.getFunctionReferenceDirectory();
 		var functionDir  = referenceDir & LCase( arguments.func.name ) & "/";
 		var pageContent  = "---
@@ -162,7 +164,8 @@ categories:";
 		arguments.func.history     = [];
 	}
 
-	private void function _stubTagEditorialFiles( required struct tag ) {
+	private numeric function _stubTagEditorialFiles( required struct tag ) {
+		var filesCreated = 0;
 		var referenceDir = buildProperties.getTagReferenceDirectory();
 		var tagDir       = referenceDir & LCase( arguments.tag.name ) & "/";
 		var pageContent  =
@@ -175,15 +178,18 @@ categories:
 
 #Trim( arguments.tag.description )#";
 
-		_createFileIfNotExists( tagDir & "tag.md", pageContent );
+		filesCreated += _createFileIfNotExists( tagDir & "tag.md", pageContent );
 
 		var attribs = arguments.tag.attributes ?: "";
 		for( var attrib in attribs ) {
-			_createFileIfNotExists( tagDir & "_attributes/#attrib.name#.md", Trim( attrib.description ?: "" ) );
+			filesCreated += _createFileIfNotExists( tagDir & "_attributes/#attrib.name#.md", Trim( attrib.description ?: "" ) );
 		}
+
+		return filesCreated;
 	}
 	
-	private void function _stubObjectEditorialFiles( required string obj ) {
+	private numeric function _stubObjectEditorialFiles( required string obj ) {
+		var filesCreated = 0;
 		var referenceDir = buildProperties.getObjectReferenceDirectory();
 		var objectName = obj;
 		var objectDir  = referenceDir & LCase( objectName ) & "/";
@@ -208,7 +214,7 @@ categories:
 #Trim( arguments.method.description )#";
 */
 
-		_createFileIfNotExists( objectDir & "_object.md", pageContent );
+		filesCreated += _createFileIfNotExists( objectDir & "_object.md", pageContent );
 /*
 		var args = arguments.method.arguments ?: "";
 		for( var arg in args ) {
@@ -217,9 +223,12 @@ categories:
 		*/
 		arguments.method.examples    = [];
 		arguments.method.history     = [];
+
+		return filesCreated;
 	}
 
-	private void function _stubMethodEditorialFiles( required struct method ) {
+	private numeric function _stubMethodEditorialFiles( required struct method ) {
+		var filesCreated = 0;
 		var referenceDir = buildProperties.getObjectReferenceDirectory();		
 		var methodDir  = referenceDir & LCase( arguments.method.member.type ) & "/" & LCase( arguments.method.member.name ) & "/";
 	
@@ -246,21 +255,20 @@ categories:
 #Trim( arguments.method.description )#";
 
 
-		_createFileIfNotExists( methodDir & "_method.md", pageContent );
+		filesCreated += _createFileIfNotExists( methodDir & "_method.md", pageContent );
 
 		var args = arguments.method.arguments ?: "";
 		for( var arg in args ) {
-			_createFileIfNotExists( methodDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
+			filesCreated += _createFileIfNotExists( methodDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
 		}
 
 		arguments.method.examples    = [];
 		arguments.method.history     = [];
+
+		return filesCreated;
 	}
 
-
-
-
-	private void function _createFileIfNotExists( filePath, content ) {
+	private numeric function _createFileIfNotExists( filePath, content ) {
 		var fileDirectory = GetDirectoryFromPath( arguments.filePath );
 		var fileName      = ListLast( arguments.filePath, "/\" );
 
@@ -272,11 +280,12 @@ categories:
 
 		for( var fileInDir in filesInDir ) {
 			if ( fileInDir == fileName ) {
-				return; // case insensitive file exists check!
+				return 0; // case insensitive file exists check!
 			}
 		}
 		writeOutput( "Generated file: " & arguments.filePath  & chr(10));
 		FileWrite( arguments.filePath, arguments.content );
+		return 1;
 	}
 
 	private boolean function _isHiddenFeature( required struct feature ) {

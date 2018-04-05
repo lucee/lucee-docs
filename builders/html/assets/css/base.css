@@ -11401,6 +11401,10 @@ h2, h3, h4, h5, h6 {
   color: #01798a;
 }
 
+fieldset#-lucee-debug {
+  padding-left: 300px;
+}
+
 .footer {
   background-color: #fafafa;
   border-top: 1px solid #e0e0e0;

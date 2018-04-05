@@ -30,16 +30,19 @@
 			_renderSearchIndex();
 		} elseif ( path.startsWith( "/assets" ) ) {
 			_renderAsset();
+		} elseif ( path.startsWith( "/static" ) ) {
+				_renderStatic();	
 		} elseif ( path.startsWith( "/editor.html" ) ) {
 			_renderCodeEditor();
-		} elseif ( path.startsWith( "/source" ) ) {
-			_renderSource();
-		} elseif ( path.startsWith( "/static" ) ) {
-			_renderStatic();
 		} else {
-			_renderPage();
+			lock name="renderPage" timeout="8" type ="Exclusive" throwontimeout="no" { 
+				if ( path.startsWith( "/source" ) ) {
+					_renderSource();			
+				} else {
+					_renderPage();				
+				}
+			}
 		}
-
 		return true;
 	}
 
@@ -127,6 +130,7 @@
 		}
 
 		header name="cache-control" value="no-cache";
+		// TODO need to address hrefs due to removal of base hrefs links
 		content file=staticAssetPath type=_getMimeTypeForAsset( staticAssetPath );
 		abort;
 	}
