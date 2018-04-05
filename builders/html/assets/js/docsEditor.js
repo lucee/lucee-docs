@@ -248,6 +248,8 @@ $(function(){
 
     var renderList = function($label, propery, v, data) {
         var selected = {};
+        if (!Array.isArray(v))
+            v = [v];
         for (var p in v)
             selected[v[p]] = true;
         var $list = $('<div class="list-items"/>');
