@@ -1,0 +1,1 @@
+a list of directions or a single direction defintion (asc,desc), the list must have the same length as the columnName list. ONly used when the second argument defines a list of column names.

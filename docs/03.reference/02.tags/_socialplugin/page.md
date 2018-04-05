@@ -1,6 +1,7 @@
 ---
 title: <cf_socialplugin>
 id: tag-_socialplugin
+pageType: tag
 related:
 categories:
 ---

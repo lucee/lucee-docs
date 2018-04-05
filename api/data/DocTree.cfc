@@ -79,9 +79,11 @@ component accessors=true {
 	public struct function getPageSource(required string pagePath){
 		if (not FileExists(rootDir & arguments.pagePath)){
 			var reqType = listLast(arguments.pagePath,"/");
-			var dir = getDirectoryFromPath(rootDir & arguments.pagePath);
+			var dir = getDirectoryFromPath(rootDir & arguments.pagePath);			
+
 			switch (reqType){
 				case "page.md":
+					// TODO check for directories with number prefix and match, i.e. /01.functions/
 					if (not directoryExists(dir))
 						DirectoryCreate(dir)
 				case "_examples.md":				
@@ -125,7 +127,7 @@ component accessors=true {
 
 		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
 		for( var pageFile in pageFiles ) {
-			var page = _preparePageObject( pageFile, arguments.rootDirectory );
+			var page = _preparePageObject( pageFile, arguments.rootDirectory );			
 			_addPageToTree( page );
 		}
 
@@ -176,10 +178,18 @@ component accessors=true {
 			case "category":
 			case "function":
 			case "listing":
+			case "_object":
+			case "_method":
 			case "tag":
 				isPage = true;
 				break;
+			case "_arguments":
+			case "_attributes":
+			case "_examples":
+				isPage = false;
+				break;
 			default:
+				throw text="Unsupported pageType: #pageType#, #arguments.page.getPath()#";
 				isPage = false;
 		};
 
@@ -189,7 +199,7 @@ component accessors=true {
 			arguments.page.setParent( parent );
 
 			ancestors = parent.getAncestors();
-			if (ancestors.len() eq 0) // avoid duplicates
+			if (ancestors.len() eq 0 or pageType eq "_method") // avoid duplicates, hack for methods
 				ancestors.append( parent.getId() );
 		} else {
 			tree.append( arguments.page );
@@ -255,23 +265,33 @@ component accessors=true {
 
 	private any function _preparePageObject( required string pageFilePath, required string rootDirectory ) {
 		var page = "";
-		var pageData = new PageReader().readPageFile( arguments.rootDirectory & pageFilePath );
+		var pageData = new PageReader().readPageFile( arguments.rootDirectory & arguments.pageFilePath );
 
 		try {
+			//cflog(text="[#pageData.pageType#]#arguments.pageFilePath#");
 			switch( pageData.pageType ?: "" ) {
 				case "function":
-					pageData.append( _getFunctionSpecification( pageData.slug, arguments.rootDirectory & pageFilePath ), false );
+					pageData.append( _getFunctionSpecification( pageData.slug, arguments.rootDirectory & arguments.pageFilePath ), false );
 					page = new FunctionPage( argumentCollection=pageData );
 				break;
 				case "tag":
-					pageData.append( _getTagSpecification( pageData.slug, arguments.rootDirectory & pageFilePath ), false );
+					pageData.append( _getTagSpecification( pageData.slug, arguments.rootDirectory & arguments.pageFilePath ), false );
 					page = new TagPage( argumentCollection=pageData );
+				break;
+				case "_object":					
+					pageData.append( _getObjectSpecification( pageData.slug, arguments.rootDirectory & arguments.pageFilePath ), false );
+					page = new ObjectPage( argumentCollection=pageData );
+				break;
+				case "_method":
+					pageData.append( _getMethodSpecification( pageData.methodObject, pageData.methodName, 
+						arguments.rootDirectory & arguments.pageFilePath ), false );
+					page = new MethodPage( argumentCollection=pageData );					
 				break;
 				default:
 					page = new Page( argumentCollection=pageData );
 			}
 		} catch (any e) {
-			writeOutput("Error preparing page: " & pageFilePath);
+			writeOutput("Error preparing page: " & arguments.pageFilePath);
 			dump( pageData );
 			echo( e );
 			abort;
@@ -403,8 +423,56 @@ component accessors=true {
 		return func;
 	}
 
+	private struct function _getObjectSpecification( required string objectName, required string pageFilePath ) {
+		var obj    = _getObjectReferenceReader().getObject( arguments.objectName );
+		var args    = obj.arguments ?: [];
+		return obj;
+		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
+
+		for( var arg in args ) {
+			var argDescriptionFile = argsDir & arg.name & ".md";
+			if ( FileExists( argDescriptionFile ) ) {
+				arg.description = FileRead( argDescriptionFile );
+			}
+		}
+
+		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
+		if ( FileExists( examplesFile ) ) {
+			obj.examples = FileRead( examplesFile );
+		}
+
+		return obj;
+	}
+
+	private struct function _getMethodSpecification(required string methodObject, required string methodName, required string pageFilePath ) {
+		var meth    = _getMethodReferenceReader().getMethod( arguments.methodObject, arguments.methodName );
+		var args    = meth.arguments ?: [];		
+		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
+
+		for( var arg in args ) {
+			var argDescriptionFile = argsDir & arg.name & ".md";
+			if ( FileExists( argDescriptionFile ) ) {
+				arg.description = FileRead( argDescriptionFile );
+			}
+		}
+		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
+		if ( FileExists( examplesFile ) ) {
+			meth.examples = FileRead( examplesFile );
+		}
+
+		return meth;
+	}
+
 	private any function _getFunctionReferenceReader() {
 		return new api.reference.ReferenceReaderFactory().getFunctionReferenceReader();
+	}
+
+	private any function _getObjectReferenceReader() {
+		return new api.reference.ReferenceReaderFactory().getObjectReferenceReader();
+	}
+
+	private any function _getMethodReferenceReader() {
+		return new api.reference.ReferenceReaderFactory().getMethodReferenceReader();
 	}
 
 	private any function _getTagReferenceReader() {

@@ -34,7 +34,9 @@ component {
 				, args     = { page = arguments.page, docTree=arguments.docTree, edit=edit }
 				, helpers  = "/builders/html/helpers"
 			);
-		} catch( any e ) {
+		} catch( any e ) {		
+			e.additional.luceeDocsTitle = arguments.page.getTitle();
+			e.additional.luceeDocsPath = arguments.page.getPath();
 			e.additional.luceeDocsPageId = arguments.page.getid();
 			rethrow;
 		}
@@ -58,6 +60,12 @@ component {
 			}
 		}
 		excludeLinkMap[arguments.page.getId()]=""; // don't link to itself
+		// don't repeat content listed as child of the page
+		var children = arguments.page.getChildren()
+		for (var child in children){
+			excludeLinkMap[child.getId()]="";
+		}
+
 		var related = arguments.docTree.getPageRelated(arguments.page);
 		for( var link in related ) {
 			if (len(link) gt 0 and not StructKeyExists(excludeLinkMap, link))
@@ -78,19 +86,27 @@ component {
           break;
 			}
 		}
-
-		return renderTemplate(
-			  template = "layouts/main.cfm"
-			, helpers  = "/builders/html/helpers"
-			, args     = {
-				  body       = Trim( renderedPage )
-				, page       = arguments.page
-				, edit       = arguments.edit
-				, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, page=arguments.page } )
-				, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage() } )
-				, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , helpers  = "/builders/html/helpers", args={ links=links } )
-			  }
-		);
+		try {
+			var pageContent = renderTemplate(
+				template = "layouts/main.cfm"
+				, helpers  = "/builders/html/helpers"
+				, args     = {
+					body       = Trim( renderedPage )
+					, page       = arguments.page
+					, edit       = arguments.edit
+					, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, page=arguments.page } )
+					, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage() } )
+					, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , helpers  = "/builders/html/helpers", args={ links=links } )
+				}
+			);
+		} catch( any e ) {		
+			//e.additional.luceeDocsPage = arguments.page;
+			e.additional.luceeDocsTitle = arguments.page.getTitle();
+			e.additional.luceeDocsPath = arguments.page.getPath();
+			e.additional.luceeDocsId = arguments.page.getId();
+			rethrow;
+		}	
+		return pageContent; 
 	}
 
 	public string function renderFileNotFound(required string filePath, required any docTree, required string baseHref) {
@@ -193,6 +209,8 @@ component {
 			case "function":
 			case "tag":
 			case "category":
+			case "_object":
+			case "_method":
 				return LCase( arguments.page.getPageType() );
 			case "listing":
 				return "aToZIndex"; // todo, diff layouts depending on arguments.page.getListingStyle()
