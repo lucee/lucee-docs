@@ -73,3 +73,7 @@ h2, h3, h4, h5, h6 {
 	font-weight: 600;
 	color: $brand-color;
 }
+
+fieldset#-lucee-debug {
+	padding-left: 300px; // escape the side menu
+}

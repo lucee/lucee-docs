@@ -4,7 +4,8 @@ component {
 			return '<a class="missing-link">#HtmlEditFormat( arguments.title )#</a>';
 		}
 
-		var link = ReReplace( page.getPath(), "^/", "" ) & ".html";
+		//var link = ReReplace( page.getPath(), "^/", "" ) & ".html";
+		var link = page.getPath() & ".html";
 
 		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
 	}
@@ -16,9 +17,12 @@ component {
 
 	public void function build( docTree, buildDirectory ) {
 		var tree = arguments.docTree.getTree();
-		cflog(text="Builder html directory: #arguments.buildDirectory#");
-		for( var page in tree ) {
+
+		cflog (text="Builder html directory: #arguments.buildDirectory#");
+		
+		for ( var page in tree ) {			
 			_writePage( page, arguments.buildDirectory, docTree );
+			cflog (text ="html folder " & page.getPath() & " built");			
 		}
 
 		_renderStaticPages( arguments.buildDirectory, arguments.docTree, "/" );
@@ -156,6 +160,7 @@ component {
 		FileWrite( filePath, pageContent );
 		//cflog(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
 		for( var childPage in arguments.page.getChildren() ) {
+			writeOutput("childPage " & childPage.getPath() & "<br>");
 			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
 		}
 	}

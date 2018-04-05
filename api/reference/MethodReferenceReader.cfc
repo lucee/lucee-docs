@@ -22,11 +22,7 @@ component accessors=true {
 		try {
 			return getFunctionData(BIFName);
 		} catch (e) {
-			dump(arguments);
-			dump(local);
-			abort;
-			cflog (text="couldn't find member #BIFName# [#objectName# #methodname#]");
-			return {};			
+			throw (text="couldn't find member #BIFName# [#objectName# #methodname#]");			
 		}
 	}
 
@@ -38,13 +34,13 @@ component accessors=true {
 			object = listFirst( objectDotMethod, '.' );
 			method = listLast ( objectDotMethod, '.' );
 		}
-
 		if ( methods.keyExists( object ) && methods[ object ].keyExists( method ) ){
 			return  methods[object][method];
 		} else {
-			throw text="missing method: #object# #method#";
+			throw (message="missing method: #object# #method#");
+			return "";
 		}
-		return "";
+		
 	}
 
 

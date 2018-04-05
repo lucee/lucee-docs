@@ -14,20 +14,23 @@ component accessors=true {
 
 // PUBLIC API
 	public void function buildAll() {
-		listBuilders().each( function( builderName ){
-			build( builderName );
-		} );
+		lock name="buildAll" timeout="1" type ="Exclusive" throwontimeout="true" { 
+			listBuilders().each( function( builderName ){
+				build( builderName );
+			} );
+		}
 	}
 
 	public void function build( required string builderName ) {
 		var builder  = getBuilder( arguments.builderName );
 		var buildDir = _getBuilderBuildDirectory( arguments.builderName );
 		var startTime = getTickCount();
-		cflog(text="Start builder: #arguments.builderName#");
-
-		builder.build( docTree, buildDir );
-
-		cflog(text="Finished builder: #arguments.builderName#, in #NumberFormat( getTickCount()-startTime)#ms");
+		
+		lock name="build#buildername#" timeout="1" type ="Exclusive" throwontimeout="true" { 
+			cflog (text="Start builder: #arguments.builderName# #cgi.script_name#");
+			builder.build( docTree, buildDir );
+			cflog (text="Finished builder: #arguments.builderName#, in #NumberFormat( getTickCount()-startTime)#ms");
+		}		
 	}
 
 	public array function listBuilders() {
@@ -40,7 +43,7 @@ component accessors=true {
 			}
 		}
 
-		return builders.sort( "text" );
+		return builders.sort( "text", "desc" );
 	}
 
 	public any function getBuilder( required string builderName ) {
