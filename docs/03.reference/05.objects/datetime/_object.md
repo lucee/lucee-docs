@@ -1,10 +1,11 @@
 ---
-title: datetime
+title: DateTime
 id: object-datetime
-listingStyle: a-z
-visible: true
-related:
 categories:
 - object
 - datetime
+visible: 'true'
+listingStyle: a-z
 ---
+
+

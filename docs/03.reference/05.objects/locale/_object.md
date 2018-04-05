@@ -1,10 +1,13 @@
 ---
-title: locale
+title: Locale
 id: object-locale
-listingStyle: a-z
-visible: true
 related:
+- function-getlocale
 categories:
 - object
 - locale
+visible: 'true'
+listingStyle: a-z
 ---
+
+

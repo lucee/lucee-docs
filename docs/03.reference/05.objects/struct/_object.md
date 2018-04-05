@@ -1,5 +1,5 @@
 ---
-title: struct
+title: Struct
 id: object-struct
 related:
 - function-structnew

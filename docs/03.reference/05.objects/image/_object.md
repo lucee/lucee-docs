@@ -1,10 +1,13 @@
 ---
-title: image
+title: Image
 id: object-image
-listingStyle: a-z
-visible: true
 related:
+- function-imagenew
 categories:
-- object
 - image
+- object
+visible: 'true'
+listingStyle: a-z
 ---
+
+

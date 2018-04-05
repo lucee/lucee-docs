@@ -1,10 +1,11 @@
 ---
-title: boolean
+title: Boolean
 id: object-boolean
-listingStyle: a-z
-visible: true
-related:
 categories:
-- object
 - boolean
+- object
+visible: 'true'
+listingStyle: a-z
 ---
+
+
