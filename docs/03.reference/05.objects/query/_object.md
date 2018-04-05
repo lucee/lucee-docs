@@ -1,10 +1,13 @@
 ---
 title: query
 id: object-query
-listingStyle: a-z
-visible: true
 related:
+- function-querynew
 categories:
 - object
 - query
+visible: 'true'
+listingStyle: a-z
 ---
+
+
