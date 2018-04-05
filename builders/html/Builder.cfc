@@ -23,6 +23,7 @@ component {
 
 		_renderStaticPages( arguments.buildDirectory, arguments.docTree, "/" );
 		_copyStaticAssets( arguments.buildDirectory );
+		_copySiteImages( arguments.buildDirectory );
 		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
 	}
 
@@ -36,7 +37,7 @@ component {
 		} catch( any e ) {
 			e.additional.luceeDocsPageId = arguments.page.getid();
 			rethrow;
-		}	
+		}
 		var crumbs = [];
 		var excludeLinkMap = {}; // tracks links to exclude from See also
 		var parent = arguments.page.getParent();
@@ -94,7 +95,7 @@ component {
 
 	public string function renderFileNotFound(required string filePath, required any docTree, required string baseHref) {
 		return _renderStaticPage( "/builders/html/staticPages/404.html", "File not found", arguments.docTree, arguments.baseHref, true );
-	}	
+	}
 
 	public string function renderSearchIndex( required any docTree ) {
 		var pages           = arguments.docTree.getIdMap();
@@ -135,7 +136,7 @@ component {
 		}
 		var pageContent = cleanHtml(renderPage( arguments.page, arguments.docTree, false ));
 		// regex strips left over whitespace multiple new lines
-		
+
 		FileWrite( filePath, pageContent );
 		//cflog(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
 		for( var childPage in arguments.page.getChildren() ) {
@@ -165,15 +166,19 @@ component {
 		}
 	}
 
+	private void function _copySiteImages( required string buildDirectory ) {
+		DirectoryCopy( "/docs/_images", arguments.buildDirectory & "/images", true, "*", true  );
+	}
+
 	private void function _renderStaticPages( required string buildDirectory, required any docTree, required string baseHref ) {
 		var staticPagesDir = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/staticPages";
 		var _404Page = _renderStaticPage( staticPagesDir & "/404.html", "404 - Page not found", arguments.docTree, arguments.baseHref, true );
 
 		FileWrite( buildDirectory & "/404.html", cleanHtml(_404Page) );
 		// google analytics for @zackster
-		FileWrite( buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");		
-		FileWrite( buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow:#chr(10)#");		
-		
+		FileWrite( buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");
+		FileWrite( buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow:#chr(10)#");
+
 		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", buildDirectory & "/editor.html" );
 	}
 
@@ -192,11 +197,11 @@ component {
 			case "listing":
 				return "aToZIndex"; // todo, diff layouts depending on arguments.page.getListingStyle()
 			default:
-				return "page";	
+				return "page";
 		}
 	}
 
-	private string function _renderStaticPage( required string filePath, required string pageTitle, 
+	private string function _renderStaticPage( required string filePath, required string pageTitle,
 			required any docTree, required string baseHref, boolean noIndex="false"){
 		var renderedPage = FileRead( arguments.filePath );
 		var crumbs = [];
@@ -207,8 +212,8 @@ component {
 			, helpers  = "/builders/html/helpers"
 			, args     = {
 				  body       = Trim( renderedPage )
-				, baseHref   = arguments.baseHref  
-				, noIndex   = arguments.noIndex  
+				, baseHref   = arguments.baseHref
+				, noIndex   = arguments.noIndex
 				, title      = arguments.pageTitle
 				, crumbs     = renderTemplate( template="layouts/staticbreadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ title=arguments.pageTitle } )
 				, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=[ "/home" ] } )
