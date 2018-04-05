@@ -85,6 +85,8 @@
 		var pagePath = Replace(_getRequestUri(), "/source", "");
 		var page = docTree.getPageSource(pagePath);
 
+		setting showdebugoutput="no";
+
 		if (isUpdateRequest){
 			param name="form.content" default="";
 			param name="form.properties" default="";
@@ -103,7 +105,7 @@
 				}
 			}
 			var result = docTree.updatePageSource(pagePath, form.content, props);
-			_resetBuildRunner(); // flag for update
+			_resetBuildRunner(); // flag for update			
 			WriteOutput( serializeJSON(result) );
 		} else {
 			var pageSource = structNew("linked");
@@ -119,7 +121,7 @@
 			} else {
 				structDelete(page, "properties");
 			}
-			content type="application/json";
+			content type="application/json";			
 			WriteOutput( serializeJSON(pageSource) );
 		}
 	}
@@ -130,7 +132,7 @@
 		if ( !FileExists( assetPath ) ) {
 			_404(assetPath, "/");
 		}
-
+		setting showdebugoutput="no";
 		header name="cache-control" value="no-cache";
 		content file=assetPath type=_getMimeTypeForAsset( assetPath );
 		abort;
@@ -150,7 +152,8 @@
 		pagecontent = reReplace(pagecontent, '\<a href="\/', '<a href="/static/', 'all');		
 
 		header name="cache-control" value="no-cache";
-		// TODO need to address hrefs due to removal of base hrefs links
+		setting showdebugoutput="no";
+		
 		content type=_getMimeTypeForAsset( staticAssetPath );
 		writeOutput(pagecontent);
 		abort;
@@ -159,7 +162,7 @@
 	private void function _renderCodeEditor() {
 		var editorPath = "/builders/html/assets/trycf/index.html";
 		var content    = FileRead( editorPath );
-
+		setting showdebugoutput="no";
 		content reset=true;echo(content);abort;
 	}
 
@@ -169,6 +172,7 @@
 		var searchIndex = buildRunner.getBuilder( "html" ).renderSearchIndex( docTree );
 
 		header name="cache-control" value="no-cache";
+		setting showdebugoutput="no";
 		content type="application/json" reset=true;
 		writeOutput( searchIndex );
 		abort;
