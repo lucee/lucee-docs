@@ -13,6 +13,9 @@ component {
 	public void function importAll() {
 		importFunctionReference();
 		importTagReference();
+		
+		importObjectReference();
+		importMethodReference();
 	}
 
 	public void function importFunctionReference() {
@@ -23,8 +26,46 @@ component {
 
 			if ( !_isHiddenFeature( convertedFunc ) ) {
 				_stubFunctionEditorialFiles( convertedFunc );
-			}
+			}			
 		}
+	}
+
+	public void function importObjectReference() {
+		var referenceReader = new ReferenceReaderFactory().getObjectReferenceReader();
+
+		for( var objectName in referenceReader.listObjects() ) {
+			var convertedObject = referenceReader.getObject( ObjectName );
+			_stubObjectEditorialFiles( objectName );
+
+			//if ( !_isHiddenFeature( convertedObject ) ) {
+			//_stubObjectEditorialFiles( convertedObject );
+			//}			
+		}
+	}
+
+
+	public void function importMethodReference() {
+		var referenceReader = new ReferenceReaderFactory().getMethodReferenceReader();
+		var objects = referenceReader.listMethods();
+		//dump(objects);
+		for( var object in objects ) {			
+			for (var method in objects[object] ){				
+				//dump(objects[method]);
+				//if ( objects[object].keyExists(method) )
+				//	dump(objects[object][method]);
+				//else 
+				//	dump("zzzzzz")	;
+				
+				var methodData = referenceReader.getMethod( object, method);
+				//if ( !_isHiddenFeature( convertedMethod ) ) {
+				if (methodData.count() gt 0)
+					_stubMethodEditorialFiles( methodData );
+				
+				//}	
+				
+			}				
+		}
+		abort;
 	}
 
 	public void function importTagReference() {
@@ -141,6 +182,83 @@ categories:
 			_createFileIfNotExists( tagDir & "_attributes/#attrib.name#.md", Trim( attrib.description ?: "" ) );
 		}
 	}
+	
+	private void function _stubObjectEditorialFiles( required string obj ) {
+		var referenceDir = buildProperties.getObjectReferenceDirectory();
+		var objectName = obj;
+		var objectDir  = referenceDir & LCase( objectName ) & "/";
+		var pageContent  = "---
+title: #objectName#
+id: object-#LCase( objectName )#
+listingStyle: a-z
+visible: true
+related:
+categories:
+- objects
+- #objectName#
+---
+";
+		/*
+		for( var keyword in arguments.method.keywords ){
+			pageContent &= Chr(10) & "    - " & keyword;
+		}
+
+		pageContent &= Chr(10) & "---
+
+#Trim( arguments.method.description )#";
+*/
+
+		_createFileIfNotExists( objectDir & "_object.md", pageContent );
+/*
+		var args = arguments.method.arguments ?: "";
+		for( var arg in args ) {
+			_createFileIfNotExists( methodDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
+		}
+		*/
+		arguments.method.examples    = [];
+		arguments.method.history     = [];
+	}
+
+	private void function _stubMethodEditorialFiles( required struct method ) {
+		var referenceDir = buildProperties.getObjectReferenceDirectory();		
+		var methodDir  = referenceDir & LCase( arguments.method.member.type ) & "/" & LCase( arguments.method.member.name ) & "/";
+	
+		var pageContent  = "---
+title: #arguments.method.member.type#.#arguments.method.member.name#()
+id: method-#LCase( arguments.method.member.type )#-#LCase( arguments.method.member.name )#
+methodObject: #arguments.method.member.type#
+methodName: #arguments.method.member.name#
+related:
+- function-#arguments.method.name#
+- object-#arguments.method.member.type#
+categories:
+- #arguments.method.member.type#
+";		
+		if (arguments.method.keyExists("keywords")){
+			for( var keyword in arguments.method.keywords ){
+				if (arguments.method.member.type neq keyword)
+				pageContent &= Chr(10) & "- " & keyword;
+			}
+		}
+
+		pageContent &= Chr(10) & "---
+
+#Trim( arguments.method.description )#";
+
+
+		_createFileIfNotExists( methodDir & "_method.md", pageContent );
+
+		var args = arguments.method.arguments ?: "";
+		for( var arg in args ) {
+			_createFileIfNotExists( methodDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
+		}
+
+		arguments.method.examples    = [];
+		arguments.method.history     = [];
+	}
+
+
+
 
 	private void function _createFileIfNotExists( filePath, content ) {
 		var fileDirectory = GetDirectoryFromPath( arguments.filePath );
@@ -157,7 +275,7 @@ categories:
 				return; // case insensitive file exists check!
 			}
 		}
-
+		writeOutput( "Generated file: " & arguments.filePath  & chr(10));
 		FileWrite( arguments.filePath, arguments.content );
 	}
 

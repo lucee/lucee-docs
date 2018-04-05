@@ -14,6 +14,21 @@ component {
 		} );
 	}
 
+	public any function getMethodReferenceReader() {
+		var args = arguments;
+		return _getFromRequestCache( "MethodReferenceReader", function(){
+			return new MethodReferenceReader( argumentCollection=args );
+		} );
+	}
+	public any function getObjectReferenceReader() {
+		var args = arguments;
+		return _getFromRequestCache( "ObjectReferenceReader", function(){
+			return new ObjectReferenceReader( argumentCollection=args );
+		} );
+	}
+
+
+
 // PRIVATE
 	private any function _getFromRequestCache( required string cacheKey, required any generator ) {
 		request.parserFactoryCache = request.parserFactoryCache ?: {};

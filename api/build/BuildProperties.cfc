@@ -9,6 +9,7 @@ component accessors=true {
 
 	property name="functionReferenceDirectory" default="#docsDir#03.reference/01.functions/";
 	property name="tagReferenceDirectory"      default="#docsDir#03.reference/02.tags/";
+	property name="objectReferenceDirectory"      default="#docsDir#03.reference/05.objects/";	
 	property name="version"                    default="4.5.1";
 
 	property name="editSourceLink"       default="https://github.com/lucee/lucee-docs/edit/master{path}";

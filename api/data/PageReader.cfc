@@ -4,7 +4,14 @@ component {
 		var path            = Replace(arguments.filePath,"\","/","all");
 		var fileDirectory   = GetDirectoryFromPath( path );
 		var slug            = ListLast( fileDirectory, "\/" );
-		var defaultPageType = ReReplace(path, "^.*?/([a-z]+)\.md$", "\1" );
+		var defaultPageType = "";
+		var pagePath = ListToArray(path, "/\");
+		if ( left(pagePath[pagePath.len()-1], 1) eq "_"){
+			defaultPageType = pagePath[pagePath.len()-1];  // xml\xmlelemnew\_arguments\xmlObj.md
+		} else {
+			defaultPageType = ListFirst(ListLast(path, "/"),"."); //ee\01.using-lucee-in-java\page.md
+		}
+		
 		var fileContent     = _convertToUnixLineEnding( FileRead( path ) ); 
 		var data            = _parsePage( fileContent );
 		var sortOrder       = "";
@@ -20,7 +27,7 @@ component {
 			slug         = ListRest( slug, "." );
 			if (not structKeyExists(data, "visible"))
 				data.visible = true;
-		}
+		}		
 	
 		data.visible    = data.visible  ?: false;
 		data.pageType   = data.pageType ?: defaultPageType; // TODO this is sometimes still the .md file path
