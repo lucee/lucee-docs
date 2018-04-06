@@ -1,12 +1,11 @@
 component {
-	public string function renderLink( any page, required string title ) {
+	public string function renderLink( any page, required string title ) {		
 		if ( IsNull( arguments.page ) ) {
+			cflog (text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]" type="WARN");
 			return '<a class="missing-link">#HtmlEditFormat( arguments.title )#</a>';
 		}
 
-		//var link = ReReplace( page.getPath(), "^/", "" ) & ".html";
 		var link = page.getPath() & ".html";
-
 		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
 	}
 

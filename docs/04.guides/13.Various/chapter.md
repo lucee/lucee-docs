@@ -27,7 +27,7 @@ This is the temporary location where all the new links will be added.
 
 [[deploy-with-capistrano]]
 
-[[lucee-extensions]]
+[[extensions]]
 
 [[lucee-enhanced-functions]]
 
@@ -39,7 +39,7 @@ This is the temporary location where all the new links will be added.
 
 [[general-deviations]]
 
-[[how-to-get-help]]
+[[about-lucee-how-to-get-help]]
 
 [[orm-start]]
 
@@ -67,7 +67,7 @@ This is the temporary location where all the new links will be added.
 
 [[lucee-todo]]
 
-[[tutorial-lucee]]	
+[[tutorial-lucee]]
 
 [[Ubuntu-lucee-with-Tomcat-multi-instance]]
 

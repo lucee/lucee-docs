@@ -17,7 +17,7 @@ So, with that in mind: **If you're setting up SES URL's and you're getting a 404
 
 Updating the uriworkermap.properties file is talked about in detail here
 .
-[[updating-uriworkermap-properties-file]]
+[[windows-updating-uriworkermap-properties-file]]
 
 The general idea, though, is to identify a pattern that will always be used in the URL that needs to get passed off to Tomcat (Identify the "key"). So, if your SES URL looks something like this:
 
@@ -39,7 +39,7 @@ Now that Tomcat is getting the request passed to it from IIS, we now have to tel
 
 There are actually several different ways to configure Tomcat, but we recommend what's generally referred to as the "Site Specific web.xml" method, as it gives you greater control and flexibility over how Tomcat handles requests that are sent to it. To do this, you will need to create the web.xml file within the WEB-INF file that lucee creates for a new site. The process goes something like this:
 
-1. The first step is to modify the server.xml file with the information for the new site explained here [[updating-tomcat-server-xml-file]].
+1. The first step is to modify the server.xml file with the information for the new site explained here [[windows-updating-tomcat-server-xml-file]].
 1. Restart Tomcat so that the WEB-INF directory is created in the "DocBase" path, or create the directory yourself
 1. Once the WEB-INF directory is created, create the web.xml file inside it. IE: C:\websites\mysite.com\WEB-INF\web.xml
 1. Once you've created the file, add something similar to the following to create the site-specific mappings:
