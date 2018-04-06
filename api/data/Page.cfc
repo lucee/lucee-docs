@@ -32,4 +32,25 @@ component accessors=true {
 	public any function onMissingMethod() {
 		// allow missing setters - fix for change in Lucee 5.2
 	}
+
+	public boolean function isPage() {
+		switch (this.getPageType()){
+			case "homepage":
+			case "page":
+			case "chapter":
+			case "category":
+			case "function":
+			case "listing":
+			case "_object":
+			case "_method":
+			case "tag":
+				return true;	
+			case "_arguments":
+			case "_attributes":
+			case "_examples":
+				return false;				
+			default:
+				throw text="Unsupported pageType: #pageType#, #arguments.page.getPath()#";
+		};
+	}
 }

@@ -123,7 +123,7 @@ component accessors=true {
 		var start = getTickCount();
 		cflog(text="Starting Lucee Documentation Build");
 
-    _initializeEmptyTree();
+    	_initializeEmptyTree();
 
 		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
 		for( var pageFile in pageFiles ) {
@@ -169,30 +169,8 @@ component accessors=true {
 		var ancestors = []; 
 		var lineage   = [];
 		var pageType = arguments.page.getPageType();
-
-		var isPage = false; // workaround for page types not being parsed out correctly in PageReader.readPageFile
-		switch (pageType){
-			case "homepage":
-			case "page":
-			case "chapter":
-			case "category":
-			case "function":
-			case "listing":
-			case "_object":
-			case "_method":
-			case "tag":
-				isPage = true;
-				break;
-			case "_arguments":
-			case "_attributes":
-			case "_examples":
-				isPage = false;
-				break;
-			default:
-				throw text="Unsupported pageType: #pageType#, #arguments.page.getPath()#";
-				isPage = false;
-		};
-
+		var isPage = argument.page.isPage(); // workaround for page types not being parsed out correctly in PageReader.readPageFile
+		
 		if ( !IsNull( parent ) ) {
 			if (isPage)
 				parent.addChild( arguments.page ); // don't add page subelements, i.e _attributes etc
