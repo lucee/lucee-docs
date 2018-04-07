@@ -14,15 +14,15 @@ component accessors=true {
 
 	public struct function getMethod( required string objectName, required string methodName ) {
 		var methods = getMethods();
-		var BIFName = getBIFName( objectName, methodName);	
+		var BIFName = getBIFName( objectName, methodName);
 
 		if (BIFName eq "")
 			return {};
-		
+
 		try {
 			return getFunctionData(BIFName);
 		} catch (e) {
-			cflog (text="couldn't find member #BIFName# [#objectName# #methodname#]");			
+			request.logger (text="couldn't find member #BIFName# [#objectName# #methodname#]");
 			return {};
 		}
 	}
@@ -41,7 +41,7 @@ component accessors=true {
 			throw (message="missing method: #object# #method#");
 			return "";
 		}
-		
+
 	}
 
 
@@ -57,18 +57,18 @@ component accessors=true {
             if ( data.keyExists("member") && data.member.keyExists("name")){
                 var member = data.member;
                 if (not methods.keyExists(member.type) )
-                    methods[member.type] = StructNew("linked");				
-                
-                if (not methods[member.type].keyExists(member.name) )
-                    methods[member.type][member.name] = StructNew("linked");    				
+                    methods[member.type] = StructNew("linked");
 
-				methods[member.type][member.name] = object;				
-            }			
+                if (not methods[member.type].keyExists(member.name) )
+                    methods[member.type][member.name] = StructNew("linked");
+
+				methods[member.type][member.name] = object;
+            }
 
 			//var convertedFunc = _getFunctionDefinition( functionName );
 			//functions[ functionName ] = convertedFunc;
-		}						
-        setMethods( methods );        
+		}
+        setMethods( methods );
 	}
 
     /*

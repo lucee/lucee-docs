@@ -11,13 +11,13 @@ component {
 
 // PUBLIC API
 	public void function importAll() {
-		lock name="importAll" timeout="1" type ="Exclusive" throwontimeout="yes" { 
-			cflog (text="Start Importing new tags and functions");
-			importFunctionReference();			
-			importTagReference();			
-			importObjectReference();			
-			importMethodReference();			
-			cflog (text="Finished importing new tags and functions");
+		lock name="importAll" timeout="1" type ="Exclusive" throwontimeout="yes" {
+			request.logger (text="Start Importing new tags and functions");
+			importFunctionReference();
+			importTagReference();
+			importObjectReference();
+			importMethodReference();
+			request.logger (text="Finished importing new tags and functions");
 		}
 	}
 
@@ -30,9 +30,9 @@ component {
 
 			if ( !_isHiddenFeature( convertedFunc ) ) {
 				filesImported += _stubFunctionEditorialFiles( convertedFunc );
-			}					
+			}
 		}
-		cflog (text="#filesImported# functions imported");
+		request.logger (text="#filesImported# functions imported");
 	}
 
 	public void function importObjectReference() {
@@ -43,9 +43,9 @@ component {
 			var convertedObject = referenceReader.getObject( ObjectName );
 			//if ( !_isHiddenFeature( convertedObject ) ) {
 				filesImported += _stubObjectEditorialFiles( objectName );
-			//}			
+			//}
 		}
-		cflog (text="#filesImported# objects imported");
+		request.logger (text="#filesImported# objects imported");
 	}
 
 
@@ -53,17 +53,17 @@ component {
 		var filesImported = 0;
 		var referenceReader = new ReferenceReaderFactory().getMethodReferenceReader();
 		var objects = referenceReader.listMethods();
-		for( var object in objects ) {			
+		for( var object in objects ) {
 			for (var method in objects[object] ){
 				var methodData = referenceReader.getMethod( object, method);
 				//if ( !_isHiddenFeature( convertedMethod ) ) {
 					if (methodData.count() gt 0)
-						filesImported += _stubMethodEditorialFiles( methodData );				
-				//}					
-			}				
+						filesImported += _stubMethodEditorialFiles( methodData );
+				//}
+			}
 		}
 
-		cflog (text="#filesImported# methods imported");
+		request.logger (text="#filesImported# methods imported");
 	}
 
 	public void function importTagReference() {
@@ -77,8 +77,8 @@ component {
 				filesImported += _stubTagEditorialFiles( convertedTag );
 			}
 		}
-		cflog (text="#filesImported# tags imported");
-		
+		request.logger (text="#filesImported# tags imported");
+
 	}
 
 // PRIVATE HELPERS
@@ -187,7 +187,7 @@ categories:
 
 		return filesCreated;
 	}
-	
+
 	private numeric function _stubObjectEditorialFiles( required string obj ) {
 		var filesCreated = 0;
 		var referenceDir = buildProperties.getObjectReferenceDirectory();
@@ -229,9 +229,9 @@ categories:
 
 	private numeric function _stubMethodEditorialFiles( required struct method ) {
 		var filesCreated = 0;
-		var referenceDir = buildProperties.getObjectReferenceDirectory();		
+		var referenceDir = buildProperties.getObjectReferenceDirectory();
 		var methodDir  = referenceDir & LCase( arguments.method.member.type ) & "/" & LCase( arguments.method.member.name ) & "/";
-	
+
 		var pageContent  = "---
 title: #arguments.method.member.type#.#arguments.method.member.name#()
 id: method-#LCase( arguments.method.member.type )#-#LCase( arguments.method.member.name )#
@@ -242,7 +242,7 @@ related:
 - object-#arguments.method.member.type#
 categories:
 - #arguments.method.member.type#
-";		
+";
 		if (arguments.method.keyExists("keywords")){
 			for( var keyword in arguments.method.keywords ){
 				if (arguments.method.member.type neq keyword)

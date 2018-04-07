@@ -31,6 +31,9 @@
 		description = ReReplace( description, "\n", " ", "all" );
 		description = ReReplace( description, "\s\s+", " ", "all" );
 
+		if (description.len() lt 10)
+			request.logger (text="missing / short description: [#description#] #page.getPath()# ");
+
 		return HtmlEditFormat( description );
 	}
 

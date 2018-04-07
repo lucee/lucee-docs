@@ -121,7 +121,7 @@ component accessors=true {
 // private helpers
 	private void function _loadTree( required string rootDirectory ) {
 		var start = getTickCount();
-		cflog(text="Starting Lucee Documentation Build");
+		request.logger (text="Starting Lucee Documentation Build");
 
     	_initializeEmptyTree();
 
@@ -150,8 +150,8 @@ component accessors=true {
 		_buildRelated();
 		_checkCategories();
 
-		cflog(text="Tree: #ArrayLen(tree)#, idMap: #structCount(idMap)#, pathMap: #structCount(pathMap)#,");
-		cflog(text="Documentation Compiled in #(getTickCount()-start)/1000#s");
+		request.logger (text="Tree: #ArrayLen(tree)#, idMap: #structCount(idMap)#, pathMap: #structCount(pathMap)#,");
+		request.logger (text="Documentation Compiled in #(getTickCount()-start)/1000#s");
 	}
 
 	private void function _initializeEmptyTree() {
@@ -246,7 +246,7 @@ component accessors=true {
 		var pageData = new PageReader().readPageFile( arguments.rootDirectory & arguments.pageFilePath );
 
 		try {
-			//cflog(text="[#pageData.pageType#]#arguments.pageFilePath#");
+			//request.logger (text="[#pageData.pageType#]#arguments.pageFilePath#");
 			switch( pageData.pageType ?: "" ) {
 				case "function":
 					pageData.append( _getFunctionSpecification( pageData.slug, arguments.rootDirectory & arguments.pageFilePath ), false );

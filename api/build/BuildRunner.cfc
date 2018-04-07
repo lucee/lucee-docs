@@ -8,13 +8,13 @@ component accessors=true {
 		setBuildersDir( ExpandPath( "/builders" ) );
 		setBuildsDir( ExpandPath( "/builds" ) );
 		setDocTree( new api.data.DocTree( ExpandPath( "/docs" ) ) );
-
+		var logger = new api.build.Logger();
 		return this;
 	}
 
 // PUBLIC API
 	public void function buildAll() {
-		lock name="buildAll" timeout="1" type ="Exclusive" throwontimeout="true" { 
+		lock name="buildAll" timeout="1" type ="Exclusive" throwontimeout="true" {
 			listBuilders().each( function( builderName ){
 				build( builderName );
 			} );
@@ -25,12 +25,12 @@ component accessors=true {
 		var builder  = getBuilder( arguments.builderName );
 		var buildDir = _getBuilderBuildDirectory( arguments.builderName );
 		var startTime = getTickCount();
-		
-		lock name="build#buildername#" timeout="1" type ="Exclusive" throwontimeout="true" { 
-			cflog (text="Start builder: #arguments.builderName# #cgi.script_name#");
+
+		lock name="build#buildername#" timeout="1" type ="Exclusive" throwontimeout="true" {
+			request.logger (text="Start builder: #arguments.builderName# #cgi.script_name#");
 			builder.build( docTree, buildDir );
-			cflog (text="Finished builder: #arguments.builderName#, in #NumberFormat( getTickCount()-startTime)#ms");
-		}		
+			request.logger (text="Finished builder: #arguments.builderName#, in #NumberFormat( getTickCount()-startTime)#ms");
+		}
 	}
 
 	public array function listBuilders() {

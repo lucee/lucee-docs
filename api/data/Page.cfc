@@ -44,13 +44,15 @@ component accessors=true {
 			case "_object":
 			case "_method":
 			case "tag":
-				return true;	
+				return true;
 			case "_arguments":
 			case "_attributes":
 			case "_examples":
-				return false;				
+			case "_image":
+				return false;
 			default:
-				throw text="Unsupported pageType: #pageType#, #arguments.page.getPath()#";
+				request.logger (text="Unknown pageType: #pageType#, #arguments.page.getPath()#", type="WARN");
+				return false;
 		};
 	}
 }

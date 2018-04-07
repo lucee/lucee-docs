@@ -1,8 +1,8 @@
 component {
-	public string function renderLink( any page, required string title ) {		
+	public string function renderLink( any page, required string title ) {
 		if ( IsNull( arguments.page ) ) {
-			cflog (text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]" type="WARN");
-			return '<a class="missing-link">#HtmlEditFormat( arguments.title )#</a>';
+			request.logger (text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]", type="WARN");
+			return '<a class="missing-link" title="missing link">#HtmlEditFormat( arguments.title )#</a>';
 		}
 
 		var link = page.getPath() & ".html";
@@ -19,14 +19,14 @@ component {
 
 		request.filesWritten=[];
 
-		cflog (text="Builder html directory: #arguments.buildDirectory#");
-		
-		for ( var page in tree ) {			
-			cflog (text = "building html folder " & page.getPath() );			
-			_writePage( page, arguments.buildDirectory, docTree );						
+		request.logger (text="Builder html directory: #arguments.buildDirectory#");
+
+		for ( var page in tree ) {
+			request.logger (text = "building html folder " & page.getPath() );
+			_writePage( page, arguments.buildDirectory, docTree );
 		}
-		
-		cflog (text="Html Builder #request.filesWritten.len()# files produced");		
+
+		request.logger (text="Html Builder #request.filesWritten.len()# files produced");
 
 		_renderStaticPages( arguments.buildDirectory, arguments.docTree, "/" );
 		_copyStaticAssets( arguments.buildDirectory );
@@ -40,12 +40,12 @@ component {
 				, args     = { page = arguments.page, docTree=arguments.docTree, edit=edit }
 				, helpers  = "/builders/html/helpers"
 			);
-		} catch( any e ) {		
+		} catch( any e ) {
 			e.additional.luceeDocsTitle = arguments.page.getTitle();
 			e.additional.luceeDocsPath = arguments.page.getPath();
 			e.additional.luceeDocsPageId = arguments.page.getid();
 			rethrow;
-		}	
+		}
 		var crumbs = [];
 		var excludeLinkMap = {}; // tracks links to exclude from See also
 		var parent = arguments.page.getParent();
@@ -105,19 +105,19 @@ component {
 					, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , helpers  = "/builders/html/helpers", args={ links=links } )
 				}
 			);
-		} catch( any e ) {		
+		} catch( any e ) {
 			//e.additional.luceeDocsPage = arguments.page;
 			e.additional.luceeDocsTitle = arguments.page.getTitle();
 			e.additional.luceeDocsPath = arguments.page.getPath();
 			e.additional.luceeDocsId = arguments.page.getId();
 			rethrow;
-		}	
-		return pageContent; 
+		}
+		return pageContent;
 	}
 
 	public string function renderFileNotFound(required string filePath, required any docTree, required string baseHref) {
 		return _renderStaticPage( "/builders/html/staticPages/404.html", "File not found", arguments.docTree, arguments.baseHref, true );
-	}	
+	}
 
 	public string function renderSearchIndex( required any docTree ) {
 		var pages           = arguments.docTree.getIdMap();
@@ -159,7 +159,7 @@ component {
 		}
 		var pageContent = cleanHtml(renderPage( arguments.page, arguments.docTree, false ));
 		// regex strips left over whitespace multiple new lines
-		
+
 		FileWrite( filePath, pageContent );
 		/*
 		request.filesWritten.append(filePath);
@@ -170,7 +170,7 @@ component {
 		}
 		*/
 
-		//cflog(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
+		//request.logger(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
 		for( var childPage in arguments.page.getChildren() ) {
 			("childPage " & childPage.getPath() & "<br>");
 			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
@@ -184,8 +184,8 @@ component {
 			QueryAddRow(q);
 			querySetCell(q, "path", file);
 		}
-		q  = queryExecute("select path, count(*) files from q group by path order by path desc", {}, {dbtype="query"});		
-		//QuerySort(q, "path", "desc");		
+		q  = queryExecute("select path, count(*) files from q group by path order by path desc", {}, {dbtype="query"});
+		//QuerySort(q, "path", "desc");
 		return q;
 	}
 	*/
@@ -218,9 +218,9 @@ component {
 
 		FileWrite( buildDirectory & "/404.html", cleanHtml(_404Page) );
 		// google analytics for @zackster
-		FileWrite( buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");		
-		FileWrite( buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow:#chr(10)#");		
-		
+		FileWrite( buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");
+		FileWrite( buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow:#chr(10)#");
+
 		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", buildDirectory & "/editor.html" );
 	}
 
@@ -241,11 +241,11 @@ component {
 			case "listing":
 				return "aToZIndex"; // todo, diff layouts depending on arguments.page.getListingStyle()
 			default:
-				return "page";	
+				return "page";
 		}
 	}
 
-	private string function _renderStaticPage( required string filePath, required string pageTitle, 
+	private string function _renderStaticPage( required string filePath, required string pageTitle,
 			required any docTree, required string baseHref, boolean noIndex="false"){
 		var renderedPage = FileRead( arguments.filePath );
 		var crumbs = [];
@@ -256,8 +256,8 @@ component {
 			, helpers  = "/builders/html/helpers"
 			, args     = {
 				  body       = Trim( renderedPage )
-				, baseHref   = arguments.baseHref  
-				, noIndex   = arguments.noIndex  
+				, baseHref   = arguments.baseHref
+				, noIndex   = arguments.noIndex
 				, title      = arguments.pageTitle
 				, crumbs     = renderTemplate( template="layouts/staticbreadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ title=arguments.pageTitle } )
 				, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=[ "/home" ] } )
