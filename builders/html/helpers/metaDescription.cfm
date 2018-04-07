@@ -12,7 +12,7 @@
 		if (len(description) gt 320){
 			var desc = listToArray(description, "." ); // grab by sentence
 			var l = 0;
-			for (var s = 1; s <= desc.len(); s++){
+			for (var s = 1; s < desc.len(); s++){
 				if ( (l + desc[s].len()) gt 320 )
 					break;
 				l += desc[s].len();
