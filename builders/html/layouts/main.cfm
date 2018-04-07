@@ -27,11 +27,11 @@
 		</script>
 		<cfif args.edit>
 			<base href="#baseHref#">
-		</cfif>	
+		</cfif>
 		<link rel="canonical" href="#pageHref#" />
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
-		<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#pageHref#&origin=lucee" 
+		<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#pageHref#&origin=lucee"
             type="application/json+oembed" />
     	<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#pageHref#&origin=lucee&format=xml"
             type="application/xml+oembed"/>
@@ -39,13 +39,13 @@
 		<meta name="twitter:site" content="@lucee_server" />
 		<meta name="twitter:title" content="#pageTitle#" />
 		<meta name="twitter:description" content="#pageDescription#" />
-		<meta name="twitter:image" content="http://docs.lucee.org/assets/images/favicon.png" />	
-		<meta name="twitter:image:alt" content="Lucee" />	
+		<meta name="twitter:image" content="http://docs.lucee.org/assets/images/favicon.png" />
+		<meta name="twitter:image:alt" content="Lucee" />
 		<meta property="og:title" content="#pageTitle#" />
 		<meta property="og:url" content="#pageHref#" />
 		<meta property="og:type" content="article" />
-		<meta property="og:image" content="http://docs.lucee.org/assets/images/favicon.png" />	
-		<meta property="og:image:alt" content="Lucee" />	
+		<meta property="og:image" content="http://docs.lucee.org/assets/images/favicon.png" />
+		<meta property="og:image:alt" content="Lucee" />
 		<cfif args.edit>
 		<link href="/assets/css/base.css" rel="stylesheet">
 		<cfelse>
@@ -194,7 +194,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/base.7.min.js" type="text/javascript"></script>
-		</cfif>		
+		<script src="/assets/js/base.8.min.js" type="text/javascript"></script>
+		</cfif>
 	</body>
 </html></cfoutput>
