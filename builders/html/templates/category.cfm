@@ -31,7 +31,7 @@
 				<ul class="list-unstyled">
 			</cfif>
 
-			<li>[[#htmleditformat(page.getId())#]] #htmleditformat(page.getDescription())#</li>
+			<li>[[#htmleditformat(page.getId())#]] #htmleditformat( getMetaDescription(page, page.getBody()) )#</li>
 		</cfloop>
 		</ul>
 	</cfif>

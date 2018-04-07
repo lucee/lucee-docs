@@ -40,7 +40,10 @@
 
 				<span class="tile">
 					<div class="tile-inner">
-						<div class="text-overflow">[[#htmleditformat(child.getId())#]] #htmleditformat(child.getDescription())#</div>
+						<div class="text-overflow">
+							[[#htmleditformat(child.getId())#]]
+							#htmleditformat( getMetaDescription(child, child.getBody()) )#
+						</div>
 					</div>
 				</span>
 				<cfset currentLetter = firstLetter />
