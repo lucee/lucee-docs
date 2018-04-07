@@ -2,7 +2,7 @@
 
 	var $searchBox       = $( "#lucee-docs-search-input" )
 	  , $searchLink      = $( ".search-link" )
-		, $searchContainer = $( ".search-container" )		
+		, $searchContainer = $( ".search-container" )
 	  , duckduckgoUrl    = "https://duckduckgo.com/?q=site:docs.lucee.org "
 	  , setupTypeahead, setupBloodhound, renderSuggestion
 	  , itemSelectedHandler, tokenizer, generateRegexForInput, search, searchIndex;
@@ -23,10 +23,10 @@
 
 			$searchBox.typeahead( typeAheadSettings, datasetSettings );
 			$searchBox.on( "typeahead:selected", function( e, result ){ itemSelectedHandler( result ); } );
-			
+
 			var $fileNotFound = $(".file-not-found-suggestions");
 			if ($fileNotFound.length)
-				renderFileNotFoundSuggestions($fileNotFound);			
+				renderFileNotFoundSuggestions($fileNotFound);
 		} );
 	};
 
@@ -112,11 +112,10 @@
 	};
 
 	itemSelectedHandler = function( item ) {
-		var baseHref=$("base[href]").attr('href');
-		if (baseHref)
-			window.location = baseHref + item.value; // handle local /static/ mode
+		if (window.location.pathname.indexOf("/static/") === 0)
+				window.location = "/static" + item.value; // handle local /static/ mode
 		else
-			window.location = item.value;
+				window.location = item.value;
 	};
 
 	tokenizer = function( input ) {
@@ -125,11 +124,11 @@
 	};
 
 	setupTypeahead();
-	
+
 	// on the 404 page, try and make some suggestions based on filename
 	renderFileNotFoundSuggestions = function($fileNotFound){
-		var q = document.location.pathname.split(".")[0].split("/");		
-		var suggestions = 	search(q[q.length-1].split("-").join(" "));	
+		var q = document.location.pathname.split(".")[0].split("/");
+		var suggestions = 	search(q[q.length-1].split("-").join(" "));
 
 		if (suggestions.length > 1)
 			$fileNotFound.append($("<p/>").text("Perhaps one of these pages is what your looking for?"));
@@ -138,9 +137,9 @@
 			var href = item.value;
 			if (href.indexOf("http") == -1 )
 				href = item.value.substr(1);
-			var link = $("<a/>").text(item.display).attr("href", href);			
+			var link = $("<a/>").text(item.display).attr("href", href);
 			$fileNotFound.append($("<div/>").append(link));
 		}
-	};		
+	};
 
 } )( jQuery );

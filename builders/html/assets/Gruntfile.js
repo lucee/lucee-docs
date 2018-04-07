@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 					wrapAt: 150
 				}
 			}
-		}, 
+		},
 
 		sass: {
 			base: {
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 		uglify: {
 			base: {
 				files: {
-					'js/base.7.min.js': ['js/base.js']
+					'js/base.8.min.js': ['js/base.js']
 				}
 			},
 			options: {

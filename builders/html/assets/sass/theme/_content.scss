@@ -77,3 +77,7 @@ h2, h3, h4, h5, h6 {
 fieldset#-lucee-debug {
 	padding-left: 300px; // escape the side menu
 }
+
+a.missing-link {
+	text-decoration: underline red;
+}
