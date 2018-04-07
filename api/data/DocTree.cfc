@@ -79,18 +79,18 @@ component accessors=true {
 	public struct function getPageSource(required string pagePath){
 		if (not FileExists(rootDir & arguments.pagePath)){
 			var reqType = listLast(arguments.pagePath,"/");
-			var dir = getDirectoryFromPath(rootDir & arguments.pagePath);			
+			var dir = getDirectoryFromPath(rootDir & arguments.pagePath);
 
 			switch (reqType){
 				case "page.md":
 					// TODO check for directories with number prefix and match, i.e. /01.functions/
 					if (not directoryExists(dir))
 						DirectoryCreate(dir)
-				case "_examples.md":				
+				case "_examples.md":
 					try {
 						FileWrite(rootDir & arguments.pagePath, "");
 					} catch (any){
-						header statuscode="401";	
+						header statuscode="401";
 						writeOutput("Can create file " & rootDir & arguments.pagePath);
 						dump(cfcatch);
 						abort;
@@ -100,7 +100,7 @@ component accessors=true {
 					header statuscode="404";
 					writeOutput("File Not found " & _reqType);
 					abort;
-			}			
+			}
 		}
 
 		var page = new PageReader().readPageFileSource( rootDir & pagePath );
@@ -127,24 +127,24 @@ component accessors=true {
 
 		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
 		for( var pageFile in pageFiles ) {
-			var page = _preparePageObject( pageFile, arguments.rootDirectory );			
+			var page = _preparePageObject( pageFile, arguments.rootDirectory );
 			_addPageToTree( page );
 		}
 
 		// expose guides as a top level folder
 		for (var folder in tree){
-			if (folder.getId() eq "guides"){				
+			if (folder.getId() eq "guides"){
 				var guideTree = folder.getChildren();
 				for (var guide in guideTree){
-					if (guide.getForceSortOrder() gt 0){						
+					if (guide.getForceSortOrder() gt 0){
 						guide.setSortOrder(guide.getForceSortOrder());
 					} else {
-						guide.setSortOrder(6 + NumberFormat(guide.getSortOrder()/100,"0.00"));						
+						guide.setSortOrder(6 + NumberFormat(guide.getSortOrder()/100,"0.00"));
 					}
 					tree.append(guide);
-				}						
+				}
 			}
-		}		
+		}
 		_sortChildren( tree );
 		_calculateNextAndPreviousPageLinks( tree );
 		_buildRelated();
@@ -166,11 +166,11 @@ component accessors=true {
 
 	private void function _addPageToTree( required any page ) {
 		var parent    = _getPageParent( arguments.page );
-		var ancestors = []; 
+		var ancestors = [];
 		var lineage   = [];
 		var pageType = arguments.page.getPageType();
-		var isPage = argument.page.isPage(); // workaround for page types not being parsed out correctly in PageReader.readPageFile
-		
+		var isPage = arguments.page.isPage(); // workaround for page types not being parsed out correctly in PageReader.readPageFile
+
 		if ( !IsNull( parent ) ) {
 			if (isPage)
 				parent.addChild( arguments.page ); // don't add page subelements, i.e _attributes etc
@@ -256,14 +256,14 @@ component accessors=true {
 					pageData.append( _getTagSpecification( pageData.slug, arguments.rootDirectory & arguments.pageFilePath ), false );
 					page = new TagPage( argumentCollection=pageData );
 				break;
-				case "_object":					
+				case "_object":
 					pageData.append( _getObjectSpecification( pageData.slug, arguments.rootDirectory & arguments.pageFilePath ), false );
 					page = new ObjectPage( argumentCollection=pageData );
 				break;
 				case "_method":
-					pageData.append( _getMethodSpecification( pageData.methodObject, pageData.methodName, 
+					pageData.append( _getMethodSpecification( pageData.methodObject, pageData.methodName,
 						arguments.rootDirectory & arguments.pageFilePath ), false );
-					page = new MethodPage( argumentCollection=pageData );					
+					page = new MethodPage( argumentCollection=pageData );
 				break;
 				default:
 					page = new Page( argumentCollection=pageData );
@@ -424,7 +424,7 @@ component accessors=true {
 
 	private struct function _getMethodSpecification(required string methodObject, required string methodName, required string pageFilePath ) {
 		var meth    = _getMethodReferenceReader().getMethod( arguments.methodObject, arguments.methodName );
-		var args    = meth.arguments ?: [];		
+		var args    = meth.arguments ?: [];
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
 
 		for( var arg in args ) {
