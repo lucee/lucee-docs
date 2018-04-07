@@ -11,35 +11,39 @@
 	this.mappings[ "/listener" ] = this.baseDir;
 
 	public void function onApplicationStart()  {
-		//_addChangeWatcher();				
+		//_addChangeWatcher();
 	}
 
 	public void function onApplicationEnd()  {
 		//_removeChangeWatcher()
 	}
-	
+
 	public boolean function onRequest( required string requestedTemplate ) output=true {
 		var path = _getRequestUri();
 
 		if (path contains ".."){
 			header statuscode=401;
 			abort;
-		}	
+		}
 		if ( path.startsWith( "/lucee/admin") ){
 			cflog (text="ignoring /lucee/admin request #cgi.script_name#");
 			return;
 		}
+
 		if ( path eq "/build_docs/all/" ) {
 			writeOutput("<h1>importing references, exporting all </h1>");
+			setting requestTimeout=300;
 			new api.reference.ReferenceImporter().importAll()
 			new api.build.BuildRunner().buildAll();
-		} else if ( path eq "/build_docs/html/" ) {	
+		} else if ( path eq "/build_docs/html/" ) {
+			setting requestTimeout=300;
 			writeOutput("<h1>html export</h1>");
 			new api.build.BuildRunner().build("html");
-		} else if ( path eq "/build_docs/dash/" ) {	
+		} else if ( path eq "/build_docs/dash/" ) {
+			setting requestTimeout=300;
 			writeOutput("<h1>dash export</h1>");
 			new api.build.BuildRunner().build("dash");
-		} else if ( path eq "/build_docs/import/" ) {	
+		} else if ( path eq "/build_docs/import/" ) {
 			writeOutput("<h1>importing references</h1>");
 			new api.reference.ReferenceImporter().importAll()
 		} else if ( path.startsWith( "/build_docs/" ) ){
@@ -49,15 +53,15 @@
 		} else if ( path.startsWith( "/assets" ) ) {
 			_renderAsset();
 		} else if ( path.startsWith( "/static" ) ) {
-				_renderStatic();	
+				_renderStatic();
 		} else if ( path.startsWith( "/editor.html" ) ) {
 			_renderCodeEditor();
 		} else {
-			lock name="renderPage" timeout="8" type ="Exclusive" throwontimeout="no" { 
+			lock name="renderPage" timeout="8" type ="Exclusive" throwontimeout="no" {
 				if ( path.startsWith( "/source" ) ) {
-					_renderSource();			
+					_renderSource();
 				} else {
-					_renderPage();				
+					_renderPage();
 				}
 			}
 		}
@@ -105,7 +109,7 @@
 				}
 			}
 			var result = docTree.updatePageSource(pagePath, form.content, props);
-			_resetBuildRunner(); // flag for update			
+			_resetBuildRunner(); // flag for update
 			WriteOutput( serializeJSON(result) );
 		} else {
 			var pageSource = structNew("linked");
@@ -121,7 +125,7 @@
 			} else {
 				structDelete(page, "properties");
 			}
-			content type="application/json";			
+			content type="application/json";
 			WriteOutput( serializeJSON(pageSource) );
 		}
 	}
@@ -145,15 +149,15 @@
 
 		var staticAssetPath = "/builds/html/" & staticFile ;
 
-		if ( !FileExists( staticAssetPath ) ) {			
-			_404(staticAssetPath, "/static/");			
+		if ( !FileExists( staticAssetPath ) ) {
+			_404(staticAssetPath, "/static/");
 		}
 		var pageContent = fileRead(staticAssetPath);
-		pagecontent = reReplace(pagecontent, '\<a href="\/', '<a href="/static/', 'all');		
+		pagecontent = reReplace(pagecontent, '\<a href="\/', '<a href="/static/', 'all');
 
 		header name="cache-control" value="no-cache";
 		setting showdebugoutput="no";
-		
+
 		content type=_getMimeTypeForAsset( staticAssetPath );
 		writeOutput(pagecontent);
 		abort;
@@ -246,7 +250,7 @@
 		return application[ newAppKey ];
 	}
 
-	private string function _calculateBuildRunnerAppKey() {		
+	private string function _calculateBuildRunnerAppKey() {
 		var filesEtc = DirectoryList( "/docs", true, "query" ); // this can be slow
 		var sig      = Hash( SerializeJson( filesEtc ) );
 		return "buildrunner" & sig;
@@ -268,11 +272,11 @@
 			startupMode="automatic",
 			id="watchDocumentFilesForChange",
 			class="",
-			cfcpath="lucee.extension.gateway.DirectoryWatcher",			
+			cfcpath="lucee.extension.gateway.DirectoryWatcher",
 			// this doesn't work, cfc must be under web-inf dir
-			// listenerCfcPath="api.build.DocsDirectoryWatcherListener", 
+			// listenerCfcPath="api.build.DocsDirectoryWatcherListener",
 			// i.e. WEB-INF\lucee-web\components\lucee\extension\gateway\docs
-			listenerCfcPath="lucee.extension.gateway.Docs.DocsDirectoryWatcherListener", 
+			listenerCfcPath="lucee.extension.gateway.Docs.DocsDirectoryWatcherListener",
 			custom='#{
 				directory="#expandPath('/docs/')#"
 				, recurse=true
@@ -289,6 +293,6 @@
 		var password	= "lucee-docs";
 		var admin       = new Administrator( "web", password );
 		admin.removeGatewayEntry(id="watchDocumentFilesForChange");
-	}	
+	}
 
 }
