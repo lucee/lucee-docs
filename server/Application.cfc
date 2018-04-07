@@ -26,32 +26,28 @@
 			abort;
 		}
 		if ( path.startsWith( "/lucee/admin") ){
-			cflog (text="ignoring /lucee/admin request #cgi.script_name#");
+			request.logger (text="ignoring /lucee/admin request #cgi.script_name#");
 			return;
-		}
-
-		if ( path eq "/build_docs/all/" ) {
-			writeOutput("<h1>importing references, exporting all </h1>");
-			setting requestTimeout=300;
-			new api.reference.ReferenceImporter().importAll()
-			new api.build.BuildRunner().buildAll();
-			logger.showLogs();
-		} else if ( path eq "/build_docs/html/" ) {
-			setting requestTimeout=300;
-			writeOutput("<h1>html export</h1>");
-			new api.build.BuildRunner().build("html");
-			logger.showLogs();
-		} else if ( path eq "/build_docs/dash/" ) {
-			setting requestTimeout=300;
-			writeOutput("<h1>dash export</h1>");
-			new api.build.BuildRunner().build("dash");
-			logger.showLogs();
-		} else if ( path eq "/build_docs/import/" ) {
-			writeOutput("<h1>importing references</h1>");
-			new api.reference.ReferenceImporter().importAll()
-			logger.showLogs();
 		} else if ( path.startsWith( "/build_docs/" ) ){
-			throw "unknown build docs request: #path#";
+			logger.enableFlush(true);
+			setting requestTimeout=300;
+			if ( path eq "/build_docs/all/" ) {
+				writeOutput("<h1>importing references, exporting all </h1>");
+				new api.reference.ReferenceImporter().importAll();
+				new api.build.BuildRunner().buildAll();
+			} else if ( path eq "/build_docs/html/" ) {
+				writeOutput("<h1>html export</h1>");
+				new api.build.BuildRunner().build("html");
+			} else if ( path eq "/build_docs/dash/" ) {
+				writeOutput("<h1>dash export</h1>");
+				new api.build.BuildRunner().build("dash");
+			} else if ( path eq "/build_docs/import/" ) {
+				writeOutput("<h1>importing references</h1>");
+				new api.reference.ReferenceImporter().importAll();
+			} else {
+				throw "unknown build docs request: #path#";
+			}
+			logger.renderLogs();
 		} else if ( path eq "/assets/js/searchIndex.json" ) {
 			_renderSearchIndex();
 		} else if ( path.startsWith( "/assets" ) ) {

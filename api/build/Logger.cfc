@@ -1,10 +1,15 @@
 component {
+
     // CONSTRUCTOR
 	public any function init() {
-		request.logger = logger;
-        if (not request.keyExists("logs"))
+		if (not request.keyExists("logs")){
+            // only init once!
+            request.logger = logger;
+            request.loggerComponent = this;
 		    request.logs = [];
-		request.loggerStart = getTickCount();
+		    request.loggerStart = getTickCount();
+            request.loggerFlushEnabled = false;
+        }
 		return this;
 	}
 
@@ -15,14 +20,49 @@ component {
 			timeMs: getTickCount() - request.loggerStart
 		});
 		cflog (text=arguments.text, type=arguments.type);
+        if (request.loggerFlushEnabled){
+            request.loggerComponent._renderLog( request.logs[request.logs.len()] );
+            flush;
+        }
 	};
 
-    public void function showLogs(){
+    public void function enableFlush(required boolean _flush){
+        request.loggerFlushEnabled = arguments._flush;
+        if (request.loggerFlushEnabled){
+            writeOutput("<ol>");
+            return;
+        }
+    }
+
+    public void function renderLogs(){
+        if (request.loggerFlushEnabled){
+            // logs were output as they were generated;
+            writeOutput("</ol>");
+            return;
+        }
+
 		if (request.logs.len() eq 0)
 			return;
 		writeOutput("<ol>");
 		for (var log in request.logs)
-			writeOutput("<li>#numberformat(log.timeMs)#ms <b>#log.type#</b> #log.text# </li>");
+			_renderLog(log);
 		writeOutput("</ol>");
+	}
+
+    public void function _renderLog(log){
+        var style = "";
+        switch (log.type){
+            case "warn":
+                style = "color: orangered;";
+                break;
+            case "error":
+                style = "color: FireBrick ;";
+                break;
+            default:
+                break;
+        }
+        if (style.len() gt 0)
+            style = ' style="#style#" ';
+		writeOutput("<li #style#>#numberformat(log.timeMs)#ms <b>#log.type#</b> #log.text# </li>");
 	}
 }
