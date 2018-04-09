@@ -18,7 +18,6 @@ component accessors=true {
 
 		_loadTree();
 
-		request.logger (text="Tree: #ArrayLen(variables.tree)#, idMap: #structCount(variables.idMap)#, pathMap: #structCount(variables.pathMap)#,");
 		request.logger (text="Documentation Compiled in #(getTickCount()-start)/1000#s");
 
 		return this;
@@ -64,6 +63,7 @@ component accessors=true {
 		return matchedPages;
 	}
 
+	// used for categories
 	public array function sortPagesByType( required array pages ) {
 		return arguments.pages.sort( function( pageA, pageB ) {
 			if ( arguments.pageA.getPageType() > arguments.pageB.getPageType() ) {
@@ -199,7 +199,7 @@ component accessors=true {
 				addFile = true;
 			}
 
-			if (addFile and false){
+			if (addFile){
 				request.logger (text="Update pageCache, adding #q_source_files.path#");
 				variables.pageCache.addPage(
 					new PageReader().preparePageObject( variables.rootDir, q_source_files.name, q_source_files.directory, q_source_files.path ),
@@ -262,7 +262,9 @@ component accessors=true {
 		_sortChildren( variables.tree );
 		_calculateNextAndPreviousPageLinks( variables.tree );
 		_buildRelated();
-		_checkCategories();
+		_buildCategories();
+		request.logger (text="ParseTree results: ids: #structCount(variables.idMap)#, " &
+			"paths: #structCount(variables.pathMap)#, categories: #structCount(variables.categoryMap)#");
 	}
 
 	private void function _addPageToTree( required any page ) {
@@ -299,7 +301,7 @@ component accessors=true {
 		variables.pathMap[ arguments.page.getPath() ] = arguments.page;
 	}
 
-		private string function _getParentPagePathFromPagePath( required string pagePath ) {
+	private string function _getParentPagePathFromPagePath( required string pagePath ) {
 		var parts = arguments.pagePath.listToArray( "/" );
 		parts.deleteAt( parts.len() );
 
@@ -384,11 +386,11 @@ component accessors=true {
 	}
 
 	// all categories should have content, all referenced categories should exist
-	public void function _checkCategories() {
+	private void function _buildCategories() {
 		var pageCategories = {};
 		var categories = {};
 		var empty = {};
-
+		// extract categories
 		for( var id in variables.idMap ) {
 			var cats = variables.idMap[ id ].getCategories();
 			if (!IsNull( cats) ){
@@ -406,8 +408,10 @@ component accessors=true {
 				var slug = variables.idMap[ id ].getSlug();
 				if (not structKeyExists(pageCategories, slug )){
 					empty[slug]=idMap[ id ].getPath();
+					pageCategories[slug] = [];
+					pageCategories[slug].append( variables.idMap[ id ].getPath() );
 				}
-				variables.categories[slug] = variables.idMap[ id ].getPath();
+
 			}
 		}
 		/*
@@ -434,7 +438,7 @@ component accessors=true {
 			abort;
 		}
 		*/
-		variables.categoryMap = categories;
+		variables.categoryMap = pageCategories;
 	}
 
 	private void function _buildReferenceMap(){
