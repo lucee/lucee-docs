@@ -33,6 +33,7 @@ component {
 
 		_renderStaticPages( arguments.buildDirectory, arguments.docTree, "/" );
 		_copyStaticAssets( arguments.buildDirectory );
+		_copySiteImages( arguments.buildDirectory );
 		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
 	}
 
@@ -217,6 +218,10 @@ component {
 				DirectoryCopy(subdir, arguments.buildDirectory & "/assets/" & dirName, true );
 			}
 		}
+	}
+
+	private void function _copySiteImages( required string buildDirectory ) {
+		DirectoryCopy( "/docs/_images", arguments.buildDirectory & "/images", true, "*", true  );
 	}
 
 	private void function _renderStaticPages( required string buildDirectory, required any docTree, required string baseHref ) {

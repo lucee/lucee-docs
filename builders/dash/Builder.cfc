@@ -69,6 +69,7 @@ component extends="builders.html.Builder" {
 		FileCopy( "/builders/dash/resources/icon.png", arguments.rootDir & "icon.png" );
 		DirectoryCopy( "/builders/html/assets/css/", arguments.rootDir & "Contents/Resources/Documents/assets/css", true, "*", true );
 		DirectoryCopy( "/builders/html/assets/images/", arguments.rootDir & "Contents/Resources/Documents/assets/images", true, "*", true );
+		DirectoryCopy( "/docs/_images/", arguments.rootDir & "Contents/Resources/Documents/images", true, "*", true );
 	}
 
 	private void function _setupSqlLite( required string rootDir ) {
