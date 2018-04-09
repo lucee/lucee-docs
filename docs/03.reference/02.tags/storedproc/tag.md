@@ -1,8 +1,8 @@
 ---
 title: <cfstoredproc>
 id: tag-storedproc
-related:
 categories:
+- query
 ---
 
 Executes stored procedures by an ODBC or native connection to a server database. It specifies database connection

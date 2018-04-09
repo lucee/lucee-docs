@@ -40,7 +40,6 @@ component accessors=true {
 		parent = NullValue();
 		nextPage = NullValue();
 		previousPage = NullValue();
-		categories = [];
 		children= [];
 	}
 
