@@ -25,7 +25,6 @@
 		<link href="/assets/css/base.min.css" rel="stylesheet">
 		<link href="/assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
-
 		<!-- ie -->
 		<!--[if lt IE 9]>
 			<script src="/assets/js/html5shiv.js" type="text/javascript"></script>
@@ -142,6 +141,6 @@
 				</p>
 			</div>
 		</footer>
-		<script src="/assets/js/base.8.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.9.min.js" type="text/javascript"></script>
 	</body>
 </html></cfoutput>

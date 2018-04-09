@@ -4,14 +4,17 @@ module.exports = function(grunt) {
 
 	grunt.registerTask( 'default', [ 'concat:base', 'uglify:base', 'sass:base', 'cssmin:base' ] );
 
+	var _version = 9;
+
 	// grunt config
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
 		concat: {
 			base: {
-				src: ['js/src/*.js'],
+				src: ['js/jquery-3.3.1.js','js/hammer.js', 'js/src/*.js'],
 				dest: 'js/base.js',
+				nonull: true
 			},
 			options : {
 				sourceMap :true
@@ -50,7 +53,7 @@ module.exports = function(grunt) {
 		uglify: {
 			base: {
 				files: {
-					'js/base.8.min.js': ['js/base.js']
+					['js/dist/base.' + _version + '.min.js']: ['js/base.js']
 				}
 			},
 			options: {
