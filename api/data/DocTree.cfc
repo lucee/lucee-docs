@@ -186,7 +186,6 @@ component accessors=true {
 			case "_arguments":
 			case "_attributes":
 			case "_examples":
-			case "_images":
 				isPage = false;
 				break;
 			default:
