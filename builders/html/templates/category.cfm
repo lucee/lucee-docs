@@ -8,8 +8,10 @@
 
 	local.currentPageType = "";
 	local.pageTypeTitles = {
-		  "function" = "Functions"
-		, tag        = "Tags"
+		"function" = "Functions",
+		 "_method" = "Methods",
+		 "_object" = "Objects",
+		"tag"      = "Tags",
 	};
 </cfscript>
 
@@ -27,7 +29,7 @@
 					</ul>
 				</cfif>
 				<cfset local.currentPageType = local.page.getPageType()>
-				<h2>#( local.pageTypeTitles[ local.page.getPageType() ] ?: "Other articles" )#</h2>
+				<h2>#( local.pageTypeTitles[ local.page.getPageType() ] ?: "Guides" )#</h2>
 				<ul class="list-unstyled">
 			</cfif>
 

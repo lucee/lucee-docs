@@ -28,7 +28,7 @@ $(function(){
             toggleLoadingIcon($icon, false);
             $el.data("editor-open", true);
             renderEditor(data, $el, page);
-        }).error(function(jqXHR){
+        }).fail(function(jqXHR){
             toggleLoadingIcon($icon, false);
             if (isExample(page)){
                 renderEditor({}, $el, page);
@@ -53,7 +53,7 @@ $(function(){
         }
         $editor.remove();
         delete editors[page];
-        $el.data("editor-open", false); 
+        $el.data("editor-open", false);
     };
 
     var renderEditor = function(data, $el, page, create){
@@ -100,38 +100,38 @@ $(function(){
                 }
             }).done(function(data) {
                 document.location.reload();
-            }).error(function(jqXHR){
+            }).fail(function(jqXHR){
                 $(this).attr("disabled", false);
                 $error.show().html(jqXHR.responseText);
             });
         });
 
-        if ( isExample(page) ){            
+        if ( isExample(page) ){
             $footer.append(
                 $('<button class="btn">Add CFScript</button>')
-                   .on("click", function(){                           
+                   .on("click", function(){
                        $textarea.val( $textarea.val() + ["","","```luceescript+trycf","","","```"].join( nl ) );
-                       
+
                    }
                 )
-           );   
+           );
            $footer.append(
             $('<button class="btn">Add CFML</button>')
-               .on("click", function(){                                              
-                   $textarea.val( $textarea.val() + ["","","```lucee+trycf","","","```"].join( nl ) );                   
-               })                
+               .on("click", function(){
+                   $textarea.val( $textarea.val() + ["","","```lucee+trycf","","","```"].join( nl ) );
+               })
             );
-            
+
             if ($textarea.val().length === 0){ // empty, just default
                 $textarea.val(getExampleTemplate());
-            } else if ($textarea.val().indexOf("```") === -1){                
+            } else if ($textarea.val().indexOf("```") === -1){
                 $footer.append(
                      $('<button class="btn">Load Example Template</button>')
                         .on("click", function(){
                             $textarea.val(getExampleTemplate());
                             $(this).hide();
                         })
-                );            
+                );
             }
         }
 
@@ -163,7 +163,7 @@ $(function(){
         editors[page] = $editor;
         console.log(data);
     };
-    
+
     var orderProperties = function(unOrderedProps){
         // preserve order
         var props = JSON.parse( JSON.stringify(unOrderedProps) ); // deep copy;
@@ -211,6 +211,8 @@ $(function(){
                 data.properties.title = "";
             if (!data.properties.id)
                 data.properties.id = "";
+            if (!data.properties.description)
+                data.properties.description = "";
         }
         if (data.reference){
             if (!data.properties.categories)
@@ -337,8 +339,8 @@ $(function(){
     };
     var getExampleTemplate = function(){
         var nl = String.fromCharCode(10);
-        return "```luceescript+trycf" + nl + nl + "```" + nl;        
-    };  
+        return "```luceescript+trycf" + nl + nl + "```" + nl;
+    };
 
     // show the editor on a 404 page, allow you to create a new file
     var $missing404 = $(".file-not-found-suggestions");
@@ -349,23 +351,23 @@ $(function(){
         var title = String(document.location.pathname).split("/").pop().split(".").shift()
         $missing404.append(
             $('<button class="btn">Create New Page</button>').attr("title", filename).css("margin-bottom", "20px")
-                .on("click", function(){                                              
+                .on("click", function(){
                     var $newPage = $("<div>").addClass("new-page-from-404");
-                    
+
                     $missing404.append($newPage);
                     renderEditor ({
                             properties: {
                                 title: title,
                                 id: title
-                            }   
-                        }, 
-                        $newPage, 
-                        filename, 
+                            }
+                        },
+                        $newPage,
+                        filename,
                         true
                     );
                     $(this).hide();
                 }
-            )                                
+            )
         );
     }
 });
