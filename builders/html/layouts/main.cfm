@@ -5,13 +5,13 @@
 <cfparam name="args.seeAlso"    type="string" />
 
 <cfscript>
-	baseHref = ( repeatString( '../', args.page.getDepth()-1 ) );
+	local.baseHref = ( repeatString( '../', args.page.getDepth()-1 ) );
 	// this breaks the /static/ local server mode
 	//if (baseHref eq "")
 	//	baseHref = "/";
-	pageHref = "http://docs.lucee.org#args.page.getPath()#.html";
-	pageTitle = HtmlEditFormat( args.page.getTitle() ) & " :: Lucee Documentation";
-	pageDescription = getMetaDescription( args.page, args.body );
+	local.pageHref = "http://docs.lucee.org#args.page.getPath()#.html";
+	local.pageTitle = HtmlEditFormat( args.page.getTitle() ) & " :: Lucee Documentation";
+	local.pageDescription = getMetaDescription( args.page, args.body );
 </cfscript>
 
 <cfoutput><!DOCTYPE html>
@@ -26,19 +26,19 @@
 			gtag('config', 'UA-116664465-1');
 		</script>
 		<cfif args.edit>
-			<base href="#baseHref#">
+			<base href="#local.baseHref#">
 		</cfif>
-		<link rel="canonical" href="#pageHref#" />
+		<link rel="canonical" href="#local.pageHref#" />
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
-		<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#pageHref#&origin=lucee"
+		<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#local.pageHref#&origin=lucee"
             type="application/json+oembed" />
-    	<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#pageHref#&origin=lucee&format=xml"
+    	<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#local.pageHref#&origin=lucee&format=xml"
             type="application/xml+oembed"/>
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@lucee_server" />
-		<meta name="twitter:title" content="#pageTitle#" />
-		<meta name="twitter:description" content="#pageDescription#" />
+		<meta name="twitter:title" content="#local.pageTitle#" />
+		<meta name="twitter:description" content="#local.pageDescription#" />
 		<meta name="twitter:image" content="http://docs.lucee.org/assets/images/favicon.png" />
 		<meta name="twitter:image:alt" content="Lucee" />
 		<meta property="og:title" content="#pageTitle#" />
@@ -111,20 +111,36 @@
 			</ul>
 			<a class="header-logo hidden-lg" href="index.html"><img alt="Lucee" src="/assets/images/lucee-logo.png"></a>
 			<ul class="nav nav-list pull-right">
-				<cfset prevPage = args.page.getPreviousPage() />
-				<cfset nextPage = args.page.getNextPage() />
-				<cfif not IsNull( prevPage )>
+				<cfif args.edit>
 					<li>
-						<a href="#( prevPage.getPath() == '/home' ? '/' : '#prevPage.getPath()#.html' )#">
-							<span class="access-hide">Previous page: #HtmlEditFormat( prevPage.getTitle() )#</span>
+						<a href="/build_docs" title="Docs Administration">
+							<span class="access-hide">Docs Administration</span>
+							<span class="icon icon-settings icon-lg"></span>
+						</a>
+					</li>
+					<li>
+						<a href="#local.baseHref#?reload=true" title="Reload Sources">
+							<span class="access-hide">Reload Sources</span>
+							<span class="icon icon-refresh icon-lg"></span>
+						</a>
+					</li>
+				</cfif>
+				<cfset local.prevPage = args.page.getPreviousPage() />
+				<cfset local.nextPage = args.page.getNextPage() />
+				<cfif not IsNull( local.prevPage )>
+					<li>
+						<a href="#( local.prevPage.getPath() == '/home' ? '/' : '#local.prevPage.getPath()#.html' )#"
+							title="#HtmlEditFormat( local.prevPage.getTitle() )#">
+							<span class="access-hide">Previous page: #HtmlEditFormat( local.prevPage.getTitle() )#</span>
 							<span class="icon icon-arrow-back icon-lg"></span>
 						</a>
 					</li>
 				</cfif>
-				<cfif not IsNull( nextPage )>
+				<cfif not IsNull( local.nextPage )>
 					<li>
-						<a href="#( nextPage.getPath() == '/home' ? '/' : '#nextPage.getPath()#.html' )#">
-							<span class="access-hide">Previous page: #HtmlEditFormat( nextPage.getTitle() )#</span>
+						<a href="#( local.nextPage.getPath() == '/home' ? '/' : '#local.nextPage.getPath()#.html' )#"
+							title="#HtmlEditFormat( local.nextPage.getTitle() )#">
+							<span class="access-hide">Previous page: #HtmlEditFormat( local.nextPage.getTitle() )#</span>
 							<span class="icon icon-arrow-forward icon-lg"></span>
 						</a>
 					</li>
@@ -194,7 +210,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/base.8.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.9.min.js" type="text/javascript"></script>
 		</cfif>
 	</body>
 </html></cfoutput>

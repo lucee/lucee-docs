@@ -21,7 +21,7 @@ component accessors=true {
 // private helpers
 	public void function _loadFunctions() {
 		var functionNames = getFunctionList().keyArray().sort( "textnocase" );
-
+		var functions = {};
 
 		for( var functionName in functionNames ) {
 			var convertedFunc = _getFunctionDefinition( functionName );

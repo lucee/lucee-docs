@@ -1,11 +1,11 @@
 component {
-	public string function renderLink( any page, required string title ) {		
+	public string function renderLink( any page, required string title ) {
 		if ( IsNull( arguments.page ) ) {
-			cflog (text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]" type="WARN");
-			return '<a class="missing-link">#HtmlEditFormat( arguments.title )#</a>';
+			request.logger (text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]", type="WARN");
+			return '<a class="missing-link" title="missing link">#HtmlEditFormat( arguments.title )#</a>';
 		}
 
-		var link = page.getPath() & ".html";
+		var link = arguments.page.getPath() & ".html";
 		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
 	}
 
@@ -15,18 +15,21 @@ component {
 	}
 
 	public void function build( docTree, buildDirectory ) {
-		var tree = arguments.docTree.getTree();
+		var pagePaths = arguments.docTree.getPageCache().getPages();
 
-		request.filesWritten=[];
+		request.filesWritten = 0;
+		request.filesToWrite = StructCount(pagePaths);
 
-		cflog (text="Builder html directory: #arguments.buildDirectory#");
-		
-		for ( var page in tree ) {			
-			cflog (text = "building html folder " & page.getPath() );			
-			_writePage( page, arguments.buildDirectory, docTree );						
+		request.logger (text="Builder html directory: #arguments.buildDirectory#");
+
+		for ( var path in pagePaths ) {
+			_writePage( pagePaths[path].page, arguments.buildDirectory, docTree );
+			request.filesWritten++;
+			if ((request.filesWritten mod 100) eq 0){
+				request.logger(text="Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
+			}
 		}
-		
-		cflog (text="Html Builder #request.filesWritten.len()# files produced");		
+		request.logger (text="Html Builder #request.filesWritten# files produced");
 
 		_renderStaticPages( arguments.buildDirectory, arguments.docTree, "/" );
 		_copyStaticAssets( arguments.buildDirectory );
@@ -38,10 +41,10 @@ component {
 		try {
 			var renderedPage = renderTemplate(
 				  template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
-				, args     = { page = arguments.page, docTree=arguments.docTree, edit=edit }
+				, args     = { page = arguments.page, docTree=arguments.docTree, edit=arguments.edit }
 				, helpers  = "/builders/html/helpers"
 			);
-		} catch( any e ) {		
+		} catch( any e ) {
 			e.additional.luceeDocsTitle = arguments.page.getTitle();
 			e.additional.luceeDocsPath = arguments.page.getPath();
 			e.additional.luceeDocsPageId = arguments.page.getid();
@@ -102,18 +105,21 @@ component {
 					, page       = arguments.page
 					, edit       = arguments.edit
 					, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, page=arguments.page } )
-					, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage() } )
-					, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , helpers  = "/builders/html/helpers", args={ links=links } )
+					, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={
+						crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage(), pageLineageMap=arguments.page.getPageLineageMap()
+					} )
+					, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , helpers  = "/builders/html/helpers",
+						args={ links=links } )
 				}
 			);
-		} catch( any e ) {		
+		} catch( any e ) {
 			//e.additional.luceeDocsPage = arguments.page;
 			e.additional.luceeDocsTitle = arguments.page.getTitle();
 			e.additional.luceeDocsPath = arguments.page.getPath();
 			e.additional.luceeDocsId = arguments.page.getId();
 			rethrow;
-		}	
-		return pageContent; 
+		}
+		return pageContent;
 	}
 
 	public string function renderFileNotFound(required string filePath, required any docTree, required string baseHref) {
@@ -163,19 +169,20 @@ component {
 
 		FileWrite( filePath, pageContent );
 		/*
-		request.filesWritten.append(filePath);
+
 		if (request.filesWritten.len() gt 2000){
 			writeOutput("stopped at #request.filesWritten.len()# files");
 			dump(checkFilesWritten(request.filesWritten));
 			abort;
 		}
 		*/
-
-		//cflog(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
+		/*
+		//request.logger(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
 		for( var childPage in arguments.page.getChildren() ) {
-			("childPage " & childPage.getPath() & "<br>");
+			//("childPage " & childPage.getPath() & "<br>");
 			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
 		}
+		*/
 	}
 
 	/*
@@ -185,8 +192,8 @@ component {
 			QueryAddRow(q);
 			querySetCell(q, "path", file);
 		}
-		q  = queryExecute("select path, count(*) files from q group by path order by path desc", {}, {dbtype="query"});		
-		//QuerySort(q, "path", "desc");		
+		q  = queryExecute("select path, count(*) files from q group by path order by path desc", {}, {dbtype="query"});
+		//QuerySort(q, "path", "desc");
 		return q;
 	}
 	*/
@@ -264,8 +271,12 @@ component {
 				, baseHref   = arguments.baseHref
 				, noIndex   = arguments.noIndex
 				, title      = arguments.pageTitle
-				, crumbs     = renderTemplate( template="layouts/staticbreadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ title=arguments.pageTitle } )
-				, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, docTree=arguments.docTree, pageLineage=[ "/home" ] } )
+				, crumbs     = renderTemplate( template="layouts/staticbreadcrumbs.cfm", helpers  = "/builders/html/helpers",
+					args={ title=arguments.pageTitle }
+				)
+				, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={
+					crumbs=crumbs, docTree=arguments.docTree, pageLineage=[ "/home" ], pageLineageMap ={"/home":""}
+				} )
 			  }
 		);
 	}

@@ -20,34 +20,32 @@
 
 	public boolean function onRequest( required string requestedTemplate ) output=true {
 		var path = _getRequestUri();
-
+		var logger = new api.build.Logger();
 		if (path contains ".."){
 			header statuscode=401;
 			abort;
 		}
 		if ( path.startsWith( "/lucee/admin") ){
-			cflog (text="ignoring /lucee/admin request #cgi.script_name#");
+			request.logger (text="ignoring /lucee/admin request #cgi.script_name#");
 			return;
-		}
-
-		if ( path eq "/build_docs/all/" ) {
-			writeOutput("<h1>importing references, exporting all </h1>");
-			setting requestTimeout=300;
-			new api.reference.ReferenceImporter().importAll()
-			new api.build.BuildRunner().buildAll();
-		} else if ( path eq "/build_docs/html/" ) {
-			setting requestTimeout=300;
-			writeOutput("<h1>html export</h1>");
-			new api.build.BuildRunner().build("html");
-		} else if ( path eq "/build_docs/dash/" ) {
-			setting requestTimeout=300;
-			writeOutput("<h1>dash export</h1>");
-			new api.build.BuildRunner().build("dash");
-		} else if ( path eq "/build_docs/import/" ) {
-			writeOutput("<h1>importing references</h1>");
-			new api.reference.ReferenceImporter().importAll()
 		} else if ( path.startsWith( "/build_docs/" ) ){
-			throw "unknown build docs request: #path#";
+			logger.enableFlush(true);
+			setting requestTimeout=300;
+			_renderBuildHeader(path);
+			if ( path eq "/build_docs/all/" ) {
+				new api.reference.ReferenceImporter().importAll();
+				new api.build.BuildRunner().buildAll();
+			} else if ( path eq "/build_docs/html/" ) {
+				new api.build.BuildRunner().build("html");
+			} else if ( path eq "/build_docs/dash/" ) {
+				new api.build.BuildRunner().build("dash");
+			} else if ( path eq "/build_docs/import/" ) {
+				new api.reference.ReferenceImporter().importAll();
+			} else {
+				if (listlen(path,"/") gt 1 )
+					writeOutput("unknown build docs request: #path#");
+			}
+			logger.renderLogs();
 		} else if ( path eq "/assets/js/searchIndex.json" ) {
 			_renderSearchIndex();
 		} else if ( path.startsWith( "/assets" ) ) {
@@ -71,7 +69,7 @@
 // PRIVATE
 	private void function _renderPage() {
 		var pagePath    = _getPagePathFromRequest();
-		var buildRunner = _getBuildRunner(checkFiles = true);
+		var buildRunner = _getBuildRunner();
 		var docTree     = buildRunner.getDocTree();
 		var page        = docTree.getPageByPath( pagePath );
 
@@ -84,16 +82,16 @@
 
 	private void function _renderSource() {
 		var isUpdateRequest = (cgi.request_method eq "POST");
-		var buildRunner = _getBuildRunner(checkFiles = false); // no need to scan files
+		var buildRunner = _getBuildRunner(); // no need to scan files
 		var docTree     = buildRunner.getDocTree();
 		var pagePath = Replace(_getRequestUri(), "/source", "");
 		var page = docTree.getPageSource(pagePath);
 
 		setting showdebugoutput="no";
-
 		if (isUpdateRequest){
 			param name="form.content" default="";
 			param name="form.properties" default="";
+			param name="form.url";
 			var props = {};
 			if (structCount(page.properties) and len(form.properties) eq 0){
 				// page had properties
@@ -108,8 +106,8 @@
 					abort;
 				}
 			}
-			var result = docTree.updatePageSource(pagePath, form.content, props);
-			_resetBuildRunner(); // flag for update
+			var result = docTree.updatePageSource(pagePath, form.content, props, form.url);
+			//_resetBuildRunner(); // flag for update
 			WriteOutput( serializeJSON(result) );
 		} else {
 			var pageSource = structNew("linked");
@@ -171,8 +169,8 @@
 	}
 
 	private void function _renderSearchIndex() {
-		var buildRunner = _getBuildRunner(checkFiles = false);
-		var docTree = buildRunner.getDocTree();
+		var buildRunner = _getBuildRunner();
+		var docTree = buildRunner.getDocTree(checkFiles = false);
 		var searchIndex = buildRunner.getBuilder( "html" ).renderSearchIndex( docTree );
 
 		header name="cache-control" value="no-cache";
@@ -180,6 +178,64 @@
 		content type="application/json" reset=true;
 		writeOutput( searchIndex );
 		abort;
+	}
+
+	private void function _renderBuildHeader(required string path) {
+		var opts = structNew("linked");
+		opts.home = {
+			title: "Browse Local Documentation",
+			menu: "Local Docs",
+			href: "/"
+		};
+		opts.static = {
+			title: "Browse Local Static Docs",
+			menu: "Local Static",
+			href: "/static/"
+		};
+		opts.prod = {
+			title: "Browse Prod Docs",
+			menu: "Prod",
+			href: "http://docs.lucee.org/"
+		};
+		opts.git = {
+			title: "Lucee Docs Git Repo",
+			menu: "Git Repo",
+			href: "https://github.com/lucee/lucee-docs"
+		};
+
+		opts.all = {
+			title: "Importing references, Exporting Dash and HTML ",
+			menu: "Build All"
+		};
+		opts.html = {
+			title: "Exporting HTML",
+			menu: "Build HTML"
+		};
+		opts.dash = {
+			title: "Exporting Dash",
+			menu: "Build Dash"
+		};
+		opts.import = {
+			Menu: "Import References",
+			title: "Importing References (tags, functions, options, methods)"
+		};
+
+		var selectedOption = listLast(arguments.path,"/");
+		writeOutput("<h1>Lucee Documentation Builder</h1>");
+		writeOutput('<style>.build-menu li { display: inline; list-style-type: none; padding-right: 10px;} ul, ol {padding-left:0;}</style>');
+		writeOutput('<ul class="build-menu">');
+		for (var link in opts){
+			var _link = "/build_docs/#lCase(link)#/";
+			var _target = "";
+			if (opts[link].keyExists("href")){
+				_link = opts[link].href;
+				var _target = " target='_blank'";
+			}
+			writeOutput('<li><a href="#_link#" #_target# title="#htmlEditFormat(opts[link].title)#" >#htmlEditFormat(opts[link].menu)#</a></li>');
+		}
+		writeOutput('</ul><hr>');
+		if (opts.keyExists(selectedOption))
+			writeOutput("<h2>#opts[selectedOption].title#</h2>");
 	}
 
 	private string function _getPagePathFromRequest() {
@@ -235,33 +291,19 @@
 		return "application/octet-stream";
 	}
 
-	private any function _getBuildRunner(required boolean checkfiles) {
-		var appKey    = application.buildRunnerKey ?: "";
-		if (appKey neq ""){
-			if (application.keyExists( appKey ) and not checkfiles )
-				return application[ appKey ];
-		}
-		var newAppKey = _calculateBuildRunnerAppKey(); //  scans and fingerprints the entire doc src dir (SLOW)
-		if ( appKey != newAppKey || !application.keyExists( appKey ) ) {
+	private any function _getBuildRunner() {
+		var appKey    = "buildRunnerKey";
+		if ( not application.keyExists( appKey ) ){
+			request.logger("BuildRunner init");
 			application.delete( appKey );
-			application[ newAppKey ] = new api.build.BuildRunner();
-			application.buildRunnerKey = newAppKey;
+			application[ AppKey ] = new api.build.BuildRunner();
 		}
-		return application[ newAppKey ];
-	}
-
-	private string function _calculateBuildRunnerAppKey() {
-		var filesEtc = DirectoryList( "/docs", true, "query" ); // this can be slow
-		var sig      = Hash( SerializeJson( filesEtc ) );
-		return "buildrunner" & sig;
-	}
-
-	private void function _resetBuildRunner() {
-		var appKey    = application.buildRunnerKey ?: "";
-		if (application.keyExists( appKey ) ){
-			application.delete( appKey );
-			application.buildRunnerKey = "";
+		if (structKeyExists(url, "reload") && url.reload eq "true"){
+			if (structKeyExists(url, "force") && url.force eq "true")
+				application[ AppKey ] = new api.build.BuildRunner(); // dev mode
+			application[ AppKey ].getDocTree(checkfiles=true); // scans for changes
 		}
+		return application[ AppKey ];
 	}
 
 	private void function _addChangeWatcher(){
@@ -294,5 +336,4 @@
 		var admin       = new Administrator( "web", password );
 		admin.removeGatewayEntry(id="watchDocumentFilesForChange");
 	}
-
 }

@@ -1,20 +1,20 @@
 <cfparam name="args.page" type="page" />
 
-<cfset fn = args.page />
-<cfset argumentsHaveDefaultValues = fn.argumentsHaveDefaultValues() />
+<cfset local.fn = args.page />
+<cfset local.argumentsHaveDefaultValues = local.fn.argumentsHaveDefaultValues() />
 
 <cfoutput>
-	#getEditLink(path=fn.getSourceFile(), edit=args.edit)#
-	#markdownToHtml( fn.getBody() )#
+	#getEditLink(path=local.fn.getSourceFile(), edit=args.edit)#
+	#markdownToHtml( local.fn.getBody() )#
 
-	<p><strong>Returns:</strong> #fn.getReturnType()#</p>	
-	<cfif len(fn.getIntroduced()) gt 0>
-		<p><strong>Introduced:</strong> #fn.getIntroduced()#</p>	
+	<p><strong>Returns:</strong> #local.fn.getReturnType()#</p>
+	<cfif len(local.fn.getIntroduced()) gt 0>
+		<p><strong>Introduced:</strong> #local.fn.getIntroduced()#</p>
 	</cfif>
 
 	<h2>Arguments</h2>
-	<cfif !fn.getArguments().len()>
-		<cfif fn.getArgumentType() == "dynamic">
+	<cfif !local.fn.getArguments().len()>
+		<cfif local.fn.getArgumentType() == "dynamic">
 			<p><em>This function takes zero or more dynamic arguments. See examples for details.</em></p>
 		<cfelse>
 			<p><em>This function does not take any arguments.</em></p>
@@ -26,22 +26,22 @@
 					<tr>
 						<th>Argument</th>
 						<th>Description</th>
-						<cfif argumentsHaveDefaultValues><th>Default</th></cfif>
+						<cfif local.argumentsHaveDefaultValues><th>Default</th></cfif>
 					</tr>
 				</thead>
 				<tbody>
-					<cfloop array="#fn.getArguments()#" item="arg" index="i">
+					<cfloop array="#local.fn.getArguments()#" item="local.arg" index="local.i">
 						<tr>
-							<td><div class="argument">#arg.name#</div>
-								<sub>(#arg.type#, #( arg.required ? 'required' : 'optional' )#)</sub>
+							<td><div class="argument">#local.arg.name#</div>
+								<sub>(#local.arg.type#, #( local.arg.required ? 'required' : 'optional' )#)</sub>
 							</td>
 							<td>
-								#getEditLink(path=fn.getSourceDir() & '_arguments/#arg.name#.md', edit=args.edit)#
-								#markdownToHtml( Trim( arg.description ) )#
+								#getEditLink(path=local.fn.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
+								#markdownToHtml( Trim( local.arg.description ) )#
 							</td>
-							<cfif argumentsHaveDefaultValues>
+							<cfif local.argumentsHaveDefaultValues>
  								<td>
- 									#markdownToHtml( arg.default ?: "" )#
+ 									#markdownToHtml( local.arg.default ?: "" )#
  								</td>
  							</cfif>
 						</tr>
@@ -53,14 +53,14 @@
 
 	<h2>Usage</h2>
 ```luceescript
-#fn.getUsageSignature()#
+#local.fn.getUsageSignature()#
 ```
 	<h2>Examples</h2>
-	<cfif Len( Trim( fn.getExamples() ) ) or args.edit>
-		#getEditLink(path=fn.getSourceDir() & '_examples.md', edit=args.edit)#
+	<cfif Len( Trim( local.fn.getExamples() ) ) or args.edit>
+		#getEditLink(path=local.fn.getSourceDir() & '_examples.md', edit=args.edit)#
 	</cfif>
-	<cfif Len( Trim( fn.getExamples() ) )>
-		#markdownToHtml( fn.getExamples() )#
+	<cfif Len( Trim( local.fn.getExamples() ) )>
+		#markdownToHtml( local.fn.getExamples() )#
 	<cfelse>
 		<em>There are currently no examples for this function</em>
 	</cfif>

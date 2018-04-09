@@ -1,8 +1,8 @@
 component {
-	property name="_yamlParser" type="object"; 
+	property name="_yamlParser" type="object";
 
 	public any function init() {
-		_setupYamlParser();		
+		_setupYamlParser();
 
 		return this;
 	}
@@ -24,38 +24,36 @@ component {
 	}
 
 	private any function _getYamlParser() output=false {
-		return _yamlParser;
+		return variables._yamlParser;
 	}
 	private void function _setYamlParser( required any yamlParser ) output=false {
-		_yamlParser = arguments.yamlParser;
+		variables._yamlParser = arguments.yamlParser;
 	}
 
 	private struct function _stripEmpty( required struct data ) {
 		try {
 			// remove all empty content
-			for (var d in data){
+			for (var d in arguments.data){
 				var hasContent = true;
-				if (IsNull(data[d])){
+				if (IsNull(arguments.data[d])){
 					hasContent = false;
-				} else if (isArray(data[d])) {
-					if (arrayLen(data[d]) eq 0 )
+				} else if (isArray(arguments.data[d])) {
+					if (arrayLen(arguments.data[d]) eq 0 )
 						hasContent = false; // empty array
-					else if (arrayLen(data[d]) eq 1 and len(trim(data[d][1])) eq 0 )
+					else if (arrayLen(arguments.data[d]) eq 1 and len(trim(arguments.data[d][1])) eq 0 )
 						hasContent = false; // empty array
-				} else if (isStruct(data[d])) {
-					if (structCount(data[d]) eq 0)
+				} else if (isStruct(arguments.data[d])) {
+					if (structCount(arguments.data[d]) eq 0)
 						hasContent = false; // empty struct
-				} else if (len(trim(data[d])) eq 0){
+				} else if (len(trim(arguments.data[d])) eq 0){
 					hasContent = false; // empty string
 				}
 				if (not hasContent)
-					structDelete(data, d); // no need for empty attributes
+					structDelete(arguments.data, d); // no need for empty attributes
 			}
 		} catch(e) {
-			dump(data);
-			throw(e);
-			abort;
+			request.logger("error stripping YAML properties: #cfcatch.message#");
 		}
-		return data;
+		return arguments.data;
 	}
 }

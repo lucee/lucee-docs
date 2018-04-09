@@ -7,8 +7,8 @@
 			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 				<a href="/index.html">Home</a>
 			</li>
-			<cfloop array="#args.crumbs#" item="pageSlug" index="i">
-				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">[[#pageSlug#]]</li>
+			<cfloop array="#args.crumbs#" item="local.pageSlug" index="i">
+				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">[[#local.pageSlug#]]</li>
 			</cfloop>
 			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">#HtmlEditFormat( args.page.getTitle() )#</li>
 		</ul>

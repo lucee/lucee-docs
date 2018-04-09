@@ -31,10 +31,14 @@
 		description = ReReplace( description, "\n", " ", "all" );
 		description = ReReplace( description, "\s\s+", " ", "all" );
 
+		if (description.len() lt 10)
+			request.logger (text="missing / short description: [#description#] #arguments.page.getPath()# ");
+
 		return HtmlEditFormat( description );
 	}
 
-	function stripHTML( str ) {
+	function stripHTML( html ) {
+		var str = arguments.html;
 		str = ReReplaceNoCase(str, "<*style.*?>(.*?)</style>","","all");
 		str = ReReplaceNoCase(str, "<*script.*?>(.*?)</script>","","all");
 

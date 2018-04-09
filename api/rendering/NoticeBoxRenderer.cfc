@@ -1,14 +1,14 @@
 component {
 
 	public any function init() {
-		_setupNoticeStyles();
+		variables.styles = _setupNoticeStyles();
 		return this;
 	}
 
 	public string function renderNoticeBoxes( required string html ) {
 		var rendered = arguments.html;
 
-		for( var noticeStyle in styles ) {
+		for( var noticeStyle in variables.styles ) {
 
 			do {
 				var regexMatch = ReFind( noticeStyle.regex, rendered, 1, true );
@@ -26,8 +26,8 @@ component {
 	}
 
 // PRIVATE
-	private void function _setupNoticeStyles() {
-		styles = [
+	private array function _setupNoticeStyles() {
+		var styles = [
 			  { blockQuoteCount=6, colour="green" , icon="info", title="Tip" }
 			, { blockQuoteCount=5, colour="red"   , icon="info", title="Important" }
 			, { blockQuoteCount=4, colour="yellow", icon="info", title="Warning" }
@@ -36,6 +36,7 @@ component {
 		for( var i=1; i<=styles.len(); i++ ) {
 			styles[i].regex = RepeatString( "<blockquote>\s*", styles[i].blockQuoteCount ) & "(.*?)" & RepeatString( "<\/blockquote>\s*", styles[i].blockQuoteCount );
 		}
+		return styles;
 	}
 
 	private string function _renderNoticeBox( required struct style, required string notice ) {

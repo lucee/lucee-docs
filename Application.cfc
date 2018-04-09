@@ -10,6 +10,7 @@ component {
 	this.mappings[ "/builds"   ] = this.cwd & "builds";
 
 	public boolean function onRequest( required string requestedTemplate ) output=true {
+		var logger = new api.build.Logger();
 
 		include template=arguments.requestedTemplate;
 
