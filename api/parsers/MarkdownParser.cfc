@@ -1,6 +1,6 @@
 component {
-	property name="_markdownProcessor" type="object"; 
-	property name="_noticeBoxRenderer" type="object"; 
+	property name="_markdownProcessor" type="object";
+	property name="_noticeBoxRenderer" type="object";
 
 	public any function init() {
 		_setupMarkdownProcessor();
@@ -29,9 +29,9 @@ component {
 			}
 			local.first = left(local.row, 2);
 			if (local.first eq "- "){
-				if (local.lastLineEmpty){	
-					local.inList = true;	
-				} else if (not local.inList){	
+				if (local.lastLineEmpty){
+					local.inList = true;
+				} else if (not local.inList){
 					errors.append({
 						error: "list should be preceeded by a new line",
 						file: "#arguments.pageContent.sourceFile#",
@@ -40,14 +40,14 @@ component {
 					});
 					break;
 				}
-			} 				
-			local.lastLineEmpty = local.empty;			
+			}
+			local.lastLineEmpty = local.empty;
 		}
 
 		if (ArrayLen(errors) gt 0){
 			dump(var=errors, label=arguments.pageContent.sourceFile);
-			writeOutput("<pre>#arguments.pageContent.body#</pre>");			
-			abort;			
+			writeOutput("<pre>#arguments.pageContent.body#</pre>");
+			abort;
 		}
 	}
 
@@ -57,6 +57,8 @@ component {
 		var extension = CreateObject( "java", "org.pegdown.Extensions", javaLib );
 		var processor = CreateObject( "java", "org.pegdown.PegDownProcessor", javaLib ).init(extension.TABLES);
 
+		//TODO use flexmark instead
+
 		_setMarkdownProcessor( processor );
 	}
 
@@ -65,16 +67,16 @@ component {
 	}
 
 	private any function _getMarkdownProcessor() output=false {
-		return _markdownProcessor;
+		return variables._markdownProcessor;
 	}
 	private void function _setMarkdownProcessor( required any markdownProcessor ) output=false {
-		_markdownProcessor = arguments.markdownProcessor;
+		variables._markdownProcessor = arguments.markdownProcessor;
 	}
 
 	private any function _getNoticeBoxRenderer() {
-		return _noticeBoxRenderer;
+		return variables._noticeBoxRenderer;
 	}
 	private void function _setNoticeBoxRenderer( required any noticeBoxRenderer ) {
-		_noticeBoxRenderer = arguments.noticeBoxRenderer;
+		variables._noticeBoxRenderer = arguments.noticeBoxRenderer;
 	}
 }

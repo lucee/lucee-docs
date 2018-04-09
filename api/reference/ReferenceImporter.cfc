@@ -160,8 +160,8 @@ categories:";
 			_createFileIfNotExists( functionDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
 		}
 
-		arguments.func.examples    = [];
-		arguments.func.history     = [];
+		//arguments.func.examples    = [];
+		//arguments.func.history     = [];
 	}
 
 	private numeric function _stubTagEditorialFiles( required struct tag ) {
@@ -221,8 +221,8 @@ categories:
 			_createFileIfNotExists( methodDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
 		}
 		*/
-		arguments.method.examples    = [];
-		arguments.method.history     = [];
+		//arguments.method.examples    = [];
+		//arguments.method.history     = [];
 
 		return filesCreated;
 	}
@@ -262,8 +262,8 @@ categories:
 			filesCreated += _createFileIfNotExists( methodDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
 		}
 
-		arguments.method.examples    = [];
-		arguments.method.history     = [];
+		//arguments.method.examples    = [];
+		//arguments.method.history     = [];
 
 		return filesCreated;
 	}

@@ -2,12 +2,12 @@
 <cfparam name="args.docTree" type="any" />
 
 <cfscript>
-	category = args.page;
-	pages    = args.docTree.getPagesByCategory( category.getSlug() );
-	pages    = args.docTree.sortPagesByType( pages );
+	local.category = args.page;
+	local.pages    = args.docTree.getPagesByCategory( local.category.getSlug() );
+	local.pages    = args.docTree.sortPagesByType( local.pages );
 
-	currentPageType = "";
-	pageTypeTitles = {
+	local.currentPageType = "";
+	local.pageTypeTitles = {
 		  "function" = "Functions"
 		, tag        = "Tags"
 	};
@@ -15,24 +15,23 @@
 
 
 <cfoutput>
-	<a class="pull-right" href="#getSourceLink( path=category.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
-
-	#markdownToHtml( category.getBody() )#
+	#getEditLink(path=local.category.getSourceFile(), edit=args.edit)#
+	#markdownToHtml( local.category.getBody() )#
 
 	<cfif not pages.len()>
 		<p><em>There are no pages tagged with this category.</em></p>
 	<cfelse>
-		<cfloop array="#pages#" index="i" item="page">
-			<cfif page.getPageType() != currentPageType>
-				<cfif currentPageType.len()>
+		<cfloop array="#local.pages#" index="local.i" item="local.page">
+			<cfif local.page.getPageType() != local.currentPageType>
+				<cfif local.currentPageType.len()>
 					</ul>
 				</cfif>
-				<cfset currentPageType = page.getPageType()>
-				<h2>#( pageTypeTitles[ page.getPageType() ] ?: "Other articles" )#</h2>
+				<cfset local.currentPageType = local.page.getPageType()>
+				<h2>#( local.pageTypeTitles[ local.page.getPageType() ] ?: "Other articles" )#</h2>
 				<ul class="list-unstyled">
 			</cfif>
 
-			<li>[[#page.getId()#]]</li>
+			<li>[[#htmleditformat(local.page.getId())#]] #htmleditformat( getMetaDescription(local.page, local.page.getBody()) )#</li>
 		</cfloop>
 		</ul>
 	</cfif>

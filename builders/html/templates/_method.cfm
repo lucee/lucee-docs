@@ -1,19 +1,19 @@
 <cfparam name="args.page" type="page" />
 
-<cfset meth = args.page />
-<cfset argumentsHaveDefaultValues = meth.argumentsHaveDefaultValues() />
+<cfset local.meth = args.page />
+<cfset local.argumentsHaveDefaultValues = local.meth.argumentsHaveDefaultValues() />
 <cfoutput>
-	#getEditLink(path=meth.getSourceFile(), edit=args.edit)#
-	#markdownToHtml( meth.getBody() )#
+	#getEditLink(path=local.meth.getSourceFile(), edit=args.edit)#
+	#markdownToHtml( local.meth.getBody() )#
 
-    <p><strong>Returns:</strong> #meth.getReturnType()#</p>	
-	<cfif len(meth.getIntroduced()) gt 0>
-		<p><strong>Introduced:</strong> #meth.getIntroduced()#</p>	
+    <p><strong>Returns:</strong> #local.meth.getReturnType()#</p>
+	<cfif len(local.meth.getIntroduced()) gt 0>
+		<p><strong>Introduced:</strong> #local.meth.getIntroduced()#</p>
 	</cfif>
 
     <h2>Arguments</h2>
-	<cfif !meth.getArguments().len()>
-		<cfif meth.getArgumentType() == "dynamic">
+	<cfif !local.meth.getArguments().len()>
+		<cfif local.meth.getArgumentType() == "dynamic">
 			<p><em>This function takes zero or more dynamic arguments. See examples for details.</em></p>
 		<cfelse>
 			<p><em>This function does not take any arguments.</em></p>
@@ -25,22 +25,22 @@
 					<tr>
 						<th>Argument</th>
 						<th>Description</th>
-						<cfif argumentsHaveDefaultValues><th>Default</th></cfif>
+						<cfif local.argumentsHaveDefaultValues><th>Default</th></cfif>
 					</tr>
 				</thead>
 				<tbody>
-					<cfloop array="#meth.getArguments()#" item="arg" index="i">
+					<cfloop array="#local.meth.getArguments()#" item="local.arg" index="local.i">
 						<tr>
-							<td><div class="argument">#arg.name#</div>
-								<sub>(#arg.type#, #( arg.required ? 'required' : 'optional' )#)</sub>
+							<td><div class="argument">#local.arg.name#</div>
+								<sub>(#local.arg.type#, #( local.arg.required ? 'required' : 'optional' )#)</sub>
 							</td>
 							<td>
-								#getEditLink(path=meth.getSourceDir() & '_arguments/#arg.name#.md', edit=args.edit)#
+								#getEditLink(path=local.meth.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
 								#markdownToHtml( Trim( arg.description ) )#
 							</td>
-							<cfif argumentsHaveDefaultValues>
+							<cfif local.argumentsHaveDefaultValues>
  								<td>
- 									#markdownToHtml( arg.default ?: "" )#
+ 									#markdownToHtml( local.arg.default ?: "" )#
  								</td>
  							</cfif>
 						</tr>
@@ -52,14 +52,14 @@
 
     <h2>Usage</h2>
 ```luceescript
-#meth.getUsageSignature()#
+#local.meth.getUsageSignature()#
 ```
 	<h2>Examples</h2>
-	<cfif Len( Trim( meth.getExamples() ) ) or args.edit>
-		#getEditLink(path=meth.getSourceDir() & '_examples.md', edit=args.edit)#
+	<cfif Len( Trim( local.meth.getExamples() ) ) or args.edit>
+		#getEditLink(path=local.meth.getSourceDir() & '_examples.md', edit=args.edit)#
 	</cfif>
-	<cfif Len( Trim( meth.getExamples() ) )>
-		#markdownToHtml( meth.getExamples() )#
+	<cfif Len( Trim( local.meth.getExamples() ) )>
+		#markdownToHtml( local.meth.getExamples() )#
 	<cfelse>
 		<em>There are currently no examples for this function</em>
 	</cfif>

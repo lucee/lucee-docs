@@ -1,8 +1,8 @@
 <cfparam name="args.page" type="page" />
 
-<cfset pg = args.page />
+<cfset local.pg = args.page />
 
 <cfoutput>
-	<a class="pull-right" href="#getSourceLink( path=pg.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
-	#markdownToHtml( pg.getBody() )#
+	#getEditLink(path=local.pg.getSourceFile(), edit=args.edit)#
+	#markdownToHtml( local.pg.getBody() )#
 </cfoutput>

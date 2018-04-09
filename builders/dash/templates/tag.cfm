@@ -1,22 +1,17 @@
 <cfparam name="args.page" type="page" />
 
-<cfset tag = args.page />
-<cfset attributesHaveDefaultValues = tag.attributesHaveDefaultValues() />
+<cfset local.tag = args.page />
+<cfset local.attributesHaveDefaultValues = tag.attributesHaveDefaultValues() />
 
 <cfoutput>
-	<a class="pull-right edit-link" href="#getSourceLink( path=tag.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
-	#markdownToHtml( tag.getBody() )#
+	#getEditLink(path=local.tag.getSourceFile(), edit=args.edit)#
+	#markdownToHtml( local.tag.getBody() )#
 
-	<h2>Usage</h2>
-```lucee
-#tag.getUsageSignature()#
-```
-
-	#markdownToHtml( Trim( tag.getBodyTypeDescription() ) )#
-	#markdownToHtml( Trim( tag.getScriptSupportDescription() ) )#
+	#markdownToHtml( Trim( local.tag.getBodyTypeDescription() ) )#
+	#markdownToHtml( Trim( local.tag.getScriptSupportDescription() ) )#
 
 	<h2>Attributes</h2>
-	<cfif !tag.getAttributes().len()>
+	<cfif !local.tag.getAttributes().len()>
 		<p><em>This tag does not use any attributes.</em></p>
 	<cfelse>
 		<div class="table-responsive">
@@ -25,23 +20,22 @@
 					<tr>
 						<th>Attribute</th>
 						<th>Description</th>
-						<cfif attributesHaveDefaultValues><th>Default</th></cfif>
+						<cfif local.attributesHaveDefaultValues><th>Default</th></cfif>
 					</tr>
 				</thead>
 				<tbody>
-					<cfloop array="#tag.getAttributes()#" item="attrib" index="i">
+					<cfloop array="#local.tag.getAttributes()#" item="local.attrib" index="i">
 						<tr>
-							<td>
-								#attrib.name#<br>
-								<sub>(#attrib.type#, #( attrib.required ? 'required' : 'optional' )#)</sub>
+							<td><div class="attribute">#local.attrib.name#</div>
+							<sub>(#local.attrib.type#, #( local.attrib.required ? 'required' : 'optional' )#)</sub>
 							</td>
 							<td>
-								<a class="pull-right" href="#getSourceLink( path=tag.getSourceDir() & '_attributes/#attrib.name#.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
-								#markdownToHtml( attrib.description ?: "" )#
+								#getEditLink(path=local.tag.getSourceDir() & '_attributes/#local.attrib.name#.md', edit=args.edit)#
+								#markdownToHtml( local.attrib.description ?: "" )#
 							</td>
-							<cfif attributesHaveDefaultValues>
+ 							<cfif local.attributesHaveDefaultValues>
  								<td>
- 									#markdownToHtml( attrib.defaultValue ?: "" )#
+ 									#markdownToHtml( local.attrib.defaultValue ?: "" )#
  								</td>
  							</cfif>
 						</tr>
@@ -51,11 +45,17 @@
 		</div>
 	</cfif>
 
+	<h2>Usage</h2>
+```lucee
+#local.tag.getUsageSignature()#
+```
 	<h2>Examples</h2>
-	<cfif Len( Trim( tag.getExamples() ) )>
-		<a class="pull-right" href="#getSourceLink( path=tag.getSourceDir() & '_examples.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
-		#markdownToHtml( tag.getExamples() )#
+	<cfif Len( Trim( local.tag.getExamples() ) ) or args.edit>
+		#getEditLink(path=local.tag.getSourceDir() & '_examples.md', edit=args.edit)#
+	</cfif>
+	<cfif Len( Trim( local.tag.getExamples() ) )>
+		#markdownToHtml( local.tag.getExamples() )#
 	<cfelse>
-		<em>There are currently no examples for this tag</em>
+		<em>There are currently no examples for this tag.</em>
 	</cfif>
 </cfoutput>

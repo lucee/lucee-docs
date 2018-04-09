@@ -21,7 +21,9 @@
 					<ul class="nav tile-wrap">
 			</cfif>
 
-			<li><a class="tile" href="#child.getId()#.html"><span class="text-overflow">#HtmlEditFormat( child.getTitle() )#</span></a></li>
+			<li><a class="tile" href="#child.getId()#.html"><span class="text-overflow">#HtmlEditFormat( child.getTitle() )#</span></a>
+			#htmleditformat( getMetaDescription(child, child.getBody()) )#
+			</li>
 
 			<cfset currentLetter = firstLetter />
 		</cfloop>

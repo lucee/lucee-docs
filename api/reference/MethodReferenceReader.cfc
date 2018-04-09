@@ -14,7 +14,7 @@ component accessors=true {
 
 	public struct function getMethod( required string objectName, required string methodName ) {
 		var methods = getMethods();
-		var BIFName = getBIFName( objectName, methodName);
+		var BIFName = getBIFName( arguments.objectName, arguments.methodName);
 
 		if (BIFName eq "")
 			return {};
@@ -22,23 +22,23 @@ component accessors=true {
 		try {
 			return getFunctionData(BIFName);
 		} catch (e) {
-			request.logger (text="couldn't find member #BIFName# [#objectName# #methodname#]");
+			request.logger (text="couldn't find member #BIFName# [#arguments.objectName# #arguments.methodname#]");
 			return {};
 		}
 	}
 
 	public string function getBIFName( objectDotMethod, method="" ) {
 		var methods = getMethods();
-		var object = objectDotMethod;
+		var object = arguments.objectDotMethod;
 
-		if ( !len( method ) ) {
-			object = listFirst( objectDotMethod, '.' );
-			method = listLast ( objectDotMethod, '.' );
+		if ( !len( arguments.method ) ) {
+			object = listFirst( arguments.objectDotMethod, '.' );
+			arguments.method = listLast ( arguments.objectDotMethod, '.' );
 		}
-		if ( methods.keyExists( object ) && methods[ object ].keyExists( method ) ){
-			return  methods[object][method];
+		if ( methods.keyExists( object ) && methods[ object ].keyExists( arguments.method ) ){
+			return  methods[object][arguments.method];
 		} else {
-			throw (message="missing method: #object# #method#");
+			throw (message="missing method: #object# #arguments.method#");
 			return "";
 		}
 

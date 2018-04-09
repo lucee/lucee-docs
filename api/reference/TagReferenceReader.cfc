@@ -4,7 +4,6 @@ component accessors=true {
 
 	public any function init() {
 		_loadTagDefinitions();
-
 		return this;
 	}
 
@@ -21,7 +20,7 @@ component accessors=true {
 // private helpers
 	public void function _loadTagDefinitions() {
 		var tagNames = getTagList().cf.keyArray().sort( "textnocase" );
-
+		var tags = {};
 		for( var tagName in tagNames ) {
 			var convertedTag = _getTagDefinition( tagName );
 
