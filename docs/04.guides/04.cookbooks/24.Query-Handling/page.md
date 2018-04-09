@@ -85,6 +85,7 @@ Below example to pass the more information with array
 Lucee supports for two types script statements like below,
 
 ```lucee
+<cfscript>
 query name="qry" datasource="test" params={title:{type:'varchar',value:'Susi'}} {
 	echo("
 		select * from Foo1890
@@ -92,9 +93,11 @@ query name="qry" datasource="test" params={title:{type:'varchar',value:'Susi'}} 
 	");
 }
 dump(qry);
+</cfscript>
 ```
 
 ```lucee
+<cfscript>
 cfquery(name="qry",datasource="test",params={title:{type:'varchar',value:'Susi'}}) {
 	echo("
 		select * from Foo1890
@@ -102,6 +105,7 @@ cfquery(name="qry",datasource="test",params={title:{type:'varchar',value:'Susi'}
 	");
 }
 dump(qry);
+</cfscript>
 ```
 
 ## QueryExecute ##
@@ -109,12 +113,14 @@ dump(qry);
 It supports for both script tag & regular tag, you can pass all the arguments to the function.
 
 ```lucee
+<cfscript>
 qry=queryExecute(
 	sql:"select * from Foo1890 where title=:title"
 	,options:{datasource="test"}
 	,params={title:{type:'varchar',value:'Susi'}}
 );
 dump(qry);
+</cfscript>
 ```
 
 Pass the values in params same as we saw in cfquerytag, In options we can pass other arguments like datasource,cachename,dbtype
