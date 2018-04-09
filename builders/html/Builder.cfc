@@ -229,9 +229,10 @@ component {
 		var _404Page = _renderStaticPage( staticPagesDir & "/404.html", "404 - Page not found", arguments.docTree, arguments.baseHref, true );
 
 		FileWrite( buildDirectory & "/404.html", cleanHtml(_404Page) );
+		FileWrite( buildDirectory & "/sitemap.xml", _renderSiteMap(docTree) );
 		// google analytics for @zackster
 		FileWrite( buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");
-		FileWrite( buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow:#chr(10)#");
+		FileWrite( buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow:#chr(10)#Sitemap: http://docs.lucee.org/sitemap.xml");
 
 		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", buildDirectory & "/editor.html" );
 	}
@@ -279,5 +280,17 @@ component {
 				} )
 			  }
 		);
+	}
+
+	private string function _renderSiteMap( required any docTree ) {
+		var pages           = arguments.docTree.getPathMap();
+		var siteMap     = [];
+
+		for( var path in pages ) {
+			siteMap.append('<url><loc>#XmlFormat("http://docs.lucee.org#path#.html")#</loc></url>');
+		}
+
+		return '"<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">#chr(10)#' &
+			ArrayToList(siteMap, chr(10) ) & '#chr(10)#</urlset>';
 	}
 }
