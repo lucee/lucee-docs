@@ -95,7 +95,8 @@ $(function(){
                 type: "POST",
                 data: {
                     content: content,
-                    properties: JSON.stringify(props)
+                    properties: JSON.stringify(props),
+                    url: document.location.pathname
                 }
             }).done(function(data) {
                 document.location.reload();
