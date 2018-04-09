@@ -33,6 +33,24 @@ component accessors=true {
 		// allow missing setters - fix for change in Lucee 5.2
 	}
 
+	// reset page when loading from from cache;
+	public void  function reset() {
+		ancestors = [];
+		lineage = [];
+		parent = NullValue();
+		nextPage = NullValue();
+		previousPage = NullValue();
+		categories = [];
+		children= [];
+	}
+
+	public struct function getPageLineageMap(){
+		var lineageMap = {};
+		for (var l in variables.lineage)
+			lineageMap[l]="";
+		return lineageMap;
+	}
+
 	public boolean function isPage() {
 		switch (this.getPageType()){
 			case "homepage":

@@ -20,6 +20,7 @@ component {
 			timeMs: getTickCount() - request.loggerStart
 		});
 		cflog (text=arguments.text, type=arguments.type);
+        echo (text=arguments.text); // waves to travis ci
         if (request.loggerFlushEnabled){
             request.loggerComponent._renderLog( request.logs[request.logs.len()] );
             flush;
@@ -51,7 +52,7 @@ component {
 
     public void function _renderLog(log){
         var style = "";
-        switch (log.type){
+        switch (arguments.log.type){
             case "warn":
                 style = "color: orangered;";
                 break;
@@ -63,6 +64,6 @@ component {
         }
         if (style.len() gt 0)
             style = ' style="#style#" ';
-		writeOutput("<li #style#>#numberformat(log.timeMs)#ms <b>#log.type#</b> #log.text# </li>");
+		writeOutput("<li #style#>#numberformat(arguments.log.timeMs)#ms <b>#arguments.log.type#</b> #arguments.log.text# </li>");
 	}
 }

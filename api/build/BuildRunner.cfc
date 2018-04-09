@@ -8,18 +8,25 @@ component accessors=true {
 		setBuildersDir( ExpandPath( "/builders" ) );
 		setBuildsDir( ExpandPath( "/builds" ) );
 		setDocTree( new api.data.DocTree( ExpandPath( "/docs" ) ) );
-		var logger = new api.build.Logger();
+		new api.build.Logger();
 		return this;
 	}
 
 // PUBLIC API
 	public void function buildAll() {
 		lock name="buildAll" timeout="1" type ="Exclusive" throwontimeout="true" {
+			setDocTree( new api.data.DocTree( ExpandPath( "/docs" ) ) );
 			listBuilders().each( function( builderName ){
 				build( builderName );
 			} );
 		}
 	}
+
+	public any function getDocTree(boolean checkfiles="false") {
+		if (arguments.checkfiles)
+			variables.docTree.updateTree();
+		return variables.docTree;
+	};
 
 	public void function build( required string builderName ) {
 		var builder  = getBuilder( arguments.builderName );
@@ -49,7 +56,7 @@ component accessors=true {
 	public any function getBuilder( required string builderName ) {
 		var builder = new "builders.#arguments.builderName#.Builder"();
 
-		_decorateBuilderWithHelpers( builder, builderName );
+		_decorateBuilderWithHelpers( builder, arguments.builderName );
 
 		return builder;
 	}
@@ -66,24 +73,26 @@ component accessors=true {
 	}
 
 	private void function _decorateBuilderWithHelpers( required any builder, required string builderName ) {
-		var rootPathForRenderer = "../../builders/#arguments.builderName#/";
+		var _rootPathForRenderer = "../../builders/#arguments.builderName#/";
+		var _builder = arguments.builder;
+		var _builderName = arguments.builderName;
 
-		builder.injectMethod = this.injectMethod;
+		arguments.builder.injectMethod = this.injectMethod;
 
-		builder.injectMethod( "renderLinks", function( required string text ){
-			return new api.rendering.WikiLinksRenderer( docTree=docTree ).renderLinks( text=arguments.text, builder=builder );
+		arguments.builder.injectMethod( "renderLinks", function( required string text ){
+			return new api.rendering.WikiLinksRenderer( docTree=variables.docTree ).renderLinks( text=arguments.text, builder=_builder );
 		} );
-		builder.injectMethod( "renderTemplate", function( required string template, struct args={} ){
+		arguments.builder.injectMethod( "renderTemplate", function( required string template, struct args={} ){
 			var renderer = new api.rendering.TemplateRenderer();
-			var rendered = renderer.render( argumentCollection=arguments, template=rootPathForRenderer & arguments.template );
+			var rendered = renderer.render( argumentCollection=arguments, template=_rootPathForRenderer & arguments.template );
 
 			return builder.renderLinks( rendered );
 		} );
 
-		StructDelete( builder, "injectMethod" );
+		StructDelete( arguments.builder, "injectMethod" );
 	}
 
 	public void function injectMethod( required string methodName, required any method ) {
-		this[ methodName ] = variables[ methodName ] = arguments.method;
+		this[ arguments.methodName ] = variables[ arguments.methodName ] = arguments.method;
 	}
 }

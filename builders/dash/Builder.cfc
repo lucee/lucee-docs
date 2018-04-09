@@ -2,15 +2,17 @@ component extends="builders.html.Builder" {
 
 // PUBLIC API
 	public void function build( docTree, buildDirectory ) {
-		var tree          = docTree.getTree();
 		var docsetRoot    = arguments.buildDirectory & "/lucee.docset/";
 		var contentRoot   = docsetRoot & "Contents/";
 		var resourcesRoot = contentRoot & "Resources/";
 		var docsRoot      = resourcesRoot & "Documents/";
-		var ignorePages   = [ "download" ];
-		request.filesWritten=[];
+		var ignorePages   = { "download": true };
 
-		request.logger (text="Builder dash directory: #docsetRoot# ");
+		var pagePaths = arguments.docTree.getPageCache().getPages();
+
+		request.filesWritten = 0;
+		request.filesToWrite = StructCount(pagePaths);
+		request.logger (text="Builder Dash directory: #arguments.buildDirectory#");
 
 		if ( !DirectoryExists( arguments.buildDirectory ) ) { DirectoryCreate( arguments.buildDirectory ); }
 		if ( !DirectoryExists( docsetRoot               ) ) { DirectoryCreate( docsetRoot               ); }
@@ -21,11 +23,13 @@ component extends="builders.html.Builder" {
 		try {
 			_setupSqlLite( resourcesRoot );
 			_setAutoCommit(false);
-			for( var page in tree ) {
-				if ( !ignorePages.find( page.getId() ) ) {
-					_writePage( page, docsRoot, docTree );
-					request.logger (text ="dash folder " & page.getPath() & " built");
-					_storePageInSqliteDb( page );
+			for ( var path in pagePaths ) {
+				if ( !ignorePages.keyExists( pagePaths[path].page.getId() ) ) {
+					_writePage( pagePaths[path].page, arguments.buildDirectory, docTree );
+					request.filesWritten++;
+					if ((request.filesWritten mod 100) eq 0)
+						request.logger("Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
+					_storePageInSqliteDb( pagePaths[path].page );
 				}
 			}
 			_setAutoCommit(true);
@@ -34,7 +38,7 @@ component extends="builders.html.Builder" {
 		} finally {
 			_closeDbConnection();
 		}
-		request.logger (text="Dash Builder #request.filesWritten.len()# files produced");
+		request.logger (text="Dash Builder #request.filesWritten# files produced");
 		_copyResources( docsetRoot );
 		_renameSqlLiteDb( resourcesRoot );
 		_setupFeedXml( arguments.buildDirectory & "/" );
@@ -46,7 +50,7 @@ component extends="builders.html.Builder" {
 			return '<a class="missing-link">#HtmlEditFormat( arguments.title )#</a>';
 		}
 
-		var link = page.getId() & ".html";
+		var link = arguments.page.getId() & ".html";
 
 		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
 	}
@@ -95,6 +99,12 @@ component extends="builders.html.Builder" {
 			case "tag":
 				data = { name="cf" & page.getSlug(), type="Tag" };
 			break;
+			case "_object":
+				data = { name=page.getTitle(), type="Object" };
+			break;
+			case "_method":
+				data = { name=page.getTitle(), type="Method" };
+			break;
 			case "category":
 				data = { name=Replace( page.getTitle(), "'", "''", "all" ), type="Category" };
 			break;
@@ -105,10 +115,11 @@ component extends="builders.html.Builder" {
 		data.path = page.getId() & ".html";
 
 		sqlite.executeSql( dbFile, "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('#data.name#', '#data.type#', '#data.path#')", false, dbConnection );
-
+		/*
 		for( var child in page.getChildren() ){
 			_storePageInSqliteDb( child );
 		}
+		*/
 	}
 
 	private void function _closeDbConnection() {

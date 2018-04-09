@@ -7,34 +7,57 @@ component accessors=true {
 	property name="relatedMap" type="struct"; // tracks related pages
 	property name="categoryMap" type="struct"; // tracks categories pages
 	property name="referenceMap" type="struct"; // tracks references
+	property name="pageCache" type="any"; // tracks references
 
 	public any function init( required string rootDirectory ) {
-		rootDir =  arguments.rootDirectory;
-		_loadTree( arguments.rootDirectory );
+		variables.rootDir =  arguments.rootDirectory;
+		variables.pageCache = new PageCache(rootDir);
+		var start = getTickCount();
+
+		request.logger (text="Starting Lucee Documentation Build");
+
+		_loadTree();
+
+		request.logger (text="Tree: #ArrayLen(variables.tree)#, idMap: #structCount(variables.idMap)#, pathMap: #structCount(variables.pathMap)#,");
+		request.logger (text="Documentation Compiled in #(getTickCount()-start)/1000#s");
 
 		return this;
 	}
 
+	private void function _initializeEmptyTree() {
+		setTree( [] );
+		setIdMap( {} );
+		setPathMap( {} );
+		setPageTypeMap( {} );
+		setRelatedMap( {} );
+		setCategoryMap( {} );
+		setReferenceMap( {} );
+	}
+
+	public void function updateTree() {
+		_updateTree();
+	}
+
 	public any function getPage( required string id ) {
-		return idMap[ arguments.id ] ?: NullValue();
+		return variables.idMap[ arguments.id ] ?: NullValue();
 	}
 
 	public any function getPageByPath( required string path ) {
-		return pathMap[ arguments.path ] ?: NullValue();
+		return variables.pathMap[ arguments.path ] ?: NullValue();
 	}
 
 	public boolean function pageExists( required string id ) {
-		return idMap.keyExists( arguments.id );
+		return variables.idMap.keyExists( arguments.id );
 	}
 
 	public array function getPagesByCategory( required string category ) {
 		var matchedPages = [];
 
-		for( var id in idMap ) {
-			var pageCategories = idMap[ id ].getCategories();
+		for( var id in variables.idMap ) {
+			var pageCategories = variables.idMap[ id ].getCategories();
 
 			if ( !IsNull( pageCategories ) && pageCategories.indexOf( arguments.category ) != -1 ) {
-				matchedPages.append( idMap[ id ] );
+				matchedPages.append( variables.idMap[ id ] );
 			}
 		}
 
@@ -43,20 +66,20 @@ component accessors=true {
 
 	public array function sortPagesByType( required array pages ) {
 		return arguments.pages.sort( function( pageA, pageB ) {
-			if ( pageA.getPageType() > pageB.getPageType() ) {
+			if ( arguments.pageA.getPageType() > arguments.pageB.getPageType() ) {
 				return 1;
 			}
-			if ( pageA.getPageType() < pageB.getPageType() ) {
+			if ( arguments.pageA.getPageType() < arguments.pageB.getPageType() ) {
 				return -1;
 			}
 
-			return pageA.getTitle() > pageB.getTitle() ? 1 : -1;
+			return arguments.pageA.getTitle() > arguments.pageB.getTitle() ? 1 : -1;
 		} );
 	}
 
 	public array function getPageRelated(required any page){
-		if (structKeyExists(relatedMap, arguments.page.getId()))
-			return relatedMap[arguments.page.getId()];
+		if (structKeyExists(variables.relatedMap, arguments.page.getId()))
+			return variables.relatedMap[arguments.page.getId()];
 		else
 			return [];
 	}
@@ -83,27 +106,31 @@ component accessors=true {
 
 			switch (reqType){
 				case "page.md":
-					// TODO check for directories with number prefix and match, i.e. /01.functions/
-					if (not directoryExists(dir))
-						DirectoryCreate(dir)
+					// check for directories with number prefix and match, i.e. /01.functions/
+					var newDir = variables.pageCache.createPageDirectory(
+						pagePath.listDeleteAt(ListLen(pagePath,"/"), "/")
+					);
+					arguments.pagePath = newDir & "/page.md";
+
 				case "_examples.md":
 					try {
-						FileWrite(rootDir & arguments.pagePath, "");
+						request.logger("Creating new file " & variables.rootDir & arguments.pagePath);
+						FileWrite(variables.rootDir & arguments.pagePath, "");
 					} catch (any){
 						header statuscode="401";
-						writeOutput("Can create file " & rootDir & arguments.pagePath);
+						writeOutput("Can't create file " & variables.rootDir & arguments.pagePath);
 						dump(cfcatch);
 						abort;
 					}
 					break;
 				default:
 					header statuscode="404";
-					writeOutput("File Not found " & _reqType);
+					writeOutput("File Not found " & reqType);
 					abort;
 			}
 		}
 
-		var page = new PageReader().readPageFileSource( rootDir & pagePath );
+		var page = new PageReader().readPageFileSource( rootDir & arguments.pagePath );
 		var body = page.BODY;
 		structdelete(page, "BODY");
 		return {
@@ -113,26 +140,113 @@ component accessors=true {
 		};
 	}
 
-	public any function updatePageSource(required string pagePath, required string content,
-			required struct properties){
-		return new PageReader().savePageFile( rootDir & pagePath, content, properties);
+	public any function updatePageSource(required string filePath, required string content,
+			required struct properties, required string pageUrl){
+
+		if ( not FileExists(variables.rootDir & arguments.filePath)){
+			var fileName = ListLast(arguments.filePath, "/");
+			var newDir = variables.pageCache.createPageDirectory(
+				arguments.filePath.listDeleteAt( ListLen(arguments.filePath,"/"), "/")
+			);
+			arguments.filePath = newDir & "/" & filename;
+		}
+		request.logger("updatePageSource: " & arguments.filePath);
+		var result = new PageReader().savePageFile( rootDir & arguments.filePath, arguments.content, arguments.properties);
+
+		var pagePath = arguments.pageUrl;
+		if (pagePath.endsWith(".html"))
+			pagePath = mid(pagePath,1, len(pagePath) - len(".html") ) ;
+		variables.pageCache.removePages(pagePath, "updated");
+		_updateTree();
+		return result;
 	}
 
 // private helpers
-	private void function _loadTree( required string rootDirectory ) {
-		var start = getTickCount();
-		request.logger (text="Starting Lucee Documentation Build");
-
+	private void function _loadTree() {
     	_initializeEmptyTree();
 
-		var pageFiles = _readPageFilesFromDocsDirectory( arguments.rootDirectory );
-		for( var pageFile in pageFiles ) {
-			var page = _preparePageObject( pageFile, arguments.rootDirectory );
-			_addPageToTree( page );
+		variables.pageCache.reset();
+		var q_source_files = variables.pageCache.getPageFileList(lastModified=false);
+
+		var start = getTickCount();
+		loop query=q_source_files {
+			variables.pageCache.addPage(
+				new PageReader().preparePageObject( variables.rootDir, q_source_files.name, q_source_files.directory, q_source_files.path ),
+				q_source_files.path
+			);
+		}
+		request.logger (text="Pages Parsed in #(getTickCount()-start)/1000#s");
+
+		_buildTreeHierachy(false);
+		_parseTree();
+	}
+
+	private void function _updateTree() {
+		_initializeEmptyTree();
+		var pathCache = variables.pageCache.getPathCache();
+		var q_source_files = variables.pageCache.getPageFileList(lastModified=true);
+		var added = 0;
+		var exists = {};
+		var deleted = [];
+
+		loop query=q_source_files {
+			var addFile = false;
+			if (not structKeyExists(pathCache, q_source_files.path)){
+				addFile = true;
+			} else if (dateCompare(q_source_files.dateLastModified, pathCache[q_source_files.path]) eq 1) {
+				// do a timestamp comparison against the cache here
+				request.logger (text="source updated #q_source_files.path#");
+				addFile = true;
+			}
+
+			if (addFile and false){
+				request.logger (text="Update pageCache, adding #q_source_files.path#");
+				variables.pageCache.addPage(
+					new PageReader().preparePageObject( variables.rootDir, q_source_files.name, q_source_files.directory, q_source_files.path ),
+					q_source_files.path
+				);
+				added++;
+			}
+			exists[q_source_files.path] = true;
+		}
+		for( var c in pathCache ) {
+			if (not exists.keyExists(c))
+				deleted.append(c);
 		}
 
+		if (deleted.len() gt 0){
+			// pages in cache which have been deleted
+			pageCache.removePages( deleted, "deleted" );
+		}
+
+		if (added gt 0 or deleted.len() gt 0)
+			pageCache.reSort();
+		_buildTreeHierachy(true);
+		_parseTree();
+	}
+
+	private void function _buildTreeHierachy(boolean reset="false") {
+    	//var start = getTickCount();
+		var pages = variables.pageCache.getPages();
+		for (var pagePath in pages ){
+			var page = pages[pagePath].page;
+			if (arguments.reset)
+				page.reset(); // clear previous structure data
+			try {
+				_addPageToTree(page);
+			} catch (any e){
+				dump(page);
+				dump(e);
+				echo(e);
+				abort;
+			}
+		}
+		//request.logger (text="Tree processed in #(getTickCount()-start)/1000#s");
+	}
+
+	private void function _parseTree( ) {
 		// expose guides as a top level folder
-		for (var folder in tree){
+		for (var folder in variables.tree){
 			if (folder.getId() eq "guides"){
 				var guideTree = folder.getChildren();
 				for (var guide in guideTree){
@@ -141,27 +255,14 @@ component accessors=true {
 					} else {
 						guide.setSortOrder(6 + NumberFormat(guide.getSortOrder()/100,"0.00"));
 					}
-					tree.append(guide);
+					variables.tree.append(guide);
 				}
 			}
 		}
-		_sortChildren( tree );
-		_calculateNextAndPreviousPageLinks( tree );
+		_sortChildren( variables.tree );
+		_calculateNextAndPreviousPageLinks( variables.tree );
 		_buildRelated();
 		_checkCategories();
-
-		request.logger (text="Tree: #ArrayLen(tree)#, idMap: #structCount(idMap)#, pathMap: #structCount(pathMap)#,");
-		request.logger (text="Documentation Compiled in #(getTickCount()-start)/1000#s");
-	}
-
-	private void function _initializeEmptyTree() {
-		setTree( [] );
-		setIdMap( {} );
-		setPathMap( {} );
-		setPageTypeMap( {} );
-		setRelatedMap( {} );
-		setCategoryMap( {} );
-		setReferenceMap( {} );
 	}
 
 	private void function _addPageToTree( required any page ) {
@@ -180,132 +281,25 @@ component accessors=true {
 			if (ancestors.len() eq 0 or pageType eq "_method") // avoid duplicates, hack for methods
 				ancestors.append( parent.getId() );
 		} else {
-			tree.append( arguments.page );
+			variables.tree.append( arguments.page );
 		}
 
 		if (not isPage)
-			return; // only add main pages
+			throw "not a page"; // only add main pages
 
-		if ( not StructKeyExists(pageTypeMap, pageType) )
-			pageTypeMap[pageType]=0;
-		pageTypeMap[pageType]++;
+		if ( not StructKeyExists(variables.pageTypeMap, pageType) )
+			variables.pageTypeMap[pageType] = 0;
+		variables.pageTypeMap[pageType]++;
 
 		arguments.page.setAncestors( ancestors );
 		lineage = Duplicate( ancestors );
 		lineage.append( arguments.page.getId() );
 		arguments.page.setLineage( lineage );
-		idMap[ arguments.page.getId() ]     = arguments.page;
-		pathMap[ arguments.page.getPath() ] = arguments.page;
+		variables.idMap[ arguments.page.getId() ]     = arguments.page;
+		variables.pathMap[ arguments.page.getPath() ] = arguments.page;
 	}
 
-	private array function _readPageFilesFromDocsDirectory( required string rootDirectory ) {
-		var pageFiles = DirectoryList( arguments.rootDirectory, true, "path", "*.md" );
-
-		pageFiles = _removeRootDirectoryFromFilePaths( pageFiles, arguments.rootDirectory );
-		pageFiles = _removeHiddenPages( pageFiles );
-		pageFiles = _sortPageFilesByDepth( pageFiles );
-
-		return pageFiles;
-	}
-
-	private array function _removeRootDirectoryFromFilePaths( required any pageFiles, required string rootDirectory ) {
-		var args = arguments;
-
-		return args.pageFiles.map( function( path ){
-			return path.replace( args.rootDirectory, "" );
-		} );
-	}
-
-	private array function _removeHiddenPages( required any pageFiles ) {
-		for( var i = pageFiles.len(); i > 0; i-- ){
-			if ( ReFindNoCase( "/_", pageFiles[ i ] ) ) {
-				pageFiles.deleteAt( i );
-			}
-		}
-
-		return pageFiles;
-	}
-
-	private array function _sortPageFilesByDepth( required array pageFiles ) {
-		arguments.pageFiles.sort( function( page1, page2 ){
-			var depth1 = page1.listLen( "\/" );
-			var depth2 = page2.listLen( "\/" );
-
-			if ( depth1 == depth2 ) {
-				return page1 > page2 ? 1 : -1;
-			}
-
-			return depth1 > depth2 ? 1 : -1;
-		} );
-
-		return arguments.pageFiles;
-	}
-
-	private any function _preparePageObject( required string pageFilePath, required string rootDirectory ) {
-		var page = "";
-		var pageData = new PageReader().readPageFile( arguments.rootDirectory & arguments.pageFilePath );
-
-		try {
-			//request.logger (text="[#pageData.pageType#]#arguments.pageFilePath#");
-			switch( pageData.pageType ?: "" ) {
-				case "function":
-					pageData.append( _getFunctionSpecification( pageData.slug, arguments.rootDirectory & arguments.pageFilePath ), false );
-					page = new FunctionPage( argumentCollection=pageData );
-				break;
-				case "tag":
-					pageData.append( _getTagSpecification( pageData.slug, arguments.rootDirectory & arguments.pageFilePath ), false );
-					page = new TagPage( argumentCollection=pageData );
-				break;
-				case "_object":
-					pageData.append( _getObjectSpecification( pageData.slug, arguments.rootDirectory & arguments.pageFilePath ), false );
-					page = new ObjectPage( argumentCollection=pageData );
-				break;
-				case "_method":
-					pageData.append( _getMethodSpecification( pageData.methodObject, pageData.methodName,
-						arguments.rootDirectory & arguments.pageFilePath ), false );
-					page = new MethodPage( argumentCollection=pageData );
-				break;
-				default:
-					page = new Page( argumentCollection=pageData );
-			}
-		} catch (any e) {
-			writeOutput("Error preparing page: " & arguments.pageFilePath);
-			dump( pageData );
-			echo( e );
-			abort;
-		}
-
-		for( var key in pageData ) {
-			if ( !IsNull( pageData[ key ] ) ) {
-				page[ key ] = pageData[ key ];
-			}
-		}
-
-		page.setPath( _getPagePathFromMdFilePath( arguments.pageFilePath ) );
-		if ( !page.getId().len() ) {
-			page.setId( page.getPath() );
-		}
-
-		page.setChildren( [] );
-		page.setDepth( ListLen( page.getPath(), "/" ) );
-
-		return page;
-	}
-
-	private string function _getPagePathFromMdFilePath( required string filePath ) {
-		var fileDir = GetDirectoryFromPath(  arguments.filePath );
-		var parts   = fileDir.listToArray( "\/" );
-
-		for( var i=1; i <= parts.len(); i++ ) {
-			if ( parts[ i ].listLen( "." ) > 1 ) {
-				parts[ i ] = parts[ i ].listRest( "." );
-			}
-		}
-
-		return "/" & parts.toList( "/" );
-	}
-
-	private string function _getParentPagePathFromPagePath( required string pagePath ) {
+		private string function _getParentPagePathFromPagePath( required string pagePath ) {
 		var parts = arguments.pagePath.listToArray( "/" );
 		parts.deleteAt( parts.len() );
 
@@ -319,15 +313,15 @@ component accessors=true {
 	}
 
 	private void function _sortChildren( required array children ){
-		children.sort( function( childA, childB ) {
-			if ( childA.getSortOrder() == childB.getSortOrder() ) {
-				return childA.getTitle() > childB.getTitle() ? 1 : -1;
+		arguments.children.sort( function( childA, childB ) {
+			if ( arguments.childA.getSortOrder() == arguments.childB.getSortOrder() ) {
+				return arguments.childA.getTitle() > arguments.childB.getTitle() ? 1 : -1;
 			}
-			return childA.getSortOrder() > childB.getSortOrder() ? 1 : -1;
+			return arguments.childA.getSortOrder() > arguments.childB.getSortOrder() ? 1 : -1;
 		} );
 
 
-		for( var child in children ) {
+		for( var child in arguments.children ) {
 			_sortChildren( child.getChildren() );
 		}
 	}
@@ -361,110 +355,12 @@ component accessors=true {
 		}
 	}
 
-	private struct function _getTagSpecification( required string tagName, required string pageFilePath ) {
-		var tag           = _getTagReferenceReader().getTag( arguments.tagName );
-		var attributes    = tag.attributes ?: [];
-		var attributesDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributes/";
-
-		for( var attrib in attributes ) {
-			var attribDescriptionFile = attributesDir & attrib.name & ".md";
-			if ( FileExists( attribDescriptionFile ) ) {
-				attrib.description = FileRead( attribDescriptionFile );
-			}
-		}
-
-		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
-		if ( FileExists( examplesFile ) ) {
-			tag.examples = FileRead( examplesFile );
-		}
-
-		return tag;
-	}
-
-	private struct function _getFunctionSpecification( required string functionName, required string pageFilePath ) {
-		var func    = _getFunctionReferenceReader().getFunction( arguments.functionName );
-		var args    = func.arguments ?: [];
-		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
-
-		for( var arg in args ) {
-			var argDescriptionFile = argsDir & arg.name & ".md";
-			if ( FileExists( argDescriptionFile ) ) {
-				arg.description = FileRead( argDescriptionFile );
-			}
-		}
-
-		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
-		if ( FileExists( examplesFile ) ) {
-			func.examples = FileRead( examplesFile );
-		}
-
-		return func;
-	}
-
-	private struct function _getObjectSpecification( required string objectName, required string pageFilePath ) {
-		var obj    = _getObjectReferenceReader().getObject( arguments.objectName );
-		var args    = obj.arguments ?: [];
-		return obj;
-		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
-
-		for( var arg in args ) {
-			var argDescriptionFile = argsDir & arg.name & ".md";
-			if ( FileExists( argDescriptionFile ) ) {
-				arg.description = FileRead( argDescriptionFile );
-			}
-		}
-
-		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
-		if ( FileExists( examplesFile ) ) {
-			obj.examples = FileRead( examplesFile );
-		}
-
-		return obj;
-	}
-
-	private struct function _getMethodSpecification(required string methodObject, required string methodName, required string pageFilePath ) {
-		var meth    = _getMethodReferenceReader().getMethod( arguments.methodObject, arguments.methodName );
-		var args    = meth.arguments ?: [];
-		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
-
-		for( var arg in args ) {
-			var argDescriptionFile = argsDir & arg.name & ".md";
-			if ( FileExists( argDescriptionFile ) ) {
-				arg.description = FileRead( argDescriptionFile );
-			}
-		}
-		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
-		if ( FileExists( examplesFile ) ) {
-			meth.examples = FileRead( examplesFile );
-		}
-
-		return meth;
-	}
-
-	private any function _getFunctionReferenceReader() {
-		return new api.reference.ReferenceReaderFactory().getFunctionReferenceReader();
-	}
-
-	private any function _getObjectReferenceReader() {
-		return new api.reference.ReferenceReaderFactory().getObjectReferenceReader();
-	}
-
-	private any function _getMethodReferenceReader() {
-		return new api.reference.ReferenceReaderFactory().getMethodReferenceReader();
-	}
-
-	private any function _getTagReferenceReader() {
-		//var buildProperties = new api.build.BuildProperties();
-
-		return new api.reference.ReferenceReaderFactory().getTagReferenceReader();
-	}
-
 	private void function _buildRelated(){
 		var related = {};
 
-		for ( var id in idMap ) {
-			var relatedPageLinks = idMap[ id ].getRelated();
-			var pageId = idMap[ id ].getId();
+		for ( var id in variables.idMap ) {
+			var relatedPageLinks = variables.idMap[ id ].getRelated();
+			var pageId = variables.idMap[ id ].getId();
 
 			if ( !IsNull( relatedPageLinks ) and ArrayLen(relatedPageLinks) gt 0) {
 				for( var link in relatedPageLinks ) {
@@ -479,11 +375,11 @@ component accessors=true {
 				}
 			}
 		}
-		relatedMap = {};
+		variables.relatedMap = {};
 		for (var id in related){
-			var links = ListToArray(structKeyList(related[id]));
+			var links = ListToArray( structKeyList(related[id]) );
 			ArraySort(links,"textnocase");
-			relatedMap[id] = links;
+			variables.relatedMap[id] = links;
 		}
 	}
 
@@ -493,25 +389,25 @@ component accessors=true {
 		var categories = {};
 		var empty = {};
 
-		for( var id in idMap ) {
-			var cats = idMap[ id ].getCategories();
+		for( var id in variables.idMap ) {
+			var cats = variables.idMap[ id ].getCategories();
 			if (!IsNull( cats) ){
 				for (var cat in cats){
 					if (not structKeyExists(pageCategories, cat))
 						pageCategories[cat]=[];
-					arrayAppend(pageCategories[cat], idMap[ id ].getPath());
+					arrayAppend(pageCategories[cat], variables.idMap[ id ].getPath());
 				}
 			}
 		}
 
-		for( var id in idMap ) {
-			var pageType = idMap[ id ].getPageType();
+		for( var id in variables.idMap ) {
+			var pageType = variables.idMap[ id ].getPageType();
 			if (pageType eq "category"){
-				var slug = idMap[ id ].getSlug();
+				var slug = variables.idMap[ id ].getSlug();
 				if (not structKeyExists(pageCategories, slug )){
 					empty[slug]=idMap[ id ].getPath();
 				}
-				categories[slug] = idMap[ id ].getPath();
+				variables.categories[slug] = variables.idMap[ id ].getPath();
 			}
 		}
 		/*
@@ -538,7 +434,7 @@ component accessors=true {
 			abort;
 		}
 		*/
-		categoryMap = categories;
+		variables.categoryMap = categories;
 	}
 
 	private void function _buildReferenceMap(){
