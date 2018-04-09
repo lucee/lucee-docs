@@ -10,6 +10,7 @@
 	//if (baseHref eq "")
 	//	baseHref = "/";
 	local.pageHref = "http://docs.lucee.org#args.page.getPath()#.html";
+	local.pagePath = "#args.page.getPath()#.html";
 	local.pageTitle = HtmlEditFormat( args.page.getTitle() ) & " :: Lucee Documentation";
 	local.pageDescription = getMetaDescription( args.page, args.body );
 </cfscript>
@@ -119,7 +120,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#local.baseHref#?reload=true" title="Reload Sources">
+						<a href="#local.pagePath#?reload=true" title="Reload Sources">
 							<span class="access-hide">Reload Sources</span>
 							<span class="icon icon-refresh icon-lg"></span>
 						</a>
