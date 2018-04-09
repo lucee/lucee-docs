@@ -22,7 +22,7 @@ component accessors=true {
 		try {
 			return getFunctionData(BIFName);
 		} catch (e) {
-			request.logger (text="couldn't find member #BIFName# [#arguments.objectName# #arguments.methodname#]");
+			request.logger(text="couldn't find member #BIFName# [#arguments.objectName# #arguments.methodname#]");
 			return {};
 		}
 	}
@@ -38,7 +38,7 @@ component accessors=true {
 		if ( methods.keyExists( object ) && methods[ object ].keyExists( arguments.method ) ){
 			return  methods[object][arguments.method];
 		} else {
-			throw (message="missing method: #object# #arguments.method#");
+			request.logger(text="missing method: #object# #arguments.method#");
 			return "";
 		}
 

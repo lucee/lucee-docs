@@ -20,7 +20,7 @@ component {
 			timeMs: getTickCount() - request.loggerStart
 		});
 		cflog (text=arguments.text, type=arguments.type);
-        echo (text=arguments.text); // waves to travis ci
+        echo (arguments.text); // waves to travis ci
         if (request.loggerFlushEnabled){
             request.loggerComponent._renderLog( request.logs[request.logs.len()] );
             flush;

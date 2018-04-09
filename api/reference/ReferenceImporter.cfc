@@ -5,7 +5,6 @@ component {
 	public any function init(){
 		variables.buildProperties = new api.build.BuildProperties();
 		variables.cwd = GetDirectoryFromPath( GetCurrentTemplatePath() );
-
 		return this;
 	}
 
@@ -241,12 +240,11 @@ related:
 - function-#arguments.method.name#
 - object-#arguments.method.member.type#
 categories:
-- #arguments.method.member.type#
-";
+- #arguments.method.member.type#";
 		if (arguments.method.keyExists("keywords")){
 			for( var keyword in arguments.method.keywords ){
 				if (arguments.method.member.type neq keyword)
-				pageContent &= Chr(10) & "- " & keyword;
+					pageContent &= Chr(10) & "- " & keyword;
 			}
 		}
 
