@@ -3,11 +3,13 @@ component {
 	public string function renderHighlights( required string text ) {
 		var rendered  = arguments.text;
 		var highlight = "";
+		var pos = 1;
 
 		do {
-			highlight = _getNextHighlight( rendered );
+			highlight = _getNextHighlight( rendered, pos );
 			if ( !IsNull( highlight ) ) {
 				rendered  = Replace( rendered, highlight.rawMatch, renderHighlight( highlight.code, highlight.language ), "all" );
+				pos = highlight.pos;
 			}
 		} while( !IsNull( highlight ) );
 
@@ -40,32 +42,33 @@ component {
 // PRIVATE HELPERS
 	private any function _getNextHighlight( required string text, required string startPos=1 ) {
 		var referenceRegex  = "```([a-z\+]+)?\n(.*?)\n```";
-		var regexFindResult = ReFind( referenceRegex, arguments.text, arguments.startPos, true );
-		var found           = regexFindResult.len[1] > 0;
+		var match = ReFind( referenceRegex, arguments.text, arguments.startPos, true );
+		var found           = match.len[1] > 0;
 		var result          = {};
 
 		if ( !found ) {
 			return;
 		}
 
-		var precedingContent = regexFindResult.pos[1] == 1 ? "" : Trim( Left( arguments.text, regexFindResult.pos[1]-1 ) );
+		var precedingContent = match.pos[1] == 1 ? "" : Trim( Left( arguments.text, match.pos[1]-1 ) );
 		var matchIsWithinCodeBlock = precedingContent.endsWith( "<pre>" ) || precedingContent.endsWith( "<code>" );
 
 		if ( matchIsWithinCodeBlock ) {
-			return _getNextHighlight( arguments.text, regexFindResult.pos[1]+regexFindResult.len[1] );
+			return _getNextHighlight( arguments.text, match.pos[1]+match.len[1] );
 		}
 
 		result = {
-			  rawMatch = Mid( arguments.text, regexFindResult.pos[1], regexFindResult.len[1] )
-			, code     = Mid( arguments.text, regexFindResult.pos[3], regexFindResult.len[3] )
+			  rawMatch = Mid( arguments.text, match.pos[1], match.len[1] )
+			, code     = Mid( arguments.text, match.pos[3], match.len[3] )
+			, pos = match.len[3]
 		};
 
-		if ( regexFindResult.pos[2] ) {
-			result.language = Mid( arguments.text, regexFindResult.pos[2], regexFindResult.len[2] );
+		if ( match.pos[2] ) {
+			result.language = Mid( arguments.text, match.pos[2], match.len[2] );
 		} else {
 			result.language = "text";
 		}
-
+		//dump (local);		abort;
 		return result;
 	}
 
