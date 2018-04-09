@@ -1,9 +1,16 @@
 ---
 title: Query Handling In Lucee
 id: query-handling-lucee
+related:
+- tag-query
+- tag-queryparam
+- function-queryexecute
+categories:
+- query
+description: How to do SQL Queries with Lucee
 ---
 
-Here we can find how the lucee supports for SQL queries. 
+How to do SQL Queries with Lucee
 
 ## Query tags ##
 
@@ -235,22 +242,3 @@ dump(res);
 Here you can see above details in video
 
 [Lucee query handling ](https://www.youtube.com/watch?time_continue=684&v=IMdPM58guUQ)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

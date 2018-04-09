@@ -1,9 +1,8 @@
 ---
 title: AjaxOnLoad
 id: function-ajaxonload
-related:
 categories:
-    - ajax
+- ajax
 ---
 
 Causes the specified JavaScript function to run when the page loads.

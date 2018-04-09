@@ -1,8 +1,15 @@
 ---
 title: Lucee Sql Types
 id: sql-types
+related:
+- tag-queryparam
+- function-queryexecute
+categories:
+- query
+description: SQL types supported by lucee.
 ---
- Here we will find the SQL types were supported by lucee.
+
+Here are the SQL types supported by lucee.
 
 * CF_SQL_ARRAY
 * CF_SQL_BIGINT
@@ -36,7 +43,3 @@ id: sql-types
 * CF_SQL_REFCURSOR
 * CF_SQL_OTHER
 * CF_SQL_NULL
-
-
-
-
