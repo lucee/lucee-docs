@@ -41,10 +41,11 @@ When running locally there are the following urls available
 * [Import any new tags or functions](http://127.0.0.1:4040/build_docs/import/)
 * [View static html docs](http://127.0.0.1:4040/static/) (you need to have built the html documentation first)
 
-
 ## Contributing
 
 There is a lot of work to do and we appreciate contribution in all forms. The issues list can be found and expanded upon here: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD) 
+
+Ask questions or post suggestions over on the [Lucee mailing List](https://dev.lucee.org/c/documentation) under the documentation category.
 
 More information on how the documentation is built and formatted can be found at [http://docs.lucee.org/docs.html](http://docs.lucee.org/docs.html).
 
