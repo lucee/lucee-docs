@@ -20,31 +20,31 @@ component accessors=true {
 // PRIVATE HELPERS
 	private any function _getNextLink( required string text, required string startPos=1 ) {
 		var referenceRegex  = "\[\[([^\[\]]*[^\[\]]?)\]\]";
-		var regexFindResult = ReFind( referenceRegex, arguments.text, arguments.startPos, true );
-		var found           = regexFindResult.len[1] > 0;
+		var match = ReFind( referenceRegex, arguments.text, arguments.startPos, true );
+		var found			= match.len[1] > 0;
 
 		if ( !found ) {
 			return;
 		}
 
-		var precedingContent = regexFindResult.pos[1] == 1 ? "" : Trim( Left( arguments.text, regexFindResult.pos[1]-1 ) );
+		var precedingContent = match.pos[1] == 1 ? "" : Trim( Left( arguments.text, match.pos[1]-1 ) );
 		var matchIsWithinCodeBlock = precedingContent.endsWith( "<pre>" ) || precedingContent.endsWith( "<code>" );
 
 		if ( matchIsWithinCodeBlock ) {
-			return _getNextLink( arguments.text, regexFindResult.pos[1]+regexFindResult.len[1] );
+			return _getNextLink( arguments.text, match.pos[1]+match.len[1] );
 		}
 
-		var rawMatch  = Mid( arguments.text, regexFindResult.pos[1], regexFindResult.len[1] );
-		var reference = Mid( arguments.text, regexFindResult.pos[2], regexFindResult.len[2] );
-		var pageId    = ListFirst( reference, "|" );
+		var rawMatch  = Mid( arguments.text, match.pos[1], match.len[1] );
+		var reference = ListToArray(Mid( arguments.text, match.pos[2], match.len[2] ), "|");
+		var pageId    = reference[1];
 		var page      = getDocTree().getPage( pageId );
-		var title     = ListLen( reference, "|" ) > 1 ? ListRest( reference, "|" ) : ( IsNull( page ) ? pageId : page.getTitle() );
+		var title     = reference.len() > 1 ? reference.last() : ( IsNull( page ) ? pageId : page.getTitle() );
 
 		return {
 			  rawMatch = rawMatch
 			, page     = page  ?: NullValue()
 			, title    = title ?: pageId
-			, nextStartPos: regexFindResult.pos[2] // not exact but saves reparsing the whole text again
+			, nextStartPos: match.pos[2] // not exact but saves reparsing the whole text again
 		};
 	}
 }

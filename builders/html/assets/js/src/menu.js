@@ -23,7 +23,7 @@
 			mReset();
 		}
 	});
-	
+
 	var mReset = function () {
 		var $bd = $('body');
 
@@ -50,7 +50,7 @@
 		e.stopPropagation();
 
 		var $this = $(this),
-		    $thisLi = $this.parent(),
+			$thisLi = $this.parent(),
 		    $thisMenu = $(getTargetFromTrigger($this));
 
 		if ($thisLi.hasClass('active')) {
@@ -67,8 +67,14 @@
 			$thisLi.addClass('active');
 			$thisMenu.addClass('open');
 
-			if ($('.menu-search-focus', $thisMenu).length) {
-				$('.menu-search-focus', $thisMenu).focus();
+			var lastSearch = null;
+			if (localStorage)
+				lastSearch = localStorage.getItem('lastSearch');
+			var menu = $('.menu-search-focus', $thisMenu);
+			if ( menu.length) {
+				menu.focus();
+				if (lastSearch)
+					menu.val(lastSearch).trigger("input");
 			}
 		}
 	});

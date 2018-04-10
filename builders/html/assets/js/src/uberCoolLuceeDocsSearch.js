@@ -46,6 +46,9 @@
 	};
 
 	search = function( input ){
+		if (localStorage)
+			localStorage.setItem('lastSearch', input);
+
 		var reg     = generateRegexForInput( input )
 		  , fulltextitem, matches;
 
