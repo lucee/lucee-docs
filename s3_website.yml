@@ -6,6 +6,16 @@ gzip:
    - .html
    - .css
    - .js
+   - .map
+   - .json
+   - .xml
+   - .eot
+   - .svg
+   - .ttf
+   - .woff
+   - .woff2
+   - .otf
+
 concurrency_level: 100
 # redirects:
 #   index.html: /
