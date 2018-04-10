@@ -165,40 +165,12 @@ component {
 			DirectoryCreate( fileDirectory );
 		}
 		var pageContent = cleanHtml(renderPage( arguments.page, arguments.docTree, false ));
-		// regex strips left over whitespace multiple new lines
-
 		FileWrite( filePath, pageContent );
-		/*
-
-		if (request.filesWritten.len() gt 2000){
-			writeOutput("stopped at #request.filesWritten.len()# files");
-			dump(checkFilesWritten(request.filesWritten));
-			abort;
-		}
-		*/
-		/*
-		//request.logger(text="Finished page #arguments.page.getPath()# in #NumberFormat( getTickCount()-startTime)#ms");
-		for( var childPage in arguments.page.getChildren() ) {
-			//("childPage " & childPage.getPath() & "<br>");
-			_writePage( childPage, arguments.buildDirectory, arguments.docTree );
-		}
-		*/
 	}
 
-	/*
-	private query function checkFilesWritten (files){
-		var q = QueryNew("path", "varchar");
-		for (var file in files){
-			QueryAddRow(q);
-			querySetCell(q, "path", file);
-		}
-		q  = queryExecute("select path, count(*) files from q group by path order by path desc", {}, {dbtype="query"});
-		//QuerySort(q, "path", "desc");
-		return q;
-	}
-	*/
-
+	// regex strips left over whitespace multiple new lines
 	private function cleanHtml( required string content){
+
 		return ReReplace(arguments.content, "[\r\n]\s*([\r\n]|\Z)", Chr(10), "ALL")
 	}
 
