@@ -25,7 +25,7 @@ component extends="builders.html.Builder" {
 			_setAutoCommit(false);
 			for ( var path in pagePaths ) {
 				if ( !ignorePages.keyExists( pagePaths[path].page.getId() ) ) {
-					_writePage( pagePaths[path].page, arguments.buildDirectory, docTree );
+					_writePage( pagePaths[path].page, arguments.buildDirectory & "/", docTree );
 					request.filesWritten++;
 					if ((request.filesWritten mod 100) eq 0)
 						request.logger("Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");

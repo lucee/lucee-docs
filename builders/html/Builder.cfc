@@ -229,7 +229,7 @@ component {
 		var _404Page = _renderStaticPage( staticPagesDir & "/404.html", "404 - Page not found", arguments.docTree, arguments.baseHref, true );
 		FileWrite( buildDirectory & "/404.html", cleanHtml( _404Page ) );
 
-		var _searchPage = _renderStaticPage( staticPagesDir & "/search.html", "Search Documentation", arguments.docTree, arguments.baseHref, true );
+		var _searchPage = _renderStaticPage( staticPagesDir & "/search.html", "Search Lucee Documentation", arguments.docTree, arguments.baseHref, true );
 		FileWrite( buildDirectory & "/search.html", cleanHtml( _searchPage ) );
 		FileWrite( buildDirectory & "/sitemap.xml", _renderSiteMap(docTree) );
 		// google analytics for @zackster
