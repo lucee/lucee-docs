@@ -108,7 +108,7 @@
                     provider.maxHeight = settings.maxHeight;
                     embedCode(container, resourceURL, provider);
                 } else {
-                    settings.onProviderNotFound.call(container, resourceURL);
+                    settings.onProviderNotFound.call(this, container, resourceURL);
                 }
             }
             return container;
