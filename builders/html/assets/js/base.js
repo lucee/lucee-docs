@@ -14899,7 +14899,10 @@ $(function(){
 			var $fileNotFound = $(".file-not-found-suggestions");
 			if ($fileNotFound.length)
 				renderFileNotFoundSuggestions($fileNotFound);
+
+			triggerSearchPage();
 		} );
+
 	};
 
 	setupSearchEngine = function( callback ){
@@ -14916,10 +14919,12 @@ $(function(){
 			, success : dataReceived
 		} );
 	};
-
+	var q = "";
 	search = function( input ){
 		if (localStorage)
 			localStorage.setItem('lastSearch', input);
+
+		q = input;
 
 		var reg     = generateRegexForInput( input )
 		  , fulltextitem, matches;
@@ -14982,11 +14987,12 @@ $(function(){
 		return reg;
 	};
 
-	renderSuggestion = function( item ) {
+	var renderSuggestion = function( item ) {
 		return Mustache.render( '<div><i class="fa fa-fw fa-{{icon}}"></i> {{{highlight}}}</div>', item );
 	};
 
 	itemSelectedHandler = function( item ) {
+		addSearchResultHistory();
 		if (window.location.pathname.indexOf("/static/") === 0)
 				window.location = "/static" + item.value; // handle local /static/ mode
 		else
@@ -15000,11 +15006,31 @@ $(function(){
 
 	setupTypeahead();
 
+	var addSearchResultHistory = function (){
+		var searchUrl = '/search.html?q=';
+		var bookmark = false;
+
+		if (document.location.pathname.indexOf("/search.html") === 0){
+			bookmark = true;
+		} else if (document.location.pathname.indexOf("/static/search.html") === 0){
+			searchUrl = '/static/search.html?q=';
+			bookmark = true;
+		}
+		searchUrl += encodeURIComponent(q);
+
+		if (bookmark && window.history.pushState)
+				window.history.pushState({q: q}, 'Search: ' + q , searchUrl);
+		try {
+			ga ('send', 'pageview', searchUrl);
+		} catch (e){
+			// ignore
+		}
+	}
+
 	// on the 404 page, try and make some suggestions based on filename
-	renderFileNotFoundSuggestions = function($fileNotFound){
+	var renderFileNotFoundSuggestions = function($fileNotFound){
 		var q = document.location.pathname.split(".")[0].split("/");
 		var suggestions = 	search(q[q.length-1].split("-").join(" "));
-
 		if (suggestions.length > 1)
 			$fileNotFound.append($("<p/>").text("Perhaps one of these pages is what your looking for?"));
 		for (var s = 0; s < suggestions.length; s++){
@@ -15014,6 +15040,37 @@ $(function(){
 				href = item.value.substr(1);
 			var link = $("<a/>").text(item.display).attr("href", href);
 			$fileNotFound.append($("<div/>").append(link));
+		}
+	};
+
+	// we have a search.html page for tracking searches
+	var triggerSearchPage = function(){
+		var fullPageSearch = $(".search-fullpage");
+		if (fullPageSearch.length === 1){
+			var str =  document.location.search;
+			var pos = str.indexOf("q=");
+			if ( pos !== -1 ){
+				// we have a searcj query string!
+				str = decodeURIComponent(str.substr(pos+2));
+				pos = str.indexOf("&");
+				if ( pos !== -1 ){
+					// with trailing url params, ignore them
+					str = str.substr(0, pos-1);
+				}
+			}
+			// reposition search as a full page search
+			var searchMenu = $("#search").find(".menu-content-inner").detach();
+			var searchInput = searchMenu.find(".menu-search-focus");
+			var ttMenu = searchMenu.find(".tt-menu");
+			ttMenu.attr("style",""); // remove all the positioning for the side menu
+
+			if (str.length > 0)
+				searchInput.val(str);
+
+			fullPageSearch.append(searchMenu);
+
+			searchInput.trigger("input");
+			$(".menu-toggle").hide(); // hide the toolbar search menu
 		}
 	};
 

@@ -227,8 +227,10 @@ component {
 	private void function _renderStaticPages( required string buildDirectory, required any docTree, required string baseHref ) {
 		var staticPagesDir = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/staticPages";
 		var _404Page = _renderStaticPage( staticPagesDir & "/404.html", "404 - Page not found", arguments.docTree, arguments.baseHref, true );
+		FileWrite( buildDirectory & "/404.html", cleanHtml( _404Page ) );
 
-		FileWrite( buildDirectory & "/404.html", cleanHtml(_404Page) );
+		var _searchPage = _renderStaticPage( staticPagesDir & "/search.html", "Search Documentation", arguments.docTree, arguments.baseHref, true );
+		FileWrite( buildDirectory & "/search.html", cleanHtml( _searchPage ) );
 		FileWrite( buildDirectory & "/sitemap.xml", _renderSiteMap(docTree) );
 		// google analytics for @zackster
 		FileWrite( buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");
