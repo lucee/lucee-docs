@@ -13597,7 +13597,7 @@ $('.textarea-autosize').textareaAutoSize();
                     provider.maxHeight = settings.maxHeight;
                     embedCode(container, resourceURL, provider);
                 } else {
-                    settings.onProviderNotFound.call(container, resourceURL);
+                    settings.onProviderNotFound.call(this, container, resourceURL);
                 }
             }
             return container;
@@ -14519,7 +14519,7 @@ String.prototype.md5=function(){var a=function(a,b){var c=(a&65535)+(b&65535);va
 			mReset();
 		}
 	});
-	
+
 	var mReset = function () {
 		var $bd = $('body');
 
@@ -14546,7 +14546,7 @@ String.prototype.md5=function(){var a=function(a,b){var c=(a&65535)+(b&65535);va
 		e.stopPropagation();
 
 		var $this = $(this),
-		    $thisLi = $this.parent(),
+			$thisLi = $this.parent(),
 		    $thisMenu = $(getTargetFromTrigger($this));
 
 		if ($thisLi.hasClass('active')) {
@@ -14563,8 +14563,14 @@ String.prototype.md5=function(){var a=function(a,b){var c=(a&65535)+(b&65535);va
 			$thisLi.addClass('active');
 			$thisMenu.addClass('open');
 
-			if ($('.menu-search-focus', $thisMenu).length) {
-				$('.menu-search-focus', $thisMenu).focus();
+			var lastSearch = null;
+			if (localStorage)
+				lastSearch = localStorage.getItem('lastSearch');
+			var menu = $('.menu-search-focus', $thisMenu);
+			if ( menu.length) {
+				menu.focus();
+				if (lastSearch)
+					menu.val(lastSearch).trigger("input");
 			}
 		}
 	});
@@ -14582,21 +14588,36 @@ String.prototype.md5=function(){var a=function(a,b){var c=(a&65535)+(b&65535);va
 
 setTimeout(
     function(){
-        $(function(){                       
-            $(".content-inner .body a").each(function(){                
-                if ($(this).hasClass("edit-link") || $(this).hasClass("local-edit-link"))
+        $(function(){
+            var oembedFallback = function (container, resourceURL){
+                if (resourceURL.toLowerCase().indexOf("https://luceeserver.atlassian.net/browse/") !== 0)
                     return;
-                var url = $(this).attr("href");                    
-                if (url && url.indexOf("http") === 0){ // avoid local content!
+                $.ajax("http://open.iframe.ly/api/oembed?url=" + resourceURL + "&origin=lucee")
+                    .done(function(oembedData) {
+                        oembedData.code = $.fn.oembed.getGenericCode(resourceURL, oembedData);
+                        $.fn.oembed.insertCode(container, "replace", oembedData);
+                    })
+                    .fail(function(err) {
+                        console.error(err);
+                    }
+                );
+            };
+            $(".content-inner .body a").each(function(){
+                if ($(this).hasClass("edit-link") || $(this).hasClass("local-edit-link") || $(this).hasClass("no-oembed"))
+                    return;
+                var url = $(this).attr("href");
+                if (url && url.indexOf("http") === 0 ){ // avoid local content!
                     $(this).oembed(url, {
-                        fallback : false
+                        fallback : false,
+                        onProviderNotFound: oembedFallback
                     });
                 }
-            });       
+            });
         });
-    }, 
-    500
-);    
+    },
+    200
+);
+
 
 // sortable v1.1.1
 // git://github.com/rubaxa/Sortable.git
@@ -14897,6 +14918,9 @@ $(function(){
 	};
 
 	search = function( input ){
+		if (localStorage)
+			localStorage.setItem('lastSearch', input);
+
 		var reg     = generateRegexForInput( input )
 		  , fulltextitem, matches;
 
@@ -15042,6 +15066,7 @@ $(function(){
 			families: ['Roboto:300,300italic,400,400italic,700,700italic']
 		}
 	};
+
 	(function() {
 		var wf = document.createElement('script');
 		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';

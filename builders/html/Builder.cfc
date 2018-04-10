@@ -11,7 +11,7 @@ component {
 
 	public string function _getIssueTrackerLink(required string name) {
 		var link = Replace( new api.build.BuildProperties().getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
-		return '<a href="#link#" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
 	}
 
 	public void function build( docTree, buildDirectory ) {
