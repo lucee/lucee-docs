@@ -211,7 +211,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/dist/base.10.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.11.min.js" type="text/javascript"></script>
 		</cfif>
 	</body>
 </html></cfoutput>

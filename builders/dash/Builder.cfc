@@ -25,7 +25,7 @@ component extends="builders.html.Builder" {
 			_setAutoCommit(false);
 			for ( var path in pagePaths ) {
 				if ( !ignorePages.keyExists( pagePaths[path].page.getId() ) ) {
-					_writePage( pagePaths[path].page, arguments.buildDirectory, docTree );
+					_writePage( pagePaths[path].page, arguments.buildDirectory & "/", docTree );
 					request.filesWritten++;
 					if ((request.filesWritten mod 100) eq 0)
 						request.logger("Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
@@ -96,19 +96,19 @@ component extends="builders.html.Builder" {
 		switch( page.getPageType() ){
 			case "function":
 				data = { name=page.getTitle(), type="Function" };
-			break;
+				break;
 			case "tag":
 				data = { name="cf" & page.getSlug(), type="Tag" };
-			break;
+				break;
 			case "_object":
 				data = { name=page.getTitle(), type="Object" };
-			break;
+				break;
 			case "_method":
 				data = { name=page.getTitle(), type="Method" };
-			break;
+				break;
 			case "category":
 				data = { name=Replace( page.getTitle(), "'", "''", "all" ), type="Category" };
-			break;
+				break;
 			default:
 				data = { name=Replace( page.getTitle(), "'", "''", "all" ), type="Guide" };
 		}
@@ -116,11 +116,6 @@ component extends="builders.html.Builder" {
 		data.path = page.getId() & ".html";
 
 		sqlite.executeSql( dbFile, "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('#data.name#', '#data.type#', '#data.path#')", false, dbConnection );
-		/*
-		for( var child in page.getChildren() ){
-			_storePageInSqliteDb( child );
-		}
-		*/
 	}
 
 	private void function _closeDbConnection() {
