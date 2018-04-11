@@ -11,7 +11,7 @@ Example:
 ### Using CFC file ###
 
 ```lucee
-//placed under outside the root anyfolder/component/org/lucee/examples/deploy/Test.cfc
+//placed under outside root/component/org/lucee/examples/deploy/Test.cfc
 <cfscript>
 component test {
 	function salve() {
@@ -20,28 +20,29 @@ component test {
 }
 </cfscript>
 ```
-For cfc we should create a mapping because it's not within the root.
+We need a mapping for the above cfc, because it's not inside the Root folder
 
 Create component mapping in **Archives & Resources -> Component**
 
-create a mapping for the above test.cfc
+create a mapping test.cfc as like below
 
 ```
 name: mycfc
 resource: **Full folder path**/component/
 ```
 
-After creating that we need to create a archive file for the cfc.
-* Go to the detail view of mycfc,
-* Click the button "assign archive to mapping"
+After creating the mapping we need to create a archive file for the cfc.
 
-Archive created atomically and placed in WEB-INF\lucee\context\archives
+* Go to the detail view of mycfc mapping page,
+* Click the button **assign archive to mapping**.
+
+Archive(lar file) created automatically and saved in WEB-INF\lucee\context\archives
 
 Now you can see the archive path on mycfc mapping
 
 ### Using CFM file ###
-name: /deploy
-resource: ROOT/test/deploy/index.cfm
+
+Create a mapping for below CFM file,
 
 ```lucee
 //placed under /ROOT/test/deploy/index.cfm
@@ -50,13 +51,22 @@ test = new org.lucee.examples.deploy.Test();
 dump(test.slave());
 </cfscript>
 ```
-Same as we can create a mapping for deploy folder & create archive for deploy folder also like above.
+```
+name: /deploy
+resource: ROOT/test/deploy/index.cfm
+```
+After creating mapping, create a Archive file by clicking button **assign archive to mapping**
 
-After creating archive file delete /deploy & mycfc the mapping & their folders
+Now you can see the both lar files were in WEB-INF\lucee\context\archives folder.
+
+* One is lucee\context\archives\xxx-deploy.lar file,
+* another one is lucee\context\archives\xxx-mycfc.lar
 
 Now you can place the archive files in your target server.
 
-Copy the archive file and placed in target server /WEB-INF/lucee/deploy folder wait for a minute. It successfully deploy your archives into server. You can now view mappings in admin area now.
+Copy the archive files (deploy.lar, mycfc.lar) and placed in target server /WEB-INF/lucee/deploy folder wait for a minute. It successfully deploy your archives into the server.
+
+You can now view mappings in admin.
 
 ### Footnotes ###
 
