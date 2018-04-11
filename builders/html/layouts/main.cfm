@@ -21,10 +21,11 @@
 		<title>#pageTitle#</title>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116664465-1"></script>
 		<script>
+			window._gaTrackingID = 'UA-116664465-1';
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
-			gtag('config', 'UA-116664465-1');
+			gtag('config', window._gaTrackingID);
 		</script>
 		<cfif args.edit>
 			<base href="#local.baseHref#">
@@ -211,7 +212,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/dist/base.11.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.12.min.js" type="text/javascript"></script>
 		</cfif>
 	</body>
 </html></cfoutput>
