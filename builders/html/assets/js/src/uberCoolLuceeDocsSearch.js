@@ -149,7 +149,7 @@
 		if (bookmark && window.history.pushState)
 				window.history.pushState({q: q}, 'Search: ' + q , searchUrl);
 		try {
-			ga ('send', 'pageview', searchUrl);
+			gtag('config', window._gaTrackingID, {'page_path': searchUrl});
 		} catch (e){
 			// ignore
 		}
