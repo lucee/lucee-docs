@@ -31,7 +31,9 @@ component accessors=true {
 	}
 
 	private struct function _getTagDefinition( required string tagName ) {
-		var coreDefinition = getTagData( "cf", arguments.tagName );
+		silent {  // some tags leak new lines https://luceeserver.atlassian.net/browse/LDEV-1796
+			var coreDefinition = getTagData( "cf", arguments.tagName );
+		}
 		var parsedTag      = StructNew( "linked" );
 
 		parsedTag.name                 = coreDefinition.name ?: NullValue();
