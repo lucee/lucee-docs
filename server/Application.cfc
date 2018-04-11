@@ -45,6 +45,7 @@
 				if (listlen(path,"/") gt 1 )
 					writeOutput("unknown build docs request: #path#");
 			}
+			//fileAppend("/performance.log", "#path# #numberFormat(getTickCount() - request.loggerStart)#ms #server.lucee.version##chr(10)#");
 			logger.renderLogs();
 		} else if ( path eq "/assets/js/searchIndex.json" ) {
 			_renderSearchIndex();
@@ -219,23 +220,32 @@
 			Menu: "Import References",
 			title: "Importing References (tags, functions, options, methods)"
 		};
-
+		var textOnly = (url.KeyExists("textlogs") and url.textlogs );
 		var selectedOption = listLast(arguments.path,"/");
-		writeOutput("<h1>Lucee Documentation Builder</h1>");
-		writeOutput('<style>.build-menu li { display: inline; list-style-type: none; padding-right: 10px;} ul, ol {padding-left:0;}</style>');
-		writeOutput('<ul class="build-menu">');
-		for (var link in opts){
-			var _link = "/build_docs/#lCase(link)#/";
-			var _target = "";
-			if (opts[link].keyExists("href")){
-				_link = opts[link].href;
-				var _target = " target='_blank'";
+		if (textOnly){ // nice for curl --trace http://localhost:4040/build_docs/all/
+			writeOutput("#chr(10)#Lucee Documentation Builder - #server.lucee.version##chr(10)#");
+
+			if (opts.keyExists(selectedOption))
+				writeOutput("#opts[selectedOption].title##chr(10)##chr(10)#");
+			setting showdebugoutput="false";
+		} else {
+			writeOutput("<h1>Lucee Documentation Builder - #server.lucee.version#</h1>");
+			writeOutput('<style>.build-menu li { display: inline; list-style-type: none; padding-right: 10px;} ul, ol {padding-left:0;}</style>');
+			writeOutput('<ul class="build-menu">');
+			for (var link in opts){
+				var _link = "/build_docs/#lCase(link)#/";
+				var _target = "";
+				if (opts[link].keyExists("href")){
+					_link = opts[link].href;
+					var _target = " target='_blank'";
+				}
+				writeOutput('<li><a href="#_link#" #_target# title="#htmlEditFormat(opts[link].title)#" >#htmlEditFormat(opts[link].menu)#</a></li>');
 			}
-			writeOutput('<li><a href="#_link#" #_target# title="#htmlEditFormat(opts[link].title)#" >#htmlEditFormat(opts[link].menu)#</a></li>');
+			writeOutput('</ul><hr>');
+			if (opts.keyExists(selectedOption))
+				writeOutput("<h2>#opts[selectedOption].title#</h2>");
 		}
-		writeOutput('</ul><hr>');
-		if (opts.keyExists(selectedOption))
-			writeOutput("<h2>#opts[selectedOption].title#</h2>");
+
 	}
 
 	private string function _getPagePathFromRequest() {

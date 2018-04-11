@@ -9,6 +9,7 @@ component {
 		    request.logs = [];
 		    request.loggerStart = getTickCount();
             request.loggerFlushEnabled = false;
+            this.textOnly = (url.KeyExists("textlogs") and url.textlogs ); // nice for curl --trace http://localhost:4040/build_docs/all/
         }
 		return this;
 	}
@@ -29,7 +30,8 @@ component {
     public void function enableFlush(required boolean _flush){
         request.loggerFlushEnabled = arguments._flush;
         if (request.loggerFlushEnabled){
-            writeOutput("<ol>");
+            if (!this.textOnly)
+                writeOutput("<ol>");
             return;
         }
     }
@@ -37,16 +39,19 @@ component {
     public void function renderLogs(){
         if (request.loggerFlushEnabled){
             // logs were output as they were generated;
-            writeOutput("</ol>");
+            if (!this.textOnly)
+                writeOutput("</ol>");
             return;
         }
 
 		if (request.logs.len() eq 0)
 			return;
-		writeOutput("<ol>");
+        if (!this.textOnly)
+		    writeOutput("<ol>");
 		for (var log in request.logs)
 			_renderLog(log);
-		writeOutput("</ol>");
+        if (!this.textOnly)
+		    writeOutput("</ol>");
 	}
 
     public void function _renderLog(log){
@@ -63,6 +68,10 @@ component {
         }
         if (style.len() gt 0)
             style = ' style="#style#" ';
-		writeOutput("<li #style#>#numberformat(arguments.log.timeMs)#ms <b>#arguments.log.type#</b> #arguments.log.text# </li>");
+        var mess="";
+        if (this.textOnly)
+            writeOutput("#numberformat(arguments.log.timeMs)#ms #arguments.log.type# #arguments.log.text##chr(10)#");
+        else
+		    writeOutput("<li #style#>#numberformat(arguments.log.timeMs)#ms <b>#arguments.log.type#</b> #arguments.log.text#</li>#chr(10)#");
 	}
 }
