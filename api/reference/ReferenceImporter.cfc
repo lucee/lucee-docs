@@ -276,12 +276,28 @@ categories:
 
 		var filesInDir = DirectoryList( fileDirectory, false, "name" );
 
+		var exists = false;
+
 		for( var fileInDir in filesInDir ) {
 			if ( fileInDir == fileName ) {
-				return 0; // case insensitive file exists check!
+				var file = Trim(FileRead(arguments.filePath));
+				if ( len(file) == 0){
+					arguments.filePath = fileDirectory & "/" & fileInDir;
+					if (len(trim(arguments.content)) gt 0){
+						request.logger(text="Updating existing zero length file: " & arguments.filePath);
+						exists = true;
+						break;
+					} else {
+						request.logger(text="Missing content from Lucee: " & arguments.filePath, type="warn");
+						return 0;
+					}
+				} else {
+					return 0; // case insensitive file exists check!
+				}
 			}
 		}
-		writeOutput( "Generated file: " & arguments.filePath  & chr(10));
+		if (!exists)
+			request.logger("Generated file: " & arguments.filePath  & chr(10));
 		FileWrite( arguments.filePath, arguments.content );
 		return 1;
 	}
