@@ -101,7 +101,7 @@
 	generateRegexForInput = function( input ){
 		var inputLetters = input.replace(/\W/, '').split('')
 		  , reg = {}, i;
-
+		// TODO this crashes on brackets in search term, ie. Min()
 		reg.expr = new RegExp('(' + inputLetters.join( ')(.*?)(' ) + ')', 'i');
 		reg.replace = "";
 
@@ -120,11 +120,12 @@
 	};
 
 	itemSelectedHandler = function( item ) {
-		addSearchResultHistory();
-		if (window.location.pathname.indexOf("/static/") === 0)
+		addSearchResultHistory(function cb(){
+			if (window.location.pathname.indexOf("/static/") === 0)
 				window.location = "/static" + item.value; // handle local /static/ mode
-		else
+			else
 				window.location = item.value;
+		});
 	};
 
 	tokenizer = function( input ) {
@@ -134,7 +135,7 @@
 
 	setupTypeahead();
 
-	var addSearchResultHistory = function (){
+	var addSearchResultHistory = function (cb){
 		var searchUrl = '/search.html?q=';
 		var bookmark = false;
 
@@ -153,6 +154,7 @@
 		} catch (e){
 			// ignore
 		}
+		setTimeout(cb, 100); // give analytics a chance to complete
 	}
 
 	// on the 404 page, try and make some suggestions based on filename
