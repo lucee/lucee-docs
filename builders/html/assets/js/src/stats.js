@@ -14,8 +14,11 @@ $(function(){
 
 window.onerror = function(message, url, line, col, err) {
     try {
+        var error = [message, [url,line,col].join(":"), document.location.toString()];
+        if (err.stack)
+            error.push(err.stack.toString().substr(0, 400));
         gtag('event', 'exception', {
-            'description': err,
+            'description': error.join("," + String.fromCharCode(13) ),
             'fatal': true
         });
     } catch (e){
