@@ -3,6 +3,8 @@ title: <cfobject>
 id: tag-object
 categories:
 - component
+- java
+- object
 - webservice
 ---
 

@@ -2,11 +2,12 @@
 title: LSEuroCurrencyFormat
 id: function-lseurocurrencyformat
 related:
+- function-lscurrencyformat
 categories:
-    - currency
-    - string
-    - formatting
-    - internationalization
+- currency
+- formatting
+- internationalization
+- string
 ---
 
-this funciton is just a alias for lsCurrencyFormat
+this function is just an alias for [[function-LsCurrencyFormat]]

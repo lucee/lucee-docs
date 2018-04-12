@@ -1,12 +1,14 @@
 ---
 title: <cfpdf>
 id: tag-pdf
-related:
 categories:
-    - pdf
+- pdf
+description: 'Manipulates existing PDF documents. '
 ---
 
-Manipulates existing PDF documents. The following list describes some of the tasks you can perform with the cfpdf tag:
+Manipulates existing PDF documents. 
+
+The following list describes some of the tasks you can perform with the cfpdf tag:
 
 - Merge several PDF documents into one PDF document.
 - Delete pages from a PDF document.

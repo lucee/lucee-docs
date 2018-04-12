@@ -2,13 +2,17 @@
 title: Lucee uses Apache Lucene for full text indexing
 id: tips-search-engine
 related:
+- tag-collection
 - tag-index
 - tag-search
+categories:
+- search
+description: Lucee uses Apache Lucene v2.4.1 as the default search engine.
 ---
 
 ### What engine does CFSEARCH use? ###
 
-Lucee uses Apache Lucene v2.3.2 as the default search engine. You are free to use your preferred search engine or write your own search and register in the lucee-(web|server).xml(.cfm) with the following lines:
+Lucee uses Apache Lucene v2.4.1 as the default search engine. You are free to use your preferred search engine or write your own search and register in the lucee-(web|server).xml(.cfm) with the following lines:
 
 ```lucee
 <search directory="{lucee-web}/search/" engine-class="lucee.runtime.search.lucene2.LuceneSearchEngine"/>

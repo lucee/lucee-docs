@@ -1,9 +1,12 @@
 ---
 title: CreateObject
 id: function-createobject
-related:
 categories:
-    - component
+- component
+- java
+- object
+description: 'The CreateObject function takes different arguments depending on the
+  value of the first argument:'
 ---
 
 The CreateObject function takes different arguments depending on the value of the first argument:

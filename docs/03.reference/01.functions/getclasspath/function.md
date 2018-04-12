@@ -1,8 +1,9 @@
 ---
 title: GetClassPath
 id: function-getclasspath
-related:
 categories:
+- java
+- server
 ---
 
 Returns an array containing the Java classpath of the current enviroment.

@@ -2,6 +2,7 @@
 title: BundleInfo
 id: function-bundleinfo
 categories:
+- java
 - server
 ---
 

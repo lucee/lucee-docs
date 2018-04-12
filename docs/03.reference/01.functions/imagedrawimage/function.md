@@ -1,9 +1,8 @@
 ---
 title: ImageDrawImage
 id: function-imagedrawimage
-related:
 categories:
-    - image
+- image
 ---
 
-this function is deprecated, use ImagePaste instead. Draws a image on a image with the baseline of the first character positioned at (x,y) in the image.
+this function is deprecated, use [[function-ImagePaste]] instead. Draws a image on a image with the baseline of the first character positioned at (x,y) in the image.

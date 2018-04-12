@@ -2,8 +2,9 @@
 title: <cfzipparam>
 id: tag-zipparam
 related:
+- tag-zip
 categories:
-    - zip
+- zip
 ---
 
-The cfzipparam tag is always a child tag of the cfzip tag. see tag zip for more details.
+The cfzipparam tag is always a child tag of the cfzip tag. see tag [[tag-zip]] for more details.

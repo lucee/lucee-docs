@@ -1,9 +1,9 @@
 ---
 title: Randomize
 id: function-randomize
-related:
 categories:
-    - number
+- crypto
+- number
 ---
 
 Seeds the pseudo-random number generator with an

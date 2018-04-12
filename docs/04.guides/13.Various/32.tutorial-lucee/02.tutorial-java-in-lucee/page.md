@@ -1,6 +1,8 @@
 ---
 title: Tutorial Using Java in Lucee
 id: tutorial-using-java-in-lucee
+categories:
+- java
 ---
 
 ### Do you really need Java? ###
