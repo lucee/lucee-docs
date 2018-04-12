@@ -34,14 +34,14 @@
 			setting requestTimeout=300;
 			_renderBuildHeader(path);
 			if ( path eq "/build_docs/all/" ) {
-				new api.reference.ReferenceImporter().importAll();
+				new api.reference.ReferenceImporter(threads).importAll();
 				new api.build.BuildRunner(threads).buildAll();
 			} else if ( path eq "/build_docs/html/" ) {
 				new api.build.BuildRunner().build("html");
 			} else if ( path eq "/build_docs/dash/" ) {
 				new api.build.BuildRunner().build("dash");
 			} else if ( path eq "/build_docs/import/" ) {
-				new api.reference.ReferenceImporter().importAll();
+				new api.reference.ReferenceImporter(threads).importAll();
 			} else {
 				if (listlen(path,"/") gt 1 )
 					writeOutput("unknown build docs request: #path#");
