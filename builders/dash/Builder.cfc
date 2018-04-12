@@ -23,15 +23,17 @@ component extends="builders.html.Builder" {
 		try {
 			_setupSqlLite( resourcesRoot );
 			_setAutoCommit(false);
-			for ( var path in pagePaths ) {
+			//for ( var path in pagePaths ) {
+			each(pagePaths, function(path){
 				if ( !ignorePages.keyExists( pagePaths[path].page.getId() ) ) {
-					_writePage( pagePaths[path].page, arguments.buildDirectory & "/", docTree );
+					_writePage( pagePaths[path].page, buildDirectory & "/", docTree );
 					request.filesWritten++;
 					if ((request.filesWritten mod 100) eq 0)
 						request.logger("Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
 					_storePageInSqliteDb( pagePaths[path].page );
 				}
-			}
+			}, true, 8);
+			//}
 			_setAutoCommit(true);
 		} catch ( any e ) {
 			rethrow;

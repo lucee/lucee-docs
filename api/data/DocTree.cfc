@@ -169,12 +169,12 @@ component accessors=true {
 		var q_source_files = variables.pageCache.getPageFileList(lastModified=false);
 
 		var start = getTickCount();
-		loop query=q_source_files {
+		each (q_source_files, function (page) {
 			variables.pageCache.addPage(
-				new PageReader().preparePageObject( variables.rootDir, q_source_files.name, q_source_files.directory, q_source_files.path ),
-				q_source_files.path
+				new PageReader().preparePageObject( variables.rootDir, page.name, page.directory, page.path ),
+				page.path
 			);
-		}
+		}, true, 8);
 		request.logger (text="Pages Parsed in #(getTickCount()-start)/1000#s");
 
 		_buildTreeHierachy(false);

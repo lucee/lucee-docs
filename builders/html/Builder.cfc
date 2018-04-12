@@ -21,14 +21,20 @@ component {
 		request.filesToWrite = StructCount(pagePaths);
 
 		request.logger (text="Builder html directory: #arguments.buildDirectory#");
+		var tick = getTickCount();
 
-		for ( var path in pagePaths ) {
-			_writePage( pagePaths[path].page, arguments.buildDirectory, docTree );
+		//for ( var path in pagePaths ) {
+		each(pagePaths, function(path){
+			_writePage( pagePaths[path].page, buildDirectory, docTree );
 			request.filesWritten++;
 			if ((request.filesWritten mod 100) eq 0){
 				request.logger(text="Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
 			}
-		}
+			if (getTickCount()-tick gt 100)
+				request.logger(text="Page took #path# #numberformat(getTickCount()-tick)# ms", link="#path#.html");
+			tick = getTickCount();
+		}, true, 8);
+		//}
 		request.logger (text="Html Builder #request.filesWritten# files produced");
 
 		_renderStaticPages( arguments.buildDirectory, arguments.docTree, "/" );
