@@ -282,7 +282,7 @@ categories:
 			if ( fileInDir == fileName ) {
 				var file = Trim(FileRead(arguments.filePath));
 				if ( len(file) == 0){
-					arguments.filePath = fileDirectory & "/" & fileInDir;
+					arguments.filePath = fileDirectory & fileInDir;
 					if (len(trim(arguments.content)) gt 0){
 						request.logger(text="Updating existing zero length file: " & arguments.filePath);
 						exists = true;
