@@ -14642,6 +14642,17 @@ $(function(){
         }
     }, 1000);
 });
+
+window.onerror = function(message, url, line, col, err) {
+    try {
+        gtag('event', 'exception', {
+            'description': err,
+            'fatal': true
+        });
+    } catch (e){
+        // ignore
+    }
+}
 // tab switch
 	var tabSwitch = function(newTab, oldTab) {
 		var $nav = newTab.closest('.tab-nav'),
