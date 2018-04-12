@@ -274,15 +274,14 @@ categories:
 			DirectoryCreate( fileDirectory, true );
 		}
 
-		var filesInDir = DirectoryList( fileDirectory, false, "name" );
-
+		var q_files = DirectoryList( path=fileDirectory, recurse=false, listinfo="query", type="all" );
 		var exists = false;
 
-		for( var fileInDir in filesInDir ) {
-			if ( fileInDir == fileName ) {
+		loop query=q_files {
+			if ( q_files.name == fileName ) {
+				arguments.filePath = q_files.directory & "/" & q_files.name;  // use exact case
 				var file = Trim(FileRead(arguments.filePath));
 				if ( len(file) == 0){
-					arguments.filePath = fileDirectory & fileInDir;
 					if (len(trim(arguments.content)) gt 0){
 						request.logger(text="Updating existing zero length file: " & arguments.filePath);
 						exists = true;
