@@ -1,12 +1,11 @@
 ---
 title: LSParseEuroCurrency
 id: function-lsparseeurocurrency
-related:
 categories:
-    - currency
-    - string
-    - parsing
-    - internationalization
+- currency
+- internationalization
+- parsing
+- string
 ---
 
-use function lsParseCurrency instead
+use function [[function-lsParseCurrency]] instead

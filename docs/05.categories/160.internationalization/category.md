@@ -1,6 +1,8 @@
 ---
 title: Internationalization
 id: category-i18n
-related:
+categories:
+- datetime
 ---
+
 

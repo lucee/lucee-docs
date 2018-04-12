@@ -1,6 +1,8 @@
 ---
 title: OSGi
 id: lucee-5-osgi
+categories:
+- java
 ---
 
 #OSGi
