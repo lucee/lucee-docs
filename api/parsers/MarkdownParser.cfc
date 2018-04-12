@@ -4,7 +4,7 @@ component {
 	property name="flexmark" type="boolean" default="false";
 
 	public any function init() {
-		variables.flexmark = false;
+		variables.flexmark = true;
 		_setupMarkdownProcessor();
 		_setupNoticeBoxRenderer();
 

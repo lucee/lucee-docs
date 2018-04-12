@@ -25,7 +25,7 @@
 			header statuscode=401;
 			abort;
 		}
-		var threads = 1;
+		var threads = 4;
 		if ( path.startsWith( "/lucee/admin") ){
 			request.logger (text="ignoring /lucee/admin request #cgi.script_name#");
 			return;
