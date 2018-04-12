@@ -1,1 +1,5 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+    img = imageNew("",100,100,"rgb","yellow");
+    dump(img);
+    dump(ImageInfo(img));
+```
