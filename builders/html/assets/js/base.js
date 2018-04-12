@@ -14690,8 +14690,18 @@ $(function(){
 		}
 	});
 
+	$(".expand-a-z").click(function(){
+		var $el = $(this);
+		var isExpanded = $el.data("expanded");
+		$el.text(isExpanded ? "Expand All" : "Collapse" );
+		$('.tile-active-show').each(function(){
+			$(this).toggleClass('collapse', !$(this).hasClass('collapse'));
+		});
+		$el.data("expanded", !isExpanded);
+	});
+
 	var tReset = function () {
-		$('.tile-collapse.active').each(function(index) {
+		$('.tile-collapse.active').each(function() {
 			var $collapse = $('.tile-active-show', $(this));
 			if (!$collapse.hasClass('tile-active-show-still')) {
 				$collapse.collapse('hide');
@@ -15073,6 +15083,14 @@ $(function(){
 			$(".menu-toggle").hide(); // hide the toolbar search menu
 		}
 	};
+	// auto select exact match on enter LD-68
+	$(".menu-search-focus").on("keyup", function(e){
+		if (e.which === 13 || e.which === 10){
+			var matches = $(".tt-dataset .tt-suggestion");
+			if (matches.length === 2) // exact match
+				$(matches[1]).click();
+		}
+	});
 
 } )( jQuery );
 // waves v0.6.5

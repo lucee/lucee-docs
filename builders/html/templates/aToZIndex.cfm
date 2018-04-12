@@ -20,6 +20,9 @@
 			</cfloop>
 		</div>
 	<cfelse>
+		<div class="tile-toolbar">
+			<button class="btn expand-a-z" data-expanded="false">Expand All</button>
+		</div>
 		<div class="tile-wrap <!---tile-wrap-animation--->">
 			<cfloop array="#local.pg.getChildren()#" index="local.i" item="local.child">
 				<cfset local.slug = local.child.getSlug() />

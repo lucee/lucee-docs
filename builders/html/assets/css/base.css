@@ -11409,6 +11409,10 @@ a.missing-link {
   text-decoration: underline red;
 }
 
+.tile-toolbar {
+  text-align: right;
+}
+
 .footer {
   background-color: #fafafa;
   border-top: 1px solid #e0e0e0;
