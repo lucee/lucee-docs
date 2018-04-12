@@ -14,7 +14,7 @@ component {
 		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
 	}
 
-	public void function build( docTree, buildDirectory ) {
+	public void function build( required any docTree, required string buildDirectory, required numeric threads) {
 		var pagePaths = arguments.docTree.getPageCache().getPages();
 
 		request.filesWritten = 0;
@@ -33,7 +33,7 @@ component {
 			if (getTickCount()-tick gt 100)
 				request.logger(text="Page took #path# #numberformat(getTickCount()-tick)# ms", link="#path#.html");
 			tick = getTickCount();
-		}, true, 8);
+		}, true, arguments.threads);
 		//}
 		request.logger (text="Html Builder #request.filesWritten# files produced");
 

@@ -1,7 +1,7 @@
 component extends="builders.html.Builder" {
 
 // PUBLIC API
-	public void function build( docTree, buildDirectory ) {
+	public void function build( required any docTree, required string buildDirectory, required numeric threads ) {
 		var docsetRoot    = arguments.buildDirectory & "/lucee.docset/";
 		var contentRoot   = docsetRoot & "Contents/";
 		var resourcesRoot = contentRoot & "Resources/";
@@ -32,7 +32,7 @@ component extends="builders.html.Builder" {
 						request.logger("Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
 					_storePageInSqliteDb( pagePaths[path].page );
 				}
-			}, true, 8);
+			}, true, arguments.threads);
 			//}
 			_setAutoCommit(true);
 		} catch ( any e ) {
