@@ -1,7 +1,7 @@
 component extends="builders.html.Builder" {
 
 // PUBLIC API
-	public void function build( docTree, buildDirectory ) {
+	public void function build( required any docTree, required string buildDirectory, required numeric threads ) {
 		var docsetRoot    = arguments.buildDirectory & "/lucee.docset/";
 		var contentRoot   = docsetRoot & "Contents/";
 		var resourcesRoot = contentRoot & "Resources/";
@@ -12,7 +12,7 @@ component extends="builders.html.Builder" {
 
 		request.filesWritten = 0;
 		request.filesToWrite = StructCount(pagePaths);
-		request.logger (text="Builder Dash directory: #arguments.buildDirectory#");
+		request.logger (text="Builder DASH directory: #arguments.buildDirectory#");
 
 		if ( !DirectoryExists( arguments.buildDirectory ) ) { DirectoryCreate( arguments.buildDirectory ); }
 		if ( !DirectoryExists( docsetRoot               ) ) { DirectoryCreate( docsetRoot               ); }
@@ -20,18 +20,22 @@ component extends="builders.html.Builder" {
 		if ( !DirectoryExists( resourcesRoot            ) ) { DirectoryCreate( resourcesRoot            ); }
 		if ( !DirectoryExists( docsRoot                 ) ) { DirectoryCreate( docsRoot                 ); }
 
+		new api.parsers.ParserFactory().getMarkdownParser(); // so the markdown parser shows up in logs
+
 		try {
 			_setupSqlLite( resourcesRoot );
 			_setAutoCommit(false);
-			for ( var path in pagePaths ) {
+			//for ( var path in pagePaths ) {
+			each(pagePaths, function(path){
 				if ( !ignorePages.keyExists( pagePaths[path].page.getId() ) ) {
-					_writePage( pagePaths[path].page, arguments.buildDirectory & "/", docTree );
+					_writePage( pagePaths[path].page, buildDirectory & "/", docTree );
 					request.filesWritten++;
 					if ((request.filesWritten mod 100) eq 0)
 						request.logger("Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
 					_storePageInSqliteDb( pagePaths[path].page );
 				}
-			}
+			}, true, arguments.threads);
+			//}
 			_setAutoCommit(true);
 		} catch ( any e ) {
 			rethrow;

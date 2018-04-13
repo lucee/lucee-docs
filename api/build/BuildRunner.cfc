@@ -2,12 +2,14 @@ component accessors=true {
 	property name="buildersDir" type="string";
 	property name="buildsDir"   type="string";
 	property name="docTree"     type="any";
+	property name="threads"     type="numeric";
 
 // CONSTRUCTOR
-	public any function init() {
+	public any function init(numeric threads=1) {
+		setThreads(arguments.threads);
 		setBuildersDir( ExpandPath( "/builders" ) );
 		setBuildsDir( ExpandPath( "/builds" ) );
-		setDocTree( new api.data.DocTree( ExpandPath( "/docs" ) ) );
+		setDocTree( new api.data.DocTree( ExpandPath( "/docs" ), getThreads() ) );
 		new api.build.Logger();
 		return this;
 	}
@@ -15,9 +17,9 @@ component accessors=true {
 // PUBLIC API
 	public void function buildAll() {
 		lock name="buildAll" timeout="1" type ="Exclusive" throwontimeout="true" {
-			setDocTree( new api.data.DocTree( ExpandPath( "/docs" ) ) );
+			setDocTree( new api.data.DocTree( ExpandPath( "/docs" ), getThreads() ) );
 			listBuilders().each( function( builderName ){
-				build( builderName );
+				build( builderName, getThreads() );
 			} );
 		}
 	}
@@ -28,14 +30,14 @@ component accessors=true {
 		return variables.docTree;
 	};
 
-	public void function build( required string builderName ) {
+	public void function build( required string builderName, required numeric threads ) {
 		var builder  = getBuilder( arguments.builderName );
 		var buildDir = _getBuilderBuildDirectory( arguments.builderName );
 		var startTime = getTickCount();
 
 		lock name="build#buildername#" timeout="1" type ="Exclusive" throwontimeout="true" {
-			request.logger (text="Start builder: #arguments.builderName# #cgi.script_name#");
-			builder.build( docTree, buildDir );
+			request.logger (text="Start builder: #arguments.builderName# with #threads# thread(s)");
+			builder.build( docTree, buildDir, threads );
 			request.logger (text="Finished builder: #arguments.builderName#, in #NumberFormat( getTickCount()-startTime)#ms");
 		}
 	}

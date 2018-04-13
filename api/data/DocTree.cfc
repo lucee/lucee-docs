@@ -8,10 +8,12 @@ component accessors=true {
 	property name="categoryMap" type="struct"; // tracks categories pages
 	property name="referenceMap" type="struct"; // tracks references
 	property name="pageCache" type="any"; // tracks references
+	property name="threads" type="numeric"; // tracks references
 
-	public any function init( required string rootDirectory ) {
+	public any function init( required string rootDirectory, required numeric threads ) {
 		variables.rootDir =  arguments.rootDirectory;
 		variables.pageCache = new PageCache(rootDir);
+		setThreads(arguments.threads);
 		var start = getTickCount();
 
 		request.logger (text="Starting Lucee Documentation Build");
@@ -169,12 +171,12 @@ component accessors=true {
 		var q_source_files = variables.pageCache.getPageFileList(lastModified=false);
 
 		var start = getTickCount();
-		loop query=q_source_files {
+		each (q_source_files, function (page) {
 			variables.pageCache.addPage(
-				new PageReader().preparePageObject( variables.rootDir, q_source_files.name, q_source_files.directory, q_source_files.path ),
-				q_source_files.path
+				new PageReader().preparePageObject( variables.rootDir, page.name, page.directory, page.path ),
+				page.path
 			);
-		}
+		}, true, getThreads());
 		request.logger (text="Pages Parsed in #(getTickCount()-start)/1000#s");
 
 		_buildTreeHierachy(false);
@@ -460,3 +462,4 @@ component accessors=true {
 		referenceMap = pagesByType;
 	}
 }
+
