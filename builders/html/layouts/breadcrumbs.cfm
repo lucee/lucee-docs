@@ -47,12 +47,25 @@
 		<script type="application/ld+json">#serializeJSON(local.jsonLd)#</script>
 		<ul class="breadcrumb margin-no-top margin-right margin-no-bottom margin-left" itemscope itemtype="http://schema.org/BreadcrumbList">
 			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				<a href="/index.html">Docs</a>
+				<a href="/index.html" itemprop="url">
+					<span itemprop="name">Docs</span>
+				</a>
+				<meta itemprop="position" content="1" />
 			</li>
-			<cfloop array="#args.crumbs#" item="local.pageSlug" index="i">
-				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">[[#local.pageSlug#]]</li>
+			<cfset local.i = 1>
+			<cfloop array="#args.crumbs#" item="local.pageSlug" index="local.i">
+				<cfset local.crumb = args.doctree.getPage(local.pageSlug)>
+				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+					<a href="#local.crumb.getPath()#.html" itemprop="url">
+						<span itemprop="name">#HtmlEditFormat(local.crumb.getTitle())#</span>
+					</a>
+					<meta itemprop="position" content="#local.i+1#" />
+				</li>
 			</cfloop>
-			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">#HtmlEditFormat( args.page.getTitle() )#</li>
+			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+				<span itemprop="name">#HtmlEditFormat( args.page.getTitle() )#</span>
+				 <meta itemprop="position" content="#local.i+2#" />
+			</li>
 		</ul>
 	</cfoutput>
 </cfif>
