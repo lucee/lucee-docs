@@ -28,3 +28,15 @@ Documentation pages that provide pure reference material (i.e. function and tag 
 This allows us to provide accurate and up to date reference material while also giving the community the ability to enhance the editorial content with code examples, better descriptions and cross-references.
 
 For more information, see [[docs-reference-pages]].
+
+## oEmbed support
+
+Docs supports a limited range of [oembed](https://oembed.com) content, include the raw url as the link description for it to be processed, otherwise it would break up the flow of pages with links to external content. Lucee Jira urls are converted to a single one liner with the task title (see below)
+
+i.e.```[https://luceeserver.atlassian.net/browse/LD-111](https://luceeserver.atlassian.net/browse/LD-111)```
+
+Docs itself exposes oembed metadata thanks to [iframely](https://iframely.com/)
+
+For more information see
+
+[https://luceeserver.atlassian.net/browse/LD-111](https://luceeserver.atlassian.net/browse/LD-111)

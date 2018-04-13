@@ -7,9 +7,11 @@ id: docs-build
 
 The only dependency required is [CommandBox](http://www.ortussolutions.com/products/commandbox). Ensure that commandbox is installed and that the `box` command is in your path.
 
-## Fork the documentation
+## Fork and contribute to the documentation
 
-Fork the [Lucee Documentation](https://github.com/lucee/lucee-docs) repository and clone a local copy
+Fork the repository and clone a local copy, or you can simply use the Github links on any page of the docs to edit the docs and submit changes.
+
+[Lucee Documentation](https://github.com/lucee/lucee-docs)
 
 ## Building the static documentation output
 
@@ -33,4 +35,9 @@ This will spin up a server using CommandBox on port 4040 and open it in your bro
 
 When running the server locally, you can edit the content inline and it will save your changes back to your local file system.
 
-Once you have finished making your changes, simply use your preferred git client to create a pull request to publish your changes.
+Once you have finished making your changes, simply use your preferred git client to create a pull request to publish yourchanges.
+
+## Recent improvements
+[https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662](https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662)
+
+[https://dev.lucee.org/t/lucee-documentation-visual-and-navigation-improvements/3683](https://dev.lucee.org/t/lucee-documentation-visual-and-navigation-improvements/3683)
