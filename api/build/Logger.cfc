@@ -14,10 +14,11 @@ component {
 		return this;
 	}
 
-	public void function logger(string text, string type="INFO") {
+	public void function logger(string text, string type="INFO", string link="") {
 		request.logs.append({
 			text: arguments.text,
 			type: arguments.type,
+            link: link,
 			timeMs: getTickCount() - request.loggerStart
 		});
 		cflog (text=arguments.text, type=arguments.type);
@@ -68,10 +69,17 @@ component {
         }
         if (style.len() gt 0)
             style = ' style="#style#" ';
-        var mess="";
+
         if (this.textOnly)
             writeOutput("#numberformat(arguments.log.timeMs)#ms #arguments.log.type# #arguments.log.text##chr(10)#");
-        else
-		    writeOutput("<li #style#>#numberformat(arguments.log.timeMs)#ms <b>#arguments.log.type#</b> #arguments.log.text#</li>#chr(10)#");
+        else {
+		    writeOutput("<li #style#>");
+            if (log.link.len() gt 0)
+                writeOutput('<a href="#log.link#">');
+            writeOutput("#numberformat(arguments.log.timeMs)#ms <b>#arguments.log.type#</b> #arguments.log.text#");
+            if (log.link.len() gt 0)
+                writeOutput('</a>');
+            writeOutput("</li>#chr(10)#");
+        }
 	}
 }

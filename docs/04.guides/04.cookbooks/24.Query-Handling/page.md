@@ -10,11 +10,11 @@ categories:
 description: How to do SQL Queries with Lucee
 ---
 
-How to do SQL Queries with Lucee
+This document explains how SQL queries are supported in Lucee.
 
 ## Query tags ##
 
-```<cfquery>``` different ways to use the tags in lucee & how we can the passed the value into the query
+```<cfquery>``` different ways to use the tags in Lucee and how we can the pass the value into the query
 
 ```lucee
 <cfquery name="qry" datasource="test">
@@ -23,12 +23,12 @@ How to do SQL Queries with Lucee
 <cfdump var="#qry#" expand="false">
 ```
 
-Above example just retrieve data from database.
+The above example just shows how to retrieve the data from the database.
 
 
 ### Using QueryParam ###
 
-Queryparam used inside the query tag, It used to bind the value with sql statement
+The QueryParam is used inside the query tag. It is used to bind the value with the SQL statement.
 
 ```lucee
 <cfquery name="qry" datasource="test">
@@ -38,10 +38,10 @@ Queryparam used inside the query tag, It used to bind the value with sql stateme
 <cfdump var="#qry#" expand="false">
 ```
 
-Passing value with QueryParam, has two advantage,
+Passing vaules with QueryParam has two advantages:
 
-* Value you passed in queryparam is very secured,
-* Lucee able to cache the statement query statement & reused it as long the value changed.
+* The value you pass in QueryParam is very secure,
+* Lucee is able to cache the query statement and reuse it as long as the value is unchanged.
 
 ### params ###
 Here we use param as part of cfquery tag, used to pass the value with SQL statement.
@@ -58,7 +58,7 @@ Pass the params value with struct
 
 referenced as ```:key``` in sql.
 
-Below example to pass the more information with struct
+The below example shows how to pass more information using a struct.
 
 ```lucee
 <cfquery name="qry" datasource="test" params="#{title:{type:'varchar',value:'Susi'}}#">
@@ -68,7 +68,7 @@ Below example to pass the more information with struct
 <cfdump var="#qry#" expand="false">
 ```
 
-You can passed the params value by array, It referenced as `?` in SQL
+You can pass the params value using an array. It is referenced as '?' in SQL.
 
 ```lucee
 <cfquery name="qry" datasource="test" params="#['Susi']#">
@@ -78,7 +78,7 @@ You can passed the params value by array, It referenced as `?` in SQL
 <cfdump var="#qry#" expand="false">
 ```
 
-Below example to pass the more information with array
+The below example shows how to pass more information using an array.
 
 ```lucee
 <cfquery name="qry" datasource="test" params="#[{type:'varchar',value:'Susi'}]#">
@@ -89,7 +89,7 @@ Below example to pass the more information with array
 
 ## Query with script tag ##
 
-Lucee supports for two types script statements like below,
+Lucee supports two types of script statements as shown below:
 
 ```lucee
 <cfscript>
@@ -117,7 +117,7 @@ dump(qry);
 
 ## QueryExecute ##
 
-It supports for both script tag & regular tag, you can pass all the arguments to the function.
+Lucee includes support for both the script tag and the regular tag. You can pass all the arguments to the function.
 
 ```lucee
 <cfscript>
@@ -147,16 +147,17 @@ You can do a query with component like "Query()".
 </cfscript>
 ```
 
-Above example we pass the sql as part with constructor. 
-Use setDatasource() function to set the datasource,
-Use setParams() function to set the param values, value used same as we see in tag
+In the above example we pass the sql as part of the constructor.
+
+* Use setDatasource() function to set the datasource.
+* Use setParams() function to set the param values. The value used is the same as we used in the tag.
 
 ```query.execute()``` function returns detail of the component, ```query.execute().getResult()``` returns query result.
 
 ### Query Future ###
 We are always in discussion how to improve the functions in lucee.
 
-Here we use ```$``` instead of writeOutput or echo inside the script using like below
+This output technique ```$("Hi there")``` can be used anywhere in the file (not just inside a query).
 
 ```lucee
 <cfscript>
@@ -172,7 +173,7 @@ dump(qry);
 
 We can use not only for query, you can use any where in the file ```$("Hi there")``` make our output. This idea to make a code better
 
-lucee supports for static functions, we can use like below code
+Lucee also supports static functions as shown in the example code below:
 
 ```lucee
 <cfscript>

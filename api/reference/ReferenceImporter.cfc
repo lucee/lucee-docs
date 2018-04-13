@@ -2,7 +2,8 @@ component {
 	processingdirective preserveCase=true;
 
 // CONSTRUCTOR
-	public any function init(){
+	public any function init(numeric threads=1){
+		variables.threads = arguments.threads;
 		variables.buildProperties = new api.build.BuildProperties();
 		variables.cwd = GetDirectoryFromPath( GetCurrentTemplatePath() );
 		return this;
@@ -24,13 +25,15 @@ component {
 		var filesImported = 0;
 		var referenceReader = new ReferenceReaderFactory().getFunctionReferenceReader();
 		var filesImported = 0;
-		for( var functionName in referenceReader.listFunctions() ) {
+
+		Each (referenceReader.listFunctions(), function(functionName){
+		//for( var functionName in referenceReader.listFunctions() ) {
 			var convertedFunc = referenceReader.getFunction( functionName );
 
 			if ( !_isHiddenFeature( convertedFunc ) ) {
 				filesImported += _stubFunctionEditorialFiles( convertedFunc );
 			}
-		}
+		}, true, variables.threads);
 		request.logger (text="#filesImported# functions imported");
 	}
 
@@ -38,12 +41,13 @@ component {
 		var filesImported = 0;
 		var referenceReader = new ReferenceReaderFactory().getObjectReferenceReader();
 
-		for( var objectName in referenceReader.listObjects() ) {
+		Each (referenceReader.listObjects(), function(objectName) {
+		//for( var objectName in referenceReader.listObjects() ) {
 			var convertedObject = referenceReader.getObject( ObjectName );
 			//if ( !_isHiddenFeature( convertedObject ) ) {
 				filesImported += _stubObjectEditorialFiles( objectName );
 			//}
-		}
+		}, true, variables.threads);
 		request.logger (text="#filesImported# objects imported");
 	}
 
@@ -52,7 +56,8 @@ component {
 		var filesImported = 0;
 		var referenceReader = new ReferenceReaderFactory().getMethodReferenceReader();
 		var objects = referenceReader.listMethods();
-		for( var object in objects ) {
+		Each (objects, function(object){
+		//for( var object in objects ) {
 			for (var method in objects[object] ){
 				var methodData = referenceReader.getMethod( object, method);
 				//if ( !_isHiddenFeature( convertedMethod ) ) {
@@ -60,7 +65,7 @@ component {
 						filesImported += _stubMethodEditorialFiles( methodData );
 				//}
 			}
-		}
+		}, true, variables.threads);
 
 		request.logger (text="#filesImported# methods imported");
 	}
@@ -69,13 +74,14 @@ component {
 		var filesImported = 0;
 		var referenceReader = new ReferenceReaderFactory().getTagReferenceReader();
 
-		for( var tagName in referenceReader.listTags() ) {
+		Each (referenceReader.listTags(), function(tagName){
+		//for( var tagName in referenceReader.listTags() ) {
 			var convertedTag = referenceReader.getTag( tagName );
 
 			if ( !_isHiddenFeature( convertedTag ) ) {
 				filesImported += _stubTagEditorialFiles( convertedTag );
 			}
-		}
+		}, true, variables.threads);
 		request.logger (text="#filesImported# tags imported");
 
 	}

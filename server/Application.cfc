@@ -25,6 +25,10 @@
 			header statuscode=401;
 			abort;
 		}
+		var importThreads = 4;
+		// pegdown doesn't work with parallel build, see MarkdownParser.cfc
+		// see https://luceeserver.atlassian.net/browse/LD-109
+		var buildThreads = 1;
 		if ( path.startsWith( "/lucee/admin") ){
 			request.logger (text="ignoring /lucee/admin request #cgi.script_name#");
 			return;
@@ -32,20 +36,22 @@
 			logger.enableFlush(true);
 			setting requestTimeout=300;
 			_renderBuildHeader(path);
+			request.logger("Build: importThreads:#importThreads#, buildThreads: #buildThreads#");
 			if ( path eq "/build_docs/all/" ) {
-				new api.reference.ReferenceImporter().importAll();
-				new api.build.BuildRunner().buildAll();
+				new api.reference.ReferenceImporter(importThreads).importAll();
+				new api.build.BuildRunner(buildThreads).buildAll(); // threads disabled for now
 			} else if ( path eq "/build_docs/html/" ) {
-				new api.build.BuildRunner().build("html");
+				new api.build.BuildRunner().build(builderName="html", threads=buildThreads);
 			} else if ( path eq "/build_docs/dash/" ) {
-				new api.build.BuildRunner().build("dash");
+				new api.build.BuildRunner().build(builderName="dash", threads=buildThreads);
 			} else if ( path eq "/build_docs/import/" ) {
-				new api.reference.ReferenceImporter().importAll();
+				new api.reference.ReferenceImporter(importThreads).importAll();
 			} else {
 				if (listlen(path,"/") gt 1 )
 					writeOutput("unknown build docs request: #path#");
 			}
-			//fileAppend("/performance.log", "#path# #numberFormat(getTickCount() - request.loggerStart)#ms #server.lucee.version##chr(10)#");
+			fileAppend("/performance.log", "#path# #numberFormat(getTickCount() - request.loggerStart)#ms, "
+				& "#importThreads# import threads, #buildThreads# build threads, #server.lucee.version##chr(10)#");
 			logger.renderLogs();
 		} else if ( path eq "/assets/js/searchIndex.json" ) {
 			_renderSearchIndex();
