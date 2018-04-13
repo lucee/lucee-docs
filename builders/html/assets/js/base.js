@@ -13784,10 +13784,10 @@ $('.textarea-autosize').textareaAutoSize();
                 ajaxopts = $.extend({
                     url: externalUrl.replace(embedProvider.templateRegex, embedProvider.apiendpoint),
                     dataType: 'jsonp',
-                    success: function (data) {
+                    success: function (data, status, xhr) {
                         var oembedData = $.extend({}, data);
                         oembedData.code = embedProvider.templateData(data);
-                        if (data.meta.status !== 200)
+                        if (xhr.status !== 200)
                             settings.onError.call(container, externalUrl, embedProvider);
                         else
                             success(oembedData, externalUrl, container);
@@ -14252,6 +14252,7 @@ $('.textarea-autosize').textareaAutoSize();
             templateData: function (data) {
                 if (!data.parse)
                     return false;
+                return false;    // way to noisy
                 var text = data.parse['text']['*'].replace(/href="\/wiki/g, 'href="http://en.wikipedia.org/wiki');
                 return  '<div id="content"><h3><a class="nav-link" href="http://en.wikipedia.org/wiki/' + data.parse['displaytitle'] + '">' + data.parse['displaytitle'] + '</a></h3>' + text + '</div>';
             }
@@ -14588,10 +14589,21 @@ String.prototype.md5=function(){var a=function(a,b){var c=(a&65535)+(b&65535);va
 
 setTimeout(
     function(){
+        'use strict';
         $(function(){
+            var oembedWhiteList = ["youtube.com","dev.lucee.org","luceeserver.atlassian.net","github.com"];
+            var isWhiteListed = function (url){
+                var whiteListed = false;
+                for (var s in oembedWhiteList){
+                    if (url.indexOf(oembedWhiteList[s]) > 0){
+                        whiteListed = true;
+                        break;
+                    }
+                }
+                return whiteListed;
+            };
+
             var oembedFallback = function (container, resourceURL){
-                if (resourceURL.toLowerCase().indexOf("https://luceeserver.atlassian.net/browse/") !== 0)
-                    return;
                 $.ajax("http://open.iframe.ly/api/oembed?url=" + resourceURL + "&origin=lucee")
                     .done(function(oembedData) {
                         oembedData.code = $.fn.oembed.getGenericCode(resourceURL, oembedData);
@@ -14602,11 +14614,18 @@ setTimeout(
                     }
                 );
             };
+
             $(".content-inner .body a").each(function(){
                 if ($(this).hasClass("edit-link") || $(this).hasClass("local-edit-link") || $(this).hasClass("no-oembed"))
                     return;
                 var url = $(this).attr("href");
-                if (url && url.indexOf("http") === 0 ){ // avoid local content!
+                if (url && url.indexOf("http") === -1)
+                    return;  // skip all  local content
+                var whiteListed = isWhiteListed(String(url));
+                if (url == $(this).text())
+                    whiteListed = true;
+                // only oembed raw urls and whiteListed sites
+                if (whiteListed){
                     $(this).oembed(url, {
                         fallback : false,
                         onProviderNotFound: oembedFallback
