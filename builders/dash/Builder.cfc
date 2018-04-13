@@ -12,13 +12,15 @@ component extends="builders.html.Builder" {
 
 		request.filesWritten = 0;
 		request.filesToWrite = StructCount(pagePaths);
-		request.logger (text="Builder Dash directory: #arguments.buildDirectory#");
+		request.logger (text="Builder DASH directory: #arguments.buildDirectory#");
 
 		if ( !DirectoryExists( arguments.buildDirectory ) ) { DirectoryCreate( arguments.buildDirectory ); }
 		if ( !DirectoryExists( docsetRoot               ) ) { DirectoryCreate( docsetRoot               ); }
 		if ( !DirectoryExists( contentRoot              ) ) { DirectoryCreate( contentRoot              ); }
 		if ( !DirectoryExists( resourcesRoot            ) ) { DirectoryCreate( resourcesRoot            ); }
 		if ( !DirectoryExists( docsRoot                 ) ) { DirectoryCreate( docsRoot                 ); }
+
+		new api.parsers.ParserFactory().getMarkdownParser(); // so the markdown parser shows up in logs
 
 		try {
 			_setupSqlLite( resourcesRoot );

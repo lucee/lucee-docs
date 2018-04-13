@@ -20,8 +20,10 @@ component {
 		request.filesWritten = 0;
 		request.filesToWrite = StructCount(pagePaths);
 
-		request.logger (text="Builder html directory: #arguments.buildDirectory#");
+		request.logger (text="Builder HTML directory: #arguments.buildDirectory#");
 		var tick = getTickCount();
+
+		new api.parsers.ParserFactory().getMarkdownParser(); // so the markdown parser shows up in logs
 
 		//for ( var path in pagePaths ) {
 		each(pagePaths, function(path){

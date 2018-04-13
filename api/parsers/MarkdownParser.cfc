@@ -4,7 +4,7 @@ component {
 	property name="flexmark" type="boolean" default="false";
 
 	public any function init() {
-		variables.flexmark = true;
+		variables.flexmark = false; //experimental https://luceeserver.atlassian.net/browse/LD-109
 		_setupMarkdownProcessor();
 		_setupNoticeBoxRenderer();
 
@@ -113,7 +113,8 @@ component {
 	private any function _getMarkdownProcessor() output=false {
 		return variables._markdownProcessor;
 	}
-	private void function _setMarkdownProcessor( required any markdownProcessor ) output=false {
+	private void function _setMarkdownProcessor( required any markdownProcessor ) {
+		request.logger(text="Rendering with " & (variables.flexmark ? 'Flexmark': 'PegDown') & " markdown parser");
 		variables._markdownProcessor = arguments.markdownProcessor;
 	}
 

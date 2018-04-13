@@ -36,7 +36,7 @@ component accessors=true {
 		var startTime = getTickCount();
 
 		lock name="build#buildername#" timeout="1" type ="Exclusive" throwontimeout="true" {
-			request.logger (text="Start builder: #arguments.builderName# #cgi.script_name#");
+			request.logger (text="Start builder: #arguments.builderName# with #threads# thread(s)");
 			builder.build( docTree, buildDir, threads );
 			request.logger (text="Finished builder: #arguments.builderName#, in #NumberFormat( getTickCount()-startTime)#ms");
 		}
