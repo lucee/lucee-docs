@@ -28,7 +28,7 @@
 		var importThreads = 4;
 		// pegdown doesn't work with parallel build, see MarkdownParser.cfc
 		// see https://luceeserver.atlassian.net/browse/LD-109
-		var buildThreads = 1;
+		var buildThreads = 4;
 		if ( path.startsWith( "/lucee/admin") ){
 			request.logger (text="ignoring /lucee/admin request #cgi.script_name#");
 			return;

@@ -17,7 +17,9 @@ component {
 			var doc = processor.parser.parse(arguments.markdown);
 			var html = processor.renderer.render( doc );
 		} else {
-			var html = _getMarkdownProcessor().markdownToHtml( arguments.markdown );
+			lock name="pegDownIsntThreadSafe" timeout="5" type="exclusive" {
+				var html = _getMarkdownProcessor().markdownToHtml( arguments.markdown );
+			}
 		}
 		return _getNoticeBoxRenderer().renderNoticeBoxes( html );
 	}
