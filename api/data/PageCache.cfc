@@ -13,10 +13,12 @@ component accessors=true {
 	}
 
 	public void function addPage( required any page, required any path ) {
-		variables.pages[arguments.path] = {
-            page: arguments.page,
-            updated: now()
-        };
+		lock name="docsAddPageToCache" timeout=5 {
+			variables.pages[arguments.path] = {
+				page: arguments.page,
+				updated: now()
+			};
+		}
 	}
 
 	public struct function getPathCache() {

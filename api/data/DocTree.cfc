@@ -202,8 +202,9 @@ component accessors=true {
 			var start = getTickCount();
 			var _threads = getThreads();
 			each (q_source_files, function (page) {
+				var _parsedPage = new PageReader().preparePageObject( variables.rootDir, page.name, page.directory, page.path );
 				variables.pageCache.addPage(
-					new PageReader().preparePageObject( variables.rootDir, page.name, page.directory, page.path ),
+					_parsedPage,
 					page.path
 				);
 			}, true, _threads);
