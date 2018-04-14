@@ -70,9 +70,9 @@ component {
         if (style.len() gt 0)
             style = ' style="#style#" ';
 
-        if (this.textOnly)
+        if (this.textOnly) {
             writeOutput("#numberformat(arguments.log.timeMs)#ms #arguments.log.type# #arguments.log.text##chr(10)#");
-        else {
+        } else {
 		    writeOutput("<li #style#>");
             if (log.link.len() gt 0)
                 writeOutput('<a href="#log.link#">');

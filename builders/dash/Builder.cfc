@@ -20,7 +20,7 @@ component extends="builders.html.Builder" {
 		if ( !DirectoryExists( resourcesRoot            ) ) { DirectoryCreate( resourcesRoot            ); }
 		if ( !DirectoryExists( docsRoot                 ) ) { DirectoryCreate( docsRoot                 ); }
 
-		new api.parsers.ParserFactory().getMarkdownParser(); // so the markdown parser shows up in logs
+		new api.parsers.ParserFactory().getMarkdownParser(); // so the parser in use shows up in logs
 
 		try {
 			_setupSqlLite( resourcesRoot );

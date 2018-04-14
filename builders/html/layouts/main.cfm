@@ -186,7 +186,7 @@
 					<div class="row">
 						<div class="col-lg-10 col-lg-push-1 body">
 							<div class="tile-wrap">
-								<div class="tile">
+								<div class="tile breadcrumbs">
 									#args.crumbs#
 								</div>
 							</div>

@@ -13,10 +13,12 @@ component accessors=true {
 	}
 
 	public void function addPage( required any page, required any path ) {
-		variables.pages[arguments.path] = {
-            page: arguments.page,
-            updated: now()
-        };
+		lock name="docsAddPageToCache" timeout=5 {
+			variables.pages[arguments.path] = {
+				page: arguments.page,
+				updated: now()
+			};
+		}
 	}
 
 	public struct function getPathCache() {
@@ -167,7 +169,7 @@ component accessors=true {
 		var path = ListToArray(filepath, "/");
 		var currentDir = variables.rootDir;
 		request.logger("createPageDirectory: #arguments.filePath#");
-		for (dir in path){
+		for (var dir in path){
 			if ( not DirectoryExists(currentDir & "/" & dir ) ){
 				dir = _createDirWithPrefixCheck(currentDir, dir);
 			}

@@ -7686,7 +7686,7 @@ body.el-loading {
 .breadcrumb {
   list-style: none;
   margin: 24px 0;
-  padding: 12px 0;
+  padding-left: 0;
 }
 .breadcrumb:after, .breadcrumb:before {
   content: "";
@@ -7715,6 +7715,10 @@ body.el-loading {
   color: #212121;
   cursor: text;
   text-decoration: none;
+}
+
+.breadcrumbs {
+  padding: 12px 0;
 }
 
 .body {

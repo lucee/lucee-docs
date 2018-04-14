@@ -21,20 +21,20 @@ component {
 		request.filesToWrite = StructCount(pagePaths);
 
 		request.logger (text="Builder HTML directory: #arguments.buildDirectory#");
-		var tick = getTickCount();
 
-		new api.parsers.ParserFactory().getMarkdownParser(); // so the markdown parser shows up in logs
+		new api.parsers.ParserFactory().getMarkdownParser(); // so the parser in use shows up in logs
 
 		//for ( var path in pagePaths ) {
 		each(pagePaths, function(path){
+			var tick = getTickCount();
 			_writePage( pagePaths[path].page, buildDirectory, docTree );
+
 			request.filesWritten++;
 			if ((request.filesWritten mod 100) eq 0){
 				request.logger(text="Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
 			}
 			if (getTickCount()-tick gt 100)
 				request.logger(text="Page took #path# #numberformat(getTickCount()-tick)# ms", link="#path#.html");
-			tick = getTickCount();
 		}, true, arguments.threads);
 		//}
 		request.logger (text="Html Builder #request.filesWritten# files produced");
@@ -58,17 +58,9 @@ component {
 			e.additional.luceeDocsPageId = arguments.page.getid();
 			rethrow;
 		}
-		var crumbs = [];
+		var crumbs = arguments.docTree.getPageBreadCrumbs(arguments.page);
 		var excludeLinkMap = {}; // tracks links to exclude from See also
-		var parent = arguments.page.getParent();
 		var links = [];
-
-		while( !IsNull( parent ) ) {
-			//excludeLinkMap[parent.getId()]="";
-			if (parent.getVisible())
-				crumbs.prepend( parent.getId() );
-			parent = parent.getParent();
-		}
 
 		if ( !IsNull( arguments.page.getCategories() ) ) {
 			for( var category in arguments.page.getCategories() ) {

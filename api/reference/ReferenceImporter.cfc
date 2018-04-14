@@ -167,6 +167,7 @@ categories:";
 
 		//arguments.func.examples    = [];
 		//arguments.func.history     = [];
+		return filesCreated;
 	}
 
 	private numeric function _stubTagEditorialFiles( required struct tag ) {
@@ -286,8 +287,11 @@ categories:
 		loop query=q_files {
 			if ( q_files.name == fileName ) {
 				arguments.filePath = q_files.directory & "/" & q_files.name;  // use exact case
-				var file = Trim(FileRead(arguments.filePath));
-				if ( len(file) == 0){
+				var size = q_files.size;
+				if (size gt 0)
+					size = Trim(FileRead(arguments.filePath)); // check for empty file
+
+				if (size eq 0){
 					if (len(trim(arguments.content)) gt 0){
 						request.logger(text="Updating existing zero length file: " & arguments.filePath);
 						exists = true;

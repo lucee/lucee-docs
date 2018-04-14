@@ -25,6 +25,9 @@ component accessors=true {
 	property name="previousPage" type="any";
 	property name="categories"   type="array";
 
+	property name="methodObject"  type="string"  default="";
+	property name="methodName"  type="string"  default="";
+
 	public void function addChild( required any childPage ) {
 		getChildren().append( arguments.childPage );
 	}
