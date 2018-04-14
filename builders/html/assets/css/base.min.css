@@ -569,7 +569,7 @@ color:#fff}.avatar-red{background-color:#f44336;color:#fff}.avatar-yellow{backgr
 .avatar-transparent{background-color:transparent}.breadcrumb{list-style:none;margin:24px 0;padding:12px 0}.breadcrumb:after,.breadcrumb:before{content
 :"";display:table;line-height:0}.breadcrumb:after{clear:both}.breadcrumb>li{display:block;float:left}.breadcrumb>li+li:before{color:#9e9e9e;content:
 "\f29c";display:inline-block;line-height:24px;margin-left:.4em}.breadcrumb>.active{color:#212121}.breadcrumb>.active>.a,.breadcrumb>.active>a{color:
-#212121;cursor:text;text-decoration:none}.body{max-width:900px}.btn{background-color:#fff;background-image:none;background-position:50% 50%;
+#212121;cursor:text;text-decoration:none}.body{max-width:1000px}.btn{background-color:#fff;background-image:none;background-position:50% 50%;
 background-size:100% 100%;border:1px solid transparent;border-radius:2px;color:#212121;cursor:pointer;display:inline-block;font-size:16px;font-weight:
 400;line-height:24px;margin-bottom:0;max-width:100%;padding:5px 15px;position:relative;text-align:center;text-transform:uppercase;vertical-align:
 middle;white-space:nowrap;-webkit-box-shadow:0 1px 5px rgba(0,0,0,.15),0 1px 5px 1px rgba(0,0,0,.15);box-shadow:0 1px 5px rgba(0,0,0,.15),0 1px 5px 
