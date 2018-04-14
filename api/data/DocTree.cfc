@@ -8,6 +8,9 @@ component accessors=true {
 	property name="categoryMap" type="struct"; // tracks categories pages
 	property name="referenceMap" type="struct"; // tracks references
 	property name="pageCache" type="any"; // tracks references
+	// tracks directly related pages ( i.e. BIF and object member, Struct.keyExists and StructKeyExists) LD-112
+	property name="directlyRelatedMap" type="struct";
+
 	property name="threads" type="numeric"; // tracks references
 
 	public any function init( required string rootDirectory, required numeric threads ) {
@@ -33,6 +36,7 @@ component accessors=true {
 		setRelatedMap( {} );
 		setCategoryMap( {} );
 		setReferenceMap( {} );
+		setDirectlyRelatedMap( {} );
 	}
 
 	public void function updateTree() {
@@ -101,6 +105,30 @@ component accessors=true {
 		return cats;
 	}
 
+	public array function getPageBreadCrumbs(required any page){
+		var crumbs = [];
+		crumbs.append( _getPageBreadCrumbs(arguments.page) );
+		if ( variables.directlyRelatedMap.keyExists(arguments.page.getId()) ){
+			var related = variables.directlyRelatedMap[arguments.page.getId()];
+			for (relatedId in related){
+				crumbs.append( _getPageBreadCrumbs( getPage(relatedId) ) );
+			}
+		}
+		return crumbs;
+	}
+
+	private array function _getPageBreadCrumbs(required any page){
+		var crumbs = [];
+		var parent = arguments.page.getParent();
+		while( !IsNull( parent ) ) {
+			if (parent.getVisible())
+				crumbs.prepend( parent.getId() );
+			parent = parent.getParent();
+		}
+		crumbs.append( arguments.page.getId() );
+		return crumbs;
+	}
+
 	public struct function getPageSource(required string pagePath){
 		if (not FileExists(rootDir & arguments.pagePath)){
 			var reqType = listLast(arguments.pagePath,"/");
@@ -165,66 +193,71 @@ component accessors=true {
 
 // private helpers
 	private void function _loadTree() {
-    	_initializeEmptyTree();
+		lock name="docsBuildTree" timeout=10 {
+			_initializeEmptyTree();
 
-		variables.pageCache.reset();
-		var q_source_files = variables.pageCache.getPageFileList(lastModified=false);
+			variables.pageCache.reset();
+			var q_source_files = variables.pageCache.getPageFileList(lastModified=false);
 
-		var start = getTickCount();
-		each (q_source_files, function (page) {
-			variables.pageCache.addPage(
-				new PageReader().preparePageObject( variables.rootDir, page.name, page.directory, page.path ),
-				page.path
-			);
-		}, true, getThreads());
-		request.logger (text="Pages Parsed in #(getTickCount()-start)/1000#s");
+			var start = getTickCount();
+			var _threads = getThreads();
+			each (q_source_files, function (page) {
+				variables.pageCache.addPage(
+					new PageReader().preparePageObject( variables.rootDir, page.name, page.directory, page.path ),
+					page.path
+				);
+			}, true, _threads);
+			request.logger (text="Pages Parsed in #(getTickCount()-start)/1000#s");
 
-		_buildTreeHierachy(false);
-		_parseTree();
+			_buildTreeHierachy(false);
+			_parseTree();
+		}
 	}
 
 	private void function _updateTree() {
-		_initializeEmptyTree();
-		var pathCache = variables.pageCache.getPathCache();
-		var q_source_files = variables.pageCache.getPageFileList(lastModified=true);
-		var added = 0;
-		var exists = {};
-		var deleted = [];
+		lock name="docsBuildTree" timeout=10 {
+			_initializeEmptyTree();
+			var pathCache = variables.pageCache.getPathCache();
+			var q_source_files = variables.pageCache.getPageFileList(lastModified=true);
+			var added = 0;
+			var exists = {};
+			var deleted = [];
 
-		loop query=q_source_files {
-			var addFile = false;
-			if (not structKeyExists(pathCache, q_source_files.path)){
-				addFile = true;
-			} else if (dateCompare(q_source_files.dateLastModified, pathCache[q_source_files.path]) eq 1) {
-				// do a timestamp comparison against the cache here
-				request.logger (text="source updated #q_source_files.path#");
-				addFile = true;
+			loop query=q_source_files {
+				var addFile = false;
+				if (not structKeyExists(pathCache, q_source_files.path)){
+					addFile = true;
+				} else if (dateCompare(q_source_files.dateLastModified, pathCache[q_source_files.path]) eq 1) {
+					// do a timestamp comparison against the cache here
+					request.logger (text="source updated #q_source_files.path#");
+					addFile = true;
+				}
+
+				if (addFile){
+					request.logger (text="Update pageCache, adding #q_source_files.path#");
+					variables.pageCache.addPage(
+						new PageReader().preparePageObject( variables.rootDir, q_source_files.name, q_source_files.directory, q_source_files.path ),
+						q_source_files.path
+					);
+					added++;
+				}
+				exists[q_source_files.path] = true;
+			}
+			for( var c in pathCache ) {
+				if (not exists.keyExists(c))
+					deleted.append(c);
 			}
 
-			if (addFile){
-				request.logger (text="Update pageCache, adding #q_source_files.path#");
-				variables.pageCache.addPage(
-					new PageReader().preparePageObject( variables.rootDir, q_source_files.name, q_source_files.directory, q_source_files.path ),
-					q_source_files.path
-				);
-				added++;
+			if (deleted.len() gt 0){
+				// pages in cache which have been deleted
+				pageCache.removePages( deleted, "deleted" );
 			}
-			exists[q_source_files.path] = true;
-		}
-		for( var c in pathCache ) {
-			if (not exists.keyExists(c))
-				deleted.append(c);
-		}
 
-		if (deleted.len() gt 0){
-			// pages in cache which have been deleted
-			pageCache.removePages( deleted, "deleted" );
+			if (added gt 0 or deleted.len() gt 0)
+				pageCache.reSort();
+			_buildTreeHierachy(true);
+			_parseTree();
 		}
-
-		if (added gt 0 or deleted.len() gt 0)
-			pageCache.reSort();
-		_buildTreeHierachy(true);
-		_parseTree();
 	}
 
 	private void function _buildTreeHierachy(boolean reset="false") {
@@ -344,7 +377,7 @@ component accessors=true {
 
 			if ( page.getChildren().len() ) {
 				page.setNextPage( page.getChildren()[1] );
-			} elseif ( i == pageCount ) {
+			} else if ( i == pageCount ) {
 				page.setNextPage( arguments.nextParentPage ?: NullValue() );
 			} else {
 				page.setNextPage( arguments.pages[i+1] );
@@ -385,6 +418,37 @@ component accessors=true {
 			ArraySort(links,"textnocase");
 			variables.relatedMap[id] = links;
 		}
+
+		// cross referencing BIF to object methods
+		// i.e. Struct.keyExists and StructKeyExists
+
+		var _related = {};
+		for ( var id in variables.idMap ) {
+			var page = variables.idMap[ id ];
+			if (page.getMethodObject().len() && page.getMethodName().len()){
+				var relatedId = "function-" & page.getMethodObject() & page.getMethodName();
+				if (variables.idMap.keyExists(relatedId)){
+					if (!_related.keyExists(id) )
+						_related[id] = {};
+					_related[id][relatedId] = "";
+					if (!_related.keyExists(relatedId) )
+						_related[relatedId] = {};
+					_related[relatedId][id] = "";
+				}
+			}
+			if (page.getMethodName().len()){
+				var relatedId = "function-" & page.getMethodName();
+				if (variables.idMap.keyExists(relatedId)){
+					if (!_related.keyExists(id) )
+						_related[id] = {};
+					_related[id][relatedId] = "";
+					if (!_related.keyExists(relatedId) )
+						_related[relatedId] = {};
+					_related[relatedId][id] = "";
+				}
+			}
+		}
+		variables.directlyRelatedMap = _related;
 	}
 
 	// all categories should have content, all referenced categories should exist

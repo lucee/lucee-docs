@@ -167,7 +167,7 @@ component accessors=true {
 		var path = ListToArray(filepath, "/");
 		var currentDir = variables.rootDir;
 		request.logger("createPageDirectory: #arguments.filePath#");
-		for (dir in path){
+		for (var dir in path){
 			if ( not DirectoryExists(currentDir & "/" & dir ) ){
 				dir = _createDirWithPrefixCheck(currentDir, dir);
 			}
