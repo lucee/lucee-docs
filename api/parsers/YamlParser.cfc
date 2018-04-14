@@ -7,12 +7,17 @@ component {
 		return this;
 	}
 
+	// snakeYaml only rarely has concurrency issues
 	public any function yamlToCfml( required string yaml ) {
-		return _stripEmpty( _getYamlParser().load( arguments.yaml ) );
+		lock name="snakeYamlIsntThreadSafe" timeout="5" type="exclusive" {
+			return _stripEmpty( _getYamlParser().load( arguments.yaml ) );
+		}
 	}
 
 	public any function cfmlToYaml( required struct data ) {
-		return _getYamlParser().dumpAsMap( _stripEmpty(arguments.data) );
+		lock name="snakeYamlIsntThreadSafe" timeout="5" type="exclusive" {
+			return _getYamlParser().dumpAsMap( _stripEmpty(arguments.data) );
+		}
 	}
 
 // PRIVATE
