@@ -99,9 +99,9 @@
 	};
 
 	generateRegexForInput = function( input ){
-		var inputLetters = input.replace(/\W/, '').split('')
+		var inputLetters = input.replace(/[\W]+/g, '').split('')
 		  , reg = {}, i;
-		// TODO this crashes on brackets in search term, ie. Min()
+		
 		reg.expr = new RegExp('(' + inputLetters.join( ')(.*?)(' ) + ')', 'i');
 		reg.replace = "";
 
