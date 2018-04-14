@@ -12,7 +12,7 @@
 		startTime = getTickCount();
 
 		savecontent variable="suppressingwhitespacehere" {
-			new api.build.BuildRunner().buildAll();
+			new api.build.BuildRunner(threads=4).buildAll();
 		}
 
 		content reset="true" type="text/plain";
