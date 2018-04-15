@@ -38,7 +38,7 @@ The QueryParam is used inside the query tag. It is used to bind the value with t
 <cfdump var="#qry#" expand="false">
 ```
 
-Passing vaules with QueryParam has two advantages:
+Passing values with QueryParam has two advantages:
 
 * The value you pass in QueryParam is very secure,
 * Lucee is able to cache the query statement and reuse it as long as the value is unchanged.
@@ -184,11 +184,11 @@ Query::execute(...);	// equal to queryExecute(), coming soon
 ```
 ### Query Builder ###
 
-Query Builder use as extension, it will not come up with core. 
+Query Builder use as extension, it will not come up with core.
 
 It is much easier to do a simple query.
 
-You can 
+You can
 
 ```lucee
 <cfscript>

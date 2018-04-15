@@ -12,7 +12,7 @@ description: Creates a custom-formatted number value
 
 Creates a custom-formatted number value. For international number formatting use [[function-LSNumberFormat]].
 
-[mask - quicky]
+[mask - quickly]
 
 -  _,9 Digit placeholder; . decimal point; 0 Pads with zeros;
 -  ( ) less than zero, puts parentheses around the mask

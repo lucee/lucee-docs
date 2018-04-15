@@ -1,1 +1,1 @@
-A structure that contains log defintions.
+A structure that contains log definitions.

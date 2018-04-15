@@ -8,4 +8,4 @@ categories:
 - server
 ---
 
-list all Certificates availble on a specific host
+list all Certificates available on a specific host

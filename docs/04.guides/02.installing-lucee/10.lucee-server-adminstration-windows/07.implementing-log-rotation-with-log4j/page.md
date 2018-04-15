@@ -66,16 +66,16 @@ There are two additional JAR's Tomcat will need in order to use Log4j, these are
 [http://tomcat.apache.org/download-70.cgi](http://tomcat.apache.org/download-70.cgi)
 
 
-Once downloaded, you will need to place in the following diretories
+Once downloaded, you will need to place in the following directories
 
-- tomcat-juli-adapters.jar -> ```C:\lucee\tomcat\lib\```  
-- tomcat-juli.jar -> ```C:\lucee\tomcat\bin\ (replace the existing file)```  
+- tomcat-juli-adapters.jar -> ```C:\lucee\tomcat\lib\```
+- tomcat-juli.jar -> ```C:\lucee\tomcat\bin\ (replace the existing file)```
 
 The tomcat-juli.jar that already exists in the tomcat\bin directory has NOT been compiled with log4j support, so it will need to be replaced.
 
 ### Set the Context Log Attribute ###
 
-We will need to update the default context config so that logging data is "trapped" and placed in the default root logger. In order to do this, we need to edit the default context file in 
+We will need to update the default context config so that logging data is "trapped" and placed in the default root logger. In order to do this, we need to edit the default context file in
 
 	C:\lucee\tomcat\conf\context.xml.
 

@@ -34,7 +34,7 @@ Creating a cache connection
 
 1. In Services/Cache create a new instance of Membase Cache. You can also select if you need to use this instance as default for objects/templates/queries/resources.
 
-1. Fill the required informations for creating a connection to your membase server ( or cluster ).
+1. Fill in the required information for creating a connection to your membase server ( or cluster ).
 
 What is MOXI ??
 
@@ -48,7 +48,7 @@ Install a standalone Moxi instance on the same client where your Lucee server is
 moxi http://{membase server1}:8080/pools/default/bucketsStreaming/default http://{membase server2}:8080/pools/default/bucketsStreaming/default
 ```
 
-As you see moxi will try to use the 2 passed hosts as part of the cluster and will manage the routing of your application calls. **Important : you will need in any case to acces the membase administration panel ( on both hosts ) and to add them into the same cluster**. When this is done you will start using the power of memcached with the agility of membase.
+As you see moxi will try to use the 2 passed hosts as part of the cluster and will manage the routing of your application calls. **Important : you will need in any case to access the membase administration panel ( on both hosts ) and to add them into the same cluster**. When this is done you will start using the power of memcached with the agility of membase.
 
 If you run a single membase server on you localhost for testing purposes ,you will not need to launch moxi manually cause the server will already do that . Just point your cache to the moxi host using the default port.
 

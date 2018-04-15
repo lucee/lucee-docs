@@ -11,7 +11,7 @@ System properties supported by Lucee
 * **lucee.web.dir** - web context, same as init param lucee-web-directory
 * **lucee.controller.interval** - number of milliseconds between controller calls, 0 to disable controller [useful for benchmark testing etc]
 * **lucee.full.null.support** - Turns full null support on or off (true/false)
-* **lucee-extensions** - Commma-delimited list of GUID IDs that correspond to extensions Lucee should install automatically
-* **lucee.enable.dialect** - Enable the experiemental Lucee dialect (true/false)
+* **lucee-extensions** - Comma-delimited list of GUID IDs that correspond to extensions Lucee should install automatically
+* **lucee.enable.dialect** - Enable the experimental Lucee dialect (true/false)
 
 Find the ID of your extension for the `lucee-extensions` property on this page: [http://download.lucee.org/?type=extensions](http://download.lucee.org/?type=extensions)

@@ -21,7 +21,7 @@ Once iptables is installed (if it wasn't already), we can configure port forward
 
 	sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8888
 
-Spcifically, the above command will reroute all TCP port 80 traffic to port 8888, which, if you used the Lucee Installer defaults, should reroute all standard web requests off to Tomcat's 8888 port.
+Specifically, the above command will reroute all TCP port 80 traffic to port 8888, which, if you used the Lucee Installer defaults, should reroute all standard web requests off to Tomcat's 8888 port.
 
 ### OPTION 2: Configure Authbind ###
 
@@ -30,16 +30,16 @@ Authbind is a program you can use to allow access to protected ports by specifyi
 To start, configure Tomcat to listen directly on port 80 by modifying the /opt/lucee/tomcat/conf/server.xml file and changing the listener config from this:
 
 ```lucee
- <Connector port="8888" protocol="HTTP/1.1" 
-	connectionTimeout="20000" 
+ <Connector port="8888" protocol="HTTP/1.1"
+	connectionTimeout="20000"
    redirectPort="8443" />
 ```
 
 to this:
 
 ```lucee
- <Connector port="80" protocol="HTTP/1.1" 
-               connectionTimeout="20000" 
+ <Connector port="80" protocol="HTTP/1.1"
+               connectionTimeout="20000"
                redirectPort="8443" />
 ```
 
@@ -79,15 +79,15 @@ and your output should look something like this:
 
 	Active Internet connections (only servers)
 		Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
-		tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1083/sshd   
-		tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      22767/cupsd     
-		tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      2109/master   
-		tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      1212/mysqld   
-		tcp        0      0 0.0.0.0:8834            0.0.0.0:*               LISTEN      1951/nessusd    
-		tcp6       0      0 :::80                   :::*                    LISTEN      30607/java      
-		tcp6       0      0 :::22                   :::*                    LISTEN      1083/sshd    
-		tcp6       0      0 :::25                   :::*                    LISTEN      2109/master  
-		tcp6       0      0 :::8834                 :::*                    LISTEN      1951/nessusd    
-		tcp6       0      0 127.0.0.1:8005          :::*                    LISTEN      30607/java      
-		tcp6       0      0 :::8009                 :::*                    LISTEN      30607/java      
+		tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1083/sshd
+		tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      22767/cupsd
+		tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      2109/master
+		tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      1212/mysqld
+		tcp        0      0 0.0.0.0:8834            0.0.0.0:*               LISTEN      1951/nessusd
+		tcp6       0      0 :::80                   :::*                    LISTEN      30607/java
+		tcp6       0      0 :::22                   :::*                    LISTEN      1083/sshd
+		tcp6       0      0 :::25                   :::*                    LISTEN      2109/master
+		tcp6       0      0 :::8834                 :::*                    LISTEN      1951/nessusd
+		tcp6       0      0 127.0.0.1:8005          :::*                    LISTEN      30607/java
+		tcp6       0      0 :::8009                 :::*                    LISTEN      30607/java
 	jordan@jordan-M61P-S3:/opt/lucee$

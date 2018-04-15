@@ -149,7 +149,7 @@ Additional language extensions, frameworks, additional features, drivers, etc. a
     * rethrowing
     * finally
     * catch-all error handling in code
-    * site-wide error handling temlates
+    * site-wide error handling templates
 
 ### Security features ###
 

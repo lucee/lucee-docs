@@ -6,7 +6,7 @@ categories:
 description: 'the function ImageFilter allows to execute a filter against a image. '
 ---
 
-the function ImageFilter allows to execute a filter against a image. 
+the function ImageFilter allows to execute a filter against a image.
 
 Below you find a list of filter names supported by the function.
 every filter need other parameters for the configuration, listed as well below.
@@ -476,7 +476,7 @@ fade
 	- invert (boolean)
 	- dimensions (Array)
 feedback
-	A filter which priduces a video feedback effect by repeated transformations.
+	A filter which produces a video feedback effect by repeated transformations.
 
 	Parameters:
 
@@ -803,7 +803,7 @@ mask
 	- mask (integer)
 	- dimensions (Array)
 maximum
-	A filter which replcaes each pixel by the maximum of itself and its eight neightbours.
+	A filter which replcaes each pixel by the maximum of itself and its eight neighbours.
 
 	Parameters:
 median
@@ -811,7 +811,7 @@ median
 
 	Parameters:
 minimum
-	A filter which replcaes each pixel by the mimimum of itself and its eight neightbours.
+	A filter which replcaes each pixel by the mimimum of itself and its eight neighbours.
 
 	Parameters:
 mirror
@@ -1552,7 +1552,7 @@ weave
 	- shadeCrossings (boolean)
 	- dimensions (Array)
 wood
-	A filter which produces a simulated wood texture. This is a bit of a hack, but might be usefult to some people.
+	A filter which produces a simulated wood texture. This is a bit of a hack, but might be useful to some people.
 
 	Parameters:
 

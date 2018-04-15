@@ -184,6 +184,6 @@ Misc other options, some more experimental than others (-libs for exec):
                                         to classloader
  -logdir,--log-dir <path/to/log/dir>    Log directory.  (WEB-INF/logs)
  -requestlog </path/to/log>             Log requests to specified file
- -t,--timeout <seconds>                 Startup timout for background process.
+ -t,--timeout <seconds>                 Startup timeout for background process.
                                         (50)
 ```

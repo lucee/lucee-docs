@@ -13,7 +13,7 @@ In the Lucee Server Administrator, go to Security -> Password. From this screen 
 
 ### Reduce Request Timeouts as Low as Possible ###
 
-To change the Request Timeout value, log in to the Lucee server administrator and go to Settings -> Application -> Request Timout. It is recommended you change it from 50 seconds to about 10 or so. Experiment with this to make sure the request timeouts do not effect needed functionality that may exist in your application.
+To change the Request Timeout value, log in to the Lucee server administrator and go to Settings -> Application -> Request Timeout. It is recommended you change it from 50 seconds to about 10 or so. Experiment with this to make sure the request timeouts do not effect needed functionality that may exist in your application.
 
 ### Ensure Lucee's "Script-Protect" feature is enabled ###
 

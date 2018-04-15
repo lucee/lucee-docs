@@ -1,1 +1,1 @@
-change the timezone defintion for the current application context.
+change the timezone definition for the current application context.

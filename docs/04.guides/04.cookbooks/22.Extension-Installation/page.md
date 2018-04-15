@@ -14,13 +14,13 @@ There are different ways to install the extension in lucee
 
 Extensions can be installed via the web or server admin. If you want to use the extension for the whole server means you need to install at server admin. If you want the extension for single web context installed in web admin.
 
-It avaliable in **Extension -> Applications**
+It available in **Extension -> Applications**
 
 ![Extension](assets/images/screenImages/Extension.png)
 
-Here we you can see the extension which is installed and not installed. 
+Here we you can see the extension which is installed and not installed.
 
-For insatlled extension if we have a update for the extension it simply showing with the label update, while cliking the extension it redirect to detail page of the extension
+For installed extension if we have a update for the extension it simply showing with the label update, while clicking the extension it redirect to detail page of the extension
 
 ![Extension Details](assets/images/screenImages/Extension_Detail.PNG)
 
@@ -53,7 +53,7 @@ Extension installed automatically.
 
 Here you can see this details on video also
 
-[ Extension Insalltion ](https://www.youtube.com/watch?time_continue=184&v=Vcu0OENm_ks)
+[Extension Installation](https://www.youtube.com/watch?time_continue=184&v=Vcu0OENm_ks)
 
 
 

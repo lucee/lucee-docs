@@ -7,4 +7,4 @@ categories:
 - java
 ---
 
-literal defintion of a serialized Java Object by function serialize
+literal definition of a serialized Java Object by function serialize

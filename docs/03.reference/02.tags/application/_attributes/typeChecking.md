@@ -1,1 +1,1 @@
-If disabled, Lucee ignores type defintions with function arguments and return values
+If disabled, Lucee ignores type definitions with function arguments and return values

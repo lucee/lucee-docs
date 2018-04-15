@@ -7,7 +7,7 @@ id: cookbook-filesystem-vfs
 A closer look on all virtual Filesystems supported by Lucee.
 
 ## RAM ##
-RAM is a in Memory Filesystem that stores Files in the Memory of the Java Vitual Machine (JVM), unless you attach a Cache in the Lucee Administartor for this Resource.
+RAM is a in Memory Filesystem that stores Files in the Memory of the Java Vitual Machine (JVM), unless you attach a Cache in the Lucee Administrator for this Resource.
 Every Web-Context does have it's own RAM Cache.
 
 ### Example Code: ###
@@ -79,7 +79,7 @@ dump(dir);
 ```
 
 ## HTTP ##
-HTTP allows you to use HTTP URLs as a virtual Filesystem. This is limited to read operation, because in most cases Webserver do not allow methods PUT,DELETE,UPDATE. 
+HTTP allows you to use HTTP URLs as a virtual Filesystem. This is limited to read operation, because in most cases Webserver do not allow methods PUT,DELETE,UPDATE.
 
 ### Example Code: ###
 

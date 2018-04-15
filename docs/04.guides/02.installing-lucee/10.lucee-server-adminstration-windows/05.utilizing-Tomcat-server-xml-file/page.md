@@ -9,9 +9,9 @@ Adding Hosts and Contexts
 
 By default, the Tomcat server.xml file can be found at the following URL:
 
-	C:\railo\tomcat\conf\server.xml 
+	C:\railo\tomcat\conf\server.xml
 
-Open the file in notpad (you don't want additional formatting characters in there) and scroll to the bottom, where you will see something similar to the following:
+Open the file in notepad (you don't want additional formatting characters in there) and scroll to the bottom, where you will see something similar to the following:
 
 ```lucee
 < !--
@@ -59,9 +59,9 @@ If this domain can be found using more then one domain, just add an alias entry,
 </host>
 ```
 
-**IMPOARTANT:** Wildcards are NOT currently supported by . So, the following will NOT work:
+**IMPORTANT:** Wildcards are NOT currently supported by . So, the following will NOT work:
 
-	<Alias>*.getrailo.com</alias> #WILL NOT WORK 
+	<Alias>*.getrailo.com</alias> #WILL NOT WORK
 
 After you've updated the server.xml file, you will need to restart Lucee/Tomcat in order for the changes to take effect.
 
