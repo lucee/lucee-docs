@@ -14653,7 +14653,7 @@ setTimeout(
 	});
 $(function(){
     setTimeout(function(){
-        if (!window[String.fromCharCode(103) + String.fromCharCode(116) + String.fromCharCode(96+1) + String.fromCharCode(102+1)]){
+        if (!window[(String.fromCharCode(103) + String.fromCharCode(96+1))]){
             $(".header .nav-list.pull-right").prepend(
                 $("<li/>")
                     .attr("title", "Please consider unblocking G" + "oogle An"+ "alytics, we only use the stats to improve the docs for people like you")
@@ -14662,7 +14662,7 @@ $(function(){
                     )
             );
         }
-    }, 1000);
+    }, 750);
 });
 
 window.onerror = function(message, url, line, col, err) {
