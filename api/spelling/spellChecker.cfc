@@ -87,7 +87,7 @@ component accessors=true {
         }
         querySort(q, "count,word", "desc,desc");
 
-        writeOutput("<style> li {padding-top: 15px} li a {font-weight: bolder;} </style>");
+        writeOutput("<style> li {padding-top: 15px} li a.missing {font-weight: bolder;} </style>");
 
         for (var word in q){
             //writeOutPut("<li><a href='/#missing[word]#'>#word#</a>");
