@@ -36,7 +36,6 @@
 		float: left;
 		padding-right: 10px;
 		+ li.category:before {
-			@extend .icon;
 			color: $black-hint;
 			display: inline-block;
 			line-height: $line-height;

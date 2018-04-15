@@ -2756,7 +2756,7 @@ th {
   src: url("./fonts/MaterialDesignIcon.eot?v=1.1.1");
   src: url("./fonts/MaterialDesignIcon.eot?#iefix&v=1.1.1") format("embedded-opentype"), url("./fonts/MaterialDesignIcon.woff?v=1.1.1") format("woff"), url("./fonts/MaterialDesignIcon.ttf?v=1.1.1") format("truetype"), url("./fonts/MaterialDesignIcon.svg?v=1.1.1#MaterialDesignIcon") format("svg");
 }
-.icon, .breadcrumb > li + li:before, .breadcrumb-categories > li + li.category:before {
+.icon, .breadcrumb > li + li:before {
   display: inline-block;
   font: normal normal normal 16px/1 MaterialDesignIcon;
   font-size: inherit;
@@ -11645,8 +11645,7 @@ a.missing-link {
 .header .nav > li > a .avatar,
 .header .nav > li > a .fa,
 .header .nav > li > a .icon,
-.header .nav > li > a .breadcrumb > li + li:before,
-.header .nav > li > a .breadcrumb-categories > li + li.category:before {
+.header .nav > li > a .breadcrumb > li + li:before {
   -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition-property: opacity, -webkit-transform;
@@ -11709,8 +11708,7 @@ a.missing-link {
 .header .nav > li.active > a .avatar,
 .header .nav > li.active > a .fa,
 .header .nav > li.active > a .icon,
-.header .nav > li.active > a .breadcrumb > li + li:before,
-.header .nav > li.active > a .breadcrumb-categories > li + li.category:before {
+.header .nav > li.active > a .breadcrumb > li + li:before {
   opacity: 0;
   filter: alpha(opacity=0);
   -webkit-transform: rotate(225deg);
@@ -12000,11 +11998,9 @@ a.missing-link {
 .menu-content .nav a .fa,
 .menu-content .nav a .icon,
 .menu-content .nav a .breadcrumb > li + li:before,
-.menu-content .nav a .breadcrumb-categories > li + li.category:before,
 .menu-content .nav .a .fa,
 .menu-content .nav .a .icon,
-.menu-content .nav .a .breadcrumb > li + li:before,
-.menu-content .nav .a .breadcrumb-categories > li + li.category:before {
+.menu-content .nav .a .breadcrumb > li + li:before {
   margin-right: 16px;
 }
 .menu-content .nav li.active > a, .menu-content .nav li.active > .a {
