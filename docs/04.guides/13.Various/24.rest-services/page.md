@@ -1,6 +1,10 @@
 ---
 title: ReST Services:Introduction
 id: rest-services-introduction
+related:
+- function-restdeleteapplication
+- function-restinitapplication
+- function-restsetresponse
 ---
 
 ### ReST Services ###

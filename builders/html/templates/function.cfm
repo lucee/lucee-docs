@@ -7,12 +7,16 @@
 	#getEditLink(path=local.fn.getSourceFile(), edit=args.edit)#
 	#markdownToHtml( local.fn.getBody() )#
 
-	<p><strong>Returns:</strong> #local.fn.getReturnType()#</p>
+
 	<cfif len(local.fn.getIntroduced()) gt 0>
 		<p><strong>Introduced:</strong> #local.fn.getIntroduced()#</p>
 	</cfif>
 
-	<h2>Arguments</h2>
+```luceescript
+#local.fn.getUsageSignature()#
+```
+<p>Returns: #local.fn.getReturnTypeLink()#</p>
+
 	<cfif !local.fn.getArguments().len()>
 		<cfif local.fn.getArgumentType() == "dynamic">
 			<p><em>This function takes zero or more dynamic arguments. See examples for details.</em></p>
@@ -21,7 +25,7 @@
 		</cfif>
 	<cfelse>
 		<div class="table-responsive">
-			<table class="table" title="Arguments">
+			<table class="table arguments" title="Arguments">
 				<thead>
 					<tr>
 						<th>Argument</th>
@@ -32,8 +36,8 @@
 				<tbody>
 					<cfloop array="#local.fn.getArguments()#" item="local.arg" index="local.i">
 						<tr>
-							<td><div class="argument">#local.arg.name#</div>
-								<sub>(#local.arg.type#, #( local.arg.required ? 'required' : 'optional' )#)</sub>
+							<td><div class="argument" id="argument-#local.arg.name#">#local.arg.name#</div>
+								<sub>#local.arg.type#, #( local.arg.required ? 'required' : 'optional' )#</sub>
 							</td>
 							<td>
 								#getEditLink(path=local.fn.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
@@ -51,11 +55,7 @@
 		</div>
 	</cfif>
 
-	<h2>Usage</h2>
-```luceescript
-#local.fn.getUsageSignature()#
-```
-	<h2>Examples</h2>
+	<h4>Examples</h4>
 	<cfif Len( Trim( local.fn.getExamples() ) ) or args.edit>
 		#getEditLink(path=local.fn.getSourceDir() & '_examples.md', edit=args.edit)#
 	</cfif>

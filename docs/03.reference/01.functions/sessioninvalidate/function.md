@@ -2,7 +2,10 @@
 title: SessionInvalidate
 id: function-sessioninvalidate
 related:
-categories:
+- tag-application
+- function-sessioninvalidate
+- function-sessionrotate
+- function-sessionstarttime
 ---
 
 Invalidates or cleans up the current session.

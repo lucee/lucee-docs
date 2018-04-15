@@ -1,6 +1,8 @@
 ---
 title: Set a Mapping (regular, component and custom tag mapping)
 id: cookbook-application-context-set-mapping
+related:
+- tag-application
 ---
 
 # Set a regular Mapping #

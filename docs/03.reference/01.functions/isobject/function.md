@@ -1,9 +1,9 @@
 ---
 title: IsObject
 id: function-isobject
-related:
 categories:
-    - decision
+- decision
+- object
 ---
 
 Determines whether a value is an object.

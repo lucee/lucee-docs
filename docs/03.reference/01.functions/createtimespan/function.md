@@ -1,9 +1,9 @@
 ---
 title: CreateTimeSpan
 id: function-createtimespan
-related:
 categories:
- - date
+- date
+description: 'Creates a timespan object that defines a time period. '
 ---
 
 Creates a timespan object that defines a time period. 

@@ -1,6 +1,8 @@
 ---
 title: Create a Application.cfc
 id: cookbook-application-context-basic
+related:
+- tag-application
 ---
 
 # Application.cfc #

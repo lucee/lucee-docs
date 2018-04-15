@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask( 'default', [ 'concat:base', 'uglify:base', 'sass:base', 'cssmin:base' ] );
 
-	var _version = 18;
+	var _version = 19;
 
 	// grunt config
 	grunt.initConfig({

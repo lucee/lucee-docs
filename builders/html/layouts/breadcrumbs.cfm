@@ -1,10 +1,13 @@
 <cfparam name="args.crumbs" type="array" />
+<cfparam name="args.categories" type="array" />
 <cfparam name="args.docTree"   type="any" />
 <cfparam name="args.page"   type="any" />
 
-<cfif args.page.getId() neq "/home">
+
+<cfif args.page.getId() neq "/home" and ArrayLen(args.crumbs)>
 	<!--- pages may have multiple crumbs LD-112 --->
 	<cfloop array="#args.crumbs#" item="local._crumbs">
+		<cfif ArrayLen(local._crumbs)>
 		<cfsilent>
 			<cfscript>
 				local.jsonLd = [
@@ -74,5 +77,14 @@
 				--->
 			</ul>
 		</cfoutput>
+		</cfif>
 	</cfloop>
+	<cfif ArrayLen(args.categories)>
+		<ul class="breadcrumb-categories margin-no-top margin-right margin-no-bottom margin-left">
+		<li><cfif args.categories.len() eq 1>Category:<cfelse>Categories:</cfif></li>
+		<cfloop array="#args.categories#" item="local._cat" index="local.i">
+			<cfoutput><li class="category">#local._cat#<cfif local.i lt args.categories.len()>, </cfif></li></cfoutput>
+		</cfloop>
+		</ul>
+	</cfif>
 </cfif>

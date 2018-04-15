@@ -1,9 +1,9 @@
 ---
 title: DateAdd
 id: function-dateadd
-related:
 categories:
- - date
+- date
+description: Adds units of time to a date object.
 ---
 
 Adds units of time to a date object.

@@ -10,12 +10,11 @@
 	#markdownToHtml( Trim( local.tag.getBodyTypeDescription() ) )#
 	#markdownToHtml( Trim( local.tag.getScriptSupportDescription() ) )#
 
-	<h2>Attributes</h2>
 	<cfif !local.tag.getAttributes().len()>
 		<p><em>This tag does not use any attributes.</em></p>
 	<cfelse>
 		<div class="table-responsive">
-			<table class="table" title="Attributes">
+			<table class="table attributes" title="Attributes">
 				<thead>
 					<tr>
 						<th>Attribute</th>
@@ -26,8 +25,8 @@
 				<tbody>
 					<cfloop array="#local.tag.getAttributes()#" item="local.attrib" index="i">
 						<tr>
-							<td><div class="attribute">#local.attrib.name#</div>
-							<sub>(#local.attrib.type#, #( local.attrib.required ? 'required' : 'optional' )#)</sub>
+							<td><div class="attribute" id="attribute-#local.attrib.name#">#local.attrib.name#</div>
+							<sub>#local.attrib.type#, #( local.attrib.required ? 'required' : 'optional' )#</sub>
 							</td>
 							<td>
 								#getEditLink(path=local.tag.getSourceDir() & '_attributes/#local.attrib.name#.md', edit=args.edit)#
@@ -45,11 +44,10 @@
 		</div>
 	</cfif>
 
-	<h2>Usage</h2>
 ```lucee
 #local.tag.getUsageSignature()#
 ```
-	<h2>Examples</h2>
+	<h4>Examples</h4>
 	<cfif Len( Trim( local.tag.getExamples() ) ) or args.edit>
 		#getEditLink(path=local.tag.getSourceDir() & '_examples.md', edit=args.edit)#
 	</cfif>

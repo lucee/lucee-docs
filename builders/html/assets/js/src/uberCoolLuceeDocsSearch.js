@@ -101,7 +101,7 @@
 	generateRegexForInput = function( input ){
 		var inputLetters = input.replace(/[\W]+/g, '').split('')
 		  , reg = {}, i;
-		
+
 		reg.expr = new RegExp('(' + inputLetters.join( ')(.*?)(' ) + ')', 'i');
 		reg.replace = "";
 
@@ -210,6 +210,19 @@
 			if (matches.length === 2) // exact match
 				$(matches[1]).click();
 		}
+	});
+
+	$(".menu-random").on("click", function(e){
+		function getRandomInt(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+		var current = document.location.pathname.toLowerCase();
+		var i, link = current;
+		while ( link == current ){
+			i = getRandomInt(1, searchIndex.length);
+			link = searchIndex[i-1].value.toLowerCase();
+		}
+		document.location = link;
 	});
 
 } )( jQuery );

@@ -1,9 +1,9 @@
 ---
 title: DateConvert
 id: function-dateconvert
-related:
 categories:
- - date
+- date
+description: Converts a date to the given locale.
 ---
 
 Converts a date to the given locale.

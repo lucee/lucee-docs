@@ -205,6 +205,8 @@ function AnchorJS(options) {
   anchors.add( '.body h4' );
   anchors.add( '.body h5' );
   anchors.add( '.body h6' );
+  anchors.add( '.body .argument' );
+  anchors.add( '.body .attribute' );
 
   scrollBeneathFixedMenu = function() {
     var $target = $( window.location.hash )

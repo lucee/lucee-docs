@@ -6,12 +6,15 @@
 	#getEditLink(path=local.meth.getSourceFile(), edit=args.edit)#
 	#markdownToHtml( local.meth.getBody() )#
 
-    <p><strong>Returns:</strong> #local.meth.getReturnType()#</p>
+
 	<cfif len(local.meth.getIntroduced()) gt 0>
 		<p><strong>Introduced:</strong> #local.meth.getIntroduced()#</p>
 	</cfif>
+```luceescript
+#local.meth.getUsageSignature()#
+```
+<p>Returns:</strong> #local.meth.getReturnTypeLink()#</p>
 
-    <h2>Arguments</h2>
 	<cfif !local.meth.getArguments().len()>
 		<cfif local.meth.getArgumentType() == "dynamic">
 			<p><em>This function takes zero or more dynamic arguments. See examples for details.</em></p>
@@ -20,7 +23,7 @@
 		</cfif>
 	<cfelse>
 		<div class="table-responsive">
-			<table class="table" title="Arguments">
+			<table class="table arguments" title="Arguments">
 				<thead>
 					<tr>
 						<th>Argument</th>
@@ -31,8 +34,8 @@
 				<tbody>
 					<cfloop array="#local.meth.getArguments()#" item="local.arg" index="local.i">
 						<tr>
-							<td><div class="argument">#local.arg.name#</div>
-								<sub>(#local.arg.type#, #( local.arg.required ? 'required' : 'optional' )#)</sub>
+							<td><div class="argument" id="argument-#local.arg.name#">#local.arg.name#</div>
+								<sub>#local.arg.type#, #( local.arg.required ? 'required' : 'optional' )#</sub>
 							</td>
 							<td>
 								#getEditLink(path=local.meth.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
@@ -50,11 +53,7 @@
 		</div>
 	</cfif>
 
-    <h2>Usage</h2>
-```luceescript
-#local.meth.getUsageSignature()#
-```
-	<h2>Examples</h2>
+	<h4>Examples</h4>
 	<cfif Len( Trim( local.meth.getExamples() ) ) or args.edit>
 		#getEditLink(path=local.meth.getSourceDir() & '_examples.md', edit=args.edit)#
 	</cfif>
