@@ -148,6 +148,12 @@
 					</li>
 				</cfif>
 				<li>
+					<a class="menu-random" title="Open a random documentation page">
+						<span class="access-hide">Random page</span>
+						<span class="icon icon-swap-calls icon-lg"></span>
+					</a>
+				</li>
+				<li>
 					<a class="menu-toggle" href="##search">
 						<span class="access-hide">Search</span>
 						<span class="icon icon-search icon-lg"></span>
@@ -185,11 +191,13 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-10 col-lg-push-1 body">
+							<cfif len(trim(args.crumbs))>
 							<div class="tile-wrap">
 								<div class="tile breadcrumbs">
 									#args.crumbs#
 								</div>
 							</div>
+							</cfif>
 							#args.body#
 
 							#args.seeAlso#
@@ -212,7 +220,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/dist/base.18.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.19.min.js" type="text/javascript"></script>
 		</cfif>
 	</body>
 </html></cfoutput>

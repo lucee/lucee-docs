@@ -73,17 +73,17 @@ component accessors=true extends="Page" {
 			case "free"       : return "This tag **may** have a body.";
 			case "required"   : return "This tag **must** have a body.";
 			default			  : return "";
-		}		
+		}
 	}
 
 	public string function getScriptSupportDescription(){
 		var scriptType = this.script.type ?: "";
 
 		if ( scriptType == "none" ) {
-			return "This tag has no cfscript support or it uses a different syntax.";
+			return "This tag has no [[tag-script]] support or it uses a different syntax.";
 		}
 
-		return "This tag is also supported within cfscript";
+		return "This tag is also supported within [[tag-script]]";
 	}
 
 	public boolean function attributesHaveDefaultValues() {

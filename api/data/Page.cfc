@@ -75,4 +75,26 @@ component accessors=true {
 				return false;
 		};
 	}
+
+	public string function getReturnTypeLink() {
+		var type = getReturnType();
+		if ( IsNull(type) )
+			return "";
+		switch (type){
+			case "void":
+			case "any":
+			case "binary":
+			case "object":
+			case "org.w3c.dom.Element":
+				return type;
+			case "numeric":
+				return "[[object-number|Numeric]";
+			case "timespan":
+				return "[[object-datetime|timespan]]";
+			case "date":
+				return "[[object-datetime|date]]";
+			default:
+				return "[[object-#type#]]";
+		}
+	}
 }

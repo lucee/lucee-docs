@@ -2756,7 +2756,7 @@ th {
   src: url("./fonts/MaterialDesignIcon.eot?v=1.1.1");
   src: url("./fonts/MaterialDesignIcon.eot?#iefix&v=1.1.1") format("embedded-opentype"), url("./fonts/MaterialDesignIcon.woff?v=1.1.1") format("woff"), url("./fonts/MaterialDesignIcon.ttf?v=1.1.1") format("truetype"), url("./fonts/MaterialDesignIcon.svg?v=1.1.1#MaterialDesignIcon") format("svg");
 }
-.icon, .breadcrumb > li + li:before {
+.icon, .breadcrumb > li + li:before, .breadcrumb-categories > li + li.category:before {
   display: inline-block;
   font: normal normal normal 16px/1 MaterialDesignIcon;
   font-size: inherit;
@@ -7717,6 +7717,31 @@ body.el-loading {
   text-decoration: none;
 }
 
+.breadcrumb-categories {
+  list-style: none;
+  margin: 24px 0;
+  padding-left: 0;
+}
+.breadcrumb-categories:after, .breadcrumb-categories:before {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.breadcrumb-categories:after {
+  clear: both;
+}
+.breadcrumb-categories > li {
+  display: block;
+  float: left;
+  padding-right: 10px;
+}
+.breadcrumb-categories > li + li.category:before {
+  color: #9e9e9e;
+  display: inline-block;
+  line-height: 24px;
+  margin-left: 0.4em;
+}
+
 .breadcrumbs {
   padding: 12px 0;
 }
@@ -7743,7 +7768,7 @@ body.el-loading {
   padding: 5px 15px;
   position: relative;
   text-align: center;
-  text-transform: uppercase;
+  /*text-transform: uppercase; */
   vertical-align: middle;
   white-space: nowrap;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px 1px rgba(0, 0, 0, 0.15);
@@ -11417,6 +11442,10 @@ a.missing-link {
   text-align: right;
 }
 
+.attributes TH, .arguments TH {
+  font-weight: normal;
+}
+
 .footer {
   background-color: #fafafa;
   border-top: 1px solid #e0e0e0;
@@ -11616,7 +11645,8 @@ a.missing-link {
 .header .nav > li > a .avatar,
 .header .nav > li > a .fa,
 .header .nav > li > a .icon,
-.header .nav > li > a .breadcrumb > li + li:before {
+.header .nav > li > a .breadcrumb > li + li:before,
+.header .nav > li > a .breadcrumb-categories > li + li.category:before {
   -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition-property: opacity, -webkit-transform;
@@ -11679,7 +11709,8 @@ a.missing-link {
 .header .nav > li.active > a .avatar,
 .header .nav > li.active > a .fa,
 .header .nav > li.active > a .icon,
-.header .nav > li.active > a .breadcrumb > li + li:before {
+.header .nav > li.active > a .breadcrumb > li + li:before,
+.header .nav > li.active > a .breadcrumb-categories > li + li.category:before {
   opacity: 0;
   filter: alpha(opacity=0);
   -webkit-transform: rotate(225deg);
@@ -11969,9 +12000,11 @@ a.missing-link {
 .menu-content .nav a .fa,
 .menu-content .nav a .icon,
 .menu-content .nav a .breadcrumb > li + li:before,
+.menu-content .nav a .breadcrumb-categories > li + li.category:before,
 .menu-content .nav .a .fa,
 .menu-content .nav .a .icon,
-.menu-content .nav .a .breadcrumb > li + li:before {
+.menu-content .nav .a .breadcrumb > li + li:before,
+.menu-content .nav .a .breadcrumb-categories > li + li.category:before {
   margin-right: 16px;
 }
 .menu-content .nav li.active > a, .menu-content .nav li.active > .a {

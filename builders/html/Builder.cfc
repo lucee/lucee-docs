@@ -1,10 +1,13 @@
 component {
 	public string function renderLink( any page, required string title ) {
 		if ( IsNull( arguments.page ) ) {
-			request.logger (text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]", type="WARN");
-			return '<a class="missing-link" title="missing link">#HtmlEditFormat( arguments.title )#</a>';
+			if (arguments.title.left(4) eq "http"){
+				return '<a href="#arguments.title#">#HtmlEditFormat( arguments.title )#</a>';
+			} else {
+				request.logger (text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]", type="WARN");
+				return '<a class="missing-link" title="missing link">#HtmlEditFormat( arguments.title )#</a>';
+			}
 		}
-
 		var link = arguments.page.getPath() & ".html";
 		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
 	}
@@ -61,11 +64,13 @@ component {
 		var crumbs = arguments.docTree.getPageBreadCrumbs(arguments.page);
 		var excludeLinkMap = {}; // tracks links to exclude from See also
 		var links = [];
+		var categories = [];
 
 		if ( !IsNull( arguments.page.getCategories() ) ) {
 			for( var category in arguments.page.getCategories() ) {
 				if ( arguments.docTree.pageExists( "category-" & category ) ) {
 					links.append( "[[category-" & category & "]]" );
+					categories.append( "[[category-" & category & "]]" );
 				}
 			}
 		}
@@ -78,8 +83,9 @@ component {
 
 		var related = arguments.docTree.getPageRelated(arguments.page);
 		for( var link in related ) {
-			if (len(link) gt 0 and not StructKeyExists(excludeLinkMap, link))
+			if (len(link) gt 0 and not StructKeyExists(excludeLinkMap, link)){
 				links.append( "[[" & link & "]]");
+			}
 		}
 
 		if ( len(arguments.page.getId()) gt 0){
@@ -104,7 +110,7 @@ component {
 					body       = Trim( renderedPage )
 					, page       = arguments.page
 					, edit       = arguments.edit
-					, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, page=arguments.page, docTree=arguments.docTree } )
+					, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, page=arguments.page, docTree=arguments.docTree, categories=categories.sort("textNoCase") } )
 					, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={
 						crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage(), pageLineageMap=arguments.page.getPageLineageMap()
 					} )

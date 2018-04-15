@@ -26,6 +26,25 @@
 	}
 }
 
+.breadcrumb-categories {
+	list-style: none;
+	margin: $line-height 0;
+	padding-left: 0;
+	@include clearfix();
+	> li {
+		display: block;
+		float: left;
+		padding-right: 10px;
+		+ li.category:before {
+			@extend .icon;
+			color: $black-hint;
+			display: inline-block;
+			line-height: $line-height;
+			margin-left: 0.4em;
+		}
+	}
+}
+
 .breadcrumbs {
 	padding: ($line-height / 2) 0;
 }
