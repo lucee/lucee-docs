@@ -220,7 +220,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/dist/base.19.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.20.min.js" type="text/javascript"></script>
 		</cfif>
 	</body>
 </html></cfoutput>
