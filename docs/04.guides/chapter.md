@@ -8,7 +8,7 @@ In this section, you should expect to find an ever growing repository of guides 
 
 [[getting-started]] Where to begin if you're new to Lucee
 
-[[running-lucee]] How to get Lucee installed and running
+[[running-lucee-windows]] How to get Lucee installed and running
 
 [[updating-lucee]] Updating Lucee or migrating from Railo?
 
