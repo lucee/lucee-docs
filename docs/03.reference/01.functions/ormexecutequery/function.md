@@ -1,8 +1,8 @@
 ---
 title: ORMExecuteQuery
 id: function-ormexecutequery
-related:
 categories:
+- orm
 ---
 
 Runs the HQL on the default data source specified for the application.

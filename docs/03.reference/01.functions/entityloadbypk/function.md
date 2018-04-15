@@ -1,8 +1,8 @@
 ---
 title: EntityLoadByPK
 id: function-entityloadbypk
-related:
 categories:
+- orm
 ---
 
 Loads and returns an array of objects for given primary key.

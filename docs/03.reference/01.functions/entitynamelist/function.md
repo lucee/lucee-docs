@@ -1,8 +1,8 @@
 ---
 title: EntityNameList
 id: function-entitynamelist
-related:
 categories:
+- orm
 ---
 
 return all loaded entities as string list

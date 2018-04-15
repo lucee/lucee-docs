@@ -1,8 +1,8 @@
 ---
 title: EntityReload
 id: function-entityreload
-related:
 categories:
+- orm
 ---
 
 Reloads data for an entity that is already loaded.

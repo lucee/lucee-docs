@@ -1,8 +1,8 @@
 ---
 title: ORMGetSessionFactory
 id: function-ormgetsessionfactory
-related:
 categories:
+- orm
 ---
 
 Returns ORM session factory instance

@@ -1,8 +1,8 @@
 ---
 title: ORMCloseAllSessions
 id: function-ormcloseallsessions
-related:
 categories:
+- orm
 ---
 
 Closes all ORM session.

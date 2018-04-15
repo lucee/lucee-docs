@@ -1,8 +1,8 @@
 ---
 title: ORMReload
 id: function-ormreload
-related:
 categories:
+- orm
 ---
 
 Returns ORM session factory instance
