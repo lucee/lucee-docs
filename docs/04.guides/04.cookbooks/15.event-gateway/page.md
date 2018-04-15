@@ -70,7 +70,7 @@ You might want to check this enhancement request for updates regarding this loca
 
 ### Some considerations on creating a listener cfc ###
 
-The CGI scope does not contain usefull data. For example, there is no "CGI.http_host".
+The CGI scope does not contain useful data. For example, there is no "CGI.http_host".
 
 Debugging can be a bit harder, because there is no Application.cfc/cfm loaded. In fact, since the Event gateway is just one continuously running thread, every iteration of the Event gateway uses the same already loaded listener cfc. If you make any changes to your code, then you will need to stop the gateway, and then restart it. This can be done via the web or server admin.
 

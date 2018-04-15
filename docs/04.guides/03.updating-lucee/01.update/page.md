@@ -18,7 +18,7 @@ Simply choose one of the listed update providers or add your own. Lucee will the
 ![updateprovider.png](https://bitbucket.org/repo/rX87Rq/images/3132184673-updateprovider.png)
 
 ## Updating the first release (4.5.0.042) ##
-Unfortunately the first Lucee release cannot be updated from within the Lucee Admimistrator and needs to be updated manually as follows:
+Unfortunately the first Lucee release cannot be updated from within the Lucee Administrator and needs to be updated manually as follows:
 
 1. Download the "lucee.jar" from the [Lucee downloads page](http://stable.lucee.org/download/?type=releases).
 2. Stop your Lucee Server (the Servlet Engine).

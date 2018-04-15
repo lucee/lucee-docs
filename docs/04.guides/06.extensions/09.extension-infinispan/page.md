@@ -3,13 +3,13 @@ title: Infinispan Cache Extension
 id: extension-infinispan
 ---
 
-The [Infinispan](http://www.jboss.org/infinispan) extension allows you to create Infinispan caches, and acces remote caches via the Hot Rod Protocol (which is compatible with Java, Python, PHP, Ruby, etc. as well).
+The [Infinispan](http://www.jboss.org/infinispan) extension allows you to create Infinispan caches, and access remote caches via the Hot Rod Protocol (which is compatible with Java, Python, PHP, Ruby, etc. as well).
 
 ### Installation ###
 
 1. Go to the server administrator of your lucee installation, for example: http://localhost/lucee-context/admin/server.cfm
 
-1. Under Extension/Applications you should see that under the "Not Installed" extensions there is 
+1. Under Extension/Applications you should see that under the "Not Installed" extensions there is
 
 1. Select "Infinispan Cache" and click the "Install" Button.
 

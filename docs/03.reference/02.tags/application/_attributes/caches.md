@@ -1,1 +1,1 @@
-A structure that contains cache defintions.
+A structure that contains cache definitions.

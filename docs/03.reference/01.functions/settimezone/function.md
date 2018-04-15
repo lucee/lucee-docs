@@ -1,10 +1,9 @@
 ---
 title: SetTimeZone
 id: function-settimezone
-related:
 categories:
-    - internationalization
-    - date
+- date
+- internationalization
 ---
 
-Change the timezone defintion for the current request.
+Change the timezone definition for the current request.

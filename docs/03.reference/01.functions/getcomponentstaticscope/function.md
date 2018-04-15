@@ -5,4 +5,4 @@ categories:
 - debugging
 ---
 
-returns the static scope of a specific component, of course access rules aply.
+returns the static scope of a specific component, of course access rules apply.

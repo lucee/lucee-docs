@@ -137,7 +137,7 @@ If all goes well we can see in /var/www/myproject/production/ all our codebase.
 
 ### Side notes ###
 
-* The production server must have access to the git server. Remeber that we connect to ssh to the production server and from there we update the code
+* The production server must have access to the git server. Remember that we connect to ssh to the production server and from there we update the code
 
 * [You can setup ssh to not ask the password with ssh](http://www.debian-administration.org/articles/152)
 

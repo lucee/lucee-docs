@@ -7,7 +7,7 @@ id: lucee-5-extensions
 
 Creating an extension in Lucee is convention based. A Lucee Extension file is a zip file but with a .lex file extension (e.g. Lucee EXtension) and containing the correct file structure.
 
-The following is a simple example of a Lucee Extension, that we will extend it step-by-step. 
+The following is a simple example of a Lucee Extension, that we will extend it step-by-step.
 
 ## Base structure (required)
 
@@ -49,7 +49,7 @@ name: Beer
 
 This is the name of the extension. You can also add double quotes to your name values to ensure it is interpreted as a string.
 
-These four items are everything we need to have a working extension, so are example mainfest.mk file now looks like this:
+These four items are everything we need to have a working extension, so are example manifest.mk file now looks like this:
 
 ```luceescript
 Manifest-Version: 1.0
@@ -60,9 +60,9 @@ name: Beer
 
 Now create a zip file with the file `/META-INF/MANIFEST.MF` in it and then change the file extension of the resulting zip file to '.lex'.
 
-To test your new extension you can either copy it to `/lucee-server/deploy/` a of a running Lucee 5 installation or go into the Lucee Admin (server or web) and upload the file using the option under the `Extension - > Application` section. 
+To test your new extension you can either copy it to `/lucee-server/deploy/` a of a running Lucee 5 installation or go into the Lucee Admin (server or web) and upload the file using the option under the `Extension - > Application` section.
 
-If you add the file to the `/lucee-server/deploy/` folder, you might need to wait a little bit, it can take Lucee up to a minute to recognize and install the extension. After the extension disappears from the 'deploy' directory it is installed. 
+If you add the file to the `/lucee-server/deploy/` folder, you might need to wait a little bit, it can take Lucee up to a minute to recognize and install the extension. After the extension disappears from the 'deploy' directory it is installed.
 
 If you now go to the Lucee Server Admin and to the `Extension -> Application` section, you should see it there as installed.
 
@@ -192,7 +192,7 @@ The `context` files are files that are copied to the Lucee context directory. Th
 
 The `context` file can be used for various things:
 
-* make a web service available 
+* make a web service available
 * make a component available
 * extend the Lucee admin with a plugin (by using the path /context/admin/plugin/MyPlugin)
 * extend the Lucee admin with a JDBC Driver (by using the path /context/admin/dbdriver/MyDB.cfc)
@@ -214,7 +214,7 @@ The content of the extensions â€œcontextâ€? folder could look something like thi
 /webcontexts
 ```
 
-These are similar to the â€œcontext filesâ€?, the difference being that â€œcontext filesâ€? only define context files for the current context (server or web). The web contexts files however are used in a server context extension to install files to ALL existing and upcoming web contexts. This means that when you add a new web context after this extension is installed, the files defined in this folder will be available to this new web context. 
+These are similar to the â€œcontext filesâ€?, the difference being that â€œcontext filesâ€? only define context files for the current context (server or web). The web contexts files however are used in a server context extension to install files to ALL existing and upcoming web contexts. This means that when you add a new web context after this extension is installed, the files defined in this folder will be available to this new web context.
 
 The content of the extensions `webcontext` files could look something like this:
 
@@ -267,7 +267,7 @@ You can read more about creating plugins in our guide for [[plugins]]
 ```
 
 The folder `/archives` is used to install regular, component or custom tag archives. Lucee archives can be generated in the details view of regular, component or custom tag mappings in the administrator.
- 
+
 The content of the extensions `archives` folder could look something like this:
 
 ```luceescript
@@ -284,13 +284,13 @@ The content of the extensions `archives` folder could look something like this:
 start-bundles:true
 ```
 
-Many Lucee extensions use Java libraries (jars) to work. 
+Many Lucee extensions use Java libraries (jars) to work.
 
 Lucee 5 support â€œclassicâ€? Jars and OSGI bundles (a subset of jars). Lucee will detect if the given input is a â€œclassicâ€? jar or an OSGi bundle and handle the file accordingly.
 
 #### OSGi Bundles
 
-OSGi is the framework Lucee 5 is based on, that allows for the loading and unloading of JAR files on the fly at any time without a server restart being required. In addition you can have different versions of the same JAR in your environment without causing a conflict. 
+OSGi is the framework Lucee 5 is based on, that allows for the loading and unloading of JAR files on the fly at any time without a server restart being required. In addition you can have different versions of the same JAR in your environment without causing a conflict.
 
 The term â€œInstalling an OSGi bundleâ€? is not accurate in this context, adding a bundle to the JARs directory makes the bundle available in the environment but does not â€œinstallâ€? it.
 
@@ -344,14 +344,14 @@ However the installation of a Java based virtual file system is different to the
 
 #### Java based Virtual File System
 
-For a Java virtual file system we need to register the class that implements the interface â€œResourceProviderâ€?, to do this we add the following setting to the `MANIFEST.MF` file: 
+For a Java virtual file system we need to register the class that implements the interface â€œResourceProviderâ€?, to do this we add the following setting to the `MANIFEST.MF` file:
 
 ```luceescript
 resource:"[{
-'class':'my.very.special.fs.WhateverProvider', 
-'bundleName':'my.whatever', 
-'bundleVersion':'1.2.3.4', 
-'scheme':'we', 
+'class':'my.very.special.fs.WhateverProvider',
+'bundleName':'my.whatever',
+'bundleVersion':'1.2.3.4',
+'scheme':'we',
 'lock-timeout':'10000'
 }]"
 ```
@@ -393,7 +393,7 @@ mapping: "[
 'physical':'http://lucee.org',
 'inspect':'never'
 },
-{	
+{
 'primary':'archive',
 'virtual':'/myApp',
 'toplevel':true,
@@ -424,7 +424,7 @@ Example implementation:
 
 Installing a Search Engine.
 
-To install a search engine you need to register the class that implements the interface `lucee.runtime.search.SearchEngine`, to do this we add the following setting to the `MANIFEST.MF` file: 
+To install a search engine you need to register the class that implements the interface `lucee.runtime.search.SearchEngine`, to do this we add the following setting to the `MANIFEST.MF` file:
 
 ```luceescript
 search: "[{
@@ -442,7 +442,7 @@ Example implementation:
 
 ### ORM
 
-To install an ORM Engine you need to register the class that implements the interface `lucee.runtime.orm.ORMEngine`, to do this we add the following setting to the `MANIFEST.MF` file: 
+To install an ORM Engine you need to register the class that implements the interface `lucee.runtime.orm.ORMEngine`, to do this we add the following setting to the `MANIFEST.MF` file:
 
 ```luceescript
 orm: "[{
@@ -518,7 +518,7 @@ The Lucee core supports two cache handler types out of the box:
 
 So with this option you can extend this functionality.
 
-To install a Cache Handler you need to register the class that implements the interface `lucee.runtime.cache.tag.CacheHandler`, to do this we add the following setting to the `MANIFEST.MF` file: 
+To install a Cache Handler you need to register the class that implements the interface `lucee.runtime.cache.tag.CacheHandler`, to do this we add the following setting to the `MANIFEST.MF` file:
 
 ```luceescript
 cache-handler: "[{

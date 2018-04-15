@@ -46,6 +46,8 @@
 				new api.build.BuildRunner().build(builderName="dash", threads=buildThreads);
 			} else if ( path eq "/build_docs/import/" ) {
 				new api.reference.ReferenceImporter(importThreads).importAll();
+			} else if ( path eq "/build_docs/spellCheck/" ) {
+				new api.spelling.spellChecker().spellCheck();
 			} else {
 				if (listlen(path,"/") gt 1 )
 					writeOutput("unknown build docs request: #path#");
@@ -209,7 +211,6 @@
 			menu: "Git Repo",
 			href: "https://github.com/lucee/lucee-docs"
 		};
-
 		opts.all = {
 			title: "Importing references, Exporting Dash and HTML ",
 			menu: "Build All"
@@ -217,6 +218,10 @@
 		opts.html = {
 			title: "Exporting HTML",
 			menu: "Build HTML"
+		};
+		opts.spellcheck = {
+			title: "Spellchecking built HTML",
+			menu: "Spell Check HTML"
 		};
 		opts.dash = {
 			title: "Exporting Dash",

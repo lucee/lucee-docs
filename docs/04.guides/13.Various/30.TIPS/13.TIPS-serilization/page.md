@@ -11,7 +11,7 @@ related:
 
 Lucee has this great extra function: serialize(). What it does, is converting (almost) any data to a string. Now if you use the evaluate() function with that string, then the original data is rebuilt again!
 
-So, let's say you have a structure with multiple nested queries and strcutures, and you want to save this data for debugging. Then you only have to serialize() it:
+So, let's say you have a structure with multiple nested queries and structures, and you want to save this data for debugging. Then you only have to serialize() it:
 
 	<cfset myDataAsString = serialize(myComplexDataObject) />
 

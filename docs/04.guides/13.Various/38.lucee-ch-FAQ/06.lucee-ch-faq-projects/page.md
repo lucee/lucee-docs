@@ -9,7 +9,7 @@ id: lucee-ch-faq-projects
 
 If you have installed Lucee correctly and a regular test-cfm page is processed accordingly, you can define a mapping (only temporary) to your application.
 This mapping can be compiled by clicking on the designated button. If the compile process is not successful (only compilation errors), you can check the file /rootdesmappings/compile_errors.log (applying only to Version 1.1) for a list of all compile errors. You can now repeat this operation as often as necessary.
-After sucessful compilation you need to test your application by clicking through it.
+After successful compilation you need to test your application by clicking through it.
 
 **What are the most common errors when converting a project from CFMX to Lucee?**
 
