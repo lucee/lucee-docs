@@ -1,6 +1,8 @@
 ---
 title: ORM:introduction
 id: orm-intro
+categories:
+- orm
 ---
 
 ### ORM with Lucee ###

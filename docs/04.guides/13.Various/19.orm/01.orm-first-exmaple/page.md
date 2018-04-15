@@ -1,6 +1,8 @@
 ---
 title: ORM:first_example
 id: orm-first-example
+categories:
+- orm
 ---
 
 ## First example ##

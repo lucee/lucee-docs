@@ -12,6 +12,7 @@
 		 "_method" = "Methods",
 		 "_object" = "Objects",
 		"tag"      = "Tags",
+		"category" = "Categories",
 	};
 </cfscript>
 

@@ -6,6 +6,7 @@ related:
 - function-transactionrollback
 - function-transactionsetsavepoint
 categories:
+- orm
 - query
 ---
 

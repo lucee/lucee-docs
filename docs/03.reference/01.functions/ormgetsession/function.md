@@ -1,8 +1,8 @@
 ---
 title: ORMGetSession
 id: function-ormgetsession
-related:
 categories:
+- orm
 ---
 
 Returns the current ORM session

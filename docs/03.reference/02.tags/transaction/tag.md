@@ -1,8 +1,9 @@
 ---
 title: <cftransaction>
 id: tag-transaction
-related:
 categories:
+- orm
+- query
 ---
 
 Groups multiple queries into a single unit. The cftransaction

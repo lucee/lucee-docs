@@ -1,8 +1,8 @@
 ---
 title: EntityMerge
 id: function-entitymerge
-related:
 categories:
+- orm
 ---
 
 Attaches given enity to current ORM session

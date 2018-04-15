@@ -1,8 +1,8 @@
 ---
 title: EntitySave
 id: function-entitysave
-related:
 categories:
+- orm
 ---
 
 Saves or updates data of the entity and all related entities to the database.

@@ -1,8 +1,8 @@
 ---
 title: ORMEvictQueries
 id: function-ormevictqueries
-related:
 categories:
+- orm
 ---
 
 This will remove all the queries from the named query cache.

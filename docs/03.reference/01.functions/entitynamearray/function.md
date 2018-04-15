@@ -1,8 +1,8 @@
 ---
 title: EntityNameArray
 id: function-entitynamearray
-related:
 categories:
+- orm
 ---
 
 return all loaded entities as array

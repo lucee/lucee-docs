@@ -1,8 +1,8 @@
 ---
 title: EntityLoadByExample
 id: function-entityloadbyexample
-related:
 categories:
+- orm
 ---
 
 Loads and returns an array of objects that match the sample entity.

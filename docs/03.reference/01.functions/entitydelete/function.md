@@ -1,8 +1,8 @@
 ---
 title: EntityDelete
 id: function-entitydelete
-related:
 categories:
+- orm
 ---
 
 Deletes the record from the database for the specified entity.
