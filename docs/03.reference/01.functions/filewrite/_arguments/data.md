@@ -1,1 +1,1 @@
-data o write to the file
+data to write to the file

@@ -1,6 +1,8 @@
 ---
 title: Adding Caches via Application.cfc
 id: cookbook-caches-in-application-cfc
+related:
+- tag-application
 ---
 
 # Adding Caches via Application.cfc
@@ -60,4 +62,4 @@ this.cache.file = "<cache-name>";
 this.cache.webservice = "<cache-name>";
 ```
 
-A single cache can only be the default storage location for a single operation at a time.  For example, a cache named "myCache" cannot both be the default cache for objects as well as queries.  
+A single cache can only be the default storage location for a single operation at a time.  For example, a cache named "myCache" cannot both be the default cache for objects as well as queries.

@@ -1,7 +1,5 @@
 ---
 title: Lucee documentation
-categories:
-- component
 reference: 'false'
 ---
 

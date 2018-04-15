@@ -3,8 +3,9 @@ title: Cached Within
 id: lucee-5-cached-within
 ---
 
-#CachedWithin#
-**The attribute `cachedWithin` has been added to the tags `cffile` and `cfhttp` and it has also been added as an interface to Lucee so you can make your own `cachedwithin` implementation.**
+## CachedWithin##
+
+The attribute `cachedWithin` has been added to the tags `cffile` and `cfhttp` and it has also been added as an interface to Lucee so you can make your own `cachedwithin` implementation.
 
 ##Supported with cffile and cfhttp##
 The possibility to cache the result of the tags `cffile` and `cfhttp` has been added in Lucee 5 using the attribute `cachedWithin` for these tags.

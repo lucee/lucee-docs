@@ -1,7 +1,11 @@
 ---
 title: Define a mapping
 id: cookbook-filesystem-mapping-define-mapping
+related:
+- tag-application
+- cookbook-application-context-set-mapping
 ---
+
 # How to define a regular Mapping #
 
 Lucee allows you to define a mappings to a specific location in a filesystem, so you don't always have to use the full path, in most cases the full path is not working anyway, for example with <cfinclude> does not work with a full path.

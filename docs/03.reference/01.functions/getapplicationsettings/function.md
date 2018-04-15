@@ -1,8 +1,9 @@
 ---
 title: GetApplicationSettings
 id: function-getapplicationsettings
-related: function-GetApplicationMetaData
-categories:
+related:
+- tag-application
+- function-GetApplicationMetaData
 ---
 
 Return a struct with information about the Application, as defined in Application.cfc or Application.cfm for the current running Application.
@@ -47,4 +48,3 @@ The returned struct contains the following data:
 |source| String | | Alias for `component` |
 |timezone| String | | Time Zone name, e.g. `America/Los_Angeles` |
 |triggerDataMember| Boolean | false | |
-

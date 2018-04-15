@@ -1,6 +1,8 @@
 ---
 title: List existing Cache Connections
 id: cookbook-cache-list
+categories:
+- cache
 ---
 
 # List existing Cache Connections available #
