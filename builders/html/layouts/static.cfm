@@ -37,7 +37,7 @@
 			<div class="menu-scroll">
 				<div class="menu-wrap">
 					<div class="menu-content">
-						<a class="nav-drawer-logo" href="index.html"><img class="Lucee" src="/assets/images/lucee-logo-bw.png"></a>
+						<a class="nav-drawer-logo" href="/index.html"><img class="Lucee" src="/assets/images/lucee-logo-bw.png"></a>
 						#args.navTree#
 						<hr>
 						<ul class="nav">
@@ -81,7 +81,7 @@
 					</a>
 				</li>
 			</ul>
-			<a class="header-logo hidden-lg" href="index.html"><img alt="Lucee" src="/assets/images/lucee-logo.png"></a>
+			<a class="header-logo hidden-lg" href="/index.html"><img alt="Lucee" src="/assets/images/lucee-logo.png"></a>
 			<ul class="nav nav-list pull-right">
 				<li>
 					<a class="menu-toggle" href="##search">
