@@ -4,7 +4,7 @@ id: precompiled-code
 ---
 ## Precompiled Code ##
 
-This document explains how to pre_compiling in production server while deployed the source code. It avoid the compilation on production server for security reason. Explained with simple example
+This document explains how to pre-compile code for a production server while the source code is deployed. This method avoids compilation on the production server for security reasons. We explain this method with a simple example below:
 
 Example:
 
@@ -15,15 +15,15 @@ Time is <cfscript>
 writeoutput(now());
 </cfscript>
 ```
-Once run this index.cfm page in browser.
+Run this index.cfm page in the browser.
 
-* In every time execute a cfm file in lucee, It automatically created a class file in webroot --> WEBINFO --> lucee --> cfClasses folder. So as usually created a class file(Ex: index_cfm$cf.class ) for your index.cfm file(Ex : index.cfm) in cfClasses folder. 
+* Each time a cfm file is executed in Lucee, a class file is automatically created in the webroot --> WEBINFO --> lucee --> cfClasses folder. So, a class file(Ex: index_cfm$cf.class ) is usually created for your index.cfm file(Ex : index.cfm) in the cfClasses folder.
 
-* Copy those class file & paste it into your current folder(\webapps\ROOT\sample\) and then rename the class file into cfm file(test.cfm). 
+* Copy the class file and paste it into your current folder(\webapps\ROOT\sample). Then rename the class file to cfm file(test.cfm).
 
-* If we just open that test.cfm means it looks like binary format file.
+* If we open that test.cfm, it is a binary format file.
 
-* Finally, Run the test.cfm page to browser. It working as same as index.cfm page.
+* Finally, run the test.cfm file in your browser. It should work as same way as the index.cfm file.
 
 ### Footnotes ###
 
