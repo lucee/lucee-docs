@@ -46,6 +46,7 @@ component accessors=true {
 		parsedFunction.argumentType = coreDefinition.argumentType ?: "";
 		parsedFunction.keywords     = coreDefinition.keywords ?: [];
 		parsedFunction.introduced   = coreDefinition.introduced ?: "";
+		parsedFunction.alias   		= coreDefinition.alias ?: "";
 		parsedFunction.arguments    = [];
 
 		var args = coreDefinition.arguments ?: [];

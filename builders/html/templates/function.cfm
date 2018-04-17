@@ -7,7 +7,9 @@
 	#getEditLink(path=local.fn.getSourceFile(), edit=args.edit)#
 	#markdownToHtml( local.fn.getBody() )#
 
-
+	<cfif len(local.fn.getAlias()) gt 0>
+		<p><strong>Alias:</strong> #local.fn.getAlias()#</p>
+	</cfif>
 	<cfif len(local.fn.getIntroduced()) gt 0>
 		<p><strong>Introduced:</strong> #local.fn.getIntroduced()#</p>
 	</cfif>
