@@ -39,12 +39,13 @@
 
 	function stripHTML( html ) {
 		var str = arguments.html;
-		str = ReReplaceNoCase(str, "<*style.*?>(.*?)</style>","","all");
-		str = ReReplaceNoCase(str, "<*script.*?>(.*?)</script>","","all");
+		str = ReReplaceNoCase(str, "<*style.*?>(.*?)</style>"," ","all");
+		str = ReReplaceNoCase(str, "<*script.*?>(.*?)</script>"," ","all");
 
-		str = ReReplaceNoCase(str, "<.*?>","","all");
-		str = ReReplaceNoCase(str, "^.*?>","");
-		str = ReReplaceNoCase(str, "<.*$","");
+		str = ReReplaceNoCase(str, "<.*?>"," ","all");
+		str = ReReplaceNoCase(str, "^.*?>"," ");
+		str = ReReplaceNoCase(str, "<.*$"," ");
+		str = ReReplaceNoCase(str, "  "," ","all");
 
 		return Trim( str );
 	}

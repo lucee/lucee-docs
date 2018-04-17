@@ -1,6 +1,9 @@
 ---
 title: Ajax:Bind_Syntax
 id: ajax-bind-syntax
+categories:
+- ajax
+description: Most of the tags support a binding statement in the url or source attributes. The following syntax is supported.
 ---
 
 ## Binding Syntax ##

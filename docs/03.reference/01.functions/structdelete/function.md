@@ -1,9 +1,9 @@
 ---
 title: StructDelete
 id: function-structdelete
-related:
 categories:
-    - struct
+- struct
+description: Removes an element from a structure.
 ---
 
 Removes an element from a structure.
