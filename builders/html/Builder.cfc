@@ -250,8 +250,9 @@ component {
 			, args     = {
 				  body       = Trim( renderedPage )
 				, baseHref   = arguments.baseHref
-				, noIndex   = arguments.noIndex
+				, noIndex    = arguments.noIndex
 				, title      = arguments.pageTitle
+				, filepath   = arguments.filePath
 				, crumbs     = renderTemplate( template="layouts/staticbreadcrumbs.cfm", helpers  = "/builders/html/helpers",
 					args={ title=arguments.pageTitle }
 				)
