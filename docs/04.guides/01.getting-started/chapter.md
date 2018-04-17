@@ -18,4 +18,6 @@ Here you can find guides on how to get started with Lucee:
 
 [[installation-installer-documentation]]
 
+[[lucee-editors-IDEs]]
+
 [Issue tracker](https://luceeserver.atlassian.net/)
