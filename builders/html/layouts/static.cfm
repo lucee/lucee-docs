@@ -2,6 +2,7 @@
 <cfparam name="args.title"      type="string" />
 <cfparam name="args.crumbs"     type="string" />
 <cfparam name="args.navTree"    type="string" />
+<cfparam name="args.filepath"    type="string" default =""/>
 <cfparam name="args.noIndex"    type="boolean" default="false" />
 
 <cfoutput><!DOCTYPE html>
@@ -14,6 +15,12 @@
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 			gtag('config', 'UA-116664465-1');
+			<Cfif args.filepath.contains("/404.html")>
+			gtag('event', window.location.href, {
+				'event_category' : '404 not found',
+				'event_label' : document.referrer
+			});
+			</cfif>
 		</script>
 
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
