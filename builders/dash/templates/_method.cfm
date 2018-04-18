@@ -37,6 +37,11 @@
 							<td>
 								#getEditLink(path=local.meth.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
 								#markdownToHtml( Trim( arg.description ) )#
+								<cfif local.arg.keyExists("alias") and len(local.arg.alias) gt 0>
+									<p title="for compatability, this argument has the following alias(es)">
+										<sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub>
+									</p>
+								</cfif>
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
  								<td>

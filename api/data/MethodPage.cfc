@@ -13,9 +13,10 @@ component accessors=true extends="Page" {
 	property name="keywords"     type="array";
 	property name="examples"     type="string";
 	property name="introduced"   type="string";
-	property name="member"       type="struct";	
+	property name="member"       type="struct";
+	property name="alias"        type="string";
 
-	public string function getUsageSignature() {        
+	public string function getUsageSignature() {
 		var usage = this.getMethodObject() & "." & this.getMethodName() & "(";
 		var delim = " ";
 		var optionalCount = 0;
