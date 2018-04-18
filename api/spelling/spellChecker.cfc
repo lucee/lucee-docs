@@ -3,6 +3,7 @@ component accessors=true {
 	property name="threads"     type="numeric";
     property name="dictionary"     type="struct";
     property name="LuceeWhiteListFile" default="./lucee_words.txt";
+    property name="LuceeDictionary" default="./lucee_dictionary.json";
 
 // CONSTRUCTOR
 	public any function init(numeric threads=1) {
@@ -33,6 +34,8 @@ component accessors=true {
         words.append(extractTags());
         words.append(extractMethods());
         words.append(extractObjects());
+
+        FileWrite(getLuceeDictionary(), serializeJSON(words));
 
         request.logger("Loaded " & words.count() & " cfml words");
         var english = deserializeJSON(FileRead("./words_dictionary.json"));
@@ -137,19 +140,36 @@ component accessors=true {
 		return Trim( URLDecode(str) );
 	}
 
-    private struct function extractFunctions() {
+    public void function buildLuceeCSpell() {
+        var words = structNew("ordered");
+        words.append(extractFunctions(true));
+        words.append(extractTags(true));
+        words.append(extractMethods(true));
+        words.append(extractObjects(true));
+
+        var dict = ArrayToList(ListToArray(structKeyList(words)).sort("textnocase"),chr(10));
+
+        FileWrite(getLuceeDictionary(), dict);
+        writeoutput("<pre>#dict#</pre>");
+    }
+
+    private struct function extractFunctions(boolean cspell="false") {
         var words = {};
 		var referenceReader = new api.reference.ReferenceReaderFactory().getFunctionReferenceReader();
 		Each (referenceReader.listFunctions(), function(functionName){
             var convertedFunc = referenceReader.getFunction( functionName );
-            for (var arg in convertedFunc.arguments)
+            for (var arg in convertedFunc.arguments){
                 words[arg.name]=functionName;
+                if (cspell)
+                    words[functionName & "::" & arg.name]="function";
+            }
             words[functionName]="function";
+
 		}, true, 1);
         return words;
 	}
 
-	private struct function extractObjects() {
+	private struct function extractObjects(boolean cspell="false") {
 		var words = {};
 		var referenceReader = new api.reference.ReferenceReaderFactory().getObjectReferenceReader();
 
@@ -159,7 +179,7 @@ component accessors=true {
 		return words;
 	}
 
-	private struct function extractMethods() {
+	private struct function extractMethods(boolean cspell="false") {
 		var words = {};
 		var referenceReader = new api.reference.ReferenceReaderFactory().getMethodReferenceReader();
 		var objects = referenceReader.listMethods();
@@ -167,16 +187,21 @@ component accessors=true {
 		//for( var object in objects ) {
 			for (var method in objects[object] ){
 				var methodData = referenceReader.getMethod( object, method);
-                for (var arg in methodData.arguments)
+                for (var arg in methodData.arguments){
                     words[arg.name]=method;
+                    if (cspell)
+                        words[arg.name & "::" & method]="object";
+                }
                 words[object]="object";
                 words[method]="method";
+                if (cspell)
+                    words[object & "::" & method]="object";
 			}
 		}, true, 1);
         return words;
 	}
 
-	private struct function extractTags() {
+	private struct function extractTags(boolean cspell="false") {
         var words = {};
 		var referenceReader = new api.reference.ReferenceReaderFactory().getTagReferenceReader();
 		Each (referenceReader.listTags(), function(tagName){

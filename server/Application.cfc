@@ -48,6 +48,8 @@
 				new api.reference.ReferenceImporter(importThreads).importAll();
 			} else if ( path eq "/build_docs/spellCheck/" ) {
 				new api.spelling.spellChecker().spellCheck();
+			} else if ( path eq "/build_docs/cspell/" ) {
+				new api.spelling.spellChecker().buildLuceeCSpell();
 			} else {
 				if (listlen(path,"/") gt 1 )
 					writeOutput("unknown build docs request: #path#");
