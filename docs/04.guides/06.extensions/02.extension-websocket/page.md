@@ -1,15 +1,29 @@
 ---
 title: Websocket gateway
 id: extensions-websocket-gateway
+categories:
+- ajax
+- protocols
 ---
 
 ### WebSockets Gateway Extension ###
 
-This extension enables you to launch a server that is capable to manage messaging from HTML WebSockets. The server runs on a dedicated port. Lucee will receive notifications when a connection is opened, closed and any time a message is sent invoking a cfc listener class. The gateway can also being invoked via SendGatewayMessage so to allow your app to push message to all the connected clients.
+This extension enables you to launch a server that is capable to manage messaging from HTML WebSockets. The server runs on a dedicated port. Lucee will receive notifications when a connection is opened, closed and any time a message is sent invoking a cfc listener class. 
+
+The gateway can also being invoked via SendGatewayMessage so to allow your app to push message to all the connected clients.
+
+<https://github.com/isapir/lucee-websocket>
+
+[Extension Wiki](https://github.com/isapir/lucee-websocket/wiki)
+
+<https://www.youtube.com/watch?v=r2s2kGQVZqg>
+
+<https://www.youtube.com/watch?v=rvB7PcNylVY>
+
 
 ### Installing the Extension ###
 
-You can install the extension by adding the provider http://preview.getlucee.org/ExtensionProvider.cfc to your Providers section in the Lucee Web administration panel (not the Server administration panel). Then select the Websocket Gateway Extension app and simply click on the Install button.
+You can install the extension by adding the provider <http://preview.getlucee.org/ExtensionProvider.cfc> to your Providers section in the Lucee Web administration panel (not the Server administration panel). Then select the Websocket Gateway Extension app and simply click on the Install button.
 
 ### Create the gateway instance ###
 
@@ -88,7 +102,7 @@ public void function onMessage(Struct data){
 
 ### sendGatewayMessage ###
 
-The gateway is running into your applications and can be invoked as ny other other gateway by id using the SendGatewayFunction:
+The gateway is running into your applications and can be invoked as any other other gateway by id using the SendGatewayFunction:
 
 ```lucee
 sendGatewayMessage(String id,Struct data);
@@ -101,13 +115,15 @@ This is a great way for performing data push operations. The server will ping AN
 
 ### Logging ###
 
-The gateway craetes a log file called WebSocket.log under your lucee context log folder. Any important event ( and error ) is logged in this file. This file is unique for all the gateways you start from a same Lucee context.
+The gateway creates a log file called WebSocket.log under your lucee context log folder. Any important event ( and error ) is logged in this file. This file is unique for all the gateways you start from a same Lucee context.
 
 ### Client ###
 
 At the time of this script not all the browsers support WebSockets out of the box.
 
-Use this test page : http://html5test.com/ to find out if your broswer support it.
+Use this test page to find out if your browser supports it. 
+
+<http://html5test.com/>
 
 If your browser supports websockets implementing a client is very easy:
 
