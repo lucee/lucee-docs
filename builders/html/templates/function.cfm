@@ -38,12 +38,23 @@
 				<tbody>
 					<cfloop array="#local.fn.getArguments()#" item="local.arg" index="local.i">
 						<tr>
-							<td><div class="argument" id="argument-#local.arg.name#">#local.arg.name#</div>
-								<sub>#local.arg.type#, #( local.arg.required ? 'required' : 'optional' )#</sub>
+							<td>
+								<div class="argument" id="argument-#local.arg.name#" title="Argument name">
+									#local.arg.name#
+								</div>
+								<sub title="Argument type">
+									#local.arg.type#,
+									<span title="Is this argument required">
+										#( local.arg.required ? 'required' : 'optional' )#
+									</span>
+								</sub>
 							</td>
 							<td>
 								#getEditLink(path=local.fn.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
 								#markdownToHtml( Trim( local.arg.description ) )#
+								<cfif len(local.arg.alias) gt 0>
+									<p title="for compatability, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
+								</cfif>
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
  								<td>
