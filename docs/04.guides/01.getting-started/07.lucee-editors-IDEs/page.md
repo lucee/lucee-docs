@@ -7,7 +7,11 @@ There are many modern IDE's which include support for CFML development
 
 ## Lucee Dictionary
 
-A Lucee dictionary is available for [download](/dictionaries/lucee.txt) to support spell checking your code
+Lucee dictionaries are available for download to support spell checking your code
+
+[Download cspell .txt dictionary](/dictionaries/lucee.txt)
+
+[Download .json dictionary](/dictionaries/lucee.json)
 
 <https://luceeserver.atlassian.net/browse/LD-115>
 

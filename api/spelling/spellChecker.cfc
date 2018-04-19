@@ -3,7 +3,6 @@ component accessors=true {
 	property name="threads"     type="numeric";
     property name="dictionary"     type="struct";
     property name="LuceeWhiteListFile" default="./lucee_words.txt";
-    property name="LuceeDictionary" default="./lucee_dictionary.json";
 
 // CONSTRUCTOR
 	public any function init(numeric threads=1) {
@@ -34,8 +33,6 @@ component accessors=true {
         words.append(extractTags());
         words.append(extractMethods());
         words.append(extractObjects());
-
-        FileWrite(getLuceeDictionary(), serializeJSON(words));
 
         request.logger("Loaded " & words.count() & " cfml words");
         var english = deserializeJSON(FileRead("./words_dictionary.json"));

@@ -3,6 +3,7 @@ component accessors=true extends=spellchecker {
 	property name="threads"     type="numeric";
     property name="dictionaryDir" default="";
     property name="cspellFile" default="lucee.txt";
+    property name="jsonFile" default="lucee.json";
 
 // CONSTRUCTOR
 	public any function init(required string dictionaryDir, numeric threads=1) {
@@ -21,6 +22,7 @@ component accessors=true extends=spellchecker {
         words.append(extractObjects(true));
         words.append({ "lucee": "product"} );
         buildCSpell(words);
+        buildJson(words);
     }
 
     private void function buildCSpell(words) {
@@ -31,6 +33,16 @@ component accessors=true extends=spellchecker {
             directoryCreate(getDictionaryDir());
 
         request.logger("Lucee CSpell dictionary exported: #file#");
+        FileWrite(file, dict);
+    }
+    private void function buildJson(words) {
+        var dict = serializeJSON(words);
+        var file = getDictionaryDir() & getJsonFile();
+
+        if (not directoryExists(getDictionaryDir()))
+            directoryCreate(getDictionaryDir());
+
+        request.logger("Lucee json dictionary exported: #file#");
         FileWrite(file, dict);
     }
 }
