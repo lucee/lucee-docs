@@ -29,6 +29,7 @@
 		// pegdown doesn't work with parallel build, see MarkdownParser.cfc
 		// see https://luceeserver.atlassian.net/browse/LD-109
 		var buildThreads = 4;
+
 		if ( path.startsWith( "/lucee/admin") ){
 			request.logger (text="ignoring /lucee/admin request #cgi.script_name#");
 			return;
@@ -48,6 +49,8 @@
 				new api.reference.ReferenceImporter(importThreads).importAll();
 			} else if ( path eq "/build_docs/spellCheck/" ) {
 				new api.spelling.spellChecker().spellCheck();
+			} else if ( path eq "/build_docs/dictionary/" ) {
+				new api.build.BuildRunner().buildDictionary();
 			} else {
 				if (listlen(path,"/") gt 1 )
 					writeOutput("unknown build docs request: #path#");
@@ -57,7 +60,7 @@
 			logger.renderLogs();
 		} else if ( path eq "/assets/js/searchIndex.json" ) {
 			_renderSearchIndex();
-		} else if ( path.startsWith( "/assets" ) ) {
+		} else if ( path.startsWith( "/assets") or path.startsWith( "/dictionaries" ) ) {
 			_renderAsset();
 		} else if ( path.startsWith( "/static" ) ) {
 				_renderStatic();
@@ -223,6 +226,10 @@
 			title: "Spellchecking built HTML",
 			menu: "Spell Check HTML"
 		};
+		opts.dictionary = {
+			title: "Exporting Dictionary",
+			menu: "Export Dictionary"
+		};
 		opts.dash = {
 			title: "Exporting Dash",
 			menu: "Build Dash"
@@ -307,6 +314,7 @@
 			case "otf": return "font/otf";
 			case "ttf": return "application/octet-stream";
 			case "html": return "text/html";
+			case "text": return "text/plain";
 		}
 
 		return "application/octet-stream";

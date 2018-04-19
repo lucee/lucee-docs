@@ -5,33 +5,56 @@ id: lucee-editors-IDEs
 
 There are many modern IDE's which include support for CFML development 
 
+## Lucee Dictionary
+
+Lucee dictionaries are available for download to support spell checking your code
+
+[Download cspell .txt dictionary](/dictionaries/lucee.txt)
+
+[Download .json dictionary](/dictionaries/lucee.json)
+
+<https://luceeserver.atlassian.net/browse/LD-115>
+
+## CFEclipse
+<https://www.cfeclipse.org>
+
 ## VS Code
-[VS Code](https://code.visualstudio.com)
+<https://code.visualstudio.com>
 
-[CFML Language Support for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ilich8086.ColdFusion)
+<https://marketplace.visualstudio.com/items?itemName=ilich8086.ColdFusion>
 
-[CFLint integration] (https://marketplace.visualstudio.com/items?itemName=KamasamaK.vscode-cflint)
+<https://marketplace.visualstudio.com/items?itemName=KamasamaK.vscode-cflint>
+
+<https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker>
 
 ## Sublime Text
-[Sublime Text](https://www.sublimetext.com)
-[CFML Package for Sublime Text 3](https://github.com/jcberquist/sublimetext-cfml)
-[SublimeLinter-contrib-CFLint](https://github.com/ckaznocha/SublimeLinter-contrib-CFLint) 
+<https://www.sublimetext.com>
+
+<https://github.com/jcberquist/sublimetext-cfml>
+
+<https://github.com/ckaznocha/SublimeLinter-contrib-CFLint>
 
 ## Adobe Coldfusion Builder
- [Adobe Coldfusion Builder](https://www.adobe.com/products/coldfusion-builder.html)
+<https://www.adobe.com/products/coldfusion-builder.html>
+
+## Atom
+<https://atom.io>
+
+<https://atom.io/packages/language-cfml>
 
 ## CFBrackets 
-[CFBrackets ](http://cfbrackets.org)
+<http://cfbrackets.org>
 
 ## ActiveState Komodo
-[ActiveState Komodo](https://www.activestate.com/komodo-ide)
-[Komodo-CFML](http://www.we3geeks.org/komodo-cfml/)
+<https://www.activestate.com/komodo-ide>
+
+<http://www.we3geeks.org/komodo-cfml/>
 
 ## IntelliJ IDEA
-[IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html)
+<https://www.jetbrains.com/idea/download/index.html>
 
 ## CFLint 
-[CFLint](https://github.com/cflint/CFLint) 
+<https://github.com/cflint/CFLint>
 is a very useful tool for linting (validating) your CFML code, there is integration available for many IDE's or you can run it in standalone mode over your whole code base
 
 here is a sample .cflintrc file which reduces the noise 
