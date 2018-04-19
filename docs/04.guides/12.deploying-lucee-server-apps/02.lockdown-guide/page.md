@@ -6,9 +6,16 @@ id: cookbook-lockdown-guide
 # Lockdown Guide #
 A guide to limit access to a Lucee server to necessary minimum.
 
-
-
 On Windows it is recommended to run the Lucee/Tomcat service as a restricted user with only the required permissions rather than under SYSTEM account.
+
+### Don't forget to lockdown your source control metadata ###
+
+If you have .git folders (or .svn etc) make sure you restrict access to them (i.e for Apache)
+
+```
+RewriteRule ^(.*/)?\.git+ - [R=404,L]
+```
+
 
 ## Restricted Access Plus SSH Tunnelling ##
 
