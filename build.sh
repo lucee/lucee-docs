@@ -53,3 +53,8 @@ if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ] ; the
   s3_website push
   echo "All done :)"
 fi
+
+echo "Ping search engines with sitemaps"
+
+curl http://google.com/ping?sitemap=http://docs.lucee.org/sitemap.xml
+
