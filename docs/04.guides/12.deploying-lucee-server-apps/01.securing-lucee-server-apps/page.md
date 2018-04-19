@@ -13,6 +13,14 @@ id: securing-lucee-server-apps
 * Remove the Lucee admin files if not needed
 * lots of other stuff. Search for "hardening coldfusion"
 
+### Don't forget to lockdown your source control metadata ###
+
+If you have .git folders (or .svn etc) make sure you restrict access to them (i.e for Apache)
+
+```
+RewriteRule ^(.*/)?\.git+ - [R=404,L]
+```
+
 ## Validate user input, sanitize user output ##
 
 Anything that goes into your system should be validated upon entry. Do not transparently sanitize user input -- either accept it or reject it -- and instead sanitize the output. This keeps your data pure, will not surprise you later with changed input, and consolidates sanitation logic. However, you must validate and escape anything that can effect the chosen method of data persistence. In the case of a SQL database this means using cfqueryparam on any variable a user could possibly set (use it everywhere! The binding should improve performance too). If it were a CVS file using quotes for delimiters, you would escape the quotes... and so on and so forth. You are focused only on getting the data in safely. When you have an original, you can do whatever you like to copies!
@@ -36,7 +44,7 @@ Example URLRewriteFilter rewrite only allowing localhost to access the admin:
    <name>luceeLocalOnly</name>
    <note>Only allow access to lucee admin from localhost</note>
    <condition operator="notequal" type="remote-addr">127\.0\.0\.1|0:0:0:0:0:0:0:1%0</condition>
-   <from casesensitive="false">^.*/lucee-context/admin/.*</from>
+   <from casesensitive="false">^.*/lucee/admin/.*</from>
    <to last="true" type="forward">/</to>
 </rule>
 ```
@@ -45,7 +53,7 @@ One way of many to achieve the same for httpd, using mod_rewrite:
 
 ```lucee
 RewriteCond %{REMOTE_ADDR}       !=127\.0\.0\.1
-RewriteRule ^.*/lucee-context/admin/   -   [F]
+RewriteRule ^.*/lucee/admin/   -   [F]
 ```
 
 ## Realms and whatnot ##
