@@ -33,6 +33,11 @@ A Lucee dictionary is available for [download](/dictionaries/lucee.txt) to suppo
 ## Adobe Coldfusion Builder
 <https://www.adobe.com/products/coldfusion-builder.html>
 
+## Atom
+<https://atom.io>
+
+<https://atom.io/packages/language-cfml>
+
 ## CFBrackets 
 <http://cfbrackets.org>
 
