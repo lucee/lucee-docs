@@ -21,6 +21,7 @@ component accessors=true {
 			listBuilders().each( function( builderName ){
 				build( builderName, getThreads() );
 			} );
+			buildDictionary();
 		}
 	}
 
@@ -63,6 +64,10 @@ component accessors=true {
 		return builder;
 	}
 
+	public any function buildDictionary() {
+		new api.spelling.DictionaryWriter(getBuildsDir() & "/html/dictionaries/").build();
+	};
+
 // PRIVATE HELPERS
 	private string function _getBuilderBuildDirectory( required string builderName ) {
 		var buildDirectory = buildsDir & "/" & arguments.builderName;
@@ -97,4 +102,5 @@ component accessors=true {
 	public void function injectMethod( required string methodName, required any method ) {
 		this[ arguments.methodName ] = variables[ arguments.methodName ] = arguments.method;
 	}
+
 }

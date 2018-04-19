@@ -93,7 +93,7 @@ component accessors=true {
             //writeOutPut("<li><a href='/#missing[word]#'>#word#</a>");
             writeOutPut("<li><span><a class='missing'>#q.word#</a> #((q.count == 1)? "" : q.count)# ");
             writeOutPut("<input type='button' class='whitelist' value='approve'></span>");
-            for (page in q.pages)
+            for (var page in q.pages)
                 writeOutPut("<br><a href='/#page#'>/#page#</a>");
             writeOutPut("</li>");
         }
@@ -137,19 +137,23 @@ component accessors=true {
 		return Trim( URLDecode(str) );
 	}
 
-    private struct function extractFunctions() {
+    private struct function extractFunctions(boolean cspell="false") {
         var words = {};
 		var referenceReader = new api.reference.ReferenceReaderFactory().getFunctionReferenceReader();
 		Each (referenceReader.listFunctions(), function(functionName){
             var convertedFunc = referenceReader.getFunction( functionName );
-            for (var arg in convertedFunc.arguments)
+            for (var arg in convertedFunc.arguments){
                 words[arg.name]=functionName;
+                if (cspell)
+                    words[functionName & "." & arg.name]="function";
+            }
             words[functionName]="function";
+
 		}, true, 1);
         return words;
 	}
 
-	private struct function extractObjects() {
+	private struct function extractObjects(boolean cspell="false") {
 		var words = {};
 		var referenceReader = new api.reference.ReferenceReaderFactory().getObjectReferenceReader();
 
@@ -159,7 +163,7 @@ component accessors=true {
 		return words;
 	}
 
-	private struct function extractMethods() {
+	private struct function extractMethods(boolean cspell="false") {
 		var words = {};
 		var referenceReader = new api.reference.ReferenceReaderFactory().getMethodReferenceReader();
 		var objects = referenceReader.listMethods();
@@ -167,16 +171,21 @@ component accessors=true {
 		//for( var object in objects ) {
 			for (var method in objects[object] ){
 				var methodData = referenceReader.getMethod( object, method);
-                for (var arg in methodData.arguments)
+                for (var arg in methodData.arguments){
                     words[arg.name]=method;
+                    if (cspell)
+                        words[arg.name & "." & method]="object";
+                }
                 words[object]="object";
                 words[method]="method";
+                if (cspell)
+                    words[object & "." & method]="object";
 			}
 		}, true, 1);
         return words;
 	}
 
-	private struct function extractTags() {
+	private struct function extractTags(boolean cspell="false") {
         var words = {};
 		var referenceReader = new api.reference.ReferenceReaderFactory().getTagReferenceReader();
 		Each (referenceReader.listTags(), function(tagName){
