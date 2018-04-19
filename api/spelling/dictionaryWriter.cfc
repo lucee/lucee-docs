@@ -26,8 +26,10 @@ component accessors=true extends=spellchecker {
     private void function buildCSpell(words) {
         var dict = ArrayToList(ListToArray(structKeyList(words)).sort("textnocase"),chr(10));
         var file = getDictionaryDir() & getCspellFile();
+
         if (not directoryExists(getDictionaryDir()))
             directoryCreate(getDictionaryDir());
+
         request.logger("Lucee CSpell dictionary exported: #file#");
         FileWrite(file, dict);
     }
