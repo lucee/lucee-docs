@@ -48,8 +48,8 @@
 				new api.reference.ReferenceImporter(importThreads).importAll();
 			} else if ( path eq "/build_docs/spellCheck/" ) {
 				new api.spelling.spellChecker().spellCheck();
-			} else if ( path eq "/build_docs/cspell/" ) {
-				new api.spelling.spellChecker().buildLuceeCSpell();
+			} else if ( path eq "/build_docs/dictionary/" ) {
+				new api.build.BuildRunner().buildDictionary();
 			} else {
 				if (listlen(path,"/") gt 1 )
 					writeOutput("unknown build docs request: #path#");
@@ -224,6 +224,10 @@
 		opts.spellcheck = {
 			title: "Spellchecking built HTML",
 			menu: "Spell Check HTML"
+		};
+		opts.dictionary = {
+			title: "Exporting Dictionary",
+			menu: "Export Dictionary"
 		};
 		opts.dash = {
 			title: "Exporting Dash",

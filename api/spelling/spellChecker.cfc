@@ -96,7 +96,7 @@ component accessors=true {
             //writeOutPut("<li><a href='/#missing[word]#'>#word#</a>");
             writeOutPut("<li><span><a class='missing'>#q.word#</a> #((q.count == 1)? "" : q.count)# ");
             writeOutPut("<input type='button' class='whitelist' value='approve'></span>");
-            for (page in q.pages)
+            for (var page in q.pages)
                 writeOutPut("<br><a href='/#page#'>/#page#</a>");
             writeOutPut("</li>");
         }
@@ -140,19 +140,6 @@ component accessors=true {
 		return Trim( URLDecode(str) );
 	}
 
-    public void function buildLuceeCSpell() {
-        var words = structNew("ordered");
-        words.append(extractFunctions(true));
-        words.append(extractTags(true));
-        words.append(extractMethods(true));
-        words.append(extractObjects(true));
-
-        var dict = ArrayToList(ListToArray(structKeyList(words)).sort("textnocase"),chr(10));
-
-        FileWrite(getLuceeDictionary(), dict);
-        writeoutput("<pre>#dict#</pre>");
-    }
-
     private struct function extractFunctions(boolean cspell="false") {
         var words = {};
 		var referenceReader = new api.reference.ReferenceReaderFactory().getFunctionReferenceReader();
@@ -161,7 +148,7 @@ component accessors=true {
             for (var arg in convertedFunc.arguments){
                 words[arg.name]=functionName;
                 if (cspell)
-                    words[functionName & "::" & arg.name]="function";
+                    words[functionName & "." & arg.name]="function";
             }
             words[functionName]="function";
 
@@ -190,12 +177,12 @@ component accessors=true {
                 for (var arg in methodData.arguments){
                     words[arg.name]=method;
                     if (cspell)
-                        words[arg.name & "::" & method]="object";
+                        words[arg.name & "." & method]="object";
                 }
                 words[object]="object";
                 words[method]="method";
                 if (cspell)
-                    words[object & "::" & method]="object";
+                    words[object & "." & method]="object";
 			}
 		}, true, 1);
         return words;
