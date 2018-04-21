@@ -1,6 +1,7 @@
 ---
-title: Configuration:web.xml
+title: 'Configuration: Lucee web.xml'
 id: configuration-web-xml
+menuTitle: web.xml
 ---
 
 ## web.xml ##

@@ -1,5 +1,5 @@
 ---
-title: TechnicalFAQs
+title: Technical FAQs
 id: technical-FAQs
 ---
 

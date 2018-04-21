@@ -14625,8 +14625,7 @@ setTimeout(
                 if (url && url.indexOf("http") === -1)
                     return;  // skip all  local content
                 var whiteListed = isWhiteListed(String(url));
-                if (url == $(this).text())
-                    whiteListed = true;
+                whiteListed = (url == $(this).text());
                 // only oembed raw urls and whiteListed sites
                 if (whiteListed){
                     $(this).oembed(url, {

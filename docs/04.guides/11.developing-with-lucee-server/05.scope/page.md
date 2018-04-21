@@ -1,6 +1,7 @@
 ---
 title: Scopes
 id: scopes
+menuTitle: Scopes
 ---
 
 ## Local scopes ##
@@ -73,4 +74,3 @@ Please see Using scopes explicitly in code for details.
 
 * CGI scope reference
 * thisTag
-

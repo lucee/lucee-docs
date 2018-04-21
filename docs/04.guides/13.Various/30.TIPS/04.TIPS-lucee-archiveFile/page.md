@@ -1,5 +1,5 @@
 ---
-title: TIPS LuceeArchiveFile
+title: Lucee Archive Files
 id: tips-lucee-archive-file
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: TIPS TemplateCache
+title: Template Cache
 id: tips-template-cache
 ---
 

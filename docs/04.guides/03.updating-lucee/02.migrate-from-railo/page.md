@@ -1,6 +1,7 @@
 ---
-title: Migrate from Railo
+title: Migrating from Railo to Lucee
 id: updating-lucee-migrate-from-railo
+menuTitle: Migrating from Railo
 ---
 
 # Migrate from Railo<sup>&copy;</sup>#

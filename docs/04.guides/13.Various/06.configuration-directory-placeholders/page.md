@@ -1,6 +1,7 @@
 ---
-title: Configuration:directory_placeholders
+title: 'Configuration: Lucee Directory Placeholders'
 id: configuration-directory-placeholders
+menuTitle: Directory Placeholders
 ---
 
 ## Directory Placeholders ##
@@ -39,4 +40,3 @@ If you have configured Lucee to generate the configuration directories using the
 Therefore, in Lucee 3.3, we introduced a new directory placeholder: {web-context-label}. Now you have the opportunity to use a label as a path to the configuration files for each web context. In order to use this label, you need to define it in every lucee-web.xml.cfm in every configuration directory.
 
 As of Lucee 4.0.2.002 final, you can update the {web-context-label} through the Server Administrator. After you've logged in to [domain]/lucee-context/admin/server.cfm, you will see a section marked "Web Contexts" at the bottom of the page. Here you can modify your labels and click the update button to save the changes.
-
