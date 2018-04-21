@@ -1,6 +1,7 @@
 ---
-title: Tutorial Extension_Provider_Part1
+title: Creating an extension for Lucee (1/5)
 id: tutorial-extension-provider-part1
+menuTitle: Creating an extension for Lucee (1/5)
 ---
 
 ## Creating an extension for Lucee 3.1 - Part I ##

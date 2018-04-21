@@ -1,5 +1,5 @@
 ---
-title: Tutorial Lucee
+title: Lucee Tutorials
 id: tutorial-lucee
 ---
 

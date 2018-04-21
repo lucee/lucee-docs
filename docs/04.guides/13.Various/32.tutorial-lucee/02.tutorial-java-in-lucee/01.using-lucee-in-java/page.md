@@ -9,9 +9,9 @@ since Lucee is written in Java, and is running inside a Java Virtual Machine (JV
 
 ### Adding Lucee to your Java Project ###
 
-the first thing you will need to do is to add lucee.jar to your classpath, so that you will have access to the classes and interfaces that Lucee provides. if you are using an IDE like Eclipse or Netbeans, then you simply add the lucee.jar library to your project.
+The first thing you will need to do is to add lucee.jar to your classpath, so that you will have access to the classes and interfaces that Lucee provides. if you are using an IDE like Eclipse or Netbeans, then you simply add the lucee.jar library to your project.
 
-once you added lucee.jar to your project, you should have access to all of Lucee's public classes and interfaces. in order to access them you will need to add the import statement to the top of your class file. be sure to add an import statement for each of the classes/interfaces that you plan to use in that class. you can review the Lucee javadoc files at [http://www.getrailo.org/javadoc/](http://www.getrailo.org/javadoc/)
+Once you added lucee.jar to your project, you should have access to all of Lucee's public classes and interfaces. in order to access them you will need to add the import statement to the top of your class file. be sure to add an import statement for each of the classes/interfaces that you plan to use in that class. you can review the [Lucee javadoc](http://javadoc.lucee.org/).
 
 ### Using Lucee from your Java code ###
 
@@ -24,9 +24,11 @@ there are two cases in which you might want to use Lucee from your Java code:
 
 the easiest way to use Lucee from your Java code is when your Java code was loaded by Lucee. this is a common case when, for example, your CFML code creates a Java object, and then that Java object creates Lucee objects and calls CFC methods.
 
-your interaction with Lucee should start via an object that implements the railo.loader.engine.CFMLEngine interface 
+your interaction with Lucee should start via an object that implements the lucee.loader.engine.CFMLEngine interface 
 
-([http://www.getrailo.org/javadoc/railo/loader/engine/CFMLEngine.html](http://www.getrailo.org/javadoc/railo/loader/engine/CFMLEngine.html)) and the railo.runtime.PageContext ([http://www.getrailo.org/javadoc/railo/runtime/PageContext.html]) object. since Lucee loaded your Java code, and it will be running in that very same JVM, you can get a reference to a CFMLEngine object by calling the getInstance() static method of the railo.loader.engine.CFMLEngineFactory object.
+[lucee.loader.engine.CFMLEngine](http://javadoc.lucee.org/lucee/loader/engine/CFMLEngine.html) and the [lucee.runtime.PageContext](http://javadoc.lucee.org/lucee/runtime/PageContext.html) object. 
+
+Since Lucee loaded your Java code, and it will be running in that very same JVM, you can get a reference to a CFMLEngine object by calling the getInstance() static method of the lucee.loader.engine.CFMLEngineFactory object.
 
 ```lucee
 import	lucee.loader.engine.*;
@@ -47,8 +49,10 @@ when you want to use Lucee from Java in a detached environment, i.e. Lucee does 
 
 due to the complexity involved this is beyond the scope of this document. please consult the code written for Lucee CLI in Version 4.0 Alpha and see how it is used there:
 
-[https://github.com/getrailo/railo/blob/develop/railo-java/railo-loader/src/railo/cli/CLI.java](https://github.com/getrailo/railo/blob/develop/railo-java/railo-loader/src/railo/cli/CLI.java) and in the cli() method of CFMLEngineImpl (line 541 at the time of writing): 
-[https://github.com/getrailo/railo/blob/develop/railo-java/railo-core/src/railo/runtime/engine/CFMLEngineImpl.java#L541](https://github.com/getrailo/railo/blob/develop/railo-java/railo-core/src/railo/runtime/engine/CFMLEngineImpl.java#L541)
+<https://github.com/lucee/Lucee/blob/5.2/loader/src/main/java/lucee/cli/CLI.java>
+and in the cli() method of CFMLEngineImpl (line 541 at the time of writing): 
+
+<https://github.com/lucee/Lucee/blob/5.2/core/src/main/java/lucee/runtime/engine/CFMLEngineImpl.java>
 
 ### Using the Lucee objects from Java ###
 
@@ -221,5 +225,3 @@ Serialize
 (new in Lucee 4.0)
 
 	String	str =	pc.serialize( obj ); // same as function serialize(object)
-
-see also the tutorial: Using Java in Lucee [http://wiki.getrailo.org/wiki/Tutorial-using_Java_in_Lucee](http://wiki.getrailo.org/wiki/Tutorial-using_Java_in_Lucee)
