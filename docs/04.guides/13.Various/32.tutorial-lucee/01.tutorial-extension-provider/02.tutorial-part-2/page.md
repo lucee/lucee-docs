@@ -1,5 +1,5 @@
 ---
-title: Tutorial Extension_Provider_Part2
+title: Creating an extension (2/5)
 id: tutorial-extension-provider-part2
 ---
 

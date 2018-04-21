@@ -1,6 +1,7 @@
 ---
-title: Tutorial Extension_Provider_Part5
+title: Writing an extension (5/5)
 id: tutorial-extension-provider-part5
+menuTitle: Writing an extension
 ---
 
 ### Writing an extension - Part IV - Tips and tricks ###

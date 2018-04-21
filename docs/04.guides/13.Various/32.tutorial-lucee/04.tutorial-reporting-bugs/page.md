@@ -1,6 +1,7 @@
 ---
-title: 'Tutorial: How to report bugs'
+title: How to report bugs and get help with Lucee
 id: tutorial-reporting-bugs
+menuTitle: How to report bugs
 ---
 
 ### How to report a bug in Lucee ###
@@ -26,7 +27,8 @@ When a bug is posted the first thing we do is to try to reproduce it. It is very
 * OS
 * Lucee Version and deployment ( Ex: Lucee 5.2.60 / Tomcat 8.5 )
 * Java Version (i.e. 1.8.0_162) 
-* Browser or other details if relevant.
+* Browser or other details (if relevant)
+* Webserver configuration (if relevant)
 
 Providing this information really speeds up the ticket solving process.
 
