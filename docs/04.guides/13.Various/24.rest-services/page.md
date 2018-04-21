@@ -1,10 +1,11 @@
 ---
-title: ReST Services:Introduction
+title: 'ReST Services: Introduction'
 id: rest-services-introduction
 related:
 - function-restdeleteapplication
 - function-restinitapplication
 - function-restsetresponse
+menuTitle: ReST Services
 ---
 
 ### ReST Services ###

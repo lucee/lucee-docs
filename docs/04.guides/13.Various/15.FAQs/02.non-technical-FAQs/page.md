@@ -1,5 +1,5 @@
 ---
-title: NonTechnicalFAQs
+title: Non Technical FAQs
 id: non-technical-FAQs
 ---
 

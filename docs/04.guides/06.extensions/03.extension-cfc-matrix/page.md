@@ -1,6 +1,7 @@
 ---
 title: Extension CFCs matrix
 id: extension-cfcs-matrix
+menuTitle: CFCs matrix
 ---
 
 The methods marked red are system methods and should therefore not be called in the installation application. The hierarchy looks like follows: ExtensionConfig.cfc ? ExtensionStep.cfc ? ExtensionGroup.cfc ? ExtensionItem.cfc ? ExtensionOption.cfc

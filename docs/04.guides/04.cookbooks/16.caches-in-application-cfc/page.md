@@ -3,9 +3,11 @@ title: Adding Caches via Application.cfc
 id: cookbook-caches-in-application-cfc
 related:
 - tag-application
+menuTitle: Adding Caches
 ---
 
 # Adding Caches via Application.cfc
+
 It is possible to add cache connections in Lucee 5.1+ on a per-application basis by adding configuration to your `Application.cfc`.  You can also select the default object cache, query cache, function cache, etc as well.  Note if these caches use an extension that provides the cache driver, the extension must be installed already.
 
 To declare cache connections, create a struct called `this.cache.connections` in the pseudo constructor of your `Application.cfc`.  Each key in the struct will be the name of the cache connection to create, and the value of the item will be another struct defining the properties of that cache connection.

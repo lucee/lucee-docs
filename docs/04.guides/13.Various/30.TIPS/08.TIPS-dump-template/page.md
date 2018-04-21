@@ -1,6 +1,9 @@
 ---
-title: TIPS DumpTemplate
+title: Custom CFDUMP Templates
 id: tips-dump-template
+related:
+- tag-dump
+- function-dump
 ---
 
 ### How can I change the default template of CFDump? ###

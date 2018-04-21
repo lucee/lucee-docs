@@ -1,9 +1,10 @@
 ---
 title: Handling unquoted arguments as variables
 id: lucee-5-unquoted-arguments
+menuTitle: Unquoted arguments
 ---
 
-#Handle unquoted tag attribute values as strings#
+##Handle unquoted tag attribute values as strings##
 Unquoted values for tag attributes are handled as strings by default, however with Lucee 5 there is now a setting in the Administrator (under Settings - Language/Compiler) where you can select to handle these values as variables instead.
 
 Take this example:

@@ -1,5 +1,5 @@
 ---
-title: TIPS Implicit_Conversions
+title: Implicit Conversions
 id: tips-implicit-conversions
 ---
 

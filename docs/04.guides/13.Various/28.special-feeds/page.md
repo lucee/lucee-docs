@@ -1,6 +1,8 @@
 ---
-title: Special:Feeds
+title: RSS / Atom Feeds
 id: special-feeds
+related:
+- tag-feed
 ---
 
 ### Codex RSS Feed Directory ###

@@ -1,5 +1,5 @@
 ---
-title: TIPS BuiltInFunction
+title: Custom Built In Functions (BIFs)
 id: tips-built-in-function
 ---
 

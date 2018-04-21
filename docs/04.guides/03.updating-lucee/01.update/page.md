@@ -1,5 +1,5 @@
 ---
-title: Update Lucee
+title: How to update Lucee
 id: updating-lucee-update
 ---
 

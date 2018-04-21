@@ -1,6 +1,7 @@
 ---
 title: Read XML with a listener Model (SAX)
 id: cookbook-sax
+menuTitle: Read XML using SAX
 ---
 
 # Event driven XML reading (SAX) #

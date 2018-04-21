@@ -1,6 +1,7 @@
 ---
 title: Download Lucee Software, Offline Documentation and Dictionaries
 id: download
+menuTitle: Download Lucee
 ---
 
 ## Download Lucee Server Software

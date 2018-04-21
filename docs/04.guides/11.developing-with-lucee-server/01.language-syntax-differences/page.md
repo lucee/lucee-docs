@@ -1,7 +1,9 @@
 ---
 title: Lucee Language and Syntax Differences
 id: language-syntax-differences
+menuTitle: Language and Syntax
 ---
+
 ## Architecture ##
 
 Adobe ColdFusion (ACF) is configured in a way that only one single web context is available for a server instance. This means that if you do not secure your single applications they might become vulnerable, you will have to use sandbox security, single instances, etc... This and the fact that you do not have the ability to configure individual CF settings for each virtual host are the major disadvantages of this setup. A big advantage however is the fact that a virtual host only needs to be defined in the web server configuration in order to properly be picked up by ACF.
