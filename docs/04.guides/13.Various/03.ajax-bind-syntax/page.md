@@ -1,5 +1,5 @@
 ---
-title: Ajax:Bind_Syntax
+title: 'Ajax: Bind syntax'
 id: ajax-bind-syntax
 categories:
 - ajax

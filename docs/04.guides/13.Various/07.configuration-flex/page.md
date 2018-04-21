@@ -1,6 +1,7 @@
 ---
-title: Configuration:Flex_configuration
+title: 'Configuration: Flex configuration'
 id: configuration-flex
+menuTitle: Flex Configuration
 ---
 
 ## Preventing the Flex integration in Lucee to create unnecessary WEB-INF directories ##

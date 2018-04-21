@@ -1,12 +1,16 @@
 ---
-title: Windows
+title: Installing Lucee on Windows
 id: running-lucee-windows
+menuTitle: Windows
 ---
 
 ## Introduction
 
-There are a few different ways to get Lucee up and running on Windows, you can [[running-lucee-download-and-install]] 
-the traditional Installer, or the Express version (which just runs out of a folder) or you can use [[getting-started-commandbox]] which provides an automated way to manage and deploy both Lucee and Adobe Coldfusion servers (it's sort of like Docker but a million times less complex)
+There are a few different ways to get Lucee up and running on Windows
+
+- you can [[running-lucee-download-and-install]] the traditional Installer
+- the Express version (which just runs out of a folder) 
+- [[getting-started-commandbox]] which provides an automated way to manage and deploy both Lucee and Adobe Coldfusion servers (it's sort of like Docker but a million times less complex)
 
 ## Content ##
 
@@ -25,6 +29,20 @@ need to delve into the following sections if you are using one of the above appr
 * [[running-lucee-scripts-installing-tomcat-and-lucee-on-windows]]
 * [[running-lucee-installing-the-jdk-on-windows]]
 * [[running-lucee-installing-the-server-jre-on-windows]]
+
+## Check your ports ##
+
+You will run into problems if some of the ports Lucee uses are already in use.
+
+A default install of Lucee uses ports 8888, 8005 and 8009
+
+You can easily check which ports are already in use
+
+- using Powershell ```Get-NetTCPConnection | ? {$_.State -eq "Listen"} | sort LocalPort -Descending```
+- via Resource Monitor, Network Tab, Listening Ports (Windows-R, type resmon) 
+- or thru Task Manager, Performance, open Resource Monitor.
+
+
 
 ## Prerequisites##
 * A Windows machine with Full administrator privileges

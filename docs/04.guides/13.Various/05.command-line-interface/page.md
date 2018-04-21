@@ -1,6 +1,7 @@
 ---
 title: Lucee Command Line Interface
 id: command-line-interface
+menuTitle: Command Line Interface
 ---
 
 The Lucee CLI allows you to run your CFML in an operating system context-- that is, from your command line, without having to start a servlet container first!

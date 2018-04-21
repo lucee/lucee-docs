@@ -1,6 +1,7 @@
 ---
 title: Extensions Support Components
 id: extensions-support-components
+menuTitle: Support Components
 ---
 
 ### Support components ###

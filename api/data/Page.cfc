@@ -9,6 +9,7 @@ component accessors=true {
 	property name="depth"        type="numeric" default=0;
 	property name="filePath"     type="string"  default="";
 	property name="title"        type="string"  default="";
+	property name="menuTitle"    type="string"  default="";
 	property name="description"  type="string"  default="";
 	property name="body"         type="string"  default="";
 	property name="sortOrder"    type="numeric" default="0";
@@ -44,6 +45,13 @@ component accessors=true {
 		nextPage = NullValue();
 		previousPage = NullValue();
 		children= [];
+	}
+
+	public string function getPageMenuTitle(){
+		if (len(getMenuTitle()) gt 0)
+			return getMenuTitle();
+		else
+			return getTitle();
 	}
 
 	public struct function getPageLineageMap(){

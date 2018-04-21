@@ -1,13 +1,14 @@
 ---
 title: Setting Up a Dev Environment to Compare Lucee and ACF on OSX
-id: setting-dev-environment
+id: setting-dev-environment-osx
+menuTitle: Setting up OSX
 ---
 
 This is a personal account of how one developer managed to install Lucee to test an existing codebase developed in Adobe ColdFusion and got them running side by side on the same set of files. The objective was to be able to easily compare how an application runs in ACF and ColdFusion. Because the technique relies on symlinks, it will only work on an OS where symlinks can be created, so I'm not sure if this is adaptable to Windows.
 
 I already had CF10 installed locally on the dev machine, and have been using the inbuilt web server to develop on. It is installed under Applications/ColdFusion10, and listens on port 8500.
 
-I downloaded the OSX version of Lucee Server with Tomcat 7 from [http://www.getrailo.org/index.cfm/download/](http://www.getrailo.org/index.cfm/download/) and installed it under /Applications/Lucee/ (Tomcat is essential to replicate this exact procedure, but I assume it should work under Jetty as well).
+I downloaded the OSX version of Lucee Server with Tomcat 7 from [http://download.lucee.org](http://download.lucee.org) and installed it under /Applications/Lucee/ (Tomcat is essential to replicate this exact procedure, but I assume it should work under Jetty as well).
 
 Then I messed around for awhile while I figured out how to access the web root from the browser. I expected it to be on either 8080 or 8888 from what I could find, but in fact tomcat was installed by default to listen on port 80. So after a time, I found the Lucee welcome page at http://localhost. It might be helpful if the installer itself guided the first time user to this welcome page. Once I was there, a bit of critical information was revealed:
 

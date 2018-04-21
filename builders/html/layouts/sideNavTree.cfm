@@ -15,7 +15,7 @@
 				</cfscript>
 				<li class="<cfif local.firstLevelActive>active</cfif> <cfif local.firstLevelCurrent>current</cfif>">
 					<a href="#local.item.getPath()#.html" itemprop="url">
-						<span itemprop="name">#HtmlEditFormat(local.item.getTitle())#</span>
+						<span itemprop="name">#HtmlEditFormat(local.item.getPageMenuTitle())#</span>
 					</a>
 					<cfsilent>
 						<cfscript>
@@ -31,7 +31,7 @@
 									subNav.append('<li' &
 										(local.secondlevelactive eq true ? ' class="active"' : "") &
 										'><a href="#local.item.getPath()#.html" itemprop="url">' &
-										'<span itemprop="name">#HtmlEditFormat(local.item.getTitle())#</span>' &
+										'<span itemprop="name">#HtmlEditFormat(local.item.getPageMenuTitle())#</span>' &
 										'</a></li>'
 									);
 								}

@@ -1,5 +1,5 @@
 ---
-title: TIPS CustomJARs
+title: Custom JARs
 id: tips-custom-jars
 ---
 
