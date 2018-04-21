@@ -2,8 +2,15 @@
 title: QueryAddRow
 id: function-queryaddrow
 related:
+- function-querysetcell
 categories:
-    - query
+- query
+description: Adds rows to a query, either empty row(s) or you can add a row with data
 ---
 
-Adds a specified number of empty rows to a query. The number returned is the new row count of the query.
+Adds rows to a query, either empty row(s) or you can add a row with data.
+
+The number returned is the new row count of the query.
+
+
+

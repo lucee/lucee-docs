@@ -190,7 +190,11 @@
 			<div class="content-inner">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-10 col-lg-push-1 body">
+						<cfif args.page.getPath() eq "/home">
+                            <div class="col-lg-6 col-lg-push-1 body">
+                        <cfelse>
+                            <div class="col-lg-10 col-lg-push-1 body">
+                        </cfif>
 							<cfif len(trim(args.crumbs))>
 							<div class="tile-wrap">
 								<div class="tile breadcrumbs">
@@ -202,6 +206,13 @@
 
 							#args.seeAlso#
 						</div>
+						<cfif args.page.getPath() eq "/home">
+                            <div class="col-lg-4 col-lg-push-1 body">
+                                <a class="twitter-timeline" data-width="450" data-height="700"
+                                    href="https://twitter.com/lucee_server">Lucee on twitter</a>
+                                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            </div>
+                        </cfif>
 					</div>
 				</div>
 			</div>
@@ -220,7 +231,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/dist/base.20.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.21.min.js" type="text/javascript"></script>
 		</cfif>
 	</body>
 </html></cfoutput>
