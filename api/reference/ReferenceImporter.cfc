@@ -301,17 +301,66 @@ categories:
 						return 0;
 					}
 				} else {
-					return 0; // case insensitive file exists check!
+					exists = true; // case insensitive file exists check!
 				}
 			}
 		}
-		if (!exists)
+		if (!exists){
 			request.logger("Generated file: " & arguments.filePath  & chr(10));
-		FileWrite( arguments.filePath, arguments.content );
+			FileWrite( arguments.filePath, _formatText(arguments.content) );
+		} else if (false){ // only run this manually
+			var existingContent = FileRead( arguments.filePath );
+			_formatText(arguments.content);
+			FileWrite( arguments.filePath, _formatText(arguments.content) );
+			return 0;
+		}
 		return 1;
 	}
 
 	private boolean function _isHiddenFeature( required struct feature ) {
-		return arguments.feature.name.startsWith( "_" ) || ListFindNoCase( "hidden,unimplemeted", arguments.feature.status ?: "" );
+		return arguments.feature.name.startsWith( "_" ) || ListFindNoCase( "hidden,unimplemeted,unimplemented", arguments.feature.status ?: "" );
+	}
+	/* the imported descriptions have leading tabs from the xml file, only run this manually */
+	private string function _formatText( required string text ) {
+
+		var str = arguments.text;
+		return str;
+		if (str.contains(chr(9)) ){
+			str = replace(str, "#chr(10)##chr(9)##chr(9)##chr(9)#", chr(10), "all");
+			str = replace(str, "#chr(10)##chr(9)##chr(9)#", chr(10), "all");
+			str = replace(str, "#chr(10)##chr(9)#", chr(10), "all");
+			str = replace(str, ".#chr(10)#", ".#chr(10)##chr(10)#", "all");
+			str = replace(str, ":#chr(10)#-", ":#chr(10)##chr(10)#-", "all");
+			str = replace(str, "#chr(10)##chr(9)#-", ".#chr(10)#-", "all");
+			str = replace(str, ".#chr(10)##chr(10)#-", ".#chr(10)#-", "all");
+
+			if (left(str,3) eq "---"){
+				// yaml
+				str = replace(str, ":#chr(10)##chr(10)#---", ":#chr(10)#---", "all");
+				str = replace(str, ":#chr(10)#    -", ":#chr(10)##chr(10)#-", "all");
+				var line="";
+				var newStr = "";
+				var inYaml = true;
+				var src = ListToArray(str, chr(10) );
+				var i= 0;
+				loop array=src index="i" item="line" {
+					if (i gt 1 and line eq "---"){
+						inYaml = false;
+						newStr &= "---" & chr(10) & chr(10);
+					} else {
+						if (inYaml)	{
+							if (trim(line).len() gt 0)
+								newStr &= trim(line) & chr(10);
+						} else {
+							newStr &= line & chr(10);
+						}
+					}
+				}
+				str = newstr;
+			}
+
+			writeOutput("<pre>#text#</pre><hr><b><pre>#str#</pre></b><hr><hr>");
+		}
+		return str;
 	}
 }
