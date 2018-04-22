@@ -3,8 +3,8 @@ title: IsStruct
 id: function-isstruct
 related:
 categories:
-    - decision
-    - strcuct
+- decision
+- struct
 ---
 
 Determines if the object is a structure

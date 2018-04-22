@@ -1,5 +1,5 @@
 Data type to which to convert variable:
-		bigdecimal (converts to java.math.BigDecimal)
+bigdecimal (converts to java.math.BigDecimal)
 
 - boolean
 - byte
