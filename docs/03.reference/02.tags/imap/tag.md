@@ -5,10 +5,10 @@ related:
 - tag-pop
 categories:
 - protocols
-description: Retrieves and deletes e-mail messages from a IMAP mail server.
+description: Retrieves and deletes e-mail messages from an IMAP mail server.
 ---
 
-Retrieves and deletes e-mail messages from a IMAPmail server.
+Retrieves and deletes e-mail messages from an IMAPmail server.
 
 This tag works exactly the same way as the [[tag-mail]] tag. It has the same attributes.
 

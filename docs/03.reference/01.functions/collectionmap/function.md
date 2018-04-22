@@ -7,4 +7,4 @@ categories:
 ---
 
 Calls the given closure with every element in the given collection.
-the function returns a array or struct (depending on the input) that contains all values returned by the closure.
+the function returns an array or struct (depending on the input) that contains all values returned by the closure.

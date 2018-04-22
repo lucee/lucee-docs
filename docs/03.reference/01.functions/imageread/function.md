@@ -6,4 +6,4 @@ categories:
     - image
 ---
 
-Reads the source pathname or URL and creates a image.
+Reads the source pathname or URL and creates an image.

@@ -6,4 +6,4 @@ categories:
     - image
 ---
 
-Rotates all subsequent drawing on a image at a specified point by a specified angle.
+Rotates all subsequent drawing on an image at a specified point by a specified angle.

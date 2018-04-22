@@ -1,4 +1,4 @@
-data to populate the new Query, a array of arrays or a array of structs.
+data to populate the new Query, an array of arrays or an array of structs.
 
 Example usage:
 queryNew("name,age","varchar,numeric",[["Susi",20],["Urs",24]]);

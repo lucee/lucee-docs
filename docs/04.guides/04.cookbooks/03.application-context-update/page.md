@@ -7,7 +7,7 @@ menuTitle: Application Context
 ---
 
 # Update Application Context #
-Lucee allows to update a existing application context defined for example with a Application.cfc.
+Lucee allows to update an existing application context defined for example with an Application.cfc.
 So for example add a per application mapping
 
 ```lucee

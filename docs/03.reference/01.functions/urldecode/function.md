@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-Decodes a URL-encoded string.
+Decodes an URL-encoded string.

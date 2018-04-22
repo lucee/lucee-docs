@@ -218,7 +218,7 @@ Example:
 <cffile action="copy" from="/opt/apache/htdocs/myfile.txt" destination="/s3/myfile.txt" acl="public-read-write|authenticated-read|public-read|private">
 ```
 
-Where /s3 is a mapping defined in the Lucee administrator pointing to a Amazon S3 bucket.
+Where /s3 is a mapping defined in the Lucee administrator pointing to an Amazon S3 bucket.
 
 **cfdirectory**
 
@@ -230,7 +230,7 @@ Example:
 <cffile action="create" directory="/s3/mydir" acl="public-read-write|authenticated-read|public-read|private">
 ```
 
-Where /s3 is a mapping defined in the Lucee administrator pointing to a Amazon S3 bucket.
+Where /s3 is a mapping defined in the Lucee administrator pointing to an Amazon S3 bucket.
 
 ###Flow control###
 

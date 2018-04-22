@@ -11,7 +11,7 @@ There is now a built in function in Lucee to list existing cache connections but
 
 ```cfs
 /**
-* returns all available cache names as a array
+* returns all available cache names as an array
 */
 array function cacheNames(){
 	return getPageContext().getConfig().getCacheConnections().keySet().toArray();

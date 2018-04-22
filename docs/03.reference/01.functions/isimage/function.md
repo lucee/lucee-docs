@@ -7,4 +7,4 @@ categories:
     - decision
 ---
 
-Determines whether a variable returns a image.
+Determines whether a variable returns an image.

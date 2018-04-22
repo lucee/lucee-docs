@@ -7,4 +7,4 @@ categories:
 - server
 ---
 
-Flushes a object cache or returns the current size.
+Flushes an object cache or returns the current size.

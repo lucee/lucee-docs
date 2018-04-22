@@ -6,4 +6,4 @@ categories:
     - cache
 ---
 
-this function return a array containing all keys inside the cache.
+this function return an array containing all keys inside the cache.

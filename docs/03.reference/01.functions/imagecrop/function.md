@@ -6,4 +6,4 @@ categories:
     - image
 ---
 
-Crops a image to a specified rectangular area.
+Crops an image to a specified rectangular area.

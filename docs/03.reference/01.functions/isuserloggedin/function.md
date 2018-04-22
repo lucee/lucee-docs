@@ -6,4 +6,4 @@ categories:
     - decision
 ---
 
-Determines whether a user is logged in.
+Determines whether an user is logged in.

@@ -7,5 +7,6 @@ categories:
 - URL
 ---
 
-Encodes the given string for safe output in a URL.
+Encodes the given string for safe output in an URL.
+
 this function is deprecated, use function ESAPIEncode('url',...) instead.
