@@ -13,7 +13,7 @@ $(function(){
     // track outbound links
     $("a").click(function(){
         var url = $(this).attr("href");
-        if (!url)
+        if (!url || url.indexOf("#") === 0)
             return;
         if (url.indexOf("http") === -1){
             document.location = url; // ignore local urls
