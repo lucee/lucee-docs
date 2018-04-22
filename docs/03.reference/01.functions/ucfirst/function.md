@@ -1,9 +1,8 @@
 ---
 title: UcFirst
 id: function-ucfirst
-related:
 categories:
-    - string
+- string
 ---
 
 Capitalizes the first character of the given string.

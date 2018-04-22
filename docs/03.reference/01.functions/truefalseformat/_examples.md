@@ -1,4 +1,4 @@
-```lucee
+```lucee+trycf
 <cfoutput>
 	False: #trueFalseFormat(false)#<br>
 	True: #trueFalseFormat(true)#<br>
