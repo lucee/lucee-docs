@@ -6,4 +6,4 @@ categories:
     - image
 ---
 
-Creates a image.
+Creates an image.

@@ -6,4 +6,4 @@ categories:
     - image
 ---
 
-Resizes a image.
+Resizes an image.

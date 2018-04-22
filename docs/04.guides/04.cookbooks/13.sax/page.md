@@ -5,9 +5,9 @@ menuTitle: Read XML using SAX
 ---
 
 # Event driven XML reading (SAX) #
-**Lucee not only allows you to convert a XML file to a object tree (DOM) but it also supports a event driven model (SAX)**
+**Lucee not only allows you to convert a XML file to an object tree (DOM) but it also supports an event driven model (SAX)**
 
-The function XMLParse is handy to get a object representation of a complete XML document however for large XML documents this can cause memory issues. This method is an overhead if you simply need to read some data from an XML file and convert it to something else. For this the SAX event driven model is a very handy and lightweight way to do this. Here is an example.
+The function XMLParse is handy to get an object representation of a complete XML document however for large XML documents this can cause memory issues. This method is an overhead if you simply need to read some data from an XML file and convert it to something else. For this the SAX event driven model is a very handy and lightweight way to do this. Here is an example.
 
 Let's say we want to read in the following XML document:
 

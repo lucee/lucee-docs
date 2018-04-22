@@ -35,15 +35,15 @@ You should see something like the following:
 
 > The time is {ts '2013-04-10 01:30:37'}.
 
-If you did, congratulations!  You've written your first CFML template.  What's going on though?  Well, if you know HTML, the template will be mostly familiar.  Lucee Express has output the HTML as you wrote it.  Unless you tell it otherwise, Lucee Express will always output whatever's written in your template.  
+If you did, congratulations!  You've written your first CFML template.  What's going on though?  Well, if you know HTML, the template will be mostly familiar.  Lucee Express has output the HTML as you wrote it.  Unless you tell it otherwise, Lucee Express will always output whatever's written in your template.
 
-The things you won't recognize are `<cfoutput>` and `#now()#` because these are instructions to the Lucee runtime compiler.  When it encounters these, it replaces them in the page with some dynamic output.  
+The things you won't recognize are `<cfoutput>` and `#now()#` because these are instructions to the Lucee runtime compiler.  When it encounters these, it replaces them in the page with some dynamic output.
 
-`<cfoutput>` is a CFML tag.  It tells Lucee that it should look out for expressions.  Like HTML, it has a corresponding closing `</cfoutput>`.  
+`<cfoutput>` is a CFML tag.  It tells Lucee that it should look out for expressions.  Like HTML, it has a corresponding closing `</cfoutput>`.
 
-`#now()#` is a CFML function call.  When Lucee is inside a `<cfoutput>` block and sees a pair of `#` signs, it knows it should expect a expression - it will run the expression and put the results right into the page. As you've no doubt guessed, `#now()#` returns the current date and time.
+`#now()#` is a CFML function call.  When Lucee is inside a `<cfoutput>` block and sees a pair of `#` signs, it knows it should expect an expression - it will run the expression and put the results right into the page. As you've no doubt guessed, `#now()#` returns the current date and time.
 
-Okay, this template isn't particularly useful... but it does show you how easy it to start working with Lucee.  You don't need to worry about builds, compilation or deployments if you don't want to.  You can just start writing CFML code.  
+Okay, this template isn't particularly useful... but it does show you how easy it to start working with Lucee.  You don't need to worry about builds, compilation or deployments if you don't want to.  You can just start writing CFML code.
 
 ## Tag/Script
 Lucee is in fact not one language, it is 2!
@@ -51,7 +51,7 @@ the tag language that you can see as extension to HTML and the script Language t
 The example above was  pure tag code, tag code is perfect to create output, to mix with static HTML.
 
 ### Tag ###
-The following fragment outputs some employee details from an employee object.  As you can see, the tag language slots right into your presentation format.  It's HTML in this case, but could just as easily be used to make RSS, XML, or indeed any data type you like.  
+The following fragment outputs some employee details from an employee object.  As you can see, the tag language slots right into your presentation format.  It's HTML in this case, but could just as easily be used to make RSS, XML, or indeed any data type you like.
 
 ```lucee
 <cfoutput>

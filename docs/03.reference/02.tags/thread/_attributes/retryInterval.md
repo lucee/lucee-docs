@@ -1,4 +1,4 @@
-When type task, this attribute define a execution plan for additional tries of execution. You can define a single rule or multiple rules as an array.
+When type task, this attribute define an execution plan for additional tries of execution. You can define a single rule or multiple rules as an array.
 
 Example single rule:
 

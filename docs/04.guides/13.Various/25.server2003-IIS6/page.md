@@ -51,7 +51,7 @@ or to make it much more comfortable:
 * Click on Add new Web service extension
 
 * Add the dll as a named extension and set it's status to Allowed
-Now your dll is a allowed extension you can use within the web site.
+Now your dll is an allowed extension you can use within the web site.
 
 * If you want to use Lucee globally with every website you create, right click on websites and follow the instructions below.
 

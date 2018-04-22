@@ -1,1 +1,1 @@
-a integer to mask
+an integer to mask

@@ -1,1 +1,1 @@
-a array
+an array

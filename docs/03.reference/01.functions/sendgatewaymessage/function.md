@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-Sends an outgoing message through a event gateway.
+Sends an outgoing message through an event gateway.

@@ -61,7 +61,7 @@ dump(manifestread("C:\whatever\whatever.jar")); // dumps the manifest from whate
 ###CreateObject (extended)###
 `createObject("java", string className, string nameOrPath, string versionOrDelimiter)`
 
-The  `createObject("java",...)` function has been extended and you can use this function in the same way, but in addition you can also load a class by defining a OSGi bundle and version. In that case Lucee will check if that class is available locally, if not it will try to download the necessary bundle from the update provider.
+The  `createObject("java",...)` function has been extended and you can use this function in the same way, but in addition you can also load a class by defining an OSGi bundle and version. In that case Lucee will check if that class is available locally, if not it will try to download the necessary bundle from the update provider.
 
 ```luceescript
 // Load a class with the definition of the bundle name and version, in this case we are using a different version than the one Lucee has in the core.

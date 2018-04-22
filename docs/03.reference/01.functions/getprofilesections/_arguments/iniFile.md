@@ -1,1 +1,1 @@
-path to a ini file.
+path to an ini file.
