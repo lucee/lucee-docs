@@ -7,7 +7,7 @@ id: lucee-5
 
 Lucee 5 is the first major release after forking from the Railo project. Lucee 5 is not about dazzling new features but about improving the core language and providing a complete architectural overhaul of the engine.
 
-This brings Lucee and CFML to a whole new level!
+This brings Lucee and CFML to a whole new level! <http://download.lucee.org>.
 
 ## Architecture Enhancements ##
 Lucee 5 has had a complete overhaul under the hood. A lot of the existing functionality has been completely re-worked, as well as extending the interfaces to the engine to make way for a lot of possible functionality in the future.

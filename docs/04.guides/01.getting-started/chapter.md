@@ -12,6 +12,8 @@ Here you can find guides on how to get started with Lucee:
 
 [[getting-started-newbie-questions]]
 
+[[download]]
+
 [[working-with-source-build-from-source]]
 
 [[getting-started-system-requirements]]

@@ -14,7 +14,7 @@ This document explains how SQL queries are supported in Lucee.
 
 ## Query tags ##
 
-```<cfquery>``` different ways to use the tags in Lucee and how we can the pass the value into the query
+[[tag-query]] different ways to use the tags in Lucee and how we can the pass the value into the query
 
 ```lucee
 <cfquery name="qry" datasource="test">
@@ -28,7 +28,7 @@ The above example just shows how to retrieve the data from the database.
 
 ### Using QueryParam ###
 
-The QueryParam is used inside the query tag. It is used to bind the value with the SQL statement.
+The [[tag-QueryParam]] is used inside the [[tag-query]] tag. It is used to bind the value with the SQL statement.
 
 ```lucee
 <cfquery name="qry" datasource="test">
@@ -38,7 +38,7 @@ The QueryParam is used inside the query tag. It is used to bind the value with t
 <cfdump var="#qry#" expand="false">
 ```
 
-Passing values with QueryParam has two advantages:
+Passing values with [[tag-QueryParam]] has two advantages:
 
 * The value you pass in QueryParam is very secure,
 * Lucee is able to cache the query statement and reuse it as long as the value is unchanged.
@@ -117,7 +117,7 @@ dump(qry);
 
 ## QueryExecute ##
 
-Lucee includes support for both the script tag and the regular tag. You can pass all the arguments to the function.
+Lucee includes support for [[function-QueryExecute]] via script or tag. You can pass all the arguments to the function.
 
 ```lucee
 <cfscript>
@@ -242,4 +242,4 @@ dump(res);
 
 Here you can see above details in video
 
-[Lucee query handling ](https://www.youtube.com/watch?time_continue=684&v=IMdPM58guUQ)
+<https://www.youtube.com/watch?time_continue=684&v=IMdPM58guUQ>
