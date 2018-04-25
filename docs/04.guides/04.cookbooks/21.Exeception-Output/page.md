@@ -1,9 +1,17 @@
 ---
 title: Exception Output
 id: exception-output
+related:
+- tag-catch
+- tag-rethrow
+- tag-throw
+- tag-try
+categories:
+- debugging
 ---
+
 ## Output Exceptions ##
-Here we can see how the lucee output the exception on web browser.
+This is how you catch and display Lucee exceptions to the web browser.
 
 #### Example ####
 
@@ -21,7 +29,7 @@ Go on with your code
 
 Result
 
-Dump shows full exception structure without blocking your code. Dump include all stack trace with it.
+[[tag-Dump]] shows the full exception structure without blocking your code. Dump include all stack trace with it.
 
 #### Example 2 ####
 
@@ -39,7 +47,4 @@ Go on with your code
 
 Here we simply echo the exception, It shows the normal exception without blocking your code.
 
-### Footnotes ###
-
-[Lucee Exception output video ](https://www.youtube.com/watch?v=vM-4R2A-ZsM)
-
+<https://www.youtube.com/watch?v=vM-4R2A-ZsM>

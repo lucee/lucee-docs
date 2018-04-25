@@ -1,27 +1,29 @@
 ---
-title: Query of Queries
+title: Query of Queries (QoQ)
 id: query-of-queries
+related:
+- tag-query
+categories:
+- query
+description: 'Query of queries (QoQ) is a technique for re-querying an existing (in
+  memory) query without another trip to the database. '
 ---
 
 ### Introduction ###
 
-Query of queries (QoQ) is a technique for re-querying an existing query without another trip to the database.
+Query of queries (QoQ) is a technique for re-querying an existing (in memory) query without another trip to the database. This allows you to dynamically combine queries from different databases.
 
 ```lucee
 <!--- query a database in the normal manner --->
 <cfquery name="sourceQry" datasource="mydsn">
-  SELECT
-    *
-  FROM
-    my_db_table
+  SELECT    *
+  FROM   my_db_table
 </cfquery>
 
 <!--- query the above query *object*. (this doesn't make a call to the database.) --->
-<cfquery name="newQry" dbtype="query"><!--- the dbtype="query" attribute/value enables QoQ -->
-  SELECT
-    *
-  FROM
-    sourceQry <!--- instead of a real database table name, use the variable name of the source query object --->
+<cfquery name="newQry" dbtype="query"><!--- the dbtype="query" attribute/value enables QoQ --->
+  SELECT    *
+  FROM    sourceQry <!--- instead of a real database table name, use the variable name of the source query object --->
 </cfquery>
 ```
 
@@ -36,10 +38,8 @@ Let's say you have the following database query, ```myQuery```:
 
 ```lucee
 <cfquery name="myQuery" datasource="mydsn">
-  SELECT
-    Name, Age, Location
-  FROM
-    People
+  SELECT    Name, Age, Location
+  FROM    People
 </cfquery>
 ```
 
@@ -50,13 +50,10 @@ Say you want to filter out people under 18 and over 90, but you don't want to hi
 
 ```lucee
 <cfquery name="filteredQuery" dbtype="query">
-  SELECT
-    Name, Age, Location
-  FROM
-    myQuery
-  WHERE
-    Age >= 18 
-    AND Age <= 90
+  SELECT     Name, Age, Location
+  FROM    myQuery
+  WHERE    Age >= 18 
+    		AND Age <= 90
 </cfquery>
 ```
 
