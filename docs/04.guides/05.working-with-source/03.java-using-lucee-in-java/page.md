@@ -12,9 +12,7 @@ Since Lucee is written in Java and is running inside a Java Virtual Machine (JVM
 
 The first thing you will need to do is to add `lucee.jar` to your classpath, so that you will have access to the classes and interfaces that Lucee provides.  if you are using an IDE like Eclipse or Netbeans, then you simply add the `lucee.jar` library to your project.
 
-Once you added `lucee.jar` to your project, you should have access to all of Lucee's public classes and interfaces. In order to access them you will need to add the import statement to the top of your class file.  be sure to add an import statement for each of the classes / interfaces that you plan to use in that class.  you can review the Lucee JavaDoc files at
-
-http://javadoc.lucee.org
+Once you added `lucee.jar` to your project, you should have access to all of Lucee's public classes and interfaces. In order to access them you will need to add the import statement to the top of your class file.  be sure to add an import statement for each of the classes / interfaces that you plan to use in that class.  you can review the [Lucee JavaDoc files](http://javadoc.lucee.org).
 
 ## Using Lucee from your Java code ##
 There are two cases in which you might want to use Lucee from your Java code:
