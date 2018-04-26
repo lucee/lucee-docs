@@ -81,11 +81,11 @@ We will need to update the default context config so that logging data is "trapp
 
 In that file, we need to update this line:
 
-<Context useHttpOnly="true">
+    <Context useHttpOnly="true">
 
 to this:
 
-<Context useHttpOnly="true" swallowOutput="true">
+    <Context useHttpOnly="true" swallowOutput="true">
 
 ### Adjusting the Tomcat Service Control ###
 
