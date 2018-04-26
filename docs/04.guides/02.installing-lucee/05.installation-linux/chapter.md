@@ -1,6 +1,7 @@
 ---
-title: Linux
+title: Installing Lucee on Linux
 id: installation-linux
+menuTitle: Linux
 ---
 
 Installing Lucee on Linux
@@ -11,4 +12,4 @@ Installing Lucee on Linux
 * [[changing-the-user-account-railo-runs-as]]
 * [[linux-upgrade-the-JRE]]
 * [[linux-installation-on-centos-linux]]
-* [[preparing-your-server-linux]]
+* [[preparing-your-server-linux]]	

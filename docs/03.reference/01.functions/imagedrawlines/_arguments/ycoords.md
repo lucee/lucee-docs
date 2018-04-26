@@ -1,1 +1,1 @@
-A array of y coordinates.
+An array of y coordinates.

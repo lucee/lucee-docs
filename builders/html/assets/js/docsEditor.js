@@ -213,6 +213,8 @@ $(function(){
                 data.properties.id = "";
             if (!data.properties.description)
                 data.properties.description = "";
+            if (!data.properties.menuTitle)
+                data.properties.menuTitle = "";
         }
         if (data.reference){
             if (!data.properties.categories)

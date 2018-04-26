@@ -6,4 +6,4 @@ categories:
     - image
 ---
 
-Inverts the pixel values of a image.
+Inverts the pixel values of an image.

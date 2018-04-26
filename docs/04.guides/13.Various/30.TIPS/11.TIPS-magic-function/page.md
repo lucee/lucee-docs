@@ -1,5 +1,5 @@
 ---
-title: TIPS Magic_Functions
+title: Magic Functions
 id: tips-magic-functions
 ---
 
@@ -9,8 +9,8 @@ id: tips-magic-functions
 
 You can enable magic functions in the web / server context by going to:
 
-	http://{your host name}/lucee-context/admin/web.cfm?action=resources.component - Local web context
-	http://{your host name}/lucee-context/admin/server.cfm?action=resources.component - Global web context
+	http://{your host name}/lucee-/admin/web.cfm?action=resources.component - Local web context
+	http://{your host name}/lucee/admin/server.cfm?action=resources.component - Global web context
 
 Enable the settings:
 
@@ -70,4 +70,3 @@ So, you can see here that oPerson.age didn't output to just "37", it actually re
 The result?
 
 You could further expand on this so that setName() validates that the user actually exists and throws an error if it doesn't.
-

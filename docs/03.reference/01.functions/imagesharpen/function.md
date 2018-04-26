@@ -6,4 +6,4 @@ categories:
     - image
 ---
 
-Sharpens a image by using the unsharp mask filter.
+Sharpens an image by using the unsharp mask filter.

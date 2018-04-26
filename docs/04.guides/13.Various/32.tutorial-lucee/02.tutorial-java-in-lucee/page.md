@@ -1,5 +1,5 @@
 ---
-title: Tutorial Using Java in Lucee
+title: Using Java in Lucee
 id: tutorial-using-java-in-lucee
 categories:
 - java
@@ -58,7 +58,7 @@ please note that "createObject" is a misnomer and at this point you did not crea
 
 	import java.util.Collections;
 
-see also: 
+see also:
 **Creating a new Object**
 
 usually you create an instance of an object by calling its constructor.
@@ -192,7 +192,7 @@ perusing the Constructor Summary, you will notice that the StandardAnalyzer clas
 
 the simplest constructor to use, using the default "stop words" is -- StandardAnalyzer( Version matchVersion ) -- and it expects a Version argument. the Version argument is an Enum type http://lucene.apache.org/java/3_3_0/api/all/org/apache/lucene/util/Version.html, so you can not simply pass a string into the StandardAnalyzer's constructor -- that would not work!
 
-so in order to call the StandardAnalyzer's constructor you must first get a reference to a org.apache.lucene.util.Version object.
+so in order to call the StandardAnalyzer's constructor you must first get a reference to an org.apache.lucene.util.Version object.
 
 one way of getting a reference to Version type is:
 
@@ -232,7 +232,7 @@ Example - using the SocialAuth library
 
 see API at [http://code.google.com/p/socialauth/](http://code.google.com/p/socialauth/)
 
-this example is based on the getting started example at  
+this example is based on the getting started example at
 [http://code.google.com/p/socialauth/wiki/GettingStartedWithYourOwnFramework](http://code.google.com/p/socialauth/wiki/GettingStartedWithYourOwnFramework)
 
 Java example code in API:
@@ -241,7 +241,7 @@ Java example code in API:
 //Create an instance of SocialAuthConfig object
 SocialAuthConfig config = SocialAuthConfig.getDefault();
 
-//load configuration. By default load the configuration from oauth_consumer.properties. 
+//load configuration. By default load the configuration from oauth_consumer.properties.
 //You can also pass input stream, properties object or properties file name.
 config.load();
 
@@ -285,8 +285,8 @@ Java example code in API:
 // get the social auth manager from session
 SocialAuthManager manager = (SocialAuthManager)session.getAttribute("authManager");
 
-// call connect method of manager which returns the provider object. 
-// Pass request parameter map while calling connect method. 
+// call connect method of manager which returns the provider object.
+// Pass request parameter map while calling connect method.
 AuthProvider provider = manager.connect(SocialAuthUtil.getRequestParametersMap(request));
 
 // get profile

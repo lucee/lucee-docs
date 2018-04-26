@@ -6,4 +6,4 @@ categories:
     - image
 ---
 
-Converts a image to grayscale.
+Converts an image to grayscale.

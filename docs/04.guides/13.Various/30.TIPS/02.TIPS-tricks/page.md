@@ -1,11 +1,11 @@
 ---
-title: Tips And Tricks
+title: Lucee Tips and Tricks
 id: tips-and-tricks
 ---
 
 ## Tips and Tricks ##
 
-If you have any tips that you would like to share, sent them to [contact@getlucee.org](contact@getlucee.org)
+If you have any tips that you would like to share, sent them to [contact@lucee.org](mailto:contact@lucee.org)
 
 ## Page pool ##
 

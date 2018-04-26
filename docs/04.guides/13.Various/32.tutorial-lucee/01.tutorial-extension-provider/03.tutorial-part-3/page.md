@@ -1,5 +1,5 @@
 ---
-title: Tutorial Extension_Provider_Part3
+title: Writing an extension (3/3)
 id: tutorial-extension-provider-part3
 ---
 

@@ -1,13 +1,14 @@
 ---
 title: Virtual File Systems (ram, ftp, zip, s3, etc...)
 id: cookbook-filesystem-vfs
+menuTitle: Virtual File Systems
 ---
 
 # Virtual Filesystems #
 A closer look on all virtual Filesystems supported by Lucee.
 
 ## RAM ##
-RAM is a in Memory Filesystem that stores Files in the Memory of the Java Vitual Machine (JVM), unless you attach a Cache in the Lucee Administrator for this Resource.
+RAM is an in Memory Filesystem that stores Files in the Memory of the Java Vitual Machine (JVM), unless you attach a Cache in the Lucee Administrator for this Resource.
 Every Web-Context does have it's own RAM Cache.
 
 ### Example Code: ###

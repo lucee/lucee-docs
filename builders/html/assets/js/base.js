@@ -14625,8 +14625,7 @@ setTimeout(
                 if (url && url.indexOf("http") === -1)
                     return;  // skip all  local content
                 var whiteListed = isWhiteListed(String(url));
-                if (url == $(this).text())
-                    whiteListed = true;
+                whiteListed = (url == $(this).text());
                 // only oembed raw urls and whiteListed sites
                 if (whiteListed){
                     $(this).oembed(url, {
@@ -14663,6 +14662,26 @@ $(function(){
             );
         }
     }, 750);
+    // track outbound links
+    $("a").click(function(){
+        var url = $(this).attr("href");
+        if (!url || url.indexOf("#") === 0)
+            return;
+        if (url.indexOf("http") === -1){
+            document.location = url; // ignore local urls
+        } else {
+            try {
+                gtag('event', 'click', {
+                    'event_category': 'outbound',
+                    'event_label': url,
+                    'transport_type': 'beacon',
+                    'event_callback': function(){document.location = url;}
+                });
+            } catch(e){
+                document.location = url;
+            }
+        }
+    });
 });
 
 window.onerror = function(message, url, line, col, err) {

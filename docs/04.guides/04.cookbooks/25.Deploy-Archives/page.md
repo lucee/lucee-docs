@@ -31,7 +31,7 @@ name: mycfc
 resource: **Full folder path**/component/
 ```
 
-After creating the mapping we need to create a archive file for the cfc.
+After creating the mapping we need to create an archive file for the cfc.
 
 * Go to the detail view of mycfc mapping page,
 * Click the button **assign archive to mapping**.
@@ -55,7 +55,7 @@ dump(test.slave());
 name: /deploy
 resource: ROOT/test/deploy/index.cfm
 ```
-After creating mapping, create a Archive file by clicking button **assign archive to mapping**
+After creating mapping, create an Archive file by clicking button **assign archive to mapping**
 
 Now you can see the both lar files were in WEB-INF\lucee\context\archives folder.
 

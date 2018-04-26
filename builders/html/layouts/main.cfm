@@ -9,11 +9,16 @@
 	// this breaks the /static/ local server mode
 	//if (baseHref eq "")
 	//	baseHref = "/";
-	local.pageHref = "http://docs.lucee.org#args.page.getPath()#.html";
-	local.pagePath = "#args.page.getPath()#.html";
+	local.path = args.page.getPath();
+	if (local.path eq "/home")
+		local.path = "/index";
+	local.pageHref = "http://docs.lucee.org#local.path#.html";
+	local.pagePath = "#local.path#.html";
 	local.pageTitle = HtmlEditFormat( args.page.getTitle() ) & " :: Lucee Documentation";
 	local.pageDescription = getMetaDescription( args.page, args.body );
 </cfscript>
+
+
 
 <cfoutput><!DOCTYPE html>
 <html lang="en">
@@ -190,7 +195,11 @@
 			<div class="content-inner">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-10 col-lg-push-1 body">
+						<cfif local.path eq "/index">
+                            <div class="col-lg-6 col-lg-push-1 body">
+                        <cfelse>
+                            <div class="col-lg-10 col-lg-push-1 body">
+                        </cfif>
 							<cfif len(trim(args.crumbs))>
 							<div class="tile-wrap">
 								<div class="tile breadcrumbs">
@@ -202,6 +211,13 @@
 
 							#args.seeAlso#
 						</div>
+						<cfif local.path eq "/index">
+                            <div class="col-lg-4 col-lg-push-1 body">
+                                <a class="twitter-timeline" data-width="450" data-height="700"
+                                    href="https://twitter.com/lucee_server">Lucee on twitter</a>
+                                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            </div>
+                        </cfif>
 					</div>
 				</div>
 			</div>
@@ -220,7 +236,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/dist/base.20.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.23.min.js" type="text/javascript"></script>
 		</cfif>
 	</body>
 </html></cfoutput>

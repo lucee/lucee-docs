@@ -212,7 +212,7 @@ component {
 		FileWrite( buildDirectory & "/sitemap.xml", _renderSiteMap(docTree) );
 		// google analytics for @zackster
 		FileWrite( buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");
-		FileWrite( buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow:#chr(10)#Sitemap: http://docs.lucee.org/sitemap.xml");
+		FileWrite( buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow: /dictionaries/#chr(10)#Sitemap: http://docs.lucee.org/sitemap.xml");
 
 		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", buildDirectory & "/editor.html" );
 	}

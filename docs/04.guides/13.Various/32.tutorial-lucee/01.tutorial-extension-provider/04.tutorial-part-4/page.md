@@ -1,5 +1,5 @@
 ---
-title: Tutorial Extension_Provider_Part4
+title: Creating an extension installer (4/5)
 id: tutorial-extension-provider-part4
 ---
 

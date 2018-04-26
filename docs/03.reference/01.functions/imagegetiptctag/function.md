@@ -6,4 +6,4 @@ categories:
     - image
 ---
 
-Retrieves the value of the IPTC tag for a image.
+Retrieves the value of the IPTC tag for an image.

@@ -3,6 +3,7 @@ title: Set a Mapping (regular, component and custom tag mapping)
 id: cookbook-application-context-set-mapping
 related:
 - tag-application
+menuTitle: Set a Mapping
 ---
 
 # Set a regular Mapping #
@@ -61,7 +62,7 @@ Of course this can be done for all mapping types
 ```cfs
 // Application.cfc
 component {
-   this.componentpaths=[{archive:getDirectoryFromPath(getCurrentTemplatePath())&"testbox.lar"}];// loading testbox from a archive
+   this.componentpaths=[{archive:getDirectoryFromPath(getCurrentTemplatePath())&"testbox.lar"}];// loading testbox from an archive
    this.customtagpaths=[{archive:getDirectoryFromPath(getCurrentTemplatePath())&"helper.lar"}];// a collection of helper custom tags
 
    };

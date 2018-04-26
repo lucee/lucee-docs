@@ -1,1 +1,1 @@
-A array of x coordinates.
+An array of x coordinates.

@@ -1,5 +1,5 @@
 ---
-title: Tutorial Extension_Provider
+title: Extension Provider
 id: tutorial-extension-provider
 ---
 

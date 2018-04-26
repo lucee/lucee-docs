@@ -6,4 +6,4 @@ categories:
     - image
 ---
 
-Creates a image from a Base64 string.
+Creates an image from a Base64 string.

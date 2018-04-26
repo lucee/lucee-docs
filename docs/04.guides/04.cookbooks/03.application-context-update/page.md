@@ -3,10 +3,12 @@ title: Update current Application Context
 id: cookbook-application-context-update
 related:
 - tag-application
+menuTitle: Application Context
 ---
 
-# Update Application Context #
-Lucee allows to update a existing application context defined for example with a Application.cfc.
+## Update Application Context ##
+Lucee allows you to update the existing application context defined for example in [[cookbook-application-context-basic]].
+
 So for example add a per application mapping
 
 ```lucee
@@ -14,7 +16,7 @@ So for example add a per application mapping
 <cfapplication action="update" mappings="#{'/test':getDirectoryFromPath(getCurrentTemplatePath())}#">
 ```
 
-this examples does not extend the already defined per application mappings with this new one, it replaces them. So when you plan to add a mapping best read the existing mappings with help of the function getApplicationSettings() and extend this mappings as follows:
+This example doesn't extend the existing application mappings with this new one, it replaces them. So when you plan to add a mapping it's best to first read the existing mappings with help of the function [[function-getApplicationSettings]] and update these mappings as follows:
 
 ```lucee
 <!--- read the existing per application mappings --->
@@ -27,4 +29,4 @@ this examples does not extend the already defined per application mappings with 
 <cfapplication action="update" mappings="#mappings#">
 ```
 
-Of course you not only can update mappings, you can update all kind of data, <cfappliaction> is supporting all possible settings you can do in the Application.cfc!
+Of course it's not only mappings you can update, [[tag-application]] lets you update all the settings you can do in the Application.cfc!

@@ -5,4 +5,4 @@ categories:
 - ajax
 ---
 
-Deletes a existing REST mapping.
+Deletes an existing REST mapping.

@@ -3,7 +3,7 @@ title: Hash40
 id: function-hash40
 ---
 
-This function only exists for backward compstibility to Lucee 4.0 or older version that has produced a incorrect result for non us-ascii characters,
+This function only exists for backward compstibility to Lucee 4.0 or older version that has produced an incorrect result for non us-ascii characters,
 Only use this function for backward compatibility, use [[function-hash]] instead
 
 Converts a variable-length string to a 32-byte, hexadecimal

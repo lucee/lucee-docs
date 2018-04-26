@@ -57,7 +57,7 @@ This is the temporary location where all the new links will be added.
 
 [[server-2008-IIS-7.5]]
 
-[[setting-dev-environment]]
+[[setting-dev-environment-osx]]
 
 [[special-feeds]]
 

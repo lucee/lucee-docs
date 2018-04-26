@@ -1,6 +1,7 @@
 ---
 title: Infinispan Cache Extension
 id: extension-infinispan
+menuTitle: Infinispan
 ---
 
 The [Infinispan](http://www.jboss.org/infinispan) extension allows you to create Infinispan caches, and access remote caches via the Hot Rod Protocol (which is compatible with Java, Python, PHP, Ruby, etc. as well).

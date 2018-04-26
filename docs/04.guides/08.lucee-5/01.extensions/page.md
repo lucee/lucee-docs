@@ -468,8 +468,8 @@ Java based Tag/Function (TLD/FLD)
 
 Installing one or multiple Java based tags or functions. Installing a tag or a function is the same process, because of that we handle these two topics together. A Java based tag/function needs two things:
 
-1. A OSGi Bundle (JAR) containing the class that implements the interface `javax.servlet.jsp.tagext.Tag` for tags and/or `lucee.runtime.ext.function.BIF` for a function.
-2.  A tld/fld file that contains the description of one or multiple of the tags/functions.
+1. An OSGi Bundle (JAR) containing the class that implements the interface `javax.servlet.jsp.tagext.Tag` for tags and/or `lucee.runtime.ext.function.BIF` for a function.
+2. A tld/fld file that contains the description of one or multiple of the tags/functions.
 
 So copy the OSGi bundles to the folder â€œ/jarsâ€? and the tld/fld file to the folder â€œ/tldsâ€? or â€œ/fldsâ€?.
 

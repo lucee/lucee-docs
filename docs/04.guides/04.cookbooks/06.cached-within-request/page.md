@@ -1,11 +1,15 @@
 ---
 title: Cache a query for the current request
 id: cookbook-cached-within-request
+related:
+- tag-query
+categories:
+- cache
+menuTitle: Query Caching
 ---
 
-# Cache a Query for the current request #
-maybe you are familiar with the "cachedwithin" attribute of the tag <cfquery>, that is normally used as follows:
-
+## Cache a Query for the current request ##
+Perhaps you're familiar with the "cachedwithin" attribute of the tag [[tag-query]], which is normally used as follows:
 
 ```coldfusion
 <cfquery cachedWithin="#createTimeSpan(0,0,0,1)#">
@@ -13,10 +17,11 @@ maybe you are familiar with the "cachedwithin" attribute of the tag <cfquery>, t
 </cfquery>
 ```
 
-in that case the query is cached for ALL users for a single second. This is sometime used to cache a query for the current request, because most request are done in under a second.
-Problem is that this cache is for all request and because of that more complicated to handle for Lucee what means unnecessary overhead on the system.
+This caches the query result for ALL users for one second. This is sometimes used to cache a query for the current request, because usually most requests are completed in less than a second.
 
-What you can do in this particular case is very simple, replace the timespan defined in the "cachedWithin" attribute with the value "request":
+The problem is that this cache applies to all requests and that's more complicated for Lucee, meaning unnecessary overhead on the system.
+
+Request query caching is a simple solution to this problem,  replace the timespan defined in the "cachedWithin" attribute with the value "request":
 
 ```coldfusion
 <cfquery cachedWithin="request">
@@ -24,4 +29,4 @@ What you can do in this particular case is very simple, replace the timespan def
 </cfquery>
 ```
 
-this way the query is cache only for the current request, independent how long this request takes!
+Then the query is cached for only for the current request, independent of how long the request takes!

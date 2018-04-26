@@ -13,9 +13,9 @@ The following text assumes that you have basic knowledge of how to use git and a
 
 Before you can start building Lucee from source, you will need a few things installed on your machine:
 
-1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  Lucee requires JDK 6 or later in order to compile.  http://www.oracle.com/technetwork/java/javase/downloads/
+1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  Lucee requires JDK 6 or later in order to compile.  <http://www.oracle.com/technetwork/java/javase/downloads/>
 
-1. **Apache ANT** - the source code contains several build scripts that will automate the build process for you. you will need ANT installed in order to run these build scripts. http://ant.apache.org/bindownload.cgi
+1. **Apache ANT** - the source code contains several build scripts that will automate the build process for you. you will need ANT installed in order to run these build scripts. <http://ant.apache.org/bindownload.cgi>
 
 ### 2. Get the source code
 
@@ -118,4 +118,4 @@ The cloned repository can be easily imported into a new, empty Java project in I
 
 The default setup in IntelliJ IDEA provides 128m heap memory for the build process. This will most likely be not enough. The heap memory setup strategy as explained in the previous is not applicable for building from within the IDE though. Instead find the properties dialog for the build file and change the setting of 128m to 256m or as high as necessary.
 
-Further information is provided in Jetbrains IntelliJ IDEA documentation: https://www.jetbrains.com/idea/help/controlling-behavior-of-ant-script-with-build-file-properties.html
+Further information is provided in Jetbrains IntelliJ IDEA documentation: <https://www.jetbrains.com/idea/help/controlling-behavior-of-ant-script-with-build-file-properties.html>

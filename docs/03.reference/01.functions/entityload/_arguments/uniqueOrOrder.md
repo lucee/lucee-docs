@@ -1,4 +1,4 @@
-when the second argument is a id then this argument defines the boolean "unique" otherwise it defines the order.
+when the second argument is an id then this argument defines the boolean "unique" otherwise it defines the order.
 
 - unique:
 If unique is set to true, then the entity is returned.

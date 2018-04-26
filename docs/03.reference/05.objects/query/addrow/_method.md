@@ -1,14 +1,14 @@
 ---
 title: query.addRow()
 id: method-query-addrow
-methodObject: query
-methodName: addRow
 related:
 - function-queryaddrow
+- function-querysetcell
 - object-query
 categories:
 - query
-
+methodObject: query
+methodName: addRow
 ---
 
 Adds a specified number of empty rows to a query.

@@ -1,5 +1,5 @@
 ---
-title: Tutorial Patch_Behind_Proxy
+title: Updating Lucee from behind a proxy
 id: tutorial-patch-behind-proxy
 ---
 

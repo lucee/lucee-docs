@@ -1,6 +1,8 @@
 ---
-title: TIPS Setting_Up_Secure_LDAP
+title: Setting Up Secure LDAP
 id: tips-LDAP
+related:
+- tag-ldap
 ---
 
 ### Setting up Secure LDAP ###

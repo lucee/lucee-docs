@@ -1,1 +1,1 @@
-define if a existing file will be overwritten or not
+define if an existing file will be overwritten or not

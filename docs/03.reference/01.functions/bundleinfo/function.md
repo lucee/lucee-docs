@@ -6,4 +6,4 @@ categories:
 - server
 ---
 
-if the given object is loaded by a OSGi bundle, this function is returning information about that bundle
+if the given object is loaded by an OSGi bundle, this function is returning information about that bundle
