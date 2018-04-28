@@ -3,7 +3,7 @@ title: Lucee Editors & IDEs
 id: lucee-editors-IDEs
 ---
 
-There are many modern IDE's which include support for CFML development 
+There are many modern IDEs which include support for CFML development 
 
 ## Lucee Dictionaries
 
