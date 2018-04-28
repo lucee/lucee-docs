@@ -1,1 +1,1 @@
-*There are currently no examples for this tag.*
+<https://www.youtube.com/watch?v=oGUZRrcg9KE>
