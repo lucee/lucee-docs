@@ -2,7 +2,7 @@
 title: DateAdd
 id: function-dateadd
 categories:
-- date
+- datetime
 description: Adds units of time to a date object.
 ---
 

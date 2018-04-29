@@ -3,7 +3,7 @@ title: DaysInYear
 id: function-daysinyear
 related:
 categories:
- - date
+ - datetime
 ---
 
 Determines the number of days in a year.

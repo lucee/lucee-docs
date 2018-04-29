@@ -8,8 +8,6 @@ related:
 - object-datetime
 categories:
 - datetime
-
-- date
 - string
 - formatting
 ---

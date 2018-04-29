@@ -3,7 +3,7 @@ title: CreateTime
 id: function-createtime
 related:
 categories:
- - date
+ - datetime
 ---
 
 Creates a CFML time object from the given hour, minute and second.

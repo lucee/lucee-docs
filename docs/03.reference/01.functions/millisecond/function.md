@@ -3,7 +3,7 @@ title: Millisecond
 id: function-millisecond
 related:
 categories:
- - date
+ - datetime
 ---
 
 Returns the milliseconds of the referenced date.

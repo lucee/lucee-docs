@@ -1,6 +1,6 @@
 ---
 title: Date and time
-id: category-date
+id: category-datetime
 related:
 ---
 

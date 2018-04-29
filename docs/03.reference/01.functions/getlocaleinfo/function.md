@@ -5,7 +5,7 @@ related:
 - function-getlocale
 - function-setlocale
 categories:
-- date
+- datetime
 - internationalization
 ---
 

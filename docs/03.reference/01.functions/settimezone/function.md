@@ -2,7 +2,7 @@
 title: SetTimeZone
 id: function-settimezone
 categories:
-- date
+- datetime
 - internationalization
 ---
 

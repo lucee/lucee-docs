@@ -6,7 +6,7 @@ categories:
 - binary
 - boolean
 - component
-- date
+- datetime
 - decision
 - query
 - regex

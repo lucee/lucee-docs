@@ -3,7 +3,7 @@ title: CreateODBCTime
 id: function-createodbctime
 related:
 categories:
- - date
+ - datetime
 ---
 
 Creates an ODBC time object.

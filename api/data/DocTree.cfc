@@ -61,7 +61,7 @@ component accessors=true {
 		for( var id in variables.idMap ) {
 			var pageCategories = variables.idMap[ id ].getCategories();
 
-			if ( !IsNull( pageCategories ) && pageCategories.indexOf( arguments.category ) != -1 ) {
+			if ( !IsNull( pageCategories ) && pageCategories.findNoCase(arguments.category ) > 0 ) {
 				matchedPages.append( variables.idMap[ id ] );
 			}
 		}
