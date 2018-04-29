@@ -6,8 +6,7 @@ categories:
 - cache
 ---
 
-Speeds up page rendering when dynamic content does not have to be retrieved each time an user accesses
-the page.
+Speeds up page rendering when dynamic content does not have to be retrieved each time a user accesses the page.
 
 To accomplish this, cfcache creates temporary files that contain the static HTML returned from a page.
 

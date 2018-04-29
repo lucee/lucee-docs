@@ -2,7 +2,7 @@
 title: DateConvert
 id: function-dateconvert
 categories:
-- date
+- datetime
 description: Converts a date to the given locale.
 ---
 

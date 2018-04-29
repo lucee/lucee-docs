@@ -3,7 +3,7 @@ title: GetTimeZone
 id: function-gettimezone
 related:
 categories:
- - date
+ - datetime
 ---
 
 Returns the timezone defined for the current request.

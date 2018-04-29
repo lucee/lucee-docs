@@ -3,7 +3,7 @@ title: DayOfYear
 id: function-dayofyear
 related:
 categories:
- - date
+ - datetime
 ---
 
 Determines the day of the year, in a date.

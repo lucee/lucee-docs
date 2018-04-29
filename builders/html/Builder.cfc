@@ -71,6 +71,8 @@ component {
 				if ( arguments.docTree.pageExists( "category-" & category ) ) {
 					links.append( "[[category-" & category & "]]" );
 					categories.append( "[[category-" & category & "]]" );
+				} else {
+					request.logger(text="Missing category: " & category, type="error", link="#arguments.page.getPath()#.html");
 				}
 			}
 		}

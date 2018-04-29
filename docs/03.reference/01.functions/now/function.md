@@ -3,7 +3,7 @@ title: Now
 id: function-now
 related:
 categories:
- - date
+ - datetime
 ---
 
 Returns the current date and time

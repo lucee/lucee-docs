@@ -1,1 +1,6 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+dump(getLocale());
+setLocale("english (australian)");
+dump(getLocale());
+dump(Server.Coldfusion.SupportedLocales.listToArray().sort("text"));
+```
