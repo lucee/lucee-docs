@@ -1,10 +1,12 @@
 ---
-title: cacheregionnew
+title: CacheRegionNew
 id: function-cacheregionnew
-related:
 categories:
-    - cache
+- cache
+description: 'This function exists solely for the purpose of compatibility with other
+  CFML Engines.  '
 ---
 
-this function exists solely for the purpose of compatibility with other CFML Engines.  we strongly recommend not to use this function.
-        to create a cache connection either declare it in your Application.cfc or create it via the in the Administrator interface.
+This function exists solely for the purpose of compatibility with other CFML Engines.  
+
+We strongly recommend not to use this function. to create a cache connection either declare it in your Application.cfc or create it via the in the Administrator interface.
