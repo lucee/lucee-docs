@@ -58,7 +58,7 @@ The normal rules for CFCs apply.
 
 ### Should I use scopes explicitly? ###
 
-Different developers have opinions about whether it is best to explicitly write every scope, or to let Railo look for the variable in each scope, i.e.
+Different developers have opinions about whether it is best to explicitly write every scope, or to let Lucee look for the variable in each scope, i.e.
 
 ```lucee
 myVariable
