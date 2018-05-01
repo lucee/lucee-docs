@@ -85,6 +85,11 @@ Specifies the location of the Apache log files. Used in the configuration of the
 This is a BOOLEAN value, meaning it must be true or false.  
 This value tells the installer to install the connector for IIS, the BonCode Connector. (Ignored on Linux) By setting this variable to [true], the Windows Lucee Installer will launch the BonCode Connector installer silently during the install process. You will see several DOS windows pop-up during the connector install process as the BonCode Connector varifies modules and installs what it needs.
 
+**--installmodcfml**
+**Default Value:** [true]
+This is a BOOLEAN value, meaning it must be true or false.  
+This value tells the installer to install the mod_cfml connector.
+
 ### Using an OptionFile ###
 
 The Bitrock InstallBuilder software also supports using an "optionfile" to pass parameters to the Lucee Installer in unattended mode. To use an option file, create a text file (lucee-options.txt in this example) and give it the following content:
