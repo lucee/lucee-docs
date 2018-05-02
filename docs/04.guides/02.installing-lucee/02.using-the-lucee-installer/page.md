@@ -2,6 +2,8 @@
 title: Using the Lucee Installer
 id: using-the-lucee-installer
 menuTitle: Lucee Installer
+related:
+- linux-installing-in-unattended-mode
 ---
 
 ### Consider a Non-Standard Installation Directory ###
