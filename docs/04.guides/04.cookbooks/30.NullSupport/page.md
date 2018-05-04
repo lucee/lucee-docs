@@ -88,3 +88,10 @@ dump(null);
 * We can also use the keyword `null` as same as `nullvalue()`. We will assign this keywords into a variable or directly dump the keyword. 
 
 This null support feature in admin is also helpful when transfer data from json that also support null. 
+
+
+### Footnotes ###
+
+Here you can see above details in video
+
+[Lucee Null Support ](https://www.youtube.com/watch?v=GSlWfLR8Frs)
