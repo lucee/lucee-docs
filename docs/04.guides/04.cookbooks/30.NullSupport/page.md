@@ -2,13 +2,20 @@
 title: Null Support
 id: null_support
 ---
-## Null Support ##
 
-This document explains how to use null support(Complete support or Partial support) in lucee server admin & assign null value for a variable & how to use that keyword `null`,`nullvalue`.
+## Null Support
 
-We Enable null support by using **lucee server admin** --> **Language/compiler** --> setting Null support to **complete support** or **partial support**. Explain this method with a simple example below:
+This document explains how to set null support in the Lucee server admin, assign null value for a variable and how to use `null` and `nullvalue`. It is an annotation of the video found here:
 
-###Example 1 :###
+[Lucee Null Support ](https://www.youtube.com/watch?v=GSlWfLR8Frs)
+
+### Setting NULL support options
+
+We enable null support by using **lucee server admin** --> **Language/compiler** and setting Null support to **complete support** (exclusive to Lucee) or **partial support** (default, same as Adobe CF).
+
+### Explanation
+
+#### Illustration 1:
 
 ```lucee
 <cfscript>
@@ -24,74 +31,38 @@ We Enable null support by using **lucee server admin** --> **Language/compiler**
 </cfscript>
 ```
 
-* Here Example, If a function that doesn't return a value when the function doesn't give nothing it, actually it returns null.
-* I do a dump of that. Then we will see the browser, It returns null value like `Empty : Null`
-* Now we assign the fuction for a variable like `t=test();` and dump that variable like `writedump(t);` Execute that example in browser, It throw error like "the key [T] does not exist" while enable **partial support**. 
-* As this same example returns null value while enable **complete support**. 
-* If in case we dump the same variable T as isNull(T) means it will return true. It means we check not existing variable in isNull() function, it returns true.
+In this example, the function `test()` does not return a value. This, in effect, is the same as returning `null`. If you dump the result of the function (`dump(test());`), you will see that the dump outputs `Empty: Null`.
+
+If we we assign the fuction result to a variable, i.e. `t=test();`, and reference the variable, i.e. `dump(t);` and error will be thrown when using **partial support** for null: "the key [T] does not exist". If we enable **full support**, you will be able to reference the variable without error, the dump output will be `Empty: Null` and `IsNull(t)` will evaluate `true`.
+
+In all cases, `dump(isNull(notexisting));` will throw an error.
 
 
-###Example 2:###
+#### Illustration 2:
 
-```lucee
-<cfscript>
+```luceescript
 query datasource="test" name="qry" {
 	echo("select '' as empty,null as _null");
 }
 dump(qry);
 dump(qry._null);
-</cfscript>
 ```
 
-* Here example with query and the query returns one field with the value null inside. 
-* Then we will run on this browser. It return query as empty string, not a null value while enable **partial support**. Converts null value in the data source table to empty string. 
-* As that same example we enable the **complete support** for full more support, it shows like 'Empty:null'
+With **partial support** for NULL enabled, `dump(qry._null);` will output an **empty string**. With **full support**, `Empty: null` will be output and `IsNull(qry._null);` will evaluate `true`.
 
 
-###Example 3:###
+### NullValue() function and null keyword
 
-```lucee
-<cfscript>
-sct1={};
-sct2={};
-// output null returned by a method
-dump(sct2.putAll(sct1));
-// assign null to a variable
-res=sct2.putAll(sct1);
-dump(res);
-</cfscript>
+With **partial support** for NULL, the `NullValue()` function must be used to explicitly return a null value (this will work in all scenarios). For example:
+
+```luceescript
+var possibleVariable = functionThatMayOrMayNotReturnNull();
+return possibleVariable ?: NullValue();
 ```
 
-* Here this example have two structure and two methods too, There are
+With **full support**, you are able to use the `null` keyword directly and, as illustrated above, can assign it to a variable directly:
 
-	1. First method returned as null output by using java function
-	2. Second one is for assign null to a variable.
-
-* Then we will run on this browser. It return null value for both methods while enable **complete support**. But it return null value for first method only when enable **partial support** in admin side.
-* Second one is throw issue `The Key [res] does not exist`. Because the fuction was assigned to a variable like `res=sct2.putAll(sct1)`
-
-
-###Example 4:###
-
-```lucee
-<cfscript>
-res=nullValue();
-dump(res);
-
-res=null;
-dump(res);
-dump(null);
-</cfscript>
+```luceescript
+t=null;
+dump(t);
 ```
-
-* Here we use the keyword `nullvalue()` is used to support null value when we enable **complete support**. 
-* We can also use the keyword `null` as same as `nullvalue()`. We will assign this keywords into a variable or directly dump the keyword. 
-
-This null support feature in admin is also helpful when transfer data from json that also support null. 
-
-
-### Footnotes ###
-
-Here you can see above details in video
-
-[Lucee Null Support ](https://www.youtube.com/watch?v=GSlWfLR8Frs)
