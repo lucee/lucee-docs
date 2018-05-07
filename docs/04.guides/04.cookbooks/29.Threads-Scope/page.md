@@ -4,11 +4,11 @@ id: thread_usage
 ---
 ## Thread Scope ##
 
-This document explains how to use the threads. Threads mainly used for execute the code parallel.
+This document explains how to use threads in Lucee. Threads are mainly used for executing code in parallel.
 
 ### Example 1 ###
 
-This below example shows waiting normal execution waiting for all code to resolve. Here it waits for 1000 mili seconds after the it complete the execution.
+The below example shows normal execution, waiting for all code to resolve. Here it takes 1000 milliseconds to complete the execution.
 
 ```lucee
 <cfscript>
@@ -21,7 +21,7 @@ dump("done in #getTickCount()-start#ms");
 </cfscript>
 ```
 
-This below example shows thread execution. Code with in the thread tag run parallel to execution. Here execution doesn't wait for sleep.
+The below example shows thread execution. Code within the thread tag runs in parallel with the execution of the other code in the cfscript. Here execution does not wait for sleep.
 
 ```lucee
 <cfscript>
@@ -35,13 +35,13 @@ napASecond();
 dump("done in #getTickCount()-start#ms");
 </cfscript>
 ```
-Threads were independent form current running thread on lucee. Lucee doesn't wait for end of thread.
+Threads run independently of other threads or code in Lucee. Lucee does not the thread first and then the following code.
 
-Threads were mainly used to retrieve the data form DB, cfhttp, webservice it doesn't care about how much time it takes to execute.
+Threads are mainly used to retrieve data from the database, cfhttp, or webservice. Threads are used when it does not matter how much time it takes to execute.
 
 ### Example 2 ###
 
-Here we can see about multiple threads in lucee. Lucee can also used to create multiple threads running parallel at that time.
+Here we see an example using multiple threads in Lucee. All threads run in parallel.
 
 ```lucee
 <cfscript>
@@ -69,10 +69,7 @@ dump("done in #getTickCount()-start#ms");
 </cfscript>
 ```
 
-Above example shows currently five threads were running parallel, Thread action join wait for all threads to finish.
-
-```cfthread``` returns struct info of all thread status.
-
+The above example shows five threads running in parallel. The thread action= "join" line waits for all threads to finish ```cfthread``` returns struct info of all thread status.
 
 Same example within tag
 
@@ -105,12 +102,12 @@ Same example within tag
 
 ```
 
-Here it join three threads "t1,t2,t3". We can join threads by its name.
+Here the code joins three threads "t1,t2,t3". We can join threads by name.
 
 
 ### Example 3 ###
 
-Here we can see about threads running parallel using ```each``` function.
+Example 3 shows threads running in parallel using the each function.
 
 ```lucee
 <cfscript>
@@ -127,10 +124,9 @@ dump("done in #getTickCount()-start#ms");
 </cfscript>
 ```
 
-```each``` function has a option parallel, when we set parallel attribute as true. It runs each element parallel. In default it should be false.
+The ```each``` function has an optional attribute called parallel. When we set the parallel attribute as true, it runs each element in parallel. By default, this attribute is false.
 
-So that two array elements runs parallel done in 1second.
-
+Since the two array elements run in parallel, this code executes in 1 second.
 
 ```lucee
 <cfscript>
@@ -151,12 +147,12 @@ dump("done in #getTickCount()-start#ms");
 </cfscript>
 ```
 
-Here we have 100 array elements, setting option parallel as true it execute for 5 seconds not at 1 second because in default lucee runs 20 threads at the time after that it wait for free threads so only it take 5 seconds to complete.
+Here we have 100 array elements. Setting the optional attribute parallel as true, it executes in 5 seconds - not in 1 second - because by default, Lucee runs 20 threads at a time and after that, it waits for free threads. So, it takes 5 seconds to complete.
 
-But we have option to set maximum threads open at that time. If it set to 100, it can open 100 threads at that time run parallel it take 1 second to complete.
+But we have the option to set the maximum threads open at a time. If it set to 100, Lucee can open 100 threads at a time to run in parallel. Then this code only takes 1 second to complete.
 
 
-```each``` function is used not only for array, it used for struct & query also. Below example explain all the types.
+The ```each``` function is not only used for an array. It can also be used for struct and query. The below example explains each type.
 
 
 ```lucee
@@ -215,9 +211,9 @@ dump("done");
 
 ### Example 4 ###
 
-We are discussing for a long time how to extend functionality to make it easier to use or other new functionality.
+Lucee members often discuss how to extend functionality to make Lucee easier to use or adding other new functionality.
 
-Here we explained about the future implementation of thread in lucee
+This example shows a future implementation of threads in Lucee.
 
 
 ```lucee
@@ -232,7 +228,7 @@ tasks.each(
 );
 </cfscript>
 ```
-ATM we are using default max threads is 20, instead we plan to use a smart thread pool in the future it's based on your JVM(Java ExecutorService). So you don't want to take care how many threads were using system will do that and give best choice for you.
+Currently, the default max threads is 20. In the future, we plan to use a smart thread pool based on your JVM(Java ExecutorService). So you will not have to take care how many threads are being used. The system will do that, and provide the best choice for your code.
 
 
 ```lucee
@@ -243,10 +239,9 @@ thread /* action="thread" name="whatever" */ {
 </cfscript>
 ```
 
-make thread smarter by also use a pool for threads.
+In the future we will make threads smarter by also using a pool for threads.
 
-
-That the something we are planning it will come without changes in functionality on backend. That changes nothing in front end.
+This feature is something we are planning. Changes will be implemented on the backend so that nothing changes on the front end.
 
 
 ```lucee
@@ -261,7 +256,7 @@ for(i=0;i<10;i++;true) {
 </cfscript>
 ```
 
-something we are planning to Extend parallel on the loop by simply adding ```parallel=true```. It will execute body of the loop parallel.
+Another planned enhancement is to extend parallel to the loop by simply adding ```parallel=true``` . It will execute the body of the loop in parallel.
 
 
 ### Footnotes ###
