@@ -2,7 +2,11 @@
 title: <cfsetting>
 id: tag-setting
 related:
+- tag-output
 - tag-silent
+categories:
+- debugging
+- system
 ---
 
 Controls various aspects of page processing, such as the output of HTML code in pages. One
