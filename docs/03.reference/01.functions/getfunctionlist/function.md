@@ -2,8 +2,9 @@
 title: GetFunctionList
 id: function-getfunctionlist
 related:
+- function-getfunctiondata
 categories:
-    - server
+- server
 ---
 
 Returns all the currently registered functions
