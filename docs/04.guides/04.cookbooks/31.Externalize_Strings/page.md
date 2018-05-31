@@ -8,9 +8,9 @@ Externalize strings from generated class files to separate files. This method is
 
 **Example:**
 
-```lucee
-//index.cfm page 
+//index.cfm 
 
+```lucee
 <cfset year = 1960>
 <html>
 	<body>
@@ -35,7 +35,7 @@ Externalize strings from generated class files to separate files. This method is
    - Again run the cfm page in a browser. The class file is created with lower memory size than the original 8Kb on disk.
    - In addition, it created a text file too. The txt file contains the strings from the CFM page. The cfoutput with year is simply not there. The byte code will crop the piece of cfoutput content from the CFM file.
 
-So, This is no longer in memory when the bytecode is loaded that into memory. The memory is not occupied forever and reduce the footprint of our application.
+So, the string 'year' is no longer in memory. When the bytecode is called, it loads the string into memory. The memory is not occupied forever and this reduces the footprint of our application.
 
 ### Footnotes ###
 
