@@ -1,3 +1,3 @@
 ```luceescript+trycf
- dump(GetTempFile(getTempDirectory());
+ dump(GetTempFile(getTempDirectory(), "demo");
 ```
