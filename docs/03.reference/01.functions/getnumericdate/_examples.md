@@ -1,1 +1,5 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+	dd=now();
+	dump(getNumericDate('11/10/1992'));
+	dump(getNumericDate(dd));
+```
