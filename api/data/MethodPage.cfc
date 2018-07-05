@@ -22,6 +22,7 @@ component accessors=true extends="Page" {
 		var optionalCount = 0;
 
 		for( var argument in this.getArguments() ) {
+			if (argument.name == this.getMethodObject()) cfcontinue;
 			if ( !argument.required ) {
 				usage &= " [";
 				optionalCount++;
