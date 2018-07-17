@@ -1,1 +1,9 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+qry=queryNew("aaa");
+QueryAddRow(qry);
+	QuerySetCell(qry,"aaa","a");
+QueryAddRow(qry);
+	QuerySetCell(qry,"aaa","b");
+writeDump(QueryGetCell(qry,"aaa"));
+writeDump(QueryGetCell(qry,"aaa",1));
+```
