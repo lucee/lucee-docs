@@ -1,7 +1,7 @@
 ```luceescript+trycf
-writeOutput(listGetAt(",a,,b,c,",1,",",true));//Returns Empty value
+writeOutput(listGetAt("a,,b,c,",3,",",true));//Returns b
 
-//Member Function with @ delimeter
-strList=",,a,,b,c,d";
-writeDump(strList.listGetAt(5,",",true));//Expected output b
-``` 
+//Member Function with '/' delimeter
+strList="/a//b/c//d";
+writeDump(strList.listGetAt(5,"/",true));//Expected output c
+```

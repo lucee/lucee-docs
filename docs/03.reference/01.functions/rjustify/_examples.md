@@ -1,1 +1,11 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+	writeDump(
+		label:"",
+		var:RJustify("",4));
+	writeDump(
+		label:"",
+		var:RJustify("abc",1));
+	writeDump(
+		label:"",
+		var:RJustify("abc",5));
+```

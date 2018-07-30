@@ -1,1 +1,5 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+
+writeOutput("current Datetime is "&now());
+
+```
