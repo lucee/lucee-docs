@@ -5,6 +5,10 @@ id: lucee-5-upgrading-lucee-45
 
 # Upgrade from Lucee 4.5 (or Railo 4.2)
 
+Before starting the upgrade, please check the bundled versions of Java and Tomcat you have installed. These older versions of
+Lucee/Railo were released several years ago (2014/2015) and the bundled versions of Java and Tomcat should be manually updated 
+to the latest releases for both security and bug fixes. Please note, Lucee 5.2 requires Java 1.8, only Lucee 5.3 supports Java 9.
+
 To upgrade your existing Lucee 4.5 (or Railo 4.2) install to Lucee 5 please follow the following instructions:
 
 1. Download the `lucee-5.x.x.xxx.jar` from [http://lucee.org/downloads.html](http://lucee.org/downloads.html).
