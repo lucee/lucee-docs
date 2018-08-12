@@ -12,7 +12,7 @@
 	local.path = args.page.getPath();
 	if (local.path eq "/home")
 		local.path = "/index";
-	local.pageHref = "http://docs.lucee.org#local.path#.html";
+	local.pageHref = "https://docs.lucee.org#local.path#.html";
 	local.pagePath = "#local.path#.html";
 	local.pageTitle = HtmlEditFormat( args.page.getTitle() ) & " :: Lucee Documentation";
 	local.pageDescription = getMetaDescription( args.page, args.body );
@@ -38,10 +38,6 @@
 		<link rel="canonical" href="#local.pageHref#" />
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
-		<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#local.pageHref#&origin=lucee"
-            type="application/json+oembed" />
-    	<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#local.pageHref#&origin=lucee&format=xml"
-            type="application/xml+oembed"/>
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@lucee_server" />
 		<meta name="twitter:title" content="#local.pageTitle#" />
