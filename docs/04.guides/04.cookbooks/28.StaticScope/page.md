@@ -14,7 +14,7 @@ Static scope in components is needed to create an instance of cfc and call its m
 ```lucee
 // Example0.cfc
 	Component {
-		private function init(){
+		public function init(){
 			dump("create an instance of" & listlast(getCurrentTemplatePath(),'\/'));
 		}
 		public function hey(){
@@ -92,7 +92,7 @@ Component {
 		if(isNull(static.instance[id])){
 			static.instance[id] = new Example2(lastname,firstname);
 		}
-		return static.instance(id); 
+		return static.instance[id];
 	}
 	private function init(required string lastname, required string firstname) {
 		dump("create an instance of" & listlast(getCurrentTemplatePath(),'\/')&" for "&lastname&" "&firstname);
