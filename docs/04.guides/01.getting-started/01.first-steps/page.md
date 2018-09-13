@@ -75,7 +75,7 @@ Script code can be used in code island or with complete files, similar you can u
 This example gets a record from a database and populates an object.
 
 ```luceescript
-var qry = new QueryExecute("select * from employee where id="&url.id);
+var qry = QueryExecute("select * from employee where id = :empid", {empid: url.id});
 var employee = new Employee();
 employee.setName(qry.name);
 employee.setDOB(qry.dob);
@@ -87,7 +87,7 @@ Of course you can use tag and script in the same file...
 
 ```lucee
 <cfscript>
-    var qry = new QueryExecute("select * from employee where id="&url.id);
+    var qry = QueryExecute("select * from employee where id = :empid", {empid: url.id});
     var employee = new Employee();
     employee.setName(qry.name);
     employee.setDOB(qry.dob);
