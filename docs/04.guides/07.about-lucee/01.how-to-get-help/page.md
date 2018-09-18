@@ -3,7 +3,7 @@ title: How to get help
 id: about-lucee-how-to-get-help
 ---
 
-There are a variety of ways to get help - including free community-driven options and commercial options provided by the [Lucee Association Switzerland member companies](http://lucee.org/members.html).
+There are a variety of ways to get help - including free community-driven options and commercial options provided by the [Lucee Association Switzerland member companies](https://lucee.org/aboutlucee/members.html).
 
 ## Community support options
 ### Lucee mailing list
@@ -19,6 +19,6 @@ Become a member of the Lucee Association Switzerland and benefit from the suppor
 ## Commercial support options
 ### Support, training & consulting
 
-There is a great community behind Lucee, but if your project needs more, the [Lucee Association Switzerland's member companies](http://lucee.org/members.html) are here to help.
+There is a great community behind Lucee, but if your project needs more, the [Lucee Association Switzerland's member companies](https://lucee.org/aboutlucee/members.html) are here to help.
 
 They offer a range of training, support packages & consultancy services to get your project on track and keep it there.  Whether you need up-front consultancy about the best way to design your project, or ongoing support for your developers, they can help.  
