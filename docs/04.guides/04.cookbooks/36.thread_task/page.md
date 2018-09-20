@@ -1,6 +1,8 @@
 ---
 title: Thread Task
 id:  thread_task
+related:
+- tag-thread
 ---
 ## Thread Task ##
 
