@@ -1,6 +1,8 @@
 ---
 title: Lazy Queries
 id:  lazy_queries
+categories:
+- query
 ---
 ##  Lazy Queries ##
 
