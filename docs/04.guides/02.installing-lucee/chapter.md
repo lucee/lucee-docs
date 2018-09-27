@@ -24,11 +24,7 @@ If you do not find the answers you are looking for here, we encourage you to pos
 
 **Windows**
 
-* [[windows-system-requirements]]
-* [[windows-launching-the-installer]]
-* [[windows-manually-upgrading-tomcat]]
-* [[windows-upgrade-the-JRE]]
-* [[windows-solutions-to-common-problems]]
+* [[running-lucee-windows]]
 
 **Linux**
 
@@ -71,5 +67,4 @@ The following sections are intended for system administrators who want to deploy
 
 ### Contribute ###
 
-* [[meet-the-developers]]
-* [[how-to-report-problems-or-suggest-features]]
+[Developer Forum](https://dev.lucee.org/)
