@@ -1,8 +1,9 @@
 ### Loops over every element in the array
 ```luceescript+trycf
-arr1 = [12,0,1,2,3,4,5,6];
-arr1.every(function(item,index,arr){
-    dump(item & ', ' & item + 5);
-    return true;
-},true,4);
+my_array = [ { name = "Frank", age = 40 }, { name = "Sue", age = 21 }, { name = "Jose", age = 54 } ];
+all_old = my_array.every(function(person) {
+    return person.age >= 40;
+},true,5);
+
+dump(all_old); // false
 ```
