@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+writeDump(rand() GTE 0 and rand() LTE 1);
+writeDump(rand("SHA1PRNG") GTE 0 and rand() LTE 1);
+```

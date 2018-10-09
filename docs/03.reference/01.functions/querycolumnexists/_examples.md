@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+myQuery = queryNew("custID,custName");
+writeDump(queryColumnExists(myQuery,"age"));
+```

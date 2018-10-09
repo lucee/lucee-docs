@@ -1,1 +1,6 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+writeDump(spanExcluding("Plant green! save earth!", "s"));
+//Member Function 
+str="AabByyysss";
+writeDump(str.spanExcluding("s"));
+```

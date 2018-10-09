@@ -1,1 +1,9 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+qry=queryNew("aaa");
+arr=arrayNew(1);
+arr[1]="a";
+arr[2]="b";
+arr[3]="c";
+QueryAddColumn(qry,"b",arr);
+writeDump(queryrecordcount(qry));
+```
