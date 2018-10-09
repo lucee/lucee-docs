@@ -1,10 +1,8 @@
-```lucee
-<cfoutput>
-	False: #yesnoFormat(false)#<br>
-	True: #yesnoFormat(true)#<br>
-	0: #yesnoFormat(0)#<br>
-	1: #yesnoFormat(1)#<br>
-	No: #yesnoFormat('No')#<br>
-	Yes: #yesnoFormat('Yes')#
-</cfoutput>
+```luceescript+trycf
+  dump(yesnoFormat(false)); // No
+  dump(yesnoFormat(true)); // Yes
+  dump(yesnoFormat(0)); // No
+  dump(yesnoFormat(1)); // Yes
+  dump(yesnoFormat('No')); // No
+  dump(yesnoFormat('Yes')); // Yes
 ```
