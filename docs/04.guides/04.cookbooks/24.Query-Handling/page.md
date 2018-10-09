@@ -134,25 +134,7 @@ Pass the values in params same as we saw in cfquerytag, In options we can pass o
 
 
 
-### Query Component ###
 
-You can do a query with component like "Query()".
-
-```lucee
-<cfscript>
-	query=new Query(sql:"select * from Foo1890 where title=?");
-	query.setParams([{type:'varchar',value:'Susi'}]);
-	query.setDatasource('test');
-	dump(query.execute().getResult());
-</cfscript>
-```
-
-In the above example we pass the sql as part of the constructor.
-
-* Use setDatasource() function to set the datasource.
-* Use setParams() function to set the param values. The value used is the same as we used in the tag.
-
-```query.execute()``` function returns detail of the component, ```query.execute().getResult()``` returns query result.
 
 ### Query Future ###
 We are always in discussion how to improve the functions in lucee.
