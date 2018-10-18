@@ -1,3 +1,3 @@
-```luceescript
-    fileDelete("/path/to/file.ext");
+```luceescript+trycf
+    fileRead("/path/to/file.ext");
 ```
