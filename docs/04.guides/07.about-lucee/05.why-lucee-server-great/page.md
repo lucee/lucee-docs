@@ -15,8 +15,6 @@ Lucee Server is released under the [GNU Lesser General Public License, version 2
 
 There's no need to worry that Lucee may disappear any time soon - investment from leading software houses, in the US & Europe, means that Lucee's future is assured for the foreseeable future.
 
-Read more about this in the [press announcement](http://www.getlucee.com/index.cfm/about-us/news/lucee-announces-launch-of-investor-backed-global-venture/) by Lucee's CEO, Gert Franz.
-
 ### Fast ###
 
 Performance is at the heart of what we do. Lucee has built the highest performing CFML engine available, so if you want to get more out of your servers and deliver a better experience to end-users of your sites, you owe it to yourself to try out Lucee Server.
