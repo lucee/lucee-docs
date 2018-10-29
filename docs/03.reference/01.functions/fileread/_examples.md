@@ -1,3 +1,3 @@
-```luceescript+trycf
+```luceescript
     fileRead("/path/to/file.ext");
 ```
