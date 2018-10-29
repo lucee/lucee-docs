@@ -9,4 +9,4 @@ categories:
 
 Calls the given closure with every element in the given list.
 
-The function returns an list that contains all values returned by the closure.
+The function returns a list that contains all values returned by the closure.
