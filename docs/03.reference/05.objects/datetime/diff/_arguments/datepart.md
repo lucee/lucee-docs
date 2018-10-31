@@ -3,7 +3,7 @@ String that specifies the units in which to count:
 - yyyy: Years
 - q: Quarters
 - m: Months
-- y: Days (same as d)
+- y: Day of Year (same as d)
 - d: Days (same as y)
 - w: Weeks (same as ww)
 - ww: Weeks (same as w)
