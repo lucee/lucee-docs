@@ -1,7 +1,7 @@
 ```luceescript+trycf
   validator = "
-			<?xml version=""1.0""?>
-			<xs:schema xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
+		<?xml version=""1.0""?>
+		<xs:schema xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
 			<xs:element name=""note"">
 				<xs:complexType>
 					<xs:sequence>
@@ -12,6 +12,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+		</xs:schema>
 		";
 
 		xml_stream = "
