@@ -1,1 +1,1 @@
-Collection to loop over
+Collection to loop over. Used with the item attribute.
