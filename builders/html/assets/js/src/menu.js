@@ -73,8 +73,9 @@
 			var menu = $('.menu-search-focus', $thisMenu);
 			if ( menu.length) {
 				menu.focus();
-				if (lastSearch)
-					menu.val(lastSearch).trigger("input");
+				if (lastSearch){
+					menu.val(lastSearch).trigger("input").select();
+				}
 			}
 		}
 	});
