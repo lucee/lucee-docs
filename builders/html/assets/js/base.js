@@ -14573,8 +14573,9 @@ String.prototype.md5=function(){var a=function(a,b){var c=(a&65535)+(b&65535);va
 			var menu = $('.menu-search-focus', $thisMenu);
 			if ( menu.length) {
 				menu.focus();
-				if (lastSearch)
-					menu.val(lastSearch).trigger("input");
+				if (lastSearch){
+					menu.val(lastSearch).trigger("input").select();
+				}
 			}
 		}
 	});

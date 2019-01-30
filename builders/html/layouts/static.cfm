@@ -148,6 +148,6 @@
 				</p>
 			</div>
 		</footer>
-		<script src="/assets/js/dist/base.23.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.24.min.js" type="text/javascript"></script>
 	</body>
 </html></cfoutput>
