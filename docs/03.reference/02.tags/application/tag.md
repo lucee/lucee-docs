@@ -1,5 +1,5 @@
 ---
-title: Application.cfc settings
+title: <cfapplication>
 id: tag-application
 ---
 

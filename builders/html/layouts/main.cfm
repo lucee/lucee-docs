@@ -12,7 +12,7 @@
 	local.path = args.page.getPath();
 	if (local.path eq "/home")
 		local.path = "/index";
-	local.pageHref = "http://docs.lucee.org#local.path#.html";
+	local.pageHref = "https://docs.lucee.org#local.path#.html";
 	local.pagePath = "#local.path#.html";
 	local.pageTitle = HtmlEditFormat( args.page.getTitle() ) & " :: Lucee Documentation";
 	local.pageDescription = getMetaDescription( args.page, args.body );
@@ -38,10 +38,6 @@
 		<link rel="canonical" href="#local.pageHref#" />
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
-		<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#local.pageHref#&origin=lucee"
-            type="application/json+oembed" />
-    	<link rel="alternate" href="http://open.iframe.ly/api/oembed?url=#local.pageHref#&origin=lucee&format=xml"
-            type="application/xml+oembed"/>
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@lucee_server" />
 		<meta name="twitter:title" content="#local.pageTitle#" />
@@ -226,7 +222,7 @@
 		<footer class="footer">
 			<div class="container">
 				<p>The Lucee Documentation is developed and maintained by the Lucee Association Switzerland and is licensed under a
-					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png"></a>
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/3.0/80x15.png"></a>
 					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
 				</p>
 			</div>

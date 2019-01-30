@@ -4,128 +4,130 @@ id: static_scope
 ---
 ## Static scope in components ##
 
-Static scope in components is need to create an instance of cfc and call it's method. It used to avoid creating instance each time, you can create object in Application init() function, and make it at application scope, so you can directly call the methods. We explain this method with a simple example below:
+Static scope in components is needed to create an instance of cfc and call its method. It is used to avoid creating an instance each time you use the cfc. You can create an object in the Application init() function, and make it at application scope, so you can directly call the methods. We explain this methodology with a simple example below:
 
 
 ###Example:###
 
+```luceescript
+// index.cfm
+directory sort="name" action="list" directory=getDirectoryFromPath(getCurrentTemplatePath()) filter="example*.cfm" name="dir";
+loop query=dir {
+	echo('<a href="#dir.name#">#dir.name#</a><br>');
+}
+```
+
 1) Create a constructor of the component. It is the instance of the current path and also create new function hey(). 
 
-```lucee
+```luceescript
 // Example0.cfc
 	Component {
-		private function init(){
-			dump("create an instance of" & listlast(getCurrentTemplatePath(),'\/'));
+		public function init() {
+			dump("create an instance of "&listLast(getCurrentTemplatePath(),'\/'));
 		}
-		public function hey(){
-			dump("salve !");
+		public function hey() {
+			dump("Salve!");
 		}
 	}
 ```
 
-2) Then We instantiate the component in four times and calling the hey() function. Run this example00.cfm page in the browser. It shows five dumps. Four dumps coming from inside of the constructor & Fifth dump is from hey().  Here init() is privately, so don't can load it anymore from outside because it's private you have to no access to its message can't load it from outside. 
+2) Next, we instantiate the component four times, and then call the hey() function. Run this example00.cfm page in the browser. It shows five dumps. Four dumps coming from inside of the constructor and the fifth dump is from hey(). Note that the init() function is private, so you cannot load it from outside the component. Therefore, you have no access to the message within init() from the cfscript in the example below.
 
-```lucee
-// example00.cfm
-<cfscript>
+```luceescript
+// example0.cfm
 	new Example0();
 	new Example0();
 	new Example0();
-	cfc = new Example0();
+	cfc=new Example0();
 	cfc.hey();
-</cfscript>
 ```
 
 
 ###Example 1:###
 
-We need more control while it get complicated, I've to do some stuff around. There are, 
+As our code gets more complicated, we need to make some additions to it.
 
-* Component in the application scope or server scope or use the function get component metadata to store components in a more persistent way, it almost good. 
-* But the static scope helps much more control in how you load and how you share the data between component of the specific type. So explain this on example1 below,
+* One option is to create the Component in the application scope or server scope, or to use the function GetComponentMetaData to store components in a more persistent way.
+* However, using the static scope is a much better option which offers more control in how you load and how you share the data between components of the specific type. This is explained in Example1 below.
 
-1) It has a new static function getInstance(), That function is not a part of the instance in component. It is static of the specific component, but not created any instance.
+1) This code has a new static function getInstance(). This function is not a part of the instance in Component. It is static of the specific component, but not created in any instance.
 
-```lucee
+```luceescript
 // Example1.cfc
 Component {
 	public static function getInstance() {
-		if(isNull(static.instance)){
-			static.instance = new Example1();
+		if(isNull(static.instance)) {
+			static.instance=new Example1();
 		}
 		return static.instance; 
 	}
-	private function init(){
-		dump("create an instance of" & listlast(getCurrentTemplatePath(),'\/'));
+	private function init() {
+		dump("create an instance of "&listLast(getCurrentTemplatePath(),'\/'));
 	}
-	public function hey(){
-		dump("salve !");
+	public function hey() {
+		dump("Salve!");
 	}
 }
 ```
 
-2) Calling that getInstance() static function in four times and call hey() function too. 
+2) This example calls the getInstance() static function four times, and calls the hey() function once.
 
-* Then we run this on browser to see the constructor is call only one instance and function hey() call once. It always get same instance are only exist at one time. 
-* We give additional request the same page again means no constructor is displayed, only shows hey() function contents. Here we know constructor only show first request of the page. 
+* Next, we run this in the browser to see that the constructor calls only one instance, and function hey() is called once. It always gets the same instance because only one exists at this time.
+* We give an additional request to the same page again. No constructor is displayed. Only the hey() function contents are shown. Therefore, we know that the constructor is only showing the first request of the page.
 
-```lucee
+```luceescript
 // example01.cfm
-<cfscript>
 	Example1::getInstance();
 	Example1::getInstance();
 	Example1::getInstance();
-	cfc = Example1::getInstance();
+	cfc=Example1::getInstance();
 	cfc.hey();
-</cfscript>
 ```
 
 ###Example 2:###
 
-1) As same concepts of previous Example, but Here we pass two instance for arguments. One instance for every combination of argument passed in firstname, lastname. And also call hey() function.
+1) Example2 shows the same concepts that were shown in the previous Example1, but here we pass two instances for arguments. One instance for every combination of arguments passed in firstname, lastname. Then we also call the hey() function.
 
-```lucee
+```luceescript
 // Example2.cfc 
 Component {
 	public static function getInstance(required string lastname, required string firstname) {
-		var id = hash(lastname&":"&firstname,"quick");
-		if(isNull(static.instance[id])){
-			static.instance[id] = new Example2(lastname,firstname);
+		var id=hash(lastname&":"&firstname,"quick");
+		if(isNull(static.instance[id])) {
+			static.instance[id]=new Example2(lastname,firstname);
 		}
-		return static.instance(id); 
+		return static.instance[id];
 	}
 	private function init(required string lastname, required string firstname) {
-		dump("create an instance of" & listlast(getCurrentTemplatePath(),'\/')&" for "&lastname&" "&firstname);
-		variables.lastname = arguments.lastname;
-		variables.firstname = arguments.firstname;
+		dump("create an instance of "&listLast(getCurrentTemplatePath(),'\/')&" for "&lastname&" "&firstname);
+		variables.lastname=arguments.lastname;
+		variables.firstname=arguments.firstname;
 	}
-	public function hey(){
-		dump("salve #variables.firstname#!");
+	public function hey() {
+		dump("Salve #variables.firstname#!");
 	}
 }
 ```
 
-2) Calling that getInstance() static function in five times. Here three different arguments for getInstance() function. So displaying three instance while run this on browser. It means same arguments executed at one time only.  
+2) Next we call the getInstance() static function five times. Here we pass three different arguments into the getInstance() function. So three instances are displayed when we run this in the browser. This indicates that the same arguments are executed only once.  
 
-```lucee
+```luceescript
 // example02.cfm
-<cfscript>
 	Example2::getInstance("Quintana","Jesus");
-	Example2::getInstance("sobchak","walter");
-	Example2::getInstance("sobchak","walter");
-	Example2::getInstance("sobchak","walter");
-	Example2::getInstance("sobchak","walter").hey();
-</cfscript>
+	Example2::getInstance("Sobchak","Walter");
+	Example2::getInstance("Sobchak","Walter");
+	Example2::getInstance("Sobchak","Walter");
+	Example2::getInstance("Sobchak","Walter").hey();
 ```
 
 ###Example 3:###
 
-1)This example for known the different between the body of instance constructor and static constructor. 
+1)This example is to show the difference between the body of the instance constructor and the static constructor.
 
-* The static constructor that construct the whole execution when the component is loaded in the memory for first time only.It doesn't create a same instance again for the execution.
-* It is created a new instance for every time of execution.
+* The static constructor constructs the whole execution when the component is loaded in the memory for first time only. It does not create the same (duplicate) instance again for the execution.
+* A new instance is created for every execution of an instance constructor.
 
-```lucee
+```luceescript
 // Example3.cfc
 Component {
 	//instance constructor body
@@ -138,82 +140,76 @@ Component {
 }
 ```
 
-2) Here we call Example3() function in twice. It displaying three instance while run this on browser in first request. In static constructor body execute one time and instance constructor body execute two times. 
+2) Here we call the Example3() function twice. The first request will display three instances when run in the browser. The static constructor body will execute one time, and the instance constructor body will execute two times.
 
-```lucee
+```luceescript
 // example03.cfm
-<cfscript>
 	new Example3();
 	new Example3();
-</cfscript>
 ```
 
 ###Example 4:###
 
-1) This example for known the count of how many instance of the component get loaded. This example we define the body of the static constructor as zero , then increase the count. It act in the instance of component can always access the static scope, because that allows you to share date between multiple instance of the component. 
+1) This example shows the count of how many instances of the component get loaded. In this example we define the body of the static constructor as zero, then increase the count. The instance of the component can always access the static scope because that allows you to share data between multiple instances of the component.
 
-```lucee
+```luceescript
 // Example4.cfc
 Component {
 	static {
 		static.counter = 0 ;
 	}
-	static.counter++ ;
-	dump(static.counter&"instances used so far");
+	static.counter++;
+
+	dump(static.counter&" instances used so far");
 }
 ```
 
-2) Here we call Example4() function in five times. In every time increase the count of counter in static scope. 
+2) Here we call the Example4() function five times. Each time the function is called, the count of counter in the static scope increases.
 
-```lucee
+```luceescript
 // example04.cfm 
-<cfscript>
 	new Example4();
 	new Example4();
 	new Example4();
 	new Example4();
 	new Example4();
-</cfscript>
 ```
 
 ###Example 5:###
 
-1)  We can also use the static scope to store constant data like HOST,PORT. 
+1) We can also use the static scope to store constant data like HOST,PORT.
 
-* If we store the instance in variable scope means when you have a thousand components or it will get loaded thousand times, so it is waste of time and memory store. 
-* Static scope means that variable example only exist once and independent of how many instance you have, so it's more memory efficient to do it that way and the same you can also do for function in that example.
+* If we store the instance in the variable scope, you will run into problems when you have a thousand components or it gets loaded a thousand times. This is a waste of time and memory storage.
+* The Static scope means that a variable example only exist once and is independent of how many instances you have. So it is more memory efficient to do it that way. You can also do the same for functions.
 
 
-```lucee
+```luceescript
 // Example5.cfc
 Component {
-	static {
-		static.HOST = "lucee.org" ;
-		static.PORT = 8080 ;
+	static{
+		static.HOST="lucee.org";
+		static.PORT=8080;
 	}
-	public static function splitFullName(required string firstname) {
-		var arr = listToArray(firstname,"  ");
-		return {'lastname':arr[1], 'firstname':arr[2]}; 
+	public static function splitFullName(required string fullName) {
+		var arr=listToArray(fullName," 	");
+		return {'lastname':arr[1],'firstname':arr[2]};
 	}
-	private function init(required string firstname) {
-		variables.fullname = static.splitFullName(fullName);
+	public function init(required string fullname) {
+		variables.fullname=static.splitFullName(fullName);
 	}
 	public string function getLastName() {
-		return variables.fullname.lastName ;
+		return variables.fullname.lastname;
 	}
 }
 ```
 
-2) Here we call Example5() function in two ways. It has a function splitFullName() is need not to access anything (read or write data from the disks) and variable scope doesn't have to be part of the instance. It returns the firstname and lastname. 
+2) Here we call the Example5() function in two ways. It has a function splitFullName() that does not need to access anything (read or write data from the disks) and a variable scope that doesn't have to be part of the instance. It returns the firstname and lastname.
 
-```lucee
+```luceescript
 // example05.cfm
-<cfscript>
-	person = new Example5("sobchak walter");
+	person=new Example5("Sobchak Walter");
 	dump(person.getLastName());
-
-	dump(Example5::splitFullName("Quintana Jesus"));	
-</cfscript>
+	dump(Example5::splitFullName("Quintana Jesus"));
 ```
 
 ### Footnotes ###

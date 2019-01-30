@@ -1,1 +1,8 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+//Simple Example
+writeoutput(listLast("Susi ,LAS,,lucee,,,test"));
+
+//Member Function
+strList=",I,,love,lucee,,";
+writeDump(strList.listLast());
+``` 

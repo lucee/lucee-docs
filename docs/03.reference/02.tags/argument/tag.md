@@ -1,8 +1,11 @@
 ---
 title: <cfargument>
 id: tag-argument
+related: 
+- tag-function
+- tag-component
 categories:
 - component
 ---
 
-Allows subtag data to be saved with the base tag. Applies only to custom tags.
+Defines a parameter that may be sent when the function is called. When used, cfargument tag(s) must be the first tags used within the cffunction.

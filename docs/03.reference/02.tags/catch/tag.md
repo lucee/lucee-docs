@@ -1,8 +1,11 @@
 ---
 title: <cfcatch>
 id: tag-catch
-related:
+related: 
+- tag-catch
+- tag-throw
+- tag-try
 categories:
 ---
 
-Defines table column header, width, alignment, and text. Used only inside a cftable.
+Used only inside a cftry, the cfcatch tag catches and process exceptions. By specifying the type of error with the type attribute, different types of exceptions can be handled differently.

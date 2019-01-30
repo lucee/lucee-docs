@@ -1,1 +1,3 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+	writeOutput(fix(7.546));//7
+```

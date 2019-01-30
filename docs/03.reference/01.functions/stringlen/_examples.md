@@ -1,1 +1,6 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+writeDump(stringLen("Lucee"));//5
+//Member function 
+str="I love Lucee";
+writeDump(str.Len());//12
+```

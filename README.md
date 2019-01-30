@@ -49,6 +49,13 @@ Ask questions or post suggestions over on the [Lucee mailing List](https://dev.l
 
 More information on how the documentation is built and formatted can be found at [http://docs.lucee.org/docs.html](http://docs.lucee.org/docs.html).
 
+The workflow for contributions would be:
+* Submit the contributor's agreement: http://docs.lucee.org/guides/get-involved/contributing-contributors-agreement.html
+* Fork lucee-docs on github.
+* Make your changes in the master branch.
+* Push your changes to your github repo.
+* Create a pull request.
+
 ### Raise issues and suggestions
 
 Issues and suggestions are always welcome (though pull requests are preferred!). Please use the issue tracker: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD).
