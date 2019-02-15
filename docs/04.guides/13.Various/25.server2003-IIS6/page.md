@@ -7,7 +7,7 @@ id: server-2003-IIS
 
 Here's a guideline on how to install Lucee on Win2K3 with IIS6.
 
-* Select Windows version of the Lucee Server and download it from [http://www.getrailo.org/index.cfm/download/](http://www.getrailo.org/index.cfm/download/)
+* Select Windows version of the Lucee Server and download it from [https://lucee.org/downloads.html](https://lucee.org/downloads.html)
 
 * Unizp or execute the file (depending if you selected .zip or .exe) and install it to c:\Lucee
 

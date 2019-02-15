@@ -31,7 +31,7 @@ You can control what URL patters are passed off to Tomcat by updating the main A
 
 So, with this in mind, if your SES URL is suppose to look like this:
 
-	http://getrailo.org/site/contact/business/
+	http://lucee.org/site/contact/business/
 
 Then your Apache config file might look something like this:
 

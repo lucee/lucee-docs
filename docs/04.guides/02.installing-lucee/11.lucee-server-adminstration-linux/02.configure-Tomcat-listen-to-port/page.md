@@ -52,7 +52,7 @@ Once we have authbind installed, we need to configure port 80 as a port that can
 
 	sudo touch /etc/authbind/byport/80
  	sudo chmod 500 /etc/authbind/byport/80
- 	sudo chown [YOUR RAILO USER] /etc/authbind/byport/80
+ 	sudo chown [YOUR LUCEE USER] /etc/authbind/byport/80
 
 Notice the [YOUR] in the command above. This needs to be changed to the user that you're running Tomcat as. For example, if I selected to have my Lucee/Tomcat server run as the "lucee" user, the command I would need to use would be as follows:
 

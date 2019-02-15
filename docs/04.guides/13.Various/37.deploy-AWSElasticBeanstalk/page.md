@@ -17,9 +17,9 @@ Before we get running, let's go and get all the things we need to build both a l
 * Apache Tomcat 6.0 (this is what is deployed in Beanstalk so might as well have a local copy) http://tomcat.apache.org/download-60.cgi
 * AWS Toolkit for Eclipse use the following Eclipse update site: http://aws.amazon.com/eclipse/
 * CFEclipse (if you are going to be editing CFML you might as well get it)use the following update site: http://www.cfeclipse.org/update/
-* Lucee Server as a WAR: just download the all OS WAR version from : http://www.getlucee.org/index.cfm/download/
+* Lucee Server as a WAR: just download the all OS WAR version from : https://download.lucee.org/
 
-2) Sign up and Credentials
+1) Sign up and Credentials
 
 So that you can use Beanstalk you should obviously sign up for it! Head over to http://aws.amazon.com/elasticbeanstalk/ and then you can sign up for an account, once you have been accepted (takes a few seconds really) you should also get your Account info. Sometimes this is misleading so head to your AWS Account page at http://aws.amazon.com/account/: and you will be able to click on "Security Credentials" and make a note of your Access Key ID and Secret Access Key.
 
@@ -57,7 +57,7 @@ Now we are going to deploy Lucee into our WebContent folder. To do this you firs
 Start the server again and if is all working you should get the lucee startup page!
 
 
-You can now do any configuration you need to such as adding a server and web password (under http://localhost:8080/lucee_demo/lucee-context/admin/web.cfm). Once you have done this, make sure (and click refresh on the WEB-INF folder) that under WebContent/WEB-INF/lucee/ you have a lucee-web.xml file This is the Lucee settings file that saves the passwords and it's important that it's deployed with the project, so that DSN's and other settings can be deployed with your project. (thanks to Dough Hughes for spotting this)
+You can now do any configuration you need to such as adding a server and web password (under http://localhost:8080/lucee_demo/lucee/admin/web.cfm). Once you have done this, make sure (and click refresh on the WEB-INF folder) that under WebContent/WEB-INF/lucee/ you have a lucee-web.xml file This is the Lucee settings file that saves the passwords and it's important that it's deployed with the project, so that DSN's and other settings can be deployed with your project. (thanks to Dough Hughes for spotting this)
 
 5) Deploy to BeanStalk
 

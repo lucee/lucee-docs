@@ -1,5 +1,5 @@
 ---
-title: LuceeLicense
+title: Lucee License
 id: lucee-server-license
 ---
 
@@ -39,4 +39,4 @@ If you modified the source, you must provide us a patch of what was modified.
 
 ### How does Lucee make money or stay in business? ###
 
-Lucee Technologies offers: Paid Extensions (cluster scope, cfvideo and more!), [Professional services](), [Support contracts](http://www.getrailo.com/index.cfm/services/consulting/) with full SLA Training
+Lucee is run by a Swiss association called the Lucee Association Switzerland, which is financially supported by it's members. The members of the association pay a monthly fee to be a member and in return get to help shape the future of the Lucee Project. The association also has corporate and individual supporters who also contribute financially towards supporting the Lucee project.

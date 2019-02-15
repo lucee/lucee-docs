@@ -7,8 +7,6 @@ id: lucee-lockdown-guide
 
 * OWASP Securing Tomcat: [https://www.owasp.org/index.php/Securing_tomcat](https://www.owasp.org/index.php/Securing_tomcat)
 
-* Lucee installation on CentOS Best Practices : [http://blog.getlucee.com/assets/content/LuceeInstallationonCentOSLinux6BestPractices.pdf](http://blog.getlucee.com/assets/content/LuceeInstallationonCentOSLinux6BestPractices.pdf)
-
 * Lucee Admin Lock down guide for IIS : [https://www.youtube.com/watch?v=dYt4rap7LWQ](https://www.youtube.com/watch?v=dYt4rap7LWQ)
 
 * Pete Freitag on securing lucee-context : [ http://www.petefreitag.com/item/715.cfm]( http://www.petefreitag.com/item/715.cfm)
@@ -39,19 +37,19 @@ An Apache directive that restricts access to /lucee-context, as an example, is g
 </Location>
 ```
 
-In the above example, only the localhost IP address, 127.0.0.1, would be allowed to navigate to any url that contains /lucee-context. This directive effectively blocks access to URL's that begin with /lucee-context/ from any other IP address, cutting off any exploits that attempt to use resources located under /lucee-context.
+In the above example, only the localhost IP address, 127.0.0.1, would be allowed to navigate to any url that contains /lucee-context. This directive effectively blocks access to URL's that begin with /lucee/ from any other IP address, cutting off any exploits that attempt to use resources located under /lucee-context.
 
-So far, so good. But then how can admins access the admin panels such as /lucee-context/admin/server.cfm if they don't have physical access to the server???
+So far, so good. But then how can admins access the admin panels such as /lucee/admin/server.cfm if they don't have physical access to the server???
 
-There is a relatively simple technique called SSH tunneling which will allow an administrator to log into a web server with URI's restricted to 127.0.0.1 as in the above directive. In a nutshell, the admin logs onto the server using SSH with the -D flag and a free local port of your choice, and then sets up a browser to use the server, via the local port specified, as a proxy. The net effect is that once the admin is logged into the server via SSH and has the browser properly set, browsing to 127.0.0.1/lucee-context/admin/server.cfm opens the login screen on the server, not on the local machine!
+There is a relatively simple technique called SSH tunneling which will allow an administrator to log into a web server with URI's restricted to 127.0.0.1 as in the above directive. In a nutshell, the admin logs onto the server using SSH with the -D flag and a free local port of your choice, and then sets up a browser to use the server, via the local port specified, as a proxy. The net effect is that once the admin is logged into the server via SSH and has the browser properly set, browsing to 127.0.0.1/lucee/admin/server.cfm opens the login screen on the server, not on the local machine!
 
-This approach allows one to lock down potentially vulnerable URI's and still allow an admin to access them securely, over an encrypted connection, from any IP address, no matter where they happen to be when a difficulty with the server arises. An encrypted connection is an added bonus, because it will prevent a hacker from gaining access to the admin credentials if your internet connection is compromised in some way with a packet sniffer, for instance. And SSH tunneling is much easier to setup compared to configuring https for /lucee-context/ access. And it is much more portable! You can leave a particular browser set up to use a proxy connection, as detailed below, simply add the -D flag when shhing into a server, and you can use this technique to securely access a restricted admin area of any number of servers.
+This approach allows one to lock down potentially vulnerable URI's and still allow an admin to access them securely, over an encrypted connection, from any IP address, no matter where they happen to be when a difficulty with the server arises. An encrypted connection is an added bonus, because it will prevent a hacker from gaining access to the admin credentials if your internet connection is compromised in some way with a packet sniffer, for instance. And SSH tunneling is much easier to setup compared to configuring https for /lucee/ access. And it is much more portable! You can leave a particular browser set up to use a proxy connection, as detailed below, simply add the -D flag when shhing into a server, and you can use this technique to securely access a restricted admin area of any number of servers.
 
 Detailed instructions for SSH tunneling:
 
 1. ssh into a server using the -D flag, example: ssh -D 60001 user@102.103.108.39
 
-1. In your web browser, setup your proxy to point to "localhost", your port (for our example our port is 60001), using SOCKS5. This should work with any browser. Using Firefox as an example, here's how to do that:
+2. In your web browser, setup your proxy to point to "localhost", your port (for our example our port is 60001), using SOCKS5. This should work with any browser. Using Firefox as an example, here's how to do that:
 
 
 * Go to Preferences

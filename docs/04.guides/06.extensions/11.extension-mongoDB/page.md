@@ -15,7 +15,7 @@ These instructions are geared towards the beta version currently
 
 Installing the MongoDB Cache Extension, is fairly straight forward.
 
-1. Go to the server administrator of your lucee installation, for example: http://localhost/lucee-context/admin/server.cfm
+1. Go to the server administrator of your lucee installation, for example: http://localhost/lucee/admin/server.cfm
 
 1. Under Extension/Applications you should see that under the "Not Installed" extensions there is "Mongo DB Cache"
 

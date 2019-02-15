@@ -69,9 +69,7 @@ Detailed instructions for SSH tunneling:
 4) Note that the port chosen is arbitrary, it only has to be available and match in both the -D flag and SOCKS port setting.
 
 
-## Some Good Resources written for Railo that can be adapted for Lucee ##
+## Some Good Resources written for Lucee that can be adapted for Lucee ##
 
 * [OWASP Securing Tomcat](https://www.owasp.org/index.php/Securing_tomcat)
-* [Railo installation on CentOS Best Practices](http://blog.getrailo.com/assets/content/RailoInstallationonCentOSLinux6BestPractices.pdf)
-* [Railo Admin Lock down guide for IIS (What can be adapted)](https://www.youtube.com/watch?v=dYt4rap7LWQ)
 * [Pete Freitag on securing railo-context](http://www.petefreitag.com/item/715.cfm)

@@ -65,8 +65,6 @@ There's a great community behind Lucee Server, but if your project needs more, L
 
 We offer a range of training, support packages & consultancy services to get your project on track and keep it there. Whether you need up-front consultancy about the best way to design your project, or ongoing support for your developers, we can help.
 
-Check out our [support](http://www.getlucee.com/index.cfm/support/), [training](http://www.getlucee.com/index.cfm/support/) and [consulting](http://www.getlucee.com/index.cfm/consulting/) pages for details.
-
 ### Open bug tracking ###
 
-If you want to request a feature or discover a bug, you'll find our open bug tracking server on [JBoss](http://issues.jboss.org/browse/RAILO).
+If you want to request a feature or discover a bug, you'll find our open bug tracking server [here](https://luceeserver.atlassian.net/).
