@@ -389,9 +389,9 @@ The BETA version of the Lucee 3.1 installer was released to the "lucee-dev" mail
 
 	The administration URL's will be as follows:
 	Admin:
-	http://[SERVER IP ADDRESS]/lucee-context/admin/server.cfm
+	http://[SERVER IP ADDRESS]/lucee/admin/server.cfm
 	ROOT WebApp:
-	http://[SERVER IP ADDRESS]/lucee-context/admin/web.cfm
+	http://[SERVER IP ADDRESS]/lucee/admin/web.cfm
 
 	Things to look for while testing:
 

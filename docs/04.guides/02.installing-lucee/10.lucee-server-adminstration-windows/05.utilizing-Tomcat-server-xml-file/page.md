@@ -9,7 +9,7 @@ Adding Hosts and Contexts
 
 By default, the Tomcat server.xml file can be found at the following URL:
 
-	C:\railo\tomcat\conf\server.xml
+	C:\lucee\tomcat\conf\server.xml
 
 Open the file in notepad (you don't want additional formatting characters in there) and scroll to the bottom, where you will see something similar to the following:
 
@@ -38,30 +38,29 @@ Open the file in notepad (you don't want additional formatting characters in the
 Just copy the example entry and match up the two areas in square brackets with real information. Something like this:
 
 ```lucee
-<Host name="getrailo.org" appBase="webapps"
+<Host name="lucee.org" appBase="webapps"
      unpackWARs="true" autoDeploy="true"
      xmlValidation="false" xmlNamespaceAware="false">
-     <Context path="" docBase="/home/railo/getrailo.org/" />
+     <Context path="" docBase="/home/lucee/lucee.org/" />
 </Host>
 ```
 
 If this domain can be found using more then one domain, just add an alias entry, like this:
 
 ```lucee
-<Host name="getrailo.org" appBase="webapps"
+<Host name="lucee.org" appBase="webapps"
 	unpackWARs="true" autoDeploy="true"
 	xmlValidation="false" xmlNamespaceAware="false">
-	<Context path="" docBase="/home/railo/getrailo.org/" />
-	<Alias>www.getrailo.org</alias>
-	<Alias>web.getrailo.org</alias>
-	<Alias>railo.ch</alias>
-	<Alias>www.railo.ch</alias>
+	<Context path="" docBase="/home/lucee/lucee.org/" />
+	<Alias>www.lucee.org</alias>
+	<Alias>web.lucee.org</alias>
+	<Alias>lucee.org</alias>
 </host>
 ```
 
 **IMPORTANT:** Wildcards are NOT currently supported by . So, the following will NOT work:
 
-	<Alias>*.getrailo.com</alias> #WILL NOT WORK
+	<Alias>*.lucee.org</alias> #WILL NOT WORK
 
 After you've updated the server.xml file, you will need to restart Lucee/Tomcat in order for the changes to take effect.
 

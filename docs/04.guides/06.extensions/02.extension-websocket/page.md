@@ -23,7 +23,7 @@ The gateway can also being invoked via SendGatewayMessage so to allow your app t
 
 ### Installing the Extension ###
 
-You can install the extension by adding the provider <http://preview.getlucee.org/ExtensionProvider.cfc> to your Providers section in the Lucee Web administration panel (not the Server administration panel). Then select the Websocket Gateway Extension app and simply click on the Install button.
+You can install the extension by adding the provider <http://preview.lucee.org/ExtensionProvider.cfc> to your Providers section in the Lucee Web administration panel (not the Server administration panel). Then select the Websocket Gateway Extension app and simply click on the Install button.
 
 ### Create the gateway instance ###
 

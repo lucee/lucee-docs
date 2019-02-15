@@ -13,9 +13,9 @@ Installation
 
 Installing the Membase Cache Extension, is fairly straight forward.
 
-1. Go to the server administrator of your lucee installation, for example: http://localhost/lucee-context/admin/server.cfm
+1. Go to the server administrator of your lucee installation, for example: http://localhost/lucee/admin/server.cfm
 
-1. Under Extensions/Providers make sure that [http://preview.getlucee.org/ExtensionProvider.cfc](http://preview.getlucee.org/ExtensionProvider.cfc) exists in your providers list. If not add and verify it.
+1. Under Extensions/Providers make sure that [http://preview.lucee.org/ExtensionProvider.cfc](http://preview.lucee.org/ExtensionProvider.cfc) exists in your providers list. If not add and verify it.
 
 1. Under Extension/Applications you should see that under the "Not Installed" extensions there is "Membase Cache"
 

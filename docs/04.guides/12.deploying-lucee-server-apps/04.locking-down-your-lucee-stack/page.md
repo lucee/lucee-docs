@@ -23,7 +23,7 @@ Block Public Access to the Lucee Administrators
 If you are using RHEL/CentOS, you can add the following to your Apache config in order to deny access to all but approved IP's:
 
 ```lucee
-<Location /lucee-context/admin>
+<Location /lucee/admin>
 Order deny,allow
 Deny from all
 Allow from 192.168.254.250
@@ -31,7 +31,7 @@ Allow from 127.0.0.1
 </location>
 ```
 
-If assets in the lucee-context are not needed (ie: if you're not using cfform or something similar), then you may block the entire /lucee-context/ instead of just the administrator subdirectory.
+If assets in the lucee-context are not needed (ie: if you're not using cfform or something similar), then you may block the entire /lucee/ instead of just the administrator subdirectory.
 
 
 ### Ensure the JVM is up to Date ###

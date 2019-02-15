@@ -14,7 +14,7 @@ For this exercise in building a Lucee Extension, we're going to be building one 
 * A CFC named ExtensionProvider.cfc
 * A Database Server like MySQL or SQL Server
 
-Go to the [Lucee Extension Store](http://www.getrailo.org/index.cfm/extensions)
+Go to the [Lucee Extension Store](https://download.lucee.org/)
 
 ### Background information ###
 

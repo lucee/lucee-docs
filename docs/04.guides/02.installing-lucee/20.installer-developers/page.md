@@ -13,7 +13,7 @@ The following is a list of people who have contributed their time and resources 
 
 ### Jordan Michaels (Project Coordinator) ###
 
-Jordan Michaels currently participates in the Railo Team as the Community Deployments Coordinator, where his duties include coordinating efforts and documentation on how to deploy Railo in various environments. Jordan has been a CFML enthusiast and developer for just over 8 years and is now co-owner of Vivio Technologies where he operates as CEO. Jordan is an active participant in the CFML community providing evangelism, community support, and has printed various articles on CFML. Jordan is also an amateur musician and science buff. Jordan currently resides with his wife and two sons in WA state, USA.
+Jordan has been a CFML enthusiast and developer for just over 8 years and is now co-owner of Vivio Technologies where he operates as CEO. Jordan is an active participant in the CFML community providing evangelism, community support, and has printed various articles on CFML. Jordan is also an amateur musician and science buff. Jordan currently resides with his wife and two sons in WA state, USA.
 
 Blog: [http://utdream.org](http://utdream.org/)
 Twitter: [http://twitter.com/utdream](http://twitter.com/utdream)
