@@ -18,7 +18,7 @@ The main focus of Kabang is to improve the Lucee Administrator and debugging out
 
 In admin - > overview page now has four graphs which contain details about the heap memory and non-heap memory , CPU (Whole System, Lucee Process)
 
-![Charts](/images/Kabang/charts.png)
+![Charts](/docs/_images/kabang/charts.PNG)
 
 
 You can view the detailed information about Scopes in Memory, Request/CF Threads, Datasource Connections, Task Spooler
