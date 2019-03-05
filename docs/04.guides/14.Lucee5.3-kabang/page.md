@@ -33,7 +33,7 @@ Datasource Connections-  Open datasource connections.
 Task Spooler: Active and failed tasks in the Task Spooler.  This includes tasks to send E-mail messages.
 
 
-![scopesImages](/images/Kabang/scopesImages.png)
+![scopesImages](/docs/_images/kabang/scopesImages.png)
 
 
 #### Extensions ####
@@ -43,13 +43,13 @@ Under Server Admin -> Applications, you can view the extensions: installed exten
 You can enable them as you like or disable them.
 
 
-![Extension Not Installedd](/images/Kabang/extNotInstalled.png)
+![Extension Not Installedd](/docs/_images/kabang/extNotInstalled.png)
 
 
 Simarly, you can view the extensions installed. Go to the detail page of the extension and see the Releases, Pre Release, and Snapshots for that extension. This allows us to handle different kinds of updates without changing the provider.
 
 
-![Detail of the extension](/images/Kabang/detailExtension.png)
+![Detail of the extension](/docs/_images/kabang/detailExtension.png)
 
 
 #### Core Update ####
@@ -62,7 +62,7 @@ You can view the Lucee core update provider. Here also we can see three kinds of
 There is an overview of which versions are available without changing the provider.
 
 
-![update provider](/images/Kabang/updateProvider.png)
+![update provider](/docs/_images/kabang/updateProvider.png)
 
 ### Lucee Bundle Info ###
 
@@ -77,13 +77,13 @@ In the debug output we added two additional tabs: Metric and Reference
 
 * Metrics tab - > This tab provides the same information you saw on the Admin overview page. There are four graphs which contain details about the heap memory and non-heap memory, CPU (Whole System, Lucee Process), and scope details what we see in overview page of the admin.
 
-![Metric Tab](/images/Kabang/MetricsTab.png)
+![Metric Tab](/docs/_images/kabang/MetricsTab.png)
 
 
 
 * Reference - > In the reference tab we can reference the Lucee documentation.
 
-![Reference Tab](/images/Kabang/Referncetab.png)
+![Reference Tab](/docs/_images/kabang/Referncetab.png)
 
 
 
@@ -188,7 +188,7 @@ BufferOutput is no longer used by default. Buffering the output slows the tag be
 In Lucee Kabang, you can log to the datasource instead of only files. Go to admin - > Settings -> logging, edit the log file which you want to store into database.
 
 
-![Logging](/images/Kabang/logging.png)
+![Logging](/docs/_images/kabang/logging.png)
 
 You can select the datasource, create the name of the table and pass the custom data that will be provided with every log entry.
 
