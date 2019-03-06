@@ -8,7 +8,7 @@ related:
 
 # How to define a regular Mapping #
 
-Lucee allows you to define a mappings to a specific location in a filesystem, so you don't always have to use the full path, in most cases the full path is not working anyway, for example with <cfinclude> does not work with a full path.
+Lucee allows you to define a mappings to a specific location in a filesystem, so you don't always have to use the full path, in most cases the full path is not working anyway, for example with &LT;cfinclude&GT; does not work with a full path.
 This is supported with all filesystems Lucee supports (local,ftp,http,ram,zip,s3 ...).
 
 ## Create a regular Mapping in the Administrator ##
