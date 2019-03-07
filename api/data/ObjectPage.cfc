@@ -14,8 +14,13 @@ component accessors=true extends="Page" {
 		var usage = this.getTitle() & "(";
 		var delim = " ";
 		var optionalCount = 0;
+		var skip = true; // to skip first argument
 
 		for( var argument in this.getArguments() ) {
+			if ( skip ) {
+				skip = false;
+				continue;
+			}
 			if ( !argument.required ) {
 				usage &= " [";
 				optionalCount++;
