@@ -47,6 +47,10 @@ component accessors=true extends="Page" {
 	}
 
 	public array function getArguments() {
-		return IsNull( this.arguments ) ? [] : this.arguments;
+		var args = Duplicate( IsNull( this.arguments ) ? [] : this.arguments );
+		if ( ArrayLen( args ) >= 1 ) {
+			args.deleteAt( 1 );
+		}
+		return args;
 	}
 }

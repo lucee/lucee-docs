@@ -232,8 +232,8 @@ function test(string url){
     writeDump(url);// in ACF outputs the string passed, in Lucee Server the url scope
 }
 
-test("http://getLucee.org");
-url="http://getLucee.org"; // same as variables.url="http://getLucee.org"; in Lucee Server and ACF
+test("http://lucee.org");
+url="http://lucee.org"; // same as variables.url="http://lucee.org"; in Lucee Server and ACF
 
 qry=querynew('url');
 queryAddrow...

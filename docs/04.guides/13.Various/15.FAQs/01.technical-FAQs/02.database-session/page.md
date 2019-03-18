@@ -14,7 +14,7 @@ Why you want to use database for session data storage:
 
 * Create empty database on your MySQL server. e.g. CREATE DATABASE rsessions;
 
-* Open Lucee Web Administrator (your hostname/lucee-context/admin/web.cfm) -> Services -> Datasource
+* Open Lucee Web Administrator (your hostname/lucee/admin/web.cfm) -> Services -> Datasource
 
 Create new MySQL datasource.
 

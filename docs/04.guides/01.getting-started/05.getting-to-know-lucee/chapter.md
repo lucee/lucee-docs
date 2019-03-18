@@ -128,23 +128,3 @@ Since then, CFML has been enhanced over successive versions, helped by the intro
 [[lucee-server-compared-with-dotnet]]
 
 [[lucee-server-compared-with-java]]
-
-
-## Quick history of Lucee Server ##
-
-###How Lucee Server came to be ###
-
-Lucee started life in 2002 as a student project, which had to compile CFML code into something else. The original choice was that it should convert from CFML to PHP, but the result proved not to be stable or fast enough.
-
-The decision was taken to move to Java, and before long it was clear that the performance was so much better than other CFML engines! So, it was decided to continue the project and produce a brand new server product.
-
-
-### The Lucee Company ###
-
-For many companies, open-source projects aren't suitable perhaps because of lack of support, training or consulting services available. Lucee Technologies, the company originally behind the development of Lucee Server, decided to offer these commercial services to make sure that companies could rely on Lucee Server.
-
-In 2012, at cf.Objective(), the largest conference dedicated to the CFML community, it was announced that a new company, The Lucee Company Ltd was to be launched. Lucee's CEO & CIO both said that the venture would focus on delivering the Lucee Server platform for the foreseeable future.
-
-The Lucee Company was formed by investors from leading CFML users in the US and Europe. Together, the investors will ensure that Lucee Server is expanded, with an emphases on training, documentation, new licensing options, support and consultancy.
-
-Read more about this in the [press announcement](http://www.getrailo.com/index.cfm/about-us/news/railo-announces-launch-of-investor-backed-global-venture/) by Lucee's CEO, Gert Franz.

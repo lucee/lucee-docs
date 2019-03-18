@@ -5,4 +5,4 @@ categories:
 - debugging
 ---
 
-Returns the number of milliseconds since the start of the application server
+Returns the native system time in milliseconds.

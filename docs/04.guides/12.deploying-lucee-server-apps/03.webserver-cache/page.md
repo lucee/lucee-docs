@@ -26,9 +26,9 @@ Query Cache    |  Button  | Allows flushing the queries that are in the query ca
 Let’s have a look what impact this setting has on a normal request. We will test the following code: 
 
 ```lucee
-&lt;cfloop from=&quot;1&quot; to=&quot;10000&quot; index=&quot;i&quot;&gt;&lt;/cfloop&gt;
-	&lt;cfinclude template=&quot;susi.cfm&quot;&gt;
-&amp;lt;/cfloop&amp;gt;&lt;/cfinclude&gt;
+<cfloop from="1" to="10000" index="i">
+	<cfinclude template="susi.cfm"></cfinclude>
+</cfloop>
 ```
 
 The code might not make a lot of sense, but it should just simulate an everyday example. Here are the results with the different settings:

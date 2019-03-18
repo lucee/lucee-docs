@@ -23,4 +23,4 @@ Here is a list of requested pages/articles/tasks to add to the wiki:
 * Higher priority documentation for Lucee exclusive features and compatibility differences.
 * Consider integrating a comments widget that is unique for each documentation page
 * Consider integrating links to the online documentation, google groups and lucee blog in lucee admin
-* Something about catching timeouts. Note from Matt Q: To be clear, the correct thing to do is change the "General Error Template" that's set at ```/lucee-context/admin/web.cfm?action=server.error ??```
+* Something about catching timeouts. Note from Matt Q: To be clear, the correct thing to do is change the "General Error Template" that's set at ```/lucee/admin/web.cfm?action=server.error ??```

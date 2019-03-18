@@ -7,7 +7,6 @@ The following people contributed to the authoring of the Security and Best Pract
 
 ### Authors ###
 
-* Gert Franz ([gert@getrailo.com](mailto:gert@getrailo.com))
 * Jordan Michaels ([jordan@viviotech.net](mailto:jordan@viviotech.net))
 
 ### Contributors ###

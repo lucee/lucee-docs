@@ -79,6 +79,4 @@ This is the temporary location where all the new links will be added.
 
 [[deploy-awsElasticBeanStakk]]
 
-[[lucee-ch-faq]]
-
 [[cfadmin-docs]]

@@ -7,7 +7,7 @@ The easiest way to get started with Lucee is by using Ortus Solutions' [CommandB
 
 ## 1. Install Commandbox
 
-You will need to install version 2.0.0 or later of CommandBox. Follow the instructions for your operating system here: [http://ortus.gitbooks.io/commandbox-documentation/content/setup/installation.html](http://ortus.gitbooks.io/commandbox-documentation/content/setup/installation.html).
+You will need to install version 2.0.0 or later of CommandBox. Follow the instructions for your operating system here: [https://commandbox.ortusbooks.com/getting-started-guide](https://commandbox.ortusbooks.com/getting-started-guide).
 
 ## 2. Start up a Lucee server through CommandBox
 
@@ -21,7 +21,7 @@ Type the following command at the command prompt:
 
 The Lucee server will then start on a random port and open in your default browser and show a directory listing for the directory in which you started it, which is currently empty.
 
->>>>>> You can find out more about CommandBox's embedded server, and the `server start` command, here: [http://ortus.gitbooks.io/commandbox-documentation/content/embedded_server/embedded_server.html](http://ortus.gitbooks.io/commandbox-documentation/content/embedded_server/embedded_server.html)
+>>>>>> You can find out more about CommandBox's embedded server, and the `server start` command, here: [https://commandbox.ortusbooks.com/embedded-server](https://commandbox.ortusbooks.com/embedded-server)
 
 ## 3. "Hello world" index.cfm
 

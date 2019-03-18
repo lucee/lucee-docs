@@ -28,13 +28,13 @@ I’m really not a Lucee or Java expert, feel free to comment and revise the doc
 
 	apt-get install fontconfig ttf-mscorefonts-installer
 
-### Lucee 4.0 ###
+### Lucee 5 ###
 
 I will first install the .war and let Tomcat to deploy it. After that, move the lucee lib to a lib directory inside the tomcat7 system installation:
 
 ```lucee
-wget http://www.getlucee.org/down.cfm\?item=/lucee/remote/download/4.0.2.002/custom/all/lucee-4.0.2.002.war\&thankyou=false -O lucee-4.0.2.002.war
-cp  lucee-4.0.2.002.war /var/lib/tomcat7/webapps/lucee.war
+wget https://cdn.lucee.org/lucee-5.2.9.31.war -O lucee-5.2.9.31.war
+cp lucee-5.2.9.31.war /var/lib/tomcat7/webapps/lucee.war
 service tomcat7 start
 mkdir /usr/share/tomcat7/lucee
 cp -R /var/lib/tomcat7/webapps/lucee/WEB-INF/lib/* /usr/share/tomcat7/lucee
@@ -208,7 +208,7 @@ Disable the original tomcat7:
 
 Now you can access to each instance in the ports 8081, 8082 and 8083. Remember, each instance have a Lucee server page and configuration:
 
-	http://mysite.com:8081/lucee-context/admin/server.cfm
+	http://mysite.com:8081/lucee/admin/server.cfm
 
 ### APACHE ###
 
@@ -268,7 +268,7 @@ Enable the site and reload apache:
 	a2ensite mysite.com
 	service apache2 restart
 
-Copy your application in /var/www/mysite/ and now we can go to [http://www.mysite.com](http://www.mysite.com/) Lucee admin can be reached at [http://www.mysite.com/lucee-context/admin/server.cfm](http://www.mysite.com/lucee-context/admin/server.cfm)
+Copy your application in /var/www/mysite/ and now we can go to [http://www.mysite.com](http://www.mysite.com/) Lucee admin can be reached at [http://www.mysite.com/lucee/admin/server.cfm](http://www.mysite.com/lucee/admin/server.cfm)
 
 ### If something goes wrong ###
 

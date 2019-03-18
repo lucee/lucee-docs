@@ -6,4 +6,4 @@ categories:
     - image
 ---
 
-A warp grid. These are passed to the function ImageFilters (see ImageFilter documentation).
+A warp grid. These are passed to the function ImageFilters (see [[function-ImageFilter]] documentation).

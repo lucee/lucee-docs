@@ -74,8 +74,6 @@ Even though under the hood, Lucee handles the fallback to HSQLDB automatically, 
 
 **Keywords and Operators**
 
-At the time of this writing (Lucee 4.2), the following were supported by [Lucee's SQL implementation](https://github.com/getrailo/railo/blob/4.0/railo-java/railo-core/src/railo/runtime/sql/SelectParser.java):
-
 * <=
 * <>
 * =
