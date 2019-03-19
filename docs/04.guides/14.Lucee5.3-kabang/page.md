@@ -1,5 +1,6 @@
 ---
 title: Lucee 5.3 (Kabang) new features
+menuTitle: Lucee 5.3 (Kabang) 
 id: lucee_5.3_features
 ---
 
@@ -261,7 +262,7 @@ Public/Private Key Encryption and Decryption
 	dump(key);
 	
 	
-	raw="Susi Sorglos föhnte Ihr Haar";
+	raw="Susi Sorglos fï¿½hnte Ihr Haar";
 	enc=encrypt(raw,key.private,"rsa");
 	dec=decrypt(enc,key.public,"rsa");
 	dump(enc);
