@@ -30,4 +30,12 @@
         <from>^/assets/.*$</from>
         <to last="true">%{context-path}/index.cfm</to>
     </rule>
+
+     <rule>
+        <note>
+            All image requests to be served by the server too
+        </note>
+        <from>^/images/.*$</from>
+        <to last="true">%{context-path}/index.cfm</to>
+    </rule>
 </urlrewrite>

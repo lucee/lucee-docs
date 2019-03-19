@@ -63,7 +63,9 @@
 		} else if ( path.startsWith( "/assets") or path.startsWith( "/dictionaries" ) ) {
 			_renderAsset();
 		} else if ( path.startsWith( "/static" ) ) {
-				_renderStatic();
+			_renderStatic();
+		} else if ( path.startsWith( "/images" ) ) {
+			_renderImage();		
 		} else if ( path.startsWith( "/editor.html" ) ) {
 			_renderCodeEditor();
 		} else {
@@ -149,6 +151,18 @@
 		setting showdebugoutput="no";
 		header name="cache-control" value="no-cache";
 		content file=assetPath type=_getMimeTypeForAsset( assetPath );
+		abort;
+	}
+	
+	private void function _renderImage() {
+		var imgPath = "/docs/_images" & mid(_getRequestUri(), len("/images "));
+
+		if ( !FileExists( imgPath ) ) {
+			_404(imgPath, "/");
+		}
+		setting showdebugoutput="no";
+		header name="cache-control" value="no-cache";
+		content file=imgPath type=_getMimeTypeForAsset( imgPath );
 		abort;
 	}
 
