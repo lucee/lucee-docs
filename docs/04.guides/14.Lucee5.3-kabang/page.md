@@ -1,4 +1,4 @@
-﻿---
+---
 title: Lucee 5.3 (Kabang) new features
 id: lucee_5.3_features
 ---
@@ -18,7 +18,7 @@ The main focus of Kabang is to improve the Lucee Administrator and debugging out
 
 In admin - > overview page now has four graphs which contain details about the heap memory and non-heap memory , CPU (Whole System, Lucee Process)
 
-![Charts](/docs/_images/kabang/charts.PNG)
+![Charts](/images/kabang/charts.PNG)
 
 
 You can view the detailed information about Scopes in Memory, Request/CF Threads, Datasource Connections, Task Spooler
@@ -33,7 +33,7 @@ Datasource Connections-  Open datasource connections.
 Task Spooler: Active and failed tasks in the Task Spooler.  This includes tasks to send E-mail messages.
 
 
-![scopesImages](/docs/_images/kabang/scopesImages.PNG)
+![scopesImages](/images/kabang/scopesImages.PNG)
 
 
 #### Extensions ####
@@ -43,13 +43,13 @@ Under Server Admin -> Applications, you can view the extensions: installed exten
 You can enable them as you like or disable them.
 
 
-![Extension Not Installedd](/docs/_images/kabang/extNotInstalled.PNG)
+![Extension Not Installed](/images/kabang/extNotInstalled.PNG)
 
 
-Simarly, you can view the extensions installed. Go to the detail page of the extension and see the Releases, Pre Release, and Snapshots for that extension. This allows us to handle different kinds of updates without changing the provider.
+Simarly, you can view the extensions installed. Go to the detail page of the extension and see the Releases, Pre-Release, and Snapshots for that extension. This allows us to handle different kinds of updates without changing the provider.
 
 
-![Detail of the extension](/docs/_images/kabang/detailExtension.PNG)
+![Detail of the extension](/images/kabang/detailExtension.PNG)
 
 
 #### Core Update ####
@@ -62,28 +62,28 @@ You can view the Lucee core update provider. Here also we can see three kinds of
 There is an overview of which versions are available without changing the provider.
 
 
-![update provider](/docs/_images/kabang/updateProvider.PNG)
+![update provider](/images/kabang/updateProvider.PNG)
 
 ### Lucee Bundle Info ###
 
-In kabang you can see more details of the bundle versions. You can also sort the data by clicking on the title.
+In Kabang you can see more details of the bundle versions. You can also sort the data by clicking on the title.
 
 
 ### Debug Output ###
 
-In the debug output we added two additional tabs: Metric and Reference
+In the Debug output we added two additional tabs: Metric and Reference
 
 * Debug Tab -> Here you can view the debugging information detail
 
 * Metrics tab - > This tab provides the same information you saw on the Admin overview page. There are four graphs which contain details about the heap memory and non-heap memory, CPU (Whole System, Lucee Process), and scope details what we see in overview page of the admin.
 
-![Metric Tab](/docs/_images/kabang/MetricsTab.PNG)
+![Metric Tab](/images/kabang/MetricsTab.PNG)
 
 
 
 * Reference - > In the reference tab we can reference the Lucee documentation.
 
-![Reference Tab](/docs/_images/kabang/Referncetab.PNG)
+![Reference Tab](/images/kabang/Referncetab.PNG)
 
 
 
@@ -99,7 +99,7 @@ You can add custom data to the debug using debugAdd() as shown in the example co
 	"New in Lucee 5.3"
 	,{
 		'Debugging':"debugging provides more data than before"
-		,'Admin':"admin has an improvment version handling"
+		,'Admin':"admin has an improvement version handling"
 	}
 )>
 
@@ -125,7 +125,7 @@ We done it three steps,
 
 #### Move to extensions ####
 
-We removed some core functionality to the extensions. These extensions are installed be default so you don't lose any extensions or functionality. However, if you do not need to use some functionality, you can uninstall the extension. These extensions include Axis, ESAPI, and Image. ALso, since extensions are only loaded when used in Lucee, if you don't use the functionality, they will not get installed.
+We removed some core functionality to the extensions. These extensions are installed be default so you don't lose any extensions or functionality. However, if you do not need to use some functionality, you can uninstall the extension. These extensions include Axis, ESAPI, and Image. Also, since extensions are only loaded when used in Lucee, if you don't use the functionality, they will not get installed.
 
 
 
@@ -142,7 +142,7 @@ Third thing, we have raised the minimal Java requirement to Java 8 to run Kabang
 
 
 
-### Improved Lucee Performance ###.
+### Improved Lucee Performance ###
 
 Kabang reduces CPU usage for executing the same code. We did this with three steps.
 
@@ -169,7 +169,7 @@ Example if the for loop
 	}
 </cfscript>
 ```
-Byte code for the for statement is very complicated and not that fast. You can see the generic loop, but the byte code for the for statement is slower in previous versions because is more generic than what we did with Lucee 5.3. When the for is used in a certain way, we improve byte code and make it more specialized and faster. This is just one example of byte code optomization. 
+Byte code for the for statement is very complicated and not that fast. You can see the generic loop, but the byte code for the for statement is slower in previous versions because is more generic than what we did with Lucee 5.3. When the for is used in a certain way, we improve byte code and make it more specialized and faster. This is just one example of byte code optimization. 
 
 
 #### Bytecode Optimized for Java >=8 ####
@@ -188,7 +188,7 @@ BufferOutput is no longer used by default. Buffering the output slows the tag be
 In Lucee Kabang, you can log to the datasource instead of only files. Go to admin - > Settings -> logging, edit the log file which you want to store into database.
 
 
-![Logging](/docs/_images/kabang/logging.PNG)
+![Logging](/images/kabang/logging.PNG)
 
 You can select the datasource, create the name of the table and pass the custom data that will be provided with every log entry.
 
@@ -247,7 +247,7 @@ Dont forget to include `this.mail.listener=function()` in Application.cfc.
 
 #### RSA Encryption ####
 
-We know Lucee comes with different types of encryption so you can encrypt strings and binary with different encryption. RSA encryption is not simply a new kind of encryption. In RSA encryption we get two keys. One is a private key and the other is a public key. You encrypt with the private key and decrypt with the public key or vice cersa (encrypt with public key and decrypt with private key). 
+We know Lucee comes with different types of encryption so you can encrypt strings and binary with different encryption. RSA encryption is not simply a new kind of encryption. In RSA encryption we get two keys. One is a private key and the other is a public key. You encrypt with the private key and decrypt with the public key or vice versa (encrypt with public key and decrypt with private key). 
 
 
 The idea behind this encryption is you can give out the public key and keep the private key for yourself.
@@ -261,7 +261,7 @@ Public/Private Key Encryption and Decryption
 	dump(key);
 	
 	
-	raw="Susi Sorglos föhnte Ihr Haar";
+	raw="Susi Sorglos f�hnte Ihr Haar";
 	enc=encrypt(raw,key.private,"rsa");
 	dec=decrypt(enc,key.public,"rsa");
 	dump(enc);
@@ -305,8 +305,11 @@ The below example describes how to install an extension using Administrator(). P
 ```luceescript
 // Install Update MongoDB
 admin=new Administrator("server","server");
+
 admin.updateExtension("E6634E1A-4CC5-4839-A83C67549ECA8D5B");
+
 dump(admin.getExtensions());
+
 dump(extensionExists("E6634E1A-4CC5-4839-A83C67549ECA8D5B"));
 ```
 
@@ -314,8 +317,11 @@ dump(extensionExists("E6634E1A-4CC5-4839-A83C67549ECA8D5B"));
 The below example describes how to update an extension version:
 ```luceescript
 admin=new Administrator("server","server");
+
 admin.updateExtension("E6634E1A-4CC5-4839-A83C67549ECA8D5B","3.2.2.52");
+
 dump(admin.getExtensions());
+
 dump(extensionExists("E6634E1A-4CC5-4839-A83C67549ECA8D5B"));
 ```
 
@@ -348,7 +354,7 @@ Passing as an attribute
 <cfdump var="#qry#">
 
 
-Passign sql as an attribute within a script
+Passing sql as an attribute within a script
 
 <cfscript>
 	query name="qry" sql="select 1 as one";
@@ -370,10 +376,11 @@ Lucee 5.3 adds the ability to define FTP credentials in Application.cfc/cfapplic
 In previous versions of Lucee, the ftp credentials were seen in the code like this:
 ```luceescript
 ftp = ftp://#request.ftp.user#:#request.ftp.pass#@ftp53.world4you.com:21/;
+
 dump(directoryList(ftp));
 ```
 
-This does not keep the fcredentials secure. In Lucee 5.3 FTP credentials can be supplied in the Application.cfc as shown in the example below: 
+This does not keep the credentials secure. In Lucee 5.3 FTP credentials can be supplied in the Application.cfc as shown in the example below: 
 ```luceescript
 //application.cfc
 component {
@@ -385,8 +392,11 @@ component {
 
 //index.cfm
 ftp="ftp:///";
+
 ftp="ftp://ftp53.world4you.com:21/";
+
 ftp="ftp://ftp53.world4you.com/";
+
 dump(directoryList(ftp));
 ```
 
@@ -406,7 +416,7 @@ ACF 2018 introduced a lot of new functionality. Luckily, Lucee already supports 
 
 * Final Component and Methods -> Already supported by Lucee
 
-* Optional Semicolons - > In cfscript, Semicolon are optional and already supported by lucee
+* Optional Semicolons - > In cfscript, Semicolon are optional and already supported by Lucee
 
 * Support of Other Cache Engines (Memcache) -> always supported by Lucee
 
@@ -425,7 +435,7 @@ ACF 2018 introduced a lot of new functionality. Luckily, Lucee already supports 
 
 #### Newly Supported in Lucee 5.3 ####
 
- * Null support can be defined in Application.cfc via (this.nullsupport=true), In lucee we have enabled null support enable/disable from admin. Now we support with Application.cfc use like `this.nullsupport = true/fasle;` Or Use like what ACF2018 `this.Enablenullsupport = true/fasle;` 
+ * Null support can be defined in Application.cfc via (this.nullsupport=true), In Lucee we have enabled null support enable/disable from admin. Now we support with Application.cfc use like `this.nullsupport = true/false;` Or Use like what ACF2018 `this.EnableNullSupport = true/false;` 
 
 
  * Adding alias to match named argument names used by ACF. Use the same argument name as ACF2018 does
@@ -442,7 +452,7 @@ There only two backward compatibility issues with Lucee Kabang: Buffer body and 
 
 #### Buffer Body ####
 
-Lucee, by default, no longer buffers the body in a `<cfsilent>`/ `<cffunction output="false"`
+Lucee, by default, no longer buffers the body in a `<cfsilent>`/ `<cffunction output="false"`>
 
 
 #### Minimal Java 8 ####
