@@ -64,6 +64,16 @@ If you nevertheless want to check whether the two strings contain date values, y
 	<cfif parseDateTime(strDate) EQ parseDateTime("01.01.00")>
 ```
 
+### cfproperty ###
+
+Lucee does not support 'lazy' attribute in cfproperty:
+
+```lucee
+<cfscript>
+    property name="Foo" fieldtype="id" fkcolumn="fooid" lazy="true" cfc="foo";
+</cfscript>
+```
+
 ### Date parsing ###
 
 Lucee does not support implicit parsing of a date value in the locale format, for example:
