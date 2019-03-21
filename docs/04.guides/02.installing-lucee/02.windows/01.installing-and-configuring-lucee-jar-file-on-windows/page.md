@@ -6,7 +6,7 @@ id: running-lucee-installing-and-configuring-lucee-jar-file-on-windows
 ![lucee-logo108x45.png](https://bitbucket.org/repo/rX87Rq/images/1133943380-lucee-logo108x45.png)
 ## Installation ##
 
-Lucee needs to be downloaded first from this page: [Lucee Downloads](https://bitbucket.org/lucee/lucee/downloads). Choose the *zip file* containing the **JAR files**.
+Lucee needs to be downloaded first from this page: [Lucee Downloads](https://download.lucee.org). Choose the *zip file* containing the **JAR files**.
 
 1. Create the folder **C:\Program Files\Lucee**
 2. Browse the expanded content in your temporary folder and copy all files to the folder **C:\Program Files\Lucee**
@@ -24,12 +24,12 @@ md D:\Lucee
 
 ## Configuration##
 
-We have to take care, that Apache Tomcat is able find the jar files of Lucee. The file **D:\Tomcat\conf\catalina.properties** needs to be edited. Find the line:
+We have to make sure that Apache Tomcat is able find the Lucee jar files. To do this, we'll need to edit **D:\Tomcat\conf\catalina.properties**. Find the line:
 
 ```
 common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.home}/lib","${catalina.home}/lib/*.jar"
 ```
-Append the path to Lucee's program directory, which is **C:/Program Files/Lucee/*.jar**. Did you notice the *foward slashes*?
+Append the path to Lucee's program directory, which is **C:/Program Files/Lucee/*.jar**. Note the *forward slashes*.
 
 ```
 common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.home}/lib","${catalina.home}/lib/*.jar","C:/Program Files/Lucee/*.jar"
@@ -99,7 +99,7 @@ Below this list, new servlets and their mappings must be added:
 </servlet-mapping>
 ```
 
-*Note:* After the last  **</servlet-mapping>**, the file ends by having the closing **</web-app>**
+*Note:* After the last  **</servlet-mapping>**, the file ends with a closing **</web-app>**
 
 Finally a Java option needs to be added:
 
