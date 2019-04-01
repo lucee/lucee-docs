@@ -4,6 +4,7 @@ id: cookbook-cache-list
 categories:
 - cache
 menuTitle: Cache Connections
+description: List existing Cache Connections
 ---
 
 # List existing Cache Connections available #

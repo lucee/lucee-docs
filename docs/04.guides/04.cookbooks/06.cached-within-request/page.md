@@ -6,6 +6,7 @@ related:
 categories:
 - cache
 menuTitle: Query Caching
+description: Cache a Query for the current request
 ---
 
 ## Cache a Query for the current request ##
