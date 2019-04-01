@@ -56,5 +56,6 @@ fi
 
 echo "Ping search engines with sitemaps"
 
-curl http://google.com/ping?sitemap=http://docs.lucee.org/sitemap.xml
+curl http://google.com/ping?sitemap=https://docs.lucee.org/sitemap.xml
+
 
