@@ -1,0 +1,1 @@
+Width of the captcha.

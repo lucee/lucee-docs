@@ -1,0 +1,1 @@
+The x coordinate of the start point of the quadratic curve segment.
