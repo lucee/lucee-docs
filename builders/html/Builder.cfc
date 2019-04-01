@@ -169,8 +169,10 @@ component {
 		var fileDirectory = GetDirectoryFromPath( filePath );
 
 		//var starttime = getTickCount();
-		if ( !DirectoryExists( fileDirectory ) ) {
-			DirectoryCreate( fileDirectory );
+		lock name="CreateDirectory" timeout=10 {
+			if ( !DirectoryExists( fileDirectory ) ) {
+				DirectoryCreate( fileDirectory );
+			}
 		}
 		var pageContent = cleanHtml(renderPage( arguments.page, arguments.docTree, false ));
 		FileWrite( filePath, pageContent );
