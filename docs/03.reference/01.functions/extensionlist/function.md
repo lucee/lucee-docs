@@ -5,4 +5,4 @@ related:
 categories:
 ---
 
-Checks if a certain extension exists or not.
+Returns a query of installed extensions
