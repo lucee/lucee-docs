@@ -1,0 +1,1 @@
+The x coordinate for the end point of the line.
