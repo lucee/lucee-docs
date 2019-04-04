@@ -42,6 +42,8 @@ or if you are using an Application.cfm,
 lucee <cfapplication pdf="#{type:'classic'}#">
 ```
 
+[Alas, this syntax isn't currently implemented](https://luceeserver.atlassian.net/browse/LDEV-2212)
+
 ### Features of Flying Saucer ###
 
 You can define a font directory where you have the fonts(.ttf,.otf) you are using in your PDF.
