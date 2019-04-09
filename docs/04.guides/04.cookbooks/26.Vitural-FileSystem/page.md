@@ -4,11 +4,11 @@ id: virtual-file-system
 ---
 ## Virtual FileSystems ##
 
-This document explains Virtual Filesytem in lucee
+This document explains virtual file systems in lucee
 
 ### Local File System ###
 
-You may familiar with local file system.
+You may already be familiar with local file systems.
 
 ### Example ###
 Simple example shown below
@@ -24,17 +24,16 @@ Simple example shown below
 </cfscript>
 ```
 
-* getCurrenttemplatepath() return's current template path,
-* getDirectoryFromPath() return's directory,
+* getCurrenttemplatepath() returns current template path,
+* getDirectoryFromPath() returns directory,
 * pass the file path to the fileRead(), to read the content of the file,
 * pass the directory to directoryList(), to list all the directories in the given folder path.
 
-Local file system is default file system in lucee. That mean there is no other definitions always lucee use that file system.
+The local file system is the default file system in Lucee. That means if there is no other definition, Lucee will always use the local file system.
 
+However, you can explicitly define the file system you want to use. To use a local file system, use the "//file" prefix.
 
-But you can explict defined the file system you want to use in case of local system you do that with "//file" prefix.
-
-lucee know you want to use the file system. For local file system is not necessary because it's default file system. Shown example below
+As seen in the example code above, the local file system is the default, so it is not necessary to explicitly define it. The example below shows how you can explicitly define a local file system. The result is the same as the code above.
 
 ```lucee
 <cfscript>
@@ -50,17 +49,13 @@ dump(directoryList(sct.directory));
 </cfscript>
 ```
 
-Results same as above example.
-
 ### ZIP File System ###
 
-Lucee use another file system is ZIP file system.
+Another file system you can use in Lucee is the ZIP file system.
+To tell Lucee to use the ZIP file system, use the prefix "zip://" and end with !
+Now the file path will look like zip://xxx/xxx/xxx/xxx/testbox-2.2.0.zip!
 
-* For zip file system starts with prefix "zip://" because lucee has to know it has to use zip file system.
-* Ends with ```!```.
-* Now file path look's like zip://xxx/xxx/xxx/xxx/testbox-2.2.0.zip!
-
-Detail example given below
+A detailed example is provided below:
 
 ```lucee
 <cfscript>
@@ -79,9 +74,9 @@ echo("<pre>");echo(fileRead(sct.zip&"/testbox/readme.md"));echo("</pre>")
 
 ### Http File System ###
 
-Lucee handle HTTP file system, simply use HTTP URL use like a file system.
+Lucee also handles the HTTP file system. Simply use the HTTP URL like you would use a file system definition.
 
-Given simple example to read the file content from the lucee docs
+The below example shows how to read the file content from the Lucee docs:
 
 ```lucee
 <cfscript>
@@ -93,7 +88,7 @@ Given simple example to read the file content from the lucee docs
 
 ### Ram File System ###
 
-Ram File System is in a memory file system so you can store files in memory by simply use "ram://". Ram files is very faster access than local file system.
+The RAM file system is a memory file system allowing you to store files in memory by simply using "ram://". The RAM file system has much faster access than a local file system.
 
 ```lucee
 <cfscript>
@@ -105,17 +100,16 @@ dump(directoryList(sct.ram));
 </cfscript>
 ```
 
-
-Important point to know, that the ram resource is independent to every context it can't able to share with multiple context.
+Important point to know: the RAM resource is independent to each context. It cannot be shared with multiple contexts.
 
 ### S3 File System ###
 
-S3 is remote file you can use from amazon. You should have credentials for accessing s3 bucket. Use with prefix "s3://"
+S3 is a remote file system you can use from Amazon S3 storage. You will need access credentials for accessing the S3 bucket. Set up the S3 file system using the prefix "s3://"
 
-In lucee we can define it by two ways
+In Lucee, we can define an S3 file system in two ways:
 
-* Define credentials in Application.cfc,
-* Passed credentials with s3 url
+* Define credentials in the Application.cfc file
+* Pass the credentials with the S3 URL
 
 ```lucee
 <cfscript>
@@ -141,7 +135,7 @@ dump(c);
 ```
 ### FTP File System ###
 
-FTP is remote file system. You should have credentials for accessing ftp. Use with prefix "ftp://".
+FTP is a remote file system. You will need access credentials for accessing FTP. Set up an FTP file system using the prefix "ftp://"
 
 
 ```lucee

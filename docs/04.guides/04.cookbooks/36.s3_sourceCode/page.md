@@ -21,7 +21,7 @@ content file = "s3:///cfml1/lucee.png" type = "image/png"
 component{
 	this.name = 'exampleS3';
 	this.s3.accesskeyid = "JHKLJHGSGSGVSGVS";
-	this.s3.secretkey = "Jgftiutry3uwiumcx4bvhjf9ksepu5wrwnvwbh9gj";
+	this.s3.awssecretkey = "Jgftiutry3uwiumcx4bvhjf9ksepu5wrwnvwbh9gj";
 }
 ```
 

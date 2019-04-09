@@ -5,7 +5,7 @@ id: installation-credits
 
 ### Credits ###
 
-* Lucee Engine code developed and maintained by Lucee Technologies GmbH, Switzerland
+* Lucee Engine code developed and maintained by the Lucee Association Switzerland
 * Lucee Installer Software generously donated by [BitRock](http://www.bitrock.com/)
 * Installer development funded by [Vivio Technologies](http://www.viviotech.net/)
 * Installer developed by the Installer Team
