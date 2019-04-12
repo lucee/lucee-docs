@@ -21,11 +21,11 @@ Before you can start building Lucee from source, you will need a few things inst
 
 Lucee's source code is version-controlled with Git,  [Lucee GitHub repository](https://github.com/lucee/lucee).
 
-The repository contains a few branches, with the most important ones being "Master" (current release) and "Develop" (alpha and beta releases).
+The repository contains a few branches, with the most important ones being "Master" (current release) and "Develop" (alpha and beta releases), currently the main branch for development is the 5.3 branch, so best start there.
 
-So simply clone the repository to your local drive with the following command:
+So simply clone the 5.3 branch (or fork your own copy) from the git repository to your local drive with the following command:
 
-    git clone https://github.com/lucee/Lucee.git
+    git clone -b 5.3 https://github.com/lucee/Lucee.git
 
 ### 3. Build it
 
