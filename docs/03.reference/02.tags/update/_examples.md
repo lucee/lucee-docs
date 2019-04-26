@@ -1,1 +1,4 @@
-*There are currently no examples for this tag.*
+### Example content for cfupdate
+```luceescript
+<cfupdate datasource="sample_dsn" tablename="test_tbl">
+```

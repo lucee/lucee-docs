@@ -1,1 +1,4 @@
-*There are currently no examples for this tag.*
+### Simple format for cfzip
+```luceescript
+<cfzip action="unzip" destination="#gettempdirectory()#" file="zippath">
+```

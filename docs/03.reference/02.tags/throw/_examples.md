@@ -1,1 +1,9 @@
-*There are currently no examples for this tag.*
+### Simple Example
+```luceescript+trycf
+	<cftry>
+	  <cfthrow message="test exception"> 
+	  <cfcatch name="test" type="any">
+	    <cfdump var="#cfcatch#">
+	  </cfcatch>
+	</cftry>
+```

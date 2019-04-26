@@ -1,1 +1,4 @@
-*There are currently no examples for this tag.*
+### CFCOOKIE Syntax
+```lucee
+<cfcookie name="cookie" value=Now() domain=".local.com" path="/lucee" expires="10" httponly="yes" encodedvalue="yes" />
+```

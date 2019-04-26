@@ -1,1 +1,4 @@
-*There are currently no examples for this tag.*
+### Syntax for cflocation
+```lucee
+<cflocation url="filename.ext" addToken="false">
+```

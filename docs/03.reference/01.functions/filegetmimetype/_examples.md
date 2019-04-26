@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript
+file = filegetmimetype(filepath/filename.ext);
+writeDump(file);
+```

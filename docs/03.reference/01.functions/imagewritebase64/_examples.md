@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript
+	imgObj = imageNew("",200,200,"rgb","red");
+	imgObj.writeBase64('base64.txt','jpg','true');
+```

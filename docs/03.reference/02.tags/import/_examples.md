@@ -1,1 +1,4 @@
-*There are currently no examples for this tag.*
+### Format for cfimport
+```lucee
+<cfimport taglib="lib" prefix="t">
+```

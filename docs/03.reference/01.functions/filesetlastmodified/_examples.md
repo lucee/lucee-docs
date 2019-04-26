@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript
+filesetlastmodified(expandPath("./testcase.txt"),#dateAdd("d", 2, now())#);
+writeDump(getfileinfo(expandPath("./testcase.txt")).lastmodified);
+```

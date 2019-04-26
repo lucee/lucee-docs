@@ -1,1 +1,10 @@
-*There are currently no examples for this tag.*
+### Simple example with cfcatch
+```luceescript+trycf
+<cftry>
+  <cfset a = 3/0>
+  <cfdump var="#c#" />  
+  <cfcatch>
+    <cfdump var="#cfcatch#">
+  </cfcatch>
+</cftry>
+```
