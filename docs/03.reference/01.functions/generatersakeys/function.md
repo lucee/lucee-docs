@@ -1,5 +1,5 @@
 ---
-title: generateRSAkeys
+title: GenerateRSAkeys
 id: function-generatersakeys
 related:
 - function-decrypt
