@@ -1,10 +1,10 @@
 ---
-title: runasync
+title: runAsync
 id: function-runasync
-related:
 categories:
-    - async
-    - thread
-    - future
+- async
+- future
+- thread
 ---
+
 
