@@ -4,6 +4,8 @@ id: function-randrange
 related:
 - function-randomize
 categories:
+- crypto
+- math
 - number
 description: Generates a random integer between two specified numbers.
 ---
