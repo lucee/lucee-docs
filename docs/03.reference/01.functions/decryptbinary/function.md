@@ -2,8 +2,10 @@
 title: DecryptBinary
 id: function-decryptbinary
 related:
+- function-encryptbinary
 categories:
-    - binary
+- binary
+- crypto
 ---
 
 Decrypts the given binary with the optional parameters
