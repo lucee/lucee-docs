@@ -1,12 +1,16 @@
 ---
 title: Thread Task
-id:  thread_task
+id: thread_task
 related:
 - tag-thread
+categories:
+- thread
+description: 'How to use Thread Tasks '
 ---
+
 ## Thread Task ##
 
-This document explains about the thread task. It useful to know the differences between regular threads and task threads.
+This document explains about the thread tasks. It useful to know the differences between regular threads and task threads.
 
 When a regular thread throws an exception, the default exception type is ``type='deamon'``. After an exception, the thread is dumped. If a regular thread is terminated due to an error, the information from the thread will be output with a 'terminated' status.
 
@@ -16,12 +20,12 @@ Regular Threads have the following characteristics:
 
 2) **Runs only once** : The thread runs only once. It ends at the end of the Cfthread tag or if there is an exception.
 
-3) **It fails when it fails** : There is no special exception handling so when the thread fails it fails unless you have Cftry,cfcatch inside the thread and you have exception handling there. 
+3) **It fails when it fails** : There is no special exception handling so when the thread fails it fails unless you have Cftry, cfcatch inside the thread and you have exception handling there. 
 
 
 ### Example 1 :###
 
-In addition to deamon (regular) threads, Lucee also supports task threads. The main differences is that task threads execute completely independant of the request that is calling the thread. We log the thread and can re-execute it.
+In addition to deamon (regular) threads, Lucee also supports task threads. The main differences is that task threads execute completely Independent of the request that is calling the thread. We log the thread and can re-execute it.
 
 This example shows a task thread. It is similar to the deamon thread, but we do not have the join and output of the thread because these are not allowed with a task thread.
 
@@ -37,12 +41,12 @@ Note that when you execute example code, you will get no output. This is expecte
 
 However, view the Lucee _Admin --> Services --> Tasks_ and see the name of the tasks and their ``Type`` is cfthread. It could be mail or other tasks. 
 
-We see the ``Nunber of tries`` is 1 because we only ran it once. When we go to detailed view, we see the exception that was thrown by the task, the template where it was executes, and the state. (The state is closed in this case.)
+We see the ``Number of tries`` is 1 because we only ran it once. When we go to detailed view, we see the exception that was thrown by the task, the template where it was executes, and the state. (The state is closed in this case.)
 
 
 ### Example 2 : ###
 
-This example shows how to create a retry interval. A retryinterval is useful when a task fails and you want to try it again. For example if you are contacting an external service and it does not always respond.
+This example shows how to create a retry interval. A retry interval is useful when a task fails and you want to try it again. For example if you are contacting an external service and it does not always respond.
 
 ```luceescript
 thread name="test" type="task" 
