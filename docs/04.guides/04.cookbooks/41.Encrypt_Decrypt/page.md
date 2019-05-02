@@ -1,7 +1,16 @@
 ---
 title: Encryption/Decryption with public and private keys
 id: encryption_decryption
+related:
+- function-decrypt
+- function-encrypt
+- function-generatersakeys
+categories:
+- crypto
+description: This document explains about Encryption/Decryption with public and private keys with simple examples.
+menuTitle: 'Public and Private keys '
 ---
+
 ## Encryption/Decryption ##
 
 This document explains about Encryption/Decryption with public and private keys with simple examples.
@@ -39,7 +48,7 @@ enc=encrypt(raw,key.private,"rsa");
 dump(enc);
 ```
 
-We now create RSA keys using the ``generateRSAKeys()`` function, and then use the key to encrypt using encrypt(). The encrypt() function has some arguments. It has ``key.private`` which defines the key as the private key, and ``rsa`` indicates use of the RSA encryption algorithm. Then run the dump in the browser and we see the encrypted string for your input string.
+We now create RSA keys using the [[function-generatersakeys]] function, and then use the key to encrypt using the [[function-encrypt]] function. The encrypt() function has some arguments. It has ``key.private`` which defines the key as the private key, and ``rsa`` indicates use of the RSA encryption algorithm. Then run the dump in the browser and we see the encrypted string for your input string.
 
 
 
@@ -53,7 +62,7 @@ dec=decrypt(enc,key.public,"rsa");
 dump(dec);
 ```
 
-This is full detailed example of encrypt/decrypt functions. We create a key and we encrypt with the private key. Then we decrypt with the public key.  Then run the dump in the browser and we see the original string returned as expected.
+This is full detailed example of encrypt/decrypt functions. We create a key and we encrypt with the private key. Then we [[function-decrypt]] with the public key.  Then run the dump in the browser and we see the original string returned as expected.
 
 
 ### Footnotes ###
