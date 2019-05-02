@@ -1,1 +1,3 @@
-*There are currently no examples for this function.*
+```luceescript
+ fileSetAccessMode("sample_test.txt", "004"); 
+```

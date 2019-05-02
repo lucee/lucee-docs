@@ -1,1 +1,4 @@
-*There are currently no examples for this tag.*
+### Sample syntax
+```lucee
+ <cfproperty name="UnitId" column="unit_id" unique="true" fieldtype="id" type="string" />
+```

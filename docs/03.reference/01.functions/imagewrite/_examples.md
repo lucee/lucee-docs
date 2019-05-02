@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript
+	newImg = imageNew("",200,200,"rgb","red");
+	newImg.write("picture.png");
+```
