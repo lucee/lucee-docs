@@ -1,7 +1,11 @@
 ---
 title: Threads
 id: thread_usage
+categories:
+- thread
+description: How to use threads in Lucee
 ---
+
 ## Thread Scope ##
 
 This document explains how to use threads in Lucee. Threads are mainly used for executing code in parallel.
@@ -264,4 +268,3 @@ Another planned enhancement is to extend parallel to the loop by simply adding `
 Here you can see above details in video
 
 [Lucee Threads ](https://www.youtube.com/watch?v=oGUZRrcg9KE)
-

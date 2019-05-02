@@ -1,8 +1,8 @@
 ---
 title: <cfthread>
 id: tag-thread
-related:
 categories:
+- thread
 ---
 
 The cfthread tag enables you to create threads, independent streams of code execution, in your application.
