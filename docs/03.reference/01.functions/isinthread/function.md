@@ -1,10 +1,11 @@
 ---
-title: isinthread
+title: IsInThread
 id: function-isinthread
 related:
+- tag-thread
 categories:
-    - thread
-    - system
+- system
+- thread
 ---
 
 Determines whether the executing code is inside a cfthread or not.
