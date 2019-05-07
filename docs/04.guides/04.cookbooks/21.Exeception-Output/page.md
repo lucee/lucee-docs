@@ -8,10 +8,11 @@ related:
 - tag-try
 categories:
 - debugging
+description: How to catch and display exceptions
 ---
 
 ## Output Exceptions ##
-This is how you catch and display Lucee exceptions to the web browser.
+How to catch and display exceptions
 
 #### Example ####
 
