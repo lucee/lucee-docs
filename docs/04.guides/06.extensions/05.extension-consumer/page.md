@@ -10,4 +10,8 @@ The Lucee Administrator contains in the left menu a section called "Extensions" 
 * Applications
 * Providers
 
-Under Applications you can install, uninstall or (under construction) buy several functionalities, applications or services. The Lucee Administrator queries all extension providers for all their extensions and lists them according to the filter criteria you enter. By clicking on the detail link you can receive additional information about a certain extension that you find interesting. Click on the install (remove or update) button in order to install a specific extension. After the click just follow the information displayed in the Lucee Administrator. "Providers" allows you to manually add the URL of other Extension Providers (next to Lucee Technologies) that provide extensions for applications. Just enter the URL provided by your chosen extension provider and update the list.
+Under Applications you can install, uninstall or (under construction) buy several functionalities, applications or services. The Lucee Administrator queries all extension providers for all their extensions and lists them according to the filter criteria you enter. 
+
+By clicking on the detail link you can receive additional information about a certain extension that you find interesting. Click on the install (remove or update) button in order to install a specific extension. After the click just follow the information displayed in the Lucee Administrator. 
+
+"Providers" allows you to manually add the URL of other Extension Providers (next to Lucee Technologies) that provide extensions for applications. Just enter the URL provided by your chosen extension provider and update the list.
