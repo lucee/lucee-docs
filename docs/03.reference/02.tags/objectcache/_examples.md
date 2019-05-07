@@ -1,1 +1,4 @@
-*There are currently no examples for this tag.*
+### Syntax
+```lucee
+<cfobjectcache action="size" type="query" result="queryAppCache"/>
+```

@@ -1,1 +1,6 @@
-*There are currently no examples for this tag.*
+### Simple Example
+```lucee
+<cfinterface displayName="give_any_name" hint="interface test">
+  <!--- Some functions here -->
+</cfinterface>
+```

@@ -1,1 +1,5 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+	imgObj = imageNew("",200,200,"rgb","149c82");
+ 	imgObj.setAntialiasing('off');
+ 	cfimage(action="writeToBrowser", source=imgObj);
+```

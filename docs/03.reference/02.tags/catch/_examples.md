@@ -1,8 +1,10 @@
-```lucee+trycf
+### Simple example with cfcatch
+```luceescript+trycf
 <cftry>
-  <cfoutput>#non_existant_variable#</cfoutput>
-  <cfcatch name="alt">
-    <cfdump var=#alt#>
+  <cfset a = 3/0>
+  <cfdump var="#c#" />  
+  <cfcatch>
+    <cfdump var="#cfcatch#">
   </cfcatch>
 </cftry>
 ```

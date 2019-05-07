@@ -1,1 +1,4 @@
-*There are currently no examples for this tag.*
+### Simple format for cfdirectory
+```lucee
+<cfdirectory action="create" directory="path of directory">
+```

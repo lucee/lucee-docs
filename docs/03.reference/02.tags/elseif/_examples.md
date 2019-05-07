@@ -1,3 +1,4 @@
+### Tag format
 ```lucee+trycf
 <cfif isArray(SERVER)>
 	<cfset result="It is in Array format">
@@ -7,7 +8,9 @@
 	<cfset result ="Other than struct & Array" >
 </cfif>
 <cfdump var="#result#" /> 
-
+```
+### Script format
+```luceescript+trycf
 <cfscript>
 	//script format
 	numb=1

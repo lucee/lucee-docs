@@ -1,1 +1,8 @@
-*There are currently no examples for this tag.*
+### Simple Example
+```lucee
+ <cfhttpparam name="test_file", type="file", file="filepath/file.ext">
+<cfscript>
+ //Script format
+ cfhttpparam(name="test_file", type="file", file="filepath/file.ext");
+</cfscript>
+```

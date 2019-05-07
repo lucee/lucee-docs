@@ -1,1 +1,4 @@
-*There are currently no examples for this tag.*
+### Format for Cfinclude
+```lucee
+<cfinclude template="test.cfm">
+```

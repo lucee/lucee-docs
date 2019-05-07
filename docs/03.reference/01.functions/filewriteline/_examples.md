@@ -1,1 +1,5 @@
-*There are currently no examples for this function.*
+```luceescript
+openFile = fileopen(filepath,"read");
+readfromfile = filereadline(openfile);
+filewriteline(filepath),readfromfile);
+```
