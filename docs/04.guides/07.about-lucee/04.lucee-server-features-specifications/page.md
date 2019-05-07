@@ -30,8 +30,7 @@ WAR file & JAR file deployment versions also available.
 
 ### Supported Java versions ###
 
-* JRE 6
-* JRE 7
+* JRE 9+
 
 ## Server features ##
 

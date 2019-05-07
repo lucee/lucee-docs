@@ -22,7 +22,7 @@ follow a rough MVC format and allow for cross-language translations out of the b
 
 ## Translation and menu items
 
-Lucee will look for a file called `langauge.xml` in the root of your plugin folder.
+Lucee will look for a file called `language.xml` in the root of your plugin folder.
 
 ```
 /plugins
@@ -30,7 +30,7 @@ Lucee will look for a file called `langauge.xml` in the root of your plugin fold
     /language.xml
 ```
 
-This file provides a basic resource bundle so your code can handle multuple languages.  You don't need to worry about the user selecting the language-- Lucee already has that in the admin.
+This file provides a basic resource bundle so your code can handle multiple languages.  You don't need to worry about the user selecting the language-- Lucee already has that in the admin.
 Just provide each translation and it will get used automatically. Let's look at an example:
 
 ```xml
@@ -61,7 +61,7 @@ Let's break down the pieces there.
  * **group tag** - This specifies the top level group to create your new menu item under
  * **title tag** - This is the human-readable menu name to create.
  * **description tag** - This text will automatically appear at the top of your views. 
- * **custom tag** - Create one of these for each individual peice of text you wish to translate.  The `key` attribute will be how you access the translation.
+ * **custom tag** - Create one of these for each individual piece of text you wish to translate.  The `key` attribute will be how you access the translation.
 
 ## Controller
 
@@ -83,7 +83,7 @@ This CFC needs to extend the class `lucee.admin.plugin.Plugin` and has no requir
 
 Here's an overview of the parameters described above:
 
-* `lang` is a struct of translated keys from your `langauge.xml` file based on the current language the user has selected.  You can refernce translated strings as a normal CFML variable like `#lang.sayhi#`.
+* `lang` is a struct of translated keys from your `language.xml` file based on the current language the user has selected.  You can reference translated strings as a normal CFML variable like `#lang.sayhi#`.
 * `app` is a struct of data for this plugin persisted in the application scope
 * `req` is a struct containing `form` and `url` variables for the request.
 
@@ -91,7 +91,7 @@ Here's an overview of the parameters described above:
 
 The base `lucee.admin.plugin.Plugin` component provides you with the following helper functions.
 
-* `load()` - Will return data that is specific to this plugin and persistend across restarts
+* `load()` - Will return data that is specific to this plugin and persisted across restarts
 * `save( data )` - Pass in data to persist that will be returned by `load()`
 * `action( string action, string qs )` - Generates a URL to an action in your plugin.  `action` is the name of the action and `qs` is the query string to include.
 
@@ -111,7 +111,7 @@ Here is a simple `Action.cfc` for you to copy from.
 component extends='lucee.admin.plugin.Plugin' {
 	
 	/**
-	* This function will be called once to initalize the plugin
+	* This function will be called once to initialize the plugin
 	* 
 	* @lang A struct of translated keys based on selected language
 	* @app A struct of data for this plugin persisted in the application scope
@@ -178,4 +178,3 @@ Here is a sample view.  Note the use of `action()` to generate the URL to the up
 	</form>	
 </cfoutput>
 ```
-
