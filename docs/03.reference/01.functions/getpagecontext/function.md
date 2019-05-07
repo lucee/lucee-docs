@@ -1,6 +1,8 @@
 ---
 title: GetPageContext
 id: function-getpagecontext
+related:
+- function-getcontextinfo
 categories:
 - debugging
 - java

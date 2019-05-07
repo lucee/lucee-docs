@@ -1,12 +1,14 @@
 ---
 title: IsEmpty
 id: function-isempty
-related:
 categories:
-    - decision
+- decision
+description: 'Returns whether or not a given value is "empty". '
 ---
 
-Returns whether or not a given value is "empty". The following data types can be checked:
+Returns whether or not a given value is "empty". 
+
+The following data types can be checked:
 
 * Strings (a zero length string will return `true`)
 * Arrays (an array with no elements will return `true`)
