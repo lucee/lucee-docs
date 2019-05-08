@@ -12,6 +12,7 @@ When setting up Lucee Server in an older configuration the definition of the vir
 
 With the introduction of [mod_cfml](http://www.modcfml.org/) for Tomcat these changes in the server.xml configuration file do not have to be made anymore, therefore restarting Tomcat is no longer necessary. The changes will be picked up automatically when the web server sends an unknown host to Tomcat with the corresponding root directory.
 
+[View reported bug and issues relating to Lucee/ACF compatibility](https://luceeserver.atlassian.net/issues/?filter=-4&jql=labels%20in%20%28acf-compat%2C%20compat%29%20order%20by%20created%20DESC)
 
 ## Administration ##
 
