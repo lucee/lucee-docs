@@ -2,8 +2,9 @@
 title: Replace
 id: function-replace
 related:
+- function-replacenocase
 categories:
-    - string
+- string
 ---
 
 Replaces occurrences of substring1 in a string with substring2,
