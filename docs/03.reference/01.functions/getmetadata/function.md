@@ -1,8 +1,10 @@
 ---
 title: GetMetadata
 id: function-getmetadata
-related:
 categories:
+- component
+- debugging
+- object
 ---
 
 Returns back meta information depending on the object passed in

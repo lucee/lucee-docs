@@ -5,4 +5,4 @@ categories:
 - orm
 ---
 
-Attaches given enity to current ORM session
+Attaches given entity to current ORM session
