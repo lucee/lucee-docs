@@ -1,5 +1,5 @@
 ---
-title: Encryption/Decryption with public and private keys
+title: Encryption/Decryption with RSA public and private keys
 id: encryption_decryption
 related:
 - function-decrypt

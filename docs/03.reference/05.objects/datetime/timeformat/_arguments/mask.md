@@ -1,4 +1,5 @@
 Characters that show how Lucee displays a time:
+
 - h: hours; no leading zero for single-digit hours (12-hour clock)
 - hh: hours; leading zero for single-digit hours (12-hour clock)
 - H: hours; no leading zero for single-digit hours (24-hour clock)

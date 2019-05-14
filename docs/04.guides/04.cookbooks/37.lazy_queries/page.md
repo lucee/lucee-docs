@@ -1,9 +1,11 @@
 ---
 title: Lazy Queries
-id:  lazy_queries
+id: lazy_queries
 categories:
 - query
+description: 'How to use lazy queries '
 ---
+
 ##  Lazy Queries ##
 
 This document explains about lazy queries with some simple examples as follows:

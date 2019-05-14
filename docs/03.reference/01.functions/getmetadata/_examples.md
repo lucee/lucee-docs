@@ -1,1 +1,5 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+q = queryNew("id,name","numeric,varchar");
+dump(GetMetadata(q));
+
+```
