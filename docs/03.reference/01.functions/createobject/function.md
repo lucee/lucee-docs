@@ -16,7 +16,7 @@ The CreateObject function takes different arguments depending on the value of th
 CreateObject('com', class, context, serverName)
 CreateObject('component', component-name)
 CreateObject('corba', context, class, locale)
-CreateObject('java', class)
+CreateObject('java', class [, context])
 CreateObject('webservice', urltowsdl, [, portname])
 ```
 
