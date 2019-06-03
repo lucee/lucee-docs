@@ -46,8 +46,8 @@ or:
 
 <pre>
 ```lucee+trycf
-<cfset x = 10>;
-<cfoutput>#x#</cfoutput>
+&lt;cfset x = 10&gt;
+&lt;cfoutput&gt;#x#&lt;/cfoutput&gt;
 ```
 </pre>
 
