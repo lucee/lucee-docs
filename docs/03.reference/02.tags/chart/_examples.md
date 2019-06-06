@@ -1,5 +1,4 @@
-### Exmaple for cfchart
-```luceescript+trycf
+```lucee+trycf
 <cfchart format="jpg" title="Sales Report" backgroundcolor="cyan" showborder="true">
   <cfchartseries type="pie" >
     <cfchartdata item="2012" value="2000">
@@ -9,4 +8,3 @@
   </cfchartseries>
 </cfchart>
 ```
-
