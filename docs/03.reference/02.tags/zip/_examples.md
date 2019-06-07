@@ -1,4 +1,4 @@
 ### Simple format for cfzip
-```luceescript
+```lucee
 <cfzip action="unzip" destination="#gettempdirectory()#" file="zippath">
 ```
