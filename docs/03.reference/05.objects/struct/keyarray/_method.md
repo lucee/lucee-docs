@@ -1,16 +1,14 @@
 ---
 title: struct.keyArray()
 id: method-struct-keyarray
-methodObject: struct
-methodName: keyArray
 related:
 - function-structkeyarray
 - object-struct
 categories:
 - struct
-
+methodObject: struct
+methodName: keyArray
+description: Returns an array of the keys from a structure
 ---
 
-Finds the keys in a struct.
-        An array of keys; if structure does not exist, CFML
-        throws an exception.
+Returns an array of the keys from a structure; if structure does not exist, CFML throws an exception.
