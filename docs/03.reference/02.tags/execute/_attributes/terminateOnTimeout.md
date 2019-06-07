@@ -1,1 +1,1 @@
-terminate execution of process when timeout occur
+terminate execution of process when timeout occur. Defaults to false.
