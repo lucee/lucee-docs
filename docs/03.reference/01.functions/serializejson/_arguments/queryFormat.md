@@ -1,0 +1,1 @@
+Either a Boolean value that specifies whether to serialize CFML queries by Column, or a string with the value "struct".
