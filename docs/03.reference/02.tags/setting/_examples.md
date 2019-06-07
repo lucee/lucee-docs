@@ -1,5 +1,4 @@
-### Simple example
-```luceescript+trycf
+```lucee+trycf
 <cfsetting enablecfoutputonly="true">
 <cfset a = "Save">
 <cfset b = "Tree">

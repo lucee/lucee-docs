@@ -1,5 +1,4 @@
-### Syntax for cftimer
-```luceescript
+```lucee+trycf
 <cftimer label="Nap time" type="outline">
   This case take run based upon time.
 <cfset sleep(200)>
