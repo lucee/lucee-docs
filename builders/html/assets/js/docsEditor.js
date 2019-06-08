@@ -108,19 +108,32 @@ $(function(){
 
         if ( isExample(page) ){
             $footer.append(
-                $('<button class="btn">Add CFScript</button>')
+                $('<button class="btn" title="add a script example">CFScript</button>')
                    .on("click", function(){
-                       $textarea.val( $textarea.val() + ["","","```luceescript+trycf","","","```"].join( nl ) );
-
+                       $textarea.val( $textarea.val() + ["","","```luceescript","","","```"].join( nl ) );
                    }
                 )
            );
            $footer.append(
-            $('<button class="btn">Add CFML</button>')
+            $('<button class="btn" title="add a script example which can be run">CFScript+TryCF</button>')
                .on("click", function(){
-                   $textarea.val( $textarea.val() + ["","","```lucee+trycf","","","```"].join( nl ) );
+                   $textarea.val( $textarea.val() + ["","","```luceescript+trycf","","","```"].join( nl ) );
+               }
+             )
+            );
+           $footer.append(
+            $('<button class="btn" title="add a tag based example">CFML</button>')
+               .on("click", function(){
+                   $textarea.val( $textarea.val() + ["","","```lucee","","","```"].join( nl ) );
                })
             );
+
+            $footer.append(
+                $('<button class="btn" title="add a tag based example which can be run">CFML+TryCF</button>')
+                   .on("click", function(){
+                       $textarea.val( $textarea.val() + ["","","```lucee+trycf","","","```"].join( nl ) );
+                })
+            );    
 
             if ($textarea.val().length === 0){ // empty, just default
                 $textarea.val(getExampleTemplate());
