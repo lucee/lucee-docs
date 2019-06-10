@@ -1,5 +1,4 @@
 ### Chartseries Example
-
 ```lucee+trycf
 <cfchart format="jpg" title="Sales Result" backgroundcolor="magenta" showborder="true">
   <cfchartseries type="bar" paintstyle="light">

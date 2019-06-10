@@ -1,5 +1,5 @@
 ### Simple example with cfcatch
-```luceescript+trycf
+```lucee+trycf
 <cftry>
   <cfset a = 3/0>
   <cfdump var="#c#" />  
