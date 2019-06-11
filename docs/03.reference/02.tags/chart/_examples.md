@@ -1,3 +1,4 @@
+### Exmaple for cfchart
 ```lucee+trycf
 <cfchart format="jpg" title="Sales Report" backgroundcolor="cyan" showborder="true">
   <cfchartseries type="pie" >
