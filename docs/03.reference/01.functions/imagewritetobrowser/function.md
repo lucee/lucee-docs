@@ -1,9 +1,8 @@
 ---
-title: imagewritetobrowser
+title: ImageWriteToBrowser
 id: function-imagewritetobrowser
-related:
 categories:
-    - image
+- image
 ---
 
 Writes image to browser.
