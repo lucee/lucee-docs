@@ -1,4 +1,5 @@
 ### Simple Example with tag format
+
 ```lucee+trycf
  	<cffunction access="private" name="add">
 		<cfargument name="arg1" type="Numeric" required />
@@ -8,6 +9,7 @@
 	<cfdump var="Define function Using tag.It returns :#add(4,2)#" />
 ```
 ### Simple Example with script format
+
 ```luceescript+trycf
 		writeDump("Define function using cfscript. It returns: "&add(2,3));
 

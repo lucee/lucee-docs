@@ -1,3 +1,4 @@
+### Simple example for Chartdata
 ```lucee+trycf
 <cfchart format="jpg" title="Sales Result" backgroundcolor="yellow" showborder="true">
   <cfchartseries type="curve">

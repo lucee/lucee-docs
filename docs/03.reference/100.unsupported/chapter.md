@@ -25,7 +25,7 @@ The following tags, from Adobe CFML, are not supported by Lucee:
 * cfgridcolumn
 * cfgridrow
 * cfgridupdate
-* cfhtmltopdfcfhtmltopdf
+* cfhtmltopdf
 * cfhtmltopdfitem
 * cfimapfilter
 * cfmenu
