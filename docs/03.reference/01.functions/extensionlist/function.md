@@ -1,8 +1,8 @@
 ---
-title: extensionlist
+title: ExtensionList
 id: function-extensionlist
-related:
 categories:
+- server
 ---
 
 Returns a query of installed extensions

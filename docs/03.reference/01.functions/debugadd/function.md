@@ -1,8 +1,6 @@
 ---
-title: debugadd
+title: DebugAdd
 id: function-debugadd
-related:
-categories:
 ---
 
 Adding data to debug output.
