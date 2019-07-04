@@ -1,12 +1,10 @@
 ---
-title: XMLFormat
+title: XmlFormat
 id: function-xmlformat
-related:
 categories:
-    - XML
-    - string
-    - formatting
+- formatting
+- string
+- XML
 ---
 
-Escapes special XML characters in a string, so that the
-        string is safe to use with XML.
+Escapes special XML characters in a string, so that the string is safe to use with XML.
