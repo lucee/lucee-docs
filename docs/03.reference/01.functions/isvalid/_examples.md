@@ -1,11 +1,12 @@
-```lucee
+```lucee+trycf
+
 <cfset anArray = []>
 <cfset boolean = true>
 <cfset email = "test@test.com">
 <cfset guid = createGUID()>
 <cfset integer = 15>
 <cfset string = "Hello World">
-<cfset url = "http://www.test.com">
+<cfset http_url = "http://www.test.com">
 <cfset uuid = createUUID()>
 
 <cfoutput>
@@ -15,7 +16,7 @@
 	GUID: #isValid("guid", guid)#<br>
 	Integer: #isValid("integer", integer)#<br>
 	String: #isValid("string", string)#<br>
-	URL: #isValid("url", url)#<br>
+	URL: #isValid("url", http_url )#<br>
 	UUID: #isValid("uuid", uuid)#
 </cfoutput>
 ```

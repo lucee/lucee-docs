@@ -2,7 +2,8 @@
 title: CreateUniqueId
 id: function-createuniqueid
 related:
-categories:
+- function-createguid
+- function-createuuid
 ---
 
 Creates a Unique Identifier. Only unique for this instance, but shorter than an UUId.
