@@ -18,7 +18,7 @@
 	<cfquery dbtype="query" name="q1">
 		select 	name, description
 		from 	q
-		where 	description like '%#s#%'
+		where 	description like <cfqueryparam value='%#s#%' cfsqltype="varchar">
 	</cfquery>
 </cftimer>
 <cfdump var=#q1.recordcount#>
