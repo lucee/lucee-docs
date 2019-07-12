@@ -1,7 +1,7 @@
 ---
 title: Lucee Syntax
 id: developing-with-lucee-server
-forceSortOrder: 2
+forceSortOrder: '2'
 ---
 
 ## Lucee Server language & environment reference ##
@@ -16,7 +16,7 @@ Member functions
 
 [[operators]]
 
-General deviations from CFML
+[[general-deviations|General deviations from CFML Standards]]
 
 [[directory-placeholders]]
 

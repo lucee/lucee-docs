@@ -6,4 +6,4 @@ categories:
 - server
 ---
 
-clears all existing datasource connection
+Clear all existing datasource connections
