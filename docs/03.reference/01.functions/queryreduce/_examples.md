@@ -18,17 +18,18 @@ Dump( var=people, label="people - origional query" );
 | Jim  | 1988-01-01 00:00:00 | 0   |
 */
 
-/* Documented way
+/* Documented way */
 totalAge = people.reduce( function(age, row, rowNumber, recordset ){
     return age +  DateDiff( 'yyyy', recordset.dob, Now() );
 },0);
-*/
+
 
 // intitialise age in closure
+/* This will throw an error when there is no record in the query
 totalAge = people.reduce( function(age=0, row, rowNumber, recordset ){
     return age +  DateDiff( 'yyyy', recordset.dob, Now() );
 });
-
+*/
 
 Dump( var=totalAge, label='people - total age' );
 
