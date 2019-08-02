@@ -18,7 +18,7 @@ component {
 		request.logs.append({
 			text: arguments.text,
 			type: arguments.type,
-            link: link,
+            link: arguments.link,
 			timeMs: getTickCount() - request.loggerStart
 		});
 		cflog (text=arguments.text, type=arguments.type);
@@ -74,10 +74,10 @@ component {
             writeOutput("#numberformat(arguments.log.timeMs)#ms #arguments.log.type# #arguments.log.text##chr(10)#");
         } else {
 		    writeOutput("<li #style#>");
-            if (log.link.len() gt 0)
+            if (arguments.log.link.len() gt 0)
                 writeOutput('<a href="#log.link#">');
             writeOutput("#numberformat(arguments.log.timeMs)#ms <b>#arguments.log.type#</b> #arguments.log.text#");
-            if (log.link.len() gt 0)
+            if (arguments.log.link.len() gt 0)
                 writeOutput('</a>');
             writeOutput("</li>#chr(10)#");
         }

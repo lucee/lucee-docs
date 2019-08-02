@@ -26,7 +26,7 @@ component accessors=true extends=spellchecker {
     }
 
     private void function buildCSpell(words) {
-        var dict = ArrayToList(ListToArray(structKeyList(words)).sort("textnocase"),chr(10));
+        var dict = ArrayToList(ListToArray(structKeyList(arguments.words)).sort("textnocase"),chr(10));
         var file = getDictionaryDir() & getCspellFile();
 
         if (not directoryExists(getDictionaryDir()))
@@ -36,7 +36,7 @@ component accessors=true extends=spellchecker {
         FileWrite(file, dict);
     }
     private void function buildJson(words) {
-        var dict = serializeJSON(words);
+        var dict = serializeJSON(arguments.words);
         var file = getDictionaryDir() & getJsonFile();
 
         if (not directoryExists(getDictionaryDir()))
