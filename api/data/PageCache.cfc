@@ -121,14 +121,15 @@ component accessors=true {
 				default:
 					var pos = ReFindNoCase( "/_", arguments.q_files.directory[i]);
 					if (pos gt 0 or Left(arguments.q_files.name[i],1) eq "_") {
-						querySetCell(q_files, "src", arguments.q_files.directory[i], i);
-						querySetCell(q_files, "directory", mid(arguments.q_files.directory[i], 1, pos-1), i);
+						querySetCell(arguments.q_files, "src", arguments.q_files.directory[i], i);
+						querySetCell(arguments.q_files, "directory", mid(arguments.q_files.directory[i], 1, pos-1), i);
 					}
 					break;
 			}
-			querySetCell(q_files, "depth", ListLen(arguments.q_files.directory[i],"/"), i);
+			querySetCell(arguments.q_files, "depth", ListLen(arguments.q_files.directory[i],"/"), i);
 		}
 		// find last modifed date from all the sub files for a page
+		var cfquery="";
 		var modified = queryExecute("
 			select  max(dateLastModified) dateLastModified, directory
 			from    arguments.q_files
