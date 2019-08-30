@@ -2,6 +2,7 @@
 title: IsLocalHost
 id: function-islocalhost
 related:
+- function-getlocalhostip
 - function-isipinrange
 categories:
 - decision
