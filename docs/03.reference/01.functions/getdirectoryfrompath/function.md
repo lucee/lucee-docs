@@ -1,8 +1,8 @@
 ---
 title: GetDirectoryFromPath
 id: function-getdirectoryfrompath
-related:
 categories:
+- files
 ---
 
 Extracts a directory from an absolute path.
