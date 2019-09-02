@@ -1,4 +1,4 @@
 ```luceescript
-testDir = getdirectoryfrompath("path");
+testDir = getDirectoryFromPath("path");
 writeDump(testDir);
 ```
