@@ -32,7 +32,7 @@ The returned struct contains the following data:
 |loginStorage| String | Cookie | |
 |mappings| Struct | | Application Mappings that map virtual directories to physical paths |
 |name| String | | The Application's name |
-|sameFormFieldAaAarray| Boolean | false | If true, when a Form field is passed more than once then it is returned as an array |
+|sameFormFieldAsAarray| Boolean | false | If true, when a Form field is passed more than once then it is returned as an array |
 |sameUrlFieldsAsArray| Boolean | false | If true, when an URL field is passed more than once then it is returned as an array |
 |scriptProtect| String | "none" | |
 |secureJson| Boolean | false | |
