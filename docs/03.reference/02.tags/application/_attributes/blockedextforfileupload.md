@@ -1,0 +1,1 @@
+A comma separated list of file extensions that will be blocked for File Upload operation
