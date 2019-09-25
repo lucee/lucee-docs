@@ -7,6 +7,6 @@ id: tips-lucee-archive-file
 
 ### How do I create a Lucee Archive File? ###
 
-TO DO
+See [[deploy-archives]]
 
 Return to [[faq-s]] or [[tips-and-tricks]]
