@@ -5,3 +5,4 @@ related:
 categories:
 ---
 
+The `SpreadsheetSetCellValue()` function is not supported by Lucee.
