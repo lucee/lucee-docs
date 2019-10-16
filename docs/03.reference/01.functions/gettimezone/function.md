@@ -2,8 +2,9 @@
 title: GetTimeZone
 id: function-gettimezone
 related:
+- function-settimezone
 categories:
- - datetime
+- datetime
 ---
 
 Returns the timezone defined for the current request.
