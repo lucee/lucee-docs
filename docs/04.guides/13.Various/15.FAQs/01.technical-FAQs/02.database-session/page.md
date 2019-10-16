@@ -10,6 +10,10 @@ Why you want to use database for session data storage:
 * Free server memory from data stored in session scope
 * Use bigger session timeout values (be careful and test)
 
+## Considerations ##
+* Does not support JEE session type.
+* Database types other than MySQL are supported.
+
 ## MySQL ##
 
 * Create empty database on your MySQL server. e.g. CREATE DATABASE rsessions;

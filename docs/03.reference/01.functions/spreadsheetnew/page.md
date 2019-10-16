@@ -5,3 +5,4 @@ related:
 categories:
 ---
 
+The `SpreadSheetNew()` function is not supported by Lucee.
