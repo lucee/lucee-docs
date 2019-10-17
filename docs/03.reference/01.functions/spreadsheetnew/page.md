@@ -2,6 +2,7 @@
 title: SpreadSheetNew
 id: function-spreadsheetnew
 related:
+- tag-spreadsheet
 categories:
 ---
 
