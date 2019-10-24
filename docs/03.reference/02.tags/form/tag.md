@@ -2,7 +2,10 @@
 title: <cfform>
 id: tag-form
 related:
-categories:
+- tag-input
+- tag-select
+- tag-slider
+- tag-textarea
 ---
 
 Builds a form with CFML custom control tags that provide more functionality than standard
