@@ -3,6 +3,10 @@ title: 'Locking Down Lucee '
 id: locking-down-lucee-server
 ---
 
+### Secure the WEB-INF directory for every web context
+
+Make sure the WEB-INF directory is locked down. You will need to configure your webserver to restrict access, or just configure the WEB-INF directories to be stored outside the web root into a common folder, as per [[running-lucee-installing-the-boncode-connector-and-mod_cfml]]
+
 ### Disable Public Debugging Error Output ###
 
 To disable detailed error messages in Lucee, log in to the Lucee server administrator and go to Settings -> Error -> and select "error-public.cfm" from the drop down options. This will only display an extremely generic and uninformative error message to the end-users.
@@ -47,3 +51,8 @@ Isolating your Database users will help mitigate attacks should a site be found 
 Web Application Firewalls are excellent at detecting and deterring attacks on a system. High quality Web Application Firewalls also have the ability to log attacks to let you know what kind of attacks are being directed at your servers, so you can better prepare your defenses. Web Application Firewalls are well worth their initial investment.
 
 Additional information on FuseGuard can be found at this URL: [http://foundeo.com/security/](http://foundeo.com/security/)
+
+See also:
+
+- [[locking-down-your-lucee-stack]]
+- [[running-lucee-installing-the-boncode-connector-and-mod_cfml]]

@@ -55,3 +55,4 @@ Additional Suggestions
 * Create an additional Apache-based password (.htpasswd) for sensitive areas.  
 * Force the use of SSL when accessing the Administrators  
 * Disguise Lucee by either using full SES URL's or by replacing the extension to something other then a CFML-related extension. IE: rename your .cfm files to .php and pass .php files off to Lucee for processing.
+* [[lucee-lockdown-guide]]
