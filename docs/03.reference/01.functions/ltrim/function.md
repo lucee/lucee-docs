@@ -2,8 +2,10 @@
 title: LTrim
 id: function-ltrim
 related:
+- function-rtrim
+- function-trim
 categories:
-    - string
+- string
 ---
 
 Removes leading spaces from a string.
