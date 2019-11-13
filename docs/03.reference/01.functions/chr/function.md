@@ -1,8 +1,8 @@
 ---
 title: Chr
 id: function-chr
-related:
 categories:
+- string
 ---
 
 Returns the character represented by the ascii value
