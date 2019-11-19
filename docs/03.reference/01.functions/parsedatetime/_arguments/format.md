@@ -1,5 +1,7 @@
 Mask that has to be used for formatting. 
-the following characters are pattern letters (case sensitive) representing the components of a datetime string. All other characters are not interpreted
+the following characters are pattern letters (case sensitive) representing the components of a datetime string. 
+All other characters are not interpreted
+
 - a,..,aaaa: AM/PM marker (see also "t" and "tt"; Example:AM)
 - d: Day in month, no leading zero for single-digit days (Example:3)
 - dd: Day in month, leading zero for single-digit days (Example:03)
