@@ -45,6 +45,7 @@ All other characters are not interpreted
 - Z,..,ZZZZ: RFC 822 time zone (Example:-0800)
   
 The following masks can be used to format the full date and time and may not be combined with other masks:
+
 - short: equivalent to "m/d/y h:mm tt"
 - medium: equivalent to "mmm d, yyyy h:mm:ss tt"
 - long: medium followed by three-letter time zone; i.e. "mmmm d, yyyy h:mm:ss tt zzz"
