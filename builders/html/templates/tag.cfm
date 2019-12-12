@@ -31,6 +31,9 @@
 							<td>
 								#getEditLink(path=local.tag.getSourceDir() & '_attributes/#local.attrib.name#.md', edit=args.edit)#
 								#markdownToHtml( local.attrib.description ?: "" )#
+								<cfif structKeyExists(local.attrib, "status") and local.attrib.status neq "implemented">
+									<em>* #local.attrib.status# *</em>
+								</cfif>
 							</td>
  							<cfif local.attributesHaveDefaultValues>
  								<td>
