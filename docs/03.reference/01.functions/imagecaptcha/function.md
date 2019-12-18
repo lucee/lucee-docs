@@ -1,9 +1,8 @@
 ---
-title: imagecaptcha
+title: ImageCaptcha
 id: function-imagecaptcha
-related:
 categories:
-    - image
+- image
 ---
 
 Creates a captcha image

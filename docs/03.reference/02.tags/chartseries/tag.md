@@ -2,7 +2,8 @@
 title: <cfchartseries>
 id: tag-chartseries
 related:
-categories:
+- tag-chart
+- tag-chartdata
 ---
 
-Used with the cfchart and cfchartseries tags. This tag defines chart data points. Its data is submitted to the cfchartseries tag.
+Used with the [[tag-chart]] and [[tag-chartdata]] tags. This tag defines a series. 

@@ -1,11 +1,9 @@
 ---
 title: StructKeyArray
 id: function-structkeyarray
-related:
 categories:
-    - struct
+- struct
+description: Returns an array of the keys from a structure
 ---
 
-Finds the keys in a struct.
-        An array of keys; if structure does not exist, CFML
-        throws an exception.
+Returns an array of the keys from a structure; if structure does not exist, CFML throws an exception.

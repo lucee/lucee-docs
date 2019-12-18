@@ -1,10 +1,22 @@
-```luceescript
-queryExecute(
-    sql     = 'SELECT * FROM users  LIMIT 0, 10',
-    options = {
-        datasource   = "test",
-        cachedWithin = CreateTimeSpan(0, 2, 0, 0),
-        tags         = 'user_list'
-    }
-);
+```luceescript+trycf
+<cfscript>
+    _test = queryNew(
+        "_id, _need, _forWorld",
+        "integer, varchar, varchar", 
+        [[01,'plant', 'agri'],[02, 'save','water']]
+    );
+    queryResult = queryExecute(
+        sql = 'SELECT * FROM _test WHERE _need = :need',
+        params = {
+            need: {
+                value: "plant",
+                type: "varchar"
+            }
+        },
+        options = {
+            dbtype = 'query'
+        }
+    );
+    dump(queryResult);
+</cfscript>
 ```

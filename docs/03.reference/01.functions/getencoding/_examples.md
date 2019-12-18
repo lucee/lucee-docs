@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+my_scope = getEncoding("url");
+dump(my_scope); // UTF-8
+```

@@ -2,7 +2,7 @@
 ```luceescript+trycf
 arr = [12,0,1,2,3,4,5,6];
 dump(arr);
-arrayDelete(arr,4);
+arrayDeleteAt(arr,4);
 dump(arr);
 ```
 
@@ -10,6 +10,6 @@ dump(arr);
 ```luceescript+trycf
 arr = [12,0,1,2,3,4,5,6];
 dump(arr);
-arr.delete(4);
+arr.deleteAt(4);
 dump(arr);
 ```

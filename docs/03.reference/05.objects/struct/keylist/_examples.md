@@ -1,12 +1,11 @@
-
 ```luceescript+trycf
-world = {"save":"water","clean":"wastes","save":"money"};
-res = world.keylist();
-writeDump(res);
-res = world.keylist("@");
-writeDump(res);
-res = world.keylist("-");
-writeDump(res);
-res = world.keylist("A");
-writeDump(res);
+	animals = {
+		cow: "moo",
+		pig: "oink",
+		cat: "meow",
+		bird: "chirp"
+	};
+	// StructKeyList(animals)
+	animalList = animals.KeyList();
+	echo(animalList);
 ```

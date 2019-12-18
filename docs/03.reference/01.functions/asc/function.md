@@ -2,8 +2,9 @@
 title: Asc
 id: function-asc
 related:
+- function-chr
 categories:
-    - string
+- string
 ---
 
 Determines the value of a character.

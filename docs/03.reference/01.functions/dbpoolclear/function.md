@@ -1,8 +1,9 @@
 ---
-title: dbpoolclear
+title: DbPoolClear
 id: function-dbpoolclear
-related:
 categories:
+- query
+- server
 ---
 
-clears all existing datasource connection
+Clear all existing datasource connections

@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```lucee+trycf
+meta = getApplicationMetaData();
+dump(meta);
+```

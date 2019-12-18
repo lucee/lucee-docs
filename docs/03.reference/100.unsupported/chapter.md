@@ -25,7 +25,7 @@ The following tags, from Adobe CFML, are not supported by Lucee:
 * cfgridcolumn
 * cfgridrow
 * cfgridupdate
-* cfhtmltopdfcfhtmltopdf
+* cfhtmltopdf
 * cfhtmltopdfitem
 * cfimapfilter
 * cfmenu
@@ -116,6 +116,7 @@ The following functions , from Adobe CFML, are not supported by Lucee:
 * spreadsheetgetcellvalue
 * spreadsheetinfo
 * spreadsheetmergecells
+* spreadsheetnew
 * spreadsheetread
 * spreadsheetreadbinary
 * spreadsheetremovesheet
@@ -123,12 +124,14 @@ The following functions , from Adobe CFML, are not supported by Lucee:
 * spreadsheetsetactivesheetnumber
 * spreadsheetsetcellcomment
 * spreadsheetsetcellformula
+* spreadsheetsetcellvalue
 * spreadsheetsetcolumnwidth
 * spreadsheetsetfooter
 * spreadsheetsetheader
 * spreadsheetsetrowheight
 * spreadsheetshiftcolumns
 * spreadsheetshiftrows
+* spreadsheetwrite
 * storegetmetadata
 * storesetmetadata
 * writebody

@@ -14,7 +14,10 @@
 		local.path = "/index";
 	local.pageHref = "https://docs.lucee.org#local.path#.html";
 	local.pagePath = "#local.path#.html";
-	local.pageTitle = HtmlEditFormat( args.page.getTitle() ) & " :: Lucee Documentation";
+	local.pageTitle = args.page.getTitle() & " :: Lucee Documentation";
+	// many sites (slack, discord one box etc) can't handle the escaped <cfcontent> and strip out the tag name from previews
+	local.safePageTitle = HtmlEditFormat(Replace(Replace(local.pageTitle, "<", "", "all"), ">", "", "all"));
+	local.pageTitle = HtmlEditFormat(local.pageTitle);
 	local.pageDescription = getMetaDescription( args.page, args.body );
 </cfscript>
 
@@ -23,7 +26,7 @@
 <cfoutput><!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>#pageTitle#</title>
+		<title>#local.pageTitle#</title>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116664465-1"></script>
 		<script>
 			window._gaTrackingID = 'UA-116664465-1';
@@ -40,12 +43,12 @@
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@lucee_server" />
-		<meta name="twitter:title" content="#local.pageTitle#" />
+		<meta name="twitter:title" content="#local.safePageTitle#" />
 		<meta name="twitter:description" content="#local.pageDescription#" />
 		<meta name="twitter:image" content="http://docs.lucee.org/assets/images/favicon.png" />
 		<meta name="twitter:image:alt" content="Lucee" />
-		<meta property="og:title" content="#pageTitle#" />
-		<meta property="og:url" content="#pageHref#" />
+		<meta property="og:title" content="#local.safePageTitle#" />
+		<meta property="og:url" content="#local.pageHref#" />
 		<meta property="og:type" content="article" />
 		<meta property="og:image" content="http://docs.lucee.org/assets/images/favicon.png" />
 		<meta property="og:image:alt" content="Lucee" />

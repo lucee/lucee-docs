@@ -1,5 +1,5 @@
 ### Simple example for Chartdata
-```luceescript+trycf
+```lucee+trycf
 <cfchart format="jpg" title="Sales Result" backgroundcolor="yellow" showborder="true">
   <cfchartseries type="curve">
     <cfchartdata item="2016" value="#RandRange(100,500)#">

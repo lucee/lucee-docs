@@ -1,6 +1,9 @@
 ---
 title: IsValid
 id: function-isvalid
+related:
+- function-createguid
+- function-createuuid
 categories:
 - array
 - binary

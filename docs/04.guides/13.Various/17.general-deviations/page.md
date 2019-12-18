@@ -1,19 +1,12 @@
 ---
 title: General Deviations
 id: general-deviations
+description: These are general deviations in Lucee that purposely deviate from the CFML Standard.
 ---
 
-### General Deviations ###
-
-These are general deviations that purposely deviate from the CFML Standard.
-
 ### Custom Tag search path ###
 
-These are general deviations that purposely deviate from the CFML Standard.
-
-### Custom Tag search path ###
-
-By default Lucee does not search the sub directories of the custom tag paths for a certain custom tag; you can enable that CFML-standard behavior in the Lucee web or server administrator.
+By default Lucee does not search the sub directories of the custom tag paths for a certain custom tag; you can enable that CFML-standard behavior in the Lucee Web or Server Administrators.
 
 ### CFC Search Path ###
 
@@ -31,7 +24,9 @@ Lucee cannot read files that were encrypted by other CFML Engines. In order to n
 
 ### SOAP WebServices ###
 
-Lucee 4 uses Apache Axis http://axis.apache.org/axis/ to consume and generate webservices. Adobe CF uses Axis1 up to version 9, and starting with version 10 it uses both Axis1 and Axis2 http://axis.apache.org/axis2/java/core/. Therefore consuming SOAP webservices that rely on features supported only by Axis2 will not work.
+Lucee 4 uses [Apache Axis] (http://axis.apache.org/axis/) to consume and generate webservices. 
+
+Adobe CF uses Axis1 up to version 9, and starting with version 10 it uses both Axis1 and [Axis2] (http://axis.apache.org/axis2/java/core/). Therefore consuming SOAP webservices that rely on features supported only by Axis2 will not work.
 
 ### Cookies ###
 

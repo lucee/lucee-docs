@@ -13,7 +13,7 @@ The following is a simple example of a Lucee Extension, that we will extend it s
 
 At the heart of every extension is the manifest file. This file, `MANIFEST.MF`, is located in the `/META-INF/` folder inside your lex file.
 
-The manifest file is very powerful and weâ€™ll start with the base settings you need to have in place. Simply add the following settings to your manifest file.
+The manifest file is very powerful and we'll start with the base settings you need to have in place. Simply add the following settings to your manifest file.
 
 ### Manifest-Version
 
@@ -29,7 +29,7 @@ The manifest version number. This should always be set to the value 1.0 as above
 id: <uuid>
 ```
 
-A unique identifier for your extension. The value for the ID has to be a UUID, which you can create with the help of the Lucee function â€œcreateuuidâ€?. This identifier will work across multiple extension providers, so if your extension is available on more than one extension provider, Lucee will recognize it and always obtain the newest version.
+A unique identifier for your extension. The value for the ID has to be a UUID, which you can create with the help of the Lucee function `createuuid`. This identifier will work across multiple extension providers, so if your extension is available on more than one extension provider, Lucee will recognize it and always obtain the newest version.
 
 ### Version
 
@@ -49,7 +49,7 @@ name: Beer
 
 This is the name of the extension. You can also add double quotes to your name values to ensure it is interpreted as a string.
 
-These four items are everything we need to have a working extension, so are example manifest.mk file now looks like this:
+These four items are everything we need to have a working extension, so our example `MANIFEST.MF` file now looks like this:
 
 ```luceescript
 Manifest-Version: 1.0
@@ -153,7 +153,7 @@ To begin with we start by installing some CFML based tags.
 /tags
 ```
 
-To add CFML based tags create a directory with the name â€œ/tagsâ€? and copy the CFML based tag(s) into this directory. After creating your tag(s), your .lex file (zip) will have the following structure.
+To add CFML based tags create a directory with the name `/tags` and copy the CFML based tag(s) into this directory. After creating your tag(s), your .lex file (zip) will have the following structure.
 
 ```luceescript
 /META-INF/MANIFEST.MF
@@ -170,7 +170,7 @@ After installing this new extension (see above) you will see in the Lucee admin 
 /functions
 ```
 
-To add CFML based functions create a directory with the name â€œ/functionsâ€? and copy a CFML template containing the function to that directory. After creating your function(s), your .lex file (zip) will have the following structure.
+To add CFML based functions create a directory with the name `/functions` and copy a CFML template containing the function to that directory. After creating your function(s), your .lex file (zip) will have the following structure.
 
 ```luceescript
 /META-INF/MANIFEST.MF
@@ -199,7 +199,7 @@ The `context` file can be used for various things:
 * extend the Lucee admin with a cache (by using the path /context/admin/cdriver/MyCache.cfc)
 * extend the Lucee admin with a debug template (by using the path /context/admin/debug/MyDebugTemplate.cfc)
 
-The content of the extensions â€œcontextâ€? folder could look something like this:
+The content of the extensions `context` folder could look something like this:
 
 ```luceescript
 /META-INF/MANIFEST.MF
@@ -214,7 +214,7 @@ The content of the extensions â€œcontextâ€? folder could look something like thi
 /webcontexts
 ```
 
-These are similar to the â€œcontext filesâ€?, the difference being that â€œcontext filesâ€? only define context files for the current context (server or web). The web contexts files however are used in a server context extension to install files to ALL existing and upcoming web contexts. This means that when you add a new web context after this extension is installed, the files defined in this folder will be available to this new web context.
+These are similar to the `context files`, the difference being that `context files` only define context files for the current context (server or web). The web contexts files however are used in a server context extension to install files to ALL existing and upcoming web contexts. This means that when you add a new web context after this extension is installed, the files defined in this folder will be available to this new web context.
 
 The content of the extensions `webcontext` files could look something like this:
 
@@ -286,15 +286,15 @@ start-bundles:true
 
 Many Lucee extensions use Java libraries (jars) to work.
 
-Lucee 5 support â€œclassicâ€? Jars and OSGI bundles (a subset of jars). Lucee will detect if the given input is a â€œclassicâ€? jar or an OSGi bundle and handle the file accordingly.
+Lucee 5 support `classic` Jars and OSGI bundles (a subset of jars). Lucee will detect if the given input is a `classic` jar or an OSGi bundle and handle the file accordingly.
 
 #### OSGi Bundles
 
 OSGi is the framework Lucee 5 is based on, that allows for the loading and unloading of JAR files on the fly at any time without a server restart being required. In addition you can have different versions of the same JAR in your environment without causing a conflict.
 
-The term â€œInstalling an OSGi bundleâ€? is not accurate in this context, adding a bundle to the JARs directory makes the bundle available in the environment but does not â€œinstallâ€? it.
+The term `Installing an OSGi bundle` is not accurate in this context, adding a bundle to the JARs directory makes the bundle available in the environment but does not `install` it.
 
-To make Lucee load (install) the JARs into the environment you need to define the setting â€œstart-bundlesâ€? in the Manifest file, but in many cases this is not necessary, for example when your JAR contains a tag that you are defining in a tld, you simply define the bundle name and version with the class definition and Lucee will load the JAR automatically when required. This has the benefit that bundles are only loaded into the memory when used.
+To make Lucee load (install) the JARs into the environment you need to define the setting `start-bundles` in the Manifest file, but in many cases this is not necessary, for example when your JAR contains a tag that you are defining in a tld, you simply define the bundle name and version with the class definition and Lucee will load the JAR automatically when required. This has the benefit that bundles are only loaded into the memory when used.
 
 *Please note:* It is not actually necessary to bundle the OSGi bundle with the extension, if Lucee cannot find the OSGi bundle locally, Lucee will attempt to download it from the update provider (when available).
 
@@ -344,7 +344,7 @@ However the installation of a Java based virtual file system is different to the
 
 #### Java based Virtual File System
 
-For a Java virtual file system we need to register the class that implements the interface â€œResourceProviderâ€?, to do this we add the following setting to the `MANIFEST.MF` file:
+For a Java virtual file system we need to register the class that implements the interface `ResourceProvider`, to do this we add the following setting to the `MANIFEST.MF` file:
 
 ```luceescript
 resource:"[{
@@ -356,9 +356,9 @@ resource:"[{
 }]"
 ```
 
-We define this setting as a JSON String. We define the class that implements the ResourceProvider and the bundle name and version. In addition we can also define other settings such as â€œlock-timeoutâ€?, in the case above. All of these configuration settings are simply forwarded to the â€œinitâ€? method of the class defined.
+We define this setting as a JSON String. We define the class that implements the ResourceProvider and the bundle name and version. In addition we can also define other settings such as `lock-timeout`, in the case above. All of these configuration settings are simply forwarded to the `init` method of the class defined.
 
-Copy the OSGi bundle (JAR) containing your ResourceProvider to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the â€œstart-bundlesâ€? setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
+Copy the OSGi bundle (JAR) containing your ResourceProvider to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the `start-bundles` setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
 
 #### CFML based Virtual File System
 
@@ -372,7 +372,7 @@ Resource:"[
 }]"
 ```
 
-Now we have to make that component available for Lucee, there are two ways to do this. You can make the component available as part of a component archive (see â€œArchivesâ€? above) or you simply add the component to the `/components` folder (see â€œComponentsâ€? above).
+Now we have to make that component available for Lucee, there are two ways to do this. You can make the component available as part of a component archive (see `Archives` above) or you simply add the component to the `/components` folder (see `Components` above).
 
 Example implementation:
 
@@ -414,7 +414,7 @@ jdbc: "[{
 }]"
 ```
 
-Copy the OSGi bundle (JAR) containing your JDBC to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the â€œstart-bundlesâ€? setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
+Copy the OSGi bundle (JAR) containing your JDBC to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the `start-bundles` setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
 
 Example implementation:
 
@@ -434,7 +434,7 @@ search: "[{
 }]"
 ```
 
-Copy the OSGi bundle (JAR) containing your Search Engine implementation  to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the â€œstart-bundlesâ€? setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
+Copy the OSGi bundle (JAR) containing your Search Engine implementation  to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the `start-bundles` setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
 
 Example implementation:
 
@@ -452,7 +452,7 @@ orm: "[{
 }]"
 ```
 
-Copy the OSGi bundle (JAR) containing your ORM Engine implementation to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the â€œstart-bundlesâ€? setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
+Copy the OSGi bundle (JAR) containing your ORM Engine implementation to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the `start-bundles` setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
 
 Example implementation:
 
@@ -471,7 +471,7 @@ Installing one or multiple Java based tags or functions. Installing a tag or a f
 1. An OSGi Bundle (JAR) containing the class that implements the interface `javax.servlet.jsp.tagext.Tag` for tags and/or `lucee.runtime.ext.function.BIF` for a function.
 2. A tld/fld file that contains the description of one or multiple of the tags/functions.
 
-So copy the OSGi bundles to the folder â€œ/jarsâ€? and the tld/fld file to the folder â€œ/tldsâ€? or â€œ/fldsâ€?.
+So copy the OSGi bundles to the folder `/jars` and the tld/fld file to the folder `/tlds` or `/flds`.
 
 *Side note:* For TLD files please use the extension `.tldx`, otherwise it can break Tomcat when it attempts to read the `.tld` file. Lucee can handle the extensions `.tld` and `.tldx`, and Tomcat will ignore `.tldx`.
 
@@ -509,7 +509,7 @@ monitor: "[{
 
 ### Cache Handler
 
-This has nothing to do with installing a â€œCacheâ€? like â€œEHCacheâ€?, this extends the functionality of all `cachedwithin` attributes in Lucee.
+This has nothing to do with installing a `Cache` like `EHCache`, this extends the functionality of all `cachedwithin` attributes in Lucee.
 
 The Lucee core supports two cache handler types out of the box:
 
@@ -529,7 +529,7 @@ cache-handler: "[{
 }]"
 ```
 
-Copy the OSGi bundle (JAR) containing your Cache Handler implementation to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the â€œstart-bundlesâ€? setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
+Copy the OSGi bundle (JAR) containing your Cache Handler implementation to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the `start-bundles` setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
 
 ### AMF (Flex)
 

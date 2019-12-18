@@ -14,4 +14,4 @@ Extensions can be installed via the web or server admin.
 
 [[tutorial-extension-provider]] Extension Provider Tutorial 
 
-[Available extensions](http://download.lucee.org/?type=ext) All currently available extensions
+[Available extensions](http://download.lucee.org/) All currently available extensions
