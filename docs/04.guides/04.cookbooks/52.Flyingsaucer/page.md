@@ -32,14 +32,14 @@ If you don't have time to check all PDF outputs, or you really don't care about 
 
 via Application.cfc,
 
-```
-luceescript this.pdf.type = "classic";
+```luceescript
+this.pdf.type = "classic";
 ```
 
 or if you are using an Application.cfm, 
 
-```
-lucee <cfapplication pdf="#{type:'classic'}#">
+```lucee
+<cfapplication pdf="#{type:'classic'}#">
 ```
 
 [Alas, this syntax isn't currently implemented](https://luceeserver.atlassian.net/browse/LDEV-2212)

@@ -46,12 +46,15 @@ Some examples related to Datasources/Queries:
 * Configure the Mail Server (TODO)
 * [[cookbook-mail-send]]
 
+## Spreadsheets ##
+
+* [[cookbook-working-with-spreadsheets]]
+
 ## Webservices ##
 
 * HTTP Webservices (TODO)
 * RESTFul Webservices (TODO)
 * Soap/WDDX Webservices (TODO)
-
 
 ## XML ##
 

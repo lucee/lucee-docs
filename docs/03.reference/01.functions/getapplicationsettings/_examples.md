@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```lucee+trycf
+settings = getApplicationSettings();
+dump(settings);
+```

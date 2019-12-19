@@ -5,6 +5,8 @@ id: lucee-lockdown-guide
 
 ### Some Good Resources ###
 
+* [[locking-down-your-lucee-stack]]
+
 * OWASP Securing Tomcat: [https://www.owasp.org/index.php/Securing_tomcat](https://www.owasp.org/index.php/Securing_tomcat)
 
 * Lucee Admin Lock down guide for IIS : [https://www.youtube.com/watch?v=dYt4rap7LWQ](https://www.youtube.com/watch?v=dYt4rap7LWQ)

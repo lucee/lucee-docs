@@ -1,18 +1,6 @@
-
 ```luceescript+trycf
-animals = {
-	cow: {
-		noise: "moo",
-		size: "large"
-	},
-	pig: {
-		noise: "oink"
-	},
-	cat: {
-		noise: "meow",
-		size: "small"
-	}
-};
-writeDump(animals.duplicate(true));
-writeDump(animals.duplicate());
+	animals = {1:"tiger",2:{5:'lion',6:'deer'},3:"wolf",4:"dog"};
+	writeDump(animals);
+	res = animals.duplicate();
+	writeDump(res);
 ```
