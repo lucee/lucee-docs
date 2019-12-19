@@ -1,5 +1,5 @@
-
 ```luceescript+trycf
+
 	myquery = querynew("id,name");
 	myquery.addrow();
 	myquery.setcell("id","1");
@@ -10,4 +10,4 @@
 	myquery.addColumn("age",listtoarray("20,21"));
 	myquery.addColumn("class",listtoarray("A,B"));
 	writeDump(myquery);
-	```
+```
