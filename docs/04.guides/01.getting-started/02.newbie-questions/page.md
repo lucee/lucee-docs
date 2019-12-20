@@ -1,14 +1,14 @@
 ---
 title: Newbie Questions
 id: getting-started-newbie-questions
-visible: false
+visible: 'false'
 ---
 
 ## **Setting up multiple Lucee websites on Windows/IIS:** ##
 
 These instructions assume you know how to set up DNS, port forwarding for your router, and how to add a new site in IIS.
 
-1) Install Lucee (http://lucee.org/downloads.html)
+1) Install Lucee [[http://lucee.org/downloads.html]]
 
 2) Verify that Lucee is running (The internal IP of my Lucee server is 192.168.1.80, so I went to http://192.168.1.80:8888 to view the Hello Lucee page, which verified a successful deployment)
 
@@ -19,6 +19,7 @@ These instructions assume you know how to set up DNS, port forwarding for your r
 5) Add a Host entry to `Server.XML` - I installed to the default location (`C:\lucee`) so the path is `C:\lucee\tomcat\conf\server.xml`)
 
 6) Just above the `</Engine>` tag, add the following Host entry:
+
 ```
 <Host name="lctest.blahblah.com" appBase="webapps"
 	unpackWARs="true" autoDeploy="true"
