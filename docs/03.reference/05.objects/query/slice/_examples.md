@@ -1,4 +1,3 @@
-
 ```luceescript+trycf
 q = queryNew( "id,name","int,varchar");
 q.addRow(4);

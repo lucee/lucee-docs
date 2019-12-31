@@ -5,7 +5,7 @@
 		[ "Fred", CreateDate( 1960, 1, 1 ), 0 ],
 		[ "Jim" , CreateDate( 1988, 1, 1 ), 0 ]
 	]);
-	valid = querySome(people,function(row, rowNumber, qryData){
+	valid = people.Every(function(row, rowNumber, qryData){
 	    return ((DateDiff('yyyy', row.dob, Now()) > 0) && (DateDiff('yyyy', row.dob, Now()) <= 100))
 	});
 	writeDump(valid);

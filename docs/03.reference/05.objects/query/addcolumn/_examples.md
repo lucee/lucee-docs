@@ -1,5 +1,4 @@
 ```luceescript+trycf
-
 	myquery = querynew("id,name");
 	myquery.addrow();
 	myquery.setcell("id","1");
