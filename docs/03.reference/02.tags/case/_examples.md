@@ -1,4 +1,4 @@
-```luceescript+trycf
+```lucee+trycf
 <cfset expr = 2>
 <cfswitch expression="#expr#">
 	<cfcase value=1>
