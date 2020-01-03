@@ -1,3 +1,4 @@
+### Example in both tags and script
 ```lucee+trycf
 <cfset expr = 2>
 <cfswitch expression="#expr#">
@@ -13,7 +14,6 @@
 </cfswitch>
 
 <cfscript>
-	//Script example
 	switch(1){
 		case 1:
 			result = 1;
