@@ -11,18 +11,18 @@
         this is from default part
     </cfdefaultcase>
 </cfswitch>
-```
 
-```luceescript+trycf
-switch(1){
-    case 1:
-        result = 1;
-        break;
-    case 0:
-        result = 0;
-        break;
-    default:
-        result = "defaultCase";
-}
-writeDump(result);
+<cfscript>
+    switch(1){
+        case 1:
+            result = 1;
+            break;
+        case 0:
+            result = 0;
+            break;
+        default:
+            result = "defaultCase";
+    }
+    dump( result );
+</cfscript>
 ```
