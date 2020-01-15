@@ -1,1 +1,1 @@
-Path to a custom tag libraray or a jsp tld
+Path to a custom tag library or a jsp tld
