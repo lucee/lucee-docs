@@ -15,7 +15,7 @@ The documentation is an open source and community driven effort. It is also a co
 Lucee 5 is the [stable release](http://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs.
 
 ## Lucee 4.5
-Lucee 4.5 is the [legacy stable release](http://lucee.org/downloads.html) of the Lucee platform.
+Lucee 4.5 is the [legacy stable release](http://lucee.org/downloads.html) of the Lucee platform. It is EOL and no longer supported.
 
 ## Java API Docs
 For Java API documentation of the Lucee server engine, please visit [http://javadoc.lucee.org](http://javadoc.lucee.org).
