@@ -1,4 +1,4 @@
-```lucee+trycf
+```luceescript+trycf
 settings = getApplicationSettings();
 dump(settings);
 ```
