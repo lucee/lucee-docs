@@ -224,7 +224,7 @@ component {
 
 ```lucee
 <cfmail subject="Test Mail Listener" from="lucee.testing@mail.com" to="michael@lucee.org">
-	This mail was send to test the listener feature.
+	This mail was sent to test the listener feature.
 </cfmail>
 
 
@@ -233,7 +233,7 @@ component {
 	systemOutput(arguments.keyList(),1,1);
 	systemOutput(detail,1,1);
 	}#">
-	This mail was send to test the listener feature.
+	This mail was sent to test the listener feature.
 </cfmail>
 
 DONE!
@@ -273,7 +273,7 @@ Public/Private Key Encryption and Decryption
 	dump(dec);
 ```
 
-You cannot encrypt and decrypt with the same key. If we tried to encrypt and decrypt with the same key, Llucee will throw an error. It is a very handy way to handle encryption/decryption.
+You cannot encrypt and decrypt with the same key. If we tried to encrypt and decrypt with the same key, Lucee will throw an error. It is a very handy way to handle encryption/decryption.
 
 
 

@@ -12,7 +12,6 @@
 
 ```luceescript+trycf
 		writeDump("Define function using cfscript. It returns: "&add(2,3));
-
 		public function add(required numeric arg1,required numeric arg2){
 			return arg1+arg2;
 		}

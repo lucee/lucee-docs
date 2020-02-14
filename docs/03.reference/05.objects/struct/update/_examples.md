@@ -1,6 +1,5 @@
-
 ```luceescript+trycf
-world = {
+	  world = {
         save:"water",
         plant:"trees",
         clean:"waste"
@@ -8,4 +7,4 @@ world = {
     writedump(world);
     updateStruct = structupdate(world,"clean","room");
     writeDump(updatestruct);
-    ```
+```

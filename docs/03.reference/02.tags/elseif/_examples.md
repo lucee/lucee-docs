@@ -11,7 +11,6 @@
 ```
 ### Script format
 ```luceescript+trycf
-<cfscript>
 	//script format
 	numb=1
 	if(numb gt 1){
@@ -21,5 +20,4 @@
 	}else{
 		writeOutput("It is not greater than or equal to 1 ");
 	}
-</cfscript>
 ```

@@ -55,6 +55,9 @@
 								<cfif len(local.arg.alias) gt 0>
 									<p title="for compatability, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
 								</cfif>
+								<cfif structKeyExists(local.arg, "status") and local.arg.status neq "implemented">
+									<em>* #local.attrib.arg# *</em>
+								</cfif>
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
  								<td>
