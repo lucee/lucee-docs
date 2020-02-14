@@ -1,9 +1,10 @@
 ---
-title: threaddata
+title: ThreadData
 id: function-threaddata
 related:
+- tag-thread
 categories:
-    - threading
+- thread
 ---
 
-returns the root cfthread scope.
+Returns the root [[tag-thread]] scope.
