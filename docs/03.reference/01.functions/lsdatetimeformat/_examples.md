@@ -1,4 +1,4 @@
-```lucee+trycf
+```luceescript+trycf
 	list = "arabic (united arab emirates),arabic (jordan),croatian (croatia),french (belgium),spanish (panama)";
 	loop list="#list#" index="locale" delimiters="," {
 		oldlocale = setLocale(locale);
