@@ -1,4 +1,3 @@
-
 ```luceescript+trycf
 	animals = {
 	    cow: "moo",
