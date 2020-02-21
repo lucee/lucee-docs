@@ -1,9 +1,9 @@
 ---
-title: Lucee documentation
+title: Lucee Documentation
 reference: 'false'
 ---
 
-Welcome to the official [Lucee Server](http://lucee.org) documentation website. 
+Welcome to the official [Lucee Server](http://lucee.org) Documentation. 
 
 ---
 
