@@ -1,4 +1,4 @@
-		component {
+component {
 	this.name = "luceeDocumentationLocalServer-" & Hash( GetCurrentTemplatePath() );
 
 	this.cwd     = GetDirectoryFromPath( GetCurrentTemplatePath() )
@@ -25,10 +25,10 @@
 			header statuscode=401;
 			abort;
 		}
-		var importThreads = 1;
+		var importThreads = 4;
 		// pegdown doesn't work with parallel build, see MarkdownParser.cfc
 		// see https://luceeserver.atlassian.net/browse/LD-109
-		var buildThreads = 1;
+		var buildThreads = 4;
 
 		if ( path.startsWith( "/lucee/admin") ){
 			request.logger (text="ignoring /lucee/admin request #cgi.script_name#");
@@ -38,29 +38,22 @@
 			setting requestTimeout=300;
 			_renderBuildHeader(path);
 			request.logger("Build: importThreads:#importThreads#, buildThreads: #buildThreads#");
-			switch (path){
-				case "/build_docs/all/":
-					new api.reference.ReferenceImporter(importThreads).importAll();
-					new api.build.BuildRunner(buildThreads).buildAll(); // threads disabled for now
-					break;
-				case "/build_docs/html/":
-					new api.build.BuildRunner().build(builderName="html", threads=buildThreads);
-					break;
-				case "/build_docs/dash/":
-					new api.build.BuildRunner().build(builderName="dash", threads=buildThreads);
-					break;
-				case "/build_docs/import/":
-					new api.reference.ReferenceImporter(importThreads).importAll();
-					break;
-				case "/build_docs/spellCheck/":
-					new api.spelling.spellChecker().spellCheck();
-					break;
-				case "/build_docs/dictionary/":
-					new api.build.BuildRunner().buildDictionary();
-					break;
-				default:
-					if (listlen(path,"/") gt 1 )
-						writeOutput("unknown build docs request: #path#");
+			if ( path eq "/build_docs/all/" ) {
+				new api.reference.ReferenceImporter(importThreads).importAll();
+				new api.build.BuildRunner(buildThreads).buildAll(); // threads disabled for now
+			} else if ( path eq "/build_docs/html/" ) {
+				new api.build.BuildRunner().build(builderName="html", threads=buildThreads);
+			} else if ( path eq "/build_docs/dash/" ) {
+				new api.build.BuildRunner().build(builderName="dash", threads=buildThreads);
+			} else if ( path eq "/build_docs/import/" ) {
+				new api.reference.ReferenceImporter(importThreads).importAll();
+			} else if ( path eq "/build_docs/spellCheck/" ) {
+				new api.spelling.spellChecker().spellCheck();
+			} else if ( path eq "/build_docs/dictionary/" ) {
+				new api.build.BuildRunner().buildDictionary();
+			} else {
+				if (listlen(path,"/") gt 1 )
+					writeOutput("unknown build docs request: #path#");
 			}
 			fileAppend("/performance.log", "#path# #numberFormat(getTickCount() - request.loggerStart)#ms, "
 				& "#importThreads# import threads, #buildThreads# build threads, #server.lucee.version##chr(10)#");
