@@ -1,4 +1,4 @@
-		component {
+component {
 	this.name = "luceeDocumentationLocalServer-" & Hash( GetCurrentTemplatePath() );
 
 	this.cwd     = GetDirectoryFromPath( GetCurrentTemplatePath() )
