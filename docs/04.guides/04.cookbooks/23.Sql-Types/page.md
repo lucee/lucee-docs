@@ -43,3 +43,11 @@ Here are the SQL types supported by Lucee. All are support with and without the 
 * CF_SQL_REFCURSOR / REFCURSOR
 * CF_SQL_OTHER / OTHER
 * CF_SQL_NULL / NULL
+
+Since 5.3.6.16
+
+* CF_SQL_NCHAR / NCHAR
+* CF_SQL_NVARCHAR / NVARCHAR
+* CF_SQL_LONGNVARCHAR / LONGNVARCHAR
+* CF_SQL_NCLOB / NCLOB
+* CF_SQL_SQLXML / SQLXML
