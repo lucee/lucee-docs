@@ -1,5 +1,4 @@
-```lucee
-<cfscript>
+```luceescript+trycf
   amount = 100;
   
   locale = 'en_US';
@@ -11,5 +10,4 @@
   LSCurrencyFormat( amount, 'local', locale ); // ￥100
   LSCurrencyFormat( amount, 'international', locale ); // JPY 100
   LSCurrencyFormat( amount, 'none', locale ); // 100
-</cfscript>
 ```

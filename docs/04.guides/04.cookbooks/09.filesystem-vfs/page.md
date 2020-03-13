@@ -40,7 +40,7 @@ ftp="ftp://#request.ftp.user#:#request.ftp.pass#@ftp53.world4you.com:21/"; // ad
 //ftp="ftp://ftp53.world4you.com:21/"; // take credentials from Application.cfc
 //ftp="ftp://#request.ftp.user#:#request.ftp.pass#@/"; // take host/port from Application.cfc
 
-dump(directoryList(sct.ftp));
+dump(directoryList(ftp));
 
 ```
 

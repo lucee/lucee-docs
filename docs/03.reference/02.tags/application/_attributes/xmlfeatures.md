@@ -1,0 +1,1 @@
+Allows to set XML Features to prevent XXE attacks

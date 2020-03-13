@@ -1,15 +1,15 @@
 ---
-title: datetime.lSTimeFormat()
+title: datetime.LSTimeFormat()
 id: method-datetime-lstimeformat
-methodObject: datetime
-methodName: lSTimeFormat
 related:
 - function-lstimeformat
 - object-datetime
 categories:
 - datetime
-- string
 - formatting
+- string
+methodObject: datetime
+methodName: lSTimeFormat
 ---
 
 Formats a time string to a given output using the current locale.

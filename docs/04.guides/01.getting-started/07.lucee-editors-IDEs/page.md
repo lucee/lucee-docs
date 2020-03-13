@@ -21,7 +21,7 @@ Lucee dictionaries are available for download to support spell checking your cod
 ## VS Code
 <https://code.visualstudio.com>
 
-<https://marketplace.visualstudio.com/items?itemName=ilich8086.ColdFusion>
+<https://marketplace.visualstudio.com/items?itemName=KamasamaK.vscode-cfml>
 
 <https://marketplace.visualstudio.com/items?itemName=KamasamaK.vscode-cflint>
 
@@ -87,3 +87,12 @@ here is a sample .cflintrc file which reduces the noise
 	"inheritParent" : false
 }
 ```
+
+## Analysis tools and Line Debuggers
+
+<https://www.fusion-reactor.com/>
+
+<http://www.fusion-debug.com/>
+
+<https://getcoldbug.com/>
+

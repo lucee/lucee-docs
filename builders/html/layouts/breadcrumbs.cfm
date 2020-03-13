@@ -17,10 +17,8 @@
 							[
 							"@type":"ListItem",
 							"position":1,
-							"item": [
-								"@id":"http://docs.lucee.org",
-								"name":"Docs"
-							]
+							"name":"Docs",
+							"item": "http://docs.lucee.org"
 						]
 					]
 				];
@@ -30,10 +28,8 @@
 					local._crumb = [
 						"@type": "ListItem",
 						"position": #local.i+1#,
-						"item": [
-							"@id": local.crumb.getPath() & '.html',
-							"name": local.crumb.getTitle()
-						]
+						"name": local.crumb.getTitle(),
+						"item": local.crumb.getPath() & '.html'
 					];
 					ArrayAppend(local.jsonLd.itemListElement, local._crumb);
 				}

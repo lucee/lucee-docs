@@ -65,6 +65,7 @@ employee.setDOB(getEmployee.dob);
 ## Mixed mode ##
 
 It's good practice to keep business logic and presentation separate, but if you want to prototype something quickly, you can bundle them together...
+
 ```lucee
 <cfquery name="getEmployee">
     select name, dob from employee

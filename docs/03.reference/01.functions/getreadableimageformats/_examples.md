@@ -1,3 +1,3 @@
 ```luceescript+trycf
-	writeDump(getReadableImageFormats());;
+	writeDump(getReadableImageFormats());
 ```

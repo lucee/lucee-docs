@@ -1,4 +1,3 @@
-
 ```luceescript+trycf
 	myquery = querynew("id,name");
 	myquery.addrow();
@@ -10,4 +9,4 @@
 	myquery.addColumn("age",listtoarray("20,21"));
 	myquery.addColumn("class",listtoarray("A,B"));
 	writeDump(myquery);
-	```
+```
