@@ -29,4 +29,4 @@ Run this index.cfm page in the browser.
 
 Here you can see above details in video
 
-[Lucee Precompiled Code ](https://www.youtube.com/watch?v=Yjy3bQJgphA)
+[Lucee Precompiled Code](https://www.youtube.com/watch?v=Yjy3bQJgphA)

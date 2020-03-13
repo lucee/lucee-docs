@@ -216,4 +216,4 @@ Component {
 
 Here you can see above details in video
 
-[Lucee Static Scopes in Component Code ](https://www.youtube.com/watch?v=B5ILIAbXBzo&feature=youtu.be)
+[Lucee Static Scopes in Component Code](https://www.youtube.com/watch?v=B5ILIAbXBzo&feature=youtu.be)
