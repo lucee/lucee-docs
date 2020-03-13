@@ -9,7 +9,7 @@ The only dependency required is [CommandBox](http://www.ortussolutions.com/produ
 
 ## Fork and contribute to the documentation
 
-Fork the repository and clone a local copy, or you can simply use the Github links on any page of the docs to edit the docs and submit changes.
+Fork the repository and clone a local copy, or you can simply use the GitHub links on any page of the docs to edit the docs and submit changes.
 
 [Lucee Documentation](https://github.com/lucee/lucee-docs)
 
