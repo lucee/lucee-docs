@@ -1,6 +1,6 @@
 ###Tag Syntax
 
-###Image Read
+###Image Write
 ```lucee
 <cfset newImg = imageNew("",200,200,"rgb","blue")>
 <cfimage action="write" source="#newImg#" name="writeimg" destination="pathname" overwrite="true">
@@ -44,8 +44,19 @@ name="resize" overwrite="true" height="300" width="400" quality="1">
 <cfimage action="writeToBrowser" source="#resize#">
 
 ```
+###Image border
+```lucee
+<cfimage action="border" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4" color="red" 
+name="withborder">
+<cfimage action="writeToBrowser" source="#withborder#">
+```
 ###Script Syntax
 
+### Image write
+```luceescript
+ newImg = imageNew("",200,200,"rgb","blue");
+cfimage(action="write", source="#newImg#", name="writeimg", destination="pathname", overwrite="true");
+```
 ### Image Captcha
 ```luceescript
 cfimage(action="captcha",text="Captcha!", difficulty="low",height="30",width="150",fontSize="18",
@@ -83,4 +94,11 @@ cfimage(action="writeToBrowser",source="#expandpath("./rotated.jpg")#")
 cfimage(action="resize",source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4",name="resize",
 overwrite="true",height="300",width="400",quality="1")
 cfimage(action="writeToBrowser",source="#resize#")
+```
+###Image border
+
+```luceescript
+cfimage(action="border" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4" color="red" name="withborder");
+cfimage(action="writeToBrowser" source="#withborder#");
+
 ```
