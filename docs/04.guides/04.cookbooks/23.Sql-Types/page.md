@@ -43,6 +43,9 @@ Here are the SQL types supported by lucee.
 * CF_SQL_REFCURSOR
 * CF_SQL_OTHER
 * CF_SQL_NULL
+
+Since 5.3.6.16
+
 * CF_SQL_NCHAR
 * CF_SQL_NVARCHAR
 * CF_SQL_LONGNVARCHAR
