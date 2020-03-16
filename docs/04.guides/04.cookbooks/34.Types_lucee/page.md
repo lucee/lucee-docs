@@ -177,4 +177,4 @@ These types are on top of the language. Lucee contains some other different type
 
 Here you can see above details in video
 
-[ Types of Lucee ](https://youtu.be/02kMrN4PByc)
+[Types of Lucee](https://youtu.be/02kMrN4PByc)
