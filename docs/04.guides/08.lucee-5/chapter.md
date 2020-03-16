@@ -3,7 +3,7 @@ title: Lucee 5
 id: lucee-5
 ---
 
-#Lucee 5
+# Lucee 5
 
 Lucee 5 is the first major release after forking from the Railo project. Lucee 5 is not about dazzling new features but about improving the core language and providing a complete architectural overhaul of the engine.
 

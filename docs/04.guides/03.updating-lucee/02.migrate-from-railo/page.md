@@ -98,6 +98,7 @@ but doing so isn't necessary and makes no difference to Lucee.
 The same applies to the "railo-inst.jar" defined in your start script: you can change it but it is not necessary.
 
 ## Extensions
+
 Partially or fully Java based extensions that rely on certain Railo interfaces may not work and could possibly prevent Lucee from starting.
 
 The following extensions need to be updated in order to work with Lucee. It is best uninstall them before you migrate then re-install them afterwards so that you get the new Lucee compatible versions:
@@ -107,7 +108,7 @@ The following extensions need to be updated in order to work with Lucee. It is b
 
 This list will be added to as issues come to light.
 
-###Spreadsheet
+### Spreadsheet
 
 The original [Railo extension produced by TeamCfAdvance](https://github.com/teamcfadvance/cfspreadsheet-railo) is not compatible with Lucee and should be removed.
 
@@ -117,11 +118,11 @@ An updated version for Lucee 5 can be found at [https://github.com/Leftbower/cfs
 
 Alternatively, a standalone (non-extension) [spreadsheet library for Lucee](https://github.com/cfsimplicity/lucee-spreadsheet) is available which supports almost all of the extension's functionality.
 
-###Video
+### Video
 
 If you have installed the Video extension, you may see the following error: `java.lang.NoClassDefFoundError: railo/runtime/video/VideoExecuter`. To fix this simply [download the railo-video-extension-adapter-for-lucee.jar](https://bitbucket.org/lucee/lucee/downloads/railo-video-extension-adapter-for-lucee.jar) and place it next to the "railo-extension-video.jar" in your installation.
 
-##org.railo.cfml... component paths
+## org.railo.cfml... component paths
 
 If you have used the component path *org.railo.cfml...* as a **return or argument type**, it must be changed to *org.lucee.cfml*, eg.
 
@@ -135,10 +136,11 @@ These CFCs may be affected:
 
    ![cfcs.jpg](https://bitbucket.org/repo/rX87Rq/images/2979463242-cfcs.jpg)
 
-###objectSave()
+### objectSave()
+
 Objects persisted with *objectSave()* on Railo, can not be loaded with *objectLoad()* on Lucee.
 
 
-###Other issues?
+### Other issues?
 
 If you are having problems please post to the [Lucee Google Group](https://groups.google.com/forum/#!forum/lucee).
