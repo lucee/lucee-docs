@@ -8,6 +8,7 @@ component accessors=true extends="Page" {
 	property name="examples"     type="string";
 	property name="introduced"   type="string";
 	property name="alias"        type="string";
+	property name="status"        type="string";
 
 	public string function getUsageSignature() {
 		var usage = this.getTitle() & "(";
