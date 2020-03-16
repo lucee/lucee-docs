@@ -6,8 +6,9 @@
 <cfoutput>
 	#getEditLink(path=local.fn.getSourceFile(), edit=args.edit)#
 	#markdownToHtml( local.fn.getBody() )#
-
-	<cfif len(local.fn.getStatus()) gt 0 and local.fn.getStatus() neq "implemented">
+	<!-- https://github.com/lucee/Lucee/pull/876 --->
+	<cfif len(local.fn.getStatus()) gt 0 
+			and (local.fn.getStatus() neq "implemented" and local.fn.getStatus() neq "implemeted")>
 		<p><strong>Status:</strong> #local.fn.getStatus()#</p>
 	</cfif>
 	<cfif len(local.fn.getAlias()) gt 0>
