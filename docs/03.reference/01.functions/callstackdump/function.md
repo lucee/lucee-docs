@@ -1,8 +1,9 @@
 ---
 title: CallStackDump
 id: function-callstackdump
-related:
 categories:
+- debugging
+description: Dump the context (stacktrace) of the current position.
 ---
 
-dump the context (stacktrace) of the current position.
+Dump the context (stacktrace) of the current position.
