@@ -173,7 +173,7 @@ Here is a sample view.  Note the use of `action()` to generate the URL to the up
 <cfoutput>
 	<form action="#action( 'update' )#" method="post">
 		<textarea name="note">#req.note#</textarea>
-		<br />
+		<br>
 		<input type="submit" name="submit" value="#lang.btnSubmit#">
 	</form>	
 </cfoutput>

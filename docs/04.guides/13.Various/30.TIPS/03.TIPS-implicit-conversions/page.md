@@ -58,7 +58,7 @@ address.cfc
 </cffunction>
 <cffunction name="_toString" access="public" returntype="string" output="false">
 	<cfset var address = "">
-	<cfsavecontent variable="address"><cfoutput>#getStreet1()#<br />#getCity()#, #getState()# #getPostalCode()#</cfoutput></cfsavecontent>
+	<cfsavecontent variable="address"><cfoutput>#getStreet1()#<br>#getCity()#, #getState()# #getPostalCode()#</cfoutput></cfsavecontent>
 	<cfreturn address>
 </cffunction>
 </cfcomponent>
