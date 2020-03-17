@@ -1,8 +1,9 @@
 ---
 title: GetContextRoot
 id: function-getcontextroot
-related:
 categories:
+- debugging
+- system
 ---
 
 Returns path to the J2EE server context root for the current request.
