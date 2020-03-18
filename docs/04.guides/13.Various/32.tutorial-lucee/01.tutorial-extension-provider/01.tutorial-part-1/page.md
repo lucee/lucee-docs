@@ -100,9 +100,9 @@ This method is actually important since with its help you can implement a paymen
 
 We normally recommend the following process:
 
-* Create a shop where people buy applications and aquire credits to purchase applications.
+* Create a shop where people buy applications and acquire credits to purchase applications.
 * If the application is about to be installed the getDownloadDetails method is called by the Lucee administrator. Now you can return a check option that allows you to collect the user's credentials and query for their installation credits for this application. But again it's mostly up to you what this method does or does not.
-* If the query for credit responds with a positive number the download link can be returnded otherwise not.
+* If the query for credit responds with a positive number the download link can be returned otherwise not.
 
 Here's an example for a getDownloadDetails() method:
 
@@ -136,4 +136,4 @@ Now you need to add the newly created ExtensionProvider.cfc to one of your local
 
 When you now call the extensions/applications page your extension should be listed.
 
-If you did everything correctly, your example should look like (Part_I_Example.zip)[http://assets.luceewiki.s3.amazonaws.com/tutorials/Part_I_Example.zip]. If you go any further with the installation, you'll get an error in Lucee. That's because we now have to setup our zip file to accomdate being install through Lucee's Applications panel which will be discussed in Part II.
+If you did everything correctly, your example should look like [Part_I_Example.zip](http://assets.luceewiki.s3.amazonaws.com/tutorials/Part_I_Example.zip). If you go any further with the installation, you'll get an error in Lucee. That's because we now have to setup our zip file to accommodate being install through Lucee's Applications panel which will be discussed in Part II.
