@@ -3,7 +3,7 @@ title: Installing Apache Tomcat on Windows
 id: running-lucee-installing-apache-tomcat-on-windows
 ---
 
-Since this article was first written, Lucee has a [Windows Installer](http://download.lucee.org/?type=releases) which installs Tomcat with Lucee.
+Since this article was first written, Lucee has a [Windows Installer](https://download.lucee.org/?type=releases) which installs Tomcat with Lucee.
 
 ![tomcat-logo65x45.jpg](https://bitbucket.org/repo/rX87Rq/images/1093758943-tomcat-logo65x45.jpg)
 
