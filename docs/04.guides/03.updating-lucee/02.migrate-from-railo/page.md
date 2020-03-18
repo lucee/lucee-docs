@@ -15,7 +15,7 @@ Lucee 4.5 is forked from the Railo CFML Server (version 4.2) so you can easily m
 
 *Lucee will rewrite some of the configuration files in your existing installation. It will also do a backup of the original contents as a zip file (see below) in case you need to roll back, but it's advisable to make a backup of the original installation just in case.*
 
-1. Download the latest Lucee "custom" package "JARs 4.5 (Stable)" from the [download section](http://lucee.org/downloads.html) and unzip it somewhere.
+1. Download the latest Lucee "custom" package "JARs 4.5 (Stable)" from the [download section](https://lucee.org/downloads.html) and unzip it somewhere.
 2. Stop your Railo server.
 3. In the zip file you will find a file called `lucee.jar`. Use that JAR to replace the existing `railo.jar` in your Railo installation's `lib` directory.
 

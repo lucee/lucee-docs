@@ -9,7 +9,7 @@ Install Tomcat by extracting the downloaded archive. Extract the archive to your
 
 1. Go into tomcat/webapps/. Delete the /ROOT/ folder and /ROOT.war/.
 
-2. Next, go to the [Lucee download page](http://lucee.org/downloads.html) and download the latest lucee war file.
+2. Next, go to the [Lucee download page](https://lucee.org/downloads.html) and download the latest lucee war file.
 
 3. Rename the lucee war file to /ROOT.war/ (note the capitalization).
 

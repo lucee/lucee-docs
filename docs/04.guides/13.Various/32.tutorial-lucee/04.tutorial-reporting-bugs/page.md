@@ -55,4 +55,4 @@ You can supply a patch to be analyzed to the Lucee development team. How can you
 
 ### Lucee Website(s) Issues ###
 
-If an error or issue pertains to the websites, please use the [contact form](http://lucee.org/contact.html)
+If an error or issue pertains to the websites, please use the [contact form](https://lucee.org/contact.html)
