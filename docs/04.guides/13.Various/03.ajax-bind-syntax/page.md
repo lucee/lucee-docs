@@ -20,7 +20,7 @@ bind="cfc:component.dotted.path.cfcMethod({bindedElement})"
 bind="url:url?name={bindedElement}&......."
 ```
 
-## Javascript Binding ##
+## JavaScript Binding ##
 
 ```lucee
 bind="javascript:jsFunction({bindedElement})"
