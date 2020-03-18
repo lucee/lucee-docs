@@ -35,7 +35,7 @@ This will spin up a server using CommandBox on port 4040 and open it in your bro
 
 When running the server locally, you can edit the content inline and it will save your changes back to your local file system.
 
-Once you have finished making your changes, simply use your preferred git client to create a pull request to publish yourchanges.
+Once you have finished making your changes, simply use your preferred git client to create a pull request to publish your changes.
 
 ## Recent improvements
 [https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662](https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662)

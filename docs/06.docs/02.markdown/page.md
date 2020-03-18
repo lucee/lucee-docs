@@ -20,7 +20,7 @@ WriteOutput( x );
 ```
 </pre>
 
-A code block without syntax higlighting would look like this:
+A code block without syntax highlighting would look like this:
 
 <pre>
 ```
