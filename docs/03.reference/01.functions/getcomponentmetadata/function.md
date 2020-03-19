@@ -2,6 +2,7 @@
 title: GetComponentMetaData
 id: function-getcomponentmetadata
 categories:
+- component
 - debugging
 ---
 

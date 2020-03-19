@@ -2,6 +2,7 @@
 title: GetComponentStaticScope
 id: function-getcomponentstaticscope
 categories:
+- component
 - debugging
 ---
 

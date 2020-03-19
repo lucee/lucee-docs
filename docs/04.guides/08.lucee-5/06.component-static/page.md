@@ -1,6 +1,11 @@
 ---
 title: Static support for components
 id: lucee-5-component-static
+related:
+- tag-component
+categories:
+- component
+description: Lucee 5 supports static variables and functions inside components
 ---
 
 #Static support for components#
