@@ -1,10 +1,18 @@
 ---
 title: Static scope in components
 id: static_scope
+categories:
+- component
+description: Static scope in components is needed to create an instance of cfc and call its method
 ---
+
 ## Static scope in components ##
 
-Static scope in components is needed to create an instance of cfc and call its method. It is used to avoid creating an instance each time you use the cfc. You can create an object in the Application init() function, and make it at application scope, so you can directly call the methods. We explain this methodology with a simple example below:
+Static scope in components is needed to create an instance of cfc and call its method. It is used to avoid creating an instance each time you use the cfc. 
+
+You can create an object in the Application init() function, and make it at application scope, so you can directly call the methods. 
+
+We explain this methodology with a simple example below:
 
 
 ###Example:###

@@ -3,6 +3,7 @@ title: <cfinterface>
 id: tag-interface
 categories:
 - component
+description: Defines an interface that consists of a set of signatures for functions.
 ---
 
 Defines an interface that consists of a set of signatures for functions.

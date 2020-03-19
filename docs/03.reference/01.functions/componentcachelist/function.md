@@ -1,9 +1,10 @@
 ---
 title: ComponentCacheList
 id: function-componentcachelist
-related:
 categories:
-    - cache
+- cache
+- component
+- debugging
 ---
 
 list elements in the component path cache
