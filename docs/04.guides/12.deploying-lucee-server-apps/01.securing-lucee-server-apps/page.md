@@ -58,7 +58,7 @@ RewriteRule ^.*/lucee/admin/   -   [F]
 
 ## Realms and whatnot ##
 
-And then there's [Realms and whatnot](http://docs.oracle.com/javaee/6/tutorial/doc/bnbxj.html), the Java security stuff which is part of the servlet spec.
+And then there's [Realms and whatnot](https://docs.oracle.com/javaee/6/tutorial/doc/bnbxj.html), the Java security stuff which is part of the servlet spec.
 
 ## Other options ##
 
