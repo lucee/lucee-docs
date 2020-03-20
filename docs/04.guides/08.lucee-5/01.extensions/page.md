@@ -390,7 +390,7 @@ You can define mappings that point to files, archives or virtual file systems yo
 mapping: "[
 {
 'virtual':'/org/lucee',
-'physical':'http://lucee.org',
+'physical':'https://lucee.org',
 'inspect':'never'
 },
 {

@@ -3,7 +3,7 @@ title: Lucee Documentation
 reference: 'false'
 ---
 
-Welcome to the official [Lucee Server](http://lucee.org) Documentation. 
+Welcome to the official [Lucee Server](https://lucee.org) Documentation. 
 
 ---
 

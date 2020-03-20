@@ -12,7 +12,7 @@ The possibility to cache the result of the tags `cffile` and `cfhttp` has been a
 
 ```lucee
 <cffile action="read" file="test.txt" variable="content" cachedWithin="request"/>
-<cfhttp url="http://lucee.org" name="http" cachedWithin="#createTimespan(0,0,0,10)#"/>
+<cfhttp url="https://lucee.org" name="http" cachedWithin="#createTimespan(0,0,0,10)#"/>
 ```
 
 ##Interface for cachedWithin##
