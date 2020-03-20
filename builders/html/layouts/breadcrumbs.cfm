@@ -3,6 +3,7 @@
 <cfparam name="args.docTree"   type="any" />
 <cfparam name="args.page"   type="any" />
 
+<cfset local.docs_base_url = "https://docs.lucee.org">
 
 <cfif args.page.getId() neq "/home" and ArrayLen(args.crumbs)>
 	<!--- pages may have multiple crumbs LD-112 --->
@@ -18,7 +19,7 @@
 							"@type":"ListItem",
 							"position":1,
 							"name":"Docs",
-							"item": "http://docs.lucee.org"
+							"item": local.docs_base_url
 						]
 					]
 				];
@@ -29,7 +30,7 @@
 						"@type": "ListItem",
 						"position": #local.i+1#,
 						"name": local.crumb.getTitle(),
-						"item": local.crumb.getPath() & '.html'
+						"item": local.docs_base_url & local.crumb.getPath() & '.html'
 					];
 					ArrayAppend(local.jsonLd.itemListElement, local._crumb);
 				}
@@ -50,7 +51,7 @@
 			<script type="application/ld+json">#serializeJSON(local.jsonLd)#</script>
 			<ul class="breadcrumb margin-no-top margin-right margin-no-bottom margin-left" itemscope itemtype="http://schema.org/BreadcrumbList">
 				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-					<a href="/index.html" itemprop="item">
+					<a href="#local.docs_base_url#/index.html" itemprop="item">
 						<span itemprop="name">Docs</span>
 					</a>
 					<meta itemprop="position" content="1" />
@@ -59,7 +60,7 @@
 				<cfloop array="#local._crumbs#" item="local.pageSlug" index="local.i">
 					<cfset local.crumb = args.doctree.getPage(local.pageSlug)>
 					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-						<a href="#local.crumb.getPath()#.html" itemprop="item">
+						<a href="#local.docs_base_url##local.crumb.getPath()#.html" itemprop="item">
 							<span itemprop="name">#HtmlEditFormat(local.crumb.getTitle())#</span>
 						</a>
 						<meta itemprop="position" content="#local.i+1#" />
