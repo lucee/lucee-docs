@@ -4,6 +4,7 @@ id: function-queryreduce
 categories:
 - collection
 - query
+- thread
 ---
 
 Iterates over every row of the given query and calls the closure with that row.

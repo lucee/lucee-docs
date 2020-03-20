@@ -4,6 +4,7 @@ id: function-arraymap
 categories:
 - array
 - collection
+- thread
 ---
 
 Calls the given closure with every element in the given array. 

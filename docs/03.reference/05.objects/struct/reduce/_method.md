@@ -7,6 +7,7 @@ related:
 categories:
 - iterator
 - struct
+- thread
 methodObject: struct
 methodName: reduce
 ---
