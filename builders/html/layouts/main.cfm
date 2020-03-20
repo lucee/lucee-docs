@@ -45,12 +45,12 @@
 		<meta name="twitter:site" content="@lucee_server" />
 		<meta name="twitter:title" content="#local.safePageTitle#" />
 		<meta name="twitter:description" content="#local.pageDescription#" />
-		<meta name="twitter:image" content="http://docs.lucee.org/assets/images/favicon.png" />
+		<meta name="twitter:image" content="https://docs.lucee.org/assets/images/favicon.png" />
 		<meta name="twitter:image:alt" content="Lucee" />
 		<meta property="og:title" content="#local.safePageTitle#" />
 		<meta property="og:url" content="#local.pageHref#" />
 		<meta property="og:type" content="article" />
-		<meta property="og:image" content="http://docs.lucee.org/assets/images/favicon.png" />
+		<meta property="og:image" content="https://docs.lucee.org/assets/images/favicon.png" />
 		<meta property="og:image:alt" content="Lucee" />
 		<cfif args.edit>
 		<link href="/assets/css/base.css" rel="stylesheet">

@@ -228,7 +228,7 @@ component {
 		opts.prod = {
 			title: "Browse Prod Docs",
 			menu: "Prod",
-			href: "http://docs.lucee.org/"
+			href: "https://docs.lucee.org/"
 		};
 		opts.git = {
 			title: "Lucee Docs Git Repo",
