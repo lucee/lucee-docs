@@ -1,10 +1,10 @@
 ---
 title: QueryEach
 id: function-queryeach
-related:
 categories:
-    - query
-    - collection
+- collection
+- query
+- thread
 ---
 
 call the given UDF/Closure with every row (struct) in the query.
