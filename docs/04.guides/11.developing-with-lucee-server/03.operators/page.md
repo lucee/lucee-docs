@@ -38,40 +38,40 @@ MOD       | modulus        | Returns the remainder of a number, e.g. 5 mod 2 is 
 	echo("cycles: " & cycles &" <br>");
 	function test(){
         var array = [];
-		for ( var x = 1; x < cycles; x++ ) {
+		for ( var x = 1; x lte cycles; x++ ) {
 			array.append( x );
 		}
 
 		var ops = {
-		    plusplus: 0,
-		    minusminus: 0
+		    plusPlus: 0,
+		    minusMinus: 0
 		};
 		array.each( ( el ) => {
-			ops.plusplus++;
-			ops.minusminus--;
+			ops.plusPlus++;
+			ops.minusMinus--;
 		}, true, threads );
 
-		dump( var=ops, label="values should always be 1999 or -1999, but these operators aren't thread safe");
+		dump( var=ops, label="values should always be 2000 or -2000, but these operators aren't thread safe");
 	}
 	
 	function testSafe(){
         var array = [];
-		for ( var x = 1; x < cycles; x++ ) {
+		for ( var x = 1; x lte cycles; x++ ) {
 			array.append( x );
 		}
 
 		var ops = {
-		    plusplus: 0,
-		    minusminus: 0
+		    plusPlus: 0,
+		    minusMinus: 0
 		};
 		array.each( ( el ) => {
-		    lock name="loop" type="exclusive" {			
-		        ops.plusplus++;
-			    ops.minusminus--;
+		    lock name="loop" type="exclusive" {
+		        ops.plusPlus++;
+			    ops.minusMinus--;
 			}
 		}, true, threads );
 
-		dump( var=ops, label="values will always be 1999 or -1999, due to locking");
+		dump( var=ops, label="values will always be 2000 or -2000, due to locking");
 	}
 
 	cftimer(type="inline", label="not thread safe"){
