@@ -4,6 +4,9 @@ id: operators
 related:
 - function-max
 - function-min
+categories:
+- math
+- thread
 ---
 
 ## Mathematical operators ##
@@ -18,13 +21,68 @@ operators | Name           | Description                                        
 %         | modulus        | Returns the remainder of a number, e.g. 5 % 2 is 1         |
 MOD       | modulus        | Returns the remainder of a number, e.g. 5 mod 2 is 1       |
 \         | integer divide | Divides giving an integer result, e.g. 7 \ 2 is 3          |
-++        | increment      | Increments a number. Can be used before or after an assignment, e.g. a = b++ would assign the value of b to a, then increment b. a = ++b would increment b, then assign the new value to a. In both cases, b would be incremented.|
-**--**  | decrement      | Decrements a number. Can be used before or after an assignment, e.g. a = b-- would assign the value of b to a, then decrement b. a = --b would decrement b, then assign the new value to a. In both cases, b would be decremented.|
+++        | increment      | Increments a number. Can be used before or after an assignment, e.g. a = b++ would assign the value of b to a, then increment b. a = ++b would increment b, then assign the new value to a. In both cases, b would be incremented. **(not thread safe, see below)**|
+**--**  | decrement      | Decrements a number. Can be used before or after an assignment, e.g. a = b-- would assign the value of b to a, then decrement b. a = --b would decrement b, then assign the new value to a. In both cases, b would be decremented. **(not thread safe, see below)**|
 +=        | Compound add   | A shorthand operator for adding to a value, e.g.  a **+=** b is equivalent to writing a = a + b|
 -=        | Compound subtract | A shorthand operator for subtracting from a value, e.g. a **-=** b is equivalent to writing a = a *-* b | 
 ***=**       | Compound multiply | A shorthand operator for multiplying a value, e.g. a ***=** b is equivalent to writing a = a *  b  |
 **/=**        | Compound divide   | A shorthand operator for dividing a value, e.g. a /= b is equivalent to writing a = a / b|
 
+### Demonstration of unsafe threaded behavior with ++ and -- operators ###
+
+```luceescript+trycf
+   echo(server.lucee.version & "<br>");
+    s = getTickCount();
+    cycles = 2000;
+	threads = 4;
+	echo("cycles: " & cycles &" <br>");
+	function test(){
+        var array = [];
+		for ( var x = 1; x < cycles; x++ ) {
+			array.append( x );
+		}
+
+		var ops = {
+		    plusplus: 0,
+		    minusminus: 0
+		};
+		array.each( ( el ) => {
+			ops.plusplus++;
+			ops.minusminus--;
+		}, true, threads );
+
+		dump( var=ops, label="values should always be 1999 or -1999, but these operators aren't thread safe");
+	}
+	
+	function testSafe(){
+        var array = [];
+		for ( var x = 1; x < cycles; x++ ) {
+			array.append( x );
+		}
+
+		var ops = {
+		    plusplus: 0,
+		    minusminus: 0
+		};
+		array.each( ( el ) => {
+		    lock name="loop" type="exclusive" {			
+		        ops.plusplus++;
+			    ops.minusminus--;
+			}
+		}, true, threads );
+
+		dump( var=ops, label="values will always be 1999 or -1999, due to locking");
+	}
+
+	cftimer(type="inline", label="not thread safe"){
+        test();
+    }
+    cftimer(type="inline", label="thread safe"){
+        testSafe();
+    }
+	//}
+	echo ("<br>" & (getTickCount()-s) & "ms");
+```
 
 ## Logical operators ##
 operators | Name           | Description |
