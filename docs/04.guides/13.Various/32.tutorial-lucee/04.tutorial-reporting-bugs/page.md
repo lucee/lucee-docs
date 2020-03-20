@@ -47,7 +47,7 @@ If you found a temporary workaround please provide the information. This can rea
 You can supply a patch to be analyzed to the Lucee development team. How can you do that?
 
 * First, start a discussion on the mailing list 
-* Fork Lucee on github
+* Fork Lucee on GitHub
 [https://github.com/lucee/Lucee](https://github.com/lucee/Lucee). 
 * Create an issue in JIRA
 * Commit your patch and send a pull request. (ask on the mailing list first if you are unsure which branch to use)
