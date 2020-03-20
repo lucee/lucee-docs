@@ -80,7 +80,7 @@ The below example shows how to read the file content from the Lucee docs:
 
 ```lucee
 <cfscript>
-	sct.uri="http://docs.lucee.org/reference/functions/abs.html";
+	sct.uri="https://docs.lucee.org/reference/functions/abs.html";
 	dump(fileRead(sct.uri));
 </cfscript>
 ```
