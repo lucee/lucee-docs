@@ -1,14 +1,15 @@
 ---
 title: array.reduce()
 id: method-array-reduce
-methodObject: array
-methodName: reduce
 related:
 - function-arrayreduce
 - object-array
 categories:
 - array
 - iterator
+- thread
+methodObject: array
+methodName: reduce
 ---
 
 Iterates over every entry of the given array and calls the closure with every element. 

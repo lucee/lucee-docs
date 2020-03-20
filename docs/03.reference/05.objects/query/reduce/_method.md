@@ -7,6 +7,7 @@ related:
 categories:
 - iterator
 - query
+- thread
 methodObject: query
 methodName: reduce
 ---

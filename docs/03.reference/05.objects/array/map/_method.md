@@ -7,6 +7,7 @@ related:
 categories:
 - array
 - iterator
+- thread
 methodObject: array
 methodName: map
 ---

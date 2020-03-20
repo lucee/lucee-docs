@@ -4,6 +4,7 @@ id: function-listreduce
 categories:
 - array
 - collection
+- thread
 ---
 
 Iterates over every entry of the given array and calls the closure with every element.

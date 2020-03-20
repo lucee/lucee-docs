@@ -8,6 +8,7 @@ categories:
 - iterator
 - list
 - string
+- thread
 methodObject: string
 methodName: listMap
 ---

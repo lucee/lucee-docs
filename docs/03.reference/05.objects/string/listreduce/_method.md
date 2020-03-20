@@ -8,6 +8,7 @@ categories:
 - array
 - iterator
 - string
+- thread
 methodObject: string
 methodName: listReduce
 ---

@@ -5,6 +5,7 @@ categories:
 - collection
 - list
 - string
+- thread
 ---
 
 Calls the given closure with every element in the given list.
