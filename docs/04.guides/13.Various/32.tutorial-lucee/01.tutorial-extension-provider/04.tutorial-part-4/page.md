@@ -5,7 +5,7 @@ id: tutorial-extension-provider-part4
 
 ### Writing an extension - Part 4 - The installer ###
 
-After we have created and validated the configuration data, we should now finally install the software. The install method gives you the possibility to do nearly whatever you like whithin the Lucee boundaries. In order to have some support methods available you can extend some existing helper CFC's. These helper CFC's provide some methods to help you create Mappings, Datasources etc. In my particular case I am using the installFolderMapping.cfc helper class. It has the following super methods:
+After we have created and validated the configuration data, we should now finally install the software. The install method gives you the possibility to do nearly whatever you like within the Lucee boundaries. In order to have some support methods available you can extend some existing helper CFC's. These helper CFC's provide some methods to help you create Mappings, Datasources etc. In my particular case I am using the installFolderMapping.cfc helper class. It has the following super methods:
 
 * install
 * update
@@ -23,7 +23,7 @@ We will publish all helper components with all kinds of support methods so that 
 * path
 * config
 
-The important ones are path and config. The struct error can be filled in order to throw errors upon install. When you receive the config struct please note that it contains an array with all elements of the corresponding steps and a common struct called mixed that merges all the variables into one struct. If you have ambigous variables (which you anyway should prevent) you can address them over the step array. Now let's look at the install method:
+The important ones are path and config. The struct error can be filled in order to throw errors upon install. When you receive the config struct please note that it contains an array with all elements of the corresponding steps and a common struct called mixed that merges all the variables into one struct. If you have ambiguous variables (which you anyway should prevent) you can address them over the step array. Now let's look at the install method:
 
 ```lucee
 <cffunction name="install" returntype="string" output="yes" hint="called from Lucee to install application">
@@ -73,8 +73,8 @@ When the update and uninstall buttons are clicked the corresponding methods get 
 	<cfset deleteFiles(argumentCollection=arguments)>
 
 	<cfset dropDatabaseTables(argumentCollection=arguments)>
-	<cfreturn "Mango blog has been successfully removed. Tables have beend dropped and the datasource and the corresponding files have been removed.">
+	<cfreturn "Mango blog has been successfully removed. Tables have been dropped and the datasource and the corresponding files have been removed.">
 </cffunction>
 ```
 
-Please note that you cannot delete the complete install path if the original install pathe was the webroot itself. There might be  WEB-INF directories in there that either must not be deleted or are not deletable because they are protected (open for read). So mostly the installation is up to you so that you have full control over everything what happens.
+Please note that you cannot delete the complete install path if the original install path was the webroot itself. There might be  WEB-INF directories in there that either must not be deleted or are not deletable because they are protected (open for read). So mostly the installation is up to you so that you have full control over everything what happens.
