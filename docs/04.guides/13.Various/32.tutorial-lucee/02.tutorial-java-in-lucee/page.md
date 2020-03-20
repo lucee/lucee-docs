@@ -60,7 +60,7 @@ please note that "createObject" is a misnomer and at this point you did not crea
 
 **Creating a new Object**
 
-Uusually you create an instance of an object by calling its constructor.
+Usually you create an instance of an object by calling its constructor.
 in Java this is done by using the new keyword. for example:
 
 	myList = new java.util.ArrayList();

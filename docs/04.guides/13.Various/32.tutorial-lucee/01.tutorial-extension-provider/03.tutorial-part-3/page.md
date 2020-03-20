@@ -43,7 +43,7 @@ For this you can use the method called validate of the install.cfc component . I
     </cfif> 
 <cfelseif arguments.step eq 2>
     <cfif not structKeyExists(config, "isblognew") or len(trim(mixed.isblognew)) eq 0>
-        <cfset error.fields.isblognew = "Please choose whether the blog is new or it will be imported from either BlogCFC or Wordpress">
+        <cfset error.fields.isblognew = "Please choose whether the blog is new or it will be imported from either BlogCFC or WordPress">
     </cfif>
     <cfif mixed.isblognew eq "new">
         <cfif len(trim(mixed.name)) eq 0>
