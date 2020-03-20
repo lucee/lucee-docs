@@ -5,7 +5,7 @@ title: CommandBox
 
 The easiest way to get started with Lucee is by using Ortus Solutions' [CommandBox](http://www.ortussolutions.com/products/commandbox). CommandBox comes with an embedded Lucee server so you can be up and running in just minutes.
 
-## 1. Install Commandbox
+## 1. Install CommandBox
 
 You will need to install version 2.0.0 or later of CommandBox. Follow the instructions for your operating system here: [https://commandbox.ortusbooks.com/getting-started-guide](https://commandbox.ortusbooks.com/getting-started-guide).
 

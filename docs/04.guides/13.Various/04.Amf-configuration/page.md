@@ -133,7 +133,7 @@ You can do this in two places, either add it to the /lucee-resin-express/conf/ap
 
 After restarting the server you can browse to http://localhost:8080/flex2gateway which should return the expected white page again, without error this time.
 
-Acutally, the missing servlet can perfectly be classified as a bug and shuld be corrected in future releases. :)
+Actually, the missing servlet can perfectly be classified as a bug and should be corrected in future releases. :)
 
 ### Using BlazeDS with Lucee Resin Server ###
 
@@ -143,7 +143,7 @@ So after starting the server you can verify again that the MessageBroker Servlet
 
 ### Using BlazeDS with the lucee.war ###
 
-If you have downloaded the lucee.war only, you also have to add the MessageBroker Servlet like we did with the Lucee Express Server version. If you want to follow along, I downloaded and unzipped the lucee-3.1.2.001.war into tomcats webapp diretory. This is the same tomcate I used when explaining the basic setup of BlazeDS at the top of this page.
+If you have downloaded the lucee.war only, you also have to add the MessageBroker Servlet like we did with the Lucee Express Server version. If you want to follow along, I downloaded and unzipped the lucee-3.1.2.001.war into tomcats webapp directory. This is the same tomcate I used when explaining the basic setup of BlazeDS at the top of this page.
 
 Start tomcat once, so that Lucee will populate the WEB-INF directory. Now again all you have to do is to add the MessageBroker Servlet code, this time the easies one is to add it to the /tomcat/webapps/lucee-3.1.2.001/WEB-INF/web.xml: 
 
@@ -169,7 +169,7 @@ and restart tomcat. If you now request http://localhost:8080/lucee-3.1.2.001/fle
 
 As we did in the last example, it is perfectly possible to run independent versions of BlazeDS for different websites. For example in the last example we had a blazesd and a lucee-3.1.2.001 web running under the same tomcat.
 
-But if you want to run multiple Lucee webs on the same Lucee server (with one global sever admin), you need to setup BlazeDS in every web separately and you also have to give it independand messagBrokerId's. BlazeDS will then manage instances of itself for your different Lucee webs. To explain this we will add two new web apps to the Lucee Resin Server example we used above.
+But if you want to run multiple Lucee webs on the same Lucee server (with one global sever admin), you need to setup BlazeDS in every web separately and you also have to give it independent messagBrokerId's. BlazeDS will then manage instances of itself for your different Lucee webs. To explain this we will add two new web apps to the Lucee Resin Server example we used above.
 
 Under /lucee-resin/webapps/ add two directories called lucee1 and lucee2, copy the index.cfm files from the /lucee-resin/webapps/ROOT directory into these two new apps and restart the server. Lucee created two new webapps with independent web admins and one overall server admin for you. But if you look at the resin console output, you will recognise that the MessageBroker Servlet crashed with an unavailable exception and that it is already defined with messageBrokerId .
 
