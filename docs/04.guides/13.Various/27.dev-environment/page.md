@@ -8,7 +8,7 @@ This is a personal account of how one developer managed to install Lucee to test
 
 I already had CF10 installed locally on the dev machine, and have been using the inbuilt web server to develop on. It is installed under `Applications/ColdFusion10`, and listens on port 8500.
 
-I downloaded the OSX version of Lucee Server with Tomcat 7 from [http://download.lucee.org](http://download.lucee.org) and installed it under `/Applications/Lucee/` (Tomcat is essential to replicate this exact procedure, but I assume it should work under Jetty as well).
+I downloaded the OSX version of Lucee Server with Tomcat 7 from [https://download.lucee.org](https://download.lucee.org) and installed it under `/Applications/Lucee/` (Tomcat is essential to replicate this exact procedure, but I assume it should work under Jetty as well).
 
 Then I messed around for awhile while I figured out how to access the web root from the browser. I expected it to be on either 8080 or 8888 from what I could find, but in fact tomcat was installed by default to listen on port 80. So after a time, I found the Lucee welcome page at [http://localhost](http://localhost). It might be helpful if the installer itself guided the first time user to this welcome page. Once I was there, a bit of critical information was revealed:
 
