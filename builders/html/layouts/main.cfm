@@ -76,7 +76,7 @@
 						<hr>
 						<ul class="nav">
 							<li>
-								<a href="http://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
+								<a href="https://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
 							</li>
 							<li>
 								<a href="https://dev.lucee.org"><span class="fa fa-fw fa-comments"></span>Mailing List</a>
