@@ -6,7 +6,7 @@ menuTitle: Download Lucee
 
 ## Download Lucee Server Software
 
-Lucee downloads are all available at [download.lucee.org](http://download.lucee.org)
+Lucee downloads are all available at [download.lucee.org](https://download.lucee.org)
 
 ## Lucee Documentation
 
