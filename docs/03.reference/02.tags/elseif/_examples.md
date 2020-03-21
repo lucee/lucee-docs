@@ -5,7 +5,7 @@
 <cfelseif(isStruct(SERVER))>
 	<cfset result="It is in Structure format">
 <cfelse>
-	<cfset result ="Other than struct & Array" >
+	<cfset result ="Other than struct & Array">
 </cfif>
 <cfdump var="#result#" /> 
 ```

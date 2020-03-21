@@ -5,7 +5,7 @@
 </cfloop>
 <br><u>Conditional loop</u><br>
 <cfset CountVar = 1>
-<cfloop condition = "CountVar LESS THAN OR EQUAL TO 5" >
+<cfloop condition = "CountVar LESS THAN OR EQUAL TO 5">
 	<cfset CountVar = CountVar + 1>
 	CountVar is <cfoutput>#CountVar#</cfoutput><br>
 </cfloop>
@@ -14,13 +14,13 @@
 ```lucee+trycf
 <cfset listEle = "lucee,test,case">
 <br><u>Simple list loop</u><br>
-<cfloop list="#listEle#" index="res" >
+<cfloop list="#listEle#" index="res">
 	<cfoutput>#res#</cfoutput><br>
 </cfloop>
 <br><u>List loop</u><br>
 <cfset listDeliEle = "I;Love;Lucee">
 
-<cfloop list="#listDeliEle#" index="element" delimiters=";" >
+<cfloop list="#listDeliEle#" index="element" delimiters=";">
 	<cfoutput>#element#</cfoutput><br>
 </cfloop>
 <br><u>deli loop with index</u><br>

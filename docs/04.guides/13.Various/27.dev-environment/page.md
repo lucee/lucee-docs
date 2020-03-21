@@ -10,7 +10,7 @@ I already had CF10 installed locally on the dev machine, and have been using the
 
 I downloaded the OSX version of Lucee Server with Tomcat 7 from [http://download.lucee.org](http://download.lucee.org) and installed it under `/Applications/Lucee/` (Tomcat is essential to replicate this exact procedure, but I assume it should work under Jetty as well).
 
-Then I messed around for awhile while I figured out how to access the web root from the browser. I expected it to be on either 8080 or 8888 from what I could find, but in fact tomcat was installed by default to listen on port 80. So after a time, I found the Lucee welcome page at http://localhost. It might be helpful if the installer itself guided the first time user to this welcome page. Once I was there, a bit of critical information was revealed:
+Then I messed around for awhile while I figured out how to access the web root from the browser. I expected it to be on either 8080 or 8888 from what I could find, but in fact tomcat was installed by default to listen on port 80. So after a time, I found the Lucee welcome page at [http://localhost](http://localhost). It might be helpful if the installer itself guided the first time user to this welcome page. Once I was there, a bit of critical information was revealed:
 
 If you want to start running some code in this Lucee instance, simply place it in the website's folder at:
 
@@ -20,7 +20,7 @@ If you want to start running some code in this Lucee instance, simply place it i
 
 Note that the ColdFusion builtin webserver, Tomcat, is listening to port 8500, and Lucee's builtin webserver, also Tomcat, is listening on port 80. It's essential of course that these port settings are different.
 
-Being a bit lazy, the first thing I tried was to create an alias to my "test" ColdFusion application directory under `/Applications/Lucee/tomcat/webapps/ROOT/` which is something you can do simply in the Finder. When I browsed to `localhost/test/` Lucee complained it couldn't find the directory. Just to make sure, I tried `localhost/test/testfile.cfm`, same complaint.
+Being a bit lazy, the first thing I tried was to create an alias to my "test" ColdFusion application directory under `/Applications/Lucee/tomcat/webapps/ROOT/` which is something you can do simply in the Finder. When I browsed to [http://localhost/test/](http://localhost/test/) Lucee complained it couldn't find the directory. Just to make sure, I tried [http://localhost/test/testfile.cfm](http://localhost/test/testfile.cfm), same complaint.
 
 A little Google Fu revealed that symlinks and aliases are different, the main factor being that some applications don't recognize aliases, but generally they do recognize symlinks. Here's the reference I found:
 
@@ -32,9 +32,9 @@ ln -s /Applications/ColdFusion10/cfusion/wwwroot/test /Applications/Lucee/tomcat
 
 A test directory with an alias symbol on top of it immediately appeared under `/Applications/Lucee/tomcat/webapps/ROOT/` (Yes!)
 
-Then I went to `localhost/test/testFile.cfm` and Lucee served it correctly. (Yes!)
+Then I went to [http://localhost/test/testFile.cfm](http://localhost/test/testFile.cfm) and Lucee served it correctly. (Yes!)
 
-Then I opened `/Applications/ColdFusion10/cfusion/wwwroot/test/testFile.cfm`, made a change and saved it. The change showed up in `localhost/test/testFile.cfm` when I refreshed the page. (Perfect!) This demonstrated that I could change the file under CF10's wwwroot, check it in CF10 at localhost:8500, and then immediately check it in Lucee at localhost. This is exactly what I want to do to confirm that ongoing development is compatible with Lucee so that I can host this particular app (or any other) under Lucee for my clients going forward.
+Then I opened `/Applications/ColdFusion10/cfusion/wwwroot/test/testFile.cfm`, made a change and saved it. The change showed up in [http://localhost/test/testFile.cfm](http://localhost/test/testFile.cfm) when I refreshed the page. (Perfect!) This demonstrated that I could change the file under CF10's wwwroot, check it in CF10 at [http://localhost:8500](http://localhost:8500), and then immediately check it in Lucee at localhost. This is exactly what I want to do to confirm that ongoing development is compatible with Lucee so that I can host this particular app (or any other) under Lucee for my clients going forward.
 
 Now that I had confirmed it worked with my test directory, I ran the following in Terminal:
 
@@ -42,13 +42,13 @@ Now that I had confirmed it worked with my test directory, I ran the following i
 ln -s /Applications/ColdFusion10/cfusion/wwwroot/pulical /Applications/Lucee/tomcat/webapps/ROOT/pulical
 ```
 
-Pulical is the name of the directory which houses the main application I'm working on. The directory with the alias symbol on it immediately appeared under `/Applications/Lucee/tomcat/webapps/ROOT/`, but I got an error running it under `localhost/pulical/` - it's not finding coldspring. Ah, ok, so I created a symlink for the coldspring directory:
+Pulical is the name of the directory which houses the main application I'm working on. The directory with the alias symbol on it immediately appeared under `/Applications/Lucee/tomcat/webapps/ROOT/`, but I got an error running it under [http://localhost/pulical/](http://localhost/pulical/) - it's not finding ColdSpring. Ah, ok, so I created a symlink for the ColdSpring directory:
 
 ```
 ln -s /Applications/ColdFusion10/cfusion/wwwroot/coldspring /Applications/Lucee/tomcat/webapps/ROOT/coldspring
 ```
 
-And the login screen loaded. (Yes!) But it didn't look right. The styles were missing (boo ...) Logging in, it became apparent that Lucee was outputting the correct source code, but stylesheets, javascript, and images were not being rendered. Hmmm ...
+And the login screen loaded. (Yes!) But it didn't look right. The styles were missing (boo ...) Logging in, it became apparent that Lucee was outputting the correct source code, but stylesheets, JavaScript, and images were not being rendered. Hmmm ...
 
 A little digging on Google and I found this is a problem others have experienced. To test a little further, I copied a directory from another simple project from `/Applications/ColdFusion10/cfusion/wwwroot/` to `/Applications/Lucee/tomcat/webapps/ROOT/` and sure enough, the source code was correct but css, js and images were not rendered. (Hope ...)
 
@@ -67,7 +67,7 @@ FileServlet File Servlet for static files railo.loader.servlet.FileServlet 2 Fil
 
 (not 100% sure if this is needed but did it anyway).
 
-Then I refreshed the Lucee view of the main application I'm working on at `localhost/pulical` and everything rendered correctly! (Yes!)
+Then I refreshed the Lucee view of the main application I'm working on at [http://localhost/pulical](http://localhost/pulical) and everything rendered correctly! (Yes!)
 
 Lessons learned:
 
