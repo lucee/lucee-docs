@@ -18,7 +18,7 @@ Lucee 5 is the [stable release](https://lucee.org/downloads.html) and is recomme
 Lucee 4.5 is the [legacy stable release](https://lucee.org/downloads.html) of the Lucee platform. It is EOL and no longer supported.
 
 ## Java API Docs
-For Java API documentation of the Lucee server engine, please visit [http://javadoc.lucee.org](http://javadoc.lucee.org).
+For Java API documentation of the Lucee server engine, please visit [https://javadoc.lucee.org](https://javadoc.lucee.org).
 
 ## Lucee on YouTube
 We also have a channel on YouTube where you will find further tutorials and tips: [https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA](https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA)
