@@ -1,5 +1,5 @@
 ---
-title: Creating an extension installer (4/5)
+title: Creating an Extension Installer (4/5)
 id: tutorial-extension-provider-part4
 ---
 
@@ -78,3 +78,5 @@ When the update and uninstall buttons are clicked the corresponding methods get 
 ```
 
 Please note that you cannot delete the complete install path if the original install pathe was the webroot itself. There might be  WEB-INF directories in there that either must not be deleted or are not deletable because they are protected (open for read). So mostly the installation is up to you so that you have full control over everything what happens.
+
+[[tutorial-extension-provider-part5]]

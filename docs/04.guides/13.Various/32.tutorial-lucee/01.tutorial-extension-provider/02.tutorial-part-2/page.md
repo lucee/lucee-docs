@@ -98,3 +98,5 @@ This calls the method listDatasources in the install.cfc in order to create the 
 The above config.xml produces the following forms:
 
 License: If there is a license.txt file in your archive.zip it automatically gets displayed. This is the first page.
+
+[[tutorial-extension-provider-part3]]

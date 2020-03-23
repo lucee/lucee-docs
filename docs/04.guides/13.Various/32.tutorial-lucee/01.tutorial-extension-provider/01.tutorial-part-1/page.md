@@ -8,7 +8,7 @@ menuTitle: Creating an extension for Lucee (1/5)
 
 ### Step 1 - Creating a local extension provider ###
 
-In the Lucee admin you are able to add extension providers to the existing list of providers. So we are going to create a local provider that runs on the local system and get's queried in the application listing. In order to do so just create a component named ExtensionProvider.cfc that contains the following remote methods:
+In the Lucee admin you are able to add extension providers to the existing list of providers. So we are going to create a local provider that runs on the local system and gets queried in the application listing. In order to do so just create a component named ExtensionProvider.cfc that contains the following remote methods:
 
 **getInfo()**
 
@@ -59,7 +59,8 @@ The most important element is the download link. This link defines where the ins
 
 ```lucee
 <cffunction name="listApplications" access="remote" returntype="query" output="no">
-	<cfset var apps = queryNew('type,id,name,label,description,version,category,image,download,author,codename,video,support,documentation,forum,mailinglist,network,created')>
+	<cfset var apps = queryNew('type,id,name,label,description,version,category,image,download,author,' &
+'codename,video,support,documentation,forum,mailinglist,network,created')>
 	<cfset var rootURL=getInfo().url>
 	<!--- Mango Blog --->
 	<cfsavecontent variable="desc">Mango Blog is an extensible blog engine released under the Apache license, built with ColdFusion. It provides the core engine to administer and publish entries and the necessary architecture to extend its basic functionality by adding plugins. Mango Blog can be easily customized by the use of exchangeable and completely customizable skins.</cfsavecontent>
@@ -100,9 +101,9 @@ This method is actually important since with its help you can implement a paymen
 
 We normally recommend the following process:
 
-* Create a shop where people buy applications and aquire credits to purchase applications.
+* Create a shop where people buy applications and acquire credits to purchase applications.
 * If the application is about to be installed the getDownloadDetails method is called by the Lucee administrator. Now you can return a check option that allows you to collect the user's credentials and query for their installation credits for this application. But again it's mostly up to you what this method does or does not.
-* If the query for credit responds with a positive number the download link can be returnded otherwise not.
+* If the query for credit responds with a positive number the download link can be returned otherwise not.
 
 Here's an example for a getDownloadDetails() method:
 
@@ -136,4 +137,6 @@ Now you need to add the newly created ExtensionProvider.cfc to one of your local
 
 When you now call the extensions/applications page your extension should be listed.
 
-If you did everything correctly, your example should look like (Part_I_Example.zip)[http://assets.luceewiki.s3.amazonaws.com/tutorials/Part_I_Example.zip]. If you go any further with the installation, you'll get an error in Lucee. That's because we now have to setup our zip file to accomdate being install through Lucee's Applications panel which will be discussed in Part II.
+If you did everything correctly, your example should look like (Part_I_Example.zip)[http://assets.luceewiki.s3.amazonaws.com/tutorials/Part_I_Example.zip]. If you go any further with the installation, you'll get an error in Lucee. That's because we now have to setup our zip file to accommodate being install through Lucee's Applications panel which will be discussed in Part II.
+
+[[tutorial-extension-provider-part2]]
