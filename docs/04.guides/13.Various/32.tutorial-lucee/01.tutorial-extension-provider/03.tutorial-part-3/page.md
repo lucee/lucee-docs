@@ -1,9 +1,9 @@
 ---
-title: Writing an extension (3/3)
+title: Writing an extension (3/5)
 id: tutorial-extension-provider-part3
 ---
 
-### Writing an extension - Part 3 ###
+### Writing a Lucee extension - Part 3 ###
 
 After we have created the provider and created the form, we now want to validate the form so that one can check for different circumstances in the form editing. So whether combinations of fields are allowed only or similar other checks.
 
@@ -72,3 +72,5 @@ For this you can use the method called validate of the install.cfc component . I
 So simply by setting keys (named after their corresponding form fields) in the error.fields struct you can validate your form. If the error.fields struct contains no key, the form validation is completed successfully. As you can see above the method gets passed the following attributes: error, path, config and step.
 
 By adding several steps to the config.xml you can create a kind of wizard which you can use for filling the necessary variables for the configuration of your installer. In the validate method you receive an argument that contains the current step to validate. After the last step has been validated, the install method is called which we will have a look at next. The install method simply executes whatever actions you require it to do. So it's mostly up to you to define what is going to happen there. You can unzip the archive, create mappings, create tables and datasources and even other things like add jars to the local context or create CFX tags.
+
+[[tutorial-extension-provider-part4]]
