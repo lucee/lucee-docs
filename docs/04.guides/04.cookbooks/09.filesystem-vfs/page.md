@@ -85,8 +85,8 @@ HTTP allows you to use HTTP URLs as a virtual Filesystem. This is limited to rea
 ### Example Code: ###
 
 ```cfs
-sct.uri="http://docs.lucee.org/reference/functions/abs.html";
+sct.uri="https://docs.lucee.org/reference/functions/abs.html";
 dump(sct);
 dump(fileRead(sct.uri));
-dump(directoryList("http://lucee.org/index.cfm"));
+dump(directoryList("https://lucee.org/index.cfm"));
 ```

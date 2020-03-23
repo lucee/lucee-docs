@@ -102,7 +102,7 @@ operators | Name           | Description |
 ------------------------   | ----------- 
 EQ        | equals         | Returns true if operands are equal, e.g. "A" EQ "A" is true |
 ==        | equals         | Returns true if operands are equal, e.g. "A" == "A" is true |
-===       | identical      | Returns true if operands are equal in value, and are of the same type, e.g. 1 === "1" is false, but 1 === 1 is true |
+===       | identical      | Returns true if operands are the same object in memory, false if they are not, (Note this is different than how JavaScript's === operator works. |
 NEQ       | does not equal | Returns true if operands are not equal, e.g. "A" NEQ "B" is true|
 <>        | does not equal | Returns true if operands are not equal, e.g. "A" <> "B" is true |
 !=        | does not equal | Returns true if operands are not equal, e.g. "A" != "B" is true |

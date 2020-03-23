@@ -267,4 +267,4 @@ Another planned enhancement is to extend parallel to the loop by simply adding `
 
 Here you can see above details in video
 
-[Lucee Threads ](https://www.youtube.com/watch?v=oGUZRrcg9KE)
+[Lucee Threads](https://www.youtube.com/watch?v=oGUZRrcg9KE)

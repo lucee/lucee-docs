@@ -72,5 +72,5 @@ You can now view mappings in admin.
 
 Here you can see above details in video
 
-[Lucee Deploy Archive file ](https://www.youtube.com/watch?time_continue=473&v=E9Z0KvspBAY)
+[Lucee Deploy Archive file](https://www.youtube.com/watch?time_continue=473&v=E9Z0KvspBAY)
 

@@ -11,7 +11,7 @@ id: securing-lucee-server-apps
 * Use SSL if you have users logging into your site, even if it's a self-signed cert. Secure your cookies.
 * Run Lucee under a dedicated user with limited access
 * Remove the Lucee admin files if not needed
-* lots of other stuff. Search for "hardening coldfusion"
+* Lots of other stuff. Search for "hardening coldfusion"
 
 ### Don't forget to lockdown your source control metadata ###
 
@@ -29,7 +29,6 @@ Upon output, sanitize HTML with xmlFormat() or htmlEditFormat(), sanitize any UR
 
 ## Doing things based on IP address ##
 
-
 One method of doing things based on IP addresses is [[url-rewriting]]. Another is using a front end web server, or the servlet container itself to manage access. Yet another, which is really the same as the first, is to use the URLRewriteFilter servlet filter.
 
 The nice thing about the URLRewriteFilter, is that it is not servlet container specific. The same WAR will deploy with the same rules anywhere the WAR runs, be it JBoss/Tomcat, Jetty, Resin, or GlassFish.
@@ -37,7 +36,6 @@ The nice thing about the URLRewriteFilter, is that it is not servlet container s
 Set IPs allowed to see debugging output in the Lucee Administrator.
 
 Example URLRewriteFilter rewrite only allowing localhost to access the admin:
-
 
 ```lucee
 <rule enabled="true">
@@ -58,7 +56,7 @@ RewriteRule ^.*/lucee/admin/   -   [F]
 
 ## Realms and whatnot ##
 
-And then there's [Realms and whatnot](http://docs.oracle.com/javaee/6/tutorial/doc/bnbxj.html), the Java security stuff which is part of the servlet spec.
+And then there's [Realms and whatnot](https://docs.oracle.com/javaee/6/tutorial/doc/bnbxj.html), the Java security stuff which is part of the servlet spec.
 
 ## Other options ##
 

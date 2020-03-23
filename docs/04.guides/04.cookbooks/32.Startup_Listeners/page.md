@@ -4,7 +4,7 @@ id: Startup Listeners-code
 ---
 ## Startup Listeners Code ##
 
-Lucee has two kinds of listeners. The first one is server.cfc that is called at server startup. It exists only once. The second listener is web.cfc which can exist for each web context on your server. We explain the two listeners with a simple example below:
+Lucee has two kinds of listeners. The first one is Server.cfc that is called at server startup. It exists only once. The second listener is web.cfc which can exist for each web context on your server. We explain the two listeners with a simple example below:
 
 ####Example1:####
 
@@ -12,7 +12,7 @@ Create a test cfc file in lucee-server\context\context directory.
 
 ```lucee
 
-// lucee-server\context\context\server.cfc
+// lucee-server\context\context\Server.cfc
 
 	component{
 		public function onServerStart(){
@@ -23,8 +23,8 @@ Create a test cfc file in lucee-server\context\context directory.
 	}
 ```
 
-* Here, server.cfc has one function ``onServerStart()`` . It outputs three lines of content.
-* Start the Lucee server ``Startup`` . Here the console shows the server context which means it triggered server.cfc
+* Here, Server.cfc has one function ``onServerStart()`` . It outputs three lines of content.
+* Start the Lucee server ``Startup`` . Here the console shows the server context which means it triggered Server.cfc
 * Finally, stop Lucee.
 
 ####Example2:####
@@ -33,7 +33,7 @@ Create a test cfc file in webapps\ROOT\WEB-INF\lucee\context\ directory.
 
 ```lucee
 
-// webapps\ROOT\WEB-INF\lucee\context\web.cfc
+// webapps\ROOT\WEB-INF\lucee\context\Web.cfc
 
 component {
 	public function onWebStart(reload){
@@ -45,7 +45,7 @@ component {
 }
 ```
 
-Here web.cfc has one function ``onWebStart()`` and one argument ``reload`` that indicates if the web context is a new startup of the server. Here ``reload`` is used to reload the web context. We see the difference when setting reload to true or false. 
+Here Web.cfc has one function ``onWebStart()`` and one argument ``reload`` that indicates if the web context is a new startup of the server. Here ``reload`` is used to reload the web context. We see the difference when setting reload to true or false. 
 
 * Start the Lucee server ``Startup`` . Here we see the server context first, then the web context is next. So both listeners get triggered by Lucee.
 * Next, change the **settings --> charset** for web charset "UTF-8" in web admin.

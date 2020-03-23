@@ -57,7 +57,7 @@ Done.
 
 ### Real World Example ###
 
-The Lucee interface allows an own implementation of a special ressource. How you do this will be shown in one of the upcoming blogs.
+The Lucee interface allows an own implementation of a special resource. How you do this will be shown in one of the upcoming blogs.
 
 We have taken a real world example in order to test the Lucee resources. Therefor we used the filemanager CFFM by Rick Root. CFFM can browse through defined mappings as well. So we defined a special mapping into the server's ram and we were not only able to upload a file into the ram but we were also able to modify it accordingly. CFFM does not know anything about resources, but he does know how to handle mappings. The fact that resources obey the usual usage of file tags and functions without introducing new attributes made it possible that CFFM worked without changes. So even though CFFM does not know anything about FTP, RAM or ZIP, you could use it in order to browse through these file systems.
 

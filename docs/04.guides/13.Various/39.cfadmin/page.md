@@ -43,7 +43,7 @@ clob |	Defines whether clob is usable with this data source
 codename |	Contains the codename of an extension
 collection | Contains the collection name
 collectionAction |	Subaction for the action collection. Allowed are create repair, optimize, delete
-componentDataMemberDefaultAccess |	Defines the visibility of the components' this scope valid values are: privat, protected, public, remote
+componentDataMemberDefaultAccess |	Defines the visibility of the components' this scope valid values are: private, protected, public, remote
 componentDumpTemplate |	Sets the path to the template that is used when a component gets dumped out
 config | Contains the path to the configuration file for an extension
 connectionLimit | Database connection property

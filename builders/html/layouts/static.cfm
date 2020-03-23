@@ -49,7 +49,7 @@
 						<hr>
 						<ul class="nav">
 							<li>
-								<a href="http://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
+								<a href="https://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
 							</li>
 							<li>
 								<a href="https://dev.lucee.org"><span class="fa fa-fw fa-comments"></span>Mailing List</a>
@@ -61,7 +61,7 @@
 								<a href="https://github.com/lucee/lucee-docs"><span class="fa fa-fw fa-github"></span>Source repository</a>
 							</li>
 							<li>
-								<a href="http://javadoc.lucee.org"><span class="fa fa-fw fa-code"></span>JavaDocs</a>
+								<a href="https://javadoc.lucee.org"><span class="fa fa-fw fa-code"></span>JavaDocs</a>
 							</li>
 							<li>
 								<a href="https://rorylaitila.gitbooks.io/lucee/content/"><span class="fa fa-fw fa-book"></span>Git Book</a>

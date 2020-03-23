@@ -242,7 +242,7 @@ The new CFTHREAD tag supports the attribute type. This attribute can contain eit
 
 **[[tag-abort]]**
 
-This tag has been extended with the attribute "type". With this attribute you can define whether a request is aborted completely (request) or if only the current CFML-template is aborded (page). The default value for this attribute is "request".
+This tag has been extended with the attribute "type". With this attribute you can define whether a request is aborted completely (request) or if only the current CFML-template is aborted (page). The default value for this attribute is "request".
 
 Example: Template index.cfm
 

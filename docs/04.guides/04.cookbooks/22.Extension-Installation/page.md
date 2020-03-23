@@ -36,7 +36,7 @@ By default lucee use extension as http://extension.lucee.org.
 
 Install the extension using file system. For that you should download the lex file for the extension.
 
-You can download it from the url [http://download.lucee.org/](http://download.lucee.org/)
+You can download it from the url [https://download.lucee.org/](https://download.lucee.org/)
 
 Copy the lex file into your ```lucee-server/deploy/``` folder. Wait for a minute, it deploy the extension automatically. You can see the installation message on deploy.log files.
 

@@ -17,7 +17,7 @@ The installer will attempt to run in graphical mode if there is a desktop availa
 
 The following example will demonstrate how to activate the installer using the GUI that's available on CentOS 5 - which is powered by the Gnome desktop environment. **IMPORTANT:** Also, I will be logging in to the server directly as the "root" user. The installer needs "root" permissions in order to do all the things it needs to.
 
-Start by downloading the installer from the [Lucee.org Download Site](http://lucee.org/downloads.html) if you haven't already. In this example, I will download mine to my desktop.
+Start by downloading the installer from the [Lucee.org Download Site](https://lucee.org/downloads.html) if you haven't already. In this example, I will download mine to my desktop.
 
 Once downloaded, we need to give the installer "Execute" permissions. To do that, start by right-clicking on the installer and selecting the "Properties" option:
 
@@ -49,7 +49,7 @@ If you would like to force a text mode install, you can add the following option
 
 The installer can be run graphically when launched both from the command-line and from the Ubuntu Gnome Desktop. The following set of instructions should help get the installer running quickly and easily in graphic mode without having to mess with the command-line console.
 
-Start by downloading the installer from the [Lucee.org Download Site](http://lucee.org/downloads.html) if you haven't already.
+Start by downloading the installer from the [Lucee.org Download Site](https://lucee.org/downloads.html) if you haven't already.
 
 Next, right click the installer, select properties:
 

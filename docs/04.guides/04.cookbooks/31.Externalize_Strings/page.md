@@ -41,4 +41,4 @@ So, the string 'year' is no longer in memory. When the bytecode is called, it lo
 
 Here you can see above details in video
 
-[ Externalize strings ](https://youtu.be/AUcsHkVFXHE)
+[Externalize strings](https://youtu.be/AUcsHkVFXHE)

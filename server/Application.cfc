@@ -228,7 +228,7 @@ component {
 		opts.prod = {
 			title: "Browse Prod Docs",
 			menu: "Prod",
-			href: "http://docs.lucee.org/"
+			href: "https://docs.lucee.org/"
 		};
 		opts.git = {
 			title: "Lucee Docs Git Repo",
@@ -278,7 +278,7 @@ component {
 					_link = opts[link].href;
 					var _target = " target='_blank'";
 				}
-				writeOutput('<li><a href="#_link#" #_target# title="#htmlEditFormat(opts[link].title)#" >#htmlEditFormat(opts[link].menu)#</a></li>');
+				writeOutput('<li><a href="#_link#" #_target# title="#htmlEditFormat(opts[link].title)#">#htmlEditFormat(opts[link].menu)#</a></li>');
 			}
 			writeOutput('</ul><hr>');
 			if (opts.keyExists(selectedOption))

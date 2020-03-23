@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/lucee/lucee-docs.svg?branch=master)](https://travis-ci.org/lucee/lucee-docs)
 
-This repository contains the source and build scripts for creating Lucee's documentation. The website output of the docs can be found at [http://docs.lucee.org](http://docs.lucee.org).
+This repository contains the source and build scripts for creating Lucee's documentation. The website output of the docs can be found at [https://docs.lucee.org](https://docs.lucee.org).
 
 Issues can be reported and tracked at [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD).
 
-Find out more about the project at: [http://docs.lucee.org/docs.html](http://docs.lucee.org/docs.html).
+Find out more about the project at: [https://docs.lucee.org/docs.html](https://docs.lucee.org/docs.html).
 
 ## Build locally
 
@@ -47,13 +47,13 @@ There is a lot of work to do and we appreciate contribution in all forms. The is
 
 Ask questions or post suggestions over on the [Lucee mailing List](https://dev.lucee.org/c/documentation) under the documentation category.
 
-More information on how the documentation is built and formatted can be found at [http://docs.lucee.org/docs.html](http://docs.lucee.org/docs.html).
+More information on how the documentation is built and formatted can be found at [https://docs.lucee.org/docs.html](https://docs.lucee.org/docs.html).
 
 The workflow for contributions would be:
-* Submit the contributor's agreement: http://docs.lucee.org/guides/get-involved/contributing-contributors-agreement.html
-* Fork lucee-docs on github.
+* Submit the contributor's agreement: https://docs.lucee.org/guides/get-involved/contributing-contributors-agreement.html
+* Fork lucee-docs on GitHub.
 * Make your changes in the master branch.
-* Push your changes to your github repo.
+* Push your changes to your GitHub repo.
 * Create a pull request.
 
 ### Raise issues and suggestions

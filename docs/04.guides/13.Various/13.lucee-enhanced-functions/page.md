@@ -81,7 +81,7 @@ output: MCMLXXIII
 
 structNew([string]):Struct
 
-The function structNew can make use an initalizing parameter which influences the type of struct.
+The function structNew can make use of an initializing parameter which influences the type of struct.
 
 The following values are allowed:
 

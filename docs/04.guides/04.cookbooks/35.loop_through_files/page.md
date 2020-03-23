@@ -63,4 +63,4 @@ In the above example, loop through the file and get each line, so in memory ther
 
 Here you can see above details in video
 
-[ Looping through Files ](https://www.youtube.com/watch?v=6w2Wr8snk50)
+[Looping through Files](https://www.youtube.com/watch?v=6w2Wr8snk50)

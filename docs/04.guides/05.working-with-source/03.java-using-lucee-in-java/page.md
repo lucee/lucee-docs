@@ -12,7 +12,7 @@ Since Lucee is written in Java and is running inside a Java Virtual Machine (JVM
 
 The first thing you will need to do is to add `lucee.jar` to your classpath, so that you will have access to the classes and interfaces that Lucee provides.  if you are using an IDE like Eclipse or Netbeans, then you simply add the `lucee.jar` library to your project.
 
-Once you added `lucee.jar` to your project, you should have access to all of Lucee's public classes and interfaces. In order to access them you will need to add the import statement to the top of your class file.  be sure to add an import statement for each of the classes / interfaces that you plan to use in that class.  you can review the [Lucee JavaDoc files](http://javadoc.lucee.org).
+Once you added `lucee.jar` to your project, you should have access to all of Lucee's public classes and interfaces. In order to access them you will need to add the import statement to the top of your class file.  be sure to add an import statement for each of the classes / interfaces that you plan to use in that class.  you can review the [Lucee JavaDoc files](https://javadoc.lucee.org).
 
 ## Using Lucee from your Java code ##
 There are two cases in which you might want to use Lucee from your Java code:
@@ -23,7 +23,7 @@ There are two cases in which you might want to use Lucee from your Java code:
 ### When your Java code was loaded by Lucee ###
 The easiest way to use Lucee from your Java code is when your Java code was loaded by Lucee.  this is a common case when, for example, your CFML code creates a Java object, and then that Java object creates Lucee objects and calls CFC methods.
 
-Your interaction with Lucee should start via an object that implements the [lucee.loader.engine.CFMLEngine interface](http://javadoc.lucee.org/lucee/loader/engine/CFMLEngine.html) and the [lucee.runtime.PageContext](http://javadoc.lucee.org/lucee/runtime/PageContext.html) object.  Since Lucee loaded your Java code, and it will be running in that very same JVM, you can get a reference to a CFMLEngine object by calling the getInstance() static method of the lucee.loader.engine.CFMLEngineFactory object.
+Your interaction with Lucee should start via an object that implements the [lucee.loader.engine.CFMLEngine interface](https://javadoc.lucee.org/lucee/loader/engine/CFMLEngine.html) and the [lucee.runtime.PageContext](https://javadoc.lucee.org/lucee/runtime/PageContext.html) object.  Since Lucee loaded your Java code, and it will be running in that very same JVM, you can get a reference to a CFMLEngine object by calling the getInstance() static method of the lucee.loader.engine.CFMLEngineFactory object.
 
 ```java
 import	lucee.loader.engine.*;

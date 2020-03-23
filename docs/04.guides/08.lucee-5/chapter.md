@@ -3,11 +3,11 @@ title: Lucee 5
 id: lucee-5
 ---
 
-#Lucee 5
+# Lucee 5
 
 Lucee 5 is the first major release after forking from the Railo project. Lucee 5 is not about dazzling new features but about improving the core language and providing a complete architectural overhaul of the engine.
 
-This brings Lucee and CFML to a whole new level! <http://download.lucee.org>.
+This brings Lucee and CFML to a whole new level! <https://download.lucee.org>.
 
 ## Architecture Enhancements ##
 Lucee 5 has had a complete overhaul under the hood. A lot of the existing functionality has been completely re-worked, as well as extending the interfaces to the engine to make way for a lot of possible functionality in the future.
@@ -47,5 +47,5 @@ Lucee 5 provides the following core language enhancements:
 Lucee 5 has had a complete overhaul of the existing extension framework, to make it easier for anyone to create an extension. See [[lucee-5-extensions]]
 
 ## Install/Upgrade instructions ##
-* Fresh install - We provide various possibilities to install Lucee in different ways, simply download your favorite package from  [here](http://lucee.org/downloads.html).
+* Fresh install - We provide various possibilities to install Lucee in different ways, simply download your favorite package from  [here](https://lucee.org/downloads.html).
 * [[lucee-5-upgrading-lucee-45]] - Updating from Lucee 4.5 (or Railo) is as simple as replacing a single file, but you can do a little bit more to have a clean system, see the instructions for more details.

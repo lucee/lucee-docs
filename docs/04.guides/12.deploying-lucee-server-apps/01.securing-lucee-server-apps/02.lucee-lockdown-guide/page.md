@@ -11,7 +11,7 @@ id: lucee-lockdown-guide
 
 * Lucee Admin Lock down guide for IIS : [https://www.youtube.com/watch?v=dYt4rap7LWQ](https://www.youtube.com/watch?v=dYt4rap7LWQ)
 
-* Pete Freitag on securing lucee-context : [ http://www.petefreitag.com/item/715.cfm]( http://www.petefreitag.com/item/715.cfm)
+* Pete Freitag on securing lucee-context : [http://www.petefreitag.com/item/715.cfm](http://www.petefreitag.com/item/715.cfm)
 
 On Windows it is recommended to run the Lucee/Tomcat service as a restrict user with only the required permissions rather than under SYSTEM account.
 

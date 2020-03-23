@@ -3,7 +3,7 @@ title: Lucee Docs Markdown
 id: docs-markdown
 ---
 
-The base markdown engine used is [pegdown](https://github.com/sirthias/pegdown). Please see both the [official markdown website](http://daringfireball.net/projects/markdown/) and the the [pegdown repository](https://github.com/sirthias/pegdown) for the supported syntax.
+The base Markdown engine used is [pegdown](https://github.com/sirthias/pegdown). Please see both the [official Markdown website](http://daringfireball.net/projects/markdown/) and the the [pegdown repository](https://github.com/sirthias/pegdown) for the supported syntax.
 
 On top of this base layer, the Lucee Documentation system processes its own special syntaxes for syntax highlighting, cross referencing and notice boxes. It also processes YAML front matter to glean extra metadata about pages.
 
@@ -20,7 +20,7 @@ WriteOutput( x );
 ```
 </pre>
 
-A code block without syntax higlighting would look like this:
+A code block without syntax highlighting would look like this:
 
 <pre>
 ```
@@ -111,7 +111,7 @@ Tip boxes use six levels of blockquote indentation:
 
 ## YAML Front Matter
 
-YAML Front Matter is used to add metadata to pages that can then be used by the build system. The syntax takes the form of three dashes `---` at the very beginning of a markdown document, followed by a YAML block, followed by three dashes on their own line. For example:
+YAML Front Matter is used to add metadata to pages that can then be used by the build system. The syntax takes the form of three dashes `---` at the very beginning of a Markdown document, followed by a YAML block, followed by three dashes on their own line. For example:
 
 ```html
 ---
@@ -141,4 +141,4 @@ categories:
     \- math
 ```
 
-Category links will be rendered as ```[[category-categoryname]]```. Related links will be rendered using the markdown renderer so can use any valid link format, including our custom cross referencing syntax (see above, and note the required double quotes to escape the special characters).
+Category links will be rendered as ```[[category-categoryname]]```. Related links will be rendered using the Markdown renderer so can use any valid link format, including our custom cross referencing syntax (see above, and note the required double quotes to escape the special characters).

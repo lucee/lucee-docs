@@ -50,4 +50,4 @@ The following masks can be used to format the full date and time and may not be 
 - full: equivalent to "dddd, mmmm d, yyyy h:mm:ss tt zz"
 - ISO8601: equivalent to "yyyy-mm-dd'T'HH:nn:ss'Z'Z"
 
-The function follows Java date time mask.  For details, see the Java documentation section [Date and Time Patterns](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html). 
+The function follows Java date time mask.  For details, see the Java documentation section [Date and Time Patterns](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html). 

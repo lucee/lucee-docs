@@ -6,7 +6,7 @@ id: lucee-5-updating-railo
 #Upgrade from Railo#
 
 * Stop the servlet engine
-* Go to the Lucee website to the [download page](http://lucee.org/downloads.html), download "Custom/JARs for Lucee 5" and unzip the downloaded zip file somewhere on your system.
+* Go to the Lucee website to the [download page](https://lucee.org/downloads.html), download "Custom/JARs for Lucee 5" and unzip the downloaded zip file somewhere on your system.
 * If the folder "{servlet-engine}/lib/ext" exists: remove all jars, but do not remove the directory "railo-server"/"lucee-server" if that directory is present there (which is the case with default installations).
 * If the folder "{servlet-engine}/lib/ext" doesn' exist yet: Create the folder "{servlet-engine}/lib/ext"
 * Copy **lucee.jar** and **org-apache-felix-main-x-x-x.jar** (x-x-x stands for a specific version) to "{servlet-engine}/lib/ext"

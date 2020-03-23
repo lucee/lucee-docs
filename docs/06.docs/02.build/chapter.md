@@ -9,7 +9,7 @@ The only dependency required is [CommandBox](http://www.ortussolutions.com/produ
 
 ## Fork and contribute to the documentation
 
-Fork the repository and clone a local copy, or you can simply use the Github links on any page of the docs to edit the docs and submit changes.
+Fork the repository and clone a local copy, or you can simply use the GitHub links on any page of the docs to edit the docs and submit changes.
 
 [Lucee Documentation](https://github.com/lucee/lucee-docs)
 
@@ -35,7 +35,7 @@ This will spin up a server using CommandBox on port 4040 and open it in your bro
 
 When running the server locally, you can edit the content inline and it will save your changes back to your local file system.
 
-Once you have finished making your changes, simply use your preferred git client to create a pull request to publish yourchanges.
+Once you have finished making your changes, simply use your preferred git client to create a pull request to publish your changes.
 
 ## Recent improvements
 [https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662](https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662)

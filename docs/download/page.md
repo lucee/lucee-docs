@@ -6,7 +6,7 @@ menuTitle: Download Lucee
 
 ## Download Lucee Server Software
 
-Lucee downloads are all available at [download.lucee.org](http://download.lucee.org)
+Lucee downloads are all available at [download.lucee.org](https://download.lucee.org)
 
 ## Lucee Documentation
 
@@ -27,6 +27,6 @@ Lucee dictionaries are available for download to support spell checking your cod
 
 You can add the Lucee documentation to your Dash or Zealdocs install by adding the following feed:
 
-[http://docs.lucee.org/dash/lucee.xml](http://docs.lucee.org/dash/lucee.xml)
+[https://docs.lucee.org/dash/lucee.xml](https://docs.lucee.org/dash/lucee.xml)
 
 Our build process should keep this up to date so that you won't miss all the awesome community contributions that make their way into the docs!

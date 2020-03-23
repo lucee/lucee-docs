@@ -47,7 +47,7 @@ Okay, this template isn't particularly useful... but it does show you how easy i
 
 ## Tag/Script
 Lucee is in fact not one language, it is 2!
-the tag language that you can see as extension to HTML and the script Language that you can see as extension to Javascript.
+the tag language that you can see as extension to HTML and the script Language that you can see as extension to JavaScript.
 The example above was  pure tag code, tag code is perfect to create output, to mix with static HTML.
 
 ### Tag ###
@@ -69,8 +69,8 @@ The following fragment outputs some employee details from an employee object.  A
 ### Script ###
 Of course a web application is not only about output information, it is also about doing business logic, convert data, ...
 for this the language can be used, but it is not very handy, in that case it is better to use the script language.
-When you are familiar with Javascript, this will be also very familiar to you.
-Script code can be used in code island or with complete files, similar you can use Javascript within HTML.
+When you are familiar with JavaScript, this will be also very familiar to you.
+Script code can be used in code island or with complete files, similar you can use JavaScript within HTML.
 
 This example gets a record from a database and populates an object.
 

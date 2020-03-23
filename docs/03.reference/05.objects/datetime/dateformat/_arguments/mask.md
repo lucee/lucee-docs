@@ -1,4 +1,5 @@
 Characters that show how Lucee displays a date:
+
 - d: Day of the month as digits; no leading zero for single-digit days.
 - dd: Day of the month as digits; leading zero for single-digit days.
 - ddd: Day of the week as a three-letter abbreviation.

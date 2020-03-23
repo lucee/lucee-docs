@@ -122,7 +122,7 @@ Additional language extensions, frameworks, additional features, drivers, etc. a
 
 ### Scheduling ###
 
-* Scheduler available programatically or via administrator
+* Scheduler available programmatically or via administrator
 * Failed schedules monitored
 * Schedule logging
 
