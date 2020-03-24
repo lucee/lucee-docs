@@ -140,7 +140,12 @@ Now we create the .lex file with the file `/META-INF/MANIFEST.MF` inside it agai
 /META-INF/logo.png
 ```
 
-Adding a logo / icon for your extension is straightforward, simply copy a PNG image file with the name logo.png into the folder `/META-INF/`. This image will be used for the extension in the Lucee Admin.
+Adding a logo / icon for your extension is straightforward, simply copy a PNG image file with the name logo.png into the folder `/META-INF/`. This image will be used for the extension in the Lucee Admin. 
+
+The logo image will be automatically proportionally resized in the Administrator
+
+- Extension Listings, 130px x 50px
+- Extension Detail page, 400px x 400px 
 
 ## Installing artifacts
 Now that we have covered how the base settings for an extension work, we can make it do something useful.
