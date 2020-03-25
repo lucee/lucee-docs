@@ -2,9 +2,10 @@
 title: PagePoolClear
 id: function-pagepoolclear
 related:
+- function-pagepoollist
 categories:
-    - cache
-    - server
+- cache
+- server
 ---
 
-clear pages in pools
+Clear out all the cfml code (cfm, cfcs) in the cache of compiled code (aka the PagePool)
