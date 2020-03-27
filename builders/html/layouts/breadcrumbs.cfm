@@ -3,7 +3,11 @@
 <cfparam name="args.docTree"   type="any" />
 <cfparam name="args.page"   type="any" />
 
-<cfset local.docs_base_url = "https://docs.lucee.org">
+<cfif args.edit>
+	<cfset local.docs_base_url = "http://#cgi.http_host#">
+<cfelse>	
+	<cfset local.docs_base_url = "https://doc.lucee.org">
+</cfif>
 
 <cfif args.page.getId() neq "/home" and ArrayLen(args.crumbs)>
 	<!--- pages may have multiple crumbs LD-112 --->
