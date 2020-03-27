@@ -112,7 +112,7 @@ component {
 					body       = Trim( renderedPage )
 					, page       = arguments.page
 					, edit       = arguments.edit
-					, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, page=arguments.page, docTree=arguments.docTree, categories=categories.sort("textNoCase") } )
+					, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, page=arguments.page, docTree=arguments.docTree, categories=categories.sort("textNoCase"), edit= arguments.edit } )
 					, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={
 						crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage(), pageLineageMap=arguments.page.getPageLineageMap()
 					} )
