@@ -7,6 +7,7 @@ related:
 - function-getfunctionlist
 - function-gettagdata
 categories:
+- server
 - system
 ---
 
