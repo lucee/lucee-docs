@@ -4,5 +4,5 @@
 	newNames2 = aNames.map(function(item,index,arr){
 	    return {'name':item};
 	});
-	writedump(newNams2);
+	writedump(newNames2);
 ```
