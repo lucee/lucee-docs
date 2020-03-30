@@ -1,8 +1,11 @@
 ---
-title: queryrowbyindex
+title: QueryRowByIndex
 id: function-queryrowbyindex
 related:
+- function-querygetcellbyindex
+- function-queryrowdatabyindex
 categories:
-    - query
+- query
 ---
 
+Since 5.3.4.23
