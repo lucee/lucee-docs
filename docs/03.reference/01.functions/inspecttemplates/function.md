@@ -4,7 +4,6 @@ id: function-inspecttemplates
 related:
 - function-pagepoolclear
 - function-pagepoollist
-- function-systemcacheclear
 categories:
 - cache
 - server
