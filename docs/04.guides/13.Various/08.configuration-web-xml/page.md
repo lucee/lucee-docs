@@ -1,6 +1,8 @@
 ---
 title: 'Configuration: Lucee web.xml'
 id: configuration-web-xml
+categories:
+- server
 menuTitle: web.xml
 ---
 
@@ -124,3 +126,7 @@ The configuration for the AMF Servlet is not included with the Lucee distributio
   <url-pattern>/openamf/gateway/*</url-pattern>
 </servlet-mapping>
 ```
+
+**Related**
+
+- [[relocating-web-inf]]
