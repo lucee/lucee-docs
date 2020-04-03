@@ -74,3 +74,4 @@ Detailed instructions for SSH tunneling:
 * [OWASP Securing Tomcat](https://www.owasp.org/index.php/Securing_tomcat)
 * [Pete Freitag on securing railo-context](http://www.petefreitag.com/item/715.cfm)
 * [[lucee-lockdown-guide]]
+* [[relocating-web-inf]]

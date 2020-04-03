@@ -64,4 +64,5 @@ There's the WS-Security standard, with a project implementing this for CFML here
 
 ### More Resources ###
 
-[[lucee-lockdown-guide]]
+- [[lucee-lockdown-guide]]
+- [[relocating-web-inf]]
