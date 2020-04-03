@@ -3,6 +3,7 @@ title: Locking Down Tomcat
 id: locking-down-your-lucee-stack
 categories:
 - server
+description: Restricting Access to Tomcat's Web Server
 ---
 
 ### Restrict Access to Tomcat's Web Server ###
