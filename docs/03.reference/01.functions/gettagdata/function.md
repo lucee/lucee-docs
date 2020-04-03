@@ -7,6 +7,7 @@ related:
 - function-gettagdata
 categories:
 - server
+description: Returns Information about a Tag as Struct
 ---
 
-return information to a Tag as Struct
+Returns Information about a Tag as Struct
