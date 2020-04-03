@@ -3,6 +3,7 @@ title: 'Locking Down Lucee '
 id: locking-down-lucee-server
 categories:
 - server
+description: Security best practises to lock down your Lucee server
 ---
 
 ### Secure the WEB-INF directory for every web context

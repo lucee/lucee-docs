@@ -4,6 +4,7 @@ id: configuration-web-xml
 categories:
 - server
 menuTitle: web.xml
+description: How to configure Tomcat's web.xml for Lucee
 ---
 
 ## web.xml ##
