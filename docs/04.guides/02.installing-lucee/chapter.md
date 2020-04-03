@@ -1,7 +1,7 @@
 ---
 title: Installing Lucee
 id: installation-installer-documentation
-forceSortOrder: 20
+forceSortOrder: '20'
 ---
 
 ### Lucee Installer Documentation ###
@@ -63,6 +63,7 @@ The following sections are intended for system administrators who want to deploy
 * [[using-the-lucee-installer]]
 * [[locking-down-your-lucee-stack]]
 * [[locking-down-lucee-server]]
+* [[relocating-web-inf]]
 * [[credits-and-contributors]]
 
 ### Contribute ###

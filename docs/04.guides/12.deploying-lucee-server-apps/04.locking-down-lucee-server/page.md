@@ -1,11 +1,13 @@
 ---
 title: 'Locking Down Lucee '
 id: locking-down-lucee-server
+categories:
+- server
 ---
 
 ### Secure the WEB-INF directory for every web context
 
-Make sure the WEB-INF directory is locked down. You will need to configure your webserver to restrict access, or just configure the WEB-INF directories to be stored outside the web root into a common folder, as per [[running-lucee-installing-the-boncode-connector-and-mod_cfml]]
+Make sure the WEB-INF directory is locked down. You will need to configure your webserver to restrict access, or configure the WEB-INF directories to be stored outside the web root into a common folder, [[relocating-web-inf]]
 
 ### Disable Public Debugging Error Output ###
 
