@@ -9,6 +9,7 @@ related:
 - tag-setting
 - function-echo
 - function-jsstringformat
+- function-systemoutput
 - function-xmlformat
 ---
 
