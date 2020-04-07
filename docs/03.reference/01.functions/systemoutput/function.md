@@ -1,6 +1,8 @@
 ---
 title: SystemOutput
 id: function-systemoutput
+related:
+- function-echo
 categories:
 - debugging
 ---
