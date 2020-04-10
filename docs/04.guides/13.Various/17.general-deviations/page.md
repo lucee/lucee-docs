@@ -24,9 +24,9 @@ Lucee cannot read files that were encrypted by other CFML Engines. In order to n
 
 ### SOAP WebServices ###
 
-Lucee 4 uses [Apache Axis] (http://axis.apache.org/axis/) to consume and generate webservices. 
+Lucee 4 uses [Apache Axis](http://axis.apache.org/axis/) to consume and generate webservices. 
 
-Adobe CF uses Axis1 up to version 9, and starting with version 10 it uses both Axis1 and [Axis2] (http://axis.apache.org/axis2/java/core/). Therefore consuming SOAP webservices that rely on features supported only by Axis2 will not work.
+Adobe CF uses Axis1 up to version 9, and starting with version 10 it uses both Axis1 and [Axis2](http://axis.apache.org/axis2/java/core/). Therefore consuming SOAP webservices that rely on features supported only by Axis2 will not work.
 
 ### Cookies ###
 
