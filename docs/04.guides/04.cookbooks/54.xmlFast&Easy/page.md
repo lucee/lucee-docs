@@ -223,7 +223,7 @@ I have xml as shown below:
 </catalog>
 ```
 
-Nomally we use DOM(Document Object Model):
+Normally we use DOM(Document Object Model):
 
 ```luceescript
 <cfscript>
