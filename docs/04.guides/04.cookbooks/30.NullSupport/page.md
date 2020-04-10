@@ -31,7 +31,7 @@ We enable null support by using **lucee server admin** --> **Language/compiler**
 
 In this example, the function `test()` does not return a value. This, in effect, is the same as returning `null`. If you dump the result of the function (`dump(test());`), you will see that the dump outputs `Empty: Null`.
 
-If we we assign the fuction result to a variable, i.e. `t=test();`, and reference the variable, i.e. `dump(t);` an error will be thrown when using **partial support** for null: "the key [T] does not exist". If we enable **full support**, you will be able to reference the variable without error, the dump output will be `Empty: Null` and `IsNull(t)` will evaluate `true`.
+If we assign the function result to a variable, i.e. `t=test();`, and reference the variable, i.e. `dump(t);` an error will be thrown when using **partial support** for null: "the key [T] does not exist". If we enable **full support**, you will be able to reference the variable without error, the dump output will be `Empty: Null` and `IsNull(t)` will evaluate `true`.
 
 In all cases, `dump(isNull(notexisting));` will throw an error.
 

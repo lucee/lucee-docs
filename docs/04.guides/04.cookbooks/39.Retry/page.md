@@ -58,7 +58,7 @@ if(fileExists(path)) fileDelete(path);
 
 In this example we use the retry functionality. Here we also still check if the file exist or not. If the file does not exist, we create a new file by using ``fileWrite``. Then call retry to avoid duplicate code ``fr()``. Retry points to the beginning of the try block.  block and then it will read again the file and output the file content. 
 
-We do not get an exception because if the file does not exist, we call retry (read the file agian and output the file content). For this case we simply use retry, and if it fails we correct what is wrong.
+We do not get an exception because if the file does not exist, we call retry (read the file again and output the file content). For this case we simply use retry, and if it fails we correct what is wrong.
 
 
 ### Footnotes ###
