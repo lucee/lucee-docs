@@ -40,15 +40,15 @@ Virtual        Physical
 Now an application can use the defined mappings as follows:
 
 ```lucee
-<CFSET aPublicationMappings = Array("/liveserver","/testserver")>
-<CFLOOP index="iMapping" to="#arrayLen(aPublicationMappings)#" from="1">
-    <CFLOOP index="iFile" to="#arrayLen(aPublishFiles)#" from="1">
-        <CFFILE 
+<cfset aPublicationMappings = Array("/liveserver","/testserver")>
+<cfloop index="iMapping" to="#arrayLen(aPublicationMappings)#" from="1">
+    <cfloop index="iFile" to="#arrayLen(aPublishFiles)#" from="1">
+        <cffile 
             action="COPY" 
             source="/staging/#aPublishFiles[iFile]#" 
             destination="#aPublicationMappings[iMapping]#/#aPublishFiles[iFile]#"> 
-    </CFLOOP>
-</CFLOOP>
+    </cfloop>
+</cfloop>
 ```
 
 The important thing here is to know, that it is not necessary to implement the different methods for the different publish methods (FTP, SFTP, SSH etc.). Just use Lucee resources. If you for example like to copy a file from the staging server to the live server just use the cffile tag and the two defined mappings.
