@@ -28,4 +28,7 @@ writeDump(myStruct);
     dump( var=deserializeJSON( serializeJSON(q, 'column'),false ),
         label="'strictMapping FALSE'" );
 
+    q= { nested1: q, nested2: {q3: q} };
+    dump( var=deserializeJSON( serializeJSON(q),false ),
+        label="'strictMapping FALSE *nested queries*'" );
 ```
