@@ -259,6 +259,11 @@ component {
 			Menu: "Import References",
 			title: "Importing References (tags, functions, options, methods)"
 		};
+		opts.admin = {
+			Title: "Local Lucee Server Admin",
+			Menu: "Lucee Admin",
+			href: "/lucee/admin/server.cfm"
+		}
 		var textOnly = (url.KeyExists("textlogs") and url.textlogs );
 		var selectedOption = listLast(arguments.path,"/");
 		if (textOnly){ // nice for curl --trace http://localhost:4040/build_docs/all/

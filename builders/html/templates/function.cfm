@@ -17,9 +17,9 @@
 	<cfif len(local.fn.getIntroduced()) gt 0>
 		<p><strong>Introduced:</strong> #local.fn.getIntroduced()#</p>
 	</cfif>	
-```luceescript
-#local.fn.getUsageSignature()#
-```
+	<code>
+	#local.fn.getUsageSignature()#
+	</code>
 <p>Returns: #local.fn.getReturnTypeLink()#</p>
 
 	<cfif !local.fn.getArguments().len()>

@@ -16,7 +16,7 @@ component accessors=true extends="Page" {
 		var newLine           = Chr(10);
 		var indent            = RepeatString( " ", 4 );
 		var tagName           = "cf" & LCase( this.getName() );
-		var usage             = "<" & tagName;
+		var usage             = "&lt;" & tagName;
 		var closingTag        = "";
 		var bodyType          = this.getBodyContentType();
 		var unnamedAttributes = ( this.getAttributeType() ?: "" ) == "noname";
@@ -51,13 +51,13 @@ component accessors=true extends="Page" {
 
 		switch( bodyType ) {
 			case "free":
-				closingTag &=  "><!--- body --->[</#tagName#>]"
+				closingTag &=  htmlEditFormat("><!--- body --->[</#tagName#>]")
 			break;
 			case "required":
-				closingTag &=  "><!--- body ---></#tagName#>"
+				closingTag &=  htmlEditFormat("><!--- body ---></#tagName#>")
 			break;
 			default:
-				closingTag &= ">";
+				closingTag &= "&gt;";
 			break;
 		}
 
