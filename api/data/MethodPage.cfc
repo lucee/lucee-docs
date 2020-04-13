@@ -23,15 +23,15 @@ component accessors=true extends="Page" {
 
 		for( var argument in this.getArguments() ) {
 			if ( !argument.required ) {
-				usage &= " [";
+				usage &= "<em title='optional'>";
 				optionalCount++;
 			}
 
 			usage &= delim & argument.name;
 			delim = ", ";
 		}
-
-		usage &= RepeatString( " ]", optionalCount );
+		usage &= "</em>";
+		//usage &= RepeatString( " ]", optionalCount );
 		usage &= " )";
 
 		return usage;

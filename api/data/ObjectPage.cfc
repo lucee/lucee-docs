@@ -22,15 +22,15 @@ component accessors=true extends="Page" {
 				continue;
 			}
 			if ( !argument.required ) {
-				usage &= " [";
+				usage &= "<em title='optional'>";
 				optionalCount++;
 			}
 
 			usage &= delim & argument.name;
 			delim = ", ";
 		}
-
-		usage &= RepeatString( " ]", optionalCount );
+		usage &= "</em>";
+		//usage &= RepeatString( " ]", optionalCount );
 		usage &= " )";
 
 		return usage;

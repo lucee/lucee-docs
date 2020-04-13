@@ -28,7 +28,7 @@ component accessors=true extends="Page" {
 			} else {
 				usage &= newline & indent;
 				if ( !attribute.required ) {
-					usage &= "[";
+					usage &= "<em title='optional'>";
 				}
 
 				usage &= '#attribute.name#=';
@@ -40,7 +40,7 @@ component accessors=true extends="Page" {
 				}
 
 				if ( !attribute.required ) {
-					usage &= "]";
+					usage &= "</em>";
 				}
 			}
 		}
