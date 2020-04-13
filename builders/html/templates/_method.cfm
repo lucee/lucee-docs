@@ -10,9 +10,10 @@
 	<cfif len(local.meth.getIntroduced()) gt 0>
 		<p><strong>Introduced:</strong> #local.meth.getIntroduced()#</p>
 	</cfif>
-```luceescript
-#local.meth.getUsageSignature()#
-```
+	<code>
+		#local.meth.getUsageSignature()#
+	</code>
+
 <p>Returns:</strong> #local.meth.getReturnTypeLink()#</p>
 
 	<cfif !local.meth.getArguments().len()>

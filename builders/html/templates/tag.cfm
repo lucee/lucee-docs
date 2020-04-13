@@ -10,6 +10,10 @@
 	#markdownToHtml( Trim( local.tag.getBodyTypeDescription() ) )#
 	#markdownToHtml( Trim( local.tag.getScriptSupportDescription() ) )#
 
+	<code>
+		#local.tag.getUsageSignature()#
+	</code>
+
 	<cfif !local.tag.getAttributes().len()>
 		<p><em>This tag does not use any attributes.</em></p>
 	<cfelse>
@@ -47,9 +51,6 @@
 		</div>
 	</cfif>
 
-```lucee
-#local.tag.getUsageSignature()#
-```
 	<h4>Examples</h4>
 	<cfif Len( Trim( local.tag.getExamples() ) ) or args.edit>
 		#getEditLink(path=local.tag.getSourceDir() & '_examples.md', edit=args.edit)#

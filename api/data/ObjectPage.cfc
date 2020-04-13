@@ -26,7 +26,15 @@ component accessors=true extends="Page" {
 				optionalCount++;
 			}
 
-			usage &= delim & argument.name;
+			usage &= delim & argument.name & "=";
+
+			if ( IsArray( argument.values ?: "" ) && argument.values.len() ) {
+				usage &= argument.values.toList( "|" );
+			} else {
+				usage &= argument.type;
+		   	}
+			usage &= "</em>";
+			
 			delim = ", ";
 		}
 		usage &= "</em>";
