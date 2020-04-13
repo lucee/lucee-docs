@@ -39,13 +39,13 @@ pre {
 	margin: ($line-height / 2) 0 ;
 	padding: ($line-height / 4) ($grid-gutter / 2);
 	word-break: break-all;
-	word-wrap: break-word;
+	word-wrap: break-word;	
+	white-space: pre-wrap;
 	code {
 		background-color: transparent;
 		border-radius: 0;
 		color: inherit;
 		font-size: inherit;
-		padding: 0;
-		white-space: pre-wrap;
+		padding: 0;		
 	}
 }
