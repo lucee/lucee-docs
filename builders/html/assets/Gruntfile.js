@@ -2,9 +2,10 @@ module.exports = function(grunt) {
 	// load all grunt tasks
 	require('load-grunt-tasks')(grunt);
 
-	grunt.registerTask( 'default', [ 'concat:base', 'uglify:base', 'sass:base', 'cssmin:base' ] );
+	grunt.registerTask( 'default', [ 'concat:base', 'uglify:base', 'sass:base', 'sassUnicode:base', 'cssmin:base' ] );
 
-	var _version = 24;
+
+	var _version = 25;
 
 	// grunt config
 	grunt.initConfig({
@@ -19,21 +20,7 @@ module.exports = function(grunt) {
 			options : {
 				sourceMap :true
 			}
-		},
-
-		cssmin: {
-			base: {
-				src: ['css/base.css'],
-				dest: 'css/base.min.css'
-			},
-			options: {
-				sourcemap: true,
-				format: {
-					wrapAt: 150
-				}
-			}
-		},
-
+		},		
 		sass: {
 			base: {
 				files: [{
@@ -49,7 +36,26 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-
+		// see https://stackoverflow.com/questions/25488037/sass-compile-fontawesome-preserve-notation
+		sassUnicode: {
+			base: {
+				files: {
+					'css/base.css': 'css/base.css'
+				}
+			}
+		},
+		cssmin: {
+			base: {
+				src: ['css/base.css'],
+				dest: 'css/base.min.css'
+			},
+			options: {
+				sourcemap: true,
+				format: {
+					wrapAt: 150
+				}
+			}
+		},
 		uglify: {
 			base: {
 				files: {
@@ -66,7 +72,7 @@ module.exports = function(grunt) {
 		watch: {
 			base: {
 				files: ['js/src/*.js', 'sass/**/*.scss'],
-				tasks: ['concat:base', 'uglify:base', 'sass:base', 'cssmin:base']
+				tasks: ['concat:base', 'uglify:base', 'sass:base', 'sassUnicode:base', 'cssmin:base']
 			}
 		},
 
