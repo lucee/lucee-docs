@@ -55,7 +55,7 @@
 		<cfif args.edit>
 		<link href="/assets/css/base.css" rel="stylesheet">
 		<cfelse>
-		<link href="/assets/css/base.min.css" rel="stylesheet">
+		<link href="/assets/css/base.min.css?v25" rel="stylesheet">
 		</cfif>
 		<link href="/assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
@@ -235,7 +235,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/dist/base.24.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.25.min.js" type="text/javascript"></script>
 		</cfif>
 	</body>
 </html></cfoutput>
