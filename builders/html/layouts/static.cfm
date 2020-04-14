@@ -29,7 +29,7 @@
 			<meta name="ROBOTS" content="NOINDEX">
 		</cfif>
 
-		<link href="/assets/css/base.min.css?v25" rel="stylesheet">
+		<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
 		<link href="/assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
 		<!-- ie -->
@@ -148,6 +148,6 @@
 				</p>
 			</div>
 		</footer>
-		<script src="/assets/js/dist/base.25.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.#application.assetBundleVersion#.min.js" type="text/javascript"></script>
 	</body>
 </html></cfoutput>
