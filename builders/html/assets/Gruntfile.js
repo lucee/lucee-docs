@@ -2,10 +2,10 @@ module.exports = function(grunt) {
 	// load all grunt tasks
 	require('load-grunt-tasks')(grunt);
 
-	grunt.registerTask( 'default', [ 'concat:base', 'uglify:base', 'sass:base', 'sassUnicode:base', 'cssmin:base' ] );
+	grunt.registerTask( 'default', [ 'concat:base', 'uglify:base', 'sass:base', 'sassUnicode:base', 'cssmin:base', 'copy:base'] );
 
 
-	var _version = 25;
+	var _version = 26; // update in Application.cfc(s) too
 
 	// grunt config
 	grunt.initConfig({
@@ -68,7 +68,13 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-
+		copy: {
+			base: {
+				files: {
+					['css/base.' + _version + '.min.css'] : 'css/base.min.css'
+				}
+			}
+		},
 		watch: {
 			base: {
 				files: ['js/src/*.js', 'sass/**/*.scss'],
