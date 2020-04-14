@@ -1,4 +1,6 @@
+
 ```luceescript+trycf 
+
     list = "Plant,green,save,earth";
     listEach(list, function(element,index,list) {
         writeOutput("#index#:#element#;<br>");
