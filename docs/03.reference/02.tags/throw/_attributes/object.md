@@ -1,1 +1,1 @@
-a native java exception Object, if this attribute is defined all other will be ignored
+A native java exception Object, if this attribute is defined, all other attributes are ignored
