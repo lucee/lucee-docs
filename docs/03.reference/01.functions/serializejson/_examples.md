@@ -3,7 +3,7 @@
   st.id = 1;
   st.Name = "Water";
   st.DESIGNATION = "Important source for all";
-  st.data - [1,2,3,4,5];
+  st.data = [1,2,3,4,5];
 
   json= serializeJSON(st);
   writeDump(json);
