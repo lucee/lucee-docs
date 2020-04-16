@@ -1,10 +1,17 @@
 ---
-title: Virtual FileSystems
+title: Virtual File Systems
 id: virtual-file-system
+related:
+- function-getvfsmetadata
+categories:
+- system
+description: 'Lucee support the following virtual file systems: ram, file, s3, http,
+  https, zip and tar'
 ---
-## Virtual FileSystems ##
 
-This document explains virtual file systems in lucee
+## Virtual File Systems ##
+
+Lucee supports the following virtual file systems: ram, file, s3, http, https, zip and tar
 
 ### Local File System ###
 
@@ -24,10 +31,10 @@ Simple example shown below
 </cfscript>
 ```
 
-* getCurrenttemplatepath() returns current template path,
-* getDirectoryFromPath() returns directory,
-* pass the file path to the fileRead(), to read the content of the file,
-* pass the directory to directoryList(), to list all the directories in the given folder path.
+* [[function-getcurrenttemplatepath]] returns current template path,
+* [[function-getDirectoryFromPath]] returns directory,
+* pass the file path to the [[function-fileRead]], to read the content of the file,
+* pass the directory to [[function-directoryList]] to list all the directories in the given folder path.
 
 The local file system is the default file system in Lucee. That means if there is no other definition, Lucee will always use the local file system.
 
