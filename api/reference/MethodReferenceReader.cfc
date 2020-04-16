@@ -49,29 +49,29 @@ component accessors=true {
 	public void function _loadMethods() {
 		var objects = getFunctionList().keyArray().sort( "textnocase" );
 
-        var methods = StructNew("linked");
+		var methods = StructNew("linked");
 
 		for( var object in objects) {
-            var data = getFunctionData(object);
+			var data = getFunctionData(object);
 
-            if ( data.keyExists("member") && data.member.keyExists("name")){
-                var member = data.member;
-                if (not methods.keyExists(member.type) )
-                    methods[member.type] = StructNew("linked");
+			if ( data.keyExists("member") && data.member.keyExists("name")){
+				var member = data.member;
+				if (not methods.keyExists(member.type) )
+					methods[member.type] = StructNew("linked");
 
-                if (not methods[member.type].keyExists(member.name) )
-                    methods[member.type][member.name] = StructNew("linked");
+				if (not methods[member.type].keyExists(member.name) )
+					methods[member.type][member.name] = StructNew("linked");
 
 				methods[member.type][member.name] = object;
-            }
+			}
 
 			//var convertedFunc = _getFunctionDefinition( functionName );
 			//functions[ functionName ] = convertedFunc;
 		}
-        setMethods( methods );
+		setMethods( methods );
 	}
 
-    /*
+	/*
 
 	private struct function _getFunctionDefinition( required string functionName ) {
 		var coreDefinition = getFunctionData( arguments.functionName );
@@ -105,6 +105,6 @@ component accessors=true {
 
 		return parsedFunction;
 	}
-    */
+	*/
 
 }
