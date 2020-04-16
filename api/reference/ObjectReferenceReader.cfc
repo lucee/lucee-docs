@@ -22,24 +22,24 @@ component accessors=true {
 	public void function _loadObjects() {
 		var functionNames = getFunctionList().keyArray().sort( "textnocase" );
 
-        var objects = StructNew("linked");
+		var objects = StructNew("linked");
 
 		for( var functionName in functionNames ) {
-            var func = getFunctionData(functionName);
+			var func = getFunctionData(functionName);
 
-            if ( func.keyExists("member") &&  func.member.count() gt 0){
-                var member = func.member;
-                if (not objects.keyExists(member.type) )
-                    objects[member.type] = StructNew("linked");                
-            }
+			if ( func.keyExists("member") &&  func.member.count() gt 0){
+				var member = func.member;
+				if (not objects.keyExists(member.type) )
+					objects[member.type] = StructNew("linked");                
+			}
 
 			//var convertedFunc = _getFunctionDefinition( functionName );
 			//functions[ functionName ] = convertedFunc;
 		}                
-        setObjects( objects );        
+		setObjects( objects );        
 	}
 
-    /*
+	/*
 
 	private struct function _getFunctionDefinition( required string functionName ) {
 		var coreDefinition = getFunctionData( arguments.functionName );
@@ -73,6 +73,6 @@ component accessors=true {
 
 		return parsedFunction;
 	}
-    */
+	*/
 
 }
