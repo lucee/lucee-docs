@@ -55,9 +55,9 @@ The popular tag ( and ) is available since Lucee 2.0 and offers some improvement
 Example:
 
 ```lucee
-<CFDOCUMENT filename="ab.pdf">
-<CFDOCUMENTSECTION srcfile="a.pdf" />
-<CFDOCUMENTSECTION srcfile="b.pdf" />
+<cfdocument filename="ab.pdf">
+<cfdocumentsection srcfile="a.pdf" />
+<cfdocumentsection srcfile="b.pdf" />
 </cfdocument>
 ```
 
@@ -103,7 +103,7 @@ Next to supporting all CF8 attributes, CFDUMP now supports the attribute abort="
 Example:
 
 ```lucee
-<CFDUMP abort eval="request">
+<cfdump abort eval="request">
 ```
 
 In addition as a goodie, if you hover over the label of a dump output, Lucee displays the code line and the file where the dump was produced:
@@ -248,16 +248,16 @@ Example: Template index.cfm
 
 ```lucee
 Hello
-<CFINCLUDE template="main.cfm">
-<CFOUTPUT>#name#</cfoutput>
+<cfinclude template="main.cfm">
+<cfoutput>#name#</cfoutput>
 ```
 
 Template main.cfm
 
 ```lucee
-<CFSET name="Lucee">
-<CFABORT type="page">
-<CFTHROW message="your are to far">
+<cfset name="Lucee">
+<cfabort type="page">
+<cfthrow message="your are to far">
 ```
 
 Output: Hello Lucee

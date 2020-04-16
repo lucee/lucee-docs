@@ -36,7 +36,7 @@ loop query=qry {
 
 ### Example 2 : ###
 
-**Lazy query** : Lazy queries keep a pointer to the database and only load the data on demand. If you loop through a query the data isloaded on the spot. It does not create a two-dimensional struct to store all the data hand. When the query tag is done, it keeps a pointer to the database.
+**Lazy query** : Lazy queries keep a pointer to the database and only load the data on demand. If you loop through a query the data is loaded on the spot. It does not create a two-dimensional struct to store all the data hand. When the query tag is done, it keeps a pointer to the database.
 
 As a lazy query loops through, it loads the data on demand so you do not have to wait until it has loaded all the data. It is faster when you only load the first 10 rows as you don't have to wait it until it's done loading everything.
 
@@ -61,7 +61,7 @@ I have removed the column count from the example. Record count is no longer poss
 
 There is not really a difference between a regular query and a lazy query, just some limitations (you cannot get the record count in the beginning, and you cannot use cache) within a lazy query. 
 
-With a lazy query, we do not have to wait until lucee has loaded all the data into a two-dimensional structure, and it is also better for memory because you do not have to store all the older data in the memory until you are ready to use it. So there are some benifits.
+With a lazy query, we do not have to wait until lucee has loaded all the data into a two-dimensional structure, and it is also better for memory because you do not have to store all the older data in the memory until you are ready to use it. So there are some benefits.
 
 
 
