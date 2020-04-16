@@ -38,7 +38,7 @@ Some examples related to Datasources/Queries:
 
 ## File System ##
 
-* [[cookbook-filesystem-vfs]] - (TODO)
+* [[virtual-file-system]]
 * [[cookbook-filesystem-mapping]]
 
 ## Mail ##
