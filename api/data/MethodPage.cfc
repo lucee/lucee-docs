@@ -44,7 +44,7 @@ component accessors=true extends="Page" {
 		return usage;
 	}
 
-    public boolean function argumentsHaveDefaultValues() {
+    	public boolean function argumentsHaveDefaultValues() {
  		for( var arg in getArguments() ) {
  			if ( !IsNull( arg.default ) ) {
  				return true;
@@ -59,5 +59,11 @@ component accessors=true extends="Page" {
 			args.deleteAt( 1 );
 		}
 		return args;
+	}
+	public string function getReturnType() {
+		if (structKeyExists(this.member, "chaining") && this.member.chaining)
+			return this.member.type;
+		else
+			return this.returnType;
 	}
 }
