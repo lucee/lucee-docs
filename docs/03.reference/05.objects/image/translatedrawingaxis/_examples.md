@@ -1,4 +1,3 @@
-
 ```luceescript+trycf
 	imgObj = imageNew("",200,200,"rgb","149c82");
 	imgObj.translateDrawingAxis(20,20);
