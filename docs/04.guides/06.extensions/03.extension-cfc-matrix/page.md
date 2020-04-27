@@ -10,16 +10,16 @@ The methods marked red are system methods and should therefore not be called in 
 
 Method | Description
 ------------ | -------------
-createStep(string: label, string: decription): ExtensionStep | Creates and links a new step.
-getSteps(): ExtensionStep[] | Returns all ExtensionSteps of the ExtesnionConfig.
+createStep(string: label, string: description): ExtensionStep | Creates and links a new step.
+getSteps(): ExtensionStep[] | Returns all ExtensionSteps of the ExtensionConfig.
 
 **ExtensionStep.cfc**
 
 Method | Description
 ------------ | -------------
-init(string: label, string: description): ExtensionStep | Initalizes the ExtensionStep CFC. Is called on creation.
-createGroup(string: label, string: decription): ExtensionStep | Creates and links a new group.
-getGroups(): ExtensionGroup[] | Returns all ExtensionGroups of the ExtesnionStep.
+init(string: label, string: description): ExtensionStep | Initializes the ExtensionStep CFC. Is called on creation.
+createGroup(string: label, string: description): ExtensionStep | Creates and links a new group.
+getGroups(): ExtensionGroup[] | Returns all ExtensionGroups of the ExtensionStep.
 getLabel(): string | Returns the label of the step
 getDescription(): string | Returns the description of the step.
 setLabel(string: label): void | Sets the label
@@ -29,9 +29,9 @@ setDescription(string: label): void | Sets the description
 
 Method | Description
 ------------ | -------------
-init(string: label, string: description): ExtensionGroup | Initalizes the ExtensionGroup CFC. Is called on creation.
-createItem(string: type, string: name, string: value, boolean: selected, string: label, string: decription): ExtensionItem | Creates and links a new item.
-getItems(): ExtensionItem[] | Returns all ExtensionItems of the ExtesnionGroup.
+init(string: label, string: description): ExtensionGroup | Initializes the ExtensionGroup CFC. Is called on creation.
+createItem(string: type, string: name, string: value, boolean: selected, string: label, string: description): ExtensionItem | Creates and links a new item.
+getItems(): ExtensionItem[] | Returns all ExtensionItems of the ExtensionGroup.
 getLabel(): string | Returns the label of the group
 getDescription(): string | Returns the description of the group.
 setLabel(string: label): void | Sets the label
@@ -41,9 +41,9 @@ setDescription(string: label): void | Sets the description
 
 Method | Description
 ------------ | -------------
-init(string: type, string: name, string: value, boolean: selected, string: label, string: decription): ExtensionItem | Initalizes the ExtensionItem CFC. Is called on creation.
-createOption(string: value, boolean: selected, string: label, string: decription): ExtensionOption | Creates and links a new option.
-getOptions(): ExtensionOption[] | Returns all ExtensionOptions of the ExtesnionItem.
+init(string: type, string: name, string: value, boolean: selected, string: label, string: description): ExtensionItem | Initializes the ExtensionItem CFC. Is called on creation.
+createOption(string: value, boolean: selected, string: label, string: description): ExtensionOption | Creates and links a new option.
+getOptions(): ExtensionOption[] | Returns all ExtensionOptions of the ExtensionItem.
 getType(): string | Returns the type of the Item. Valid values are: <ul><li>text</li><li>radio</li><li>checkbox</li><li>checkbox</li><li>hidden</li><li>password</li></ul>
 getName(): string | Returns the name of the item
 getValue(): string | Returns the value of the item
@@ -60,7 +60,7 @@ setDescription(string: label): void | Sets the description
 
 Method | Description
 ------------ | -------------
-init(string: type, string: name, string: value, boolean: selected, string: label, string: decription): ExtensionItem | Initalizes the ExtensionOption CFC. Is called on creation.
+init(string: type, string: name, string: value, boolean: selected, string: label, string: description): ExtensionItem | Initializes the ExtensionOption CFC. Is called on creation.
 getValue(): string | Returns the value of the item
 getSelected(): boolean | Returns whether the item is selected or not.
 getLabel(): string | Returns the label of the item

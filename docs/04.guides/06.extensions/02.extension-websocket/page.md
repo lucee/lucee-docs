@@ -145,4 +145,4 @@ ws.onclose =  function(){
 
 Please refer to the sample apps source code for more examples.
 
-If browser failover is important to you, many OS libraries exist that has the ability to failover to other tecnolgies as flash or ajax longpolling if there is no WebSocket support available in the current browser. This is one of the best client around that offer exactly this failover : [http://socket.io/](http://socket.io/)
+If browser failover is important to you, many OS libraries exist that has the ability to failover to other technologies as flash or ajax longpolling if there is no WebSocket support available in the current browser. This is one of the best client around that offer exactly this failover : [http://socket.io/](http://socket.io/)
