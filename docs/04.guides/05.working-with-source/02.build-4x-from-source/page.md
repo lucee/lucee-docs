@@ -66,7 +66,7 @@ to build Lucee and all custom bundles (jars zip, war file ...)
 
     ant installer
 
-to builld Lucee and the Tomcat installers
+to build Lucee and the Tomcat installers
 
     ant all
 
@@ -114,7 +114,7 @@ Windows: `set ANT_OPTS=-Xms256m -Xmx1024m`
 Once set this should allow Ant to run without issue. For Linux and Mac you can add this export to your bash profile to load automatically.
 
 ### IntelliJ IDEA notes
-The cloned repository can be easily imported into a new, empty Java project in IntelliJ IDEA 14. You should end up with 4 modules within the project: lucee-core, lucee-debug, lucee-instrumentaion, lucee-loader. Opening the main build.xml in the project root should give you all the build options as outlined above.
+The cloned repository can be easily imported into a new, empty Java project in IntelliJ IDEA 14. You should end up with 4 modules within the project: lucee-core, lucee-debug, lucee-instrumentation, lucee-loader. Opening the main build.xml in the project root should give you all the build options as outlined above.
 
 The default setup in IntelliJ IDEA provides 128m heap memory for the build process. This will most likely be not enough. The heap memory setup strategy as explained in the previous is not applicable for building from within the IDE though. Instead find the properties dialog for the build file and change the setting of 128m to 256m or as high as necessary.
 

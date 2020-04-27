@@ -145,7 +145,7 @@ once you have a reference to a CFC you can invoke its methods by using the call(
 
 #### calling method with no arguments ####
 ```java
-// call the CFC's funcation getLastName with no args (empty array):
+// call the CFC's function getLastName with no args (empty array):
 String lastName = (String) cfc.call( pc, "getLastName", new Object[0] );
 ```
 

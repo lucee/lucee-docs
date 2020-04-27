@@ -143,7 +143,7 @@ So after starting the server you can verify again that the MessageBroker Servlet
 
 ### Using BlazeDS with the lucee.war ###
 
-If you have downloaded the lucee.war only, you also have to add the MessageBroker Servlet like we did with the Lucee Express Server version. If you want to follow along, I downloaded and unzipped the lucee-3.1.2.001.war into tomcats webapp directory. This is the same tomcate I used when explaining the basic setup of BlazeDS at the top of this page.
+If you have downloaded the lucee.war only, you also have to add the MessageBroker Servlet like we did with the Lucee Express Server version. If you want to follow along, I downloaded and unzipped the lucee-3.1.2.001.war into tomcats webapp directory. This is the same tomcat I used when explaining the basic setup of BlazeDS at the top of this page.
 
 Start tomcat once, so that Lucee will populate the WEB-INF directory. Now again all you have to do is to add the MessageBroker Servlet code, this time the easies one is to add it to the /tomcat/webapps/lucee-3.1.2.001/WEB-INF/web.xml: 
 

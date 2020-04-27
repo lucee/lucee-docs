@@ -12,7 +12,7 @@ To bundle a plugin with your Lucee extension, create a directory called `plugins
 
 ## Conventions
 
-Lucee plugins operate largley by convention.  Creating files with specific names will automatically be picked up.  Lucee plugins
+Lucee plugins operate largely by convention.  Creating files with specific names will automatically be picked up.  Lucee plugins
 follow a rough MVC format and allow for cross-language translations out of the box.
 
 ```
