@@ -12,8 +12,10 @@ CFML Tags can also be called via [[tag-script]]. Usually you don't even need the
 ```luceescript
 cflog(text="I called a tag from script);  // use cflog, because there is already a maths [[function-log]] function
 
+
 cfhttp(url="https://docs.lucee.org");
 http url="https://docs.lucee.org";
+
 
 cflocation(url="https://dev.lucee.org");
 location url="https://dev.lucee.org";
