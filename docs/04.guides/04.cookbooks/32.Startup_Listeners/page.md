@@ -1,14 +1,21 @@
 ---
-title: Startup Listeners
+title: Startup Listeners, server.cfc and web.cfc
 id: Startup Listeners-code
+menuTitle: Startup Listeners
+description: Lucee supports two types of Startup Listeners, server.cfc and web.cfc
+categories:
+- system
 ---
 ## Startup Listeners Code ##
 
-Lucee has two kinds of listeners. The first one is Server.cfc that is called at server startup. It exists only once. The second listener is web.cfc which can exist for each web context on your server. We explain the two listeners with a simple example below:
+Lucee has two kinds of startup listeners. 
 
-####Example1:####
+- **Server.cfc** which runs when the Lucee Server starts up. It exists only once per Lucee server.
+- **web.cfc** which can be used for each web context on your Lucee server. 
 
-Create a test cfc file in lucee-server\context\context directory.  
+####server.cfc####
+
+Create a server.cfc file in lucee-server\context\context directory.  
 
 ```lucee
 
@@ -27,9 +34,9 @@ Create a test cfc file in lucee-server\context\context directory.
 * Start the Lucee server ``Startup`` . Here the console shows the server context which means it triggered Server.cfc
 * Finally, stop Lucee.
 
-####Example2:####
+####web.cfc####
 
-Create a test cfc file in webapps\ROOT\WEB-INF\lucee\context\ directory.  
+Create a web.cfc file in webapps\ROOT\WEB-INF\lucee\context\ directory.  
 
 ```lucee
 
