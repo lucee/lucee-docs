@@ -35,6 +35,9 @@
 							<td>
 								#getEditLink(path=local.tag.getSourceDir() & '_attributes/#local.attrib.name#.md', edit=args.edit)#
 								#markdownToHtml( local.attrib.description ?: "" )#
+								<cfif structKeyExists(local.attrib, "aliases") && Arraylen(local.attrib.aliases) gt 0>
+									<p title="for compatability, this attribute has the following alias(es)"><sub>Alias:</strong> #ArrayToList(local.attrib.aliases,", ")#</sub></p>
+								</cfif>
 								<cfif structKeyExists(local.attrib, "status") and local.attrib.status neq "implemented">
 									<em>* #local.attrib.status# *</em>
 								</cfif>
