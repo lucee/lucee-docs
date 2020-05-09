@@ -1,1 +1,1 @@
-The number of PBKDEF iterations to perform. A minimum recommended value is 1000.
+The number of PBKDF iterations to perform. A minimum recommended value is 1000, however a value between 50,000 and 100,000 is recommended. You can also make this a random value, using something like the `randRange()` function, for example `randRange(50000, 100000, 'SHA1PRNG')`.
