@@ -1,1 +1,1 @@
-Passphrase used for the key. KEEP THIS SECRET.
+Passphrase to be hashed.
