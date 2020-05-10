@@ -55,7 +55,7 @@ Here's an example:
 * category - category of the application
 * download - download url of the application
 
-The most important element is the download link. This link defines where the installation repository is located. If you return an empty stung here, the method getDownloadDetails() is called. Here's an example of a **listApplications()** method.
+The most important element is the download link. This link defines where the installation repository is located. If you return an empty string here, the method getDownloadDetails() is called. Here's an example of a **listApplications()** method.
 
 ```lucee
 <cffunction name="listApplications" access="remote" returntype="query" output="no">
