@@ -55,11 +55,14 @@ component accessors=true extends="Page" {
 
 	public array function getArguments() {
 		var args = Duplicate( IsNull( this.arguments ) ? [] : this.arguments );
-		if ( ArrayLen( args ) >= 1 ) {
-			args.deleteAt( 1 );
+		if (structKeyExists(this, "member") && structKeyExists(this.member, "position")){
+			if ( ArrayLen( args ) >= this.member.position ) {
+				args.deleteAt( this.member.position );
+			}
 		}
 		return args;
 	}
+
 	public string function getReturnType() {
 		if (structKeyExists(this.member, "chaining") && this.member.chaining)
 			return this.member.type;
