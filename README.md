@@ -18,17 +18,17 @@ The only dependency required is [CommandBox](http://www.ortussolutions.com/produ
 
 The purpose of the structure of the documentation is to allow a human readable and editable form of documentation that can be built into multiple output formats. At present, we have an "HTML" builder and a "Dash docs" builder, found at `./builders/html` and `./builders/dash` that will build the documentation website and dash docset respectively. The source of the documentation can be found in the `./docs` folder.
 
-To run the build, execute the `build.sh` or `build.bat` script found in the root of the project, i.e.
+To run the build, execute the `build.sh` or `build.bat` script (from the CommandBox console) found in the root of the project, i.e.
 
-	documentation>./build.sh|bat
+	CommandBox:documentation>!./build.sh|bat
 
 Once this has finished, you should find `./builds/html` and `./builds/dash` directories with the website content / dash docsets built.
 
 ### Running a server locally
 
-We have provided a utility server who's purpose is to run locally to help while developing/writing the documentation. To start it up, execute the `serve.sh` or `serve.bat` script found in the root of the project, i.e.
+We have provided a utility server who's purpose is to run locally to help while developing/writing the documentation. To start it up, execute the `serve.sh` or `serve.bat` script (from the CommandBox console) found in the root of the project, i.e.
 
-    documentation>./serve.sh|bat
+        CommandBox:documentation>!./serve.sh|bat
 
 This will spin up a server using CommandBox on port 4040 and open it in your browser. You should also see a tray icon that will allow you to stop the server. Changes to the source docs should trigger an internal rebuild of the documentation tree which may take a little longer than regular requests to the documentation.
 
