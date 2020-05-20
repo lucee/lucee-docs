@@ -12,7 +12,7 @@ Find out more about the project at: [https://docs.lucee.org/docs.html](https://d
 
 ### Prerequisites
 
-The only dependency required is [CommandBox](http://www.ortussolutions.com/products/commandbox). Ensure that commandbox is installed and that the `box` command is in your path.
+The only dependency required is [CommandBox](https://www.ortussolutions.com/products/commandbox). Ensure that commandbox is installed and that the `box` command is in your path.
 
 ### Building the static documentation output
 

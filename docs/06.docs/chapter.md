@@ -24,7 +24,7 @@ You'll find information on ways in which you can contribute in the [[docs-conten
 
 ### Lucee
 
-The documentation build is achieved using Lucee code. The only dependency required to build and locally run the documentation is [CommandBox](http://www.ortussolutions.com/products/commandbox).
+The documentation build is achieved using Lucee code. The only dependency required to build and locally run the documentation is [CommandBox](https://www.ortussolutions.com/products/commandbox).
 
 This choice was both obvious and difficult. Difficult because there are multiple other solutions out there that we could easily have picked. We could have chosen to use a Wiki, or other static file based documentation generators. These would all have saved us time and effort in the short term. In the end however, the choice was made to allow the Lucee community to take **full** ownership of the documentation by writing the system from scratch using Lucee code. It's built using the language we use day in day out, and the entire code base is open source and editable in one place.
 
