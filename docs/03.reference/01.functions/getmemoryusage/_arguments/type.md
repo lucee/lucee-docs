@@ -1,4 +1,4 @@
-type of the memory informtion, valid values are:
+type of the memory information, valid values are:
 
 - heap
 - non_heap
