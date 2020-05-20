@@ -15,7 +15,7 @@
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 			gtag('config', 'UA-116664465-1');
-			<Cfif args.filepath.contains("/404.html")>
+			<cfif args.filepath.contains("/404.html")>
 			gtag('event', window.location.href, {
 				'event_category' : '404 not found',
 				'event_label' : document.referrer
