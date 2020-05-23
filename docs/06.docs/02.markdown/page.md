@@ -3,7 +3,7 @@ title: Lucee Docs Markdown
 id: docs-markdown
 ---
 
-The base Markdown engine used is [pegdown](https://github.com/sirthias/pegdown). Please see both the [official Markdown website](http://daringfireball.net/projects/markdown/) and the the [pegdown repository](https://github.com/sirthias/pegdown) for the supported syntax.
+The base Markdown engine used is [pegdown](https://github.com/sirthias/pegdown). Please see both the [official Markdown website](http://daringfireball.net/projects/markdown/) and the [pegdown repository](https://github.com/sirthias/pegdown) for the supported syntax.
 
 On top of this base layer, the Lucee Documentation system processes its own special syntaxes for syntax highlighting, cross referencing and notice boxes. It also processes YAML front matter to glean extra metadata about pages.
 
