@@ -17,7 +17,7 @@ writeDump(now());
 
 ```
 
-Run the above index.cfm, and you get a timestamp. Whenever we call our file, Lucee checks once at every request if a file has changed or not (for files currently residing in the the template cache). If a files has changed, Lucee recompiles it, and executes it. Checking the files at every request takes time. If you have a published server, and you know your server does not produce or change any files, you can simply avoid that check that happens all the time.
+Run the above index.cfm, and you get a timestamp. Whenever we call our file, Lucee checks once at every request if a file has changed or not (for files currently residing in the template cache). If a files has changed, Lucee recompiles it, and executes it. Checking the files at every request takes time. If you have a published server, and you know your server does not produce or change any files, you can simply avoid that check that happens all the time.
 
 
 ### Using Admin ###

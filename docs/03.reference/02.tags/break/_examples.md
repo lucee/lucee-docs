@@ -10,7 +10,7 @@ WhileLabel: while (x < 10){
             break WhileLabel;
     }
     x++;
-    writeOutput("end of of loop<br>");
+    writeOutput("end of loop<br>");
 }
 writeOutput("After loop, x is #x#<br>");
 ```

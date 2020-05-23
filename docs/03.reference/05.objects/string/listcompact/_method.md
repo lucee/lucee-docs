@@ -12,4 +12,4 @@ categories:
 - list
 ---
 
-remove empty items at the and and at the start of the list
+remove empty items at the end and at the start of the list

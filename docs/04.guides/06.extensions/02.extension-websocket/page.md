@@ -43,7 +43,7 @@ When you are done click submit.
 
 ### Usage ###
 
-Start and stop the gateway is easier as per any other gateway in Lucee. Access the Gateway section in the lucee admin and and you will a set to start/stop, restart , edit and delete the gateway instances. Please note that stopping the gateway will also stop the websocket server and will destroy any actual connection.
+Start and stop the gateway is easier as per any other gateway in Lucee. Access the Gateway section in the lucee admin and you will a set to start/stop, restart, edit and delete the gateway instances. Please note that stopping the gateway will also stop the websocket server and will destroy any actual connection.
 
 
 ### Interact using the gateway listener ###
