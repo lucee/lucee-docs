@@ -102,7 +102,7 @@ public void function onMessage(Struct data){
 
 ### sendGatewayMessage ###
 
-The gateway is running into your applications and can be invoked as any other other gateway by id using the SendGatewayFunction:
+The gateway is running into your applications and can be invoked as any other gateway by id using the SendGatewayFunction:
 
 ```lucee
 sendGatewayMessage(String id,Struct data);

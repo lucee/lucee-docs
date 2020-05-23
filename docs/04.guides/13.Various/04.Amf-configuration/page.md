@@ -101,7 +101,7 @@ If you now browse to http://yourdomain/yourcontext/flex2gateway you should have 
 
 The Express version of Lucee has BlazeDS already setup to be used. But we will go through the different places where you can find the pieces of code explained above.
 
-After you downloaded a Lucee Express and unzip it, you need to start it up once, so that that Lucee creates the WEB-INF directory in the webroot folder. You can now verify that the MessageBroker Servlet is properly started by browsing to http://localhost:8888/flex2gateway which should return the already familiar white page.
+After you downloaded a Lucee Express and unzip it, you need to start it up once, so that Lucee creates the WEB-INF directory in the webroot folder. You can now verify that the MessageBroker Servlet is properly started by browsing to http://localhost:8888/flex2gateway which should return the already familiar white page.
 
 So it looks like everything is where we have learned above, but if you look into the WEB-INF directory, you will notice that there is no web.xml. Instead open /lucee-express/etc/webdefault.xml. If you scroll down a little you will see that the MessageBrokerServlet is there as well the three mappings for /flex2gateway/*, /flashservices/gateway/* and /messageborker/*. To be backward compatible, OpenAMF, the opensource implementation of AMF0 is still there and you can request it over /openamf/gateway/*
 

@@ -33,7 +33,7 @@ Before we start, let's download Apache Tomcat from this page: [Tomcat 8 Download
 2. Browse the expanded content in your temporary folder and change into the folder **apache-tomcat-8.0.18**.
 3. Copy the five files from the root in to the folder **C:\Program Files\Tomcat**
 4. Goto the folder named *bin*.
-5. Copy all files, except  *\*.bat*, *\*.gz* and *\*.sh* to the folder **C:\Program Files\Tomcat\bin**. We don't need need the batch files: The Tomcat service will get his configuration from the Windows registry instead.
+5. Copy all files, except  *\*.bat*, *\*.gz* and *\*.sh* to the folder **C:\Program Files\Tomcat\bin**. We don't need the batch files: The Tomcat service will get his configuration from the Windows registry instead.
 6. Go back one level and goto to the folder named *lib*
 7. Copy all files to the folder **C:\Program Files\Tomcat\lib**
 

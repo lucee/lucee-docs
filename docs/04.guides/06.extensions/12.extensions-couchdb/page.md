@@ -7,7 +7,7 @@ id: extension-couchdb
 
 The Lucee Server CouchDB Cache Provider Extension allows you to use CouchDB as a key/value cache for your Objects (components), Templates, Queries and Resources (such as files etc).
 
-CouchDB is is a free and open source document-oriented database written in the Erlang programming language. You can find out more information either download or setup your own database at CouchOne.
+CouchDB is a free and open source document-oriented database written in the Erlang programming language. You can find out more information either download or setup your own database at CouchOne.
 
 ### Installation ###
 

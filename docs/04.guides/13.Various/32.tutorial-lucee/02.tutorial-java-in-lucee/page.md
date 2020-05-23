@@ -111,7 +111,7 @@ Unlike ColdFusion, Java is a strongly typed language, meaning that if a variable
 
 What this means is that if a method expects an argument to be of a certain type -- it Must be of that type. you can enforce the types passed to methods by using CFML's javaCast( type, variable ) function.
 
-Consider the following scenario: you have a Java method that expects an argument of type Integer. let's say the the method's signature is as follows:
+Consider the following scenario: you have a Java method that expects an argument of type Integer. Let's say the method's signature is as follows:
 
 ```lucee
 public void add( int value ) { ... }
