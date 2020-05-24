@@ -1,10 +1,10 @@
 ---
-title: Migrating to Lucee from Coldfusion
+title: Migrating to Lucee from ColdFusion
 id: updating-lucee-migrate-from-acf
 related:
 - language-syntax-differences
-description: How to migrate/port your code from Adobe Coldfusion to Lucee
-menuTitle: Migrating from Coldfusion
+description: How to migrate/port your code from Adobe ColdFusion to Lucee
+menuTitle: Migrating from ColdFusion
 ---
 
 ## Migrating from Adobe(R) ColdFusion(R) ##
