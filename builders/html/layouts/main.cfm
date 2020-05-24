@@ -21,8 +21,6 @@
 	local.pageDescription = getMetaDescription( args.page, args.body );
 </cfscript>
 
-
-
 <cfoutput><!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -38,20 +36,20 @@
 		<cfif args.edit>
 			<base href="#local.baseHref#">
 		</cfif>
-		<link rel="canonical" href="#local.pageHref#" />
+		<link rel="canonical" href="#local.pageHref#">
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
-		<meta name="twitter:card" content="summary" />
-		<meta name="twitter:site" content="@lucee_server" />
-		<meta name="twitter:title" content="#local.safePageTitle#" />
-		<meta name="twitter:description" content="#local.pageDescription#" />
-		<meta name="twitter:image" content="https://docs.lucee.org/assets/images/favicon.png" />
-		<meta name="twitter:image:alt" content="Lucee" />
-		<meta property="og:title" content="#local.safePageTitle#" />
-		<meta property="og:url" content="#local.pageHref#" />
-		<meta property="og:type" content="article" />
-		<meta property="og:image" content="https://docs.lucee.org/assets/images/favicon.png" />
-		<meta property="og:image:alt" content="Lucee" />
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@lucee_server">
+		<meta name="twitter:title" content="#local.safePageTitle#">
+		<meta name="twitter:description" content="#local.pageDescription#">
+		<meta name="twitter:image" content="https://docs.lucee.org/assets/images/favicon.png">
+		<meta name="twitter:image:alt" content="Lucee">
+		<meta property="og:title" content="#local.safePageTitle#">
+		<meta property="og:url" content="#local.pageHref#">
+		<meta property="og:type" content="article">
+		<meta property="og:image" content="https://docs.lucee.org/assets/images/favicon.png">
+		<meta property="og:image:alt" content="Lucee">
 		<cfif args.edit>
 		<link href="/assets/css/base.css" rel="stylesheet">
 		<cfelse>
@@ -71,7 +69,7 @@
 			<div class="menu-scroll">
 				<div class="menu-wrap">
 					<div class="menu-content">
-						<a class="nav-drawer-logo" href="/index.html"><img class="Lucee" src="/assets/images/lucee-logo-bw.png"></a>
+						<a class="nav-drawer-logo" href="/index.html"><img alt="Lucee" class="Lucee" src="/assets/images/lucee-logo-bw.png"></a>
 						#args.navTree#
 						<hr>
 						<ul class="nav">
