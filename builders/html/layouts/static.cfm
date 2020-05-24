@@ -2,7 +2,7 @@
 <cfparam name="args.title"      type="string" />
 <cfparam name="args.crumbs"     type="string" />
 <cfparam name="args.navTree"    type="string" />
-<cfparam name="args.filepath"    type="string" default =""/>
+<cfparam name="args.filepath"   type="string" default="" />
 <cfparam name="args.noIndex"    type="boolean" default="false" />
 
 <cfoutput><!DOCTYPE html>
@@ -44,7 +44,7 @@
 			<div class="menu-scroll">
 				<div class="menu-wrap">
 					<div class="menu-content">
-						<a class="nav-drawer-logo" href="/index.html"><img class="Lucee" src="/assets/images/lucee-logo-bw.png"></a>
+						<a class="nav-drawer-logo" href="/index.html"><img alt="Lucee" class="Lucee" src="/assets/images/lucee-logo-bw.png"></a>
 						#args.navTree#
 						<hr>
 						<ul class="nav">
