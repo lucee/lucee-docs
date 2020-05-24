@@ -34,7 +34,7 @@ Lucee dictionaries are available for download to support spell checking your cod
 
 <https://github.com/ckaznocha/SublimeLinter-contrib-CFLint>
 
-## Adobe Coldfusion Builder
+## Adobe ColdFusion Builder
 <https://www.adobe.com/products/coldfusion-builder.html>
 
 ## Atom

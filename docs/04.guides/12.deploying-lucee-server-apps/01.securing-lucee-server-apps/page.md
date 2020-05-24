@@ -11,7 +11,7 @@ id: securing-lucee-server-apps
 * Use SSL if you have users logging into your site, even if it's a self-signed cert. Secure your cookies.
 * Run Lucee under a dedicated user with limited access
 * Remove the Lucee admin files if not needed
-* Lots of other stuff. Search for "hardening coldfusion"
+* Lots of other stuff. Search for "hardening ColdFusion"
 
 ### Don't forget to lockdown your source control metadata ###
 
