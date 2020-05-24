@@ -28,7 +28,7 @@ id: lucee-5-updating-railo
  	</servlet-mapping>
 ```
 
-* Add the following code to to catalina.properties (Tomcat: conf/catalina.properties) at the and of **common.loader=...**
+* Add the following code to catalina.properties (Tomcat: conf/catalina.properties) at the and of **common.loader=...**
 
 ```
 ,"${catalina.base}/lib/ext","${catalina.base}/lib/ext/*.jar","${catalina.home}/lib/ext","${catalina.home}/lib/ext/*.jar"

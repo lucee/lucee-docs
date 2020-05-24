@@ -178,7 +178,7 @@ Action | Description
 ---------|-----------
 collection | Handles Lucene collections
 compileMapping | Compiles a mapping
-connect | Triest o log in into the administrator
+connect | Tries to log in into the administrator
 createArchive |	Creates an archive
 createSecurityManager |	Creates security settings for a new, selected web context
 defaultSecurityManager | Changes settings fort he default web contexts

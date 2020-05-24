@@ -91,7 +91,7 @@ component {
    }
 }
 ```
-If the the function returns false, Lucee stops any further execution of this request and return the result to the client.
+If the function returns false, Lucee stops any further execution of this request and return the result to the client.
 
 
 ### OnRequestEnd ###
