@@ -78,7 +78,7 @@ ServerTokens Prod
 
 Setting this value will cause Apache simply to report "Apache" and not include a version number.
 
-You can also disable the server signature, which is deisplayed at the bottom of any error messages Apache generates, by using the following parameter:
+You can also disable the server signature, which is displayed at the bottom of any error messages Apache generates, by using the following parameter:
 
 ServerSignature Off
 
@@ -132,7 +132,7 @@ The Tomcat Shutdown port - 8005 by default - should not be open to the public. I
 
 In your Apache host configuration for the site or sites you will be serving through Apache and Lucee, you can add the following in order to deny access to all but approved IP's:
 
-<Location /lucee/admin>
+<Location "/lucee/admin">
 
 Order deny,allow
 
@@ -142,7 +142,7 @@ Allow from 192.168.254.250
 
 Allow from 127.0.0.1
 
-</location>
+</Location>
 
 This same concept can be implemented to deny access to the Mura Administrator. If assets in the lucee-context are not needed (eg cfform javascript), then you may block the entire /lucee/ instead of just the administrator.
 
