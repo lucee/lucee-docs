@@ -26,7 +26,7 @@ Once this has finished, you should find `./builds/html` and `./builds/dash` dire
 
 ### Running a server locally
 
-We have provided a utility server who's purpose is to run locally to help while developing/writing the documentation. To start it up, execute the `serve.sh` or `serve.bat` script found in the root of the project, i.e.
+We have provided a utility server whose purpose is to run locally to help while developing/writing the documentation. To start it up, execute the `serve.sh` or `serve.bat` script found in the root of the project, i.e.
 
     documentation>./serve.sh|bat
 
@@ -47,7 +47,7 @@ The build process for the js and css bundles are found under /builders/html/asse
 
 Just run npm install, then run grunt. 
 
-After you have made everything more beautiful via css, or added some funky new interactivty via javascript, 
+After you have made everything more beautiful via css, or added some funky new interactivity via javascript, 
 to publish a new build of the bundles, you'll need to update `variables.assetBundleVersion` in both Application.cfc and Gruntfile.js,
 as the docs are statically deployed via cloudfront and versioning of these files is required to break caching.
 
