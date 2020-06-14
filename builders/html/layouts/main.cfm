@@ -77,7 +77,10 @@
 								<a href="https://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
 							</li>
 							<li>
-								<a href="https://dev.lucee.org"><span class="fa fa-fw fa-comments"></span>Mailing List</a>
+								<a href="https://dev.lucee.org"><span class="fa fa-fw fa-comments"></span>Developer Forum</a>
+							</li>
+							<li>
+								<a href="https://lucee.us12.list-manage.com/subscribe?u=a8314f9282c07e84232a26805&id=172dc8293d"><span class="fa fa-fw fa-comments"></span>Newsletter Signup</a>
 							</li>
 							<li>
 								<a href="https://luceeserver.atlassian.net/browse/"><span class="fa fa-fw fa-bug"></span>Issue Tracker</a>
