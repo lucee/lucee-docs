@@ -8,7 +8,7 @@ menuTitle: Windows
 
 There are a few different ways to get Lucee up and running on Windows
 
-- you can [[running-lucee-download-and-install]] the traditional Installer
+- you can [[running-lucee-download-and-install]] the traditional Installer. Watch this step by step video guide about [[running-lucee-installing-lucee-on-windows-2019-with-installer-quick-video-guide]]
 - the Express version (which just runs out of a folder) 
 - [[getting-started-commandbox]] which provides an automated way to manage and deploy both Lucee and Adobe ColdFusion servers (it's sort of like Docker but a million times less complex)
 
