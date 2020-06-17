@@ -1,5 +1,5 @@
 ---
-title: queryrowdatabyindex
+title: QueryRowDataByIndex
 id: function-queryrowdatabyindex
 related:
 categories:
