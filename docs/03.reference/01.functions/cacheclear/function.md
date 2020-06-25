@@ -2,8 +2,9 @@
 title: CacheClear
 id: function-cacheclear
 related:
+    - function-systemcacheclear
 categories:
     - cache
 ---
 
-Flushes the cache
+Flushes a cache
