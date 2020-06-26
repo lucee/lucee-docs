@@ -6,6 +6,7 @@ related:
 - function-imagewritebase64
 categories:
 - encode
+- binary
 description: 'Calculates the Base64 representation of a string or binary object. '
 ---
 
