@@ -1,3 +1,3 @@
 ```luceescript
-binaryContent = fileReadBinary(expandPath('./file.txt'));
+binaryContent = fileReadBinary(expandPath('./image.jpg'));
 ```
