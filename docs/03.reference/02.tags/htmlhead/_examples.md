@@ -1,4 +1,5 @@
 ### Simple Example
+
 ```lucee
 <cfhtmlhead text="_Read_Action"><cfhtmlhead action="read" variable="res"><br><cfoutput>#res#</cfoutput> 
 

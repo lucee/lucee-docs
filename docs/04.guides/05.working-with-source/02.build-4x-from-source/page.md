@@ -81,11 +81,13 @@ You can also build Lucee using Maven via:
     mvn clean install
 
 ### Java notes
+
 Currently the build process requires Java 6 to build successfully, however support for Java 7 and 8 will be added soon. Java 6 is available for Windows and Linux from the Oracle website at the following link:
 
 http://www.oracle.com/technetwork/java/javase/archive-139210.html
 
 ### Java for Mac OS X
+
 For Mac OS X you will need to obtain a package from the Apple Developer site, as until Java 7, Java on Mac OS X was maintained and provided by Apple. To do this go to the following URL:
 
 https://developer.apple.com
@@ -101,6 +103,7 @@ Download this package and install it. Once installed go to the terminal window a
 Once you have added this, exit terminal and open a new terminal and check the Java version again using the `javac -version` command.
 
 ### Ant notes
+
 If when you run Ant you get an error message that says:
 
     java.lang.OutOfMemoryError: Java heap space
@@ -114,6 +117,7 @@ Windows: `set ANT_OPTS=-Xms256m -Xmx1024m`
 Once set this should allow Ant to run without issue. For Linux and Mac you can add this export to your bash profile to load automatically.
 
 ### IntelliJ IDEA notes
+
 The cloned repository can be easily imported into a new, empty Java project in IntelliJ IDEA 14. You should end up with 4 modules within the project: lucee-core, lucee-debug, lucee-instrumentation, lucee-loader. Opening the main build.xml in the project root should give you all the build options as outlined above.
 
 The default setup in IntelliJ IDEA provides 128m heap memory for the build process. This will most likely be not enough. The heap memory setup strategy as explained in the previous is not applicable for building from within the IDE though. Instead find the properties dialog for the build file and change the setting of 128m to 256m or as high as necessary.

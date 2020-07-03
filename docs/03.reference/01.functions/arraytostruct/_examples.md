@@ -1,4 +1,5 @@
 ### Simple Array
+
 ```luceescript+trycf
 arr = ['a','b','c','d','e','f','g'];
 dump(arrayToStruct(arr));
@@ -8,6 +9,7 @@ dump(arr.toStruct());
 ```
 
 ### Array of Structs
+
 ```luceescript+trycf
 arr = [
     {name:'a'},

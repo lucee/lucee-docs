@@ -1,4 +1,5 @@
 ### Gets a sub section of an array and returns it
+
 ```luceescript+trycf
 	newArray = ['a','b','c','b','d','b','e','f'];
 	dump(newArray);

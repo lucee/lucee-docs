@@ -178,6 +178,7 @@ The above will generate a structure like this:
 ```luceescript
 {a:{b:{c:"Susi"}}, "a.b.c":"Susi"}
 ```
+
 ### Annotations ###
 
 In cfscript annotations can be used in order to "decorate" functions and their arguments. Unlike ACF, Lucee Server never overwrites attributes that change the behaviour of the function itself. So attributes like output, returntype, returnformat can not be set using annotations. These annotations will be ignored in Lucee Server.

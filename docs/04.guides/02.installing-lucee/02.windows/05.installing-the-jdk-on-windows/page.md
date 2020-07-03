@@ -49,5 +49,6 @@ If you need to install this product on several servers then a silent installatio
 jdk-8u31-windows-x64.exe /s addlocal="ToolsFeature" installdir="C:\Program Files\Oracle Java JDK"
 setx JDK_HOME "C:\Program Files\Oracle Java JDK" /m
 ```
+
 (Make sure you change the update version number as appropriate).
 ---

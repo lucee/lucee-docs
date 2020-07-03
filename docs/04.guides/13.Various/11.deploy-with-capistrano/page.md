@@ -90,6 +90,7 @@ namespace :deploy do
    end
 end
 ```
+
 ### Remote server ###
 
 We need to setup the remote servers. Create the directory /var/www/myproject/ and the user deploy that must have write access to this directory. Also we must install git in the servers.

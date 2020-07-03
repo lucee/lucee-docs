@@ -44,6 +44,7 @@ Passing values with [[tag-QueryParam]] has two advantages:
 * Lucee is able to cache the query statement and reuse it as long as the value is unchanged.
 
 ### params ###
+
 Here we use param as part of cfquery tag, used to pass the value with SQL statement.
 
 Pass the params value with struct
@@ -155,6 +156,7 @@ In the above example we pass the sql as part of the constructor.
 ```query.execute()``` function returns detail of the component, ```query.execute().getResult()``` returns query result.
 
 ### Query Future ###
+
 We are always in discussion how to improve the functions in lucee.
 
 This output technique ```$("Hi there")``` can be used anywhere in the file (not just inside a query).
@@ -182,6 +184,7 @@ q=Query::new("a,b,c");	// equal to queryNew("a,b,c"), already exists
 Query::execute(...);	// equal to queryExecute(), coming soon
 </cfscript>
 ```
+
 ### Query Builder ###
 
 Query Builder use as extension, it will not come up with core.

@@ -1,4 +1,5 @@
 ### Tags
+
 ```lucee+trycf
 <cfhttp url="https://www.google.com" method="get" result="myresult">
 <cfdump var="#myresult#">
@@ -9,7 +10,9 @@
 </cfhttp>
 <cfdump var="#myresult#">
 ```
+
 ### Script
+
 ```luceescript+trycf
 http url="https://www.google.com" method="get" result="myresult";
 dump(myresult);

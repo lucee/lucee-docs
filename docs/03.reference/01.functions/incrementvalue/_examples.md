@@ -1,4 +1,5 @@
 ### Function Example
+
 ```luceescript+trycf
 	num = 169;
 	writeDump(incrementvalue(num));

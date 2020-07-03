@@ -1,4 +1,5 @@
 ### Index & Conditional loop
+
 ```lucee+trycf
 <cfloop index = "LoopCount" from = "1" to = "5">
 	The loop index is <cfoutput>#LoopCount#</cfoutput><br>
@@ -10,7 +11,9 @@
 	CountVar is <cfoutput>#CountVar#</cfoutput><br>
 </cfloop>
 ```
+
 ### List loop
+
 ```lucee+trycf
 <cfset listEle = "lucee,test,case">
 <br><u>Simple list loop</u><br>
@@ -35,7 +38,9 @@
 	<cfset cV = cV+1>
 </cfloop>
 ```
+
 ### Array loop & Struct loop
+
 ```lucee+trycf
 <cfoutput>
 	<cfset arr = ["I","Love","Lucee"]>

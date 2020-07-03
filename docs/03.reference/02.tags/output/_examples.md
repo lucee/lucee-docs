@@ -1,4 +1,5 @@
 ### Simple example 
+
 ```lucee+trycf
 <cfset a=3>
 <cfset b=8>

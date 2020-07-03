@@ -10,11 +10,13 @@ Since this article was first written, Lucee has a [Windows Installer](https://do
 Before we start with the installation, we need to dive into some basics:
 
 ## What we don't like ##
+
 * A mix of binaries (exe, dll-files) and configuration data (eg. xml files) in the *application directory*
 * The software needs **change permissions** to write data into his *application directory*
 * A windows service needs **System Authority** permissions
 
 ## What we really like ##
+
 * The application can live perfectly with **read permissions** in its *application directory*
 * The data of the application can be stored in a *data directory* on a different drive as C-drive
 * A windows service can run with a **low privileged** user permissions
@@ -29,6 +31,7 @@ In terms of Apache Tomcat, we split the files by setting Tomcat's main variables
 Before we start, let's download Apache Tomcat from this page: [Tomcat 8 Downloads](http://tomcat.apache.org/download-80.cgi). Scroll down a bit and choose the link ***64-bit Windows zip***. Download the product and unzip the content to a temporary folder on your server.
 
 ## Installation ##
+
 1. Create the folders **C:\Program Files\Tomcat**, **C:\Program Files\Tomcat\bin** and **C:\Program Files\Tomcat\lib**
 2. Browse the expanded content in your temporary folder and change into the folder **apache-tomcat-8.0.18**.
 3. Copy the five files from the root in to the folder **C:\Program Files\Tomcat**

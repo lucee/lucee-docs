@@ -1,4 +1,5 @@
 ### Sum of values in an array
+
 ```luceescript+trycf
 numberArray = [10,99,27,72];
 

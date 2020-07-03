@@ -1,4 +1,5 @@
 ### Simple array using sort type and order
+
 ```luceescript+trycf
 SomeArray = ["COLDFUSION","coldfusion","adobe","LucEE","LUCEE"];
 

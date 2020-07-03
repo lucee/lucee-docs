@@ -60,6 +60,7 @@ dump(fileRead(sct.file));
 dump(directoryList(sct.directory));
 </cfscript>
 ```
+
 ### ZIP File System ###
 
 Another file system you can use in Lucee is the ZIP file system.
@@ -149,6 +150,7 @@ c = fileRead(sct.s3&"testcasesS3/a/foo.txt");
 dump(c);
 </cfscript>
 ```
+
 ### FTP File System ###
 
  Lucee allows you to treat a remote FTP server as a virtual filesystem.
@@ -174,6 +176,7 @@ dump(dir);
 
 </cfscript>
 ```
+
 ### Footnotes ###
 
 Here you can see above details in video

@@ -1,4 +1,5 @@
 ### Function Example
+
 ```luceescript+trycf
 imgObj = imageNew("",152,152,"rgb","149c82");
 imageXORDrawingMode(imgObj,"dddddd");

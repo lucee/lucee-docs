@@ -4,9 +4,11 @@ id: cookbook-datasource-define-datasource
 ---
 
 # How to define a Datasource #
+
 To execute queries you need a datasource definition, a datasource definition point this a specific local or remote datasource, there are different ways to do so.
 
 ## Create a Datasource in the Administrator ##
+
 The most common way is to define a Datasource is in the Lucee Server or Web Administrator.
 The only difference between the Web and Server Administrator is, that datasources defined in the Server Administrator are visible to all web contexts and datasources defined in the Web Administrator only to the current web context.
 In your Administrator go to the Page "Services/Datasource", in the section "create new Datasource" choose a name for your datasource and the type of your Datasource, for example "MySQL".
@@ -17,6 +19,7 @@ On the following page you can define settings to connect to your datasource, the
 After saving this page you get back to the overview page and you will get a feedback if Lucee was able to connect to your datasource or not.
 
 ## Create a Datasource in the Application.cfc ##
+
 You cannot only define a datasource in the Lucee Administrator, you can also do this in the [[cookbook-application-context-basic]], the easiest way to do so, is to create first a datasource in the Administrator (see above) and then go to the detail view of this datasource by clicking the "edit button"
 
 ![select datasource](https://bitbucket.org/repo/rX87Rq/images/4142224660-select-datasource.png)
@@ -29,6 +32,7 @@ You can simply copy the code inside the box to your [[cookbook-application-conte
 After that you can delete the datasource you have defined in the Administrator.
 
 ### Advanced ###
+
 Like you can see, the code for a datasource definition has this pattern (class,  connectionString, username and password)
 
 ```cfs
@@ -67,6 +71,7 @@ this.datasources["myds"] = {
 ```
 
 ### Default Datasource ###
+
 With the [[cookbook-application-context-basic]] you can also define a default datasource that is used if not "datasource" attribute is defined with the tag cfquery, cfstoredproc, cfinsert, cfupdate, ..., simply do the following
 
 ```cfs

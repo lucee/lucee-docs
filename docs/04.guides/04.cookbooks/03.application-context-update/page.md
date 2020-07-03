@@ -7,6 +7,7 @@ menuTitle: Application Context
 ---
 
 ## Update Application Context ##
+
 Lucee allows you to update the existing application context defined for example in [[cookbook-application-context-basic]].
 
 So for example add a per application mapping

@@ -4,6 +4,7 @@ id: cookbook-lockdown-guide
 ---
 
 # Lockdown Guide #
+
 A guide to limit access to a Lucee server to necessary minimum.
 
 On Windows it is recommended to run the Lucee/Tomcat service as a restricted user with only the required permissions rather than under SYSTEM account.

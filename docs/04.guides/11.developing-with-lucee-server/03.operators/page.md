@@ -85,6 +85,7 @@ MOD       | modulus        | Returns the remainder of a number, e.g. 5 mod 2 is 
 ```
 
 ## Logical operators ##
+
 operators | Name           | Description |
 ------------------------   | ----------- 
 !           |  logical inversion      |     ! true is false   |

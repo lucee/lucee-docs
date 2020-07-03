@@ -22,9 +22,11 @@ At the time of this writing : mod_cfml is at v1.1.05, Boncode AJP connector is a
 BonCode AJP (Apache JServ Protocol version 1.3) Connector is used connect the IIS web server to the Apache Tomcat server.  Apache already supports AJP out of the box.
 
 ### Boncode AJP 1.3 Connector Prerequisites ###
+
 ASP dot NET Framework version 3.51 or higher must be installed
 
 ## Automatic Install of Boncode AJP connector with default settings ##
+
 For the purposes of simplicity, do an automatic install of the Boncode AJP 1.3 connector with the default settings.
 
 * [Download the Boncode AJP connector](http://www.boncode.net/boncode-connector)

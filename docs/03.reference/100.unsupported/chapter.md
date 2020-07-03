@@ -4,6 +4,7 @@ id: unsupported
 ---
 
 # Tags
+
 The following tags, from Adobe CFML, are not supported by Lucee:
 
 * cf_socialplugin
@@ -54,6 +55,7 @@ The following tags, from Adobe CFML, are not supported by Lucee:
 * cfwebsocket
 
 # Functions
+
 The following functions , from Adobe CFML, are not supported by Lucee:
 
 * cachegetsession

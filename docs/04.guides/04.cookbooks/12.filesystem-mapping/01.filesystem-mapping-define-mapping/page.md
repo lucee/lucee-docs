@@ -12,6 +12,7 @@ Lucee allows you to define a mappings to a specific location in a filesystem, so
 This is supported with all filesystems Lucee supports (local,ftp,http,ram,zip,s3 ...).
 
 ## Create a regular Mapping in the Administrator ##
+
 The most common way is to define a regular Mapping is in the Lucee Server or Web Administrator.
 The only difference between the Web and Server Administrator is, that a mapping defined in the Server Administrator is visible to all web contexts and a mapping defined in the Web Administrator only to the current web context.
 In your Administrator go to the Page "Archives & Resources/Mappings", in the section "create new Mapping" that looks like this.
@@ -47,6 +48,7 @@ In the detail view of a single mapping you can compile all cfm and cfc files in 
 ![compile.png](https://bitbucket.org/repo/rX87Rq/images/362153996-compile.png)
 
 ### Create an archive from a mapping ###
+
 In the detail view of a single mapping you can create an archive that contains all templates of the mapping in compiled form.
 With the flag "Add CFML Templates" you can define if Lucee should add the source version of the templates as well, this make sense when you need a proper error output in case of an  exception (source code output) or you need to read the content of this files for example with <cffile>.
 With the flag "Add Non CFML Templates"  you can define if Lucee should add all non CFML files (png,js,gif,css ...) as well, this make sense when you need to read the content of this files for example with <cffile>.
@@ -57,6 +59,7 @@ By clicking the button "download archive" you create the archive and then you ca
 
 
 ## Create a Mapping in the Application.cfc ##
+
 Lucee allows to create mappings in your Application.cfc, this mappings are only valid for the current request.
 
 ```cfs
@@ -73,7 +76,9 @@ Now you can simply use that mapping in your code
 <cfinclude template="/shop/whatever.cfm"> <!--- load a template from the "shop" mapping --->
 <cfset cfc=new shop.Whatever()><!--- load a CFC from the "shop" mapping (see also "this.componentpaths" for handling components)  --->
 ```
+
 ## Advanced ##
+
 In the previous example we have simply set a path, like you can see in the Administrator, a mapping can contain more data than only a physical path, of course you can use this settings also with a mapping done in the Application.cfc.
 
 ```cfs
@@ -94,6 +99,7 @@ In that case we not only define a physical path, we also define a Lucee archive 
 In that case Lucee first checks in the archive for "whatever.cfm" , if not found there, it looks inside the physical path.
 
 ### Site Note ###
+
 Of course this can be done for all mapping types
 
 ```cfs

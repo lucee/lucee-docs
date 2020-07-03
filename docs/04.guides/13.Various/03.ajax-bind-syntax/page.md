@@ -11,9 +11,11 @@ description: Most of the tags support a binding statement in the url or source a
 Most of the tags support a binding statement in the url or source attributes. The following syntax is supported.
 
 ### Bind to a cfc ###
+
 ```lucee
 bind="cfc:component.dotted.path.cfcMethod({bindedElement})"
 ```
+
 ## Url Binding ##
 
 ```lucee

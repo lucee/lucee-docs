@@ -48,6 +48,7 @@ or if you are using an Application.cfm,
 You can define a font directory where you have the fonts(.ttf,.otf) you are using in your PDF.
 
 ### Define the font directory ####
+
 ```lucee
 <cfdocument fontDirectory = "path/to/my/font">
 ```

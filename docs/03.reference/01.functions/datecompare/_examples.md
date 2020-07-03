@@ -5,6 +5,7 @@
 ```
 
 ### Member function
+
 ```luceescript+trycf
 	d=createDate(year(now()),month(now()),day(now()));
 	d1='11/10/1992';

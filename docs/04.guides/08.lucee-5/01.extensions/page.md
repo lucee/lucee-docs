@@ -67,6 +67,7 @@ If you add the file to the `/lucee-server/deploy/` folder, you might need to wai
 If you now go to the Lucee Server Admin and to the `Extension -> Application` section, you should see it there as installed.
 
 ## Base structure (optional)
+
 Now let us make our extension richer by adding some optional settings to the `MANIFEST.MF` file.
 
 ## Description
@@ -148,6 +149,7 @@ The logo image will be automatically proportionally resized in the Administrator
 - Extension Detail page, 400px x 400px 
 
 ## Installing artifacts
+
 Now that we have covered how the base settings for an extension work, we can make it do something useful.
 
 To begin with we start by installing some CFML based tags.
@@ -555,7 +557,9 @@ Example implementation:
 [https://github.com/lucee/extension-flex](https://github.com/lucee/extension-flex)
 
 ### Event Handler
+
 (TODO)
 
 ### Event Gateway
+
 [[event-gateways]]
