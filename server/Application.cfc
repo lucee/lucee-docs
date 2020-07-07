@@ -10,6 +10,8 @@ component {
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
 
+	this.assetBundleVersion = 26;  // see parent application.cfc
+
 	public void function onApplicationStart()  {
 		//_addChangeWatcher();
 	}
@@ -21,6 +23,7 @@ component {
 	public boolean function onRequest( required string requestedTemplate ) output=true {
 		var path = _getRequestUri();
 		var logger = new api.build.Logger();
+		
 		if (path contains ".."){
 			header statuscode=401;
 			abort;
@@ -353,6 +356,7 @@ component {
 			application.delete( appKey );
 			application[ AppKey ] = new api.build.BuildRunner();
 		}
+		application.assetBundleVersion = this.assetBundleVersion;
 		if (structKeyExists(url, "reload") && url.reload eq "true"){
 			if (structKeyExists(url, "force") && url.force eq "true")
 				application[ AppKey ] = new api.build.BuildRunner(); // dev mode

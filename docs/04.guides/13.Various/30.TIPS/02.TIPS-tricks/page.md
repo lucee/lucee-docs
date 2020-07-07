@@ -74,22 +74,19 @@ etc
 Sometimes you want to hide from users of your site, what underlying technology you are using. This takes a few steps:
 
 1. Go to Lucee admin settings/error and replace error template with a custom error template that is plain or looks like an ASP or PHP error page, or of course, whatever template you want.
+2. Add ```luceee<cfsetting showdebugoutput="no">``` at the top of this template.
+3 . Go to Lucee admin settings/output and remove flag "Output Lucee version"
+4. Go to WEB-INF/web.xml or etc/webdefault.xml or config/appdefault.xml depending on which servlet container you are running
+5. Change all existing servlet-mappings from servlet "CFMLServlet" as follows
+6. Replace cfm with asp and cfc with php or whatever you want. ```lucee
 
-1. Add ```luceee<cfsetting showdebugoutput="no">``` at the top of this template.
-
-1. Go to Lucee admin settings/output and remove flag "Output Lucee version"
-
-1. Go to WEB-INF/web.xml or etc/webdefault.xml or config/appdefault.xml depending on which servlet container you are running
-
-1. Change all existing servlet-mappings from servlet "CFMLServlet" as follows
-
-1. Replace cfm with asp and cfc with php or whatever you want. ```lucee
 <servlet-mapping>
      <servlet-name>CFMLServlet</servlet-name>
      <url-pattern>*.asp</url-pattern>
  </servlet-mapping>
 ```
 1. Go to existing application.cfc or create one, if there is more than one, do this for every application.cfc or extend a cfc in every application.cfc with the following function:
+
 ```lucee
 <cffunction name="onRequest" output="yes">
 	<cfargument name="path">

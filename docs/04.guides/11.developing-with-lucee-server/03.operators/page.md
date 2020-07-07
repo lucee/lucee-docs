@@ -15,7 +15,7 @@ operators | Name           | Description                                        
 ------------------------   | -----------                                                |
 **+**     | Add            |                                                            |
 **-**     | subtract       | 															|
-*         | multiply       |                                                            |
+\*         | multiply       |                                                            |
 /         | divide         | 															|
 ^         | exponentiate   | Raises one number to the power of another, e.g. 2 ^ 2 is 4 |
 %         | modulus        | Returns the remainder of a number, e.g. 5 % 2 is 1         |

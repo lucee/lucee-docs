@@ -1,4 +1,5 @@
 The type of border:
+
 - zero: Sets the border color to black.
 - constant: Sets the border to the specified color (default).
 - copy: Sets sample values to copies of the nearest valid pixel. For example, pixels to the left of the valid rectangle assume the value of the valid edge pixel in the same row. Pixels both above and to the left of the valid rectangle assume the value of the upper-left pixel.
