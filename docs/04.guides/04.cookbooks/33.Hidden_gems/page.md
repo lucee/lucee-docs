@@ -97,6 +97,7 @@ loop query=dir {
 	echo('<a href="#dir.name#">#dir.name#</a><br>');
 }
 ```
+
 * In this cfm page have available in URL and form scopes. Here names are used as same as two times. 
 * Query string on URL scope have same name ``country`` as two times. Similarly form also have two same name ``country``. 
 * Execute this cfm page in browser & submit the form. It will showing a single URL string list in merged format instead of two fields & Form fields also merged as single ``country`` field.
