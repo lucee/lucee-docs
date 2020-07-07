@@ -5,6 +5,7 @@ menuTitle: Migrating from Railo
 ---
 
 # Migrate from Railo<sup>&copy;</sup>#
+
 Lucee 4.5 is forked from the Railo CFML Server (version 4.2) so you can easily migrate an existing Railo installation as follows.
 
 **A fresh install is recommended, as it bundles a recent version of Tomcat and the last Railo release was several years ago.**
@@ -47,9 +48,11 @@ you should now use:
 http://localhost:8888/lucee/admin/server.cfm
 
 ## Optional Steps ##
+
 Lucee only converts the Railo config settings, it does not touch your Servlet Engine configuration since Lucee will work with the existing Railo configuration.
 
 ### web.xml (jetty)/webdefault.xml (tomcat) ###
+
 You **can** for example change the class names in the servlet definitions from
 
 ```xml

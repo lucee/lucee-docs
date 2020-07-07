@@ -4,6 +4,7 @@ id: cookbook-check-for-changes
 ---
 
 # Check for changes in your configuration file automatically #
+
 Lucee can automatically check for changes in your configuration files from the complete server or a single web context.
 
 This is useful if you are doing scripted deploys and/or synchronization from, for example, a master instance to many slave instances of Lucee.

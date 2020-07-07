@@ -11,6 +11,7 @@ Why you want to use database for session data storage:
 * Use bigger session timeout values (be careful and test)
 
 ## Considerations ##
+
 * Does not support JEE session type.
 * Database types other than MySQL are supported.
 

@@ -8,6 +8,7 @@
 	</cffunction>
 	<cfdump var="Define function Using tag.It returns :#add(4,2)#" />
 ```
+
 ### Simple Example with script format
 
 ```luceescript+trycf

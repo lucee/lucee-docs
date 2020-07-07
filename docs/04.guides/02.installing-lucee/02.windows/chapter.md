@@ -45,11 +45,13 @@ You can easily check which ports are already in use
 
 
 ## Prerequisites##
+
 * A Windows machine with Full administrator privileges
 * Basic understanding of the Windows Registry, file system and user management
 * Basic familiarity with the command line
 
 ## Automated Deployment##
+
 All of the tasks described in this guide can be integrated into a software management tool such *Microsoft SCCM*. Everything can be done on the command line, which is perfect for scripting and packaging.
 
 - - -

@@ -1,4 +1,5 @@
 ### Simple Example
+
 ```lucee+trycf
 <cfset  qry= queryNew("name,age,whatever", "varchar,date,int", [
 [ "Susi", CreateDate( 1970, 1, 1 ), 5 ],

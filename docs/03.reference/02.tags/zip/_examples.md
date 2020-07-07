@@ -1,5 +1,7 @@
 ### Simple format for cfzip
+
 ### Action unzip
+
 ```lucee
 <cfzip action="unzip" destination="#gettempdirectory()#" file="zippath">
 ```

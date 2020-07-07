@@ -16,9 +16,11 @@ Lucee dictionaries are available for download to support spell checking your cod
 <https://luceeserver.atlassian.net/browse/LD-115>
 
 ## CFEclipse
+
 <https://www.cfeclipse.org>
 
 ## VS Code
+
 <https://code.visualstudio.com>
 
 <https://marketplace.visualstudio.com/items?itemName=KamasamaK.vscode-cfml>
@@ -28,6 +30,7 @@ Lucee dictionaries are available for download to support spell checking your cod
 <https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker>
 
 ## Sublime Text
+
 <https://www.sublimetext.com>
 
 <https://github.com/jcberquist/sublimetext-cfml>
@@ -35,25 +38,31 @@ Lucee dictionaries are available for download to support spell checking your cod
 <https://github.com/ckaznocha/SublimeLinter-contrib-CFLint>
 
 ## Adobe ColdFusion Builder
+
 <https://www.adobe.com/products/coldfusion-builder.html>
 
 ## Atom
+
 <https://atom.io>
 
 <https://atom.io/packages/language-cfml>
 
 ## CFBrackets 
+
 <http://cfbrackets.org>
 
 ## ActiveState Komodo
+
 <https://www.activestate.com/komodo-ide>
 
 <http://www.we3geeks.org/komodo-cfml/>
 
 ## IntelliJ IDEA
+
 <https://www.jetbrains.com/idea/download/index.html>
 
 ## CFLint 
+
 <https://github.com/cflint/CFLint>
 is a very useful tool for linting (validating) your CFML code, there is integration available for many IDE's or you can run it in standalone mode over your whole code base
 

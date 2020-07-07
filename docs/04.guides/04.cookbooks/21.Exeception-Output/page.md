@@ -12,6 +12,7 @@ description: How to catch and display exceptions
 ---
 
 ## Output Exceptions ##
+
 How to catch and display exceptions
 
 #### Example ####

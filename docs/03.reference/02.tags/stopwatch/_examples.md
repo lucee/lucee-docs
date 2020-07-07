@@ -1,4 +1,5 @@
 ### Tags
+
 ```lucee+trycf
 <cfstopwatch variable="stopwatchVar">
     <cfset i = 0>
@@ -11,6 +12,7 @@
 ```
 
 ### Script
+
 ```luceescript+trycf
 stopwatch variable="stopwatchVar" {
     i = 0;

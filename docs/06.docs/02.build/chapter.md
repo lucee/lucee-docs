@@ -38,6 +38,7 @@ When running the server locally, you can edit the content inline and it will sav
 Once you have finished making your changes, simply use your preferred git client to create a pull request to publish your changes.
 
 ## Recent improvements
+
 [https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662](https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662)
 
 [https://dev.lucee.org/t/lucee-documentation-visual-and-navigation-improvements/3683](https://dev.lucee.org/t/lucee-documentation-visual-and-navigation-improvements/3683)

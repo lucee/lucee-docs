@@ -1,4 +1,5 @@
 ### Similar to String Mid function, gets a section of an array
+
 first argument start, second argument count
 
 ```luceescript+trycf

@@ -4,6 +4,7 @@ id: running-lucee-installing-and-configuring-lucee-jar-file-on-windows
 ---
 
 ![lucee-logo108x45.png](https://bitbucket.org/repo/rX87Rq/images/1133943380-lucee-logo108x45.png)
+
 ## Installation ##
 
 Lucee needs to be downloaded first from this page: [Lucee Downloads](https://download.lucee.org). Choose the *zip file* containing the **JAR files**.

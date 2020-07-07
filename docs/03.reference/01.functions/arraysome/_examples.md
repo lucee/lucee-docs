@@ -1,4 +1,5 @@
 ### uses a closure to determine if an item or expression exists
+
 ```luceescript+trycf
 	newArray = ['a','b','c','b','d','b','e','f'];
 	dump(newArray);

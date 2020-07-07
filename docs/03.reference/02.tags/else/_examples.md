@@ -1,4 +1,5 @@
 ### Simple Example with tag format
+
 ```lucee+trycf
 <cfif isArray(SERVER)>
 	<cfset result="It is in Array format">
@@ -9,6 +10,7 @@
 ```
 
 ### Simple example with script format
+
 ```luceescript+trycf
 	//script format
 	numb=1

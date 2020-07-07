@@ -1,4 +1,5 @@
 ### Member Function Example
+
 ```luceescript+trycf
 	num = 169;
 	writeDump(num.incrementvalue());

@@ -1,4 +1,5 @@
 ### Tags
+
 ```lucee+trycf
 <cfset count = 0 />
 <cfloop from="1" to="10" index="x">
@@ -12,6 +13,7 @@
 ```
 
 ### Script
+
 ```luceescript+trycf
 count = 0;
 count2 = 0;

@@ -1,4 +1,5 @@
 ### Simple Example
+
 ```lucee+trycf
 <cfparam name="FORM.test" default="1">
 <cfif FORM.test EQ 1>

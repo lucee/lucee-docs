@@ -1,4 +1,5 @@
 ### Action getAll
+
 ```lucee
 <cfimap
 	action="getAll"
@@ -10,7 +11,9 @@
 	name="getAll" maxrows ="10" attachmentpath="#expandpath('./')#" generateuniquefilenames="true">
 <cfdump var="#getAll#" /> 
 ```
+
 ### Action getHeaderOnly
+
 ```lucee
 <cfimap
 	action="getHeaderOnly"
@@ -22,7 +25,9 @@
 	name="getHeader" maxrows ="10">
 <cfdump var="#getHeader#" /> 
 ```
+
 ### Action CreateFolder
+
 ```lucee
 <cfimap
 	action="CreateFolder"
@@ -34,7 +39,9 @@
 	secure="#Imap.Secure#"
 	name="CreateFolder">
 ```
+
 ### Action ListAllFolders
+
 ```lucee
 <cfimap
 	action="ListAllFolders"
@@ -46,7 +53,9 @@
 	name="ListAllFolders" maxrows ="10">
 <cfdump var="#ListAllFolders#" />
 ```  
+
 ### Action renamefolder   
+
 ```lucee
 	<cfimap
 	action="renamefolder"
@@ -58,7 +67,9 @@
 	password="#Imap.Password#"
 	secure="#Imap.Secure#"> 
 ```
+
 ### Action deletefolder
+
 ```lucee
 	<cfimap
 	action="deletefolder"
@@ -70,7 +81,9 @@
 	secure="#Imap.Secure#"
 	maxrows ="10"> 
 ```
+
 ### Action MoveMail
+
 ```lucee
 <cfimap
 	action="MoveMail"
@@ -82,7 +95,9 @@
 	password="#Imap.Password#"
 	secure="#Imap.Secure#">
 ```
+
 ### Action MarkRead
+
 ```lucee
 <cfimap
 	action="MarkRead"
@@ -92,7 +107,9 @@
 	password="#Imap.Password#"
 	secure="#Imap.Secure#">
 ```
+
 ### Action open
+
 ```lucee
 <cfimap
 	action="open"
@@ -103,11 +120,15 @@
 	password="#Imap.Password#"
 	secure="#Imap.Secure#">
 ```
+
 ### Action close
+
 ```lucee
 <cfimap action="close" connection="openConnc">
 ``` 
+
 ### Action Delete
+
 ```lucee
 <cfimap
 	action="delete"

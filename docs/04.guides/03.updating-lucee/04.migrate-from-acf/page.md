@@ -14,6 +14,7 @@ Lucee is highly compatible with ACF, and most of your cfml/cfscript code that ru
 There are, however, some known issues of compatibility that you should be aware of, and that might affect your application if your code utilizes the affected features:
 
 ### Arrays in ACF are passed by value ###
+
 **What:**
 In ACF [[object-array]]s are passed to functions by value, meaning that if you call a function and the argument(s) passed to it are arrays, then the arrays are first copied into a new object, and the function then uses that new object.  
 
@@ -39,6 +40,7 @@ We decided not to follow the ACF way for the following reasons:
 * Consistency - Passing an array by value is inconsistent with all of the other _complex_ object types which are passed by pointer
 
 ### CreateTimeSpan returns a timespan, not a date ###
+
 **What:**
 In ACF, [[function-CreateTimeSpan]] returns a date type, meaning that if you have a function that returns a timespan value, or takes a timespan as an argument, it will thow an error in Lucee.  This has two solutions: change the date to timespan, or use numeric, which works in both.
 
@@ -55,7 +57,9 @@ For example:
 </cffunction>
 
 ```
+
 ### Iterations argument for the Hash function is off by one###
+
 **What:**
 The iterations value represents the total number of hashes on Lucee, in Adobe CF the value is the number of additional iterations.
 

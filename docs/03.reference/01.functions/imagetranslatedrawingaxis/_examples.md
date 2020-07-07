@@ -1,4 +1,5 @@
 ### Function Example
+
 ```luceescript+trycf
 	imgObj = imageNew("",200,200,"rgb","149c82");
 	imagetranslateDrawingAxis(imgObj,40,40);
