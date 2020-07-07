@@ -9,7 +9,7 @@ categories:
 description: SQL types supported by lucee.
 ---
 
-Here are the SQL types supported by Lucee. All are support with and without the `CF_SQL_` prefix:
+Here are the SQL types supported by Lucee. All are supported with and without the `CF_SQL_` prefix:
 
 * CF_SQL_ARRAY / ARRAY
 * CF_SQL_BIGINT / BIGINT
