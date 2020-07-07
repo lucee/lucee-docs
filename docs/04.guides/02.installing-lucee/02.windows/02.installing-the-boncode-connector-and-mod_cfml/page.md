@@ -42,10 +42,12 @@ Previous versions of Windows may place this file in "C:\Windows\System32\BonCode
 
 * Launch your favorite text editor **as a local Administrator** and open BonCodeAJP13.settings
 * Add the following items just before the closing `</Settings>` tag
+
 ```
 <EnableHeaderDataSupport>True</EnableHeaderDataSupport>
 <ModCFMLSecret>secret key also set in the Apache/IIS config</ModCFMLSecret>
 ```
+
 * Replace the secret key value  ('secret key also set in the Apache/IIS config') with a random secure key.  If you need help creating one, you can generate a reasonably secure unique key here https://www.grc.com/passwords.htm
 * Save the BonCodeAJP13.settings file **(Note: If you did not open your text editor as an Administrator, you may not be able to overwrite the existing file due to NTFS permissions)**
 
@@ -58,6 +60,7 @@ On a default Tomcat install, the Tomcat server.xml file should be in "C:\Program
 * Launch your favorite text editor **as a local Administrator** and open the Tomcat server.xml file.
 * Locate the Host section near the end of the configuration which reads `<Host name="localhost"...`
 * Add the following code block before the closing `</Host>` tag.
+
 ```
     <Valve className="mod_cfml.core"
 		   loggingEnabled="false"
@@ -66,6 +69,7 @@ On a default Tomcat install, the Tomcat server.xml file should be in "C:\Program
 		   scanClassPaths="false"
 		   sharedKey="secret key also set in the Apache/IIS config" />
 ```
+
 * Replace the secret key value  ('secret key also set in the Apache/IIS config') with the same key you used in the BonCodeAJP13.settings file above.
 * Restart the Tomcat service
 

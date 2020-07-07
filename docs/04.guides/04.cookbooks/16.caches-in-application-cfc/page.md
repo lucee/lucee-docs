@@ -34,6 +34,7 @@ Note, there is a shortcut for `this.cache.connections["myCache"] = {}` and that 
 ## Generating Cache Connection code
 
 The easiest way to generate the code block above is the follow these steps:
+
 1. Start up a Lucee server
 2. Create the cache you want via the web admin
 3. Edit the cache and scroll to the bottom
