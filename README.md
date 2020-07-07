@@ -60,7 +60,8 @@ Ask questions or post suggestions over on the [Lucee mailing List](https://dev.l
 
 More information on how the documentation is built and formatted can be found at [https://docs.lucee.org/docs.html](https://docs.lucee.org/docs.html).
 
-The workflow for contributions would be:
+The workflow for contributions is:
+
 * Submit the contributor's agreement: https://docs.lucee.org/guides/get-involved/contributing-contributors-agreement.html
 * Fork lucee-docs on GitHub.
 * Make your changes in the master branch.
