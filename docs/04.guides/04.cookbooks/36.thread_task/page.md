@@ -22,8 +22,7 @@ Regular Threads have the following characteristics:
 
 3) **It fails when it fails** : There is no special exception handling so when the thread fails it fails unless you have Cftry, cfcatch inside the thread and you have exception handling there. 
 
-
-### Example 1 :###
+### Example 1 : ###
 
 In addition to deamon (regular) threads, Lucee also supports task threads. The main differences is that task threads execute completely Independent of the request that is calling the thread. We log the thread and can re-execute it.
 
@@ -42,7 +41,6 @@ Note that when you execute example code, you will get no output. This is expecte
 However, view the Lucee _Admin --> Services --> Tasks_ and see the name of the tasks and their ``Type`` is cfthread. It could be mail or other tasks. 
 
 We see the ``Number of tries`` is 1 because we only ran it once. When we go to detailed view, we see the exception that was thrown by the task, the template where it was executes, and the state. (The state is closed in this case.)
-
 
 ### Example 2 : ###
 
@@ -65,7 +63,6 @@ In this example:
 2) It will retry 3 times at 1 second intervals every time it does not get an output. Go to _admin --> Services --> Tasks_, we see two tasks. The tasks are closed, but you can see that the new task was executed 4 times. 
 
 3) If you view the details, you can see that the ``Number of tries`` is 4,``Remaining tries`` are 0, ``State`` is closed. If we execute the thread again, the ``Number of tries`` will be increased to 5. 
-
 
 ### Example 3 : ###
 
@@ -95,14 +92,11 @@ This example is similar to the previous one, but it more complex. Here We have a
 
 3) Refresh the page, we see now it has tried more times. (Go to admin _Admin --> Services --> Tasks_)
 
-
-
 **Task thread** : Different than daemon threads, task threads can run more than once if they fail. You can schedule a later retry, and you can control it in the administrator. 
 
 Task threads are not bound to the requests starting the threads as demon threads are, but you still can control them with help of the component administrator. That component is available everywhere so we can use it in a test page.
  
-
-### Example 4 :###
+### Example 4 : ###
 
 ```luceescript
 /**/thread name="test" type="task" 
@@ -137,8 +131,6 @@ This example for getting the admin component and task is physically created on t
 2) ``admin.executeTask()`` is used to execute the task and we see it in the browser. It throws an exception.
 
 3) ``admin.removeTask()`` and "admin.removeAllTask()" is used to remove tasks from administrator.
-
-
 
 ### Footnotes ###
 

@@ -96,7 +96,6 @@ OR          |  logical or             | Returns true if either or both operands 
 **||**          |  logical or             | Returns true if either or both operand are true, e.g. 1 == 1 **||** 2 == 3 is true |
 XOR         |  logical exclusive or   | Returns true if either operand is true, but not both, e.g. 1 == 1 XOR 2 == 3 is true, but 1 == 1 XOR 2 == 2 is false |
 
-
 ## Comparison operators ##
 
 operators | Name           | Description |
@@ -121,9 +120,7 @@ CT       | contains        | Returns true if the left operand contains the right
 DOES NOT CONTAIN | does not contain | Returns true if the left operand does not contain the right operand, e.g. "SMILES" DOES NOT CONTAIN "RHUBARB" is true |
 NCT | does not contain | Returns true if the left operand does not contain the right operand, e.g. "SMILES" NCT "RHUBARB" is true |
 
-
 ## String operators ##
-
 
 operators | Name           | Description |
 ------------------------   | ----------- 

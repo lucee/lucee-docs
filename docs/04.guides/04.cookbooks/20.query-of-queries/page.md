@@ -47,7 +47,6 @@ You would now have a list of names, ages and locations for all the people in a q
 
 Say you want to filter out people under 18 and over 90, but you don't want to hit the database again:
 
-
 ```lucee
 <cfquery name="filteredQuery" dbtype="query">
   SELECT     Name, Age, Location
@@ -68,7 +67,6 @@ Lucee's SQL implementation is a basic subset of ANSI92, but it is relatively fas
 ### Supported Constructs ###
 
 Even though under the hood, Lucee handles the fallback to HSQLDB automatically, it still can be useful to know what's possible with the fast Lucee SQL implementation versus the slower, fallback HSQLDB SQL implementation.
-
 
 ### Lucee's SQL Implementation ###
 

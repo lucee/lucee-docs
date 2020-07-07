@@ -20,7 +20,6 @@ Encryption/Decryption is a new functionality in Lucee 5.3. We have new way to en
 * Private key to encrypt 
 * Public key to decrypt
 
-
 #### Example 1 : ####
 
 ```luceescript
@@ -38,7 +37,6 @@ dump(key)
 
 This function generates RSA keys. Execute the example code above in the browser and a struct is returned containing the two keys: a private key and a public key. So, we can create these keys, and store them somewhere for later use.
 
-
 #### Example 2 : ####
 	
 ```luceescript
@@ -49,8 +47,6 @@ dump(enc);
 ```
 
 We now create RSA keys using the [[function-generatersakeys]] function, and then use the key to encrypt using the [[function-encrypt]] function. The encrypt() function has some arguments. It has ``key.private`` which defines the key as the private key, and ``rsa`` indicates use of the RSA encryption algorithm. Then run the dump in the browser and we see the encrypted string for your input string.
-
-
 
 #### Example 3 : ####
 
@@ -63,7 +59,6 @@ dump(dec);
 ```
 
 This is full detailed example of encrypt/decrypt functions. We create a key and we encrypt with the private key. Then we [[function-decrypt]] with the public key.  Then run the dump in the browser and we see the original string returned as expected.
-
 
 ### Footnotes ###
 

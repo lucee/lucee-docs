@@ -61,7 +61,6 @@ We're going to open the installer with "gksudo" which is a graphical form of the
 
 **IMPORTANT:** Ubuntu will prompt you for your password here. It needs your password so it can assign root permissions to the installer. Once you provide your login password to Ubuntu, it will launch the installer and you should be off and running!
 
-
 ### Command-Line Install ###
 
 The installer is designed to be executed by the root user. If you are not logged in as the root user, you will need to "su" or "sudo" the script in order for it to function properly.

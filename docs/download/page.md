@@ -22,7 +22,6 @@ Lucee dictionaries are available for download to support spell checking your cod
 
 <https://luceeserver.atlassian.net/browse/LD-115>
 
-
 ## Dash / Zeal Documentation install
 
 You can add the Lucee documentation to your Dash or Zealdocs install by adding the following feed:

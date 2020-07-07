@@ -60,7 +60,7 @@ Please check the configuration by starting the Tomcat applet:
 Reference: [Apache Tomcat - Windows Service](http://tomcat.apache.org/tomcat-8.0-doc/windows-service-howto.html)
 - - -
 
-## Tomcat runtime configuration##
+## Tomcat runtime configuration ##
 
 One very important thing is left: Tomcat needs to know about his memory configuration and how he should behave in general.
 

@@ -35,7 +35,6 @@ test();
 * In cfm page have test() function with local variable scope, it normally assigned in empty string ``var qry``. Then execute this cfm, the qry is returns "1". 
 * Then dump the ``qry`` below of the var declaration. It returns empty string. 
 
-
 #### Example 2 : Dot and bracket notation for function calls #### 
 
 Lucee allow you to use bracket notations to call a component function. 
@@ -61,7 +60,6 @@ Here this three different types of function call. There are,
 * Third type of function call is user defined function via bracket notation.
 
 These all three different function call returns as same content ``susi`` what you defined in CFC page.
-
 
 #### Example 3 : Passing arguments via URL/form scopes as Array #### 
 

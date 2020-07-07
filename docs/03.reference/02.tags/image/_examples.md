@@ -1,56 +1,74 @@
-###Tag Syntax
+### Tag Syntax
 
-###Image Write
+### Image Write
+
 ```lucee
 <cfset newImg = imageNew("",200,200,"rgb","blue")>
 <cfimage action="write" source="#newImg#" name="writeimg" destination="pathname" overwrite="true">
 ```
-###Image captcha
+
+### Image captcha
+
 ```lucee
 <cfimage action="captcha" text="Captcha!"  difficulty="low" height="30" width="150" fontSize="18" 
 fonts="Comic Sans MS,Times New Roman">
 ```
-###Image read
+
+### Image read
+
 ```lucee
 <cfimage action="read" name="sourceImage" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4">
 <cfdump var="#sourceImage#" />
 ```
-###Image Info
+
+### Image Info
+
 ```lucee
 <cfimage action="info" structname="sourceImage" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4">
 <cfdump var="#sourceImage#" />
 
 ```
-###Image convert
+
+### Image convert
+
 ```lucee
 <cfimage action="convert" structname="sourceImage" destination="#expandpath("./lii.jpeg")#" 
 source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4">
 <cfimage action="writeToBrowser" source="#expandpath("./lii.jpeg")#">
 ```
-###Image WriteToBrowser
+
+### Image WriteToBrowser
+
 ```lucee
 <cfimage action="writeToBrowser" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4">
 ```
-###Image Rotate
+
+### Image Rotate
+
 ```lucee
 <cfimage action="rotate" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4" 
 destination="#expandPath( 'rotated.jpg' )#" overwrite="true" angle="30" quality="1">
 <cfimage action="writeToBrowser" source="#expandpath("./rotated.jpg")#">
 ```
-###Image Resize
+
+### Image Resize
+
 ```lucee
 <cfimage action="resize" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4" 
 name="resize" overwrite="true" height="300" width="400" quality="1">
 <cfimage action="writeToBrowser" source="#resize#">
 
 ```
-###Image border
+
+### Image border
+
 ```lucee
 <cfimage action="border" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4" color="red" 
 name="withborder">
 <cfimage action="writeToBrowser" source="#withborder#">
 ```
-###Script Syntax
+
+### Script Syntax
 
 ### Image write
 
@@ -109,7 +127,8 @@ cfimage(action="resize",source="https://avatars1.githubusercontent.com/u/1097314
 overwrite="true",height="300",width="400",quality="1")
 cfimage(action="writeToBrowser",source="#resize#")
 ```
-###Image border
+
+### Image border
 
 ```luceescript
 cfimage(action="border" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4" color="red" name="withborder");

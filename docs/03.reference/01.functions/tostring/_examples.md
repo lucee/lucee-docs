@@ -1,11 +1,12 @@
-###Function example
+### Function example
+
 ```luceescript+trycf
 writeDump(toString(45));
 dt=now();
 writeDump(toString(dt));
 ```
-###Member function example
 
+### Member function example
 
 ```luceescript+trycf
 number=randrange(1,10);

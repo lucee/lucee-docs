@@ -94,7 +94,7 @@ md D:\Tomcat\work
 We finished the basic installation. Now we have to edit some of the configuration files.  
 Let's go to the folder **D:\Tomcat\conf**.
 
-## server.xml##
+## server.xml ##
 
 Catalina's default host needs some tweaking. Find the line:
 
@@ -147,10 +147,9 @@ Be sure, that the port is limited to the main exe file **C:\Program Files\Tomcat
              minSpareThreads="25" (Default: 4)
              disableUploadTimeout="true" (Default: false)
 
-## tomcat-users.xml##
+## tomcat-users.xml ##
 
 This file holds rules, usernames and passwords to access the administrator interface of Tomcat. The access to the administrator interface is disabled by default:
-
 
 ```xml
 <!--
@@ -201,7 +200,7 @@ Add a **remark** in front of the line:
 #tomcat.util.scan.StandardJarScanFilter.jarsToScan=log4j-core*.jar,log4j-taglib*.jar
 ```
 
-##Update##
+## Update ##
 
 An minor update requires mostly only the replacement of the files in the folders **C:\Program Files\Tomcat\bin** and **C:\Program Files\Tomcat\lib**. Stop the Tomcat service, replace the files and start the service. That's it.
 

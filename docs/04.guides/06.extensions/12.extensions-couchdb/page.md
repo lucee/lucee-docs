@@ -77,7 +77,6 @@ Troubleshooting
 
 If you get an error along the lines of:
 
-
 ```lucee
 java.lang.NoClassDefFoundError: org/slf4j/spi/LoggerFactoryBinder
 	at java.lang.ClassLoader.defineClass1(Native Method)

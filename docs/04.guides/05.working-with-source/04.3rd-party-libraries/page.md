@@ -30,5 +30,3 @@ Apache Lucene          |  2.4.1 | 3.5.0  |    [http://lucene.apache.org/](http:/
 H2 Database            |  0.9   | 1.3.164|    [http://www.h2database.com/](http://www.h2database.com/)         |
 jTDS                   |  1.2.2 | 1.2.5  |    [http://sourceforge.net/projects/jtds/files/](http://sourceforge.net/projects/jtds/files/) |
 SLF4J                  |  1.5.8 | 1.6.4  |   [http://www.slf4j.org/](http://www.slf4j.org/)                       |
-
-

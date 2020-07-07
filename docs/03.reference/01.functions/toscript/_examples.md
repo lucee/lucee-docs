@@ -1,5 +1,4 @@
 
-
 ```lucee+trycf
 <cfoutput>
 	<cfset myArray=ArrayNew(1)>

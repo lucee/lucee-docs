@@ -30,7 +30,6 @@ For example, if we are creating a function reference page, you would expect the 
 
 The various build systems can use the page types to format the output in different ways.
 
-
 ## Page IDs
 
 Page IDs are used for cross referencing and are specified in the page's Markdown file using YAML front matter. e.g.

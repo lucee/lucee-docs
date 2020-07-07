@@ -27,7 +27,6 @@ Lucee supports a lot of different cache systems, for example EhCache, Memcached,
 * [[cookbook-cache-list]]
 * [[cookbook-caches-in-application-cfc]]
 
-
 ## Configuration ##
 
 * The Administrator Frontend (TODO)

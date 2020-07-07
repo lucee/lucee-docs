@@ -25,7 +25,6 @@ What's interesting about resources is, is the fact that you as a programmer do n
 
 This command copies the file myFile.cfm from the local server?s RAM to the distant ftp server at ftp.myserver.com. Now just imagine how much effort this would cost, if you would try to do this with regular tools in CFML.
 
-
 ### Mappings ###
 
 An other advantage is the usage of resources with mappings. You can define your mappings as follows (not to mention the fact, that you can use resources together with archives stored in a resource):

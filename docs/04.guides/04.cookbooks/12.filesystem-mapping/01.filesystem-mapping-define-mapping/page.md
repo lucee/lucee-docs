@@ -57,7 +57,6 @@ With the flag "Add Non CFML Templates"  you can define if Lucee should add all n
 
 By clicking the button "download archive" you create the archive and then you can download it directly, with the button "assign archive to mapping" you can create the mapping and directly add to the current mapping.
 
-
 ## Create a Mapping in the Application.cfc ##
 
 Lucee allows to create mappings in your Application.cfc, this mappings are only valid for the current request.

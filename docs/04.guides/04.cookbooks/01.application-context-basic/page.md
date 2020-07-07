@@ -42,7 +42,6 @@ component {
 This is normally used to initialize the environment for your application, so for example load data/objects and store them in the application scope.
 if the function returns false or throws an exception, the application context is not initialized and the next request will call "onApplicationStart" again. "onApplicationStart" is thread safe.
 
-
 ### OnApplicationEnd ###
 
 The opposite from "onApplicationStart", this function is triggered when the application context ends, means when the timeout of the application context is reached (this.applicationTimeout).
@@ -56,7 +55,6 @@ component {
 ```
 This is normally used to finalize the environment of your application, so for example unload data/objects.
 You receive the application scope that ends as an argument to the function.
-
 
 ### OnSessionStart ###
 
@@ -85,7 +83,6 @@ component {
 This is normally used to finalize the environment of your application, so for example unload data/objects.
  You receive the related application scope and the session scope that ends, as arguments to the function.
 
-
 ### OnRequestStart ###
 
 This function is triggered before every request, so you can prepare the environment for the request, for example to produce the HTML header or load some data/objects used within the request.
@@ -101,7 +98,6 @@ component {
 ```
 If the function returns false, Lucee stops any further execution of this request and return the result to the client.
 
-
 ### OnRequestEnd ###
 
 This function is triggered after every request, so you can cleanup the environment after the request, for example produce the HTML footer or unload some data/objects used within the request.
@@ -114,7 +110,6 @@ component {
    }
 }
 ```
-
 
 ### OnRequest ###
 
@@ -130,7 +125,6 @@ component {
    }
 }
 ```
-
 
 ### OnCFCRequest ###
 
@@ -184,7 +178,6 @@ component {
 ### OnMissingTemplate ###
 
 This method is triggered when a requested page was not found and **no function "onRequest" is defined **.
-
 
 ```cfs
 component {

@@ -173,7 +173,6 @@ video |	Contains the video of the extension
 virtual | Defines the virtual name of a mapping
 webCharset | Defines the charset of the response stream
  
-
 Action | Description
 ---------|-----------
 collection | Handles Lucene collections

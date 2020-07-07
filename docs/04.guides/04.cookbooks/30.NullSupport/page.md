@@ -35,7 +35,6 @@ If we assign the function result to a variable, i.e. `t=test();`, and reference 
 
 In all cases, `dump(isNull(notexisting));` will throw an error.
 
-
 #### Illustration 2:
 
 ```luceescript
@@ -47,7 +46,6 @@ dump(qry._null);
 ```
 
 With **partial support** for NULL enabled, `dump(qry._null);` will output an **empty string**. With **full support**, `Empty: null` will be output and `IsNull(qry._null);` will evaluate `true`.
-
 
 ### NullValue() function and null keyword
 

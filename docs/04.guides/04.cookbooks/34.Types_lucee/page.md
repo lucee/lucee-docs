@@ -35,7 +35,6 @@ For functions, the return value is returned with the specific type that was defi
 * The test() function takes an array, but in this example I do not pass an array into the function. I have passed a struct ``arr={'1':'one'}`` value into the test() function. The test() function contains an array value ``arr[2]= "two"``, so Lucee converts this array value into a structure. So the struct has two values as per keys are 1, 2 and values are one, two. 
 * Lucee can handle an array as long as the keys are all numbers, meaning it considers a struct ``'1' and [2]``. Execute this cfm page, the dump shows the structure format.
 
-
 #### Example 2 : CFParam ####
 
 ```luceescript
@@ -49,7 +48,6 @@ dump(label:"Age:", var:url.age);
 * In this example the dump of the age parameter has a URL scope. If you execute this cfm page without passing any value into the URL for age, it will throw an error like ``The required parameter [url.age] was not provided``.
 * If I pass a numeric value ``age=15``for age in the URL, it returns as expected, 15.
 * If I pass a string value ``age=old`` for age in the URL, it throws an error like ``Can't cast string [old] to a value of type [value]``
-
 
 #### Example 3 : Queries ####
 
@@ -81,7 +79,6 @@ query=queryNew(["name","age"],["string","numeric"]);
 
 * This example has queryNew() with two columns. Name and age are defined in string and numeric format. Then the example adds two rows of values to the columns. Then we dump the query with getMetaData(). It returns the column name with the corresponding data type of the field. 
 * If I change the age to as string format, ``query.age[row]="old"``, it does not throw an exception. It considers both name and age fields to be varchar type.
-
 
 #### Example 4 : ArrayNew ####
 
@@ -119,7 +116,6 @@ if(sct.bol)dump("is true");
 * Here we define three literals: literal boolean, literal string, literal number.
 * Execute this example. The dump ``sct`` returns with their data type with values.
 * We dump the number with a mathematical operation ``sct.nbr+100`` on it, and it returns ``223.456``. It checks the boolean literal as boolean or not. It returns "is true" while the if condition satisfied.
-
 
 #### Example 6 : Converting ####
 

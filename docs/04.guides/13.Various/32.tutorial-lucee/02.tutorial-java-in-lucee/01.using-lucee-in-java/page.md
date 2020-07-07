@@ -58,7 +58,6 @@ and in the cli() method of CFMLEngineImpl (line 541 at the time of writing):
 
 once you have a reference to the CFMLEngine and the PageContext objects, you can easily interact with Lucee from your code. here is an example on how to get / set Lucee values from within your Java code:
 
-
 ```lucee
 // get a reference to the Application Scope:
 Scope	appScope	=	pc.applicationScope();
@@ -202,7 +201,6 @@ Operations Util
 
 Casting
 
-	
 	Cast castUtil	=	engine.getCastUtil();
 	castUtil.toArray( obj );
 	castUtil.toStruct( obj );

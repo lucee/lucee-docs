@@ -1,33 +1,45 @@
-###Tag examples
-###File Write
+### Tag examples
+
+### File Write
+
 ```lucee
 <cffile action="write" file="#expandPath("./myFile.txt")#" output="Content that you need to write.">
 
 ```
-###File Read
+
+### File Read
+
 ```lucee
 <cffile action="read" file="#expandpath("./myfile.pdf")#" variable="myfile">
 
 ```
-###File Rename
+
+### File Rename
+
 ```lucee
 <cffile action="rename" source="#expandPath("./myFile.pdf")#" destination="#expandPath("./myNewFileName.pdf")#" attributes="normal">
 
 
 ```
-###File Move
+
+### File Move
+
 ```lucee
 <cffile action="move" source="#expandpath("./myfile.pdf")#" destination="#expandpath("./some/moveditems/")#">
 
 
 ```
-###File Copy
+
+### File Copy
+
 ```lucee
 <cffile action="copy" source="#expandpath("./myfile.pdf")#" destination="#expandpath("./some/copypath/")#">
 
 
 ```
-###File Delete
+
+### File Delete
+
 ```lucee
 <cffile action="delete" file="#expandpath("./some/moveditems/")#">
 
@@ -36,32 +48,43 @@
 
 ### Script Examples
 
-###File Write
+### File Write
+
 ```luceescript
 filewrite(file="#expandPath("./myFile.txt")#" data="Content that you need to write.");
 
 ```
-###File Read
+
+### File Read
+
 ```luceescript
 fileread(file="#expandPath("./myFile.txt")#");
 
 ```
-###File Rename
+
+### File Rename
+
 ```luceescript
 filemove(source="#expandPath("./myFile.txt")#",destination="#expandPath("./myNewFileName.txt")#");
 
 ```
-###File Move
+
+### File Move
+
 ```luceescript
 filemove(source="#expandPath("./myFile.txt")#",destination="#expandPath("./myNewFileName.txt")#");
 
 ```
-###File Copy
+
+### File Copy
+
 ```luceescript
 filecopy(source="#expandPath("./myNewFileName.txt")#",destination="#expandPath("./some/moved/")#");
 
 ```
-###File Delete
+
+### File Delete
+
 ```luceescript
 filedelete(source="#expandPath("./myFile.txt")#");
 

@@ -11,7 +11,6 @@ We distinguish 3 different mapping types:
 - "custom tag" mappings used to map custom tags 
 - "regular mappings" for the rest ([[tag-include]], [[tag-file]] ...).
 
-
 * [[cookbook-filesystem-mapping-define-mapping]]
 * [[cookbook-application-context-set-mapping]]
 * Define a component Mapping (TODO)

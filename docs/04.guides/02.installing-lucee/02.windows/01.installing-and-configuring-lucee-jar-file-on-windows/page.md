@@ -23,7 +23,7 @@ copy D:\temp\*.* "C:\Program Files\Lucee" /Y
 md D:\Lucee
 ```
 
-## Configuration##
+## Configuration ##
 
 We have to make sure that Apache Tomcat is able find the Lucee jar files. To do this, we'll need to edit **D:\Tomcat\conf\catalina.properties**. Find the line:
 

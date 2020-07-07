@@ -771,7 +771,6 @@ minimum
 	Parameters:
 mirror
 
-
 	Parameters:
 	- angle (numeric)
 		Specifies the angle of the mirror.
@@ -1106,7 +1105,6 @@ scale
 	- height (integer)
 scratch
 
-
 	Parameters:
 	- angle (numeric)
 	- density (numeric)
@@ -1168,7 +1166,6 @@ sharpen
 	- premultiplyAlpha (boolean)
 		Set whether to premultiply the alpha channel.
 shatter
-
 
 	Parameters:
 	- iterations (integer)

@@ -13,7 +13,7 @@ Lucee has two kinds of startup listeners.
 - **Server.cfc** which runs when the Lucee Server starts up. It exists only once per Lucee server.
 - **web.cfc** which can be used for each web context on your Lucee server. 
 
-####server.cfc####
+#### server.cfc ####
 
 Create a server.cfc file in lucee-server\context\context directory.  
 
@@ -34,7 +34,7 @@ Create a server.cfc file in lucee-server\context\context directory.
 * Start the Lucee server ``Startup`` . Here the console shows the server context which means it triggered Server.cfc
 * Finally, stop Lucee.
 
-####web.cfc####
+#### web.cfc ####
 
 Create a web.cfc file in webapps\ROOT\WEB-INF\lucee\context\ directory.  
 

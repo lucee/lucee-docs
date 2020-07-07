@@ -23,7 +23,6 @@ Now it's simple to add the following:
 
 	<cfLuceeConfiguration hspw="xxx" salt="xx" check-for-changes="true" version="4.2">
 
-
 Now that you have made the change you can either restart Lucee server from the administrator in:
 
 	http://localhost:8888/lucee/admin/server.cfm?action=services.restart

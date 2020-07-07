@@ -23,7 +23,6 @@ Here's a guideline on how to install Lucee on Win2K3 with IIS6.
 
 * If the service does not run, please execute the following command in the {lucee installation directory}
 
-
 C:\Lucee>httpd.exe -Xms512M -Xmx512M -conf conf/resin.conf -java_home jre -java_exe jre\bin\java
 Then the reason for Lucee failing to start should be displayed
 

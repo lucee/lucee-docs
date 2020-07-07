@@ -7,11 +7,9 @@ id: lucee-server-license
 
 Lucee uses the GNU Lesser General Public licence version 2.1 or as it is more commonly known, LGPL v2.1.
 
-
 ### I'm not a lawyer, please explain LGPL ###
 
 There is a pretty good explanation here and even why you shouldn't use the LGPL. The 4cff.org also has an excellent PDF explaining licensing in general.
-
 
 ### Can I host a non-commercial or a commercial website using Lucee? ###
 

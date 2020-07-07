@@ -108,7 +108,6 @@ Same example within tag
 
 Here the code joins three threads "t1,t2,t3". We can join threads by name.
 
-
 ### Example 3 ###
 
 Example 3 shows threads running in parallel using the each function.
@@ -155,9 +154,7 @@ Here we have 100 array elements. Setting the optional attribute parallel as true
 
 But we have the option to set the maximum threads open at a time. If it set to 100, Lucee can open 100 threads at a time to run in parallel. Then this code only takes 1 second to complete.
 
-
 The ```each``` function is not only used for an array. It can also be used for struct and query. The below example explains each type.
-
 
 ```lucee
 <cfscript>
@@ -219,7 +216,6 @@ Lucee members often discuss how to extend functionality to make Lucee easier to 
 
 This example shows a future implementation of threads in Lucee.
 
-
 ```lucee
 <cfscript>
 // Thread Pool
@@ -234,7 +230,6 @@ tasks.each(
 ```
 Currently, the default max threads is 20. In the future, we plan to use a smart thread pool based on your JVM(Java ExecutorService). So you will not have to take care how many threads are being used. The system will do that, and provide the best choice for your code.
 
-
 ```lucee
 <cfscript>
 thread /* action="thread" name="whatever" */ {
@@ -246,7 +241,6 @@ thread /* action="thread" name="whatever" */ {
 In the future we will make threads smarter by also using a pool for threads.
 
 This feature is something we are planning. Changes will be implemented on the backend so that nothing changes on the front end.
-
 
 ```lucee
 <cfscript>
@@ -261,7 +255,6 @@ for(i=0;i<10;i++;true) {
 ```
 
 Another planned enhancement is to extend parallel to the loop by simply adding ```parallel=true``` . It will execute the body of the loop in parallel.
-
 
 ### Footnotes ###
 

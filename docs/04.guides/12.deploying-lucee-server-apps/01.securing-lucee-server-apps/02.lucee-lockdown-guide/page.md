@@ -17,11 +17,9 @@ On Windows it is recommended to run the Lucee/Tomcat service as a restrict user 
 
 ## Restricted Access Plus SSH Tunnelling ##
 
-
 As with ACF, it is recommended best security practice to restrict access to URI's that are not necessary to publicly expose.
 
 Examples that have been cited include:
-
 
 * /lucee-context
 * /manager
@@ -52,7 +50,6 @@ Detailed instructions for SSH tunneling:
 1. ssh into a server using the -D flag, example: ssh -D 60001 user@102.103.108.39
 
 2. In your web browser, setup your proxy to point to "localhost", your port (for our example our port is 60001), using SOCKS5. This should work with any browser. Using Firefox as an example, here's how to do that:
-
 
 * Go to Preferences
 * Click the Advanced icon

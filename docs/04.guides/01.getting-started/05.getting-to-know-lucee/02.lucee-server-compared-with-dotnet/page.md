@@ -22,7 +22,6 @@ id: lucee-server-compared-with-dotnet
 
 ## Pros & cons ##
 
-
 ### Pros ###
 
 * CFML enables very fast prototyping.

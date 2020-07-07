@@ -3,7 +3,8 @@ title: Abstract/Final Modifiers
 id: lucee-5-abstract-final
 ---
 
-#Abstract/Final components/functions#
+# Abstract/Final components/functions #
+
 **Whilst Lucee already supports interfaces, interfaces are not well adopted in the developer community because they are only used to do "sign a contract" when you implement them. Abstract and Final modifiers are a much more intuitive and flexible way to do the same and more.**
 
 ## Abstract
