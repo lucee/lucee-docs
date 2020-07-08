@@ -14,7 +14,7 @@ This section is going to describe how ORM (object relational mapping) is handled
 
 According to Wikipedia ORM is: Object-relational mapping (ORM, O/RM, and O/R mapping) in computer software is a programming technique for converting data between incompatible type systems in object-oriented programming languages. This creates, in effect, a "virtual object database" that can be used from within the programming language. There are both free and commercial packages available that perform object-relational mapping, although some programmers opt to create their own ORM tools.. You can find the complete description of ORM on Wikipedia.
 
-Basically ORM is a way to store your objects in a database automagically. In Lucee these objects of course are CFC components. So what we are trying to do is to save the data that is stored inside a CFC into a flat database table. This of course is not the only advantage one gets when using ORM. In my opinion the greatest benefit is the standartization of the storage mechanism across databases. Instead of writing lots of tags you will only have to call some procedures. So here the pros of ORM:
+Basically ORM is a way to store your objects in a database automagically. In Lucee these objects of course are CFC components. So what we are trying to do is to save the data that is stored inside a CFC into a flat database table. This of course is not the only advantage one gets when using ORM. In my opinion the greatest benefit is the standardization of the storage mechanism across databases. Instead of writing lots of tags you will only have to call some procedures. So here the pros of ORM:
 
 ### Pros ###
 
@@ -39,7 +39,7 @@ Of course using ORM has some disadvantages as well. So lets have a look at the c
 * performance worse than native queries
 * not so flexible
 * additional libraries
-* lots of CFC instatiations
+* lots of CFC instantiations
 * bugs in ORM are severe
 * Too much effort for small programs
 * Poorer performance with large amount of data

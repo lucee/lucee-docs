@@ -1,1 +1,1 @@
-a binary represenation of an object or a path to a file that contains this
+a binary representation of an object or a path to a file that contains this

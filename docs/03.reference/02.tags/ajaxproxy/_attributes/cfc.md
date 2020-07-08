@@ -1,3 +1,3 @@
 the CFC for which to create a proxy. You must specify a dot-delimited path to the CFC. The path can be absolute or relative to location of the CFML page. For example, if the myCFC CFC is in the cfcs subdirectory of the Luceex page, specify cfcs.myCFC. 
 
-On UNIX based systems, the tag searches first for a file whos name or path corresponds to the specified name or path, but is in all lower case. If it does not find it, Luceex then searches for a file name or path that coresponds to the attribute value exactly, with identical character casing.
+On UNIX based systems, the tag searches first for a file whos name or path corresponds to the specified name or path, but is in all lower case. If it does not find it, Luceex then searches for a file name or path that corresponds to the attribute value exactly, with identical character casing.

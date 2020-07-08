@@ -4,7 +4,7 @@ id: query_return_type
 ---
 ## Query return type ##
 
-This document explains the diferent return types for a query with some examples.
+This document explains the different return types for a query with some examples.
 
 ### Example 1: query ###
 

@@ -91,7 +91,7 @@ results.lazy=decimalFormat(results.lazy/1000000)&"ms";
 dump(results);
 ```
 
-This example compares lazy queries with regular queries. It has a loop that loops two times: once for a regular query and a second one for alazy query. The ``type`` is used here with ``lazy=lazy``, So it sets true or false and does that ten times, once for every time the loops execute. It stores the execution time but you only get the fastest execution time of the ten tries.
+This example compares lazy queries with regular queries. It has a loop that loops two times: once for a regular query and a second one for a lazy query. The ``type`` is used here with ``lazy=lazy``, So it sets true or false and does that ten times, once for every time the loops execute. It stores the execution time but you only get the fastest execution time of the ten tries.
 
 Execute that example in the browser. The regular query takes 41 milliseconds and the lazy query takes 27 milliseconds. So we see the benefits of the lazy queries.
  

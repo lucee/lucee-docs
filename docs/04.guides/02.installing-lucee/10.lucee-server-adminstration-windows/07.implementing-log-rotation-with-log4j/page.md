@@ -15,7 +15,7 @@ A lot of what I'm about to write is just a customized form of the Tomcat documen
 
 [https://tomcat.apache.org/tomcat-7.0-doc/logging.html#Using_Log4j](https://tomcat.apache.org/tomcat-7.0-doc/logging.html#Using_Log4j)
 
-### Installing Log4J Walkthough ###
+### Installing Log4J Walkthrough ###
 
 The following guide will assume you've installed Lucee to the default location of C:\lucee, and the directories stated here will be written accordingly. If you installed Lucee to a different location, you will need to update the example directories to match where you installed Lucee.
 

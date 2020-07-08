@@ -20,6 +20,6 @@ This is a quick video tutorial about installing Lucee on a clean Windows 2019 Se
  [Step 4: Grant Lucee access to IIS webroots](https://youtu.be/08mf_g6ci5A) - This video explains how to add write permissions for Tomcat/Lucee service to access IIS webroots. It also shows why and when the "500 error can't create directory WEB-INF" can occur
 
 
-[Step 5: Block Public Access To Lucee's Server/Web Admins](https://youtu.be/wt4Y6uAPbc0) - This video shows how to block your "Lucee's Server/Web Administration" from beeing accessed from the public internet with "BonCode Connector" (at 1:13) and "IIS Request Filtering" (at 2:49).
+[Step 5: Block Public Access To Lucee's Server/Web Admins](https://youtu.be/wt4Y6uAPbc0) - This video shows how to block your "Lucee's Server/Web Administration" from being accessed from the public internet with "BonCode Connector" (at 1:13) and "IIS Request Filtering" (at 2:49).
 
-[See the Video Guide serie as a playlist](https://www.youtube.com/playlist?list=PLk5a6z4LgytUZw9gJX0n7QGt8__GLBAnf)
+[See the Video Guide series as a playlist](https://www.youtube.com/playlist?list=PLk5a6z4LgytUZw9gJX0n7QGt8__GLBAnf)

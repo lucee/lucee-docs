@@ -23,7 +23,7 @@ Open a browser to access Tomcat's administration interface.
 2. To access the UI from remote, replace *localhost* with the DNS name or IP-Address of your server.
 Examples: http://192.168.100.100:8080, http://svlucee01.netfusion.local:8080
 
-* If you have changed the default port *8080* to something else, then replace 8080 with your choosen port number.
+* If you have changed the default port *8080* to something else, then replace 8080 with your chosen port number.
 * Accessing the administration interface from *remote* will fail, If you didn't open the Windows firewall.
 
 On the right side of the administration interface, a choice of three pages is available:
