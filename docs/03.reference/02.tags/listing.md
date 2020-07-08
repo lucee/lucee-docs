@@ -5,7 +5,7 @@ listingStyle: a-z
 menuTitle: Tags
 ---
 
-Tags are at the core of Lucee Server's templating language. 
+Tags are at the core of Lucee Server's templating language.
 
 CFML Tags can also be called via [[tag-script]]. Usually you don't even need the CF prefix, but you need it in some cases when there is an existing function with the same name. You can also omit () when using the script syntax for tags.
 

@@ -1,5 +1,5 @@
 
 ```luceescript+trycf
 	str="Save TRee! Save World!!!";
-  	writeOutput(str.FindNoCase('r',1));	
+  	writeOutput(str.FindNoCase('r',1));
 ```

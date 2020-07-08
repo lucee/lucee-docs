@@ -11,7 +11,7 @@ filterResult = listFilter(mylist,
 writeDump(filterResult);
 
 
-//Member Function 
+//Member Function
 listVal="one,two,three,four,five";
 res=listVal.listFilter(
 	function(elem,ind){

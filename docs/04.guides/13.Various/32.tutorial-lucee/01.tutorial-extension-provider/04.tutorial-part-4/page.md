@@ -36,7 +36,7 @@ The important ones are path and config. The struct error can be filled in order 
 	<cfset sReturn = createDatabaseTables(argumentCollection=arguments)>
 	<cfif len(trim(sReturn)) eq 0>
 	<cfsavecontent variable="sReturn">
-	<p>Done!</p><cfoutput><p>You can now start posting from your administration at: 
+	<p>Done!</p><cfoutput><p>You can now start posting from your administration at:
 	<a href="#config.mixed.blog_address#/admin/index.cfm?first=1"]#contractPath(config.mixed.destination_path)#/admin/</a></p>
 	<p>Then you can view your blog at: <a href="#config.mixed.blog_address#" target="_blank">#contractPath(config.mixed.destination_path)#</a></p>
 	</cfoutput></cfsavecontent>

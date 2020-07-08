@@ -1,8 +1,8 @@
 Database lock type.
 
 - read_uncommitted
-- read_committed 
-- repeatable_read 
+- read_committed
+- repeatable_read
 - serializable
 - none
 

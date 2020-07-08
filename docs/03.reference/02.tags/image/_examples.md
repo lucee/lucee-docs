@@ -10,7 +10,7 @@
 ### Image captcha
 
 ```lucee
-<cfimage action="captcha" text="Captcha!"  difficulty="low" height="30" width="150" fontSize="18" 
+<cfimage action="captcha" text="Captcha!"  difficulty="low" height="30" width="150" fontSize="18"
 fonts="Comic Sans MS,Times New Roman">
 ```
 
@@ -32,7 +32,7 @@ fonts="Comic Sans MS,Times New Roman">
 ### Image convert
 
 ```lucee
-<cfimage action="convert" structname="sourceImage" destination="#expandpath("./lii.jpeg")#" 
+<cfimage action="convert" structname="sourceImage" destination="#expandpath("./lii.jpeg")#"
 source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4">
 <cfimage action="writeToBrowser" source="#expandpath("./lii.jpeg")#">
 ```
@@ -46,7 +46,7 @@ source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4">
 ### Image Rotate
 
 ```lucee
-<cfimage action="rotate" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4" 
+<cfimage action="rotate" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4"
 destination="#expandPath( 'rotated.jpg' )#" overwrite="true" angle="30" quality="1">
 <cfimage action="writeToBrowser" source="#expandpath("./rotated.jpg")#">
 ```
@@ -54,7 +54,7 @@ destination="#expandPath( 'rotated.jpg' )#" overwrite="true" angle="30" quality=
 ### Image Resize
 
 ```lucee
-<cfimage action="resize" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4" 
+<cfimage action="resize" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4"
 name="resize" overwrite="true" height="300" width="400" quality="1">
 <cfimage action="writeToBrowser" source="#resize#">
 
@@ -63,7 +63,7 @@ name="resize" overwrite="true" height="300" width="400" quality="1">
 ### Image border
 
 ```lucee
-<cfimage action="border" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4" color="red" 
+<cfimage action="border" source="https://avatars1.githubusercontent.com/u/10973141?s=280&v=4" color="red"
 name="withborder">
 <cfimage action="writeToBrowser" source="#withborder#">
 ```

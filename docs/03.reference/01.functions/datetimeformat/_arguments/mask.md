@@ -1,4 +1,4 @@
-Date time formatting mask (case sensitive): 
+Date time formatting mask (case sensitive):
 
 - a,..,aaaa: AM/PM marker (see also "t" and "tt"; Example:AM)
 - d: Day in month, no leading zero for single-digit days (Example:3)

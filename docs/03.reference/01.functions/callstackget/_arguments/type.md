@@ -1,6 +1,6 @@
-the type of the returned value, possible values are: 
+the type of the returned value, possible values are:
 
-- array 
-- string 
-- html 
+- array
+- string
+- html
 - json

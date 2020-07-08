@@ -4,9 +4,9 @@ id: S3_sourceCode
 ---
 ## S3 for source code ##
 
-This document explains how to use S3 as for your source code and how to use S3 for your artifacts when we look at the source code itself. 
+This document explains how to use S3 as for your source code and how to use S3 for your artifacts when we look at the source code itself.
 
-Example : 
+Example :
 
 ```luceescript
 // get an image directly from s3
@@ -24,9 +24,9 @@ component{
 }
 ```
 
-1) In this example we directly call an S3 resource of the image using ``file="s3:///cfml1/lucee.png"`` and also define the mime type. Then we see the image while calling it in the browser. 
+1) In this example we directly call an S3 resource of the image using ``file="s3:///cfml1/lucee.png"`` and also define the mime type. Then we see the image while calling it in the browser.
 
-2) In this example, we define the credentials of the S3 in the Application.cfc. Here we give dummy data for the accesskey Id and secretkey. 
+2) In this example, we define the credentials of the S3 in the Application.cfc. Here we give dummy data for the accesskey Id and secretkey.
 
 3) In this example, if you have an exception, it will display on the page exposing your credential information. So, we never use an error template that shows the exception. Best practice is to never use the credential with the password itself. Instead, always defined it in the application.cfc
 
@@ -35,7 +35,7 @@ component{
 	- Virtual : /s3
 	- Resource : s3://somethingLikeThis@/
 
-But again, that would expose your credentials for everybody that sees an exception message. 
+But again, that would expose your credentials for everybody that sees an exception message.
 
 5) Instead, set the credentials in the environment variable or system properties (This is a new feature in S3 0.9.4.118). So, we can remove the resource in the mapping and just simply define ``Resource : s3:///cfml1/`` and save this mapping.
 

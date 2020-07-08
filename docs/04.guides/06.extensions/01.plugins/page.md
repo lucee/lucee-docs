@@ -60,7 +60,7 @@ Let's break down the pieces there.
 * **language tag** - Create one of these tags for each language you wish to support.  The `key` attribute specifies the language.
  * **group tag** - This specifies the top level group to create your new menu item under
  * **title tag** - This is the human-readable menu name to create.
- * **description tag** - This text will automatically appear at the top of your views. 
+ * **description tag** - This text will automatically appear at the top of your views.
  * **custom tag** - Create one of these for each individual piece of text you wish to translate.  The `key` attribute will be how you access the translation.
 
 ## Controller
@@ -75,7 +75,7 @@ Lucee will also look for a file called `Action.cfc` in your plugin folder.  This
 
 ### Controller layout
 
-This CFC needs to extend the class `lucee.admin.plugin.Plugin` and has no required method.  The following methods are looked for by convention though.  Your `Action.cfc` will be created once and cached as a singleton. 
+This CFC needs to extend the class `lucee.admin.plugin.Plugin` and has no required method.  The following methods are looked for by convention though.  Your `Action.cfc` will be created once and cached as a singleton.
 
 * `init( struct lang, struct app )` - If this method exists, it will be called once when the component is initialized.  Use it to prepare the controller, set up variables, or initialize settings.  
 * `overview( struct lang, struct app, struct req )` - This is the default action for the plugin and will be run if it exists.  
@@ -109,10 +109,10 @@ Here is a simple `Action.cfc` for you to copy from.
 
 ```javascript
 component extends='lucee.admin.plugin.Plugin' {
-	
+
 	/**
 	* This function will be called once to initialize the plugin
-	* 
+	*
 	* @lang A struct of translated keys based on selected language
 	* @app A struct of data for this plugin persisted in the application scope
 	*/
@@ -123,7 +123,7 @@ component extends='lucee.admin.plugin.Plugin' {
 
 	/**
 	* The default action name by convention
-	* 
+	*
 	* @lang A struct of translated keys based on selected language
 	* @app A struct of data for this plugin persisted in the application scope
 	* @req A struct containing  form and url variables for the request.
@@ -135,7 +135,7 @@ component extends='lucee.admin.plugin.Plugin' {
 
 	/**
 	* Save the form.  We'll submit here from the view
-	* 
+	*
 	* @lang A struct of translated keys based on selected language
 	* @app A struct of data for this plugin persisted in the application scope() and save()
 	* @req A struct containing  form and url variables for the request.
@@ -175,6 +175,6 @@ Here is a sample view.  Note the use of `action()` to generate the URL to the up
 		<textarea name="note">#req.note#</textarea>
 		<br>
 		<input type="submit" name="submit" value="#lang.btnSubmit#">
-	</form>	
+	</form>
 </cfoutput>
 ```

@@ -1,4 +1,4 @@
-Mask that has to be used for formatting. 
+Mask that has to be used for formatting.
 the following characters are pattern letters (case sensitive) representing the components of a datetime string. All other characters are not interpreted
 
 - a,..,aaaa: AM/PM marker (see also "t" and "tt"; Example:AM)

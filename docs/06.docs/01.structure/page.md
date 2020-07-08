@@ -9,7 +9,7 @@ The content is organised by a very simple system of folders and Markdown files.
 
 ## Folders
 
-Folders containing a single Markdown file represent a page of documentation. Subfolders are used to place pages beneath other pages to form a documentation tree. 
+Folders containing a single Markdown file represent a page of documentation. Subfolders are used to place pages beneath other pages to form a documentation tree.
 
 Special folder naming rules:
 
@@ -19,7 +19,7 @@ Special folder naming rules:
 
 ## Page types
 
-Page types are indicated by the **name** of the Markdown file within the page's folder. 
+Page types are indicated by the **name** of the Markdown file within the page's folder.
 
 For example, if we are creating a function reference page, you would expect the following folder and file structure:
 
@@ -42,4 +42,4 @@ title: Abs()
 ```
 
 >>>>>> The name of the folder, without any preceding order number, will be used when an ID is not supplied in the Markdown file's YAML front matter.
-See [[docs-markdown]] for a full guide to cross referencing and YAML front matter. 
+See [[docs-markdown]] for a full guide to cross referencing and YAML front matter.

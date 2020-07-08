@@ -1,4 +1,4 @@
-### Modify an array and store it back into the array 
+### Modify an array and store it back into the array
 
 Does not modify existing array, creates a new array and stores it to the assigned variable
 

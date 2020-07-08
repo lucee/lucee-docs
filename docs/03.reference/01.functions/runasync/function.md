@@ -14,7 +14,7 @@ The Future Object has the following functions:
 
 - cancel() returns Boolean
 - isCancelled() returns Boolean
-- isDone() returns Boolean	
-- error() returns Future	
+- isDone() returns Boolean
+- error() returns Future
 - get(closure, timezone) returns Future
 - then(closure, timezone) returns Future

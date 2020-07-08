@@ -4,7 +4,7 @@
 	</cfscript>
 	<cfquery name="qTest" dbtype="query">
 		select * from _test
-		where _id = <cfqueryparam sqltype="integer" value="2" /> 
+		where _id = <cfqueryparam sqltype="integer" value="2" />
 	</cfquery>
 	<cfdump var="#qtest#" />
 ```

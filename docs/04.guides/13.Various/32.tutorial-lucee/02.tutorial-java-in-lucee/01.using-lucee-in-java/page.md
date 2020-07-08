@@ -24,9 +24,9 @@ there are two cases in which you might want to use Lucee from your Java code:
 
 the easiest way to use Lucee from your Java code is when your Java code was loaded by Lucee. this is a common case when, for example, your CFML code creates a Java object, and then that Java object creates Lucee objects and calls CFC methods.
 
-your interaction with Lucee should start via an object that implements the lucee.loader.engine.CFMLEngine interface 
+your interaction with Lucee should start via an object that implements the lucee.loader.engine.CFMLEngine interface
 
-[lucee.loader.engine.CFMLEngine](https://javadoc.lucee.org/lucee/loader/engine/CFMLEngine.html) and the [lucee.runtime.PageContext](https://javadoc.lucee.org/lucee/runtime/PageContext.html) object. 
+[lucee.loader.engine.CFMLEngine](https://javadoc.lucee.org/lucee/loader/engine/CFMLEngine.html) and the [lucee.runtime.PageContext](https://javadoc.lucee.org/lucee/runtime/PageContext.html) object.
 
 Since Lucee loaded your Java code, and it will be running in that very same JVM, you can get a reference to a CFMLEngine object by calling the getInstance() static method of the lucee.loader.engine.CFMLEngineFactory object.
 
@@ -50,7 +50,7 @@ when you want to use Lucee from Java in a detached environment, i.e. Lucee does 
 due to the complexity involved this is beyond the scope of this document. please consult the code written for Lucee CLI in Version 4.0 Alpha and see how it is used there:
 
 <https://github.com/lucee/Lucee/blob/5.2/loader/src/main/java/lucee/cli/CLI.java>
-and in the cli() method of CFMLEngineImpl (line 541 at the time of writing): 
+and in the cli() method of CFMLEngineImpl (line 541 at the time of writing):
 
 <https://github.com/lucee/Lucee/blob/5.2/core/src/main/java/lucee/runtime/engine/CFMLEngineImpl.java>
 
@@ -61,7 +61,7 @@ once you have a reference to the CFMLEngine and the PageContext objects, you can
 ```lucee
 // get a reference to the Application Scope:
 Scope	appScope	=	pc.applicationScope();
-	
+
 // get a value from the Application Scope:
 String	appName1	=	appScope.get( "ApplicationName" );
 
@@ -107,7 +107,7 @@ alternatively, if you want to create a new CFC in your Java code, you can use th
 ```lucee
 // this will cause Lucee to search it's component mapping paths for my.lib.Comp and create a new component
 Component cfc		= 	pc.loadComponent( "my.lib.Comp" );
-	
+
 // set it to a variable in the Application scope
 pc.setVariable( "Application.myCfc", cfc );
 ```

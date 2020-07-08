@@ -32,12 +32,12 @@ function test() {
 test();
 ```
 
-* In cfm page have test() function with local variable scope, it normally assigned in empty string ``var qry``. Then execute this cfm, the qry is returns "1". 
-* Then dump the ``qry`` below of the var declaration. It returns empty string. 
+* In cfm page have test() function with local variable scope, it normally assigned in empty string ``var qry``. Then execute this cfm, the qry is returns "1".
+* Then dump the ``qry`` below of the var declaration. It returns empty string.
 
-#### Example 2 : Dot and bracket notation for function calls #### 
+#### Example 2 : Dot and bracket notation for function calls ####
 
-Lucee allow you to use bracket notations to call a component function. 
+Lucee allow you to use bracket notations to call a component function.
 
 //example2.cfm
 
@@ -56,12 +56,12 @@ Lucee allow you to use bracket notations to call a component function.
 Here this three different types of function call. There are,
 
 * Calling the user defined function ``getname()`` from component.
-* Second type of function call is dynamic function name with evaluate function. 
+* Second type of function call is dynamic function name with evaluate function.
 * Third type of function call is user defined function via bracket notation.
 
 These all three different function call returns as same content ``susi`` what you defined in CFC page.
 
-#### Example 3 : Passing arguments via URL/form scopes as Array #### 
+#### Example 3 : Passing arguments via URL/form scopes as Array ####
 
 Lucee allow to pass URL and Form scope data as an Array instead of a string list.
 
@@ -96,12 +96,12 @@ loop query=dir {
 }
 ```
 
-* In this cfm page have available in URL and form scopes. Here names are used as same as two times. 
-* Query string on URL scope have same name ``country`` as two times. Similarly form also have two same name ``country``. 
+* In this cfm page have available in URL and form scopes. Here names are used as same as two times.
+* Query string on URL scope have same name ``country`` as two times. Similarly form also have two same name ``country``.
 * Execute this cfm page in browser & submit the form. It will showing a single URL string list in merged format instead of two fields & Form fields also merged as single ``country`` field.
-* If we add square bracket behind the name ``country[]`` means, it returns as two separated strings in array format. We will see the difference on browser while dumping that name with square bracket. 
+* If we add square bracket behind the name ``country[]`` means, it returns as two separated strings in array format. We will see the difference on browser while dumping that name with square bracket.
 
-These simple ways are helpful for defining a variable as different methods. 
+These simple ways are helpful for defining a variable as different methods.
 
 ### Footnotes ###
 

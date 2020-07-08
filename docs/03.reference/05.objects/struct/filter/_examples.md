@@ -11,7 +11,7 @@
 		var: animals
 	);
 	// Get animals that make noise
-	noisyAnimals = animals.filter(function(key) {	
+	noisyAnimals = animals.filter(function(key) {
 		// If the key has a value return true (noisy animal)
 		if (animals[arguments.key].len()) {
 			return true;

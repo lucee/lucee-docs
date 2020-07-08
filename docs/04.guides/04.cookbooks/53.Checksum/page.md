@@ -40,13 +40,13 @@ if(!isEmpty(res.responseheader["X-Checksum-MD5"]?:"")) {
 	}
 }
 </cfscript>
-``` 
+```
 
-* Download the jar file by using cfhttp. 
-* Dump the file response header. You can see the "X-Checksum-MD5" "X-Checksum-SHA1" keys from the file itself. 
+* Download the jar file by using cfhttp.
+* Dump the file response header. You can see the "X-Checksum-MD5" "X-Checksum-SHA1" keys from the file itself.
 * Save the file, and dump(fileInfo(localFile.checksum)). Check to see if the dump matches the value of the downloaded file response["X-Checksum-MD5"] header.
 
-Checksum values are hashed from the binaryfile itself. 
+Checksum values are hashed from the binaryfile itself.
 
 ```luceescript
 dump(hash(fileReadBinary(localFile),"md5"));
@@ -92,14 +92,14 @@ Download the file using the below example code:
 	HEADER_NAMES.SHA1=["Content-SHA1","X-Checksum-SHA1"];
 	HEADER_NAMES.MD5=["Content-MD5","X-Checksum-MD5"]; // ETag
 	_url=getDirectoryFromPath(cgi.request_url)&"/_download.cfm";
-	
+
 	http url=_url result="res";
 	if(res.status_code!=200) throw "wtf";
-	
+
 	// store the file
 	fileWrite("clone.jar",res.fileContent);
-	
-	// see if we have one of the MD5 headers 
+
+	// see if we have one of the MD5 headers
 	checksum={type:"",name:""};
 	loop label="outer" struct=HEADER_NAMES index="type" item="names" {
 		loop array=names item="name" {
@@ -112,7 +112,7 @@ Download the file using the below example code:
 		}
 	}
 	dump(checksum);
-	
+
 	// validate file
 	if(!isEmpty(checksum.name)) {
 		cs=hash(fileReadBinary("clone.jar"),checksum.type);

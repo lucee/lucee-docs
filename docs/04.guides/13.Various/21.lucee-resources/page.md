@@ -42,10 +42,10 @@ Now an application can use the defined mappings as follows:
 <cfset aPublicationMappings = Array("/liveserver","/testserver")>
 <cfloop index="iMapping" to="#arrayLen(aPublicationMappings)#" from="1">
     <cfloop index="iFile" to="#arrayLen(aPublishFiles)#" from="1">
-        <cffile 
-            action="COPY" 
-            source="/staging/#aPublishFiles[iFile]#" 
-            destination="#aPublicationMappings[iMapping]#/#aPublishFiles[iFile]#"> 
+        <cffile
+            action="COPY"
+            source="/staging/#aPublishFiles[iFile]#"
+            destination="#aPublicationMappings[iMapping]#/#aPublishFiles[iFile]#">
     </cfloop>
 </cfloop>
 ```

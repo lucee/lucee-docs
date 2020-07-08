@@ -39,7 +39,7 @@ Here are the SQL types supported by Lucee. All are supported with and without th
 * CF_SQL_LONGVARCHAR / LONGVARCHAR
 * CF_SQL_TIME / TIME
 * CF_SQL_TIMESTAMP / TIMESTAMP
-* CF_SQL_REF / REF 
+* CF_SQL_REF / REF
 * CF_SQL_REFCURSOR / REFCURSOR
 * CF_SQL_OTHER / OTHER
 * CF_SQL_NULL / NULL

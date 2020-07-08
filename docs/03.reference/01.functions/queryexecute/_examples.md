@@ -2,7 +2,7 @@
 <cfscript>
     _test = queryNew(
         "_id, _need, _forWorld",
-        "integer, varchar, varchar", 
+        "integer, varchar, varchar",
         [[01,'plant', 'agri'],[02, 'save','water']]
     );
     queryResult = queryExecute(

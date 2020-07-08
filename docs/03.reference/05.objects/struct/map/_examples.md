@@ -10,7 +10,7 @@
 	    "three": {
 	        3: "mapstruct"
 	    },
-	    "four": { 
+	    "four": {
 	        4: "structmap"
 	    }
 	};

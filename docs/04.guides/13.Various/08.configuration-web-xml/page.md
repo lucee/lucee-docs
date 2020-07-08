@@ -29,7 +29,7 @@ The Lucee CFML Servlet is the main servlet for Lucee and is always required. The
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <servlet id="Lucee">
   <description>Lucee CFML Engine</description>
-  <servlet-name>CFMLServlet</servlet-name>    
+  <servlet-name>CFMLServlet</servlet-name>
   <servlet-class>lucee.loader.servlet.CFMLServlet</servlet-class>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- to specify the location of the Lucee Server config and libraries,   -->
@@ -63,7 +63,7 @@ The Lucee CFML Servlet is the main servlet for Lucee and is always required. The
   <servlet-name>CFMLServlet</servlet-name>
   <url-pattern>*.cfc</url-pattern>
   <url-pattern>*.cfm</url-pattern>
-  <url-pattern>*.cfml</url-pattern>   
+  <url-pattern>*.cfml</url-pattern>
   <url-pattern>/index.cfc/*</url-pattern>
   <url-pattern>/index.cfm/*</url-pattern>
   <url-pattern>/index.cfml/*</url-pattern>
@@ -86,7 +86,7 @@ If you need to enable REST web services, add the xml snippet below to your Globa
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <servlet id="RESTServlet">
   <description>Lucee Servlet for RESTful services</description>
-  <servlet-name>RESTServlet</servlet-name>    
+  <servlet-name>RESTServlet</servlet-name>
   <servlet-class>lucee.loader.servlet.RestServlet</servlet-class>
   <load-on-startup>2</load-on-startup>
 </servlet>  

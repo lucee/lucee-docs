@@ -29,7 +29,7 @@ You can also use the script to check the server's running status:
 
 	# /opt/lucee/lucee_ctl status
 
-Lastly, if for some reason Tomcat/Lucee hangs, get stuck, etc, you can insta-kill it with: 
+Lastly, if for some reason Tomcat/Lucee hangs, get stuck, etc, you can insta-kill it with:
 
 	# /opt/lucee/lucee_ctl forcequit
 

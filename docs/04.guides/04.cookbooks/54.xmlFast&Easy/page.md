@@ -227,15 +227,15 @@ Normally we use DOM(Document Object Model):
 ```luceescript
 <cfscript>
 	file=GetDirectoryFromPath(GetCurrentTemplatePath())&'catalog.xml';
-	
+
 	dom=XMLParse(file);
 	dump(dom);
-	
+
 	// ... extract data needed
 </cfscript>
 ```
 
-DOM parses the xml to extract the data. 
+DOM parses the xml to extract the data.
 
 Disadvantages of the DOM model:
 
@@ -262,7 +262,7 @@ Complicated to use.
 
 ### SAX - Listener Functions ###
 
-You can use SAX on Lucee to define component and listener functions to listen for certain events. The listener functions are as follows: 
+You can use SAX on Lucee to define component and listener functions to listen for certain events. The listener functions are as follows:
 
 - startDocument(), is called when it starts to parse the document
 - startElement(string name, string attributes)- is called every time it goes into a new tag. This function provides the name of the tag and all attributes.
@@ -276,10 +276,10 @@ Example with SAX:
 ```luceescript
 <cfscript>
 	file=GetDirectoryFromPath(GetCurrentTemplatePath())&'catalog.xml';
-	
+
 	catalog=new XMLcatalog(file);
 	dump(catalog.execute());
-	
+
 </cfscript>
 ```
 
@@ -494,14 +494,14 @@ Example:
 <cfscript>
 	file=GetDirectoryFromPath(GetCurrentTemplatePath())&'catalog.xml';
 	catalog=new XMLCatalog2(file);
-	
+
 	dump(catalog.execute({year:"1995"}));
 </cfscript>
 ```
 
 The example above executes and returns a result array which contains only the year equal to 1995.
 
-You can modify the component as you like. Instead of storing the array, you can store the result in a database or mail, or whatever you like. 
+You can modify the component as you like. Instead of storing the array, you can store the result in a database or mail, or whatever you like.
 
 ### Footnotes ###
 

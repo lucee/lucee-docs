@@ -3,7 +3,7 @@
 ```luceescript+trycf
 str="I love lucee";
 writeOutput(len(str));//12
-``` 
+```
 
 ### Member Function
 

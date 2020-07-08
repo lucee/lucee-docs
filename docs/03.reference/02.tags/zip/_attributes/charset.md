@@ -1,4 +1,4 @@
-The character set used to translate the ZIP or JAR entry into a text string. 
+The character set used to translate the ZIP or JAR entry into a text string.
 
 Examples of character sets are:
 

@@ -51,7 +51,7 @@ Adding '@' after the element name allows to choose what event binding will liste
 Possible events are :
 
 ```lucee
-* change ( default ) 
+* change ( default )
 * mousedown
 * keyup
 * none

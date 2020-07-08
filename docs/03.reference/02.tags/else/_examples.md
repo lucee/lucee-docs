@@ -6,7 +6,7 @@
 <cfelse>
 	<cfset result="It is not in Array format">
 </cfif>
-<cfdump var="#result#" /> 
+<cfdump var="#result#" />
 ```
 
 ### Simple example with script format

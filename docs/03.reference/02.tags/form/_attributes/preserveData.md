@@ -1,6 +1,6 @@
-Optional. "Yes" or "No." 
+Optional. "Yes" or "No."
 
-Specifies whether to display the data that was entered into cfform controls in the action page. 
+Specifies whether to display the data that was entered into cfform controls in the action page.
 
 "Yes" resets the value of the control to the value submitted when the form is submitted to itself. This works as expected for the cftextinput and cfslider controls.
 		

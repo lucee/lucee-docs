@@ -24,7 +24,7 @@ MOD       | modulus        | Returns the remainder of a number, e.g. 5 mod 2 is 
 ++        | increment      | Increments a number. Can be used before or after an assignment, e.g. a = b++ would assign the value of b to a, then increment b. a = ++b would increment b, then assign the new value to a. In both cases, b would be incremented. **(not thread safe, see below)**|
 **--**  | decrement      | Decrements a number. Can be used before or after an assignment, e.g. a = b-- would assign the value of b to a, then decrement b. a = --b would decrement b, then assign the new value to a. In both cases, b would be decremented. **(not thread safe, see below)**|
 +=        | Compound add   | A shorthand operator for adding to a value, e.g.  a **+=** b is equivalent to writing a = a + b|
--=        | Compound subtract | A shorthand operator for subtracting from a value, e.g. a **-=** b is equivalent to writing a = a *-* b | 
+-=        | Compound subtract | A shorthand operator for subtracting from a value, e.g. a **-=** b is equivalent to writing a = a *-* b |
 ***=**       | Compound multiply | A shorthand operator for multiplying a value, e.g. a ***=** b is equivalent to writing a = a *  b  |
 **/=**        | Compound divide   | A shorthand operator for dividing a value, e.g. a /= b is equivalent to writing a = a / b|
 
@@ -53,7 +53,7 @@ MOD       | modulus        | Returns the remainder of a number, e.g. 5 mod 2 is 
 
 		dump( var=ops, label="values should always be 2000 or -2000, but these operators aren't thread safe");
 	}
-	
+
 	function testSafe(){
         var array = [];
 		for ( var x = 1; x lte cycles; x++ ) {
@@ -87,7 +87,7 @@ MOD       | modulus        | Returns the remainder of a number, e.g. 5 mod 2 is 
 ## Logical operators ##
 
 operators | Name           | Description |
-------------------------   | ----------- 
+------------------------   | -----------
 !           |  logical inversion      |     ! true is false   |
 NOT         |  logical inversion      |     not true is false |
 AND         |  logical and            |  Returns true if both operands are true, e.g. 1 eq 1 and 2 eq 2 is true|
@@ -99,7 +99,7 @@ XOR         |  logical exclusive or   | Returns true if either operand is true, 
 ## Comparison operators ##
 
 operators | Name           | Description |
-------------------------   | ----------- 
+------------------------   | -----------
 EQ        | equals         | Returns true if operands are equal, e.g. "A" EQ "A" is true |
 ==        | equals         | Returns true if operands are equal, e.g. "A" == "A" is true |
 ===       | identical      | Returns true if operands are the same object in memory, false if they are not, (Note this is different than how JavaScript's === operator works. |
@@ -123,13 +123,13 @@ NCT | does not contain | Returns true if the left operand does not contain the r
 ## String operators ##
 
 operators | Name           | Description |
-------------------------   | ----------- 
+------------------------   | -----------
 &         | concatenation  | Joins two strings, e.g. The result of "Hello" & "World" is "HelloWorld"|
 &=        | compound concatenation |  A shorthand operator that joins two strings, e.g. a &= b would be equivalent to writing a = a & b
 
 ## Ternary operator ##
 
-The ternary operator lets you return results conditionally, in a very compact amount of code: 
+The ternary operator lets you return results conditionally, in a very compact amount of code:
 
 ```lucee
 condition ? value1 : value2

@@ -1,7 +1,7 @@
-how to handle variable usage within cfquery, 
+how to handle variable usage within cfquery,
 
-possible values are 
+possible values are
 
-- ignore 
+- ignore
 - warn
 - error

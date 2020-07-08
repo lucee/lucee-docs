@@ -4,7 +4,7 @@ people = [ { name = "Alice", age = 32 }, { name = "Bob", age = 29 }, { name = "E
 CollectionEach(people, function(p) { dump(p.name); });
 
 // member function
-people.each(function(p) { 
+people.each(function(p) {
   dump(p.name);
 });
 ```

@@ -1,7 +1,7 @@
 ```luceescript+trycf
 // breaking out using a label
 x = 0;
-WhileLabel: while (x < 10){    
+WhileLabel: while (x < 10){
     writeOutput("x is #x#<br>");
     switch (x){
         case 1:

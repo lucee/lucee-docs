@@ -8,7 +8,7 @@ categories:
 
 ### WebSockets Gateway Extension ###
 
-This extension enables you to launch a server that is capable to manage messaging from HTML WebSockets. The server runs on a dedicated port. Lucee will receive notifications when a connection is opened, closed and any time a message is sent invoking a cfc listener class. 
+This extension enables you to launch a server that is capable to manage messaging from HTML WebSockets. The server runs on a dedicated port. Lucee will receive notifications when a connection is opened, closed and any time a message is sent invoking a cfc listener class.
 
 The gateway can also being invoked via SendGatewayMessage so to allow your app to push message to all the connected clients.
 
@@ -115,7 +115,7 @@ The gateway creates a log file called WebSocket.log under your lucee context log
 
 At the time of this script not all the browsers support WebSockets out of the box.
 
-Use this test page to find out if your browser supports it. 
+Use this test page to find out if your browser supports it.
 
 <http://html5test.com/>
 

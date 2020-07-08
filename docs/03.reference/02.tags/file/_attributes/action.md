@@ -2,7 +2,7 @@ Type of file manipulation that the tag performs.
 
 - info [[function-fileinfo]]
 - move [[function-filemove]]
-- rename 
+- rename
 - copy [[function-filecopy]]
 - delete [[function-filedelete]]
 - read [[function-fileread]]

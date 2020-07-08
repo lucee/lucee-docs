@@ -4,7 +4,7 @@
 <cfpop action="getAll" username="#username#" password="#password#" server="#server_name#" uid="#uid#" name="res">
 <cfdump var="#res#" />
 
-<cfpop action="getAll" username="#username#" password="#password#" server="pop.mail.com" port="995" secure="true" name="message" 
+<cfpop action="getAll" username="#username#" password="#password#" server="pop.mail.com" port="995" secure="true" name="message"
 maxrows = "15" attachmentpath="#expandpath('./')#">
 <cfdump var="#message#" />
 ```

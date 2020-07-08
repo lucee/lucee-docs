@@ -1,8 +1,8 @@
 The action to take.
 
  - delete
- - list 
- - read 
+ - list
+ - read
  - readbinary
  - unzip
  - zip

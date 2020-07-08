@@ -112,7 +112,7 @@ set catalina.displayName="Apache Tomcat Application Server"
 %catalina.binary% //US//%catalina.instanceName% ++JvmOptions="-Dcatalina.home=%catalina.home%;-Dcatalina.base=%catalina.base%;-Djava.endorsed.dirs=%catalina.base%\endorsed;-Djava.io.tmpdir=%catalina.base%\Temp;-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager;-Djava.util.logging.config.file=%catalina.base%\conf\logging.properties"
 %catalina.binary% //US//%catalina.instanceName% --LogLevel="Info" --LogPrefix="tomcat_service_" --LogPath="%catalina.base%\Logs" --StdOutput="auto" --StdError="auto" --PidFile="tomcat8.pid"
 %catalina.binary% //US//%catalina.instanceName% --StartClass="org.apache.catalina.startup.Bootstrap" --StartMode="jvm" ++StartParams="start"
-%catalina.binary% //US//%catalina.instanceName% --StopClass="org.apache.catalina.startup.Bootstrap" --StopMode="jvm" ++StopParams="stop" --StopTimeout="0" 
+%catalina.binary% //US//%catalina.instanceName% --StopClass="org.apache.catalina.startup.Bootstrap" --StopMode="jvm" ++StopParams="stop" --StopTimeout="0"
 %catalina.binary% //US//%catalina.instanceName% ++JvmOptions="-Xms4096m;-Xmx4096m;-Xss512k;-XX:NewSize=1024M;-XX:MaxNewSize=1024M;-XX:GCTimeRatio=5;-XX:ThreadPriorityPolicy=42;-XX:ParallelGCThreads=4;-XX:MaxGCPauseMillis=50;-XX:+DisableExplicitGC;-XX:MaxHeapFreeRatio=70;-XX:MinHeapFreeRatio=40;-XX:+OptimizeStringConcat;-XX:+UseTLAB;-XX:+ScavengeBeforeFullGC;-XX:CompileThreshold=1500;-XX:+TieredCompilation;-XX:+UseBiasedLocking;-Xverify:none;-XX:+UseThreadPriorities;-XX:+UseFastAccessorMethods;-XX:+UseCompressedOops;-XX:ReservedCodeCacheSize=256m"
 
 ```

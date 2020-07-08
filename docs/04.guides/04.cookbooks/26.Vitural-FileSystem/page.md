@@ -11,18 +11,18 @@ description: 'Lucee support the following virtual file systems: ram, file, s3, h
 
 ## Virtual File Systems ##
 
-Lucee supports the following virtual file systems: 
+Lucee supports the following virtual file systems:
 
-- ram 
-- file 
-- s3 
-- http / https 
-- zip 
+- ram
+- file
+- s3
+- http / https
+- zip
 - tar
 
 ### Local File System ###
 
-You may already be familiar with local file systems, the local file system is the default file system in Lucee. 
+You may already be familiar with local file systems, the local file system is the default file system in Lucee.
 That means if there is no other definition, Lucee will always use the local file system.
 
 A simple example
@@ -101,7 +101,7 @@ The below example shows how to read the file content from the Lucee docs:
 ### RAM File System ###
 
 RAM is an in Memory Filesystem that stores Files in the Memory of the Java Virtual Machine (JVM) simply by using "ram://",
-unless you define a Cache in the Lucee Administrator for this Resource. 
+unless you define a Cache in the Lucee Administrator for this Resource.
 
 The RAM file system has much faster access than a local file system.
 
@@ -119,7 +119,7 @@ dump(directoryList(sct.ram));
 
 ### S3 File System ###
 
-S3 is a remote file system you can use from Amazon S3 storage. You will need access credentials for accessing the S3 bucket. 
+S3 is a remote file system you can use from Amazon S3 storage. You will need access credentials for accessing the S3 bucket.
 
 Set up the S3 file system using the prefix "s3://"
 
@@ -159,10 +159,10 @@ dump(c);
 
 ```lucee
 <cfscript>
-/* How to configure default FTP settings via Application.cfc */ 
-this.ftp.username="..."; 
-this.ftp.password="..."; 
-this.ftp.host="ftp.lucee.org"; 
+/* How to configure default FTP settings via Application.cfc */
+this.ftp.username="...";
+this.ftp.password="...";
+this.ftp.host="ftp.lucee.org";
 this.ftp.port=21;
 
 /* index.cfm */

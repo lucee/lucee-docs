@@ -31,7 +31,7 @@ Do the same with ROOT/Intermediate Certificate.
 	secure="CFSSL_BASIC"
 	port="636"
 	username="uid=#myUserName#,ou=People,o=My Organization,c=US"
-	password="#password#" 
+	password="#password#"
 	filter="cn=*#searchForName#*"
 	maxrows="100"
 	start="o=My Organization, c=US">

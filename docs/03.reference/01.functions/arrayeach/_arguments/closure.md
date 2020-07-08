@@ -1,4 +1,4 @@
-A closure function (UDF) with the following signature: 
+A closure function (UDF) with the following signature:
 
 `function(el, ix, arr){}`
 

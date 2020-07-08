@@ -1,4 +1,4 @@
-Query columns by which to sort a directory listing. 
+Query columns by which to sort a directory listing.
 
 Delimited list of columns from query output.
 

@@ -8,9 +8,9 @@ description: Static scope in components is needed to create an instance of cfc a
 
 ## Static scope in components ##
 
-Static scope in components is needed to create an instance of cfc and call its method. It is used to avoid creating an instance each time you use the cfc. 
+Static scope in components is needed to create an instance of cfc and call its method. It is used to avoid creating an instance each time you use the cfc.
 
-You can create an object in the Application init() function, and make it at application scope, so you can directly call the methods. 
+You can create an object in the Application init() function, and make it at application scope, so you can directly call the methods.
 
 We explain this methodology with a simple example below:
 
@@ -24,7 +24,7 @@ loop query=dir {
 }
 ```
 
-1) Create a constructor of the component. It is the instance of the current path and also create new function hey(). 
+1) Create a constructor of the component. It is the instance of the current path and also create new function hey().
 
 ```luceescript
 // Example0.cfc
@@ -65,7 +65,7 @@ Component {
 		if(isNull(static.instance)) {
 			static.instance=new Example1();
 		}
-		return static.instance; 
+		return static.instance;
 	}
 	private function init() {
 		dump("create an instance of "&listLast(getCurrentTemplatePath(),'\/'));
@@ -95,7 +95,7 @@ Component {
 1) Example2 shows the same concepts that were shown in the previous Example1, but here we pass two instances for arguments. One instance for every combination of arguments passed in firstname, lastname. Then we also call the hey() function.
 
 ```luceescript
-// Example2.cfc 
+// Example2.cfc
 Component {
 	public static function getInstance(required string lastname, required string firstname) {
 		var id=hash(lastname&":"&firstname,"quick");
@@ -173,7 +173,7 @@ Component {
 2) Here we call the Example4() function five times. Each time the function is called, the count of counter in the static scope increases.
 
 ```luceescript
-// example04.cfm 
+// example04.cfm
 	new Example4();
 	new Example4();
 	new Example4();

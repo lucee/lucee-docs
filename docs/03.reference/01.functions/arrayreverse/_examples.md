@@ -8,5 +8,5 @@ Dump( numbers );  //[4,3,2,1]
 
 //member function
 reversed = numbers.reverse();
-Dump( reversed ); 
+Dump( reversed );
 ```

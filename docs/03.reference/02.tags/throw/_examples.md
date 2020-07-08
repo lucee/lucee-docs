@@ -1,6 +1,6 @@
 ```lucee+trycf
 <cftry>
-    <cfthrow message="test exception"> 
+    <cfthrow message="test exception">
     <cfcatch name="test" type="any">
         <cfdump var="#cfcatch#">
     </cfcatch>

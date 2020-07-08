@@ -28,7 +28,7 @@ loop query=qry {
 }
 ```
 
-1) In this example we have a simple task. All statements that return a result set with 200,000 records. We output the first ten. Then we make a break when we add ten rows. 
+1) In this example we have a simple task. All statements that return a result set with 200,000 records. We output the first ten. Then we make a break when we add ten rows.
 
 2) We execute this in the browser and we get the expected result.
 
@@ -56,7 +56,7 @@ This example is similar as regular query, but we define ``lazy=true``. So that l
 
 I have removed the column count from the example. Record count is no longer possible, because it does not read all the data initially. It does not know how many records there are. When you loop you can count the records, so you know the total number of records at the end, but not at the start.
 
-There is not really a difference between a regular query and a lazy query, just some limitations (you cannot get the record count in the beginning, and you cannot use cache) within a lazy query. 
+There is not really a difference between a regular query and a lazy query, just some limitations (you cannot get the record count in the beginning, and you cannot use cache) within a lazy query.
 
 With a lazy query, we do not have to wait until lucee has loaded all the data into a two-dimensional structure, and it is also better for memory because you do not have to store all the older data in the memory until you are ready to use it. So there are some benefits.
 
@@ -89,7 +89,7 @@ dump(results);
 This example compares lazy queries with regular queries. It has a loop that loops two times: once for a regular query and a second one for a lazy query. The ``type`` is used here with ``lazy=lazy``, So it sets true or false and does that ten times, once for every time the loops execute. It stores the execution time but you only get the fastest execution time of the ten tries.
 
 Execute that example in the browser. The regular query takes 41 milliseconds and the lazy query takes 27 milliseconds. So we see the benefits of the lazy queries.
- 
+
 ### Footnotes ###
 
 You can see the details in this video:

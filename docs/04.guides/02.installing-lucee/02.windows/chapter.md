@@ -9,7 +9,7 @@ menuTitle: Windows
 There are a few different ways to get Lucee up and running on Windows
 
 - you can [[running-lucee-download-and-install]] the traditional Installer. Watch this step by step video guide about [[running-lucee-installing-lucee-on-windows-2019-with-installer-quick-video-guide]]
-- the Express version (which just runs out of a folder) 
+- the Express version (which just runs out of a folder)
 - [[getting-started-commandbox]] which provides an automated way to manage and deploy both Lucee and Adobe ColdFusion servers (it's sort of like Docker but a million times less complex)
 
 ## Content ##
@@ -39,7 +39,7 @@ A default install of Lucee uses ports 8888, 8005 and 8009
 You can easily check which ports are already in use
 
 - using Powershell ```Get-NetTCPConnection | ? {$_.State -eq "Listen"} | sort LocalPort -Descending```
-- via Resource Monitor, Network Tab, Listening Ports (Windows-R, type resmon) 
+- via Resource Monitor, Network Tab, Listening Ports (Windows-R, type resmon)
 - or thru Task Manager, Performance, open Resource Monitor.
 
 ## Prerequisites ##

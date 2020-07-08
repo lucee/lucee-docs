@@ -9,7 +9,7 @@ More and more mail servers requires SSL authentication to send emails. Usually y
 ```lucee
 <cfmail server="smtp.server.com" usessl="true" port="465" ...>
 ```
- You may need to add a mail server certificate into Lucee JRE environment to avoid connection errors like this one: 
+ You may need to add a mail server certificate into Lucee JRE environment to avoid connection errors like this one:
 ```lucee
 PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
 ```
