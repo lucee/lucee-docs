@@ -140,4 +140,3 @@ When you now call the extensions/applications page your extension should be list
 If you did everything correctly, your example should look like [Part_I_Example.zip](http://assets.luceewiki.s3.amazonaws.com/tutorials/Part_I_Example.zip). If you go any further with the installation, you'll get an error in Lucee. That's because we now have to setup our zip file to accommodate being install through Lucee's Applications panel which will be discussed in Part II.
 
 [[tutorial-extension-provider-part2]]
-

@@ -29,7 +29,6 @@ dump(qry);
 
 In this example we have a select statement with two columns in the ``person`` table. Execute the query in the browser and we get a simple result. 
 
-
 ### Example 2: Array ###
 
 Lucee can define the return type in a query tag. If we set array as follows: ``returntype="array"``. We will get the result as an array.
@@ -44,7 +43,6 @@ dump(arr);
 ```
 
 In this array, for each row there is an item in the array and it has a struct with all the columns. So this array is special because it returns an array of struct, and it has meta information about the SQL statement. So it shows the record count and execution time of the query.
-
 
 ### Example 3: struct ###
 
@@ -62,7 +60,6 @@ dump(sct);
 1) In this case you have to define which column is the key of the struct. Here I simply use the last name as the key of struct. 
 
 2) Execute it in the browser, and we get struct as a result and the key is the last name. So you can directly choose one of these elements by writing the lastname.
-
 
 ### Example 4: ###
 
@@ -87,7 +84,6 @@ loop query=qryPerson {
 1) In this example we have two tables. We make a query to the ``person`` table. Notice that some fields are foreign key references too. We store ``sex_id`` in application scope because we use this on the second query. In this sex_id is the key of that struct, So we simply can address in ``("&application.sex[qryPerson.sex_id].name&")")`` this way. 
 
 2) Execute this example in the browser and we get a result from the other table that is reference by a foreign key.
-
 
 ### Footnotes ###
 

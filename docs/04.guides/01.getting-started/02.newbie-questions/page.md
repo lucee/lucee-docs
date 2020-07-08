@@ -40,10 +40,7 @@ Substitute your host name and alias, and put in your local folder for docBase
 
 The same principles apply for migrating existing sites to a new Lucee server, after setting up any necessary datasources and, if needed, SMTP server.
 
-
-
 ## **Enabling Debugging on multiple Lucee websites** ##
-
 
 Create a web.config file in the site's root folder. It should contain:
 

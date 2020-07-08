@@ -45,22 +45,18 @@ Hit Next >
 
 Now we define the local server that we are going to be using, select Tomcat V6.0 and using the Browse... button point it to your local Tomcat installation directory
 
-
 Press Finish and the local server should be created. and started, you should get a window in Eclipse like the one below:
 
 Now that we have this running fine, click on the Servers tab (shown above) and stop the server. Double click on the server and you will get a Server configuration screen.
 
 Under "Server Options" tick the checkbox that says "Server modules without publishing" and save the page.
 
-
 Now we are going to deploy Lucee into our WebContent folder. To do this you first need to rename the "lucee-3.2.1.000.war" file to "lucee-3.2.1.000.zip" file and unzip it, this should give you a folder called "lucee-3.2.1.000" open the folder and select all the contents (including the WEB-INF) folder and copy them to the WebContent folder in your project.
 Start the server again and if is all working you should get the lucee startup page!
-
 
 You can now do any configuration you need to such as adding a server and web password (under http://localhost:8080/lucee_demo/lucee/admin/web.cfm). Once you have done this, make sure (and click refresh on the WEB-INF folder) that under WebContent/WEB-INF/lucee/ you have a lucee-web.xml file This is the Lucee settings file that saves the passwords and it's important that it's deployed with the project, so that DSN's and other settings can be deployed with your project. (thanks to Dough Hughes for spotting this)
 
 6) Deploy to BeanStalk
-
 
 Now that we have Lucee running locally, we can deploy it to BeanStalk. Right click on your lucee_demo project and select "Run As" -> Run on Server:
 

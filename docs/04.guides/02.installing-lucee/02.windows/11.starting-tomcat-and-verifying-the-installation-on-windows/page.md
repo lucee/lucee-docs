@@ -7,7 +7,6 @@ id: running-lucee-starting-tomcat-and-verifying-the-installation-on-windows
 
 Go to the services applet of the Windows control panel and start the service. Much more cooler is the command line:
 
-
 ```
 net start tomcat8
 ```

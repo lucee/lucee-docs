@@ -48,7 +48,6 @@ If you can, only enable SELECT, INSERT, UPDATE, and DELETE permissions. This wil
 
 Isolating your Database users will help mitigate attacks should a site be found vulnerable. For example should a SQL injection attack occur in one site, the attacker will only have gained the powers of the single Database user account and would only have access to the sites and data for that site - not any other sites that may be present on the system.
 
-
 ### Consider Using a Web Application Firewall (like FuseGuard) ###
 
 Web Application Firewalls are excellent at detecting and deterring attacks on a system. High quality Web Application Firewalls also have the ability to log attacks to let you know what kind of attacks are being directed at your servers, so you can better prepare your defenses. Web Application Firewalls are well worth their initial investment.

@@ -26,7 +26,6 @@ The repository contains a few branches, with the most important ones being "Mast
 So simply clone the repository to your local drive with the following command:
 $ git clone https://github.com/lucee/Lucee.git
 
-
 ### 3. Edit /lucee-core/src/lucee/runtime/Info.ini
 
 The build process will generate a patch file that you can deploy as an update to Lucee servers. In order for the patch to work, its version must be higher than the current version on the server that you wish to patch.

@@ -10,9 +10,7 @@ menuTitle: Information about the new PDF engine in Lucee 5.3
 
 This document provides information about the new PDF engine, [Flying Saucer](https://github.com/flyingsaucerproject/flyingsaucer) (FS) in Lucee 5.3
 
-
 Flying saucer is a new PDF engine in Lucee. PDF engines are mainly used to convert HTML to PDF format.
-
 
 ### Benefits of moving to Flying Saucer from the old engine (PD4ML) ###
 
@@ -42,7 +40,6 @@ or if you are using an Application.cfm,
 <cfapplication pdf="#{type:'classic'}#">
 ```
 
-
 ### Features of Flying Saucer ###
 
 You can define a font directory where you have the fonts(.ttf,.otf) you are using in your PDF.
@@ -68,7 +65,6 @@ or via application.cfm
 
 If the font directory isn't specified, Lucee will look for fonts in /WEB_INF/lucee/fonts and uses them if they match.
 
-
 #### Simplify Attributes ####
 
 Attributes with cfdocument are a mess. You can make it clearer using the following syntax:
@@ -89,7 +85,6 @@ Or even simpler
 ```lucee
 <cfdocument margin="5" page="#{width:5,height:5,type:'A4'}#">
 ```
-
 
 #### Additional Units ####
 

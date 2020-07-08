@@ -109,4 +109,3 @@ For Tomcat, we will need to create a web.xml file that is site-specific, that wa
 You can add and remove additional <url-pattern></url-pattern> attributes as needed by your specific application.
 
 Once you've added the web.xml files to the site, you may need to restart Tomcat for the updated configs to take full effect.
-

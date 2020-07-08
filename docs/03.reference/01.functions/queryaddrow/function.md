@@ -11,6 +11,3 @@ description: Adds rows to a query, either empty row(s) or you can add a row with
 Adds rows to a query, either empty row(s) or you can add a row with data.
 
 The number returned is the new row count of the query.
-
-
-

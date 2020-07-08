@@ -58,7 +58,7 @@ For example:
 
 ```
 
-### Iterations argument for the Hash function is off by one###
+### Iterations argument for the Hash function is off by one ###
 
 **What:**
 The iterations value represents the total number of hashes on Lucee, in Adobe CF the value is the number of additional iterations.

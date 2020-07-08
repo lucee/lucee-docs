@@ -25,7 +25,6 @@ This document explains how SQL queries are supported in Lucee.
 
 The above example just shows how to retrieve the data from the database.
 
-
 ### Using QueryParam ###
 
 The [[tag-QueryParam]] is used inside the [[tag-query]] tag. It is used to bind the value with the SQL statement.
@@ -132,8 +131,6 @@ dump(qry);
 ```
 
 Pass the values in params same as we saw in cfquerytag, In options we can pass other arguments like datasource,cachename,dbtype
-
-
 
 ### Query Component ###
 

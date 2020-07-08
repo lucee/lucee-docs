@@ -21,7 +21,6 @@ Go to the JRE download page, which at the time of this writing is here [JRE Down
 
 If you can't do this on your Linux system (as most Linux servers - with good reason - do not have a GUI), then download the JRE and upload it to your server using a file transfer method of your choice. FTP is a common method or you could use a method like [SCP](http://acs.ucsd.edu/info/scp.shtml).
 
-
 The JRE download site will offer you the option of a strait "bin" file or a "rpm.bin". The "rpm.bin" file is basically a self-extractor for an RPM file, which we will not need for our purposes. Instead, be sure to download the simple "bin" file, and NOT the "rpm.bin":
 
 ### STEP 3 - Extract the JRE ###

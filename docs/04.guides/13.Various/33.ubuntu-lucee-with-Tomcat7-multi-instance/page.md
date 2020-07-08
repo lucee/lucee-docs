@@ -186,7 +186,6 @@ Change: CATALINA_PID="/var/run/$NAME.pid" to: CATALINA_PID="/var/run/$NAME-$INST
 
 Copy the tomcat7-instance1 for the two other instances and edit the INSTANCE variable:
 
-
 	cp tomcat7-instance1  tomcat7-instance2
 	cp tomcat7-instance1  tomcat7-instance3
 
@@ -213,7 +212,6 @@ Now you can access to each instance in the ports 8081, 8082 and 8083. Remember, 
 ### APACHE ###
 
 Edit the file /etc/libapache2-mod-jk/workers.properties with:
-
 
 	workers.tomcat_home=/usr/share/tomcat7
 	workers.java_home=/usr/lib/jvm/java-7-openjdk-amd64
@@ -280,4 +278,3 @@ You can check the following logs files:
 	/var/log/apache2/mysite.error.log -> Vhost error log
 
 You can test if the tomcat instances are working correctly going to [http://mysite.com:8081](http://mysite.com:8081/) for instance1 and so on.
-

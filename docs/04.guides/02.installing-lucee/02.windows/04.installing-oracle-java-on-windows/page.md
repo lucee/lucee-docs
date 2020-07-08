@@ -28,7 +28,7 @@ Installing either the Server JRE or JDK is simple and takes around 10 minutes.
 
 Both packages can be installed on a server without any drawbacks. Switching from one product to the other can be done on the command line:
 
-##  Switch from Server JRE to JDK ##
+## Switch from Server JRE to JDK ##
 
 ```
 setx JAVA_HOME "" /m

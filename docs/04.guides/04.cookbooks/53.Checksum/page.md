@@ -9,7 +9,6 @@ Many servers provide a checksum for the files they provide for download. We use 
 
 If you download a file in your application, you can automatically check if the download is valid or not if the neccessary info was provided in the response header.
 
-
 ### Example 1 : ###
 
 ```luceescript
@@ -72,7 +71,6 @@ if(!isEmpty(res.responseheader["X-Checksum-MD5"]?:"")) {
 
 If the checksum is provided, we can check it. However, the checksum may not always be provided. The following example shows how to provide a checksum for all downloads.
 
-
 ### Example 2 ###
 
 //download.cfm
@@ -131,14 +129,7 @@ Download the file using the below example code:
 ```
 Above code checks and validates the downloaded file.
 
-
 ### Footnotes ###
 
 You can see the details in this video:
 [Checksum](https://www.youtube.com/watch?v=Kb_zSsRDEOg)
-
-
-
-
-
-

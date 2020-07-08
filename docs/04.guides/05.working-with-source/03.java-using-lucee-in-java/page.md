@@ -169,7 +169,6 @@ args.set( "name", "Smith" );
 cfc.callWithNamedValues( pc, "setLastName", args );
 ```
 
-
 ## Other Useful Methods of the PageContext class ##
 
 #### Get Lucee Scopes ####

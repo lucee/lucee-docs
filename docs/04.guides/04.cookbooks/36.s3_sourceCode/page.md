@@ -6,7 +6,6 @@ id: S3_sourceCode
 
 This document explains how to use S3 as for your source code and how to use S3 for your artifacts when we look at the source code itself. 
 
-
 Example : 
 
 ```luceescript
@@ -52,7 +51,6 @@ But again, that would expose your credentials for everybody that sees an excepti
 9) Lucee will pick up the file including the new changes when we call and execute again. Here you have cached and flushed the cache manually. If you add new files to the s3, you can automate that step.
 
 It might be very useful to schedule a task that checks every five minutes or so to see if there are changes in the files on S3, and flush everything is there are changes.
-
 
 ### Footnotes ###
 

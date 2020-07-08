@@ -247,7 +247,6 @@ Creates an object tree based on complete XML.
 
 There is a jDOM that is more optimized for java, and because of that, faster and easier to use. But sadly that project is not maintained any more!!
 
- 
 ### SAX - Simple API for XML ###
 
 In java there is another way to handle the xml called SAX. SAX  is an event driver parser. It does not produce the object, but instead you are part of the parsing process.
@@ -257,11 +256,9 @@ In java there is another way to handle the xml called SAX. SAX  is an event driv
 * Fast
 * Memory Efficient (only creates persistent objects in memory)
 
-
 ### Disadvantage ###
 
 Complicated to use.
-
 
 ### SAX - Listener Functions ###
 
@@ -273,7 +270,6 @@ You can use SAX on Lucee to define component and listener functions to listen fo
 - endElement(string name, struct attributes) - is called when you have reached the end of the element.
 - endDocument() - is called when you have reached the end of the document.
 - error(struct cfcatch) - is called while executing the parser.
-
 
 Example with SAX:
 
@@ -507,14 +503,7 @@ The example above executes and returns a result array which contains only the ye
 
 You can modify the component as you like. Instead of storing the array, you can store the result in a database or mail, or whatever you like. 
 
-
 ### Footnotes ###
 
 You can see the details in this video:
 [Xml-Fast and Easy](https://www.youtube.com/watch?v=_AP6GpVk7TE)
-
-
-
-
-
-

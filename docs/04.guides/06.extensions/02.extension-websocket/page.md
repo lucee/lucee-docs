@@ -20,7 +20,6 @@ The gateway can also being invoked via SendGatewayMessage so to allow your app t
 
 <https://www.youtube.com/watch?v=rvB7PcNylVY>
 
-
 ### Installing the Extension ###
 
 You can install the extension by adding the provider <http://preview.lucee.org/ExtensionProvider.cfc> to your Providers section in the Lucee Web administration panel (not the Server administration panel). Then select the Websocket Gateway Extension app and simply click on the Install button.
@@ -29,11 +28,9 @@ You can install the extension by adding the provider <http://preview.lucee.org/E
 
 Go into the Event Gateway section of your Lucee admin panel. Create a new gateway instance of type WebSocket. Choose a name that makes sense and is unique into your Lucee context. Click
 
-
 ### Configure the gateway ###
 
 You can configure many aspect of your gateway.
-
 
 * **Port** : select the port you want the server will listen for your incoming messages. Default is port 10125. Please remember that the server will listen incoming messages using the ws protocol. For example : ws://localhost:10125
 * **Startup Mode** : Automatic will make the gateway start when Lucee server starts up automatically. Choose what selection better fits your need.
@@ -44,7 +41,6 @@ When you are done click submit.
 ### Usage ###
 
 Start and stop the gateway is easier as per any other gateway in Lucee. Access the Gateway section in the lucee admin and you will a set to start/stop, restart, edit and delete the gateway instances. Please note that stopping the gateway will also stop the websocket server and will destroy any actual connection.
-
 
 ### Interact using the gateway listener ###
 
@@ -65,7 +61,6 @@ component{
 ```
 
 Any time a new connection is opened, closed and when a message is sent, the websocket server invokes the listener before sending out any message. The data map passed to the listener contains the following :
-
 
 * **conn** : the connection reference that created the message.
 * **message** : the message that the connection carries. This is normally empty when a connection is Opened and Closed
@@ -111,7 +106,6 @@ sendGatewayMessage(String id,Struct data);
 This is a great way for performing data push operations. The server will ping ANY REGISTERED CONNECTION and invokes the onMessage listener ( you can restrict the connection to be called at this level adding a data.connections array to the struct).
 
 ** IMPORTANT ** : store the message as data.message in the struct you pass to the sendGatewayMessage function.
-
 
 ### Logging ###
 

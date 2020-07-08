@@ -2,7 +2,8 @@
 title: The Lucee dialect
 id: lucee-5-dialect-lucee
 ---
-#New Language dialect Lucee#
+# New Language dialect Lucee #
+
 **In addition to the existing "CFML" language dialect, Lucee 5 comes with a completely new dialect simply called "Lucee".**
 
 The Lucee dialect is a light-weight dynamic scripting and tag language for the JVM that enables the rapid development of simple to highly sophisticated web applications.
@@ -98,7 +99,7 @@ In the CFML dialect if you call a variable, for example `#susi#`, the engine wil
  dump(susi); // works in CFML, but fails in Lucee
 ```
 
-#### Tag Attributes####
+#### Tag Attributes ####
 
 In the CFML dialect if an attribute value is defined without (single or double) quotes, it is handled as a String, in the Lucee dialect the same is handled as a variable.
 

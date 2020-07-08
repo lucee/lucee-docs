@@ -104,4 +104,3 @@ here is a sample .cflintrc file which reduces the noise
 <http://www.fusion-debug.com/>
 
 <https://getcoldbug.com/>
-

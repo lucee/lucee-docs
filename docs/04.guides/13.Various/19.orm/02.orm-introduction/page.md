@@ -9,7 +9,6 @@ categories:
 
 This section is going to describe how ORM (object relational mapping) is handled by Lucee 3.2 Server. Lucee Server uses Hibernate in the background for implementing ORM. If you want to learn more about Hibernate, just check the corresponding [documentation](http://www.hibernate.org/).
 
-
 ### What is ORM ? ###
 
 According to Wikipedia ORM is: Object-relational mapping (ORM, O/RM, and O/R mapping) in computer software is a programming technique for converting data between incompatible type systems in object-oriented programming languages. This creates, in effect, a "virtual object database" that can be used from within the programming language. There are both free and commercial packages available that perform object-relational mapping, although some programmers opt to create their own ORM tools.. You can find the complete description of ORM on Wikipedia.

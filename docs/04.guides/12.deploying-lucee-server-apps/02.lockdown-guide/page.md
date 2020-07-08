@@ -17,7 +17,6 @@ If you have .git folders (or .svn etc) make sure you restrict access to them (i.
 RewriteRule ^(.*/)?\.git+ - [R=404,L]
 ```
 
-
 ## Restricted Access Plus SSH Tunnelling ##
 
 As with ACF, it is recommended best security practice to restrict access to URI's that are not necessary to publicly expose.
@@ -68,7 +67,6 @@ Detailed instructions for SSH tunneling:
 3) To revert the browser to normal behavior, simply choose No Proxy in the Network Settings dialog
 
 4) Note that the port chosen is arbitrary, it only has to be available and match in both the -D flag and SOCKS port setting.
-
 
 ## Some Good Resources written for Lucee that can be adapted for Lucee ##
 

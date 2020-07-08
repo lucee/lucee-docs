@@ -8,7 +8,8 @@ categories:
 description: Lucee 5 supports static variables and functions inside components
 ---
 
-#Static support for components#
+# Static support for components #
+
 **Lucee 5 supports static variables and functions inside components.**
 
 Example:

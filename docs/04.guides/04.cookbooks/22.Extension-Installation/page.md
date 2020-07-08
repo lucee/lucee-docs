@@ -30,9 +30,7 @@ It's most help ful for JDBC driver, choose the version you like. If you update t
 
 By default lucee use extension as http://extension.lucee.org.
 
-
 ### Extension installation via lex file ###
-
 
 Install the extension using file system. For that you should download the lex file for the extension.
 
@@ -48,17 +46,8 @@ Another way you can upload the lex file in admin, You can see "Upload new extens
 
 Extension installed automatically.
 
-
 ### Footnotes ###
 
 Here you can see this details on video also
 
 [Extension Installation](https://www.youtube.com/watch?time_continue=184&v=Vcu0OENm_ks)
-
-
-
-
-
-
-
-

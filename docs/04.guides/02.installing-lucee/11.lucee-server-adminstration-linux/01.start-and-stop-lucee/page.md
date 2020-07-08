@@ -41,5 +41,4 @@ Lastly, if for some reason Tomcat/Lucee hangs, get stuck, etc, you can insta-kil
 
 If you opted to have Lucee start at boot time, that would have configured the init script to be added to /etc/init.d/. When a script is present there, some distributions, like CentOS, offer the "service" command:
 
-
 	$ service lucee_ctl restart

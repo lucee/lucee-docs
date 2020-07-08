@@ -69,7 +69,6 @@ Instructions for configuring automatic updates for Ubuntu (16.04 LTS) can be fou
 
 As Apache (or whatever web server you will be using) will most likely be your most prominent and most important public-facing server, it is a good idea to keep it as simple as possible to keep attack vectors at a minimum. Don't install modules that you're not sure you'll use, such as PHP, user-directory support, or CGI-BIN support. If you are not absolutely sure you will need it, don't install it.
 
-
 ### Hide the Apache Version Number ###
 
 You can tell Apache to hide it's version number by modifying the "ServerTokens" attribute in the main Apache configuration file (httpd.conf in RHEL/CentOS or apache2.conf in Debian/Ubuntu):

@@ -41,7 +41,6 @@ To test all this, you need of course also the BlazeDS jars on your classpath. Fo
 
 So far, so good, now let's take a look at what's specific for Lucee to work with BlazeDS.
 
-
 ## The LuceeAdapter ##
 
 The remoting communication of BlazeDS is implemented in the flex.messaging.services.remoting.adapters.JavaAdapter and this approach above works fine if you want to call a single java class on your backend, but because Lucee is more than just a single java class, Lucee provides it's own implementation of the adapter which is the lucee.runtime.net.flex.LuceeAdapter.

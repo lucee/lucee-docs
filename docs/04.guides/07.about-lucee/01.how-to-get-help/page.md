@@ -15,7 +15,6 @@ Our Lucee mailing list has members from around the globe.  [Head over](https://d
 
 The Lucee documentation is a project not only of the Lucee Association Switzerland, but also of the Lucee community.  Please feel free to contribute to the documentation, every page has at least one pencil edit icon or head over to the [docs repo](https://github.com/lucee/lucee-docs/) on GitHub and submit a pull request, with any information you think will be useful, even if it's just a few lines.  Every Lucee user has something useful to add and all contributions are very welcome.
 
-
 ## Member support options
 
 Become a member of the Lucee Association Switzerland and benefit from the support options that come with being a member.

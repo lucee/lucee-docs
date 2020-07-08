@@ -57,7 +57,6 @@ please note that "createObject" is a misnomer and at this point you did not crea
 
 	import java.util.Collections;
 
-
 **Creating a new Object**
 
 Usually you create an instance of an object by calling its constructor.
@@ -350,7 +349,6 @@ You will still be able to get the value by calling myName[ "Name" ] which preser
 ### Inspect the object with CFDUMP ###
 
 You can always use cfdump on a Java object to see what methods and properties are available. this is very useful when trying to troubleshoot a problem.
-
 
 	<cfdump var="#myJavaObject#">
 

@@ -7,7 +7,7 @@ id: lucee-enhanced-tags
 
 Here you will find a description of all tags existing in the CFML standard but which are enhanced in Lucee with helpful features. All tags should work like the original definition in the CFML standard. Here only additional functionalities or attributes are described.
 
-###Application###
+### Application ###
 
 This page contains all the application framework tags.
 
@@ -175,7 +175,7 @@ An abort outputs the data generated so far even though it is encapsulated inside
 
 Then the line "This code is not visible" will not be displayed. It is a different behaviour than in the CFML standard, but since you can use it or not and since in the Lucee Administrator you will be able to define it's default behaviour to meet the standard, it is not considered as incompatible to the CFML standard.
 
-###Extensibility###
+### Extensibility ###
 
 This page contains all the changed tags regarding extensibility.
 
@@ -193,7 +193,7 @@ Example:
 
 The tag CFIMAP works exactly as the tag CFMAIL and accepts the same attributes. It just uses the IMAP format for connecting to the mailserver.
 
-###File management###
+### File management ###
 
 This page contains the changes of all file or folder related tags.
 
@@ -232,7 +232,7 @@ Example:
 
 Where /s3 is a mapping defined in the Lucee administrator pointing to an Amazon S3 bucket.
 
-###Flow control###
+### Flow control ###
 
 Description of all changed flow control tags.
 

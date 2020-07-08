@@ -9,7 +9,7 @@ This section is intended to cover the security issues of running Lucee/Tomcat un
 
 By default on Linux systems, the Installer will offer to run under the "root" user account. It's very important that you understand that this is a usability suggestion, and not a security suggestion. The idea is that you install the server, then install your application, and work out any user-related issues it may have by running as root. Once you've got your application installed and working properly, it is highly recommended that you change the running user to something other then the "root" user.
 
-###Changing the Lucee User###
+### Changing the Lucee User ###
 
 The installer comes packaged with a script that makes it easy to switch the user account that Lucee runs as. Again, this can be a useful tool for problem-solving, making it easy to change the user that Lucee runs as in order to diagnose user or permission-related issues. The syntax for the change_user.sh script is as follows:
 

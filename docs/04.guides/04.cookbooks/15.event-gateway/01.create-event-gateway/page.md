@@ -6,7 +6,6 @@ id: create-event-gateway
 
 ### Preface ###
 
-
 Here you will find a short introduction into writing your own Event Gateway type. Since you can write these in pure cfml (and java when you want it), it is really simple to do.
 There are 2 to 3 files you need to create:
 
@@ -309,10 +308,6 @@ We can add an instance of our new Gateway type now! You can do it by using cfadm
 
 Interval: time in milliseconds to wait between each check Minimalsize: the minimum filesize in bytes
 
-
 After executing the cfadmin code, or going through the admin screens, you should now have an instance of your own Event Gateway type running!
 
 When creating a Socket gateway or an Instant messaging gateway, you will need to do a bit more coding, but hopefully this instruction helped you out!
-
-
-
