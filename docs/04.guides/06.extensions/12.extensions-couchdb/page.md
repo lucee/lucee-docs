@@ -13,7 +13,7 @@ CouchDB is a free and open source document-oriented database written in the Erla
 
 Installing the CouchDB Cache Extension, is straight forward.
 
-1. Go to the server administrator of your lucee installation, for example: http://localhost/lucee/admin/server.cfm
+1. Go to the server administrator of your lucee installation, for example: <http://localhost/lucee/admin/server.cfm>
 
 1. Under Extension/Applications you should see that under the "Not Installed" extensions there is "CouchDB Cache ( Beta )".
 
@@ -27,7 +27,7 @@ Installing the CouchDB Cache Extension, is straight forward.
 
 We need to have a running CouchDB installation to connect to, this section will let guide you through getting CouchDB running
 
-1. Head to the CouchOne website and select products http://www.couch.io/products.
+1. Head to the CouchOne website and select products <http://www.couch.io/products>.
 
 1. Download the right version for your Operating System (the screenshots here are for OS X but there should be no difference for each OS).
 

@@ -27,7 +27,7 @@ In your file explorer, find the website folder, create a file called `myFirstPag
 </html>
 ```
 
-Save the file, then head to http://localhost:8888/myFirstPage.cfm
+Save the file, then head to <http://localhost:8888/myFirstPage.cfm>
 
 You should see something like the following:
 

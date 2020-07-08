@@ -41,11 +41,11 @@ If you are using the [BonCode connector for IIS/Tomcat](http://tomcatiis.riaforg
 
 To access the server admin and individual web context admin GUIs, you will need to replace "/railo-context/" in each URL with "/lucee/". For example instead of
 
-http://localhost:8888/railo-context/admin/server.cfm
+<http://localhost:8888/railo-context/admin/server.cfm>
 
 you should now use:
 
-http://localhost:8888/lucee/admin/server.cfm
+<http://localhost:8888/lucee/admin/server.cfm>
 
 ## Optional Steps ##
 

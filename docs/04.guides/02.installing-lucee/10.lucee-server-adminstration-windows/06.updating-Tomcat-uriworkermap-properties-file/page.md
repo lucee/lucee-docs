@@ -16,7 +16,7 @@ Each line in the uriworkermap.properties file constitutes a pattern that the con
 
 	 /=ajp13
 
-The "/" is the URL pattern, and the "ajp13" is the Tomcat instance to send it to. This particular entry is specially created for processing the index.cfm file as a default document. When IIS gets a request for a site, like for http://www.lucee.org/, the URL pattern at the end (after the domain itself) is a simple "/", which is going to get passed off to Tomcat because of the config in the uriworkermap.properties file.
+The "/" is the URL pattern, and the "ajp13" is the Tomcat instance to send it to. This particular entry is specially created for processing the index.cfm file as a default document. When IIS gets a request for a site, like for <http://www.lucee.org/>, the URL pattern at the end (after the domain itself) is a simple "/", which is going to get passed off to Tomcat because of the config in the uriworkermap.properties file.
 
 ### Wildcards ###
 

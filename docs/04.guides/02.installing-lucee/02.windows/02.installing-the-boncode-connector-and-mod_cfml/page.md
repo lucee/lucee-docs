@@ -48,7 +48,7 @@ Previous versions of Windows may place this file in "C:\Windows\System32\BonCode
 <ModCFMLSecret>secret key also set in the Apache/IIS config</ModCFMLSecret>
 ```
 
-* Replace the secret key value ('secret key also set in the Apache/IIS config') with a random secure key.  If you need help creating one, you can generate a reasonably secure unique key here https://www.grc.com/passwords.htm
+* Replace the secret key value ('secret key also set in the Apache/IIS config') with a random secure key.  If you need help creating one, you can generate a reasonably secure unique key here <https://www.grc.com/passwords.htm>
 * Save the BonCodeAJP13.settings file **(Note: If you did not open your text editor as an Administrator, you may not be able to overwrite the existing file due to NTFS permissions)**
 
 ### Edit Tomcat server.xml file ###

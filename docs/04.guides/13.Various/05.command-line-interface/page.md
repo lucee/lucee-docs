@@ -162,7 +162,7 @@ Default stop-port (socket to listen on for shutdown request) is 8779, and config
 lucee -server -background --stop-port=9899
 ```
 
-Default URL to open after starting is http://$host:$port, and configurable with the --open-url argument:
+Default URL to open after starting is <http://$host:$port>, and configurable with the --open-url argument:
 
 ```lucee
 lucee -server -background --open-url=http\:\/\/$host\:$por

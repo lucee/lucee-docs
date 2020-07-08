@@ -11,7 +11,7 @@ Here's a guideline on how to install Lucee on Win2K3 with IIS6.
 
 * Unizp or execute the file (depending if you selected .zip or .exe) and install it to c:\Lucee
 
-* Check if Lucee runs correctly by calling http://localhost:8600/index.cfm you should see the following:
+* Check if Lucee runs correctly by calling <http://localhost:8600/index.cfm> you should see the following:
 
 * If Lucee runs correctly IIS has to be configured. Go to Step 4.
 

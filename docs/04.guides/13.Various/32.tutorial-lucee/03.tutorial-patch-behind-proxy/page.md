@@ -9,7 +9,7 @@ If you're attempting to update your Lucee server and you're behind a firewall / 
 
 The patches can always be found at:
 
-https://cdn.lucee.org/{version number}.lco
+<https://cdn.lucee.org/{version-number}.lco>
 
 So, for example, the most recent stable final build is 5.2.9.31 and is found at:
 
@@ -23,4 +23,4 @@ Now, once you have the .rc file downloaded, what do you do with it?
 
 Depending on how your Lucee is setup, you're looking the "/lucee-server/patches" folder. In resin, it can be found {resin install}/lib/lucee-server/patches -- So, if you're on a different JEE engine other than Resin, just look around for your "/lucee-server/patches" folder and drop the .rc file in place.
 
-Once in place, restart the Lucee instance in the server context ( http://{hostname}/lucee/admin/server.cfm ). This will drop your current session and you'll have to re-login. When you do, you should be patched to that .rc version.
+Once in place, restart the Lucee instance in the server context ( <http://{hostname}/lucee/admin/server.cfm> ). This will drop your current session and you'll have to re-login. When you do, you should be patched to that .rc version.
