@@ -49,7 +49,7 @@ Okay, this template isn't particularly useful... but it does show you how easy i
 
 Lucee is in fact not one language, it is 2!
 the tag language that you can see as extension to HTML and the script Language that you can see as extension to JavaScript.
-The example above was  pure tag code, tag code is perfect to create output, to mix with static HTML.
+The example above was pure tag code, tag code is perfect to create output, to mix with static HTML.
 
 ### Tag ###
 

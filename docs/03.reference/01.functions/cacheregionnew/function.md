@@ -4,7 +4,7 @@ id: function-cacheregionnew
 categories:
 - cache
 description: 'This function exists solely for the purpose of compatibility with other
-  CFML Engines.  '
+  CFML Engines.'
 ---
 
 This function exists solely for the purpose of compatibility with other CFML Engines.  

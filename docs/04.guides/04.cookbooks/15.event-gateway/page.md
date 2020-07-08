@@ -119,7 +119,7 @@ Also, make sure that you wrap your Listener function code inside try-catch block
 <cffunction name="onAdd" access="public" returntype="void" output="no">
 	<cfargument name="fileDetails" type="struct" required="yes" />
 	<cftry>
-		<---  do your file handling here, for example copy it: --->
+		<--- do your file handling here, for example copy it: --->
 		<cffile action="copy" source="#fileDetails.directory##server.separator.file##fileDetails.name#"
 			destination="C:/backupfiles/" />
 		<cfcatch>

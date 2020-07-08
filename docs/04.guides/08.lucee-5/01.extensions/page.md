@@ -441,7 +441,7 @@ search: "[{
 }]"
 ```
 
-Copy the OSGi bundle (JAR) containing your Search Engine implementation  to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the `start-bundles` setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
+Copy the OSGi bundle (JAR) containing your Search Engine implementation to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the `start-bundles` setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
 
 Example implementation:
 

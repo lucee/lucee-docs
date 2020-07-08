@@ -34,5 +34,5 @@ Updating via the Administrator may not work if you are behind a firewall, in whi
 
 1. Download the latest ".lco" file from the [Lucee downloads page](http://stable.lucee.org/download/?type=releases).
 2. Stop your Lucee Server
-3. Copy the downloaded file to "{server-context}/patches" (the server context is normally at  "{Lucee-Server}/lib/ext/lucee-server/patches").
+3. Copy the downloaded file to "{server-context}/patches" (the server context is normally at "{Lucee-Server}/lib/ext/lucee-server/patches").
 3. Restart Lucee.

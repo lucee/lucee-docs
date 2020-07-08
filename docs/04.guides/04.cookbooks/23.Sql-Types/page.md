@@ -13,7 +13,7 @@ Here are the SQL types supported by Lucee. All are supported with and without th
 
 * CF_SQL_ARRAY / ARRAY
 * CF_SQL_BIGINT / BIGINT
-* CF_SQL_BINARY  BINARY
+* CF_SQL_BINARY / BINARY
 * CF_SQL_BIT / BIT
 * CF_SQL_BOOLEAN / BOOLEAN
 * CF_SQL_BLOB / BLOB

@@ -71,7 +71,7 @@ if(isNull(application.sex)) {
 		");
 	}
 }
-query name="qryPerson" datasource="test"  {
+query name="qryPerson" datasource="test" {
 	echo("
 		select sex_id,lastname,firstname from person
 	");

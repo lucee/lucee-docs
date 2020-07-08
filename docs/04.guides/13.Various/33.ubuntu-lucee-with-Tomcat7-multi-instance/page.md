@@ -40,7 +40,7 @@ mkdir /usr/share/tomcat7/lucee
 cp -R /var/lib/tomcat7/webapps/lucee/WEB-INF/lib/* /usr/share/tomcat7/lucee
 chown -R tomcat7.tomcat7 /usr/share/tomcat7/lucee
 service tomcat7 stop
-rm -rf /var/lib/tomcat7/webapps/lucee/  /var/lib/tomcat7/webapps/lucee.war
+rm -rf /var/lib/tomcat7/webapps/lucee/ /var/lib/tomcat7/webapps/lucee.war
 ```
 
 ### Tomcat ###
@@ -186,8 +186,8 @@ Change: CATALINA_PID="/var/run/$NAME.pid" to: CATALINA_PID="/var/run/$NAME-$INST
 
 Copy the tomcat7-instance1 for the two other instances and edit the INSTANCE variable:
 
-	cp tomcat7-instance1  tomcat7-instance2
-	cp tomcat7-instance1  tomcat7-instance3
+	cp tomcat7-instance1 tomcat7-instance2
+	cp tomcat7-instance1 tomcat7-instance3
 
 We can now start each instance:
 

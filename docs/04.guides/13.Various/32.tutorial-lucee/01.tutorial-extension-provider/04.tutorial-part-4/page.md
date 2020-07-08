@@ -77,6 +77,6 @@ When the update and uninstall buttons are clicked the corresponding methods get 
 </cffunction>
 ```
 
-Please note that you cannot delete the complete install path if the original install path was the webroot itself. There might be  WEB-INF directories in there that either must not be deleted or are not deletable because they are protected (open for read). So mostly the installation is up to you so that you have full control over everything what happens.
+Please note that you cannot delete the complete install path if the original install path was the webroot itself. There might be WEB-INF directories in there that either must not be deleted or are not deletable because they are protected (open for read). So mostly the installation is up to you so that you have full control over everything what happens.
 
 [[tutorial-extension-provider-part5]]

@@ -1,6 +1,6 @@
 ---
 title: XML fast And Easy
-id:  xml_fast-easy
+id: xml_fast-easy
 ---
 
 This document explains how to use xml parsing in lucee.
@@ -249,7 +249,7 @@ There is a jDOM that is more optimized for java, and because of that, faster and
 
 ### SAX - Simple API for XML ###
 
-In java there is another way to handle the xml called SAX. SAX  is an event driver parser. It does not produce the object, but instead you are part of the parsing process.
+In java there is another way to handle the xml called SAX. SAX is an event driver parser. It does not produce the object, but instead you are part of the parsing process.
 
 #### Advantages ####
 

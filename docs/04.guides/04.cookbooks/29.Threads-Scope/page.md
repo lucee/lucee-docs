@@ -51,7 +51,7 @@ Here we see an example using multiple threads in Lucee. All threads run in paral
 ```lucee
 <cfscript>
 function napASecond(index) localmode=true {
-	thread  {
+	thread {
 		thread.start=now();
 		sleep(1000)
 		thread.end=now();

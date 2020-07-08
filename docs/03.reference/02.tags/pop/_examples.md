@@ -12,7 +12,7 @@ maxrows = "15" attachmentpath="#expandpath('./')#">
 ### Action getHeaderOnly
 
 ```lucee
-<cfpop action="getHeaderOnly" username="#username#" password="#password#"  server="pop.mail.com" name="getHeader">
+<cfpop action="getHeaderOnly" username="#username#" password="#password#" server="pop.mail.com" name="getHeader">
 <cfdump var="#getHeader#" />
 ```
 

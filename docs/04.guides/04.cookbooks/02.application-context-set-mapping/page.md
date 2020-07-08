@@ -23,10 +23,10 @@ Now you can simply use that mapping in your code
 
 ```coldfusion
 <cfinclude template="/shop/whatever.cfm"> <!--- load a template from the "shop" mapping --->
-<cfset cfc=new shop.Whatever()><!--- load a CFC from the "shop" mapping (see also "this.componentpaths" for handling components)  --->
+<cfset cfc=new shop.Whatever()><!--- load a CFC from the "shop" mapping (see also "this.componentpaths" for handling components) --->
 ```
 
-## Component and Custom Tag  Mappings ##
+## Component and Custom Tag Mappings ##
 
 The previous example only has shown how to do a regular mapping, but Lucee is providing 3 types of mappings, regular component and custom tag mappings.
 

@@ -146,7 +146,7 @@ If all goes well we can see in /var/www/myproject/production/ all our codebase.
 * The WEB-INF directory could be problematic: we can create a directory in **/var/www/myproject/shared/WEB-INF** with write permission to tomcat user:
 
 ```lucee
-mkdir  /var/www/myproject/shared/WEB-INF
+mkdir /var/www/myproject/shared/WEB-INF
 chown tomcat7 /var/www/myproject/shared/WEB-INF
 ```
 

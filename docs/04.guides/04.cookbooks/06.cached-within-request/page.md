@@ -23,7 +23,7 @@ This caches the query result for ALL users for one second. This is sometimes use
 
 The problem is that this cache applies to all requests and that's more complicated for Lucee, meaning unnecessary overhead on the system.
 
-Request query caching is a simple solution to this problem,  replace the timespan defined in the "cachedWithin" attribute with the value "request":
+Request query caching is a simple solution to this problem, replace the timespan defined in the "cachedWithin" attribute with the value "request":
 
 ```coldfusion
 <cfquery cachedWithin="request">

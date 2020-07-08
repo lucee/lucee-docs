@@ -138,7 +138,7 @@ The Gateway Driver is a CFC file, which must be added into the directory {Lucee-
 
 * **onBeforeUpdate(string cfcPath, string startupMode, struct custom):void.** This method is invoked before the settings entered in the form are saved. This method can be used to validate the entered data.
 
-* **onBeforeError(cfcatch):void.**  Invoked before an error is thrown. Can be used to throw your own error, and/or do logging.
+* **onBeforeError(cfcatch):void.** Invoked before an error is thrown. Can be used to throw your own error, and/or do logging.
 
 * **getListenerCfcMode():string.** Can be one of the following:
 	* "none": no listener gets defined
@@ -268,11 +268,11 @@ Now we will add the "file size check" functionality into our gateway cfc. We'll 
 
 ```lucee
 <cfset var qFile = "" />
-<---  get the file's size by using cfdirectory --->
+<--- get the file's size by using cfdirectory --->
 <cfdirectory action="list" directory="#getDirectoryFromPath(variables.config.filepath)#"
 	filter="#getFileFromPath(variables.config.filepath)#" name="qFile" />
 
-<---  call the listener CFC if the file size meets the minimum requirement --->
+<--- call the listener CFC if the file size meets the minimum requirement --->
 <cfif qFile.recordcount and qFile.size gte variables.config.minimalsize>
 <cfset variables.listener[variables.config.listenerFunction](
 qFile.directory & server.separator.file & qFile.name

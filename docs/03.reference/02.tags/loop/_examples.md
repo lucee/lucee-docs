@@ -50,7 +50,7 @@
 	</cfloop>
 
 	<cfset Departments = {"Save ":"Water ", "Plant ":"gren ", "Protect ":"Earth "}>
-    <br><u>Struct  loop</u><br>
+    <br><u>Struct loop</u><br>
 	<cfloop collection="#Departments#" item = "person">
 			#person#
 			#StructFind(Departments, person)#<br>

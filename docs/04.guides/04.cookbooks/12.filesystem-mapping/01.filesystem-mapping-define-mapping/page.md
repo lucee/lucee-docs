@@ -51,8 +51,8 @@ In the detail view of a single mapping you can compile all cfm and cfc files in 
 ### Create an archive from a mapping ###
 
 In the detail view of a single mapping you can create an archive that contains all templates of the mapping in compiled form.
-With the flag "Add CFML Templates" you can define if Lucee should add the source version of the templates as well, this make sense when you need a proper error output in case of an  exception (source code output) or you need to read the content of this files for example with <cffile>.
-With the flag "Add Non CFML Templates"  you can define if Lucee should add all non CFML files (png,js,gif,css ...) as well, this make sense when you need to read the content of this files for example with <cffile>.
+With the flag "Add CFML Templates" you can define if Lucee should add the source version of the templates as well, this make sense when you need a proper error output in case of an exception (source code output) or you need to read the content of this files for example with <cffile>.
+With the flag "Add Non CFML Templates" you can define if Lucee should add all non CFML files (png,js,gif,css ...) as well, this make sense when you need to read the content of this files for example with <cffile>.
 
 ![create-archive.png](https://bitbucket.org/repo/rX87Rq/images/2720116188-create-archive.png)
 
@@ -75,7 +75,7 @@ Now you can simply use that mapping in your code
 
 ```coldfusion
 <cfinclude template="/shop/whatever.cfm"> <!--- load a template from the "shop" mapping --->
-<cfset cfc=new shop.Whatever()><!--- load a CFC from the "shop" mapping (see also "this.componentpaths" for handling components)  --->
+<cfset cfc=new shop.Whatever()><!--- load a CFC from the "shop" mapping (see also "this.componentpaths" for handling components) --->
 ```
 
 ## Advanced ##

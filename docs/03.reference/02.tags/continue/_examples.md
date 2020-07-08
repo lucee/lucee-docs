@@ -5,7 +5,7 @@
 <cfloop from="1" to="10" index="x">
 	<!--- ignoring row 5 and continue the loop --->
 	<cfif x is 5>
-		<cfcontinue  />
+		<cfcontinue />
 	</cfif>
 	<cfset count++ />
 </cfloop>

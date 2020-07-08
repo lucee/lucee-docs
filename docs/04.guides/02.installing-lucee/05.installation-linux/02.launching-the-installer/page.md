@@ -65,7 +65,7 @@ We're going to open the installer with "gksudo" which is a graphical form of the
 
 The installer is designed to be executed by the root user. If you are not logged in as the root user, you will need to "su" or "sudo" the script in order for it to function properly.
 
-For a command-line install on Ubuntu, after you've downloaded the Installer (In this example I've downloaded it to my Desktop), you need to run the following set of commands:  $ cd [download location] $ chmod 744 lucee-[version]-linux-installer.bin $ sudo ./lucee-[version]-linux-installer.bin
+For a command-line install on Ubuntu, after you've downloaded the Installer (In this example I've downloaded it to my Desktop), you need to run the following set of commands: $ cd [download location] $ chmod 744 lucee-[version]-linux-installer.bin $ sudo ./lucee-[version]-linux-installer.bin
 
 You'll be prompted for your user's password. This is UBUNTU asking for permission to run the script as root - it is not a prompt from the installer. Once you enter your password the installer should continue normally.
 

@@ -6,5 +6,5 @@
 	};
 	//structlen function is used to find the count of the struct
 	count = student.len();
-	echo("The count of the struct is "  &count);
+	echo("The count of the struct is " &count);
 ```

@@ -132,7 +132,7 @@ ws.onmessage = function(message){
     do(message.data);
 }
 
-ws.onclose =  function(){
+ws.onclose = function(){
     //do staff or send a message
 }
 ```

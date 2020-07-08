@@ -258,7 +258,7 @@ querySetCell...
 
 ```lucee
 <cfloop query="qry">
-   <cfset _url=qry.url> <!--- in Lucee Server and ACF qry.url is invoked  --->
+   <cfset _url=qry.url> <!--- in Lucee Server and ACF qry.url is invoked --->
    <cfset _url=url> <!--- in ACF qry.url is invoked in Lucee Server the url scope --->
 ```
 

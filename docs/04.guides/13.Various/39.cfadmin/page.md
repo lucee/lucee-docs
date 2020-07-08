@@ -111,10 +111,10 @@ proxyPort |	Contains the proxy port
 proxyServer |	Contains the proxy server name or ip
 proxyuser |	Contains the proxy username
 proxyUsername |	Contains the proxy username
-psq	| Defines whether preserve single quotes is turned on for this web context
+psq | Defines whether preserve single quotes is turned on for this web context
 publish | Defines whether the response of server will be stored in a file or not
 recurse | Defines whether a path will be recursively indexed
-remote  | Defines whether a local user can change the settings in the remote section of the local web administrator
+remote | Defines whether a local user can change the settings in the remote section of the local web administrator
 remoteClients | Every tag can contain remote clients to synchronize its settings with. It is a list of labels of in the admin defined remote clients
 remotetype | Defines whether it’s an admin synchronization or cluster scope sharing
 requestTimeout | Defines the time a scheduled task should wait before it stops the thread. Please note that this setting does not set the request timeout of the server, unless it is a Lucee server and you allow passing "requesttimeout" over the url
@@ -127,7 +127,7 @@ schedulePassword | Password to access the URL protected by authentication
 scopeCascadingType | Defines whether the scope cascading is set to off or other values. Valid values are: "strict,small,standard"
 scriptProtect |	Defines the scopes that shall be searched for cross site scripting. Valid values are a combination of "cgi, cookie, form, url"
 search | Defines whether a local user can change the settings in the search section of the local web administrator
-secType | Defines the type of security manager setting you want to retrieve. Valid values are: "search, mail, datasource, setting, debugging, remote,  mapping, cfx_setting, cfx_usage, custom_tag, "
+secType | Defines the type of security manager setting you want to retrieve. Valid values are: "search, mail, datasource, setting, debugging, remote, mapping, cfx_setting, cfx_usage, custom_tag, "
 secure | Defines whether a mapping is compiled in the secure mode (without the source code) or insecure (containing the source code). Depending on this setting the extension is either .ras (secure) or .ra
 secValue | |
 Serverpassword | Password of the server admin (sometimes necessary in order to have access to files like debugging templates if file access is set to none etc.)
@@ -150,7 +150,7 @@ tag_import | Defines whether the tag import can be allowed or not
 tag_object | Defines whether the tag object can be allowed or not
 tag_registry |	Defines whether the tag registry can be allowed or not
 task |	Contains the defined schedule task when the action is "schedule"
-template404  | Defines the path to the 404 template
+template404 | Defines the path to the 404 template
 template500	| Defines the path to the 50x template
 templateCharset	| Contains the template of Lucee charsets
 timeout | Contains the timeout of the mailserver

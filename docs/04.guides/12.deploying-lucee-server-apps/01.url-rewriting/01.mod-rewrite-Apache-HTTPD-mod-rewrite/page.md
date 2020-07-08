@@ -12,10 +12,10 @@ ProxyPreserveHost On
 ProxyPassReverse / balancer://tom_cluster/
 RewriteEngine On
 # uncomment below RewriteCond for "verify file exists" functionality:
-#RewriteCond  %{DOCUMENT_ROOT}/$1  -f
+#RewriteCond %{DOCUMENT_ROOT}/$1 -f
 # Proxy CFML requests (barring the admin) to Tomcat:
 RewriteCond %{REQUEST_fileNAME} !^\/lucee/admin.*
-RewriteRule  ^/(.*\.cf[cm]l?)(/.*)?$  balancer://tom_cluster/$1$2  [P]
+RewriteRule ^/(.*\.cf[cm]l?)(/.*)?$ balancer://tom_cluster/$1$2 [P]
 ```
 
 ### Security Related Rewrites ###

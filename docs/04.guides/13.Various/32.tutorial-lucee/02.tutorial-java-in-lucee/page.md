@@ -270,7 +270,7 @@ Ported to CFML:
 
 <cfset successUrl = "http://yourwebsite.org/socialAuthSuccessAction.cfm">
 
-<cfset redirUrl = manager.getAuthenticationUrl( id, successUrl )>  <!--- need to set id somewhere --->
+<cfset redirUrl = manager.getAuthenticationUrl( id, successUrl )> <!--- need to set id somewhere --->
 
 <cfset session.authManager = manager>
 

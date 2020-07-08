@@ -50,7 +50,7 @@ Here we are extending the component "AContext" from above and implementing the r
 In contrast to "abstract", a "final" method also can be defined in a non-final component.
 
 ```luceescript
-component  {
+component {
    final function getFile() {
       return getCurrentTemplatePath();
    }

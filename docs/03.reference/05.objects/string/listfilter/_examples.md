@@ -3,9 +3,9 @@
 	res = listVal.listFilter(
 	function(elem,ind){
 		if(elem != "three"){
-			return  true;
+			return true;
 		}
-		return  false;
+		return false;
 	});
 	writeDump(res);
 ```
