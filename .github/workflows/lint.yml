@@ -3,7 +3,7 @@ name: Lint Markdown
 on: [push, pull_request]
 
 jobs:
-  build:
+  linter:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
