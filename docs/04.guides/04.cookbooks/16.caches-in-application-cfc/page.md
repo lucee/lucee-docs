@@ -53,7 +53,7 @@ Let's take a look at some of the keys used to define a cache connection.
 
 ## Default Caches
 
-When declaring a cache, you can make it the default cache for certaion operations, but it is also possible to configure the default caches for each operation all at once in your `Application.cfc` like so:
+When declaring a cache, you can make it the default cache for creation operations, but it is also possible to configure the default caches for each operation all at once in your `Application.cfc` like so:
 
 ```javascript
 this.cache.object = "myCache";

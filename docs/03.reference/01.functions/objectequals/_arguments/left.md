@@ -1,1 +1,1 @@
-left operant
+left operand

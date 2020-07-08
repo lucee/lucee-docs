@@ -38,11 +38,11 @@ After creation locate newly added datasource (e.g. sstorage) and make sure there
 
 * Run your application to create a new session. Lucee will create a cf_session_data table in your database. Then you will see session data stored in database.
 
-Thats it!
+That's it!
 
 ### TIP: manually check cf_session_data table for: ###
 
-* Primary key existance (DESCRIBE cf_session_data). If primary key doesn't exist add composite primary key (cfid, name). You can run ALTER TABLE cf_session_data ADD PRIMARY KEY(cfid,name) for that. This helps you avoid performance problems as your cf_session_data table will grow.
+* Primary key existence (DESCRIBE cf_session_data). If primary key doesn't exist add composite primary key (cfid, name). You can run ALTER TABLE cf_session_data ADD PRIMARY KEY(cfid,name) for that. This helps you avoid performance problems as your cf_session_data table will grow.
 
 * Type of "data" column should be longtext, not text. Run ALTER TABLE cf_session_data MODIFY data longtext to change. (Fixed in versions 4.2.0, 4.1.2.006). This is a must have if you store big data (arrays, structs) in session. Otherwise you'll get the data truncation error
 

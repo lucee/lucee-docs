@@ -6,4 +6,4 @@ categories:
 - server
 ---
 
-Returns an array containing the Java classpath of the current enviroment.
+Returns an array containing the Java classpath of the current environment.

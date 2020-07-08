@@ -7,7 +7,7 @@ This document explains how to use a checksum in lucee.
 
 Many servers provide a checksum for the files they provide for download. We use the checksum to validate a download file in order to avoid a corrupted file.
 
-If you download a file in your application, you can automatically check if the download is valid or not if the neccessary info was provided in the response header.
+If you download a file in your application, you can automatically check if the download is valid or not if the necessary info was provided in the response header.
 
 ### Example 1 : ###
 

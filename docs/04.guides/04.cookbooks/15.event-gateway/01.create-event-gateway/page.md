@@ -215,7 +215,7 @@ Also see the file Gateway.cfc, which extends the functionality of this example (
 
 ## The Listener CFC ##
 
-Most gateways need a Listener CFC to respond to events occuring in the Gateway instance. For example, if the Mail watcher finds new email in the mailbox, then it needs to do something with that event; it calls a method (function) of the Listener CFC. The path to your listener CFC must be given as an argument when you create or update a gateway instance. The contents of the CFC is completely up to you, as long as it has a public function that can be called by the Gateway.
+Most gateways need a Listener CFC to respond to events occurring in the Gateway instance. For example, if the Mail watcher finds new email in the mailbox, then it needs to do something with that event; it calls a method (function) of the Listener CFC. The path to your listener CFC must be given as an argument when you create or update a gateway instance. The contents of the CFC is completely up to you, as long as it has a public function that can be called by the Gateway.
 
 ### Example ###
 

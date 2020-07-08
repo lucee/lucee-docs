@@ -1,4 +1,4 @@
-Define instead a log reference in the Lucee Administrator and use the name of the genrated log with the attribute log.
+Define instead a log reference in the Lucee Administrator and use the name of the generated log with the attribute log.
 		 Specify only the main part of the filename.
             For example, to log to the Testing.log file, specify
             "Testing".

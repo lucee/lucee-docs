@@ -15,7 +15,7 @@ The installer comes packaged with a script that makes it easy to switch the user
 
 	change_user.sh {username} {installdir} {engine} [nobackup]
 
-**username** - Required. States what username Lucee will run under. If a user and group with this name don't exist already, the script will create them both. For example, if you enter "luceeuser" as the username variable, the script will check for the existance of a "luceeuser" username and group. If either don't exist, the script will create a user "luceeuser" and a group "luceeuser". If the user or group already exist, the script will not bother trying to create them. This is handy if you're running as an existing user/group like "apache/apache", for example.
+**username** - Required. States what username Lucee will run under. If a user and group with this name don't exist already, the script will create them both. For example, if you enter "luceeuser" as the username variable, the script will check for the existence of a "luceeuser" username and group. If either don't exist, the script will create a user "luceeuser" and a group "luceeuser". If the user or group already exist, the script will not bother trying to create them. This is handy if you're running as an existing user/group like "apache/apache", for example.
 
 **installdir** - Required. States the root directory that Lucee is installed into. Usually this will be /opt/lucee/, unless you selected something other then the default.
 

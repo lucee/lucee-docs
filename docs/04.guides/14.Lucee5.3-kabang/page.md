@@ -38,7 +38,7 @@ You can enable them as you like or disable them.
 
 ![Extension Not Installed](/images/kabang/extNotInstalled.PNG)
 
-Simarly, you can view the extensions installed. Go to the detail page of the extension and see the Releases, Pre-Release, and Snapshots for that extension. This allows us to handle different kinds of updates without changing the provider.
+Similarly, you can view the extensions installed. Go to the detail page of the extension and see the Releases, Pre-Release, and Snapshots for that extension. This allows us to handle different kinds of updates without changing the provider.
 
 ![Detail of the extension](/images/kabang/detailExtension.PNG)
 
@@ -198,7 +198,7 @@ DONE!
 
 Run the index.cfm we get the details of the mail in console. You can store the details of the mail listener in a datasource or wherever you like.
 
-Dont forget to include `this.mail.listener=function()` in Application.cfc.
+Don't forget to include `this.mail.listener=function()` in Application.cfc.
 
 #### RSA Encryption ####
 

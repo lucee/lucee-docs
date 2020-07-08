@@ -56,7 +56,7 @@
 								#getEditLink(path=local.fn.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
 								#markdownToHtml( Trim( local.arg.description ) )#
 								<cfif len(local.arg.alias) gt 0>
-									<p title="for compatability, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
+									<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
 								</cfif>
 								<cfif structKeyExists(local.arg, "status") and local.arg.status neq "implemented">
 									<em>* #local.attrib.arg# *</em>

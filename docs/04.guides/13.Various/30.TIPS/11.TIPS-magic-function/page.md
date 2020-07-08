@@ -22,7 +22,7 @@ Once, you've checked and enabled it, we're ready to start with some code. I crea
 
 ```lucee
 <cfcomponent>
-<cffunction name="init" access="public" output="no" hint="initalization">
+<cffunction name="init" access="public" output="no" hint="initialization">
 <cfreturn this>
 </cffunction>
 <cffunction name="setage" access="public" output="no" hint="This sets the age">
