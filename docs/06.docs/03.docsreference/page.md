@@ -22,7 +22,7 @@ The basic folder structure of a function reference is as follows:
 
 The `function.md` file indicates that this page is a **function** page type. Its content will consist of YAML front matter to indicate its page title, id and any related content and categories, and the description of the function.
 
-The `_examples.md` file is an optional plain Markdown file that can be use to provide examples for the function. 
+The `_examples.md` file is an optional plain Markdown file that can be use to provide examples for the function.
 
 The `_arguments` folder should contain a single Markdown file per named argument that the function accepts. The name of the file corresponds to the name of the argument. The content of the Markdown file provides the description of the argument.
 
@@ -43,7 +43,7 @@ The basic folder structure of a function reference is as follows:
 
 The `tag.md` file indicates that this page is a **tag** page type. Its content will consist of YAML front matter to indicate its page title, id and any related content and categories, and the description of the tag.
 
-The `_examples.md` file is an optional plain Markdown file that can be use to provide examples for the tag. 
+The `_examples.md` file is an optional plain Markdown file that can be use to provide examples for the tag.
 
 The `_attributes` folder should contain a single Markdown file per named attribute that the tag accepts. The name of the file corresponds to the name of the attribute. The content of the Markdown file provides the description of the attribute.
 

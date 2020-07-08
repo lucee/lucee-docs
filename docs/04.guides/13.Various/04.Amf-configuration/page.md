@@ -85,7 +85,7 @@ Now open the /app-root/WEB-INF/flex/remoting-config.xml and add the following co
 </destination>
 ```
 
-And last but not least, in your /app-root/WEB-INF/web.xml you need to add the following servlet mapping 
+And last but not least, in your /app-root/WEB-INF/web.xml you need to add the following servlet mapping
 
 ```lucee
 <servlet-mapping>
@@ -110,7 +110,7 @@ That's it, if you look into the /lucee-express/webroot/WEB-INF/flex directory, y
 
 After starting the Lucee Express Server version and browsing to http://localhost:8080/flex2gateway you will face a 404 Not Found error message. This is because by default BlazeDS is not yet setup on this version.
 
-The services-config.xml and the remoting-confg.xml are setup as you would expect and you can refer to the explanations above, but the MessageBroker Servlet is not yet setup. You need to add the following code: 
+The services-config.xml and the remoting-confg.xml are setup as you would expect and you can refer to the explanations above, but the MessageBroker Servlet is not yet setup. You need to add the following code:
 
 ```lucee
 <servlet>
@@ -138,13 +138,13 @@ Actually, the missing servlet can perfectly be classified as a bug and should be
 
 If you work with the full server version, go to /lucee-resin/conf/app-default.xml to verify that the MessageBroker is there. You will find the services-config.xml and the remoting-config.xml in the /lucee-resin/webapps/ROOT/WEB-INF/flex directory. As with the previous version you will have to start the server at least once so that Lucee creates the WEB-INF directory.
 
-So after starting the server you can verify again that the MessageBroker Servlet is running by requesting http://localhost:8600/flex2gateway, if you receive the white page everything is good to go. 
+So after starting the server you can verify again that the MessageBroker Servlet is running by requesting http://localhost:8600/flex2gateway, if you receive the white page everything is good to go.
 
 ### Using BlazeDS with the lucee.war ###
 
 If you have downloaded the lucee.war only, you also have to add the MessageBroker Servlet like we did with the Lucee Express Server version. If you want to follow along, I downloaded and unzipped the lucee-3.1.2.001.war into tomcats webapp directory. This is the same tomcat I used when explaining the basic setup of BlazeDS at the top of this page.
 
-Start tomcat once, so that Lucee will populate the WEB-INF directory. Now again all you have to do is to add the MessageBroker Servlet code, this time the easies one is to add it to the /tomcat/webapps/lucee-3.1.2.001/WEB-INF/web.xml: 
+Start tomcat once, so that Lucee will populate the WEB-INF directory. Now again all you have to do is to add the MessageBroker Servlet code, this time the easies one is to add it to the /tomcat/webapps/lucee-3.1.2.001/WEB-INF/web.xml:
 
 ```lucee
 <servlet>

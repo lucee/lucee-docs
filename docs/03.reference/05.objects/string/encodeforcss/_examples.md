@@ -4,7 +4,7 @@
     writeOutput("
         <style>
         	.color {
-        		background-color: #colors.encodeForCss()# 
+        		background-color: #colors.encodeForCss()#
         	}
         </style>
         <div>

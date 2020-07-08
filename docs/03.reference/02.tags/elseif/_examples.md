@@ -8,7 +8,7 @@
 <cfelse>
 	<cfset result ="Other than struct & Array">
 </cfif>
-<cfdump var="#result#" /> 
+<cfdump var="#result#" />
 ```
 
 ### Script format

@@ -4,7 +4,7 @@ id: deploy-archives
 ---
 ## Deploy Archive ##
 
-This document explains how to deploy an Application on a live server without using single CFML file. 
+This document explains how to deploy an Application on a live server without using single CFML file.
 
 Simple example:
 

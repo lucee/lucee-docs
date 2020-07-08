@@ -3,7 +3,7 @@ title: Installer Support
 id: installer-support
 ---
 
-The Lucee Installer is made possible by a large number of people offering their time and support for the project. 
+The Lucee Installer is made possible by a large number of people offering their time and support for the project.
 
 The Installer project is currently hosted by GitHub, and as such, we can utilize the functionality that the site offers there. There is an issue tracker for the Lucee Installer for reporting issues, but please ask for help first on the [mailing-list](https://dev.lucee.org)
 

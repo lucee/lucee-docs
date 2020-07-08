@@ -12,6 +12,6 @@ Extensions can be installed via the web or server admin.
 
 [[plugins]] How to build admin plugins
 
-[[tutorial-extension-provider]] Extension Provider Tutorial 
+[[tutorial-extension-provider]] Extension Provider Tutorial
 
 [Available extensions](https://download.lucee.org/) All currently available extensions

@@ -1,6 +1,6 @@
 cache type
- 
-valid values are 
+
+valid values are
 
 - object
 - resource

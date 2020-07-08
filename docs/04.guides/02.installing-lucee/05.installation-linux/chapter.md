@@ -12,4 +12,4 @@ Installing Lucee on Linux
 * [[changing-the-user-account-lucee-runs-as]]
 * [[linux-upgrade-the-JRE]]
 * [[linux-installation-on-centos-linux]]
-* [[preparing-your-server-linux]]	
+* [[preparing-your-server-linux]]

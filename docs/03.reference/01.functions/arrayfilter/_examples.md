@@ -7,7 +7,7 @@ favoriteFruits = arrayFilter(fruitArray, function(item){
     return item.rating >= 3;
 });
 dump(favoriteFruits);
-``` 
+```
 
 ### filter an array by its values (member function)
 

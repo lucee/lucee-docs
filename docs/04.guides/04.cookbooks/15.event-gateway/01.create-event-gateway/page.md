@@ -49,7 +49,7 @@ The following is all the code you need:
             <cfset variables.listener=listener />
             <cflog text="init" type="information" file="#variables.logFileName#" />
             <cfcatch>
-                <cfset _handleError(cfcatch, "init") /> 
+                <cfset _handleError(cfcatch, "init") />
             </cfcatch>
         </cftry>
     </cffunction>
@@ -70,22 +70,22 @@ The following is all the code you need:
                 <cftry>
                     <--- YOUR GATEWAY ACTIONS HERE --->
                     <cfcatch>
-                        <cfset _handleError(cfcatch, "start") /> 
+                        <cfset _handleError(cfcatch, "start") />
                     </cfcatch>
                 </cftry>
                 <--- sleep untill the next run, but cut it into half seconds, so we can stop the gateway easily --->
                 <cfloop from="#sleepStep#" to="#variables.config.interval#" step="#sleepStep#" index="i">
                     <cfset sleep(sleepStep) />
                     <cfif variables.state neq "running">
-                        <cfbreak /> 
+                        <cfbreak />
                     </cfif>
                 </cfloop>
                 <--- some extra sleeping if the requested timeout is not yet completely done --->
                 <cfif variables.config.interval mod sleepStep and variables.state eq "running">
-                    <cfset sleep((variables.config.interval mod sleepStep)) /> 
+                    <cfset sleep((variables.config.interval mod sleepStep)) />
                 </cfif>
             </cfwhile>
-            <cfset variables.state="stopped" /> 
+            <cfset variables.state="stopped" />
     </cffunction>
 
     <cffunction name="stop" access="public" output="no" returntype="void">
@@ -101,7 +101,7 @@ The following is all the code you need:
     </cffunction>
 
     <cffunction name="getState" access="public" output="no" returntype="string">
-        <cfreturn variables.state /> 
+        <cfreturn variables.state />
     </cffunction>
 
     <cffunction name="sendMessage" access="public" output="no" returntype="string">
@@ -112,7 +112,7 @@ The following is all the code you need:
     <cffunction name="_handleError" returntype="void" access="private" output="no">
         <cfargument name="catchData" required="yes" />
         <cfargument name="functionName" type="string" required="no" default="unknown" />
-        <cflog text="Function #arguments.functionName#: #arguments.catchData.message# #arguments.catchData.detail#" type="error" file="#variables.logFileName#" /> 
+        <cflog text="Function #arguments.functionName#: #arguments.catchData.message# #arguments.catchData.detail#" type="error" file="#variables.logFileName#" />
     </cffunction>
 
 </cfcomponent>
@@ -124,7 +124,7 @@ I guess you noticed the comment "YOUR GATEWAY ACTIONS HERE"? That's where you ad
 
 The driver is used to configure and define your Gateway. With it, you define the form fields in the Lucee admin settings page for your gateway, and it makes sure that your gateway is listed as an available Gateway.
 
-The Gateway Driver is a CFC file, which must be added into the directory {Lucee-install}/lib/lucee-server/context/admin/gdriver/ 
+The Gateway Driver is a CFC file, which must be added into the directory {Lucee-install}/lib/lucee-server/context/admin/gdriver/
 
 ## Gateway driver Functions ##
 
@@ -152,29 +152,29 @@ The Gateway Driver is a CFC file, which must be added into the directory {Lucee-
 <cfcomponent extends="Gateway" output="no">
     <--- The form fields which will be shown when adding a gateway instance via the Lucee admin --->
     <--- argument names (see file Gateway.cfc): displayName, name, defaultValue, required, description, type, values --->
-    <cfset variables.fields = array( 
-    	field( "Path to file", "filepath", "", true, "The file you want to check the size for", "text"), 
-    	field( "Minimum file size", "minimalsize", "", true, "The minimum size of the file, in Bytes, before the Listener CFC is called", "text"), 
-    	field( "Interval (ms)", "interval", "60000", true, "The interval between checks, in miliseconds", "text"), 
+    <cfset variables.fields = array(
+    	field( "Path to file", "filepath", "", true, "The file you want to check the size for", "text"),
+    	field( "Minimum file size", "minimalsize", "", true, "The minimum size of the file, in Bytes, before the Listener CFC is called", "text"),
+    	field( "Interval (ms)", "interval", "60000", true, "The interval between checks, in miliseconds", "text"),
     	field( "CFC Listener Function name", "listenerFunction", "onChange", true, "Called when the file reaches the minimum file size", "text")
     ) />
 
     <cffunction name="getClass" returntype="string" output="no">
-        <cfreturn "" /> 
+        <cfreturn "" />
     </cffunction>
-            
+
     <cffunction name="getCFCPath" returntype="string" output="no">
-        <cfreturn "filesizechecker.FileSizeWatcher" /> 
+        <cfreturn "filesizechecker.FileSizeWatcher" />
     </cffunction>
-    
+
     <cffunction name="getLabel" returntype="string" output="no">
-        <cfreturn "Filesize Watcher" /> 
+        <cfreturn "Filesize Watcher" />
     </cffunction>
-    
+
     <cffunction name="getDescription" returntype="string" output="no">
-        <cfreturn "Watches the filesize of a certain file" /> 
+        <cfreturn "Watches the filesize of a certain file" />
     </cffunction>
-            
+
     <cffunction name="onBeforeUpdate" returntype="void" output="false">
         <cfargument name="cfcPath" required="true" type="string" />
         <cfargument name="startupMode" required="true" type="string" />
@@ -183,30 +183,30 @@ The Gateway Driver is a CFC file, which must be added into the directory {Lucee-
 
         <--- does gven file exist? --->
         <cfif not fileExists(arguments.custom.filepath)>
-            <cfset arrayAppend(errors, "The file [#arguments.custom.filepath#] does not exist") /> 
+            <cfset arrayAppend(errors, "The file [#arguments.custom.filepath#] does not exist") />
         </cfif>
 
         <--- interval --->
         <cfif not IsNumeric(custom.interval) or custom.interval LT 1 or int(custom.interval) neq custom.interval>
-            <cfset arrayAppend(errors, "The interval [#custom.interval#] must be a numeric value greater than 0") /> 
+            <cfset arrayAppend(errors, "The interval [#custom.interval#] must be a numeric value greater than 0") />
         </cfif>
 
         <--- minimalsize --->
         <cfif not IsNumeric(custom.minimalsize) or custom.minimalsize LT 1 or int(custom.minimalsize) neq custom.minimalsize>
-            <cfset arrayAppend(errors, "The Minimum file size [#custom.minimalsize#] must be a numeric value greater than 0") /> 
+            <cfset arrayAppend(errors, "The Minimum file size [#custom.minimalsize#] must be a numeric value greater than 0") />
         </cfif>
 
         <cfif arrayLen(errors)>
-            <cfthrow message="The following error(s) occured while validating your input: <ul><li>#arrayToList(errors, '</li><li>')#</li></ul>" /> 
+            <cfthrow message="The following error(s) occured while validating your input: <ul><li>#arrayToList(errors, '</li><li>')#</li></ul>" />
         </cfif>
     </cffunction>
 
     <cffunction name="getListenerCfcMode" returntype="string" output="no" hint="Returns either 'none' or 'required'">
-        <cfreturn "required" /> 
+        <cfreturn "required" />
     </cffunction>
 
     <cffunction name="getListenerPath" returntype="string" output="no" hint="Returns the path to the default Listener cfc">
-        <cfreturn "filesizechecker.FileBackuper" /> 
+        <cfreturn "filesizechecker.FileBackuper" />
     </cffunction>
 </cfcomponent>
 ```
@@ -235,21 +235,21 @@ Let's say our Gateway type to create is a "filesize checker", which checks a fil
 	    <cfset var nr=1 />
 	    <cfwhile fileExists(zipFileName)>
 		    <cfset zipFileName=a rguments.filepath & ".#nr#.zip" />
-		    <cfset ++nr /> 
+		    <cfset ++nr />
 		</cfwhile>
-	        
+
 	    <cftry>
 	        <--- zip the file --->
 	        <cfzip action="zip" source="#arguments.filepath#" file="#zipFileName#" />
 
 	        <--- log the zip action --->
 	        <cflog text="Backed up #arguments.filepath# to #zipFileName#" type="information" file="#variables.logFileName#" />
-	                   
+
 	        <--- now delete the file --->
 	        <cffile action="delete" file="#arguments.filepath#" />
 
 	        <cfcatch>
-	            <cfset _handleError(cfcatch, "onBigFilesize") /> 
+	            <cfset _handleError(cfcatch, "onBigFilesize") />
 	        </cfcatch>
 	    </cftry>
 	</cffunction>
@@ -257,7 +257,7 @@ Let's say our Gateway type to create is a "filesize checker", which checks a fil
 	<cffunction name="_handleError" returntype="void" access="private" output="no">
 	    <cfargument name="catchData" required="yes" />
 	    <cfargument name="functionName" type="string" required="no" default="unknown" />
-	    <cflog text="Function #arguments.functionName#: #arguments.catchData.message# #arguments.catchData.detail#" type="error" file="#variables.logFileName#" /> 
+	    <cflog text="Function #arguments.functionName#: #arguments.catchData.message# #arguments.catchData.detail#" type="error" file="#variables.logFileName#" />
 	</cffunction>
 </cfcomponent>
 ```

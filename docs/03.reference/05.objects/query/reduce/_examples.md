@@ -1,6 +1,6 @@
 ```luceescript+trycf
-	people = QueryNew( 
-	"name,dob,age", "varchar,date,int", 
+	people = QueryNew(
+	"name,dob,age", "varchar,date,int",
 	[
 		[ "Susi", CreateDate( 1970, 1, 1 ), 0 ],
 		[ "Urs" , CreateDate( 1995, 1, 1 ), 0 ],
@@ -40,6 +40,6 @@
 	dump( var=totalAge, label='people - total age' );
 
 	/* Output: if recordset exists else 0
-	      totalAge = 167        
+	      totalAge = 167
 	*/
 ```

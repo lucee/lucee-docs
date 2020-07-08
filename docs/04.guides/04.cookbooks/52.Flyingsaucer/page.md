@@ -34,7 +34,7 @@ via Application.cfc,
 this.pdf.type = "classic";
 ```
 
-or if you are using an Application.cfm, 
+or if you are using an Application.cfm,
 
 ```lucee
 <cfapplication pdf="#{type:'classic'}#">
@@ -54,14 +54,14 @@ Define the font directory Application itself:
 
 via  Application.cfc
 
-```luceescript 
+```luceescript
 this.pdf.fontDirectory = "path/to/my/font";
-``` 
+```
 
 or via application.cfm
 ```lucee
 <cfapplication pdf="#{fontDirectory	:'path/to/my/font'}#">
-``` 
+```
 
 If the font directory isn't specified, Lucee will look for fonts in /WEB_INF/lucee/fonts and uses them if they match.
 
@@ -93,7 +93,7 @@ In addition to "inch" and "cm", the attribute unit now supports "pixel" and "poi
 <cfdocument unit="in|cm|px|pt">
 ```
 
-If you find any issues while using the new PDF engine, please ask a question on the [mailing list](https://dev.lucee.org/) 
+If you find any issues while using the new PDF engine, please ask a question on the [mailing list](https://dev.lucee.org/)
 
 ### Footnotes ###
 

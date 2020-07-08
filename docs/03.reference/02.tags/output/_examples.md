@@ -1,4 +1,4 @@
-### Simple example 
+### Simple example
 
 ```lucee+trycf
 <cfset a=3>

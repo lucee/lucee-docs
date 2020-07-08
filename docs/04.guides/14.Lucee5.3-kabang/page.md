@@ -136,7 +136,7 @@ Example if the for loop
 	}
 </cfscript>
 ```
-Byte code for the for statement is very complicated and not that fast. You can see the generic loop, but the byte code for the for statement is slower in previous versions because is more generic than what we did with Lucee 5.3. When the for is used in a certain way, we improve byte code and make it more specialized and faster. This is just one example of byte code optimization. 
+Byte code for the for statement is very complicated and not that fast. You can see the generic loop, but the byte code for the for statement is slower in previous versions because is more generic than what we did with Lucee 5.3. When the for is used in a certain way, we improve byte code and make it more specialized and faster. This is just one example of byte code optimization.
 
 #### Bytecode Optimized for Java >=8 ####
 
@@ -202,7 +202,7 @@ Don't forget to include `this.mail.listener=function()` in Application.cfc.
 
 #### RSA Encryption ####
 
-We know Lucee comes with different types of encryption so you can encrypt strings and binary with different encryption. RSA encryption is not simply a new kind of encryption. In RSA encryption we get two keys. One is a private key and the other is a public key. You encrypt with the private key and decrypt with the public key or vice versa (encrypt with public key and decrypt with private key). 
+We know Lucee comes with different types of encryption so you can encrypt strings and binary with different encryption. RSA encryption is not simply a new kind of encryption. In RSA encryption we get two keys. One is a private key and the other is a public key. You encrypt with the private key and decrypt with the public key or vice versa (encrypt with public key and decrypt with private key).
 
 The idea behind this encryption is you can give out the public key and keep the private key for yourself.
 
@@ -213,8 +213,8 @@ Public/Private Key Encryption and Decryption
 ```luceescript
 	key=generateRSAKeys();
 	dump(key);
-	
-	
+
+
 	raw="Susi Sorglos föhnte Ihr Haar";
 	enc=encrypt(raw,key.private,"rsa");
 	dec=decrypt(enc,key.public,"rsa");
@@ -237,7 +237,7 @@ The below example gets the extension provider details as a query:
 ```luceescript
 	setting requesttimeout=1000;
 	admin=new Administrator("web","server");
-	
+
 	// Providers
 	dump(admin.getExtensionProviders())
 ```
@@ -310,7 +310,7 @@ Passing sql as an attribute within a script
 
 #### FTP Resource ####
 
-Lucee 5.3 adds the ability to define FTP credentials in Application.cfc/cfapplication for FTP resources. Use with prefix "ftp://". 
+Lucee 5.3 adds the ability to define FTP credentials in Application.cfc/cfapplication for FTP resources. Use with prefix "ftp://".
 
 In previous versions of Lucee, the ftp credentials were seen in the code like this:
 ```luceescript
@@ -319,7 +319,7 @@ ftp = ftp://#request.ftp.user#:#request.ftp.pass#@ftp53.world4you.com:21/;
 dump(directoryList(ftp));
 ```
 
-This does not keep the credentials secure. In Lucee 5.3 FTP credentials can be supplied in the Application.cfc as shown in the example below: 
+This does not keep the credentials secure. In Lucee 5.3 FTP credentials can be supplied in the Application.cfc as shown in the example below:
 ```luceescript
 //application.cfc
 component {
@@ -370,7 +370,7 @@ ACF 2018 introduced a lot of new functionality. Luckily, Lucee already supports 
 
 #### Newly Supported in Lucee 5.3 ####
 
- * Null support can be defined in Application.cfc via (this.nullsupport=true), In Lucee we have enabled null support enable/disable from admin. Now we support with Application.cfc use like `this.nullsupport = true/false;` Or Use like what ACF2018 `this.EnableNullSupport = true/false;` 
+ * Null support can be defined in Application.cfc via (this.nullsupport=true), In Lucee we have enabled null support enable/disable from admin. Now we support with Application.cfc use like `this.nullsupport = true/false;` Or Use like what ACF2018 `this.EnableNullSupport = true/false;`
 
  * Adding alias to match named argument names used by ACF. Use the same argument name as ACF2018 does
 

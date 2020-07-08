@@ -1,5 +1,5 @@
 ```luceescript+trycf
-reduced = ArrayReduce( [1,2,3,4], function( carry, value ){ 
+reduced = ArrayReduce( [1,2,3,4], function( carry, value ){
     return carry + value;
 }, 0 );
 dump( reduced ); // yields 10

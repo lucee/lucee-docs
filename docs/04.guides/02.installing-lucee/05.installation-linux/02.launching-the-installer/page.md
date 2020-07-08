@@ -40,7 +40,7 @@ If your console has access to your Desktop, the Graphic installer should start u
 If you would like to force a text mode install, you can add the following option when you launch the installer from the command-line:
 
 ```lucee
-# ./lucee-[version]-linux-installer.bin --mode text 
+# ./lucee-[version]-linux-installer.bin --mode text
 ```
 
 ### Installing on Ubuntu/Debian ###

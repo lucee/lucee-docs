@@ -134,7 +134,7 @@ Serverpassword | Password of the server admin (sometimes necessary in order to h
 sessionManagement | Enables session management in scope settings
 sessionTimeout | Defines the session timeout for the local web context
 sessionType | Defines whether CFML or J2EE sessions are to be used in the local web context
-setting | 
+setting |
 showVersion | Defines whether the response header contains the Lucee version
 spoolEnable | Defines whether mail spooling is enabled
 spoolInterval |	Defines the mail spooling interval
@@ -172,7 +172,7 @@ version | Contains the version of an extension
 video |	Contains the video of the extension
 virtual | Defines the virtual name of a mapping
 webCharset | Defines the charset of the response stream
- 
+
 Action | Description
 ---------|-----------
 collection | Handles Lucene collections

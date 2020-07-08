@@ -4,7 +4,7 @@ reference: 'false'
 description: 'Lucee Server Documentation #cfml #coldfusion #lucee'
 ---
 
-Welcome to the Official [Lucee Server](https://lucee.org) Documentation. 
+Welcome to the Official [Lucee Server](https://lucee.org) Documentation.
 
 ---
 

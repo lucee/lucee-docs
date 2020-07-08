@@ -4,7 +4,7 @@ The type of the argument
 - binary
 - boolean
 - date
-- guid 
+- guid
 - numeric
 - query
 - string

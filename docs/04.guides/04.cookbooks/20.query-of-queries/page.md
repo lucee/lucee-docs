@@ -51,7 +51,7 @@ Say you want to filter out people under 18 and over 90, but you don't want to hi
 <cfquery name="filteredQuery" dbtype="query">
   SELECT     Name, Age, Location
   FROM    myQuery
-  WHERE    Age >= 18 
+  WHERE    Age >= 18
     		AND Age <= 90
 </cfquery>
 ```

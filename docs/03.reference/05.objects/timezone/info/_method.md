@@ -11,7 +11,7 @@ methodName: info
 description: Returns a structure describing the current timezone
 ---
 
-Returns a structure describing the current timezone 
+Returns a structure describing the current timezone
 
 - utcTotalOffset
 - utcHourOffset

@@ -8,10 +8,10 @@ categories:
 ---
 ## Startup Listeners Code ##
 
-Lucee has two kinds of startup listeners. 
+Lucee has two kinds of startup listeners.
 
 - **Server.cfc** which runs when the Lucee Server starts up. It exists only once per Lucee server.
-- **web.cfc** which can be used for each web context on your Lucee server. 
+- **web.cfc** which can be used for each web context on your Lucee server.
 
 #### server.cfc ####
 
@@ -52,7 +52,7 @@ component {
 }
 ```
 
-Here Web.cfc has one function ``onWebStart()`` and one argument ``reload`` that indicates if the web context is a new startup of the server. Here ``reload`` is used to reload the web context. We see the difference when setting reload to true or false. 
+Here Web.cfc has one function ``onWebStart()`` and one argument ``reload`` that indicates if the web context is a new startup of the server. Here ``reload`` is used to reload the web context. We see the difference when setting reload to true or false.
 
 * Start the Lucee server ``Startup`` . Here we see the server context first, then the web context is next. So both listeners get triggered by Lucee.
 * Next, change the **settings --> charset** for web charset "UTF-8" in web admin.

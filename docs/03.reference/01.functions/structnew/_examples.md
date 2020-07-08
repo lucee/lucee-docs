@@ -10,7 +10,7 @@ st = {
     "two": {
         "three": QueryNew("id")
     },
-    three: "unquoted keys don't preserve case"	
+    three: "unquoted keys don't preserve case"
 };
 
 dump( st );
@@ -18,7 +18,7 @@ dump( structKeyList(st) );
 dump( structKeyExists(st, "one") );
 
 // shorthand syntax for a new empty ordered struct, [=] also works
-st = [:]; 
+st = [:];
 st.c = 1;
 st.b = 2;
 st.a = 3;

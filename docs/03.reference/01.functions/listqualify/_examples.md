@@ -7,4 +7,4 @@ writeOutput(listQualify("string/Lucee/susi/LAS","^","/")&"<br><br>");
 strList="Lucee,ColdFusion,LAS,SUSI";
 writeDump(strlist.listQualify('|'));
 
-``` 
+```

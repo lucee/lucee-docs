@@ -1,4 +1,4 @@
-### Simple example 
+### Simple example
 
 ```luceescript+trycf
  saveTest = queryNew("id,Need","integer,varchar",

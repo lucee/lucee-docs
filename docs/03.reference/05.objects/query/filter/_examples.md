@@ -9,7 +9,7 @@
 			QuerySetCell(q,"description", fd.description, r);
 		});
 	}
-	dump(var=q.recordcount, 
+	dump(var=q.recordcount,
 	    label="demo data set size");
 	s = "the";
 </cfscript>

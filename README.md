@@ -46,15 +46,15 @@ When running locally there are the following urls available
 
 The build process for the js and css bundles are found under /builders/html/assets and uses sass and [grunt](https://gruntjs.com/).
 
-Just run npm install, then run grunt. 
+Just run npm install, then run grunt.
 
-After you have made everything more beautiful via css, or added some funky new interactivity via javascript, 
+After you have made everything more beautiful via css, or added some funky new interactivity via javascript,
 to publish a new build of the bundles, you'll need to update `variables.assetBundleVersion` in both Application.cfc and Gruntfile.js,
 as the docs are statically deployed via cloudfront and versioning of these files is required to break caching.
 
 ## Contributing
 
-There is a lot of work to do and we appreciate contribution in all forms. The issues list can be found and expanded upon here: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD) 
+There is a lot of work to do and we appreciate contribution in all forms. The issues list can be found and expanded upon here: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD)
 
 Ask questions or post suggestions over on the [Lucee mailing List](https://dev.lucee.org/c/documentation) under the documentation category.
 

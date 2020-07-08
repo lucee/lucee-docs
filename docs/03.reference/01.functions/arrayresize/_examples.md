@@ -6,9 +6,9 @@ Fills the unset array items with null
 numbers = [ 1, 2, 3, 4 ];
 
 arrayResize(numbers,10);
-Dump( numbers ); 
+Dump( numbers );
 
 //member function
 numbers.resize(15);
-Dump( numbers ); 
+Dump( numbers );
 ```

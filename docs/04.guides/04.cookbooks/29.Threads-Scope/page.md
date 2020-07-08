@@ -84,7 +84,7 @@ Same example within tag
 		<cfset thread.start=now()>
 		<cfset sleep(1000+(index*10))>
 		<cfset thread.end=now()>
-	</cfthread>	
+	</cfthread>
 </cffunction>
 
 <cfset start=getTickCount()>
@@ -224,7 +224,7 @@ tasks.each(
 		systemOutput(arguments,true);
 	}
 	,true
-	,20 // ATM default for max threads is 20, instead we plan to use a smart thread pool in the future (Java ExecutorService) 
+	,20 // ATM default for max threads is 20, instead we plan to use a smart thread pool in the future (Java ExecutorService)
 );
 </cfscript>
 ```

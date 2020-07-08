@@ -1,4 +1,4 @@
-Converts string content into binary data before putting it into a ZIP or JAR file. 
+Converts string content into binary data before putting it into a ZIP or JAR file.
 
 Used only when cfzip action="zip" and the cfzipparam content is a string.
 

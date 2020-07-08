@@ -65,7 +65,7 @@ vs
 ```lucee
 variables.myVariable
 ```
-Please see Using scopes explicitly in code for details. 
+Please see Using scopes explicitly in code for details.
 
 ## Further information required ##
 

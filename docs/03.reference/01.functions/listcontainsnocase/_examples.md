@@ -4,4 +4,4 @@ writeOutput(listContainsNoCase("I,love,lucee,testFile", "LUCEE"));//Expected out
 //Member Function with @ delimeter
 strList="I@am@lucee@dev";
 writeDump(strList.listContainsNoCase("Dev","@"));//Expected output 4
-``` 
+```

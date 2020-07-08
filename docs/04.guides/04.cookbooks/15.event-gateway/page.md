@@ -135,7 +135,7 @@ It might be even wiser to just email the complete error dump, so you will be sem
 
 ### Using cfadmin with Event gateways ###
 
-Instead of using the server/web admin, you can also use Lucee's <cfadmin> tag. 
+Instead of using the server/web admin, you can also use Lucee's <cfadmin> tag.
 
 Add or update a gateway instance:
 

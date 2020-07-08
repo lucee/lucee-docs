@@ -57,13 +57,13 @@ RewriteRule ^(.*)$ - [F,L]
 
 RewriteCond %{HTTP_COOKIE} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|%00).* [NC]
 RewriteRule ^(.*)$ - [F,L]
- 
+
 RewriteCond %{HTTP_USER_AGENT} ^$                                                              [OR]
 RewriteCond %{HTTP_USER_AGENT} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|%00).*                            [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} ^.*(HTTrack|clshttp|archiver|loader|email|nikto|miner|python).* [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} ^.*(winhttp|libwww\-perl|curl|wget|harvest|scan|grab|extract).* [NC]
 RewriteRule ^(.*)$ - [F,L]
- 
+
 RewriteCond %{HTTP_REFERER} ^(.*)(<|>|'|%0A|%0D|%27|%3C|%3E|%00).* [NC,OR]
 RewriteCond %{HTTP_REFERER} ^http://(www\.)?.*(-|.)?adult(-|.).*$  [NC,OR]
 RewriteCond %{HTTP_REFERER} ^http://(www\.)?.*(-|.)?poker(-|.).*$  [NC,OR]

@@ -61,9 +61,9 @@ this.cache.template = "AnotherCache";
 this.cache.query = "yetAnother";
 this.cache.resource = "<cache-name>";
 this.cache.function = "<cache-name>";
-this.cache.include = "<cache-name>";	
-this.cache.http = "<cache-name>";	
-this.cache.file = "<cache-name>";	
+this.cache.include = "<cache-name>";
+this.cache.http = "<cache-name>";
+this.cache.file = "<cache-name>";
 this.cache.webservice = "<cache-name>";
 ```
 

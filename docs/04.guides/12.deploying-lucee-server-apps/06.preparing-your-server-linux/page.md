@@ -55,7 +55,7 @@ Once you've added those lines, save the file and place it in either of the follo
 
 	/etc/cron.daily/yumupdate.sh
 
-or 
+or
 
 	/etc/cron.weekly/yumupdate.sh
 

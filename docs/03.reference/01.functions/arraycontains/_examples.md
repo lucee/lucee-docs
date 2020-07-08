@@ -9,7 +9,7 @@ words = [ 'hello' , 'world' ];
 dump(var=words, label="Words");
 
 positionOfWorld = ArrayContains( words, 'world' );
-positionOfSubstring = ArrayContains( words, 'el', true ); // substring matching 
+positionOfSubstring = ArrayContains( words, 'el', true ); // substring matching
 
 echo("Position of substring 'el': " & positionOfSubstring & "<br>" ); // outputs 1
 echo("Position of 'World': " & positionOfWorld); // outputs 2

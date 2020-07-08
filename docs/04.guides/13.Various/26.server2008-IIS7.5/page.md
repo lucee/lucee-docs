@@ -53,7 +53,7 @@ One final thing to do is to make sure that index.cfm is at the top of the Defaul
 
 ### Adding a Tomcat Web context ###
 
-Click on Start Menu >All Programs > Lucee >Tomcat Host Config to open up the Tomcat Server.xml file (a nice touch added by the installer). Scroll to the bottom of this file to add your "web context"; basically tell Tomcat what directory to watch under what website. There is a template to use which is commented out like so 
+Click on Start Menu >All Programs > Lucee >Tomcat Host Config to open up the Tomcat Server.xml file (a nice touch added by the installer). Scroll to the bottom of this file to add your "web context"; basically tell Tomcat what directory to watch under what website. There is a template to use which is commented out like so
 
 ```lucee
 

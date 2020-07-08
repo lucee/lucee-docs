@@ -4,7 +4,7 @@
  	<cffunction access="private" name="add">
 		<cfargument name="arg1" type="Numeric" required />
 		<cfargument name="arg2" type="Numeric" required />
-	 	<cfreturn arg1 + arg2 />   
+	 	<cfreturn arg1 + arg2 />
 	</cffunction>
 	<cfdump var="Define function Using tag.It returns :#add(4,2)#" />
 ```

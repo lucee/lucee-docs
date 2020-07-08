@@ -32,7 +32,7 @@ For functions, the return value is returned with the specific type that was defi
 
 * This example function has two arguments: name, age (One is a string, the other is a number). When this example is executed, the recExists() function checks if a certain record exists or not and It returns the boolean value ``true``.
 * When dumping the function recExists() with arguments, if we give age as a string format in the argument, ``dump(recExists("Susi","15"))``, it shows ``string 15`` even though we defined it as a number data type in the arguments.
-* The test() function takes an array, but in this example I do not pass an array into the function. I have passed a struct ``arr={'1':'one'}`` value into the test() function. The test() function contains an array value ``arr[2]= "two"``, so Lucee converts this array value into a structure. So the struct has two values as per keys are 1, 2 and values are one, two. 
+* The test() function takes an array, but in this example I do not pass an array into the function. I have passed a struct ``arr={'1':'one'}`` value into the test() function. The test() function contains an array value ``arr[2]= "two"``, so Lucee converts this array value into a structure. So the struct has two values as per keys are 1, 2 and values are one, two.
 * Lucee can handle an array as long as the keys are all numbers, meaning it considers a struct ``'1' and [2]``. Execute this cfm page, the dump shows the structure format.
 
 #### Example 2 : CFParam ####
@@ -71,13 +71,13 @@ query=queryNew(["name","age"],["string","numeric"]);
 	row=query.addRow();
 	query.name[row]="Urs";
 	query.age[row]="old";
-	
+
 	query.sort("age");
 	dump(query);
 	dump(getMetaData(query));
 ```
 
-* This example has queryNew() with two columns. Name and age are defined in string and numeric format. Then the example adds two rows of values to the columns. Then we dump the query with getMetaData(). It returns the column name with the corresponding data type of the field. 
+* This example has queryNew() with two columns. Name and age are defined in string and numeric format. Then the example adds two rows of values to the columns. Then we dump the query with getMetaData(). It returns the column name with the corresponding data type of the field.
 * If I change the age to as string format, ``query.age[row]="old"``, it does not throw an exception. It considers both name and age fields to be varchar type.
 
 #### Example 4 : ArrayNew ####
@@ -96,7 +96,7 @@ names=arrayNew(type:"string");
 ```
 
 * This example demonstrates the new functionality of ACF_2018, Lucee5.3. Here we define arrayNew with type:"string".
-* If we give a string or number value for the array, it returns a string format. Otherwise, if we give a struct value, ``{a:1}``, into the array, it throws an error like ``Can't cast complex object type struct to string``. 
+* If we give a string or number value for the array, it returns a string format. Otherwise, if we give a struct value, ``{a:1}``, into the array, it throws an error like ``Can't cast complex object type struct to string``.
 
 #### Example 5 : Literals ####
 
@@ -141,13 +141,13 @@ if(sct.bol)dump("is true");
 	dump(sb);
 ```
 
-* Internally every object has a type and Lucee automatically takes care of converting from one type to another if necessary. For example when you define a function with a string, but then pass a number into that function, Lucee automatically converts the number to a string. 
+* Internally every object has a type and Lucee automatically takes care of converting from one type to another if necessary. For example when you define a function with a string, but then pass a number into that function, Lucee automatically converts the number to a string.
 * The above example is useful for converting "string to date", "date to number", "number to date" formats.
 * We have loaded a java library and string builder. We pass a string into a constructor and execute this. We see that the string builder contains that value. We refer to this ``string builder`` method in the Java Doc. The method is called ``substring``. This substring takes an int as its argument. For example, we pass a string value instead of an int value ``sb.substring("5")``. Lucee returns a substring properly.
-* Two constructors are available for string builder. There are ``StringBuilder(int), StringBuilder(string)``. 
+* Two constructors are available for string builder. There are ``StringBuilder(int), StringBuilder(string)``.
 
 ```luceescript
- 
+
 //index.cfm
 
 directory sort="name" action="list" directory=getDirectoryFromPath(getCurrentTemplatePath()) filter="example*.cfm" name="dir";

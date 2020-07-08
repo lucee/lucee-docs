@@ -3,7 +3,7 @@ title: Lucee Editors & IDEs
 id: lucee-editors-IDEs
 ---
 
-There are many modern IDEs which include support for CFML development 
+There are many modern IDEs which include support for CFML development
 
 ## Lucee Dictionaries
 
@@ -47,7 +47,7 @@ Lucee dictionaries are available for download to support spell checking your cod
 
 <https://atom.io/packages/language-cfml>
 
-## CFBrackets 
+## CFBrackets
 
 <http://cfbrackets.org>
 
@@ -61,12 +61,12 @@ Lucee dictionaries are available for download to support spell checking your cod
 
 <https://www.jetbrains.com/idea/download/index.html>
 
-## CFLint 
+## CFLint
 
 <https://github.com/cflint/CFLint>
 is a very useful tool for linting (validating) your CFML code, there is integration available for many IDE's or you can run it in standalone mode over your whole code base
 
-here is a sample .cflintrc file which reduces the noise 
+here is a sample .cflintrc file which reduces the noise
 
 ```
 {

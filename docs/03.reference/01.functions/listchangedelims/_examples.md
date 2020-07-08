@@ -1,5 +1,5 @@
 ```luceescript+trycf
-//Simple function 
+//Simple function
 writeOutput(ListChangeDelims('Plant,green,save,earth',"@"));
 
 //Member function with custom delimiter
