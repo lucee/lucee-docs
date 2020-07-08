@@ -30,6 +30,7 @@ With "Archive" you can map a Lucee archive (more below) to the mapping.
 ```coldfusion
 <cfinclude template="/myMapping/test.cfm">
 ```
+
 in that case Lucee is first checking the archive associated with the "/myMapping" mapping for "test.cfm", if the template is not found it there, Lucee also checks the physical location.
 
 "Inspect templates" defines the rule for Lucee when and if to check changes in source templates and if necessary recompile them.
@@ -67,6 +68,7 @@ component {
     this.mappings['/shop']=getDirectoryFromPath(getCurrentTemplatePath())&"shop";
 }
 ```
+
 We define the mappings as a struct, where the key of the struct is the virtual path.
 
 Now you can simply use that mapping in your code
@@ -90,11 +92,13 @@ component {
    };
 }
 ```
+
 In that case we not only define a physical path, we also define a Lucee archive (.lar). "primary" defines where Lucee is checking first for a resource, let's say you have the following code
 
 ```coldfusion
    <cfinclude template="/shop/whatever.cfm">
 ```
+
 In that case Lucee first checks in the archive for "whatever.cfm" , if not found there, it looks inside the physical path.
 
 ### Site Note ###

@@ -369,6 +369,7 @@ XMLcatalog is component,
 		echo(cfcatch);
 	}
 ```
+
 In the XML catalog you can see the listener functions and the listener function passed to the java object. This helps to parse the data.
 
 ```luceescript

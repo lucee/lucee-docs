@@ -28,6 +28,7 @@ These instructions assume you know how to set up DNS, port forwarding for your r
 	<Alias>lctest.blahblah.com</Alias>
 </Host>
 ```
+
 Substitute your host name and alias, and put in your local folder for docBase
 
 7) Save the XML file and Restart Lucee - in Windows 2012 R2, click the Start button, click the down arrow, select Lucee-Tomcat Service Control.
@@ -51,6 +52,7 @@ Create a web.config file in the site's root folder. It should contain:
    </system.webServer>
 </configuration>
 ```
+
 Here is a quick way to get a dump to make sure debug works (add to your `index.cfm` file):
 
 `<cfdump var="#{ URL: URL, variables: variables, CGI: CGI }#">`

@@ -86,6 +86,7 @@ Create a simple cfm Hello World file.
   <br> The time is #now()#
 </cfoutput>
 ```
+
 and save it to the httpdocs folder of your website and browse to the site and...
 
 You'll note the error detail Cannot read configuration file due to insufficient permissions. Now we know that the website configuration file is web.config and it is located in the document root of each website. So the error message tells us that for some reason, IIS doesn't have permission to read that file, or more accurately, the website's AppPool doesn't. In IIS 7.5 the appPool is an isolated security context for each website, provided you set them up that way as we did. We need to give the appPool permissions to access the directory. Open Explorer and browse to your webroot, in this case inetpub\vhosts and select your website. Right click and select the security tab. Click Edit and then Add. In the Object Names box enter IIS AppPool\{nameof yourAppPool} or in this case IIS AppPool\luceetest. Click ok.

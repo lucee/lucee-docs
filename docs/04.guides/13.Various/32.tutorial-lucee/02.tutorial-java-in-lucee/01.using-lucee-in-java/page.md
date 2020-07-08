@@ -41,6 +41,7 @@ public class MyClass {
 	...
 }
 ```
+
 in the following examples in this document "engine" will refer to a lucee.loader.engine.CFMLEngine object, and "pc" will refer to a lucee.runtime.PageContext object.
 
 ### when Lucee does not load your Java code ###

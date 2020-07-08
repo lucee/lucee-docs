@@ -198,6 +198,7 @@ String username = (String) sessionScope.get( "username" );
 // set variable in scope obtained earlier
 sessionScope.set( "username", "Susanne" );
 ```
+
 (of course, as with your CFML code, you should only set values to shared objects in a synchronized manner)
 
 ### Create CF Objects ###

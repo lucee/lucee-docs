@@ -39,6 +39,7 @@ component {
    }
 }
 ```
+
 This is normally used to initialize the environment for your application, so for example load data/objects and store them in the application scope.
 if the function returns false or throws an exception, the application context is not initialized and the next request will call "onApplicationStart" again. "onApplicationStart" is thread safe.
 
@@ -53,6 +54,7 @@ component {
    }
 }
 ```
+
 This is normally used to finalize the environment of your application, so for example unload data/objects.
 You receive the application scope that ends as an argument to the function.
 
@@ -67,6 +69,7 @@ component {
    }
 }
 ```
+
 This is normally used to initialize the environment for a specific session, so for example load data/objects and store them in the session scope.
 
 ### OnSessionEnd ###
@@ -80,6 +83,7 @@ component {
    }
 }
 ```
+
 This is normally used to finalize the environment of your application, so for example unload data/objects.
  You receive the related application scope and the session scope that ends, as arguments to the function.
 
@@ -96,6 +100,7 @@ component {
    }
 }
 ```
+
 If the function returns false, Lucee stops any further execution of this request and return the result to the client.
 
 ### OnRequestEnd ###
@@ -149,6 +154,7 @@ component {
    }
 }
 ```
+
 As arguments you receive the exception (cfcatch block) and the eventName.
 
 ### OnAbort ###

@@ -13,6 +13,7 @@ You can add Lucee to your Maven pom.xml files via the following:
 	</repository>
 </repositories>
 ```
+
 And the dependency via:
 
 ```lucee

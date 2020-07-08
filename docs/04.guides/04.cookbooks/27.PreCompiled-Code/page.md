@@ -15,6 +15,7 @@ Time is <cfscript>
 writeoutput(now());
 </cfscript>
 ```
+
 Run this index.cfm page in the browser.
 
 * Each time a cfm file is executed in Lucee, a class file is automatically created in the webroot --> WEBINFO --> lucee --> cfClasses folder. So, a class file(Ex: index_cfm$cf.class ) is usually created for your index.cfm file(Ex : index.cfm) in the cfClasses folder.

@@ -19,6 +19,7 @@ Even words such as "application" and "function" can be used as they are not rese
 	function = 1;
 </cfscript>
 ```
+
 is still valid, but since the words above are NOT valid, the following is NOT allowed :
 
 ```lucee

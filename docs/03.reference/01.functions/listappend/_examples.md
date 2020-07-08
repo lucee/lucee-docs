@@ -1,4 +1,5 @@
 Example without delimiter argument:
+
 ```luceescript+trycf
 mylist = "one,two,three";
 mynewlist = listAppend(mylist, "four");
@@ -6,12 +7,15 @@ mynewlist = listAppend(mylist, "four");
 writeDump(mylist);
 writeDump(mynewlist);
 ```
+
 Expected result: `one,two,three,four`
 
 Example with delimiter argument:
+
 ```luceescript+trycf
 mylist = "foo";
 mynewlist = listAppend(mylist, "bar", "|");
 writeDump(mynewlist);
 ```
+
 Expected result: `foo|bar`

@@ -261,6 +261,7 @@ Let's say our Gateway type to create is a "filesize checker", which checks a fil
 	</cffunction>
 </cfcomponent>
 ```
+
 We will save the file as {Lucee-install}/lib/lucee-server/context/gateway/filesizechecker/FileBackuper.cfc
 
 Now we will add the "file size check" functionality into our gateway cfc. We'll replace "YOUR GATEWAY ACTIONS HERE" with the following:
@@ -279,6 +280,7 @@ qFile.directory & server.separator.file & qFile.name
 ) />
 </cfif>
 ```
+
 We will save the file as {Lucee-install}/lib/lucee-server/context/gateway/filesizechecker/FileSizeWatcher.cfc
 
 Btw: the variables.listener and variables.config variables did not just come falling from the sky; instead, it was saved to the variables scope in the init() function.

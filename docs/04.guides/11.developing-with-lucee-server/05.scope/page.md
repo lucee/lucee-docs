@@ -60,11 +60,13 @@ Different developers have opinions about whether it is best to explicitly write 
 ```lucee
 myVariable
 ```
+
 vs
 
 ```lucee
 variables.myVariable
 ```
+
 Please see Using scopes explicitly in code for details.
 
 ## Further information required ##

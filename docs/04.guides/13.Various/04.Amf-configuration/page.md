@@ -128,6 +128,7 @@ The services-config.xml and the remoting-confg.xml are setup as you would expect
     <url-pattern>/flex2gateway/*</url-pattern>
 </servlet-mapping>
 ```
+
 You can do this in two places, either add it to the /lucee-resin-express/conf/app-default.xml or add a web.xml into the /lucee-resin-express/webroot/WEB-INF directory and add the servlet there.
 
 After restarting the server you can browse to http://localhost:8080/flex2gateway which should return the expected white page again, without error this time.
@@ -162,6 +163,7 @@ Start tomcat once, so that Lucee will populate the WEB-INF directory. Now again 
     <url-pattern>/flex2gateway/*</url-pattern>
 </servlet-mapping>
 ```
+
 and restart tomcat. If you now request http://localhost:8080/lucee-3.1.2.001/flex2gateway you should again have the white page.
 
 ## Running multiple Lucee Webs with BlazeDS ##

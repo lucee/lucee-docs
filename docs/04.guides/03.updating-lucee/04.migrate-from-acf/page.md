@@ -31,6 +31,7 @@ arr = [ 1, 2, 3 ];
 writeArrayPlusOne( arr );
 writeDump( arr );
 ```
+
 The example above will show `arr` with items `[ 1, 2, 3 ]` on ACF, but `[ 1, 2, 3, 4 ]` on Lucee
 
 **Why:**
@@ -45,11 +46,13 @@ We decided not to follow the ACF way for the following reasons:
 In ACF, [[function-CreateTimeSpan]] returns a date type, meaning that if you have a function that returns a timespan value, or takes a timespan as an argument, it will thow an error in Lucee.  This has two solutions: change the date to timespan, or use numeric, which works in both.
 
 For example:
+
 ```luceescript
 <cfscript>
   setSessionTimeout(CreateTimeSpan(0,0,20,0));
 </cfscript>
 ```
+
 ```lucee
 <cffunction name="setSessionTimeout">
   <cfargument name="timeout" type="numeric" required="true">
@@ -64,6 +67,7 @@ For example:
 The iterations value represents the total number of hashes on Lucee, in Adobe CF the value is the number of additional iterations.
 
 For example:
+
 ```luceescript
 Hash("somestring", "SHA-512", "utf-8", 100); // in ACF
 
