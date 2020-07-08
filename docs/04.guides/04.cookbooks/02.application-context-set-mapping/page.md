@@ -62,7 +62,7 @@ In that case we not only define a physical path, we also define a Lucee archive 
    <cfinclude template="/shop/whatever.cfm">
 ```
 
-In that case Lucee first checks in the archive for "whatever.cfm" , if not found there, it looks inside the physical path.
+In that case Lucee first checks in the archive for "whatever.cfm", if not found there, it looks inside the physical path.
 
 Of course this can be done for all mapping types
 

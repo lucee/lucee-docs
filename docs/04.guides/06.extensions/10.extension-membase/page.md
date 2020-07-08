@@ -50,7 +50,7 @@ moxi http://{membase server1}:8080/pools/default/bucketsStreaming/default http:/
 
 As you see moxi will try to use the 2 passed hosts as part of the cluster and will manage the routing of your application calls. **Important : you will need in any case to access the membase administration panel ( on both hosts ) and to add them into the same cluster**. When this is done you will start using the power of memcached with the agility of membase.
 
-If you run a single membase server on you localhost for testing purposes ,you will not need to launch moxi manually cause the server will already do that . Just point your cache to the moxi host using the default port.
+If you run a single membase server on you localhost for testing purposes, you will not need to launch moxi manually cause the server will already do that . Just point your cache to the moxi host using the default port.
 
 * Memcached is designed to manage very large sets of data in a complex distributed environment. For this reason some operation like for example getting the list of the keys actually cached are not supported as could not be efficient. For this and similar reasons the following functions are not supported and will throw an exception if used on a Membase Cache instance:
 	* cacheCount()

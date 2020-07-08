@@ -32,7 +32,7 @@ someJSON = serializeJSON(getArray);
 writeOutput(someJSON);
 ```
 
-Expected Result: `["coldfusion", "php", " " , "java", "sql"]`
+Expected Result: `["coldfusion", "php", " ", "java", "sql"]`
 
 Example for listToArray function with multiCharacterDelimiter:
 Uses the listToArray() function to retrieve a list as an array with multiCharacterDelimiter

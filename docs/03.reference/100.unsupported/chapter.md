@@ -56,7 +56,7 @@ The following tags, from Adobe CFML, are not supported by Lucee:
 
 # Functions
 
-The following functions , from Adobe CFML, are not supported by Lucee:
+The following functions, from Adobe CFML, are not supported by Lucee:
 
 * cachegetsession
 * cacheregionexists
