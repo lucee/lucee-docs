@@ -12,7 +12,7 @@
 	writedump(dateTime.dateFormat('yyyy.mmm.dd'));
 	// the below code formats the date & show the full month in string
 	writedump(dateTime.dateFormat('yyyy-mmmm-dd'));
-	// the below code returns the date with the format of full ,long ,medium ,short
+	// the below code returns the date with the format of full, long, medium, short
 	dt=createDate(1997,04,11);
 	writedump(dt.dateFormat("full"));
 	writedump(dt.dateFormat("long"));
