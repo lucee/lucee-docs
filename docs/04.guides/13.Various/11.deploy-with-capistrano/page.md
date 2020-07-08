@@ -134,6 +134,7 @@ Now we can deploy our project to the production with the command:
 ```lucee
 cap production deploy
 ```
+
 If all goes well we can see in /var/www/myproject/production/ all our codebase.
 
 ### Side notes ###

@@ -261,6 +261,7 @@ Create a virtual host in /etc/apache2/sites-available/mysite.com
   CustomLog ${APACHE_LOG_DIR}/mysite.access.log Combined
 </VirtualHost>
 ```
+
 Enable the site and reload apache:
 
 	a2ensite mysite.com

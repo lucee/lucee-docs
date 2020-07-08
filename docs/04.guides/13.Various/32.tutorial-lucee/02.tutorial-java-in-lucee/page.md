@@ -140,6 +140,7 @@ In addition to the simple CF types, you will likely see many times that you have
 **Java Type**
 
 **Lucee Type**
+
 ```lucee
 <tr>
 	<td>java.util.Collection
@@ -257,6 +258,7 @@ String url = manager.getAuthenticationUrl(id, successUrl);
 // Store in session
 session.setAttribute("authManager", manager);
 ```
+
 Ported to CFML:
 
 ```lucee

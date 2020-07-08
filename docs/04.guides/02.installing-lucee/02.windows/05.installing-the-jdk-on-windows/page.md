@@ -30,9 +30,11 @@ Finally we need to set an environment variable to point to our new Java installa
 5. Finish by clicking OK until your are back at the control panel.
 
 Or using the command line:
+
 ```
 setx JDK_HOME "C:\Program Files\Oracle Java JDK" /m
 ```
+
 To check the environment variable has been set correctly:
 
 1. Open a *new* command prompt, type **set** and hit *enter*
@@ -45,6 +47,7 @@ It is important to keep Java updated with the latest security patches. To do so 
 ## Silent Installation ##
 
 If you need to install this product on several servers then a silent installation will make your life easier:
+
 ```
 jdk-8u31-windows-x64.exe /s addlocal="ToolsFeature" installdir="C:\Program Files\Oracle Java JDK"
 setx JDK_HOME "C:\Program Files\Oracle Java JDK" /m

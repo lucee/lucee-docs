@@ -9,6 +9,7 @@ myStruct = deserializeJson(json);
 
 writeDump(myStruct);
 ```
+
 *Credit to Adam Cameron for [suggesting the example](http://blog.adamcameron.me/2016/01/coldfusion-how-not-to-document-function.html)*
 
 ### Strict Mapping with Queries

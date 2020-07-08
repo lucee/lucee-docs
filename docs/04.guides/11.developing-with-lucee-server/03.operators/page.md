@@ -144,6 +144,7 @@ This would return value1 if condition is true, otherwise it would return false. 
     #value2#
 </cfif>
 ```
+
 or the function:
 
 ```lucee
@@ -164,6 +165,7 @@ The "Elvis operator" is a shortening of the ternary operator. One instance of wh
 ```lucee
  writeOutput(rockstar?: "Elvis Presley");
 ```
+
 Outputs the value of "rockstar" if the variable exists, otherwise it outputs "Elvis Presley"
 
 ## Operators not available in tags ##
@@ -180,4 +182,5 @@ For example:
  <cfset a = "2">
  <cfset b = a ^ 2>
 ```
+
 returns 4. It casts the string to a number as it needs to.

@@ -59,6 +59,7 @@ this.pdf.fontDirectory = "path/to/my/font";
 ```
 
 or via application.cfm
+
 ```lucee
 <cfapplication pdf="#{fontDirectory	:'path/to/my/font'}#">
 ```
@@ -70,6 +71,7 @@ If the font directory isn't specified, Lucee will look for fonts in /WEB_INF/luc
 Attributes with cfdocument are a mess. You can make it clearer using the following syntax:
 
 Example:
+
 ```lucee
 <cfdocument marginTop="5" marginBottom="5" marginLeft="5" marginRight="5" pageWidth="5" pageHeight="5" pageType="A4">
 ```
@@ -89,6 +91,7 @@ Or even simpler
 #### Additional Units ####
 
 In addition to "inch" and "cm", the attribute unit now supports "pixel" and "points".
+
 ```lucee
 <cfdocument unit="in|cm|px|pt">
 ```

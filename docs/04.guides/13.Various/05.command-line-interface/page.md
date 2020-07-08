@@ -90,6 +90,7 @@ mindblown.sh:
 #!/usr/bin/env lucee
 <cfoutput>#now()#</cfoutput>
 ```
+
 $chmod +x mindblown.sh
 
 $./blowmind.sh
@@ -132,11 +133,13 @@ Start the server with log level=DEBUG mode (This is awesome! Shows classloader h
 ```lucee
 lucee -server -debug
 ```
+
 Start the server and background it:
 
 ```lucee
 lucee -server -background
 ```
+
 To stop it:
 
 ```lucee

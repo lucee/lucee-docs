@@ -39,6 +39,7 @@ napASecond();
 dump("done in #getTickCount()-start#ms");
 </cfscript>
 ```
+
 Threads run independently of other threads or code in Lucee. Lucee does not the thread first and then the following code.
 
 Threads are mainly used to retrieve data from the database, cfhttp, or webservice. Threads are used when it does not matter how much time it takes to execute.
@@ -228,6 +229,7 @@ tasks.each(
 );
 </cfscript>
 ```
+
 Currently, the default max threads is 20. In the future, we plan to use a smart thread pool based on your JVM(Java ExecutorService). So you will not have to take care how many threads are being used. The system will do that, and provide the best choice for your code.
 
 ```lucee

@@ -27,6 +27,7 @@ bind="url:url?name={bindedElement}&......."
 ```lucee
 bind="javascript:jsFunction({bindedElement})"
 ```
+
 The 3 bindings fashions are not supported by any tag. Check the single tag docs for specific support.
 
 ### Parameters Syntax ###
@@ -38,6 +39,7 @@ On change of element with name myName the cfc is called passing myName=value as 
 ```lucee
 bind="cfc:ajaxproxy.cfc.test.getInfo({myName})
 ```
+
 On change of elements with name 'myName' or element with name 'myAge' contained by an element with id 'myForm' cfc is called passing both fields as arguments.
 
 ```lucee

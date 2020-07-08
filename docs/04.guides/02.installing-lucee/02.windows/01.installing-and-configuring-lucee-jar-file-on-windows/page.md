@@ -30,6 +30,7 @@ We have to make sure that Apache Tomcat is able find the Lucee jar files. To do 
 ```
 common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.home}/lib","${catalina.home}/lib/*.jar"
 ```
+
 Append the path to Lucee's program directory, which is **C:/Program Files/Lucee/*.jar**. Note the *forward slashes*.
 
 ```

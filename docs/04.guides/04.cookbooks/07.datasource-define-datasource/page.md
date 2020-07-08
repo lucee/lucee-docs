@@ -45,6 +45,7 @@ this.datasources["myds"] = {
 };
 
 ```
+
 but alternatively you can also use this pattern
 
 ```cfs

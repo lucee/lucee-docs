@@ -19,6 +19,7 @@ The following examples shows you how to output the current date.
 	</body>
 </html>
 ```
+
 Executing this code you will see something like the following:
 
 > The time is 31-Jan-2038 11:12:08

@@ -31,6 +31,7 @@ Adobe CF uses Axis1 up to version 9, and starting with version 10 it uses both A
 ### Cookies ###
 
 In CF, you can use cookies with complex names and dot notation, for example:
+
 ```lucee
     <cfcookie name="person.name" value="wilson, john">
     <cfset cookie.person.lastname="Santiago">

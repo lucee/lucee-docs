@@ -201,6 +201,7 @@ You can
 	dump(res);
 </cfscript>
 ```
+
 Use ```QueryBuilder("test")``` as constructor
 
 * define a datasource with constructor or 'setDatasource('test')' function,
@@ -220,6 +221,7 @@ qb.execute();
 dump(res);
 </cfscript>
 ```
+
 You can also change the where condition also like below example
 
 ```lucee

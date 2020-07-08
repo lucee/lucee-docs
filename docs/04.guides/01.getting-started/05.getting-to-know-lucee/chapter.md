@@ -96,6 +96,7 @@ It's good practice to keep business logic and presentation separate, but if you 
     var getEmployee = getEmployeeQuery.getResult();
 </cfscript>
 ```
+
 ```lucee
 <cfoutput query="getEmployee">
     <h1>Employee details</h1>

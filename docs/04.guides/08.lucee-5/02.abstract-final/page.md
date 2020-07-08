@@ -44,6 +44,7 @@ final component extends="AContext" {
     }
 }
 ```
+
 Here we are extending the component "AContext" from above and implementing the required "getFile" function.
 
 In contrast to "abstract", a "final" method also can be defined in a non-final component.

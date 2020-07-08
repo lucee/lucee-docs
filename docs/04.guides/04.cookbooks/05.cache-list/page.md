@@ -19,6 +19,7 @@ array function cacheNames(){
 	return getPageContext().getConfig().getCacheConnections().keySet().toArray();
 }
 ```
+
 This function returns an array containing all cache connections available.
 
 ```cfs
@@ -34,4 +35,5 @@ boolean function hasCache(required string cacheName){
 	return false;
 }
 ```
+
 This is a variation of this function that checks if a cache with the given name exists.

@@ -74,6 +74,7 @@ If the checksum is provided, we can check it. However, the checksum may not alwa
 ### Example 2 ###
 
 //download.cfm
+
 ```luceescript
 <cfscript>
 	fi=fileInfo("esapi-2.1.0.1.jar");
@@ -127,6 +128,7 @@ Download the file using the below example code:
 	}
 </cfscript>
 ```
+
 Above code checks and validates the downloaded file.
 
 ### Footnotes ###

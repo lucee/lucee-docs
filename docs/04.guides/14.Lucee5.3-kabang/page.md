@@ -136,6 +136,7 @@ Example if the for loop
 	}
 </cfscript>
 ```
+
 Byte code for the for statement is very complicated and not that fast. You can see the generic loop, but the byte code for the for statement is slower in previous versions because is more generic than what we did with Lucee 5.3. When the for is used in a certain way, we improve byte code and make it more specialized and faster. This is just one example of byte code optimization.
 
 #### Bytecode Optimized for Java >=8 ####
@@ -251,6 +252,7 @@ dump(extensionList());
 ```
 
 The below example describes how to install an extension using Administrator(). Pass the extension ID to the function updateExtension(extension), if not installed it will install the extension: (To find the ID of the extension ID, see the Lucee Admin -> extensions or on the Lucee download page.)
+
 ```luceescript
 // Install Update MongoDB
 admin=new Administrator("server","server");
@@ -263,6 +265,7 @@ dump(extensionExists("E6634E1A-4CC5-4839-A83C67549ECA8D5B"));
 ```
 
 The below example describes how to update an extension version:
+
 ```luceescript
 admin=new Administrator("server","server");
 
@@ -285,6 +288,7 @@ dump(extensionExists("E6634E1A-4CC5-4839-A83C67549ECA8D5B"));
 Added the attribute sql to the tag query. Instead of passing sql in the body of the tag, you can now pass it as a variable with the attribute sql.
 
 Passing in the body of the tag (legacy code)
+
 ```lucee
 <cfquery name="qry">
 	select 1 as one
@@ -313,6 +317,7 @@ Passing sql as an attribute within a script
 Lucee 5.3 adds the ability to define FTP credentials in Application.cfc/cfapplication for FTP resources. Use with prefix "ftp://".
 
 In previous versions of Lucee, the ftp credentials were seen in the code like this:
+
 ```luceescript
 ftp = ftp://#request.ftp.user#:#request.ftp.pass#@ftp53.world4you.com:21/;
 
@@ -320,6 +325,7 @@ dump(directoryList(ftp));
 ```
 
 This does not keep the credentials secure. In Lucee 5.3 FTP credentials can be supplied in the Application.cfc as shown in the example below:
+
 ```luceescript
 //application.cfc
 component {

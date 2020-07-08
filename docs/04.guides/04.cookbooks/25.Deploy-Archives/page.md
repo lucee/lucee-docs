@@ -20,6 +20,7 @@ component test {
 }
 </cfscript>
 ```
+
 You will need to add a mapping for the above cfc, because it's not inside the Root folder
 
 Create component mapping in **Archives & Resources -> Component**
@@ -51,10 +52,12 @@ test = new org.lucee.examples.deploy.Test();
 dump(test.slave());
 </cfscript>
 ```
+
 ```
 name: /deploy
 resource: ROOT/test/deploy/index.cfm
 ```
+
 After creating mapping in the Administrator, you can create an Archive file by clicking **assign archive to mapping**
 
 Now you can see the both lar files were in WEB-INF\lucee\context\archives folder.

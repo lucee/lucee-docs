@@ -16,6 +16,7 @@ component {
     this.mappings['/shop']=getDirectoryFromPath(getCurrentTemplatePath())&"shop";
 }
 ```
+
 We define the mappings as a struct, where the key of the struct is the virtual path.
 
 Now you can simply use that mapping in your code
@@ -37,6 +38,7 @@ component {
 
 }
 ```
+
 In difference to "this.mappings", " this.componentpaths" and "this.customtagpaths" are taking arrays as input and not structs, because in that case there is not "virtual path" that needs to be defined.
 
 ## Advanced ##
@@ -53,11 +55,13 @@ component {
    };
 }
 ```
+
 In that case we not only define a physical path, we also define a Lucee archive (.lar). "primary" defines where Lucee is checking first for a resource, let's say you have the following code
 
 ```coldfusion
    <cfinclude template="/shop/whatever.cfm">
 ```
+
 In that case Lucee first checks in the archive for "whatever.cfm" , if not found there, it looks inside the physical path.
 
 Of course this can be done for all mapping types

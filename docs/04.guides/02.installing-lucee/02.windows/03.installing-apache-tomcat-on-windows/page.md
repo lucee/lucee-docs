@@ -114,6 +114,7 @@ A few lines below, you will find the line:
 ```xml
 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
 ```
+
 We need to specify the full path to the log directory:
 
 ```xml
@@ -181,11 +182,13 @@ Find the line:
 ```
 tomcat.util.scan.StandardJarScanFilter.jarsToSkip=\
 ```
+
 Remove the lines below until the next comment and change the line to:
 
 ```
 tomcat.util.scan.StandardJarScanFilter.jarsToSkip=\*.jar
 ```
+
 Instead of skipping the list of JAR's at startup, Tomcat will skip all JAR's.
 
 Find the line:

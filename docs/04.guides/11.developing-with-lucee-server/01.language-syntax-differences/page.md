@@ -157,6 +157,7 @@ variables["a.b.c"]="Susi";
 writedump(variables["a.b.c"]); // This works in ACF and Lucee Server
 writedump(variables.a.b.c); // This works in ACF but fails in Lucee Server, because there is no key "a" in the variables scope!
 ```
+
 The following construct also works in ACF:
 
 ```luceescript
@@ -173,6 +174,7 @@ variables["a.b.c"]="Susi";
 structKeyTranslate(variables, true, true);
 dump(variables);
 ```
+
 The above will generate a structure like this:
 
 ```luceescript
@@ -192,6 +194,7 @@ Example:
 * the rest of the hint
 */ function test(arg1){ }
 ```
+
 Now if you call getMetaData(test) you will get a struct that contains additional keys (in this case prop1). Other implementations allow you to define each possible argument of a function in annotation style, just like this:
 
 ```luceescript
@@ -212,6 +215,7 @@ This notation and thus the functionality behind it means, that comments are affe
 public int function test(arg1) {
 }
 ```
+
 ACF throws the following error:
 
 Attribute validation error. A duplicate attribute RETURNTYPE has been encountered. Attributes with the same name cannot be provided more than once.
@@ -311,6 +315,7 @@ A literal is a final value which does not change at runtime or is not a variable
 b=true;
 n=1234.5678;
 ```
+
 ACF internally stores these two literals as strings, Lucee Server stores them as a Boolean and as a double. Lucee Server tries to store variables always in the format the user has defined them in the code, for the following reasons:
 
 ### logic ###

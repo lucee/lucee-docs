@@ -20,4 +20,5 @@ Change where you want default="browser" to be instead:
         <dump-writer name="simple" class="lucee.runtime.dump.SimpleHTMLDumpWriter" />
 </dump-writers>
 ```
+
 Return to [[faq-s]] or [[tips-and-tricks]]

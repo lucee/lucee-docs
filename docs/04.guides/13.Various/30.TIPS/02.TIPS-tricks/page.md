@@ -67,6 +67,7 @@ resin
         Client2
             host.xml
 ```
+
 etc
 
 ### Hide the fact you are running Lucee from users ###
@@ -105,6 +106,7 @@ Sometimes you want to hide from users of your site, what underlying technology y
 	<cfreturn true>
 </cffunction>
 ```
+
 **Restart Lucee**
 
 ## Getting the column list of a query object, case-sensitive! ##
