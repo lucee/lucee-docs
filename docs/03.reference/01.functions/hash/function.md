@@ -4,7 +4,7 @@ id: function-hash
 categories:
 - crypto
 description: 'Returns the one-way hash of a variable-length input string based on
-  the algorithm, producing a fixed-length string. '
+  the algorithm, producing a fixed-length string.'
 ---
 
 Returns the one-way hash of a variable-length input string based on the algorithm, producing a fixed-length string.

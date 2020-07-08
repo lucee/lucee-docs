@@ -5,7 +5,7 @@ categories:
 - datetime
 - internationalization
 description: 'Returns the week number in the year of the date referenced, based on
-  the local influence. '
+  the local influence.'
 ---
 
 Returns the week number in the year of the date referenced, based on the local influence.

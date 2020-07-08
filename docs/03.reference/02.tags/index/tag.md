@@ -6,7 +6,7 @@ related:
 - tag-search
 categories:
 - search
-description: 'Populates a full text search collections with indexed data. '
+description: 'Populates a full text search collections with indexed data.'
 ---
 
 Populates collections with indexed data.

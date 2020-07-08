@@ -10,7 +10,7 @@ categories:
 - string
 methodObject: string
 methodName: parseDateTime
-description: 'Parses a date/time string according to the English (U.S.) locale conventions. '
+description: 'Parses a date/time string according to the English (U.S.) locale conventions.'
 ---
 
 Parses a date/time string according to the English (U.S.) locale conventions.

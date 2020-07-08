@@ -3,7 +3,7 @@ title: <cfpdf>
 id: tag-pdf
 categories:
 - pdf
-description: 'Manipulates existing PDF documents. '
+description: 'Manipulates existing PDF documents.'
 ---
 
 Manipulates existing PDF documents.

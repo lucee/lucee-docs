@@ -4,7 +4,7 @@ id: function-trace
 categories:
 - debugging
 description: 'Displays and logs debugging data about the state of an application at
-  the time this function executes. '
+  the time this function executes.'
 ---
 
 Displays and logs debugging data about the state of an application at the time this function executes.

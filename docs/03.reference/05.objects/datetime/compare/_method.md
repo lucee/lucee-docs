@@ -8,7 +8,7 @@ categories:
 - datetime
 methodObject: datetime
 methodName: compare
-description: 'Compares to date, to the given optional resolution. '
+description: 'Compares to date, to the given optional resolution.'
 ---
 
 Compares to date, to the given optional resolution.

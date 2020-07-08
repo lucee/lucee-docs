@@ -5,7 +5,7 @@ related:
 - function-queryslice
 categories:
 - query
-description: 'Use instead the function QuerySlice. '
+description: 'Use instead the function QuerySlice.'
 ---
 
 Use instead the function [[function-QuerySlice]].
