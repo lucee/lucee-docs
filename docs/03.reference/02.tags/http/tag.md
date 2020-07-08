@@ -7,7 +7,7 @@ related:
 categories:
 - cache
 - protocols
-description: 'Lets you execute HTTP POST and GET operations on files. '
+description: 'Lets you execute HTTP POST and GET operations on files.'
 ---
 
 Lets you execute HTTP POST and GET operations on files.

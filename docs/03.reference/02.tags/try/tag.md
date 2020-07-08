@@ -2,7 +2,7 @@
 title: <cftry>
 id: tag-try
 description: 'Used with one or more cfcatch tags, the cftry tag lets you catch and
-  process exceptions in CFML pages. '
+  process exceptions in CFML pages.'
 ---
 
 Used with one or more [[tag-catch]] tags, the cftry tag lets you catch and process exceptions in CFML pages.

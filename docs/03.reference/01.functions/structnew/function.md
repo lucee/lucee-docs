@@ -4,7 +4,7 @@ id: function-structnew
 categories:
 - collection
 - struct
-description: 'Creates an empty structure. '
+description: 'Creates an empty structure.'
 ---
 
 Creates an empty structure.

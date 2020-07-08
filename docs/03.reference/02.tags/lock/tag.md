@@ -2,7 +2,7 @@
 title: <cflock>
 id: tag-lock
 description: 'Provides two types of locks to ensure the integrity of shared data:
-  Exclusive lock and Read-only lock. '
+  Exclusive lock and Read-only lock.'
 ---
 
 Provides two types of locks to ensure the integrity of shared data: Exclusive lock and Read-only lock.

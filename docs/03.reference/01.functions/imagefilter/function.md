@@ -3,7 +3,7 @@ title: ImageFilter
 id: function-imagefilter
 categories:
 - image
-description: 'the function ImageFilter allows to execute a filter against a image. '
+description: 'the function ImageFilter allows to execute a filter against a image.'
 ---
 
 the function ImageFilter allows to execute a filter against a image.

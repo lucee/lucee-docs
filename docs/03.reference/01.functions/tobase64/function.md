@@ -7,7 +7,7 @@ related:
 categories:
 - encode
 - binary
-description: 'Calculates the Base64 representation of a string or binary object. '
+description: 'Calculates the Base64 representation of a string or binary object.'
 ---
 
 Calculates the Base64 representation of a string or binary object.

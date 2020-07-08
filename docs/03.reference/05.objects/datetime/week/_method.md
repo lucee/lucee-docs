@@ -8,7 +8,7 @@ categories:
 - datetime
 methodObject: datetime
 methodName: week
-description: 'From a date/time object, determines the week number within the year. '
+description: 'From a date/time object, determines the week number within the year.'
 ---
 
 From a date/time object, determines the week number within the year.

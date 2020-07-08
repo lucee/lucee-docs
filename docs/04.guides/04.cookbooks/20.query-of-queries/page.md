@@ -6,7 +6,7 @@ related:
 categories:
 - query
 description: 'Query of queries (QoQ) is a technique for re-querying an existing (in
-  memory) query without another trip to the database. '
+  memory) query without another trip to the database.'
 ---
 
 ### Introduction ###

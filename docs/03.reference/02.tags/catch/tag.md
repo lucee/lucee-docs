@@ -5,7 +5,7 @@ related:
 - tag-catch
 - tag-throw
 - tag-try
-description: 'Used only inside a cftry, the cfcatch tag catches and process exceptions. '
+description: 'Used only inside a cftry, the cfcatch tag catches and process exceptions.'
 ---
 
 Used only inside a [[tag-try]], the cfcatch tag catches and process exceptions.
