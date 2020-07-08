@@ -1,7 +1,7 @@
 ### Tag based syntax
 
 ```lucee
-<cfcomponent displayname="Hello" output="false" style="document" hint="hint for Hello">>
+<cfcomponent displayname="Hello" output="false" style="document" hint="hint for Hello">
     <!--- functions and other values here -->
 </cfcomponent>
 ```
