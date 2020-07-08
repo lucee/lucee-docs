@@ -36,7 +36,7 @@ This document explains why Query of Query is not the best approach and provides 
 	<cfquery dbtype="query" name="q1">
 		select 	name, description
 		from 	q
-		where 	description like  <cfqueryparam value='%#s#%' cfsqltype="varchar">
+		where 	description like <cfqueryparam value='%#s#%' cfsqltype="varchar">
 	</cfquery>
 </cftimer>
 <cfdump var=#q1.recordcount#>

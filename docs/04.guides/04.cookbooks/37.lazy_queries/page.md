@@ -18,7 +18,7 @@ This document explains about lazy queries with some simple examples as follows:
 
 //regularQuery.cfm
 
-query name="qry"  returntype="query" {
+query name="qry" returntype="query" {
 	echo("select * from lazyQuery");
 }
 dump(numberFormat(qry.getColumnCount()*qry.getRowCount()));
@@ -42,7 +42,7 @@ As a lazy query loops through, it loads the data on demand so you do not have to
 
 //lazyQuery.cfm
 
-query name="qry"  returntype="query" lazy=true {
+query name="qry" returntype="query" lazy=true {
 	echo("select * from lazyQuery");
 }
 loop query=qry {
@@ -71,7 +71,7 @@ results=structNew("ordered");
 loop struct=types index="type" item="lazy" {
 	loop from=1 to=10 index="i" {
 		start=getTickCount('nano');
-		query name="qry"  returntype="query" lazy=lazy {
+		query name="qry" returntype="query" lazy=lazy {
 			echo("select * from lazyQuery");
 		}
 		x=qry.val;

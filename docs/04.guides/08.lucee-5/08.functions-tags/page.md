@@ -12,7 +12,7 @@ id: lucee-5-functions-tags
 Similar to the function `evaluate`, this function executes CFML/Lucee code that you provide as a string.
 
 ```luceescript
-render('<cfmail subject="Hi There!" from="#from#"  to="#to#">Salve!</cfmail> ');
+render('<cfmail subject="Hi There!" from="#from#" to="#to#">Salve!</cfmail> ');
 ```
 
 ### getTagData/getFunctionData (extended) ###
@@ -25,7 +25,7 @@ With this argument you can define the dialect you want details for, if not defin
 
 # Locale/Regional Functions #
 
-Functions specific for dealing with `locale` and  `timezone`. Lucee 5 now handles `locale` (java.util.Locale) and `timezone` (java.util.TimeZone) objects natively.
+Functions specific for dealing with `locale` and `timezone`. Lucee 5 now handles `locale` (java.util.Locale) and `timezone` (java.util.TimeZone) objects natively.
 
 So the function `getLocale()` now returns a locale object and `getTimeZone()` now returns a timezone object. Of course Lucee can still handle string representations of these types as previously.
 
@@ -68,7 +68,7 @@ dump(manifestread("C:\whatever\whatever.jar")); // dumps the manifest from whate
 
 `createObject("java", string className, string nameOrPath, string versionOrDelimiter)`
 
-The  `createObject("java",...)` function has been extended and you can use this function in the same way, but in addition you can also load a class by defining an OSGi bundle and version. In that case Lucee will check if that class is available locally, if not it will try to download the necessary bundle from the update provider.
+The `createObject("java",...)` function has been extended and you can use this function in the same way, but in addition you can also load a class by defining an OSGi bundle and version. In that case Lucee will check if that class is available locally, if not it will try to download the necessary bundle from the update provider.
 
 ```luceescript
 // Load a class with the definition of the bundle name and version, in this case we are using a different version than the one Lucee has in the core.

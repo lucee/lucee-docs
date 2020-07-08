@@ -5,7 +5,7 @@ filterResult = listFilter(mylist,
 		if(element != "water" ){
 			return true;
 		}
-		return  false;
+		return false;
 	}, "|"
 );
 writeDump(filterResult);
@@ -16,9 +16,9 @@ listVal="one,two,three,four,five";
 res=listVal.listFilter(
 	function(elem,ind){
 		if(elem!="three"){
-			return  true;
+			return true;
 		}
-		return  false;
+		return false;
 	});
 writeDump(res);
 ```

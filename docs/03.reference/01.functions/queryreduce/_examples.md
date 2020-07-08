@@ -7,7 +7,7 @@
 	]);
 	date=createDateTime(2016,3,13,17,0,0);
 	totalAge = queryreduce( people,function(age=0, row, rowNumber, recordset ){
-	    return age +  DateDiff( 'yyyy', recordset.dob, date );
+	    return age + DateDiff( 'yyyy', recordset.dob, date );
 	});
 	writeDump(totalAge);
 ```

@@ -126,7 +126,7 @@ component extends='lucee.admin.plugin.Plugin' {
 	*
 	* @lang A struct of translated keys based on selected language
 	* @app A struct of data for this plugin persisted in the application scope
-	* @req A struct containing  form and url variables for the request.
+	* @req A struct containing form and url variables for the request.
 	*/
 	function overview( struct lang, struct app, struct req ) {
 		// Set the data into the req "scope"
@@ -138,7 +138,7 @@ component extends='lucee.admin.plugin.Plugin' {
 	*
 	* @lang A struct of translated keys based on selected language
 	* @app A struct of data for this plugin persisted in the application scope() and save()
-	* @req A struct containing  form and url variables for the request.
+	* @req A struct containing form and url variables for the request.
 	*/
 	function update( struct lang, struct app, struct req ) {
 		// Set data back into memory
@@ -148,7 +148,7 @@ component extends='lucee.admin.plugin.Plugin' {
 		// Redirect back to main page
 		return 'redirect:overview';
 	}
-	 
+
 }
 ```
 

@@ -28,7 +28,7 @@ Run the above index.cfm, and you get a timestamp. Whenever we call our file, Luc
 
 * You can clear the cache by code using `pagePoolClear()`. This clears all template cache so that Lucee will check again if the template has changed. On the next request Lucee will check initially for the file.
 
-* Another option to clear the template cache is to use clear cache via the admin by clicking the button in  _Admin -> Settings -> Performance/ Caching -> Page Pool Cache_.
+* Another option to clear the template cache is to use clear cache via the admin by clicking the button in _Admin -> Settings -> Performance/ Caching -> Page Pool Cache_.
 
 ### Footnotes ###
 

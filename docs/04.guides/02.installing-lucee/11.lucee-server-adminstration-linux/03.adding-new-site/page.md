@@ -206,7 +206,7 @@ The default location of the server.xml file is /opt/lucee/tomcat/conf/server.xml
 < !-- Define the default virtual host
     Note: XML Schema validation will not work with Xerces 2.2.
        -->
-      <Host name="localhost"  appBase="webapps"
+      <Host name="localhost" appBase="webapps"
             unpackWARs="true" autoDeploy="true"
             xmlValidation="false" xmlNamespaceAware="false">
       </host>

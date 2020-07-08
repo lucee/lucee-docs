@@ -5,7 +5,7 @@ categories:
 - pdf
 ---
 
-The `<cfpdfformparam>` tag  is not supported natively by Lucee.
+The `<cfpdfformparam>` tag is not supported natively by Lucee.
 
 This functionality is available via 3rd party extensions:
 

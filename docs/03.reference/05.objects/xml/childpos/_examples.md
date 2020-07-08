@@ -10,6 +10,6 @@
 		</employee>
 	</office>
 </cfxml>
-<cfset res =  xmlobject.xmlroot.ChildPos("employee",1)>
+<cfset res = xmlobject.xmlroot.ChildPos("employee",1)>
 <cfdump var="#res#" />
 ```

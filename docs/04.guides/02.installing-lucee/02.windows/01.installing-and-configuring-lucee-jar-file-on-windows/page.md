@@ -101,7 +101,7 @@ Below this list, new servlets and their mappings must be added:
 </servlet-mapping>
 ```
 
-*Note:* After the last  **</servlet-mapping>**, the file ends with a closing **</web-app>**
+*Note:* After the last **</servlet-mapping>**, the file ends with a closing **</web-app>**
 
 Finally a Java option needs to be added:
 

@@ -94,5 +94,5 @@ can be a valid integer (0 denotes check every time,
 ```lucee
 #!/bin/bash
 cd $(dirname $0)
-java -DSTOP.PORT=8887 -DSTOP.KEY=lucee -jar -Xms256M  -Xmx512M lib/start.jar lib=/opt/jars/lucee >> /tmp/lucee-server-`date "+%Y%m%d"` 2>&1
+java -DSTOP.PORT=8887 -DSTOP.KEY=lucee -jar -Xms256M -Xmx512M lib/start.jar lib=/opt/jars/lucee >> /tmp/lucee-server-`date "+%Y%m%d"` 2>&1
 ```

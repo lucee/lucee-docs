@@ -21,7 +21,7 @@ Before we start with the installation, we need to dive into some basics:
 * The data of the application can be stored in a *data directory* on a different drive as C-drive
 * A windows service can run with a **low privileged** user permissions
 
-This guide will  fully cover a setup of Apache Tomcat to fullfill these goals from *What we really like* above.
+This guide will fully cover a setup of Apache Tomcat to fullfill these goals from *What we really like* above.
 
 In terms of Apache Tomcat, we split the files by setting Tomcat's main variables to the **Application path** and **Data path** later on:
 
@@ -36,7 +36,7 @@ Before we start, let's download Apache Tomcat from this page: [Tomcat 8 Download
 2. Browse the expanded content in your temporary folder and change into the folder **apache-tomcat-8.0.18**.
 3. Copy the five files from the root in to the folder **C:\Program Files\Tomcat**
 4. Goto the folder named *bin*.
-5. Copy all files, except  *\*.bat*, *\*.gz* and *\*.sh* to the folder **C:\Program Files\Tomcat\bin**. We don't need the batch files: The Tomcat service will get his configuration from the Windows registry instead.
+5. Copy all files, except *\*.bat*, *\*.gz* and *\*.sh* to the folder **C:\Program Files\Tomcat\bin**. We don't need the batch files: The Tomcat service will get his configuration from the Windows registry instead.
 6. Go back one level and goto to the folder named *lib*
 7. Copy all files to the folder **C:\Program Files\Tomcat\lib**
 
@@ -99,7 +99,7 @@ Let's go to the folder **D:\Tomcat\conf**.
 Catalina's default host needs some tweaking. Find the line:
 
 ```xml
-<Host name="localhost"  appBase="webapps"
+<Host name="localhost" appBase="webapps"
             unpackWARs="true" autoDeploy="true">
 ```
 

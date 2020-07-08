@@ -24,7 +24,7 @@ Scopes held in memory.  (Session/client scopes stored in external cache or datas
 
 Requests/CF Threads- Request and CF Threads currently running on the system.
 
-Datasource Connections-  Open datasource connections.
+Datasource Connections- Open datasource connections.
 
 Task Spooler: Active and failed tasks in the Task Spooler.  This includes tasks to send E-mail messages.
 
@@ -364,7 +364,7 @@ ACF 2018 introduced a lot of new functionality. Luckily, Lucee already supports 
 
 * Adding your own Cache Engine -> supported
 
-* Full Null Support  - > You can enable or disable null support in admin
+* Full Null Support - > You can enable or disable null support in admin
 
 * Data Type Preservation (no setting to disable) -> always supported in Lucee
 

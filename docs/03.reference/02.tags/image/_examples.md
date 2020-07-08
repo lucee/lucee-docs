@@ -10,7 +10,7 @@
 ### Image captcha
 
 ```lucee
-<cfimage action="captcha" text="Captcha!"  difficulty="low" height="30" width="150" fontSize="18"
+<cfimage action="captcha" text="Captcha!" difficulty="low" height="30" width="150" fontSize="18"
 fonts="Comic Sans MS,Times New Roman">
 ```
 

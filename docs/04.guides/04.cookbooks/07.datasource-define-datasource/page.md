@@ -33,7 +33,7 @@ After that you can delete the datasource you have defined in the Administrator.
 
 ### Advanced ###
 
-Like you can see, the code for a datasource definition has this pattern (class,  connectionString, username and password)
+Like you can see, the code for a datasource definition has this pattern (class, connectionString, username and password)
 
 ```cfs
 
@@ -65,7 +65,7 @@ this.datasources["myds"] = {
         , blob: false // enable blob
         , clob: false // enable clob
         , storage: false // allow to use this datasource as a session/application storage
-        , timezone: 'CET'  // if set Lucee change the environment timezone
+        , timezone: 'CET' // if set Lucee change the environment timezone
         , custom: {useUnicode:true,characterEncoding:'UTF-8'} // a struct that contains type specific settings
 };
 

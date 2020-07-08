@@ -1,6 +1,6 @@
 ---
 title: Checksum
-id:  _checksum
+id: _checksum
 ---
 
 This document explains how to use a checksum in lucee.

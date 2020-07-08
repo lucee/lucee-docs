@@ -148,11 +148,11 @@ cellular
 	- randomness (numeric)
 	- gridType (String)
 		the grid type to set, one of the following:
-		-  RANDOM
-		-  SQUARE
-		-  HEXAGONAL
-		-  OCTAGONAL
-		-  TRIANGULAR
+		- RANDOM
+		- SQUARE
+		- HEXAGONAL
+		- OCTAGONAL
+		- TRIANGULAR
 	- distancePower (numeric)
 	- scale (numeric)
 		Specifies the scale of the texture.
@@ -288,11 +288,11 @@ crystallize
 	- randomness (numeric)
 	- gridType (String)
 		the grid type to set, one of the following:
-		-  RANDOM
-		-  SQUARE
-		-  HEXAGONAL
-		-  OCTAGONAL
-		-  TRIANGULAR
+		- RANDOM
+		- SQUARE
+		- HEXAGONAL
+		- OCTAGONAL
+		- TRIANGULAR
 	- distancePower (numeric)
 	- scale (numeric)
 		Specifies the scale of the texture.
@@ -942,11 +942,11 @@ pointillize
 	- randomness (numeric)
 	- gridType (String)
 		the grid type to set, one of the following:
-		-  RANDOM
-		-  SQUARE
-		-  HEXAGONAL
-		-  OCTAGONAL
-		-  TRIANGULAR
+		- RANDOM
+		- SQUARE
+		- HEXAGONAL
+		- OCTAGONAL
+		- TRIANGULAR
 	- distancePower (numeric)
 	- scale (numeric)
 		Specifies the scale of the texture.
@@ -1056,7 +1056,7 @@ ripple
 	- waveType (String)
 		The wave type.
 		valid values are:
-		- sine (default):  Sine wave ripples.
+		- sine (default): Sine wave ripples.
 		- sawtooth: Sawtooth wave ripples.
 		- triangle: Triangle wave ripples.
 		- noise: Noise ripples.

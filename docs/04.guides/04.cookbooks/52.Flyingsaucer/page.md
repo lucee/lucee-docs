@@ -52,7 +52,7 @@ You can define a font directory where you have the fonts(.ttf,.otf) you are usin
 
 Define the font directory Application itself:
 
-via  Application.cfc
+via Application.cfc
 
 ```luceescript
 this.pdf.fontDirectory = "path/to/my/font";

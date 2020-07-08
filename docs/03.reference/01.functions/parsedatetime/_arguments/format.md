@@ -23,7 +23,7 @@ All other characters are not interpreted
 - KK: Hour in am/pm (0-11), leading zero for single-digit hours (Example:02)
 - l,L: milliseconds, with no leading zeros (Example:3)
 - ll,LL: milliseconds, leading zero for single-digit days (Example:03)
-- lll,LLL: milliseconds,  2 leading zero for single-digit days (Example:003)
+- lll,LLL: milliseconds, 2 leading zero for single-digit days (Example:003)
 - m,M: Month as digits, no leading zero for single-digit months (Example:6)
 - mm,MM: Month as digits, leading zero for single-digit months (Example:06)
 - mmm,MMM: Month as a three-letter abbreviation (Example:Jun)
