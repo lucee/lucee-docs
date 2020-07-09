@@ -10,7 +10,7 @@ These instructions assume you know how to set up DNS, port forwarding for your r
 
 1) Install Lucee [[https://lucee.org/downloads.html]]
 
-2) Verify that Lucee is running (The internal IP of my Lucee server is 192.168.1.80, so I went to http://192.168.1.80:8888 to view the Hello Lucee page, which verified a successful deployment)
+2) Verify that Lucee is running (The internal IP of my Lucee server is 192.168.1.80, so I went to <http://192.168.1.80:8888> to view the Hello Lucee page, which verified a successful deployment)
 
 3) Set up DNS for a site, if you haven't already (I added `lctest.blahblah.com` to my GoDaddy DNS). Set up port forwarding on your router, if needed. Add your new site to IIS.
 
@@ -35,7 +35,7 @@ Substitute your host name and alias, and put in your local folder for docBase
 
 8) On the General tab, click the Stop button. When Service Status changes to Stopped, click the Start button.
 
-9) Create a simple index.cfm file - if you're stumped, you can use the example code from Tom Kitta's tutorial - http://www.tomkitta.com/guides/cf_101.cfm
+9) Create a simple index.cfm file - if you're stumped, you can use the example code from Tom Kitta's tutorial - <http://www.tomkitta.com/guides/cf_101.cfm>
 
 10) Navigate to your alias - for me, it was http://]lctest.blahblah.com - and check that index.cfm executes
 

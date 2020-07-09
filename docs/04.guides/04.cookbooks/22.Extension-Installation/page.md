@@ -28,7 +28,7 @@ In this detail page you can upgrade or downgrade your versions and you can unins
 
 It's most help ful for JDBC driver, choose the version you like. If you update the extension it download & install it automatically.
 
-By default lucee use extension as http://extension.lucee.org.
+By default lucee use extension as <http://extension.lucee.org>.
 
 ### Extension installation via lex file ###
 

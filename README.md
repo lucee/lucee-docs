@@ -62,7 +62,7 @@ More information on how the documentation is built and formatted can be found at
 
 The workflow for contributions is:
 
-* Submit the contributor's agreement: https://docs.lucee.org/guides/get-involved/contributing-contributors-agreement.html
+* Submit the contributor's agreement: <https://docs.lucee.org/guides/get-involved/contributing-contributors-agreement.html>
 * Fork lucee-docs on GitHub.
 * Make your changes in the master branch.
 * Push your changes to your GitHub repo.

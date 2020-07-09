@@ -24,7 +24,7 @@ Lucee's source code is version-controlled with GIT and is hosted on github.com [
 The repository contains a few branches, with the most important ones being "Master" (current release) and "Develop" (alpha and beta releases).
 
 So simply clone the repository to your local drive with the following command:
-$ git clone https://github.com/lucee/Lucee.git
+$ git clone <https://github.com/lucee/Lucee.git>
 
 ### 3. Edit /lucee-core/src/lucee/runtime/Info.ini
 
@@ -83,13 +83,13 @@ You can also build Lucee using Maven via:
 
 Currently the build process requires Java 6 to build successfully, however support for Java 7 and 8 will be added soon. Java 6 is available for Windows and Linux from the Oracle website at the following link:
 
-http://www.oracle.com/technetwork/java/javase/archive-139210.html
+<http://www.oracle.com/technetwork/java/javase/archive-139210.html>
 
 ### Java for Mac OS X
 
 For Mac OS X you will need to obtain a package from the Apple Developer site, as until Java 7, Java on Mac OS X was maintained and provided by Apple. To do this go to the following URL:
 
-https://developer.apple.com
+<https://developer.apple.com>
 
 and sign in using an Apple developer account or register for an account (it's free). Once you have signed in go to the download section and search for the following package:
 

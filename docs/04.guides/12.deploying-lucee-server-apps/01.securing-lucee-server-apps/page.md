@@ -60,7 +60,7 @@ And then there's [Realms and whatnot](https://docs.oracle.com/javaee/6/tutorial/
 
 ## Other options ##
 
-There's the WS-Security standard, with a project implementing this for CFML here http://wss4cf.riaforge.org/ as well. Check out [OWASP](https://www.owasp.org/index.php/ColdFusion_Security_Resources). Terminology: [CSRF](http://en.wikipedia.org/wiki/Cross-site_request_forgery) [XSS](http://en.wikipedia.org/wiki/Cross-site_scripting) [SQL Injection](http://en.wikipedia.org/wiki/SQL_injection)
+There's the WS-Security standard, with a project implementing this for CFML here <http://wss4cf.riaforge.org/> as well. Check out [OWASP](https://www.owasp.org/index.php/ColdFusion_Security_Resources). Terminology: [CSRF](http://en.wikipedia.org/wiki/Cross-site_request_forgery) [XSS](http://en.wikipedia.org/wiki/Cross-site_scripting) [SQL Injection](http://en.wikipedia.org/wiki/SQL_injection)
 
 ### More Resources ###
 

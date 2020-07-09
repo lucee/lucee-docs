@@ -67,4 +67,4 @@ We're almost done! Now we need to start up our Lucee instance and test to make s
 
 	$ sudo /opt/lucee/lucee_ctl start
 
-Next go to the Tomcat Administrator - usually at http://localhost:8888/manager/html/, and see if the JRE that's running is the new one.
+Next go to the Tomcat Administrator - usually at <http://localhost:8888/manager/html/>, and see if the JRE that's running is the new one.

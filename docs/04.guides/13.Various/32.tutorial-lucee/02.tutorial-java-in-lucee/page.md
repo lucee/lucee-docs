@@ -181,15 +181,15 @@ will assign the result of the method call to the variable newValue.
 
 For example, let's say that you want to use the Lucene project from your code. (fortunately, you can use Lucene directly from Lucee thanks to the Lucee Built-in Search), but this can still be a good example.
 
-The first thing to do would be to check the Lucene API docs at http://lucene.apache.org/java/3_3_0/api/all/index.html
+The first thing to do would be to check the Lucene API docs at <http://lucene.apache.org/java/3_3_0/api/all/index.html>
 
 Let's say that you want to create an instance of Lucene's StandardAnalyzer so you can "analyze" text from your CFML code.
 
-Check out StandardAnalyzer's API at http://lucene.apache.org/java/3_3_0/api/all/org/apache/lucene/analysis/standard/StandardAnalyzer.html
+Check out StandardAnalyzer's API at <http://lucene.apache.org/java/3_3_0/api/all/org/apache/lucene/analysis/standard/StandardAnalyzer.html>
 
 Perusing the Constructor Summary, you will notice that the StandardAnalyzer class does not have a no-argument constructor, so you can't just call .init() on the object -- you must pass some argument to it.
 
-The simplest constructor to use, using the default "stop words" is -- StandardAnalyzer( Version matchVersion ) -- and it expects a Version argument. the Version argument is an Enum type http://lucene.apache.org/java/3_3_0/api/all/org/apache/lucene/util/Version.html, so you can not simply pass a string into the StandardAnalyzer's constructor -- that would not work!
+The simplest constructor to use, using the default "stop words" is -- StandardAnalyzer( Version matchVersion ) -- and it expects a Version argument. the Version argument is an Enum type <http://lucene.apache.org/java/3_3_0/api/all/org/apache/lucene/util/Version.html>, so you can not simply pass a string into the StandardAnalyzer's constructor -- that would not work!
 
 So in order to call the StandardAnalyzer's constructor you must first get a reference to an org.apache.lucene.util.Version object.
 

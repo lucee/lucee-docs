@@ -8,7 +8,7 @@ The [Infinispan](http://www.jboss.org/infinispan) extension allows you to create
 
 ### Installation ###
 
-1. Go to the server administrator of your lucee installation, for example: http://localhost/lucee/admin/server.cfm
+1. Go to the server administrator of your lucee installation, for example: <http://localhost/lucee/admin/server.cfm>
 
 1. Under Extension/Applications you should see that under the "Not Installed" extensions there is
 
