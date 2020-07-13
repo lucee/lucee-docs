@@ -6,6 +6,7 @@ arrayPrepend(someArray, 4);
 dump(someArray);
 
 // member function
-doctorArray.prepend('Hurt');
-dump(doctorArray);
+doctorWhoArray = ['Whittaker','Tennant','Baker'];
+doctorWhoArray.prepend('Hurt');
+dump(doctorWhoArray);
 ```
