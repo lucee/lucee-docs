@@ -28,3 +28,11 @@ this.tag.cfhttp.username = "system";
 this.tag.cflog.logfile = "my-custom-log.log";
 this.tag.cflocation.addtoken = false;
 ```
+
+Tags can be called with a struct containing the attributes using *attributeCollection*, Functions use *argumentCollection*
+
+```luceescript
+attrs = { url="https://dev.lucee.org", addToken="false" };
+location attributeCollection=attrs;
+cflocation(attributeCollection=attrs);
+```
