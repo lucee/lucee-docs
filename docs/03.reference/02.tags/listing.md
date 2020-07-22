@@ -29,7 +29,7 @@ this.tag.cflog.logfile = "my-custom-log.log";
 this.tag.cflocation.addtoken = false;
 ```
 
-Tags can be called with a struct containing the attributes using *attributeCollection*, Functions uses *argumentCollection*
+Tags can be called with a struct containing the attributes using *attributeCollection*, Functions use *argumentCollection*
 
 ```luceescript
 attrs = { url="https://dev.lucee.org", addToken="false" };
