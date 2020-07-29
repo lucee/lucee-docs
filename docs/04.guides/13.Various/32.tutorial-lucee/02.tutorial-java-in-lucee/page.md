@@ -354,4 +354,8 @@ You can always use cfdump on a Java object to see what methods and properties ar
 
 	<cfdump var="#myJavaObject#">
 
-See also: [[using-lucee-in-java]]
+See also: 
+
+[[using-lucee-in-java]]
+
+<https://blog.simplicityweb.co.uk/121/loading-java-libraries-dynamically-in-lucee-without-javaloader>
