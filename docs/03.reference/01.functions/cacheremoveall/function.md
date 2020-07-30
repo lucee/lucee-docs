@@ -6,4 +6,6 @@ categories:
     - cache
 ---
 
-this function is deprecated, use instead cacheClear. Removes all elements from the cache
+This function is deprecated, use instead [[function-cacheclear]].
+
+Removes all elements from the cache.
