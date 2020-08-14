@@ -2,8 +2,10 @@
 title: HtmlParse
 id: function-htmlparse
 related:
+- function-xmlparse
 categories:
-    - HTML
+- parsing
+- HTML
 ---
 
-parse the given html (not only xhtml) as xml Object, work similar to xmlParse, but this function is very forgiving with the syntax..
+parse the given html (not only xhtml) as xml Object, work similar to [[function-xmlParse]], but this function is very forgiving with the syntax..
