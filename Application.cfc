@@ -1,5 +1,7 @@
 component {
 	this.name = "luceeDocumentationBuilder-" & Hash( GetCurrentTemplatePath() );
+	
+	this.localMode = true;
 
 	variables.assetBundleVersion = 26; // must match lucee-docs\builders\html\assets\Gruntfile.js _version and server/application.cfc
 
