@@ -25,7 +25,7 @@ You can also assign default values for any tag's attributes using *this.tag.tagn
 
 ```luceescript
 this.tag.cfhttp.username = "system";
-this.tag.cflog.logfile = "my-custom-log.log";
+this.tag.log.file = "my-custom-log.log";
 this.tag.cflocation.addtoken = false;
 ```
 
