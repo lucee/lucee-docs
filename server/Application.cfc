@@ -1,5 +1,7 @@
 component {
 	this.name = "luceeDocumentationLocalServer-" & Hash( GetCurrentTemplatePath() );
+	
+	this.localMode = true;
 
 	this.cwd     = GetDirectoryFromPath( GetCurrentTemplatePath() )
 	this.baseDir = ExpandPath( this.cwd & "../" );
