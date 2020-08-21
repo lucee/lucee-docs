@@ -3,7 +3,7 @@ title: <cfpdf>
 id: tag-pdf
 categories:
 - pdf
-description: 'Manipulates existing PDF documents.'
+description: Manipulates existing PDF documents.
 ---
 
 Manipulates existing PDF documents.
@@ -22,3 +22,4 @@ The following list describes some of the tasks you can perform with the cfpdf ta
 - Create PDF portfolios
 - Add and remove header/footer from PDF documents
 - Optimize PDF documents
+- Extract all the words from the pdf
