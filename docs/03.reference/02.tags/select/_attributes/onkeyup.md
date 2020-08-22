@@ -1,2 +1,1 @@
-JavaScript to run
-            when the user releases a keyboard key in the control.
+JavaScript to run when the user releases a keyboard key in the control.

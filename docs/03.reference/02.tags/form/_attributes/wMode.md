@@ -1,5 +1,5 @@
 Specifies how the Flash form appears relative to
-            other displayable content that occupies the same space on an HTML page.
+other displayable content that occupies the same space on an HTML page.
 
 - window: The Flash form is the topmost layer on the page and obscures anything that would share the
 space, such as drop-down dynamic HTML lists.

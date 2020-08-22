@@ -1,7 +1,7 @@
 Specifies entry completion suggestions to
-                    display as the user types into a text input. The
-                    user can select a suggestion to complete the text
-                    entry.
+display as the user types into a text input. The
+user can select a suggestion to complete the text
+entry.
 
 The valid value can be either of the following:
 
