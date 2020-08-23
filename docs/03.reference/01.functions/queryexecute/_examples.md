@@ -1,5 +1,4 @@
 ```luceescript+trycf
-<cfscript>
     _test = queryNew(
         "_id, _need, _forWorld",
         "integer, varchar, varchar",
@@ -18,5 +17,4 @@
         }
     );
     dump(queryResult);
-</cfscript>
 ```
