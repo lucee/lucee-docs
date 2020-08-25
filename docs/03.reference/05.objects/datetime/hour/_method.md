@@ -12,4 +12,4 @@ categories:
 ---
 
 Gets the current hour of the day.
-        Ordinal value of the hour, in the range 0 - 23.
+Ordinal value of the hour, in the range 0 - 23.

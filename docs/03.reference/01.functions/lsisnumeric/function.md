@@ -9,4 +9,4 @@ categories:
 ---
 
 Determines whether a string is a valid representation of a
-        number in the current locale.
+number in the current locale.
