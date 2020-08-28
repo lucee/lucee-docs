@@ -1,1 +1,8 @@
-Source PDF file to merge. You can specify a PDF variable, a cfdocument variable, or the pathname to a file.
+Source PDF file to merge.
+
+You can specify
+
+- a PDF variable
+- a cfdocument variable
+- a url to a PDF document
+- or the pathname to a file
