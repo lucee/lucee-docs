@@ -3,6 +3,9 @@ title: <cfpdf>
 id: tag-pdf
 categories:
 - pdf
+related:
+- tag-pdfparam
+- tag-document
 description: Manipulates existing PDF documents.
 ---
 
