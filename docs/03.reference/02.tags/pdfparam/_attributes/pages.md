@@ -1,6 +1,6 @@
-Page number or Pages of the PDF source file to merge. 
+Page number or Pages of the PDF source file to merge.
 
-You can specify a range of pages, for example 
+You can specify a range of pages, for example
 
 - "1"
 - "1-5"
