@@ -1,1 +1,15 @@
-action to take
+- addheader
+- addfooter
+- addWatermark 
+- deletePages
+- extractText
+- getInfo
+- merge
+- open
+- removePassword
+- protect
+- read
+- removeWatermark
+- setInfo
+- thumbnail
+- write
