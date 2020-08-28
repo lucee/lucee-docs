@@ -1,4 +1,3 @@
-
 ```luceescript+trycf
 	lineAttributes = { width="2", endcaps="round", dashArray=[8,4]};
 	imgObj = imageNew("",152,152,"rgb","149c82");
