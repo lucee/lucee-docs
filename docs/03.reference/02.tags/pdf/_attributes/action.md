@@ -1,6 +1,6 @@
-- addheader
-- addfooter
-- addWatermark 
+- addHeader
+- addFooter
+- addWatermark
 - deletePages
 - extractText
 - getInfo
