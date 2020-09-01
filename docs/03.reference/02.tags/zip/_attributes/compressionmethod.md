@@ -1,1 +1,9 @@
-Set the zip compression level, default is deflate(deflateNormal),deflateFast,deflateFastest,deflateMaximum,deflateUtra,aesenc,store
+Set the zip compression level
+
+- deflate,deflateNormal (default)
+- deflateFast
+- deflateFastest
+- deflateMaximum
+- deflateUtra
+- aesenc
+- store (no compression, good for images)
