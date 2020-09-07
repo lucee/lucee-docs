@@ -4,6 +4,7 @@ id: tag-setting
 related:
 - tag-output
 - tag-silent
+- tag-processingdirective
 categories:
 - debugging
 - system
