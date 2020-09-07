@@ -6,6 +6,7 @@ related:
 - tag-documentsection
 categories:
 - pdf
+description: Divides a PDF document into sections.
 ---
 
 Divides a PDF document into sections.
