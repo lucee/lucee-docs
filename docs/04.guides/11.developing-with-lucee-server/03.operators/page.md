@@ -160,13 +160,46 @@ would output "Meow".
 
 ## Elvis operator ##
 
-The "Elvis operator" is a shortening of the ternary operator. One instance of where this is handy is for returning a 'sensible default' value if an variable does not exist. A simple example might look like this:
+The "Elvis operator" in Lucee works like a [Null Coalescing operator](https://en.wikipedia.org/wiki/Null_coalescing_operator) in other languages. If the expression to the left of the operator refers to a variable that does not exist, or is null, then the expression on the right is then evaluated and is the result of the full expression. If the expression to the left of the operator refers to a variable that does exist, the right hand expression is never evaluated.
 
-```lucee
- writeOutput(rockstar?: "Elvis Presley");
+Some examples:
+
+```luceescript+trycf
+// the variable 'rockstar' does not exist, so
+// "Elvis Presley" is the result of the expression
+dump( var=rockstar ?: "Elvis Presley", label="rockstar ?: ""Elvis Presley""" );
+
+// another example of variable does
+// not exist - this time showing
+// that the right hand side is evaluatd
+i=1;
+dump( var=( n ?: ++i ), label="n ?: ++i" );
+dump( var=i, label="i (expect to be changed from 1 to 2)" );
+
+// an example of the variable DOES
+// exist - proving that the right
+// hand side is NOT evaluatd
+i=1;
+n=2;
+dump( var=( n ?: ++i ), label="n ?: ++i" );
+dump( var=i, label="i (expect to be 1, still unchanged)" );
+
+// the variable is declared but is null
+// right hand is chosen
+rockstar=NullValue();
+dump( var=( rockstar ?: "Joni Mitchell" ), label="rockstar ?: ""Joni Mitchell""" );
+
+// it can be used with complex variables
+complexVar = [ { test=[ { test=2 } ] } ];
+dump( var=( complexVar[ 2 ].test[ 1 ].test ?: "Default" ), label="complexVar[ 2 ].test[ 1 ].test ?: ""Default""" )
+dump( var=( complexVar[ 1 ].test[ 1 ].test ?: "Default" ), label="complexVar[ 1 ].test[ 1 ].test ?: ""Default""" )
+
+// Finally, this is not a shorthand of the
+// ternary operator. The variable EXISTS
+// its boolean value is not relevant to elvis
+someVar=false;
+dump( var=( someVar ?: true ), label="someVar ?: true" );
 ```
-
-Outputs the value of "rockstar" if the variable exists, otherwise it outputs "Elvis Presley"
 
 ## Operators not available in tags ##
 
