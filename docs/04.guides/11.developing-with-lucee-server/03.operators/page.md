@@ -165,7 +165,7 @@ The "Elvis operator" in Lucee works like a [Null Coalescing operator](https://en
 Some examples:
 
 ```luceescript+trycf
-// the variable 'rockstar' does not exist, so 
+// the variable 'rockstar' does not exist, so
 // "Elvis Presley" is the result of the expression
 dump( var=rockstar ?: "Elvis Presley", label="rockstar ?: ""Elvis Presley""" );
 
