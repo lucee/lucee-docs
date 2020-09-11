@@ -1,1 +1,12 @@
-Format to compress (bzip,gzip,tar,tbz (tar bzip),tgz (tar gzip) and zip)
+Compression Format
+
+- bzip
+- bzip2
+- gzip
+- tar
+- tar.bz
+- tbz (tar bzip)
+- tbz2
+- tgz (tar gzip)
+- tar.gz
+- zip
