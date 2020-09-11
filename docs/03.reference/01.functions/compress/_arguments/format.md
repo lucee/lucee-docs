@@ -7,6 +7,6 @@ Compression Format
 - tar.bz
 - tbz (tar bzip)
 - tbz2
-- tgz (tar gzip) 
+- tgz (tar gzip)
 - tar.gz
 - zip
