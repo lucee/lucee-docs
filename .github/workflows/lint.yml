@@ -1,13 +1,16 @@
-name: Lint Markdown
+name: ❄️ Lint
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
-  linter:
-    runs-on: ubuntu-18.04
+  lint:
+    name: 🧹 Markdown / YAML
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js
+      - name: 🍇 YAML Lint
+        uses: ibiqlik/action-yamllint@v1
+      - name: 🥝 Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
