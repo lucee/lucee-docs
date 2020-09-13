@@ -8,7 +8,6 @@ related:
 - object-struct
 categories:
 - struct
-
 - sort
 ---
 

@@ -4,7 +4,6 @@
 <cfhttp url="https://www.google.com" method="get" result="myresult">
 <cfdump var="#myresult#">
 
-
 <cfhttp url="https://www.google.com" method="get" result="myresult">
     <cfhttpparam type="url" name="q" value="Lucee">
 </cfhttp>
