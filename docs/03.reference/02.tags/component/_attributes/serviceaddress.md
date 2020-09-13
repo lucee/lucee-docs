@@ -1,2 +1,2 @@
 Specifies the SOAP URL of the web service. If you don't specify this attribute, Lucee uses the URL of the CFC in the WSDL service description.
-			Use this attribute to specify the protocol, for example, by specifying a URL that starts with https://. This attribute applies only for web services.
+Use this attribute to specify the protocol, for example, by specifying a URL that starts with https://. This attribute applies only for web services.
