@@ -11,4 +11,4 @@ categories:
 ---
 
 Groups multiple queries into a single unit. The cftransaction
-  tag provides commit and rollback processing.
+tag provides commit and rollback processing.

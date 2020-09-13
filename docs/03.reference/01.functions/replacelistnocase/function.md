@@ -7,5 +7,5 @@ categories:
 ---
 
 Replaces occurrences of the elements from a delimited list
-        in a string with corresponding elements from another delimited
-        list. The search is NOT case-sensitive.
+in a string with corresponding elements from another delimited
+list. The search is NOT case-sensitive.

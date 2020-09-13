@@ -1,2 +1,1 @@
-Lucee passes the
-            style attribute to the browser.
+Lucee passes the style attribute to the browser.
