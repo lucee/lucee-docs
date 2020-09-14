@@ -18,7 +18,5 @@ In Lucee these attributes are passed **by reference**, unlike other CFML engines
 If you are using thread in cfscript, you can also access these via the `arguments` scope,
 but this is not recommended or compatible with other CFML engines.
 
-Each thread has it's own unqiue set of debugging data, which will not show up in the normal debugging report. 
+Each thread has it's own unqiue set of debugging data, which will not show up in the normal debugging report.
 You can access the debugging data inside the thread using `<cfadmin action="getDebugData" returnVariable="data">`.
-
-
