@@ -11,4 +11,4 @@ You use this tag to run or end a thread, temporarily stop thread execution, or j
 You can pass in any additional attributes you like which are then available within the thread in the attributes scope,
 which is useful for passing data into the thread.
 
-If you are using thread in cfscript, you can also access these via the arguments scope..
+If you are using thread in cfscript, you can also access these via the arguments scope, but this is not recommended or compatible with other cfml enginges.
