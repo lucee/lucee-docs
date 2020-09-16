@@ -67,7 +67,7 @@ The Lucee CFML Servlet is the main servlet for Lucee and is always required. The
   <url-pattern>/index.cfc/*</url-pattern>
   <url-pattern>/index.cfm/*</url-pattern>
   <url-pattern>/index.cfml/*</url-pattern>
-  
+
   <!-- url-pattern>*.cfm/*</url-pattern !-->
   <!-- url-pattern>*.cfml/*</url-pattern !-->
   <!-- url-pattern>*.cfc/*</url-pattern !-->

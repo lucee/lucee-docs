@@ -1,5 +1,5 @@
 A mask pattern that controls the character pattern that
-            users can enter, or that the form sends to Lucee.
+users can enter, or that the form sends to Lucee.
 
 In HTML and Flash for type=text use:
 

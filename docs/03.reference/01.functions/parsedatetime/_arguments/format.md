@@ -43,7 +43,7 @@ All other characters are not interpreted
 - z,zz,zzz: General time zone as a 3 to 4 letter abbreviation (Example:PST)
 - zzzz: General time zone as its full name (Example:Pacific Standard Time)
 - Z,..,ZZZZ: RFC 822 time zone (Example:-0800)
-  
+
 The following masks can be used to format the full date and time and may not be combined with other masks:
 
 - short: equivalent to "m/d/y h:mm tt"

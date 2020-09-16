@@ -6,6 +6,6 @@
 			<emp_no>121</emp_no>
 		</employee>
 	</office>
-	</cfxml>
+</cfxml>
 <cfdump var="#xmlobject#" />
 ```

@@ -68,7 +68,7 @@ task :production do
   exit unless proceed == 'y' || proceed == 'Y'
 
   set :copy_exclude, ['.git', 'config', 'Gemfile', 'Gemfile.lock', 'lib', 'mxunit', 'test']
-  
+
   role :app, "deploy@prod_ip1", "deploy@prod_ip2", "deploy@prod_ip3", "deploy@prod_ip4"
 end
 
