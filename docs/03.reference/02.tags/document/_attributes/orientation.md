@@ -1,1 +1,1 @@
-is the orientation landscape or portrait
+Page orientation. Can be "landscape" or "portrait". Defaults to "portrait".
