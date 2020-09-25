@@ -7,4 +7,4 @@ categories:
 ---
 
 Evaluates a string value to determine whether the variable
-        named in it exists.
+named in it exists.
