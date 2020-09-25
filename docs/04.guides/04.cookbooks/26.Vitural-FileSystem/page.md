@@ -153,9 +153,9 @@ dump(c);
 
 ### FTP File System ###
 
- Lucee allows you to treat a remote FTP server as a virtual filesystem.
+Lucee allows you to treat a remote FTP server as a virtual filesystem.
 
- You will need access credentials for accessing FTP. Set up an FTP file system using the prefix "ftp://"
+You will need access credentials for accessing FTP. Set up an FTP file system using the prefix "ftp://"
 
 ```lucee
 <cfscript>

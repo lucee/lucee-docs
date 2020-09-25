@@ -2,7 +2,7 @@ Converts string content into binary data before putting it into a ZIP or JAR fil
 
 Used only when cfzip action="zip" and the cfzipparam content is a string.
 
- Examples of character sets are:
+Examples of character sets are:
 
 -             JIS
 -             RFC1345
