@@ -9,8 +9,8 @@ categories:
 ---
 
 Replaces special characters in a string with their HTML-escaped
-        equivalents and inserts <pre> and </pre> tags at the beginning
-        and end of the string.
+equivalents and inserts <pre> and </pre> tags at the beginning
+and end of the string.
         [version]
             HTML version to use. currently ignored.
             -1: The latest implementation of HTML
