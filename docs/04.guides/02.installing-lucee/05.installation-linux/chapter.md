@@ -13,3 +13,4 @@ Installing Lucee on Linux
 * [[linux-upgrade-the-JRE]]
 * [[linux-installation-on-centos-linux]]
 * [[preparing-your-server-linux]]
+* [[linux-ubuntu-quick-video-guide]]
