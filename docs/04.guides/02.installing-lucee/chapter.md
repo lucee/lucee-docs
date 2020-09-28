@@ -34,6 +34,7 @@ If you do not find the answers you are looking for here, we encourage you to pos
 * [[changing-the-user-account-lucee-runs-as]]
 * [[linux-upgrade-the-JRE]]
 * [[linux-installation-on-centos-linux]]
+* [[linux-ubuntu-quick-video-guide]]
 
 ### Lucee Server Administration ###
 
