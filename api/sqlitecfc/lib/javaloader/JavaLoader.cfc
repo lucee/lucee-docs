@@ -154,7 +154,7 @@ Mark Mandel		22/06/2006		Added verification that the path exists
 	</cfscript>
 </cffunction>
 
-<cffunction name="initUseJavaProxyCFC" hint="initialise whether or not to use the JavaProxy CFC instead of the coldfusion java object" access="public" returntype="string" output="false">
+<cffunction name="initUseJavaProxyCFC" hint="initialise whether or not to use the JavaProxy CFC instead of the ColdFusion Java object" access="public" returntype="string" output="false">
 	<cfscript>
 		setUseJavaProxyCFC(false);
 
