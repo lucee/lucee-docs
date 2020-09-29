@@ -85,7 +85,7 @@ component {
 ```
 
 This is normally used to finalize the environment of your application, so for example unload data/objects.
- You receive the related application scope and the session scope that ends, as arguments to the function.
+You receive the related application scope and the session scope that ends, as arguments to the function.
 
 ### OnRequestStart ###
 

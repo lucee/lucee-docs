@@ -10,4 +10,4 @@ Speeds up page rendering when dynamic content does not have to be retrieved each
 
 To accomplish this, cfcache creates temporary files that contain the static HTML returned from a page.
 
- You can use cfcache for simple URLs and URLs that contain URL parameters.
+You can use cfcache for simple URLs and URLs that contain URL parameters.

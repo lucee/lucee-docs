@@ -1,5 +1,5 @@
 Name of the cache to clear, if not defined all caches will be cleared:
-      the following cache Names are supported:
+the following cache Names are supported:
 
 - all: clear all caches
 - template: clears the template cache
