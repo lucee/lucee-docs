@@ -1,10 +1,10 @@
 ---
-title: 'Quick Video Guide: Installing Lucee on Ubuntu 20.04 LTS Server Apache2'
+title: 'Installing Lucee on Ubuntu 20.04 LTS Server Apache2 - Video Guide'
 id: linux-ubuntu-quick-video-guide
-description: A quick video tutorial about installing Lucee on a clean Ubuntu 20.04 LTS Server and connecting Lucee to Apache2 web server
+description: A video tutorial about installing Lucee on a clean Ubuntu 20.04 LTS Server and connecting Lucee to Apache2 web server
 ---
 
-### Quick Video Guide: Installing Lucee on Ubuntu 20.04 LTS Server Apache2 ###
+### Installing Lucee on Ubuntu 20.04 LTS Server Apache2 - Video Guide ###
 
 This is a quick video tutorial about installing Lucee on a clean Ubuntu 20.04 LTS Server and connecting Lucee to Apache2 web server with reverse proxy and cfml_mod from a remote Windows 10 machine. It makes heavy use of Ubuntu GUI applications with SSH X11 Forwarding and Ubuntu's lightweight display manager lightdm from desktop interface xfce4. It was created with the goal to keep it as simple, self-explaining and descriptive as possible, thus the GUI step by step approach. The starting position of the video guide is a clean Ubuntu 20.04 LTS Server with OpenSSH pre-installed.
 
