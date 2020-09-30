@@ -18,7 +18,7 @@ Lucee 5.3 is the [stable release](https://lucee.org/downloads.html) and is recom
 
 ## Lucee 4.5
 
-Lucee 4.5 is the [legacy stable release](https://lucee.org/downloads.html) of the Lucee platform. It is End of Life (EOL) and no longer supported.
+Lucee 4.5 is the [ legacy stable release](https://lucee.org/downloads.html) of the Lucee platform. It is End of Life (EOL) and no longer supported.
 
 ## Java API Docs
 
