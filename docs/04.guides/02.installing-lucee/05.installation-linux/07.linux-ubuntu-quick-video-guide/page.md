@@ -142,6 +142,7 @@ This video explains how to increase security by changing Apache2's directives `<
 
 $ sudo thunar
 $ sudo systemctl reload apache2
+$ sudo lsof -i 6
 $ sudo /opt/lucee/lucee_ctl restart
 
 ```
