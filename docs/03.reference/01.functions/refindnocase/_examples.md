@@ -6,7 +6,7 @@
 	writeDump(REFindNoCase(".*", ""));
 
 	teststring1 = "The cat in the hat hat came back!";
-	st1 = REFind("([[:alpha:]]+)[ ]+(\1)",teststring1,1,"TRUE");
+	st1 = REFind("(['[:alpha:]']+)[ ]+(\1)",teststring1,1,"TRUE");
 	writeDump(st1['len'][3]);
 
 	teststring2 = "AAAXAAAA";
