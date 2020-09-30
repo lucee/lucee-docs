@@ -14,7 +14,10 @@
 		local.path = "/index";
 	local.pageHref = "https://docs.lucee.org#local.path#.html";
 	local.pagePath = "#local.path#.html";
-	local.pageTitle = args.page.getTitle() & " :: Lucee Documentation";
+	if (args.page.getTitle() neq "Lucee Documentation")
+		local.pageTitle = args.page.getTitle() & " :: Lucee Documentation";
+	else
+		local.pageTitle = args.page.getTitle();
 	// many sites (slack, discord one box etc) can't handle the escaped <cfcontent> and strip out the tag name from previews
 	local.safePageTitle = HtmlEditFormat(Replace(Replace(local.pageTitle, "<", "", "all"), ">", "", "all"));
 	local.pageTitle = HtmlEditFormat(local.pageTitle);
