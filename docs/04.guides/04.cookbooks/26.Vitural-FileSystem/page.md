@@ -105,7 +105,7 @@ unless you define a Cache in the Lucee Administrator for this Resource.
 
 The RAM file system has much faster access than a local file system.
 
-Each Web Context has it's own independent RAM Cache, it cannot be shared between multiple contexts..
+Each Web Context has it's own independent RAM Cache, it cannot be shared between multiple contexts.
 
 ```lucee
 <cfscript>
