@@ -42,13 +42,13 @@ When running locally there are the following urls available
 * [Import any new tags or functions](http://127.0.0.1:4040/build_docs/import/)
 * [View static html docs](http://127.0.0.1:4040/static/) (you need to have built the html documentation first)
 
-## Working with the bundled js and css files
+## Working with the bundled js and CSS files
 
-The build process for the js and css bundles are found under /builders/html/assets and uses sass and [grunt](https://gruntjs.com/).
+The build process for the js and CSS bundles are found under /builders/html/assets and uses sass and [grunt](https://gruntjs.com/).
 
 Just run npm install, then run grunt.
 
-After you have made everything more beautiful via css, or added some funky new interactivity via JavaScript,
+After you have made everything more beautiful via CSS, or added some funky new interactivity via JavaScript,
 to publish a new build of the bundles, you'll need to update `variables.assetBundleVersion` in both Application.cfc and Gruntfile.js,
 as the docs are statically deployed via cloudfront and versioning of these files is required to break caching.
 
