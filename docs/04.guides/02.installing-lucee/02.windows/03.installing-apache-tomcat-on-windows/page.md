@@ -11,7 +11,7 @@ Before we start with the installation, we need to dive into some basics:
 
 ## What we don't like ##
 
-* A mix of binaries (exe, dll-files) and configuration data (eg. xml files) in the *application directory*
+* A mix of binaries (exe, dll-files) and configuration data (eg. XML files) in the *application directory*
 * The software needs **change permissions** to write data into his *application directory*
 * A windows service needs **System Authority** permissions
 

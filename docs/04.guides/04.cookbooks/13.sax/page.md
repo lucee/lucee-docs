@@ -47,8 +47,8 @@ component {
 	this.removeCD=false;
 
 	/**
-	* constructor of the component that takes the path to the xml file and a simple custom made filter
-	* @param xmlFile xml File to parse
+	* constructor of the component that takes the path to the XML file and a simple custom made filter
+	* @param xmlFile XML File to parse
 	* @param filter filter to limit content on certain records
 	*/
 	function init(string xmlFile, struct filter={}) {
