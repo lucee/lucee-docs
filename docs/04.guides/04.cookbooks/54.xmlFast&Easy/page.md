@@ -3,9 +3,9 @@ title: XML fast And Easy
 id: xml_fast-easy
 ---
 
-This document explains how to use xml parsing in lucee.
+This document explains how to use XML parsing in lucee.
 
-I have xml as shown below:
+I have XML as shown below:
 
 ```luceescript
 //catlog.xml
@@ -235,7 +235,7 @@ Normally we use DOM(Document Object Model):
 </cfscript>
 ```
 
-DOM parses the xml to extract the data.
+DOM parses the XML to extract the data.
 
 Disadvantages of the DOM model:
 
@@ -249,7 +249,7 @@ There is a jDOM that is more optimized for java, and because of that, faster and
 
 ### SAX - Simple API for XML ###
 
-In java there is another way to handle the xml called SAX. SAX is an event driver parser. It does not produce the object, but instead you are part of the parsing process.
+In java there is another way to handle the XML called SAX. SAX is an event driver parser. It does not produce the object, but instead you are part of the parsing process.
 
 #### Advantages ####
 
@@ -290,8 +290,8 @@ XMLcatalog is component,
 	component {
 
 	/**
-	* Start parsing an xml file.
-	* @param xmlFile xml file to parse
+	* Start parsing an XML file.
+	* @param xmlFile XML file to parse
 	*/
 	function init(string xmlFile) {
 	variables.xmlFile=arguments.xmlFile;
@@ -386,7 +386,7 @@ var xmlEventParser=createObject("java","lucee.runtime.helpers.XMLEventParser");
 xmlEventParser.start(xmlFile);
 ```
 
-If we pass an xml string to execute the function, it automatically parses the xml data and returns an array format of parsed data.
+If we pass an XML string to execute the function, it automatically parses the XML data and returns an array format of parsed data.
 
 You can use the filter on SAX:
 
@@ -397,8 +397,8 @@ Component with filter
 component {
 
 	/**
-	* Start parsing an xml file.
-	* @param xmlFile xml file to parse
+	* Start parsing an XML file.
+	* @param xmlFile XML file to parse
 	*/
 	function init(string xmlFile) {
 		variables.xmlFile=arguments.xmlFile;

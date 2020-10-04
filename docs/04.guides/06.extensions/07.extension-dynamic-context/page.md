@@ -37,7 +37,7 @@ install.cfc:
 </cffunction>
 </cfcomponent>
 </source>
-The attribute dynamic can be used in all tags defined in the xml, including the root tag config (except of course the option tag).
+The attribute dynamic can be used in all tags defined in the XML, including the root tag config (except of course the option tag).
 <source lang="xml">
 ...
 <group dynamic="fillGroup" label="dynamic Group">

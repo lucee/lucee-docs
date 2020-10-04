@@ -11,7 +11,7 @@ This is useful if you are doing scripted deploys and/or synchronization from, fo
 
 ### Check for Changes in ALL the contexts
 
-To enable this for a whole Lucee server find lucee server xml file in:
+To enable this for a whole Lucee server find lucee server XML file in:
 
 	<Lucee Install Dir>/lib/ext/lucee-server/context/lucee-server.xml
 
