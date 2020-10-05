@@ -245,11 +245,11 @@ Creates an object tree based on complete XML.
 * Memory Intensive - loads the complete XML in a very complex structure
 * Complicated to use
 
-There is a jDOM that is more optimized for java, and because of that, faster and easier to use. But sadly that project is not maintained any more!!
+There is a jDOM that is more optimized for Java, and because of that, faster and easier to use. But sadly that project is not maintained any more!!
 
 ### SAX - Simple API for XML ###
 
-In java there is another way to handle the XML called SAX. SAX is an event driver parser. It does not produce the object, but instead you are part of the parsing process.
+In Java there is another way to handle the XML called SAX. SAX is an event driver parser. It does not produce the object, but instead you are part of the parsing process.
 
 #### Advantages ####
 
@@ -370,7 +370,7 @@ XMLcatalog is component,
 	}
 ```
 
-In the XML catalog you can see the listener functions and the listener function passed to the java object. This helps to parse the data.
+In the XML catalog you can see the listener functions and the listener function passed to the Java object. This helps to parse the data.
 
 ```luceescript
 var xmlEventParser=createObject("java","lucee.runtime.helpers.XMLEventParser");

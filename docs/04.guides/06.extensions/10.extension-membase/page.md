@@ -40,7 +40,7 @@ What is MOXI ??
 
 As you can see from the previous pic the cache connection asks you to provide a single host/port connection details. This is true even if you will use several membase servers in a cluster.
 
-**Moxi is the proxy that membase uses to interface to memcached instances**. While the membase guys improve the java client you will need to use moxi to allow your application to use the whole cluster. This solution is also optimal for performance reason. Basically your local moxi will route any request from the application to the most appropriate cluster node. Your client will no need to call a remote server, wait for the answer and, in case, try to connect a different node.
+**Moxi is the proxy that membase uses to interface to memcached instances**. While the membase guys improve the Java client you will need to use moxi to allow your application to use the whole cluster. This solution is also optimal for performance reason. Basically your local moxi will route any request from the application to the most appropriate cluster node. Your client will no need to call a remote server, wait for the answer and, in case, try to connect a different node.
 
 Install a standalone Moxi instance on the same client where your Lucee server is running. Your lucee server will only know this single moxi host and will always invoke this service. When you start your moxi service you will declare the location of any node making part of the cluster:
 
@@ -58,6 +58,6 @@ If you run a single membase server on you localhost for testing purposes, you wi
 	* cacheGetAll()
 
 * The function cacheGetMetadata() will return metadata only for the whole cache instance but not for the single key.
-Actually the java client allow us to manage the cache using the default bucket ( this is planned to be improved by the membase guys in a near future ).
+Actually the Java client allow us to manage the cache using the default bucket ( this is planned to be improved by the membase guys in a near future ).
 
-* Actually the java client allow us to manage the cache using the default bucket ( this is planned to be improved by the membase guys in a near future ).
+* Actually the Java client allow us to manage the cache using the default bucket ( this is planned to be improved by the membase guys in a near future ).

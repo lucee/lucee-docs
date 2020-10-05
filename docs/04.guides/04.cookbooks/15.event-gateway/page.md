@@ -5,7 +5,7 @@ id: event-gateways
 
 ## How does an Event Gateway work? ##
 
-An event gateway is a process which is continuously running. While running, it is doing the following: <cfsleep> for a specific time (the "interval"), then doing what it is designed for (checking changes in a directory, polling a mailserver, etcetera). And after that, it goes to <cfsleep> again. This looping and sleeping does not count for all types of event gateways btw. A socket gateway for example just instantiates a java socket server.
+An event gateway is a process which is continuously running. While running, it is doing the following: <cfsleep> for a specific time (the "interval"), then doing what it is designed for (checking changes in a directory, polling a mailserver, etcetera). And after that, it goes to <cfsleep> again. This looping and sleeping does not count for all types of event gateways btw. A socket gateway for example just instantiates a Java socket server.
 
 This "doing what it is designed for", will be explained in more detail underneath.
 
