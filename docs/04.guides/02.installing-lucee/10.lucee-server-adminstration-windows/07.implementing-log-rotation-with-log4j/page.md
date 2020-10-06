@@ -56,7 +56,7 @@ At the time of this writing, log4j 2.0 beta is available, but since we're (most 
 
 [http://archive.apache.org/dist/logging/log4j/1.2.17/](http://archive.apache.org/dist/logging/log4j/1.2.17/)
 
-Extracting this will produce a standard java build directory. To get to the pre-compiled binaries, go to ```dist -> lib```, and you will find ```log4j-1.2.17.jar```. Copy this file to ```C:\lucee\tomcat\lib``` directory, and you're done with this step.
+Extracting this will produce a standard Java build directory. To get to the pre-compiled binaries, go to ```dist -> lib```, and you will find ```log4j-1.2.17.jar```. Copy this file to ```C:\lucee\tomcat\lib``` directory, and you're done with this step.
 
 ### Download Tomcat Extras ###
 

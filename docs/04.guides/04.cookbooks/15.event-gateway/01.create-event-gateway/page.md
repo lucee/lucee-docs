@@ -6,7 +6,7 @@ id: create-event-gateway
 
 ### Preface ###
 
-Here you will find a short introduction into writing your own Event Gateway type. Since you can write these in pure cfml (and java when you want it), it is really simple to do.
+Here you will find a short introduction into writing your own Event Gateway type. Since you can write these in pure cfml (and Java when you want it), it is really simple to do.
 There are 2 to 3 files you need to create:
 
 * the Gateway cfc
@@ -128,7 +128,7 @@ The Gateway Driver is a CFC file, which must be added into the directory {Lucee-
 
 ## Gateway driver Functions ##
 
-* **getClass():string.** Returns the java class name. If the gateway is Java based, then the java class has to implement the interface "org.opencfml.eventgateway.Gateway". If it is not java based, then this method must return an empty string or void.
+* **getClass():string.** Returns the Java class name. If the gateway is Java based, then the Java class has to implement the interface "org.opencfml.eventgateway.Gateway". If it is not Java based, then this method must return an empty string or void.
 
 * **getCFCPath():string.** Returns the cfc path, when the gateway is cfc based, If it is not cfc based, then this method must return an empty string or void.
 

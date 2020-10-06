@@ -62,7 +62,7 @@ debugTemplate | Contains the path to the debugging template to be used
 deepSearch | Defines whether custom tags are searched in subfolders of the custom tag directories recursively or not.
 defaultEncoding | Defines the default encoding of the local Lucee context
 description | Extension description
-direct_java_access | Defines whether direct java invocation can be used in a local web context
+direct_java_access | Defines whether direct Java invocation can be used in a local web context
 documentation | Contains the link to the Extensions documentation
 domaincookies | Sets whether domain cookies are allowed or not
 dsn | Defines the dsn for a data source

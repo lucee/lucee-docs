@@ -87,7 +87,7 @@ Mark Mandel		22/06/2006		Added verification that the path exists
 	</cfscript>
 </cffunction>
 
-<cffunction name="create" hint="Retrieves a reference to the java class. To create a instance, you must run init() on this object" access="public" returntype="any" output="false">
+<cffunction name="create" hint="Retrieves a reference to the Java class. To create a instance, you must run init() on this object" access="public" returntype="any" output="false">
 	<cfargument name="className" hint="The name of the class to create" type="string" required="Yes">
 	<cfscript>
 		var class = getURLClassLoader().loadClass(arguments.className);
@@ -143,7 +143,7 @@ Mark Mandel		22/06/2006		Added verification that the path exists
 </cffunction>
 
 <cffunction name="createJavaProxy" hint="create a javaproxy, dependent on CF server settings" access="private" returntype="any" output="false">
-	<cfargument name="class" hint="the java class to create the proxy with" type="any" required="Yes">
+	<cfargument name="class" hint="the Java class to create the proxy with" type="any" required="Yes">
 	<cfscript>
 		if(getUseJavaProxyCFC())
 		{
