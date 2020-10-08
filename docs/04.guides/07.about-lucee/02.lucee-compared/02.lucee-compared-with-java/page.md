@@ -37,7 +37,7 @@ Training staff to use Lucee will take a lot less time than Java
 
 IDEs and editors can be much simpler
 
-Existing jsp taglibs can be used in CFML pages
+Existing JSP taglibs can be used in CFML pages
 
 No need to build as this is done when the code is run for the first time (runtime compiler)
 
