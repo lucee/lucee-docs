@@ -6,7 +6,7 @@
 <cfoutput>
 	#getEditLink(path=local.fn.getSourceFile(), edit=args.edit)#
 	#markdownToHtml( local.fn.getBody() )#
-	<!-- https://github.com/lucee/Lucee/pull/876 --->
+	<!--- https://github.com/lucee/Lucee/pull/876 --->
 	<cfif len(local.fn.getStatus()) gt 0 
 			and (local.fn.getStatus() neq "implemented" and local.fn.getStatus() neq "implemeted")>
 		<p><strong>Status:</strong> #local.fn.getStatus()#</p>
@@ -30,7 +30,12 @@
 		</cfif>
 	<cfelse>
 		<div class="table-responsive">
-			<table class="table arguments" title="Arguments">
+			<cfif local.fn.getArguments().len() gt 5>
+				<div class="tile-toolbar">
+					<button class="btn collapse-description" data-expanded="true" data-target="table-arguments">Collapse All</button>
+				</div>
+			</cfif>
+			<table class="table arguments table-arguments" title="Arguments">
 				<thead>
 					<tr>
 						<th>Argument</th>

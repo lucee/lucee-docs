@@ -93,7 +93,7 @@ component accessors=true {
 	public struct function getPageIds(){
 		if (structCount(referenceMap) eq 0)
 			_buildReferenceMap();
-		return referenceMap;
+		return getReferenceMap();
 	}
 
 	public array function getCategories(){
@@ -508,7 +508,7 @@ component accessors=true {
 		variables.categoryMap = pageCategories;
 	}
 
-	private void function _buildReferenceMap(){
+	public struct function _buildReferenceMap(){
 		var pages = {};
 		var pagesByType = {};
 		for ( var id in idMap ) {
@@ -524,7 +524,8 @@ component accessors=true {
 			ArraySort(ids,"textnocase");
 			pagesByType[types] = ids;
 		}
-		referenceMap = pagesByType;
+		setReferenceMap(pagesByType);
+		return referenceMap;
 	}
 }
 
