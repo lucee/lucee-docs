@@ -44,3 +44,23 @@
 			footerOffset = $('.footer').offset().top;
 		}
 	};
+	// allow hiding descriptions for functions or tags with lots of arguments/attributes
+	$(".collapse-description").click(function(){
+		var $btn = $(this);
+		var data = $btn.data();
+		var $tbl = $("#" + data.target);
+		$tbl.find('tr > *:nth-child(2)').toggle(!data.expanded);
+		$tbl.find('tr > *:nth-child(3)').toggle(!data.expanded);
+		$btn.data("expanded", !data.expanded);
+		$btn.text(data.expanded ? "Collapse All" : "Expand All");
+
+		if (!data.installed){
+			$btn.data("installed", true);
+			$("#" + data.target + " TBODY TR").click(function(){
+				var $tr = $(this);
+				var hidden = $tr.find("*:nth-child(2)").is(":visible");
+				$tr.find("*:nth-child(2)").toggle(hidden);
+				$tr.find("*:nth-child(3)").toggle(hidden);
+			});	
+		}
+	});
