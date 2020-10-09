@@ -1,8 +1,8 @@
 ---
 title: <cfvideo>
 id: tag-video
-related:
 categories:
+- video
 ---
 
 play a video

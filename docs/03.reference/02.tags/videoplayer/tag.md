@@ -1,8 +1,8 @@
 ---
 title: <cfvideoplayer>
 id: tag-videoplayer
-related:
 categories:
+- video
 ---
 
 The tag CFVIDEOPLAYER allows you to display a video in flash (flv) format.
