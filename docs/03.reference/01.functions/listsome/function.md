@@ -2,7 +2,7 @@
 title: ListSome
 id: function-listsome
 categories:
-- array
+- list
 - collection
 - thread
 ---
