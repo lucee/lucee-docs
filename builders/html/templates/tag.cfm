@@ -18,7 +18,12 @@
 		<p><em>This tag does not use any attributes.</em></p>
 	<cfelse>
 		<div class="table-responsive">
-			<table class="table attributes" title="Attributes">
+			<cfif local.tag.getAttributes().len() gt 5>
+				<div class="tile-toolbar">
+					<button class="btn collapse-description" data-expanded="true" data-target="tag-attributes">Collapse All</button>
+				</div>
+			</cfif>
+			<table class="table attributes" title="Attributes" id="tag-attributes">
 				<thead>
 					<tr>
 						<th>Attribute</th>

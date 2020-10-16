@@ -141,7 +141,7 @@ Allow from 127.0.0.1
 
 </Location>
 
-This same concept can be implemented to deny access to the Mura Administrator. If assets in the lucee-context are not needed (eg cfform javascript), then you may block the entire /lucee/ instead of just the administrator.
+This same concept can be implemented to deny access to the Mura Administrator. If assets in the lucee-context are not needed (eg cfform JavaScript), then you may block the entire /lucee/ instead of just the administrator.
 
 ### 4. Lock down Apache and Lucee Users ###
 

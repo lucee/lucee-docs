@@ -1,1 +1,1 @@
-name of an xml variable
+name of an XML variable

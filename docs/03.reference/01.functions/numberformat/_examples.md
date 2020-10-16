@@ -1,4 +1,4 @@
-```lucee
-#numberFormat(1.23,'__.00')# = 1.23
-#numberFormat(123,'__.00')# = 123.00
+```luceescript+trycf
+dump(numberFormat(1.234,'__.00')); // 1.23
+dump(numberFormat(1234,'__.00')); // 1234.00
 ```

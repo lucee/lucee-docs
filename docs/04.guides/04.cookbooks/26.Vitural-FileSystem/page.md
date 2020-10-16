@@ -105,7 +105,7 @@ unless you define a Cache in the Lucee Administrator for this Resource.
 
 The RAM file system has much faster access than a local file system.
 
-Each Web Context has it's own independent RAM Cache, it cannot be shared between multiple contexts..
+Each Web Context has it's own independent RAM Cache, it cannot be shared between multiple contexts.
 
 ```lucee
 <cfscript>
@@ -153,9 +153,9 @@ dump(c);
 
 ### FTP File System ###
 
- Lucee allows you to treat a remote FTP server as a virtual filesystem.
+Lucee allows you to treat a remote FTP server as a virtual filesystem.
 
- You will need access credentials for accessing FTP. Set up an FTP file system using the prefix "ftp://"
+You will need access credentials for accessing FTP. Set up an FTP file system using the prefix "ftp://"
 
 ```lucee
 <cfscript>

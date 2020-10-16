@@ -78,7 +78,7 @@ The Lucee CFML Servlet is the main servlet for Lucee and is always required. The
 
 **REST Servlet** - for processing RESTful services
 
-If you need to enable REST web services, add the xml snippet below to your Global or Local (see above) web.xml configuration file.
+If you need to enable REST web services, add the XML snippet below to your Global or Local (see above) web.xml configuration file.
 
 ```lucee
 <!-- ===================================================================== -->

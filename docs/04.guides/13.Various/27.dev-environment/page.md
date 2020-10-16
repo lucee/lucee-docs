@@ -50,7 +50,7 @@ ln -s /Applications/ColdFusion10/cfusion/wwwroot/coldspring /Applications/Lucee/
 
 And the login screen loaded. (Yes!) But it didn't look right. The styles were missing (boo ...) Logging in, it became apparent that Lucee was outputting the correct source code, but stylesheets, JavaScript, and images were not being rendered. Hmmm ...
 
-A little digging on Google and I found this is a problem others have experienced. To test a little further, I copied a directory from another simple project from `/Applications/ColdFusion10/cfusion/wwwroot/` to `/Applications/Lucee/tomcat/webapps/ROOT/` and sure enough, the source code was correct but css, js and images were not rendered. (Hope ...)
+A little digging on Google and I found this is a problem others have experienced. To test a little further, I copied a directory from another simple project from `/Applications/ColdFusion10/cfusion/wwwroot/` to `/Applications/Lucee/tomcat/webapps/ROOT/` and sure enough, the source code was correct but CSS, JS and images were not rendered. (Hope ...)
 
 So I followed Igal's instructions here:
 

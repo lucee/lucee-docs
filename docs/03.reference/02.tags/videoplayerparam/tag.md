@@ -2,7 +2,9 @@
 title: <cfvideoplayerparam>
 id: tag-videoplayerparam
 related:
+- tag-videoplayer
 categories:
+- video
 ---
 
-play a video
+Used to pass parameters into [[tag-videoplayer]]

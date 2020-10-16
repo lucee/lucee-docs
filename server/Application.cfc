@@ -2,6 +2,7 @@ component {
 	this.name = "luceeDocumentationLocalServer-" & Hash( GetCurrentTemplatePath() );
 	
 	this.localMode = true;
+	this.scopeCascading = "small";
 
 	this.cwd     = GetDirectoryFromPath( GetCurrentTemplatePath() )
 	this.baseDir = ExpandPath( this.cwd & "../" );
@@ -12,7 +13,7 @@ component {
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
 
-	this.assetBundleVersion = 26;  // see parent application.cfc
+	this.assetBundleVersion = 27;  // see parent application.cfc
 
 	public void function onApplicationStart()  {
 		//_addChangeWatcher();

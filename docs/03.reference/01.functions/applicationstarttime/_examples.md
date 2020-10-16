@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+app_start = ApplicationStartTime();
+dump(app_start);
+```

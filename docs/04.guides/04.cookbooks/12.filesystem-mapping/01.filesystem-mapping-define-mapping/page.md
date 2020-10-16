@@ -52,7 +52,7 @@ In the detail view of a single mapping you can compile all cfm and cfc files in 
 
 In the detail view of a single mapping you can create an archive that contains all templates of the mapping in compiled form.
 With the flag "Add CFML Templates" you can define if Lucee should add the source version of the templates as well, this make sense when you need a proper error output in case of an exception (source code output) or you need to read the content of this files for example with <cffile>.
-With the flag "Add Non CFML Templates" you can define if Lucee should add all non CFML files (png,js,gif,css ...) as well, this make sense when you need to read the content of this files for example with <cffile>.
+With the flag "Add Non CFML Templates" you can define if Lucee should add all non CFML files (PNG,JS,GIF,CSS ...) as well, this make sense when you need to read the content of this files for example with <cffile>.
 
 ![create-archive.png](https://bitbucket.org/repo/rX87Rq/images/2720116188-create-archive.png)
 
@@ -114,3 +114,8 @@ component {
    };
 }
 ```
+
+### See Also ###
+
+- [Forcing Lucee to re-check the physical paths of application defined mappings without a restart](https://blog.simplicityweb.co.uk/123/forcing-lucee-to-re-check-the-physical-paths-of-application-defined-mappings-without-a-restart)
+- [Confusion Over this.mappings And expandPath() Not Working In Lucee](https://www.bennadel.com/blog/3718-confusion-over-this-mappings-and-expandpath-not-working-in-lucee-cfml-5-3-3-62.htm)

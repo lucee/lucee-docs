@@ -8,7 +8,7 @@ categories:
 description: A function that returns a Future object, which is an eventual result of an asynchronous operation
 ---
 
-A function that returns a Future object, which is an eventual result of an asynchronous operation (like a promise in javascript)
+A function that returns a Future object, which is an eventual result of an asynchronous operation (like a promise in JavaScript)
 
 The Future Object has the following functions:
 

@@ -5,7 +5,7 @@ id: using-lucee-in-java
 
 while Lucee allows you to do almost everything your web application will need to do by using CFML code, there may be times when you will need to use Lucee from Java applications.
 
-since Lucee is written in Java, and is running inside a Java Virtual Machine (JVM), using Lucee from your java applications is very easy.
+since Lucee is written in Java, and is running inside a Java Virtual Machine (JVM), using Lucee from your Java applications is very easy.
 
 ### Adding Lucee to your Java Project ###
 

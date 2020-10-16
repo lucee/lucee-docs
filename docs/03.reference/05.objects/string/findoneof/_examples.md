@@ -1,5 +1,4 @@
-
 ```luceescript+trycf
-	dump(FindOneOf("L", "I Love Lucee" ));
-  	dump(FindOneOf("L", "I Love Lucee",6));
+dump("I".findoneof("I Love Lucee"));
+dump("Lu".findoneof("I Love Lucee"));
 ```

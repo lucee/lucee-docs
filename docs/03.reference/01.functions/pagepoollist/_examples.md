@@ -1,4 +1,4 @@
-<cfscript>
-  pool = PagePoolList();
-  dump(pool);
-</cfscript>
+```luceescript+trycf
+list = PagePoolList();
+dump(list);
+```
