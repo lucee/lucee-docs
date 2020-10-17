@@ -413,12 +413,13 @@ component accessors=true {
 				}
 			}
 		}
-		variables.relatedMap = {};
+		var _relatedMap = {};
 		for (var id in related){
 			var links = ListToArray( structKeyList(related[id]) );
 			ArraySort(links,"textnocase");
-			variables.relatedMap[id] = links;
+			_relatedMap[id] = links;
 		}
+		setRelatedMap(_relatedMap);
 
 		// cross referencing BIF to object methods
 		// i.e. Struct.keyExists and StructKeyExists
@@ -449,7 +450,7 @@ component accessors=true {
 				}
 			}
 		}
-		variables.directlyRelatedMap = _related;
+		setDirectlyRelatedMap(_related);
 	}
 
 	// all categories should have content, all referenced categories should exist
@@ -505,7 +506,7 @@ component accessors=true {
 			abort;
 		}
 		*/
-		variables.categoryMap = pageCategories;
+		setCategoryMap(pageCategories);
 	}
 
 	public struct function _buildReferenceMap(){
@@ -528,4 +529,3 @@ component accessors=true {
 		return referenceMap;
 	}
 }
-
