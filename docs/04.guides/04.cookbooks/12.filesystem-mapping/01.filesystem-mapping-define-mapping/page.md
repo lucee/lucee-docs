@@ -117,5 +117,5 @@ component {
 
 ### See Also ###
 
-- [https://blog.simplicityweb.co.uk/123/forcing-lucee-to-re-check-the-physical-paths-of-application-defined-mappings-without-a-restart](Forcing Lucee to re-check the physical paths of application defined mappings without a restart)
-- [https://www.bennadel.com/blog/3718-confusion-over-this-mappings-and-expandpath-not-working-in-lucee-cfml-5-3-3-62.htm](Confusion Over this.mappings And expandPath() Not Working In Lucee)
+- [Forcing Lucee to re-check the physical paths of application defined mappings without a restart](https://blog.simplicityweb.co.uk/123/forcing-lucee-to-re-check-the-physical-paths-of-application-defined-mappings-without-a-restart)
+- [Confusion Over this.mappings And expandPath() Not Working In Lucee](https://www.bennadel.com/blog/3718-confusion-over-this-mappings-and-expandpath-not-working-in-lucee-cfml-5-3-3-62.htm)
