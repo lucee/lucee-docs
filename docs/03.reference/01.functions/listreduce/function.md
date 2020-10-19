@@ -2,8 +2,8 @@
 title: ListReduce
 id: function-listreduce
 categories:
-- array
 - collection
+- list
 - thread
 ---
 

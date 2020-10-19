@@ -1,6 +1,9 @@
 ---
 title: File handling
 id: category-files
-related:
+categories:
 - s3
+description: Provides access to File System Resources, this includes virtual file systems like ram, s3, git, ftp and ssh
 ---
+
+Provides access to File System Resources, this includes virtual file systems like ram, s3, git, ftp and ssh

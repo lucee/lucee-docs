@@ -2,7 +2,10 @@
 title: GetProfileString
 id: function-getprofilestring
 related:
+- function-getprofilesections
 - function-setprofilestring
+categories:
+- files
 description: Gets an initialization file entry.
 ---
 
