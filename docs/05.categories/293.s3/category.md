@@ -3,6 +3,7 @@ title: 'S3 '
 id: category-s3
 related:
 - virtual-file-system
+categories:
 - files
 description: Provides access to S3 resources
 menuTitle: S3
