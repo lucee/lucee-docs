@@ -7,6 +7,8 @@ related:
 - function-storegetmetadata
 - function-storesetacl
 - function-storesetmetadata
+categories:
+- s3
 ---
 
 Sets the metadata on bucket or object.
