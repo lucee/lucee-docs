@@ -13,6 +13,6 @@ methodObject: string
 methodName: listMap
 ---
 
-Calls the given closure with every element in the given array.
+Calls the given closure with every element in the given list.
 
-the function returns an array that contains all values returned by the closure.
+the function returns an list that contains all values returned by the closure.
