@@ -7,6 +7,8 @@ related:
 - function-storegetmetadata
 - function-storesetacl
 - function-storesetmetadata
+categories:
+- s3
 ---
 
 Returns the metadata related to the object or bucket.

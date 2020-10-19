@@ -1,7 +1,10 @@
 ---
-title: S3 for source code
-id: S3_sourceCode
+title: Using S3 directly for source code
+categories:
+- s3
+description: Using S3 directly for source code
 ---
+
 ## S3 for source code ##
 
 This document explains how to use S3 as for your source code and how to use S3 for your artifacts when we look at the source code itself.

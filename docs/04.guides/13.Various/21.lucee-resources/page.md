@@ -1,6 +1,9 @@
 ---
-title: Lucee Resources
+title: Lucee Resources (Virtual File Systems)
 id: lucee-resources
+categories:
+- files
+description: Extend your file system with any virtual file system
 ---
 
 ### Extend your file system with any virtual file system ###

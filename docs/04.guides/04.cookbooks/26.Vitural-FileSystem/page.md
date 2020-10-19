@@ -4,6 +4,7 @@ id: virtual-file-system
 related:
 - function-getvfsmetadata
 categories:
+- s3
 - system
 description: 'Lucee support the following virtual file systems: ram, file, s3, http,
   https, zip and tar'
