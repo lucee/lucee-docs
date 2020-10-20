@@ -68,8 +68,18 @@ component {
 					if (listlen(path,"/") gt 1 )
 						writeOutput("unknown build docs request: #path#");
 			}
+			function _getMemoryUsage(type){
+				var q = getMemoryUsage();
+				var mem = q.reduce( function(total=0, row, rowNumber, recordset ){
+					if (row.type eq type)
+						return total +  row.used;
+					else
+						return total;
+				});
+				return NumberFormat(mem/(1024*1024)) & " Mb";
+			}
 			fileAppend("/performance.log", "#path# #numberFormat(getTickCount() - request.loggerStart)#ms, "
-				& "#importThreads# import threads, #buildThreads# build threads, #server.lucee.version##chr(10)#");
+				& "#importThreads# import threads, #buildThreads# build threads, heap #_getMemoryUsage("HEAP")#, non-heap #_getMemoryUsage("NON_HEAP")#, #server.lucee.version# #chr(10)#");
 			logger.renderLogs();
 		} else if ( path eq "/assets/js/searchIndex.json" ) {
 			_renderSearchIndex();
