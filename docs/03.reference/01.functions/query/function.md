@@ -8,9 +8,9 @@ categories:
 - query
 ---
 
-Create and populate a query object. 
+Create and populate a query object.
 
-You can set the column name as the argument name you pass in and pass in the data as an array. 
+You can set the column name as the argument name you pass in and pass in the data as an array.
 
 Each item in the array represents a different row in that column.
 
