@@ -1,6 +1,8 @@
 ---
 title: QueryKeyExists
 id: function-querykeyexists
+related:
+- function-querycolumnexists
 categories:
 - query
 ---
