@@ -5,7 +5,7 @@ related:
 - function-listsome
 - object-string
 categories:
-- array
+- list
 - iterator
 - string
 - thread
