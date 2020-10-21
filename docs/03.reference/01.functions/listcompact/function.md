@@ -7,4 +7,4 @@ categories:
     - string
 ---
 
-remove empty items at the end and at the start of the list
+Removes empty items at the end and at the start of the list
