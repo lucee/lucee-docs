@@ -2,7 +2,7 @@
 	string function getMetaDescription( required any page, required string body ) {
 		var description = arguments.page.getDescription();
 
-		if ( !description.len() ) {
+		if ( !description.len() or arguments.body.len() ) {
 			description = arguments.body;
 			description = ReReplaceNoCase( description, "^(.*?)</p>.*$", "\1" );
 		}
