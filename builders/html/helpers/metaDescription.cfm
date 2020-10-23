@@ -6,6 +6,8 @@
 			description = arguments.body;
 			description = ReReplaceNoCase( description, "^(.*?)</p>.*$", "\1" );
 		}
+		
+		description = ReReplaceNoCase( description, "`<(cf.*?)>`", "\1" );
 		description = stripHtml( description );
 
 		// max recommended length for a meta description is 320 characters
