@@ -41,6 +41,14 @@ or if you are using an Application.cfm,
 <cfapplication pdf="#{type:'classic'}#">
 ```
 
+and since the PDF Extension 1.0.0.92-SNAPSHOT you can specify the engine using type
+
+```lucee
+<cfdocument type="modern">
+  or
+<cfdocument type="classic">
+```
+
 ### Features of Flying Saucer ###
 
 You can define a font directory where you have the fonts(.ttf,.otf) you are using in your PDF.
