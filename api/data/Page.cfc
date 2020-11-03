@@ -39,12 +39,12 @@ component accessors=true {
 
 	// reset page when loading from from cache;
 	public void  function reset() {
-		ancestors = [];
-		lineage = [];
-		parent = NullValue();
-		nextPage = NullValue();
-		previousPage = NullValue();
-		children= [];
+		setAncestors([]);
+		setLineage([]);
+		setParent(NullValue());
+		setNextPage(NullValue());
+		setPreviousPage(NullValue());
+		setChildren([]);
 	}
 
 	public string function getPageMenuTitle(){

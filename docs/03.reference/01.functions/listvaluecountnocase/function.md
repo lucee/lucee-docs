@@ -8,4 +8,4 @@ categories:
 ---
 
 Counts instances of a specified value in a list. The search is
-        case-insensitive.
+case-insensitive.

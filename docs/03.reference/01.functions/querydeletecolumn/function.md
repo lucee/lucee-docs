@@ -1,9 +1,8 @@
 ---
 title: QueryDeleteColumn
 id: function-querydeletecolumn
-related:
 categories:
-    - query
+- query
 ---
 
-removes a column from a query and returns the removed column as array
+Removes a Column from a Query and returns the removed Column as an Array

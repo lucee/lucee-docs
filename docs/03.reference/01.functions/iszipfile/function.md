@@ -5,6 +5,7 @@ related:
 - tag-zip
 categories:
 - decision
+- files
 - zip
 ---
 

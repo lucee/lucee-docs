@@ -6,7 +6,7 @@ forceSortOrder: '20'
 
 ### Lucee Installer Documentation ###
 
-The Lucee Installer was created with the hope that it would make the deployment of Lucee a very simple process. The Installer creates a stand-alone instance of Lucee, Tomcat, and Oracle's JRE 1.7 specifically for use with Lucee. It can be run "by itself" or it can be connected to a pre-installed web server: IIS on Windows and Apache on Linux. This installer also performs the web-server to Tomcat server connections for you, which can be customized at any point after the install to meet your own unique needs.
+The Lucee Installer was created with the hope that it would make the deployment of Lucee a very simple process. The Installer creates a stand-alone instance of Lucee, Tomcat, and AdoptOpenJDK (Java JDK) specifically for use with Lucee. It can be run "by itself" or it can be connected to a pre-installed web server: IIS on Windows and Apache on Linux. This installer also performs the web-server to Tomcat server connections for you, which can be customized at any point after the install to meet your own unique needs.
 
 ### Developer Forum ###
 
@@ -34,6 +34,7 @@ If you do not find the answers you are looking for here, we encourage you to pos
 * [[changing-the-user-account-lucee-runs-as]]
 * [[linux-upgrade-the-JRE]]
 * [[linux-installation-on-centos-linux]]
+* [[linux-ubuntu-quick-video-guide]]
 
 ### Lucee Server Administration ###
 

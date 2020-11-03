@@ -8,7 +8,7 @@
         	}
         </style>
         <div>
-        	<span class=""color"">This is encode for css.</span>
+        	<span class=""color"">This is encode for CSS.</span>
         </div>
     ");
 ```

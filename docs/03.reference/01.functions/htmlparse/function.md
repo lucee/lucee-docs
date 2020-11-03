@@ -8,4 +8,4 @@ categories:
 - HTML
 ---
 
-parse the given html (not only xhtml) as xml Object, work similar to [[function-xmlParse]], but this function is very forgiving with the syntax..
+parse the given html (not only XHTML) as XML Object, work similar to [[function-xmlParse]], but this function is very forgiving with the syntax.

@@ -1,8 +1,8 @@
 ---
 title: StoreGetACL
 id: function-storegetacl
-related:
 categories:
+- s3
 ---
 
 returns an array of struct where each struct represents an ACL grant

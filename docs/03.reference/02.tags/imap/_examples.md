@@ -52,7 +52,7 @@
 	secure="#Imap.Secure#"
 	name="ListAllFolders" maxrows ="10">
 <cfdump var="#ListAllFolders#" />
-```  
+```
 
 ### Action renamefolder
 

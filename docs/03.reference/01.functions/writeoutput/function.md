@@ -14,4 +14,4 @@ related:
 ---
 
 Writes the given string to the main response buffer regardless of
- conditions established by the [[tag-setting]] tag.
+conditions established by the [[tag-setting]] tag.

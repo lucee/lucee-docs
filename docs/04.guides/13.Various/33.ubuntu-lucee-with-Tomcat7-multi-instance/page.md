@@ -119,7 +119,7 @@ This file will be the "template" for the 3 instance that we will configure later
 
 **/etc/default/tomcat7**
 
-This file control the java options of the tomcat server. This depends of your hardware. I only put mine as a reference:
+This file control the Java options of the tomcat server. This depends of your hardware. I only put mine as a reference:
 
 ```lucee
 JAVA_OPTS="-Djava.awt.headless=true -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseConcMarkSweepGC"

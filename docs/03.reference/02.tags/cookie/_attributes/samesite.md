@@ -6,4 +6,3 @@ Values:
     - strict
     - lax
     - none
-

@@ -2,7 +2,9 @@
 title: GetProfileSections
 id: function-getprofilesections
 related:
+- function-setprofilestring
 categories:
+- files
 ---
 
 Gets all the sections of an initialization file.

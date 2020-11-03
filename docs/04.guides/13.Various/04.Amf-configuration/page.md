@@ -10,9 +10,9 @@ The following is a short explanation about how to use BlazeDS with Lucee. First 
 
 ### Overall setup of BlazeDS ###
 
-The different versions of Lucee come with slightly different preparations of the following, but to get an overview we start with a standard BlazeDS/Java setup. You can test this without Lucee, just download the blazeds.war file from <http://opensource.adobe.com/wiki/display/blazeds/Downloads>, unzip it and copy it on the java server of your choice. For example with tomcat you would put the unzipped blazeds directory into the webapps folder. In the following examples we will call this directory the /app-root directory.
+The different versions of Lucee come with slightly different preparations of the following, but to get an overview we start with a standard BlazeDS/Java setup. You can test this without Lucee, just download the blazeds.war file from <http://opensource.adobe.com/wiki/display/blazeds/Downloads>, unzip it and copy it on the Java server of your choice. For example with tomcat you would put the unzipped blazeds directory into the webapps folder. In the following examples we will call this directory the /app-root directory.
 
-To be able to use BlazeDS, we need to run the MessageBroker Servlet on the java server. This can be achieved by putting the following code into the /app-root/WEB-INF/web.xml file:
+To be able to use BlazeDS, we need to run the MessageBroker Servlet on the Java server. This can be achieved by putting the following code into the /app-root/WEB-INF/web.xml file:
 
 ```lucee
 <servlet>
@@ -43,7 +43,7 @@ So far, so good, now let's take a look at what's specific for Lucee to work with
 
 ## The LuceeAdapter ##
 
-The remoting communication of BlazeDS is implemented in the flex.messaging.services.remoting.adapters.JavaAdapter and this approach above works fine if you want to call a single java class on your backend, but because Lucee is more than just a single java class, Lucee provides it's own implementation of the adapter which is the lucee.runtime.net.flex.LuceeAdapter.
+The remoting communication of BlazeDS is implemented in the flex.messaging.services.remoting.adapters.JavaAdapter and this approach above works fine if you want to call a single Java class on your backend, but because Lucee is more than just a single Java class, Lucee provides it's own implementation of the adapter which is the lucee.runtime.net.flex.LuceeAdapter.
 
 To call a Lucee cfc from Flex you need the following: (In a Lucee Express all this is already setup for you)
 

@@ -143,7 +143,7 @@ if(sct.bol)dump("is true");
 
 * Internally every object has a type and Lucee automatically takes care of converting from one type to another if necessary. For example when you define a function with a string, but then pass a number into that function, Lucee automatically converts the number to a string.
 * The above example is useful for converting "string to date", "date to number", "number to date" formats.
-* We have loaded a java library and string builder. We pass a string into a constructor and execute this. We see that the string builder contains that value. We refer to this ``string builder`` method in the Java Doc. The method is called ``substring``. This substring takes an int as its argument. For example, we pass a string value instead of an int value ``sb.substring("5")``. Lucee returns a substring properly.
+* We have loaded a Java library and string builder. We pass a string into a constructor and execute this. We see that the string builder contains that value. We refer to this ``string builder`` method in the Java Doc. The method is called ``substring``. This substring takes an int as its argument. For example, we pass a string value instead of an int value ``sb.substring("5")``. Lucee returns a substring properly.
 * Two constructors are available for string builder. There are ``StringBuilder(int), StringBuilder(string)``.
 
 ```luceescript

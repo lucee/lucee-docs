@@ -3,13 +3,13 @@ component accessors=true {
     property name="rootDir"    type="string"; // top level folders
 
 	public any function init( required string rootDirectory ) {
-		variables.rootDir =  arguments.rootDirectory;
+		setRootDir(arguments.rootDirectory);
         reset();
 		return this;
 	}
 
 	public void function reset() {
-        variables.pages = structNew("linked");
+        setPages(structNew("linked"));
 	}
 
 	public void function addPage( required any page, required any path ) {
@@ -36,7 +36,7 @@ component accessors=true {
 		for (var path in paths){
 			newPageCache[path] = pages[path];
 		}
-		pages = newPageCache;
+		setPages(newPageCache);
 	}
 
 	public void function removePages(required any pagePaths, required string reason) {
