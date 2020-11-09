@@ -39,7 +39,7 @@ To show how this is done, let's use the "apache" user again, like we did above. 
 
 Example Usage (Debian/Ubuntu/Mint):
 
-	$ sudo mkdir /home/admin/www.sitename.com/WEB-INF/ 
+	$ sudo mkdir /home/admin/www.sitename.com/WEB-INF/
 	$ sudo chown apache:apache /home/admin/www.sitename.com/WEB-INF/
 
 Do that for each site you've configured in your tomcat server.xml file. After you've got a WEB-INF directory in every site with permissions adjusted on each of them, don't forget to restart Lucee/Tomcat!

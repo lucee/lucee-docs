@@ -52,7 +52,7 @@ The Lucee CFML Servlet is the main servlet for Lucee and is always required. The
   <!--
   <init-param>
     <param-name>lucee-web-directory</param-name>
-    <param-value>/var/Lucee/config/web/{web-context-label}/</param-value> 
+    <param-value>/var/Lucee/config/web/{web-context-label}/</param-value>
     <description>Lucee Web Directory (for Website-specific configurations, settings, and libraries)</description>
   </init-param>
   !-->
