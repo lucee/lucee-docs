@@ -3,7 +3,7 @@ title: FileReadBinary
 id: function-filereadbinary
 related:
 categories:
-    - binary    
+    - binary
     - files
 ---
 

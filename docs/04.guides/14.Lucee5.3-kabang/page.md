@@ -1,6 +1,6 @@
 ---
 title: Lucee 5.3 (Kabang) new features
-menuTitle: Lucee 5.3 (Kabang) 
+menuTitle: Lucee 5.3 (Kabang)
 id: lucee_5.3_features
 ---
 
