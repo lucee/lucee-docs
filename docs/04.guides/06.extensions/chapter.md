@@ -14,4 +14,6 @@ Extensions can be installed via the web or server admin.
 
 [[tutorial-extension-provider]] Extension Provider Tutorial
 
-[Available extensions](https://download.lucee.org/) All currently available extensions
+[Available extensions](https://download.lucee.org/) Offical Lucee Extensions (also available via the admin)
+
+[Forgebox Extensions](https://www.forgebox.io/type/lucee-extensions) Third Party Lucee Extensions at Forgebox (also available via the admin)
