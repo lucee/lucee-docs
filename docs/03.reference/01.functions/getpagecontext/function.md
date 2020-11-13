@@ -6,6 +6,7 @@ related:
 categories:
 - debugging
 - java
+- server
 description: Gets the current PageContext object that provides access to page attributes and configuration, request and response objects.
 ---
 
