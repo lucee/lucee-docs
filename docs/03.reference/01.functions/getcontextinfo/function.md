@@ -6,6 +6,7 @@ related:
 - function-getcurrentcontext
 categories:
 - debugging
+- server
 description: Returns information about the current context.
 ---
 
