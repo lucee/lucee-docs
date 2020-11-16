@@ -1,6 +1,9 @@
 ---
 title: Membase
 id: extension-membase
+categories:
+- extensions
+description: Membase Cache Provider Extension
 ---
 
 ### Membase Cache Provider Extension ###

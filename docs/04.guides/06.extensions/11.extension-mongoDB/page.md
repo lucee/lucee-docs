@@ -1,6 +1,9 @@
 ---
 title: Mongodb
 id: extension-mongodb
+categories:
+- extensions
+description: MongoDB Cache Provider Extension
 ---
 
 ## MongoDB Cache Provider Extension ##

@@ -1,6 +1,8 @@
 ---
 title: Lucee Extensions
 id: extensions
+categories:
+- extensions
 menuTitle: Extensions
 ---
 

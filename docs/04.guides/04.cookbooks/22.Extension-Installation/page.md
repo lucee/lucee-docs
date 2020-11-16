@@ -1,7 +1,10 @@
 ---
 title: Extension Installation
 id: extension-installation
+categories:
+- extensions
 ---
+
 ## Extensions ##
 
 ### Introduction ###

@@ -1,6 +1,8 @@
 ---
 title: Creating an extension (2/5)
 id: tutorial-extension-provider-part2
+categories:
+- extensions
 ---
 
 ### Creating an extension - Part 2 ###

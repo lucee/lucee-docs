@@ -1,6 +1,8 @@
 ---
 title: Admin Plugins
 id: plugins
+categories:
+- extensions
 ---
 
 # Admin Plugins
