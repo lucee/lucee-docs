@@ -2,6 +2,7 @@
 title: ExtensionList
 id: function-extensionlist
 categories:
+- extensions
 - server
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: Couchdb
 id: extension-couchdb
+categories:
+- extensions
 ---
 
 ## CouchDB Cache Provider Extension ##

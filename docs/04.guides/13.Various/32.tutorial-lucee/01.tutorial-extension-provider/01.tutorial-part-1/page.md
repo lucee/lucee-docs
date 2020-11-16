@@ -1,7 +1,10 @@
 ---
 title: Creating an extension for Lucee (1/5)
 id: tutorial-extension-provider-part1
+categories:
+- extensions
 menuTitle: Creating an extension for Lucee (1/5)
+description: Creating a local extension provider
 ---
 
 ## Creating an extension for Lucee 3.1 - Part I ##

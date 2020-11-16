@@ -1,6 +1,8 @@
 ---
 title: Writing an extension (3/5)
 id: tutorial-extension-provider-part3
+categories:
+- extensions
 ---
 
 ### Writing a Lucee extension - Part 3 ###
