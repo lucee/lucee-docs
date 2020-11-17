@@ -1,5 +1,5 @@
 ---
-title: URL Rewriting 
+title: URL Rewriting
 id: url-rewriting
 ---
 

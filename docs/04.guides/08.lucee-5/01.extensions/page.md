@@ -1,6 +1,8 @@
 ---
 title: Extensions in Lucee 5
 id: lucee-5-extensions
+categories:
+- extensions
 ---
 
 # Lucee 5 - Extensions

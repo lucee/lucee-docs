@@ -1,6 +1,8 @@
 ---
 title: Writing an extension (5/5)
 id: tutorial-extension-provider-part5
+categories:
+- extensions
 menuTitle: Writing an extension
 ---
 

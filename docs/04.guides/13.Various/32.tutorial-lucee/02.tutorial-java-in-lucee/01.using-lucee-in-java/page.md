@@ -192,7 +192,7 @@ Operations Util
 
 	Operation opUtil = engine.getOperatonUtil();
 	int c = opUtil.compare( left, right );	// cfml comparison rules
-	if ( c < 0 ) { 
+	if ( c < 0 ) {
 		// negative value = "left" is Less Than "right"
 	} else if ( c > 0 ) {
 		// positive value = "left" is Greater than "right"
@@ -210,14 +210,14 @@ Exceptions Util
 
 	Exception exp = engine.getExceptionUtil();
 
-	if ( doAbort ) 
+	if ( doAbort )
 		throw exp.createAbort();
-	else 
+	else
 		throw exp.createApplicationException( "this is wrong", "you cannot ..." );
 
 Evaluate
 
-	Object	obj =	pc.evaluate( "url.test=len( 'Lucee is awesome!' )" );	// same as function 
+	Object	obj =	pc.evaluate( "url.test=len( 'Lucee is awesome!' )" );	// same as function
 
 Serialize
 

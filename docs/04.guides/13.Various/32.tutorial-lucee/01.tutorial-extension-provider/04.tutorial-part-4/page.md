@@ -1,6 +1,8 @@
 ---
 title: Creating an Extension Installer (4/5)
 id: tutorial-extension-provider-part4
+categories:
+- extensions
 ---
 
 ### Writing an extension - Part 4 - The installer ###

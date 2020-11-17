@@ -1,6 +1,9 @@
 ---
 title: Extension Provider
 id: tutorial-extension-provider
+categories:
+- extensions
+description: Tutorial, Creating an extension for Lucee 3.1
 ---
 
 ### Creating an extension for Lucee 3.1 ###

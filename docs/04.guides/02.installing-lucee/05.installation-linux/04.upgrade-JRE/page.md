@@ -27,11 +27,11 @@ The JRE download site will offer you the option of a strait "bin" file or a "rpm
 
 The regular "bin" file is also a self-extractor, and will extract the jre to a folder named something similar to "jre1.6.0_23". This is the JRE that we're going to use to replace the JRE in our existing Lucee install. To run the self-extracting bin, we'll need to give it execute permissions. So, once we have the bin file uploaded to the server that has Lucee installed on it, run the following command to give the bin file execute permissions:
 
-	$ chmod 744 jre-6u23-linux-x64.bin 
+	$ chmod 744 jre-6u23-linux-x64.bin
 
 Now run it, and it will self-extract:
 
-	$ ./jre-6u23-linux-x64.bin 
+	$ ./jre-6u23-linux-x64.bin
 
 You will see a long list of files being extracted, something like this:
 
@@ -39,7 +39,7 @@ You will see a long list of files being extracted, something like this:
 
 Just in case something bad happens, it's always a good idea to make a backup. In this case, we're going to backup the existing JRE just in case, for some reason, something bad happens and Lucee cannot run on the newer JRE. To make a backup, simply run the following command. Note: this command assumes that you installed to the default location of /opt/lucee. If you didn't install to the default location, you will need to adjust your paths accordingly:
 
-	$ sudo cp -R /opt/lucee/jdk/ /opt/lucee/jdk.bak 
+	$ sudo cp -R /opt/lucee/jdk/ /opt/lucee/jdk.bak
 
 Again, note that we're assuming you're running on Ubuntu for this documentation. If you're running on another Linux distribution, like Fedora, RHEL, or CentOS, you may not need the "sudo" in front. Please interpolate for your situation.
 

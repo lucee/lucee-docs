@@ -5,6 +5,11 @@ MD004: false
 MD005: false
 MD006: false
 MD007: false
+
+# MD009 - Trailing spaces
+no-trailing-spaces:
+  br_spaces: 2
+
 MD010: false
 MD013: false
 MD014: false
