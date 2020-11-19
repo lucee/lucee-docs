@@ -5,7 +5,7 @@ id: running-lucee-installing-the-jdk-on-windows
 
 ![java-logo70x45.jpg](https://bitbucket.org/repo/rX87Rq/images/398847305-java-logo70x45.jpg)
 
-First download the current [Java 8 SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+First download the current [Java 8 SE Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 Choose the **Windows x64** edition and save it to a temporary folder on your server.
 
