@@ -5,7 +5,7 @@ id: running-lucee-installing-the-server-jre-on-windows
 
 ![java-logo70x45.jpg](https://bitbucket.org/repo/rX87Rq/images/1952612483-java-logo70x45.jpg)
 
-First [download the Java 8 Server JRE](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html).
+First [download the Java 8 Server JRE](https://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html).
 
 Choose the **Windows x64** edition. Once downloaded, unzip the content to a temporary folder on your server.
 
