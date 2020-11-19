@@ -4,13 +4,13 @@ id: amf-configuration
 ---
 ## BlazeDS 3.2 integration ##
 
-Lucee 3.x comes with BlazeDS 3.2, the Adobe opensource amf engine to communicate from a Flex application to a Java backend. Using AMF has a lot of advantages over the usage of REST or SOAP, if you need more information about BlazeDS please take a look at the documentation on <http://opensource.adobe.com/wiki/display/blazeds/Developer+Documentation>.
+Lucee 3.x comes with BlazeDS 3.2, the Adobe opensource amf engine to communicate from a Flex application to a Java backend. Using AMF has a lot of advantages over the usage of REST or SOAP, if you need more information about BlazeDS please take a look at the documentation on <https://opensource.adobe.com/wiki/display/blazeds/Developer+Documentation>.
 
 The following is a short explanation about how to use BlazeDS with Lucee. First we start with an overall description about how to setup BlazeDS and how to test that it works, later down we will look at the different Lucee versions (Express, Server etc) and where you can find the individual pieces of the BlazeDS setup for your Lucee of choice. This text is based on Lucee 3.1.2, but should apply also to future versions of Lucee 3.x. It could change slightly for Lucee 4 though.
 
 ### Overall setup of BlazeDS ###
 
-The different versions of Lucee come with slightly different preparations of the following, but to get an overview we start with a standard BlazeDS/Java setup. You can test this without Lucee, just download the blazeds.war file from <http://opensource.adobe.com/wiki/display/blazeds/Downloads>, unzip it and copy it on the Java server of your choice. For example with tomcat you would put the unzipped blazeds directory into the webapps folder. In the following examples we will call this directory the /app-root directory.
+The different versions of Lucee come with slightly different preparations of the following, but to get an overview we start with a standard BlazeDS/Java setup. You can test this without Lucee, just download the blazeds.war file from <https://opensource.adobe.com/wiki/display/blazeds/Downloads>, unzip it and copy it on the Java server of your choice. For example with tomcat you would put the unzipped blazeds directory into the webapps folder. In the following examples we will call this directory the /app-root directory.
 
 To be able to use BlazeDS, we need to run the MessageBroker Servlet on the Java server. This can be achieved by putting the following code into the /app-root/WEB-INF/web.xml file:
 
