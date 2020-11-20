@@ -15,31 +15,37 @@ id: lucee-lockdown-guide
 
 On Windows it is recommended to run the Lucee/Tomcat service as a restrict user with only the required permissions rather than under SYSTEM account.
 
-## Restricted Access Plus SSH Tunnelling ##
+## Restrict Access to the Lucee Administrator and other folders ##
 
-As with ACF, it is recommended best security practice to restrict access to URI's that are not necessary to publicly expose.
+As with ACF, the recommended best security practice to restrict access to all URLs that are not required to be publically accessible.
 
 Examples that have been cited include:
 
-* /lucee-context
+* /lucee
 * /manager
 * /host-manager
-* /web-inf
-* /meta-inf
+* /WEB-INF (see [[relocating-web-inf]] )
+* /META-INF
 
-An Apache directive that restricts access to /lucee-context, as an example, is given below:
+An Apache directive that restricts access to /lucee, as an example, is given below:
 
 ```lucee
-<Location /lucee-context>
+<Location /lucee>
     Order Deny,Allow
     Deny from all
     Allow from 127.0.0.1
 </Location>
 ```
 
-In the above example, only the localhost IP address, 127.0.0.1, would be allowed to navigate to any url that contains /lucee-context. This directive effectively blocks access to URL's that begin with /lucee/ from any other IP address, cutting off any exploits that attempt to use resources located under /lucee-context.
+It's important that this rule is applied to all websites
+
+In the above example, only the localhost IP address, 127.0.0.1, would be allowed to navigate to any url that contains /lucee. This directive effectively blocks access to URL's that begin with /lucee/ from any other IP address, cutting off any exploits that attempt to use resources located under /lucee.
+
+## SSH Tunnelling or Remote Desktop ##
 
 So far, so good. But then how can admins access the admin panels such as /lucee/admin/server.cfm if they don't have physical access to the server???
+
+You can either login to your server via Remote Desktop or by using a SSH tunnel.
 
 There is a relatively simple technique called SSH tunneling which will allow an administrator to log into a web server with URI's restricted to 127.0.0.1 as in the above directive. In a nutshell, the admin logs onto the server using SSH with the -D flag and a free local port of your choice, and then sets up a browser to use the server, via the local port specified, as a proxy. The net effect is that once the admin is logged into the server via SSH and has the browser properly set, browsing to 127.0.0.1/lucee/admin/server.cfm opens the login screen on the server, not on the local machine!
 
