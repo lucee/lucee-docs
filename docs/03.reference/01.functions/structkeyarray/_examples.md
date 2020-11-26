@@ -1,4 +1,4 @@
-### Non-Member Function
+### Unordered Structs (default)
 
 ```luceescript+trycf
 animals = {
@@ -7,17 +7,17 @@ animals = {
 	cat: "meow",
 	bird: "chirp"
 };
+dump(StructKeyArray(animals));
+```
 
-// StructKeyArray(animals)
-animalKeyArray = StructKeyArray(animals);
+### Ordered Structs
 
-// Show results of animalKeyArray
-// ["bird","cat","cow","pig"]
-for (animal in animalKeyArray) {
-	// Show value of animal in animals
-	Dump(
-		label: "Value of " & animal,
-		var: animals[animal]
-	);
-}
+```luceescript+trycf
+animals = [
+	cow: "moo",
+	pig: "oink",
+	cat: "meow",
+	bird: "chirp"
+];
+dump(StructKeyArray(animals));
 ```
