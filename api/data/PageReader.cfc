@@ -52,11 +52,16 @@ component {
 		return page;
 	}
 
+	// markdown parsing expects unix file line endings
+	private string function FileReadAsUnix(required string filePath){
+		return _convertToUnixLineEnding( FileRead( arguments.filePath ) );
+	}
+
 	public any function readPageFile( required string rootDir, required string pageType, required string pageDir ) {
 		var path            = arguments.rootDir & "/" & arguments.pageDir & arguments.pageType;
 		var slug            = ListLast( arguments.pageDir, "\/" );
 
-		var fileContent     = _convertToUnixLineEnding( FileRead( path ) );
+		var fileContent     = FileReadAsUnix( path );
 		var data            = _parsePage( fileContent );
 		var sortOrder       = "";
 
@@ -100,7 +105,7 @@ component {
 
 	public any function readPageFileSource( required string filePath ) {
 		var path            = Replace(arguments.filePath,"\","/","all");
-		var fileContent     = _convertToUnixLineEnding(FileRead( path ));
+		var fileContent     = FileReadAsUnix( path );
 		var data            = _parsePage( fileContent );
 		return data;
 	}
@@ -182,7 +187,7 @@ component {
 
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
 		if ( FileExists( examplesFile ) ) {
-			tag.examples = FileRead( examplesFile );
+			tag.examples = FileReadAsUnix( examplesFile );
 		}
 
 		return tag;
@@ -202,7 +207,7 @@ component {
 
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
 		if ( FileExists( examplesFile ) ) {
-			func.examples = FileRead( examplesFile );
+			func.examples = FileReadAsUnix( examplesFile );
 		}
 
 		return func;
@@ -223,7 +228,7 @@ component {
 
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
 		if ( FileExists( examplesFile ) ) {
-			obj.examples = FileRead( examplesFile );
+			obj.examples = FileReadAsUnix( examplesFile );
 		}
 
 		return obj;
@@ -242,7 +247,7 @@ component {
 		}
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
 		if ( FileExists( examplesFile ) ) {
-			meth.examples = FileRead( examplesFile );
+			meth.examples = FileReadAsUnix( examplesFile );
 		}
 
 		return meth;
