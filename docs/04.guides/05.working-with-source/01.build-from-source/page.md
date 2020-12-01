@@ -11,7 +11,7 @@ The following text assumes that you have basic knowledge of how to use git and m
 
 Before you can start building Lucee from source, you will need a few things installed on your machine:
 
-1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  Lucee requires JDK 8 or later in order to compile.  <http://www.oracle.com/technetwork/java/javase/downloads/>
+1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  Lucee requires JDK 8 or later in order to compile.  <https://www.oracle.com/technetwork/java/javase/downloads/>
 
 1. **Apache Maven** - the source code contains several build scripts that will automate the build process for you. you will need Maven installed in order to run these build scripts. <http://maven.apache.org/>
 

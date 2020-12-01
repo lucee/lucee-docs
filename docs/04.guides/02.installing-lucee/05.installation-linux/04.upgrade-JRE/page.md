@@ -17,7 +17,7 @@ It could be problematic to copy over libraries while the server that utilizes th
 
 ### STEP 2 - Download the JRE ###
 
-Go to the JRE download page, which at the time of this writing is here [JRE Download Page](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+Go to the JRE download page, which at the time of this writing is here [JRE Download Page](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 If you can't do this on your Linux system (as most Linux servers - with good reason - do not have a GUI), then download the JRE and upload it to your server using a file transfer method of your choice. FTP is a common method or you could use a method like [SCP](http://acs.ucsd.edu/info/scp.shtml).
 

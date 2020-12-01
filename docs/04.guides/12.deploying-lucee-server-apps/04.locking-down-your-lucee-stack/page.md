@@ -39,7 +39,7 @@ If assets in the lucee-context are not needed (ie: if you're not using cfform or
 
 Always ensure that your JVM is up to date to the latest JVM security baseline. Instructions for upgrading your JVM are available for both Windows and Linux
 
-You can subscribe to get email alerts for Java Security releases by following the instructions found here: [http://www.oracle.com/technetwork/topics/security/securityemail-090378.html](http://www.oracle.com/technetwork/topics/security/securityemail-090378.html)
+You can subscribe to get email alerts for Java Security releases by following the instructions found here: [https://www.oracle.com/technetwork/topics/security/securityemail-090378.html](https://www.oracle.com/technetwork/topics/security/securityemail-090378.html)
 
 ### Ensure Tomcat is up to Date ###
 

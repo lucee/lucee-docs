@@ -1,8 +1,8 @@
 ---
 title: StructKeyTranslate
 id: function-structkeytranslate
-related:
 categories:
-    - struct
+- struct
 ---
 
+Converts any struct keys with dot notation into nested structures
