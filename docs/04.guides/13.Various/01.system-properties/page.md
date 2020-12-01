@@ -548,12 +548,12 @@ When using *Environment Variables* or *System Properties* you need to consider i
                 </div>
 			</td>
 			<td>
-                Defines the S3 virtual S3 bucket mapping credentials. Use this to hide AWS S3 credentials from source code or Web Administrator. That way you connect to your S3 bucket with a <code>S3:///myAwsBucketname/someDirectory/</code> <code>S3:///myAwsKey:myAwsSecretKey@/myAwsBucketname/someDirectory/</code>, instead of Please see <a href="/categories/s3.html">S3</a>
+                Defines the S3 virtual S3 bucket mapping credentials. Use this to hide AWS S3 credentials from source code or Web Administrator. That way you connect to your S3 bucket with a <code>S3:///myAwsBucketname/someDirectory/</code> <code>S3:///myAwsKey:myAwsSecretKey@/myAwsBucketname/someDirectory/</code>. Please see [[category-s3]]
                 <br><sub>Values: String</sub>
                 <p>
                     <strong>Equivalent in Lucee Server Administrator:</strong>
                     <br>
-                    Settings &raquo;  Error &raquo; Status code
+                    not available
                 </p>
                 <p>
                    <strong>Equivalent in Application.cfc:</strong>
