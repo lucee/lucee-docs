@@ -4,7 +4,7 @@ id: function-structsome
 categories:
 - collection
 - struct
-description: This function calls a closure/function on element in a struct until one returns true.
+description: This function calls a closure/function on every element in a struct until one returns true.
 ---
 
 This function calls a closure/function on every element in a struct until one returns true.
