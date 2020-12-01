@@ -5,7 +5,7 @@ st = {
 	3 : { active: false}
 };
 
-result = structSome(st, function(key,value){
+result = st.some(function(key,value){
 	dump(var=value, label=key);
 	return value.active;
 });
