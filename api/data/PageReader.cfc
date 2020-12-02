@@ -181,7 +181,7 @@ component {
 		for( var attrib in attributes ) {
 			var attribDescriptionFile = attributesDir & attrib.name & ".md";
 			if ( FileExists( attribDescriptionFile ) ) {
-				attrib.description = FileRead( attribDescriptionFile );
+				attrib.description = FileReadAsUnix( attribDescriptionFile );
 			}
 		}
 
@@ -201,7 +201,7 @@ component {
 		for( var arg in args ) {
 			var argDescriptionFile = argsDir & arg.name & ".md";
 			if ( FileExists( argDescriptionFile ) ) {
-				arg.description = FileRead( argDescriptionFile );
+				arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
 
@@ -222,7 +222,7 @@ component {
 		for( var arg in args ) {
 			var argDescriptionFile = argsDir & arg.name & ".md";
 			if ( FileExists( argDescriptionFile ) ) {
-				arg.description = FileRead( argDescriptionFile );
+				arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
 
@@ -242,7 +242,7 @@ component {
 		for( var arg in args ) {
 			var argDescriptionFile = argsDir & arg.name & ".md";
 			if ( FileExists( argDescriptionFile ) ) {
-				arg.description = FileRead( argDescriptionFile );
+				arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
