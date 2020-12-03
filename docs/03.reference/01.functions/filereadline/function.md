@@ -7,4 +7,4 @@ categories:
 - files
 ---
 
-Reads a line from an file.
+Reads the current line from an open file (see [[function-fileopen]]) and moves the current line pointer of the file to the next line.
