@@ -11,5 +11,5 @@
 - read
 - removeWatermark
 - setInfo
-- thumbnail
+- thumbnail *not implemented in v5*
 - write
