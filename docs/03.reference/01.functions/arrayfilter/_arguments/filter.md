@@ -1,3 +1,3 @@
-A function/closure that implements the following constructor 
+A function/closure that implements the following constructor
 
 `function(any arg){ return true/false;}`
