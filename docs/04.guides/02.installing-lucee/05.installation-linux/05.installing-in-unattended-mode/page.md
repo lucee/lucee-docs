@@ -31,7 +31,7 @@ The following variables can also be customized by passing them to the installer 
 
 **--tomcatport**  
 **Default Value:** [8888]  
-The port number Tomcat will use for it's internal web server (coyote). This port is what's used by default for Apache mod_proxy_html.  
+The port number Tomcat will use for it's internal web server (coyote). This port is what's used by default for Apache mod_proxy_html.
 
 **--tomcatshutdownport**  
 **Default Value:** [8005]  

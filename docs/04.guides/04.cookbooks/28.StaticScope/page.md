@@ -115,7 +115,7 @@ Component {
 }
 ```
 
-2) Next we call the getInstance() static function five times. Here we pass three different arguments into the getInstance() function. So three instances are displayed when we run this in the browser. This indicates that the same arguments are executed only once.  
+2) Next we call the getInstance() static function five times. Here we pass three different arguments into the getInstance() function. So three instances are displayed when we run this in the browser. This indicates that the same arguments are executed only once.
 
 ```luceescript
 // example02.cfm

@@ -5,7 +5,7 @@ id: about-lucee-lucee-compared-to-java
 
 ## JVM
 
-Like Java, Lucee is also a JVM (Java Virtual Machine) based language, means the source code is compiled to Java bytecode, so it can be executed on the JVM. In difference to other JVM languages Lucee comes with it owns very powerful runtime environment. So it is not only a different syntax to do Java bytecode, like for example Groovy.  
+Like Java, Lucee is also a JVM (Java Virtual Machine) based language, means the source code is compiled to Java bytecode, so it can be executed on the JVM. In difference to other JVM languages Lucee comes with it owns very powerful runtime environment. So it is not only a different syntax to do Java bytecode, like for example Groovy.
 
 ## Server
 

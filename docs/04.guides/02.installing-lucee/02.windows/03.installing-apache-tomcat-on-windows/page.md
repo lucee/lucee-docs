@@ -91,7 +91,8 @@ md D:\Tomcat\temp
 md D:\Tomcat\work
 ```
 
-We finished the basic installation. Now we have to edit some of the configuration files.  
+We finished the basic installation. Now we have to edit some of the configuration files.
+
 Let's go to the folder **D:\Tomcat\conf**.
 
 ## server.xml ##
@@ -121,7 +122,7 @@ We need to specify the full path to the log directory:
 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="D:\Tomcat\logs"
 ```
 
-The next step is optional. Tomcat and Lucee are listening on port **8080** to access the administrator interface. Other web servers might use this port already or if you suffer from a security paranoia like i do, we want to have this port on a *really weard number*.  
+The next step is optional. Tomcat and Lucee are listening on port **8080** to access the administrator interface. Other web servers might use this port already or if you suffer from a security paranoia like i do, we want to have this port on a *really weard number*.
 
 *Note:* The Lucee'ians are used to have port **8888** to access the administrator interface.
 
@@ -133,7 +134,7 @@ Find the setting:
                redirectPort="8443" />
 ```
 
-Change the port *8080* to the new port.  
+Change the port *8080* to the new port.
 
 If you like to access the Tomcat Administration from outside of the server, the Windows firewall needs to be opened with a rule:
 

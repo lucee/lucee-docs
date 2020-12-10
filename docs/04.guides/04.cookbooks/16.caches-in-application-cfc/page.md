@@ -44,7 +44,7 @@ The easiest way to generate the code block above is the follow these steps:
 
 Let's take a look at some of the keys used to define a cache connection.
 
-* **class** - This is the Java class of the driver for the cache engine.  
+* **class** - This is the Java class of the driver for the cache engine.
 * **bundleName** - Optional.  The name of the OSGI bundle to load the `class` from
 * **bundleVersion** - Optional.  The version of the OSGI bundle to load the `class` from.
 * **storage** - A boolean that flags whether this cache can be used for client or session storage

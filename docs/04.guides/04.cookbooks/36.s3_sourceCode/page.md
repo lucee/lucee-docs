@@ -47,7 +47,7 @@ But again, that would expose your credentials for everybody that sees an excepti
 	* When enabling the flag ``Web Accessible``, this exposes that mapping directly to the user. So you can call it at /s3 in the browser.
 	* When removing the flag ``Web Accessible``, you can only include that mapping. So, we always use cfinclude s3.
 
-7) If we select ``Never`` in 'Inspect Templates' this tells Lucee to pick up the file on first request from s3. It will compile the file to a local folder. Then it will only use that local compiled file and never check again if the file has changed.  
+7) If we select ``Never`` in 'Inspect Templates' this tells Lucee to pick up the file on first request from s3. It will compile the file to a local folder. Then it will only use that local compiled file and never check again if the file has changed.
 
 8) We go to ``localhost:8888/s3/cfml1/index.cfm`` in the browser. We get the source from S3 which comes directly from a stream, so we are catching that. It will not pick up any changes at all. For example, if we change that file a little bit and then update the file on s3, and then call it again in the browser, it does not pick up the latest changes. Because it is cached, what you now can do is flush the change with the help of the function ``PagePoolClear()``. This function will create a complete page pool.
 
