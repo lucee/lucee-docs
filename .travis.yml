@@ -1,14 +1,14 @@
 dist: trusty
 language: java
 rvm:
-- 1.9.3
+  - 1.9.3
 sudo: required
 before_install:
-- echo "deb http://downloads.ortussolutions.com/debs/noarch /" > commandbox.list
-- sudo mv commandbox.list /etc/apt/sources.list.d/commandbox.list
-- sudo apt-get update
+  - echo "deb http://downloads.ortussolutions.com/debs/noarch /" > commandbox.list
+  - sudo mv commandbox.list /etc/apt/sources.list.d/commandbox.list
+  - sudo apt-get update
 install:
-- sudo apt-get install -q -y --force-yes commandbox zip
-- gem install s3_website
+  - sudo apt-get install -q -y --force-yes commandbox zip
+  - gem install s3_website
 script:
-- "./build.sh"
+  - "./build.sh"
