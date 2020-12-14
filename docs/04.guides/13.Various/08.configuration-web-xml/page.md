@@ -89,7 +89,7 @@ If you need to enable REST web services, add the XML snippet below to your Globa
   <servlet-name>RESTServlet</servlet-name>
   <servlet-class>lucee.loader.servlet.RestServlet</servlet-class>
   <load-on-startup>2</load-on-startup>
-</servlet>  
+</servlet>
 
 <servlet-mapping>
   <servlet-name>RESTServlet</servlet-name>

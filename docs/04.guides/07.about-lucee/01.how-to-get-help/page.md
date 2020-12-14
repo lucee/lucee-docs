@@ -25,4 +25,4 @@ Become a member of the Lucee Association Switzerland and benefit from the suppor
 
 There is a great community behind Lucee, but if your project needs more, the [Lucee Association Switzerland's member companies](https://lucee.org/aboutlucee/members.html) are here to help.
 
-They offer a range of training, support packages & consultancy services to get your project on track and keep it there.  Whether you need up-front consultancy about the best way to design your project, or ongoing support for your developers, they can help.  
+They offer a range of training, support packages & consultancy services to get your project on track and keep it there.  Whether you need up-front consultancy about the best way to design your project, or ongoing support for your developers, they can help.

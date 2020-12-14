@@ -2,7 +2,7 @@
 title: <cfloop>
 id: tag-loop
 related:
-    - tag-break  
+    - tag-break
 categories:
 ---
 

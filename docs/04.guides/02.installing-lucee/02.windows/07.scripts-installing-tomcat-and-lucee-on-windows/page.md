@@ -35,7 +35,7 @@ pause
 "%catalina.home%\bin\tomcat8.exe" //US//Tomcat8 --Jvm="%jvm.dir%\jre\bin\server\jvm.dll"
 "%catalina.home%\bin\tomcat8.exe" //US//Tomcat8 ++JvmOptions="-Dcatalina.home=%catalina.home%;-Dcatalina.base=%catalina.base%;-Djava.endorsed.dirs=%catalina.base%\endorsed;-Djava.io.tmpdir=%catalina.base%\Temp;-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager;-Djava.util.logging.config.file=%catalina.base%\conf\logging.properties"
 "%catalina.home%\bin\tomcat8.exe" //US//Tomcat8 --LogLevel="Info" --LogPrefix="tomcat_service_" --LogPath="%catalina.base%\Logs" --StdOutput="auto" --StdError="auto" --PidFile="tomcat8.pid"
-"%catalina.home%\bin\tomcat8.exe" //US//Tomcat8 --StartClass="org.apache.catalina.startup.Bootstrap" --StartMode="jvm" ++StartParams="start"  
+"%catalina.home%\bin\tomcat8.exe" //US//Tomcat8 --StartClass="org.apache.catalina.startup.Bootstrap" --StartMode="jvm" ++StartParams="start"
 "%catalina.home%\bin\tomcat8.exe" //US//Tomcat8 --StopClass="org.apache.catalina.startup.Bootstrap" --StopMode="jvm" ++StopParams="stop" --StopTimeout="0"
 "%catalina.home%\bin\tomcat8.exe" //US//Tomcat8 ++JvmOptions="-Xms4096m;-Xmx4096m;-Xss512k;-XX:NewSize=1024M;-XX:MaxNewSize=1024M;-XX:GCTimeRatio=5;-XX:ThreadPriorityPolicy=42;-XX:ParallelGCThreads=4;--XX:MaxGCPauseMillis=50;-XX:+DisableExplicitGC;-XX:MaxHeapFreeRatio=70;-XX:MinHeapFreeRatio=40;-XX:+OptimizeStringConcat;-XX:+UseTLAB;-XX:+ScavengeBeforeFullGC;-XX:CompileThreshold=1500;-XX:+TieredCompilation;-XX:+UseBiasedLocking;-Xverify:none;-XX:+UseThreadPriorities;-XX:+UseFastAccessorMethods;-XX:+UseCompressedOops;-XX:ReservedCodeCacheSize=256m"
 

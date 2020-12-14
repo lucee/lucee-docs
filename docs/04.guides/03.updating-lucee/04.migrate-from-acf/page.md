@@ -16,7 +16,7 @@ There are, however, some known issues of compatibility that you should be aware 
 ### Arrays in ACF are passed by value ###
 
 **What:**
-In ACF [[object-array]]s are passed to functions by value, meaning that if you call a function and the argument(s) passed to it are arrays, then the arrays are first copied into a new object, and the function then uses that new object.  
+In ACF [[object-array]]s are passed to functions by value, meaning that if you call a function and the argument(s) passed to it are arrays, then the arrays are first copied into a new object, and the function then uses that new object.
 
 In Lucee -- passing an array to a function is done by a pointer, like all other complex objects.
 

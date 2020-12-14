@@ -105,7 +105,7 @@ dump("Query Filter/Sort Execution Time:"&(getTickCount("micro")-start));
 
 In this example have two different methods of queries.
 
-1) First one is QOQ. Here ``QoQ`` from the ``persons`` table. It is executed a thousand times due to the looping required by QoQ.  
+1) First one is QOQ. Here ``QoQ`` from the ``persons`` table. It is executed a thousand times due to the looping required by QoQ.
 
 2) The second one is calling the function query filter. Query filter filters out the same row the same way the QOQ does.
 
