@@ -12,4 +12,4 @@ if you define a closure/function, the closure/function must accept 2 parameters 
 - 0, if first parameter is equal to second parameter
 - 1, first parameter is "bigger" than second parameter
 
-` function (any e1, any e2) { return -1/0/1;});`
+`function (any e1, any e2) { return -1/0/1;});`
