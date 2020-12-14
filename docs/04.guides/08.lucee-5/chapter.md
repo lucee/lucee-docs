@@ -13,11 +13,11 @@ This brings Lucee and CFML to a whole new level! <https://download.lucee.org>.
 
 Lucee 5 has had a complete overhaul under the hood. A lot of the existing functionality has been completely re-worked, as well as extending the interfaces to the engine to make way for a lot of possible functionality in the future.
 
-* [[lucee-5-osgi]] - Lucee 5 is completely [OSGi](http://en.wikipedia.org/wiki/OSGi) based, OSGi is the defacto standard in most Java enterprise environments, to manage bundles (jar libraries) used by the environment.
+* [[lucee-5-osgi]] - Lucee 5 is completely [OSGi](https://en.wikipedia.org/wiki/OSGi) based, OSGi is the defacto standard in most Java enterprise environments, to manage bundles (jar libraries) used by the environment.
 
 * Modularity - CFML is come a long way over the years and along the way it has collected a lot of very useful functionality, but every bit of functionality you are not using is a burden. With Lucee 5, and in part thanks to OSGi, we have been able to moved a lot of functionality out of the core and into extensions. All these extensions are installed by default, so you have the same experience as you had before out of the box. However now you can uninstall what you are not using to reduce Lucee's footprint. Functionality that has so far been moved to extensions are Hibernate (ORM), Lucene (Search), all datasource drivers, S3 Resource, PDF/Document tags and chart tags. This is simply the beginning and we will be moving more functionality out into extensions over the coming months.
 
-* Scripting (JSR 223) - Lucee 5 fully supports the [Java Scripting](http://en.wikipedia.org/wiki/Scripting_for_the_Java_Platform) standard. Java scripting allows you to use Lucee in places you could not previously. For example, the interface used by the Lucee build process within ANT, to run the CFML testcases and the CFML code has full access to the ANT environment.
+* Scripting (JSR 223) - Lucee 5 fully supports the [Java Scripting](https://en.wikipedia.org/wiki/Scripting_for_the_Java_Platform) standard. Java scripting allows you to use Lucee in places you could not previously. For example, the interface used by the Lucee build process within ANT, to run the CFML testcases and the CFML code has full access to the ANT environment.
 
 * [[lucee-5-class-updating]] - Previously an optional feature in Lucee 4, class updating is now an integral part of Lucee 5. Lucee 5 is able to update existing classes and this has a large impact on memory consumption, particularly in environments where a lot of CFML templates are used. This feature no longer requires any configuration and is "always on".
 
