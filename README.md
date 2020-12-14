@@ -1,7 +1,7 @@
 # Lucee documentation source and builder
 
 [![Build Status](https://travis-ci.org/lucee/lucee-docs.svg?branch=master)](https://travis-ci.org/lucee/lucee-docs)
-[![Lint](https://github.com/lucee/lucee-docs/workflows/Lint/badge.svg)](#lucee-documentation-source-and-builder)
+[![Lint](https://github.com/lucee/lucee-docs/workflows/%E2%9D%84%EF%B8%8F%20Lint/badge.svg)](#lucee-documentation-source-and-builder)
 
 This repository contains the source and build scripts for creating Lucee's documentation. The website output of the docs can be found at [https://docs.lucee.org](https://docs.lucee.org).
 
