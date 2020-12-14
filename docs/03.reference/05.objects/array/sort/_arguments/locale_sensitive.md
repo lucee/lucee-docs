@@ -1,1 +1,1 @@
-if true it does a locale sensitive sorting.
+if true, use locale sensitive sorting.
