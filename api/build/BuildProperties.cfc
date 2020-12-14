@@ -4,7 +4,7 @@
  * @accessors true
  */
 component accessors=true {
-	cwd     = GetDirectoryFromPath( GetCurrentTemplatePath() );	 
+	cwd     = GetDirectoryFromPath( GetCurrentTemplatePath() );
 	property name="docsDir" default="#ExpandPath( "/docs/" )#";
 	property name="functionReferenceDirectory" default="#docsDir#03.reference/01.functions/";
 	property name="tagReferenceDirectory"      default="#docsDir#03.reference/02.tags/";
