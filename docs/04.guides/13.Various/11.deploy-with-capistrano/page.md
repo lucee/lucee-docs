@@ -59,7 +59,7 @@ set :use_sudo, false
 
 desc "Run tasks in production environment"
 task :production do
-        # Prompt to make really sure we want to deploy into production
+  # Prompt to make really sure we want to deploy into production
   puts "\n\e[0;31m   ######################################################################"
   puts "   #\n   #       Are you REALLY sure you want to deploy to production?"
   puts "   #\n   #               Enter y/N + enter to continue\n   #"
