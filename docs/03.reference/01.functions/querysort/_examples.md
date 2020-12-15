@@ -1,33 +1,19 @@
 ```luceescript+trycf
 people = QueryNew( "name,dob,age", "varchar,date,int", [
-    [ "Susi", CreateDate( 1970, 1, 1 ), 0 ],
-    [ "Urs" , CreateDate( 1995, 1, 1 ), 0 ],
-    [ "Fred", CreateDate( 1960, 1, 1 ), 0 ],
-    [ "Jim" , CreateDate( 1988, 1, 1 ), 0 ]
+    [ "Susi", CreateDate( 1970, 1, 1 ), 70 ],
+    [ "Urs" , CreateDate( 1995, 1, 1 ), 40 ],
+    [ "Fred", CreateDate( 1960, 1, 1 ), 50 ],
+    [ "Jim" , CreateDate( 1988, 1, 1 ), 30 ]
 ]);
 
-Dump( var=people, label="people - origional query" );
+Dump( var=people, label="people - original query" );
 
-/* Output:
-
-| name | dob                 | age |
-------------------------------------
-| Susi | 1970-01-01 00:00:00 | 0   |
-| Urs  | 1995-01-01 00:00:00 | 0   |
-| Fred | 1960-01-01 00:00:00 | 0   |
-| Jim  | 1988-01-01 00:00:00 | 0   |
-*/
-
-people.sort('name', 'asc');
+QuerySort(people, 'name', 'asc');
 dump(var=people, label='people - sorted by name');
 
-/* Output:
+QuerySort(people, function(row1, row2){
+	return compare(arguments.row1.age, arguments.row2.age);
+});
+dump(var=people, label='people - sorted by age');
 
-| name | dob                 | age |
-------------------------------------
-| Fred | 1960-01-01 00:00:00 | 0   |
-| Jim  | 1988-01-01 00:00:00 | 0   |
-| Susi | 1970-01-01 00:00:00 | 0   |
-| Urs  | 1995-01-01 00:00:00 | 0   |
-*/
 ```
