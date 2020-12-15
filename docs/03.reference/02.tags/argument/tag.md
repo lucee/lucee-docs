@@ -1,7 +1,7 @@
 ---
 title: <cfargument>
 id: tag-argument
-related: 
+related:
 - tag-function
 - tag-component
 categories:

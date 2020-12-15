@@ -30,13 +30,13 @@ component accessors=true {
 			if ( func.keyExists("member") &&  func.member.count() gt 0){
 				var member = func.member;
 				if (not objects.keyExists(member.type) )
-					objects[member.type] = StructNew("linked");                
+					objects[member.type] = StructNew("linked");
 			}
 
 			//var convertedFunc = _getFunctionDefinition( functionName );
 			//functions[ functionName ] = convertedFunc;
-		}                
-		setObjects( objects );        
+		}
+		setObjects( objects );
 	}
 
 	/*

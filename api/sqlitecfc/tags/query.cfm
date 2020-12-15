@@ -8,8 +8,8 @@
 ---><cfsilent>
 	
 	<cfif not thisTag.hasEndTag>
-		<cfthrow 
-			type="SqliteCFC.SyntaxError" 
+		<cfthrow
+			type="SqliteCFC.SyntaxError"
 			message="The SqliteCFC query tag requires an end tag.">
 	</cfif>
 
@@ -21,14 +21,14 @@
 		<cfparam name="attributes.variableScope" type="string" default="application">
 		
 		<cfif not StructKeyExists(attributes,"cfc") AND ((attributes.variableScope EQ "application" AND not StructKeyExists(application,attributes.variable)) OR (attributes.variableScope EQ "server" AND not StructKeyExists(SERVER,attributes.variable)))>
-			<cfthrow 
-				type="SqliteCFC.NotDefined.CFC" 
+			<cfthrow
+				type="SqliteCFC.NotDefined.CFC"
 				message="Attribute validation error for the SqliteCFC Query tag."
 				detail="The instantiated CFC was not passed via the CFC parameter, and does not exist in the variable #attributes.variableScope#[""#attributes.variable#""]">
 		</cfif>
 		<cfif not listFindNoCase("read,update",attributes.action)>
-			<cfthrow 
-				type="SqliteCFC.SyntaxError" 
+			<cfthrow
+				type="SqliteCFC.SyntaxError"
 				message="Attribute validation error for the SqliteCFC Query tag."
 				detail="The value of the action attribute must be one of 'list' or 'read'.">
 		</cfif>
