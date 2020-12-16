@@ -44,6 +44,8 @@ That's it!
 
 * Primary key existence (DESCRIBE cf_session_data). If primary key doesn't exist add composite primary key (cfid, name). You can run ALTER TABLE cf_session_data ADD PRIMARY KEY(cfid,name) for that. This helps you avoid performance problems as your cf_session_data table will grow.
 
+* index present on expires column. You'll need it if you have a large trafic bacase purging will check expired records and index will help to do it faster.
+
 * Type of "data" column should be longtext, not text. Run ALTER TABLE cf_session_data MODIFY data longtext to change. (Fixed in versions 4.2.0, 4.1.2.006). This is a must have if you store big data (arrays, structs) in session. Otherwise you'll get the data truncation error
 
 For reference only and in case information about structure and indexes of the mysql tables is needed, find a MySql structure export of the cf_session_data and cf_client_data below:
