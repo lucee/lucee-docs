@@ -1,0 +1,51 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^http:\/\/127.0.0.1.*"
+    },
+    {
+      "pattern": "http:\/\/192.168.*"
+    },
+    {
+      "pattern": "https:\/\/cdn.lucee.org/{version-number}.*"
+    },
+    {
+      "pattern": "http:\/\/{hostname}.*"
+    },
+    {
+      "pattern": "http:\/\/\\$host:\\$port.*"
+    },
+    {
+      "pattern": "http:\/\/localcontext.*"
+    },
+    {
+      "pattern": "^http:\/\/localhost.*"
+    },
+    {
+      "pattern": "http:\/\/(www.)?mysite.com.*"
+    },
+    {
+      "pattern": "http:\/\/svlucee01.netfusion.local.*"
+    },
+    {
+      "pattern": "^http:\/\/yourdomain.*"
+    },
+    {
+      "pattern": "http:\/\/www.servername.com.*"
+    }
+  ],
+  "replacementPatterns": [
+    {
+      "pattern": "^assets",
+      "replacement": "https:\/\/docs.lucee.org\/assets"
+    },
+    {
+      "pattern": "^\/images",
+      "replacement": "https:\/\/docs.lucee.org\/images"
+    },
+    {
+      "pattern": "^\/guides",
+      "replacement": "https:\/\/docs.lucee.org\/guides"
+    }
+  ]
+}
