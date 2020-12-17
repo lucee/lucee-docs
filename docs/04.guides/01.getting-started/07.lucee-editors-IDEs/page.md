@@ -61,6 +61,10 @@ Lucee dictionaries are available for download to support spell checking your cod
 
 <https://www.jetbrains.com/idea/download/index.html>
 
+<https://plugins.jetbrains.com/plugin/14586-cfml>
+
+<https://plugins.jetbrains.com/plugin/15567-cflint>
+
 ## CFLint
 
 <https://github.com/cflint/CFLint>
