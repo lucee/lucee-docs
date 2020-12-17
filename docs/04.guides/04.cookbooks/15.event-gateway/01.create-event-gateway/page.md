@@ -58,7 +58,7 @@ The following is all the code you need:
         <cfset var sleepStep=iif(variables.config.interval lt 500, 'variables.config.interval', de(500)) />
         <cfset var i=-1 />
         <cfset var cfcatch="" />
-        <--- when restart() is called, we enter this loop untill the previous execution has ended. --->
+        <--- when restart() is called, we enter this loop until the previous execution has ended. --->
             <cfwhile variables.state EQ "stopping">
                 <cfset sleep(10)>
             </cfwhile>
@@ -73,7 +73,7 @@ The following is all the code you need:
                         <cfset _handleError(cfcatch, "start") />
                     </cfcatch>
                 </cftry>
-                <--- sleep untill the next run, but cut it into half seconds, so we can stop the gateway easily --->
+                <--- sleep until the next run, but cut it into half seconds, so we can stop the gateway easily --->
                 <cfloop from="#sleepStep#" to="#variables.config.interval#" step="#sleepStep#" index="i">
                     <cfset sleep(sleepStep) />
                     <cfif variables.state neq "running">
@@ -197,7 +197,7 @@ The Gateway Driver is a CFC file, which must be added into the directory {Lucee-
         </cfif>
 
         <cfif arrayLen(errors)>
-            <cfthrow message="The following error(s) occured while validating your input: <ul><li>#arrayToList(errors, '</li><li>')#</li></ul>" />
+            <cfthrow message="The following error(s) occurred while validating your input: <ul><li>#arrayToList(errors, '</li><li>')#</li></ul>" />
         </cfif>
     </cffunction>
 

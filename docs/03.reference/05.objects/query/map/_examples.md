@@ -5,7 +5,7 @@
 	    [ "Fred", CreateDate( 1960, 1, 1 ), 0 ],
 	    [ "Jim" , CreateDate( 1988, 1, 1 ), 0 ]
 	]);
-	Dump( var=people, label="people - origional query" );
+	Dump( var=people, label="people - original query" );
 	/* Output:
 	| name | dob                 | age |
 	------------------------------------

@@ -186,7 +186,7 @@ getApplicationListener | Gets the application listener, stores it in the attribu
 getApplicationSetting |	Returns the settings of the application settings for the current context
 getCharset | Returns the settings of the current context charstets
 getComponent | Returns the settings of the component settings for the current context
-getContextes | Returns the current web contexts (only available for the server type)
+getContexts | Returns the current web contexts (only available for the server type)
 getCustomTagMappings | |
 getCustomtagSetting | Returns the settings of the custom tags for the current context
 getDatasource |	Returns the details for a datasource for the current context
@@ -377,10 +377,10 @@ Below you will find all the actions sorted alphabetically embedded in examples f
 	    returnVariable="component">
 
 	<cfadmin
-	    action="getContextes"
+	    action="getContexts"
 	    type="web|server"
 	    password="password"
-	    returnVariable="contextes">
+	    returnVariable="contexts">
 
 	<cfadmin
 	    action="getCustomTagMappings"

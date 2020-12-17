@@ -61,7 +61,7 @@ Add servlet for cfm inside the webapp section:
 	<init-param>
 	<param-name>configuration</param-name>
 	<param-value>/usr/share/tomcat7/lucee</param-value>
-	<description>Configuraton directory</description>
+	<description>Configuration directory</description>
 	</init-param>
 	<init-param>
 	<param-name>lucee-server-root</param-name>

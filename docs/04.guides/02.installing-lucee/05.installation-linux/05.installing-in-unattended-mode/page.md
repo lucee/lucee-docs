@@ -39,7 +39,7 @@ The Tomcat shutdown port number. This port should not be open to the Internet.
 
 **--tomcatajpport**  
 **Default Value:** [8009]  
-This is the port the AJP listener will be connecting to. This port is used by mod_jk and mod_proxy_ajp and is requried to be available to your apache server if you are using either of those connection methods.
+This is the port the AJP listener will be connecting to. This port is used by mod_jk and mod_proxy_ajp and is required to be available to your apache server if you are using either of those connection methods.
 
 **--systemuser**  
 **Default Value:** [root]  
