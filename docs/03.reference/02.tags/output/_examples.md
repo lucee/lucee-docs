@@ -4,7 +4,7 @@
 <cfset a=3>
 <cfset b=8>
 <cfloop index="i" from="#a#" to="#b#">
-	 <cfoutput>#i#</cfoutput>
+  <cfoutput>#i#</cfoutput>
 </cfloop>
 <br>
 <cfset test = queryNew("name,age","varchar,numeric",{name:["Susi","Urs","john","jerry"],age:[20,20,28,32]})>

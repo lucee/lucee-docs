@@ -1,6 +1,5 @@
 ### Simple example for cfdocumentitem
 
-
 ```lucee
 <cfdocument format="pdf">
 	<h1>Welcome to Lucee</h1>
@@ -13,5 +12,4 @@
 		<h2><i>Example footer</i></h2>
 	</cfdocumentitem>
 </cfdocument>
-
 ```

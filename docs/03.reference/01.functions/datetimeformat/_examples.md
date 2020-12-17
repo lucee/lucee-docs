@@ -1,15 +1,15 @@
 ```luceescript+trycf
 	//format the date parts as like as dateformat()
 	//formant the date & time by user defined date
-	dateandtime = createDateTime(2015,02,04,11,22,33);
+	dateandtime = createDateTime(2015, 02, 04, 11, 22, 33);
 	writeDump(dateTimeFormat(dateandtime, "GG-dddd, dd/mmm/yyyy,hh:nn:ss tt,zzzz"));
 
 	//formant the date & time by server time
 	dateandtime = createDateTime(year(now()),month(now()),day(now()),hour(now()),minute(now()),second(now()));
 	writeDump(dateTimeFormat(dateandtime, "dddd, dd/mmm/yyyy,hh:nn:ss tt,zzzz"));
-	writedump(dateTimeFormat(now(),"mm/dd/yyyy"));	
-	writedump(dateTimeFormat(now(),"MM/DD/YYYY"));
-	writeDump(dateTimeFormat(now() ,"EEEE-dd,mm,yyyy"));
+	writedump(dateTimeFormat(now(), "mm/dd/yyyy"));	
+	writedump(dateTimeFormat(now(), "MM/DD/YYYY"));
+	writeDump(dateTimeFormat(now(), "EEEE-dd,mm,yyyy"));
 
 	//Member function
 	dt=createDate(2015,04,14);

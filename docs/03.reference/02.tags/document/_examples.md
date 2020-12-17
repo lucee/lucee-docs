@@ -1,4 +1,4 @@
-###Simple example for cfdocument
+### Simple example for cfdocument
 
 ```lucee
 <cfdocument format="pdf">
@@ -6,6 +6,4 @@
 	<h5>Example Page</h5>
 	<p>Example for <b>Cfdocument</b></p>
 </cfdocument>
-
-
 ```
