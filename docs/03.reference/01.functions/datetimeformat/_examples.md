@@ -1,7 +1,7 @@
 ```luceescript+trycf
 	//format the date parts as like as dateformat()
 	//formant the date & time by user defined date
-	dateandtime = createDateTime(2015, 02, 04, 11, 22, 33);
+	dateandtime = createDateTime(2015,02,04,11,22,33);
 	writeDump(dateTimeFormat(dateandtime, "GG-dddd, dd/mmm/yyyy,hh:nn:ss tt,zzzz"));
 
 	//formant the date & time by server time
