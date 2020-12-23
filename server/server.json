@@ -1,20 +1,23 @@
 {
     "force":"true",
-    "trayIcon":"/home/dom/code/lucee-docs/luceelogoicon.png",
+    "trayIcon":"D:/projects/Other_Lucee_extns/lucee_docs_new/luceelogoicon.png",
     "name":"luceedocslocalserver",
     "JVM":{
-        "heapSize":"1024"
+        "heapSize":"2048"
     },
     "web":{
         "rewrites":{
             "enabled":"true",
-            "config":"/home/dom/code/lucee-docs/server/urlrewrite.xml"
+            "config":"urlrewrite.xml",
+            "enable":"true"
         },
         "http":{
             "port":"4040"
-        }
+        },
+        "webroot":"/"
     },
-    "app": {
-        "serverHomeDirectory": "../.commandbox/luceedocslocalserver"
+    "app":{
+        "serverHomeDirectory":"../.commandbox/luceedocslocalserver",
+        "cfengine":"lucee@5"
     }
 }
