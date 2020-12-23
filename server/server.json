@@ -1,6 +1,6 @@
 {
     "force":"true",
-    "trayIcon":"D:/projects/Other_Lucee_extns/lucee_docs_new/luceelogoicon.png",
+    "trayIcon":"../luceelogoicon.png",
     "name":"luceedocslocalserver",
     "JVM":{
         "heapSize":"2048"
