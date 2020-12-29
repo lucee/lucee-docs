@@ -1,4 +1,4 @@
-A datetime object is independent of a specific timezone, it is only an offset in milliseconds from 1970-1-1 00.00:00 UTC (Coordinated Universal Time).
+A datetime object is independent of a specific timezone, it is only an offset in milliseconds from `1970-1-1 00.00:00 UTC` (Coordinated Universal Time).
 
 This means that the timezone only comes into play when you need specific information like hours in a day, minutes in a hour or which day it is since those calculations depend on the timezone.
 
