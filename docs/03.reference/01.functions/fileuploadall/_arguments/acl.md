@@ -1,1 +1,1 @@
-only used for S3 Resources
+Only used for S3 Resources
