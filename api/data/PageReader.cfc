@@ -183,7 +183,7 @@ component {
 		arrayAppend(arguments.related, links , true )
 	}
 
-	private struct function _getTagSpecification( required string tagName, required string pageFilePath ) output=true{
+	private struct function _getTagSpecification( required string tagName, required string pageFilePath ){
 		var tag           = _getTagReferenceReader().getTag( arguments.tagName );
 		var attributes    = tag.attributes ?: [];
 		var attributesDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributes/";		
