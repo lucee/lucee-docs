@@ -52,6 +52,7 @@
 								<cfif local.arg.keyExists("alias") and len(local.arg.alias) gt 0>
 									<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
 								</cfif>
+								#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
  								<td>
