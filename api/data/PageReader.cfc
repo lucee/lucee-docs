@@ -6,7 +6,7 @@ component {
 		var pageFilepath = arguments.rootDir & arguments.pageDir & arguments.pageType;
 
 		try {
-			//request.logger(text="[#pageData.pageType#]#arguments.pageFilePath#");
+			//request.logger(text="[#arguments.pageType#] #pageFilePath#");
 			switch( pageData.pageType ?: "" ) {
 				case "function":
 					pageData.append( _getFunctionSpecification( pageData.slug, pageFilePath ), false );
@@ -56,6 +56,16 @@ component {
 	private string function FileReadAsUnix(required string filePath){
 		return _convertToUnixLineEnding( FileRead( arguments.filePath ) );
 	}
+
+	// filenames are case sensitive on some platforms, struct keys aren't, used to match files to exact casing
+	private struct function getFilesInDirectory(required string dirPath){
+		var q = directoryList(path=arguments.dirPath, type="file", listInfo="query");
+		var st = {};
+		loop query="q"{
+			st[q.name] = q.name;
+		}
+		return st
+	}	
 
 	public any function readPageFile( required string rootDir, required string pageType, required string pageDir ) {
 		var path            = arguments.rootDir & "/" & arguments.pageDir & arguments.pageType;
@@ -173,14 +183,16 @@ component {
 		arrayAppend(arguments.related, links , true )
 	}
 
-	private struct function _getTagSpecification( required string tagName, required string pageFilePath ) {
+	private struct function _getTagSpecification( required string tagName, required string pageFilePath ) output=true{
 		var tag           = _getTagReferenceReader().getTag( arguments.tagName );
 		var attributes    = tag.attributes ?: [];
-		var attributesDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributes/";
+		var attributesDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributes/";		
+		var attrFiles = getFilesInDirectory(attributesDir);
 
 		for( var attrib in attributes ) {
-			var attribDescriptionFile = attributesDir & attrib.name & ".md";
-			if ( FileExists( attribDescriptionFile ) ) {
+			if (structKeyExists(attrFiles, attrib.name & ".md" )){
+				var attribDescriptionFile = attributesDir & attrFiles[attrib.name & ".md"]; // avoid file system case problems 
+				attrib.descriptionOriginal = attrib.description;
 				attrib.description = FileReadAsUnix( attribDescriptionFile );
 			}
 		}
@@ -197,10 +209,12 @@ component {
 		var func    = _getFunctionReferenceReader().getFunction( arguments.functionName );
 		var args    = func.arguments ?: [];
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
+		var argsFiles = getFilesInDirectory(argsDir);
 
 		for( var arg in args ) {
-			var argDescriptionFile = argsDir & arg.name & ".md";
-			if ( FileExists( argDescriptionFile ) ) {
+			if (structKeyExists(argsFiles, arg.name & ".md" )){
+				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
+				arg.descriptionOriginal = arg.description;
 				arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
@@ -218,10 +232,12 @@ component {
 		var args    = obj.arguments ?: [];
 		return obj;
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
+		var argsFiles = getFilesInDirectory(argsDir);
 
 		for( var arg in args ) {
-			var argDescriptionFile = argsDir & arg.name & ".md";
-			if ( FileExists( argDescriptionFile ) ) {
+			if (structKeyExists(argsFiles, arg.name & ".md" )){
+				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
+				arg.descriptionOriginal = arg.description;
 				arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
@@ -238,10 +254,13 @@ component {
 		var meth    = _getMethodReferenceReader().getMethod( arguments.methodObject, arguments.methodName );
 		var args    = meth.arguments ?: [];
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
+		var argsFiles = getFilesInDirectory(argsDir);
 
 		for( var arg in args ) {
 			var argDescriptionFile = argsDir & arg.name & ".md";
-			if ( FileExists( argDescriptionFile ) ) {
+			if (structKeyExists(argsFiles, arg.name & ".md" )){
+				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems			
+				arg.descriptionOriginal = arg.description;
 				arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
@@ -267,7 +286,6 @@ component {
 
 	private any function _getTagReferenceReader() {
 		//var buildProperties = new api.build.BuildProperties();
-
 		return new api.reference.ReferenceReaderFactory().getTagReferenceReader();
 	}
 
