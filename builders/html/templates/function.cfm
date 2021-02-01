@@ -65,13 +65,14 @@
 								</cfif>
 								<cfif structKeyExists(local.arg, "status") and local.arg.status neq "implemented">
 									<em>* #local.attrib.arg# *</em>
-								</cfif>								
+								</cfif>
+								#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
  								<td>
  									#markdownToHtml( local.arg.default ?: "" )#
  								</td>
- 							</cfif>
+							 </cfif>
 						</tr>
 					</cfloop>
 				</tbody>
