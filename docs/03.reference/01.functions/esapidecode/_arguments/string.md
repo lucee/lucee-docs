@@ -1,1 +1,1 @@
-string to encode
+string to decode
