@@ -5,4 +5,4 @@ categories:
 - object
 ---
 
-compares simply and complex objects for equality, attention string comparision is case sensitive
+compares simply and complex objects for equality, attention string comparison is case sensitive

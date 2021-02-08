@@ -22,7 +22,7 @@ Some other open source projects:
 
 [mod_cfml](http://www.modcfml.org/)
 
-### Bilal Soylu (Contributer - Mac Distro Coordinator) ###
+### Bilal Soylu (Contributor - Mac Distro Coordinator) ###
 
 Bilal Soylu is the CTO of Verian Technologies. He is a supply chain expert and enterprise software architect. Bilal has worked in a variety of technologies building enterprise applications before he discovered his love for the web and web based applications in the mid-90s. He has been developing web based applications using a variety of technologies ever since. His involvement with ColdFusion goes back to version 1.5 and the Allaire days. He has been an avid supporter of ColdFusion and has converted generations of Developers to the CF platform. Bilal is a Certified Advanced ColdFusion developer and a member of the Charlotte Adobe User Group. He recently contributed to the revised Brain Bench assessment for ColdFusion 8, JavaScript 1.8.
 

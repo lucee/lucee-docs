@@ -6,7 +6,7 @@
 	</cfsavecontent>
 	<cfsavecontent variable="example">
 		<br>
-		<input type="text" nmae="textfield">
+		<input type="text" name="textfield">
 	</cfsavecontent>
 	#test#
 	#example#

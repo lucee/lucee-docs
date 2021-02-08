@@ -21,7 +21,7 @@ Before we start with the installation, we need to dive into some basics:
 * The data of the application can be stored in a *data directory* on a different drive as C-drive
 * A windows service can run with a **low privileged** user permissions
 
-This guide will fully cover a setup of Apache Tomcat to fullfill these goals from *What we really like* above.
+This guide will fully cover a setup of Apache Tomcat to fulfill these goals from *What we really like* above.
 
 In terms of Apache Tomcat, we split the files by setting Tomcat's main variables to the **Application path** and **Data path** later on:
 

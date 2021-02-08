@@ -1136,7 +1136,7 @@ shadow
 	- shadowColor (String)
 		The color of the shadow.
 	- addMargins (boolean)
-		Set whether to increase the size of the output image to accomodate the shadow.
+		Set whether to increase the size of the output image to accommodate the shadow.
 	- shadowOnly (boolean)
 		Set whether to only draw the shadow without the original image.
 shape
