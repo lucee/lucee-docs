@@ -5,7 +5,7 @@
 
 <cfif args.edit>
 	<cfset local.docs_base_url = "http://#cgi.http_host#">
-<cfelse>	
+<cfelse>
 	<cfset local.docs_base_url = "https://docs.lucee.org">
 </cfif>
 

@@ -65,7 +65,7 @@ component {
 			st[q.name] = q.name;
 		}
 		return st
-	}	
+	}
 
 	public any function readPageFile( required string rootDir, required string pageType, required string pageDir ) {
 		var path            = arguments.rootDir & "/" & arguments.pageDir & arguments.pageType;
@@ -186,12 +186,12 @@ component {
 	private struct function _getTagSpecification( required string tagName, required string pageFilePath ){
 		var tag           = _getTagReferenceReader().getTag( arguments.tagName );
 		var attributes    = tag.attributes ?: [];
-		var attributesDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributes/";		
+		var attributesDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributes/";
 		var attrFiles = getFilesInDirectory(attributesDir);
 
 		for( var attrib in attributes ) {
 			if (structKeyExists(attrFiles, attrib.name & ".md" )){
-				var attribDescriptionFile = attributesDir & attrFiles[attrib.name & ".md"]; // avoid file system case problems 
+				var attribDescriptionFile = attributesDir & attrFiles[attrib.name & ".md"]; // avoid file system case problems
 				attrib.descriptionOriginal = attrib.description;
 				attrib.description = FileReadAsUnix( attribDescriptionFile );
 			}
@@ -259,7 +259,7 @@ component {
 		for( var arg in args ) {
 			var argDescriptionFile = argsDir & arg.name & ".md";
 			if (structKeyExists(argsFiles, arg.name & ".md" )){
-				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems			
+				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
 				arg.descriptionOriginal = arg.description;
 				arg.description = FileReadAsUnix( argDescriptionFile );
 			}

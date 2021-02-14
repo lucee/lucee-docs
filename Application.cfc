@@ -1,6 +1,6 @@
 component {
 	this.name = "luceeDocumentationBuilder-" & Hash( GetCurrentTemplatePath() );
-	
+
 	this.localMode = true;
 
 	variables.assetBundleVersion = 27; // must match lucee-docs\builders\html\assets\Gruntfile.js _version and server/application.cfc
@@ -15,7 +15,7 @@ component {
 
 	public boolean function onRequest( required string requestedTemplate ) output=true {
 		var logger = new api.build.Logger();
-		
+
 		application.assetBundleVersion = variables.assetBundleVersion;
 
 		include template=arguments.requestedTemplate;

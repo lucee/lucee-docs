@@ -3,7 +3,7 @@ module.exports = {
         "browser": true
     },
     "extends": "eslint:recommended",
-    "rules": {        
+    "rules": {
         "semi": [
             "error",
             "always"

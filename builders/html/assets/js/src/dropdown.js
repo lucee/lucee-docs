@@ -5,7 +5,7 @@
 				$('header').removeClass('open');
 			}
 	});
-		
+
 // dropdown menu show
 	$(document).on('show.bs.dropdown', '.dropdown', function() {
 		var $dropdownMenu = $('.dropdown-menu', $(this)),
