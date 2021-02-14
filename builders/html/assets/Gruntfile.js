@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 			options : {
 				sourceMap :true
 			}
-		},		
+		},
 		sass: {
 			base: {
 				files: [{

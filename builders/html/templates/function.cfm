@@ -16,7 +16,7 @@
 	</cfif>
 	<cfif len(local.fn.getIntroduced()) gt 0>
 		<p><strong>Introduced:</strong> #local.fn.getIntroduced()#</p>
-	</cfif>	
+	</cfif>
 	<code>
 	#local.fn.getUsageSignature()#
 	</code>

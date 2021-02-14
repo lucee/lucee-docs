@@ -61,6 +61,6 @@
 				var hidden = $tr.find("*:nth-child(2)").is(":visible");
 				$tr.find("*:nth-child(2)").toggle(hidden);
 				$tr.find("*:nth-child(3)").toggle(hidden);
-			});	
+			});
 		}
 	});

@@ -1,6 +1,6 @@
 component {
 	this.name = "luceeDocumentationLocalServer-" & Hash( GetCurrentTemplatePath() );
-	
+
 	this.localMode = true;
 	this.scopeCascading = "small";
 
@@ -26,7 +26,7 @@ component {
 	public boolean function onRequest( required string requestedTemplate ) output=true {
 		var path = _getRequestUri();
 		var logger = new api.build.Logger();
-		
+
 		if (path contains ".."){
 			header statuscode=401;
 			abort;
@@ -88,7 +88,7 @@ component {
 		} else if ( path.startsWith( "/static" ) ) {
 			_renderStatic();
 		} else if ( path.startsWith( "/images" ) ) {
-			_renderImage();		
+			_renderImage();
 		} else if ( path.startsWith( "/editor.html" ) ) {
 			_renderCodeEditor();
 		} else {
@@ -176,7 +176,7 @@ component {
 		content file=assetPath type=_getMimeTypeForAsset( assetPath );
 		abort;
 	}
-	
+
 	private void function _renderImage() {
 		var imgPath = "/docs/_images" & mid(_getRequestUri(), len("/images "));
 

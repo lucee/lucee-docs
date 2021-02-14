@@ -133,7 +133,7 @@ $(function(){
                    .on("click", function(){
                        $textarea.val( $textarea.val() + ["","","```lucee+trycf","","","```"].join( nl ) );
                 })
-            );    
+            );
 
             if ($textarea.val().length === 0){ // empty, just default
                 $textarea.val(getExampleTemplate());

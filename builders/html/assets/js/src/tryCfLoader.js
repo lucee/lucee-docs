@@ -5,7 +5,7 @@
 	} else {
 			editor = "/editor.html";
 	}
-		
+
 	$.fn.tryCfLoader = function(){
 
 		return this.each( function(){

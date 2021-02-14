@@ -15,7 +15,7 @@
 
 	string function showOriginalDescription( required struct props, required boolean edit, required any markdownToHtml ) {
 		if (arguments.edit
-			and structKeyExists(arguments.props, "descriptionOriginal") 
+			and structKeyExists(arguments.props, "descriptionOriginal")
 			and arguments.props.descriptionOriginal neq arguments.props.description){
 				return "<b>Modifed in Lucee Docs, Source Lucee definition:</b>" & arguments.markdownToHtml(arguments.props.descriptionOriginal);
 		}

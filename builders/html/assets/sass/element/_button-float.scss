@@ -28,7 +28,7 @@ a.fbtn {
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.fbtn-#{$color} {
 			background-color: nth($palette-color, $i);
 			color: $white !important;
