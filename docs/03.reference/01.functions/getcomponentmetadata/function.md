@@ -1,6 +1,8 @@
 ---
 title: GetComponentMetaData
 id: function-getcomponentmetadata
+related:
+- function-getcomponentstaticscope
 categories:
 - component
 - debugging
