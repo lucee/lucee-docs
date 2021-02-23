@@ -2,6 +2,8 @@
 title: Lucee Language and Syntax Differences
 id: language-syntax-differences
 menuTitle: Language and Syntax
+related:
+- lucee-5-unquoted-arguments
 ---
 
 ## Architecture ##

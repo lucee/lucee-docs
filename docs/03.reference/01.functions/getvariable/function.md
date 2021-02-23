@@ -1,8 +1,8 @@
 ---
 title: GetVariable
 id: function-getvariable
-related:
 categories:
+- scopes
 ---
 
 Gets the variable referenced by the given parameter; may be fully qualified

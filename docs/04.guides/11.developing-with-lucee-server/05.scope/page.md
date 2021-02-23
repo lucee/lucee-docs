@@ -1,6 +1,9 @@
 ---
 title: Scopes
 id: scopes
+categories:
+- scopes
+description: local, arguments, query, variables, this, cgi, cffile, url, form, cookie, client, thread, caller, request
 menuTitle: Scopes
 ---
 
@@ -13,9 +16,9 @@ Scope      |                    Description                                     
 arguments  |  	Holds arguments that are passed to a function or CFC method                   |        |
 attributes |    Contains attributes that are passed to a custom tag                           |        |
 caller     |    Refers to the scope of the calling page when a custom tag or module is called |        |
-this       |                                                                                  |        |
-thread     |                                                                                  |        |
-variables  |                                                                                  |        |
+this       |  The public scope for a Component/CFC                                                                                |        |
+thread     | The scope within a thread                                                                                 |        |
+variables  |  The private scope for a Component/CFC |        |
 
 ## Request scopes ##
 
