@@ -1,15 +1,20 @@
 ---
 title: Using scopes explicitly in code
 id: using-scopes-explicitly-in-code
+categories:
+- scopes
+description: Scope everything BUT the closest scope for best performance
 ---
 
 ## Lucee recommendation ##
 
-Lucee has delivered very many presentations about performance and code readability. Here is what they recommend to any of their customers and programmers:
+Lucee has delivered very many presentations about performance and code readability. 
+
+Here is what they recommend to any of their customers and programmers:
 
 * Scope everything BUT the closest scope
-	* In Functions this is the local scope
-	* In templates it is the variables scope
+	* In Functions this is the `local` scope
+	* In templates it is the `variables` scope
 	* The above two do not scope
 
 This is a simple rule to follow and therefore it is easy to understand. In order to support this pattern in Lucee, just turn off scope cascading and that will help you scope accordingly.

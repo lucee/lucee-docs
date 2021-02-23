@@ -3,6 +3,7 @@ title: Static scope in components
 id: static_scope
 categories:
 - component
+- scopes
 description: Static scope in components is needed to create an instance of cfc and call its method
 ---
 

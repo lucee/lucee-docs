@@ -2,6 +2,7 @@
 title: Threads
 id: thread_usage
 categories:
+- scopes
 - thread
 description: How to use threads in Lucee
 ---
