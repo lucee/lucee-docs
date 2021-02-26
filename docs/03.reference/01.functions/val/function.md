@@ -7,9 +7,9 @@ related:
 categories:
 - number
 - parsing
-description: Converts numeric characters that occur at the beginning of a string to an integer.
+description: Converts numeric characters that occur at the beginning of a string to an number.
 ---
 
-Converts numeric characters that occur at the beginning of a string to an integer by stripping off all remaining characters once a non-numeric character is reached.
+Converts numeric characters that occur at the beginning of a string to a number by stripping off all remaining characters once a non-numeric character is reached.
 
-If the string does not start with any numeric characters or is empty, a 0 is returned. A period is not considered a numeric character, so val() will stop if it reaches a period.
+If the string does not start with any numeric characters or is empty, a 0 is returned. A period will be included, so val() will return a decimal.
