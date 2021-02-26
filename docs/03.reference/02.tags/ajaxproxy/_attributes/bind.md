@@ -1,1 +1,1 @@
-A bind expression that specifies a CFC method, JavaScript function, or URL to call. Cannot be used with the cfc attribute.
+**(not supported)** A bind expression that specifies a CFC method, JavaScript function, or URL to call. Cannot be used with the cfc attribute.
