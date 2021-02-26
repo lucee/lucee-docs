@@ -5,4 +5,5 @@
     dump(Val("")); // 0
     dump(Val("1")); // 1
     dump(Val("one")); // 0
+    dump(Val("123T456")); // 123
 ```
