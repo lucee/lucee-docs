@@ -1,1 +1,6 @@
-*There are currently no examples for this function.*
+```lucee+trycf
+	<cfdump var="#getTimeZone()#">
+	<cfset settimezone("ART")>
+	<cfdump var="#getTimeZone()#">
+
+```
