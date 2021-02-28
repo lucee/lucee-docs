@@ -60,7 +60,6 @@ Deployment is automated via Travis CI on megre
 - Finally add the URL to the Pull Request to the issue
 - Please include tests!
 
-
 ### Build Performance Tips
 
 On Windows, excluding your Lucee working directory from both `Windows Defender` and `Windows Search Indexer` will speed up the build process a bit.
