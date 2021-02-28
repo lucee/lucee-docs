@@ -3,7 +3,7 @@ title: Building Lucee 5 & 6 from source
 id: working-with-source-build-from-source
 ---
 
-# Building Lucee 5 and 6 from source #
+## Building Lucee 5 and 6 from source #
 
 The following text assumes that you have basic knowledge of how to use git and mvn, if not please first consult the documentation for this tools.
 
@@ -51,12 +51,12 @@ To build the server using Ant but without running the test suite:
 
 ### 4. Deploy
 
-Deployment is automated via Travis CI on megre
+Deployment is automated via Travis CI on merge/commit
 
 ### 5. Submitting Pull Requests
 
-- Create an new issue/ticket <https://issues.lucee.org>
-- Create a Pull Request <https://github.com/lucee/Lucee/> against the *6.0 Branch* with the issue number in the title (i.e Fix error deserialising JSON LDEV-101) and include the issue URL in the description
+- Create an new [issue/ticket](https://issues.lucee.org)
+- Create a [Pull Request](https://github.com/lucee/Lucee/) against the *6.0 Branch* with the issue number in the title (i.e Fix error deserialising JSON LDEV-101) and include the issue URL in the description
 - Finally add the URL to the Pull Request to the issue
 - Please include tests!
 
