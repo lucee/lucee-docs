@@ -1,9 +1,9 @@
 ---
-title: Building Lucee 5.x from source
+title: Building Lucee 5 & 6 from source
 id: working-with-source-build-from-source
 ---
 
-# Building 5.x from source #
+# Building Lucee 5 and 6 from source #
 
 The following text assumes that you have basic knowledge of how to use git and mvn, if not please first consult the documentation for this tools.
 
@@ -21,11 +21,11 @@ Before you can start building Lucee from source, you will need a few things inst
 
 Lucee's source code is version-controlled with Git, [Lucee GitHub repository](https://github.com/lucee/lucee).
 
-The repository contains a few branches, with the most important ones being "Master" (current release) and "Develop" (alpha and beta releases), currently the main branch for development is the 5.3 branch, so best start there.
+The repository contains a few branches, with the most important ones being "Master" (current release) and "Develop" (alpha and beta releases), currently the main branch for development is the *6.0 branch*, so best start there.
 
-So simply clone the 5.3 branch (or fork your own copy) from the git repository to your local drive with the following command:
+So simply clone the 6.0 branch (or fork your own copy) from the git repository to your local drive with the following command:
 
-    git clone -b 5.3 https://github.com/lucee/Lucee.git
+    git clone -b 6.0 https://github.com/lucee/Lucee.git
 
 ### 3. Build it
 
@@ -51,4 +51,15 @@ To build the server using Ant but without running the test suite:
 
 ### 4. Deploy
 
-TBD
+Deployment is automated via Travis CI on megre
+
+### 5. Submitting Pull Requests
+
+- Create an new issue/ticket https://issues.lucee.org
+- Create a Pull Request https://github.com/lucee/Lucee/ against the *6.0 Branch* with the issue number in the title (i.e Fix error deserialising JSON LDEV-101) and include the issue URL in the description
+- Finally add the URL to the Pull Request to the issue
+- Please include tests!
+
+### Build Perfomance
+
+On Windows, excluding your Lucee working directory from both `Windows Defender` and `Windows Search Indexer` will speed up the build process a bit.
