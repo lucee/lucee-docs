@@ -1,10 +1,9 @@
 ---
 title: ListTrim
 id: function-listtrim
-related:
 categories:
-    - list
-    - string
+- list
+- string
 ---
 
-this function is deprecated, use instead ListCompact
+this function is deprecated, use instead [[function-ListCompact]]
