@@ -73,7 +73,7 @@ This video shows how to install Lucee with the Linux (64b) installer that ships 
 
 ```
 
-$ wget <paste download-link to linux lucee installer from http://download.lucee.org here>
+$ wget <paste download-link to linux lucee installer from https://download.lucee.org here>
 $ sudo thunar
 
 ```
