@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args>
 <cfparam name="args.body"       type="string" />
 <cfparam name="args.title"      type="string" />
 <cfparam name="args.crumbs"     type="string" />

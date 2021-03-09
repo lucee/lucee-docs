@@ -1,7 +1,9 @@
-<cfparam name="args.pageLineage" type="array" />
-<cfparam name="args.pageLineageMap" type="struct" />
-<cfparam name="args.crumbs"      type="array" />
-<cfparam name="args.docTree"     type="any" />
+<cfparam name="arguments.args.pageLineage" type="array" />
+<cfparam name="arguments.args.pageLineageMap" type="struct" />
+<cfparam name="arguments.args.crumbs"      type="array" />
+<cfparam name="arguments.args.docTree"     type="any" />
+
+
 
 <cfoutput>
 	<ul class="nav" itemscope itemtype="http://www.schema.org/SiteNavigationElement">

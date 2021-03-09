@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args><!--- scope hack --->
 <cfparam name="args.crumbs" type="array" />
 <cfparam name="args.categories" type="array" />
 <cfparam name="args.docTree"   type="any" />
@@ -8,6 +9,7 @@
 <cfelse>
 	<cfset local.docs_base_url = "https://docs.lucee.org">
 </cfif>
+
 
 <cfif args.page.getId() neq "/home" and ArrayLen(args.crumbs)>
 	<!--- pages may have multiple crumbs LD-112 --->

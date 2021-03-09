@@ -1,7 +1,7 @@
 component extends="builders.html.Builder" {
 
 // PUBLIC API
-	public void function build( required any docTree, required string buildDirectory, required numeric threads ) {
+	public void function build( required any docTree, required string buildDirectory, required numeric threads) {
 		var docsetRoot    = arguments.buildDirectory & "/lucee.docset/";
 		var contentRoot   = docsetRoot & "Contents/";
 		var resourcesRoot = contentRoot & "Resources/";
@@ -9,7 +9,6 @@ component extends="builders.html.Builder" {
 		var ignorePages   = { "download": true };
 
 		var pagePaths = arguments.docTree.getPageCache().getPages();
-
 		request.filesWritten = 0;
 		request.filesToWrite = StructCount(pagePaths);
 		request.logger (text="Builder DASH directory: #arguments.buildDirectory#");
@@ -27,14 +26,14 @@ component extends="builders.html.Builder" {
 			_setAutoCommit(false);
 			//for ( var path in pagePaths ) {
 			each(pagePaths, function(path){
-				if ( !ignorePages.keyExists( pagePaths[path].page.getId() ) ) {
-					_writePage( pagePaths[path].page, buildDirectory & "/", docTree );
+				if ( !ignorePages.keyExists( pagePaths[arguments.path].page.getId() ) ) {
+					_writePage( pagePaths[arguments.path].page, buildDirectory & "/", docTree );
 					request.filesWritten++;
 					if ((request.filesWritten mod 100) eq 0)
 						request.logger("Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
-					_storePageInSqliteDb( pagePaths[path].page );
+					_storePageInSqliteDb( pagePaths[arguments.path].page );
 				}
-			}, true, arguments.threads);
+			}, (arguments.threads > 1), arguments.threads);
 			//}
 			_setAutoCommit(true);
 		} catch ( any e ) {
@@ -81,8 +80,8 @@ component extends="builders.html.Builder" {
 		variables.dbFile = sqlite.createDb( dbName="docSet", destDir=arguments.rootDir & "/" );
 		variables.dbConnection  = sqlite.getConnection( dbFile );
 
-		sqlite.executeSql( dbFile, "CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT)", false, dbConnection );
-		sqlite.executeSql( dbFile, "CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path)", false, dbConnection );
+		variables.sqlite.executeSql( dbFile, "CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT)", false, variables.dbConnection );
+		variables.sqlite.executeSql( dbFile, "CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path)", false, variables.dbConnection );
 	}
 
 	private any function _getSqlLiteCfc() {
@@ -97,29 +96,29 @@ component extends="builders.html.Builder" {
 	private void function _storePageInSqliteDb( required any page ) {
 		var data = {};
 
-		switch( page.getPageType() ){
+		switch( arguments.page.getPageType() ){
 			case "function":
-				data = { name=page.getTitle(), type="Function" };
+				data = { name=arguments.page.getTitle(), type="Function" };
 				break;
 			case "tag":
-				data = { name="cf" & page.getSlug(), type="Tag" };
+				data = { name="cf" & arguments.page.getSlug(), type="Tag" };
 				break;
 			case "_object":
-				data = { name=page.getTitle(), type="Object" };
+				data = { name=arguments.page.getTitle(), type="Object" };
 				break;
 			case "_method":
-				data = { name=page.getTitle(), type="Method" };
+				data = { name=arguments.page.getTitle(), type="Method" };
 				break;
 			case "category":
-				data = { name=Replace( page.getTitle(), "'", "''", "all" ), type="Category" };
+				data = { name=Replace( arguments.page.getTitle(), "'", "''", "all" ), type="Category" };
 				break;
 			default:
-				data = { name=Replace( page.getTitle(), "'", "''", "all" ), type="Guide" };
+				data = { name=Replace( arguments.page.getTitle(), "'", "''", "all" ), type="Guide" };
 		}
 
-		data.path = page.getId() & ".html";
+		data.path = arguments.page.getId() & ".html";
 
-		sqlite.executeSql( dbFile, "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('#data.name#', '#data.type#', '#data.path#')", false, dbConnection );
+		variables.sqlite.executeSql( variables.dbFile, "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('#data.name#', '#data.type#', '#data.path#')", false, variables.dbConnection );
 	}
 
 	private void function _closeDbConnection() {
@@ -130,14 +129,14 @@ component extends="builders.html.Builder" {
 
 	private void function _setAutoCommit(required boolean autoCommit) {
 		if ( StructKeyExists( variables, "dbConnection" ) ) {
-			dbConnection.setAutoCommit(arguments.autocommit);
+			variables.dbConnection.setAutoCommit(arguments.autocommit);
 		} else {
 			throw message="_setAutoCommit: no active sqlLite dbConnection";
 		}
 	}
 
 	private void function _renameSqlLiteDb( required string rootDir ) {
-		FileMove( rootDir & "docSet.db", rootDir & "docSet.dsidx" );
+		FileMove( arguments.rootDir & "docSet.db", arguments.rootDir & "docSet.dsidx" );
 	}
 
 	private void function _setupFeedXml( required string rootDir ) {

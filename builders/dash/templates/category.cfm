@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args><!--- scope hack --->
 <cfparam name="args.page"    type="page" />
 <cfparam name="args.docTree" type="any" />
 
