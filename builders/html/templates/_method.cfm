@@ -1,4 +1,5 @@
-<cfparam name="args.page" type="page" />
+<cfparam name="arguments.args.page" type="page" />
+<cfset local.args = arguments.args>
 
 <cfset local.meth = args.page />
 <cfset local.argumentsHaveDefaultValues = local.meth.argumentsHaveDefaultValues() />

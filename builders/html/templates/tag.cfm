@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args>
 <cfparam name="args.page" type="page" />
 
 <cfset local.tag = args.page />

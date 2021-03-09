@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args><!--- scope hack --->
 <cfparam name="args.page" type="page" />
 
 <cfset local.meth = args.page />

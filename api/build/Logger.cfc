@@ -75,7 +75,7 @@ component {
         } else {
 		    writeOutput("<li #style#>");
             if (arguments.log.link.len() gt 0)
-                writeOutput('<a href="#log.link#">');
+                writeOutput('<a href="#arguments.log.link#">');
             writeOutput("#numberformat(arguments.log.timeMs)#ms <b>#arguments.log.type#</b> #arguments.log.text#");
             if (arguments.log.link.len() gt 0)
                 writeOutput('</a>');
