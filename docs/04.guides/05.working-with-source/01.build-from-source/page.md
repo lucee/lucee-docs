@@ -63,3 +63,7 @@ Deployment is automated via Travis CI on merge/commit
 ### Build Performance Tips
 
 On Windows, excluding your Lucee working directory from both `Windows Defender` and `Windows Search Indexer` will speed up the build process a bit.
+
+Lucee 6.0 allows you to pass in a *test filter* (filters on path), so you don't have to run the full test suite whilst hacking.
+
+    ant -DtestFilter="image"
