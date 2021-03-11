@@ -70,7 +70,7 @@ LUCEE_FULL_NULL_SUPPORT=true
 LUCEE_CFML_WRITER=white-space
 ```
 
-**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correclty set for the user running Tomcat to read and execute them.*
+**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correctly set for the user running Tomcat to read and execute them.*
 <br>
 <br>
 
@@ -100,17 +100,17 @@ set "CATALINA_OPTS=-Dlucee.full.null.support=true -Dlucee.cfml.writer=white-spac
 CATALINA_OPTS=-Dlucee.full.null.support=true -Dlucee.cfml.writer=white-space -Dlucee.cfml.writer=white-space
 ```
 
-**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correclty set for the user running Tomcat to read and execute them.*
+**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correctly set for the user running Tomcat to read and execute them.*
 <br>
 <br>
 
-If you are running Lucee with **CommandBox**, you can make use of *System Properties* by saving them to the `.env` file, just the same way it's done with *Environment Variables*. For further information please see [How to set it up CommandBox with .env files](https://github.com/commandbox-modules/commandbox-dotenv) and [CommandBox Environement Variables](https://commandbox.ortusbooks.com/usage/environment-variables).
+If you are running Lucee with **CommandBox**, you can make use of *System Properties* by saving them to the `.env` file, just the same way it's done with *Environment Variables*. For further information please see [How to set it up CommandBox with .env files](https://github.com/commandbox-modules/commandbox-dotenv) and [CommandBox Environment Variables](https://commandbox.ortusbooks.com/usage/environment-variables).
 <br>
 <br>
 
 ### 5. Verifying Variables/Properties Passed To Lucee ###
 
-To make sure the *Environment Variables/System Properties* are properly being passed to Tomcat/Lucee, you can simply dump these variables from whithin your web application with cfml as follows:
+To make sure the *Environment Variables/System Properties* are properly being passed to Tomcat/Lucee, you can simply dump these variables from within your web application with cfml as follows:
 
 ```
 <cfscript>
@@ -163,7 +163,7 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				<div class="attribute">LUCEE_EXTENSIONS_INSTALL<br>lucee.extension.install</div>
 			</td>
 			<td>
-                Enables/disables installation of Lucee's default extensions. When this value is changed, it will need a complete redeployment of "lucee-server" (simple restart won't suffice). This directive is very usefull in combination with the system variable LUCEE_EXTENSIONS. 
+                Enables/disables installation of Lucee's default extensions. When this value is changed, it will need a complete redeployment of "lucee-server" (simple restart won't suffice). This directive is very useful in combination with the system variable LUCEE_EXTENSIONS. 
                 <br>
                 <sub>Values: Boolean <code>true|false</code></sub>
                 <p>
