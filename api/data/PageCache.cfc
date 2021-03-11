@@ -111,7 +111,7 @@ component accessors=true {
 		for( var i = arguments.q_files.recordcount; i > 0; i-- ){
 			// identify files which aren't pages, i.e sub files
 			if (arguments.appendSlash)
-				querySetCell(q_files, "directory", arguments.q_files.directory[i] & "/", i);
+				querySetCell(arguments.q_files, "directory", arguments.q_files.directory[i] & "/", i);
 			switch (arguments.q_files.name[i]){
 				// these page types have prefixes as they may conflict with methods etc
 				case "_object.md":
