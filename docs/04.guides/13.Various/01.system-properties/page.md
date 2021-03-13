@@ -1,5 +1,5 @@
 ---
-title: System Properties
+title: Lucee System Properties and Environment Variables
 id: running-lucee-system-properties
 ---
 
@@ -11,13 +11,23 @@ This documentation shows how to set and use *Environment Variables* or *System P
 
 ### 1. Introduction ###
 
-Lucee settings are usually configured manually within the Server Administrator for server-context  or in Web Administrator for web-context. While settings for web-context are also configurable through your web applications Application.cfc (see [[tag-application]]), specific server-context settings can be configured with *Environment Variables* or *System Properties* (since Lucee 5.3). This gives administrators and developers power to tweak server settings from startup without having to configure in the server administrators web interface. For example, pre-define the extensions to be installed, enable full null support or define charsets for your running Lucee server instance.
+Lucee settings are usually configured manually within the Server Administrator for server-context  or in Web Administrator for web-context.
+
+While settings for web-context are also configurable through your web applications Application.cfc (see [[tag-application]]), specific server-context settings can be configured with *Environment Variables* or *System Properties* (since Lucee 5.3).
+
+This gives administrators and developers power to tweak server settings from startup without having to configure in the server administrators web interface.
+
+For example, pre-define the extensions to be installed, enable full null support or define charsets for your running Lucee server instance.
 <br>
 <br>
 
 ### 2. Naming Notation ###
 
-On startup Lucee identifies specific *Environment Variables* or JVM *System Properties* and uses them for the server setting configuration. While system environment variable names need to be notated as *MACRO_CASE*, system property names need to be in *dot.notation*. See as an example of variable/property name notation for enabling full null support in the table below:
+On startup Lucee identifies specific *Environment Variables* or JVM *System Properties* and uses them for the server setting configuration.
+
+While system environment variable names need to be notated as *MACRO_CASE*, system property names need to be in *dot.notation*.
+
+See as an example of variable/property name notation for enabling full null support in the table below:
 
 |  Use as 	|	Notation Example	|
 |---	|---	|
@@ -42,7 +52,7 @@ Find below a brief overview of available options about where and how to set your
 |  Servlet Engine Tomcat | Limited to the running servlet instance  |  **Option I:** Use Tomcats *path-to-lucee-installation\tomcat\bin\setenv.bat (Windows) or path-to-lucee-installation\tomcat\bin\setenv.sh (Linux)*  as specified in [Tomcats 9.0 Documentation (see 3.4)](https://tomcat.apache.org/tomcat-9.0-doc/RUNNING.txt)<br> **Option II:** Run Tomcat with the argument *--Environment=key1=value1;key2=...* as specified in  [Tomcat 9 parameters](https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html) |
 | CommandBox | Limited to the running CommandBox instance | Since CommandBox 4.5 *Environment Variables* can be set in a file named ".env". You can easily create the .env file by running the command `dotenv set` from your CommanBox CLI. For more information please see [How to set it up CommandBox with .env files](https://github.com/commandbox-modules/commandbox-dotenv) and [CommandBox Environement Variables](https://commandbox.ortusbooks.com/usage/environment-variables) |
 
-In the following example we'll follow Tomcats recommendation and set *Environment Variables* by using Tomcats setenv.bat/setenv.sh files.
+In the following example we'll follow Tomcat's recommendation and set *Environment Variables* by using Tomcats setenv.bat/setenv.sh files.
 
 **For Windows:** Create a batch file at  *path-to-lucee-installation\tomcat\bin\setenv.bat* with the following content:
 
@@ -76,14 +86,22 @@ LUCEE_CFML_WRITER=white-space
 
 ### 3.2 How To Set System Properties ###
 
-System Properties are specific to the JVM servlet container engine. Just like Environment Variables they can be configured at different locations. In this example we will focus on configuring *System Properties* when running Lucee with Tomcat or  CommandBox. Here is a brief overview.
+System Properties are specific to the JVM servlet container engine.
+
+Just like Environment Variables they can be configured at different locations.
+
+In this example we will focus on configuring *System Properties* when running Lucee with Tomcat or  CommandBox.
+
+Here is a brief overview.
 
 |	Configuration for | How to configure |
 |---				 |---					 |
 |	Servlet Engine Tomcat | Use Tomcats *path-to-lucee-installation\tomcat\bin\setenv.bat or path-to-lucee-installation\tomcat\bin\setenv.sh* and add the system property using `CATALINA_OPTS`. See [Tomcats 9.0 Documentation (see 3.3)](https://tomcat.apache.org/tomcat-9.0-doc/RUNNING.txt)	|
  CommandBox | In CommandBox *System Properties* can be set like Environment Variables in the `.env` file. |
 
-In Tomcat *System Properties* are passed to the JVM servlet engine Tomcat on startup by populating CATALINA_OPTS with the -D flag, e.g. `-Dlucee.full.null.support=true` (note that there is no space between the -D flag and the system property key/value). In Tomcat it's recommended to set CATALINA_OPTS in the setenv.bat/setenv.sh file.
+In Tomcat *System Properties* are passed to the JVM servlet engine Tomcat on startup by populating CATALINA_OPTS with the -D flag, e.g. `-Dlucee.full.null.support=true` (note that there is no space between the -D flag and the system property key/value).
+
+With Tomcat it's recommended to set CATALINA_OPTS in the setenv.bat/setenv.sh file.
 
 **For Windows:** Create a batch file at  *path-to-lucee-installation\tomcat\bin\setenv.bat* with the following content:
 
@@ -104,7 +122,9 @@ CATALINA_OPTS=-Dlucee.full.null.support=true -Dlucee.cfml.writer=white-space -Dl
 <br>
 <br>
 
-If you are running Lucee with **CommandBox**, you can make use of *System Properties* by saving them to the `.env` file, just the same way it's done with *Environment Variables*. For further information please see [How to set it up CommandBox with .env files](https://github.com/commandbox-modules/commandbox-dotenv) and [CommandBox Environment Variables](https://commandbox.ortusbooks.com/usage/environment-variables).
+If you are running Lucee with **CommandBox**, you can make use of *System Properties* by saving them to the `.env` file, just the same way it's done with *Environment Variables*.
+
+For further information please see [How to set it up CommandBox with .env files](https://github.com/commandbox-modules/commandbox-dotenv) and [CommandBox Environment Variables](https://commandbox.ortusbooks.com/usage/environment-variables).
 <br>
 <br>
 
@@ -123,7 +143,13 @@ writeDump(server.system.properties);
 
 ### 6. Security Consideration ###
 
-When using *Environment Variables* or *System Properties* you need to consider important security implications. This is because the data stored in this sort of variables or files may be accessible by other users sharing the same OS or running servlet engine instance. Storing sensitive information e.g. hashed passwords, access-tokens, user names, database names, etc on OS or files has to be considered very carefully. Also, make sure not to publish these files with sensitive data as as part of open source code in public repositories.
+When using *Environment Variables* or *System Properties* you need to consider important security implications.
+
+This is because the data stored in this sort of variables or files may be accessible by other users sharing the same OS or running servlet engine instance.
+
+Storing sensitive information e.g. hashed passwords, access-tokens, user names, database names, etc on OS or files has to be considered very carefully.
+
+Also, make sure not to publish these files with sensitive data as as part of open source code in public repositories.
 <br>
 <br>
 
@@ -154,14 +180,17 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				</p>
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_EXTENSIONS_INSTALL<br>lucee.extension.install</div>
 			</td>
 			<td>
-				Enables/disables installation of Lucee's default extensions. When this value is changed, it will need a complete redeployment of "lucee-server" (simple restart won't suffice). This directive is very useful in combination with the system variable LUCEE_EXTENSIONS.
-				<br>
+
+				<p>Enables/disables installation of Lucee's default extensions. When this value is changed, it will need a complete redeployment of "lucee-server" (simple restart won't suffice).</p>
+
+				<p>This directive is very useful in combination with the system variable LUCEE_EXTENSIONS.</p>
+
 				<sub>Values: Boolean <code>true | false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
@@ -177,12 +206,16 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				<div class="attribute">LUCEE_EXTENSIONS<br>lucee.extensions</div>
 			</td>
 			<td>
-				Comma separated list of extension GUIDs (Globally Unique Identifiers) to be downloaded and installed during the very first server start. Setting GUID alone will install latest version.
-				If you want to dictate version, append <code>;version=xx.xx.xx.xx</code> to the GUID.
-				You can find available extensions and their corresponding GUID (these are listed as IDs) in the Server Administrator or at
-				<a href="https://downloads.lucee.org" target="_blank">Lucee Downloads</a>.
-				<br>
-				<sub>Values: String</sub>
+				<p>Comma separated list of extension GUIDs (Globally Unique Identifiers) to be downloaded and installed during the very first server start.</p>
+
+				<p>Setting GUID alone will install latest version.</p>
+
+				<p>If you want to dictate version, append <code>;version=xx.xx.xx.xx</code> to the GUID.</p>
+
+				<p>You can find available extensions and their corresponding GUID (these are listed as IDs) in the Server Administrator or at
+				<a href="https://downloads.lucee.org" target="_blank">Lucee Downloads</a>.</p>
+
+		<sub>Values: String</sub>
 				<p>
 					<strong>Example:</strong> Installing JFreeChart Extension Version 1.0.19.19:
 					<pre lang="script">LUCEE_EXTENSIONS=D46B46A9-A0E3-44E1-D972A04AC3A8DC10;version=1.0.19.19</pre>
@@ -365,17 +398,17 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				<div class="attribute">LUCEE_CFML_WRITER<br>lucee.cfml.writer</div>
 			</td>
 			<td>
-				Defines whitespace management of the server.<br> 
-				
+				Defines whitespace management of the server.<br>
+
 				<ul>
 					<li><strong>regular</strong>: No whitespace management.</li>
-					<li><strong>white-space</strong>: Simple whitespace management - 
+					<li><strong>white-space</strong>: Simple whitespace management -
 					every whitespace character that follows whitespace is removed.</li></li>
-					<li><strong>white-space-pref</strong>: Smart whitespace management - every whitespace character that follows a whitespace is removed, 
+					<li><strong>white-space-pref</strong>: Smart whitespace management - every whitespace character that follows a whitespace is removed,
 					but whitespace inside the tags: &lt;code&gt;, &lt;pre&gt; and &lt;textarea&gt; is kept</li>
 				</ul>
-				<br>
-				<sub>Values: String <code>white-space-pref | regular | white-space</code></sub>
+
+		<sub>Values: String <code>white-space-pref | regular | white-space</code></sub>
 				<p>
 					<strong>Example:</strong> The following directive will set whitespace management to simple:
 					<pre lang="script">LUCEE_CFML_WRITER=white-space</pre>
@@ -396,9 +429,10 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				<div class="attribute">LUCEE_SUPPRESS_WS_BEFORE_ARG<br>lucee.suppress.ws.before.arg</div>
 			</td>
 			<td>
-				If set, Lucee suppresses whitespace defined between the "cffunction" starting tag and the last "cfargument" tag.
-				This setting is ignored when there is a different output between this tags as white space
-				<br>
+				<p>If set, Lucee suppresses whitespace defined between the [[tag-function]] starting tag and the last [[tag-argument]] tag.</p>
+
+				<p>This setting is ignored when there is a different output between this tags as white space.</p>
+
 				<sub>Values: Boolean <code>true | false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
@@ -416,9 +450,11 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				<div class="attribute">LUCEE_PRESERVE_CASE<br>lucee.preserve.case</div>
 			</td>
 			<td>
-				Keep all struct keys defined with "dot notation" in original case. If set to false,
-				all dot.notated key-names will be converted to UPPERCASE.
-				<br>
+
+				<p>Keep all struct keys defined with "dot notation" in original case.</p>
+
+				<p>If set to false, all dot.notated key-names will be converted to UPPERCASE.</p>
+
 				<sub>Values: Boolean <code>true | false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
@@ -534,9 +570,7 @@ When using *Environment Variables* or *System Properties* you need to consider i
 					Settings &raquo;  Error &raquo; Status code
 				</p>
 				<p>
-					<strong>Application.cfc:</strong>
-					<br>
-				  not available
+					<strong>Application.cfc:</strong> not available
 				</p>
 			</td>
 		</tr>
@@ -549,9 +583,16 @@ When using *Environment Variables* or *System Properties* you need to consider i
 					LUCEE_S3_ACCESSKEYID<br>lucee.s3.accesskeyid
 				</div>
 			</td>
+
 			<td>
-				Defines the S3 virtual S3 bucket mapping credentials. Use this to hide AWS S3 credentials from source code or Web Administrator. That way you connect to your S3 bucket with a <code>S3:///myAwsBucketname/someDirectory/</code> <code>S3:///myAwsKey:myAwsSecretKey@/myAwsBucketname/someDirectory/</code>. Please see [[category-s3]]
-				<br><sub>Values: String</sub>
+				<p>Defines the default S3 virtual S3 bucket mapping credentials. </p>
+
+				<p>Use this to hide AWS S3 credentials from source code or Web Administrator. </p>
+
+				<p>That way you connect to your S3 bucket with a <code>S3:///myAwsBucketname/someDirectory/</code> <code>S3:///myAwsKey:myAwsSecretKey@/myAwsBucketname/someDirectory/</code>.
+		Please see [[category-s3]]</p>
+
+				<sub>Values: String</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -570,8 +611,11 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				</div>
 			</td>
 			<td>
-				Defines a comma separeted list of file extensions that are not allowed to be uploaded. By default Lucee will block a set of files that have potential risk. Use this setting to have more control over Lucees default settings.
-				<br><sub>Values: String</sub>
+				<p>Defines a comma separeted list of file extensions that are not allowed to be uploaded. </p>
+
+				<p>By default Lucee will block a set of files that have potential risk. Use this setting to have more control over Lucees default settings.</p>
+
+				<sub>Values: String</sub>
 				<p>
 					<strong>Example:</strong> The following directive won't allow the upload of the following files:
 					<pre lang="script">LUCEE_UPLOAD_BLOCKLIST=asp,aspx,cfc,cfm,cfml,do,htm,html,jsp,jspx,php</pre>
@@ -601,9 +645,7 @@ When using *Environment Variables* or *System Properties* you need to consider i
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
 				<p>
-					<strong>Application.cfc:</strong>
-					<br>
-				  not available
+					<strong>Application.cfc:</strong> not available
 				</p>
 			</td>
 		</tr>
@@ -615,12 +657,13 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				</div>
 			</td>
 			<td>
-				Defines the directory location where Lucee should create the server context. 
-				
-				By default Lucee places its server context in the servlet engines directory. 
-				
-				Use this to move the server context outside. This directive is the same as the init param lucee-server-directory of <code><em>path-to-lucee-installation\tomcat\conf\web.xml</em></code>
-				<br><sub>Values: String</sub>
+				<p>Defines the directory location where Lucee should create the server context.</p>
+
+				<p>By default Lucee places its server context in the servlet engines directory.</p>
+
+				<p>Use this to move the server context outside the Lucee installation dir. This directive is the same as the init param lucee-server-directory of <code><em>path-to-lucee-installation\tomcat\conf\web.xml</em></code></p>
+
+				<sub>Values: String</sub>
 				<p>
 					<strong>Example:</strong> Moving web contexts to another location:
 					<pre lang="script">set "LUCEE_SERVER_DIR="/var/another-location/server/"</pre>
@@ -629,9 +672,7 @@ When using *Environment Variables* or *System Properties* you need to consider i
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
 				<p>
-					<strong>Application.cfc:</strong>
-					<br>
-				  not available
+					<strong>Application.cfc:</strong> not available
 				</p>
 			</td>
 		</tr>
@@ -643,14 +684,17 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				</div>
 			</td>
 			<td>
-				Defines the directory location where Lucee should create the web contexts. 
-				
-				<p>By default Lucee places its web-context configuration and data files in a folder named WEB-INF within the webroot of each website. Use this to move the web context outside of the websites webroot. </p>
-				
+				Defines the directory location where Lucee should create the web contexts.
+
+				<p>By default Lucee places its web-context configuration and data files in a folder named WEB-INF under the webroot of each website.</p>
+
+				<p>Use this to move the web context outside of the websites webroot. </p>
+
 				<p>This directive is the same as the init param lucee-web-directory of <code><em>path-to-lucee-installation\tomcat\conf\web.xml</em></code>. </p>
-				
-				When using this directive you'll need to add Lucees label variable <code>{web-context-label}</code> to the path that will be used as the identifier hash or label for the created web contexts.
-				<br><sub>Values: String</sub>
+
+				<p>When using this directive you'll need to add Lucees label variable <code>{web-context-label}</code> to the path that will be used as the identifier hash or label for the created web contexts.</p>
+
+				<sub>Values: String</sub>
 				<p>
 					<strong>Example:</strong> Moving web contexts to another location:
 					<pre lang="script">set "LUCEE_WEB_DIR="/var/another-location/web/{web-context-label}/"</pre>
@@ -659,9 +703,7 @@ When using *Environment Variables* or *System Properties* you need to consider i
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
 				<p>
-					<strong>Application.cfc:</strong>
-					<br>
-				  not available
+					<strong>Application.cfc:</strong> not available
 				</p>
 			</td>
 		</tr>
@@ -674,14 +716,13 @@ When using *Environment Variables* or *System Properties* you need to consider i
 			</td>
 			<td>
 				Enables/disables the experimental Lucee dialect
-				<br><sub>Values: String</sub>
+
+				sub>Values: String</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
 				<p>
-					<strong>Application.cfc:</strong>
-					<br>
-				  not available
+					<strong>Application.cfc:</strong> not available
 				</p>
 			</td>
 		</tr>
@@ -694,7 +735,8 @@ When using *Environment Variables* or *System Properties* you need to consider i
 			</td>
 			<td>
 				Sets log level for Felix
-				<br><sub>Values: String <code>error | warning |info | debug</code></sub>
+				<br>
+				<sub>Values: String <code>error | warning |info | debug</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -713,7 +755,9 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				</div>
 			</td>
 			<td>
-				Disables the controller. The Controller is an internal background process which runs maintenance tasks.  Default is <code>false</code>.<br>
+				Disables the controller. Default is <code>false</code>.
+
+				<p>The Controller is an internal background process which runs maintenance tasks.</p>
 
 				<strong>On Startup</strong><br>
 				<ul>
@@ -743,13 +787,12 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				</ul>
 
 				<sub>Values: Boolean <code> true | false </code></sub>
+
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
 				<p>
-					<strong>Application.cfc:</strong>
-					<br>
-				  not available
+					<strong>Application.cfc:</strong> not available
 				</p>
 			</td>
 		</tr>
@@ -761,18 +804,16 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				</div>
 			</td>
 			<td>
-				Number of milliseconds between controller calls.
+				<p>Number of milliseconds between controller calls.</p>
 
-				<br>Set to 0 to disable controller. Useful for benchmark testing.
+				<p>Set to 0 to disable controller. Useful for benchmark testing.</p>
 
 				<br><sub>Values: Numeric</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
 				<p>
-					<strong>Application.cfc:</strong>
-					<br>
-				  not available
+					<strong>Application.cfc:</strong> not available
 				</p>
 			</td>
 		</tr>
@@ -782,7 +823,7 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				<div class="attribute">LUCEE_LISTENER_TYPE<br>lucee.listener.type</div>
 			</td>
 			<td>
-				Sets how requests are handled and which templates are invoked by default.<br>
+				Sets how requests are handled and which templates are invoked by default.
 				<ul>
 					<li><strong>None</strong>: When a request is called no other initialization template will be invoked by Lucee.</li>
 					<li><strong>classic</strong>: Classic handling (CFML < 7). Lucee looks for the file <code>Application.cfm</code> and a corresponding file <code>OnRequestEnd.cfm</code></li>
@@ -790,7 +831,7 @@ When using *Environment Variables* or *System Properties* you need to consider i
 					<li><strong>mixed</strong>: Mixed handling. Lucee looks for a file <code>Application.cfm / OnRequestEnd.cfm</code> as well as for the file <code>Application.cfc</code></li>
 				</ul>
 
-				<sub>Values: String <code>none | classic |modern |mixed </code></sub>
+				<sub>Values: String <code>none | classic | modern | mixed</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -807,9 +848,11 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				<div class="attribute">LUCEE_LISTENER_MODE<br>lucee.listener.mode</div>
 			</td>
 			<td>
-				Defines where Lucee looks for the files <code>Application.cfc / Application.cfm</code>. Note: In case of having LUCEE_LISTENER_TYPE set to <code>none</code> the setting for LUCEE_LISTENER_MODE is ignored.
+				<p>Defines where Lucee looks for the files <code>Application.cfc / Application.cfm</code>.</p>
+
+				<p>Note: In case of having LUCEE_LISTENER_TYPE set to <code>none</code> the setting for LUCEE_LISTENER_MODE is ignored.</p>
 				<ul>
-					<li><strong>none</strong>: Looks for the file <code>Application.cfc / Application.cfm</code> from the current up to the <strong>curr2root</strong>: 
+					<li><strong>none</strong>: Looks for the file <code>Application.cfc / Application.cfm</code> from the current up to the <strong>curr2root</strong>:
 					Looks for the file <code>Application.cfc / Application.cfm</code> from the current up to the webroot directory.</li>
 					<li><strong>currOrRoot</strong>: Looks for the file <code>Application.cfc / Application.cfm</code> in the current directory and in the webroot directory.</li>
 					<li><strong>root</strong>: Looks for the file <code>Application.cfc / Application.cfm</code> only in the webroot .</li>
@@ -852,7 +895,9 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				<div class="attribute">LUCEE_QOQ_HSQLDB_DEBUG<br>lucee.qoq.hsqldb.debug</div>
 			</td>
 			<td>
-				Log message to WEB context's datasource log any time a QoQ "falls back" to HyperSQL. This could include just bad SQL syntax. Default is <code>false</code>.<br>
+				<p>Log message to WEB context's datasource log any time a QoQ "falls back" to HyperSQL.</p>
+
+				<p>This could include just bad SQL syntax. Default is <code>false</code>.</p>
 				<sub>Values: Boolean <code>true|false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
@@ -862,7 +907,6 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				</p>
 			</td>
 		</tr>
-		
 	</tbody>
 </table>
 </div>
