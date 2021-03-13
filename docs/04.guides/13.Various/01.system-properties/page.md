@@ -176,7 +176,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</p>
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_EXTENSIONS_INSTALL<br>lucee.extension.install</div>
@@ -186,7 +186,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>Enables/disables installation of Lucee's default extensions. When this value is changed, it will need a complete redeployment of "lucee-server" (simple restart won't suffice).</p>
 
 				<p>This directive is very useful in combination with the system variable LUCEE_EXTENSIONS.</p>
-        
+
 				<sub>Values: Boolean <code>true | false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
@@ -211,7 +211,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>You can find available extensions and their corresponding GUID (these are listed as IDs) in the Server Administrator or at
 				<a href="https://downloads.lucee.org" target="_blank">Lucee Downloads</a>.</p>
 
-        <sub>Values: String</sub>
+		<sub>Values: String</sub>
 				<p>
 					<strong>Example:</strong> Installing JFreeChart Extension Version 1.0.19.19:
 					<pre lang="script">LUCEE_EXTENSIONS=D46B46A9-A0E3-44E1-D972A04AC3A8DC10;version=1.0.19.19</pre>
@@ -404,7 +404,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 					but whitespace inside the tags: &lt;code&gt;, &lt;pre&gt; and &lt;textarea&gt; is kept</li>
 				</ul>
 
-        <sub>Values: String <code>white-space-pref | regular | white-space</code></sub>
+		<sub>Values: String <code>white-space-pref | regular | white-space</code></sub>
 				<p>
 					<strong>Example:</strong> The following directive will set whitespace management to simple:
 					<pre lang="script">LUCEE_CFML_WRITER=white-space</pre>
@@ -582,9 +582,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 
 			<td>
 				<p>Defines the S3 virtual S3 bucket mapping credentials. Use this to hide AWS S3 credentials from source code or Web Administrator. </p>
-				
-				<p>That way you connect to your S3 bucket with a <code>S3:///myAwsBucketname/someDirectory/</code> <code>S3:///myAwsKey:myAwsSecretKey@/myAwsBucketname/someDirectory/</code>. 
-        Please see [[category-s3]]</p>
+
+				<p>That way you connect to your S3 bucket with a <code>S3:///myAwsBucketname/someDirectory/</code> <code>S3:///myAwsKey:myAwsSecretKey@/myAwsBucketname/someDirectory/</code>.
+		Please see [[category-s3]]</p>
 				<br><sub>Values: String</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
@@ -596,7 +596,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</p>
 			</td>
 		</tr>
-    
+
 		<tr>
 			<td>
 				<div class="attribute">
@@ -605,7 +605,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			</td>
 			<td>
 				<p>Defines a comma separeted list of file extensions that are not allowed to be uploaded. </p>
-				
+
 				<p>By default Lucee will block a set of files that have potential risk. Use this setting to have more control over Lucees default settings.</p>
 
 				<sub>Values: String</sub>
@@ -624,7 +624,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</p>
 			</td>
 		</tr>
-    
+
 		<tr>
 			<td>
 				<div class="attribute">
@@ -760,9 +760,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</div>
 			</td>
 			<td>
-				Disables the controller. 
-        
-        <p>The Controller is an internal background process which runs maintenance tasks.  Default is <code>false</code>.</p>
+				Disables the controller.
+
+		<p>The Controller is an internal background process which runs maintenance tasks.  Default is <code>false</code>.</p>
 
 				<strong>On Startup</strong><br>
 				<ul>
@@ -822,7 +822,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</p>
 			</td>
 		</tr>
-    
+
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_LISTENER_TYPE<br>lucee.listener.type</div>
@@ -836,7 +836,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 					<li><strong>mixed</strong>: Mixed handling. Lucee looks for a file <code>Application.cfm / OnRequestEnd.cfm</code> as well as for the file <code>Application.cfc</code></li>
 				</ul>
 
-				<sub>Values: String <code>none | classic | modern | mixed</code></sub> 
+				<sub>Values: String <code>none | classic | modern | mixed</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -854,7 +854,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			</td>
 			<td>
 				<p>Defines where Lucee looks for the files <code>Application.cfc / Application.cfm</code>.</p>
-				
+
 				<p>Note: In case of having LUCEE_LISTENER_TYPE set to <code>none</code> the setting for LUCEE_LISTENER_MODE is ignored.</p>
 				<ul>
 					<li><strong>none</strong>: Looks for the file <code>Application.cfc / Application.cfm</code> from the current up to the <strong>curr2root</strong>:
@@ -901,7 +901,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			</td>
 			<td>
 				<p>Log message to WEB context's datasource log any time a QoQ "falls back" to HyperSQL.</p>
-				
+
 				<p>This could include just bad SQL syntax. Default is <code>false</code>.</p>
 				<sub>Values: Boolean <code>true|false</code></sub>
 				<p>
