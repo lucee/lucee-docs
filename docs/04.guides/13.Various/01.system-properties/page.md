@@ -19,10 +19,26 @@ Lucee settings are usually configured manually within the Server Administrator f
 
 On startup Lucee identifies specific *Environment Variables* or JVM *System Properties* and uses them for the server setting configuration. While system environment variable names need to be notated as *MACRO_CASE*, system property names need to be in *dot.notation*. See as an example of variable/property name notation for enabling full null support in the table below:
 
-|  Use as 	|   Notation Example	|
-|---	|---	|
-|     Environment Variables	| `LUCEE_FULL_NULL_SUPPORT=true` *(MACRO_CASE)*	|
-|     System Properties		| `lucee.full.null.support=true` *(dot.notation)* |
+<div class="table-responsive">
+    <table>
+        <thead>
+            <tr>
+                <th>Use as </th>
+                <th>Notation Example </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Environment Variables </td>
+                <td><code>LUCEE_FULL_NULL_SUPPORT=true</code> <em>(MACRO_CASE)</em> </td>
+            </tr>
+            <tr>
+                <td>System Properties </td>
+                <td><code>lucee.full.null.support=true</code> <em>(dot.notation)</em> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <br>
 
 ### 3. Setting The Variables ###
@@ -35,12 +51,39 @@ There are many different ways to make *Environment Variables* or *System Propert
 
 Find below a brief overview of available options about where and how to set your *Environment Variables*:
 
-|  Where | Variables availablility| How to configure |
-|---	|---	|---	|
-| OS (globally)| OS (system-wide)| Environment variables are configured within your OS configuration. Please refer to the documentation of your OS |
-| OS (user specific) | OS (system-wide), but limited to user | Environment variables are configured within the OS user's profile configuration. Please refer to the documentation of your OS  |
-|  Servlet Engine Tomcat | Limited to the running servlet instance  |  **Option I:** Use Tomcats *path-to-lucee-installation\tomcat\bin\setenv.bat (Windows) or path-to-lucee-installation\tomcat\bin\setenv.sh (Linux)*  as specified in [Tomcats 9.0 Documentation (see 3.4)](https://tomcat.apache.org/tomcat-9.0-doc/RUNNING.txt)<br> **Option II:** Run Tomcat with the argument *--Environment=key1=value1;key2=...* as specified in  [Tomcat 9 parameters](https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html) |
-| CommandBox | Limited to the running CommandBox instance | Since CommandBox 4.5 *Environment Variables* can be set in a file named ".env". You can easily create the .env file by running the command `dotenv set` from your CommanBox CLI. For more information please see [How to set it up CommandBox with .env files](https://github.com/commandbox-modules/commandbox-dotenv) and [CommandBox Environement Variables](https://commandbox.ortusbooks.com/usage/environment-variables) |
+<div class="table-responsive">
+    <table>
+        <thead>
+            <tr>
+                <th>Where </th>
+                <th>Variables availablility</th>
+                <th>How to configure </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>OS (globally)</td>
+                <td>OS (system-wide)</td>
+                <td>Environment variables are configured within your OS configuration. Please refer to the documentation of your OS </td>
+            </tr>
+            <tr>
+                <td>OS (user specific) </td>
+                <td>OS (system-wide), but limited to user </td>
+                <td>Environment variables are configured within the OS user's profile configuration. Please refer to the documentation of your OS </td>
+            </tr>
+            <tr>
+                <td>Servlet Engine Tomcat </td>
+                <td>Limited to the running servlet instance </td>
+                <td><strong>Option I:</strong> Use Tomcats <em>path-to-lucee-installation\tomcat\bin\setenv.bat (Windows) or path-to-lucee-installation\tomcat\bin\setenv.sh (Linux)</em> as specified in <a href="https://tomcat.apache.org/tomcat-9.0-doc/RUNNING.txt">Tomcats 9.0 Documentation (see 3.4)</a><br> <strong>Option II:</strong> Run Tomcat with the argument <em>--Environment=key1=value1;key2=...</em> as specified in <a href="https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html">Tomcat 9 parameters</a> </td>
+            </tr>
+            <tr>
+                <td>CommandBox </td>
+                <td>Limited to the running CommandBox instance </td>
+                <td>Since CommandBox 4.5 <em>Environment Variables</em> can be set in a file named ".env". You can easily create the .env file by running the command <code>dotenv set</code> from your CommanBox CLI. For more information please see <a href="https://github.com/commandbox-modules/commandbox-dotenv">How to set it up CommandBox with .env files</a> and <a href="https://commandbox.ortusbooks.com/usage/environment-variables">CommandBox Environement Variables</a> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 In the following example we'll follow Tomcats recommendation and set *Environment Variables* by using Tomcats setenv.bat/setenv.sh files.
 
@@ -70,7 +113,7 @@ LUCEE_FULL_NULL_SUPPORT=true
 LUCEE_CFML_WRITER=white-space
 ```
 
-**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correctly set for the user running Tomcat to read and execute them.*
+**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correclty set for the user running Tomcat to read and execute them.*
 <br>
 <br>
 
@@ -100,17 +143,17 @@ set "CATALINA_OPTS=-Dlucee.full.null.support=true -Dlucee.cfml.writer=white-spac
 CATALINA_OPTS=-Dlucee.full.null.support=true -Dlucee.cfml.writer=white-space -Dlucee.cfml.writer=white-space
 ```
 
-**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correctly set for the user running Tomcat to read and execute them.*
+**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correclty set for the user running Tomcat to read and execute them.*
 <br>
 <br>
 
-If you are running Lucee with **CommandBox**, you can make use of *System Properties* by saving them to the `.env` file, just the same way it's done with *Environment Variables*. For further information please see [How to set it up CommandBox with .env files](https://github.com/commandbox-modules/commandbox-dotenv) and [CommandBox Environment Variables](https://commandbox.ortusbooks.com/usage/environment-variables).
+If you are running Lucee with **CommandBox**, you can make use of *System Properties* by saving them to the `.env` file, just the same way it's done with *Environment Variables*. For further information please see [How to set it up CommandBox with .env files](https://github.com/commandbox-modules/commandbox-dotenv) and [CommandBox Environement Variables](https://commandbox.ortusbooks.com/usage/environment-variables).
 <br>
 <br>
 
 ### 5. Verifying Variables/Properties Passed To Lucee ###
 
-To make sure the *Environment Variables/System Properties* are properly being passed to Tomcat/Lucee, you can simply dump these variables from within your web application with cfml as follows:
+To make sure the *Environment Variables/System Properties* are properly being passed to Tomcat/Lucee, you can simply dump these variables from whithin your web application with cfml as follows:
 
 ```
 <cfscript>
@@ -163,7 +206,7 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				<div class="attribute">LUCEE_EXTENSIONS_INSTALL<br>lucee.extension.install</div>
 			</td>
 			<td>
-                Enables/disables installation of Lucee's default extensions. When this value is changed, it will need a complete redeployment of "lucee-server" (simple restart won't suffice). This directive is very useful in combination with the system variable LUCEE_EXTENSIONS. 
+                Enables/disables installation of Lucee's default extensions. When this value is changed, it will need a complete redeployment of "lucee-server" (simple restart won't suffice). This directive is very usefull in combination with the system variable LUCEE_EXTENSIONS. 
                 <br>
                 <sub>Values: Boolean <code>true|false</code></sub>
                 <p>
