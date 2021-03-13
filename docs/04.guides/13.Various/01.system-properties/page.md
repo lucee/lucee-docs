@@ -113,7 +113,7 @@ LUCEE_FULL_NULL_SUPPORT=true
 LUCEE_CFML_WRITER=white-space
 ```
 
-**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correclty set for the user running Tomcat to read and execute them.*
+**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correctly set for the user running Tomcat to read and execute them.*
 <br>
 <br>
 
@@ -206,7 +206,7 @@ When using *Environment Variables* or *System Properties* you need to consider i
 				<div class="attribute">LUCEE_EXTENSIONS_INSTALL<br>lucee.extension.install</div>
 			</td>
 			<td>
-                Enables/disables installation of Lucee's default extensions. When this value is changed, it will need a complete redeployment of "lucee-server" (simple restart won't suffice). This directive is very usefull in combination with the system variable LUCEE_EXTENSIONS. 
+                Enables/disables installation of Lucee's default extensions. When this value is changed, it will need a complete redeployment of "lucee-server" (simple restart won't suffice). This directive is very useful in combination with the system variable LUCEE_EXTENSIONS. 
                 <br>
                 <sub>Values: Boolean <code>true|false</code></sub>
                 <p>
