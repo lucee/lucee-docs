@@ -1,0 +1,2 @@
+/build_docs/ 3ms, 4 import threads, 4 build threads, heap 178 Mb, non-heap 77 Mb, 5.3.8.154-SNAPSHOT 
+/build_docs/import/ 8,502ms, 4 import threads, 4 build threads, heap 370 Mb, non-heap 78 Mb, 5.3.8.154-SNAPSHOT 

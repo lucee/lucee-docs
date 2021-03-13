@@ -33,10 +33,11 @@ component {
 			header statuscode=401;
 			abort;
 		}
-		var importThreads = 4;
+		// heads up, with 1 thread, you see all debugging logs, more than one, the threads are invisble
+		var importThreads = 1;
 		// pegdown doesn't work with parallel build, see MarkdownParser.cfc
 		// see https://luceeserver.atlassian.net/browse/LD-109
-		var buildThreads = 4;
+		var buildThreads = 1;
 
 		if ( path.startsWith( "/lucee/admin") ){
 			request.logger (text="ignoring /lucee/admin request #cgi.script_name#");
