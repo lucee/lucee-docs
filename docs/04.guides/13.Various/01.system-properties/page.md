@@ -143,7 +143,7 @@ set "CATALINA_OPTS=-Dlucee.full.null.support=true -Dlucee.cfml.writer=white-spac
 CATALINA_OPTS=-Dlucee.full.null.support=true -Dlucee.cfml.writer=white-space -Dlucee.cfml.writer=white-space
 ```
 
-**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correclty set for the user running Tomcat to read and execute them.*
+**Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correctly set for the user running Tomcat to read and execute them.*
 <br>
 <br>
 
