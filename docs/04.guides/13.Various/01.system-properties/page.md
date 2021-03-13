@@ -705,25 +705,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			</td>
 			<td>
 				Enables/disables the experimental Lucee dialect
-				<br><sub>Values: String</sub>
-				<p>
-					<strong>Lucee Server Administrator:</strong> not available
-				</p>
-				<p>
-					<strong>Application.cfc:</strong> not available
-				</p>
-			</td>
-		</tr>
-
-		<tr>
-			<td>
-				<div class="attribute">
-					LUCEE_ENABLE_DIALECT<br>lucee.enable.dialect
-				</div>
-			</td>
-			<td>
-				Enables/disables the experimental Lucee dialect
-				<br><sub>Values: String</sub>
+				
+				sub>Values: String</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -741,7 +724,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			</td>
 			<td>
 				Sets log level for Felix
-				<br><sub>Values: String <code>error | warning |info | debug</code></sub>
+				<br>
+				<sub>Values: String <code>error | warning |info | debug</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
