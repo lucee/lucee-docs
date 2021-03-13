@@ -99,7 +99,7 @@ Here is a brief overview.
 |	Servlet Engine Tomcat | Use Tomcats *path-to-lucee-installation\tomcat\bin\setenv.bat or path-to-lucee-installation\tomcat\bin\setenv.sh* and add the system property using `CATALINA_OPTS`. See [Tomcats 9.0 Documentation (see 3.3)](https://tomcat.apache.org/tomcat-9.0-doc/RUNNING.txt)	|
  CommandBox | In CommandBox *System Properties* can be set like Environment Variables in the `.env` file. |
 
-In Tomcat *System Properties* are passed to the JVM servlet engine Tomcat on startup by populating CATALINA_OPTS with the -D flag, e.g. `-Dlucee.full.null.support=true` (note that there is no space between the -D flag and the system property key/value). 
+In Tomcat *System Properties* are passed to the JVM servlet engine Tomcat on startup by populating CATALINA_OPTS with the -D flag, e.g. `-Dlucee.full.null.support=true` (note that there is no space between the -D flag and the system property key/value).
 
 With Tomcat it's recommended to set CATALINA_OPTS in the setenv.bat/setenv.sh file.
 
@@ -122,7 +122,7 @@ CATALINA_OPTS=-Dlucee.full.null.support=true -Dlucee.cfml.writer=white-space -Dl
 <br>
 <br>
 
-If you are running Lucee with **CommandBox**, you can make use of *System Properties* by saving them to the `.env` file, just the same way it's done with *Environment Variables*. 
+If you are running Lucee with **CommandBox**, you can make use of *System Properties* by saving them to the `.env` file, just the same way it's done with *Environment Variables*.
 
 For further information please see [How to set it up CommandBox with .env files](https://github.com/commandbox-modules/commandbox-dotenv) and [CommandBox Environment Variables](https://commandbox.ortusbooks.com/usage/environment-variables).
 <br>
@@ -591,7 +591,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 
 				<p>That way you connect to your S3 bucket with a <code>S3:///myAwsBucketname/someDirectory/</code> <code>S3:///myAwsKey:myAwsSecretKey@/myAwsBucketname/someDirectory/</code>.
 		Please see [[category-s3]]</p>
-				
+
 				<sub>Values: String</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
@@ -686,8 +686,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			<td>
 				Defines the directory location where Lucee should create the web contexts.
 
-				<p>By default Lucee places its web-context configuration and data files in a folder named WEB-INF under the webroot of each website.</p> 
-				
+				<p>By default Lucee places its web-context configuration and data files in a folder named WEB-INF under the webroot of each website.</p>
+
 				<p>Use this to move the web context outside of the websites webroot. </p>
 
 				<p>This directive is the same as the init param lucee-web-directory of <code><em>path-to-lucee-installation\tomcat\conf\web.xml</em></code>. </p>
@@ -716,7 +716,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			</td>
 			<td>
 				Enables/disables the experimental Lucee dialect
-				
+
 				sub>Values: String</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
