@@ -96,7 +96,7 @@ Find below a brief overview of available options about where and how to set your
     </table>
 </div>
 
-In the following example we'll follow Tomcat's recommendation and set *Environment Variables* by using Tomcats setenv.bat/setenv.sh files.
+In the following example we'll follow Tomcat's recommendation and set *Environment Variables* by using Tomcats setenv.bat/setenv.sh files. 
 
 **For Windows:** Create a batch file at  *path-to-lucee-installation\tomcat\bin\setenv.bat* with the following content:
 
@@ -110,6 +110,11 @@ set "LUCEE_FULL_NULL_SUPPORT=true"
 REM Set Simple whitespace management
 set "LUCEE_CFML_WRITER=white-space"
 ```
+
+If you have installed **Tomcat as service in Windows**, the service wrapper launches Java directly without using script files. 
+
+In this case you can alternatively add the *Environment Variables* by running the following Tomcat service update command in a terminal window: 
+`path-to-lucee-installation\tomcat\bin\tomcat9.exe //US//NameOfYourTomcatService --Environment=key1=value1;key2=...`
 
 **For Linux:** Create a shell script at  *path-to-lucee-installation\tomcat\bin\setenv.sh* with the following content:
 
@@ -138,10 +143,26 @@ In this example we will focus on configuring *System Properties* when running Lu
 
 Here is a brief overview.
 
-|	Configuration for | How to configure |
-|---				 |---					 |
-|	Servlet Engine Tomcat | Use Tomcats *path-to-lucee-installation\tomcat\bin\setenv.bat or path-to-lucee-installation\tomcat\bin\setenv.sh* and add the system property using `CATALINA_OPTS`. See [Tomcats 9.0 Documentation (see 3.3)](https://tomcat.apache.org/tomcat-9.0-doc/RUNNING.txt)	|
- CommandBox | In CommandBox *System Properties* can be set like Environment Variables in the `.env` file. |
+<div class="table-responsive">
+	<table>
+		<thead>
+			<tr>
+				<th>Configuration for </th>
+				<th>How to configure </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Servlet Engine Tomcat </td>
+				<td>Use Tomcats <em>path-to-lucee-installation\tomcat\bin\setenv.bat or path-to-lucee-installation\tomcat\bin\setenv.sh</em> and add the system property using <code>CATALINA_OPTS</code>. See <a href="https://tomcat.apache.org/tomcat-9.0-doc/RUNNING.txt">Tomcats 9.0 Documentation (see 3.3)</a> </td>
+			</tr>
+			<tr>
+				<td>CommandBox </td>
+				<td>In CommandBox <em>System Properties</em> can be set like Environment Variables in the <code>.env</code> file. </td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 
 In Tomcat *System Properties* are passed to the JVM servlet engine Tomcat on startup by populating CATALINA_OPTS with the -D flag, e.g. `-Dlucee.full.null.support=true` (note that there is no space between the -D flag and the system property key/value).
 
@@ -153,6 +174,12 @@ With Tomcat it's recommended to set CATALINA_OPTS in the setenv.bat/setenv.sh fi
 REM Set System Properties with CATALINA_OPTS
 set "CATALINA_OPTS=-Dlucee.full.null.support=true -Dlucee.cfml.writer=white-space -Dlucee.cfml.writer=white-space"
 ```
+
+If you have installed **Tomcat as service in Windows**, the service wrapper launches Java directly without using script files. 
+
+In this case you can alternatively add the *System Properties* in the JAVA tab of Tomcats GUI service editor.
+
+To launch Tomcat GUI service editor, open a terminal window and enter `path-to-lucee-installation\tomcat\bin\tomcat9w.exe //ES//NameOfYourTomcatService`. 
 
 **For Linux:** Create a shell script at  *path-to-lucee-installation\tomcat\bin\setenv.sh* with the following content:
 
