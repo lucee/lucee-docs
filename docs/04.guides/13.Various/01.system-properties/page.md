@@ -243,6 +243,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Enables/disables access to Lucee Server/Web Administrator. If set to <code>false</code>, Lucee will respond with a 404 http status error for Administrator pages.
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
+                <br>
+                <sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -263,6 +265,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>This directive is very useful in combination with the system variable LUCEE_EXTENSIONS.</p>
 
 				<sub>Values: Boolean <code>true | false</code></sub>
+                <br>
+				<sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -308,6 +312,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Enables bundle download. Setting it to <code>false</code> makes sure that only bundles shipped with <code>Lucee.jar</code> are installed.
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
+                <br>
+                <sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -325,6 +331,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Default charset used to read templates of <code>*.cfm</code> and <code>*.cfc</code> files
 				<br>
 				<sub>Values: String</sub>
+                <br>
+                <sub>Default: default OS charset</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -348,6 +356,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Default character set for output streams, form-, url-, and cgi scope variables and reading/writing the header.
 				<br>
 				<sub>Values: String</sub>
+                <br>
+                <sub>Default: <code>UTF-8</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -369,6 +379,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Default character set for reading from/writing to various resources.
 				<br>
 				<sub>Values: String</sub>
+                <br>
+                <sub>Default: default OS charset</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -390,6 +402,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				The configuration of Script protect, secures the system from "cross-site scripting" various resources.
 				<br>
 				<sub>Values: String <code>none | all | cgi , url , form , cookie</code></sub>
+                <br>
+                <sub>Default: <code>all</code></sub>
 				<p>
 					<strong>Example:</strong> The following directive will set script protection for url and form scope:
 					<pre lang="script">LUCEE_SCRIPT_PROTECT=url,form</pre>
@@ -413,6 +427,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Enables the queue for requests.
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
+                <br>
+                <sub>Default: <code>false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -430,9 +446,11 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			</td>
 			<td>
 				The maximum concurrent requests that the engine allows to run at the same time,
-				before the engine begins to queue the requests.
+				before the engine begins to queue the requests. This setting needs the queue to be enabled <code>LUCEE_QUEUE_ENABLE=true</code>.
 				<br>
 				<sub>Values: Numeric</sub>
+                <br>
+                <sub>Default: <code>100</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -451,8 +469,11 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			<td>
 				The time in milliseconds a request is held in the queue.
 				If the time is reached the request is rejected with an exception.
-				If you have set 0 milliseconds the request timeout is used instead.
-				<br><sub>Values: Numeric</sub>
+				If you have set 0 milliseconds the request timeout is used instead. This setting needs the queue to be enabled <code>LUCEE_QUEUE_ENABLE=true</code>.
+				<br>
+                <sub>Values: Numeric</sub>
+                <br>
+                <sub>Default: <code>0</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -480,6 +501,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</ul>
 
 		<sub>Values: String <code>white-space-pref | regular | white-space</code></sub>
+        <br>
+        <sub>Default: <code>regular</code></sub>
 				<p>
 					<strong>Example:</strong> The following directive will set whitespace management to simple:
 					<pre lang="script">LUCEE_CFML_WRITER=white-space</pre>
@@ -505,6 +528,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>This setting is ignored when there is a different output between this tags as white space.</p>
 
 				<sub>Values: Boolean <code>true | false</code></sub>
+                <br>
+                <sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -527,6 +552,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>If set to false, all dot.notated key-names will be converted to UPPERCASE.</p>
 
 				<sub>Values: Boolean <code>true | false</code></sub>
+                <br>
+                <sub>Default: <code>false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -551,10 +578,12 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				client (Web Browser)
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
+                <br>
+                <sub>Default: <code>false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
-					Settings &raquo;  Language/Compiler &raquo; Compression
+					Settings &raquo;  Output &raquo; Compression
 				</p>
 				<p>
 					<strong>Application.cfc:</strong>
@@ -572,6 +601,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Enables/disables full null support, support for null, including "null" literal.
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
+                <br>
+                <sub>Default: <code>false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -594,6 +625,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				of #variables.myVar# (CFML Standard)
 				<br>
 				<sub>Values: Boolean <code> true | false </code></sub>
+                <br>
+                <sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -614,6 +647,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			<td>
 				Enables/disables type definitions checking with function arguments and return values
 				<br><sub>Values: Boolean <code>true|false</code></sub>
+                <br>
+                <sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -632,9 +667,11 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<div class="attribute">LUCEE_STATUS_CODE<br>lucee.status.code</div>
 			</td>
 			<td>
-				Enables/disables sending 200 http status code in case of an exception.
+				Enables/disables sending 200 http status code in case of an exception. Set the value to <code>false</code> to always send 200 status response code
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
+                <br>
+                <sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -687,6 +724,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>By default Lucee will block a set of files that have potential risk. Use this setting to have more control over Lucees default settings.</p>
 
 				<sub>Values: String</sub>
+                <br>
+                <sub>Default: <code>asp,aspx,cfc,cfm,cfml,do,htm,html,jsp,jspx,php</code></sub>
 				<p>
 					<strong>Example:</strong> The following directive won't allow the upload of the following files:
 					<pre lang="script">LUCEE_UPLOAD_BLOCKLIST=asp,aspx,cfc,cfm,cfml,do,htm,html,jsp,jspx,php</pre>
@@ -787,8 +826,12 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			</td>
 			<td>
 				Enables/disables the experimental Lucee dialect
-
-				sub>Values: String</sub>
+                <br>
+				<sub>Values: String</sub>
+                <br>
+                <sub>Default: <code>false</code></sub>
+				
+                
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -808,6 +851,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Sets log level for Felix
 				<br>
 				<sub>Values: String <code>error | warning |info | debug</code></sub>
+                <br>
+                <sub>Default: <code>error</code></sub>
+               
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -858,6 +904,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</ul>
 
 				<sub>Values: Boolean <code> true | false </code></sub>
+                <br>
+                <sub>Default: <code>false</code></sub>
+
 
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
@@ -879,7 +928,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 
 				<p>Set to 0 to disable controller. Useful for benchmark testing.</p>
 
-				<br><sub>Values: Numeric</sub>
+				<sub>Values: Numeric</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -903,6 +952,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</ul>
 
 				<sub>Values: String <code>none | classic | modern | mixed</code></sub>
+                <br>
+                <sub>Default: <code>mixed</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -923,14 +974,15 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 
 				<p>Note: In case of having LUCEE_LISTENER_TYPE set to <code>none</code> the setting for LUCEE_LISTENER_MODE is ignored.</p>
 				<ul>
-					<li><strong>none</strong>: Looks for the file <code>Application.cfc / Application.cfm</code> from the current up to the <strong>curr2root</strong>:
-					Looks for the file <code>Application.cfc / Application.cfm</code> from the current up to the webroot directory.</li>
+					<li><strong>curr2root</strong>:	Looks for the file <code>Application.cfc / Application.cfm</code> from the current up to the webroot directory.</li>
 					<li><strong>currOrRoot</strong>: Looks for the file <code>Application.cfc / Application.cfm</code> in the current directory and in the webroot directory.</li>
 					<li><strong>root</strong>: Looks for the file <code>Application.cfc / Application.cfm</code> only in the webroot .</li>
 					<li><strong>curr</strong>: Looks for the file <code>Application.cfc / Application.cfm</code> only in the current template directory.</li>
 				</ul>
 
-				<sub>Values: String <code>none | curr2root | currOrRoot | root | curr</code></sub>
+				<sub>Values: String <code> curr2root | currOrRoot | root | curr</code></sub>
+                <br>
+                <sub>Default: <code>curr2root</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -952,6 +1004,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				[[http://wwvv.codersrevolution.com/blog/improving-lucees-query-of-query-support]]
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
+                <br>
+                <sub>Default: <code>false</code></sub>
+                
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -970,7 +1025,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 
 				<p>This could include just bad SQL syntax. Default is <code>false</code>.</p>
 				<sub>Values: Boolean <code>true|false</code></sub>
-				<p>
+                <br>
+                <sub>Default: <code>false</code></sub>
+                <p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
 				<p>
