@@ -2,6 +2,7 @@
 title: Scopes
 id: scopes
 categories:
+- core
 - scopes
 description: local, arguments, query, variables, this, cgi, cffile, url, form, cookie, client, thread, caller, request
 menuTitle: Scopes

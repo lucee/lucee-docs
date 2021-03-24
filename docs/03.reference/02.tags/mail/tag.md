@@ -6,6 +6,7 @@ related:
 - tag-mailparam
 - tag-mailpart
 categories:
+- core
 - protocols
 ---
 

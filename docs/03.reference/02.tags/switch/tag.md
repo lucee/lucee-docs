@@ -3,6 +3,8 @@ title: <cfswitch>
 id: tag-switch
 related:
 - tag-defaultcase
+categories:
+- core
 ---
 
 Used with [[tag-case]] and [[tag-defaultcase]]. Evaluates a passed expression and passes control to the

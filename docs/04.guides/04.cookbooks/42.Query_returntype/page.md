@@ -1,7 +1,11 @@
 ---
 title: Query return type
 id: query_return_type
+categories:
+- query
+description: This document explains the different return types for a query with some examples.
 ---
+
 ## Query return type ##
 
 This document explains the different return types for a query with some examples.

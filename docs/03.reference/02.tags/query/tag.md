@@ -6,6 +6,7 @@ related:
 - tag-storedproc
 categories:
 - cache
+- core
 - query
 ---
 

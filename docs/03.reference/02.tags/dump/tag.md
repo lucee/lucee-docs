@@ -5,6 +5,7 @@ related:
 - function-dump
 - function-writedump
 categories:
+- core
 - debugging
 ---
 
