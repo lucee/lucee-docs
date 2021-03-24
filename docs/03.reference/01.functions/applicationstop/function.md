@@ -2,6 +2,7 @@
 title: ApplicationStop
 id: function-applicationstop
 related:
+- tag-application
 categories:
 ---
 
