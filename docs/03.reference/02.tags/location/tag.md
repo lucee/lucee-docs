@@ -1,10 +1,13 @@
 ---
 title: <cflocation>
 id: tag-location
-related:
 categories:
+- core
+description: Redirect the current request to another URL.
 ---
 
-Opens a CFML page or HTML file. For example, you might use cflocation to specify a standard
-message or response that you use in several applications. Use the addToken attribute to verify
-client requests.
+Redirect the current request to another URL.
+
+For example, you might use [[tag-location]] to specify a standard message or response that you use in several applications. 
+
+Use the `addToken` attribute to verify client requests.

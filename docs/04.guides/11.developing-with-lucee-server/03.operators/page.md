@@ -5,6 +5,7 @@ related:
 - function-max
 - function-min
 categories:
+- core
 - math
 - thread
 ---

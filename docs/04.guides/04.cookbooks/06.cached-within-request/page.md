@@ -5,8 +5,9 @@ related:
 - tag-query
 categories:
 - cache
-menuTitle: Query Caching
+- query
 description: Cache a Query for the current request
+menuTitle: Query Caching
 ---
 
 ## Cache a Query for the current request ##

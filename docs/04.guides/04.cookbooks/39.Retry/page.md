@@ -1,7 +1,12 @@
 ---
 title: Retry
 id: retry
+related:
+- tag-catch
+- tag-retry
+- tag-try
 ---
+
 ## Retry ##
 
 This document explains how to use retry functionality with some simple examples.

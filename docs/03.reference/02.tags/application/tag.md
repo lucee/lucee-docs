@@ -2,6 +2,7 @@
 title: Application.cfc / <cfapplication>
 id: tag-application
 categories:
+- core
 - scopes
 description: Defines a CFML Application and configures the properties / behavior of that Application
 ---
