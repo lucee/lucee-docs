@@ -13297,7 +13297,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		$tbl.find('tr > *:nth-child(2)').toggle(!data.expanded);
 		$tbl.find('tr > *:nth-child(3)').toggle(!data.expanded);
 		$btn.data("expanded", !data.expanded);
-		$btn.text(data.expanded ? "Collapse" : "Expand");
+		$btn.text(data.expanded ? "Collapse All" : "Expand All");
 
 		if (!data.installed){
 			$btn.data("installed", true);
@@ -13306,7 +13306,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 				var hidden = $tr.find("*:nth-child(2)").is(":visible");
 				$tr.find("*:nth-child(2)").toggle(hidden);
 				$tr.find("*:nth-child(3)").toggle(hidden);
-			});	
+			});
 		}
 	});
 // pickadate v3.5.5
@@ -13335,7 +13335,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 				$('header').removeClass('open');
 			}
 	});
-		
+
 // dropdown menu show
 	$(document).on('show.bs.dropdown', '.dropdown', function() {
 		var $dropdownMenu = $('.dropdown-menu', $(this)),
@@ -13374,12 +13374,12 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		if (/input|textarea/i.test(e.target.tagName)){
 			if (e.which === 9 && e.target.tagName == "TEXTAREA"){ // tabs are nice for code examples
 				var ta = e.target;
-				ta.value = ta.value.slice(0, ta.selectionStart) + 
-					String.fromCharCode(9) + 
-					ta.value.slice(ta.selectionStart);				
-			} 
+				ta.value = ta.value.slice(0, ta.selectionStart) +
+					String.fromCharCode(9) +
+					ta.value.slice(ta.selectionStart);
+			}
 			return;
-		}			
+		}
 		if ( e.which === 191 ) { // backslash /
 			e.preventDefault();
 			$( '.menu-toggle' ).click(); // open search menu
@@ -14931,7 +14931,7 @@ window.onerror = function(message, url, line, col, err) {
 	} else {
 			editor = "/editor.html";
 	}
-		
+
 	$.fn.tryCfLoader = function(){
 
 		return this.each( function(){
@@ -14939,7 +14939,10 @@ window.onerror = function(message, url, line, col, err) {
 			  , $flathighlight = $codeBlock.next()
 			  , blockId    = $codeBlock.attr( "id" )
 			  , scriptBased = $codeBlock.data( 'script' )
-			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="' + editor + '?script=' + scriptBased + '" name="' + blockId + '" class="trycf-iframe" height="600" width="100%"></iframe>' );
+			  , editorUrl = editor  + '?script=' + scriptBased + '&id=' + $codeBlock.attr( "id" ) // for postMessage()
+			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="' 
+			  	+ editorUrl + '" name="' + blockId + '"'
+				+ ' class="trycf-iframe" height="600" width="100%"></iframe>' );
 
 			$codeBlock.after( $iframe );
 			$flathighlight.remove();
