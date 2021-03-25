@@ -10,7 +10,13 @@ component {
 	// snakeYaml only rarely has concurrency issues
 	public any function yamlToCfml( required string yaml ) {
 		lock name="snakeYamlIsntThreadSafe" timeout="5" type="exclusive" {
-			return _stripEmpty( _getYamlParser().load( arguments.yaml ) );
+			try {
+				return _stripEmpty( _getYamlParser().load( arguments.yaml ) );
+			} catch (e){
+				cfcatch.message = " " & cfcatch.message;
+				cfcatch.detail = "YamlParser: " & HtmlCodeFormat(arguments.yaml);
+				rethrow;
+			}
 		}
 	}
 
