@@ -10,6 +10,10 @@ component accessors=true extends="Page" {
 	property name="alias"        type="string";
 	property name="status"        type="string";
 
+	public string function getTitle() {
+		return super.getTitle() & "()";
+	}
+
 	public string function getUsageSignature() {
 		var usage = this.getTitle() & "(";
 		var delim = " ";
