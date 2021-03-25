@@ -13,7 +13,10 @@
 			  , $flathighlight = $codeBlock.next()
 			  , blockId    = $codeBlock.attr( "id" )
 			  , scriptBased = $codeBlock.data( 'script' )
-			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="' + editor + '?script=' + scriptBased + '" name="' + blockId + '" class="trycf-iframe" height="600" width="100%"></iframe>' );
+			  , editorUrl = editor  + '?script=' + scriptBased + '&id=' + $codeBlock.attr( "id" ) // for postMessage()
+			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="' 
+			  	+ editorUrl + '" name="' + blockId + '"'
+				+ ' class="trycf-iframe" height="600" width="100%"></iframe>' );
 
 			$codeBlock.after( $iframe );
 			$flathighlight.remove();
