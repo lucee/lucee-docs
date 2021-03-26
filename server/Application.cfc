@@ -15,7 +15,7 @@ component {
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
 	*/
-	this.assetBundleVersion = 28;  // see parent application.cfc
+	this.assetBundleVersion = 29;  // see parent application.cfc
 
 	public void function onApplicationStart()  {
 		//_addChangeWatcher();
@@ -356,21 +356,26 @@ component {
 
 	private any function _getBuildRunner() {
 		var appKey    = "buildRunnerKey";
+		application.assetBundleVersion = this.assetBundleVersion;
+		if (structKeyExists(url, "reload") && url.reload eq "true"){
+			var _start = getTickCount();
+			inspectTemplates();
+			//if (structKeyExists(url, "force") && url.force eq "true")
+			//		application[ AppKey ] = new api.build.BuildRunner(); // dev mode
+			//	application[ AppKey ].getDocTree(checkfiles=true); // scans for changes
+			fileAppend(ExpandPath("./performance.log"), "Docs.reload() #numberFormat(getTickCount() - _start)#ms, "
+				& " heap #_getMemoryUsage("HEAP")#, non-heap #_getMemoryUsage("NON_HEAP")#, #server.lucee.version# #chr(10)#");
+			// just restart the whole application
+			if (structKeyExists(application,AppKey))
+				ApplicationStop();
+			location url=ToString(CGI.http_referer ?: cgi.script_name).replaceNoCase("reload=true","") addtoken=false;
+		}
 		if ( not application.keyExists( appKey ) ){
 			request.logger("BuildRunner init");
 			application.delete( appKey );
 			var _start = getTickCount();
 			application[ AppKey ] = new api.build.BuildRunner();
 			fileAppend(ExpandPath("./performance.log"), "BuildRunner().init() #numberFormat(getTickCount() - _start)#ms, "
-				& " heap #_getMemoryUsage("HEAP")#, non-heap #_getMemoryUsage("NON_HEAP")#, #server.lucee.version# #chr(10)#");
-		}
-		application.assetBundleVersion = this.assetBundleVersion;
-		if (structKeyExists(url, "reload") && url.reload eq "true"){
-			var _start = getTickCount();
-			if (structKeyExists(url, "force") && url.force eq "true")
-				application[ AppKey ] = new api.build.BuildRunner(); // dev mode
-			application[ AppKey ].getDocTree(checkfiles=true); // scans for changes
-			fileAppend(ExpandPath("./performance.log"), "BuildRunner().reload() #numberFormat(getTickCount() - _start)#ms, "
 				& " heap #_getMemoryUsage("HEAP")#, non-heap #_getMemoryUsage("NON_HEAP")#, #server.lucee.version# #chr(10)#");
 		}
 		return application[ AppKey ];

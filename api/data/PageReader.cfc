@@ -7,26 +7,28 @@ component {
 
 		try {
 			//request.logger(text="[#arguments.pageType#] #pageFilePath#");
-			switch( pageData.pageType ?: "" ) {
-				case "function":
-					pageData.append( _getFunctionSpecification( pageData.slug, pageFilePath ), false );
-					page = new FunctionPage( argumentCollection=pageData );
-				break;
-				case "tag":
-					pageData.append( _getTagSpecification( pageData.slug, pageFilePath ), false );
-					page = new TagPage( argumentCollection=pageData );
-				break;
-				case "_object":
-					pageData.append( _getObjectSpecification( pageData.slug, pageFilePath ), false );
-					page = new ObjectPage( argumentCollection=pageData );
-				break;
-				case "_method":
-					pageData.append( _getMethodSpecification( pageData.methodObject, pageData.methodName,
-						pageFilePath ), false );
-					page = new MethodPage( argumentCollection=pageData );
-				break;
-				default:
-					page = new Page( argumentCollection=pageData );
+			timer label="preparePageObject() #pageData.pageType#" {
+				switch( pageData.pageType ?: "" ) {
+					case "function":
+						pageData.append( _getFunctionSpecification( pageData.slug, pageFilePath ), false );
+						page = new FunctionPage( argumentCollection=pageData );
+					break;
+					case "tag":
+						pageData.append( _getTagSpecification( pageData.slug, pageFilePath ), false );
+						page = new TagPage( argumentCollection=pageData );
+					break;
+					case "_object":
+						pageData.append( _getObjectSpecification( pageData.slug, pageFilePath ), false );
+						page = new ObjectPage( argumentCollection=pageData );
+					break;
+					case "_method":
+						pageData.append( _getMethodSpecification( pageData.methodObject, pageData.methodName,
+							pageFilePath ), false );
+						page = new MethodPage( argumentCollection=pageData );
+					break;
+					default:
+						page = new Page( argumentCollection=pageData );
+				}
 			}
 		} catch (any e) {
 			writeOutput("Error preparing page: " & pageFilePath);

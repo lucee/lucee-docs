@@ -34,7 +34,7 @@
 	};
 
 	setupSearchEngine = function( callback ){
-		var sourceData, dataReceived = function( data ){
+		var dataReceived = function( data ){
 			searchIndex = data;
 
 			callback( function( query, syncCallback ) {
@@ -58,11 +58,11 @@
 		  , fulltextitem, matches;
 
 		matches = searchIndex.filter( function( item ) {
-			var titleLen = item.text.length
+			var titleLen = item.desc.length
 			  , match, nextMatch, i, highlighted;
 
 			for( i=0; i < titleLen; i++ ){
-				nextMatch = item.text.substr(i).match( reg.expr );
+				nextMatch = item.desc.substr(i).match( reg.expr );
 
 				if ( !nextMatch ) {
 					break;
@@ -111,7 +111,8 @@
 				reg.replace += '$' + (i*2+2);
 			}
 		}
-
+		if ( input.charAt(input.length-1) == " ")
+			reg += " ";
 		return reg;
 	};
 

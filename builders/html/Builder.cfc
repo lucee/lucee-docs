@@ -155,6 +155,7 @@ component {
 				  "value"   = page.getPath() & ".html"
 				, "display" = page.getTitle()
 				, "text"    = HtmlEditFormat( page.getTitle() )
+				, "desc" = HtmlEditFormat( page.getTitle() & " " & page.getDescription() ) // used for indexing
 				, "type"    = page.getPageType()
 				, "icon"    = icon
 			} );

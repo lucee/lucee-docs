@@ -14932,6 +14932,25 @@ window.onerror = function(message, url, line, col, err) {
 			editor = "/editor.html";
 	}
 
+	window.addEventListener("message", function(ev) {		
+		if ( ev.data ){			
+			var msg = ev.data;
+			if ( msg.id && msg.src && msg.src == "try-cf" ){
+				if (!msg.height)
+					msg.height = 350;
+				var $el = $("IFRAME.trycf-iframe#" + msg.id);
+				if ( $el.length == 1){
+					$el.height(msg.height);
+					console.log("postMessage try-cf resize success", msg);
+					return;
+				}
+				console.log("Element IFRAME.trycf-iframe#" + msg.id + " not found");
+			}		
+		}
+		console.log("postMessage ignored", ev);
+
+	}, false);
+
 	$.fn.tryCfLoader = function(){
 
 		return this.each( function(){
@@ -14941,7 +14960,7 @@ window.onerror = function(message, url, line, col, err) {
 			  , scriptBased = $codeBlock.data( 'script' )
 			  , editorUrl = editor  + '?script=' + scriptBased + '&id=' + $codeBlock.attr( "id" ) // for postMessage()
 			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="' 
-			  	+ editorUrl + '" name="' + blockId + '"'
+			  	+ editorUrl + '" name="' + blockId + '"' + '" id="' + blockId + '"'
 				+ ' class="trycf-iframe" height="600" width="100%"></iframe>' );
 
 			$codeBlock.after( $iframe );
@@ -14995,7 +15014,7 @@ window.onerror = function(message, url, line, col, err) {
 	};
 
 	setupSearchEngine = function( callback ){
-		var sourceData, dataReceived = function( data ){
+		var dataReceived = function( data ){
 			searchIndex = data;
 
 			callback( function( query, syncCallback ) {
@@ -15019,11 +15038,11 @@ window.onerror = function(message, url, line, col, err) {
 		  , fulltextitem, matches;
 
 		matches = searchIndex.filter( function( item ) {
-			var titleLen = item.text.length
+			var titleLen = item.desc.length
 			  , match, nextMatch, i, highlighted;
 
 			for( i=0; i < titleLen; i++ ){
-				nextMatch = item.text.substr(i).match( reg.expr );
+				nextMatch = item.desc.substr(i).match( reg.expr );
 
 				if ( !nextMatch ) {
 					break;
@@ -15072,7 +15091,8 @@ window.onerror = function(message, url, line, col, err) {
 				reg.replace += '$' + (i*2+2);
 			}
 		}
-
+		if ( input.charAt(input.length-1) == " ")
+			reg += " ";
 		return reg;
 	};
 
