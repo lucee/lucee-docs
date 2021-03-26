@@ -76,27 +76,6 @@ component accessors=true {
 				_removeRootDirectoryFromFilePaths(local.q_files);
 			}
 		} else {
-			timer label='DirectoryList listInfo="query"'{
-				local.q_files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="query", filter="*.md" );
-			}
-			dump(top=10, var=local.q_files);
-			/*
-			timer label='DirectoryList listInfo="query" type="basic'{
-				local.q_files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="query", filter="*.md", type="basic" );
-			}
-			*/
-			dump(top=10, var=local.q_files);
-
-			timer label='DirectoryList listInfo="path"'{
-				local.q_files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="path", filter="*.md" );
-			}
-			dump(top=10, var=local.q_files);
-
-			timer label='DirectoryList listInfo="name"'{
-				local.q_files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="name", filter="*.md" );
-			}
-			dump(top=10, var=local.q_files);
-			abort;
 			//  DirectoryList query is slow, don't do it not needed, this is 4x faster
 			timer label="getPageFileList() quicker #variables.rootDir#"{
 				local.files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="path", filter="*.md" );
