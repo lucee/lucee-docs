@@ -65,30 +65,57 @@ component accessors=true {
     public query function getPageFileList(boolean lastModified="false") {
 		var startTime = getTickCount();
 		if (arguments.lastModified){
-			local.q_files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="query", filter="*.md" );
-			queryDeleteColumn(local.q_files, "mode");
-			queryDeleteColumn(local.q_files, "attributes");
-			queryDeleteColumn(local.q_files, "type");
-			queryDeleteColumn(local.q_files, "size");
-			queryAddColumn(local.q_files, "depth");
-			queryAddColumn(local.q_files, "src");
-			_removeRootDirectoryFromFilePaths(local.q_files);
+			timer label="getPageFileList() slower #variables.rootDir#"{
+				local.q_files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="query", filter="*.md" );
+				queryDeleteColumn(local.q_files, "mode");
+				queryDeleteColumn(local.q_files, "attributes");
+				queryDeleteColumn(local.q_files, "type");
+				queryDeleteColumn(local.q_files, "size");
+				queryAddColumn(local.q_files, "depth");
+				queryAddColumn(local.q_files, "src");
+				_removeRootDirectoryFromFilePaths(local.q_files);
+			}
 		} else {
+			timer label='DirectoryList listInfo="query"'{
+				local.q_files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="query", filter="*.md" );
+			}
+			dump(top=10, var=local.q_files);
+			/*
+			timer label='DirectoryList listInfo="query" type="basic'{
+				local.q_files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="query", filter="*.md", type="basic" );
+			}
+			*/
+			dump(top=10, var=local.q_files);
+
+			timer label='DirectoryList listInfo="path"'{
+				local.q_files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="path", filter="*.md" );
+			}
+			dump(top=10, var=local.q_files);
+
+			timer label='DirectoryList listInfo="name"'{
+				local.q_files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="name", filter="*.md" );
+			}
+			dump(top=10, var=local.q_files);
+			abort;
 			//  DirectoryList query is slow, don't do it not needed, this is 4x faster
-			local.files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="path", filter="*.md" );
-			local.q_files = QueryNew("name,directory,depth,src,dateLastModified,fullpath", "varchar,varchar,numeric,varchar,date,varchar");
-			var timestamp = CreateDate(2000,1,1);//
-			for( var file in local.files){
-				var row = QueryAddRow(local.q_files);
-				file = _removeRootDirectoryFromFilePath(file);
-				querySetCell(local.q_files, "name", ListLast(file, "/") , row);
-				querySetCell(local.q_files, "fullpath", file , row);
-				querySetCell(local.q_files, "directory", GetDirectoryFromPath(file) , row);
-				querySetCell(local.q_files, "dateLastModified", timestamp, row);
+			timer label="getPageFileList() quicker #variables.rootDir#"{
+				local.files = DirectoryList( path=variables.rootDir, recurse=true, listInfo="path", filter="*.md" );
+				local.q_files = QueryNew("name,directory,depth,src,dateLastModified,fullpath", "varchar,varchar,numeric,varchar,date,varchar");
+				var timestamp = CreateDate(2000,1,1);//
+				for( var file in local.files){
+					var row = QueryAddRow(local.q_files);
+					file = _removeRootDirectoryFromFilePath(file);
+					querySetCell(local.q_files, "name", ListLast(file, "/") , row);
+					querySetCell(local.q_files, "fullpath", file , row);
+					querySetCell(local.q_files, "directory", GetDirectoryFromPath(file) , row);
+					querySetCell(local.q_files, "dateLastModified", timestamp, row);
+				}
 			}
 		}
 		//dump(var=local.q_files, expand=false, top=15); //		new api.build.Logger().renderLogs(); 		abort;
-		local.q_files = _processFiles( q_files=local.q_files, appendSlash = arguments.lastModified );
+		timer label="getPageFileList() processFiles" {
+			local.q_files = _processFiles( q_files=local.q_files, appendSlash = arguments.lastModified );
+		}
 		request.logger (text="Scanned source files, found #local.q_files.recordcount()# pages in #(getTickCount()-startTime)#ms");
 		//dump(var=local.q_files, expand=false, top=15); 		new api.build.Logger().renderLogs(); 	//	abort;
 		return local.q_files;
