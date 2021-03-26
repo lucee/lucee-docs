@@ -14932,7 +14932,7 @@ window.onerror = function(message, url, line, col, err) {
 			editor = "/editor.html";
 	}
 
-	window.addEventListener("message", function(ev) {		
+	window.addEventListener("message", function(ev) {
 		if ( ev.data ){			
 			var msg = ev.data;
 			if ( msg.id && msg.src && msg.src == "try-cf" ){
@@ -14945,7 +14945,7 @@ window.onerror = function(message, url, line, col, err) {
 					return;
 				}
 				console.log("Element IFRAME.trycf-iframe#" + msg.id + " not found");
-			}		
+			}
 		}
 		console.log("postMessage ignored", ev);
 
