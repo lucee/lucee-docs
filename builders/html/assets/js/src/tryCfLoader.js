@@ -6,7 +6,7 @@
 			editor = "/editor.html";
 	}
 
-	window.addEventListener("message", function(ev) {		
+	window.addEventListener("message", function(ev) {
 		if ( ev.data ){			
 			var msg = ev.data;
 			if ( msg.id && msg.src && msg.src == "try-cf" ){
@@ -19,7 +19,7 @@
 					return;
 				}
 				console.log("Element IFRAME.trycf-iframe#" + msg.id + " not found");
-			}		
+			}
 		}
 		console.log("postMessage ignored", ev);
 
@@ -35,7 +35,7 @@
 			  , editorUrl = editor  + '?script=' + scriptBased + '&id=' + $codeBlock.attr( "id" ) // for postMessage()
 			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="' 
 			  	+ editorUrl + '" name="' + blockId + '"' + '" id="' + blockId + '"'
-				+ ' class="trycf-iframe" height="600" width="100%"></iframe>' );
+				+ ' class="trycf-iframe" height="350" width="100%"></iframe>' );
 
 			$codeBlock.after( $iframe );
 			$flathighlight.remove();

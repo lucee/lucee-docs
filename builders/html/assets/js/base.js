@@ -14961,7 +14961,7 @@ window.onerror = function(message, url, line, col, err) {
 			  , editorUrl = editor  + '?script=' + scriptBased + '&id=' + $codeBlock.attr( "id" ) // for postMessage()
 			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="' 
 			  	+ editorUrl + '" name="' + blockId + '"' + '" id="' + blockId + '"'
-				+ ' class="trycf-iframe" height="600" width="100%"></iframe>' );
+				+ ' class="trycf-iframe" height="350" width="100%"></iframe>' );
 
 			$codeBlock.after( $iframe );
 			$flathighlight.remove();
