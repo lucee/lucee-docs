@@ -58,11 +58,12 @@
 		  , fulltextitem, matches;
 
 		matches = searchIndex.filter( function( item ) {
-			var titleLen = item.desc.length
+			var srcText = item.desc ? item.desc : item.text; // cdn caching sigh
+			var titleLen = item.text.length
 			  , match, nextMatch, i, highlighted;
 
 			for( i=0; i < titleLen; i++ ){
-				nextMatch = item.desc.substr(i).match( reg.expr );
+				nextMatch = srcText.substr(i).match( reg.expr );
 
 				if ( !nextMatch ) {
 					break;
