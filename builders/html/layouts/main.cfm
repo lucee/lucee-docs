@@ -11,7 +11,7 @@
 	//if (baseHref eq "")
 	//	baseHref = "/";
 	local.path = args.page.getPath();
-	if (local.path eq "/home")
+	if ( local.path eq "/home" )
 		local.path = "/index";
 	local.pageHref = "https://docs.lucee.org#local.path#.html";
 	local.pagePath = "#local.path#.html";
@@ -20,8 +20,8 @@
 	else
 		local.pageTitle = args.page.getTitle();
 	// many sites (slack, discord one box etc) can't handle the escaped <cfcontent> and strip out the tag name from previews
-	local.safePageTitle = HtmlEditFormat(Replace(Replace(local.pageTitle, "<", "", "all"), ">", "", "all"));
-	local.pageTitle = HtmlEditFormat(local.pageTitle);
+	local.safePageTitle = EncodeForHtml( Replace( Replace( local.pageTitle, "<", "", "all" ), ">", "", "all" ) );
+	local.pageTitle = EncodeForHtml( local.pageTitle );
 	local.pageDescription = getMetaDescription( args.page, args.body );
 </cfscript>
 
@@ -41,6 +41,7 @@
 			<base href="#local.baseHref#">
 		</cfif>
 		<link rel="canonical" href="#local.pageHref#">
+		<meta name="robots" content="index, follow">
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
 		<meta name="twitter:card" content="summary">
@@ -60,12 +61,7 @@
 		<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
 		</cfif>
 		<link href="/assets/css/highlight.css" rel="stylesheet">
-		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
-		<!-- ie -->
-		<!--[if lt IE 9]>
-			<script src="/assets/js/html5shiv.js" type="text/javascript"></script>
-			<script src="/assets/js/respond.js" type="text/javascript"></script>
-		<![endif]-->
+		<link rel="icon" type="image/png" href="/assets/images/favicon.png">		
 	</head>
 
 	<body class="#LCase( args.page.getPageType() )#">
