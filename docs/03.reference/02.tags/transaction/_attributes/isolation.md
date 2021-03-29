@@ -6,4 +6,4 @@ Database lock type.
 - serializable
 - none
 
-<https://en.wikipedia.org/wiki/Isolation_(database_systems)]>
+<https://en.wikipedia.org/wiki/Isolation_(database_systems)>

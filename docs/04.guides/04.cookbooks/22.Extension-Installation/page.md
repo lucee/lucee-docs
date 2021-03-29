@@ -19,7 +19,7 @@ Extensions can be installed via the web or server admin. If you want to use the 
 
 It available in **Extension -> Applications**
 
-![Extension](assets/images/screenImages/Extension.png)
+![Extension](assets/images/screenImages/extension.PNG)
 
 Here we you can see the extension which is installed and not installed.
 

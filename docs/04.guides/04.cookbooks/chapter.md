@@ -9,7 +9,7 @@ Some basic examples
 
 * [[cookbook-basic-date]]
 
-## Application.cfc / Tag <cfapplication> ##
+## Application.cfc / Tag `<cfapplication>` ##
 
 Lucee comes with a simple framework that let's you control the flow of your application and your environment with a file named "Application.cfc".
 
