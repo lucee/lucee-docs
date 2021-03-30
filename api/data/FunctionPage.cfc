@@ -15,7 +15,7 @@ component accessors=true extends="Page" {
 	}
 
 	public string function getUsageSignature() {
-		var usage = this.getTitle() & "(";
+		var usage = super.getTitle() & "(";
 		var delim = " ";
 		var optionalCount = 0;
 
