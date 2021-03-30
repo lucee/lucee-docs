@@ -5,7 +5,7 @@ id: working-with-source-build-from-source
 
 ## Building Lucee 5 and 6 from source #
 
-The following text assumes that you have basic knowledge of how to use git and mvn, if not please first consult the documentation for this tools.
+The following text assumes that you have basic knowledge of how to use `git` and `mvn`, if not please first consult the documentation for this tools.
 
 ### 1. Before you get started
 
@@ -49,9 +49,17 @@ To build the server using Ant but without running the test suite:
     cd loader
     ant fast
 
+To build only the update .lco file:
+
+    cd loader
+    ant quick
+
+
 ### 4. Deploy
 
 Deployment is automated via Travis CI on merge/commit
+
+See **deployLco** below
 
 ### 5. Submitting Pull Requests
 
@@ -64,7 +72,7 @@ Deployment is automated via Travis CI on merge/commit
 
 On Windows, excluding your Lucee working directory from both `Windows Defender` and `Windows Search Indexer` will speed up the build process a bit.
 
-Lucee 6.0 adds some extra option to the build process
+Lucee 6.0 adds some extra options to the build process (they can be combined)
 
 **testFilter** allows you to pass in a test filter (filters on path), so you don't have to run the full test suite whilst hacking.
 
@@ -72,4 +80,4 @@ Lucee 6.0 adds some extra option to the build process
 
 **deployLco** automates the deployment of a new `.lco` build to a local Lucee install's deploy directory
 
-	ant fast -DdeployLco="C:\lucee\tomcat\lucee-server\deploy"
+	ant quick -DdeployLco="C:\lucee\tomcat\lucee-server\deploy"
