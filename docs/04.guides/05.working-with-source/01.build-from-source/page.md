@@ -54,7 +54,6 @@ To build the server using Ant but without running the test suite:
 Deployment is automated via Travis CI on merge/commit
 
 ### 5. Submitting Pull Requests
-
 - Create an new [issue/ticket](https://issues.lucee.org)
 - Create a [Pull Request](https://github.com/lucee/Lucee/) against the *6.0 Branch* with the issue number in the title (i.e Fix error deserialising JSON LDEV-101) and include the issue URL in the description
 - Finally add the URL to the Pull Request to the issue
