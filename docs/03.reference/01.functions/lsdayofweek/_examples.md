@@ -1,3 +1,3 @@
-```lucee+trycf
-	writeoutput(lsdayofweek(now()));
+```luceescript+trycf
+	dump(lsdayofweek(now()));
 ```
