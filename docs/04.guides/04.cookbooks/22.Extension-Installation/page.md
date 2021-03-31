@@ -20,13 +20,13 @@ If you want to use an Extension for the whole server, you should install it unde
 
 All available Extensions are listed under  **Extension -> Applications**
 
-![Extension](assets/images/screenImages/Extension.png)
+![Extension](/assets/images/screenImages/Extension.png)
 
 Here you can see which extensions are installed and not installed.
 
 Installed extensions, with an update available have a red overlay.
 
-![Extension Details](assets/images/screenImages/Extension_Detail.png)
+![Extension Details](/assets/images/screenImages/Extension_Detail.png)
 
 On the Extension detail page, you can upgrade or downgrade the version or uninstall it.
 
