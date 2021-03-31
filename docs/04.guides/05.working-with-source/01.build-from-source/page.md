@@ -54,7 +54,6 @@ To build only the update .lco file:
     cd loader
     ant quick
 
-
 ### 4. Deploy
 
 Deployment is automated via Travis CI on merge/commit
