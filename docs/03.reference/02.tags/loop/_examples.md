@@ -57,3 +57,23 @@
 	</cfloop>
 </cfoutput>
 ```
+
+### Query loop
+
+```lucee+trycf
+<cfset qry = ExtensionList()>
+<cfloop query="#qry#">
+    <cfoutput>#qry.currentrow#</cfoutput>
+</cfloop>
+<br>
+<cfscript>
+  loop query="#qry#"{
+    echo( qry.currentrow & " " );
+    if (qry.currentrow eq 10)
+        break;
+    if (qry.currentrow mod 2 eq 1)
+        continue;
+    echo( "... " );
+  }
+</cfscript>
+```
