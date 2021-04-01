@@ -11,4 +11,6 @@ related:
 - function-isuserloggedin
 ---
 
-Identifies an authenticated user to Lucee. Specifies the user ID and roles. Used within a [[tag-login]] tag.
+Identifies an authenticated user to Lucee.
+
+Specifies the user ID and roles. Used within a [[tag-login]] tag.

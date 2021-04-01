@@ -5,4 +5,6 @@ related:
 categories:
 ---
 
-Creates a pop-up window in the browser. Does not create a separate browser pop-up instance.
+Creates a pop-up window in the browser.
+
+Does not create a separate browser pop-up instance.
