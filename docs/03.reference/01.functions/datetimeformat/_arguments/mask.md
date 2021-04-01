@@ -49,5 +49,7 @@ The following masks can be used to format the full date and time and may not be 
 - long: medium followed by three-letter time zone; i.e. "mmmm d, yyyy h:nn:ss tt zzz"
 - full: equivalent to "dddd, mmmm d, yyyy h:nn:ss tt zz"
 - ISO8601/ISO: equivalent to "yyyy-mm-dd'T'HH:nn:ssXXX"
+- epoch: Total seconds of a given date (Example:1567517664)
+- epochms: Total millseconds of a given date (Example:1567517664000)
 
 The function follows Java date time mask.  For details, see the Java documentation section [Date and Time Patterns](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
