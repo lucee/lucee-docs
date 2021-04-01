@@ -1,1 +1,3 @@
-Delete content of the directory. Default is false.
+Delete content of the directory.
+
+Default is false.

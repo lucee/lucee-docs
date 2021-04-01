@@ -5,6 +5,8 @@ related:
 categories:
 ---
 
-Defines components as complex types that are used for web services authoring. The attributes of this tag are exposed as component metadata and are subject to inheritance rules.
+Defines components as complex types that are used for web services authoring.
+
+The attributes of this tag are exposed as component metadata and are subject to inheritance rules.
 
 Note: Lucee does not support 'lazy' attribute in cfproperty.
