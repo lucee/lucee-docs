@@ -7,10 +7,6 @@ categories:
     - regex
 ---
 
-Uses a regular expression (RE) to search a string for a pattern. 
+Uses a regular expression (RE) to search a string for a pattern.
 
 The search is case sensitive.
--
--
--
-
