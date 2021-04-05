@@ -4,6 +4,8 @@ id: tag-elseif
 related:
 - tag-else
 - tag-if
+categories:
+- core
 ---
 
 Use this tag within [[tag-if]] tags and optionally, together with other [[tag-elseif]] tags and a final [[tag-else]]. 
