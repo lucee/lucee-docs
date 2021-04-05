@@ -3,6 +3,8 @@ title: <cfheader>
 id: tag-header
 related:
 - function-gethttptimestring
+categories:
+- core
 description: Generates custom HTTP response headers to return to the client.
 ---
 
