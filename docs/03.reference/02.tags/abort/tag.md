@@ -3,6 +3,7 @@ title: <cfabort>
 id: tag-abort
 related:
 categories:
+- core
 ---
 
 Stops processing of a page at the tag location. 
