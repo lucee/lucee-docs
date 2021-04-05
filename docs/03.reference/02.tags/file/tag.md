@@ -6,6 +6,7 @@ related:
 categories:
 - cache
 - files
+- core
 description: Handles all interactions with files
 ---
 
