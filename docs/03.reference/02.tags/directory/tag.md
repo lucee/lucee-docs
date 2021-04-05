@@ -5,6 +5,7 @@ related:
 - function-directorylist
 categories:
 - files
+- core
 ---
 
 Handles interactions with directories.
