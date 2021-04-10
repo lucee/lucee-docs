@@ -42,9 +42,9 @@ Passing values with [[tag-QueryParam]] has two advantages:
 * The value you pass in QueryParam is very secure,
 * Lucee is able to cache the query statement and reuse it as long as the value is unchanged.
 
-### params ###
+### Params ###
 
-Here we use param as part of cfquery tag, used to pass the value with SQL statement.
+Here we use params as part of [[tag-cfquery]] tag, used to pass the value with SQL statement.
 
 Pass the params value with struct
 
