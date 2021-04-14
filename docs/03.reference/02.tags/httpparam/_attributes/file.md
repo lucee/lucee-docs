@@ -1,1 +1,1 @@
-Required for type = "File".
+Required for type = `File`.
