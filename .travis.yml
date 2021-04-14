@@ -1,4 +1,3 @@
-dist: trusty
 language: java
 rvm:
   - 1.9.3
