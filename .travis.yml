@@ -1,5 +1,6 @@
-dist: trusty
 language: java
+jdk:
+  - openjdk8
 rvm:
   - 1.9.3
 sudo: required

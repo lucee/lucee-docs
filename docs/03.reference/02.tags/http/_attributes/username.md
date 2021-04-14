@@ -1,1 +1,1 @@
-When required by a server, a valid username.
+When required by a server, a valid `username`.

@@ -1,1 +1,1 @@
-User agent request header.
+Use a custom `User-Agent` request header.
