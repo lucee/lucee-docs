@@ -1,6 +1,8 @@
 ---
 title: Event Gateways
 id: event-gateways
+categories:
+- gateways
 ---
 
 ## How does an Event Gateway work? ##
