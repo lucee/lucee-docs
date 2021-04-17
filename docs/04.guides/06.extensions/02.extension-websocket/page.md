@@ -4,6 +4,7 @@ id: extensions-websocket-gateway
 categories:
 - ajax
 - extensions
+- gateways
 - protocols
 ---
 

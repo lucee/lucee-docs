@@ -1,8 +1,9 @@
 ---
 title: Create your own Event Gateway type
 id: create-event-gateway
+categories:
+- gateways
 ---
-
 
 ### Preface ###
 
