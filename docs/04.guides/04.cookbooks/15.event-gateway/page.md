@@ -1,9 +1,12 @@
 ---
 title: Event Gateways in Lucee
 id: event-gateways-lucee
+related:
+- function-sendgatewaymessage
 categories:
 - gateways
 ---
+
 ## Lucee Event Gateways
 
 First of all it is necessary to explain how Event Gateways (EG) are working in the first place.
@@ -43,7 +46,7 @@ component extends="Gateway" {
         <li>Info - Starting, stopping and errors will be logged.</li>
         <li>Warning - Nothing will be logged.</li>
         <li>Error - Only errors will be logged.</li>
-        <li>Debug - Detailled messages will be logged.</li></ul>",
+        <li>Debug - Detailed messages will be logged.</li></ul>",
         "select","Info,Warning,Error,Debug"
             ),
             field("Log Filename","logFileName","susi.log",true,"The file name to be used for logging.","text")
