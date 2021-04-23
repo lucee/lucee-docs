@@ -414,7 +414,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 					Settings &raquo;  Request &raquo; Script-Protect
 				</p>
 				<p>
-					<strong>Application.cfc:</strong> not available
+					<strong>Application.cfc:</strong> 
+					<br>
+					<pre lang="html">// as cfscript<br>&lt;cfscript&gt;<br>this.scriptProtect="none";<br>&lt;/cfscript&gt;</pre>
 				</p>
 			</td>
 		</tr>
