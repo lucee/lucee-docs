@@ -42,7 +42,7 @@ We have provided a utility server whose purpose is to run locally to help while 
 
 This will spin up a server using CommandBox on port 4040 and open it in your browser. You should also see a tray icon that will allow you to stop the server. Changes to the source docs should trigger an internal rebuild of the documentation tree which may take a little longer than regular requests to the documentation.
 
-When running locally there are the following urls available (http://127.0.0.1:4040 is for a commandbox instance, otherwise the url for your virtual host)
+When running locally there are the following urls available (these URLs below are for a commandbox instance, substitute them with the URL for your virtual host if appropriate)
 
 * [Lucee documentation home](http://127.0.0.1:4040/)
 * [Build all documentation](http://127.0.0.1:4040/build_docs/all/)
