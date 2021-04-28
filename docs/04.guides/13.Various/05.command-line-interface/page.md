@@ -16,7 +16,7 @@ To this end, feel free to hop into the user group and join the conversation!
 
 The CLI is currently available for Windows (win32 version), Linux and OS X (bin version).
 
-[http://cfmlprojects.org/artifacts/org/getlucee/lucee.cli/0.1.1/](http://cfmlprojects.org/artifacts/org/getlucee/lucee.cli/0.1.1/)
+[https://commandbox.ortusbooks.com/getting-started-guide](https://commandbox.ortusbooks.com/getting-started-guide)
 
 There are RPM and DEB packages for Linux, as well as a platform neutral Jar.
 
@@ -24,9 +24,9 @@ There are RPM and DEB packages for Linux, as well as a platform neutral Jar.
 
 It is available with or without a JRE, and there is an experimental "CLI Express" version, which uses the CLI in "server" mode to run an instance of Lucee.
 
-[http://cfmlprojects.org/artifacts/org/getlucee/lucee.cli.jre/0.1.1/](http://cfmlprojects.org/artifacts/org/getlucee/lucee.cli.jre/0.1.1/)
+[https://commandbox.ortusbooks.com/getting-started-guide](https://commandbox.ortusbooks.com/getting-started-guide)
 
-[http://cfmlprojects.org/artifacts/org/getlucee/lucee.cli.express/0.1.1/](http://cfmlprojects.org/artifacts/org/getlucee/lucee.cli.express/0.1.1/)
+[https://commandbox.ortusbooks.com/getting-started-guide](https://commandbox.ortusbooks.com/getting-started-guide)
 
 ### Installation ###
 
@@ -52,7 +52,7 @@ Installing and updating will change, as the discussion/experimentation evolves.
 
 For now, as an option for tracking strong ideas and problems (not that the two are related), and towards the impossible goal of being the best we can be:
 
-[https://github.com/denuno/lucee-build/issues](https://github.com/denuno/lucee-build/issues)
+[https://commandbox.ortusbooks.com/getting-started-guide](https://commandbox.ortusbooks.com/getting-started-guide)
 
 These "issues" are one option for collaboration until we're settled, and the user group is a fine place for discussion as well.
 
@@ -108,7 +108,7 @@ There is an initial stab at an interactive shell, or REPL (Read-Eval-Print-Loop)
 
 Eventually we will probably embed it into the CLI itself, but for now it should be in the zip, and the sources are available here at the moment:
 
-[https://github.com/denuno/lucee-build/blob/master/build/resource/cli/shell.cfm](https://github.com/denuno/lucee-build/blob/master/build/resource/cli/shell.cfm)
+[https://commandbox.ortusbooks.com/getting-started-guide](https://commandbox.ortusbooks.com/getting-started-guide)
 
 Eventually the CLI will have its own project space however.
 
