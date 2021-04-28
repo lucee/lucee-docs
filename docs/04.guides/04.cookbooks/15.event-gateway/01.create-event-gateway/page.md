@@ -1,13 +1,17 @@
 ---
-title: Create your own Event Gateway type
+title: Custom Event Gateways
 id: create-event-gateway
 categories:
 - gateways
+description: Here you will find a short introduction into writing your own Event Gateway type.
 ---
 
 ### Preface ###
 
-Here you will find a short introduction into writing your own Event Gateway type. Since you can write these in pure cfml (and Java when you want it), it is really simple to do.
+Here you will find a short introduction into writing your own Event Gateway type.
+
+Since you can write these in pure cfml (and Java when you want it), it is really simple to do.
+
 There are 2 to 3 files you need to create:
 
 * the Gateway cfc
@@ -16,7 +20,9 @@ There are 2 to 3 files you need to create:
 
 ### The Gateway CFC ###
 
-This is the file which contains the action you want your gateway to do. Also, it is the file which is instantiated by Lucee when the gateway starts.
+This is the file which contains the action you want your gateway to do. 
+
+Also, it is the file which is instantiated by Lucee when the gateway starts.
 
 You can take the following files as an example:
 
@@ -24,6 +30,7 @@ You can take the following files as an example:
 * {Lucee-install}/lib/lucee-server/context/gateway/lucee/extension/gateway/MailWatcher.cfc
 
 The example code shown underneath is a modified version of the DirectoryWatcher.cfc, which, at time of writing, is in line for reviewing at the Lucee team.
+
 By default, you need to have the following functions:
 
 * An init function, which receives the necessary config data.
@@ -123,7 +130,9 @@ I guess you noticed the comment "YOUR GATEWAY ACTIONS HERE"? That's where you ad
 
 ## The Gateway Driver ##
 
-The driver is used to configure and define your Gateway. With it, you define the form fields in the Lucee admin settings page for your gateway, and it makes sure that your gateway is listed as an available Gateway.
+The driver is used to configure and define your Gateway. 
+
+With it, you define the form fields in the Lucee admin settings page for your gateway, and it makes sure that your gateway is listed as an available Gateway.
 
 The Gateway Driver is a CFC file, which must be added into the directory {Lucee-install}/lib/lucee-server/context/admin/gdriver/
 
