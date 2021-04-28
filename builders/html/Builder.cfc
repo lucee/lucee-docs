@@ -68,9 +68,10 @@ component {
 
 		if ( !IsNull( arguments.page.getCategories() ) ) {
 			for( var category in arguments.page.getCategories() ) {
-				if ( arguments.docTree.pageExists( "category-" & category ) ) {
-					links.append( "[[category-" & category & "]]" );
-					categories.append( "[[category-" & category & "]]" );
+				var catId = "category-" & category;
+				if ( arguments.docTree.pageExists( catId ) ) {
+					links.append( "[[#catId#]]" );
+					categories.append( "[[#catId#]]" );
 				} else {
 					request.logger(text="Missing category: " & category, type="error", link="#arguments.page.getPath()#.html");
 				}
