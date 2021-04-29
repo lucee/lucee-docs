@@ -159,7 +159,7 @@ CommandBox uses a *'server.json'* file to configure specific server settings to 
 <br>
 ###  Step 8 - Give CommandBox read/write permissions to the server.json file
 
-Because CommandBox opens and rewrites the server.json file, the user 'cfbox' needs read/write priviliges for it. To adjust it navigate to the file with the file explorer 'thunar' -&gt; right click the server.json file -&gt; 'permissisions' -&gt; group -&gt; *'cfbox'* with *read/write* permissions.
+Because CommandBox opens and rewrites the server.json file, the user 'cfbox' needs read/write privileges for it. To adjust it navigate to the file with the file explorer 'thunar' -&gt; right click the server.json file -&gt; 'permissisions' -&gt; group -&gt; *'cfbox'* with *read/write* permissions.
 
 <br>
 ###  Step 9 - Run CommandBox for the first time as the user 'cfbox' for initialization
