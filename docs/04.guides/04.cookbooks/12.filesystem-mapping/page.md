@@ -1,6 +1,8 @@
 ---
 title: File system - Mappings
 id: cookbook-filesystem-mapping
+categories:
+- files
 ---
 
 ## Mapping ##

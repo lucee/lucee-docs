@@ -3,25 +3,32 @@ title: Define a mapping
 id: cookbook-filesystem-mapping-define-mapping
 related:
 - tag-application
+- function-expandpath
 - cookbook-application-context-set-mapping
+categories:
+- files
+description: All about the different mappings in Lucee and how to use them
 ---
 
 # How to define a regular Mapping #
 
-Lucee allows you to define a mappings to a specific location in a filesystem, so you don't always have to use the full path, in most cases the full path is not working anyway, for example with &LT;cfinclude&GT; does not work with a full path.
-This is supported with all filesystems Lucee supports (local,ftp,http,ram,zip,s3 ...).
+Lucee allows you to define a mappings to a specific location in a filesystem, so you don't always have to use the full path, in most cases the full path is not working anyway, for example with [[tag-include] does not work with a full path.
+
+This is supported with all the various [[lucee-resources]] supported (local, ftp, http, ram, zip ,s3 etc ).
 
 ## Create a regular Mapping in the Administrator ##
 
 The most common way is to define a regular Mapping is in the Lucee Server or Web Administrator.
+
 The only difference between the Web and Server Administrator is, that a mapping defined in the Server Administrator is visible to all web contexts and a mapping defined in the Web Administrator only to the current web context.
+
 In your Administrator go to the Page "Archives & Resources/Mappings", in the section "create new Mapping" that looks like this.
 
 ![create-mapping.png](https://bitbucket.org/repo/rX87Rq/images/4035761629-create-mapping.png)
 
 With "Virtual" choose the virtual path for the mapping, this is the path you will later use to address this mapping.
 
-"Resource" is the physical location where the mapping is pointing to, for example "C:\Projects\whatever\test".
+"Resource" is the physical location where the mapping is pointing to, for example `C:\Projects\whatever\test`.
 
 With "Archive" you can map a Lucee archive (more below) to the mapping.
 
@@ -31,7 +38,7 @@ With "Archive" you can map a Lucee archive (more below) to the mapping.
 <cfinclude template="/myMapping/test.cfm">
 ```
 
-in that case Lucee is first checking the archive associated with the "/myMapping" mapping for "test.cfm", if the template is not found it there, Lucee also checks the physical location.
+In that case Lucee is first checking the archive associated with the "/myMapping" mapping for "test.cfm", if the template is not found it there, Lucee also checks the physical location.
 
 "Inspect templates" defines the rule for Lucee when and if to check changes in source templates and if necessary recompile them.
 
@@ -44,15 +51,19 @@ in that case Lucee is first checking the archive associated with the "/myMapping
 
 ### Compile the CFML Code inside a mapping ###
 
-In the detail view of a single mapping you can compile all cfm and cfc files in that mapping to test if they are syntactically correct. With the flag "stop on error" you can define if the process should stop if the compiler fails.
+In the detail view of a single mapping you can compile all cfm and cfc files in that mapping to test if they are syntactically correct. 
+
+With the flag "stop on error" you can define if the process should stop if the compiler fails.
 
 ![compile.png](https://bitbucket.org/repo/rX87Rq/images/362153996-compile.png)
 
 ### Create an archive from a mapping ###
 
 In the detail view of a single mapping you can create an archive that contains all templates of the mapping in compiled form.
-With the flag "Add CFML Templates" you can define if Lucee should add the source version of the templates as well, this make sense when you need a proper error output in case of an exception (source code output) or you need to read the content of this files for example with <cffile>.
-With the flag "Add Non CFML Templates" you can define if Lucee should add all non CFML files (PNG,JS,GIF,CSS ...) as well, this make sense when you need to read the content of this files for example with <cffile>.
+
+With the flag "Add CFML Templates" you can define if Lucee should add the source version of the templates as well, this make sense when you need a proper error output in case of an exception (source code output) or you need to read the content of this files for example with [[tag-file]].
+
+With the flag "Add Non CFML Templates" you can define if Lucee should add all non CFML files (PNG,JS,GIF,CSS ...) as well, this make sense when you need to read the content of this files for example with [[tag-file]].
 
 ![create-archive.png](https://bitbucket.org/repo/rX87Rq/images/2720116188-create-archive.png)
 
@@ -60,7 +71,7 @@ By clicking the button "download archive" you create the archive and then you ca
 
 ## Create a Mapping in the Application.cfc ##
 
-Lucee allows to create mappings in your Application.cfc, this mappings are only valid for the current request.
+Lucee allows to create mappings in your [[tag-application]], these mappings are only valid for the current request.
 
 ```cfs
 // Application.cfc
@@ -80,7 +91,7 @@ Now you can simply use that mapping in your code
 
 ## Advanced ##
 
-In the previous example we have simply set a path, like you can see in the Administrator, a mapping can contain more data than only a physical path, of course you can use this settings also with a mapping done in the Application.cfc.
+In the previous example we have simply set a path, like you can see in the Administrator, a mapping can contain more data than only a physical path, of course you can use this settings also with a mapping done in the [[tag-application]].
 
 ```cfs
 // Application.cfc
@@ -93,13 +104,15 @@ component {
 }
 ```
 
-In that case we not only define a physical path, we also define a Lucee archive (.lar). "primary" defines where Lucee is checking first for a resource, let's say you have the following code
+In that case we not only define a physical path, we cam also define a Lucee archive (.lar). 
+
+"primary" defines where Lucee is checking first for a resource, let's say you have the following code
 
 ```coldfusion
    <cfinclude template="/shop/whatever.cfm">
 ```
 
-In that case Lucee first checks in the archive for "whatever.cfm", if not found there, it looks inside the physical path.
+In that case Lucee first checks in the archive for`"whatever.cfm`, if not found there, it looks inside the physical path.
 
 ### Site Note ###
 

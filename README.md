@@ -13,7 +13,11 @@ Find out more about the project at: [https://docs.lucee.org/docs.html](https://d
 
 ### Prerequisites
 
-The only dependency required is [CommandBox](https://www.ortussolutions.com/products/commandbox). Ensure that commandbox is installed and that the `box` command is in your path.
+The only optional dependency required is [CommandBox](https://www.ortussolutions.com/products/commandbox). 
+
+Commandbox is only required to run the build process via the command line, or if you don't setup a virtual server with an existing local Lucee install.
+
+Ensure that commandbox is installed and that the `box` command is in your path.
 
 ### Building the static documentation output
 
@@ -27,13 +31,18 @@ Once this has finished, you should find `./builds/html` and `./builds/dash` dire
 
 ### Running a server locally
 
+You have two options
+
+- Create a webserver virtual host with a normal Lucee install, with the virtual host's DocumentRoot set to `/lucee-docs/server`
+- Run a custom docs instance via Commandbox
+
 We have provided a utility server whose purpose is to run locally to help while developing/writing the documentation. To start it up, execute the `serve.sh` or `serve.bat` script found in the root of the project, i.e.
 
     documentation>./serve.sh|bat
 
 This will spin up a server using CommandBox on port 4040 and open it in your browser. You should also see a tray icon that will allow you to stop the server. Changes to the source docs should trigger an internal rebuild of the documentation tree which may take a little longer than regular requests to the documentation.
 
-When running locally there are the following urls available
+When running locally there are the following urls available (these URLs below are for a commandbox instance, substitute them with the URL for your virtual host if appropriate)
 
 * [Lucee documentation home](http://127.0.0.1:4040/)
 * [Build all documentation](http://127.0.0.1:4040/build_docs/all/)

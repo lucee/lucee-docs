@@ -226,7 +226,7 @@ component accessors=true {
 
 			loop query=q_source_files {
 				var addFile = false;
-				if (not structKeyExists(pathCache, q_source_files.path)){
+				if (!structKeyExists(pathCache, q_source_files.path)){
 					addFile = true;
 				} else if (dateCompare(q_source_files.dateLastModified, pathCache[q_source_files.path]) eq 1) {
 					// do a timestamp comparison against the cache here
@@ -298,7 +298,8 @@ component accessors=true {
 		_sortChildren( variables.tree );
 		_calculateNextAndPreviousPageLinks( variables.tree );
 		_buildRelated();
-		_buildCategories();
+		setCategoryMap( new Category().buildCategories( variables.idMap ) );
+		
 		request.logger (text="ParseTree results: ids: #structCount(variables.idMap)#, " &
 			"paths: #structCount(variables.pathMap)#, categories: #structCount(variables.categoryMap)#");
 	}
@@ -325,7 +326,7 @@ component accessors=true {
 		if (not isPage)
 			throw "not a page"; // only add main pages
 
-		if ( not StructKeyExists(variables.pageTypeMap, pageType) )
+		if ( !StructKeyExists(variables.pageTypeMap, pageType) )
 			variables.pageTypeMap[pageType] = 0;
 		variables.pageTypeMap[pageType]++;
 
@@ -339,9 +340,12 @@ component accessors=true {
 
 	private string function _getParentPagePathFromPagePath( required string pagePath ) {
 		var parts = arguments.pagePath.listToArray( "/" );
-		parts.deleteAt( parts.len() );
-
-		return "/" & parts.toList( "/" );
+		if (parts.len() gt 1){
+			parts.deleteAt( parts.len() );
+			return "/" & parts.toList( "/" );
+		} else {
+			return "/";
+		}
 	}
 
 	private any function _getPageParent( required any page ) {
@@ -403,9 +407,9 @@ component accessors=true {
 			if ( !IsNull( relatedPageLinks ) and ArrayLen(relatedPageLinks) gt 0) {
 				for( var link in relatedPageLinks ) {
 					if (len(trim(link)) gt 0){
-						if (not structKeyExists(related, id))
+						if (!structKeyExists(related, id))
 							related[id] = {};
-						if (not structKeyExists(related, link))
+						if (!structKeyExists(related, link))
 							related[link] = {};
 						related[link][pageId]="";
 						related[pageId][link]="";
@@ -454,78 +458,25 @@ component accessors=true {
 	}
 
 	// all categories should have content, all referenced categories should exist
-	private void function _buildCategories() {
-		var pageCategories = {};
-		var categories = {};
-		var empty = {};
-		// extract categories
-		for( var id in variables.idMap ) {
-			var cats = variables.idMap[ id ].getCategories();
-			if (!IsNull( cats) ){
-				for (var cat in cats){
-					if (not structKeyExists(pageCategories, cat))
-						pageCategories[cat]=[];
-					arrayAppend(pageCategories[cat], variables.idMap[ id ].getPath());
-				}
-			}
-		}
+	
 
-		for( var id in variables.idMap ) {
-			var pageType = variables.idMap[ id ].getPageType();
-			if (pageType eq "category"){
-				var slug = variables.idMap[ id ].getSlug();
-				if (not structKeyExists(pageCategories, slug )){
-					empty[slug]=idMap[ id ].getPath();
-					pageCategories[slug] = [];
-					pageCategories[slug].append( variables.idMap[ id ].getPath() );
-				}
-
-			}
-		}
-		/*
-		var missing = {};
-		for (var cat in pageCategories){
-			if (not structKeyExists(categories, cat )){
-				missing[slug]=pageCategories[cat];
-			}
-		}
-
-		if (structCount(empty) gt 0){
-			var mess= "The following categories have no pages: " & structKeyList(empty);
-			writeOutput(mess);
-			dump(empty);
-		}
-
-		if (structCount(missing) gt 0){
-			var mess= "The following categories referenced by pages don't exist: " & structKeyList(missing);
-			writeOutput(mess);
-			dump(missing);
-		}
-
-		if (structCount(empty) gt 0 or structCount(missing) gt 0){
-			abort;
-		}
-		*/
-		setCategoryMap(pageCategories);
-	}
-
-	public struct function _buildReferenceMap(){
+	public struct function _buildReferenceMap() {
 		var pages = {};
 		var pagesByType = {};
 		for ( var id in idMap ) {
 			var pageType = "content";
-			if (listLen(id,"-") gt 1)
-				pageType = listFirst(id,"-");
-			if (not structKeyExists(pages, pageType))
-				pages[pageType] = {};
-			pages[pageType][id]="";
+			if ( listLen( id, "-" ) gt 1)
+				pageType = listFirst( id,"-" );
+			if ( !structKeyExists( pages, pageType ) )
+				pages[ pageType ] = {};
+			pages[ pageType ][ id ]="";
 		}
 		for (var types in pages){
-			var ids = ListToArray(structKeyList(pages[types]));
-			ArraySort(ids,"textnocase");
-			pagesByType[types] = ids;
+			var ids = ListToArray( structKeyList( pages[ types ] ) );
+			ArraySort( ids,"textnocase" );
+			pagesByType[ types ] = ids;
 		}
-		setReferenceMap(pagesByType);
+		setReferenceMap( pagesByType );
 		return referenceMap;
 	}
 }

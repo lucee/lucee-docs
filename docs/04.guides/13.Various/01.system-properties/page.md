@@ -1037,6 +1037,37 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</p>
 			</td>
 		</tr>
+		<tr>
+			<td>
+				<div class="attribute">LUCEE_MAPPING_FIRST<br>lucee.mapping.first</div>
+			</td>
+			<td>
+				<p>Changes Lucee default behaviour of using existing physical paths over virtually mapped paths with the same mapped name (conflicting situation).</p>
+				
+				<p>Set this value to <code>true</code> to change Lucees default behaviour and force Lucee to use mappings as first priority and silently ignore conflicting physical paths.</p>
+				
+				<strong>Example:</strong>
+				<pre lang="script">// Assumption:<br>
+				// "D:/myimages/abc" is a physical valid location<br><br>
+				// Defined mappings<br>mappings[ '/' ] = 'D:/';<br>mappings[ '/myimages' ] = 'D:/images';<br><br>
+				// Default Lucee:<br>
+				// the following writeDump outputs "D:/myimages/abc"<br>writeDump( expandPath( '/myimages/abc' );<br><br>
+				// If LUCEE_MAPPING_FIRST=true:<br>
+				// the following writeDump outputs "D:/images/abc"<br>writeDump( expandPath( '/myimages/abc' );<br>
+				</pre>
+				</p>
+
+				<sub>Values: Boolean <code>true|false</code></sub>
+                <br>
+                <sub>Default: <code>false</code></sub>
+                <p>
+					<strong>Lucee Server Administrator:</strong> not available
+				</p>
+				<p>
+					<strong>Application.cfc:</strong> not available
+				</p>
+			</td>
+		</tr>
 	</tbody>
 </table>
 </div>
