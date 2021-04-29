@@ -1,4 +1,4 @@
-### Simple Example
+### Simple Examples
 
 ```lucee+trycf
 <cfset qry= queryNew("name,age,whatever", "varchar,date,int", [
@@ -7,9 +7,42 @@
 [ "Fred", CreateDate( 1960, 1, 1 ), 9 ],
 [ "Jim" , CreateDate( 1988, 1, 1 ), 11 ]
 ])>
-<!-- QofQ -->
-<cfquery name="selectName" dbtype="query">
-	select * from qry where name='jim'
+<!-- bad example, not using a bound parameter, unsafe when using input from users -->
+<cfquery name="q" dbtype="query">
+	select * from qry where name = 'jim'
 </cfquery>
-<cfdump var="#selectName#" />
+<cfdump var="#q#" />
+
+<!-- using a bound parameter with cfqueryparam -->
+<cfquery name="q" dbtype="query">
+	select * from qry where name = <cfqueryparam value='jim'>
+</cfquery>
+<cfdump var="#q#" />
+
+<!-- using an array of simple params -->
+<cfscript>
+    p = [ 'jim' ];
+</cfscript>
+<cfquery name="q" dbtype="query" params=#p#>
+	select * from qry where name = ?
+</cfquery>
+<cfdump var="#q#" />
+
+<!-- using an array of struct params -->
+<cfscript>
+    p = [ { value='jim', sqltype='varchar' } ];
+</cfscript>
+<cfquery name="q" dbtype="query" params=#p#>
+	select * from qry where name = ?
+</cfquery>
+<cfdump var="#q#" />
+
+<!-- using an array of named struct params -->
+<cfscript>
+    p = [id= { value='jim', sqltype='varchar' } ];
+</cfscript>
+<cfquery name="q" dbtype="query" params=#p#>
+	select * from qry where name = :id
+</cfquery>
+<cfdump var="#q#" />
 ```
