@@ -134,7 +134,7 @@ component accessors=true {
 			}
 			querySetCell(arguments.q_files, "depth", ListLen(arguments.q_files.directory[i],"/"), i);
 		}
-		// find last modifed date from all the sub files for a page
+		// find last modified date from all the sub files for a page
 		var cfquery="";
 		var modified = queryExecute("
 			select  max(dateLastModified) dateLastModified, directory

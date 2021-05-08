@@ -43,7 +43,7 @@ component {
 					local.inList = true;
 				} else if (not local.inList){
 					errors.append({
-						error: "list should be preceeded by a new line",
+						error: "list should be preceded by a new line",
 						file: "#arguments.pageContent.sourceFile#",
 						line: l,
 						line: local.row

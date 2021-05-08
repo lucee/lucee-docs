@@ -39,7 +39,7 @@
 <cfcomponent hint="Creates Sqlite dbs, converts CF recordsets to SQLite tables and CSV files, reads CSV files and converts them to cf queries or read and write directly to a SQLite table" output="false">
 
 	<cffunction name="init" access="public" returntype="SqliteCFC" output="false">
-		<cfargument name="tempdir" type="string" required="false" default="" hint="Where temporary files get written, incuding trailing slash" />
+		<cfargument name="tempdir" type="string" required="false" default="" hint="Where temporary files get written, including trailing slash" />
 		<cfargument name="libdir" type="string" required="false" default="" hint="Where the base.db is located, so it can be copied"/>
 		<cfargument name="model_path" type="string" required="false" default="" hint="change this to match your environment" />
 		<cfargument name="dot_model_path" type="string" required="false" default="" hint="change this to match model_path, but it must be dot-delimited" />
