@@ -69,7 +69,7 @@ component {
 				default:
 					if (listlen(path,"/") gt 1 )
 						writeOutput("unknown build docs request: #path#");
-			}			
+			}
 			fileAppend(ExpandPath("./performance.log"), "#path# #numberFormat(getTickCount() - request.loggerStart)#ms, "
 				& "#importThreads# import threads, #buildThreads# build threads, heap #_getMemoryUsage("HEAP")#, non-heap #_getMemoryUsage("NON_HEAP")#, #server.lucee.version# #chr(10)#");
 			logger.renderLogs();

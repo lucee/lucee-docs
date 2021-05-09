@@ -56,7 +56,7 @@ component accessors=true {
 				dump( pageCategories )
 				abort;
 			}
-		}		
+		}
 		return pageCategories;
 	}
 }

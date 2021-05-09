@@ -1,6 +1,6 @@
 <cfscript>
 	string function getMetaDescription( required any page, required string body ) {
-		var description = arguments.page.getDescription();		
+		var description = arguments.page.getDescription();
 		if ( len(trim(description)) eq 0 and arguments.body.len() ) {
 			description = arguments.body;
 			description = ReReplaceNoCase( description, "^(.*?)</p>.*$", "\1" );

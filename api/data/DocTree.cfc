@@ -299,7 +299,7 @@ component accessors=true {
 		_calculateNextAndPreviousPageLinks( variables.tree );
 		_buildRelated();
 		setCategoryMap( new Category().buildCategories( variables.idMap ) );
-		
+
 		request.logger (text="ParseTree results: ids: #structCount(variables.idMap)#, " &
 			"paths: #structCount(variables.pathMap)#, categories: #structCount(variables.categoryMap)#");
 	}
@@ -458,7 +458,7 @@ component accessors=true {
 	}
 
 	// all categories should have content, all referenced categories should exist
-	
+
 
 	public struct function _buildReferenceMap() {
 		var pages = {};
