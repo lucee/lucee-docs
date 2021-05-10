@@ -73,9 +73,10 @@ On Windows, excluding your Lucee working directory from both `Windows Defender` 
 
 Lucee 6.0 adds some extra options to the build process (they can be combined)
 
-**testFilter** allows you to pass in a test filter (filters on path), so you don't have to run the full test suite whilst hacking.
+**testFilter** allows you to pass in test filter(s) (filters on path), so you don't have to run the full test suite whilst hacking.
 
     ant -DtestFilter="image"
+    ant -DtestFilter="mysql,oracle"
 
 **deployLco** automates the deployment of a new `.lco` build to a local Lucee install's deploy directory
 
