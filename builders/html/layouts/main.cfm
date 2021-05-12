@@ -61,7 +61,7 @@
 		<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
 		</cfif>
 		<link href="/assets/css/highlight.css" rel="stylesheet">
-		<link rel="icon" type="image/png" href="/assets/images/favicon.png">		
+		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
 	</head>
 
 	<body class="#LCase( args.page.getPageType() )#">

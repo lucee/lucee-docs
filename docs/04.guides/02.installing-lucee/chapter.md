@@ -35,6 +35,7 @@ If you do not find the answers you are looking for here, we encourage you to pos
 * [[linux-upgrade-the-JRE]]
 * [[linux-installation-on-centos-linux]]
 * [[linux-ubuntu-quick-video-guide]]
+* [[linux-install-ubuntu-commandbox]]
 
 ### Lucee Server Administration ###
 
