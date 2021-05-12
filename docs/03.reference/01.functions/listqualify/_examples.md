@@ -1,6 +1,6 @@
 ```luceescript+trycf
 
-//Simple function with different delimeter(/)
+//Simple function with different delimiter(/)
 writeOutput(listQualify("string/Lucee/susi/LAS","^","/")&"<br><br>");
 
 //Member function

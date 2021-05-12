@@ -721,7 +721,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</div>
 			</td>
 			<td>
-				<p>Defines a comma separeted list of file extensions that are not allowed to be uploaded. </p>
+				<p>Defines a comma separated list of file extensions that are not allowed to be uploaded. </p>
 
 				<p>By default Lucee will block a set of files that have potential risk. Use this setting to have more control over Lucees default settings.</p>
 
