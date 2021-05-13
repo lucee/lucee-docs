@@ -13,9 +13,9 @@ So normally the basic three attributes for the tag <cfadmin> are action, type an
 Attribute name | Description
 -------------- | -----------------
  _ type | Application type for installable Lucee extensions
-access_read |	Defines the general access to the Lucee configuration read
-access_write |	Defines the general access to the Lucee configuration write
-action |	Defines the action to be performed by the tag
+access_read | Defines the general access to the Lucee configuration read
+access_write | Defines the general access to the Lucee configuration write
+action | Defines the action to be performed by the tag
 allowed_alter |	Database connection property
 allowed_create | Database connection property
 allowed_delete | Database connection property
