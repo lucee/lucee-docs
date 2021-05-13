@@ -68,7 +68,7 @@ You can take the following cfcs as a starting point:
 * {Lucee-web}/lucee/gateway/lucee/extension/gateway/DirectoryWatcherListener.cfc
 * {Lucee-web}/lucee/gateway/lucee/extension/gateway/MailWatcherListener.cfc
 
-For the Directory watcher, the cfc must have 3 functions: one for each event (new, modified, deleted). The Mail watcher only has one action, and you therefor only need to have one function in your cfc.
+For the Directory watcher, the cfc must have 3 functions: one for each event (new, modified, deleted). The Mail watcher only has one action, and you therefore only need to have one function in your cfc.
 
 You can name these functions anything you like. Just be sure to use the same names when you create the Event gateway.
 

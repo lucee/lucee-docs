@@ -165,7 +165,7 @@ The Gateway Driver is a CFC file, which must be added into the directory {Lucee-
     <cfset variables.fields = array(
     	field( "Path to file", "filepath", "", true, "The file you want to check the size for", "text"),
     	field( "Minimum file size", "minimalsize", "", true, "The minimum size of the file, in Bytes, before the Listener CFC is called", "text"),
-    	field( "Interval (ms)", "interval", "60000", true, "The interval between checks, in miliseconds", "text"),
+    	field( "Interval (ms)", "interval", "60000", true, "The interval between checks, in milliseconds", "text"),
     	field( "CFC Listener Function name", "listenerFunction", "onChange", true, "Called when the file reaches the minimum file size", "text")
     ) />
 
