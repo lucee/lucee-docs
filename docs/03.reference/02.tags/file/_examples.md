@@ -1,5 +1,12 @@
 ### Tag examples
 
+### File Upload
+
+```lucee
+<cffile action="upload" filefield="FORM.fileFieldName" destination="#expandPath("./myNewFileName.pdf")#">
+
+```
+
 ### File Write
 
 ```lucee
@@ -39,6 +46,12 @@
 ```
 
 ### Script Examples
+
+### File Upload
+
+```luceescript
+fileupload(getTempDirectory(),"form.fileData"," ","makeunique");
+```
 
 ### File Write
 
