@@ -6,4 +6,3 @@ categories:
     - list
     - string
 ---
-

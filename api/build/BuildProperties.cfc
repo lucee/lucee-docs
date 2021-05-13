@@ -17,4 +17,3 @@ component accessors=true {
 	property name="issueTrackerLink" 		default=
 	"https://luceeserver.atlassian.net/secure/QuickSearch.jspa?jql=#urlEncodedFormat('text ~ "')#{search}#urlEncodedFormat('" ORDER BY updated')#";
 }
-

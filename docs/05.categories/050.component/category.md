@@ -4,5 +4,3 @@ id: category-component
 categories:
 - scopes
 ---
-
-

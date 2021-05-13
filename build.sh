@@ -57,5 +57,3 @@ fi
 echo "Ping search engines with sitemaps"
 
 curl https://google.com/ping?sitemap=https://docs.lucee.org/sitemap.xml
-
-

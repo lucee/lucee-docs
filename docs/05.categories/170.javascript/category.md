@@ -4,4 +4,3 @@ id: category-javascript
 categories:
 - ajax
 ---
-

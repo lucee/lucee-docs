@@ -11,4 +11,3 @@ component {
   		cflog(text="missing method #missingMethod#");
     }
 }
-

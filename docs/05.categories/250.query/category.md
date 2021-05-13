@@ -4,4 +4,3 @@ id: category-query
 categories:
 - orm
 ---
-
