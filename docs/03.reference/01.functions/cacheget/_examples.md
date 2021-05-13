@@ -4,5 +4,4 @@
  	getcache = cacheGet(id:'abc',cacheName:'fruits');
  	writeDump(getcache);
 </cfscript>
-
 ```
