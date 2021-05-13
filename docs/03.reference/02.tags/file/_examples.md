@@ -4,21 +4,18 @@
 
 ```lucee
 <cffile action="upload" filefield="FORM.fileFieldName" destination="#expandPath("./myNewFileName.pdf")#">
-
 ```
 
 ### File Write
 
 ```lucee
 <cffile action="write" file="#expandPath("./myFile.txt")#" output="Content that you need to write.">
-
 ```
 
 ### File Read
 
 ```lucee
 <cffile action="read" file="#expandpath("./myfile.pdf")#" variable="myfile">
-
 ```
 
 ### File Rename
