@@ -1,5 +1,3 @@
-
-
 ```lucee
 <cfscript>
 	cachePut(id:'abc', value:'123',timeSpan:CreateTimeSpan(0,0,0,1),cacheName:'fruits');
