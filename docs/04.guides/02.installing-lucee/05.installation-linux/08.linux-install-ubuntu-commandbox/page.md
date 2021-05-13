@@ -197,13 +197,13 @@ $ sudo -H -u cfbox box
 
 To install a service (e.g. named *'MyServiceName'*) in Ubuntu 20.04 LTS, a corresponding file with the extension *'.service'* needs to be created and saved to '/usr/lib/systemd/system/' (e.g. *'/usr/lib/systemd/system/MyServiceName.service'*). To run CommandBox as service we will create a service named *'commandbox-myapp'* and create the file */usr/lib/systemd/system/commandbox-myapp.service*:
 
-1. Launch the file explorer 'thunar' with:
+<span>1.</span> Launch the file explorer 'thunar' with:
 
 ```
 $ sudo thunar
 ```
 
-2. Then navigate to *'/usr/lib/systemd/system/'* and create a file named *'commandbox-myapp.service'* with the following content:
+<span>2.</span> Then navigate to *'/usr/lib/systemd/system/'* and create a file named *'commandbox-myapp.service'* with the following content:
 
 ```ini
 #Systemd unit file for CommandBox Site
@@ -214,7 +214,7 @@ Description=commandbox-myapp
 Type=forking
 ExecStart=/usr/local/bin/box server start /var/www/wwwroot/server.json
 
-# execute service as 'cfbox' user
+#execute service as 'cfbox' user
 User=cfbox
 Group=cfbox
 UMask=0007
@@ -223,19 +223,19 @@ UMask=0007
 WantedBy=multi-user.target
 ```
 
-3. Enable the service with:
+<span>3.</span> Enable the service with:
 
 ```
 $ sudo systemctl enable commandbox-myapp.service
 ```
 
-4. Start the service with:
+<span>4.</span> Start the service with:
 
 ```
 $ sudo systemctl start commandbox-myapp.service
 ```
 
-5. Wait for CommandBox/Lucee deploy all the contexts from the preceding service start. If the service start timesout or if you just would like to verify the last service status, check with:
+<span>5.</span> Wait for CommandBox/Lucee deploy all the contexts from the preceding service start. If the service start timesout or if you just would like to verify the last service status, check with:
 
 ```
 $ sudo journalctl -e -u commandbox-myapp
@@ -265,16 +265,18 @@ CommandBox inbuilt lightweight servlet engine Undertow can also run without a fr
 
 We have already enabled AJP in the server.json file. Still, Apache2 needs to be configured to intercept '.cfm/.cfc' files and forward the connection (also called to 'reverse proxy') to CommandBox 'servlet container engine'. This is done with the Apache2 module mod_proxy_ajp (and mod_proxy). To configure Apache2 to for reverse proxy as AJP, you need to:
 
-1. Enable the module by entering:
+<span>1.</span> Enable the module by entering:
 
 ```
 $ sudo a2enmod proxy_ajp
 ```
 
-2. Open thunar and adapt the virtual host configuration file '/etc/apache2/sites-available/000-default.conf' by changing your document root to your webroot at '/var/www/wwwroot' and add the *'DirectoryIndex'* directive with the value *'index.cfm'*. Then lock down Lucee administrator and prevent others from downloading sensitive configuration files from your webroot with Apache2's 'Location' and 'LocationMatch' directives:  
+<span>2.</span> Open thunar and adapt the virtual host configuration file '/etc/apache2/sites-available/000-default.conf' by changing your document root to your webroot at '/var/www/wwwroot' and add the *'DirectoryIndex'* directive with the value *'index.cfm'*. Then lock down Lucee administrator and prevent others from downloading sensitive configuration files from your webroot with Apache2's 'Location' and 'LocationMatch' directives:  
 
-```ini
+```html
 <VirtualHost *:80>
+
+	...
 
 	# define wwwroot to point to your web applications root
 	# and define index.cfm as the default index document
@@ -325,12 +327,13 @@ $ sudo a2enmod proxy_ajp
 		Order deny,allow
 		Deny from all
 	</LocationMatch>
-	
 
+	...
+	
 </VirtualHost>
 ```
 
-3. After that you only need to restart apache2 with:
+<span>3.</span> After that you only need to restart apache2 with:
 
 ```
 $ sudo systemctl restart apache2
