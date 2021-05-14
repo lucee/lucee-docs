@@ -21,7 +21,7 @@ If the environment variable LUCEE_ADMIN_ENABLED is set to false, the Lucee Admin
 
 ## Restrict Access to the Lucee Administrator and other folders ##
 
-As with ACF, the recommended best security practice to restrict access to all URLs that are not required to be publically accessible.
+As with ACF, the recommended best security practice to restrict access to all URLs that are not required to be publicly accessible.
 
 Examples that have been cited include:
 

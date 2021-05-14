@@ -33,7 +33,7 @@ There are 2 components that are important for writing an event gateway:
 * Gateway driver
 * Event Gateway
 
-The gatway driver is a CFC that is allowing you to configure your EG. The basic Gateway driver is defining the edit fields for the configuration in the administrator.
+The gateway driver is a CFC that is allowing you to configure your EG. The basic Gateway driver is defining the edit fields for the configuration in the administrator.
 
 So for instance if you want to define the above configuration with the Event Gateway Driver CFC the CFC might look like this:
 
@@ -166,7 +166,7 @@ public void function init(string id, struct config) {
 The arguments of the init() method are:
 
 * id
-The ID is the name of the EG. You will need this name (which has to be unique per contex) to address any message you are sending to the EG.
+The ID is the name of the EG. You will need this name (which has to be unique per context) to address any message you are sending to the EG.
 * config
 The config argument is a struct which contains the variables that you have defined and the user has set in the instantiation of the EG. The EG driver allows you, as mentioned above, to define additional values which you now receive. Storing them in the variables scope helps us reference them for later.
 
