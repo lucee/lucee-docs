@@ -66,7 +66,7 @@ This define how many simultaneous connections will be allowed. While this value 
 
 ### Authentication ###
 
-To be able to authenticate with the provided credentials the 'admin' database over the mongodb machine must have this user setted up. Refer to guide [http://www.mongodb.org/display/DOCS/Security+and+Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication) guide. I strongly recommend ( following mongoDB docs ) that you manage the authentication to your mongoDB server restricting the access to the machine in place of using the basic mongoDB authentication system.
+To be able to authenticate with the provided credentials the 'admin' database over the mongodb machine must have this user set up. Refer to guide [http://www.mongodb.org/display/DOCS/Security+and+Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication) guide. I strongly recommend ( following mongoDB docs ) that you manage the authentication to your mongoDB server restricting the access to the machine in place of using the basic mongoDB authentication system.
 
 ### Persist over server restart ###
 

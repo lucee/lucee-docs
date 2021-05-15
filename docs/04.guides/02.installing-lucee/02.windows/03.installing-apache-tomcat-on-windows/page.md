@@ -171,7 +171,7 @@ Replace the content with this:
 <user name="AccountName" password="VeryStrongPassword" roles="admin-gui,manager-gui" />
 ```
 
-Choose a clever name for the administrator account. For security reasons, do not choose *admin* oder *administrator*!
+Choose a clever name for the administrator account. For security reasons, do not choose *admin* or *administrator*!
 The password should contain a mix between upper- and lower-case letters, numbers and special characters like _-!.
 
 ## catalina.properties ##
