@@ -30,7 +30,7 @@ $ sudo apt install mousepad
 
 <br>
 ### Step 2 - Setting Up SSH X11 Forwarding ###
-This video shows how to connect using Putty SSH and X-Server (VcXsrv) to your Ubuntu 20.04 LTS Server with the goal to administrate your server and Lucee over a secure forwared SSH tunnel. This is done in such a manner that you can remotely launch Linux GUI applications with root privileges on the remote server from your development machine.
+This video shows how to connect using Putty SSH and X-Server (VcXsrv) to your Ubuntu 20.04 LTS Server with the goal to administrate your server and Lucee over a secure forwarded SSH tunnel. This is done in such a manner that you can remotely launch Linux GUI applications with root privileges on the remote server from your development machine.
 
 [![Watch the video](http://i3.ytimg.com/vi/mUsaqdLmWAc/0.jpg)](https://youtu.be/mUsaqdLmWAc)
 

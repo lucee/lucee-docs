@@ -14,7 +14,7 @@ A step by step guide about installing and running Lucee with CommandBox behind A
 Please follow the steps shown in the following video:
 <div>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=Hk9mbHWFGvQ
-" target="_blank"><img src="http://img.youtube.com/vi/Hk9mbHWFGvQ/0.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/Hk9mbHWFGvQ/0.jpg"
 alt="Adding Required Ubuntu Packages Video" width="240" height="180" border="10" /></a></div>
 
 #### Commands used ####
@@ -35,7 +35,7 @@ $ sudo apt install mousepad
 Please follow the steps shown in the following video:
 <div>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=mUsaqdLmWAc
-" target="_blank"><img src="http://img.youtube.com/vi/mUsaqdLmWAc/0.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/mUsaqdLmWAc/0.jpg"
 alt="Setting Up SSH X11 Forwarding Video" width="240" height="180" border="10" /></a></div>
 
 #### Snippet used for Putty SSH Command at 1:33 ####
@@ -76,7 +76,7 @@ $ sudo apt update && sudo apt install apt-transport-https commandbox
 <br>
 ###  Step 5 - Create a non-root/non-sudo user to run CommandBox as a service
 
-To run CommandBox with a different user we need to create a user and usergroup ( e.g. named "cfbox" ) with no login capabilities: 
+To run CommandBox with a different user we need to create a user and usergroup ( e.g. named "cfbox" ) with no login capabilities:
 
 ```
 $ sudo useradd -r -m -U -d /opt/CommandBox -s /bin/false cfbox
@@ -89,14 +89,14 @@ $ sudo useradd -r -m -U -d /opt/CommandBox -s /bin/false cfbox
 > * '-U' : Creates a group with the same name as the user, and adds the user to this group.
 > * '-d /opt/CommandBox' : specifies the home directory for new user.
 > * '-s /bin/false' : specifies the user's default shell. The value *'bin/false'* locks the default shell, so there is no log in for the user *'cfbox'* available.
-> * '-c "user display information"' : use this to optionally to add a text display informations to the users account
+> * '-c "user display information"' : use this to optionally add a text display information to the users account
 
 **Note:** It's important to understand that running CommandBox as non-root/non-sudo user may cause file read/write permission issues (e.g. when using cffile/cfexecute in your web application). However, that is what good security praxis is all about and you'll need to adapt/set the corresponding permissions of a given location if necessary.
- 
+
 <br>
 ###  Step 6 - Create a wwwroot to hold your web applications files and add a index.cfm file to it for testing
 
-Connect with SSH X11 Forwarding as shown in step 2 and create a folder *'wwwroot'* that will hold your web application cfm files and resources. To do that, open the file explorer *'thunar'* with sudo with: 
+Connect with SSH X11 Forwarding as shown in step 2 and create a folder *'wwwroot'* that will hold your web application cfm files and resources. To do that, open the file explorer *'thunar'* with sudo with:
 
 ```
 $ sudo thunar
@@ -119,13 +119,13 @@ CommandBox uses a *'server.json'* file to configure specific server settings to 
 
 ```javascript
 {
-  
+
   "name": "myapp",
   "openBrowser": false,
   "trayEnable": false,
 
   "web": {
-      
+
       "HTTP": {
           "enable": true,
           "port": 8080
@@ -139,7 +139,7 @@ CommandBox uses a *'server.json'* file to configure specific server settings to 
    "app": {
         "cfengine": "lucee@5.x",
         "serverHomeDirectory": "/opt/CommandBox/web-contexts/wwwroot-myapp"
-  }	
+  }
 
 }
 ```
@@ -153,7 +153,7 @@ CommandBox uses a *'server.json'* file to configure specific server settings to 
 >  * enables AJP on port 8009 for connecting Apache2
 >  * uses Lucee's latest version as the running cfengine of the app
 >  * deploys Undertow's server context for the app at "/opt/CommandBox/web-contexts/wwwroot-myapp".
-> 
+>
 > There is much more that can be configured with the server.json file. Please find further information about configuring your CommandBox inbuilt server Undertow and also specific Lucee settings at [Ortus Solution documentation for CommandBox server.json](https://commandbox.ortusbooks.com/embedded-server/server.json)
 
 <br>
@@ -176,8 +176,7 @@ $ sudo -H -u cfbox box server start /var/www/wwwroot/server.json --console
 > * '-u cfbox' : runs the command as the user 'cfbox'.
 > * 'box server start /var/www/wwwroot/server.json --console' : run a CommandBox server instance with the settings of the server.json and output the data to console
 
-As soon as you see the text in the console window "[INFO ] Runwar: Server is up - http-port:8080..." CommandBox/Lucee completed all the context creation and the server instance is up and running. After that you can quit the server with 
-the Linux quit shortcut:
+As soon as you see the text in the console window "[INFO ] Runwar: Server is up - http-port:8080..." CommandBox/Lucee completed all the context creation and the server instance is up and running. After that you can quit the server with the Linux quit shortcut:
 
 ```
 ctrl+c
@@ -186,7 +185,7 @@ ctrl+c
 > If you are running CommandBox and you have access to the interactive CommandBox shell, simply enter
 `$ quit` to quit.
 
-*Addition information*: If in certain sitations you need to run CommandBox as the user 'cfbox' to access CommandBox shell (e.g. for debugging the service start), launch the CommandBox session with the following line:
+*Addition information*: If in certain situations you need to run CommandBox as the user 'cfbox' to access CommandBox shell (e.g. for debugging the service start), launch the CommandBox session with the following line:
 
 ```
 $ sudo -H -u cfbox box
@@ -241,12 +240,12 @@ $ sudo systemctl start commandbox-myapp.service
 $ sudo journalctl -e -u commandbox-myapp
 ```
 
-or 
+or
 
 ```
 $ sudo systemctl status commandbox-myapp.service
 ```
-   
+
 <br>
 ###  Step 11 - Open a browser and test the web application
 
@@ -282,10 +281,10 @@ $ sudo a2enmod proxy_ajp
 	# and define index.cfm as the default index document
 	DocumentRoot /var/www/wwwroot
 	DirectoryIndex index.cfm
-	
+
 	<IfModule mod_proxy.c>
 		ProxyPreserveHost On
-		
+
 		# HTTP ProxyPassReverse
 		# ProxyPassMatch ^/(.+\.cf[cm])(/.*)?$ http://127.0.0.1:8888/$1$2
 		# ProxyPassMatch ^/(.+\.cfml)(/.*)?$ http://127.0.0.1:8888/$1$2
@@ -314,14 +313,14 @@ $ sudo a2enmod proxy_ajp
 		# AJP	ProxyPassReverse
 		ProxyPassReverse / ajp://127.0.0.1:8009/
 	</IfModule>
-	
-	# lock down Lucee Administrator in Apache2. Lucee Administrator still will keep accessible 
+
+	# lock down Lucee Administrator in Apache2. Lucee Administrator still will keep accessible
 	# through X11 SSH forwarding on port 8080 ( http:127.0.0.1:8080 )
 	<Location /lucee/admin>
 		Order deny,allow
 		Deny from all
 	</Location>
-	
+
 	# lock down specific CommandBox configuration and other sensitive files here with Regex
 	<LocationMatch "(?i).*/(box\.json|server\.json|web\.config|urlrewrite\.xml|package\.json|package-lock\.json|Gulpfile\.js)$">
 		Order deny,allow
@@ -329,7 +328,7 @@ $ sudo a2enmod proxy_ajp
 	</LocationMatch>
 
 	...
-	
+
 </VirtualHost>
 ```
 

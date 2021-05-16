@@ -43,7 +43,7 @@ We decided not to follow the ACF way for the following reasons:
 ### CreateTimeSpan returns a timespan, not a date ###
 
 **What:**
-In ACF, [[function-CreateTimeSpan]] returns a date type, meaning that if you have a function that returns a timespan value, or takes a timespan as an argument, it will thow an error in Lucee.  This has two solutions: change the date to timespan, or use numeric, which works in both.
+In ACF, [[function-CreateTimeSpan]] returns a date type, meaning that if you have a function that returns a timespan value, or takes a timespan as an argument, it will throw an error in Lucee.  This has two solutions: change the date to timespan, or use numeric, which works in both.
 
 For example:
 
