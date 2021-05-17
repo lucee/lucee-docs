@@ -9,6 +9,7 @@
   </cfcatch>
 </cftry>
 ```
+
 ### Nice trick with echo and cfcatch
 
 ```luceescript+trycf
