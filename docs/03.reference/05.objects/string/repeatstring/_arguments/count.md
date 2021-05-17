@@ -1,0 +1,1 @@
+The number of times to repeat the string.
