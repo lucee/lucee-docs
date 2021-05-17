@@ -1,0 +1,1 @@
+The query from which to return the current row index.

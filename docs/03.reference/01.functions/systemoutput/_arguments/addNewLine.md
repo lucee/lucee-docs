@@ -1,0 +1,1 @@
+Whether or not to add a newline 
