@@ -160,6 +160,8 @@ categories:";
 #Trim( arguments.func.description )#";
 
 		variables._createFileIfNotExists( functionDir & "function.md", pageContent );
+		variables._createFileIfNotExists( functionDir & "_returnTypeDesc.md", "", true );
+		variables._createFileIfNotExists( functionDir & "_usageNotes.md", "", true );
 
 		var args = arguments.func.arguments ?: "";
 		for( var arg in args ) {
@@ -186,6 +188,7 @@ categories:
 #Trim( arguments.tag.description )#";
 
 		filesCreated += variables._createFileIfNotExists( tagDir & "tag.md", pageContent );
+		variables._createFileIfNotExists( tagDir & "_usageNotes.md", "", true );
 
 		var attribs = arguments.tag.attributes ?: "";
 		for( var attrib in attribs ) {
@@ -222,6 +225,7 @@ categories:
 */
 
 		filesCreated += variables._createFileIfNotExists( objectDir & "_object.md", pageContent );
+		//filesCreated +=variables._createFileIfNotExists( objectDir & "_usageNotes.md", "", true );
 /*
 		var args = arguments.method.arguments ?: "";
 		for( var arg in args ) {
@@ -262,6 +266,7 @@ categories:
 
 
 		filesCreated += variables._createFileIfNotExists( methodDir & "_method.md", pageContent );
+		//filesCreated +=variables._createFileIfNotExists( methodDir & "_usageNotes.md", "", true );
 
 		var args = arguments.method.arguments ?: "";
 		for( var arg in args ) {
@@ -274,7 +279,7 @@ categories:
 		return filesCreated;
 	}
 
-	private numeric function _createFileIfNotExists( filePath, content ) {
+	private numeric function _createFileIfNotExists( filePath, content, boolean docsOnly=false ) {
 		var fileDirectory = GetDirectoryFromPath( arguments.filePath );
 		var fileName      = ListLast( arguments.filePath, "/\" );
 
@@ -289,30 +294,32 @@ categories:
 			if ( q_files.name == fileName ) {
 				arguments.filePath = q_files.directory & "/" & q_files.name;  // use exact case
 				var size = q_files.size;
-				if (size gt 0)
-					size = Trim(FileRead(arguments.filePath)); // check for empty file
+				if ( size gt 0 )
+					size = Trim( FileRead( arguments.filePath ) ); // check for empty file
 
-				if (size eq 0){
-					if (len(trim(arguments.content)) gt 0){
-						request.logger(text="Updating existing zero length file: " & arguments.filePath);
+				if ( size eq 0 ){
+					if ( len( trim( arguments.content ) ) gt 0 ){
+						request.logger( text="Updating existing zero length file: " & arguments.filePath );
 						exists = true;
 						break;
-					} else {
+					} else if ( !arguments.docsOnly ){
 						request.logger(text="Missing content from Lucee: " & arguments.filePath, type="warn");
 						return 0;
+					} else if ( arguments.docsOnly ){
+						exists = true;
 					}
 				} else {
 					exists = true; // case insensitive file exists check!
 				}
 			}
 		}
-		if (!exists){
-			request.logger("Generated file: " & arguments.filePath  & chr(10));
-			FileWrite( arguments.filePath, _formatText(arguments.content) );
-		} else if (false){ // only run this manually
+		if ( !exists ){
+			request.logger( "Generated file: " & arguments.filePath  & chr( 10 ) );
+			FileWrite( arguments.filePath, _formatText( arguments.content ) );
+		} else if ( false ){ // only run this manually
 			var existingContent = FileRead( arguments.filePath );
-			_formatText(arguments.content);
-			FileWrite( arguments.filePath, _formatText(arguments.content) );
+			_formatText( arguments.content );
+			FileWrite( arguments.filePath, _formatText( arguments.content ) );
 			return 0;
 		}
 		return 1;

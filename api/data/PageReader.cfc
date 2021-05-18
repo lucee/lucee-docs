@@ -199,6 +199,11 @@ component {
 			}
 		}
 
+		var usageNotesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_usageNotes.md";
+		if ( FileExists( usageNotesFile ) ) {
+			tag.usageNotes = FileReadAsUnix( usageNotesFile );
+		}
+
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
 		if ( FileExists( examplesFile ) ) {
 			tag.examples = FileReadAsUnix( examplesFile );
@@ -219,6 +224,16 @@ component {
 				arg.descriptionOriginal = arg.description;
 				arg.description = FileReadAsUnix( argDescriptionFile );
 			}
+		}
+
+		var returnDescFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_returnTypeDesc.md";
+		if ( FileExists( returnDescFile ) ) {
+			func.returnTypeDesc = FileReadAsUnix( returnDescFile );
+		}
+
+		var usageNotesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_usageNotes.md";
+		if ( FileExists( usageNotesFile ) ) {
+			func.usageNotes = FileReadAsUnix( usageNotesFile );
 		}
 
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
