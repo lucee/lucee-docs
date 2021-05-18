@@ -10,7 +10,14 @@
 	<!--- https://github.com/lucee/Lucee/pull/876 --->
 	<cfif len(local.fn.getStatus()) gt 0
 			and (local.fn.getStatus() neq "implemented" and local.fn.getStatus() neq "implemeted")>
-		<p><strong>Status:</strong> #local.fn.getStatus()#</p>
+		<cfscript>
+			if (local.fn.getStatus() eq "Deprecated") {
+				local.status = markdownToHtml( "[[deprecated|#local.fn.getStatus()#]]", true );
+			} else {
+				local.status = local.fn.getStatus();
+			}
+		</cfscript>	
+		<p><strong>Status:</strong> #local.status#</p>
 	</cfif>
 	<cfif len(local.fn.getAlias()) gt 0>
 		<p><strong>Alias:</strong> #local.fn.getAlias()#</p>
