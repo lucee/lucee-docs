@@ -239,6 +239,8 @@ component {
 				return LCase( arguments.page.getPageType() );
 			case "listing":
 				return "aToZIndex"; // todo, diff layouts depending on arguments.page.getListingStyle()
+			case "implementationStatus":
+				return "implementationStatus";
 			default:
 				return "page";
 		}

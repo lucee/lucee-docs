@@ -29,6 +29,8 @@ component accessors=true {
 	property name="methodObject"  type="string"  default="";
 	property name="methodName"  type="string"  default="";
 
+	property name="statusFilter"  type="string"  default="";
+
 	public void function addChild( required any childPage ) {
 		getChildren().append( arguments.childPage );
 	}
@@ -72,6 +74,7 @@ component accessors=true {
 			case "_object":
 			case "_method":
 			case "tag":
+			case "implementationStatus":
 				return true;
 			case "_arguments":
 			case "_attributes":
