@@ -28,7 +28,21 @@
 	<code>
 	#local.fn.getUsageSignature()#
 	</code>
-<p>Returns: #local.fn.getReturnTypeLink()#</p>
+	<div class="func-return-type-desc">
+		<p>Returns: #local.fn.getReturnTypeLink()#</p>
+		<cfif Len( Trim( local.fn.getReturnTypeDesc() ) ) or args.edit>
+			
+			<div class="func-return-type-desc-edit">
+				<cfif args.edit>
+					<strong>Return Type Description (title only shown in edit mode, normally just a paragraph)</strong>
+				</cfif>
+				#getEditLink(path=local.fn.getSourceDir() & '_returnTypeDesc.md', edit=args.edit)#
+			</div>
+			<cfif Len( Trim( local.fn.getReturnTypeDesc() ) )>
+				#markdownToHtml( local.fn.getReturnTypeDesc() )#
+			</cfif>		
+		</cfif>
+	</div>
 
 	<cfif !local.fn.getArguments().len()>
 		<cfif local.fn.getArgumentType() == "dynamic">
@@ -85,6 +99,16 @@
 					</cfloop>
 				</tbody>
 			</table>
+		</div>
+	</cfif>
+
+	<cfif Len( Trim( local.fn.getUsageNotes() ) ) or args.edit>
+		<div class="usage-notes">
+			<h4>Usage Notes</h4>
+			#getEditLink(path=local.fn.getSourceDir() & '_usageNotes.md', edit=args.edit)#
+			<cfif Len( Trim( local.fn.getUsageNotes() ) )>
+				#markdownToHtml( local.fn.getUsageNotes() )#
+			</cfif>
 		</div>
 	</cfif>
 

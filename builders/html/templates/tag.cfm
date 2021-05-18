@@ -73,6 +73,16 @@
 		</div>
 	</cfif>
 
+	<cfif Len( Trim( local.tag.getUsageNotes() ) ) or args.edit>
+		<div class="usage-notes">
+			<h4>Usage Notes</h4>
+			#getEditLink(path=local.tag.getSourceDir() & '_usageNotes.md', edit=args.edit)#
+			<cfif Len( Trim( local.tag.getUsageNotes() ) )>
+				#markdownToHtml( local.tag.getUsageNotes() )#
+			</cfif>
+		</div>
+	</cfif>	
+
 	<h4>Examples</h4>
 	<cfif Len( Trim( local.tag.getExamples() ) ) or args.edit>
 		#getEditLink(path=local.tag.getSourceDir() & '_examples.md', edit=args.edit)#
