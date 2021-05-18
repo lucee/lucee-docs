@@ -4,7 +4,7 @@ id: deprecated
 statusFilter: deprecated
 ---
 
-Backwards compatability is considered super important in Lucee.
+Backwards compatibility is considered super important in Lucee.
 
 **Deprecated** means that whilst the functionality is still **supported** and **available**, Lucee offers newer, more modern way(s) to achieve the same result.
 
