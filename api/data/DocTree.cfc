@@ -191,6 +191,10 @@ component accessors=true {
 		return result;
 	}
 
+	public any function getReferenceByStatus(required string status){
+		return new StatusFilter().getReferenceByStatus( variables.idMap, arguments.status );
+	}
+
 // private helpers
 	private void function _loadTree() {
 		lock name="docsBuildTree" timeout=10 {
