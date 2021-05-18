@@ -11,6 +11,18 @@
 	#markdownToHtml( Trim( local.tag.getBodyTypeDescription() ) )#
 	#markdownToHtml( Trim( local.tag.getScriptSupportDescription() ) )#
 
+	<cfif len(local.tag.getStatus()) gt 0
+			and (local.tag.getStatus() neq "implemented" and local.tag.getStatus() neq "implemeted")>
+		<cfscript>
+			if (local.tag.getStatus() eq "Deprecated") {
+				local.status = markdownToHtml( "[[deprecated|#local.tag.getStatus()#]]", true );
+			} else {
+				local.status = local.tag.getStatus();
+			}
+		</cfscript>	
+		<p><strong>Status:</strong> #local.status#</p>
+	</cfif>
+
 	<code>
 		#local.tag.getUsageSignature()#
 	</code>

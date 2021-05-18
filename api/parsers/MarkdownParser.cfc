@@ -11,7 +11,7 @@ component {
 		return this;
 	}
 
-	public string function markdownToHtml( required string markdown ) {
+	public string function markdownToHtml( required string markdown, required boolean stripParagraph=false) {
 		if (variables.flexmark){
 			var processor = _getMarkdownProcessor();
 			var doc = processor.parser.parse(arguments.markdown);
@@ -20,6 +20,9 @@ component {
 			lock name="pegDownIsntThreadSafe" timeout="5" type="exclusive" {
 				var html = _getMarkdownProcessor().markdownToHtml( arguments.markdown );
 			}
+		}
+		if  (arguments.stripParagraph ){ // used for inline content
+			html = ReplaceNoCase( ReplaceNoCase( html, "<p>", "" ), "</p>", "");
 		}
 		return _getNoticeBoxRenderer().renderNoticeBoxes( html );
 	}
