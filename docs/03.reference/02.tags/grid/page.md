@@ -1,8 +1,8 @@
 ---
 title: <cfgrid>
 id: tag-grid
-related:
 categories:
+- ajax
 ---
 
 The `<cfgrid>` tag is not supported by Lucee.

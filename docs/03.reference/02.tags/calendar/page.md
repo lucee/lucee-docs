@@ -1,8 +1,8 @@
 ---
 title: <cfcalendar>
 id: tag-calendar
-related:
 categories:
+- ajax
 ---
 
 The tag `<cfcalendar>` is not supported by Lucee.
