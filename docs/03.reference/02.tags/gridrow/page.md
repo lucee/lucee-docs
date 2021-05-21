@@ -1,8 +1,8 @@
 ---
 title: <cfgridrow>
 id: tag-gridrow
-related:
 categories:
+- ajax
 ---
 
 The `<cfgridrow>` tag is not supported by Lucee.

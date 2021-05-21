@@ -1,8 +1,8 @@
 ---
 title: <cftextarea>
 id: tag-textarea
-related:
 categories:
+- ajax
 ---
 
 The `<cftextarea>` tag is not supported by Lucee.

@@ -6,6 +6,8 @@ related:
 - tag-select
 - tag-slider
 - tag-textarea
+categories:
+- ajax
 ---
 
 Builds a form with CFML custom control tags that provide more functionality than standard

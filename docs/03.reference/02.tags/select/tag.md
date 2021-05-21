@@ -1,6 +1,8 @@
 ---
 title: <cfselect>
 id: tag-select
+categories:
+- ajax
 ---
 
 Used inside [[tag-form]], cfselect lets you construct a drop-down list box form control.
