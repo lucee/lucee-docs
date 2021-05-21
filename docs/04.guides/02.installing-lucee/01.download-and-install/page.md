@@ -31,3 +31,15 @@ CommandBox comes with an embedded Lucee server so you can be up and running in j
 ## Custom Installation ##
 
 If you want to use Lucee in a different environment, e.g. with a different servlet engine, simply download our "Lucee Custom" package [here](https://lucee.org/downloads.html), it contains everything you need for this task.
+
+## Java Versions Supported ##
+
+- The Official Lucee Installer comes with Java 11, which is our recommended version
+- Java 8 is still officially supported for 5.3, with Lucee 6 it will be no longer officially supported, but will be unofficially, as long as feasible
+- Lucee Supports Java 9 since version 5.3.0.57
+- Java 16 is not currently supported due to breaking internal changes with the jvm, [LDEV-3526](https://luceeserver.atlassian.net/browse/LDEV-3526)
+
+### Java Support tips
+
+- When reporting a bug with Lucee, **please always describe your stack** (Lucee version, Java Version, Tomcat/etc version and the Extension version, if it's extension related)
+- If you aren't running the latest release of Java and encounter a problem, please try updating your Java version before reporting a bug, especially if it's several years old!
