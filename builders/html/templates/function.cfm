@@ -86,7 +86,7 @@
 									<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
 								</cfif>
 								<cfif structKeyExists(local.arg, "status") and local.arg.status neq "implemented">
-									<em>* #local.attrib.arg# *</em>
+									<em>* #local.arg.status# *</em>
 								</cfif>
 								#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
 							</td>

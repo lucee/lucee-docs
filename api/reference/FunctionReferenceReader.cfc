@@ -59,8 +59,10 @@ component accessors=true {
 			convertedArg.required    = IsBoolean( arg.required ?: "" ) && arg.required;
 			convertedArg.default     = arg.defaultValue ?: NullValue();
 			convertedArg.alias       = arg.alias        ?: "";
+			convertedArg.status		 = arg.status		?: NullValue();
 
-			parsedFunction.arguments.append( convertedArg );
+			if ( arg.status neq "hidden" )
+				parsedFunction.arguments.append( convertedArg );
 		}
 
 		return parsedFunction;

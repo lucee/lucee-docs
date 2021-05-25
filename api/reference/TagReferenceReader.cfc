@@ -72,8 +72,8 @@ component accessors=true {
 			parsedAttribute.values                 = attrib.values ?: [];
 			parsedAttribute.noname                 = IsBoolean( attrib.noname ?: "" ) && attrib.noname;
 			parsedAttribute.runTimeExpressionValue = IsBoolean( attrib.rtexpr ?: "" ) && attrib.rtexpr;
-
-			parsedTag.attributes.append( parsedAttribute );
+			if ( attrib.status neq "hidden" )
+				parsedTag.attributes.append( parsedAttribute );
 		}
 
 		return parsedTag;

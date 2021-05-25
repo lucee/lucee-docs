@@ -35,6 +35,9 @@
 				</thead>
 				<tbody>
 					<cfloop array="#local.meth.getArguments()#" item="local.arg" index="local.i">
+						<cfif local.arg.status eq "hidden">
+							<cfcontinue>
+						</cfif>
 						<tr>
 							<td>
 								<div class="argument" id="argument-#local.arg.name#" title="Argument name">
