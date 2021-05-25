@@ -57,6 +57,7 @@
 					<button class="btn collapse-description" data-expanded="true" data-target="table-arguments">Collapse All</button>
 				</div>
 			</cfif>
+			<cfset local.unimplementedArgs = []>
 			<table class="table arguments table-arguments" title="Arguments">
 				<thead>
 					<tr>
@@ -67,6 +68,10 @@
 				</thead>
 				<tbody>
 					<cfloop array="#local.fn.getArguments()#" item="local.arg" index="local.i">
+						<cfif local.arg.status neq "implemented">
+							<cfset arrayAppend(unimplementedArgs, local.arg)>
+							<cfcontinue>
+						</cfif>
 						<tr>
 							<td>
 								<div class="argument" id="argument-#local.arg.name#" title="Argument name">
@@ -99,6 +104,51 @@
 					</cfloop>
 				</tbody>
 			</table>
+			<cfif ArrayLen(unimplementedArgs) gt 0>
+				<h4>Unimplemented Argument(s)</h4>
+				<table class="table arguments table-arguments" title="Arguments">
+					<thead>
+						<tr>
+							<th>Argument</th>
+							<th>Description</th>
+							<cfif local.argumentsHaveDefaultValues><th>Default</th></cfif>
+						</tr>
+					</thead>
+					<tbody>
+						<cfloop array="#unimplementedArgs#" item="local.arg" index="local.i">
+							<tr>
+								<td>
+									<div class="argument" id="argument-#local.arg.name#" title="Argument name">
+										#local.arg.name#
+									</div>
+									<sub title="Argument type">
+										#local.arg.type#,
+										<span title="Is this argument required">
+											#( local.arg.required ? 'required' : 'optional' )#
+										</span>
+									</sub>
+								</td>
+								<td>
+									#getEditLink(path=local.fn.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
+									#markdownToHtml( Trim( local.arg.description ) )#
+									<cfif len(local.arg.alias) gt 0>
+										<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
+									</cfif>
+									<cfif structKeyExists(local.arg, "status") and local.arg.status neq "implemented">
+										<em>* #local.arg.status# *</em>
+									</cfif>
+									#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
+								</td>
+								<cfif local.argumentsHaveDefaultValues>
+									 <td>
+										 #markdownToHtml( local.arg.default ?: "" )#
+									 </td>
+								 </cfif>
+							</tr>
+						</cfloop>
+					</tbody>
+				</table>
+			</cfif>
 		</div>
 	</cfif>
 
