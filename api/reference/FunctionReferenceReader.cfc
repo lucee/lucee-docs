@@ -26,7 +26,8 @@ component accessors=true {
 		for( var functionName in functionNames ) {
 			var convertedFunc = _getFunctionDefinition( functionName );
 
-			functions[ functionName ] = convertedFunc;
+			if ( convertedFunc.status neq "hidden" )
+				functions[ functionName ] = convertedFunc;
 		}
 
 		setFunctions( functions );
@@ -59,8 +60,10 @@ component accessors=true {
 			convertedArg.required    = IsBoolean( arg.required ?: "" ) && arg.required;
 			convertedArg.default     = arg.defaultValue ?: NullValue();
 			convertedArg.alias       = arg.alias        ?: "";
+			convertedArg.status		 = arg.status		?: NullValue();
 
-			parsedFunction.arguments.append( convertedArg );
+			if ( arg.status neq "hidden" )
+				parsedFunction.arguments.append( convertedArg );
 		}
 
 		return parsedFunction;

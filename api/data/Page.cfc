@@ -30,6 +30,7 @@ component accessors=true {
 	property name="methodName"  type="string"  default="";
 
 	property name="statusFilter"  type="string"  default="";
+	property name="hidden" 		 type="boolean"  default="false";
 
 	public void function addChild( required any childPage ) {
 		getChildren().append( arguments.childPage );

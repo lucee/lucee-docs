@@ -23,8 +23,8 @@ component accessors=true {
 		var tags = {};
 		for( var tagName in tagNames ) {
 			var convertedTag = _getTagDefinition( tagName );
-
-			tags[ convertedTag.name ] = convertedTag;
+			if (  convertedTag.status neq "hidden" )
+				tags[ convertedTag.name ] = convertedTag;
 		}
 
 		setTags( tags );
@@ -72,8 +72,8 @@ component accessors=true {
 			parsedAttribute.values                 = attrib.values ?: [];
 			parsedAttribute.noname                 = IsBoolean( attrib.noname ?: "" ) && attrib.noname;
 			parsedAttribute.runTimeExpressionValue = IsBoolean( attrib.rtexpr ?: "" ) && attrib.rtexpr;
-
-			parsedTag.attributes.append( parsedAttribute );
+			if ( attrib.status neq "hidden" )
+				parsedTag.attributes.append( parsedAttribute );
 		}
 
 		return parsedTag;
