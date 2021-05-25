@@ -187,6 +187,7 @@ component {
 
 	private struct function _getTagSpecification( required string tagName, required string pageFilePath ){
 		var tag           = _getTagReferenceReader().getTag( arguments.tagName );
+		tag.hidden = structIsEmpty( tag );
 		var attributes    = tag.attributes ?: [];
 		var attributesDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributes/";
 		var attrFiles = getFilesInDirectory(attributesDir);
@@ -214,6 +215,7 @@ component {
 
 	private struct function _getFunctionSpecification( required string functionName, required string pageFilePath ) {
 		var func    = _getFunctionReferenceReader().getFunction( arguments.functionName );
+		func.hidden = structIsEmpty( func );
 		var args    = func.arguments ?: [];
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
 		var argsFiles = getFilesInDirectory(argsDir);
@@ -269,6 +271,7 @@ component {
 
 	private struct function _getMethodSpecification(required string methodObject, required string methodName, required string pageFilePath ) {
 		var meth    = _getMethodReferenceReader().getMethod( arguments.methodObject, arguments.methodName );
+		meth.hidden = structIsEmpty( meth );
 		var args    = meth.arguments ?: [];
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
 		var argsFiles = getFilesInDirectory(argsDir);

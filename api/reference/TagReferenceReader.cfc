@@ -23,8 +23,8 @@ component accessors=true {
 		var tags = {};
 		for( var tagName in tagNames ) {
 			var convertedTag = _getTagDefinition( tagName );
-
-			tags[ convertedTag.name ] = convertedTag;
+			if (  convertedTag.status neq "hidden" )
+				tags[ convertedTag.name ] = convertedTag;
 		}
 
 		setTags( tags );

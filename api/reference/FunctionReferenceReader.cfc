@@ -26,7 +26,8 @@ component accessors=true {
 		for( var functionName in functionNames ) {
 			var convertedFunc = _getFunctionDefinition( functionName );
 
-			functions[ functionName ] = convertedFunc;
+			if ( convertedFunc.status neq "hidden" )
+				functions[ functionName ] = convertedFunc;
 		}
 
 		setFunctions( functions );

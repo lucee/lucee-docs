@@ -53,15 +53,14 @@ component accessors=true {
 
 		for( var object in objects) {
 			var data = getFunctionData(object);
-
-			if ( data.keyExists("member") && data.member.keyExists("name")){
+			
+			if ( data.keyExists("member") && data.member.keyExists("name") && data.status neq "hidden" ){
 				var member = data.member;
 				if (not methods.keyExists(member.type) )
 					methods[member.type] = StructNew("linked");
 
 				if (not methods[member.type].keyExists(member.name) )
 					methods[member.type][member.name] = StructNew("linked");
-
 				methods[member.type][member.name] = object;
 			}
 
