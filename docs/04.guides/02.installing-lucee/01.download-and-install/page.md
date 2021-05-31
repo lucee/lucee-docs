@@ -1,9 +1,8 @@
 ---
-title: Download and Install
+title: Download and Installing Lucee
 id: running-lucee-download-and-install
+menuTitle: Download and Install
 ---
-
-[Home](Home)
 
 # Download and Install Lucee Server #
 
