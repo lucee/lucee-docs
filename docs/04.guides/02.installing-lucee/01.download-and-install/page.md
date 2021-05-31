@@ -32,6 +32,10 @@ CommandBox comes with an embedded Lucee server so you can be up and running in j
 
 If you want to use Lucee in a different environment, e.g. with a different servlet engine, simply download our "Lucee Custom" package [here](https://lucee.org/downloads.html), it contains everything you need for this task.
 
+## Using Lucee with multiple websites, mod_cfml ##
+
+Lucee doesn't support multiple webserver hosts directly, however [mod_cfml](https://viviotech.github.io/mod_cfml/index.html) is available to achieve this.
+
 ## Java Versions Supported ##
 
 - The Official Lucee Installer comes with Java 11, which is our recommended version
