@@ -9,7 +9,6 @@
 
 ```
 
-
 ```lucee+trycf
 <cfmap  centerlatitude    = "47.3769"
 		centerlongitude    = "8.5417"
