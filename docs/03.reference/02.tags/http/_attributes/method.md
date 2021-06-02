@@ -1,4 +1,13 @@
-GET or POST. 
+Supported methods
+
+- GET
+- POST
+- HEAD
+- PUT
+- DELETE
+- OPTIONS
+- TRACE
+- PATCH
 
 Use GET to download a text or binary file or to create a query from the contents of a text file.
 
