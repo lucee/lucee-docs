@@ -1,4 +1,5 @@
 Supported methods
+
 - GET
 - POST
 - HEAD
