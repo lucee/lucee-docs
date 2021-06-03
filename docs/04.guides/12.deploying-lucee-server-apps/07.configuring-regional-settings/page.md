@@ -26,7 +26,9 @@ The regional configuration in the `.xml` files are stored under the regional tag
 
 `<regional locale="en_US" timeserver="pool.ntp.org" timezone="" use-timeserver="true"/>`
 
-Note: when deploying by Docker, that the timezone defaults to `ETC`.
+When deploying by Docker, that the timezone defaults to `Etc/UTC`. To set the timezone of the container use a Dcoker environment variable with the name `TZ` and then a timezone value, for example, `Pacific/Auckland` or `Europe/London`. A full list of timezone name can be found here:
+
+https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 To check what your the JVM default is set to, use the following code.
 
