@@ -28,7 +28,7 @@ The regional configuration in the `.xml` files are stored under the regional tag
 
 When deploying by Docker, the timezone defaults to `Etc/UTC`. To set the timezone of the container use a Docker environment variable with the name `TZ` and then a value with a timezone name, for example, `Pacific/Auckland` or `Europe/London`. A full list of timezone names can be found here:
 
-https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+[List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
 To check what your the JVM default is set to, use the following code.
 
