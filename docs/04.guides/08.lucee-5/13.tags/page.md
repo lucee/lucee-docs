@@ -27,3 +27,5 @@ Example:
 
 * cffile
 * cfhttp
+
+For more, see [[lucee-5-cached-within]].
