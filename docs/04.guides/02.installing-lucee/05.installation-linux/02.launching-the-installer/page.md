@@ -30,7 +30,9 @@ This should give the installer the execute permissions it needs to run like it s
 Once you've downloaded the installer and logged in as the root user, you can run the installer with a simple set of commands:]
 
 ```lucee
-$ cd [download location] $ chmod 744 lucee-[version]-linux-installer.bin $ sudo ./lucee-[version]-linux-installer.bin
+$ cd [download location] 
+$ chmod 744 lucee-[version]-linux-installer.bin 
+$ sudo ./lucee-[version]-linux-installer.bin
 ```
 
 If your console has access to your Desktop, the Graphic installer should start up at this point. If the console that you're running this command from does not have access to your Desktop, the installer will default to console, or "text" mode. Text mode is not as hard to use as it may sound. Just like in graphic mode, you will be presented with a series of options, most of which have defaults and you can just hit "enter" as you see fit.
