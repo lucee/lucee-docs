@@ -15,11 +15,11 @@ heapSize=1024;
 
 echo "Done!";
 echo "Importing reference docs from previously undocumented functions and tags..."
-curl http://localhost:8765/import.cfm
+curl http://localhost:8765/import.cfm?textlogs=true
 
 echo "Building documentation (please be patient, it may take some time)..."
 
-curl http://localhost:8765/build.cfm
+curl http://localhost:8765/build.cfm?textlogs=true
 
 echo "Stopping Lucee5 server..."
 box server stop luceedocsbuilder
