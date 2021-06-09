@@ -8,6 +8,7 @@ cfengine="lucee@5" ^
 port=8765 ^
 openbrowser=false ^
 directory=%CWD% ^
+javaVersion=openjdk8_jre_jdk8u262-b10 ^
 heapSize=1024
 
 echo Done!

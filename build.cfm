@@ -12,7 +12,8 @@
 		startTime = getTickCount();
 
 		logger = new api.build.Logger( { textOnly: true } );
-    	request.loggerFlushEnabled = true;
+		request.loggerFlushEnabled = true;
+		logger.logger( "Lucee " & server.lucee.version & ", java " & server.java.version );
 
 		//savecontent variable="suppressingwhitespacehere" {
 			new api.build.BuildRunner(threads=1).buildAll();

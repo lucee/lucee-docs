@@ -229,7 +229,7 @@
 		<cfreturn conn />
 	</cffunction>
 
-	<cffunction name="executeSql" access="public" returntype="any" output="true" hint="executes sqlite commands, returns a CF query for a select, and a connection object for all other statements">
+	<cffunction name="executeSql" access="public" returntype="any" output="false" hint="executes sqlite commands, returns a CF query for a select, and a connection object for all other statements">
 		<cfargument name="dbFile" type="string" required="true" hint="The full path to the Sqlite db file" />
 		<cfargument name="sql" type="string" required="true" />
 		<cfargument name="closeConnection" type="boolean" required="false" default="true" />
