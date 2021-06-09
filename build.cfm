@@ -11,11 +11,14 @@
 	try {
 		startTime = getTickCount();
 
-		savecontent variable="suppressingwhitespacehere" {
-			new api.build.BuildRunner(threads=1).buildAll();
-		}
+		logger = new api.build.Logger( { textOnly: true } );
+    	request.loggerFlushEnabled = true;
 
-		content reset="true" type="text/plain";
+		//savecontent variable="suppressingwhitespacehere" {
+			new api.build.BuildRunner(threads=1).buildAll();
+		//}
+
+		//content reset="true" type="text/plain";
 		echo( "---" & newline );
 		echo( "Documentation built in #NumberFormat( getTickCount()-startTime )#ms" & newline );
 		echo( "---" & newline );
