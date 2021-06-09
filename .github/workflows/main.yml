@@ -31,3 +31,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run docs build
         run: ./build.sh
+        
+      - name: Notify slack
+        uses: 8398a7/action-slack@v3.9.1
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took # selectable (default: repo,message)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+        if: always() # Pick up events even if the job fails or is canceled.
