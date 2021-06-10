@@ -16,7 +16,7 @@ Attribute name | Description
 access_read | Defines the general access to the Lucee configuration read
 access_write | Defines the general access to the Lucee configuration write
 action | Defines the action to be performed by the tag
-allowed_alter |	Database connection property
+allowed_alter | Database connection property
 allowed_create | Database connection property
 allowed_delete | Database connection property
 allowed_drop |	Database connection property
