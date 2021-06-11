@@ -1,3 +1,0 @@
-```luceescript+trycf
-writeDump(GetHTTPHeaders());
-```

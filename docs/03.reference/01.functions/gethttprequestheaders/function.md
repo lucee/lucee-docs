@@ -1,6 +1,6 @@
 ---
-title: GetHttpHeaders
-id: function-gethttpheaders
+title: GetHTTPRequestHeaders
+id: function-gethttprequestheaders
 related:
 categories:
 ---
