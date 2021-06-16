@@ -1,9 +1,10 @@
 ---
-title: Lucee System Properties and Environment Variables
+title: System Properties and Environment Variables
 id: running-lucee-system-properties
 related:
 - tag-application
 description: How to set and use Environment Variables or System Properties to configure specific Lucee Server settings
+menuTitle: Environment Variables
 ---
 
 ## System Properties and Environment Variables ##
