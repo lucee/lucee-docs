@@ -43,11 +43,11 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
           AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
-        if: ${{ github.event_name == 'push_request'}}
+        if: ${{ github.event_name == 'push'}}
         
       - name: Ping Search Engines with sitemaps
         run: curl https://google.com/ping?sitemap=https://docs.lucee.org/sitemap.xml
-        if: ${{ github.event_name == 'push_request'}}
+        if: ${{ github.event_name == 'push'}}
         
       #- name: Notify slack
       #  uses: 8398a7/action-slack@v3.9.1
