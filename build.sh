@@ -34,7 +34,7 @@ fi
 
 echo "Building complete"
 
-if [ "$DOCS_BRANCH" = "refs/heads/master" ] && [ "$DOCS_EVENT" = "push_request" ] ; then
+if [ "$DOCS_BRANCH" = "refs/heads/master" ] && [ "$DOCS_EVENT" = "push" ] ; then
   echo "Zipping up docs for offline download..."
   cd builds/html
   cp ../../.cloudfront-distribution-id ./
