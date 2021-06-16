@@ -2,13 +2,13 @@
 
 name: Lucee Docs Builder
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -23,7 +23,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: Setup CommandBox
         uses: elpete/setup-commandbox@v1.0.1
 
@@ -44,19 +44,19 @@ jobs:
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
           AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
         if: ${{ github.event_name == 'push'}}
-        
+
       - name: Ping Search Engines with sitemaps
         run: curl https://google.com/ping?sitemap=https://docs.lucee.org/sitemap.xml
         if: ${{ github.event_name == 'push'}}
-        
-      #- name: Notify slack
-      #  uses: 8398a7/action-slack@v3.9.1
-      #  with:
-      #    status: ${{ job.status }}
-      #    author_name: GitHub Actions # default: 8398a7@action-slack
-      #    fields: repo,commit,message,author # default: repo,commit
-      #    mention: here
-      #    if_mention: failure,cancelled
-      #  env:
-      #    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
-      #  if: always() # Pick up events even if the job fails or is canceled.
+
+      # - name: Notify slack
+      #   uses: 8398a7/action-slack@v3.9.1
+      #   with:
+      #     status: ${{ job.status }}
+      #     author_name: GitHub Actions # default: 8398a7@action-slack
+      #     fields: repo,commit,message,author # default: repo,commit
+      #     mention: here
+      #     if_mention: failure,cancelled
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+      #   if: always() # Pick up events even if the job fails or is canceled.
