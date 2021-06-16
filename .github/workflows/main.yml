@@ -31,6 +31,24 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run docs build
         run: ./build.sh
+        env:
+          DOCS_BRANCH: ${{ github.ref }}
+          DOCS_EVENT: ${{ github.event_name }}
+
+      - name: Publish to S3
+        uses: docker://justinharringa/s3_website:master
+        with:
+          args: 'push --site builds/artifacts'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+          AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
+        if: ${{ github.event_name == 'push_request'}}
+        
+      - name: Ping Search Engines with sitemaps
+        run: curl https://google.com/ping?sitemap=https://docs.lucee.org/sitemap.xml
+        if: ${{ github.event_name == 'push_request'}}
         
       - name: Notify slack
         uses: 8398a7/action-slack@v3.9.1
