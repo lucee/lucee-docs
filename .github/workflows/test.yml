@@ -30,7 +30,7 @@ jobs:
       - uses: zspitzer/lucee-script-engine-runner@development
         with:
           webroot: ${{ github.workspace }}
-          execute: /import.cfm
+          execute: ${{ github.workspace }}/import.cfm
           luceeVersion: 5.3.7.48
           
           
