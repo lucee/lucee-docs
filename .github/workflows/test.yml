@@ -19,6 +19,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: lucee-script-runner-maven-cache
 
       # Runs a single command using the runners shell
       - uses: zspitzer/lucee-script-engine-runner@development
