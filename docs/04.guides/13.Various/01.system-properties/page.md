@@ -1048,16 +1048,28 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>Set this value to <code>true</code> to change Lucees default behaviour and force Lucee to use mappings as first priority and silently ignore conflicting physical paths.</p>
 				
 				<strong>Example:</strong>
-				<pre lang="script">// Assumption:<br>
-				// "D:/myimages/abc" is a physical valid location<br><br>
-				// Defined mappings<br>mappings[ '/' ] = 'D:/';<br>mappings[ '/myimages' ] = 'D:/images';<br><br>
-				// Default Lucee:<br>
-				// the following writeDump outputs "D:/myimages/abc"<br>writeDump( expandPath( '/myimages/abc' );<br><br>
-				// If LUCEE_MAPPING_FIRST=true:<br>
-				// the following writeDump outputs "D:/images/abc"<br>writeDump( expandPath( '/myimages/abc' );<br>
+				<pre lang="script">// Assumption:<br>// "D:/myimages/abc" is a physical valid location<br><br>// Defined mappings<br>mappings[ '/' ] = 'D:/';<br>mappings[ '/myimages' ] = 'D:/images';<br><br>// Default Lucee:<br>// the following writeDump outputs "D:/myimages/abc"<br>writeDump( expandPath( '/myimages/abc' );<br><br>// If LUCEE_MAPPING_FIRST=true:<br>// the following writeDump outputs "D:/images/abc"<br>writeDump( expandPath( '/myimages/abc' );<br>
 				</pre>
 				</p>
 
+				<sub>Values: Boolean <code>true|false</code></sub>
+                <br>
+                <sub>Default: <code>false</code></sub>
+                <p>
+					<strong>Lucee Server Administrator:</strong> not available
+				</p>
+				<p>
+					<strong>Application.cfc:</strong> not available
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="attribute">LUCEE_LOG_REFLECTION<br>lucee.log.reflection</div>
+			</td>
+			<td>
+				<p>Enables logging on reflection calls.</p>
+				
 				<sub>Values: Boolean <code>true|false</code></sub>
                 <br>
                 <sub>Default: <code>false</code></sub>
