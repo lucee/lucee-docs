@@ -28,4 +28,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - uses: zspitzer/lucee-script-engine-runner@development
+        with:
+          webroot: /
+          execute: /import.cfm
+          luceeVersion: 5.3.7.48
+          
           
