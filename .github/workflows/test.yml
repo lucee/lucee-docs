@@ -31,6 +31,8 @@ jobs:
         with:
           webroot: ${{ github.workspace }}
           execute: /import.cfm
-          luceeVersion: 5.3.7.48
+          luceeVersion: 6.0.0.95-SNAPSHOT
+          # luceeVersion: 5.3.7.48
+          
           
           
