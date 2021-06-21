@@ -30,8 +30,8 @@ This should give the installer the execute permissions it needs to run like it s
 Once you've downloaded the installer and logged in as the root user, you can run the installer with a simple set of commands:]
 
 ```lucee
-$ cd [download location] 
-$ chmod 744 lucee-[version]-linux-installer.bin 
+$ cd [download location]
+$ chmod 744 lucee-[version]-linux-installer.bin
 $ sudo ./lucee-[version]-linux-installer.bin
 ```
 

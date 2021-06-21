@@ -16,7 +16,7 @@ Enable the setting: `Implicit notation`
 
 **The Code**
 
-Once, you've checked and enabled it, we're ready to start with some code. 
+Once, you've checked and enabled it, we're ready to start with some code.
 
 Created `person.cfc` with the following code:
 

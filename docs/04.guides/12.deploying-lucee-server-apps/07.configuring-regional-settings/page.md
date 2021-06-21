@@ -16,7 +16,7 @@ You can override this default via the Lucee Admin under, Settings, Regional
 
 Lucee uses a cascading hierarchy for configuration
 
-- [[tag-application|Application.cfc]] 
+- [[tag-application|Application.cfc]]
 - Web Context (`lucee-web.xml.cfm`)
 - Server Context (`lucee-server.xml`)
 - JVM (which defaults to the operating system)

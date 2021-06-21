@@ -3,7 +3,7 @@ title: Core CFML Language
 id: category-core
 ---
 
-The core elements of the CFML Language. 
+The core elements of the CFML Language.
 
 CFML started as a tag based language and then introduced [[tag-script]].
 

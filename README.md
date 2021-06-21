@@ -13,7 +13,7 @@ Find out more about the project at: [https://docs.lucee.org/docs.html](https://d
 
 ### Prerequisites
 
-The only optional dependency required is [CommandBox](https://www.ortussolutions.com/products/commandbox). 
+The only optional dependency required is [CommandBox](https://www.ortussolutions.com/products/commandbox).
 
 Commandbox is only required to run the build process via the command line, or if you don't setup a virtual server with an existing local Lucee install.
 

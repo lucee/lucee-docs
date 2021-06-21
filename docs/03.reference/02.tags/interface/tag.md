@@ -10,6 +10,6 @@ description: Defines an interface that consists of a set of signatures for funct
 
 Defines an interface that consists of a set of signatures for functions.
 
-The interface does not include the full function definitions; instead, you implement the functions in a Component. 
+The interface does not include the full function definitions; instead, you implement the functions in a Component.
 
 The interfaces defined using this tag can can be used to create a reusable application framework.

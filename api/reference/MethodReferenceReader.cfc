@@ -53,7 +53,7 @@ component accessors=true {
 
 		for( var object in objects) {
 			var data = getFunctionData(object);
-			
+
 			if ( data.keyExists("member") && data.member.keyExists("name") && data.status neq "hidden" ){
 				var member = data.member;
 				if (not methods.keyExists(member.type) )

@@ -2,7 +2,7 @@ Action to execute.
 
 - border [[function-ImageAddBorder]]
 - captcha [[function-ImageCaptcha]]
-- convert 
+- convert
 - writetobrowser [[function-ImageWriteToBrowser]]
 - write [[function-ImageWrite]]
 - rotate [[function-ImageRotate]]

@@ -1,1 +1,1 @@
-Whether or not to add a newline 
+Whether or not to add a newline

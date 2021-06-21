@@ -11,7 +11,7 @@ categories:
 
 ## Query of Query Sucks ##
 
-This document explains why Query of Query is not the best approach and provides simple example about QoQ. 
+This document explains why Query of Query is not the best approach and provides simple example about QoQ.
 
 The main reason you would not want to use query of query is that it is very slow.
 

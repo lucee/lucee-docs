@@ -8,7 +8,7 @@ description: Scope everything BUT the closest scope for best performance
 
 ## Lucee recommendation ##
 
-Lucee has delivered very many presentations about performance and code readability. 
+Lucee has delivered very many presentations about performance and code readability.
 
 Here is what they recommend to any of their customers and programmers:
 
