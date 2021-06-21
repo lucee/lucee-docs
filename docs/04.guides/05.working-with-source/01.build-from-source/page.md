@@ -78,7 +78,7 @@ Lucee 6.0 adds some extra options to the build process (they can be combined)
     ant -DtestFilter="image"
     ant -DtestFilter="mysql,oracle"
 
-**testLabels** allows you to filter tests by their assigned labels.
+**testLabels** allows you to filter tests by their assigned labels (only supported per cfc/bundle, not for individual methods).
 
     ant -DtestLabels="s3"
     ant -DtestFilter="mysql,orm"
