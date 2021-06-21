@@ -589,7 +589,7 @@ glow
 	- premultiplyAlpha (boolean)
 		Set whether to premultiply the alpha channel.
 gradient
-	A filter which draws a coloured gradient. This is largely superceded by GradientPaint in Java1.2, but does provide a few
+	A filter which draws a coloured gradient. This is largely superseded by GradientPaint in Java1.2, but does provide a few
 	more gradient options.
 
 	Parameters:
