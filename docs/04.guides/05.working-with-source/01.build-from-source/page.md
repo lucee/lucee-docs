@@ -78,6 +78,11 @@ Lucee 6.0 adds some extra options to the build process (they can be combined)
     ant -DtestFilter="image"
     ant -DtestFilter="mysql,oracle"
 
+**testLabels** allows you to filter tests by their assigned labels.
+
+    ant -DtestLabels="s3"
+    ant -DtestFilter="mysql,orm"
+
 **deployLco** automates the deployment of a new `.lco` build to a local Lucee install's deploy directory
 
 	ant quick -DdeployLco="C:\lucee\tomcat\lucee-server\deploy"
