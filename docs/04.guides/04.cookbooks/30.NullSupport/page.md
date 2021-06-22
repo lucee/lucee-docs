@@ -14,7 +14,7 @@ This document explains how to set null support in the Lucee server admin, assign
 
 You can enable null support  via the  **Lucee Server Admin** --> **Language/compiler** and setting Null support to **complete support** (exclusive to Lucee) or **partial support** (default, same as Adobe CF).
 
-Or via [[tag-application]] 
+Or via [[tag-application]]
 
 ```
 this.nullSupport = true;
@@ -54,7 +54,7 @@ dump( qry );
 dump( qry._null );
 ```
 
-With **partial support** for NULL enabled, `dump(qry._null);` will output an **empty string**. 
+With **partial support** for NULL enabled, `dump(qry._null);` will output an **empty string**.
 With **full support**, `Empty: null` will be output and `IsNull( qry._null );` will evaluate `true`.
 
 ### NullValue() function and null keyword

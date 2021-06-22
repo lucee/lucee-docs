@@ -1,4 +1,4 @@
-A list of directions or a single direction definition (asc, desc), 
+A list of directions or a single direction definition (asc, desc),
 
 The list must have the same length as the columnName list.
 

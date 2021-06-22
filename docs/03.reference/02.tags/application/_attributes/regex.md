@@ -1,4 +1,4 @@
-A struct containing the configuration for regular expressions 
+A struct containing the configuration for regular expressions
 
 ATM only the key "engine" is supported
 

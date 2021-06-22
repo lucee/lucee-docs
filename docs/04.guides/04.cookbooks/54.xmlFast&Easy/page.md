@@ -411,7 +411,7 @@ component {
 		variables.currentName="";
 		variables.removeCD=false;
 
-		
+
 		var xmlEventParser=createObject("java","lucee.runtime.helpers.XMLEventParser");
 		variables.filter=filter;
 		xmlEventParser.init(

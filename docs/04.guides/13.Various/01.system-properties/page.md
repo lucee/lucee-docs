@@ -97,7 +97,7 @@ Find below a brief overview of available options about where and how to set your
     </table>
 </div>
 
-In the following example we'll follow Tomcat's recommendation and set *Environment Variables* by using Tomcats setenv.bat/setenv.sh files. 
+In the following example we'll follow Tomcat's recommendation and set *Environment Variables* by using Tomcats setenv.bat/setenv.sh files.
 
 **For Windows:** Create a batch file at  *path-to-lucee-installation\tomcat\bin\setenv.bat* with the following content:
 
@@ -112,9 +112,9 @@ REM Set Simple whitespace management
 set "LUCEE_CFML_WRITER=white-space"
 ```
 
-If you have installed **Tomcat as service in Windows**, the service wrapper launches Java directly without using script files. 
+If you have installed **Tomcat as service in Windows**, the service wrapper launches Java directly without using script files.
 
-In this case you can alternatively add the *Environment Variables* by running the following Tomcat service update command in a terminal window: 
+In this case you can alternatively add the *Environment Variables* by running the following Tomcat service update command in a terminal window:
 `path-to-lucee-installation\tomcat\bin\tomcat9.exe //US//NameOfYourTomcatService --Environment=key1=value1;key2=...`
 
 **For Linux:** Create a shell script at  *path-to-lucee-installation\tomcat\bin\setenv.sh* with the following content:
@@ -176,11 +176,11 @@ REM Set System Properties with CATALINA_OPTS
 set "CATALINA_OPTS=-Dlucee.full.null.support=true -Dlucee.cfml.writer=white-space -Dlucee.cfml.writer=white-space"
 ```
 
-If you have installed **Tomcat as service in Windows**, the service wrapper launches Java directly without using script files. 
+If you have installed **Tomcat as service in Windows**, the service wrapper launches Java directly without using script files.
 
 In this case you can alternatively add the *System Properties* in the JAVA tab of Tomcats GUI service editor.
 
-To launch Tomcat GUI service editor, open a terminal window and enter `path-to-lucee-installation\tomcat\bin\tomcat9w.exe //ES//NameOfYourTomcatService`. 
+To launch Tomcat GUI service editor, open a terminal window and enter `path-to-lucee-installation\tomcat\bin\tomcat9w.exe //ES//NameOfYourTomcatService`.
 
 **For Linux:** Create a shell script at  *path-to-lucee-installation\tomcat\bin\setenv.sh* with the following content:
 
@@ -415,7 +415,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 					Settings &raquo;  Request &raquo; Script-Protect
 				</p>
 				<p>
-					<strong>Application.cfc:</strong> 
+					<strong>Application.cfc:</strong>
 					<br>
 					<pre lang="html">// as cfscript<br>&lt;cfscript&gt;<br>this.scriptProtect="none";<br>&lt;/cfscript&gt;</pre>
 				</p>
@@ -833,8 +833,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<sub>Values: String</sub>
                 <br>
                 <sub>Default: <code>false</code></sub>
-				
-                
+
+
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -856,7 +856,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<sub>Values: String <code>error | warning |info | debug</code></sub>
                 <br>
                 <sub>Default: <code>error</code></sub>
-               
+
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -1009,7 +1009,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<sub>Values: Boolean <code>true | false</code></sub>
                 <br>
                 <sub>Default: <code>false</code></sub>
-                
+
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -1044,9 +1044,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			</td>
 			<td>
 				<p>Changes Lucee default behaviour of using existing physical paths over virtually mapped paths with the same mapped name (conflicting situation).</p>
-				
+
 				<p>Set this value to <code>true</code> to change Lucees default behaviour and force Lucee to use mappings as first priority and silently ignore conflicting physical paths.</p>
-				
+
 				<strong>Example:</strong>
 				<pre lang="script">// Assumption:<br>// "D:/myimages/abc" is a physical valid location<br><br>// Defined mappings<br>mappings[ '/' ] = 'D:/';<br>mappings[ '/myimages' ] = 'D:/images';<br><br>// Default Lucee:<br>// the following writeDump outputs "D:/myimages/abc"<br>writeDump( expandPath( '/myimages/abc' );<br><br>// If LUCEE_MAPPING_FIRST=true:<br>// the following writeDump outputs "D:/images/abc"<br>writeDump( expandPath( '/myimages/abc' );<br>
 				</pre>
@@ -1069,7 +1069,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			</td>
 			<td>
 				<p>Enables logging on reflection calls.</p>
-				
+
 				<sub>Values: Boolean <code>true|false</code></sub>
                 <br>
                 <sub>Default: <code>false</code></sub>

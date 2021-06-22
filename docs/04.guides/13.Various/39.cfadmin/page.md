@@ -209,7 +209,7 @@ getLocales | |
 getMailServers | |
 getMailSetting | |
 getMappings | |
-getLoaderInfo | Returns the info of the lucee base version, jar path and lucee running version 
+getLoaderInfo | Returns the info of the lucee base version, jar path and lucee running version
 getMinVersion | Returns the base version of your lucee
 getOutputSetting | |
 getPluginDirectory | |
