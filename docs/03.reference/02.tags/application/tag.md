@@ -30,7 +30,7 @@ this.name = "myApplication";
 this.ormsettings.autogenmap = false;
 
 // you can also configure your own custom tag attributes defaults, see [[tags]]
-// i.e. this overides the default log file of "application.log"
+// i.e. this overrides the default log file of "application.log"
 // instead this application will write out all default logs to a log file 
 // named after the Application ( i.e. 'myApplication.log')
 
