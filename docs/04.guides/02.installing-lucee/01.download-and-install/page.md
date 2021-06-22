@@ -6,7 +6,7 @@ menuTitle: Download and Install
 
 # Download and Install Lucee Server #
 
-Lucee can be installed and run almost everywhere that is capable of running a [supported Java Version](/guides/installing-lucee/download-and-install.html#supportedJavaVersions). You can even run Lucee on a small RasberryPI. Because of it's great flexibilty, Lucee Server comes in different flavors to match your needs (Lucee Express, Lucee Installer, CommandBox, Lucee.jar/Lucee.war). This document will help you decide which one fits best for your purpose.
+Lucee can be installed and run almost everywhere that is capable of running a [supported Java Version](/guides/installing-lucee/download-and-install.html#supportedJavaVersions). You can even run Lucee on a small RasberryPI. Because of it's great flexibility, Lucee Server comes in different flavors to match your needs (Lucee Express, Lucee Installer, CommandBox, Lucee.jar/Lucee.war). This document will help you decide which one fits best for your purpose.
 <br>
 <br>
 
@@ -168,7 +168,7 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
 				<div class="attribute">Note:</div>
 			</td>
 			<td>
-			  If you are missing the latest "Lucee Installer" Release at Lucee's download site and it's marked as "Comming soon", you can still install the latest available Lucee version with the following steps:<br>
+			  If you are missing the latest "Lucee Installer" Release at Lucee's download site and it's marked as "Coming soon", you can still install the latest available Lucee version with the following steps:<br>
 				<strong>Step 1:</strong> Select the latest possible release that has a "Lucee Installer" version available and do the complete installation process.<br>
 				<strong>Step 2:</strong> Stop the Lucee/Tomcat service.<br>
 				<strong>Step 3:</strong> Download the latest "Lucee.jar" file at Lucee's download page <a href="https://lucee.org/downloads.html">here</a>.<br>
@@ -254,7 +254,7 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
 			<td>
 				<strong>Lucee.jar</strong> is the pure stand alone servlet containers of Lucee as compressed Java ARchive (also known as JAR-file) and <strong>Lucee.war</strong> is a Web application ARchive (also known as WAR-file) containing the Lucee.jar. Use these files if you want to run Lucee in different environments with different servlet engines (e.g. Undertow, Jetty or cloud based servlet engines like AWSElasticBeanstalk).
                 <br>                
-                You may also use Lucee.jar for upgrading/downgrading Lucee installations without a complete re-installation by simply replacing the .jar file in the servlets engine libary folder. If so, please make always sure to backup Tomcat, all server- and web-contextes and your configurations before upgrading.
+                You may also use Lucee.jar for upgrading/downgrading Lucee installations without a complete re-installation by simply replacing the .jar file in the servlets engine library folder. If so, please make always sure to backup Tomcat, all server- and web-contexts and your configurations before upgrading.
 			</td>
 		</tr>
 		<tr>
