@@ -56,7 +56,7 @@ To build only the update .lco file:
 
 ### 4. Deploy
 
-Deployment is automated via Travis CI on merge/commit
+Deployment (and testing PRs) is automated via [GitHub Actions](https://github.com/lucee/Lucee/actions) for all push and pull requests
 
 See **deployLco** below
 
