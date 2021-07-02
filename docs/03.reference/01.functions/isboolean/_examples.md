@@ -1,27 +1,28 @@
-The following statements evaluate to `true`:
+###The following statements evaluate to `true`:
 
-```luceescript
-IsBoolean( true );
-IsBoolean( false );
-IsBoolean( 0 );
-IsBoolean( -10.4 );
-IsBoolean( 3.6 );
-IsBoolean( "yes" );
-IsBoolean( "no" );
-IsBoolean( "true" );
-IsBoolean( "false" );
-IsBoolean( "0" );
-IsBoolean( "-10.4" );
-IsBoolean( "3.6" );
+```luceescript+trycf
+    writeDump(IsBoolean( true ));
+    writeDump(IsBoolean( false ));
+    writeDump(IsBoolean( 0 ));
+    writeDump(IsBoolean( -10.4 ));
+    writeDump(IsBoolean( 3.6 ));
+    writeDump(IsBoolean( "yes" ));
+    writeDump(IsBoolean( "no" ));
+    writeDump(IsBoolean( "true" ));
+    writeDump(IsBoolean( "false" ));
+    writeDump(IsBoolean( "0" ));
+    writeDump(IsBoolean( "-10.4" ));
+    writeDump(IsBoolean( "3.6" ));
 ```
 
-The following statements evaluate to `false`:
+###The following statements evaluate to `false`:
 
-```luceescript
-IsBoolean( Now() );
-IsBoolean( {} );
-IsBoolean( [] );
-IsBoolean( QueryNew('') );
-IsBoolean( "" );
-IsBoolean( "a string" );
+```luceescript+trycf
+    writeDump(IsBoolean( Now() ));
+    writeDump(IsBoolean( {} ));
+    writeDump(IsBoolean( [] ));
+    writeDump(IsBoolean( QueryNew('') ));
+    writeDump(IsBoolean( "" ));
+    writeDump(IsBoolean( "a string" ));
+
 ```
