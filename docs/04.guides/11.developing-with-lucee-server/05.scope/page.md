@@ -71,7 +71,7 @@ vs
 variables.myVariable
 ```
 
-Please see Using scopes explicitly in code for details.
+Please see [[using-scopes-explicitly-in-code]] for details.
 
 ## Further information required ##
 
