@@ -19,7 +19,7 @@ Dump( var=people, label="people - original query" );
 */
 
 //filter - older than 21
-qryPeopleOldEnough = people.filter(function(row, rowNumber, qryData){
+qryPeopleOldEnough = queryfilter(people,function(row, rowNumber, qryData){
     return DateDiff('yyyy', row.dob, Now()) > 21
 });
 dump(var=qryPeopleOldEnough, label='qryPeopleOldEnough - older than 21');
@@ -61,7 +61,7 @@ dump(var=qryPeopleOldEnough, label='qryPeopleOldEnough - older than 21');
 
 <cftimer type="outline" label="query.filter() with scoped variables">
 	<cfscript>
-		q2 = q.filter(function(row){
+		q2 = queryfilter(q,function(row){
 			return (arguments.row.description contains s);
 		});
 	</cfscript>
@@ -70,7 +70,7 @@ dump(var=qryPeopleOldEnough, label='qryPeopleOldEnough - older than 21');
 
 <cftimer type="outline" label="query.filter() without unscoped variables">
 	<cfscript>
-		q3 = q.filter(function(row){
+		q3 = queryfilter(q,function(row){
 			return (row.description contains s);
 		});
 	</cfscript>
