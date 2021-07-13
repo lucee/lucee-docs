@@ -86,3 +86,7 @@ Lucee 6.0 adds some extra options to the build process (they can be combined)
 **deployLco** automates the deployment of a new `.lco` build to a local Lucee install's deploy directory
 
 	ant quick -DdeployLco="C:\lucee\tomcat\lucee-server\deploy"
+
+**testExtensions** allows testing local extension build(s) `*.lex` from a local directory with the main test suite
+
+	ant -DtestLabels="zip" -DtestExtensions="C:\work\lucee-extensions\extension-compress\dist"
