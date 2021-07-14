@@ -1,4 +1,4 @@
-###The following statements evaluate to `true`:
+### The following statements evaluate to `true`:
 
 ```luceescript+trycf
     writeDump(IsBoolean( true ));
@@ -15,7 +15,7 @@
     writeDump(IsBoolean( "3.6" ));
 ```
 
-###The following statements evaluate to `false`:
+### The following statements evaluate to `false`:
 
 ```luceescript+trycf
     writeDump(IsBoolean( Now() ));
