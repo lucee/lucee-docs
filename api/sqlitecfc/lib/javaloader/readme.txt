@@ -4,7 +4,7 @@ Date: 2nd October 2007
 
 Installation
 ----------------
-To install the javaloader, either put the javaloader in the 
+To install the javaloader, either put the javaloader in the
 root of your web application, or make a mapping called
 'javaloader' to the javaloader folder.
 
@@ -13,8 +13,8 @@ Utilisation
 ----------------
 To access the JavaLoader CFC, you call createObject on it like so:
 
-createObject("component", "javaloader.JavaLoader").init(loadPaths, 
-														[loadColdFusionClassPath,] 
+createObject("component", "javaloader.JavaLoader").init(loadPaths,
+														[loadColdFusionClassPath,]
 														[parentClassLoader]);
 
 There are three arguments that possible to configure how and what the JavaLoader loads.
@@ -29,7 +29,7 @@ loadPaths[2] = expandPath("log4j.jar");
 
 * param: loadColdFusionClassPath (default: false)
 Loads the ColdFusion libraries with the loaded libraries.
-This used to be on by default, however now you must implicitly set it to be true if 
+This used to be on by default, however now you must implicitly set it to be true if
 you wish to access any of the libraries that ColdFusion loads at application startup.
 
 * parentClassLoader (null)

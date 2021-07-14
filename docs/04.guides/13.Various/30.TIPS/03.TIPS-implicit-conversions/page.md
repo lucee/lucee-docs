@@ -77,7 +77,7 @@ address.cfc
 <cfoutput>#address#</cfoutput>
 ```
 
-Now, in the address.cfc, note that we have a new function named `_toString` - This is a special conversion/function method name. 
+Now, in the address.cfc, note that we have a new function named `_toString` - This is a special conversion/function method name.
 
 There are other simple types available:
 

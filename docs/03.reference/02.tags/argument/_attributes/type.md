@@ -11,3 +11,5 @@ The type of the argument
 - struct
 - uuid
 - variableName
+- component
+- componentName

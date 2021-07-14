@@ -10,6 +10,6 @@ categories:
 - query
 ---
 
-Passes SQL statements to a data source. 
+Passes SQL statements to a data source.
 
 Not limited to queries.

@@ -7,9 +7,9 @@ categories:
 
 ## How does an Event Gateway work? ##
 
-An event gateway is a background process which is continuously running. 
+An event gateway is a background process which is continuously running.
 
-While running, it is doing the following: <cfsleep> for a specific time (the "interval"), then doing what it is designed for (checking changes in a directory, polling a mailserver, etcetera). And after that, it goes to <cfsleep> again. 
+While running, it is doing the following: <cfsleep> for a specific time (the "interval"), then doing what it is designed for (checking changes in a directory, polling a mailserver, etcetera). And after that, it goes to <cfsleep> again.
 
 This looping and sleeping does not count for all types of event gateways btw. A socket gateway for example just instantiates a Java socket server.
 
@@ -29,7 +29,7 @@ This event gateway checks a given directory for file changes. These changes (eve
 
 When this gateway starts, it first takes a snapshot of the current state of the directory. This is the starting point, from where changes are calculated.
 
-Please note that the files in this first snapshot are NOT seen as changes! 
+Please note that the files in this first snapshot are NOT seen as changes!
 
 So if you already have some files in the directory you want to watch, then these files are not seen as "new file" when the gateway starts. Also, when Lucee (or your whole server) restarts, then any changes which happened within this time are not seen, and will not be picked up when the Directory watcher starts up again.
 
@@ -80,9 +80,9 @@ You might want to check this enhancement request for updates regarding this loca
 
 The CGI scope does not contain useful data. For example, there is no "CGI.http_host".
 
-Debugging can be a bit harder, because there is no Application.cfc/cfm loaded. 
+Debugging can be a bit harder, because there is no Application.cfc/cfm loaded.
 
-In fact, since the Event gateway is just one continuously running thread, every iteration of the Event gateway uses the same already loaded listener cfc. 
+In fact, since the Event gateway is just one continuously running thread, every iteration of the Event gateway uses the same already loaded listener cfc.
 
 If you make any changes to your code, then you will need to stop the gateway, and then restart it. This can be done via the web or server admin.
 
@@ -112,15 +112,15 @@ You can see there is no function name given for the "Delete" action. That's beca
 
 The **Listener CFC** Path must be entered using dot notation, starting from within the directory {Lucee-install}/lib/lucee-server/context/gateway/.
 
-The **Interval** and **Watch subdirectory** values should always get your full attention. 
+The **Interval** and **Watch subdirectory** values should always get your full attention.
 
-Remember that the Directory watcher actually does a complete <cfdirectory> crawl on every Interval. 
+Remember that the Directory watcher actually does a complete <cfdirectory> crawl on every Interval.
 
-So if the directory to check contains a lot of files (and subdirectories, if you checked Watch subdirectory), then the execution of the gateway instance might take some time. 
+So if the directory to check contains a lot of files (and subdirectories, if you checked Watch subdirectory), then the execution of the gateway instance might take some time.
 
 The current Interval setting of 10 seconds in this example could also be 100 or 600 seconds, if the files in the directory do not change often, or do not get deleted.
 
-The **function name** of the Change and Add action is the same; they are both called onAdd. It means there is a function onAdd available in BackupFilesListener.cfc. 
+The **function name** of the Change and Add action is the same; they are both called onAdd. It means there is a function onAdd available in BackupFilesListener.cfc.
 
 This function will be called on both occasions, which is okay for a functionality that only needs to copy a given file to a certain directory.
 
@@ -149,7 +149,7 @@ Also, make sure that you wrap your Listener function code inside try-catch block
 </cffunction>
 ```
 
-If you do not add these try-catch blocks, and anything goes wrong, it will be much harder to find out if anything went wrong! 
+If you do not add these try-catch blocks, and anything goes wrong, it will be much harder to find out if anything went wrong!
 
 For example, the above code would crash if a file with the same name already exists in the directory "C:\backupfiles\".
 

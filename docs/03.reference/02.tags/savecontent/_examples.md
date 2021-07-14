@@ -13,3 +13,10 @@
 </cfoutput>
 #test#
 ```
+
+```luceescript+trycf
+	cfsavecontent( variable="test" ){
+		echo("Here you can add any cf, html elements etc.,");
+	}
+	echo(test);
+```

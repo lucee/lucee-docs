@@ -2,7 +2,7 @@
 title: <cfexit>
 id: tag-exit
 related:
-categories:
+- tag-abort
 ---
 
 Used to: Abort the processing of the currently executing CFML custom tag, exit the template

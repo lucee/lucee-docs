@@ -56,7 +56,7 @@ To build only the update .lco file:
 
 ### 4. Deploy
 
-Deployment is automated via Travis CI on merge/commit
+Deployment (and testing PRs) is automated via [GitHub Actions](https://github.com/lucee/Lucee/actions) for all push and pull requests
 
 See **deployLco** below
 
@@ -78,6 +78,15 @@ Lucee 6.0 adds some extra options to the build process (they can be combined)
     ant -DtestFilter="image"
     ant -DtestFilter="mysql,oracle"
 
+**testLabels** allows you to filter tests by their assigned labels (only supported per cfc/bundle, not for individual methods).
+
+    ant -DtestLabels="s3"
+    ant -DtestFilter="mysql,orm"
+
 **deployLco** automates the deployment of a new `.lco` build to a local Lucee install's deploy directory
 
 	ant quick -DdeployLco="C:\lucee\tomcat\lucee-server\deploy"
+
+**testExtensions** allows testing local extension build(s) `*.lex` from a local directory with the main test suite
+
+	ant -DtestLabels="zip" -DtestExtensions="C:\work\lucee-extensions\extension-compress\dist"

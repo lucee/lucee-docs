@@ -20,7 +20,7 @@ There are 2 to 3 files you need to create:
 
 ### The Gateway CFC ###
 
-This is the file which contains the action you want your gateway to do. 
+This is the file which contains the action you want your gateway to do.
 
 Also, it is the file which is instantiated by Lucee when the gateway starts.
 
@@ -130,7 +130,7 @@ I guess you noticed the comment "YOUR GATEWAY ACTIONS HERE"? That's where you ad
 
 ## The Gateway Driver ##
 
-The driver is used to configure and define your Gateway. 
+The driver is used to configure and define your Gateway.
 
 With it, you define the form fields in the Lucee admin settings page for your gateway, and it makes sure that your gateway is listed as an available Gateway.
 

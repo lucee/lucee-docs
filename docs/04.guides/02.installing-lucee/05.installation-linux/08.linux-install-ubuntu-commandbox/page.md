@@ -270,7 +270,7 @@ We have already enabled AJP in the server.json file. Still, Apache2 needs to be 
 $ sudo a2enmod proxy_ajp
 ```
 
-<span>2.</span> Open thunar and adapt the virtual host configuration file '/etc/apache2/sites-available/000-default.conf' by changing your document root to your webroot at '/var/www/wwwroot' and add the *'DirectoryIndex'* directive with the value *'index.cfm'*. Then lock down Lucee administrator and prevent others from downloading sensitive configuration files from your webroot with Apache2's 'Location' and 'LocationMatch' directives:  
+<span>2.</span> Open thunar and adapt the virtual host configuration file '/etc/apache2/sites-available/000-default.conf' by changing your document root to your webroot at '/var/www/wwwroot' and add the *'DirectoryIndex'* directive with the value *'index.cfm'*. Then lock down Lucee administrator and prevent others from downloading sensitive configuration files from your webroot with Apache2's 'Location' and 'LocationMatch' directives:
 
 ```html
 <VirtualHost *:80>

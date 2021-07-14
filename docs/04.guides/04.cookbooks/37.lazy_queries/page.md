@@ -76,7 +76,7 @@ loop struct=types index="type" item="lazy" {
 		}
 		x=qry.val;
 		time=getTickCount('nano')-start;
-		
+
 		if(isNull(results[type]) || results[type]>time)results[type]=time;
 	}
 }

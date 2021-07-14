@@ -51,7 +51,7 @@ In that case Lucee is first checking the archive associated with the "/myMapping
 
 ### Compile the CFML Code inside a mapping ###
 
-In the detail view of a single mapping you can compile all cfm and cfc files in that mapping to test if they are syntactically correct. 
+In the detail view of a single mapping you can compile all cfm and cfc files in that mapping to test if they are syntactically correct.
 
 With the flag "stop on error" you can define if the process should stop if the compiler fails.
 
@@ -104,7 +104,7 @@ component {
 }
 ```
 
-In that case we not only define a physical path, we cam also define a Lucee archive (.lar). 
+In that case we not only define a physical path, we cam also define a Lucee archive (.lar).
 
 "primary" defines where Lucee is checking first for a resource, let's say you have the following code
 

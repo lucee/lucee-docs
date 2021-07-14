@@ -7,7 +7,7 @@
 	}
 
 	window.addEventListener("message", function(ev) {
-		if ( ev.data ){			
+		if ( ev.data ){
 			var msg = ev.data;
 			if ( msg.id && msg.src && msg.src == "try-cf" ){
 				if (!msg.height)
@@ -33,7 +33,7 @@
 			  , blockId    = $codeBlock.attr( "id" )
 			  , scriptBased = $codeBlock.data( 'script' )
 			  , editorUrl = editor  + '?script=' + scriptBased + '&id=' + $codeBlock.attr( "id" ) // for postMessage()
-			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="' 
+			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="'
 			  	+ editorUrl + '" name="' + blockId + '"' + '" id="' + blockId + '"'
 				+ ' class="trycf-iframe" height="350" width="100%"></iframe>' );
 

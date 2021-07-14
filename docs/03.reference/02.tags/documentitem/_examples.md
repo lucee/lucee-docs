@@ -7,7 +7,7 @@
 	<p>Example for <b>CfdocumentItem</b></p>
 	<cfdocumentitem type="header">
 		<h2><i>Example Header</i></h2>
-	</cfdocumentitem>	
+	</cfdocumentitem>
 	<cfdocumentitem type="footer">
 		<h2><i>Example footer</i></h2>
 	</cfdocumentitem>

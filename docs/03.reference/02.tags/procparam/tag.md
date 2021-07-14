@@ -7,6 +7,6 @@ categories:
 - query
 ---
 
-Specifies parameter information, including type, name, value, and length. 
+Specifies parameter information, including type, name, value, and length.
 
 The cfprocparam tag is nested within a [[tag-storedproc]] tag.

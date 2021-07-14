@@ -118,7 +118,7 @@ component accessors=true {
     private string function stripHtml ( required string html,  required string file) {
         var str = arguments.html;
         var pre = Find("<pre>", str, 1);
-        // examples have lots of wierd names, so excluding them
+        // examples have lots of weird names, so excluding them
         while (pre > 0){
             var endPre = Find("</pre>", str, pre);
             if (endPre > 0)

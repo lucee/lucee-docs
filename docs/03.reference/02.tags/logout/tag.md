@@ -5,7 +5,7 @@ related:
 categories:
 ---
 
-Logs the current user out. 
+Logs the current user out.
 
 Removes knowledge of the user ID, password, and roles from the server.
 

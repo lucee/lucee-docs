@@ -10,7 +10,7 @@ categories:
 description: Handles all interactions with files
 ---
 
-Handles all common interactions with files. 
+Handles all common interactions with files.
 
 The attributes you use with cffile depend on the value of the action attribute.
 

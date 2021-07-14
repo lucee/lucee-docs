@@ -1,4 +1,4 @@
-specifying whether the delimiters parameter specifies a multi-character delimiter. 
+specifying whether the delimiters parameter specifies a multi-character delimiter.
 
 If this parameter is true, the delimiters parameter must specify a single delimiter consisting of multiple characters.
 

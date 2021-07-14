@@ -2,7 +2,7 @@
 <cfparam name="args.page" type="page" />
 
 <cfscript>
-	local.pg = args.page;	
+	local.pg = args.page;
 	local.status = arguments.args.docTree.getReferenceByStatus(arguments.args.page.getStatusFilter());
 </cfscript>
 

@@ -7,8 +7,8 @@
   <cftransaction isolation="read_committed">
    	 <cfquery name="changeAddress" datasource="#application.config.DSN#">
   		update address
-		set login_address = <cfqueryparam value="#arguments.newAddress#" cfsqltype="CF_SQL_VARCHAR">
-		where	id = <cfqueryparam value="#arguments.addressId#" cfsqltype="CF_SQL_INTEGER">
+		set login_address = <cfqueryparam value="#arguments.newAddress#" cfsqltype="VARCHAR">
+		where	id = <cfqueryparam value="#arguments.addressId#" cfsqltype="INTEGER">
 	    </cfquery>
   </cftransaction>
 </cffunction>
