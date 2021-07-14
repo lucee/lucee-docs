@@ -39,7 +39,7 @@
 <cfcomponent hint="Creates Sqlite dbs, converts CF recordsets to SQLite tables and CSV files, reads CSV files and converts them to cf queries or read and write directly to a SQLite table" output="false">
 
 	<cffunction name="init" access="public" returntype="SqliteCFC" output="false">
-		<cfargument name="tempdir" type="string" required="false" default="" hint="Where temporary files get written, incuding trailing slash" />
+		<cfargument name="tempdir" type="string" required="false" default="" hint="Where temporary files get written, including trailing slash" />
 		<cfargument name="libdir" type="string" required="false" default="" hint="Where the base.db is located, so it can be copied"/>
 		<cfargument name="model_path" type="string" required="false" default="" hint="change this to match your environment" />
 		<cfargument name="dot_model_path" type="string" required="false" default="" hint="change this to match model_path, but it must be dot-delimited" />
@@ -229,7 +229,7 @@
 		<cfreturn conn />
 	</cffunction>
 
-	<cffunction name="executeSql" access="public" returntype="any" output="true" hint="executes sqlite commands, returns a CF query for a select, and a connection object for all other statements">
+	<cffunction name="executeSql" access="public" returntype="any" output="false" hint="executes sqlite commands, returns a CF query for a select, and a connection object for all other statements">
 		<cfargument name="dbFile" type="string" required="true" hint="The full path to the Sqlite db file" />
 		<cfargument name="sql" type="string" required="true" />
 		<cfargument name="closeConnection" type="boolean" required="false" default="true" />
@@ -329,7 +329,7 @@
 
 			for (i=1;i LTE arguments.srcQuery.recordcount;i=i+1) {
 				firstPos = 1; // this is the first column
-				
+
 				for (j=1;j LTE ListLen(columnlist);j=j+1) {
 					col = ListGetAt(columnlist,j);
 					theValue = arguments.srcQuery[col][i];

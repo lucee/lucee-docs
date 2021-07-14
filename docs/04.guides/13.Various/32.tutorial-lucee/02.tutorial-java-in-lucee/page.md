@@ -57,10 +57,9 @@ please note that "createObject" is a misnomer and at this point you did not crea
 
 	import java.util.Collections;
 
-
 **Creating a new Object**
 
-Uusually you create an instance of an object by calling its constructor.
+Usually you create an instance of an object by calling its constructor.
 in Java this is done by using the new keyword. for example:
 
 	myList = new java.util.ArrayList();
@@ -111,7 +110,7 @@ Unlike ColdFusion, Java is a strongly typed language, meaning that if a variable
 
 What this means is that if a method expects an argument to be of a certain type -- it Must be of that type. you can enforce the types passed to methods by using CFML's javaCast( type, variable ) function.
 
-Consider the following scenario: you have a Java method that expects an argument of type Integer. let's say the the method's signature is as follows:
+Consider the following scenario: you have a Java method that expects an argument of type Integer. Let's say the method's signature is as follows:
 
 ```lucee
 public void add( int value ) { ... }
@@ -138,30 +137,13 @@ You can fix this by forcing CF to pass the argument as an Integer.
 
 In addition to the simple CF types, you will likely see many times that you have to pass complex types to/from Java. the most popular types are Collection, List, and Map. the table below shows the equivalent CF type to these Java types:
 
-**Java Type**
-
-**Lucee Type**
-```lucee
-<tr>
-	<td>java.util.Collection
-	<td>Array
-
-<tr>
-	<td>java.util.List
-	<td>Array
-
-<tr>
-	<td>java.util.Map
-	<td>Struct
-
-<tr>
-	<td>javax.servlet.http.HttpServletRequest
-	<td>getPageContext().getHttpServletRequest()
-
-<tr>
-	<td>javax.servlet.http.HttpServletResponse
-	<td>getPageContext().getHttpServletResponse()
-```
+| Java Type                              | Lucee type                                |
+| ---------------------------------------|-------------------------------------------| 
+| java.util.Collection                   | Array                                     |
+| java.util.List                         | Array                                     |
+| java.util.Map                          | Struct                                    |
+| javax.servlet.http.HttpServletRequest  | getPageContext().getHttpServletRequest()  |
+| javax.servlet.http.HttpServletResponse | getPageContext().getHttpServletResponse() |
 
 **Receiving Values from Methods**
 
@@ -181,15 +163,15 @@ will assign the result of the method call to the variable newValue.
 
 For example, let's say that you want to use the Lucene project from your code. (fortunately, you can use Lucene directly from Lucee thanks to the Lucee Built-in Search), but this can still be a good example.
 
-The first thing to do would be to check the Lucene API docs at http://lucene.apache.org/java/3_3_0/api/all/index.html
+The first thing to do would be to check the Lucene API docs at <http://lucene.apache.org/java/3_3_0/api/all/index.html>
 
 Let's say that you want to create an instance of Lucene's StandardAnalyzer so you can "analyze" text from your CFML code.
 
-Check out StandardAnalyzer's API at http://lucene.apache.org/java/3_3_0/api/all/org/apache/lucene/analysis/standard/StandardAnalyzer.html
+Check out StandardAnalyzer's API at <http://lucene.apache.org/java/3_3_0/api/all/org/apache/lucene/analysis/standard/StandardAnalyzer.html>
 
 Perusing the Constructor Summary, you will notice that the StandardAnalyzer class does not have a no-argument constructor, so you can't just call .init() on the object -- you must pass some argument to it.
 
-The simplest constructor to use, using the default "stop words" is -- StandardAnalyzer( Version matchVersion ) -- and it expects a Version argument. the Version argument is an Enum type http://lucene.apache.org/java/3_3_0/api/all/org/apache/lucene/util/Version.html, so you can not simply pass a string into the StandardAnalyzer's constructor -- that would not work!
+The simplest constructor to use, using the default "stop words" is -- StandardAnalyzer( Version matchVersion ) -- and it expects a Version argument. the Version argument is an Enum type <http://lucene.apache.org/java/3_3_0/api/all/org/apache/lucene/util/Version.html>, so you can not simply pass a string into the StandardAnalyzer's constructor -- that would not work!
 
 So in order to call the StandardAnalyzer's constructor you must first get a reference to an org.apache.lucene.util.Version object.
 
@@ -258,6 +240,7 @@ String url = manager.getAuthenticationUrl(id, successUrl);
 // Store in session
 session.setAttribute("authManager", manager);
 ```
+
 Ported to CFML:
 
 ```lucee
@@ -269,7 +252,7 @@ Ported to CFML:
 
 <cfset successUrl = "http://yourwebsite.org/socialAuthSuccessAction.cfm">
 
-<cfset redirUrl = manager.getAuthenticationUrl( id, successUrl )>  <!--- need to set id somewhere --->
+<cfset redirUrl = manager.getAuthenticationUrl( id, successUrl )> <!--- need to set id somewhere --->
 
 <cfset session.authManager = manager>
 
@@ -351,7 +334,10 @@ You will still be able to get the value by calling myName[ "Name" ] which preser
 
 You can always use cfdump on a Java object to see what methods and properties are available. this is very useful when trying to troubleshoot a problem.
 
-
 	<cfdump var="#myJavaObject#">
 
-See also: [[using-lucee-in-java]]
+See also:
+
+[[using-lucee-in-java]]
+
+<https://blog.simplicityweb.co.uk/121/loading-java-libraries-dynamically-in-lucee-without-javaloader>

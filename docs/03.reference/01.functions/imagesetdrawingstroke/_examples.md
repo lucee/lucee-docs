@@ -4,4 +4,4 @@
   	imgObj.setDrawingStroke(lineAttributes);
   	imgObj.drawLines([0,38,76,114,152],[0,152,0,152,0],"no","no");
   	cfimage(action="writeToBrowser", source=imgObj);
- ``` 	
+ ```

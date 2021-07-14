@@ -12,10 +12,8 @@ id: tips-built-in-tag
 
 * Semi-related is the ability to create custom tags using CFCs. The following blog posts are available
 
-
 * **Lucee Blog Post:** [CFC Custom Tag Example 1](http://www.lucee.ch/blog/index.cfm/2009/6/2/CFCbased-Custom-Tags-by-Example--Part-1)
 * **Lucee Blog Post:** [CFC Custom Tag Example 2](http://www.lucee.ch/blog/index.cfm/2009/6/4/CFCbased-Custom-Tags-by-Example--Part-2)
 * **Lucee Blog Post:** [Another CFC Custom Tag Example](http://www.lucee.ch/blog/index.cfm/2009/9/11/CFC-Custom-Tag-Example)
-
 
 Return to [[faq-s]] or [[tips-and-tricks]]

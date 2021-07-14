@@ -1,8 +1,9 @@
+<cfset local.args = arguments.args>
 <cfparam name="args.body"       type="string" />
 <cfparam name="args.title"      type="string" />
 <cfparam name="args.crumbs"     type="string" />
 <cfparam name="args.navTree"    type="string" />
-<cfparam name="args.filepath"    type="string" default =""/>
+<cfparam name="args.filepath"   type="string" default="" />
 <cfparam name="args.noIndex"    type="boolean" default="false" />
 
 <cfoutput><!DOCTYPE html>
@@ -15,7 +16,7 @@
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 			gtag('config', 'UA-116664465-1');
-			<Cfif args.filepath.contains("/404.html")>
+			<cfif args.filepath.contains("/404.html")>
 			gtag('event', window.location.href, {
 				'event_category' : '404 not found',
 				'event_label' : document.referrer
@@ -29,7 +30,7 @@
 			<meta name="ROBOTS" content="NOINDEX">
 		</cfif>
 
-		<link href="/assets/css/base.min.css" rel="stylesheet">
+		<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
 		<link href="/assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
 		<!-- ie -->
@@ -44,12 +45,12 @@
 			<div class="menu-scroll">
 				<div class="menu-wrap">
 					<div class="menu-content">
-						<a class="nav-drawer-logo" href="/index.html"><img class="Lucee" src="/assets/images/lucee-logo-bw.png"></a>
+						<a class="nav-drawer-logo" href="/index.html"><img alt="Lucee" class="Lucee" src="/assets/images/lucee-logo-bw.png"></a>
 						#args.navTree#
 						<hr>
 						<ul class="nav">
 							<li>
-								<a href="http://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
+								<a href="https://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
 							</li>
 							<li>
 								<a href="https://dev.lucee.org"><span class="fa fa-fw fa-comments"></span>Mailing List</a>
@@ -61,7 +62,7 @@
 								<a href="https://github.com/lucee/lucee-docs"><span class="fa fa-fw fa-github"></span>Source repository</a>
 							</li>
 							<li>
-								<a href="http://javadoc.lucee.org"><span class="fa fa-fw fa-code"></span>JavaDocs</a>
+								<a href="https://javadoc.lucee.org"><span class="fa fa-fw fa-code"></span>JavaDocs</a>
 							</li>
 							<li>
 								<a href="https://rorylaitila.gitbooks.io/lucee/content/"><span class="fa fa-fw fa-book"></span>Git Book</a>
@@ -148,6 +149,6 @@
 				</p>
 			</div>
 		</footer>
-		<script src="/assets/js/dist/base.24.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.#application.assetBundleVersion#.min.js" type="text/javascript"></script>
 	</body>
 </html></cfoutput>

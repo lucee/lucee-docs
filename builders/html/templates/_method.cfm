@@ -1,4 +1,5 @@
-<cfparam name="args.page" type="page" />
+<cfparam name="arguments.args.page" type="page" />
+<cfset local.args = arguments.args>
 
 <cfset local.meth = args.page />
 <cfset local.argumentsHaveDefaultValues = local.meth.argumentsHaveDefaultValues() />
@@ -10,9 +11,10 @@
 	<cfif len(local.meth.getIntroduced()) gt 0>
 		<p><strong>Introduced:</strong> #local.meth.getIntroduced()#</p>
 	</cfif>
-```luceescript
-#local.meth.getUsageSignature()#
-```
+	<code>
+		#local.meth.getUsageSignature()#
+	</code>
+
 <p>Returns:</strong> #local.meth.getReturnTypeLink()#</p>
 
 	<cfif !local.meth.getArguments().len()>
@@ -33,6 +35,9 @@
 				</thead>
 				<tbody>
 					<cfloop array="#local.meth.getArguments()#" item="local.arg" index="local.i">
+						<cfif local.arg.status eq "hidden">
+							<cfcontinue>
+						</cfif>
 						<tr>
 							<td>
 								<div class="argument" id="argument-#local.arg.name#" title="Argument name">
@@ -49,8 +54,9 @@
 								#getEditLink(path=local.meth.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
 								#markdownToHtml( Trim( arg.description ) )#
 								<cfif local.arg.keyExists("alias") and len(local.arg.alias) gt 0>
-									<p title="for compatability, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
+									<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
 								</cfif>
+								#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
  								<td>

@@ -1,4 +1,4 @@
-Date time formatting mask (case sensitive): 
+Date time formatting mask (case sensitive):
 
 - a,..,aaaa: AM/PM marker (see also "t" and "tt"; Example:AM)
 - d: Day in month, no leading zero for single-digit days (Example:3)
@@ -21,7 +21,7 @@ Date time formatting mask (case sensitive):
 - KK: Hour in am/pm (0-11), leading zero for single-digit hours (Example:02)
 - l,L: milliseconds, with no leading zeros (Example:3)
 - ll,LL: milliseconds, leading zero for single-digit days (Example:03)
-- lll,LLL: milliseconds,  2 leading zero for single-digit days (Example:003)
+- lll,LLL: milliseconds, 2 leading zero for single-digit days (Example:003)
 - m,M: Month as digits, no leading zero for single-digit months (Example:6)
 - mm,MM: Month as digits, leading zero for single-digit months (Example:06)
 - mmm,MMM: Month as a three-letter abbreviation (Example:Jun)
@@ -44,10 +44,10 @@ Date time formatting mask (case sensitive):
 
 The following masks can be used to format the full date and time and may not be combined with other masks:
 
-- short: equivalent to "m/d/y h:mm tt"
-- medium: equivalent to "mmm d, yyyy h:mm:ss tt"
-- long: medium followed by three-letter time zone; i.e. "mmmm d, yyyy h:mm:ss tt zzz"
-- full: equivalent to "dddd, mmmm d, yyyy h:mm:ss tt zz"
-- ISO8601: equivalent to "yyyy-mm-dd'T'HH:nn:ss'Z'Z"
+- short: equivalent to "m/d/y h:nn tt"
+- medium: equivalent to "mmm d, yyyy h:nn:ss tt"
+- long: medium followed by three-letter time zone; i.e. "mmmm d, yyyy h:nn:ss tt zzz"
+- full: equivalent to "dddd, mmmm d, yyyy h:nn:ss tt zz"
+- ISO8601/ISO: equivalent to "yyyy-mm-dd'T'HH:nn:ssXXX"
 
-The function follows Java date time mask.  For details, see the Java documentation section [Date and Time Patterns](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html). 
+The function follows Java date time mask.  For details, see the Java documentation section [Date and Time Patterns](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).

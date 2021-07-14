@@ -23,21 +23,28 @@ component accessors=true extends="Page" {
 
 		for( var argument in this.getArguments() ) {
 			if ( !argument.required ) {
-				usage &= " [";
+				usage &= "<em title='optional'>";
 				optionalCount++;
 			}
 
-			usage &= delim & argument.name;
+			usage &= delim & argument.name & "=";
+
+			if ( IsArray( argument.values ?: "" ) && argument.values.len() ) {
+				usage &= argument.values.toList( "|" );
+			} else {
+				usage &= argument.type;
+		   	}
+			usage &= "</em>";
 			delim = ", ";
 		}
-
-		usage &= RepeatString( " ]", optionalCount );
+		usage &= "</em>";
+		//usage &= RepeatString( " ]", optionalCount );
 		usage &= " )";
 
 		return usage;
 	}
 
-    public boolean function argumentsHaveDefaultValues() {
+    	public boolean function argumentsHaveDefaultValues() {
  		for( var arg in getArguments() ) {
  			if ( !IsNull( arg.default ) ) {
  				return true;
@@ -48,9 +55,18 @@ component accessors=true extends="Page" {
 
 	public array function getArguments() {
 		var args = Duplicate( IsNull( this.arguments ) ? [] : this.arguments );
-		if ( ArrayLen( args ) >= 1 ) {
-			args.deleteAt( 1 );
+		if (structKeyExists(this, "member") && structKeyExists(this.member, "position")){
+			if ( ArrayLen( args ) >= this.member.position ) {
+				args.deleteAt( this.member.position );
+			}
 		}
 		return args;
+	}
+
+	public string function getReturnType() {
+		if (structKeyExists(this.member, "chaining") && this.member.chaining)
+			return this.member.type;
+		else
+			return this.returnType;
 	}
 }

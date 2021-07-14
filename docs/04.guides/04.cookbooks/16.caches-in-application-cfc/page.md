@@ -1,6 +1,8 @@
 ---
 title: Adding Caches via Application.cfc
 id: cookbook-caches-in-application-cfc
+categories:
+    - cache
 related:
 - tag-application
 menuTitle: Adding Caches
@@ -32,6 +34,7 @@ Note, there is a shortcut for `this.cache.connections["myCache"] = {}` and that 
 ## Generating Cache Connection code
 
 The easiest way to generate the code block above is the follow these steps:
+
 1. Start up a Lucee server
 2. Create the cache you want via the web admin
 3. Edit the cache and scroll to the bottom
@@ -41,16 +44,16 @@ The easiest way to generate the code block above is the follow these steps:
 
 Let's take a look at some of the keys used to define a cache connection.
 
-* **class** - This is the Java class of the driver for the cache engine.  
-* **bundleName** -  Optional.  The name of the OSGI bundle to load the `class` from
-* **bundleVersion** -  Optional.  The version of the OSGI bundle to load the `class` from.
-* **storage** -  A boolean that flags whether this cache can be used for client or session storage
-* **custom** - A struct of key/value pairs for configuration the cache. This struct is entirely dependant on the cache driver in use, so refer to the docs for that cache driver to see the possible values.  Note, some of these custom values might be required for some cache drivers to work.
+* **class** - This is the Java class of the driver for the cache engine.
+* **bundleName** - Optional.  The name of the OSGI bundle to load the `class` from
+* **bundleVersion** - Optional.  The version of the OSGI bundle to load the `class` from.
+* **storage** - A boolean that flags whether this cache can be used for client or session storage
+* **custom** - A struct of key/value pairs for configuration the cache. This struct is entirely dependent on the cache driver in use, so refer to the docs for that cache driver to see the possible values.  Note, some of these custom values might be required for some cache drivers to work.
 * **default** - Optional.  If you want this cache to be used as a default cache, then give this one of these values: `function`, `object`, `template`, `query`, `resource`, `include`, `http`, `file`, `webservice`
 
 ## Default Caches
 
-When declaring a cache, you can make it the default cache for certaion operations, but it is also possible to configure the default caches for each operation all at once in your `Application.cfc` like so:
+When declaring a cache, you can make it the default cache for creation operations, but it is also possible to configure the default caches for each operation all at once in your `Application.cfc` like so:
 
 ```javascript
 this.cache.object = "myCache";
@@ -58,9 +61,9 @@ this.cache.template = "AnotherCache";
 this.cache.query = "yetAnother";
 this.cache.resource = "<cache-name>";
 this.cache.function = "<cache-name>";
-this.cache.include = "<cache-name>";	
-this.cache.http = "<cache-name>";	
-this.cache.file = "<cache-name>";	
+this.cache.include = "<cache-name>";
+this.cache.http = "<cache-name>";
+this.cache.file = "<cache-name>";
 this.cache.webservice = "<cache-name>";
 ```
 

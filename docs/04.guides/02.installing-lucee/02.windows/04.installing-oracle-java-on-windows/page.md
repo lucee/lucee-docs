@@ -16,7 +16,8 @@ Which is the right one for my server?
 
 It requires approximately 145MB of disk space.
 
-**Java SE Development Kit (JDK)**  is designed for development servers and includes a complete JRE plus tools for developing, debugging, and monitoring Java applications. Monitoring tools like the cool [Mission Control](http://docs.oracle.com/javacomponents/jmc-5-4/jmc-user-guide/index.html) can help solve problems.  
+**Java SE Development Kit (JDK)** is designed for development servers and includes a complete JRE plus tools for developing, debugging, and monitoring Java applications. Monitoring tools like the cool [Mission Control](https://docs.oracle.com/javacomponents/jmc-5-4/jmc-user-guide/index.html) can help solve problems.
+
 *Note:* If you plan to use [VisualVM](http://visualvm.java.net/) as your Java monitoring and troubleshooting tool, then the JDK is your choice. It requires approximately 310MB of diskspace.
 
 Installing either the Server JRE or JDK is simple and takes around 10 minutes.
@@ -28,7 +29,7 @@ Installing either the Server JRE or JDK is simple and takes around 10 minutes.
 
 Both packages can be installed on a server without any drawbacks. Switching from one product to the other can be done on the command line:
 
-##  Switch from Server JRE to JDK ##
+## Switch from Server JRE to JDK ##
 
 ```
 setx JAVA_HOME "" /m

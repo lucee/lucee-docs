@@ -1,5 +1,5 @@
 Specifies a name for the structure in which cfquery returns
-            the result variables.
+the result variables.
 
 - SQL: The SQL statement that was executed. (string)
 - Cached: If the query was cached. (boolean)

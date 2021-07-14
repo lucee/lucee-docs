@@ -4,7 +4,8 @@ id: updating-lucee-migrate-from-railo
 menuTitle: Migrating from Railo
 ---
 
-# Migrate from Railo<sup>&copy;</sup>#
+# Migrate from Railo<sup>&copy;</sup> #
+
 Lucee 4.5 is forked from the Railo CFML Server (version 4.2) so you can easily migrate an existing Railo installation as follows.
 
 **A fresh install is recommended, as it bundles a recent version of Tomcat and the last Railo release was several years ago.**
@@ -15,7 +16,7 @@ Lucee 4.5 is forked from the Railo CFML Server (version 4.2) so you can easily m
 
 *Lucee will rewrite some of the configuration files in your existing installation. It will also do a backup of the original contents as a zip file (see below) in case you need to roll back, but it's advisable to make a backup of the original installation just in case.*
 
-1. Download the latest Lucee "custom" package "JARs 4.5 (Stable)" from the [download section](http://lucee.org/downloads.html) and unzip it somewhere.
+1. Download the latest Lucee "custom" package "JARs 4.5 (Stable)" from the [download section](https://lucee.org/downloads.html) and unzip it somewhere.
 2. Stop your Railo server.
 3. In the zip file you will find a file called `lucee.jar`. Use that JAR to replace the existing `railo.jar` in your Railo installation's `lib` directory.
 
@@ -40,16 +41,18 @@ If you are using the [BonCode connector for IIS/Tomcat](http://tomcatiis.riaforg
 
 To access the server admin and individual web context admin GUIs, you will need to replace "/railo-context/" in each URL with "/lucee/". For example instead of
 
-http://localhost:8888/railo-context/admin/server.cfm
+<http://localhost:8888/railo-context/admin/server.cfm>
 
 you should now use:
 
-http://localhost:8888/lucee/admin/server.cfm
+<http://localhost:8888/lucee/admin/server.cfm>
 
 ## Optional Steps ##
+
 Lucee only converts the Railo config settings, it does not touch your Servlet Engine configuration since Lucee will work with the existing Railo configuration.
 
 ### web.xml (jetty)/webdefault.xml (tomcat) ###
+
 You **can** for example change the class names in the servlet definitions from
 
 ```xml
@@ -98,6 +101,7 @@ but doing so isn't necessary and makes no difference to Lucee.
 The same applies to the "railo-inst.jar" defined in your start script: you can change it but it is not necessary.
 
 ## Extensions
+
 Partially or fully Java based extensions that rely on certain Railo interfaces may not work and could possibly prevent Lucee from starting.
 
 The following extensions need to be updated in order to work with Lucee. It is best uninstall them before you migrate then re-install them afterwards so that you get the new Lucee compatible versions:
@@ -107,7 +111,7 @@ The following extensions need to be updated in order to work with Lucee. It is b
 
 This list will be added to as issues come to light.
 
-###Spreadsheet
+### Spreadsheet
 
 The original [Railo extension produced by TeamCfAdvance](https://github.com/teamcfadvance/cfspreadsheet-railo) is not compatible with Lucee and should be removed.
 
@@ -117,11 +121,11 @@ An updated version for Lucee 5 can be found at [https://github.com/Leftbower/cfs
 
 Alternatively, a standalone (non-extension) [spreadsheet library for Lucee](https://github.com/cfsimplicity/lucee-spreadsheet) is available which supports almost all of the extension's functionality.
 
-###Video
+### Video
 
 If you have installed the Video extension, you may see the following error: `java.lang.NoClassDefFoundError: railo/runtime/video/VideoExecuter`. To fix this simply [download the railo-video-extension-adapter-for-lucee.jar](https://bitbucket.org/lucee/lucee/downloads/railo-video-extension-adapter-for-lucee.jar) and place it next to the "railo-extension-video.jar" in your installation.
 
-##org.railo.cfml... component paths
+## org.railo.cfml... component paths
 
 If you have used the component path *org.railo.cfml...* as a **return or argument type**, it must be changed to *org.lucee.cfml*, eg.
 
@@ -135,10 +139,10 @@ These CFCs may be affected:
 
    ![cfcs.jpg](https://bitbucket.org/repo/rX87Rq/images/2979463242-cfcs.jpg)
 
-###objectSave()
+### objectSave()
+
 Objects persisted with *objectSave()* on Railo, can not be loaded with *objectLoad()* on Lucee.
 
-
-###Other issues?
+### Other issues?
 
 If you are having problems please post to the [Lucee Google Group](https://groups.google.com/forum/#!forum/lucee).

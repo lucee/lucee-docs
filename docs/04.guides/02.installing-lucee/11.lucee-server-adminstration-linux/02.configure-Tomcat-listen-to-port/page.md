@@ -49,7 +49,6 @@ Next we will need to install authbind, the program we need to use to allow Tomca
 
 Once we have authbind installed, we need to configure port 80 as a port that can be bound using authbind. We can do that with the following commands:
 
-
 	sudo touch /etc/authbind/byport/80
  	sudo chmod 500 /etc/authbind/byport/80
  	sudo chown [YOUR LUCEE USER] /etc/authbind/byport/80
@@ -75,7 +74,6 @@ Tomcat should now be binding to port 80. You can check to see if the "java" proc
 	sudo netstat -ltpn
 
 and your output should look something like this:
-
 
 	Active Internet connections (only servers)
 		Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name

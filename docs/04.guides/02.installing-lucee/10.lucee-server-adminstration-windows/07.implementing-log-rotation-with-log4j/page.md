@@ -15,12 +15,11 @@ A lot of what I'm about to write is just a customized form of the Tomcat documen
 
 [https://tomcat.apache.org/tomcat-7.0-doc/logging.html#Using_Log4j](https://tomcat.apache.org/tomcat-7.0-doc/logging.html#Using_Log4j)
 
-### Installing Log4J Walkthough ###
+### Installing Log4J Walkthrough ###
 
 The following guide will assume you've installed Lucee to the default location of C:\lucee, and the directories stated here will be written accordingly. If you installed Lucee to a different location, you will need to update the example directories to match where you installed Lucee.
 
 Second, I recommend performing this update as the administrator user, because it makes permissions like opening notepad/wordpad much easier to work with. If you're not running as the administrator user, you can generally right-click notepad or wordpad in the start menu and select "Open as Administrator", and then find the file you need to manipulate. It's more of a pain, but it will let you do what you need to here.
-
 
 ### Create the log4j.properties file ###
 
@@ -57,14 +56,13 @@ At the time of this writing, log4j 2.0 beta is available, but since we're (most 
 
 [http://archive.apache.org/dist/logging/log4j/1.2.17/](http://archive.apache.org/dist/logging/log4j/1.2.17/)
 
-Extracting this will produce a standard java build directory. To get to the pre-compiled binaries, go to ```dist -> lib```, and you will find ```log4j-1.2.17.jar```. Copy this file to ```C:\lucee\tomcat\lib``` directory, and you're done with this step.
+Extracting this will produce a standard Java build directory. To get to the pre-compiled binaries, go to ```dist -> lib```, and you will find ```log4j-1.2.17.jar```. Copy this file to ```C:\lucee\tomcat\lib``` directory, and you're done with this step.
 
 ### Download Tomcat Extras ###
 
 There are two additional JAR's Tomcat will need in order to use Log4j, these are tomcat-juli.jar and ```tomcat-juli-adapters.jar``` These are "extras" that the Tomcat project keeps up to date and provides downloads for. You can download these two files from the Tomcat download page, under "Extras":
 
 [http://tomcat.apache.org/download-70.cgi](http://tomcat.apache.org/download-70.cgi)
-
 
 Once downloaded, you will need to place in the following directories
 

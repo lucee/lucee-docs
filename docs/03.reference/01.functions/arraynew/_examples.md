@@ -5,9 +5,9 @@
     a.append([]);
     // with values
     a.append( [
-        'a','b', 
+        'a','b',
         3, 4,
-        [], 
+        [],
         {complex: true},
         queryNew("id,date")
     ] );

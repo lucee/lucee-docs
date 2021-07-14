@@ -8,9 +8,10 @@ related:
 - object-string
 categories:
 - string
-
 - regex
 - find
 ---
 
-Uses a regular expression (RE) to search a string for a pattern. The search is case sensitive.
+Uses a Regular Expression (RE) to search a string for a pattern. 
+
+The search is case sensitive.

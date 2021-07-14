@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args><!--- scope hack --->
 <cfparam name="args.pageLineage" type="array" />
 <cfparam name="args.pageLineageMap" type="struct" />
 <cfparam name="args.crumbs"      type="array" />

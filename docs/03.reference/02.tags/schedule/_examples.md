@@ -1,4 +1,5 @@
 ### Syntax for cfschedule
+
 ```luceescript
 <cfschedule
     action="update"
@@ -11,4 +12,34 @@
     publish = "Yes"
     file = "myfile.log"
     path = "#expandPath('./')#" />
+```
+
+### Action List
+
+```luceescript
+<cfschedule action="list" returnvariable="res">
+```
+
+### Action Run
+
+```luceescript
+<cfschedule action="run" task="taskOne">
+```
+
+### Action Pause
+
+```luceescript
+<cfschedule action="pause" task="taskOne">
+```
+
+### Action Resume
+
+```luceescript
+<cfschedule action="resume" task="taskOne">
+```
+
+### Action Delete
+
+```luceescript
+<cfschedule action="delete" task="taskOne">
 ```

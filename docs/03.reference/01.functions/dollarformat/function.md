@@ -2,11 +2,12 @@
 title: DollarFormat
 id: function-dollarformat
 related:
+- function-lscurrencyformat
 categories:
-    - currency
-    - string
-    - formatting
+- currency
+- formatting
+- string
+description: Formats a string in U.S. format.
 ---
 
-Formats a string in U.S. format. (For other currencies, use
-        LSCurrencyFormat)
+Formats a string in U.S. format. (For other currencies, use [[function-LSCurrencyFormat]])

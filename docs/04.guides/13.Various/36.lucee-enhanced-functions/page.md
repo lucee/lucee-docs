@@ -7,7 +7,7 @@ id: lucee-enhanced-tags
 
 Here you will find a description of all tags existing in the CFML standard but which are enhanced in Lucee with helpful features. All tags should work like the original definition in the CFML standard. Here only additional functionalities or attributes are described.
 
-###Application###
+### Application ###
 
 This page contains all the application framework tags.
 
@@ -55,9 +55,9 @@ The popular tag ( and ) is available since Lucee 2.0 and offers some improvement
 Example:
 
 ```lucee
-<CFDOCUMENT filename="ab.pdf">
-<CFDOCUMENTSECTION srcfile="a.pdf" />
-<CFDOCUMENTSECTION srcfile="b.pdf" />
+<cfdocument filename="ab.pdf">
+<cfdocumentsection srcfile="a.pdf" />
+<cfdocumentsection srcfile="b.pdf" />
 </cfdocument>
 ```
 
@@ -103,14 +103,14 @@ Next to supporting all CF8 attributes, CFDUMP now supports the attribute abort="
 Example:
 
 ```lucee
-<CFDUMP abort eval="request">
+<cfdump abort eval="request">
 ```
 
 In addition as a goodie, if you hover over the label of a dump output, Lucee displays the code line and the file where the dump was produced:
 
 **[[tag-http]]**
 
-This tag has been enhanced with the attribute "addtoken". When this attribute is set to "true", the request cookies "cfid, cftoken, jsessionid" will be added to the request so that a request will be automatically recognized beeing from the same session. This can be compared with the behaviour of the tag CFLOCATION.
+This tag has been enhanced with the attribute "addtoken". When this attribute is set to "true", the request cookies "cfid, cftoken, jsessionid" will be added to the request so that a request will be automatically recognized being from the same session. This can be compared with the behaviour of the tag CFLOCATION.
 
 Example:
 
@@ -175,7 +175,7 @@ An abort outputs the data generated so far even though it is encapsulated inside
 
 Then the line "This code is not visible" will not be displayed. It is a different behaviour than in the CFML standard, but since you can use it or not and since in the Lucee Administrator you will be able to define it's default behaviour to meet the standard, it is not considered as incompatible to the CFML standard.
 
-###Extensibility###
+### Extensibility ###
 
 This page contains all the changed tags regarding extensibility.
 
@@ -193,7 +193,7 @@ Example:
 
 The tag CFIMAP works exactly as the tag CFMAIL and accepts the same attributes. It just uses the IMAP format for connecting to the mailserver.
 
-###File management###
+### File management ###
 
 This page contains the changes of all file or folder related tags.
 
@@ -232,7 +232,7 @@ Example:
 
 Where /s3 is a mapping defined in the Lucee administrator pointing to an Amazon S3 bucket.
 
-###Flow control###
+### Flow control ###
 
 Description of all changed flow control tags.
 
@@ -242,22 +242,22 @@ The new CFTHREAD tag supports the attribute type. This attribute can contain eit
 
 **[[tag-abort]]**
 
-This tag has been extended with the attribute "type". With this attribute you can define whether a request is aborted completely (request) or if only the current CFML-template is aborded (page). The default value for this attribute is "request".
+This tag has been extended with the attribute "type". With this attribute you can define whether a request is aborted completely (request) or if only the current CFML-template is aborted (page). The default value for this attribute is "request".
 
 Example: Template index.cfm
 
 ```lucee
 Hello
-<CFINCLUDE template="main.cfm">
-<CFOUTPUT>#name#</cfoutput>
+<cfinclude template="main.cfm">
+<cfoutput>#name#</cfoutput>
 ```
 
 Template main.cfm
 
 ```lucee
-<CFSET name="Lucee">
-<CFABORT type="page">
-<CFTHROW message="your are to far">
+<cfset name="Lucee">
+<cfabort type="page">
+<cfthrow message="your are to far">
 ```
 
 Output: Hello Lucee

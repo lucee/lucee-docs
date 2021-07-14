@@ -4,26 +4,29 @@ id: working-with-source-java-using-lucee-in-java
 ---
 
 # Using Lucee within Java #
+
 While Lucee allows you to do almost everything your web application will need to do by using CFML code, there may be times when you will need to use Lucee from Java applications.
 
 Since Lucee is written in Java and is running inside a Java Virtual Machine (JVM), using Lucee from your Java applications is very easy.
 
 ## Adding Lucee to your Java Project ##
 
-The first thing you will need to do is to add `lucee.jar` to your classpath, so that you will have access to the classes and interfaces that Lucee provides.  if you are using an IDE like Eclipse or Netbeans, then you simply add the `lucee.jar` library to your project.
+The first thing you will need to do is to add `lucee.jar` to your classpath, so that you will have access to the classes and interfaces that Lucee provides.  If you are using an IDE like Eclipse or Netbeans, then you simply add the `lucee.jar` library to your project.
 
-Once you added `lucee.jar` to your project, you should have access to all of Lucee's public classes and interfaces. In order to access them you will need to add the import statement to the top of your class file.  be sure to add an import statement for each of the classes / interfaces that you plan to use in that class.  you can review the [Lucee JavaDoc files](http://javadoc.lucee.org).
+Once you added `lucee.jar` to your project, you should have access to all of Lucee's public classes and interfaces. In order to access them you will need to add the import statement to the top of your class file.  Be sure to add an import statement for each of the classes / interfaces that you plan to use in that class.  You can review the [Lucee JavaDoc files](https://javadoc.lucee.org).
 
 ## Using Lucee from your Java code ##
+
 There are two cases in which you might want to use Lucee from your Java code:
 
 * When your Java code is loaded into the JVM through Lucee.
 * In a standalone application detached from a Lucee web app.
 
 ### When your Java code was loaded by Lucee ###
-The easiest way to use Lucee from your Java code is when your Java code was loaded by Lucee.  this is a common case when, for example, your CFML code creates a Java object, and then that Java object creates Lucee objects and calls CFC methods.
 
-Your interaction with Lucee should start via an object that implements the [lucee.loader.engine.CFMLEngine interface](http://javadoc.lucee.org/lucee/loader/engine/CFMLEngine.html) and the [lucee.runtime.PageContext](http://javadoc.lucee.org/lucee/runtime/PageContext.html) object.  Since Lucee loaded your Java code, and it will be running in that very same JVM, you can get a reference to a CFMLEngine object by calling the getInstance() static method of the lucee.loader.engine.CFMLEngineFactory object.
+The easiest way to use Lucee from your Java code is when your Java code was loaded by Lucee.  This is a common case when, for example, your CFML code creates a Java object, and then that Java object creates Lucee objects and calls CFC methods.
+
+Your interaction with Lucee should start via an object that implements the [lucee.loader.engine.CFMLEngine interface](https://javadoc.lucee.org/lucee/loader/engine/CFMLEngine.html) and the [lucee.runtime.PageContext](https://javadoc.lucee.org/lucee/runtime/PageContext.html) object.  Since Lucee loaded your Java code, and it will be running in that very same JVM, you can get a reference to a CFMLEngine object by calling the getInstance() static method of the lucee.loader.engine.CFMLEngineFactory object.
 
 ```java
 import	lucee.loader.engine.*;
@@ -81,7 +84,7 @@ CFMLEngine engine = CFMLEngineFactory.getInstance();
 
 ## Using the Lucee objects from Java ##
 
-once you have a reference to the CFMLEngine and the PageContext objects, you can easily interact with Lucee from your code.  here is an example on how to get / set Lucee values from within your Java code:
+once you have a reference to the CFMLEngine and the PageContext objects, you can easily interact with Lucee from your code.  Here is an example on how to get / set Lucee values from within your Java code:
 
 ```java
 // get a reference to the Application Scope:
@@ -110,7 +113,7 @@ then in your CFML code, you can use this value like so:
 <cfoutput>The Tick Count set from Java was: #Application.javaTime#</cfoutput>
 ```
 
-in the same way you can get a reference to other objects in the different scopes.  for example, if in onApplicationStart() (of  Application.cfc) your Lucee code creates somewhere a component and sets a reference to it in Application.myCfc
+in the same way you can get a reference to other objects in the different scopes.  For example, if in onApplicationStart() (of Application.cfc) your Lucee code creates somewhere a component and sets a reference to it in Application.myCfc
 
 ```lucee
 <cffunction name="onApplicationStart">
@@ -144,18 +147,21 @@ pc.setVariable( "Application.myCfc", cfc );
 once you have a reference to a CFC you can invoke its methods by using the call() or callWithNamedValues() methods:
 
 #### calling method with no arguments ####
+
 ```java
-// call the CFC's funcation getLastName with no args (empty array):
+// call the CFC's function getLastName with no args (empty array):
 String lastName = (String) cfc.call( pc, "getLastName", new Object[0] );
 ```
 
 #### calling method with ordered arguments ####
+
 ```java
 // execute the cfc with ordered arguments
 cfc.call( pc, "setLastName", new Object[]{ "Smith" } );
 ```
 
 #### calling method with named arguments ####
+
 ```java
 // execute the cfc with named arguments
 Struct	args	=	engine.getCreationUtil().createStruct();
@@ -163,10 +169,10 @@ args.set( "name", "Smith" );
 cfc.callWithNamedValues( pc, "setLastName", args );
 ```
 
-
 ## Other Useful Methods of the PageContext class ##
 
 #### Get Lucee Scopes ####
+
 ```java
 Scope varialbesScope	= pc.variablesScope();
 
@@ -178,6 +184,7 @@ Scope applicationScope	= pc.applicationScope();
 ```
 
 ### Get/Set Variables ###
+
 ```java
 // get variable by using its fully qualified name
 String username = (String) pc.getVariable( "session.username" );
@@ -191,8 +198,11 @@ String username = (String) sessionScope.get( "username" );
 // set variable in scope obtained earlier
 sessionScope.set( "username", "Susanne" );
 ```
+
 (of course, as with your CFML code, you should only set values to shared objects in a synchronized manner)
+
 ### Create CF Objects ###
+
 ```java
 // get a reference to the creation utility class
 Creation	creationUtil		=	engine.getCreationUtil();
@@ -208,6 +218,7 @@ lucee.runtime.type.Query cfQuery	=	creationUtil.createQuery( new String[]{ "firs
 ```
 
 ### Decision Util ###
+
 ```java
 Decision decisionUtil = engine.getDecisionUtil();
 
@@ -215,6 +226,7 @@ if ( decisionUtil.isDate( obj, false ) || decisionUtil.isStruct( obj ) );
 ```
 
 ### Operations Util ###
+
 ```java
 Operation opUtil = engine.getOperatonUtil();
 int c = opUtil.compare( left, right );	// cfml comparison rules
@@ -228,6 +240,7 @@ if ( c < 0 ) {
 ```
 
 ### Casting ###
+
 ```java
 Cast castUtil	=	engine.getCastUtil();
 castUtil.toArray( obj );
@@ -235,6 +248,7 @@ castUtil.toStruct( obj );
 ```
 
 ### Exceptions Util ###
+
 ```java
 Excepton exp = engine.getExceptionUtil();
 
@@ -245,11 +259,13 @@ else
 ```
 
 ### Evaluate ###
+
 ```java
 Object	obj =	pc.evaluate( "url.test=len( 'Lucee is awesome!' )" );	// same as function evaluate(string)
 ```
 
 #### Serialize ####
+
 ```java
 String str = pc.serialize( obj ); // same as function serialize(object)
 ```

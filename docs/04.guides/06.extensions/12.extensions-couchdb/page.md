@@ -1,19 +1,21 @@
 ---
 title: Couchdb
 id: extension-couchdb
+categories:
+- extensions
 ---
 
 ## CouchDB Cache Provider Extension ##
 
 The Lucee Server CouchDB Cache Provider Extension allows you to use CouchDB as a key/value cache for your Objects (components), Templates, Queries and Resources (such as files etc).
 
-CouchDB is is a free and open source document-oriented database written in the Erlang programming language. You can find out more information either download or setup your own database at CouchOne.
+CouchDB is a free and open source document-oriented database written in the Erlang programming language. You can find out more information either download or setup your own database at CouchOne.
 
 ### Installation ###
 
 Installing the CouchDB Cache Extension, is straight forward.
 
-1. Go to the server administrator of your lucee installation, for example: http://localhost/lucee/admin/server.cfm 
+1. Go to the server administrator of your lucee installation, for example: <http://localhost/lucee/admin/server.cfm>
 
 1. Under Extension/Applications you should see that under the "Not Installed" extensions there is "CouchDB Cache ( Beta )".
 
@@ -27,7 +29,7 @@ Installing the CouchDB Cache Extension, is straight forward.
 
 We need to have a running CouchDB installation to connect to, this section will let guide you through getting CouchDB running
 
-1. Head to the CouchOne website and select products http://www.couch.io/products.
+1. Head to the CouchOne website and select products <http://www.couch.io/products>.
 
 1. Download the right version for your Operating System (the screenshots here are for OS X but there should be no difference for each OS).
 
@@ -76,7 +78,6 @@ When you run this code, you will get something that looks like:
 Troubleshooting
 
 If you get an error along the lines of:
-
 
 ```lucee
 java.lang.NoClassDefFoundError: org/slf4j/spi/LoggerFactoryBinder

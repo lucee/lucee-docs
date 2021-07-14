@@ -26,7 +26,6 @@ Member functions
 
 [[tags]]
 
-
 ### CFML functions ###
 
 [[functions]]
@@ -34,7 +33,6 @@ Member functions
 ## UnSupported CFML ##
 
 [[unsupported]]
-
 
 ## Ideas for this page ##
 

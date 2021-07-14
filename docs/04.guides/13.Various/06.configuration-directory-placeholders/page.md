@@ -12,7 +12,6 @@ In order to make configuring Lucee a little easier, there are several constants 
 
 Here are the available placeholders in Lucee:
 
-
 Directory Placeholder         |    	Description                                                            |
 ------------------------      | --------------------------------------------
 {lucee-web}                   | Path to the Lucee web directory, usually {web-root}/WEB-INF/lucee.         |
@@ -25,7 +24,7 @@ Directory Placeholder         |    	Description                                 
 {web-context-hash}            | Hash of the web context.                                      |
 {web-context-label}           | A label for the web context. See A note on {web-context-label} below. |
 
-## Directory Placeholders in CFML  ##
+## Directory Placeholders in CFML ##
 
 You can reference the directory placeholders in your CFML code like this:
 

@@ -1,16 +1,15 @@
 ---
 title: XML fast And Easy
-id:  xml_fast-easy
+id: xml_fast-easy
 ---
 
-This document explains how to use xml parsing in lucee.
+This document explains how to use XML parsing in lucee.
 
-I have xml as shown below:
+I have XML as shown below:
 
 ```luceescript
 //catlog.xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- Edited with XML Spy v4.2 -->
 <catalog>
 	<cd>
 		<title>Empire Burlesque</title>
@@ -223,20 +222,20 @@ I have xml as shown below:
 </catalog>
 ```
 
-Nomally we use DOM(Document Object Model):
+Normally we use DOM(Document Object Model):
 
 ```luceescript
 <cfscript>
 	file=GetDirectoryFromPath(GetCurrentTemplatePath())&'catalog.xml';
-	
+
 	dom=XMLParse(file);
 	dump(dom);
-	
+
 	// ... extract data needed
 </cfscript>
 ```
 
-DOM parses the xml to extract the data. 
+DOM parses the XML to extract the data.
 
 Disadvantages of the DOM model:
 
@@ -246,27 +245,24 @@ Creates an object tree based on complete XML.
 * Memory Intensive - loads the complete XML in a very complex structure
 * Complicated to use
 
-There is a jDOM that is more optimized for java, and because of that, faster and easier to use. But sadly that project is not maintained any more!!
+There is a jDOM that is more optimized for Java, and because of that, faster and easier to use. But sadly that project is not maintained any more!!
 
- 
 ### SAX - Simple API for XML ###
 
-In java there is another way to handle the xml called SAX. SAX  is an event driver parser. It does not produce the object, but instead you are part of the parsing process.
+In Java there is another way to handle the XML called SAX. SAX is an event driver parser. It does not produce the object, but instead you are part of the parsing process.
 
 #### Advantages ####
 
 * Fast
 * Memory Efficient (only creates persistent objects in memory)
 
-
 ### Disadvantage ###
 
 Complicated to use.
 
-
 ### SAX - Listener Functions ###
 
-You can use SAX on Lucee to define component and listener functions to listen for certain events. The listener functions are as follows: 
+You can use SAX on Lucee to define component and listener functions to listen for certain events. The listener functions are as follows:
 
 - startDocument(), is called when it starts to parse the document
 - startElement(string name, string attributes)- is called every time it goes into a new tag. This function provides the name of the tag and all attributes.
@@ -275,16 +271,15 @@ You can use SAX on Lucee to define component and listener functions to listen fo
 - endDocument() - is called when you have reached the end of the document.
 - error(struct cfcatch) - is called while executing the parser.
 
-
 Example with SAX:
 
 ```luceescript
 <cfscript>
 	file=GetDirectoryFromPath(GetCurrentTemplatePath())&'catalog.xml';
-	
+
 	catalog=new XMLcatalog(file);
 	dump(catalog.execute());
-	
+
 </cfscript>
 ```
 
@@ -295,8 +290,8 @@ XMLcatalog is component,
 	component {
 
 	/**
-	* Start parsing an xml file.
-	* @param xmlFile xml file to parse
+	* Start parsing an XML file.
+	* @param xmlFile XML file to parse
 	*/
 	function init(string xmlFile) {
 	variables.xmlFile=arguments.xmlFile;
@@ -374,7 +369,8 @@ XMLcatalog is component,
 		echo(cfcatch);
 	}
 ```
-In the XML catalog you can see the listener functions and the listener function passed to the java object. This helps to parse the data.
+
+In the XML catalog you can see the listener functions and the listener function passed to the Java object. This helps to parse the data.
 
 ```luceescript
 var xmlEventParser=createObject("java","lucee.runtime.helpers.XMLEventParser");
@@ -390,7 +386,7 @@ var xmlEventParser=createObject("java","lucee.runtime.helpers.XMLEventParser");
 xmlEventParser.start(xmlFile);
 ```
 
-If we pass an xml string to execute the function, it automatically parses the xml data and returns an array format of parsed data.
+If we pass an XML string to execute the function, it automatically parses the XML data and returns an array format of parsed data.
 
 You can use the filter on SAX:
 
@@ -401,8 +397,8 @@ Component with filter
 component {
 
 	/**
-	* Start parsing an xml file.
-	* @param xmlFile xml file to parse
+	* Start parsing an XML file.
+	* @param xmlFile XML file to parse
 	*/
 	function init(string xmlFile) {
 		variables.xmlFile=arguments.xmlFile;
@@ -415,7 +411,7 @@ component {
 		variables.currentName="";
 		variables.removeCD=false;
 
-		
+
 		var xmlEventParser=createObject("java","lucee.runtime.helpers.XMLEventParser");
 		variables.filter=filter;
 		xmlEventParser.init(
@@ -499,23 +495,16 @@ Example:
 <cfscript>
 	file=GetDirectoryFromPath(GetCurrentTemplatePath())&'catalog.xml';
 	catalog=new XMLCatalog2(file);
-	
+
 	dump(catalog.execute({year:"1995"}));
 </cfscript>
 ```
 
 The example above executes and returns a result array which contains only the year equal to 1995.
 
-You can modify the component as you like. Instead of storing the array, you can store the result in a database or mail, or whatever you like. 
-
+You can modify the component as you like. Instead of storing the array, you can store the result in a database or mail, or whatever you like.
 
 ### Footnotes ###
 
 You can see the details in this video:
 [Xml-Fast and Easy](https://www.youtube.com/watch?v=_AP6GpVk7TE)
-
-
-
-
-
-

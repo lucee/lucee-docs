@@ -2,6 +2,7 @@
 title: Threads
 id: thread_usage
 categories:
+- scopes
 - thread
 description: How to use threads in Lucee
 ---
@@ -39,6 +40,7 @@ napASecond();
 dump("done in #getTickCount()-start#ms");
 </cfscript>
 ```
+
 Threads run independently of other threads or code in Lucee. Lucee does not the thread first and then the following code.
 
 Threads are mainly used to retrieve data from the database, cfhttp, or webservice. Threads are used when it does not matter how much time it takes to execute.
@@ -50,7 +52,7 @@ Here we see an example using multiple threads in Lucee. All threads run in paral
 ```lucee
 <cfscript>
 function napASecond(index) localmode=true {
-	thread  {
+	thread {
 		thread.start=now();
 		sleep(1000)
 		thread.end=now();
@@ -84,7 +86,7 @@ Same example within tag
 		<cfset thread.start=now()>
 		<cfset sleep(1000+(index*10))>
 		<cfset thread.end=now()>
-	</cfthread>	
+	</cfthread>
 </cffunction>
 
 <cfset start=getTickCount()>
@@ -107,7 +109,6 @@ Same example within tag
 ```
 
 Here the code joins three threads "t1,t2,t3". We can join threads by name.
-
 
 ### Example 3 ###
 
@@ -155,9 +156,7 @@ Here we have 100 array elements. Setting the optional attribute parallel as true
 
 But we have the option to set the maximum threads open at a time. If it set to 100, Lucee can open 100 threads at a time to run in parallel. Then this code only takes 1 second to complete.
 
-
 The ```each``` function is not only used for an array. It can also be used for struct and query. The below example explains each type.
-
 
 ```lucee
 <cfscript>
@@ -219,7 +218,6 @@ Lucee members often discuss how to extend functionality to make Lucee easier to 
 
 This example shows a future implementation of threads in Lucee.
 
-
 ```lucee
 <cfscript>
 // Thread Pool
@@ -228,12 +226,12 @@ tasks.each(
 		systemOutput(arguments,true);
 	}
 	,true
-	,20 // ATM default for max threads is 20, instead we plan to use a smart thread pool in the future (Java ExecutorService) 
+	,20 // ATM default for max threads is 20, instead we plan to use a smart thread pool in the future (Java ExecutorService)
 );
 </cfscript>
 ```
-Currently, the default max threads is 20. In the future, we plan to use a smart thread pool based on your JVM(Java ExecutorService). So you will not have to take care how many threads are being used. The system will do that, and provide the best choice for your code.
 
+Currently, the default max threads is 20. In the future, we plan to use a smart thread pool based on your JVM(Java ExecutorService). So you will not have to take care how many threads are being used. The system will do that, and provide the best choice for your code.
 
 ```lucee
 <cfscript>
@@ -246,7 +244,6 @@ thread /* action="thread" name="whatever" */ {
 In the future we will make threads smarter by also using a pool for threads.
 
 This feature is something we are planning. Changes will be implemented on the backend so that nothing changes on the front end.
-
 
 ```lucee
 <cfscript>
@@ -262,9 +259,8 @@ for(i=0;i<10;i++;true) {
 
 Another planned enhancement is to extend parallel to the loop by simply adding ```parallel=true``` . It will execute the body of the loop in parallel.
 
-
 ### Footnotes ###
 
 Here you can see above details in video
 
-[Lucee Threads ](https://www.youtube.com/watch?v=oGUZRrcg9KE)
+[Lucee Threads](https://www.youtube.com/watch?v=oGUZRrcg9KE)

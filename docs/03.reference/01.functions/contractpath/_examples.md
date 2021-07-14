@@ -14,7 +14,6 @@ And assume the following mappings:
   * /contractdemo = /homefolder/luceecode/contractpath
   * /luceestuff = /homefolder/luceecode
 
-
 ```luceescript
 writeOutput( expandPath('example.cfm') );
 // Outputs: /homefolder/luceecode/contractpath/example.cfm

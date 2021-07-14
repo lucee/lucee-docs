@@ -40,7 +40,7 @@ mkdir /usr/share/tomcat7/lucee
 cp -R /var/lib/tomcat7/webapps/lucee/WEB-INF/lib/* /usr/share/tomcat7/lucee
 chown -R tomcat7.tomcat7 /usr/share/tomcat7/lucee
 service tomcat7 stop
-rm -rf /var/lib/tomcat7/webapps/lucee/  /var/lib/tomcat7/webapps/lucee.war
+rm -rf /var/lib/tomcat7/webapps/lucee/ /var/lib/tomcat7/webapps/lucee.war
 ```
 
 ### Tomcat ###
@@ -61,7 +61,7 @@ Add servlet for cfm inside the webapp section:
 	<init-param>
 	<param-name>configuration</param-name>
 	<param-value>/usr/share/tomcat7/lucee</param-value>
-	<description>Configuraton directory</description>
+	<description>Configuration directory</description>
 	</init-param>
 	<init-param>
 	<param-name>lucee-server-root</param-name>
@@ -119,7 +119,7 @@ This file will be the "template" for the 3 instance that we will configure later
 
 **/etc/default/tomcat7**
 
-This file control the java options of the tomcat server. This depends of your hardware. I only put mine as a reference:
+This file control the Java options of the tomcat server. This depends of your hardware. I only put mine as a reference:
 
 ```lucee
 JAVA_OPTS="-Djava.awt.headless=true -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseConcMarkSweepGC"
@@ -130,7 +130,7 @@ The -Xms and -Xmx options controls the memory initial and maximum of the tomcat 
 
 ### Tomcat multi-instance ###
 
-Multi-instance tomcat it just various tomcat servers with it’s own configuration and each listen in differents ports. In front of this tomcat’s we will put an Apache web server that will route the users requests to the tomcats.
+Multi-instance tomcat it just various tomcat servers with it’s own configuration and each listen in different ports. In front of this tomcat’s we will put an Apache web server that will route the users requests to the tomcats.
 
 We will install the instances in /var/lib/tomcat7/instanceX/ directories:
 
@@ -186,9 +186,8 @@ Change: CATALINA_PID="/var/run/$NAME.pid" to: CATALINA_PID="/var/run/$NAME-$INST
 
 Copy the tomcat7-instance1 for the two other instances and edit the INSTANCE variable:
 
-
-	cp tomcat7-instance1  tomcat7-instance2
-	cp tomcat7-instance1  tomcat7-instance3
+	cp tomcat7-instance1 tomcat7-instance2
+	cp tomcat7-instance1 tomcat7-instance3
 
 We can now start each instance:
 
@@ -213,7 +212,6 @@ Now you can access to each instance in the ports 8081, 8082 and 8083. Remember, 
 ### APACHE ###
 
 Edit the file /etc/libapache2-mod-jk/workers.properties with:
-
 
 	workers.tomcat_home=/usr/share/tomcat7
 	workers.java_home=/usr/lib/jvm/java-7-openjdk-amd64
@@ -263,6 +261,7 @@ Create a virtual host in /etc/apache2/sites-available/mysite.com
   CustomLog ${APACHE_LOG_DIR}/mysite.access.log Combined
 </VirtualHost>
 ```
+
 Enable the site and reload apache:
 
 	a2ensite mysite.com
@@ -279,5 +278,4 @@ You can check the following logs files:
 	/var/log/apache2/error.log -> Apache error log
 	/var/log/apache2/mysite.error.log -> Vhost error log
 
-You can test if the tomcat instantces are working correctly going to [http://mysite.com:8081](http://mysite.com:8081/) for instance1 and so on.
-
+You can test if the tomcat instances are working correctly going to [http://mysite.com:8081](http://mysite.com:8081/) for instance1 and so on.

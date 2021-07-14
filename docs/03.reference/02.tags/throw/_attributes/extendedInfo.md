@@ -1,1 +1,1 @@
-extended information to the exception.
+extended information about the exception.

@@ -1,7 +1,8 @@
 ---
 title: GetFunctionCalledName
 id: function-getfunctioncalledname
-related:
 categories:
+- server
 ---
 
+Returns the name of variable used to call the current function

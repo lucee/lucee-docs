@@ -1,11 +1,15 @@
 ---
 title: GetContextInfo
 id: function-getcontextinfo
+related:
+- function-getcontextroot
+- function-getcurrentcontext
 categories:
 - debugging
+- server
 description: Returns information about the current context.
 ---
 
 Returns information about the current context.
 
-for example, has the current context content already been flushed 
+for example, has the current context content already been flushed

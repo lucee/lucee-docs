@@ -6,7 +6,8 @@ related:
 - function-getfunctionlist
 - function-gettagdata
 categories:
-- system
+- server
+description: Returns Information about a Tag as Struct
 ---
 
-return information to a Tag as Struct
+Returns Information about a Tag as Struct

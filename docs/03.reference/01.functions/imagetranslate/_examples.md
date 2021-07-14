@@ -3,4 +3,4 @@
   imgObj.translate(10,10);
   imgObj.drawRect(40,50,70,50,"yes");
   cfimage(action="writeToBrowser", source=imgObj);
-``` 
+```

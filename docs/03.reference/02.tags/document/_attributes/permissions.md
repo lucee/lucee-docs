@@ -1,1 +1,10 @@
-define permissions for the file (AllowPrinting,AllowModifyContents,AllowCopy,AllowModifyAnnotations,AllowFillIn,AllowScreenReaders,AllowAssembly,AllowDegradedPrinting)
+Sets the permissions for the document
+
+- AllowPrinting
+- AllowModifyContents
+- AllowCopy
+- AllowModifyAnnotations
+- AllowFillIn
+- AllowScreenReaders
+- AllowAssembly
+- AllowDegradedPrinting

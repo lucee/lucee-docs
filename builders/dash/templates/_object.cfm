@@ -1,8 +1,9 @@
+<cfset local.args = arguments.args><!--- scope hack --->
 <cfparam name="args.page" type="page" />
 
 <cfset local.pg = args.page />
 <cfoutput>
-	
+
 	#getEditLink(path=local.pg.getSourceFile(), edit=args.edit)#
 	<p>
 	<cfif local.pg.getBody().len() gt 0>
@@ -11,7 +12,7 @@
 		#markdownToHtml("Object")#
 	</cfif>
 	</p>
-	
+
 	<div class="tile-wrap">
 		<cfloop array="#local.pg.getChildren()#" item="local.child">
 			<span class="tile">

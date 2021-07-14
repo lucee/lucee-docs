@@ -8,7 +8,7 @@ The valid format for the data; one of the following:
 * **creditcard** - a 13-16 digit number conforming to the mod10 algorithm.
 * **date or time** - any date-time value, including dates or times; equivalent to the IsDate function.
 * **email** - a string containing a valid email address.
-* **eurodate** - this functionality is only supported for compatibility reasion, we do not suggest to use this functionality. Use instead function isDate or lsIsDate. A date in the form d/m/y, d-m-y, or d.m.y. The m and d format can be 1 or 2 digits; y can be 2 or 4 digits.
+* **eurodate** - this functionality is only supported for compatibility reason, we do not suggest to use this functionality. Use instead function isDate or lsIsDate. A date in the form d/m/y, d-m-y, or d.m.y. The m and d format can be 1 or 2 digits; y can be 2 or 4 digits.
 * **float or numeric** - a numeric value; equivalent to the IsNumeric function.
 * **guid** - a Globally Unique Identifier in the format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX where X is a hexadecimal number.
 * **integer** - an integer.

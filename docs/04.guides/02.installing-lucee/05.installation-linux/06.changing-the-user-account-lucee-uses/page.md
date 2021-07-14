@@ -9,13 +9,13 @@ This section is intended to cover the security issues of running Lucee/Tomcat un
 
 By default on Linux systems, the Installer will offer to run under the "root" user account. It's very important that you understand that this is a usability suggestion, and not a security suggestion. The idea is that you install the server, then install your application, and work out any user-related issues it may have by running as root. Once you've got your application installed and working properly, it is highly recommended that you change the running user to something other then the "root" user.
 
-###Changing the Lucee User###
+### Changing the Lucee User ###
 
 The installer comes packaged with a script that makes it easy to switch the user account that Lucee runs as. Again, this can be a useful tool for problem-solving, making it easy to change the user that Lucee runs as in order to diagnose user or permission-related issues. The syntax for the change_user.sh script is as follows:
 
 	change_user.sh {username} {installdir} {engine} [nobackup]
 
-**username** - Required. States what username Lucee will run under. If a user and group with this name don't exist already, the script will create them both. For example, if you enter "luceeuser" as the username variable, the script will check for the existance of a "luceeuser" username and group. If either don't exist, the script will create a user "luceeuser" and a group "luceeuser". If the user or group already exist, the script will not bother trying to create them. This is handy if you're running as an existing user/group like "apache/apache", for example.
+**username** - Required. States what username Lucee will run under. If a user and group with this name don't exist already, the script will create them both. For example, if you enter "luceeuser" as the username variable, the script will check for the existence of a "luceeuser" username and group. If either don't exist, the script will create a user "luceeuser" and a group "luceeuser". If the user or group already exist, the script will not bother trying to create them. This is handy if you're running as an existing user/group like "apache/apache", for example.
 
 **installdir** - Required. States the root directory that Lucee is installed into. Usually this will be /opt/lucee/, unless you selected something other then the default.
 
@@ -39,7 +39,7 @@ To show how this is done, let's use the "apache" user again, like we did above. 
 
 Example Usage (Debian/Ubuntu/Mint):
 
-	$ sudo mkdir /home/admin/www.sitename.com/WEB-INF/ 
+	$ sudo mkdir /home/admin/www.sitename.com/WEB-INF/
 	$ sudo chown apache:apache /home/admin/www.sitename.com/WEB-INF/
 
 Do that for each site you've configured in your tomcat server.xml file. After you've got a WEB-INF directory in every site with permissions adjusted on each of them, don't forget to restart Lucee/Tomcat!

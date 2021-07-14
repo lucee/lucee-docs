@@ -42,7 +42,7 @@ label | Display name of the extension
 description | Extension description
 author | Author of the extension
 codename | Codename of the extension
-video  | Video for the extension (HTTP Link)
+video | Video for the extension (HTTP Link)
 image | Image for the extension (HTTP Link)
 support | Support Link of the extension
 documentation | Documentation link of the extension

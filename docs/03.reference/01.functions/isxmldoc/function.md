@@ -8,4 +8,4 @@ categories:
 ---
 
 Determines whether a function parameter is an Extended Markup
-        language (XML) document object.
+language (XML) document object.

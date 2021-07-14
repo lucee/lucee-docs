@@ -1,6 +1,8 @@
 ---
 title: GetTempDirectory
 id: function-gettempdirectory
+related:
+- function-getcurrenttemplatepath
 categories:
 - files
 ---

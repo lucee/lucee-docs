@@ -34,16 +34,13 @@ In the example above,
 
 It consumes lot of memory.
 
-
 ### Use Loop - File ###
 
 Use cfloop file, It allows you to read a file line by line, so you do not have to load an entire file into memory. You only load a line at a time into the memory.
 
-
 ```lucee
 <cfloop file="...">
 ```
-
 
 Example Using Loop
 
@@ -58,9 +55,8 @@ function handle(line) {}
 
 In the above example, loop through the file and get each line, so in memory there is only ever the one line. This not only faster, it also consumes less memory.
 
-
 ### Footnotes ###
 
 Here you can see above details in video
 
-[ Looping through Files ](https://www.youtube.com/watch?v=6w2Wr8snk50)
+[Looping through Files](https://www.youtube.com/watch?v=6w2Wr8snk50)

@@ -2,7 +2,8 @@
 title: The Lucee dialect
 id: lucee-5-dialect-lucee
 ---
-#New Language dialect Lucee#
+# New Language dialect Lucee #
+
 **In addition to the existing "CFML" language dialect, Lucee 5 comes with a completely new dialect simply called "Lucee".**
 
 The Lucee dialect is a light-weight dynamic scripting and tag language for the JVM that enables the rapid development of simple to highly sophisticated web applications.
@@ -32,11 +33,13 @@ The Lucee language is LAS’s opportunity to evolve a modern dialect that is bot
 If you are happy to stick with CFML then nothing changes for you. If, however, you want to expand your possibilities going forward and are happy to embrace the new language then you will have the ability to take advantage of the new features the Lucee language will offer.
 
 ## How do I use it? ##
+
 Dialects are controlled by the file extension, to use the classic "CFML" dialect simply use the file extension `.cfc` or `.cfm` and to use the new "Lucee" dialect simply use the file extension `.lucee` for both templates and components.
 
 You can also mix the "Lucee" dialect with the "CFML" dialect, so you can for example include a Lucee template in your CFML template or call a Lucee component from your CFML template ...
 
 ## What does this look like? ##
+
 Let's do some examples to get a feeling for the syntax.
 
 Tag based template with a script island:
@@ -53,11 +56,13 @@ Tag based template with a script island:
 ```
 
 ## How does it act? ##
+
 As you can see above the syntax is not that different to CFML, the real difference is with the environment.
 
 Let's take a look into some details, of course this does not cover everything, a complete overview of the language in detail will follow ASAP.
 
 #### Full Null Support ####
+
 The Lucee dialect has full null support, so the following is possible:
 
 ```luceescript
@@ -68,6 +73,7 @@ if(test==null)
 ```
 
 #### Local Scope ####
+
 Inside a function if the scope has not been defined for a variable then the nearest scope is used, so in the following that would be the "local" scope and not the "variables" scope that the CFML dialect would use.
 
 ```luceescript
@@ -78,11 +84,13 @@ function test(){
 ```
 
 #### This Scope ####
+
 The CFML dialect has 2 instance scopes for components `this` and `variables` and the scopes are completely separated. The Lucee dialect only has one scope, the `this` scope that can still be accessed with `variables`.
 
 In the CFML dialect variables in the `this` scope are accessible from outside (public) which breaks encapsulation, in the Lucee dialect the `this` scope is private for variables by default.
 
 #### Scope Cascading ####
+
 In the CFML dialect if you call a variable, for example `#susi#`, the engine will look for "susi" in the following scopes [local,arguments,variables,cgi,url,form,cookie] however in the Lucee dialect it only checks the following scopes [local,arguments,variables].
 
 ```luceescript
@@ -91,7 +99,8 @@ In the CFML dialect if you call a variable, for example `#susi#`, the engine wil
  dump(susi); // works in CFML, but fails in Lucee
 ```
 
-#### Tag Attributes####
+#### Tag Attributes ####
+
 In the CFML dialect if an attribute value is defined without (single or double) quotes, it is handled as a String, in the Lucee dialect the same is handled as a variable.
 
 Take this example

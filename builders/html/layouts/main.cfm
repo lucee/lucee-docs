@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args>
 <cfparam name="args.body"       type="string" />
 <cfparam name="args.page"       type="any" />
 <cfparam name="args.crumbs"     type="string" />
@@ -10,20 +11,24 @@
 	//if (baseHref eq "")
 	//	baseHref = "/";
 	local.path = args.page.getPath();
-	if (local.path eq "/home")
+	if ( local.path eq "/home" )
 		local.path = "/index";
 	local.pageHref = "https://docs.lucee.org#local.path#.html";
 	local.pagePath = "#local.path#.html";
-	local.pageTitle = HtmlEditFormat( args.page.getTitle() ) & " :: Lucee Documentation";
+	if (args.page.getTitle() neq "Lucee Documentation")
+		local.pageTitle = args.page.getTitle() & " :: Lucee Documentation";
+	else
+		local.pageTitle = args.page.getTitle();
+	// many sites (slack, discord one box etc) can't handle the escaped <cfcontent> and strip out the tag name from previews
+	local.safePageTitle = EncodeForHtml( Replace( Replace( local.pageTitle, "<", "", "all" ), ">", "", "all" ) );
+	local.pageTitle = EncodeForHtml( local.pageTitle );
 	local.pageDescription = getMetaDescription( args.page, args.body );
 </cfscript>
-
-
 
 <cfoutput><!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>#pageTitle#</title>
+		<title>#local.pageTitle#</title>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116664465-1"></script>
 		<script>
 			window._gaTrackingID = 'UA-116664465-1';
@@ -35,32 +40,28 @@
 		<cfif args.edit>
 			<base href="#local.baseHref#">
 		</cfif>
-		<link rel="canonical" href="#local.pageHref#" />
+		<link rel="canonical" href="#local.pageHref#">
+		<meta name="robots" content="index, follow">
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
-		<meta name="twitter:card" content="summary" />
-		<meta name="twitter:site" content="@lucee_server" />
-		<meta name="twitter:title" content="#local.pageTitle#" />
-		<meta name="twitter:description" content="#local.pageDescription#" />
-		<meta name="twitter:image" content="http://docs.lucee.org/assets/images/favicon.png" />
-		<meta name="twitter:image:alt" content="Lucee" />
-		<meta property="og:title" content="#pageTitle#" />
-		<meta property="og:url" content="#pageHref#" />
-		<meta property="og:type" content="article" />
-		<meta property="og:image" content="http://docs.lucee.org/assets/images/favicon.png" />
-		<meta property="og:image:alt" content="Lucee" />
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@lucee_server">
+		<meta name="twitter:title" content="#local.safePageTitle#">
+		<meta name="twitter:description" content="#local.pageDescription#">
+		<meta name="twitter:image" content="https://docs.lucee.org/assets/images/favicon.png">
+		<meta name="twitter:image:alt" content="Lucee">
+		<meta property="og:title" content="#local.safePageTitle#">
+		<meta property="og:url" content="#local.pageHref#">
+		<meta property="og:type" content="article">
+		<meta property="og:image" content="https://docs.lucee.org/assets/images/favicon.png">
+		<meta property="og:image:alt" content="Lucee">
 		<cfif args.edit>
 		<link href="/assets/css/base.css" rel="stylesheet">
 		<cfelse>
-		<link href="/assets/css/base.min.css" rel="stylesheet">
+		<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
 		</cfif>
 		<link href="/assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
-		<!-- ie -->
-		<!--[if lt IE 9]>
-			<script src="/assets/js/html5shiv.js" type="text/javascript"></script>
-			<script src="/assets/js/respond.js" type="text/javascript"></script>
-		<![endif]-->
 	</head>
 
 	<body class="#LCase( args.page.getPageType() )#">
@@ -68,15 +69,18 @@
 			<div class="menu-scroll">
 				<div class="menu-wrap">
 					<div class="menu-content">
-						<a class="nav-drawer-logo" href="/index.html"><img class="Lucee" src="/assets/images/lucee-logo-bw.png"></a>
+						<a class="nav-drawer-logo" href="/index.html"><img alt="Lucee" class="Lucee" src="/assets/images/lucee-logo-bw.png"></a>
 						#args.navTree#
 						<hr>
 						<ul class="nav">
 							<li>
-								<a href="http://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
+								<a href="https://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
 							</li>
 							<li>
-								<a href="https://dev.lucee.org"><span class="fa fa-fw fa-comments"></span>Mailing List</a>
+								<a href="https://dev.lucee.org"><span class="fa fa-fw fa-comments"></span>Developer Forum</a>
+							</li>
+							<li>
+								<a href="https://lucee.us12.list-manage.com/subscribe?u=a8314f9282c07e84232a26805&id=172dc8293d"><span class="fa fa-fw fa-comments"></span>Newsletter Signup</a>
 							</li>
 							<li>
 								<a href="https://luceeserver.atlassian.net/browse/"><span class="fa fa-fw fa-bug"></span>Issue Tracker</a>
@@ -85,7 +89,7 @@
 								<a href="https://github.com/lucee/lucee-docs"><span class="fa fa-fw fa-github"></span>Source repository</a>
 							</li>
 							<li>
-								<a href="http://javadoc.lucee.org"><span class="fa fa-fw fa-code"></span>JavaDocs</a>
+								<a href="https://javadoc.lucee.org"><span class="fa fa-fw fa-code"></span>JavaDocs</a>
 							</li>
 							<li>
 								<a href="https://rorylaitila.gitbooks.io/lucee/content/"><span class="fa fa-fw fa-book"></span>Git Book</a>
@@ -232,7 +236,7 @@
 		<script src="/assets/js/base.js" type="text/javascript"></script>
 		<script src="/assets/js/docsEditor.js" type="text/javascript"></script>
 		<cfelse>
-		<script src="/assets/js/dist/base.24.min.js" type="text/javascript"></script>
+		<script src="/assets/js/dist/base.#application.assetBundleVersion#.min.js" type="text/javascript"></script>
 		</cfif>
 	</body>
 </html></cfoutput>

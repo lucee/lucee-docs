@@ -6,10 +6,13 @@ related:
 ---
 
 More and more mail servers requires SSL authentication to send emails. Usually you send mail like
+
 ```lucee
 <cfmail server="smtp.server.com" usessl="true" port="465" ...>
 ```
- You may need to add a mail server certificate into Lucee JRE environment to avoid connection errors like this one: 
+
+You may need to add a mail server certificate into Lucee JRE environment to avoid connection errors like this one:
+
 ```lucee
 PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
 ```
@@ -41,6 +44,7 @@ Now we have a certificate file. Install with a JRE keytool:
 ```lucee
 /opt/lucee/jdk/jre/bin/keytool -import -alias smtp.server.com -keystore /opt/lucee/jdk/jre/lib/security/cacerts -file 	/opt/smtp-mail-public.crt
 ```
+
 The default prompted password for keystore is changeit
 
 * Restart Lucee to apply changes. ```<cfmail server="smtp.server.com" usessl="true" port="465" ...>``` should work now.

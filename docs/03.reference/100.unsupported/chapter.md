@@ -4,6 +4,7 @@ id: unsupported
 ---
 
 # Tags
+
 The following tags, from Adobe CFML, are not supported by Lucee:
 
 * cf_socialplugin
@@ -54,7 +55,8 @@ The following tags, from Adobe CFML, are not supported by Lucee:
 * cfwebsocket
 
 # Functions
-The following functions , from Adobe CFML, are not supported by Lucee:
+
+The following functions, from Adobe CFML, are not supported by Lucee:
 
 * cachegetsession
 * cacheregionexists
@@ -116,6 +118,7 @@ The following functions , from Adobe CFML, are not supported by Lucee:
 * spreadsheetgetcellvalue
 * spreadsheetinfo
 * spreadsheetmergecells
+* spreadsheetnew
 * spreadsheetread
 * spreadsheetreadbinary
 * spreadsheetremovesheet
@@ -123,12 +126,14 @@ The following functions , from Adobe CFML, are not supported by Lucee:
 * spreadsheetsetactivesheetnumber
 * spreadsheetsetcellcomment
 * spreadsheetsetcellformula
+* spreadsheetsetcellvalue
 * spreadsheetsetcolumnwidth
 * spreadsheetsetfooter
 * spreadsheetsetheader
 * spreadsheetsetrowheight
 * spreadsheetshiftcolumns
 * spreadsheetshiftrows
+* spreadsheetwrite
 * storegetmetadata
 * storesetmetadata
 * writebody

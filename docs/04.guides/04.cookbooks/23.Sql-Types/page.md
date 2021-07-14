@@ -9,11 +9,13 @@ categories:
 description: SQL types supported by lucee.
 ---
 
-Here are the SQL types supported by Lucee. All are support with and without the `CF_SQL_` prefix:
+Here are the SQL types supported by Lucee.
+
+All are supported with and without the `CF_SQL_` prefix (ACF too since 11):
 
 * CF_SQL_ARRAY / ARRAY
 * CF_SQL_BIGINT / BIGINT
-* CF_SQL_BINARY  BINARY
+* CF_SQL_BINARY / BINARY
 * CF_SQL_BIT / BIT
 * CF_SQL_BOOLEAN / BOOLEAN
 * CF_SQL_BLOB / BLOB
@@ -39,7 +41,15 @@ Here are the SQL types supported by Lucee. All are support with and without the 
 * CF_SQL_LONGVARCHAR / LONGVARCHAR
 * CF_SQL_TIME / TIME
 * CF_SQL_TIMESTAMP / TIMESTAMP
-* CF_SQL_REF / REF 
+* CF_SQL_REF / REF
 * CF_SQL_REFCURSOR / REFCURSOR
 * CF_SQL_OTHER / OTHER
 * CF_SQL_NULL / NULL
+
+Since 5.3.6.16
+
+* CF_SQL_NCHAR / NCHAR
+* CF_SQL_NVARCHAR / NVARCHAR
+* CF_SQL_LONGNVARCHAR / LONGNVARCHAR
+* CF_SQL_NCLOB / NCLOB
+* CF_SQL_SQLXML / SQLXML

@@ -13,7 +13,6 @@ This document is intended for system administrators who want to deploy their Mur
 
 This document will assume that you, the reader, will have basic knowledge of installing CentOS Linux and editing files within it using the editor of your choice.
 
-
 ## Preparing Your Server ##
 
 ### 1. Start With a "Blank Slate" ###
@@ -78,7 +77,7 @@ ServerTokens Prod
 
 Setting this value will cause Apache simply to report "Apache" and not include a version number.
 
-You can also disable the server signature, which is deisplayed at the bottom of any error messages Apache generates, by using the following parameter:
+You can also disable the server signature, which is displayed at the bottom of any error messages Apache generates, by using the following parameter:
 
 ServerSignature Off
 
@@ -100,7 +99,6 @@ The downside of this is that documentation is often written with the defaults in
 
 It is far more difficult to brute-force a username and password combination if an attacker has no idea where to begin with a username. To that end, be creative when you pick a username for your new Lucee installation. Do not use obvious usernames such as "admin" or "lucee", but still keep it recognisable and memorable. For example, you could call your new Lucee user "theflash", after the speedy but fictional superhero character. You know... because he "runs fast".
 
-
 ### 3. Consider Using a Phrase as a Password ###
 
 Using phrases as passwords is not a new idea, but it is possible to do with Lucee and is a proven method for addressing brute-force password break-ins as well as makes it easy to remember a specific "password". For example, consider the following pass-phrase:
@@ -121,7 +119,6 @@ A RH-Firewall-1-INPUT -m state -state NEW -m tcp -p tcp -dport 8888 -s 192.168.2
 
 As before, edit the "source" IP address by changing 192.168.254.250 to whatever is appropriate for your network.
 
-
 ### 2. Do Not Open Ports 8005 (Shutdown) or 8009 (AJP) to the Public ###
 
 The Lucee 4 BETA3 and newer installers will use mod_proxy_html by default, so the AJP port 8009, while available, is not used by default. If you need to open the AJP port to an external web server in order to connect to it from mod_proxy_ajp or mod_jk, then it is recommend you only open port 8009 to the IP address of the web server that needs to connect to it. You can use a firewall line similar to the example above and change the port and IP to match your network.
@@ -132,7 +129,7 @@ The Tomcat Shutdown port - 8005 by default - should not be open to the public. I
 
 In your Apache host configuration for the site or sites you will be serving through Apache and Lucee, you can add the following in order to deny access to all but approved IP's:
 
-<Location /lucee/admin>
+<Location "/lucee/admin">
 
 Order deny,allow
 
@@ -142,9 +139,9 @@ Allow from 192.168.254.250
 
 Allow from 127.0.0.1
 
-</location>
+</Location>
 
-This same concept can be implemented to deny access to the Mura Administrator. If assets in the lucee-context are not needed (eg cfform javascript), then you may block the entire /lucee/ instead of just the administrator.
+This same concept can be implemented to deny access to the Mura Administrator. If assets in the lucee-context are not needed (eg cfform JavaScript), then you may block the entire /lucee/ instead of just the administrator.
 
 ### 4. Lock down Apache and Lucee Users ###
 
@@ -183,7 +180,6 @@ In the Lucee Server Administrator, go to Security -> Password. From this screen 
 To change the Request Timeout value, log in to the Lucee server administrator and go to Settings ->
 
 Application -> Request Timeout. It is recommended you change it from 50 seconds to about 10 or so. Experiment with this to make sure the request timeouts do not effect needed functionality that may exist in your application.
-
 
 ### 4. Ensure Lucee's "Script-Protect" feature is enabled
 

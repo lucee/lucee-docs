@@ -17,7 +17,7 @@
 	// the below code formats the date & show the full month in string
 	writedump(dateFormat(now(), 'yyyy-mmmm-dd'));
 
-	// the below code returns the date with the format of full ,long ,medium ,short
+	// the below code returns the date with the format of full, long, medium, short
 	dt=createDate(2018);
 	writedump(dateFormat(dt,"full"));
 	writedump(dateFormat(dt,"long"));

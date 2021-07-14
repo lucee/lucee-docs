@@ -1,18 +1,23 @@
 # Lucee documentation source and builder
 
-[![Build Status](https://travis-ci.org/lucee/lucee-docs.svg?branch=master)](https://travis-ci.org/lucee/lucee-docs)
+[![Lucee Docs Builder](https://github.com/lucee/lucee-docs/actions/workflows/main.yml/badge.svg)](https://github.com/lucee/lucee-docs/actions/workflows/main.yml)
+[![Lint](https://github.com/lucee/lucee-docs/workflows/Lint/badge.svg)](#lucee-documentation-source-and-builder)
 
-This repository contains the source and build scripts for creating Lucee's documentation. The website output of the docs can be found at [http://docs.lucee.org](http://docs.lucee.org).
+This repository contains the source and build scripts for creating Lucee's documentation. The website output of the docs can be found at [https://docs.lucee.org](https://docs.lucee.org).
 
 Issues can be reported and tracked at [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD).
 
-Find out more about the project at: [http://docs.lucee.org/docs.html](http://docs.lucee.org/docs.html).
+Find out more about the project at: [https://docs.lucee.org/docs.html](https://docs.lucee.org/docs.html).
 
 ## Build locally
 
 ### Prerequisites
 
-The only dependency required is [CommandBox](http://www.ortussolutions.com/products/commandbox). Ensure that commandbox is installed and that the `box` command is in your path.
+The only optional dependency required is [CommandBox](https://www.ortussolutions.com/products/commandbox).
+
+Commandbox is only required to run the build process via the command line, or if you don't setup a virtual server with an existing local Lucee install.
+
+Ensure that commandbox is installed and that the `box` command is in your path.
 
 ### Building the static documentation output
 
@@ -26,13 +31,18 @@ Once this has finished, you should find `./builds/html` and `./builds/dash` dire
 
 ### Running a server locally
 
-We have provided a utility server who's purpose is to run locally to help while developing/writing the documentation. To start it up, execute the `serve.sh` or `serve.bat` script found in the root of the project, i.e.
+You have two options
+
+- Create a webserver virtual host with a normal Lucee install, with the virtual host's DocumentRoot set to `/lucee-docs/server`
+- Run a custom docs instance via Commandbox
+
+We have provided a utility server whose purpose is to run locally to help while developing/writing the documentation. To start it up, execute the `serve.sh` or `serve.bat` script found in the root of the project, i.e.
 
     documentation>./serve.sh|bat
 
 This will spin up a server using CommandBox on port 4040 and open it in your browser. You should also see a tray icon that will allow you to stop the server. Changes to the source docs should trigger an internal rebuild of the documentation tree which may take a little longer than regular requests to the documentation.
 
-When running locally there are the following urls available
+When running locally there are the following urls available (these URLs below are for a commandbox instance, substitute them with the URL for your virtual host if appropriate)
 
 * [Lucee documentation home](http://127.0.0.1:4040/)
 * [Build all documentation](http://127.0.0.1:4040/build_docs/all/)
@@ -41,19 +51,30 @@ When running locally there are the following urls available
 * [Import any new tags or functions](http://127.0.0.1:4040/build_docs/import/)
 * [View static html docs](http://127.0.0.1:4040/static/) (you need to have built the html documentation first)
 
+## Working with the bundled JS and CSS files
+
+The build process for the JS and CSS bundles are found under /builders/html/assets and uses Sass and [Grunt](https://gruntjs.com/).
+
+Just run npm install, then run grunt.
+
+After you have made everything more beautiful via CSS, or added some funky new interactivity via JavaScript,
+to publish a new build of the bundles, you'll need to update `variables.assetBundleVersion` in both Application.cfc and Gruntfile.js,
+as the docs are statically deployed via Cloudfront and versioning of these files is required to break caching.
+
 ## Contributing
 
-There is a lot of work to do and we appreciate contribution in all forms. The issues list can be found and expanded upon here: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD) 
+There is a lot of work to do and we appreciate contribution in all forms. The issues list can be found and expanded upon here: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD)
 
 Ask questions or post suggestions over on the [Lucee mailing List](https://dev.lucee.org/c/documentation) under the documentation category.
 
-More information on how the documentation is built and formatted can be found at [http://docs.lucee.org/docs.html](http://docs.lucee.org/docs.html).
+More information on how the documentation is built and formatted can be found at [https://docs.lucee.org/docs.html](https://docs.lucee.org/docs.html).
 
-The workflow for contributions would be:
-* Submit the contributor's agreement: http://docs.lucee.org/guides/get-involved/contributing-contributors-agreement.html
-* Fork lucee-docs on github.
+The workflow for contributions is:
+
+* Submit the contributor's agreement: <https://docs.lucee.org/guides/get-involved/contributing-contributors-agreement.html>
+* Fork lucee-docs on GitHub.
 * Make your changes in the master branch.
-* Push your changes to your github repo.
+* Push your changes to your GitHub repo.
 * Create a pull request.
 
 ### Raise issues and suggestions

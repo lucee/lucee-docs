@@ -6,7 +6,7 @@ people = QueryNew( "name,dob,age", "varchar,date,int", [
     [ "Jim" , CreateDate( 1988, 1, 1 ), 0 ]
 ]);
 
-Dump( var=people, label="people - origional query" );
+Dump( var=people, label="people - original query" );
 
 /* Output:
 
@@ -45,7 +45,7 @@ dump(var=qryPeopleOldEnough, label='qryPeopleOldEnough - older than 21');
 			QuerySetCell(q,"description", fd.description, r);
 		});
 	}
-	dump(var=q.recordcount, 
+	dump(var=q.recordcount,
 	    label="demo data set size");
 	s = "the";
 </cfscript>

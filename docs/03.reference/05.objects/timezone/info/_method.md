@@ -1,14 +1,19 @@
 ---
 title: timezone.info()
 id: method-timezone-info
-methodObject: timezone
-methodName: info
 related:
 - function-gettimezoneinfo
 - object-timezone
 categories:
 - timezone
-
+methodObject: timezone
+methodName: info
+description: Returns a structure describing the current timezone
 ---
 
-Returns back a structure regarding the current timezone; utctotaloffset, utchouroffset, utcminuteoffset, isdston
+Returns a structure describing the current timezone
+
+- utcTotalOffset
+- utcHourOffset
+- utcMinuteOffset
+- isDstOn

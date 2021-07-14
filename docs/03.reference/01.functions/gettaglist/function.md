@@ -7,7 +7,8 @@ related:
 - function-getfunctionlist
 - function-gettagdata
 categories:
-- system
+- server
+description: Returns a struct containing all the Tags supported by Lucee.
 ---
 
-returns information to a tag as struct
+Returns a struct containing all the Tags supported by Lucee.

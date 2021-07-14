@@ -1,6 +1,9 @@
 ---
 title: Extension Provider
 id: tutorial-extension-provider
+categories:
+- extensions
+description: Tutorial, Creating an extension for Lucee 3.1
 ---
 
 ### Creating an extension for Lucee 3.1 ###
@@ -26,7 +29,7 @@ If you want to write an application extension for Lucee you need to do the follo
 1. Create a config.xml file containing the forms that collect the data one needs to fill out upon installation.
 1. Create a cfc called install.cfc containing the three methods install, uninstall and update.
 1. Extend one of the available helper cfc's in order to have some additional methods for common procedures available like createMapping, createDatasource etc.
-1. Write your install procedure so that the application get's installed according to its requirements.
+1. Write your install procedure so that the application gets installed according to its requirements.
 
 Tutorial Sections
 

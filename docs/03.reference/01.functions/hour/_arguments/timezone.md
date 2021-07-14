@@ -9,3 +9,4 @@ You can find a list of all available timezones in the Lucee administrator (Setti
  - AGT (for time in Argentina)
  - Europe/Zurich (for time in Zurich/Switzerland)
  - HST (Hawaiian Standard Time in the USA)
+- JVM (JVM / Server Default Timezone)

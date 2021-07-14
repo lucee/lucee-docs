@@ -1,1 +1,1 @@
-Variable name, can be contain "." for structures.
+Name of the variable to set, allows using "." for structures/scopes.

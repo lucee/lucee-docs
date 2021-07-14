@@ -1,3 +1,3 @@
 ```luceescript+trycf
-dump(URLSessionFormat("http://docs.lucee.org/reference/functions/urlsessionformat.html"));
+dump(URLSessionFormat("https://docs.lucee.org/reference/functions/urlsessionformat.html"));
 ```

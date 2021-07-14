@@ -6,4 +6,4 @@ description: returns null
 
 returns null
 
-If full null support is enabled, you can simply use the null keyword. 
+If full null support is enabled, you can simply use the null keyword.

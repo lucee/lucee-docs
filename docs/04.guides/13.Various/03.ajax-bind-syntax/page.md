@@ -11,20 +11,23 @@ description: Most of the tags support a binding statement in the url or source a
 Most of the tags support a binding statement in the url or source attributes. The following syntax is supported.
 
 ### Bind to a cfc ###
+
 ```lucee
 bind="cfc:component.dotted.path.cfcMethod({bindedElement})"
 ```
+
 ## Url Binding ##
 
 ```lucee
 bind="url:url?name={bindedElement}&......."
 ```
 
-## Javascript Binding ##
+## JavaScript Binding ##
 
 ```lucee
 bind="javascript:jsFunction({bindedElement})"
 ```
+
 The 3 bindings fashions are not supported by any tag. Check the single tag docs for specific support.
 
 ### Parameters Syntax ###
@@ -36,6 +39,7 @@ On change of element with name myName the cfc is called passing myName=value as 
 ```lucee
 bind="cfc:ajaxproxy.cfc.test.getInfo({myName})
 ```
+
 On change of elements with name 'myName' or element with name 'myAge' contained by an element with id 'myForm' cfc is called passing both fields as arguments.
 
 ```lucee
@@ -49,7 +53,7 @@ Adding '@' after the element name allows to choose what event binding will liste
 Possible events are :
 
 ```lucee
-* change ( default ) 
+* change ( default )
 * mousedown
 * keyup
 * none

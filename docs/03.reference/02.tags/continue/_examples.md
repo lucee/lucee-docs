@@ -1,10 +1,11 @@
 ### Tags
+
 ```lucee+trycf
 <cfset count = 0 />
 <cfloop from="1" to="10" index="x">
 	<!--- ignoring row 5 and continue the loop --->
 	<cfif x is 5>
-		<cfcontinue  />
+		<cfcontinue />
 	</cfif>
 	<cfset count++ />
 </cfloop>
@@ -12,6 +13,7 @@
 ```
 
 ### Script
+
 ```luceescript+trycf
 count = 0;
 count2 = 0;

@@ -1,10 +1,10 @@
 ---
 title: PagePoolList
 id: function-pagepoollist
-related:
 categories:
-    - cache
-    - server
+- cache
+- server
+description: Lists all the cfml code (cfm, cfcs) in the cache of compiled code (aka the PagePool)
 ---
 
-list all pages in pools
+Lists all the cfml code (cfm, cfcs) in the cache of compiled code (aka the PagePool)

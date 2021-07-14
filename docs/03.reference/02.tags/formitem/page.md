@@ -1,8 +1,8 @@
 ---
 title: <cfformitem>
 id: tag-formitem
-related:
 categories:
+- ajax
 ---
 
 The `<cfformitem>` tag is not supported by Lucee.

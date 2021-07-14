@@ -1,6 +1,8 @@
 ---
-title: Implicit Conversions
+title: Implicit Conversion Functions
 id: tips-implicit-conversions
+categories:
+- component
 ---
 
 Following up with [[tips-magic-functions]], there's one more gem. Again, this has been around since Lucee 2. We're going to make a new, yet similar example. This time, we're going to create an address object:
@@ -58,7 +60,7 @@ address.cfc
 </cffunction>
 <cffunction name="_toString" access="public" returntype="string" output="false">
 	<cfset var address = "">
-	<cfsavecontent variable="address"><cfoutput>#getStreet1()#<br />#getCity()#, #getState()# #getPostalCode()#</cfoutput></cfsavecontent>
+	<cfsavecontent variable="address"><cfoutput>#getStreet1()#<br>#getCity()#, #getState()# #getPostalCode()#</cfoutput></cfsavecontent>
 	<cfreturn address>
 </cffunction>
 </cfcomponent>
@@ -75,16 +77,19 @@ address.cfc
 <cfoutput>#address#</cfoutput>
 ```
 
-Now, in the address.cfc, note that we have a new function named "_toString" - This is a special conversion/function method name. There are other simple types available:
+Now, in the address.cfc, note that we have a new function named `_toString` - This is a special conversion/function method name.
+
+There are other simple types available:
 
 * _toBoolean()
-* _toDate
-* _toNumeric
-* _toString
+* _toDate()
+* _toNumeric()
+* _toString()
+* _toJSON()
 
 Now, let's look at the output of my address object:
 
 	Some Street
 	Some City, CA 12345
 
-As you can see, the address object was converted to a string via the _toString function.
+As you can see, the address object was converted to a string via the `_toString` function.

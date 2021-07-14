@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args><!--- scope hack --->
 <cfparam name="args.crumbs" type="array" />
 <cfparam name="args.docTree"   type="any" />
 <cfparam name="args.page"   type="any" />

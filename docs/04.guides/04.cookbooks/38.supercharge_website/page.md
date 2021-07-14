@@ -7,7 +7,6 @@ id: supercharge-your-website
 
 This document explains how you can improve the performance of your website in a very short time with Lucee.
 
-
 ### Example: ###
 
 ```luceescript
@@ -17,8 +16,7 @@ writeDump(now());
 
 ```
 
-Run the above index.cfm, and you get a timestamp. Whenever we call our file, Lucee checks once at every request if a file has changed or not (for files currently residing in the the template cache). If a files has changed, Lucee recompiles it, and executes it. Checking the files at every request takes time. If you have a published server, and you know your server does not produce or change any files, you can simply avoid that check that happens all the time.
-
+Run the above index.cfm, and you get a timestamp. Whenever we call our file, Lucee checks once at every request if a file has changed or not (for files currently residing in the template cache). If a files has changed, Lucee recompiles it, and executes it. Checking the files at every request takes time. If you have a published server, and you know your server does not produce or change any files, you can simply avoid that check that happens all the time.
 
 ### Using Admin ###
 
@@ -30,12 +28,10 @@ Run the above index.cfm, and you get a timestamp. Whenever we call our file, Luc
 
 * You can clear the cache by code using `pagePoolClear()`. This clears all template cache so that Lucee will check again if the template has changed. On the next request Lucee will check initially for the file.
 
-* Another option to clear the template cache is to use clear cache via the admin by clicking the button in  _Admin -> Settings -> Performance/ Caching -> Page Pool Cache_.
-
+* Another option to clear the template cache is to use clear cache via the admin by clicking the button in _Admin -> Settings -> Performance/ Caching -> Page Pool Cache_.
 
 ### Footnotes ###
 
 Here you can see this details on video also
 
 [Charge Your website](https://youtu.be/w-eeigEkmn0)
-

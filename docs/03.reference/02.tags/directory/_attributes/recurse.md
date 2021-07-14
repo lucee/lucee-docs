@@ -1,1 +1,1 @@
-Whether Lucee performs the action on subdirectories
+Whether or not to include the content of any sub-directories

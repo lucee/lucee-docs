@@ -13,7 +13,7 @@ The following text assumes that you have basic knowledge of how to use git and a
 
 Before you can start building Lucee from source, you will need a few things installed on your machine:
 
-1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  Lucee requires JDK 6 or later in order to compile.  <http://www.oracle.com/technetwork/java/javase/downloads/>
+1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  Lucee requires JDK 6 or later in order to compile.  <https://www.oracle.com/technetwork/java/javase/downloads/>
 
 1. **Apache ANT** - the source code contains several build scripts that will automate the build process for you. you will need ANT installed in order to run these build scripts. <http://ant.apache.org/bindownload.cgi>
 
@@ -24,8 +24,7 @@ Lucee's source code is version-controlled with GIT and is hosted on github.com [
 The repository contains a few branches, with the most important ones being "Master" (current release) and "Develop" (alpha and beta releases).
 
 So simply clone the repository to your local drive with the following command:
-$ git clone https://github.com/lucee/Lucee.git
-
+$ git clone <https://github.com/lucee/Lucee.git>
 
 ### 3. Edit /lucee-core/src/lucee/runtime/Info.ini
 
@@ -62,11 +61,11 @@ to build Lucee and the express bundles
 
     ant custom
 
-to build Lucee and all custom bundles (jars zip, war file ...)
+to build Lucee and all custom bundles (jars zip, war file, etc)
 
     ant installer
 
-to builld Lucee and the Tomcat installers
+to build Lucee and the Tomcat installers
 
     ant all
 
@@ -81,14 +80,16 @@ You can also build Lucee using Maven via:
     mvn clean install
 
 ### Java notes
+
 Currently the build process requires Java 6 to build successfully, however support for Java 7 and 8 will be added soon. Java 6 is available for Windows and Linux from the Oracle website at the following link:
 
-http://www.oracle.com/technetwork/java/javase/archive-139210.html
+<https://www.oracle.com/technetwork/java/javase/archive-139210.html>
 
 ### Java for Mac OS X
+
 For Mac OS X you will need to obtain a package from the Apple Developer site, as until Java 7, Java on Mac OS X was maintained and provided by Apple. To do this go to the following URL:
 
-https://developer.apple.com
+<https://developer.apple.com>
 
 and sign in using an Apple developer account or register for an account (it's free). Once you have signed in go to the download section and search for the following package:
 
@@ -101,6 +102,7 @@ Download this package and install it. Once installed go to the terminal window a
 Once you have added this, exit terminal and open a new terminal and check the Java version again using the `javac -version` command.
 
 ### Ant notes
+
 If when you run Ant you get an error message that says:
 
     java.lang.OutOfMemoryError: Java heap space
@@ -114,7 +116,8 @@ Windows: `set ANT_OPTS=-Xms256m -Xmx1024m`
 Once set this should allow Ant to run without issue. For Linux and Mac you can add this export to your bash profile to load automatically.
 
 ### IntelliJ IDEA notes
-The cloned repository can be easily imported into a new, empty Java project in IntelliJ IDEA 14. You should end up with 4 modules within the project: lucee-core, lucee-debug, lucee-instrumentaion, lucee-loader. Opening the main build.xml in the project root should give you all the build options as outlined above.
+
+The cloned repository can be easily imported into a new, empty Java project in IntelliJ IDEA 14. You should end up with 4 modules within the project: lucee-core, lucee-debug, lucee-instrumentation, lucee-loader. Opening the main build.xml in the project root should give you all the build options as outlined above.
 
 The default setup in IntelliJ IDEA provides 128m heap memory for the build process. This will most likely be not enough. The heap memory setup strategy as explained in the previous is not applicable for building from within the IDE though. Instead find the properties dialog for the build file and change the setting of 128m to 256m or as high as necessary.
 

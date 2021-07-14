@@ -2,7 +2,10 @@
 title: GetUserRoles
 id: function-getuserroles
 related:
-categories:
+- function-getauthuser
+- function-isuserinanyrole
+- function-isuserinrole
+- function-isuserloggedin
 ---
 
 Retrieves the list of roles for the current user.

@@ -5,7 +5,7 @@ related:
 - function-gettagdata
 - function-gettaglist
 categories:
-- system
+- server
 ---
 
 Returns information about a function

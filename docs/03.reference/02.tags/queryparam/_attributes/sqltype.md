@@ -1,1 +1,1 @@
-The SQL type that the parameter (any type) will be bound to.
+The SQL type that the parameter (any type) will be bound to. A list of SQL types can be found on the [SQL Type page](/guides/cookbooks/Sql-Types.html). All can be used with or without the `CF_SQL_` prefix.

@@ -1,12 +1,12 @@
 ---
-title: Deploy Archives
+title: Creating and deploying Lucee Archives (.lar files)
 id: deploy-archives
 ---
 ## Deploy Archive ##
 
-This document explains how to deploy the application in live server without using single CFML file. Explained with simple example
+This document explains how to deploy an Application on a live server without using single CFML file.
 
-Example:
+Simple example:
 
 ### Using CFC file ###
 
@@ -20,7 +20,8 @@ component test {
 }
 </cfscript>
 ```
-We need a mapping for the above cfc, because it's not inside the Root folder
+
+You will need to add a mapping for the above cfc, because it's not inside the Root folder
 
 Create component mapping in **Archives & Resources -> Component**
 
@@ -31,7 +32,7 @@ name: mycfc
 resource: **Full folder path**/component/
 ```
 
-After creating the mapping we need to create an archive file for the cfc.
+After creating the mapping, you need to create an archive file for the cfc.
 
 * Go to the detail view of mycfc mapping page,
 * Click the button **assign archive to mapping**.
@@ -51,11 +52,13 @@ test = new org.lucee.examples.deploy.Test();
 dump(test.slave());
 </cfscript>
 ```
+
 ```
 name: /deploy
 resource: ROOT/test/deploy/index.cfm
 ```
-After creating mapping, create an Archive file by clicking button **assign archive to mapping**
+
+After creating mapping in the Administrator, you can create an Archive file by clicking **assign archive to mapping**
 
 Now you can see the both lar files were in WEB-INF\lucee\context\archives folder.
 
@@ -72,5 +75,4 @@ You can now view mappings in admin.
 
 Here you can see above details in video
 
-[Lucee Deploy Archive file ](https://www.youtube.com/watch?time_continue=473&v=E9Z0KvspBAY)
-
+[Lucee Deploy Archive file](https://www.youtube.com/watch?time_continue=473&v=E9Z0KvspBAY)

@@ -2,9 +2,10 @@
 title: LJustify
 id: function-ljustify
 related:
+- function-rjustify
 categories:
-    - string
-    - formatting
+- formatting
+- string
 ---
 
 Left justifies characters in a string of a specified length.

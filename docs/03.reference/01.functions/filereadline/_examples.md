@@ -1,7 +1,17 @@
 ```luceescript
-openFile = fileopen("filepath"),"read");
-  //Filepath is an should specify a path of file.
-readfromFile = filereadline(openFile);
-filewrite("filepath",readfromFile);
-  //Above filepath, should specify a path of write file.
+// Example reads lines of file one at a time into an array
+filePath = "/path/to/file.txt"
+openFile = fileopen( filePath, "read" );
+lines = [];
+
+// IMPORTANT: must close file, use try/catch/finally to do so
+try {
+    while( !fileIsEoF( openFile ) ) {
+        arrayAppend( lines, fileReadLine( openFile ) );
+    }
+} catch( any e ) {
+    rethrow;
+} finally {
+    fileClose( openFile );
+}
 ```

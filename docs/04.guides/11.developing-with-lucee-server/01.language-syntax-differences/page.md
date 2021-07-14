@@ -1,6 +1,10 @@
 ---
 title: Lucee Language and Syntax Differences
 id: language-syntax-differences
+related:
+- lucee-5-unquoted-arguments
+categories:
+- core
 menuTitle: Language and Syntax
 ---
 
@@ -157,6 +161,7 @@ variables["a.b.c"]="Susi";
 writedump(variables["a.b.c"]); // This works in ACF and Lucee Server
 writedump(variables.a.b.c); // This works in ACF but fails in Lucee Server, because there is no key "a" in the variables scope!
 ```
+
 The following construct also works in ACF:
 
 ```luceescript
@@ -173,11 +178,13 @@ variables["a.b.c"]="Susi";
 structKeyTranslate(variables, true, true);
 dump(variables);
 ```
+
 The above will generate a structure like this:
 
 ```luceescript
 {a:{b:{c:"Susi"}}, "a.b.c":"Susi"}
 ```
+
 ### Annotations ###
 
 In cfscript annotations can be used in order to "decorate" functions and their arguments. Unlike ACF, Lucee Server never overwrites attributes that change the behaviour of the function itself. So attributes like output, returntype, returnformat can not be set using annotations. These annotations will be ignored in Lucee Server.
@@ -191,6 +198,7 @@ Example:
 * the rest of the hint
 */ function test(arg1){ }
 ```
+
 Now if you call getMetaData(test) you will get a struct that contains additional keys (in this case prop1). Other implementations allow you to define each possible argument of a function in annotation style, just like this:
 
 ```luceescript
@@ -211,6 +219,7 @@ This notation and thus the functionality behind it means, that comments are affe
 public int function test(arg1) {
 }
 ```
+
 ACF throws the following error:
 
 Attribute validation error. A duplicate attribute RETURNTYPE has been encountered. Attributes with the same name cannot be provided more than once.
@@ -243,8 +252,8 @@ function test(string url){
     writeDump(url);// in ACF outputs the string passed, in Lucee Server the url scope
 }
 
-test("http://lucee.org");
-url="http://lucee.org"; // same as variables.url="http://lucee.org"; in Lucee Server and ACF
+test("https://lucee.org");
+url="https://lucee.org"; // same as variables.url="https://lucee.org"; in Lucee Server and ACF
 
 qry=querynew('url');
 queryAddrow...
@@ -253,7 +262,7 @@ querySetCell...
 
 ```lucee
 <cfloop query="qry">
-   <cfset _url=qry.url> <!--- in Lucee Server and ACF qry.url is invoked  --->
+   <cfset _url=qry.url> <!--- in Lucee Server and ACF qry.url is invoked --->
    <cfset _url=url> <!--- in ACF qry.url is invoked in Lucee Server the url scope --->
 ```
 
@@ -310,6 +319,7 @@ A literal is a final value which does not change at runtime or is not a variable
 b=true;
 n=1234.5678;
 ```
+
 ACF internally stores these two literals as strings, Lucee Server stores them as a Boolean and as a double. Lucee Server tries to store variables always in the format the user has defined them in the code, for the following reasons:
 
 ### logic ###

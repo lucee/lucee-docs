@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args><!--- scope hack --->
 <cfparam name="args.page" type="page" />
 
 <cfset local.meth = args.page />
@@ -38,7 +39,7 @@
 								#getEditLink(path=local.meth.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
 								#markdownToHtml( Trim( arg.description ) )#
 								<cfif local.arg.keyExists("alias") and len(local.arg.alias) gt 0>
-									<p title="for compatability, this argument has the following alias(es)">
+									<p title="for compatibility, this argument has the following alias(es)">
 										<sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub>
 									</p>
 								</cfif>

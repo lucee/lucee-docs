@@ -37,7 +37,7 @@
 			hello = HelloWorld.init();
 		</cfscript>
 
-		<p>I say: Hello Java!  <br/>
+		<p>I say: Hello Java!  <br>
 		   Java says:
 			<!--- let's say hello --->
 			<cfoutput>#hello.hello()#</cfoutput>

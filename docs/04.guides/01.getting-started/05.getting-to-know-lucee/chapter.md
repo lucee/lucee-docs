@@ -5,7 +5,6 @@ id: getting-to-know-lucee
 
 ## What do you get with Lucee Server? ##
 
-
 Lucee Server is a CFML engine. It allows you to write powerful web-based systems and deploy them to a variety of platforms.
 
 Lucee Server is written in Java and runs in a Java Servlet Container. When you download and install Lucee Server, you get a Servlet Container plus the Lucee code.
@@ -15,7 +14,6 @@ But you don't need to worry about that: you access Lucee Server features using C
 Just write CFML files - typically one per page on your site - and then request them through the browser. Lucee Server will compile your work the first time you request that page.
 
 Lucee Server comes bundled with a lot of services that you'll find useful in building your apps - session management, database connectivity, ORM, search engine, mail, scheduling, fast caches, subsystems for accessing disks, remote servers, Amazon services, support for REST, XML, JSON and much more. At the core of Lucee Server is the Lucee Server Administrator - a web application that lets you configure and maintain your own Lucee applications.
-
 
 ## About CFML ##
 
@@ -65,6 +63,7 @@ employee.setDOB(getEmployee.dob);
 ## Mixed mode ##
 
 It's good practice to keep business logic and presentation separate, but if you want to prototype something quickly, you can bundle them together...
+
 ```lucee
 <cfquery name="getEmployee">
     select name, dob from employee
@@ -97,6 +96,7 @@ It's good practice to keep business logic and presentation separate, but if you 
     var getEmployee = getEmployeeQuery.getResult();
 </cfscript>
 ```
+
 ```lucee
 <cfoutput query="getEmployee">
     <h1>Employee details</h1>

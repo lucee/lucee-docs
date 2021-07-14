@@ -1,10 +1,10 @@
 ---
 title: StructMap
 id: function-structmap
-related:
 categories:
-- struct
 - collection
+- struct
+- thread
 ---
 
 Calls the given closure with every element in the given struct.

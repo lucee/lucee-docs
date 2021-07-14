@@ -3,12 +3,14 @@ title: Websocket gateway
 id: extensions-websocket-gateway
 categories:
 - ajax
+- gateways
+- extensions
 - protocols
 ---
 
 ### WebSockets Gateway Extension ###
 
-This extension enables you to launch a server that is capable to manage messaging from HTML WebSockets. The server runs on a dedicated port. Lucee will receive notifications when a connection is opened, closed and any time a message is sent invoking a cfc listener class. 
+This extension enables you to launch a server that is capable to manage messaging from HTML WebSockets. The server runs on a dedicated port. Lucee will receive notifications when a connection is opened, closed and any time a message is sent invoking a cfc listener class.
 
 The gateway can also being invoked via SendGatewayMessage so to allow your app to push message to all the connected clients.
 
@@ -20,7 +22,6 @@ The gateway can also being invoked via SendGatewayMessage so to allow your app t
 
 <https://www.youtube.com/watch?v=rvB7PcNylVY>
 
-
 ### Installing the Extension ###
 
 You can install the extension by adding the provider <http://preview.lucee.org/ExtensionProvider.cfc> to your Providers section in the Lucee Web administration panel (not the Server administration panel). Then select the Websocket Gateway Extension app and simply click on the Install button.
@@ -29,11 +30,9 @@ You can install the extension by adding the provider <http://preview.lucee.org/E
 
 Go into the Event Gateway section of your Lucee admin panel. Create a new gateway instance of type WebSocket. Choose a name that makes sense and is unique into your Lucee context. Click
 
-
 ### Configure the gateway ###
 
 You can configure many aspect of your gateway.
-
 
 * **Port** : select the port you want the server will listen for your incoming messages. Default is port 10125. Please remember that the server will listen incoming messages using the ws protocol. For example : ws://localhost:10125
 * **Startup Mode** : Automatic will make the gateway start when Lucee server starts up automatically. Choose what selection better fits your need.
@@ -43,8 +42,7 @@ When you are done click submit.
 
 ### Usage ###
 
-Start and stop the gateway is easier as per any other gateway in Lucee. Access the Gateway section in the lucee admin and and you will a set to start/stop, restart , edit and delete the gateway instances. Please note that stopping the gateway will also stop the websocket server and will destroy any actual connection.
-
+Start and stop the gateway is easier as per any other gateway in Lucee. Access the Gateway section in the lucee admin and you will a set to start/stop, restart, edit and delete the gateway instances. Please note that stopping the gateway will also stop the websocket server and will destroy any actual connection.
 
 ### Interact using the gateway listener ###
 
@@ -65,7 +63,6 @@ component{
 ```
 
 Any time a new connection is opened, closed and when a message is sent, the websocket server invokes the listener before sending out any message. The data map passed to the listener contains the following :
-
 
 * **conn** : the connection reference that created the message.
 * **message** : the message that the connection carries. This is normally empty when a connection is Opened and Closed
@@ -102,7 +99,7 @@ public void function onMessage(Struct data){
 
 ### sendGatewayMessage ###
 
-The gateway is running into your applications and can be invoked as any other other gateway by id using the SendGatewayFunction:
+The gateway is running into your applications and can be invoked as any other gateway by id using the SendGatewayFunction:
 
 ```lucee
 sendGatewayMessage(String id,Struct data);
@@ -112,7 +109,6 @@ This is a great way for performing data push operations. The server will ping AN
 
 ** IMPORTANT ** : store the message as data.message in the struct you pass to the sendGatewayMessage function.
 
-
 ### Logging ###
 
 The gateway creates a log file called WebSocket.log under your lucee context log folder. Any important event ( and error ) is logged in this file. This file is unique for all the gateways you start from a same Lucee context.
@@ -121,7 +117,7 @@ The gateway creates a log file called WebSocket.log under your lucee context log
 
 At the time of this script not all the browsers support WebSockets out of the box.
 
-Use this test page to find out if your browser supports it. 
+Use this test page to find out if your browser supports it.
 
 <http://html5test.com/>
 
@@ -138,11 +134,11 @@ ws.onmessage = function(message){
     do(message.data);
 }
 
-ws.onclose =  function(){
+ws.onclose = function(){
     //do staff or send a message
 }
 ```
 
 Please refer to the sample apps source code for more examples.
 
-If browser failover is important to you, many OS libraries exist that has the ability to failover to other tecnolgies as flash or ajax longpolling if there is no WebSocket support available in the current browser. This is one of the best client around that offer exactly this failover : [http://socket.io/](http://socket.io/)
+If browser failover is important to you, many OS libraries exist that has the ability to failover to other technologies as flash or ajax longpolling if there is no WebSocket support available in the current browser. This is one of the best client around that offer exactly this failover : [http://socket.io/](http://socket.io/)

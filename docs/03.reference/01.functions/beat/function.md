@@ -3,7 +3,7 @@ title: Beat
 id: function-beat
 categories:
 - datetime
-description: 'Outputs the current swatch/beat time. '
+description: 'Outputs the current swatch/beat time.'
 ---
 
 Outputs the [swatch internet time](https://en.wikipedia.org/wiki/Swatch_Internet_Time) (or "beat time") of the passed local time.

@@ -15,7 +15,7 @@
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.label-#{$color} {
 			background-color: nth($palette-color, $i);
 		}

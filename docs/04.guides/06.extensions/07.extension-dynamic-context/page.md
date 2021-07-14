@@ -20,7 +20,7 @@ install.cfc:
 <source lang="xml">
 <cfcomponent>
 <cffunction name="fillRoot" returntype="void" output="no">
-<cfargument name="item" required="yes" >
+<cfargument name="item" required="yes">
 <cfset item.setValue(now())>
 </cffunction>
 </cfcomponent>
@@ -31,13 +31,13 @@ install.cfc:
 <source lang="coldfusion">
 <cfcomponent>
 <cffunction name="fillOther" returntype="void" output="no">
-<cfargument name="item" required="yes" >
+<cfargument name="item" required="yes">
 <cfset item.createOption(value:"first",label:"First",selected:true)>
 <cfset item.createOption(value:"second",label:"Second")>
 </cffunction>
 </cfcomponent>
 </source>
-The attribute dynamic can be used in all tags defined in the xml, including the root tag config (except of course the option tag).
+The attribute dynamic can be used in all tags defined in the XML, including the root tag config (except of course the option tag).
 <source lang="xml">
 ...
 <group dynamic="fillGroup" label="dynamic Group">
@@ -47,7 +47,7 @@ install.cfc:
 <source lang="coldfusion">
 <cfcomponent>
 	<cffunction name="fillGroup" returntype="void" output="no">
-		<cfargument name="group" required="yes" >
+		<cfargument name="group" required="yes">
 		<cfset item=group.createItem(type:'radio',name:'happy',label:'Happy?')>
 		<cfset item.createOption(value:true,label:'Yes',selected:true)>
 		<cfset item.createOption(value:false,label:'No')>

@@ -1,1 +1,1 @@
-the length of a string
+the object to measure the length of

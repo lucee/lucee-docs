@@ -3,10 +3,10 @@ title: IsEmpty
 id: function-isempty
 categories:
 - decision
-description: 'Returns whether or not a given value is "empty". '
+description: 'Returns whether or not a given value is "empty".'
 ---
 
-Returns whether or not a given value is "empty". 
+Returns whether or not a given value is "empty".
 
 The following data types can be checked:
 

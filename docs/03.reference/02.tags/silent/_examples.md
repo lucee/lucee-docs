@@ -1,9 +1,8 @@
-
 ```lucee+trycf
 <cfset intA = 1>
 <cfsilent>
 	<cfset intA =intA+10 >
-	<cfdump var="#intA#" /> 
+	<cfdump var="#intA#" />
 </cfsilent>
 <cfdump var="#intA#" />
 
@@ -15,6 +14,6 @@
 		isExecuted=true;
 	writeDump("Inside dump executed: "&isExecuted);
 	}
-	writeDump("Outside dump executed: "&isExecuted); 
+	writeDump("Outside dump executed: "&isExecuted);
 </cfscript>
 ```

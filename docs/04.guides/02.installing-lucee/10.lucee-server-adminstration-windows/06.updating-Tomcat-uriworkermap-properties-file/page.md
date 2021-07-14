@@ -4,7 +4,7 @@ id: windows-updating-uriworkermap-properties-file
 ---
 **NOTE:** This information is only relevant for Lucee 3.3.2 and BELOW. Newer releases of the Lucee Installer come with the improved BonCode Connector which does not require a workermap.
 
-The uriworkermap.properties file is what tells the IIS connector what requests to hand off to Tomcat for processing. You will need to edit this URL if IIS is not passing off a request to Tomcat that you want passed (like a specially formatted search engine optimized URL), or if IIS is passing a request that you do NOT want passed off to Tomcat (like a file that needs to be processed by a different language interpretor, such as PHP, ASP, or Ruby).
+The uriworkermap.properties file is what tells the IIS connector what requests to hand off to Tomcat for processing. You will need to edit this URL if IIS is not passing off a request to Tomcat that you want passed (like a specially formatted search engine optimized URL), or if IIS is passing a request that you do NOT want passed off to Tomcat (like a file that needs to be processed by a different language interpreter, such as PHP, ASP, or Ruby).
 
 The default location for the uriworkermap.properties file is here:
 
@@ -16,7 +16,7 @@ Each line in the uriworkermap.properties file constitutes a pattern that the con
 
 	 /=ajp13
 
-The "/" is the URL pattern, and the "ajp13" is the Tomcat instance to send it to. This particular entry is specially created for processing the index.cfm file as a default document. When IIS gets a request for a site, like for http://www.lucee.org/, the URL pattern at the end (after the domain itself) is a simple "/", which is going to get passed off to Tomcat because of the config in the uriworkermap.properties file.
+The "/" is the URL pattern, and the "ajp13" is the Tomcat instance to send it to. This particular entry is specially created for processing the index.cfm file as a default document. When IIS gets a request for a site, like for <http://www.lucee.org/>, the URL pattern at the end (after the domain itself) is a simple "/", which is going to get passed off to Tomcat because of the config in the uriworkermap.properties file.
 
 ### Wildcards ###
 

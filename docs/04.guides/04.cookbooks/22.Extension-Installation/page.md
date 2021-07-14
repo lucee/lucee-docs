@@ -1,64 +1,66 @@
 ---
 title: Extension Installation
 id: extension-installation
+categories:
+- extensions
+description: How to install Lucee extensions, manually, via a environment variable or via the admin
 ---
+
 ## Extensions ##
 
-### Introduction ###
+In this section, you'll find information about Lucee extension installation, which can be used to add Functions, Tags, JDBC/Cache drivers and Admin Plugins to Lucee Server.
 
-In this section, you'll find information about Lucee extension installation, which can be used to add functions, tags, JDBC/Cache drivers and admin plugins to Lucee Server
-
-There are different ways to install the extension in lucee
+There are several different ways to install extensions in Lucee.
 
 ### Extension installation via Admin ###
 
-Extensions can be installed via the web or server admin. If you want to use the extension for the whole server means you need to install at server admin. If you want the extension for single web context installed in web admin.
+Extensions can be installed via the web or server admin.
 
-It available in **Extension -> Applications**
+If you want to use an Extension for the whole server, you should install it under the Server Admin. If you want the extension for just for only a single web context, install it via the Web admin.
 
-![Extension](assets/images/screenImages/Extension.png)
+All available Extensions are listed under  **Extension -> Applications**
 
-Here we you can see the extension which is installed and not installed.
+![Extension](/assets/images/screenImages/Extension.png)
 
-For installed extension if we have a update for the extension it simply showing with the label update, while clicking the extension it redirect to detail page of the extension
+Here you can see which extensions are installed and not installed.
 
-![Extension Details](assets/images/screenImages/Extension_Detail.PNG)
+Installed extensions, with an update available have a red overlay.
 
-In this detail page you can upgrade or downgrade your versions and you can uninstall the extension.
+![Extension Details](/assets/images/screenImages/Extension_Detail.png)
 
-It's most help ful for JDBC driver, choose the version you like. If you update the extension it download & install it automatically.
+On the Extension detail page, you can upgrade or downgrade the version or uninstall it.
 
-By default lucee use extension as http://extension.lucee.org.
+With JDBC drivers, choose the version you require, the version numbers are based on the undelying JDBC Library.
 
+By default Lucee allows installing extensions from the following sites
+
+- <https://downloads.lucee.org> (Official LAS Extensions)
+- and <https://www.forgebox.io/type/lucee-extensions> (third party, community)
 
 ### Extension installation via lex file ###
 
+To install an extension using the file system, first download the `.lex` file for the extension.
 
-Install the extension using file system. For that you should download the lex file for the extension.
+You can download it from the url [https://download.lucee.org/](https://download.lucee.org/)
 
-You can download it from the url [http://download.lucee.org/](http://download.lucee.org/)
+Copy the `.lex` file into your ```lucee-server/deploy/``` folder. Wait for a minute, it deploy the extension automatically. You can see the installation message on `deploy.log` files.
 
-Copy the lex file into your ```lucee-server/deploy/``` folder. Wait for a minute, it deploy the extension automatically. You can see the installation message on deploy.log files.
-
-Another way you can upload the lex file in admin, You can see "Upload new extension (experimental)" at bottom of **Extension -> Applications** page.
+Another way you can upload the `.lex` file in admin, You can see "Upload new extension (experimental)" at bottom of **Extension -> Applications** page.
 
 * Click the browse button,
-* Choose the lex file,
-* Click the upload button,
+* Choose the `.lex` file,
+* Click the upload button, and the Extension will be automatically installed
 
-Extension installed automatically.
+### Extension installation via an Environment Variable ###
 
+Lucee will automatically install extensions on startup, if an environment variable is set.
+
+`LUCEE_EXTENSIONS=D46B46A9-A0E3-44E1-D972A04AC3A8DC10;version=1.0.19.19`
+
+See [[running-lucee-system-properties]]
 
 ### Footnotes ###
 
 Here you can see this details on video also
 
 [Extension Installation](https://www.youtube.com/watch?time_continue=184&v=Vcu0OENm_ks)
-
-
-
-
-
-
-
-

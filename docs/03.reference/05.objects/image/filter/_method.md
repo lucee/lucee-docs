@@ -19,7 +19,7 @@ average
 
 	Parameters:
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -37,7 +37,7 @@ block
 		- min-value: 1
 		- max-value: 100+
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -52,7 +52,7 @@ blur
 
 	Parameters:
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -84,7 +84,7 @@ bump
 
 	Parameters:
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -148,11 +148,11 @@ cellular
 	- randomness (numeric)
 	- gridType (String)
 		the grid type to set, one of the following:
-		-  RANDOM
-		-  SQUARE
-		-  HEXAGONAL
-		-  OCTAGONAL
-		-  TRIANGULAR
+		- RANDOM
+		- SQUARE
+		- HEXAGONAL
+		- OCTAGONAL
+		- TRIANGULAR
 	- distancePower (numeric)
 	- scale (numeric)
 		Specifies the scale of the texture.
@@ -214,7 +214,7 @@ circle
 	- height (numeric)
 		The height of the arc.
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -288,11 +288,11 @@ crystallize
 	- randomness (numeric)
 	- gridType (String)
 		the grid type to set, one of the following:
-		-  RANDOM
-		-  SQUARE
-		-  HEXAGONAL
-		-  OCTAGONAL
-		-  TRIANGULAR
+		- RANDOM
+		- SQUARE
+		- HEXAGONAL
+		- OCTAGONAL
+		- TRIANGULAR
 	- distancePower (numeric)
 	- scale (numeric)
 		Specifies the scale of the texture.
@@ -306,7 +306,7 @@ curl
 	- angle (numeric)
 	- transition (numeric)
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -329,7 +329,7 @@ diffuse
 		- min-value: 1
 		- max-value: 100+
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -373,7 +373,7 @@ displace
 	- displacementMap (Image)
 		The displacement map.
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -454,7 +454,7 @@ fade
 	- invert (boolean)
 	- dimensions (Array)
 feedback
-	A filter which priduces a video feedback effect by repeated transformations.
+	A filter which produces a video feedback effect by repeated transformations.
 
 	Parameters:
 	- iterations (integer)
@@ -539,7 +539,7 @@ gaussian
 		- min-value: 0
 		- max-value: 100+
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -579,7 +579,7 @@ glow
 		- min-value: 0
 		- max-value: 100+
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -589,7 +589,7 @@ glow
 	- premultiplyAlpha (boolean)
 		Set whether to premultiply the alpha channel.
 gradient
-	A filter which draws a coloured gradient. This is largely superceded by GradientPaint in Java1.2, but does provide a few
+	A filter which draws a coloured gradient. This is largely superseded by GradientPaint in Java1.2, but does provide a few
 	more gradient options.
 
 	Parameters:
@@ -660,7 +660,7 @@ kaleidoscope
 	- angle2 (numeric)
 		The secondary angle of the kaleidoscope.
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -714,7 +714,7 @@ map
 
 	Parameters:
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -741,7 +741,7 @@ marble
 	- yScale (numeric)
 		The Y scale of the effect.
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -758,7 +758,7 @@ mask
 	- mask (integer)
 	- dimensions (Array)
 maximum
-	A filter which replcaes each pixel by the maximum of itself and its eight neightbours.
+	A filter which replaces each pixel by the maximum of itself and its eight neighbours.
 
 	Parameters:
 median
@@ -766,11 +766,10 @@ median
 
 	Parameters:
 minimum
-	A filter which replcaes each pixel by the mimimum of itself and its eight neightbours.
+	A filter which replaces each pixel by the minimum of itself and its eight neighbours.
 
 	Parameters:
 mirror
-
 
 	Parameters:
 	- angle (numeric)
@@ -805,7 +804,7 @@ offset
 	- yOffset (integer)
 	- wrap (boolean)
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -861,7 +860,7 @@ perspective
 	- yLB (numeric)
 		the new vertical position of the bottom left corner, negative values are translated to image-height - y.
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -889,7 +888,7 @@ pinch
 	- centreY (numeric)
 		The centre of the effect in the Y direction as a proportion of the image size.
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -943,11 +942,11 @@ pointillize
 	- randomness (numeric)
 	- gridType (String)
 		the grid type to set, one of the following:
-		-  RANDOM
-		-  SQUARE
-		-  HEXAGONAL
-		-  OCTAGONAL
-		-  TRIANGULAR
+		- RANDOM
+		- SQUARE
+		- HEXAGONAL
+		- OCTAGONAL
+		- TRIANGULAR
 	- distancePower (numeric)
 	- scale (numeric)
 		Specifies the scale of the texture.
@@ -963,7 +962,7 @@ polar
 		- POLAR_TO_RECT = Convert from polar to rectangular coordinates
 		- INVERT_IN_CIRCLE = Invert the image in a circle
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -1057,12 +1056,12 @@ ripple
 	- waveType (String)
 		The wave type.
 		valid values are:
-		- sine (default):  Sine wave ripples.
+		- sine (default): Sine wave ripples.
 		- sawtooth: Sawtooth wave ripples.
 		- triangle: Triangle wave ripples.
 		- noise: Noise ripples.
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -1079,7 +1078,7 @@ rotate
 	- angle (numeric)
 		Specifies the angle of rotation.
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -1105,7 +1104,6 @@ scale
 	- width (integer)
 	- height (integer)
 scratch
-
 
 	Parameters:
 	- angle (numeric)
@@ -1138,7 +1136,7 @@ shadow
 	- shadowColor (String)
 		The color of the shadow.
 	- addMargins (boolean)
-		Set whether to increase the size of the output image to accomodate the shadow.
+		Set whether to increase the size of the output image to accommodate the shadow.
 	- shadowOnly (boolean)
 		Set whether to only draw the shadow without the original image.
 shape
@@ -1158,7 +1156,7 @@ sharpen
 
 	Parameters:
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -1168,7 +1166,6 @@ sharpen
 	- premultiplyAlpha (boolean)
 		Set whether to premultiply the alpha channel.
 shatter
-
 
 	Parameters:
 	- iterations (integer)
@@ -1190,7 +1187,7 @@ shear
 	- xAngle (numeric)
 	- yAngle (numeric)
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -1272,7 +1269,7 @@ sphere
 	- refractionIndex (numeric)
 		The index of refaction.
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -1325,7 +1322,7 @@ swim
 		- min-value: 1
 		- max-value: 300+
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -1390,7 +1387,7 @@ twirl
 	- centreY (numeric)
 		The centre of the effect in the Y direction as a proportion of the image size.
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -1415,7 +1412,7 @@ unsharp
 		- min-value: 0
 		- max-value: 100+
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -1442,7 +1439,7 @@ water
 	- phase (numeric)
 		The phase of the ripples.
 	- edgeAction (String)
-		The action to perfomr for pixels off the image edges.
+		The action to perform for pixels off the image edges.
 		valid values are:
 		- clamp (default): Clamp pixels off the edge to the nearest edge.
 		- wrap: Wrap pixels off the edge to the opposite edge.
@@ -1466,7 +1463,7 @@ weave
 	- shadeCrossings (boolean)
 	- dimensions (Array)
 wood
-	A filter which produces a simulated wood texture. This is a bit of a hack, but might be usefult to some people.
+	A filter which produces a simulated wood texture. This is a bit of a hack, but might be useful to some people.
 
 	Parameters:
 	- turbulence (numeric)

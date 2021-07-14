@@ -1,7 +1,14 @@
+<cfset local.args = arguments.args><!--- scope hack --->
 <cfparam name="args.crumbs" type="array" />
 <cfparam name="args.categories" type="array" />
 <cfparam name="args.docTree"   type="any" />
 <cfparam name="args.page"   type="any" />
+
+<cfif args.edit>
+	<cfset local.docs_base_url = "http://#cgi.http_host#">
+<cfelse>
+	<cfset local.docs_base_url = "https://docs.lucee.org">
+</cfif>
 
 
 <cfif args.page.getId() neq "/home" and ArrayLen(args.crumbs)>
@@ -17,10 +24,8 @@
 							[
 							"@type":"ListItem",
 							"position":1,
-							"item": [
-								"@id":"http://docs.lucee.org",
-								"name":"Docs"
-							]
+							"name":"Docs",
+							"item": local.docs_base_url
 						]
 					]
 				];
@@ -30,10 +35,8 @@
 					local._crumb = [
 						"@type": "ListItem",
 						"position": #local.i+1#,
-						"item": [
-							"@id": local.crumb.getPath() & '.html',
-							"name": local.crumb.getTitle()
-						]
+						"name": local.crumb.getTitle(),
+						"item": local.docs_base_url & local.crumb.getPath() & '.html'
 					];
 					ArrayAppend(local.jsonLd.itemListElement, local._crumb);
 				}
@@ -54,7 +57,7 @@
 			<script type="application/ld+json">#serializeJSON(local.jsonLd)#</script>
 			<ul class="breadcrumb margin-no-top margin-right margin-no-bottom margin-left" itemscope itemtype="http://schema.org/BreadcrumbList">
 				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-					<a href="/index.html" itemprop="url">
+					<a href="#local.docs_base_url#/index.html" itemprop="item">
 						<span itemprop="name">Docs</span>
 					</a>
 					<meta itemprop="position" content="1" />
@@ -63,7 +66,7 @@
 				<cfloop array="#local._crumbs#" item="local.pageSlug" index="local.i">
 					<cfset local.crumb = args.doctree.getPage(local.pageSlug)>
 					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-						<a href="#local.crumb.getPath()#.html" itemprop="url">
+						<a href="#local.docs_base_url##local.crumb.getPath()#.html" itemprop="item">
 							<span itemprop="name">#HtmlEditFormat(local.crumb.getTitle())#</span>
 						</a>
 						<meta itemprop="position" content="#local.i+1#" />

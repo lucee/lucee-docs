@@ -3,14 +3,18 @@ title: Lucee compared to Java
 id: about-lucee-lucee-compared-to-java
 ---
 
-##JVM
-Like Java, Lucee is also a JVM (Java Virtual Machine) based language, means the source code is compiled to java bytecode, so it can be executed on the JVM. In difference to other JVM languages Lucee comes with it owns very powerful runtime environment. So it is not only a different syntax to do java bytecode, like for example Groovy.  
+## JVM
 
-##Server
+Like Java, Lucee is also a JVM (Java Virtual Machine) based language, means the source code is compiled to Java bytecode, so it can be executed on the JVM. In difference to other JVM languages Lucee comes with it owns very powerful runtime environment. So it is not only a different syntax to do Java bytecode, like for example Groovy.
+
+## Server
+
 Changes to Lucee are made with the Lucee administrator.  In Java projects, comparable changes, especially relating to injectable resources, are often made in the Java container in use.
 
-##Pros & cons
+## Pros & cons
+
 ### Pros of Lucee
+
 CFML enables very fast prototyping
 
 CFML typically allows for faster development
@@ -33,11 +37,12 @@ Training staff to use Lucee will take a lot less time than Java
 
 IDEs and editors can be much simpler
 
-Existing jsp taglibs can be used in CFML pages
+Existing JSP taglibs can be used in CFML pages
 
 No need to build as this is done when the code is run for the first time (runtime compiler)
 
 ### Cons of Lucee
+
 CFML does not have strong typing, whereas developers may prefer Java's strong typing
 
 Clients may be resistant to change to Lucee

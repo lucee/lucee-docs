@@ -1,1 +1,1 @@
-array to substract data from
+array to subtract data from

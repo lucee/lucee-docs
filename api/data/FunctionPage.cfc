@@ -8,24 +8,37 @@ component accessors=true extends="Page" {
 	property name="examples"     type="string";
 	property name="introduced"   type="string";
 	property name="alias"        type="string";
+	property name="status"        type="string";
+	property name="returnTypeDesc"   type="string";
+	property name="usageNotes"   type="string";
+
+	public string function getTitle() {
+		return super.getTitle() & "()";
+	}
 
 	public string function getUsageSignature() {
-		var usage = this.getTitle() & "(";
+		var usage = super.getTitle() & "(";
 		var delim = " ";
 		var optionalCount = 0;
 
 		for( var argument in this.getArguments() ) {
 			if ( !argument.required ) {
-				usage &= " [";
+				usage &= "<em title='optional'>";
 				optionalCount++;
 			}
+			usage &= delim & argument.name & "=";
 
-			usage &= delim & argument.name;
+			if ( IsArray( argument.values ?: "" ) && argument.values.len() ) {
+				usage &= argument.values.toList( "|" );
+			} else {
+				usage &= argument.type;
+		   	}
+			usage &= "</em>";
 			delim = ", ";
 		}
-
-		usage &= RepeatString( " ]", optionalCount );
-		usage &= " )";
+		//usage &= "</em>";
+		//usage &= RepeatString( " ]", optionalCount );
+		usage &= " );";
 
 		return usage;
 	}

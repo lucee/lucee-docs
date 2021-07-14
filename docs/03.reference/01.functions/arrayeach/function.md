@@ -1,10 +1,10 @@
 ---
 title: ArrayEach
 id: function-arrayeach
-related:
 categories:
-    - array
-    - collection
+- array
+- collection
+- thread
 ---
 
 call the given UDF/Closure with every value in the array.

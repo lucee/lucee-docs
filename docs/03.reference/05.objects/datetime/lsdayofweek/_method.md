@@ -1,14 +1,13 @@
 ---
-title: datetime.lsDayOfWeek()
+title: datetime.LSDayOfWeek()
 id: method-datetime-lsdayofweek
-methodObject: datetime
-methodName: lsDayOfWeek
 related:
 - function-lsdayofweek
 - object-datetime
 categories:
 - datetime
-
+methodObject: datetime
+methodName: lsDayOfWeek
 ---
 
 Returns the day of the week the date represents in locale format

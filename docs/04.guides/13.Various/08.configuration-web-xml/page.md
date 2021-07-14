@@ -1,7 +1,10 @@
 ---
 title: 'Configuration: Lucee web.xml'
 id: configuration-web-xml
+categories:
+- server
 menuTitle: web.xml
+description: How to configure Tomcat's web.xml for Lucee
 ---
 
 ## web.xml ##
@@ -26,7 +29,7 @@ The Lucee CFML Servlet is the main servlet for Lucee and is always required. The
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <servlet id="Lucee">
   <description>Lucee CFML Engine</description>
-  <servlet-name>CFMLServlet</servlet-name>    
+  <servlet-name>CFMLServlet</servlet-name>
   <servlet-class>lucee.loader.servlet.CFMLServlet</servlet-class>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- to specify the location of the Lucee Server config and libraries,   -->
@@ -49,7 +52,7 @@ The Lucee CFML Servlet is the main servlet for Lucee and is always required. The
   <!--
   <init-param>
     <param-name>lucee-web-directory</param-name>
-    <param-value>/var/Lucee/config/web/{web-context-label}/</param-value> 
+    <param-value>/var/Lucee/config/web/{web-context-label}/</param-value>
     <description>Lucee Web Directory (for Website-specific configurations, settings, and libraries)</description>
   </init-param>
   !-->
@@ -60,11 +63,11 @@ The Lucee CFML Servlet is the main servlet for Lucee and is always required. The
   <servlet-name>CFMLServlet</servlet-name>
   <url-pattern>*.cfc</url-pattern>
   <url-pattern>*.cfm</url-pattern>
-  <url-pattern>*.cfml</url-pattern>   
+  <url-pattern>*.cfml</url-pattern>
   <url-pattern>/index.cfc/*</url-pattern>
   <url-pattern>/index.cfm/*</url-pattern>
   <url-pattern>/index.cfml/*</url-pattern>
-  
+
   <!-- url-pattern>*.cfm/*</url-pattern !-->
   <!-- url-pattern>*.cfml/*</url-pattern !-->
   <!-- url-pattern>*.cfc/*</url-pattern !-->
@@ -75,7 +78,7 @@ The Lucee CFML Servlet is the main servlet for Lucee and is always required. The
 
 **REST Servlet** - for processing RESTful services
 
-If you need to enable REST web services, add the xml snippet below to your Global or Local (see above) web.xml configuration file.
+If you need to enable REST web services, add the XML snippet below to your Global or Local (see above) web.xml configuration file.
 
 ```lucee
 <!-- ===================================================================== -->
@@ -83,10 +86,10 @@ If you need to enable REST web services, add the xml snippet below to your Globa
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <servlet id="RESTServlet">
   <description>Lucee Servlet for RESTful services</description>
-  <servlet-name>RESTServlet</servlet-name>    
+  <servlet-name>RESTServlet</servlet-name>
   <servlet-class>lucee.loader.servlet.RestServlet</servlet-class>
   <load-on-startup>2</load-on-startup>
-</servlet>  
+</servlet>
 
 <servlet-mapping>
   <servlet-name>RESTServlet</servlet-name>
@@ -124,3 +127,7 @@ The configuration for the AMF Servlet is not included with the Lucee distributio
   <url-pattern>/openamf/gateway/*</url-pattern>
 </servlet-mapping>
 ```
+
+**Related**
+
+- [[relocating-web-inf]]

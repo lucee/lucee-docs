@@ -5,7 +5,7 @@ id: running-lucee-installing-the-jdk-on-windows
 
 ![java-logo70x45.jpg](https://bitbucket.org/repo/rX87Rq/images/398847305-java-logo70x45.jpg)
 
-First download the current [Java 8 SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+First download the current [Java 8 SE Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 Choose the **Windows x64** edition and save it to a temporary folder on your server.
 
@@ -30,9 +30,11 @@ Finally we need to set an environment variable to point to our new Java installa
 5. Finish by clicking OK until your are back at the control panel.
 
 Or using the command line:
+
 ```
 setx JDK_HOME "C:\Program Files\Oracle Java JDK" /m
 ```
+
 To check the environment variable has been set correctly:
 
 1. Open a *new* command prompt, type **set** and hit *enter*
@@ -45,9 +47,11 @@ It is important to keep Java updated with the latest security patches. To do so 
 ## Silent Installation ##
 
 If you need to install this product on several servers then a silent installation will make your life easier:
+
 ```
 jdk-8u31-windows-x64.exe /s addlocal="ToolsFeature" installdir="C:\Program Files\Oracle Java JDK"
 setx JDK_HOME "C:\Program Files\Oracle Java JDK" /m
 ```
+
 (Make sure you change the update version number as appropriate).
 ---

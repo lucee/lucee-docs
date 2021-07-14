@@ -8,7 +8,6 @@ related:
 - object-array
 categories:
 - array
-
 - decision
 ---
 

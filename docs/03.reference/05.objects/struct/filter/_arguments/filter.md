@@ -1,1 +1,3 @@
-filter can be a function/closure that implements the following constructor [function(any key,any value):boolean].
+A function/closure that implements the following constructor
+
+`function(any key, any value) { return true/false; }`

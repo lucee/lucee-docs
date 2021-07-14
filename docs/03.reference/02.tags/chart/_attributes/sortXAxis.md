@@ -1,2 +1,2 @@
 Display column labels in alphabetic order along X-axis.
-            Ignored if the xAxisType attribute is scale.
+Ignored if the xAxisType attribute is scale.

@@ -31,7 +31,7 @@ You can control what URL patters are passed off to Tomcat by updating the main A
 
 So, with this in mind, if your SES URL is suppose to look like this:
 
-	http://lucee.org/site/contact/business/
+	https://lucee.org/site/contact/business/
 
 Then your Apache config file might look something like this:
 
@@ -106,7 +106,7 @@ For Tomcat, we will need to create a web.xml file that is site-specific, that wa
     </servlet-mapping>
 </web-app>
 ```
+
 You can add and remove additional <url-pattern></url-pattern> attributes as needed by your specific application.
 
 Once you've added the web.xml files to the site, you may need to restart Tomcat for the updated configs to take full effect.
-

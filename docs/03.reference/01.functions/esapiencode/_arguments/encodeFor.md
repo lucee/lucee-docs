@@ -4,7 +4,7 @@ encode for what, valid values are:
 - dn: for output in LDAP Distinguished Names
 - html: for output inside HTML
 - html_attr: for output inside HTML Attributes
-- javascript: for output inside Javascript
+- javascript: for output inside JavaScript
 - ldap: for output in LDAP queries
 - url: for output in URL
 - vbscript: for output inside vbscript

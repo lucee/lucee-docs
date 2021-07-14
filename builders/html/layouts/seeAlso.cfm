@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args>
 <cfif ( args.links ?: [] ).len()>
 	<cfoutput>
 		<h4>See also</h4>

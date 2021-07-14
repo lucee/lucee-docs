@@ -1,1 +1,1 @@
-delimter used for the list
+delimiter used for the list

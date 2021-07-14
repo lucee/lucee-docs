@@ -1,13 +1,21 @@
 ---
 title: Static scope in components
 id: static_scope
+categories:
+- component
+- scopes
+description: Static scope in components is needed to create an instance of cfc and call its method
 ---
+
 ## Static scope in components ##
 
-Static scope in components is needed to create an instance of cfc and call its method. It is used to avoid creating an instance each time you use the cfc. You can create an object in the Application init() function, and make it at application scope, so you can directly call the methods. We explain this methodology with a simple example below:
+Static scope in components is needed to create an instance of cfc and call its method. It is used to avoid creating an instance each time you use the cfc.
 
+You can create an object in the Application init() function, and make it at application scope, so you can directly call the methods.
 
-###Example:###
+We explain this methodology with a simple example below:
+
+### Example: ###
 
 ```luceescript
 // index.cfm
@@ -17,7 +25,7 @@ loop query=dir {
 }
 ```
 
-1) Create a constructor of the component. It is the instance of the current path and also create new function hey(). 
+1) Create a constructor of the component. It is the instance of the current path and also create new function hey().
 
 ```luceescript
 // Example0.cfc
@@ -42,8 +50,7 @@ loop query=dir {
 	cfc.hey();
 ```
 
-
-###Example 1:###
+### Example 1: ###
 
 As our code gets more complicated, we need to make some additions to it.
 
@@ -59,7 +66,7 @@ Component {
 		if(isNull(static.instance)) {
 			static.instance=new Example1();
 		}
-		return static.instance; 
+		return static.instance;
 	}
 	private function init() {
 		dump("create an instance of "&listLast(getCurrentTemplatePath(),'\/'));
@@ -84,12 +91,12 @@ Component {
 	cfc.hey();
 ```
 
-###Example 2:###
+### Example 2: ###
 
 1) Example2 shows the same concepts that were shown in the previous Example1, but here we pass two instances for arguments. One instance for every combination of arguments passed in firstname, lastname. Then we also call the hey() function.
 
 ```luceescript
-// Example2.cfc 
+// Example2.cfc
 Component {
 	public static function getInstance(required string lastname, required string firstname) {
 		var id=hash(lastname&":"&firstname,"quick");
@@ -109,7 +116,7 @@ Component {
 }
 ```
 
-2) Next we call the getInstance() static function five times. Here we pass three different arguments into the getInstance() function. So three instances are displayed when we run this in the browser. This indicates that the same arguments are executed only once.  
+2) Next we call the getInstance() static function five times. Here we pass three different arguments into the getInstance() function. So three instances are displayed when we run this in the browser. This indicates that the same arguments are executed only once.
 
 ```luceescript
 // example02.cfm
@@ -120,7 +127,7 @@ Component {
 	Example2::getInstance("Sobchak","Walter").hey();
 ```
 
-###Example 3:###
+### Example 3: ###
 
 1)This example is to show the difference between the body of the instance constructor and the static constructor.
 
@@ -148,7 +155,7 @@ Component {
 	new Example3();
 ```
 
-###Example 4:###
+### Example 4: ###
 
 1) This example shows the count of how many instances of the component get loaded. In this example we define the body of the static constructor as zero, then increase the count. The instance of the component can always access the static scope because that allows you to share data between multiple instances of the component.
 
@@ -167,7 +174,7 @@ Component {
 2) Here we call the Example4() function five times. Each time the function is called, the count of counter in the static scope increases.
 
 ```luceescript
-// example04.cfm 
+// example04.cfm
 	new Example4();
 	new Example4();
 	new Example4();
@@ -175,13 +182,12 @@ Component {
 	new Example4();
 ```
 
-###Example 5:###
+### Example 5: ###
 
 1) We can also use the static scope to store constant data like HOST,PORT.
 
 * If we store the instance in the variable scope, you will run into problems when you have a thousand components or it gets loaded a thousand times. This is a waste of time and memory storage.
 * The Static scope means that a variable example only exist once and is independent of how many instances you have. So it is more memory efficient to do it that way. You can also do the same for functions.
-
 
 ```luceescript
 // Example5.cfc
@@ -214,6 +220,6 @@ Component {
 
 ### Footnotes ###
 
-Here you can see above details in video
+[Lucee 5 features reviewed: static](https://dev.lucee.org/t/lucee-5-features-reviewed-static/433)
 
-[Lucee Static Scopes in Component Code ](https://www.youtube.com/watch?v=B5ILIAbXBzo&feature=youtu.be)
+[Video: Lucee Static Scopes in Component Code](https://www.youtube.com/watch?v=B5ILIAbXBzo&feature=youtu.be)

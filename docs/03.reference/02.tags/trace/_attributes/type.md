@@ -1,5 +1,5 @@
 Corresponds to the cflog type attribute; displays an
-            appropriate icon.
+appropriate icon.
 
 - Information
 - Warning

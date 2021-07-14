@@ -1,9 +1,16 @@
 ---
 title: Static support for components
 id: lucee-5-component-static
+related:
+- tag-component
+categories:
+- component
+- scopes
+description: Lucee 5 supports static variables and functions inside components
 ---
 
-#Static support for components#
+# Static support for components #
+
 **Lucee 5 supports static variables and functions inside components.**
 
 Example:
@@ -27,7 +34,7 @@ component {
 }
 ```
 
-The "static" constructor `static {...}`  is executed once before the component is loaded for the first time, so every component of the same type shares the same static scope.
+The "static" constructor `static {...}` is executed once before the component is loaded for the first time, so every component of the same type shares the same static scope.
 
 You can use static functions and data as follows.
 

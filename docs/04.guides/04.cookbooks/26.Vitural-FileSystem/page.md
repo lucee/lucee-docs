@@ -1,17 +1,32 @@
 ---
-title: Virtual FileSystems
+title: Virtual File Systems
 id: virtual-file-system
+related:
+- function-getvfsmetadata
+categories:
+- s3
+- system
+description: 'Lucee support the following virtual file systems: ram, file, s3, http,
+  https, zip and tar'
 ---
-## Virtual FileSystems ##
 
-This document explains virtual file systems in lucee
+## Virtual File Systems ##
+
+Lucee supports the following virtual file systems:
+
+- ram
+- file
+- s3
+- http / https
+- zip
+- tar
 
 ### Local File System ###
 
-You may already be familiar with local file systems.
+You may already be familiar with local file systems, the local file system is the default file system in Lucee.
+That means if there is no other definition, Lucee will always use the local file system.
 
-### Example ###
-Simple example shown below
+A simple example
 
 ```lucee
 <cfscript>
@@ -24,12 +39,10 @@ Simple example shown below
 </cfscript>
 ```
 
-* getCurrenttemplatepath() returns current template path,
-* getDirectoryFromPath() returns directory,
-* pass the file path to the fileRead(), to read the content of the file,
-* pass the directory to directoryList(), to list all the directories in the given folder path.
-
-The local file system is the default file system in Lucee. That means if there is no other definition, Lucee will always use the local file system.
+* [[function-getcurrenttemplatepath]] returns current template path,
+* [[function-getDirectoryFromPath]] returns directory,
+* pass the file path to the [[function-fileRead]], to read the content of the file,
+* pass the directory to [[function-directoryList]] to list all the directories in the given folder path.
 
 However, you can explicitly define the file system you want to use. To use a local file system, use the "//file" prefix.
 
@@ -72,23 +85,28 @@ echo("<pre>");echo(fileRead(sct.zip&"/testbox/readme.md"));echo("</pre>")
 </cfscript>
 ```
 
-### Http File System ###
+### http/https File System ###
 
-Lucee also handles the HTTP file system. Simply use the HTTP URL like you would use a file system definition.
+Lucee also support the HTTP file system. Simply use the HTTP URL like you would use a file system definition.
 
 The below example shows how to read the file content from the Lucee docs:
 
 ```lucee
 <cfscript>
-	sct.uri="http://docs.lucee.org/reference/functions/abs.html";
-	dump(fileRead(sct.uri));
+	uri="https://docs.lucee.org/reference/functions/abs.html";
+	dump(fileRead(uri));
+	dump(directoryList("https://lucee.org/index.cfm"));
 </cfscript>
 ```
 
+### RAM File System ###
 
-### Ram File System ###
+RAM is an in Memory Filesystem that stores Files in the Memory of the Java Virtual Machine (JVM) simply by using "ram://",
+unless you define a Cache in the Lucee Administrator for this Resource.
 
-The RAM file system is a memory file system allowing you to store files in memory by simply using "ram://". The RAM file system has much faster access than a local file system.
+The RAM file system has much faster access than a local file system.
+
+Each Web Context has it's own independent RAM Cache, it cannot be shared between multiple contexts.
 
 ```lucee
 <cfscript>
@@ -100,11 +118,11 @@ dump(directoryList(sct.ram));
 </cfscript>
 ```
 
-Important point to know: the RAM resource is independent to each context. It cannot be shared with multiple contexts.
-
 ### S3 File System ###
 
-S3 is a remote file system you can use from Amazon S3 storage. You will need access credentials for accessing the S3 bucket. Set up the S3 file system using the prefix "s3://"
+S3 is a remote file system you can use from Amazon S3 storage. You will need access credentials for accessing the S3 bucket.
+
+Set up the S3 file system using the prefix "s3://"
 
 In Lucee, we can define an S3 file system in two ways:
 
@@ -133,22 +151,35 @@ c = fileRead(sct.s3&"testcasesS3/a/foo.txt");
 dump(c);
 </cfscript>
 ```
+
 ### FTP File System ###
 
-FTP is a remote file system. You will need access credentials for accessing FTP. Set up an FTP file system using the prefix "ftp://"
+Lucee allows you to treat a remote FTP server as a virtual filesystem.
 
+You will need access credentials for accessing FTP. Set up an FTP file system using the prefix "ftp://"
 
 ```lucee
 <cfscript>
-sct.ftp = ftp://#request.ftp.user#:#request.ftp.pass#@ftp53.world4you.com:21/;
+/* How to configure default FTP settings via Application.cfc */
+this.ftp.username="...";
+this.ftp.password="...";
+this.ftp.host="ftp.lucee.org";
+this.ftp.port=21;
 
-dir = directoryList(sct.ftp);
+/* index.cfm */
+ftp = ftp://#request.ftp.user#:#request.ftp.pass#@ftp53.world4you.com:21/;
+//ftp="ftp:///"; // take credentials and host/port from Application.cfc
+//ftp="ftp://ftp53.world4you.com:21/"; // take credentials from Application.cfc
+//ftp="ftp://#request.ftp.user#:#request.ftp.pass#@/"; // take host/port from Application.cfc
+
+dir = directoryList(ftp);
 dump(dir);
 
 </cfscript>
 ```
+
 ### Footnotes ###
 
 Here you can see above details in video
 
-[Lucee virtual File System ](https://www.youtube.com/watch?time_continue=693&v=AzUNVYrbWiQ)
+[Lucee virtual File System](https://www.youtube.com/watch?time_continue=693&v=AzUNVYrbWiQ)

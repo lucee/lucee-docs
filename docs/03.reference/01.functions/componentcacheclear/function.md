@@ -1,9 +1,10 @@
 ---
 title: ComponentCacheClear
 id: function-componentcacheclear
-related:
 categories:
-    - cache
+- cache
+- component
+- system
 ---
 
 flush the component path cache

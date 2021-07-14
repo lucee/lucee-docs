@@ -1,14 +1,13 @@
 ---
 title: Checksum
-id:  _checksum
+id: _checksum
 ---
 
 This document explains how to use a checksum in lucee.
 
 Many servers provide a checksum for the files they provide for download. We use the checksum to validate a download file in order to avoid a corrupted file.
 
-If you download a file in your application, you can automatically check if the download is valid or not if the neccessary info was provided in the response header.
-
+If you download a file in your application, you can automatically check if the download is valid or not if the necessary info was provided in the response header.
 
 ### Example 1 : ###
 
@@ -41,13 +40,13 @@ if(!isEmpty(res.responseheader["X-Checksum-MD5"]?:"")) {
 	}
 }
 </cfscript>
-``` 
+```
 
-* Dowload the jar file by using cfhttp. 
-* Dump the file response header. You can see the "X-Checksum-MD5" "X-Checksum-SHA1" keys from the file itself. 
+* Download the jar file by using cfhttp.
+* Dump the file response header. You can see the "X-Checksum-MD5" "X-Checksum-SHA1" keys from the file itself.
 * Save the file, and dump(fileInfo(localFile.checksum)). Check to see if the dump matches the value of the downloaded file response["X-Checksum-MD5"] header.
 
-Checksum values are hashed from the binaryfile itself. 
+Checksum values are hashed from the binaryfile itself.
 
 ```luceescript
 dump(hash(fileReadBinary(localFile),"md5"));
@@ -72,9 +71,10 @@ if(!isEmpty(res.responseheader["X-Checksum-MD5"]?:"")) {
 
 If the checksum is provided, we can check it. However, the checksum may not always be provided. The following example shows how to provide a checksum for all downloads.
 
-
 ### Example 2 ###
+
 //download.cfm
+
 ```luceescript
 <cfscript>
 	fi=fileInfo("esapi-2.1.0.1.jar");
@@ -93,14 +93,14 @@ Download the file using the below example code:
 	HEADER_NAMES.SHA1=["Content-SHA1","X-Checksum-SHA1"];
 	HEADER_NAMES.MD5=["Content-MD5","X-Checksum-MD5"]; // ETag
 	_url=getDirectoryFromPath(cgi.request_url)&"/_download.cfm";
-	
+
 	http url=_url result="res";
 	if(res.status_code!=200) throw "wtf";
-	
+
 	// store the file
 	fileWrite("clone.jar",res.fileContent);
-	
-	// see if we have one of the MD5 headers 
+
+	// see if we have one of the MD5 headers
 	checksum={type:"",name:""};
 	loop label="outer" struct=HEADER_NAMES index="type" item="names" {
 		loop array=names item="name" {
@@ -113,7 +113,7 @@ Download the file using the below example code:
 		}
 	}
 	dump(checksum);
-	
+
 	// validate file
 	if(!isEmpty(checksum.name)) {
 		cs=hash(fileReadBinary("clone.jar"),checksum.type);
@@ -128,16 +128,10 @@ Download the file using the below example code:
 	}
 </cfscript>
 ```
-Above code checks and validates the downloaded file.
 
+Above code checks and validates the downloaded file.
 
 ### Footnotes ###
 
 You can see the details in this video:
 [Checksum](https://www.youtube.com/watch?v=Kb_zSsRDEOg)
-
-
-
-
-
-

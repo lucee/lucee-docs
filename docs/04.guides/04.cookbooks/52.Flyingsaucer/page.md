@@ -1,18 +1,17 @@
 ---
-title: Flying Saucer PDF Engine
+title: Flying Saucer PDF Engine - CFDOCUMENT
 id: flying_saucer
 related:
 - tag-document
 categories:
 - pdf
-menuTitle: Information about the new PDF engine in Lucee 5.3
+menuTitle: The new PDF engine, Flying Saucer in Lucee 5.3
+description: The new CFDOCUMENT PDF engine, Flying Saucer in Lucee 5.3
 ---
 
 This document provides information about the new PDF engine, [Flying Saucer](https://github.com/flyingsaucerproject/flyingsaucer) (FS) in Lucee 5.3
 
-
 Flying saucer is a new PDF engine in Lucee. PDF engines are mainly used to convert HTML to PDF format.
-
 
 ### Benefits of moving to Flying Saucer from the old engine (PD4ML) ###
 
@@ -32,48 +31,56 @@ If you don't have time to check all PDF outputs, or you really don't care about 
 
 via Application.cfc,
 
-```
-luceescript this.pdf.type = "classic";
-```
-
-or if you are using an Application.cfm, 
-
-```
-lucee <cfapplication pdf="#{type:'classic'}#">
+```luceescript
+this.pdf.type = "classic";
 ```
 
-[Alas, this syntax isn't currently implemented](https://luceeserver.atlassian.net/browse/LDEV-2212)
+or if you are using an Application.cfm,
+
+```lucee
+<cfapplication pdf="#{type:'classic'}#">
+```
+
+and since the PDF Extension 1.0.0.92-SNAPSHOT you can specify the engine using type
+
+```lucee
+<cfdocument type="modern">
+  or
+<cfdocument type="classic">
+```
 
 ### Features of Flying Saucer ###
 
 You can define a font directory where you have the fonts(.ttf,.otf) you are using in your PDF.
 
 ### Define the font directory ####
+
 ```lucee
 <cfdocument fontDirectory = "path/to/my/font">
 ```
 
 Define the font directory Application itself:
 
-via  Application.cfc
+via Application.cfc
 
-```luceescript 
+```luceescript
 this.pdf.fontDirectory = "path/to/my/font";
-``` 
+```
 
 or via application.cfm
+
 ```lucee
 <cfapplication pdf="#{fontDirectory	:'path/to/my/font'}#">
-``` 
+```
 
 If the font directory isn't specified, Lucee will look for fonts in /WEB_INF/lucee/fonts and uses them if they match.
-
 
 #### Simplify Attributes ####
 
 Attributes with cfdocument are a mess. You can make it clearer using the following syntax:
 
 Example:
+
 ```lucee
 <cfdocument marginTop="5" marginBottom="5" marginLeft="5" marginRight="5" pageWidth="5" pageHeight="5" pageType="A4">
 ```
@@ -90,15 +97,15 @@ Or even simpler
 <cfdocument margin="5" page="#{width:5,height:5,type:'A4'}#">
 ```
 
-
 #### Additional Units ####
 
 In addition to "inch" and "cm", the attribute unit now supports "pixel" and "points".
+
 ```lucee
 <cfdocument unit="in|cm|px|pt">
 ```
 
-If you find any issues while using the new PDF engine, please ask a question on the [mailing list](https://dev.lucee.org/) 
+If you find any issues while using the new PDF engine, please ask a question on the [mailing list](https://dev.lucee.org/)
 
 ### Footnotes ###
 

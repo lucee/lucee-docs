@@ -7,7 +7,6 @@ id: running-lucee-starting-tomcat-and-verifying-the-installation-on-windows
 
 Go to the services applet of the Windows control panel and start the service. Much more cooler is the command line:
 
-
 ```
 net start tomcat8
 ```
@@ -19,11 +18,11 @@ Congratulations! Your Apache Tomcat is alive. To check if everything is okay, we
 
 Open a browser to access Tomcat's administration interface.
 
-1. For a local access use this URL: http://localhost:8080
+1. For a local access use this URL: <http://localhost:8080>
 2. To access the UI from remote, replace *localhost* with the DNS name or IP-Address of your server.
-Examples: http://192.168.100.100:8080, http://svlucee01.netfusion.local:8080
+Examples: <http://192.168.100.100:8080>, <http://svlucee01.netfusion.local:8080>
 
-* If you have changed the default port *8080* to something else, then replace 8080 with your choosen port number.
+* If you have changed the default port *8080* to something else, then replace 8080 with your chosen port number.
 * Accessing the administration interface from *remote* will fail, If you didn't open the Windows firewall.
 
 On the right side of the administration interface, a choice of three pages is available:

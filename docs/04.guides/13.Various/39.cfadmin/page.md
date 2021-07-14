@@ -43,7 +43,7 @@ clob |	Defines whether clob is usable with this data source
 codename |	Contains the codename of an extension
 collection | Contains the collection name
 collectionAction |	Subaction for the action collection. Allowed are create repair, optimize, delete
-componentDataMemberDefaultAccess |	Defines the visibility of the components' this scope valid values are: privat, protected, public, remote
+componentDataMemberDefaultAccess |	Defines the visibility of the components' this scope valid values are: private, protected, public, remote
 componentDumpTemplate |	Sets the path to the template that is used when a component gets dumped out
 config | Contains the path to the configuration file for an extension
 connectionLimit | Database connection property
@@ -62,7 +62,7 @@ debugTemplate | Contains the path to the debugging template to be used
 deepSearch | Defines whether custom tags are searched in subfolders of the custom tag directories recursively or not.
 defaultEncoding | Defines the default encoding of the local Lucee context
 description | Extension description
-direct_java_access | Defines whether direct java invocation can be used in a local web context
+direct_java_access | Defines whether direct Java invocation can be used in a local web context
 documentation | Contains the link to the Extensions documentation
 domaincookies | Sets whether domain cookies are allowed or not
 dsn | Defines the dsn for a data source
@@ -111,10 +111,10 @@ proxyPort |	Contains the proxy port
 proxyServer |	Contains the proxy server name or ip
 proxyuser |	Contains the proxy username
 proxyUsername |	Contains the proxy username
-psq	| Defines whether preserve single quotes is turned on for this web context
+psq | Defines whether preserve single quotes is turned on for this web context
 publish | Defines whether the response of server will be stored in a file or not
 recurse | Defines whether a path will be recursively indexed
-remote  | Defines whether a local user can change the settings in the remote section of the local web administrator
+remote | Defines whether a local user can change the settings in the remote section of the local web administrator
 remoteClients | Every tag can contain remote clients to synchronize its settings with. It is a list of labels of in the admin defined remote clients
 remotetype | Defines whether it’s an admin synchronization or cluster scope sharing
 requestTimeout | Defines the time a scheduled task should wait before it stops the thread. Please note that this setting does not set the request timeout of the server, unless it is a Lucee server and you allow passing "requesttimeout" over the url
@@ -127,14 +127,14 @@ schedulePassword | Password to access the URL protected by authentication
 scopeCascadingType | Defines whether the scope cascading is set to off or other values. Valid values are: "strict,small,standard"
 scriptProtect |	Defines the scopes that shall be searched for cross site scripting. Valid values are a combination of "cgi, cookie, form, url"
 search | Defines whether a local user can change the settings in the search section of the local web administrator
-secType | Defines the type of security manager setting you want to retrieve. Valid values are: "search, mail, datasource, setting, debugging, remote,  mapping, cfx_setting, cfx_usage, custom_tag, "
+secType | Defines the type of security manager setting you want to retrieve. Valid values are: "search, mail, datasource, setting, debugging, remote, mapping, cfx_setting, cfx_usage, custom_tag, "
 secure | Defines whether a mapping is compiled in the secure mode (without the source code) or insecure (containing the source code). Depending on this setting the extension is either .ras (secure) or .ra
 secValue | |
 Serverpassword | Password of the server admin (sometimes necessary in order to have access to files like debugging templates if file access is set to none etc.)
 sessionManagement | Enables session management in scope settings
 sessionTimeout | Defines the session timeout for the local web context
 sessionType | Defines whether CFML or J2EE sessions are to be used in the local web context
-setting | 
+setting |
 showVersion | Defines whether the response header contains the Lucee version
 spoolEnable | Defines whether mail spooling is enabled
 spoolInterval |	Defines the mail spooling interval
@@ -150,7 +150,7 @@ tag_import | Defines whether the tag import can be allowed or not
 tag_object | Defines whether the tag object can be allowed or not
 tag_registry |	Defines whether the tag registry can be allowed or not
 task |	Contains the defined schedule task when the action is "schedule"
-template404  | Defines the path to the 404 template
+template404 | Defines the path to the 404 template
 template500	| Defines the path to the 50x template
 templateCharset	| Contains the template of Lucee charsets
 timeout | Contains the timeout of the mailserver
@@ -172,13 +172,12 @@ version | Contains the version of an extension
 video |	Contains the video of the extension
 virtual | Defines the virtual name of a mapping
 webCharset | Defines the charset of the response stream
- 
 
 Action | Description
 ---------|-----------
 collection | Handles Lucene collections
 compileMapping | Compiles a mapping
-connect | Triest o log in into the administrator
+connect | Tries to log in into the administrator
 createArchive |	Creates an archive
 createSecurityManager |	Creates security settings for a new, selected web context
 defaultSecurityManager | Changes settings fort he default web contexts
@@ -187,7 +186,7 @@ getApplicationListener | Gets the application listener, stores it in the attribu
 getApplicationSetting |	Returns the settings of the application settings for the current context
 getCharset | Returns the settings of the current context charstets
 getComponent | Returns the settings of the component settings for the current context
-getContextes | Returns the current web contexts (only available for the server type)
+getContexts | Returns the current web contexts (only available for the server type)
 getCustomTagMappings | |
 getCustomtagSetting | Returns the settings of the custom tags for the current context
 getDatasource |	Returns the details for a datasource for the current context
@@ -210,6 +209,8 @@ getLocales | |
 getMailServers | |
 getMailSetting | |
 getMappings | |
+getLoaderInfo | Returns the info of the lucee base version, jar path and lucee running version
+getMinVersion | Returns the base version of your lucee
 getOutputSetting | |
 getPluginDirectory | |
 getProxy | |
@@ -227,7 +228,7 @@ hasPassword | |
 index | |
 removeCFX | |
 removeCustomTag | |
-removeDatasource | |
+removeDatasource | Removes an datasource from the current context
 removeDefaultPassword | |
 removeExtension | |
 removeMailServer | |
@@ -251,7 +252,7 @@ updateCharset | |
 updateComponent | |
 updateCustomTag | |
 updateCustomTagSetting | |
-updateDatasource | |
+updateDatasource | Update or creating an datasource with current context
 updateDebug | |
 updateDefaultPassword | |
 updateDefaultSecurity | |
@@ -378,10 +379,10 @@ Below you will find all the actions sorted alphabetically embedded in examples f
 	    returnVariable="component">
 
 	<cfadmin
-	    action="getContextes"
+	    action="getContexts"
 	    type="web|server"
 	    password="password"
-	    returnVariable="contextes">
+	    returnVariable="contexts">
 
 	<cfadmin
 	    action="getCustomTagMappings"
@@ -506,6 +507,18 @@ Below you will find all the actions sorted alphabetically embedded in examples f
 	    type="web|server"
 	    password="password"
 	    returnVariable="mappings">
+
+	<cfadmin
+    	    action="getLoaderInfo"
+    	    type="server"
+    	    password="password"
+    	    returnVariable="loaderinfo">
+
+	<cfadmin
+	    action="getMinVersion"
+	    type="server"
+	    password="password"
+	    returnVariable="minVersion">
 
 	<cfadmin
 	    action="getOutputSetting"

@@ -4,6 +4,7 @@ id: cookbook-lockdown-guide
 ---
 
 # Lockdown Guide #
+
 A guide to limit access to a Lucee server to necessary minimum.
 
 On Windows it is recommended to run the Lucee/Tomcat service as a restricted user with only the required permissions rather than under SYSTEM account.
@@ -15,7 +16,6 @@ If you have .git folders (or .svn etc) make sure you restrict access to them (i.
 ```
 RewriteRule ^(.*/)?\.git+ - [R=404,L]
 ```
-
 
 ## Restricted Access Plus SSH Tunnelling ##
 
@@ -68,8 +68,9 @@ Detailed instructions for SSH tunneling:
 
 4) Note that the port chosen is arbitrary, it only has to be available and match in both the -D flag and SOCKS port setting.
 
-
 ## Some Good Resources written for Lucee that can be adapted for Lucee ##
 
 * [OWASP Securing Tomcat](https://www.owasp.org/index.php/Securing_tomcat)
 * [Pete Freitag on securing railo-context](http://www.petefreitag.com/item/715.cfm)
+* [[lucee-lockdown-guide]]
+* [[relocating-web-inf]]

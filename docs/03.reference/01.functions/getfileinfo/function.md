@@ -7,4 +7,4 @@ categories:
 - files
 ---
 
-Retrieves more detailed information about a file than  [[function-fileinfo]]
+Retrieves more detailed information about a file than [[function-fileinfo]]

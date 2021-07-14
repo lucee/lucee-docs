@@ -13,6 +13,15 @@
 		return Replace( sourceBase, "{path}", fixPathCase( arguments.path ) );
 	}
 
+	string function showOriginalDescription( required struct props, required boolean edit, required any markdownToHtml ) {
+		if (arguments.edit
+			and structKeyExists(arguments.props, "descriptionOriginal")
+			and arguments.props.descriptionOriginal neq arguments.props.description){
+				return "<b>Modified in Lucee Docs, Source Lucee definition:</b>" & arguments.markdownToHtml(arguments.props.descriptionOriginal);
+		}
+		return "";
+	}
+
 	string function fixPathCase( required string path ) {
 		var dir = getDirectoryFromPath( arguments.path );
 		var files = directoryList( dir, false, 'name' );

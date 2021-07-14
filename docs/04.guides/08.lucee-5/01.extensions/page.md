@@ -1,6 +1,8 @@
 ---
 title: Extensions in Lucee 5
 id: lucee-5-extensions
+categories:
+- extensions
 ---
 
 # Lucee 5 - Extensions
@@ -67,6 +69,7 @@ If you add the file to the `/lucee-server/deploy/` folder, you might need to wai
 If you now go to the Lucee Server Admin and to the `Extension -> Application` section, you should see it there as installed.
 
 ## Base structure (optional)
+
 Now let us make our extension richer by adding some optional settings to the `MANIFEST.MF` file.
 
 ## Description
@@ -142,7 +145,13 @@ Now we create the .lex file with the file `/META-INF/MANIFEST.MF` inside it agai
 
 Adding a logo / icon for your extension is straightforward, simply copy a PNG image file with the name logo.png into the folder `/META-INF/`. This image will be used for the extension in the Lucee Admin.
 
+The logo image will be automatically proportionally resized in the Administrator
+
+- Extension Listings, 130px x 50px
+- Extension Detail page, 400px x 400px
+
 ## Installing artifacts
+
 Now that we have covered how the base settings for an extension work, we can make it do something useful.
 
 To begin with we start by installing some CFML based tags.
@@ -390,7 +399,7 @@ You can define mappings that point to files, archives or virtual file systems yo
 mapping: "[
 {
 'virtual':'/org/lucee',
-'physical':'http://lucee.org',
+'physical':'https://lucee.org',
 'inspect':'never'
 },
 {
@@ -434,7 +443,7 @@ search: "[{
 }]"
 ```
 
-Copy the OSGi bundle (JAR) containing your Search Engine implementation  to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the `start-bundles` setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
+Copy the OSGi bundle (JAR) containing your Search Engine implementation to the `/jars` folder in your extension. It is not necessary to load the JAR with the help of the `start-bundles` setting, Lucee will find the JAR with the help of the bundle definition and only load it as required.
 
 Example implementation:
 
@@ -550,7 +559,9 @@ Example implementation:
 [https://github.com/lucee/extension-flex](https://github.com/lucee/extension-flex)
 
 ### Event Handler
+
 (TODO)
 
 ### Event Gateway
+
 [[event-gateways]]

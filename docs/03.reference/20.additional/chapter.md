@@ -4,6 +4,7 @@ id: additional
 ---
 
 # Tags
+
 The following tags are specific to Lucee:
 
 * [[tag-authenticate]]
@@ -24,6 +25,7 @@ The following tags are specific to Lucee:
 * [[tag-while]]
 
 # Functions
+
 The following functions are specific to Lucee:
 
 * [[function-applicationstarttime]]

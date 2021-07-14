@@ -8,4 +8,5 @@ categories:
 ---
 
 Returns a list of all the values, for a given column within the query, delimited by the value given.
-this function is deprecated, use instead the function [[function-queryColumnData]]
+
+It is recommended to use [[function-queryColumnData]] instead.

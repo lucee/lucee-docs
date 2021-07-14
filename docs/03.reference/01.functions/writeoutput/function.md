@@ -9,8 +9,9 @@ related:
 - tag-setting
 - function-echo
 - function-jsstringformat
+- function-systemoutput
 - function-xmlformat
 ---
 
 Writes the given string to the main response buffer regardless of
- conditions established by the [[tag-setting]] tag.
+conditions established by the [[tag-setting]] tag.

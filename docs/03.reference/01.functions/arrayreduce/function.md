@@ -1,10 +1,10 @@
 ---
 title: ArrayReduce
 id: function-arrayreduce
-related:
 categories:
 - array
 - collection
+- thread
 ---
 
 Iterates over every entry of the given array and calls the closure with every element.

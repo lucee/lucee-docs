@@ -6,4 +6,4 @@ writeoutput(listItemTrim("Susi ,LAS,,lucee,,,test,,"));
 strList=",I,,love,lucee,,";
 writeDump(strList.listItemTrim());
 
-``` 
+```

@@ -57,18 +57,18 @@ set :keep_releases, 3
 set :git_shallow_clone, 1
 set :use_sudo, false
 
-desc "Run tasks in production enviroment"
+desc "Run tasks in production environment"
 task :production do
-        # Prompt to make really sure we want to deploy into prouction
+  # Prompt to make really sure we want to deploy into production
   puts "\n\e[0;31m   ######################################################################"
   puts "   #\n   #       Are you REALLY sure you want to deploy to production?"
   puts "   #\n   #               Enter y/N + enter to continue\n   #"
   puts "   ######################################################################\e[0m\n"
   proceed = STDIN.gets[0..0] rescue nil
   exit unless proceed == 'y' || proceed == 'Y'
-	
+
   set :copy_exclude, ['.git', 'config', 'Gemfile', 'Gemfile.lock', 'lib', 'mxunit', 'test']
-  
+
   role :app, "deploy@prod_ip1", "deploy@prod_ip2", "deploy@prod_ip3", "deploy@prod_ip4"
 end
 
@@ -90,6 +90,7 @@ namespace :deploy do
    end
 end
 ```
+
 ### Remote server ###
 
 We need to setup the remote servers. Create the directory /var/www/myproject/ and the user deploy that must have write access to this directory. Also we must install git in the servers.
@@ -133,6 +134,7 @@ Now we can deploy our project to the production with the command:
 ```lucee
 cap production deploy
 ```
+
 If all goes well we can see in /var/www/myproject/production/ all our codebase.
 
 ### Side notes ###
@@ -144,7 +146,7 @@ If all goes well we can see in /var/www/myproject/production/ all our codebase.
 * The WEB-INF directory could be problematic: we can create a directory in **/var/www/myproject/shared/WEB-INF** with write permission to tomcat user:
 
 ```lucee
-mkdir  /var/www/myproject/shared/WEB-INF
+mkdir /var/www/myproject/shared/WEB-INF
 chown tomcat7 /var/www/myproject/shared/WEB-INF
 ```
 

@@ -27,7 +27,7 @@ In your file explorer, find the website folder, create a file called `myFirstPag
 </html>
 ```
 
-Save the file, then head to http://localhost:8888/myFirstPage.cfm
+Save the file, then head to <http://localhost:8888/myFirstPage.cfm>
 
 You should see something like the following:
 
@@ -46,11 +46,13 @@ The things you won't recognize are `<cfoutput>` and `#now()#` because these are 
 Okay, this template isn't particularly useful... but it does show you how easy it to start working with Lucee.  You don't need to worry about builds, compilation or deployments if you don't want to.  You can just start writing CFML code.
 
 ## Tag/Script
+
 Lucee is in fact not one language, it is 2!
-the tag language that you can see as extension to HTML and the script Language that you can see as extension to Javascript.
-The example above was  pure tag code, tag code is perfect to create output, to mix with static HTML.
+the tag language that you can see as extension to HTML and the script Language that you can see as extension to JavaScript.
+The example above was pure tag code, tag code is perfect to create output, to mix with static HTML.
 
 ### Tag ###
+
 The following fragment outputs some employee details from an employee object.  As you can see, the tag language slots right into your presentation format.  It's HTML in this case, but could just as easily be used to make RSS, XML, or indeed any data type you like.
 
 ```lucee
@@ -66,11 +68,13 @@ The following fragment outputs some employee details from an employee object.  A
 </div>
 </cfoutput>
 ```
+
 ### Script ###
+
 Of course a web application is not only about output information, it is also about doing business logic, convert data, ...
 for this the language can be used, but it is not very handy, in that case it is better to use the script language.
-When you are familiar with Javascript, this will be also very familiar to you.
-Script code can be used in code island or with complete files, similar you can use Javascript within HTML.
+When you are familiar with JavaScript, this will be also very familiar to you.
+Script code can be used in code island or with complete files, similar you can use JavaScript within HTML.
 
 This example gets a record from a database and populates an object.
 

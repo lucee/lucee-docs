@@ -1,10 +1,8 @@
 ---
 title: GetTemplatePath
 id: function-gettemplatepath
-related:
-categories:
 ---
 
 This function is deprecated.
 
-        Use the GetBaseTemplatePath function instead.
+Use the [[function-GetBaseTemplatePath]] function instead.

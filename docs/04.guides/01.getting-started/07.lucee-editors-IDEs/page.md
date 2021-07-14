@@ -3,7 +3,7 @@ title: Lucee Editors & IDEs
 id: lucee-editors-IDEs
 ---
 
-There are many modern IDEs which include support for CFML development 
+There are many modern IDEs which include support for CFML development
 
 ## Lucee Dictionaries
 
@@ -16,48 +16,61 @@ Lucee dictionaries are available for download to support spell checking your cod
 <https://luceeserver.atlassian.net/browse/LD-115>
 
 ## CFEclipse
+
 <https://www.cfeclipse.org>
 
 ## VS Code
+
 <https://code.visualstudio.com>
 
-<https://marketplace.visualstudio.com/items?itemName=ilich8086.ColdFusion>
+<https://marketplace.visualstudio.com/items?itemName=KamasamaK.vscode-cfml>
 
 <https://marketplace.visualstudio.com/items?itemName=KamasamaK.vscode-cflint>
 
 <https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker>
 
 ## Sublime Text
+
 <https://www.sublimetext.com>
 
 <https://github.com/jcberquist/sublimetext-cfml>
 
 <https://github.com/ckaznocha/SublimeLinter-contrib-CFLint>
 
-## Adobe Coldfusion Builder
+## Adobe ColdFusion Builder
+
 <https://www.adobe.com/products/coldfusion-builder.html>
 
 ## Atom
+
 <https://atom.io>
 
 <https://atom.io/packages/language-cfml>
 
-## CFBrackets 
+## CFBrackets
+
 <http://cfbrackets.org>
 
 ## ActiveState Komodo
+
 <https://www.activestate.com/komodo-ide>
 
 <http://www.we3geeks.org/komodo-cfml/>
 
 ## IntelliJ IDEA
+
 <https://www.jetbrains.com/idea/download/index.html>
 
-## CFLint 
+<https://plugins.jetbrains.com/plugin/14586-cfml>
+
+<https://plugins.jetbrains.com/plugin/15567-cflint>
+
+## CFLint
+
 <https://github.com/cflint/CFLint>
 is a very useful tool for linting (validating) your CFML code, there is integration available for many IDE's or you can run it in standalone mode over your whole code base
 
-here is a sample .cflintrc file which reduces the noise 
+here is a sample .cflintrc file which reduces the noise
 
 ```
 {
@@ -87,3 +100,11 @@ here is a sample .cflintrc file which reduces the noise
 	"inheritParent" : false
 }
 ```
+
+## Analysis tools and Line Debuggers
+
+<https://www.fusion-reactor.com/>
+
+<http://www.fusion-debug.com/>
+
+<https://getcoldbug.com/>

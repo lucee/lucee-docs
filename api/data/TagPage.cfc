@@ -11,12 +11,13 @@ component accessors=true extends="Page" {
 	property name="script"               type="struct";
 	property name="attributes"           type="array";
 	property name="examples"             type="string";
+	property name="usageNotes"   		 type="string";
 
 	public string function getUsageSignature() {
 		var newLine           = Chr(10);
 		var indent            = RepeatString( " ", 4 );
 		var tagName           = "cf" & LCase( this.getName() );
-		var usage             = "<" & tagName;
+		var usage             = "&lt;" & tagName;
 		var closingTag        = "";
 		var bodyType          = this.getBodyContentType();
 		var unnamedAttributes = ( this.getAttributeType() ?: "" ) == "noname";
@@ -28,7 +29,7 @@ component accessors=true extends="Page" {
 			} else {
 				usage &= newline & indent;
 				if ( !attribute.required ) {
-					usage &= "[";
+					usage &= "<em title='optional'>";
 				}
 
 				usage &= '#attribute.name#=';
@@ -40,7 +41,7 @@ component accessors=true extends="Page" {
 				}
 
 				if ( !attribute.required ) {
-					usage &= "]";
+					usage &= "</em>";
 				}
 			}
 		}
@@ -51,13 +52,13 @@ component accessors=true extends="Page" {
 
 		switch( bodyType ) {
 			case "free":
-				closingTag &=  "><!--- body --->[</#tagName#>]"
+				closingTag &=  htmlEditFormat("><!--- body --->[</#tagName#>]")
 			break;
 			case "required":
-				closingTag &=  "><!--- body ---></#tagName#>"
+				closingTag &=  htmlEditFormat("><!--- body ---></#tagName#>")
 			break;
 			default:
-				closingTag &= ">";
+				closingTag &= "&gt;";
 			break;
 		}
 

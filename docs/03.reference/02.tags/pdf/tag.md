@@ -3,10 +3,13 @@ title: <cfpdf>
 id: tag-pdf
 categories:
 - pdf
-description: 'Manipulates existing PDF documents. '
+related:
+- tag-pdfparam
+- tag-document
+description: Manipulates existing PDF documents.
 ---
 
-Manipulates existing PDF documents. 
+Manipulates existing PDF documents.
 
 The following list describes some of the tasks you can perform with the cfpdf tag:
 
@@ -16,9 +19,10 @@ The following list describes some of the tasks you can perform with the cfpdf ta
 - Linearize PDF documents for faster web display.
 - Remove interactivity from forms created in Acrobat(c) to generate flat PDF documents.
 - Encrypt and add password protection to PDF documents.
-- Generate thumbnail images from PDF documents or pages.
+- Generate thumbnail images from PDF documents or pages. (**not implemented yet**)
 - Add or remove watermarks from PDF documents or pages.
 - Retrieve information associated with a PDF document, such as the software used to generate the file or the author, and set information for a PDF document, such as the title, author and keywords.
 - Create PDF portfolios
 - Add and remove header/footer from PDF documents
 - Optimize PDF documents
+- Extract all the words from the pdf

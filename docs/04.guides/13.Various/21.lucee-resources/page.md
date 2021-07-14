@@ -1,6 +1,9 @@
 ---
-title: Lucee Resources
+title: Lucee Resources (Virtual File Systems)
 id: lucee-resources
+categories:
+- files
+description: Extend your file system with any virtual file system
 ---
 
 ### Extend your file system with any virtual file system ###
@@ -25,7 +28,6 @@ What's interesting about resources is, is the fact that you as a programmer do n
 
 This command copies the file myFile.cfm from the local server?s RAM to the distant ftp server at ftp.myserver.com. Now just imagine how much effort this would cost, if you would try to do this with regular tools in CFML.
 
-
 ### Mappings ###
 
 An other advantage is the usage of resources with mappings. You can define your mappings as follows (not to mention the fact, that you can use resources together with archives stored in a resource):
@@ -40,15 +42,15 @@ Virtual        Physical
 Now an application can use the defined mappings as follows:
 
 ```lucee
-<CFSET aPublicationMappings = Array("/liveserver","/testserver")>
-<CFLOOP index="iMapping" to="#arrayLen(aPublicationMappings)#" from="1">
-    <CFLOOP index="iFile" to="#arrayLen(aPublishFiles)#" from="1">
-        <CFFILE 
-            action="COPY" 
-            source="/staging/#aPublishFiles[iFile]#" 
-            destination="#aPublicationMappings[iMapping]#/#aPublishFiles[iFile]#"> 
-    </CFLOOP>
-</CFLOOP>
+<cfset aPublicationMappings = Array("/liveserver","/testserver")>
+<cfloop index="iMapping" to="#arrayLen(aPublicationMappings)#" from="1">
+    <cfloop index="iFile" to="#arrayLen(aPublishFiles)#" from="1">
+        <cffile
+            action="COPY"
+            source="/staging/#aPublishFiles[iFile]#"
+            destination="#aPublicationMappings[iMapping]#/#aPublishFiles[iFile]#">
+    </cfloop>
+</cfloop>
 ```
 
 The important thing here is to know, that it is not necessary to implement the different methods for the different publish methods (FTP, SFTP, SSH etc.). Just use Lucee resources. If you for example like to copy a file from the staging server to the live server just use the cffile tag and the two defined mappings.
@@ -57,8 +59,8 @@ Done.
 
 ### Real World Example ###
 
-The Lucee interface allows an own implementation of a special ressource. How you do this will be shown in one of the upcoming blogs.
+The Lucee interface allows an own implementation of a special resource. How you do this will be shown in one of the upcoming blogs.
 
-We have taken a real world example in order to test the Lucee resources. Therefor we used the filemanager CFFM by Rick Root. CFFM can browse through defined mappings as well. So we defined a special mapping into the server's ram and we were not only able to upload a file into the ram but we were also able to modify it accordingly. CFFM does not know anything about resources, but he does know how to handle mappings. The fact that resources obey the usual usage of file tags and functions without introducing new attributes made it possible that CFFM worked without changes. So even though CFFM does not know anything about FTP, RAM or ZIP, you could use it in order to browse through these file systems.
+We have taken a real world example in order to test the Lucee resources. Therefore we used the filemanager CFFM by Rick Root. CFFM can browse through defined mappings as well. So we defined a special mapping into the server's ram and we were not only able to upload a file into the ram but we were also able to modify it accordingly. CFFM does not know anything about resources, but he does know how to handle mappings. The fact that resources obey the usual usage of file tags and functions without introducing new attributes made it possible that CFFM worked without changes. So even though CFFM does not know anything about FTP, RAM or ZIP, you could use it in order to browse through these file systems.
 
 With this technique you could even use CFFM as a bucket explorer for your Amazon S3 files. Just create a mapping pointing to it and then register the mapping in the source of the CFFM code.

@@ -5,6 +5,11 @@ related:
 - tag-login
 - tag-loginuser
 - tag-logout
+- function-getauthuser
+- function-getuserroles
+- function-isuserinanyrole
+- function-isuserinrole
+- function-isuserloggedin
 description: A container for user login and authentication code.
 ---
 

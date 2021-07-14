@@ -1,1 +1,1 @@
-Mask that has to be used for formatting. The function follows Java date time mask. For details, see the section Date and Time Patterns at the following URL: http://docs.oracle.com/javase/1.4.2/docs/api/java/text/SimpleDateFormat.html
+Mask that has to be used for formatting. The function follows Java date time mask. For details, see the section Date and Time Patterns at the following URL: <https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html>

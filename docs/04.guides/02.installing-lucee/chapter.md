@@ -1,12 +1,12 @@
 ---
 title: Installing Lucee
 id: installation-installer-documentation
-forceSortOrder: 20
+forceSortOrder: '20'
 ---
 
 ### Lucee Installer Documentation ###
 
-The Lucee Installer was created with the hope that it would make the deployment of Lucee a very simple process. The Installer creates a stand-alone instance of Lucee, Tomcat, and Oracle's JRE 1.7 specifically for use with Lucee. It can be run "by itself" or it can be connected to a pre-installed web server: IIS on Windows and Apache on Linux. This installer also performs the web-server to Tomcat server connections for you, which can be customized at any point after the install to meet your own unique needs.
+The Lucee Installer was created with the hope that it would make the deployment of Lucee a very simple process. The Installer creates a stand-alone instance of Lucee, Tomcat, and AdoptOpenJDK (Java JDK) specifically for use with Lucee. It can be run "by itself" or it can be connected to a pre-installed web server: IIS on Windows and Apache on Linux. This installer also performs the web-server to Tomcat server connections for you, which can be customized at any point after the install to meet your own unique needs.
 
 ### Developer Forum ###
 
@@ -14,13 +14,9 @@ If you do not find the answers you are looking for here, we encourage you to pos
 
 * [Lucee Developer Forum](https://dev.lucee.org)
 
-### General Information ###
-
-* [[installation-release]]
-* [[installation-credits]]
-* [[installer-translation]]
-
 ### Installing and Upgrading ###
+
+[[running-lucee-download-and-install]]
 
 **Windows**
 
@@ -34,8 +30,14 @@ If you do not find the answers you are looking for here, we encourage you to pos
 * [[changing-the-user-account-lucee-runs-as]]
 * [[linux-upgrade-the-JRE]]
 * [[linux-installation-on-centos-linux]]
+* [[linux-ubuntu-quick-video-guide]]
+* [[linux-install-ubuntu-commandbox]]
 
 ### Lucee Server Administration ###
+
+**Using Lucee with multiple webserver hosts**
+
+* [[mod-cfml]] is an add on for Apache, Nginx and IIS which enables using Lucee with different hosts
 
 **Windows**
 
@@ -63,7 +65,13 @@ The following sections are intended for system administrators who want to deploy
 * [[using-the-lucee-installer]]
 * [[locking-down-your-lucee-stack]]
 * [[locking-down-lucee-server]]
+* [[relocating-web-inf]]
 * [[credits-and-contributors]]
+
+### General Information ###
+
+* [[installation-credits]]
+* [[installer-translation]]
 
 ### Contribute ###
 

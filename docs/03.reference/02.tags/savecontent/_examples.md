@@ -6,10 +6,17 @@
 	</cfsavecontent>
 	<cfsavecontent variable="example">
 		<br>
-		<input type="text" nmae="textfield">
+		<input type="text" name="textfield">
 	</cfsavecontent>
 	#test#
 	#example#
 </cfoutput>
 #test#
+```
+
+```luceescript+trycf
+	cfsavecontent( variable="test" ){
+		echo("Here you can add any cf, html elements etc.,");
+	}
+	echo(test);
 ```

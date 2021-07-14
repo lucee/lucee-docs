@@ -1,8 +1,7 @@
 ---
 title: ComponentInfo
 id: function-componentinfo
-related:
-categories:
+description: this function is deprecated, use function getMetadata instead.
 ---
 
-this function is deprecated, use function getMetadata instead.
+this function is deprecated, use function [[function-getMetadata]] instead.

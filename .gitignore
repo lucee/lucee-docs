@@ -6,3 +6,5 @@ node_modules
 server/server-luceedocslocalserver.json
 server-luceedocsbuilder.json
 .commandbox
+server/performance.log
+/commandbox-luceedocslocalserver

@@ -12,4 +12,4 @@ categories:
 - files
 ---
 
-Deltes directory for given path
+Deletes directory for given path

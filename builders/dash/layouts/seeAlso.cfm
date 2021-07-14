@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args><!--- scope hack --->
 <cfif ( args.links ?: [] ).len()>
 	<cfoutput>
 		<h2>See also</h2>

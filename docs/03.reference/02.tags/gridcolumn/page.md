@@ -1,8 +1,8 @@
 ---
 title: <cfgridcolumn>
 id: tag-gridcolumn
-related:
 categories:
+- ajax
 ---
 
 The `<cfgridcolumn>` tag is not supported by Lucee.

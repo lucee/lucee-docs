@@ -1,7 +1,7 @@
 ```lucee+trycf
 <cftry>
   <cfset a = 2/0>
-  <cfdump var="#a#" />  
+  <cfdump var="#a#" />
   <cfcatch type="any">
     Caught an error.
   </cfcatch>
@@ -9,4 +9,4 @@
     This is from cffinally.
   </cffinally>
 </cftry>
-```	
+```

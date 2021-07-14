@@ -24,15 +24,16 @@ Lucee cannot read files that were encrypted by other CFML Engines. In order to n
 
 ### SOAP WebServices ###
 
-Lucee 4 uses [Apache Axis] (http://axis.apache.org/axis/) to consume and generate webservices. 
+Lucee 4 uses [Apache Axis](http://axis.apache.org/axis/) to consume and generate webservices.
 
-Adobe CF uses Axis1 up to version 9, and starting with version 10 it uses both Axis1 and [Axis2] (http://axis.apache.org/axis2/java/core/). Therefore consuming SOAP webservices that rely on features supported only by Axis2 will not work.
+Adobe CF uses Axis1 up to version 9, and starting with version 10 it uses both Axis1 and [Axis2](http://axis.apache.org/axis2/java/core/). Therefore consuming SOAP webservices that rely on features supported only by Axis2 will not work.
 
 ### Cookies ###
 
 In CF, you can use cookies with complex names and dot notation, for example:
+
 ```lucee
-    <cfcookie name="person.name" value="wilson, john"> 
+    <cfcookie name="person.name" value="wilson, john">
     <cfset cookie.person.lastname="Santiago">
     <cfoutput>#cookie.person.name#</cfoutput>
 ```

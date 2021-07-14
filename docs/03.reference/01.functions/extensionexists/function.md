@@ -4,6 +4,7 @@ id: function-extensionexists
 related:
 - function-extensionlist
 categories:
+- extensions
 - server
 ---
 

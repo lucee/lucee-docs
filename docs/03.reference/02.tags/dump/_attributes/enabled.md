@@ -1,0 +1,1 @@
+dumps are enabled by default, pass false to short circuit a dump execution and effectively disable it
