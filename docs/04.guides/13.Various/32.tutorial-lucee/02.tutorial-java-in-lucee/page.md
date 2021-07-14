@@ -146,8 +146,6 @@ In addition to the simple CF types, you will likely see many times that you have
 | javax.servlet.http.HttpServletRequest  | getPageContext().getHttpServletRequest()  |
 | javax.servlet.http.HttpServletResponse | getPageContext().getHttpServletResponse() |
 
-
-
 **Receiving Values from Methods**
 
 If a Java method returns a value, then receiving it is straight forward.
