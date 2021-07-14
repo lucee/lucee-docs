@@ -1,5 +1,4 @@
 
-
 ```lucee
 <cfset x = 1>
 
