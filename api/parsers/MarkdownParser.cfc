@@ -11,7 +11,7 @@ component {
 		return this;
 	}
 
-	public string function markdownToHtml( required string markdown ) {
+	public string function markdownToHtml( required string markdown, required boolean stripParagraph=false) {
 		if (variables.flexmark){
 			var processor = _getMarkdownProcessor();
 			var doc = processor.parser.parse(arguments.markdown);
@@ -20,6 +20,9 @@ component {
 			lock name="pegDownIsntThreadSafe" timeout="5" type="exclusive" {
 				var html = _getMarkdownProcessor().markdownToHtml( arguments.markdown );
 			}
+		}
+		if  (arguments.stripParagraph ){ // used for inline content
+			html = ReplaceNoCase( ReplaceNoCase( html, "<p>", "" ), "</p>", "");
 		}
 		return _getNoticeBoxRenderer().renderNoticeBoxes( html );
 	}
@@ -43,7 +46,7 @@ component {
 					local.inList = true;
 				} else if (not local.inList){
 					errors.append({
-						error: "list should be preceeded by a new line",
+						error: "list should be preceded by a new line",
 						file: "#arguments.pageContent.sourceFile#",
 						line: l,
 						line: local.row

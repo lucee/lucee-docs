@@ -30,15 +30,15 @@ component {
 		//for ( var path in pagePaths ) {
 		each(pagePaths, function(path){
 			var tick = getTickCount();
-			_writePage( pagePaths[path].page, buildDirectory, docTree );
+			_writePage( pagePaths[arguments.path].page, buildDirectory, docTree );
 
 			request.filesWritten++;
 			if ((request.filesWritten mod 100) eq 0){
 				request.logger(text="Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
 			}
 			if (getTickCount()-tick gt 100)
-				request.logger(text="Page took #path# #numberformat(getTickCount()-tick)# ms", link="#path#.html");
-		}, true, arguments.threads);
+				request.logger(text="Page took #arguments.path# #numberformat(getTickCount()-tick)# ms", link="#arguments.path#.html");
+		}, (arguments.threads > 1), arguments.threads);
 		//}
 		request.logger (text="Html Builder #request.filesWritten# files produced");
 
@@ -68,9 +68,10 @@ component {
 
 		if ( !IsNull( arguments.page.getCategories() ) ) {
 			for( var category in arguments.page.getCategories() ) {
-				if ( arguments.docTree.pageExists( "category-" & category ) ) {
-					links.append( "[[category-" & category & "]]" );
-					categories.append( "[[category-" & category & "]]" );
+				var catId = "category-" & category;
+				if ( arguments.docTree.pageExists( catId ) ) {
+					links.append( "[[#catId#]]" );
+					categories.append( "[[#catId#]]" );
 				} else {
 					request.logger(text="Missing category: " & category, type="error", link="#arguments.page.getPath()#.html");
 				}
@@ -95,10 +96,10 @@ component {
 			switch (arguments.page.getPageType()){
 				case "tag":
 					// add a cf prefix, tried adding with jql "OR & name" but that didn't work
-					links.append( _getIssueTrackerLink("cf" & name ) );
+					links.append( variables._getIssueTrackerLink("cf" & name ) );
 					break;
 				case "function":
-					links.append( _getIssueTrackerLink(name) );
+					links.append( variables._getIssueTrackerLink(name) );
 					break;
 				default:
           break;
@@ -155,6 +156,7 @@ component {
 				  "value"   = page.getPath() & ".html"
 				, "display" = page.getTitle()
 				, "text"    = HtmlEditFormat( page.getTitle() )
+				, "desc" 	= "#HtmlEditFormat( page.getTitle() & " " & page.getDescription() )#" // used for indexing
 				, "type"    = page.getPageType()
 				, "icon"    = icon
 			} );
@@ -165,7 +167,7 @@ component {
 
 // PRIVATE HELPERS
 	private void function _writePage( required any page, required string buildDirectory, required any docTree ) {
-		var filePath      = _getHtmlFilePath( arguments.page, arguments.buildDirectory );
+		var filePath      = variables._getHtmlFilePath( arguments.page, arguments.buildDirectory );
 		var fileDirectory = GetDirectoryFromPath( filePath );
 
 		//var starttime = getTickCount();
@@ -174,7 +176,7 @@ component {
 				DirectoryCreate( fileDirectory );
 			}
 		}
-		var pageContent = cleanHtml(renderPage( arguments.page, arguments.docTree, false ));
+		var pageContent = variables.cleanHtml(variables.renderPage( arguments.page, arguments.docTree, false ));
 		FileWrite( filePath, pageContent );
 	}
 
@@ -209,16 +211,16 @@ component {
 	private void function _renderStaticPages( required string buildDirectory, required any docTree, required string baseHref ) {
 		var staticPagesDir = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/staticPages";
 		var _404Page = _renderStaticPage( staticPagesDir & "/404.html", "404 - Page not found", arguments.docTree, arguments.baseHref, true );
-		FileWrite( buildDirectory & "/404.html", cleanHtml( _404Page ) );
+		FileWrite( arguments.buildDirectory & "/404.html", cleanHtml( _404Page ) );
 
 		var _searchPage = _renderStaticPage( staticPagesDir & "/search.html", "Search Lucee Documentation", arguments.docTree, arguments.baseHref, true );
-		FileWrite( buildDirectory & "/search.html", cleanHtml( _searchPage ) );
-		FileWrite( buildDirectory & "/sitemap.xml", _renderSiteMap(docTree) );
+		FileWrite( arguments.buildDirectory & "/search.html", cleanHtml( _searchPage ) );
+		FileWrite( arguments.buildDirectory & "/sitemap.xml", _renderSiteMap( arguments.docTree ) );
 		// google analytics for @zackster
-		FileWrite( buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");
-		FileWrite( buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow: /dictionaries/#chr(10)#Sitemap: https://docs.lucee.org/sitemap.xml");
+		FileWrite( arguments.buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");
+		FileWrite( arguments.buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow: /dictionaries/#chr(10)#Sitemap: https://docs.lucee.org/sitemap.xml");
 
-		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", buildDirectory & "/editor.html" );
+		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", arguments.buildDirectory & "/editor.html" );
 	}
 
 	private void function _writeSearchIndex( required any docTree, required string buildDirectory ) {
@@ -237,6 +239,8 @@ component {
 				return LCase( arguments.page.getPageType() );
 			case "listing":
 				return "aToZIndex"; // todo, diff layouts depending on arguments.page.getListingStyle()
+			case "implementationStatus":
+				return "implementationStatus";
 			default:
 				return "page";
 		}

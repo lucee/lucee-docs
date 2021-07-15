@@ -1,4 +1,5 @@
-<cfparam name="args.page" type="page" />
+<cfparam name="arguments.args.page" type="page" />
+<cfset local.args = arguments.args>
 
 <cfset local.meth = args.page />
 <cfset local.argumentsHaveDefaultValues = local.meth.argumentsHaveDefaultValues() />
@@ -34,6 +35,9 @@
 				</thead>
 				<tbody>
 					<cfloop array="#local.meth.getArguments()#" item="local.arg" index="local.i">
+						<cfif local.arg.status eq "hidden">
+							<cfcontinue>
+						</cfif>
 						<tr>
 							<td>
 								<div class="argument" id="argument-#local.arg.name#" title="Argument name">
@@ -52,6 +56,7 @@
 								<cfif local.arg.keyExists("alias") and len(local.arg.alias) gt 0>
 									<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
 								</cfif>
+								#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
  								<td>

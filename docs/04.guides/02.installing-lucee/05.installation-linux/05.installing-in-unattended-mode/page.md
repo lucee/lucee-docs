@@ -31,7 +31,7 @@ The following variables can also be customized by passing them to the installer 
 
 **--tomcatport**  
 **Default Value:** [8888]  
-The port number Tomcat will use for it's internal web server (coyote). This port is what's used by default for Apache mod_proxy_html.  
+The port number Tomcat will use for it's internal web server (coyote). This port is what's used by default for Apache mod_proxy_html.
 
 **--tomcatshutdownport**  
 **Default Value:** [8005]  
@@ -39,7 +39,7 @@ The Tomcat shutdown port number. This port should not be open to the Internet.
 
 **--tomcatajpport**  
 **Default Value:** [8009]  
-This is the port the AJP listener will be connecting to. This port is used by mod_jk and mod_proxy_ajp and is requried to be available to your apache server if you are using either of those connection methods.
+This is the port the AJP listener will be connecting to. This port is used by mod_jk and mod_proxy_ajp and is required to be available to your apache server if you are using either of those connection methods.
 
 **--systemuser**  
 **Default Value:** [root]  

@@ -186,7 +186,7 @@ getApplicationListener | Gets the application listener, stores it in the attribu
 getApplicationSetting |	Returns the settings of the application settings for the current context
 getCharset | Returns the settings of the current context charstets
 getComponent | Returns the settings of the component settings for the current context
-getContextes | Returns the current web contexts (only available for the server type)
+getContexts | Returns the current web contexts (only available for the server type)
 getCustomTagMappings | |
 getCustomtagSetting | Returns the settings of the custom tags for the current context
 getDatasource |	Returns the details for a datasource for the current context
@@ -209,6 +209,8 @@ getLocales | |
 getMailServers | |
 getMailSetting | |
 getMappings | |
+getLoaderInfo | Returns the info of the lucee base version, jar path and lucee running version
+getMinVersion | Returns the base version of your lucee
 getOutputSetting | |
 getPluginDirectory | |
 getProxy | |
@@ -226,7 +228,7 @@ hasPassword | |
 index | |
 removeCFX | |
 removeCustomTag | |
-removeDatasource | |
+removeDatasource | Removes an datasource from the current context
 removeDefaultPassword | |
 removeExtension | |
 removeMailServer | |
@@ -250,7 +252,7 @@ updateCharset | |
 updateComponent | |
 updateCustomTag | |
 updateCustomTagSetting | |
-updateDatasource | |
+updateDatasource | Update or creating an datasource with current context
 updateDebug | |
 updateDefaultPassword | |
 updateDefaultSecurity | |
@@ -377,10 +379,10 @@ Below you will find all the actions sorted alphabetically embedded in examples f
 	    returnVariable="component">
 
 	<cfadmin
-	    action="getContextes"
+	    action="getContexts"
 	    type="web|server"
 	    password="password"
-	    returnVariable="contextes">
+	    returnVariable="contexts">
 
 	<cfadmin
 	    action="getCustomTagMappings"
@@ -505,6 +507,18 @@ Below you will find all the actions sorted alphabetically embedded in examples f
 	    type="web|server"
 	    password="password"
 	    returnVariable="mappings">
+
+	<cfadmin
+    	    action="getLoaderInfo"
+    	    type="server"
+    	    password="password"
+    	    returnVariable="loaderinfo">
+
+	<cfadmin
+	    action="getMinVersion"
+	    type="server"
+	    password="password"
+	    returnVariable="minVersion">
 
 	<cfadmin
 	    action="getOutputSetting"

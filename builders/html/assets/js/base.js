@@ -13297,7 +13297,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		$tbl.find('tr > *:nth-child(2)').toggle(!data.expanded);
 		$tbl.find('tr > *:nth-child(3)').toggle(!data.expanded);
 		$btn.data("expanded", !data.expanded);
-		$btn.text(data.expanded ? "Collapse" : "Expand");
+		$btn.text(data.expanded ? "Collapse All" : "Expand All");
 
 		if (!data.installed){
 			$btn.data("installed", true);
@@ -13306,7 +13306,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 				var hidden = $tr.find("*:nth-child(2)").is(":visible");
 				$tr.find("*:nth-child(2)").toggle(hidden);
 				$tr.find("*:nth-child(3)").toggle(hidden);
-			});	
+			});
 		}
 	});
 // pickadate v3.5.5
@@ -13335,7 +13335,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 				$('header').removeClass('open');
 			}
 	});
-		
+
 // dropdown menu show
 	$(document).on('show.bs.dropdown', '.dropdown', function() {
 		var $dropdownMenu = $('.dropdown-menu', $(this)),
@@ -13374,12 +13374,12 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		if (/input|textarea/i.test(e.target.tagName)){
 			if (e.which === 9 && e.target.tagName == "TEXTAREA"){ // tabs are nice for code examples
 				var ta = e.target;
-				ta.value = ta.value.slice(0, ta.selectionStart) + 
-					String.fromCharCode(9) + 
-					ta.value.slice(ta.selectionStart);				
-			} 
+				ta.value = ta.value.slice(0, ta.selectionStart) +
+					String.fromCharCode(9) +
+					ta.value.slice(ta.selectionStart);
+			}
 			return;
-		}			
+		}
 		if ( e.which === 191 ) { // backslash /
 			e.preventDefault();
 			$( '.menu-toggle' ).click(); // open search menu
@@ -14931,7 +14931,26 @@ window.onerror = function(message, url, line, col, err) {
 	} else {
 			editor = "/editor.html";
 	}
-		
+
+	window.addEventListener("message", function(ev) {
+		if ( ev.data ){			
+			var msg = ev.data;
+			if ( msg.id && msg.src && msg.src == "try-cf" ){
+				if (!msg.height)
+					msg.height = 350;
+				var $el = $("IFRAME.trycf-iframe#" + msg.id);
+				if ( $el.length == 1){
+					$el.height(msg.height);
+					console.log("postMessage try-cf resize success", msg);
+					return;
+				}
+				console.log("Element IFRAME.trycf-iframe#" + msg.id + " not found");
+			}
+		}
+		console.log("postMessage ignored", ev);
+
+	}, false);
+
 	$.fn.tryCfLoader = function(){
 
 		return this.each( function(){
@@ -14939,7 +14958,10 @@ window.onerror = function(message, url, line, col, err) {
 			  , $flathighlight = $codeBlock.next()
 			  , blockId    = $codeBlock.attr( "id" )
 			  , scriptBased = $codeBlock.data( 'script' )
-			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="' + editor + '?script=' + scriptBased + '" name="' + blockId + '" class="trycf-iframe" height="600" width="100%"></iframe>' );
+			  , editorUrl = editor  + '?script=' + scriptBased + '&id=' + $codeBlock.attr( "id" ) // for postMessage()
+			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="' 
+			  	+ editorUrl + '" name="' + blockId + '"' + '" id="' + blockId + '"'
+				+ ' class="trycf-iframe" height="350" width="100%"></iframe>' );
 
 			$codeBlock.after( $iframe );
 			$flathighlight.remove();
@@ -14992,7 +15014,7 @@ window.onerror = function(message, url, line, col, err) {
 	};
 
 	setupSearchEngine = function( callback ){
-		var sourceData, dataReceived = function( data ){
+		var dataReceived = function( data ){
 			searchIndex = data;
 
 			callback( function( query, syncCallback ) {
@@ -15016,11 +15038,12 @@ window.onerror = function(message, url, line, col, err) {
 		  , fulltextitem, matches;
 
 		matches = searchIndex.filter( function( item ) {
+			var srcText = item.desc ? item.desc : item.text; // cdn caching sigh
 			var titleLen = item.text.length
 			  , match, nextMatch, i, highlighted;
 
 			for( i=0; i < titleLen; i++ ){
-				nextMatch = item.text.substr(i).match( reg.expr );
+				nextMatch = srcText.substr(i).match( reg.expr );
 
 				if ( !nextMatch ) {
 					break;
@@ -15069,7 +15092,8 @@ window.onerror = function(message, url, line, col, err) {
 				reg.replace += '$' + (i*2+2);
 			}
 		}
-
+		if ( input.charAt(input.length-1) == " ")
+			reg += " ";
 		return reg;
 	};
 

@@ -1,0 +1,1 @@
+The query row number to be deleted.

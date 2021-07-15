@@ -122,7 +122,7 @@ legend {
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.form-group-#{$color} {
 			.form-control,
 			.form-control:focus {
@@ -265,7 +265,7 @@ textarea.form-control {
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.form-group-#{$color} .form-label {
 			color: nth($palette-color, $i);
 		}

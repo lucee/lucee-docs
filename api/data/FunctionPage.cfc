@@ -9,9 +9,15 @@ component accessors=true extends="Page" {
 	property name="introduced"   type="string";
 	property name="alias"        type="string";
 	property name="status"        type="string";
+	property name="returnTypeDesc"   type="string";
+	property name="usageNotes"   type="string";
+
+	public string function getTitle() {
+		return super.getTitle() & "()";
+	}
 
 	public string function getUsageSignature() {
-		var usage = this.getTitle() & "(";
+		var usage = super.getTitle() & "(";
 		var delim = " ";
 		var optionalCount = 0;
 

@@ -1,1 +1,1 @@
-name of the variable to return
+Name of the variable to return, supports using "." for structures/scopes.

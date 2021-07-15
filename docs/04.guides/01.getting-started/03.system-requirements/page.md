@@ -11,12 +11,11 @@ Of course there are different recommendations that go with the different operati
 
 ### Microsoft Windows ###
 
-* Windows Server 2008 & R2 all editions
-* Windows Server 2008 all editions
-* Windows 7 all editions
-* Windows 8.1 all editions
+* Windows Server 2019 all editions
+* Windows Server 2016 all editions
 * Windows Server 2012 & R2 all editions
 * Windows 10 all editions
+* Windows 8.1 all editions
 
 ### Linux ###
 

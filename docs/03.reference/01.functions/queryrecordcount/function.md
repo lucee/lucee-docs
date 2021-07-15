@@ -1,9 +1,8 @@
 ---
 title: QueryRecordCount
 id: function-queryrecordcount
-related:
 categories:
-    - query
+- query
 ---
 
-row count of given query
+Returns the row count of given query

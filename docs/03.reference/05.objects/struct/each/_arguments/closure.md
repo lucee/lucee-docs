@@ -1,1 +1,5 @@
-UDF/Closure that call with the entries from struct with the signature ( key, [ value ] )
+A closure function (UDF) with the following signature:
+
+`function(key, value, st){}`
+
+Which is called for each item in the struct.

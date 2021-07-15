@@ -1,7 +1,7 @@
 component {
 
     // CONSTRUCTOR
-	public any function init() {
+	public any function init(opts) {
 		if (not request.keyExists("logs")){
             // only init once!
             request.logger = logger;
@@ -10,6 +10,10 @@ component {
 		    request.loggerStart = getTickCount();
             request.loggerFlushEnabled = false;
             this.textOnly = (url.KeyExists("textlogs") and url.textlogs ); // nice for curl --trace http://localhost:4040/build_docs/all/
+            if (isStruct(arguments.opts)){
+                if (arguments.opts.keyExists("textOnly"))
+                    this.textOnly = arguments.opts.textOnly;
+            }
         }
 		return this;
 	}
@@ -75,7 +79,7 @@ component {
         } else {
 		    writeOutput("<li #style#>");
             if (arguments.log.link.len() gt 0)
-                writeOutput('<a href="#log.link#">');
+                writeOutput('<a href="#arguments.log.link#">');
             writeOutput("#numberformat(arguments.log.timeMs)#ms <b>#arguments.log.type#</b> #arguments.log.text#");
             if (arguments.log.link.len() gt 0)
                 writeOutput('</a>');

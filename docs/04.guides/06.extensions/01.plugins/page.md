@@ -79,8 +79,8 @@ Lucee will also look for a file called `Action.cfc` in your plugin folder.  This
 
 This CFC needs to extend the class `lucee.admin.plugin.Plugin` and has no required method.  The following methods are looked for by convention though.  Your `Action.cfc` will be created once and cached as a singleton.
 
-* `init( struct lang, struct app )` - If this method exists, it will be called once when the component is initialized.  Use it to prepare the controller, set up variables, or initialize settings.  
-* `overview( struct lang, struct app, struct req )` - This is the default action for the plugin and will be run if it exists.  
+* `init( struct lang, struct app )` - If this method exists, it will be called once when the component is initialized.  Use it to prepare the controller, set up variables, or initialize settings.
+* `overview( struct lang, struct app, struct req )` - This is the default action for the plugin and will be run if it exists.
 * `myCustomAction( struct lang, struct app, struct req )` - Create as many additional methods as you need to represent actions your plugin needs to perform.  You can create links or forms that submit to these actions.
 
 Here's an overview of the parameters described above:

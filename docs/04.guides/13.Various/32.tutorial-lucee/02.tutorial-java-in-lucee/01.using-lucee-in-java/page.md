@@ -177,7 +177,7 @@ Create CF Objects
 	lucee.runtime.type.Array cfArray	=	creationUtil.createArray();
 
 	// create CF Struct
-	lucee.runtime.type.Struct cfStruct	=	creationUtil.createStruct();	
+	lucee.runtime.type.Struct cfStruct	=	creationUtil.createStruct();
 
 	// create CF Query named qNames with two columns (firstName and lastName) and 1 row
 	lucee.runtime.type.Query cfQuery	=	creationUtil.createQuery( new String[]{ "firstName","lastName" }, 1, "qNames" );

@@ -7,6 +7,7 @@ related:
 - tag-return
 categories:
 - component
+- core
 ---
 
 Defines a function call

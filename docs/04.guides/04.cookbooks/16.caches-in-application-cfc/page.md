@@ -44,11 +44,11 @@ The easiest way to generate the code block above is the follow these steps:
 
 Let's take a look at some of the keys used to define a cache connection.
 
-* **class** - This is the Java class of the driver for the cache engine.  
+* **class** - This is the Java class of the driver for the cache engine.
 * **bundleName** - Optional.  The name of the OSGI bundle to load the `class` from
 * **bundleVersion** - Optional.  The version of the OSGI bundle to load the `class` from.
 * **storage** - A boolean that flags whether this cache can be used for client or session storage
-* **custom** - A struct of key/value pairs for configuration the cache. This struct is entirely dependant on the cache driver in use, so refer to the docs for that cache driver to see the possible values.  Note, some of these custom values might be required for some cache drivers to work.
+* **custom** - A struct of key/value pairs for configuration the cache. This struct is entirely dependent on the cache driver in use, so refer to the docs for that cache driver to see the possible values.  Note, some of these custom values might be required for some cache drivers to work.
 * **default** - Optional.  If you want this cache to be used as a default cache, then give this one of these values: `function`, `object`, `template`, `query`, `resource`, `include`, `http`, `file`, `webservice`
 
 ## Default Caches

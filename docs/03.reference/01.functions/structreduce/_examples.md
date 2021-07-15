@@ -2,27 +2,12 @@
 
 ```luceescript+trycf
 animals = {
-	cow: {
-		noise: "moo",
-		size: "large"
-	},
-	pig: {
-		noise: "oink",
-		size: "medium"
-	},
-	cat: {
-		noise: "meow",
-		size: "small"
-	}
+	cow: {noise: "moo",  size: "large"},
+	pig: {noise: "oink", size: "medium"},
+	cat: { noise: "meow", size: "small"}
 };
+dump(label: "All animals", var: animals);
 
-// Show all animals
-Dump(
-	label: "All animals",
-	var: animals
-);
-
-// call StructReduce(animals)
 animalInfo = StructReduce(animals, function(result, key, value) {
 	return arguments.result & "<li>" & arguments.key & "<ul><li>Noise: " & arguments.value.noise & "</li><li>Size: " & arguments.value.size & "</li></ul></li>";
 }, "<ul>") & "</ul>";

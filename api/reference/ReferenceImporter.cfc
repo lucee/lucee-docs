@@ -4,6 +4,7 @@ component {
 // CONSTRUCTOR
 	public any function init(numeric threads=1){
 		variables.threads = arguments.threads;
+		variables.useThreads = (arguments.threads != 1);
 		variables.buildProperties = new api.build.BuildProperties();
 		variables.cwd = GetDirectoryFromPath( GetCurrentTemplatePath() );
 		return this;
@@ -28,12 +29,12 @@ component {
 
 		Each (referenceReader.listFunctions(), function(functionName){
 		//for( var functionName in referenceReader.listFunctions() ) {
-			var convertedFunc = referenceReader.getFunction( functionName );
+			var convertedFunc = referenceReader.getFunction( arguments.functionName );
 
-			if ( !_isHiddenFeature( convertedFunc ) ) {
-				filesImported += _stubFunctionEditorialFiles( convertedFunc );
+			if ( !variables._isHiddenFeature( convertedFunc ) ) {
+				filesImported += variables._stubFunctionEditorialFiles( convertedFunc );
 			}
-		}, true, variables.threads);
+		}, variables.useThreads, variables.threads);
 		request.logger (text="#filesImported# functions imported");
 	}
 
@@ -43,11 +44,11 @@ component {
 
 		Each (referenceReader.listObjects(), function(objectName) {
 		//for( var objectName in referenceReader.listObjects() ) {
-			var convertedObject = referenceReader.getObject( ObjectName );
+			var convertedObject = referenceReader.getObject( arguments.ObjectName );
 			//if ( !_isHiddenFeature( convertedObject ) ) {
-				filesImported += _stubObjectEditorialFiles( objectName );
+				filesImported += variables._stubObjectEditorialFiles( arguments.objectName );
 			//}
-		}, true, variables.threads);
+		}, variables.useThreads, variables.threads);
 		request.logger (text="#filesImported# objects imported");
 	}
 
@@ -58,14 +59,14 @@ component {
 		var objects = referenceReader.listMethods();
 		Each (objects, function(object){
 		//for( var object in objects ) {
-			for (var method in objects[object] ){
-				var methodData = referenceReader.getMethod( object, method);
+			for (var method in objects[arguments.object] ){
+				var methodData = referenceReader.getMethod( arguments.object, method);
 				//if ( !_isHiddenFeature( convertedMethod ) ) {
 					if (methodData.count() gt 0)
-						filesImported += _stubMethodEditorialFiles( methodData );
+						filesImported += variables._stubMethodEditorialFiles( methodData );
 				//}
 			}
-		}, true, variables.threads);
+		}, variables.useThreads, variables.threads);
 
 		request.logger (text="#filesImported# methods imported");
 	}
@@ -76,12 +77,12 @@ component {
 
 		Each (referenceReader.listTags(), function(tagName){
 		//for( var tagName in referenceReader.listTags() ) {
-			var convertedTag = referenceReader.getTag( tagName );
+			var convertedTag = referenceReader.getTag( arguments.tagName );
 
-			if ( !_isHiddenFeature( convertedTag ) ) {
-				filesImported += _stubTagEditorialFiles( convertedTag );
+			if ( !variables._isHiddenFeature( convertedTag ) ) {
+				filesImported += variables._stubTagEditorialFiles( convertedTag );
 			}
-		}, true, variables.threads);
+		}, variables.useThreads, variables.threads);
 		request.logger (text="#filesImported# tags imported");
 
 	}
@@ -142,7 +143,7 @@ component {
 
 	private numeric function _stubFunctionEditorialFiles( required struct func ) {
 		var filesCreated = 0;
-		var referenceDir = buildProperties.getFunctionReferenceDirectory();
+		var referenceDir = variables.buildProperties.getFunctionReferenceDirectory();
 		var functionDir  = referenceDir & LCase( arguments.func.name ) & "/";
 		var pageContent  = "---
 title: #arguments.func.name#
@@ -158,11 +159,13 @@ categories:";
 
 #Trim( arguments.func.description )#";
 
-		_createFileIfNotExists( functionDir & "function.md", pageContent );
+		variables._createFileIfNotExists( functionDir & "function.md", pageContent );
+		variables._createFileIfNotExists( functionDir & "_returnTypeDesc.md", "", true );
+		variables._createFileIfNotExists( functionDir & "_usageNotes.md", "", true );
 
 		var args = arguments.func.arguments ?: "";
 		for( var arg in args ) {
-			_createFileIfNotExists( functionDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
+			variables._createFileIfNotExists( functionDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
 		}
 
 		//arguments.func.examples    = [];
@@ -172,7 +175,7 @@ categories:";
 
 	private numeric function _stubTagEditorialFiles( required struct tag ) {
 		var filesCreated = 0;
-		var referenceDir = buildProperties.getTagReferenceDirectory();
+		var referenceDir = variables.buildProperties.getTagReferenceDirectory();
 		var tagDir       = referenceDir & LCase( arguments.tag.name ) & "/";
 		var pageContent  =
 "---
@@ -184,11 +187,12 @@ categories:
 
 #Trim( arguments.tag.description )#";
 
-		filesCreated += _createFileIfNotExists( tagDir & "tag.md", pageContent );
+		filesCreated += variables._createFileIfNotExists( tagDir & "tag.md", pageContent );
+		variables._createFileIfNotExists( tagDir & "_usageNotes.md", "", true );
 
 		var attribs = arguments.tag.attributes ?: "";
 		for( var attrib in attribs ) {
-			filesCreated += _createFileIfNotExists( tagDir & "_attributes/#attrib.name#.md", Trim( attrib.description ?: "" ) );
+			filesCreated += variables._createFileIfNotExists( tagDir & "_attributes/#attrib.name#.md", Trim( attrib.description ?: "" ) );
 		}
 
 		return filesCreated;
@@ -196,8 +200,8 @@ categories:
 
 	private numeric function _stubObjectEditorialFiles( required string obj ) {
 		var filesCreated = 0;
-		var referenceDir = buildProperties.getObjectReferenceDirectory();
-		var objectName = obj;
+		var referenceDir = variables.buildProperties.getObjectReferenceDirectory();
+		var objectName = arguments.obj;
 		var objectDir  = referenceDir & LCase( objectName ) & "/";
 		var pageContent  = "---
 title: #objectName#
@@ -220,11 +224,12 @@ categories:
 #Trim( arguments.method.description )#";
 */
 
-		filesCreated += _createFileIfNotExists( objectDir & "_object.md", pageContent );
+		filesCreated += variables._createFileIfNotExists( objectDir & "_object.md", pageContent );
+		//filesCreated +=variables._createFileIfNotExists( objectDir & "_usageNotes.md", "", true );
 /*
 		var args = arguments.method.arguments ?: "";
 		for( var arg in args ) {
-			_createFileIfNotExists( methodDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
+			variables._createFileIfNotExists( methodDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
 		}
 		*/
 		//arguments.method.examples    = [];
@@ -235,7 +240,7 @@ categories:
 
 	private numeric function _stubMethodEditorialFiles( required struct method ) {
 		var filesCreated = 0;
-		var referenceDir = buildProperties.getObjectReferenceDirectory();
+		var referenceDir = variables.buildProperties.getObjectReferenceDirectory();
 		var methodDir  = referenceDir & LCase( arguments.method.member.type ) & "/" & LCase( arguments.method.member.name ) & "/";
 
 		var pageContent  = "---
@@ -260,11 +265,12 @@ categories:
 #Trim( arguments.method.description )#";
 
 
-		filesCreated += _createFileIfNotExists( methodDir & "_method.md", pageContent );
+		filesCreated += variables._createFileIfNotExists( methodDir & "_method.md", pageContent );
+		//filesCreated +=variables._createFileIfNotExists( methodDir & "_usageNotes.md", "", true );
 
 		var args = arguments.method.arguments ?: "";
 		for( var arg in args ) {
-			filesCreated += _createFileIfNotExists( methodDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
+			filesCreated += variables._createFileIfNotExists( methodDir & "_arguments/#arg.name#.md", Trim( arg.description ?: "" ) );
 		}
 
 		//arguments.method.examples    = [];
@@ -273,7 +279,7 @@ categories:
 		return filesCreated;
 	}
 
-	private numeric function _createFileIfNotExists( filePath, content ) {
+	private numeric function _createFileIfNotExists( filePath, content, boolean docsOnly=false ) {
 		var fileDirectory = GetDirectoryFromPath( arguments.filePath );
 		var fileName      = ListLast( arguments.filePath, "/\" );
 
@@ -288,30 +294,32 @@ categories:
 			if ( q_files.name == fileName ) {
 				arguments.filePath = q_files.directory & "/" & q_files.name;  // use exact case
 				var size = q_files.size;
-				if (size gt 0)
-					size = Trim(FileRead(arguments.filePath)); // check for empty file
+				if ( size gt 0 )
+					size = Trim( FileRead( arguments.filePath ) ); // check for empty file
 
-				if (size eq 0){
-					if (len(trim(arguments.content)) gt 0){
-						request.logger(text="Updating existing zero length file: " & arguments.filePath);
+				if ( size eq 0 ){
+					if ( len( trim( arguments.content ) ) gt 0 ){
+						request.logger( text="Updating existing zero length file: " & arguments.filePath );
 						exists = true;
 						break;
-					} else {
+					} else if ( !arguments.docsOnly ){
 						request.logger(text="Missing content from Lucee: " & arguments.filePath, type="warn");
 						return 0;
+					} else if ( arguments.docsOnly ){
+						exists = true;
 					}
 				} else {
 					exists = true; // case insensitive file exists check!
 				}
 			}
 		}
-		if (!exists){
-			request.logger("Generated file: " & arguments.filePath  & chr(10));
-			FileWrite( arguments.filePath, _formatText(arguments.content) );
-		} else if (false){ // only run this manually
+		if ( !exists ){
+			request.logger( "Generated file: " & arguments.filePath  & chr( 10 ) );
+			FileWrite( arguments.filePath, _formatText( arguments.content ) );
+		} else if ( false ){ // only run this manually
 			var existingContent = FileRead( arguments.filePath );
-			_formatText(arguments.content);
-			FileWrite( arguments.filePath, _formatText(arguments.content) );
+			_formatText( arguments.content );
+			FileWrite( arguments.filePath, _formatText( arguments.content ) );
 			return 0;
 		}
 		return 1;

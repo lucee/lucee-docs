@@ -15,7 +15,7 @@ Lucee has two kinds of startup listeners.
 
 #### server.cfc ####
 
-Create a server.cfc file in lucee-server\context\context directory.  
+Create a server.cfc file in lucee-server\context\context directory.
 
 ```lucee
 
@@ -36,7 +36,7 @@ Create a server.cfc file in lucee-server\context\context directory.
 
 #### web.cfc ####
 
-Create a web.cfc file in webapps\ROOT\WEB-INF\lucee\context\ directory.  
+Create a web.cfc file in webapps\ROOT\WEB-INF\lucee\context\ directory.
 
 ```lucee
 

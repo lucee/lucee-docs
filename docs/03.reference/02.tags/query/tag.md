@@ -6,7 +6,10 @@ related:
 - tag-storedproc
 categories:
 - cache
+- core
 - query
 ---
 
-Passes SQL statements to a data source. Not limited to queries.
+Passes SQL statements to a data source.
+
+Not limited to queries.

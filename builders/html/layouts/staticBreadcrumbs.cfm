@@ -1,3 +1,4 @@
+<cfset local.args = arguments.args>
 <cfparam name="args.title" type="string" />
 
 <cfoutput>

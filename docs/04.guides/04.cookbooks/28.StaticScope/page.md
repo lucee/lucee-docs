@@ -3,6 +3,7 @@ title: Static scope in components
 id: static_scope
 categories:
 - component
+- scopes
 description: Static scope in components is needed to create an instance of cfc and call its method
 ---
 
@@ -115,7 +116,7 @@ Component {
 }
 ```
 
-2) Next we call the getInstance() static function five times. Here we pass three different arguments into the getInstance() function. So three instances are displayed when we run this in the browser. This indicates that the same arguments are executed only once.  
+2) Next we call the getInstance() static function five times. Here we pass three different arguments into the getInstance() function. So three instances are displayed when we run this in the browser. This indicates that the same arguments are executed only once.
 
 ```luceescript
 // example02.cfm
@@ -219,6 +220,6 @@ Component {
 
 ### Footnotes ###
 
-Here you can see above details in video
+[Lucee 5 features reviewed: static](https://dev.lucee.org/t/lucee-5-features-reviewed-static/433)
 
-[Lucee Static Scopes in Component Code](https://www.youtube.com/watch?v=B5ILIAbXBzo&feature=youtu.be)
+[Video: Lucee Static Scopes in Component Code](https://www.youtube.com/watch?v=B5ILIAbXBzo&feature=youtu.be)

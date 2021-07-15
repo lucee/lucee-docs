@@ -5,8 +5,10 @@ related:
 - function-max
 - function-min
 categories:
+- core
 - math
 - thread
+description: Mathematical, Logical, Ternary, Comparison, String and Elvis Operators
 ---
 
 ## Mathematical operators ##

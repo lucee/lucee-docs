@@ -3,7 +3,9 @@ title: IsNotMap
 id: function-isnotmap
 related:
 categories:
-    - decision
+- decision
+- java
+- struct
 ---
 
-return true if the given Object is not of Type java.util.Map
+Returns true if the given Object is not of Type `java.util.Map`

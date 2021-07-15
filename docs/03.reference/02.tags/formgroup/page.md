@@ -1,8 +1,8 @@
 ---
 title: <cfformgroup>
 id: tag-formgroup
-related:
 categories:
+- ajax
 ---
 
 The `<cfformgroup>` tag is not supported by Lucee.

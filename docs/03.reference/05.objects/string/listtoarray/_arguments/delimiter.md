@@ -1,1 +1,3 @@
-Characters that separate list elements. The default value is comma.
+Characters that separate list elements.
+
+The default value is comma.

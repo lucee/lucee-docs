@@ -1,0 +1,1 @@
+When a variable has no scope defined (Example: #myVar# instead of #variables.myVar#), Lucee will also search available resultsets if this is set to true.

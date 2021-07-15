@@ -17,11 +17,11 @@ On Windows it is recommended to run the Lucee/Tomcat service as a restrict user 
 
 ## Disabling the Lucee Administrator ##
 
-If the enviroment variable LUCEE_ADMIN_ENABLED is set to false, the Lucee Administrator is disabled, since 5.3.3.45 (requires a Lucee restart to pick up changes)
+If the environment variable LUCEE_ADMIN_ENABLED is set to false, the Lucee Administrator is disabled, since 5.3.3.45 (requires a Lucee restart to pick up changes)
 
 ## Restrict Access to the Lucee Administrator and other folders ##
 
-As with ACF, the recommended best security practice to restrict access to all URLs that are not required to be publically accessible.
+As with ACF, the recommended best security practice to restrict access to all URLs that are not required to be publicly accessible.
 
 Examples that have been cited include:
 

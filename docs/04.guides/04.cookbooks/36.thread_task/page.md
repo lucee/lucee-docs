@@ -12,7 +12,7 @@ description: 'How to use Thread Tasks '
 
 This document explains about the thread tasks. It useful to know the differences between regular threads and task threads.
 
-When a regular thread throws an exception, the default exception type is ``type='deamon'``. After an exception, the thread is dumped. If a regular thread is terminated due to an error, the information from the thread will be output with a 'terminated' status.
+When a regular thread throws an exception, the default exception type is ``type='daemon'``. After an exception, the thread is dumped. If a regular thread is terminated due to an error, the information from the thread will be output with a 'terminated' status.
 
 Regular Threads have the following characteristics:
 
@@ -24,9 +24,9 @@ Regular Threads have the following characteristics:
 
 ### Example 1 : ###
 
-In addition to deamon (regular) threads, Lucee also supports task threads. The main differences is that task threads execute completely Independent of the request that is calling the thread. We log the thread and can re-execute it.
+In addition to daemon (regular) threads, Lucee also supports task threads. The main differences is that task threads execute completely Independent of the request that is calling the thread. We log the thread and can re-execute it.
 
-This example shows a task thread. It is similar to the deamon thread, but we do not have the join and output of the thread because these are not allowed with a task thread.
+This example shows a task thread. It is similar to the daemon thread, but we do not have the join and output of the thread because these are not allowed with a task thread.
 
 ```luceescript
 thread name="test" type="daemon" {

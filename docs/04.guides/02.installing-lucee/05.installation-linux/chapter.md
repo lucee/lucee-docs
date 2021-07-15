@@ -14,3 +14,4 @@ Installing Lucee on Linux
 * [[linux-installation-on-centos-linux]]
 * [[preparing-your-server-linux]]
 * [[linux-ubuntu-quick-video-guide]]
+* [[linux-install-ubuntu-commandbox]]

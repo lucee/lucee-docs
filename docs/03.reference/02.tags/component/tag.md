@@ -10,6 +10,7 @@ related:
 - tag-property
 categories:
 - component
+- core
 description: Creates and defines a component object
 ---
 

@@ -9,7 +9,7 @@ menuTitle: OSGi
 
 ## OSGi ##
 
-**Lucee 5 is completely [OSGi](http://en.wikipedia.org/wiki/OSGi) based, OSGi is the defacto standard in most Java enterprise environments, to manage bundles (jar libraries) used by the environment.**
+**Lucee 5 is completely [OSGi](https://en.wikipedia.org/wiki/OSGi) based, OSGi is the defacto standard in most Java enterprise environments, to manage bundles (jar libraries) used by the environment.**
 
 This means all libraries used are managed by Lucee itself as OSGi bundles, but this does not end with 3rd party libraries. Lucee handles it's own core as an OSGi bundle, Lucee archives (.lar files) and even our Java based extensions are all OSGi based.
 

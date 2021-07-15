@@ -61,7 +61,7 @@ to build Lucee and the express bundles
 
     ant custom
 
-to build Lucee and all custom bundles (jars zip, war file ...)
+to build Lucee and all custom bundles (jars zip, war file, etc)
 
     ant installer
 

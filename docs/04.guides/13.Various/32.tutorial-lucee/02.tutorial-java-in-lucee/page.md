@@ -137,31 +137,13 @@ You can fix this by forcing CF to pass the argument as an Integer.
 
 In addition to the simple CF types, you will likely see many times that you have to pass complex types to/from Java. the most popular types are Collection, List, and Map. the table below shows the equivalent CF type to these Java types:
 
-**Java Type**
-
-**Lucee Type**
-
-```lucee
-<tr>
-	<td>java.util.Collection
-	<td>Array
-
-<tr>
-	<td>java.util.List
-	<td>Array
-
-<tr>
-	<td>java.util.Map
-	<td>Struct
-
-<tr>
-	<td>javax.servlet.http.HttpServletRequest
-	<td>getPageContext().getHttpServletRequest()
-
-<tr>
-	<td>javax.servlet.http.HttpServletResponse
-	<td>getPageContext().getHttpServletResponse()
-```
+| Java Type                              | Lucee type                                |
+| ---------------------------------------|-------------------------------------------| 
+| java.util.Collection                   | Array                                     |
+| java.util.List                         | Array                                     |
+| java.util.Map                          | Struct                                    |
+| javax.servlet.http.HttpServletRequest  | getPageContext().getHttpServletRequest()  |
+| javax.servlet.http.HttpServletResponse | getPageContext().getHttpServletResponse() |
 
 **Receiving Values from Methods**
 

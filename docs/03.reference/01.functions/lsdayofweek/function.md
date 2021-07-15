@@ -2,6 +2,7 @@
 title: LSDayOfWeek
 id: function-lsdayofweek
 related:
+- function-dayofweek
 categories:
 - datetime
 - internationalization

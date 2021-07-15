@@ -28,7 +28,7 @@ Open the file in notepad (you don't want additional formatting characters in the
           xmlValidation="false" xmlNamespaceAware="false">
           <Context path="" docBase="[ENTER SYSTEM PATH]" />
           <Alias>[ENTER ALIAS DOMAIN]</alias>
-     </host>
+     </Host>
  -->
   </engine>
  </service>
@@ -55,8 +55,10 @@ If this domain can be found using more then one domain, just add an alias entry,
 	<Alias>www.lucee.org</alias>
 	<Alias>web.lucee.org</alias>
 	<Alias>lucee.org</alias>
-</host>
+</Host>
 ```
+
+**IMPORTANT:** windows will complain and not start catalina if you use Host to start the tag and /host to finish ! you need to use Host with the capital H
 
 **IMPORTANT:** Wildcards are NOT currently supported by . So, the following will NOT work:
 

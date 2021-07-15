@@ -1,4 +1,3 @@
-webservice type used, this can be one of the following values
+webservice type used, only the following is supported
 
-- Axis1 (default): The Apache Axis 1 implementation is used
-- CXF: The CXF implementation is used
+- **Axis1 (default):** The Apache Axis 1 implementation is used

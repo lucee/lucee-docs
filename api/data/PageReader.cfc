@@ -6,27 +6,29 @@ component {
 		var pageFilepath = arguments.rootDir & arguments.pageDir & arguments.pageType;
 
 		try {
-			//request.logger(text="[#pageData.pageType#]#arguments.pageFilePath#");
-			switch( pageData.pageType ?: "" ) {
-				case "function":
-					pageData.append( _getFunctionSpecification( pageData.slug, pageFilePath ), false );
-					page = new FunctionPage( argumentCollection=pageData );
-				break;
-				case "tag":
-					pageData.append( _getTagSpecification( pageData.slug, pageFilePath ), false );
-					page = new TagPage( argumentCollection=pageData );
-				break;
-				case "_object":
-					pageData.append( _getObjectSpecification( pageData.slug, pageFilePath ), false );
-					page = new ObjectPage( argumentCollection=pageData );
-				break;
-				case "_method":
-					pageData.append( _getMethodSpecification( pageData.methodObject, pageData.methodName,
-						pageFilePath ), false );
-					page = new MethodPage( argumentCollection=pageData );
-				break;
-				default:
-					page = new Page( argumentCollection=pageData );
+			//request.logger(text="[#arguments.pageType#] #pageFilePath#");
+			timer label="preparePageObject() #pageData.pageType#" {
+				switch( pageData.pageType ?: "" ) {
+					case "function":
+						pageData.append( _getFunctionSpecification( pageData.slug, pageFilePath ), false );
+						page = new FunctionPage( argumentCollection=pageData );
+					break;
+					case "tag":
+						pageData.append( _getTagSpecification( pageData.slug, pageFilePath ), false );
+						page = new TagPage( argumentCollection=pageData );
+					break;
+					case "_object":
+						pageData.append( _getObjectSpecification( pageData.slug, pageFilePath ), false );
+						page = new ObjectPage( argumentCollection=pageData );
+					break;
+					case "_method":
+						pageData.append( _getMethodSpecification( pageData.methodObject, pageData.methodName,
+							pageFilePath ), false );
+						page = new MethodPage( argumentCollection=pageData );
+					break;
+					default:
+						page = new Page( argumentCollection=pageData );
+				}
 			}
 		} catch (any e) {
 			writeOutput("Error preparing page: " & pageFilePath);
@@ -52,11 +54,26 @@ component {
 		return page;
 	}
 
+	// markdown parsing expects unix file line endings
+	private string function FileReadAsUnix(required string filePath){
+		return _convertToUnixLineEnding( FileRead( arguments.filePath ) );
+	}
+
+	// filenames are case sensitive on some platforms, struct keys aren't, used to match files to exact casing
+	private struct function getFilesInDirectory(required string dirPath){
+		var q = directoryList(path=arguments.dirPath, type="file", listInfo="query");
+		var st = {};
+		loop query="q"{
+			st[q.name] = q.name;
+		}
+		return st
+	}
+
 	public any function readPageFile( required string rootDir, required string pageType, required string pageDir ) {
 		var path            = arguments.rootDir & "/" & arguments.pageDir & arguments.pageType;
 		var slug            = ListLast( arguments.pageDir, "\/" );
 
-		var fileContent     = _convertToUnixLineEnding( FileRead( path ) );
+		var fileContent     = FileReadAsUnix( path );
 		var data            = _parsePage( fileContent );
 		var sortOrder       = "";
 
@@ -100,7 +117,7 @@ component {
 
 	public any function readPageFileSource( required string filePath ) {
 		var path            = Replace(arguments.filePath,"\","/","all");
-		var fileContent     = _convertToUnixLineEnding(FileRead( path ));
+		var fileContent     = FileReadAsUnix( path );
 		var data            = _parsePage( fileContent );
 		return data;
 	}
@@ -168,21 +185,29 @@ component {
 		arrayAppend(arguments.related, links , true )
 	}
 
-	private struct function _getTagSpecification( required string tagName, required string pageFilePath ) {
+	private struct function _getTagSpecification( required string tagName, required string pageFilePath ){
 		var tag           = _getTagReferenceReader().getTag( arguments.tagName );
+		tag.hidden = structIsEmpty( tag );
 		var attributes    = tag.attributes ?: [];
 		var attributesDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributes/";
+		var attrFiles = getFilesInDirectory(attributesDir);
 
 		for( var attrib in attributes ) {
-			var attribDescriptionFile = attributesDir & attrib.name & ".md";
-			if ( FileExists( attribDescriptionFile ) ) {
-				attrib.description = FileRead( attribDescriptionFile );
+			if (structKeyExists(attrFiles, attrib.name & ".md" )){
+				var attribDescriptionFile = attributesDir & attrFiles[attrib.name & ".md"]; // avoid file system case problems
+				attrib.descriptionOriginal = attrib.description;
+				attrib.description = FileReadAsUnix( attribDescriptionFile );
 			}
+		}
+
+		var usageNotesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_usageNotes.md";
+		if ( FileExists( usageNotesFile ) ) {
+			tag.usageNotes = FileReadAsUnix( usageNotesFile );
 		}
 
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
 		if ( FileExists( examplesFile ) ) {
-			tag.examples = FileRead( examplesFile );
+			tag.examples = FileReadAsUnix( examplesFile );
 		}
 
 		return tag;
@@ -190,19 +215,32 @@ component {
 
 	private struct function _getFunctionSpecification( required string functionName, required string pageFilePath ) {
 		var func    = _getFunctionReferenceReader().getFunction( arguments.functionName );
+		func.hidden = structIsEmpty( func );
 		var args    = func.arguments ?: [];
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
+		var argsFiles = getFilesInDirectory(argsDir);
 
 		for( var arg in args ) {
-			var argDescriptionFile = argsDir & arg.name & ".md";
-			if ( FileExists( argDescriptionFile ) ) {
-				arg.description = FileRead( argDescriptionFile );
+			if (structKeyExists(argsFiles, arg.name & ".md" )){
+				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
+				arg.descriptionOriginal = arg.description;
+				arg.description = FileReadAsUnix( argDescriptionFile );
 			}
+		}
+
+		var returnDescFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_returnTypeDesc.md";
+		if ( FileExists( returnDescFile ) ) {
+			func.returnTypeDesc = FileReadAsUnix( returnDescFile );
+		}
+
+		var usageNotesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_usageNotes.md";
+		if ( FileExists( usageNotesFile ) ) {
+			func.usageNotes = FileReadAsUnix( usageNotesFile );
 		}
 
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
 		if ( FileExists( examplesFile ) ) {
-			func.examples = FileRead( examplesFile );
+			func.examples = FileReadAsUnix( examplesFile );
 		}
 
 		return func;
@@ -213,17 +251,19 @@ component {
 		var args    = obj.arguments ?: [];
 		return obj;
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
+		var argsFiles = getFilesInDirectory(argsDir);
 
 		for( var arg in args ) {
-			var argDescriptionFile = argsDir & arg.name & ".md";
-			if ( FileExists( argDescriptionFile ) ) {
-				arg.description = FileRead( argDescriptionFile );
+			if (structKeyExists(argsFiles, arg.name & ".md" )){
+				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
+				arg.descriptionOriginal = arg.description;
+				arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
 
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
 		if ( FileExists( examplesFile ) ) {
-			obj.examples = FileRead( examplesFile );
+			obj.examples = FileReadAsUnix( examplesFile );
 		}
 
 		return obj;
@@ -231,18 +271,22 @@ component {
 
 	private struct function _getMethodSpecification(required string methodObject, required string methodName, required string pageFilePath ) {
 		var meth    = _getMethodReferenceReader().getMethod( arguments.methodObject, arguments.methodName );
+		meth.hidden = structIsEmpty( meth );
 		var args    = meth.arguments ?: [];
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
+		var argsFiles = getFilesInDirectory(argsDir);
 
 		for( var arg in args ) {
 			var argDescriptionFile = argsDir & arg.name & ".md";
-			if ( FileExists( argDescriptionFile ) ) {
-				arg.description = FileRead( argDescriptionFile );
+			if (structKeyExists(argsFiles, arg.name & ".md" )){
+				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
+				arg.descriptionOriginal = arg.description;
+				arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
 		if ( FileExists( examplesFile ) ) {
-			meth.examples = FileRead( examplesFile );
+			meth.examples = FileReadAsUnix( examplesFile );
 		}
 
 		return meth;
@@ -262,7 +306,6 @@ component {
 
 	private any function _getTagReferenceReader() {
 		//var buildProperties = new api.build.BuildProperties();
-
 		return new api.reference.ReferenceReaderFactory().getTagReferenceReader();
 	}
 

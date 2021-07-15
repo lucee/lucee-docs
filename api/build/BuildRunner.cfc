@@ -31,14 +31,14 @@ component accessors=true {
 		return variables.docTree;
 	};
 
-	public void function build( required string builderName, required numeric threads ) {
+	public void function build( required string builderName, required numeric threads) {
 		var builder  = getBuilder( arguments.builderName );
 		var buildDir = _getBuilderBuildDirectory( arguments.builderName );
 		var startTime = getTickCount();
 
-		lock name="build#buildername#" timeout="1" type ="Exclusive" throwontimeout="true" {
-			request.logger (text="Start builder: #arguments.builderName# with #threads# thread(s)");
-			builder.build( docTree, buildDir, threads );
+		lock name="build#arguments.buildername#" timeout="1" type ="Exclusive" throwontimeout="true" {
+			request.logger (text="Start builder: #arguments.builderName# with #arguments.threads# thread(s)");
+			builder.build( docTree, buildDir, arguments.threads );
 			request.logger (text="Finished builder: #arguments.builderName#, in #NumberFormat( getTickCount()-startTime)#ms");
 		}
 	}

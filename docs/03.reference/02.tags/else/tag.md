@@ -4,7 +4,8 @@ id: tag-else
 related:
 - tag-elseif
 - tag-if
+categories:
+- core
 ---
 
-Used with cfelse and cfelseif, cfif lets you create simple and compound conditional statements
-	 in CFML. The value in the cfif tag can be any expression.
+Used with [[tag-if]]and [[tag-elseif]], [[tag-else]] lets you create simple and compound conditional statements in CFML.

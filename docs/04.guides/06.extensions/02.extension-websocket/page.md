@@ -3,6 +3,7 @@ title: Websocket gateway
 id: extensions-websocket-gateway
 categories:
 - ajax
+- gateways
 - extensions
 - protocols
 ---

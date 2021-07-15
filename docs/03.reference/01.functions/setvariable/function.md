@@ -2,7 +2,9 @@
 title: SetVariable
 id: function-setvariable
 related:
+- function-getvariable
 categories:
+- scopes
 ---
 
-Sets the value
+Sets a variable value, supports scoped variable syntax

@@ -1,13 +1,13 @@
 ---
 title: struct.keyTranslate()
 id: method-struct-keytranslate
-methodObject: struct
-methodName: keyTranslate
 related:
 - function-structkeytranslate
 - object-struct
 categories:
 - struct
-
+methodObject: struct
+methodName: keyTranslate
 ---
 
+Converts any struct keys with dot notation into nested structures

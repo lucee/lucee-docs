@@ -1,4 +1,4 @@
 Type of the thread:
 
-* *deamon* (default) - executes as deamon of the current thread
+* *daemon* (default) - executes as daemon of the current thread
 * *task* - executed by the task manager

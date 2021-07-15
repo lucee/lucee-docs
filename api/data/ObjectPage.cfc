@@ -34,7 +34,7 @@ component accessors=true extends="Page" {
 				usage &= argument.type;
 		   	}
 			usage &= "</em>";
-			
+
 			delim = ", ";
 		}
 		usage &= "</em>";

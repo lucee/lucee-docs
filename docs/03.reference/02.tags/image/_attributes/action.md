@@ -1,11 +1,11 @@
 Action to execute.
 
-- border
-- captcha
+- border [[function-ImageAddBorder]]
+- captcha [[function-ImageCaptcha]]
 - convert
-- writetobrowser
-- write
-- rotate
-- resize
-- read
-- info
+- writetobrowser [[function-ImageWriteToBrowser]]
+- write [[function-ImageWrite]]
+- rotate [[function-ImageRotate]]
+- resize [[function-imageResize]]
+- read [[function-imageRead]]
+- info [[function-imageInfo]]

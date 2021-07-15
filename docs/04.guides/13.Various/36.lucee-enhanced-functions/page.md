@@ -110,7 +110,7 @@ In addition as a goodie, if you hover over the label of a dump output, Lucee dis
 
 **[[tag-http]]**
 
-This tag has been enhanced with the attribute "addtoken". When this attribute is set to "true", the request cookies "cfid, cftoken, jsessionid" will be added to the request so that a request will be automatically recognized beeing from the same session. This can be compared with the behaviour of the tag CFLOCATION.
+This tag has been enhanced with the attribute "addtoken". When this attribute is set to "true", the request cookies "cfid, cftoken, jsessionid" will be added to the request so that a request will be automatically recognized being from the same session. This can be compared with the behaviour of the tag CFLOCATION.
 
 Example:
 

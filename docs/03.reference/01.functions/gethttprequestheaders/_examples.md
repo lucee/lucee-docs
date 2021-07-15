@@ -1,0 +1,3 @@
+```luceescript+trycf
+writeDump(GetHTTPRequestHeaders());
+```

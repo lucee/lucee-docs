@@ -1,3 +1,3 @@
 function/closure that implements the following constructor
 
-[function(any result, string key, object value[, struct struct]):any].
+`function(result, key, value, st) { return result; }`

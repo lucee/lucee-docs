@@ -1,4 +1,4 @@
 ```luceescript+trycf
-  thisYear = year( now() );  
+  thisYear = year( now() );
   dump( thisYear );
 ```

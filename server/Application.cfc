@@ -1,19 +1,21 @@
 component {
 	this.name = "luceeDocumentationLocalServer-" & Hash( GetCurrentTemplatePath() );
-	
+
 	this.localMode = true;
 	this.scopeCascading = "small";
 
 	this.cwd     = GetDirectoryFromPath( GetCurrentTemplatePath() )
 	this.baseDir = ExpandPath( this.cwd & "../" );
+	this.mappings[ "/"      ] = this.baseDir;
 
+	/*
 	this.mappings[ "/api"      ] = this.baseDir & "api";
 	this.mappings[ "/builders" ] = this.baseDir & "builders";
 	this.mappings[ "/builds"   ] = this.baseDir & "builds";
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
-
-	this.assetBundleVersion = 27;  // see parent application.cfc
+	*/
+	this.assetBundleVersion = 32;  // see parent application.cfc
 
 	public void function onApplicationStart()  {
 		//_addChangeWatcher();
@@ -26,7 +28,7 @@ component {
 	public boolean function onRequest( required string requestedTemplate ) output=true {
 		var path = _getRequestUri();
 		var logger = new api.build.Logger();
-		
+
 		if (path contains ".."){
 			header statuscode=401;
 			abort;
@@ -68,17 +70,7 @@ component {
 					if (listlen(path,"/") gt 1 )
 						writeOutput("unknown build docs request: #path#");
 			}
-			function _getMemoryUsage(type){
-				var q = getMemoryUsage();
-				var mem = q.reduce( function(total=0, row, rowNumber, recordset ){
-					if (row.type eq type)
-						return total +  row.used;
-					else
-						return total;
-				});
-				return NumberFormat(mem/(1024*1024)) & " Mb";
-			}
-			fileAppend("/performance.log", "#path# #numberFormat(getTickCount() - request.loggerStart)#ms, "
+			fileAppend(ExpandPath("./performance.log"), "#path# #numberFormat(getTickCount() - request.loggerStart)#ms, "
 				& "#importThreads# import threads, #buildThreads# build threads, heap #_getMemoryUsage("HEAP")#, non-heap #_getMemoryUsage("NON_HEAP")#, #server.lucee.version# #chr(10)#");
 			logger.renderLogs();
 		} else if ( path eq "/assets/js/searchIndex.json" ) {
@@ -88,7 +80,7 @@ component {
 		} else if ( path.startsWith( "/static" ) ) {
 			_renderStatic();
 		} else if ( path.startsWith( "/images" ) ) {
-			_renderImage();		
+			_renderImage();
 		} else if ( path.startsWith( "/editor.html" ) ) {
 			_renderCodeEditor();
 		} else {
@@ -176,7 +168,7 @@ component {
 		content file=assetPath type=_getMimeTypeForAsset( assetPath );
 		abort;
 	}
-	
+
 	private void function _renderImage() {
 		var imgPath = "/docs/_images" & mid(_getRequestUri(), len("/images "));
 
@@ -364,16 +356,27 @@ component {
 
 	private any function _getBuildRunner() {
 		var appKey    = "buildRunnerKey";
+		application.assetBundleVersion = this.assetBundleVersion;
+		if (structKeyExists(url, "reload") && url.reload eq "true"){
+			var _start = getTickCount();
+			inspectTemplates();
+			//if (structKeyExists(url, "force") && url.force eq "true")
+			//		application[ AppKey ] = new api.build.BuildRunner(); // dev mode
+			//	application[ AppKey ].getDocTree(checkfiles=true); // scans for changes
+			fileAppend(ExpandPath("./performance.log"), "Docs.reload() #numberFormat(getTickCount() - _start)#ms, "
+				& " heap #_getMemoryUsage("HEAP")#, non-heap #_getMemoryUsage("NON_HEAP")#, #server.lucee.version# #chr(10)#");
+			// just restart the whole application
+			if (structKeyExists(application,AppKey))
+				ApplicationStop();
+			location url=ToString(CGI.http_referer ?: cgi.script_name).replaceNoCase("reload=true","") addtoken=false;
+		}
 		if ( not application.keyExists( appKey ) ){
 			request.logger("BuildRunner init");
 			application.delete( appKey );
+			var _start = getTickCount();
 			application[ AppKey ] = new api.build.BuildRunner();
-		}
-		application.assetBundleVersion = this.assetBundleVersion;
-		if (structKeyExists(url, "reload") && url.reload eq "true"){
-			if (structKeyExists(url, "force") && url.force eq "true")
-				application[ AppKey ] = new api.build.BuildRunner(); // dev mode
-			application[ AppKey ].getDocTree(checkfiles=true); // scans for changes
+			fileAppend(ExpandPath("./performance.log"), "BuildRunner().init() #numberFormat(getTickCount() - _start)#ms, "
+				& " heap #_getMemoryUsage("HEAP")#, non-heap #_getMemoryUsage("NON_HEAP")#, #server.lucee.version# #chr(10)#");
 		}
 		return application[ AppKey ];
 	}
@@ -407,5 +410,16 @@ component {
 		var password	= "lucee-docs";
 		var admin       = new Administrator( "web", password );
 		admin.removeGatewayEntry(id="watchDocumentFilesForChange");
+	}
+
+	function _getMemoryUsage(type){
+		var q = getMemoryUsage();
+		var mem = q.reduce( function(total=0, row, rowNumber, recordset ){
+			if (arguments.row.type eq type)
+				return arguments.total +  arguments.row.used;
+			else
+				return arguments.total;
+		});
+		return NumberFormat(mem/(1024*1024)) & " Mb";
 	}
 }
