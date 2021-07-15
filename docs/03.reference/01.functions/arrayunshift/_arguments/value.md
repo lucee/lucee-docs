@@ -1,1 +1,1 @@
-Element to be added at the begining of an array
+Element to be added at the beginning of an array
