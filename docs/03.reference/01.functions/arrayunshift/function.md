@@ -1,9 +1,9 @@
 ---
-title: arrayunshift
-id: function-arrayunshift
+title: ArrayUnShift
+id: function-arrayUnShift
 related:
 categories:
     - array
 ---
 
-Adds an element at the beginning of the array and shifts the rest of the elements to the right.
+This method adds one or more elements to the beginning of an array and returns the new length of the array.

@@ -1,1 +1,1 @@
-Name of an array
+The array where an value/object is to be added.

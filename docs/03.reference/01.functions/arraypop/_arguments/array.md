@@ -1,1 +1,1 @@
-Name of an array
+The array whose last element is to be removed.

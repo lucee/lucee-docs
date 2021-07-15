@@ -1,1 +1,1 @@
-array to shift
+The array to shift.

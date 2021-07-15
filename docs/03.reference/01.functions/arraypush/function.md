@@ -1,9 +1,9 @@
 ---
-title: arraypush
-id: function-arraypush
+title: ArrayPush
+id: function-arrayPush
 related:
 categories:
     - array
 ---
 
-Inserts an array element at the end of an array and return the new size of the array.
+Adds an element at the end of an array and returns a new size of the array.

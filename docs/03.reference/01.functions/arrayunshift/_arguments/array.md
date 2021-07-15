@@ -1,1 +1,1 @@
-array to add element
+The array where an object is to be added.
