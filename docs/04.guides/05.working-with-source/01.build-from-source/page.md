@@ -90,3 +90,7 @@ Lucee 6.0 adds some extra options to the build process (they can be combined)
 **testExtensions** allows testing local extension build(s) `*.lex` from a local directory with the main test suite
 
 	ant -DtestLabels="zip" -DtestExtensions="C:\work\lucee-extensions\extension-compress\dist"
+
+**testAdditional** allows running additional tests from a directory
+
+	ant -DtestFilter="zip" -DtestAdditional="C:\work\lucee-extensions\extension-compress\tests"
