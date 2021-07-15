@@ -10,6 +10,8 @@
 	writedump(dateTimeFormat(now(), "mm/dd/yyyy"));	
 	writedump(dateTimeFormat(now(), "MM/DD/YYYY"));
 	writeDump(dateTimeFormat(now(), "EEEE-dd,mm,yyyy"));
+	writeDump(dateTimeFormat(dateandtime, "epoch"));
+	writeDump(dateTimeFormat(dateandtime, "epochms"));
 
 	//Member function
 	dt=createDate(2015,04,14);
@@ -19,4 +21,8 @@
 	writedump(dt.dateTimeFormat("short"));
 	writeDump(dt.dateTimeFormat("GG-dddd, dd/mmm/yyyy,hh:nn:ss tt,zzzz"));
 	writeDump(now().dateTimeFormat("ISO8601"));
+	writeDump(dt.dateTimeFormat("epoch"));
+	writeDump(now().dateTimeFormat("epoch"));
+	writeDump(dt.dateTimeFormat("epochms"));
+	writeDump(now().dateTimeFormat("epochms"));
 ```
