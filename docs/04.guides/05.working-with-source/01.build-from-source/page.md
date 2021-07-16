@@ -94,3 +94,11 @@ Lucee 6.0 adds some extra options to the build process (they can be combined)
 **testAdditional** allows running additional tests from a directory
 
 	ant -DtestFilter="zip" -DtestAdditional="C:\work\lucee-extensions\extension-compress\tests"
+
+**testDebug** outputs debug information about tests which don't compile and why they are filtered out
+
+	ant -DtestDebug="true"
+
+**testSkip** allows running tests which are flagged skip=true or prefixed with an _ (which also disables a test)
+
+	ant -DtestSkip="false" -DtestFilter="_" -DtestDebug="true"
