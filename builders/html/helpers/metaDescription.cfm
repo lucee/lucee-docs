@@ -1,5 +1,5 @@
 <cfscript>
-	string function getMetaDescription( required any page, required string body ) {
+	string function getMetaDescription( required any page, required string body ) output=false {
 		var description = arguments.page.getDescription();
 		if ( len(trim(description)) eq 0 and arguments.body.len() ) {
 			description = arguments.body;
