@@ -21,7 +21,7 @@
 				description = ArrayToList(desc, (".") );
 			} else {
 				// this was harder than expected!
-				description = mind(description, 1 , 320);
+				description = mid(description, 1 , 320);
 			}
 		} else {
 			// already short enough
