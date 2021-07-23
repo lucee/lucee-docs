@@ -89,7 +89,7 @@ If you have enabled **List services** in the REST settings of your Lucee Server 
 
 ### 4. Creating the REST example application ###
 
-After having defined the REST service with the virtual path 'metrics' mapped to the full path "C:\path-to-location-with-your-rest-components\", we can now create a CFC-Component named *System.cfc* with the following code:
+After having defined the REST service with the virtual path 'metrics' mapped to the full path "C:\path-to-location-with-your-rest-components\", we can now create a CFC-Component named *System.cfc* in that directory with the following code:
 
 ```
 component restpath="/system"  rest="true" {
@@ -183,7 +183,7 @@ and uncomment it by removing the preceding hash sign `#` like so:
 ProxyPassMatch ^/rest/(.*)$ http://127.0.0.1:8009/rest/$1
 ```
 
-If you are using AJP instead of reverse proxy, the line should be adapted accorgingly 
+If you are using AJP instead of reverse http proxy, the line should be adapted accorgingly 
 by changing the string *http://* to *ajp://*, that would be: `ProxyPassMatch ^/rest/(.*)$ ajp://127.0.0.1:8009/rest/$1`.
 
 * *Step 3:* Restart/reload apache2 configuration with the command
