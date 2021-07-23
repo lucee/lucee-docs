@@ -135,7 +135,7 @@ After that you'll be able to retrieve the REST URLs like the following:
 
 ### 5. Configuring your fronted web server to serve Lucee's REST services (Internet Information Services (IIS) and Apache2 ) ###
 
-In the preceeding steps we have added a REST service mapping named "metrics" serving REST resources with a CFC component
+In the preceding steps we have added a REST service mapping named "metrics" serving REST resources with a CFC component
 named System.cfc to Lucee. While the resources are accessible on Lucees default port 8888 you might not be able to access the services with a fronted webserver through port 80 or 443. This is because IIS, Apache2 or whatever server you are using in front of Lucee may need additional configuration to pass the REST requests "rest/*" to Tomcat/Lucee. 
 
 To intercept requests for "rest/*" paths and direct them to Tomcat/Lucee, follow the instructions below:
@@ -234,7 +234,7 @@ Find below a quick reference overview of specific component attributes and funct
 
 ### 8. Using file extensions to format return data ###
 
-Lucee sends REST data with a return format of JSON by default. To offer better data interoperability Lucee supports different return formats by specifing specific file extensions. Possible file extensions to define data return formats are `json | xml | wddx | json | java | serialize`.
+Lucee sends REST data with a return format of JSON by default. To offer better data interoperability Lucee supports different return formats by specifyng specific file extensions. Possible file extensions to define data return formats are `json | xml | wddx | json | java | serialize`.
 
 ```
 
