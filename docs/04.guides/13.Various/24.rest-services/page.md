@@ -20,7 +20,7 @@ REST is an application architecture which defines stateless data transfer over n
 
 Lucee Server gives you the ability to define REST Services in a very easy way as a collection of CFC components by using a set of REST specific attributes; and then telling Lucee what REST path should be used to access the service. 
 
-Following you will learn how to setup REST in Lucee by adding a small example REST application with a REST service mapped to the name **metrics** ( which will be served by accessing the URL http://localhost:8888/rest/metrics/ ).
+Following you will learn how to setup REST in Lucee by adding a small example REST application with a REST service mapped to the name **metrics** ( which will be served by accessing the URL `http://localhost:8888/rest/metrics/` ).
 <br>
 <br>
 
@@ -40,7 +40,7 @@ In Lucee you have two main options to add a REST service to your application:
     * **Virtual:** *metrics*
     * **Physical:** *C:\path-to-location-with-your-rest-components\\* and click on **save**
 
-* **Step 3:** OPTIONAL: To make sure the REST services are correctly set up, activate the check box for **List services**. When enabled, you'll see a list of all the REST service mappings by navigating to *http://localhost:8888/rest/* (this will list all REST mappings created for the localhost web-context). 
+* **Step 3:** OPTIONAL: To make sure the REST services are correctly set up, activate the check box for **List services**. When enabled, you'll see a list of all the REST service mappings by navigating to `http://localhost:8888/rest/` (this will list all REST mappings created for the localhost web-context). 
 <br>
 <br>
 
@@ -58,7 +58,7 @@ component  {
 	
     
     // Define a REST service for the path 'metrics' pointing to the REST application located at 
-    // "C:\path-to-location-with-your-rest-components\" ( accessible through http://localhost:8888/rest/metrics/ ) 
+    // "C:\path-to-location-with-your-rest-components\" (accessible through http://localhost:8888/rest/metrics/) 
     restInitApplication( 
             dirPath="C:\path-to-location-with-your-rest-components\", 
             serviceMapping="metrics", 
@@ -75,11 +75,11 @@ component  {
 
 ### 3. Verifying/listing available mapped REST services ###
 
-If you have enabled **List services** in the REST settings of your Lucee Server Administrator or Web Administrator as shown in Step 3 of Option 1, then you'll be able to list all the available REST mappings by calling http://localhost:8888/rest/. 
+If you have enabled **List services** in the REST settings of your Lucee Server Administrator or Web Administrator as shown in Step 3 of Option 1, then you'll be able to list all the available REST mappings by calling `http://localhost:8888/rest/`. 
 
 **Common pitfalls:** If you are not seeing your registered REST mappings in the listings, then try the following:
 
-* If you've added the REST mapping in Lucee's Web Administrator, make sure you are accessing REST in the very same web context. Example: Adding a REST service in the Web Administrator of http://localhost:8888/lucee/admin/web will be available only at http://localhost:8888/rest/ but not at http://www.my-own-domain.com:8888/rest/.
+* If you've added the REST mapping in Lucee's Web Administrator, make sure you are accessing REST in the very same web context. Example: Adding a REST service in the Web Administrator of `http://localhost:8888/lucee/admin/web` will be available only at `http://localhost:8888/rest/` but not at `http://www.my-own-domain.com:8888/rest/`.
 
 * Verify if you're using the correct Lucee Administrator's password in the password-attribute of the [[function-restinitapplication]] function.
 
