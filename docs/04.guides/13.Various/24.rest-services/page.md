@@ -83,7 +83,7 @@ If you have enabled **List services** in the REST settings of your Lucee Server 
 
 * Verify if you're using the correct Lucee Administrator's password in the password-attribute of the [[function-restinitapplication]] function.
 
-* Plain REST requests won't invoke the Applicaton.cfc, thus no REST mapping will be added with the [[function-restinitapplication]] function with pure REST requests. Try running a .cfm template to invoke the Application.cfc then. If your application doesn't have a .cfm template, create an empty index.cfm and run it. This will ensure that the [[function-restinitapplication]] function in Application.cfc gets executed.
+* Plain REST requests won't invoke the Applicaton.cfc, thus no REST mapping will be added with the [[function-restinitapplication]] function with pure REST requests. Try running a .cfm template to invoke the Application.cfc then. If your application doesn't have a .cfm template, create an empty index.cfm and run it. This will ensure that the [[function-restinitapplication]] function in Application.cfc gets executed. It's also possible to create a special template (e.g. initRest.cfm) containing the [[function-restinitapplication]] function for the simple purpose of executing that function as an update of the REST mapping.
 <br>
 <br>
 
