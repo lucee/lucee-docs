@@ -124,12 +124,14 @@ component restpath="/system"  rest="true" {
 
 After that you'll be able to retrieve the REST URLs like the following:
 
-* http://localhost:8888/rest/metrics/system/os
-* http://localhost:8888/rest/metrics/system/timezone/name
-* http://localhost:8888/rest/metrics/system/timezone/id
-* http://localhost:8888/rest/metrics/system/timezone/name?locale=pt_BR
-* http://localhost:8888/rest/metrics/system/timezone/name?locale=zh_TW
-* http://localhost:8888/rest/metrics/system/timezone/utcHourOffset
+```
+http://localhost:8888/rest/metrics/system/os
+http://localhost:8888/rest/metrics/system/timezone/name
+http://localhost:8888/rest/metrics/system/timezone/id
+http://localhost:8888/rest/metrics/system/timezone/name?locale=pt_BR
+http://localhost:8888/rest/metrics/system/timezone/name?locale=zh_TW
+http://localhost:8888/rest/metrics/system/timezone/utcHourOffset
+```
 
 <br>
 
