@@ -1,6 +1,9 @@
 ---
 title: Canonicalize
 id: function-canonicalize
+categories:
+- encode
+- protocols
 ---
 
 Canonicalization is simply the operation of reducing a possibly encoded string down to its simplest form.
