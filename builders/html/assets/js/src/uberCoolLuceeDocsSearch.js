@@ -56,13 +56,13 @@
 
 		var reg     = generateRegexForInput( input )
 		  , fulltextitem, matches;
-
+		
 		matches = searchIndex.filter( function( item ) {
 			var srcText = item.desc ? item.desc : item.text; // cdn caching sigh
 			var titleLen = item.text.length
-			  , match, nextMatch, i, highlighted;
+			  , match, nextMatch, highlighted;
 
-			for( i=0; i < titleLen; i++ ){
+			for( var i=0; i < titleLen; i++ ){
 				nextMatch = srcText.substr(i).match( reg.expr );
 
 				if ( !nextMatch ) {

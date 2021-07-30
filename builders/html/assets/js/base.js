@@ -14933,7 +14933,7 @@ window.onerror = function(message, url, line, col, err) {
 	}
 
 	window.addEventListener("message", function(ev) {
-		if ( ev.data ){			
+		if ( ev.data ){
 			var msg = ev.data;
 			if ( msg.id && msg.src && msg.src == "try-cf" ){
 				if (!msg.height)
@@ -14959,7 +14959,7 @@ window.onerror = function(message, url, line, col, err) {
 			  , blockId    = $codeBlock.attr( "id" )
 			  , scriptBased = $codeBlock.data( 'script' )
 			  , editorUrl = editor  + '?script=' + scriptBased + '&id=' + $codeBlock.attr( "id" ) // for postMessage()
-			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="' 
+			  , $iframe    = $( '<iframe seamless="seamless" frameborder="0" src="'
 			  	+ editorUrl + '" name="' + blockId + '"' + '" id="' + blockId + '"'
 				+ ' class="trycf-iframe" height="350" width="100%"></iframe>' );
 
@@ -15036,13 +15036,13 @@ window.onerror = function(message, url, line, col, err) {
 
 		var reg     = generateRegexForInput( input )
 		  , fulltextitem, matches;
-
+		
 		matches = searchIndex.filter( function( item ) {
 			var srcText = item.desc ? item.desc : item.text; // cdn caching sigh
 			var titleLen = item.text.length
-			  , match, nextMatch, i, highlighted;
+			  , match, nextMatch, highlighted;
 
-			for( i=0; i < titleLen; i++ ){
+			for( var i=0; i < titleLen; i++ ){
 				nextMatch = srcText.substr(i).match( reg.expr );
 
 				if ( !nextMatch ) {
