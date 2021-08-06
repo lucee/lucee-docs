@@ -1,30 +1,30 @@
 The following statements all evaluate to true:
 
-```lucee
-// Strings
-IsEmpty( '' ) == true;
-IsEmpty( ' ' ) == false;
-IsEmpty( '0' ) == false;
+```luceescript+trycf
+writeOutput('Strings');
+writeDump(IsEmpty( '' )); // true;
+writeDump(IsEmpty( ' ' )); // false;
+writeDump(IsEmpty( '0' )); // false;
 
-// arrays
-IsEmpty( [] ) == true;
-IsEmpty( [ 1, 2, 3 ] ) == false;
+writeOutput('arrays');
+writeDump(IsEmpty( [] )); // true;
+writeDump(IsEmpty( [ 1, 2, 3 ] )); // false;
 
-// structs
-IsEmpty( {} ) == true;
-IsEmpty( { key="value" } ) == false;
+writeOutput('structs');
+writeDump(IsEmpty( {} )); // true;
+writeDump(IsEmpty( { key="value" } )); // false;
 
-// queries
-IsEmpty( QueryNew( 'column' ) ) == true;
-IsEmpty( QueryNew( 'column', 'varchar', [ [ 'value' ] ] ) ) == false;
+writeOutput('queries');
+writeDump(IsEmpty( QueryNew( 'column' ) )); // true;
+writeDump(IsEmpty( QueryNew( 'column', 'varchar', [ [ 'value' ] ] ) )); // false;
 
-// numerics (always non-empty)
-IsEmpty( 0 ) == false;
-IsEmpty( 1 ) == false;
+writeOutput('numerics always non-empty');
+writeDump(IsEmpty( 0 )); // false;
+writeDump(IsEmpty( 1 )); // false;
 
-// booleans (always non-empty)
-IsEmpty( false ) == false;
-IsEmpty( true ) == false;
+writeOutput('booleans always non-empty');
+writeDump(IsEmpty( false )); // false;
+writeDump(IsEmpty( true )); // false;
 ```
 
 >>>> Prior to Lucee 4.5.1.016, `IsEmpty( 0 )` and `IsEmpty( false )` both returned true.
