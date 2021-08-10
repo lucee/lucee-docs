@@ -1,5 +1,5 @@
 ---
-title: querysetrow
+title: QuerySetRow
 id: function-querysetrow
 related:
 categories:
