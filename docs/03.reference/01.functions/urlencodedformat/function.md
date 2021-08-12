@@ -3,8 +3,9 @@ title: URLEncodedFormat
 id: function-urlencodedformat
 related:
 categories:
-    - string
-    - formatting
+- string
+- formatting
+- ESAPI    
 ---
 
 Generates an URL-encoded string.
