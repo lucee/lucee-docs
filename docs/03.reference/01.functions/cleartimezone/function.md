@@ -1,8 +1,9 @@
 ---
-title: cleartimezone
-id: function-cleartimezone
-related:
+title: clearTimeZone
+id: function-clearTimeZone
 categories:
+- datetime
+- internationalization
 ---
 
-resets the timezone for the current request to Lucee default setting.
+Clears the timezone that you'd set.
