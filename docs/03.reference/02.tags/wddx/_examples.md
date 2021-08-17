@@ -1,4 +1,5 @@
 To use this tag in cfscript:
+
 ```
 <cfscript>
   // This WDDX packet contains a struct with 4 keys: 3 strings and 1 array of numbers
