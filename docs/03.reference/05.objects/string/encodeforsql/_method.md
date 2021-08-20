@@ -13,4 +13,4 @@ categories:
 - query
 ---
 
-Encodes the given string for safe output in a query to reduce the risk Cross Site Scripting attacks.
+Encodes the given string for safe output in a query to reduce the risk of SQL Injection attacks. _This method is not recommended_ - the use of query parameters are strongly encouraged. See [[tag-queryparam]].
