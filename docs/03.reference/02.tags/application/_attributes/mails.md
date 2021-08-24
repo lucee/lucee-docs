@@ -1,7 +1,7 @@
 Array of structs that defines the mailserver configuration. Each struct configures one mailserver.
 
 - **host** (string): host name of smtp server
-- **port** (numeric): port number of smtp server 587
+- **port** (numeric): port number of smtp server
 - **username** (string): smtp username
 - **password** (string): smtp userpassword 
 - **ssl** (boolean): enable secure connections via SSL
