@@ -1,10 +1,13 @@
 ---
 title: HTMLEditFormat
 id: function-htmleditformat
+related:
+- function-htmlcodeformat
 categories:
 - formatting
 - html
 - string
+- ESAPI
 ---
 
 Replaces special characters in a string with their HTML-escaped equivalents.   [version]
