@@ -102,3 +102,7 @@ Lucee 6.0 adds some extra options to the build process (they can be combined)
 **testSkip** allows running tests which are flagged skip=true or prefixed with an _ (which also disables a test)
 
 	ant -DtestSkip="false" -DtestFilter="_" -DtestDebug="true"
+
+**testServices** allows restricting which Test Services (db, mail, ftp, s3 etc) to enable, if configured, whilst disabling any other configured services
+
+	ant -DtestServices="s3,orm"
