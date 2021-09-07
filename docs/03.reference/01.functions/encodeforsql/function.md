@@ -1,5 +1,5 @@
 ---
-title: encodeforsql
+title: EncodeForSQL
 id: function-encodeforsql
 related:
 categories:
