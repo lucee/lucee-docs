@@ -211,7 +211,7 @@ Because Tomcat has no configuration set up for those new added sites, Tomcat wil
 
 **The quick fix**: The quickest solution is to add an empty `index.cfm` template at the physical location of the webroot of IIS site or apache virtual host and call the `index.cfm` file through port 80 (or 443 for https) of your IIS or Apache2. 
 
-Then wait for *mod_cfml* to create the context in Tomcat. After that the REST service should be accesible through port 80 of IIS or Apache without issues. 
+Then wait for *mod_cfml* to create the context in Tomcat. After that the REST service should be accessible through port 80 of IIS or Apache without issues. 
 
 Once the *mod_cfml* has successfully created the host configuration in Tomcat, you can safely remove the empty `index.cfm` file.
 <br>
