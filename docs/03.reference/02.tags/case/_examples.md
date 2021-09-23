@@ -23,7 +23,8 @@
         case 1:
             result = 1;
             break;
-        case 2: case 3:
+        case 2: 
+        case 3:
             result = "2 or 3";
             break;
         case 0:
