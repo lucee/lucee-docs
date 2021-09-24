@@ -11,7 +11,6 @@
 	#test#
 	#example#
 </cfoutput>
-#test#
 ```
 
 ```luceescript+trycf
