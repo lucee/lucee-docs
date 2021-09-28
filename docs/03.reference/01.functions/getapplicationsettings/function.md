@@ -34,7 +34,7 @@ The returned struct contains the following data:
 |name| String | | The Application's name |
 |sameFormFieldsAsArray| Boolean | false | If true, when a Form field is passed more than once then it is returned as an array |
 |sameUrlFieldsAsArray| Boolean | false | If true, when an URL field is passed more than once then it is returned as an array |
-|scriptProtect| String | "none" | |
+|scriptProtect| String | "all" | |
 |secureJson| Boolean | false | |
 |secureJsonPrefix| String | "//" | Prefix to be used with `secureJson` |
 |serverSideFormValidation| Boolean | false | |
