@@ -20,7 +20,7 @@
 
 ```lucee+trycf
 <cfoutput>
-<div style="color:#ESAPIEncode("css",'red')#">Example for encodeforcss</div>
+<div style="color:#ESAPIEncode("css","red")#">Example for encodeforcss</div>
 </cfoutput>
 <cfoutput><div title="#ESAPIEncode("html_attr","<test>")#"></div></cfoutput>
 
