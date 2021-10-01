@@ -1,4 +1,4 @@
-###Simple example
+### Simple Example
 
 ```lucee+trycf
 <cflogin> 
