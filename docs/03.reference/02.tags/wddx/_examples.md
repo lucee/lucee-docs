@@ -11,6 +11,7 @@ To use this tag in cfscript:
 </cfscript>
 ```
 
+
 ```lucee+trycf
 <cfset qry = queryNew("id,test","integer,varchar",[{id:1,test:"test"},{id:2,test:"name"}])>
 <cfdump var="#qry#" label="Query">
