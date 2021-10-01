@@ -1,1 +1,5 @@
-*There are currently no examples for this function.*
+###Simple example
+
+```luceescript+trycf
+writedump(encodeForHTML('<img src="">'));
+```
