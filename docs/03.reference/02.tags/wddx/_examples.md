@@ -27,4 +27,3 @@ To use this tag in cfscript:
 <cfwddx action="wddx2js" topLevelVariable="test" input="#WDDX_qry#" output="WDDX_js">
 <cfdump var="#WDDX_js#" label="action=wddx2js">
 ```
-
