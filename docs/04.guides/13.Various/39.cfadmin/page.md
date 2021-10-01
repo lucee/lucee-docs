@@ -13,9 +13,10 @@ So normally the basic three attributes for the tag <cfadmin> are action, type an
 Attribute name | Description
 -------------- | -----------------
  _ type | Application type for installable Lucee extensions
-access_read |	Defines the general access to the Lucee configuration read
-access_write |	Defines the general access to the Lucee configuration write
-allowed_alter |	Database connection property
+access_read | Defines the general access to the Lucee configuration read
+access_write | Defines the general access to the Lucee configuration write
+action | Defines the action to be performed by the tag
+allowed_alter | Database connection property
 allowed_create | Database connection property
 allowed_delete | Database connection property
 allowed_drop |	Database connection property
@@ -226,6 +227,7 @@ getTLDs | |
 getUpdate | |
 hasPassword | |
 index | |
+PurgeDebugPool | Purge all the debug logs
 removeCFX | |
 removeCustomTag | |
 removeDatasource | Removes an datasource from the current context
@@ -537,6 +539,12 @@ Below you will find all the actions sorted alphabetically embedded in examples f
 	    type="web|server"
 	    password="password"
 	    returnVariable="proxy">
+
+	<cfadmin 
+			action="PurgeDebugPool"
+			type="web|server"
+			password="password"
+			remoteClients="arrayOfClients">
 
 	<cfadmin
 	    action="getRegional"
