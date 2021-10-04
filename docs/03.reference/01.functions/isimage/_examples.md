@@ -1,6 +1,6 @@
 ```luceescript+trycf
 	img = imageNew("",100,100,"rgb","pink");
-	writeDump(img);
+	writeDump(var=img, expand=false);
 	writeDump(isImage(img));
 	string = "pink";
 	writeDump(string);

@@ -1,0 +1,1 @@
+The hql query to execute
