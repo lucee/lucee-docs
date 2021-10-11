@@ -119,7 +119,7 @@ However a [modified version by Andrew Kretzer for Lucee 4.5](https://github.com/
 
 An updated version for Lucee 5 can be found at [https://github.com/Leftbower/cfspreadsheet-lucee-5](https://github.com/Leftbower/cfspreadsheet-lucee-5).
 
-Alternatively, a standalone (non-extension) [spreadsheet library for Lucee](https://github.com/cfsimplicity/lucee-spreadsheet) is available which supports almost all of the extension's functionality.
+Alternatively, a standalone (non-extension) [CFML spreadsheet library](https://github.com/cfsimplicity/spreadsheet-cfml) is available which supports all of the extension's functionality and more.
 
 ### Video
 
