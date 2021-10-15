@@ -68,7 +68,7 @@ set testFilter=
 ant -buildfile="C:\work\script-runner" -DluceeVersion="6.0.0.114-SNAPSHOT" -Dwebroot="C:\work\lucee6\test" -Dexecute="/bootstrap-tests.cfm" -DextensionDir="C:\work\lucee-extensions\extension-s3\dist"
 ```
 
-This script will compile the extension using Ant, start a lightweight js-223 instance of Lucee 6.0.0.114, installs the built extension and then runs any tests found with the label s3 (https://github.com/lucee/Lucee/blob/6.0/test/extension/S3.cfc#L19) in the Lucee 6.0 testsuite.
+This script will compile the extension using Ant, start a lightweight js-223 instance of Lucee 6.0.0.114, installs the built extension and then runs any tests found with [labels="s3"](https://github.com/lucee/Lucee/blob/6.0/test/extension/S3.cfc#L19) in the Lucee 6.0 testsuite. in the Lucee 6.0 testsuite.
 
 **Initially this won't actually run any tests**, they will all be run but bypassed, as the S3 tests depend on a S3 service being configured for the test suite.
 
