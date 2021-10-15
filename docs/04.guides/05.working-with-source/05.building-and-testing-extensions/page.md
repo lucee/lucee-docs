@@ -23,10 +23,10 @@ To build/compile a Lucee Extension
 
 - install Java (Java 11 recommended, Java 14 is the latest version currently supported)
 - install [Apache Ant](https://ant.apache.org/) (add to path on Windows)
-- fork the extension repository on GitHub and check the your forked repository locally
-- run `ant` in the root of the repository
+- fork the extension repository on GitHub and check out a copy of your forked repository locally
+- run `ant` in the root of the checked out folder
 
-If the extension compiles successfully, a `.lex` file (lucee extension installer) will be produced, usually in the `/dist` or `/target` folder.
+If the extension compiles successfully, a `.lex` file (lucee extension installer) will be produced, usually in the `/dist` or `/target` sub-directory.
 
 The `.lex` file can then be installed into an existing Lucee installation via the following methods:
 
@@ -41,15 +41,15 @@ Most Lucee extensions have already been setup with a GitHub Action which automat
 
 If you find an extension without a GitHub Action configured, it's pretty easy to copy it over from another Lucee Extension [.github/workflows/main.yml](https://github.com/lucee/extension-s3/blob/master/.github/workflows/main.yml) and configure it for the specific extension.
 
-These GitHub Actions have the relevant services (redis, oracle, etc) all configured and will automatically run a subset of the full Lucee 6.0 testsuite, using test labels to run only the relevant tests using Lucee Script Runner.
+These Lucee Extension GitHub Actions have the relevant services (Redis, Oracle, MySQL etc) all configured and automatically run a subset of the full Lucee 6.0 testsuite, using test labels to run only the relevant tests using Lucee Script Runner.
 
 Most of the major services are included with the [Lucee Core build GitHub Action](https://github.com/lucee/Lucee/blob/6.0/.github/workflows/main.yml), but some heavier services like Oracle are only run for the extension's [GitHub Action](https://github.com/lucee/extension-jdbc-oracle/blob/master/.github/workflows/main.yml), due to time and memory constraints on the main build process.
 
-The tests for Lucee Extensions are usually all included in the [Lucee Core test suite](https://github.com/lucee/Lucee/tree/6.0/test), so they are all tested each time any changes are made to the core.
+The tests for Lucee Extensions are usually all included in the [Lucee Core test suite](https://github.com/lucee/Lucee/tree/6.0/test), that way they are all tested each time any changes are made to Lucee core.
 
 ## Testing a Lucee Extension locally
 
-How to run the automated tests locally for an extension (without committing and using the GitHub Action):
+How to run the automated tests locally for an extension (without committing and relying on the GitHub Action):
 
 Assuming your working dir for Lucee is `c:\work\` and you want to test the [S3 Extension](https://github.com/lucee/extension-s3)
 
@@ -78,7 +78,7 @@ To configure the Lucee test suite with local or remote services, you can either 
 
 The full list of supported environment variables for test services can be found under [C:\work\lucee6\test\_setupTestServices.cfc](https://github.com/lucee/Lucee/blob/6.0/test/_setupTestServices.cfc)
 
-If you want to add some extended tests locally to the extension itself, you can create them under `C:\work\lucee-extensions\extension-s3\tests\`, with the labels="s3" and then run them by adding the command line argument `-DtestAdditional="C:\work\lucee-extensions\extension-s3\tests\"` to the above ant command.
+If you want to add some extended tests locally to the extension itself, you can create them under `C:\work\lucee-extensions\extension-s3\tests\`, with the labels="s3" (change appropriately) and then run them by adding the command line argument `-DtestAdditional="C:\work\lucee-extensions\extension-s3\tests\"` to the above ant command.
 
 This could be useful for extended, slow complex tests, which don't need to be run with every build of the Lucee core.
 
