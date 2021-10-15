@@ -12,4 +12,4 @@ Third party support is available via the following projects:
 
 <https://github.com/Leftbower/cfspreadsheet-lucee-5>
 
-<https://github.com/cfsimplicity/lucee-spreadsheet>
+<https://github.com/cfsimplicity/spreadsheet-cfml>
