@@ -1,8 +1,10 @@
 ---
-title: generateargon2hash
+title: generateArgon2Hash
 id: function-generateargon2hash
 related:
+- function-argon2checkhash
 categories:
+- crypto
 ---
 
 Returns hash of input using Argon2.
