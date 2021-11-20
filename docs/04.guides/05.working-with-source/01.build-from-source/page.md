@@ -80,6 +80,8 @@ On Windows, excluding your Lucee working directory from both `Windows Defender` 
 
 Lucee 6.0 adds some extra options to the build process (they can be combined)
 
+If you are using VS Code and the cflint plugin, make sure you exclude the `temp/**` and `loader/**` folders, otherwise cflint may go bananas (maxing out your CPU and slowing everything else down) during the build process.
+
 **testFilter** allows you to pass in test filter(s) (filters on path), so you don't have to run the full test suite whilst hacking.
 
     ant -DtestFilter="image"
