@@ -1,36 +1,38 @@
 ```luceescript+trycf
-people = QueryNew( "name,dob,age", "varchar,date,int", [
+people = QueryNew( "name,dob", "varchar,date", [
     [ "Susi", CreateDate( 1970, 1, 1 ), 0 ],
     [ "Urs" , CreateDate( 1995, 1, 1 ), 0 ],
     [ "Fred", CreateDate( 1960, 1, 1 ), 0 ],
-    [ "Jim" , CreateDate( 1988, 1, 1 ), 0 ]
+    [ "Jim" , CreateDate( 1988, 1, 1 ), 0 ],
+    [ "Bob" , CreateDate( 1988, 1, 1 ), 0 ]
 ]);
 
 Dump( var=people, label="people - original query" );
 
 /* Output:
 
-| name | dob                 | age |
-------------------------------------
-| Susi | 1970-01-01 00:00:00 | 0   |
-| Urs  | 1995-01-01 00:00:00 | 0   |
-| Fred | 1960-01-01 00:00:00 | 0   |
-| Jim  | 1988-01-01 00:00:00 | 0   |
+| name | dob                 |
+------------------------------
+| Susi | 1970-01-01 00:00:00 |
+| Urs  | 1995-01-01 00:00:00 |
+| Fred | 1960-01-01 00:00:00 |
+| Jim  | 1988-01-01 00:00:00 |
+| Bob  | 1988-01-01 00:00:00 |
 */
 
 //filter - older than 21
-qryPeopleOldEnough = people.filter(function(row, rowNumber, qryData){
-    return DateDiff('yyyy', row.dob, Now()) > 21
+qryPeopleBornIn1988 = people.filter(function(row, rowNumber, qryData){
+    return Year( row.dob ) == 1988
 });
-dump(var=qryPeopleOldEnough, label='qryPeopleOldEnough - older than 21');
+
+dump(var=qryPeopleBornIn1988, label='qryPeopleBornIn1988 - Born in 1988');
 
 /* Output:
 
-| name | dob                 | age |
-------------------------------------
-| Susi | 1970-01-01 00:00:00 | 0   |
-| Fred | 1960-01-01 00:00:00 | 0   |
-| Jim  | 1988-01-01 00:00:00 | 0   |
+| name | dob                 |
+------------------------------
+| Jim  | 1988-01-01 00:00:00 |
+| Bob  | 1988-01-01 00:00:00 |
 */
 ```
 
