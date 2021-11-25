@@ -20,7 +20,7 @@ Dump( var=people, label="people - original query" );
 | Bob  | 1988-01-01 00:00:00 |
 */
 
-//filter - older than 21
+// filter - born in 1988
 qryPeopleBornIn1988 = people.filter(function(row, rowNumber, qryData){
     return Year( row.dob ) == 1988
 });
