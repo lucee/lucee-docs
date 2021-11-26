@@ -7,6 +7,7 @@ The specific units in which to count:
 - d: Days (same as y)
 - w: Weeks (same as ww)
 - ww: Weeks (same as w)
+- wd: Weekdays
 - h: Hours
 - n: Minutes
 - s: Seconds
