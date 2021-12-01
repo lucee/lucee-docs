@@ -15,7 +15,8 @@
 ```luceescript+trycf
 try {
     throw "demo echo trick";
-} catch (e){
-    echo(e); // outputs the error nicely using the error template
+} catch ( e ){
+    echo( e ); // outputs the error nicely using the error template
+    echo( cfcatch ); // lucee always populates cfcatch 
 }
 ```
