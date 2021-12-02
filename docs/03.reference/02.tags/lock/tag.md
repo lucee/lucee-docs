@@ -1,6 +1,10 @@
 ---
 title: <cflock>
 id: tag-lock
+categories:
+- core
+- scopes
+- server
 description: 'Provides two types of locks to ensure the integrity of shared data:
   Exclusive lock and Read-only lock.'
 ---
