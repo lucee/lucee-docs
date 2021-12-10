@@ -1,0 +1,1 @@
+Specify the column name to delete from query
