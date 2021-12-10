@@ -7,6 +7,4 @@
 
  	qry= queryNew( "name , age" , "varchar , numeric" , [ { name: "Susi" , age: 20 }, { name: "Urs" , age: 24 } ] );
   	dump(qry);
-
-```
 ```
