@@ -1,1 +1,1 @@
-query object do get data from
+query object to set row
