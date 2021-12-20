@@ -1,6 +1,8 @@
 ---
 title: Performance / Caching
 id: webserver-cache
+categories:
+    - cache
 ---
 
 ## Performance / Caching ##
