@@ -1,1 +1,3 @@
-*There are currently no examples for this tag.*
+```lucee
+<cfheader name="Content-Type" value="application/json">
+```

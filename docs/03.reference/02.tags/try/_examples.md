@@ -1,3 +1,5 @@
+### Tag example
+
 ```lucee+trycf
 
 <cftry>
@@ -12,4 +14,16 @@
   </cfcatch>
 </cftry>
 
+```
+
+### Script example
+
+```luceescript+trycf
+ try {
+	a = 2/0
+        writeDump("#a#");
+      }
+catch(any e){
+	writeOutput("Caught an error.");
+      }
 ```

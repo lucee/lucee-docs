@@ -1,3 +1,5 @@
+### Tag example
+
 ```lucee+trycf
 <cftry>
     <cfthrow message="test exception">
@@ -5,4 +7,14 @@
         <cfdump var="#cfcatch#">
     </cfcatch>
 </cftry>
+```
+
+### Script example
+
+```luceescript+trycf
+ try {
+        throw message="test exception"; //CF9+
+    } catch (any e) {
+        echo("#cfcatch#");
+    }
 ```
