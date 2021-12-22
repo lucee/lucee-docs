@@ -1,4 +1,5 @@
-###Tag Example
+### Tag Example
+
 ```lucee+trycf
 <cftry>
   <cfset a = 2/0>
@@ -12,7 +13,8 @@
 </cftry>
 ```
 
-###Script Example
+### Script Example
+
 ```luceescript+trycf
       try{
           a = 2/0
