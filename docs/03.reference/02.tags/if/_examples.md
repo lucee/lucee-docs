@@ -1,5 +1,7 @@
 ### Simple example
+
 ### Tag example
+
 ```lucee+trycf
 <cfset numb=12> 
 <cfif numb gt 1>
@@ -8,6 +10,7 @@
 ```
 
 ### Script example
+
 ```luceescript+trycf
 	//script format
 	numb=12
