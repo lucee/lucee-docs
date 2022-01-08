@@ -1,1 +1,1 @@
-Degrees of parallelism, a number between 1 and 10.
+Argon2 hash to compare against input string
