@@ -34,9 +34,11 @@ url       |                   |        |
 
 ## Query scopes ##
 
-By default in cfml, inside a query [[tag-loop]] or [[tag-output]], queries are checked for unscoped variables, before even the local/var scope. 
+By default in cfml, inside a query [[tag-loop]] or [[tag-output]], queries are checked for unscoped variables, even before the `variables` scope.
 
-This lookup can be disabled (for better performance) in the Lucee admin or via the application.cfc setting `this.searchResults = false;`
+In a function / cfc the `local` scope is checked before the `queries` scope, the `variables` scope is always checked afterwards.
+
+This (slow) lookup can be disabled (for better performance) in the Lucee admin or via the `Application.cfc` setting `this.searchResults = false;`
 
 ### Global scopes ###
 
