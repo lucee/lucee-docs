@@ -6,6 +6,7 @@ related:
 - function-getdirectoryfrompath
 categories:
 - files
+- core
 ---
 
 Gets the absolute path of the page that calls this function.
