@@ -15081,19 +15081,31 @@ window.onerror = function(message, url, line, col, err) {
 
 	generateRegexForInput = function( input ){
 		var inputLetters = input.replace(/[\W]+/g, '').split('')
-		  , reg = {}, i;
+		,  reg = {}, i;
 
-		reg.expr = new RegExp('(' + inputLetters.join( ')(.*?)(' ) + ')', 'i');
-		reg.replace = "";
+        if( inputLetters.length < 14 ){
+		
+            reg.expr = new RegExp('(' + inputLetters.join( ')(.*?)(' ) + ')', 'i');
+            reg.replace = "";
+            
+            for( i=0; i < inputLetters.length; i++ ) {
+                reg.replace += ( '<b>$' + (i*2+1) + '</b>' );
+                if ( i + 1 < inputLetters.length ) {
+                    reg.replace += '$' + (i*2+2);
+                }
+		    }
 
-		for( i=0; i < inputLetters.length; i++ ) {
-			reg.replace += ( '<b>$' + (i*2+1) + '</b>' );
-			if ( i + 1 < inputLetters.length ) {
-				reg.replace += '$' + (i*2+2);
-			}
-		}
+        }else{
+            // change regex to complete input as word due to long chars with sanitized input
+            reg.expr = new RegExp(  '(' + input.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') + ')', 'i');
+            reg.replace = ( '<b>$1</b>' );
+            
+        }
+
+
 		if ( input.charAt(input.length-1) == " ")
 			reg += " ";
+        
 		return reg;
 	};
 
