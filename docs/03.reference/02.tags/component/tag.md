@@ -11,6 +11,7 @@ related:
 categories:
 - component
 - core
+- static
 description: Creates and defines a component object
 ---
 

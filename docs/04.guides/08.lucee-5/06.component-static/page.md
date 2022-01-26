@@ -6,6 +6,7 @@ related:
 categories:
 - component
 - scopes
+- static
 description: Lucee 5 supports static variables and functions inside components
 ---
 
