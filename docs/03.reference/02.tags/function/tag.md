@@ -8,6 +8,7 @@ related:
 categories:
 - component
 - core
+- static
 ---
 
 Defines a function call
