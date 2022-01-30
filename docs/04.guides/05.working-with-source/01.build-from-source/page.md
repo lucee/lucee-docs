@@ -115,3 +115,7 @@ If you are using VS Code and the cflint plugin, make sure you exclude the `temp/
 **testServices** allows restricting which Test Services (db, mail, ftp, s3 etc) to enable, if configured, whilst disabling any other configured services
 
 	ant -DtestServices="s3,orm"
+
+**testJavaVersionHome** allows running the test suite with a different java version, pass in the path to the Java executable (the build currently uses javascript which isn't available since java 15+)
+
+	ant -DtestJavaVersionHome="/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.1-12/x64/bin/java"
