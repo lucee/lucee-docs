@@ -18,7 +18,7 @@ Before you can start building Lucee from source, you will need a few things inst
 
 - Lucee requires JDK 8 or later in order to compile.  [Oracle](https://www.oracle.com/technetwork/java/javase/downloads/) or [AdoptOpenJDK](https://adoptopenjdk.net/)
 - Java 11 is *recommended*, Java 15 is *not yet supported* due the removal of the Nashorn Javascript engine which is used in the build process 
-- Java 17 *isn't yet supported* due to some Apache Felix issues
+- Java 17 *isn't yet fully supported* due to some Apache Felix issues (fixed in 5.3.9, but some extensions need updating)
 
 1. **Apache Maven** - the source code contains several build scripts that will automate the build process for you. you will need Maven installed in order to run these build scripts. <http://maven.apache.org/>
 
@@ -116,6 +116,6 @@ If you are using VS Code and the cflint plugin, make sure you exclude the `temp/
 
 	ant -DtestServices="s3,orm"
 
-**testJavaVersionHome** allows running the test suite with a different java version, pass in the path to the Java executable (the build currently uses javascript which isn't available since java 15+)
+**testJavaVersionExec** allows running the test suite with a different java version, pass in the path to the Java executable (the build currently uses javascript which isn't available since java 15+)
 
-	ant -DtestJavaVersionHome="/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.1-12/x64/bin/java"
+	ant -DtestJavaVersionExec="/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.1-12/x64/bin/java"
