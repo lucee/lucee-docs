@@ -467,7 +467,7 @@ Example implementation:
 
 [https://github.com/lucee/extension-hibernate](https://github.com/lucee/extension-hibernate)
 
-Java based Tag/Function (TLD/FLD)
+### Java based Tag/Function (TLD/FLD)
 
 ```luceescript
 /jars
