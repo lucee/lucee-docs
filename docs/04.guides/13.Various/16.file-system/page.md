@@ -1,6 +1,8 @@
 ---
 title: File System Types
 id: file-system-types
+categories:
+- files
 ---
 
 Lucee gives you access to a number of resources
