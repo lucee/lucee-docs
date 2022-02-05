@@ -6,6 +6,8 @@ related:
 - function-sessioninvalidate
 - function-sessionrotate
 - function-sessionstarttime
+categories:
+- session
 ---
 
 Invalidates or cleans up the current session.
