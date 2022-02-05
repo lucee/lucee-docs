@@ -1,6 +1,8 @@
 ---
 title: Using database for session data storage
 id: database-for-session
+categories:
+- session
 ---
 
 Why you want to use database for session data storage:

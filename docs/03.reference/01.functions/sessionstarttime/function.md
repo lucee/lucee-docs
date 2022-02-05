@@ -1,8 +1,8 @@
 ---
 title: SessionStartTime
 id: function-sessionstarttime
-related:
 categories:
+- session
 ---
 
 Provides information about the time when the current users session scope was created.
