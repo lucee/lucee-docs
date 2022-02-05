@@ -1,10 +1,11 @@
 ---
 title: Adding Caches via Application.cfc
 id: cookbook-caches-in-application-cfc
-categories:
-    - cache
 related:
 - tag-application
+categories:
+- application
+- cache
 menuTitle: Adding Caches
 ---
 

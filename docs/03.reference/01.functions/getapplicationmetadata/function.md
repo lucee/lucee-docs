@@ -4,6 +4,8 @@ id: function-getapplicationmetadata
 related:
 - tag-application
 - function-GetApplicationSettings
+categories:
+- application
 ---
 
 Return a struct with information about the Application, as defined in [[tag-application]] for the current running Application.

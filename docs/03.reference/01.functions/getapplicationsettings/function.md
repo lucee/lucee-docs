@@ -4,6 +4,8 @@ id: function-getapplicationsettings
 related:
 - tag-application
 - function-GetApplicationMetaData
+categories:
+- application
 ---
 
 Return a struct with information about the Application, as defined in Application.cfc or Application.cfm for the current running Application.

@@ -1,8 +1,8 @@
 ---
-title: applicationpathcacheclear
+title: applicationPathCacheClear
 id: function-applicationpathcacheclear
-related:
 categories:
+- application
 ---
 
 flush the application.[cfc|cfm] path cache
