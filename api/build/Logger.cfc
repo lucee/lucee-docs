@@ -21,7 +21,7 @@ component {
 			link: arguments.link,
 			timeMs: getTickCount() - request.loggerStart
 		});
-		systemOuput( arguments.text, true )
+		systemOutput( arguments.text, true )
 		cflog (text=arguments.text, type=arguments.type);
 		if (request.loggerFlushEnabled){
 			request.loggerComponent._renderLog( request.logs[request.logs.len()] );
