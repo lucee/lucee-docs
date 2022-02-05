@@ -34,9 +34,6 @@ jobs:
       - uses: lucee/script-runner@internal-request
         with:
           webroot: ${{ github.workspace }}
-          execute: /import.cfm
-          luceeVersion: 6.0.0.95-SNAPSHOT
+          execute: /build.cfm
+          luceeVersion: 5.3.9.70-SNAPSHOT
           # luceeVersion: 5.3.7.48
-          
-          
-          

@@ -12,6 +12,8 @@ component {
 // PUBLIC API
 	public void function importAll() {
 		lock name="importAll" timeout="1" type ="Exclusive" throwontimeout="yes" {
+			//systemOutput(callStackGet(), true);
+			//systemOutput(request, true);
 			request.logger (text="Start Importing new tags and functions");
 			importFunctionReference();
 			importTagReference();
