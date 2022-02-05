@@ -86,22 +86,27 @@ component accessors=true {
 	private void function _loadExtensionInfo(){
 		// load java tags
 		variables.extensionMap = {};
-		/* TODO
 		var cfg = getPageContext().getConfig();
-		var flds = cfg.getCombinedFLDs(1);
-		var ff = flds.getFunctions()
-		for (var fname in ff){
-			var bi = bundleInfo( ff[fname].getBIF() );
-			if ( bi.name != "lucee.core" ) {
-				var e = getExtensionOfBundle( bi.name ).toStruct();
-				variables.extensionMap[ fname ] = {
-					name: e.name,
-					id: e.id,
-					version: e.version
+		var tlds = cfg.getTLDs(1);
+		//dump(tlds); abort;
+		var tags = tlds[1].getTags();
+		//dump(tags); abort;
+		for (var tag in tags){
+		    //dump(tag); abort;
+			try {
+				var bi = bundleInfo( createObject( 'java', tags[tag].getTagClassDefinition().getClazz().getName() ) );
+				if ( bi.name != "lucee.core" ) {
+					var e = getExtensionOfBundle( bi.name ).toStruct();
+					variables.extensionMap[ tag ] = {
+						name: e.name,
+						id: e.id,
+						version: e.version
+					}
 				}
+			} catch (e) { 
+				//ignore 
 			}
 		}
-		*/
 
 		// load cfml tags
 		var extensions = extensionList();
