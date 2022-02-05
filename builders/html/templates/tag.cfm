@@ -22,7 +22,10 @@
 		</cfscript>	
 		<p><strong>Status:</strong> #local.status#</p>
 	</cfif>
-
+	<cfif len(local.tag.getSrcExtension()) gt 0>
+		<p><strong>Requires Extension: </strong> #local.tag.getSrcExtension().name#</p>
+	</cfif>
+	
 	<code>
 		#local.tag.getUsageSignature()#
 	</code>

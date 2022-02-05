@@ -11,6 +11,7 @@ component accessors=true extends="Page" {
 	property name="status"        type="string";
 	property name="returnTypeDesc"   type="string";
 	property name="usageNotes"   type="string";
+	property name="srcExtension"   type="struct";
 
 	public string function getTitle() {
 		return super.getTitle() & "()";

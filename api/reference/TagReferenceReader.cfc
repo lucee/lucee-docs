@@ -3,6 +3,7 @@ component accessors=true {
 	property name="tags" type="struct";
 
 	public any function init() {
+		_loadExtensionInfo();
 		_loadTagDefinitions();
 		return this;
 	}
@@ -54,6 +55,9 @@ component accessors=true {
 		parsedTag.script.context                = coreDefinition.script.singletype ?: NullValue(); // ???
 		parsedTag.script.runtimeExpressionValue = IsBoolean( coreDefinition.script.rtexpr ?: "" ) && coreDefinition.script.rtexpr;
 
+		if ( structKeyExists( variables.extensionMap, coreDefinition.name ) )
+			parsedTag.srcExtension = variables.extensionMap[ coreDefinition.name ];
+
 		parsedTag.attributes = [];
 		var attribs = coreDefinition.attributes ?: {};
 		for( var attribName in attribs ) {
@@ -78,4 +82,55 @@ component accessors=true {
 
 		return parsedTag;
 	}
+
+	private void function _loadExtensionInfo(){
+		// load java tags
+		variables.extensionMap = {};
+		/* TODO
+		var cfg = getPageContext().getConfig();
+		var flds = cfg.getCombinedFLDs(1);
+		var ff = flds.getFunctions()
+		for (var fname in ff){
+			var bi = bundleInfo( ff[fname].getBIF() );
+			if ( bi.name != "lucee.core" ) {
+				var e = getExtensionOfBundle( bi.name ).toStruct();
+				variables.extensionMap[ fname ] = {
+					name: e.name,
+					id: e.id,
+					version: e.version
+				}
+			}
+		}
+		*/
+
+		// load cfml tags
+		var extensions = extensionList();
+		loop query="extensions" {
+			local.e = queryRowData ( extensions, extensions.currentrow, "struct" );
+			if (len(e.functions) ){
+				for ( fname in e.tags ){
+					if ( listLen( fname, "/\" eq 1 ) ){ // avoid lucee/core/ajax/css/jquery/images/ui-anim_basic_16x16.gif.cfm etc
+						variables.extensionMap[ listFirst( fname, "." ) ] = {
+							name: e.name,
+							id: e.id,
+							version: e.version
+						}
+					}
+				}
+			}
+
+		}
+	}
+
+	private any function getExtensionOfBundle( bundleName ) {
+		var cfg = getPageContext().getConfig();
+		var extensions = cfg.getAllRHExtensions();
+		loop collection=extensions.iterator() item="local.ext" {
+			loop array = ext.bundles item="local.bundle" {
+				if ( bundle.symbolicName == bundleName ) return ext;
+			}
+		}
+		throw "could not find extension for bundle [#bundleName#]";
+	}
+
 }
