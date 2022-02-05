@@ -12,7 +12,7 @@ component {
 	this.mappings[ "/builds"   ] = this.cwd & "builds";
 
 	public boolean function onRequest( required string requestedTemplate ) output=true {
-		var logger = new api.build.Logger();
+		new api.build.Logger();
 		
 		application.assetBundleVersion = variables.assetBundleVersion;
 
