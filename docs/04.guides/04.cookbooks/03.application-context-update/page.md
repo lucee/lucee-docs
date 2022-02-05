@@ -3,6 +3,8 @@ title: Update current Application Context
 id: cookbook-application-context-update
 related:
 - tag-application
+categories:
+- application
 menuTitle: Application Context
 ---
 

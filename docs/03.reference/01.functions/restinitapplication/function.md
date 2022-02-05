@@ -3,6 +3,7 @@ title: RestInitApplication
 id: function-restinitapplication
 categories:
 - ajax
+- application
 ---
 
 Registers the directory path with the service mapping provided.

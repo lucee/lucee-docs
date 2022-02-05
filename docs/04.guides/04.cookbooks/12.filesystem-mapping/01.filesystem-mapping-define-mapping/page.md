@@ -6,6 +6,7 @@ related:
 - function-expandpath
 - cookbook-application-context-set-mapping
 categories:
+- application
 - files
 description: All about the different mappings in Lucee and how to use them
 ---

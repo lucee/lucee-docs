@@ -3,6 +3,8 @@ title: Create an Application.cfc
 id: cookbook-application-context-basic
 related:
 - tag-application
+categories:
+- application
 ---
 
 # Application.cfc #
