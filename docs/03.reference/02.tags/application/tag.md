@@ -5,6 +5,7 @@ categories:
 - core
 - scopes
 - session
+- application
 description: Defines a CFML Application and configures the properties / behavior of that Application
 ---
 
