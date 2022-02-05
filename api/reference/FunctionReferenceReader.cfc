@@ -3,6 +3,7 @@ component accessors=true {
 	property name="functions" type="struct";
 
 	public any function init() {
+		_loadExtensionInfo();
 		_loadFunctions();
 
 		return this;
@@ -50,6 +51,9 @@ component accessors=true {
 		parsedFunction.alias        = coreDefinition.alias ?: "";
 		parsedFunction.arguments    = [];
 
+		if ( structKeyExists( variables.extensionMap, coreDefinition.name ) )
+			parsedFunction.srcExtension = variables.extensionMap[ coreDefinition.name ];
+
 		var args = coreDefinition.arguments ?: [];
 		for( var arg in args ) {
 			var convertedArg = StructNew( "linked" );
@@ -67,6 +71,52 @@ component accessors=true {
 		}
 
 		return parsedFunction;
+	}
+
+	private void function _loadExtensionInfo(){
+		// load java tags
+		variables.extensionMap = {};
+		var cfg = getPageContext().getConfig();
+		var flds = cfg.getCombinedFLDs(1);
+		var ff = flds.getFunctions()
+		for (var fname in ff){
+			var bi = bundleInfo( ff[fname].getBIF() );
+			if ( bi.name != "lucee.core" ) {
+				var e = getExtensionOfBundle( bi.name ).toStruct();
+				variables.extensionMap[ fname ] = {
+					name: e.name,
+					id: e.id,
+					version: e.version
+				}
+			}
+		}
+
+		// load cfml tags
+		var extensions = extensionList();
+		loop query="extensions" {
+			local.e = queryRowData ( extensions, extensions.currentrow, "struct" );
+			if (len(e.functions) ){
+				for ( fname in e.functions ){
+					variables.extensionMap[ listFirst(fname,".") ] = {
+						name: e.name,
+						id: e.id,
+						version: e.version
+					}
+				}
+			}
+
+		}
+	}
+
+	private any function getExtensionOfBundle( bundleName ) {
+		var cfg = getPageContext().getConfig();
+		var extensions = cfg.getAllRHExtensions();
+		loop collection=extensions.iterator() item="local.ext" {
+			loop array = ext.bundles item="local.bundle" {
+				if ( bundle.symbolicName == bundleName ) return ext;
+			}
+		}
+		throw "could not find extension for bundle [#bundleName#]";
 	}
 
 }

@@ -11,7 +11,8 @@ component accessors=true extends="Page" {
 	property name="script"               type="struct";
 	property name="attributes"           type="array";
 	property name="examples"             type="string";
-	property name="usageNotes"   		 type="string";
+	property name="usageNotes"           type="string";
+	property name="srcExtension"         type="struct";
 
 	public string function getUsageSignature() {
 		var newLine           = Chr(10);

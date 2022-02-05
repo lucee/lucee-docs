@@ -25,6 +25,9 @@
 	<cfif len(local.fn.getIntroduced()) gt 0>
 		<p><strong>Introduced:</strong> #local.fn.getIntroduced()#</p>
 	</cfif>
+	<cfif len(local.fn.getSrcExtension()) gt 0>
+		<p><strong>Requires Extension: </strong> #local.fn.getSrcExtension().name#</p>
+	</cfif>
 	<code>
 	#local.fn.getUsageSignature()#
 	</code>
