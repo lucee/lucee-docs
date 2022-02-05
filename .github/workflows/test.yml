@@ -31,7 +31,7 @@ jobs:
           key: lucee-script-runner-maven-cache
 
       # Runs a single command using the runners shell
-      - uses: zspitzer/lucee-script-engine-runner@development
+      - uses: lucee/script-runner@main
         with:
           webroot: ${{ github.workspace }}
           execute: /import.cfm
