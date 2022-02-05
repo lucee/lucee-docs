@@ -1,7 +1,7 @@
 component {
 
 	public string function renderHighlights( required string text ) {
-		var rendered  = arguments.text;
+		var rendered  = Replace(arguments.text, "#chr(13)##chr(10)#", chr(10), "all"); // standardise on unix line endings
 		var highlight = "";
 		var pos = 1;
 
@@ -30,8 +30,10 @@ component {
 		var highlighted = highlighter.highlight( arguments.code, arguments.language, false );
 
 		if ( useTryCf ) {
+			// Lucee's tag island syntax conflicts with markdown syntax, support escaped tag island syntax
+			var safeTagIslands = Replace(arguments.code, "\`\`\`", "```", "all");
 			var rawCode = '<script type="text/template" id="code-#LCase( Hash( highlighted ) )#" data-trycf="true" data-script="#( arguments.language == 'cfs' )#">'
-						&     arguments.code
+						&  safeTagIslands
 						& '</script>' & Chr(10);
 			return rawCode & highlighted;
 		}
@@ -41,7 +43,8 @@ component {
 
 // PRIVATE HELPERS
 	private any function _getNextHighlight( required string text, required string startPos=1 ) {
-		var referenceRegex  = "```([a-z\+]+)?\n(.*?)\n```";
+		//var referenceRegex  = "```([a-z\+]+)?\n(.*?)\n```";		
+		var referenceRegex  = "\`{3}([a-z\+]+\n)([\s\S]*?(?=\n\`{3}))(\n\`{3})"; // https://regex101.com/r/CpVjpL/1/
 		var match = ReFind( referenceRegex, arguments.text, arguments.startPos, true );
 		var found           = match.len[1] > 0;
 		var result          = {};
