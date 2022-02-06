@@ -1,1 +1,3 @@
-Struct containing query options, all cfquery tag attributes are supported except the name attribute.
+A struct containing the query options 
+
+All the [[tag-query]] tag attributes are supported, except the `name` attribute.
