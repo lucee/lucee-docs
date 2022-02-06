@@ -1,5 +1,5 @@
 ---
-title: Query of Query Sucks
+title: Query of Queries sometimes it rocks, sometimes it sucks
 id: QOQ_Sucks
 related:
 - tag-query
@@ -9,15 +9,32 @@ categories:
 - query
 ---
 
-## Query of Query Sucks ##
+## The good, the bad and the ugly ##
 
-This document explains why Query of Query is not the best approach and provides simple example about QoQ.
+This document explains why Query of Queries (QoQ) may or not be best approach for your use case.
 
-The main reason you would not want to use query of query is that it is very slow.
+- **PRO** it's nice to work with in memory datasets/queries using SQL.
+- **CON** is can be very slow, depending on the use case.
 
-Update, the performance of QoQ has been dramatically improved in 5.3.8!
+Update, the performance of QoQ has been dramatically for single tables improved since 5.3.8!
 
-<http://wwvv.codersrevolution.com/blog/improving-lucees-query-of-query-support>
+[Improving Lucee's Query of Query Support](http://wwvv.codersrevolution.com/blog/improving-lucees-query-of-query-support)
+
+There has also been a lot of work done, to improve the "correctness" of the native SQL engine's behaviour
+
+[QoQ tickets](https://luceeserver.atlassian.net/issues/?jql=text%20~%20%22qoq%22%20ORDER%20BY%20updated)
+
+Currently, Lucee QoQ only supports `SELECT` statements, `UPDATE` and `INSERT` aren't yet supported.
+
+Lucee has two QoQ engines, a fast native engine which only works on a single table.
+
+Any SQL using a multiple tables, i.e. with a JOIN, will fallback to the HSQLDB engine.
+
+The HSQLDB engine requires loading all the queries into temporary tables and is currently java synchronized, all of which can affect performance.
+
+If the native QoQ engine fails on a single table query, by default, Lucee will attempt to fallback on the HSQLDB engine
+
+ See `LUCEE_QOQ_HSQLDB_DISABLE` and `LUCEE_QOQ_HSQLDB_DEBUG`, under [[running-lucee-system-properties]]
 
 ### Example : ###
 
