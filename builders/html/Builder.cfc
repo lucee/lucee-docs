@@ -17,6 +17,11 @@ component {
 		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
 	}
 
+	public string function _getTestCasesLink(required string name) {
+		var link = Replace( new api.build.BuildProperties().getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <i class="fa fa-external-link"></i></a> (good for further, detailed examples)';
+	}
+
 	public void function build( required any docTree, required string buildDirectory, required numeric threads) {
 		var pagePaths = arguments.docTree.getPageCache().getPages();
 
@@ -97,9 +102,11 @@ component {
 				case "tag":
 					// add a cf prefix, tried adding with jql "OR & name" but that didn't work
 					links.append( variables._getIssueTrackerLink("cf" & name ) );
+					links.append( variables._getTestCasesLink( name ) );
 					break;
 				case "function":
 					links.append( variables._getIssueTrackerLink(name) );
+					links.append( variables._getTestCasesLink(name) );
 					break;
 				default:
           break;
