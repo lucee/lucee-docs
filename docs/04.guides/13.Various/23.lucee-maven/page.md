@@ -5,6 +5,8 @@ categories:
 - java
 ---
 
+<https://mvnrepository.com/artifact/org.lucee/lucee>
+
 <https://search.maven.org/artifact/org.lucee/lucee>
 
 You can add Lucee to your Maven pom.xml files via the following:
