@@ -31,9 +31,9 @@ jobs:
           key: lucee-script-runner-maven-cache
 
       # Runs a single command using the runners shell
-      - uses: lucee/script-runner@internal-request
+      - uses: lucee/script-runner@main
         with:
           webroot: ${{ github.workspace }}
           execute: /build.cfm
-          luceeVersion: 5.3.9.70-SNAPSHOT
+          luceeVersion: 5.3.8.206
           # luceeVersion: 5.3.7.48
