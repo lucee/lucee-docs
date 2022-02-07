@@ -10,6 +10,8 @@
 
 	try {
 		startTime = getTickCount();
+		
+		new api.reference.ReferenceImporter(threads=1).importAll();
 
 		savecontent variable="suppressingwhitespacehere" {
 			new api.build.BuildRunner(threads=1).buildAll();
