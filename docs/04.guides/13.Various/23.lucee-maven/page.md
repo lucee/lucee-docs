@@ -1,6 +1,8 @@
 ---
 title: Lucee with Maven
 id: lucee-with-maven
+categories:
+- java
 ---
 
 <https://search.maven.org/artifact/org.lucee/lucee>
