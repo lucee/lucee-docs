@@ -29,7 +29,7 @@ Installing the CouchDB Cache Extension, is straight forward.
 
 We need to have a running CouchDB installation to connect to, this section will let guide you through getting CouchDB running
 
-1. Head to the CouchOne website and select products <http://www.couch.io/products>.
+1. Head to the CouchOne website (https://couchdb.apache.org/)[https://couchdb.apache.org/].
 
 1. Download the right version for your Operating System (the screenshots here are for OS X but there should be no difference for each OS).
 

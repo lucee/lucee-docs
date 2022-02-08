@@ -117,7 +117,7 @@ It's really simple:
 <cfset caseSensitiveColumnList = queryObject.getColumnlist(false) />
 ```
 
-Note: if you typed the actual column names in your SELECT statement, like in "SELECT userID, userName from users", then the exact column names you used there will be returned. But if you use "SELECT * from users", then the actual table column names are returned. See [<http://www.luceedeveloper.com/post.cfm/lucee-tip-get-a-query-s-columnlist-case-sensitive> this blog post] for more info.
+Note: if you typed the actual column names in your SELECT statement, like in "SELECT userID, userName from users", then the exact column names you used there will be returned. But if you use "SELECT * from users", then the actual table column names are returned. See [https://www.lucee.nl/post.cfm/railo-tip-get-a-query-s-columnlist-case-sensitive](https://www.lucee.nl/post.cfm/railo-tip-get-a-query-s-columnlist-case-sensitive) for more info.
 
 ### URL Rewriting ###
 

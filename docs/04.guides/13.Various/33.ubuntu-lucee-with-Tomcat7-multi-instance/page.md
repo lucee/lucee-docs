@@ -267,7 +267,7 @@ Enable the site and reload apache:
 	a2ensite mysite.com
 	service apache2 restart
 
-Copy your application in /var/www/mysite/ and now we can go to [http://www.mysite.com](http://www.mysite.com/) Lucee admin can be reached at [http://www.mysite.com/lucee/admin/server.cfm](http://www.mysite.com/lucee/admin/server.cfm)
+Copy your application in /var/www/mysite/ and now we can go to `http://www.mysite.com` Lucee admin can be reached at `http://www.mysite.com/lucee/admin/server.cfm`
 
 ### If something goes wrong ###
 
