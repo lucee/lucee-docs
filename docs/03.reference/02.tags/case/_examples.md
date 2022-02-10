@@ -1,5 +1,6 @@
+###Tag Example
+
 ```lucee+trycf
-<!--- Tag syntax --->
 <cfset expr = 2>
 <cfswitch expression="#expr#">
     <cfcase value=1>
@@ -15,9 +16,11 @@
         this is from default part
     </cfdefaultcase>
 </cfswitch>
+```
 
-<!--- Script syntax --->
-<cfscript>
+###Script syntax 
+
+```luceescript+trycf
     expr = 1;
     switch(expr){
         case 1:
@@ -34,5 +37,4 @@
             result = "defaultCase";
     }
     dump( result );
-</cfscript>
 ```
