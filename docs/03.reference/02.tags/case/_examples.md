@@ -1,4 +1,4 @@
-###Tag Example
+### Tag Example
 
 ```lucee+trycf
 <cfset expr = 2>
@@ -18,7 +18,7 @@
 </cfswitch>
 ```
 
-###Script syntax 
+### Script Example 
 
 ```luceescript+trycf
     expr = 1;
