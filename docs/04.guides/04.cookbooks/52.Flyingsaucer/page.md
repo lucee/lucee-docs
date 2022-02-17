@@ -5,8 +5,8 @@ related:
 - tag-document
 categories:
 - pdf
-menuTitle: The new PDF engine, Flying Saucer in Lucee 5.3
 description: The new CFDOCUMENT PDF engine, Flying Saucer in Lucee 5.3
+menuTitle: The new PDF engine, Flying Saucer in Lucee 5.3
 ---
 
 This document provides information about the new PDF engine, [Flying Saucer](https://github.com/flyingsaucerproject/flyingsaucer) (FS) in Lucee 5.3
@@ -74,6 +74,8 @@ or via application.cfm
 ```
 
 If the font directory isn't specified, Lucee will look for fonts in /WEB_INF/lucee/fonts and uses them if they match.
+
+**Note**: Classic engine works using the font-family-name from pd4fonts.properties file. Modern (Flying saucer) engine works using the font-family-name from the .ttf file with the same case.
 
 #### Simplify Attributes ####
 
