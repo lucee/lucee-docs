@@ -1,7 +1,7 @@
 # Lucee documentation source and builder
 
 [![Lucee Docs Builder](https://github.com/lucee/lucee-docs/actions/workflows/main.yml/badge.svg)](https://github.com/lucee/lucee-docs/actions/workflows/main.yml)
-[![Lint](https://github.com/lucee/lucee-docs/workflows/Lint/badge.svg)](#lucee-documentation-source-and-builder)
+[![Lint](https://github.com/lucee/lucee-docs/actions/workflows/lint.yml/badge.svg)](#lucee-documentation-source-and-builder)
 
 This repository contains the source and build scripts for creating Lucee's documentation. The website output of the docs can be found at [https://docs.lucee.org](https://docs.lucee.org).
 
