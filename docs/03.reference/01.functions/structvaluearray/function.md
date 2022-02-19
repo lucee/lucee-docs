@@ -1,5 +1,5 @@
 ---
-title: structvaluearray
+title: StructValueArray
 id: function-structvaluearray
 related:
 categories:
