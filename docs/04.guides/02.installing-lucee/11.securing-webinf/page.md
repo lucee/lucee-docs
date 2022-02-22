@@ -16,6 +16,7 @@ If you wish to redirect the web-context data elsewhere, follow the instructions 
 If you followed the instructions on previous pages, you already have a folder called D:\Lucee\.  
 
 Create a subfolder called "web-contexts" within D:\Lucee\
+
 * Launch your favorite text editor **as a local Administrator** and open `D:\Tomcat\conf\web.xml`
 * Locate the section near the end of the configuration which reads `<servlet-name>CFMLServlet</servlet-name>`
 * Locate the `<init-param>` section which contains `<param-name>lucee-web-directory</param-name>`
