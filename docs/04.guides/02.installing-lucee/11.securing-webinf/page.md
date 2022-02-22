@@ -13,10 +13,11 @@ By default, Lucee places its web-context configuration and data files in a folde
 The WEB-INF folder structure gets created automatically when Lucee gets called to serve up a .cfm/.cfml file.
 If you wish to redirect the web-context data elsewhere, follow the instructions below.
 
-If you followed the instructions on previous pages, you already have a folder called D:\Lucee\.  Create a subfolder called "web-contexts" within D:\Lucee\
+If you followed the instructions on previous pages, you already have a folder called D:\Lucee\.  
 
-* Launch your favorite text editor **as a local Administrator** and open _D:\Tomcat\conf\web.xml_
-* Locate the section near the end of the configuration which reads '<servlet-name>CFMLServlet</servlet-name>'
-* Locate the '<init-param>' section which contains '<param-name>lucee-web-directory</param-name>'
-* Replace the '<param-value>' with _D:\Lucee\web-contexts\{web-context-label}_
+Create a subfolder called "web-contexts" within D:\Lucee\
+* Launch your favorite text editor **as a local Administrator** and open `D:\Tomcat\conf\web.xml`
+* Locate the section near the end of the configuration which reads `<servlet-name>CFMLServlet</servlet-name>`
+* Locate the `<init-param>` section which contains `<param-name>lucee-web-directory</param-name>`
+* Replace the `<param-value>` with `D:\Lucee\web-contexts\{web-context-label}`
 * Restart the Tomcat service
