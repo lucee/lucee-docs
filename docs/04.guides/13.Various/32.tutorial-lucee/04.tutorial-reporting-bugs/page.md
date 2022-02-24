@@ -8,11 +8,21 @@ menuTitle: How to report bugs
 
 First, thank you for evaluating Lucee and taking the time to report issues. The Lucee Team cannot stress how important it is to have an active open source community and reporting issues is one of the many ways in which you can participate and be involved.
 
+## Research
+
 Before reporting a bug, please search for existing bug reports in the [Lucee issue tracker](https://luceeserver.atlassian.net/) and in the [Lucee mailing list archives](https://dev.lucee.org).
 
-Please always try and include enough detailed information that people can understand your problem, most importantly, and please always state which version of Lucee you are using, it really helps.
+## Post to the mailing list/form about the problem
 
-Ask yourself, how would I respond to this bug report?
+[Lucee mailing list / developer form](https://dev.lucee.org).
+
+Please always try to include enough detailed information so that others can understand your problem, most importantly, and please always state which version of Lucee you are using, it really helps. 
+
+Always ask yourself, how would I respond to this bug report (is there something missing which will help solve it)?
+
+Once the has been discussed/triaged on the mailing list, you may be asked to file a bug. 
+
+*PLEASE DON"T JUST GO AND FILE A BUG* 
 
 ### Give tickets a self-explanatory title and context ###
 
