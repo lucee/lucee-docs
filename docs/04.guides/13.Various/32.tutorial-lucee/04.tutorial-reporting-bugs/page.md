@@ -1,5 +1,5 @@
 ---
-title: How to report bugs and get help with Lucee
+title:Support: How to report bugs/problems and get help with Lucee
 id: tutorial-reporting-bugs
 menuTitle: How to report bugs
 ---
@@ -14,13 +14,13 @@ Before reporting a bug, please search for existing bug reports in the [Lucee iss
 
 ## Post to the mailing list/form about the problem
 
-[Lucee mailing list / developer form](https://dev.lucee.org).
+[Lucee mailing list / developer form](https://dev.lucee.org)
 
-Please always try to include enough detailed information so that others can understand your problem, most importantly, and please always state which version of Lucee you are using, it really helps. 
+Please always try to include enough detailed information so that others can understand your problem, most importantly, and please always state which version of Lucee you are using, it really helps.
 
 Always ask yourself, how would I respond to this bug report (is there something missing which will help solve it)?
 
-Once the has been discussed/triaged on the mailing list, you may be asked to file a bug. 
+Once the has been discussed/triaged on the mailing list, you may be asked to file a bug.
 
 *PLEASE DON"T JUST GO AND FILE A BUG* 
 
