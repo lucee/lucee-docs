@@ -26,16 +26,16 @@ Once the has been discussed/triaged on the mailing list, you may be asked to fil
 
 ### Give tickets a self-explanatory title and context ###
 
-A detailed ticket is really helpful when a long list of tickets is analyzed. If the title is phrased properly it is easier for the developer to understand what the issue is about, and probably link it to some changes that is in progress or that has been done recently.
+Good titles. A ticket title like `createTimeSpan fails` isn't very useful to anyone, as it doesn't provide any context, but `queryExecute createTimeSpan never caches in a script based cfc` does.
 
-Try to give a context to the ticket. A ticket title like createTimeSpan fails doesn't give us much context to work with, but createTimeSpan fails when invoked into a script based cfc does.
+Good titles makes it is easier for other developers to understand what the issue is about, 
 
-### Provide environment information ###
+## Provide Version and Environment information ##
 
 When a bug is posted the first thing we do is to try to reproduce it. It is very important to have information about the environment where the issue was detected.
 
-* OS
-* Lucee Version and deployment ( Ex: Lucee 5.2.60 / Tomcat 8.5 )
+* Operating System
+* Lucee Version and deployment ( Ex: Lucee 5.3.7.47 / Tomcat 9.5 | Commandbox )
 * Java Version (i.e. 1.8.0_162)
 * Browser or other details (if relevant)
 * Webserver configuration (if relevant)
@@ -46,7 +46,13 @@ Providing this information really speeds up the ticket solving process.
 
 Try to provide steps or sample code that can reproduce the error. If necessary upload the files to the ticket. Please try to abstract out unnecessary code, or create sample code that can be used to help reproduce the issue.
 
-Sample code provided should run out of the box with no need of any setup. If there's a Lucee setting involved or database tables necessary to create it, please attach a create table script or inform us what additional setting needs to be turned on / off.
+Sample code provided should run out of the box with no need of any setup. 
+
+If there's a Lucee setting involved or database tables necessary to create it, please attach a create table script or inform us what additional setting needs to be turned on / off.
+
+Reduced [https://trycf.com](Trycf.com exmaples) are great, a reproducible bug is a solvable bug.
+
+If you are familiar with Testbox, provide a test.
 
 ### Provide workaround information ( if any ) ###
 
