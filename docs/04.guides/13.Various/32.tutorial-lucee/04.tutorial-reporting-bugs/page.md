@@ -1,16 +1,20 @@
 ---
-title:Support: How to report bugs/problems and get help with Lucee
+title: Lucee Support - How to report bugs/problems and get help with problems
 id: tutorial-reporting-bugs
 menuTitle: How to report bugs
 ---
 
 ### How to report a bug in Lucee ###
 
-First, thank you for evaluating Lucee and taking the time to report issues. The Lucee Team cannot stress how important it is to have an active open source community and reporting issues is one of the many ways in which you can participate and be involved.
+First, thank you for evaluating Lucee and taking the time to report issues. 
+
+The Lucee Team cannot stress how important it is to have an active open source community and reporting issues is one of the many ways in which you can participate and be involved.
 
 ## Research
 
 Before reporting a bug, please search for existing bug reports in the [Lucee issue tracker](https://luceeserver.atlassian.net/) and in the [Lucee mailing list archives](https://dev.lucee.org).
+
+If you are using an older Lucee release, please check first if the problem has already been fixed in the latest RELEASE or SNAPSHOT
 
 ## Post to the mailing list/form about the problem
 
