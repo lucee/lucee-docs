@@ -1,6 +1,8 @@
 ---
 title: ExpandPath
 id: function-expandpath
+related:
+- function-contractpath
 categories:
 - files
 ---
