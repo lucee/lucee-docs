@@ -100,7 +100,7 @@ component accessors=true {
 			case "org.w3c.dom.Element":
 				return type;
 			case "numeric":
-				return "[[object-number|Numeric]";
+				return "[[object-number|Numeric]]";
 			case "timespan":
 				return "[[object-datetime|timespan]]";
 			case "date":

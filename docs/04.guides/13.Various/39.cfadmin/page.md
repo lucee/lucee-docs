@@ -665,6 +665,14 @@ Below you will find all the actions sorted alphabetically embedded in examples f
 	    provider="#detail.installed.provider#"
 	    id="#detail.installed.id#">
 
+       <cfadmin
+	    action="removeMailServer"
+	    type="web|server"
+	    password="password"
+	    hostname="#data.hosts[idx]#"
+	    username="#data.usernames[idx]#"
+	    remoteClients="remoteClients">
+
 	<cfadmin
 	    action="removeMapping"
 	    type="web|server"
@@ -1069,8 +1077,6 @@ Below you will find all the actions sorted alphabetically embedded in examples f
 	    tls="#isDefined("data.tlss[#idx#]")anddata.tlss[idx]#"
 	    ssl="#isDefined("data.ssls[#idx#]")anddata.ssls[idx]#"
 	    remoteClients="arrayOfClients">
-	    action="removeMailServer"
-	    type="web|server"
 
 	<cfadmin
 	    action="updateMailSetting"
