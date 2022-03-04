@@ -1,11 +1,10 @@
 ```luceescript+trycf
 	arr=['lucee','SUSI'];
 	writeDump(var=arr,label="Before");
-	arr.DeleteNoCase('suSi');
+	arrayDeleteNoCase(arr, 'suSi');
 	writeDump(var=arr,label="After");//lucee
-//Member Function with scope
 	arrNew=['a','Ab','c','A','a'];
 	writeDump(var=arrNew,label="Before");
-	arrNew.DeleteNoCase('a',"all");
+	arrayDeleteNoCase(arrNew, 'a',"all");
 	writeDump(var=arrNew,label="After");
 ```
