@@ -89,6 +89,9 @@ The following functions, from Adobe CFML, are not supported by Lucee:
 * ormindexpurge
 * ormsearch
 * ormsearchoffline
+* queryAppend
+* queryPrepend
+* queryClear
 * reescape
 * removecachedquery
 * serializexml
