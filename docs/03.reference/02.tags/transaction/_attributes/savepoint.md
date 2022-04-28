@@ -1,0 +1,1 @@
+optional savepoint name, used with action "setsavepoint" and "rollback".

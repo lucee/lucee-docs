@@ -1,0 +1,1 @@
+name of the cache to use, this must be a redis cache.

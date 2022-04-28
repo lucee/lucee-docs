@@ -1,0 +1,1 @@
+Max age of the object we keep, if not set all objects are removed.

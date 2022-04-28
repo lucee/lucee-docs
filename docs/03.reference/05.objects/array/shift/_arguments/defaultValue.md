@@ -1,0 +1,1 @@
+this value is returned in case the array is empty

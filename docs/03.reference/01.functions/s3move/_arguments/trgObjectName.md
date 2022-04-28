@@ -1,0 +1,1 @@
+Name of the target object (path)for the target bucket. If not defined the source object name is used.

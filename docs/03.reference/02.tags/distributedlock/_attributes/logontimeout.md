@@ -1,0 +1,1 @@
+In case we reach a timeout, and the value is set to yes, we log this to the application.log. Default is Yes.

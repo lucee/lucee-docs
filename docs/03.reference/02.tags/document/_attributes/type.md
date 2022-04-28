@@ -1,0 +1,1 @@
+PDF rendering method to use ("classic" or "modern"). Defaults to this.pdf.type setting in Application.cfc, or to "modern" if that is not defined.

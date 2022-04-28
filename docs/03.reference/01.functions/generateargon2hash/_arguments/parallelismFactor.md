@@ -1,0 +1,1 @@
+Degrees of parallelism, a number between 1 and 10.

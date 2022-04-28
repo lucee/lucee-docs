@@ -1,0 +1,1 @@
+If set to true means extension image shows as imageObject instead of base64 string.

@@ -1,0 +1,1 @@
+Argon2 hash to compare against input string.

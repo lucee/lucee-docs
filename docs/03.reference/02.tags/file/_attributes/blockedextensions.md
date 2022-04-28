@@ -1,0 +1,1 @@
+String list or string array of extensions blocked, this overwrites any setting done for example in the Application.cfc.

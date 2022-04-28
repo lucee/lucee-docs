@@ -1,0 +1,1 @@
+if set to true, the parser is more lenient and forgives invalid XML and does the best to interpret it.

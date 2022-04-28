@@ -1,0 +1,1 @@
+Path to the .CFConfig.json file or the data itself as a Struct.
