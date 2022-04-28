@@ -1,0 +1,1 @@
+The time in seconds a lock remains in case it not get released, by default this is 10 minutes.

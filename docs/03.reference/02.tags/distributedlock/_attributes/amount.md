@@ -1,0 +1,1 @@
+Defines the amount of parallel threads allowed within the lock, default is 1.

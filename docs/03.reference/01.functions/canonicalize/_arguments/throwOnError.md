@@ -1,0 +1,2 @@
+If the value of this argument is true, and if restrictMultiple or restrictMixed is true and the given input contains mixed or multiple encoded strings, an exception will be thrown.
+			If the value of this argument is false, an empty string will be returned instead of an exception.
