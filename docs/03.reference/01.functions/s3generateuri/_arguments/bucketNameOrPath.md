@@ -1,0 +1,1 @@
+This can be the bucketname or simple the virtual filesystem point for the file (if object name is no defined)
