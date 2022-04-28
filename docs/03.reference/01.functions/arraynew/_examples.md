@@ -1,4 +1,5 @@
 ### create a new array, set the dimension
+
 ```luceescript+trycf
   a = arrayNew(1);
     // Implicit array notation
