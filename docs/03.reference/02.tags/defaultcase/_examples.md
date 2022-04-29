@@ -16,6 +16,7 @@
 	</cfswitch>
 </cfoutput>
 ```
+
 ### Script syntax
 
 ```luceescript+trycf
