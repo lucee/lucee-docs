@@ -1,4 +1,5 @@
-###Tag syntax 
+### Tag syntax 
+
 ```lucee+trycf
 <cfoutput>
 	<cfset expr = 2>
@@ -15,7 +16,8 @@
 	</cfswitch>
 </cfoutput>
 ```
-###Script syntax
+### Script syntax
+
 ```luceescript+trycf
 	switch(1) {
 		case 1:
