@@ -1,4 +1,4 @@
-### Tag example
+###Tag example
 
 ```lucee+trycf
 <cfset intA = 1>
@@ -8,7 +8,8 @@
 </cfsilent>
 <cfdump var="#intA#" />
 ```
-### Script example
+
+###Script example
 
 ```luceescript+trycf
 	isExecuted=false;
