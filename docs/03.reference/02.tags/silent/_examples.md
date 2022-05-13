@@ -1,3 +1,5 @@
+### Tag example
+
 ```lucee+trycf
 <cfset intA = 1>
 <cfsilent>
@@ -5,15 +7,16 @@
 	<cfdump var="#intA#" />
 </cfsilent>
 <cfdump var="#intA#" />
+```
 
-<cfscript>
-// Using cfscript
+### Script example
+
+```luceescript+trycf
 	isExecuted=false;
 	silent {
 		writeoutput("text");
 		isExecuted=true;
-	writeDump("Inside dump executed: "&isExecuted);
+		writeDump("Inside dump executed: "&isExecuted);
 	}
 	writeDump("Outside dump executed: "&isExecuted);
-</cfscript>
 ```
