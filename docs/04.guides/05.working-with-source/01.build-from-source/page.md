@@ -61,6 +61,14 @@ To build only the update .lco file:
     cd loader
     ant quick
 
+#### Troubleshooting Build
+
+If you are are getting errors trying to compile the code, you may need to flush your Maven cache. Running the following command to refresh your dependency cache:
+
+```
+mvn dependency:purge-local-repository
+```
+
 ### 4. Deploy
 
 Deployment (and testing PRs) is automated via [GitHub Actions](https://github.com/lucee/Lucee/actions) for all push and pull requests
