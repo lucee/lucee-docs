@@ -414,7 +414,7 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
    ////////////////////////////////////////////////////////////////
-   //  SUPRESS CONTENT FOR CFC REMOTING 
+   //  SUPPRESS CONTENT FOR CFC REMOTING 
    //  Suppress content written to response stream when a 
    //  Component is invoked remote
    ////////////////////////////////////////////////////////////////
