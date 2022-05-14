@@ -270,7 +270,6 @@ component displayname="Application" output="false" hint="Handle the application"
    ////////////////////////////////////////////////////////////////
    //  APPLICATION TIMEOUT
    //  Sets the amount of time Lucee will keep the application scope alive. 
-   //  This behaviour can be overridden by the tag cfapplication.
    ////////////////////////////////////////////////////////////////
    //  this.applicationTimeout = createTimeSpan( 1, 0, 0, 0 ); 
 
@@ -295,7 +294,6 @@ component displayname="Application" output="false" hint="Handle the application"
    ////////////////////////////////////////////////////////////////
    //  SESSION TIMEOUT
    //  Sets the amount of time Lucee will keep the session scope alive. 
-   //  This behaviour can be overridden by the tag cfapplication.
    ////////////////////////////////////////////////////////////////
    // this.sessionTimeout = createTimeSpan( 0, 0, 30, 0 ); 
 
@@ -677,7 +675,7 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
     /**
-    * @hint onMissingTemplate() is triggered  requested page was not found and "onRequest()" 
+    * @hint onMissingTemplate() is triggered when the requested page wasn't found and no "onRequest()" 
     * function is defined.
     */
     public void function onMissingTemplate( string targetPage ){
