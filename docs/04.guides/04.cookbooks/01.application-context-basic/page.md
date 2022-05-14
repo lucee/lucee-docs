@@ -195,7 +195,6 @@ component {
 }
 ```
 
-
 ## Application.cfc Default Template ##
 
 Below you can find an Application.cfc template that may serve as a starting point for your own applications settings with Lucee CFML engine. 
