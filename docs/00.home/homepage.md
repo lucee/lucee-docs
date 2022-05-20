@@ -26,4 +26,4 @@ For Java API documentation of the Lucee server engine, please visit [https://jav
 
 ## Lucee on YouTube
 
-We also have a channel on YouTube where you can find further tutorials and tips: [https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA](https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA)
+We also have a channel on YouTube where you can find further tutorials and tips: [Lucee YouTube Channel](https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA)
