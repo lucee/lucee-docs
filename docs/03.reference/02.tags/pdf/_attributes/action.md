@@ -11,5 +11,7 @@
 - read
 - removeWatermark
 - setInfo
-- thumbnail (**not implemented yet**)
+- thumbnail 
 - write
+
+**Note:**  action "thumbnail" was implemented from PDF Extension version - 1.1.0.8
