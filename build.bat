@@ -8,8 +8,15 @@ cfengine="lucee@5" ^
 port=8765 ^
 openbrowser=false ^
 directory=%CWD% ^
-javaVersion=openjdk8_jre_jdk8u332-b09 ^
+javaVersion=openjdk88_jre_jdk8u132-b09 ^
 heapSize=2048
+
+@echo off
+IF ERRORLEVEL EQ 0 GOTO start
+echo Exiting build, commandbox build failed with exitcode %exitcode%
+exit /b %exitcode%
+echo on
+:start
 
 echo Done!
 echo Importing reference docs from previously undocumented functions and tags...

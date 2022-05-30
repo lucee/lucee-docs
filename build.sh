@@ -11,8 +11,15 @@ cfengine="lucee@5" \
 port=8765 \
 openbrowser=false \
 directory=$CWD \
-javaVersion=openjdk8_jre_jdk8u332-b09 \
+javaVersion=openjdk8_jre_jdk8u132-b09 \
 heapSize=2048;
+
+if [ -f .exitcode ]; then
+  exitcode=$(<.exitcode)
+  rm -f .exitcode
+  echo "Exiting build, Lucee / Commandbox failed to start. Exit code: $exitcode"
+  exit $exitcode
+fi
 
 echo "Local Lucee Server Started!";
 echo "Importing reference docs from previously undocumented functions and tags..."
