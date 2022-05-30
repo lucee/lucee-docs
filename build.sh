@@ -11,8 +11,8 @@ cfengine="lucee@5" \
 port=8765 \
 openbrowser=false \
 directory=$CWD \
-javaVersion=openjdk8_jre_jdk8u262-b10 \
-heapSize=1024;
+javaVersion=openjdk8_jre_jdk8u332-b09 \
+heapSize=2048;
 
 echo "Local Lucee Server Started!";
 echo "Importing reference docs from previously undocumented functions and tags..."
