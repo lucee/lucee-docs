@@ -1088,7 +1088,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			<td>
 				<p>Enables warming up a Lucee instance.</p>
 				<p>When enabled, Lucee will startup, deploy itself, creating the required directories, deploying any configured extensions and then exiting.</p>
-				<p>Thus enabling faster startup for pre-built images, i.e. Docker, Kubernetes etc</p>
+				<p>It enables a faster startup for the deployment of Docker images, Kubernetes clusters and blue/green environments for example.</p>
 
 				<sub>Values: Boolean <code>true|false</code></sub>
 				<br>
