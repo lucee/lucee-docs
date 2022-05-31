@@ -1086,7 +1086,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<div class="attribute">LUCEE_ENABLE_WARMUP<br>lucee.enable.warmup</div>
 			</td>
 			<td>
-				<p>Enables warming up an Lucee instance. When enabled, Lucee will startup, deploy itself and then exit.</p>
+				<p>Enables warming up a Lucee instance.</p>
+				<p>When enabled, Lucee will startup, deploy itself, creating the required directories, deploying any configured extensions and then exiting.</p>
+				<p>Thus enabling faster startup for pre-built images, i.e. Docker, Kubernetes etc</p>
 
 				<sub>Values: Boolean <code>true|false</code></sub>
 				<br>
