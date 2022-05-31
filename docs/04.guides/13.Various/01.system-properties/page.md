@@ -33,24 +33,24 @@ While system environment variable names need to be notated as *MACRO_CASE*, syst
 
 See as an example of variable/property name notation for enabling full null support in the table below:
 <div class="table-responsive">
-    <table>
-        <thead>
-            <tr>
-                <th>Use as </th>
-                <th>Notation Example </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Environment Variables </td>
-                <td><code>LUCEE_FULL_NULL_SUPPORT=true</code> <em>(MACRO_CASE)</em> </td>
-            </tr>
-            <tr>
-                <td>System Properties </td>
-                <td><code>lucee.full.null.support=true</code> <em>(dot.notation)</em> </td>
-            </tr>
-        </tbody>
-    </table>
+	<table>
+		<thead>
+			<tr>
+				<th>Use as </th>
+				<th>Notation Example </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Environment Variables </td>
+				<td><code>LUCEE_FULL_NULL_SUPPORT=true</code> <em>(MACRO_CASE)</em> </td>
+			</tr>
+			<tr>
+				<td>System Properties </td>
+				<td><code>lucee.full.null.support=true</code> <em>(dot.notation)</em> </td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 <br>
 
@@ -64,37 +64,37 @@ There are many different ways to make *Environment Variables* or *System Propert
 
 Find below a brief overview of available options about where and how to set your *Environment Variables*:
 <div class="table-responsive">
-    <table>
-        <thead>
-            <tr>
-                <th>Where </th>
-                <th>Variables availablility</th>
-                <th>How to configure </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>OS (globally)</td>
-                <td>OS (system-wide)</td>
-                <td>Environment variables are configured within your OS configuration. Please refer to the documentation of your OS </td>
-            </tr>
-            <tr>
-                <td>OS (user specific) </td>
-                <td>OS (system-wide), but limited to user </td>
-                <td>Environment variables are configured within the OS user's profile configuration. Please refer to the documentation of your OS </td>
-            </tr>
-            <tr>
-                <td>Servlet Engine Tomcat </td>
-                <td>Limited to the running servlet instance </td>
-                <td><strong>Option I:</strong> Use Tomcats <em>path-to-lucee-installation\tomcat\bin\setenv.bat (Windows) or path-to-lucee-installation\tomcat\bin\setenv.sh (Linux)</em> as specified in <a href="https://tomcat.apache.org/tomcat-9.0-doc/RUNNING.txt">Tomcats 9.0 Documentation (see 3.4)</a><br> <strong>Option II:</strong> Run Tomcat with the argument <em>--Environment=key1=value1;key2=...</em> as specified in <a href="https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html">Tomcat 9 parameters</a> </td>
-            </tr>
-            <tr>
-                <td>CommandBox </td>
-                <td>Limited to the running CommandBox instance </td>
-                <td>Since CommandBox 4.5 <em>Environment Variables</em> can be set in a file named ".env". You can easily create the .env file by running the command <code>dotenv set</code> from your CommanBox CLI. For more information please see <a href="https://github.com/commandbox-modules/commandbox-dotenv">How to set it up CommandBox with .env files</a> and <a href="https://commandbox.ortusbooks.com/usage/environment-variables">CommandBox Environment Variables</a> </td>
-            </tr>
-        </tbody>
-    </table>
+	<table>
+		<thead>
+			<tr>
+				<th>Where </th>
+				<th>Variables availablility</th>
+				<th>How to configure </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>OS (globally)</td>
+				<td>OS (system-wide)</td>
+				<td>Environment variables are configured within your OS configuration. Please refer to the documentation of your OS </td>
+			</tr>
+			<tr>
+				<td>OS (user specific) </td>
+				<td>OS (system-wide), but limited to user </td>
+				<td>Environment variables are configured within the OS user's profile configuration. Please refer to the documentation of your OS </td>
+			</tr>
+			<tr>
+				<td>Servlet Engine Tomcat </td>
+				<td>Limited to the running servlet instance </td>
+				<td><strong>Option I:</strong> Use Tomcats <em>path-to-lucee-installation\tomcat\bin\setenv.bat (Windows) or path-to-lucee-installation\tomcat\bin\setenv.sh (Linux)</em> as specified in <a href="https://tomcat.apache.org/tomcat-9.0-doc/RUNNING.txt">Tomcats 9.0 Documentation (see 3.4)</a><br> <strong>Option II:</strong> Run Tomcat with the argument <em>--Environment=key1=value1;key2=...</em> as specified in <a href="https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html">Tomcat 9 parameters</a> </td>
+			</tr>
+			<tr>
+				<td>CommandBox </td>
+				<td>Limited to the running CommandBox instance </td>
+				<td>Since CommandBox 4.5 <em>Environment Variables</em> can be set in a file named ".env". You can easily create the .env file by running the command <code>dotenv set</code> from your CommanBox CLI. For more information please see <a href="https://github.com/commandbox-modules/commandbox-dotenv">How to set it up CommandBox with .env files</a> and <a href="https://commandbox.ortusbooks.com/usage/environment-variables">CommandBox Environment Variables</a> </td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 
 In the following example we'll follow Tomcat's recommendation and set *Environment Variables* by using Tomcats setenv.bat/setenv.sh files.
@@ -244,8 +244,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Enables/disables access to Lucee Server/Web Administrator. If set to <code>false</code>, Lucee will respond with a 404 http status error for Administrator pages.
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
-                <br>
-                <sub>Default: <code>true</code></sub>
+				<br>
+				<sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -266,7 +266,7 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>This directive is very useful in combination with the system variable LUCEE_EXTENSIONS.</p>
 
 				<sub>Values: Boolean <code>true | false</code></sub>
-                <br>
+				<br>
 				<sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
@@ -313,8 +313,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Enables bundle download. Setting it to <code>false</code> makes sure that only bundles shipped with <code>Lucee.jar</code> are installed.
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
-                <br>
-                <sub>Default: <code>true</code></sub>
+				<br>
+				<sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -332,8 +332,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Default charset used to read templates of <code>*.cfm</code> and <code>*.cfc</code> files
 				<br>
 				<sub>Values: String</sub>
-                <br>
-                <sub>Default: default OS charset</sub>
+				<br>
+				<sub>Default: default OS charset</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -357,8 +357,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Default character set for output streams, form-, url-, and cgi scope variables and reading/writing the header.
 				<br>
 				<sub>Values: String</sub>
-                <br>
-                <sub>Default: <code>UTF-8</code></sub>
+				<br>
+				<sub>Default: <code>UTF-8</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -380,8 +380,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Default character set for reading from/writing to various resources.
 				<br>
 				<sub>Values: String</sub>
-                <br>
-                <sub>Default: default OS charset</sub>
+				<br>
+				<sub>Default: default OS charset</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -403,8 +403,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				The configuration of Script protect, secures the system from "cross-site scripting" various resources.
 				<br>
 				<sub>Values: String <code>none | all | cgi , url , form , cookie</code></sub>
-                <br>
-                <sub>Default: <code>all</code></sub>
+				<br>
+				<sub>Default: <code>all</code></sub>
 				<p>
 					<strong>Example:</strong> The following directive will set script protection for url and form scope:
 					<pre lang="script">LUCEE_SCRIPT_PROTECT=url,form</pre>
@@ -430,8 +430,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Enables the queue for requests.
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
-                <br>
-                <sub>Default: <code>false</code></sub>
+				<br>
+				<sub>Default: <code>false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -452,8 +452,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				before the engine begins to queue the requests. This setting needs the queue to be enabled <code>LUCEE_QUEUE_ENABLE=true</code>.
 				<br>
 				<sub>Values: Numeric</sub>
-                <br>
-                <sub>Default: <code>100</code></sub>
+				<br>
+				<sub>Default: <code>100</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -474,9 +474,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				If the time is reached the request is rejected with an exception.
 				If you have set 0 milliseconds the request timeout is used instead. This setting needs the queue to be enabled <code>LUCEE_QUEUE_ENABLE=true</code>.
 				<br>
-                <sub>Values: Numeric</sub>
-                <br>
-                <sub>Default: <code>0</code></sub>
+				<sub>Values: Numeric</sub>
+				<br>
+				<sub>Default: <code>0</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -504,8 +504,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</ul>
 
 		<sub>Values: String <code>white-space-pref | regular | white-space</code></sub>
-        <br>
-        <sub>Default: <code>regular</code></sub>
+		<br>
+		<sub>Default: <code>regular</code></sub>
 				<p>
 					<strong>Example:</strong> The following directive will set whitespace management to simple:
 					<pre lang="script">LUCEE_CFML_WRITER=white-space</pre>
@@ -531,8 +531,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>This setting is ignored when there is a different output between this tags as white space.</p>
 
 				<sub>Values: Boolean <code>true | false</code></sub>
-                <br>
-                <sub>Default: <code>true</code></sub>
+				<br>
+				<sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -555,8 +555,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>If set to false, all dot.notated key-names will be converted to UPPERCASE.</p>
 
 				<sub>Values: Boolean <code>true | false</code></sub>
-                <br>
-                <sub>Default: <code>false</code></sub>
+				<br>
+				<sub>Default: <code>false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -581,8 +581,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				client (Web Browser)
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
-                <br>
-                <sub>Default: <code>false</code></sub>
+				<br>
+				<sub>Default: <code>false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -604,8 +604,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Enables/disables full null support, support for null, including "null" literal.
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
-                <br>
-                <sub>Default: <code>false</code></sub>
+				<br>
+				<sub>Default: <code>false</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -628,8 +628,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				of #variables.myVar# (CFML Standard)
 				<br>
 				<sub>Values: Boolean <code> true | false </code></sub>
-                <br>
-                <sub>Default: <code>true</code></sub>
+				<br>
+				<sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -650,8 +650,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			<td>
 				Enables/disables type definitions checking with function arguments and return values
 				<br><sub>Values: Boolean <code>true|false</code></sub>
-                <br>
-                <sub>Default: <code>true</code></sub>
+				<br>
+				<sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -673,8 +673,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Enables/disables sending 200 http status code in case of an exception. Set the value to <code>false</code> to always send 200 status response code
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
-                <br>
-                <sub>Default: <code>true</code></sub>
+				<br>
+				<sub>Default: <code>true</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -727,8 +727,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>By default Lucee will block a set of files that have potential risk. Use this setting to have more control over Lucees default settings.</p>
 
 				<sub>Values: String</sub>
-                <br>
-                <sub>Default: <code>asp,aspx,cfc,cfm,cfml,do,htm,html,jsp,jspx,php</code></sub>
+				<br>
+				<sub>Default: <code>asp,aspx,cfc,cfm,cfml,do,htm,html,jsp,jspx,php</code></sub>
 				<p>
 					<strong>Example:</strong> The following directive won't allow the upload of the following files:
 					<pre lang="script">LUCEE_UPLOAD_BLOCKLIST=asp,aspx,cfc,cfm,cfml,do,htm,html,jsp,jspx,php</pre>
@@ -829,10 +829,10 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 			</td>
 			<td>
 				Enables/disables the experimental Lucee dialect
-                <br>
+				<br>
 				<sub>Values: String</sub>
-                <br>
-                <sub>Default: <code>false</code></sub>
+				<br>
+				<sub>Default: <code>false</code></sub>
 
 
 				<p>
@@ -854,8 +854,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				Sets log level for Felix
 				<br>
 				<sub>Values: String <code>error | warning |info | debug</code></sub>
-                <br>
-                <sub>Default: <code>error</code></sub>
+				<br>
+				<sub>Default: <code>error</code></sub>
 
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
@@ -907,8 +907,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</ul>
 
 				<sub>Values: Boolean <code> true | false </code></sub>
-                <br>
-                <sub>Default: <code>false</code></sub>
+				<br>
+				<sub>Default: <code>false</code></sub>
 
 
 				<p>
@@ -955,8 +955,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</ul>
 
 				<sub>Values: String <code>none | classic | modern | mixed</code></sub>
-                <br>
-                <sub>Default: <code>mixed</code></sub>
+				<br>
+				<sub>Default: <code>mixed</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -984,8 +984,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</ul>
 
 				<sub>Values: String <code> curr2root | currOrRoot | root | curr</code></sub>
-                <br>
-                <sub>Default: <code>curr2root</code></sub>
+				<br>
+				<sub>Default: <code>curr2root</code></sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong>
 					<br>
@@ -1007,8 +1007,8 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				[[http://wwvv.codersrevolution.com/blog/improving-lucees-query-of-query-support]]
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
-                <br>
-                <sub>Default: <code>false</code></sub>
+				<br>
+				<sub>Default: <code>false</code></sub>
 
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
@@ -1028,9 +1028,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 
 				<p>This could include just bad SQL syntax. Default is <code>false</code>.</p>
 				<sub>Values: Boolean <code>true|false</code></sub>
-                <br>
-                <sub>Default: <code>false</code></sub>
-                <p>
+				<br>
+				<sub>Default: <code>false</code></sub>
+				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
 				<p>
@@ -1053,9 +1053,9 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</p>
 
 				<sub>Values: Boolean <code>true|false</code></sub>
-                <br>
-                <sub>Default: <code>false</code></sub>
-                <p>
+				<br>
+				<sub>Default: <code>false</code></sub>
+				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
 				<p>
@@ -1071,9 +1071,27 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				<p>Enables logging on reflection calls.</p>
 
 				<sub>Values: Boolean <code>true|false</code></sub>
-                <br>
-                <sub>Default: <code>false</code></sub>
-                <p>
+				<br>
+				<sub>Default: <code>false</code></sub>
+				<p>
+					<strong>Lucee Server Administrator:</strong> not available
+				</p>
+				<p>
+					<strong>Application.cfc:</strong> not available
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="attribute">LUCEE_ENABLE_WARMUP<br>lucee.enable.warmup</div>
+			</td>
+			<td>
+				<p>Enables warming up an Lucee instance. When enabled, Lucee will startup, deploy itself and then exit.</p>
+
+				<sub>Values: Boolean <code>true|false</code></sub>
+				<br>
+				<sub>Default: <code>false</code></sub>
+				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
 				<p>
