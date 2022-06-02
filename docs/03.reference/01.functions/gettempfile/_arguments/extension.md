@@ -1,0 +1,1 @@
+Extension for the temporary file, default is .tmp

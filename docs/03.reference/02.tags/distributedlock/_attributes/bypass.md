@@ -1,0 +1,1 @@
+If set to true the lock is not done at all.

@@ -22,4 +22,3 @@ And the dependency via:
 ```
 
 Or the single Lucee jar artifactId is "lucee-jar". (The above has all the dependencies, with the exception of database drivers which are marked as "optional", thus not included by default.)
-

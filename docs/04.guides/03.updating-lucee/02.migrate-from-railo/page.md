@@ -29,9 +29,9 @@ When it first starts, Lucee rewrites the server context and all individual web c
 
 ## IIS BonCode connector
 
-If you are using the [BonCode connector for IIS/Tomcat](http://tomcatiis.riaforge.org/), you may need to update to the 1.0.20 (or later) version which supports Lucee.
+If you are using the [BonCode connector for IIS/Tomcat](http://www.boncode.net/boncode-connector), you may need to update to the 1.0.20 (or later) version which supports Lucee.
 
-1. [Download](http://tomcatiis.riaforge.org/) version 1.0.20 (or later)
+1. [Download](https://github.com/Bilal-S/iis2tomcat/releases) version 1.0.20 (or later)
 2. From the AJP13 folder inside the downloaded zip, copy the following 2 files to the `BIN` directory in each of your web roots, replacing the existing files:
 
 - `BonCodeAJP13.dll`

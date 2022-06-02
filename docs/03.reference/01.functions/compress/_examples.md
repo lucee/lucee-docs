@@ -1,4 +1,4 @@
-```luceescript+trycf
+```luceescript
 test_file = fileOpen("test.txt", "append");
 fileWriteLine(test_file, "The Lucee project is led by the Lucee Association Switzerland a non-profit swiss association. A growing project which is committed to the success of its community by delivering quality software and a nurturing and supportive environment for developers to get involved.");
 fileWriteLine(test_file, "");

@@ -1,6 +1,8 @@
 ---
 title: Cached Within
 id: lucee-5-cached-within
+categories:
+- cache
 ---
 
 ## CachedWithin ##

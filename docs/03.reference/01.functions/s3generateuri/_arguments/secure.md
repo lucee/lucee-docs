@@ -1,0 +1,1 @@
+Should a secure URL (https) be created or not. Only applies to type virtualhost and path.

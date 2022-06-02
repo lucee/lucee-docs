@@ -9,4 +9,7 @@ dump(arrayMerge(aNames,aNames2));
 
 //member function
 dump(aNames.merge(aNames2));
+
+dump(aNames.merge(aNames2, true));
+
 ```
