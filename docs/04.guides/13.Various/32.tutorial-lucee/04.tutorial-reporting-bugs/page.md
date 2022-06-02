@@ -54,9 +54,9 @@ Sample code provided should run out of the box with no need of any setup.
 
 If there's a Lucee setting involved or database tables necessary to create it, please attach a create table script or inform us what additional setting needs to be turned on / off.
 
-Reduced [https://trycf.com](Trycf.com exmaples) are great, a reproducible bug is a solvable bug.
+Reduced [Trycf.com examples](https://trycf.com) are great, a reproducible bug is a solvable bug.
 
-If you are familiar with Testbox, provide a test.
+If you are familiar with TestBox, provide a test.
 
 ### Provide workaround information ( if any ) ###
 
