@@ -1,1 +1,3 @@
-*There are currently no examples for this function.*
+```luceescript
+restInitApplication( dirPath="path_to_cfc_dir", serviceMapping="api", password="webAdminPassword" );
+```
