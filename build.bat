@@ -13,7 +13,7 @@ heapSize=2048
 
 @echo off
 IF ERRORLEVEL EQ 0 GOTO start
-echo Exiting build, commandbox build failed with exitcode %exitcode%
+echo Exiting build, CommandBox build failed with exitcode %exitcode%
 exit /b %exitcode%
 echo on
 :start
