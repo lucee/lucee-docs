@@ -17,7 +17,7 @@ heapSize=2048;
 if [ -f .exitcode ]; then
   exitcode=$(<.exitcode)
   rm -f .exitcode
-  echo "Exiting build, Lucee / Commandbox failed to start. Exit code: $exitcode"
+  echo "Exiting build, Lucee / CommandBox failed to start. Exit code: $exitcode"
   exit $exitcode
 fi
 
