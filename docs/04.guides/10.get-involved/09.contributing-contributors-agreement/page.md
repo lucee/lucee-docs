@@ -18,18 +18,13 @@ In order to track contributors, you understand that your full name and
 username may be posted on a web page listing authorized contributors that is
 accessible via a public URL.
 
-## Instructions for submitting the agreement ##
+## How submitting your Contributors Agreement ##
 
-* Download and print out the Contributor Agreement
-* If you hope to contribute via Lucee's projects (lucee), specify your GitHub username on the agreement.
-* Please specify the name/email you use on the Google Group as well.
-* Sign the agreement
-* Send your signed agreement via postal mail to :
+[LAS Contributor License Agreement (CLA)](https://dev.lucee.org/t/las-contributor-license-agreement-cla/181)
 
-*Lucee Technologies GmbH*  
-*Roessligutstrasse 2*  
-*5001 Aarau*  
-*Switzerland*  
+[Online Contributors Agreement](https://cla-assistant.io/lucee/Lucee)
+
+When you make your first PR for Lucee, Github Actions will automatically check and prompt you to sign one.
 
 ## Making a contributions ##
 
