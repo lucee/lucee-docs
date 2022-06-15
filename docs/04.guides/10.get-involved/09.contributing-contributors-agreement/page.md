@@ -18,13 +18,13 @@ In order to track contributors, you understand that your full name and
 username may be posted on a web page listing authorized contributors that is
 accessible via a public URL.
 
-## How submitting your Contributors Agreement ##
+## How to submit your Contributing Contributor's Agreement ##
 
 [LAS Contributor License Agreement (CLA)](https://dev.lucee.org/t/las-contributor-license-agreement-cla/181)
 
-[Online Contributors Agreement](https://cla-assistant.io/lucee/Lucee)
+[Online Contributor's Agreement from](https://cla-assistant.io/lucee/Lucee)
 
-When you make your first PR for Lucee, Github Actions will automatically check and prompt you to sign one.
+When you make your first PR for Lucee, Github Actions will automatically check for a CA and prompt you to sign one if required.
 
 ## Making a contributions ##
 
