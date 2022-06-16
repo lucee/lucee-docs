@@ -65,6 +65,12 @@ Instructions for configuring automatic updates for Ubuntu (16.04 LTS) can be fou
 
 [https://help.ubuntu.com/16.04/serverguide/automatic-updates.html](https://help.ubuntu.com/16.04/serverguide/automatic-updates.html)
 
+### Install fontconfig on headless servers ###
+
+The Lucee Image Extension requires `fontconfig` to be installed, as fonts aren't always installed by default on headless servers.
+
+	apt install fontconfig
+
 ### Install Minimal Apache Modules ###
 
 As Apache (or whatever web server you will be using) will most likely be your most prominent and most important public-facing server, it is a good idea to keep it as simple as possible to keep attack vectors at a minimum. Don't install modules that you're not sure you'll use, such as PHP, user-directory support, or CGI-BIN support. If you are not absolutely sure you will need it, don't install it.
