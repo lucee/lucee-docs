@@ -69,7 +69,7 @@ Instructions for configuring automatic updates for Ubuntu (16.04 LTS) can be fou
 
 The Lucee Image Extension requires `fontconfig` to be installed, as fonts aren't always installed by default on headless servers.
 
-	apt install fontconfig
+	$ sudo apt install fontconfig
 
 ### Install Minimal Apache Modules ###
 
