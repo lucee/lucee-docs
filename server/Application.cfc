@@ -15,12 +15,12 @@ component {
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
 	*/
-	this.assetBundleVersion = 35;  // see parent application.cfc
+	this.assetBundleVersion = 36;  // see parent application.cfc
 
-	
+
 
 	public void function onApplicationStart()  {
-		application.assetBundleVersion = 35;
+		application.assetBundleVersion = 36;
 		//_addChangeWatcher();
 	}
 
@@ -56,9 +56,6 @@ component {
 					break;
 				case "/build_docs/html/":
 					new api.build.BuildRunner().build(builderName="html", threads=buildThreads);
-					break;
-				case "/build_docs/dash/":
-					new api.build.BuildRunner().build(builderName="dash", threads=buildThreads);
 					break;
 				case "/build_docs/import/":
 					new api.reference.ReferenceImporter(importThreads).importAll();
@@ -247,7 +244,7 @@ component {
 			href: "https://github.com/lucee/lucee-docs"
 		};
 		opts.all = {
-			title: "Importing references, Exporting Dash and HTML ",
+			title: "Importing references, Exporting HTML ",
 			menu: "Build All"
 		};
 		opts.html = {
@@ -261,10 +258,6 @@ component {
 		opts.dictionary = {
 			title: "Exporting Dictionary",
 			menu: "Export Dictionary"
-		};
-		opts.dash = {
-			title: "Exporting Dash",
-			menu: "Build Dash"
 		};
 		opts.import = {
 			Menu: "Import References",

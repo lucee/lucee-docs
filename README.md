@@ -21,13 +21,13 @@ Ensure that commandbox is installed and that the `box` command is in your path.
 
 ### Building the static documentation output
 
-The purpose of the structure of the documentation is to allow a human readable and editable form of documentation that can be built into multiple output formats. At present, we have an "HTML" builder and a "Dash docs" builder, found at `./builders/html` and `./builders/dash` that will build the documentation website and dash docset respectively. The source of the documentation can be found in the `./docs` folder.
+The purpose of the structure of the documentation is to allow a human readable and editable form of documentation that can be built into  a HTML format via the "HTML" builder, found at `./builders/html`, that will build the documentation website. The source of the documentation can be found in the `./docs` folder.
 
 To run the build, execute the `build.sh` or `build.bat` script found in the root of the project, i.e.
 
 	documentation>./build.sh|bat
 
-Once this has finished, you should find `./builds/html` and `./builds/dash` directories with the website content / dash docsets built.
+Once this has finished, you should find the `./builds/html` directory with the website content built.
 
 ### Running a server locally
 
@@ -47,7 +47,6 @@ When running locally there are the following urls available (these URLs below ar
 * [Lucee documentation home](http://127.0.0.1:4040/)
 * [Build all documentation](http://127.0.0.1:4040/build_docs/all/)
 * [Build html documentation](http://127.0.0.1:4040/build_docs/html/)
-* [Build dash documentation](http://127.0.0.1:4040/build_docs/dash/)
 * [Import any new tags or functions](http://127.0.0.1:4040/build_docs/import/)
 * [View static html docs](http://127.0.0.1:4040/static/) (you need to have built the html documentation first)
 
