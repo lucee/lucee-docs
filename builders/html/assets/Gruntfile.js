@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'default', [ 'concat:base', 'uglify:base', 'sass:base', 'sassUnicode:base', 'cssmin:base', 'copy:base'] );
 
 
-	var _version = 36; // update in Application.cfc(s) too assetBundleVersion
+	var _version = 35; // update in Application.cfc(s) too assetBundleVersion
 
 	// grunt config
 	grunt.initConfig({

@@ -1,7 +1,7 @@
 component {
 	this.name = "luceeDocumentationBuilder-" & Hash( GetCurrentTemplatePath() );
 
-	variables.assetBundleVersion = 36 // must match lucee-docs\builders\html\assets\Gruntfile.js _version
+	variables.assetBundleVersion = 35 // must match lucee-docs\builders\html\assets\Gruntfile.js _version
 
 	this.cwd = GetDirectoryFromPath( GetCurrentTemplatePath() )
 

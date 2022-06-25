@@ -20,7 +20,7 @@ component {
 
 
 	public void function onApplicationStart()  {
-		application.assetBundleVersion = 36;
+		application.assetBundleVersion = 35;
 		//_addChangeWatcher();
 	}
 
