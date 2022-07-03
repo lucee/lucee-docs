@@ -17,12 +17,12 @@ While XAMPP is not meant for production deployments, it can be perfectly used to
 
 ### 2. Benefits of using XAMPP with Lucee ###
 
-XAMPPs main benefit is, that it may help developing typical CFML web applications in parallel with PHP driven applications using the same local development environment with MariaDB. If you are a PHP web application developer using frameworks such as WordPress, Typo3, flat file content managment systems like Kirby or others, you can use the very same XAMPP environment
-to develope Lucee driven CFML web applications. You may also use the same tools such as phpMyAdmin to administer your local MariaDB. 
+XAMPPs main benefit is, that it may help developing typical CFML web applications in parallel with PHP driven applications using the same local development environment with MariaDB. If you are a PHP web application developer using frameworks such as WordPress, Typo3, flat file content management systems like Kirby or others, you can use the very same XAMPP environment
+to develop Lucee driven CFML web applications. You may also use the same tools such as phpMyAdmin to administer your local MariaDB. 
 
 ### 3. Step By Step Instruction Guide ###
 
-This step by step guide shows a basic installation of XAMPP on Windows and Lucee with the "Lucee Windows Installer" that also ships Tomcat coming with a pre-bundled Java Runtime Enviroment. We are **NOT(!!!)** installing Tomcat from XAMPP, but from the Lucee installer. The reason is that it already comes preconfigured to run Lucee with all its necessary libaries. Of course, you may use XAMPPs Tomcat if wished, but then you'd also need to do all manual configuration and setup to run Lucee JVM servlet container in XAMPPs Tomcat.  
+This step by step guide shows a basic installation of XAMPP on Windows and Lucee with the "Lucee Windows Installer" that also ships Tomcat coming with a pre-bundled Java Runtime Environment. We are **NOT(!!!)** installing Tomcat from XAMPP, but from the Lucee installer. The reason is that it already comes preconfigured to run Lucee with all its necessary libaries. Of course, you may use XAMPPs Tomcat if wished, but then you'd also need to do all manual configuration and setup to run Lucee JVM servlet container in XAMPPs Tomcat.  
 
 - Step 1: Make sure you don't have IIS feature installed or IIS running on your Windows, because it will interfere with your Apache2 webserver installation. Also, Lucee installer will try to detect the webserver automatically, so make sure you have no webserver installed and running before the following steps. 
 - Step 2: Download XAMPP for Windows at [Apachefriends.org Downloads](https://www.apachefriends.org/de/download.html)
@@ -35,7 +35,7 @@ This step by step guide shows a basic installation of XAMPP on Windows and Lucee
 - Step 9: Define the installation directory, e.g. `C:\lucee` and click *"next"*
 - Step 10: If the installer asks you to use the existing Java installation, make sure to *"Install the bundled JRE"* and click *"next"*. The reason is that you may have a Java version installed on your OS that isn't supported by Lucee. Installing the bundled JRE ensures you'll be running a dedicated preshipped JRE for your Lucee and Tomcat. 
 - Step 11: Define the password for your *"Lucee Administrator"* and click *"next"*
-- Step 12: Define the memory you want to give your Java Virutal Machine for Lucee and click *"next"*
+- Step 12: Define the memory you want to give your Java Virtual Machine for Lucee and click *"next"*
 - Step 13: Keep the default for Tomcat ports (AJP: *8009*, Shutdown: *8005*, Http: *8888*) and click *"next"*
 - Step 14: Make sure to keep *"Yes, Start Lucee at Boot Time"*. This will install Tomcat/Lucee as a service on your Windows
 - Step 15: Make sure to untick *"Install the IIS connector"*, because you won't be using IIS, but Apache2 webserver that came with XAMPP
@@ -57,7 +57,7 @@ ProxyPassReverse / ajp://127.0.0.1:8009/
 
 - Step 18: Make sure to set as comment any additional proxyPass directives that may conflict with the cfml proxyPass above.
 - Step 19: Try openeing `http://localhost`. You will see a Tomcat `403 Forbidden` Page. That means Apache2 webserver is connected correctly to AJP, but AJP isn't configured with the proper permission in Tomcat. The cause is that Tomcat comes with a "secretRequired" attribute by default.
-- Step 20: Make sure that your XAMPP comes with an Apache2 server that already supports secret for AJP. Accoring to their docs that is from 2.4.42 and later (see [mod_proxy_ajp.html documentation](https://httpd.apache.org/docs/2.4/mod/mod_proxy_ajp.html))
+- Step 20: Make sure that your XAMPP comes with an Apache2 server that already supports secret for AJP. According to their docs that is from 2.4.42 and later (see [mod_proxy_ajp.html documentation](https://httpd.apache.org/docs/2.4/mod/mod_proxy_ajp.html))
 You can find you installed Apache2 Version by reading `C:\xampp\readme_en.txt`. By time of writing of this setup guide, the Apache2 version bundled with XAMPP is Apache 2.4.53, so we will configure the secret in the following steps.
 - Step 21: Open the apache AJP config file at `C:\xampp\apache\conf\extra\httpd-ajp.conf` and add the secret (we will use the string `MySecretPassword` in this example) to your active proxyPass directive like so:
 
