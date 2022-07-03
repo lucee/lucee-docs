@@ -1,9 +1,9 @@
 ---
-title: Installing Lucee And XAMPP for Apache2 on Windows
+title: Installing Lucee And XAMPP (Apache2 & MariaDB) on Windows
 id: running-lucee-installing-xampp-apache2-and-mariadb-on-windows
 ---
 
-## Installing Lucee & XAMPP for Apache2 on Windows ##
+## Installing Lucee And XAMPP (Apache2 & MariaDB) on Windows ##
 
 This documentation shows how to install and configure Lucee Server With XAMPP's Apache2 webserver on a Windows machine, making all benefits of develolping with XAMPP available to Lucee cfml developers.
 <br>
