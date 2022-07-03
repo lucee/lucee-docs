@@ -17,7 +17,7 @@ While XAMPP is not meant for production deployments, it can be perfectly used to
 
 ### 2. Benefits of using XAMPP with Lucee ###
 
-XAMPPs main benefit is, that it may help developing typical CFML web applications in parallel with PHP driven applications using the same local development environment with MariaDB. If you are a PHP web application developer using frameworks such as WordPress, Typo3, Kirby or others, you can use the very same XAMPP environment
+XAMPPs main benefit is, that it may help developing typical CFML web applications in parallel with PHP driven applications using the same local development environment with MariaDB. If you are a PHP web application developer using frameworks such as WordPress, Typo3, flat file content managment systems like Kirby or others, you can use the very same XAMPP environment
 to develope Lucee driven CFML web applications. You may also use the same tools such as phpMyAdmin to administer your local MariaDB. 
 
 ### 3. Step By Step Instruction Guide ###
