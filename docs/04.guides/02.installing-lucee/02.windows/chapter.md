@@ -20,6 +20,7 @@ need to delve into the following sections if you are using one of the above appr
 * [[running-lucee-installing-the-boncode-connector-and-mod_cfml]]
 * [[running-lucee-installing-oracle-java-on-windows]]
 * [[running-lucee-installing-apache-tomcat-on-windows]]
+* [[running-lucee-installing-xampp-apache2-and-mariadb-on-windows]]
 * [[running-lucee-configuring-tomcat-as-a-windows-service]]
 * [[running-lucee-starting-tomcat-and-verifying-the-installation-on-windows]]
 * [[running-lucee-installing-and-configuring-lucee-jar-file-on-windows]]
