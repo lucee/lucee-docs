@@ -108,6 +108,8 @@ The RAM file system has much faster access than a local file system.
 
 Each Web Context has it's own independent RAM Cache, it cannot be shared between multiple contexts.
 
+**When the available memory is low, files maybe (somewhat randomly) garbage collected (CG-ed) by the JVM from the RAM file system, increasing the memory assigned to the JVM will help avoid this**
+
 ```lucee
 <cfscript>
 sct.ram = "ram://";
