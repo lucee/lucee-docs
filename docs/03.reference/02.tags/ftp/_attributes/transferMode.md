@@ -1,1 +1,3 @@
-ASCII, binary or auto mode
+- ASCII
+- binary 
+- auto (default)
