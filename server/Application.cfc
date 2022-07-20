@@ -15,7 +15,7 @@ component {
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
 	*/
-	this.assetBundleVersion = 36;  // see parent application.cfc
+	this.assetBundleVersion = 35;  // see parent application.cfc
 
 
 
