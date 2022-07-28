@@ -72,6 +72,8 @@ This script will compile the extension using Ant, start a lightweight js-223 ins
 
 **Initially this won't actually run any tests**, they will all be run but bypassed, as the S3 tests depend on a S3 service being configured for the test suite.
 
+**NOTE: 6.0.0.114 is just an example SNAPSHOT / version number**, best you pick the latest snapshot to develop against, see [Loader/pom/xml](https://github.com/lucee/Lucee/blob/6.0/loader/pom.xml) in your checked out source tree for the current version, as tests are tightly coupled with the source.
+
 ## Configuring Test Services
 
 To configure the Lucee test suite with local or remote services, you can either set environment variables, or you can create a `c:\work\lucee-env.json` file containing all the enviromment variables you want to configure and simply set `LUCEE_BUILD_ENV='c:\work\lucee-env.json'`.
