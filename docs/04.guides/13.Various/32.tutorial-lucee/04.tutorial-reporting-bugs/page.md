@@ -1,5 +1,5 @@
 ---
-title: Lucee Support - How to report bugs/problems and get help with problems
+title: Lucee Support - How to report bugs/problems and get help
 id: tutorial-reporting-bugs
 menuTitle: How to report bugs
 ---
@@ -56,7 +56,7 @@ If there's a Lucee setting involved or database tables necessary to create it, p
 
 Reduced [Trycf.com examples](https://trycf.com) are great, a reproducible bug is a solvable bug.
 
-If you are familiar with TestBox, provide a test.
+If you are familiar with TestBox, provide a [testcase](https://github.com/lucee/Lucee/tree/6.0/test).
 
 ### Provide workaround information ( if any ) ###
 

@@ -68,9 +68,13 @@ set testFilter=
 ant -buildfile="C:\work\script-runner" -DluceeVersion="6.0.0.114-SNAPSHOT" -Dwebroot="C:\work\lucee6\test" -Dexecute="/bootstrap-tests.cfm" -DextensionDir="C:\work\lucee-extensions\extension-s3\dist"
 ```
 
-This script will compile the extension using Ant, start a lightweight js-223 instance of Lucee 6.0.0.114, installs the built extension and then runs any tests found with [labels="s3"](https://github.com/lucee/Lucee/blob/6.0/test/extension/S3.cfc#L19) in the Lucee 6.0 testsuite. in the Lucee 6.0 testsuite.
+This script will compile the extension using Ant, start a lightweight JSR-223 instance of Lucee 6.0.0.114, installs the built extension and then runs any tests found with [labels="s3"](https://github.com/lucee/Lucee/blob/6.0/test/extension/S3.cfc#L19) in the Lucee 6.0 testsuite. in the Lucee 6.0 testsuite.
 
 **Initially this won't actually run any tests**, they will all be run but bypassed, as the S3 tests depend on a S3 service being configured for the test suite.
+
+**NOTE: 6.0.0.114 is just an example SNAPSHOT / version number**, best you pick the latest snapshot to develop against, see [Loader/pom/xml](https://github.com/lucee/Lucee/blob/6.0/loader/pom.xml) in your checked out source tree for the current version, as tests are tightly coupled with the source.
+
+The Lucee test suite `/bootstrap-tests.cfm` is also available with 5.3, but without all the nice build args (-DtestFilter, -DtestLabels, etc) which the 6.0 build has, see [LDEV-4114](https://luceeserver.atlassian.net/browse/LDEV-4114)
 
 ## Configuring Test Services
 

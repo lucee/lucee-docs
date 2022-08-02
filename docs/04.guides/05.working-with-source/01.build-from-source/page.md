@@ -90,12 +90,13 @@ Lucee 6.0 adds some extra options to the build process (they can be combined)
 
 If you are using VS Code and the cflint plugin, make sure you exclude the `temp/**` and `loader/**` folders, otherwise cflint may go bananas (maxing out your CPU and slowing everything else down) during the build process.
 
-**testFilter** allows you to pass in test filter(s) (filters on path), so you don't have to run the full test suite whilst hacking.
+**testFilter** allows you to pass in test filter(s) i.e filtering by filename, so you don't have to run the full test suite whilst hacking.
 
     ant -DtestFilter="image"
     ant -DtestFilter="mysql,oracle"
+    ant -DtestFilter="ldev1234"
 
-**testLabels** allows you to filter tests by their assigned labels (only supported per cfc/bundle, not for individual methods).
+**testLabels** allows you to filter tests by their assigned labels, i.e. `component labels="s3" {}` (only supported per cfc/bundle, not for individual methods).
 
     ant -DtestLabels="s3"
     ant -DtestFilter="mysql,orm"
@@ -112,11 +113,13 @@ If you are using VS Code and the cflint plugin, make sure you exclude the `temp/
 
 	ant -DtestFilter="zip" -DtestAdditional="C:\work\lucee-extensions\extension-compress\tests"
 
-**testDebug** outputs debug information about tests which don't compile and why they are filtered out
+**testDebug** outputs debug information about tests which don't compile and why they are filtered out, plus full stacktraces. 
+
+Any invalid tests (syntax errors etc) are skipped by default
 
 	ant -DtestDebug="true"
 
-**testSkip** allows running tests which are flagged skip=true or prefixed with an _ (which also disables a test)
+**testSkip** allows running tests which are flagged `skip=true` or prefixed with an `_` (which also disables a test)
 
 	ant -DtestSkip="false" -DtestFilter="_" -DtestDebug="true"
 
