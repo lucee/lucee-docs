@@ -8,4 +8,4 @@ Errors include
 - unable to resolve hostname (i.e. DNS)
 - TLS/SSL problems
 
-The default is NO.
+The default is YES.
