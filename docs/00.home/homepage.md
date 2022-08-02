@@ -8,9 +8,17 @@ Welcome to the Official [Lucee Server](https://lucee.org) Documentation.
 
 ---
 
+Lucee is a [high performance](https://community.ortussolutions.com/t/how-does-cfml-really-perform-compared-to-other-languages/9325), [open source](https://github.com/lucee/Lucee), ColdFusion / cfml server engine, written in Java.
+
+Our mailing list / forum is over at [https://dev.lucee.org/](https://dev.lucee.org/)
+
 The documentation here aims to provide a thorough reference and guide to all things to do with the Lucee Server. This includes reference material on both [[functions]] and [[tags]] as well as more in-depth articles in the [[guides]] section.
 
 Our documentation is an open source and community driven effort. It is also a constant work in progress and we always welcome feedback, improvements and suggestions. You can find out more about contributing in the [[about]] section.
+
+## Lucee 6.0
+
+[Lucee 6](https://dev.lucee.org/tag/lucee-6) is the next major release of Lucee, currently in [development](https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/10?sprint=58) . Highlights include, reduced size, faster startup, single context mode, json based configuration and much more. 
 
 ## Lucee 5.3
 
