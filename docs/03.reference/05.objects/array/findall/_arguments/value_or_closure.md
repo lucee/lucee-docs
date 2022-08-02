@@ -1,1 +1,4 @@
-The value to find or a closure/function that gets every value of the array as input and returns true if the given value is right.
+- The value to find 
+- A closure/function that gets every value of the array as input and returns true if the given value is right, with with the following signature:
+
+`boolean function(el){}`
