@@ -8,7 +8,7 @@ Welcome to the Official [Lucee Server](https://lucee.org) Documentation.
 
 ---
 
-Lucee is a [high performance](https://community.ortussolutions.com/t/how-does-cfml-really-perform-compared-to-other-languages/9325), [open source](https://github.com/lucee/Lucee), ColdFusion / cfml server engine, written in Java.
+Lucee is a [high performance](https://community.ortussolutions.com/t/how-does-cfml-really-perform-compared-to-other-languages/9325), [open source](https://github.com/lucee/Lucee), ColdFusion / CFML server engine, written in Java.
 
 The documentation here aims to provide a thorough reference and guide to all things to do with the Lucee Server. This includes reference material on both [[functions]] and [[tags]] as well as more in-depth articles in the [[guides]] section.
 
