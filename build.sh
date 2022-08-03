@@ -3,6 +3,9 @@
 cd `dirname $0`
 CWD="`pwd`"
 
+# add redis extension
+export LUCEE_EXTENSIONS="60772C12-F179-D555-8E2CD2B4F7428718;version=3.0.0.44-RC"
+
 echo "Starting Lucee server with which to build the docs..."
 box server stop luceedocsbuilder
 box start \
