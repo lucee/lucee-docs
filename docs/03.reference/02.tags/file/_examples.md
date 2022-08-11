@@ -1,5 +1,12 @@
 ### Tag examples
 
+### File Upload
+
+```lucee
+<cffile action="upload" destination="destination-directory" fileField="form.fileData" nameconflict="overwrite">
+
+```
+
 ### File Write
 
 ```lucee
@@ -40,6 +47,13 @@
 
 ### Script Examples
 
+### File Upload
+
+```luceescript
+result = fileupload(getTempDirectory(),"form.fileData"," ","makeunique");
+
+```
+
 ### File Write
 
 ```luceescript
@@ -49,7 +63,7 @@ filewrite(file="#expandPath("./myFile.txt")#" data="Content that you need to wri
 ### File Read
 
 ```luceescript
-fileread(file="#expandPath("./myFile.txt")#");
+result = fileread(file="#expandPath("./myFile.txt")#");
 ```
 
 ### File Rename

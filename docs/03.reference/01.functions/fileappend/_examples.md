@@ -1,3 +1,4 @@
-```luceescript+trycf
-fileAppend("path/to/my/file.md", "new content")
+```luceescript
+fileAppend("path/to/file", "new content to append")
+
 ```
