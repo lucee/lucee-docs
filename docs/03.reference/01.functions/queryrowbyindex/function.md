@@ -7,5 +7,3 @@ related:
 categories:
 - query
 ---
-
-Since 5.3.4.23
