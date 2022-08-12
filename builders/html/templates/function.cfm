@@ -3,7 +3,6 @@
 
 <cfset local.fn = args.page />
 <cfset local.argumentsHaveDefaultValues = local.fn.argumentsHaveDefaultValues() />
-
 <cfoutput>
 	#getEditLink(path=local.fn.getSourceFile(), edit=args.edit)#
 	#markdownToHtml( local.fn.getBody() )#
@@ -97,12 +96,16 @@
 									<em>* #local.arg.status# *</em>
 								</cfif>
 								#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
+								<cfif structKeyExists(local.arg, "introduced") and len(local.arg.introduced) gt 0>
+									<p><strong>Introduced:</strong> #local.arg.introduced#</p>
+								</cfif>
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
  								<td>
  									#markdownToHtml( local.arg.default ?: "" )#
  								</td>
-							 </cfif>
+							</cfif>
+							
 						</tr>
 					</cfloop>
 				</tbody>
