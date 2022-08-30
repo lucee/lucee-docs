@@ -49,6 +49,7 @@ component accessors=true {
 		parsedTag.minimumAttributes    = NullValue(); // ???
 		parsedTag.handleException      = NullValue(); // ???
 		parsedTag.allowRemovingLiteral = NullValue(); // ???
+		parsedTag.introduced           = coreDefinition.introduced ?: "";
 
 		parsedTag.script = StructNew( "linked" );
 		parsedTag.script.type                   = coreDefinition.script.type       ?: NullValue();
