@@ -8,3 +8,5 @@ server-luceedocsbuilder.json
 .commandbox
 server/performance.log
 /commandbox-luceedocslocalserver
+
+*-workspace

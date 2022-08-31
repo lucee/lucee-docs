@@ -19,10 +19,12 @@ heapSize=2048;
 
 echo "Local Lucee Server Started!";
 echo "Importing reference docs from previously undocumented functions and tags..."
-curl --no-progress-meter http://localhost:8765/import.cfm?textlogs=true
+# curl --no-progress-meter http://localhost:8765/import.cfm?textlogs=true
+curl http://localhost:8765/import.cfm?textlogs=true
 
 echo "Building documentation (please be patient, it may take some time)..."
-curl --no-progress-meter http://localhost:8765/build.cfm?textlogs=true
+#curl --no-progress-meter http://localhost:8765/build.cfm?textlogs=true
+curl http://localhost:8765/build.cfm?textlogs=true
 
 echo "Stopping Lucee5 server..."
 box server stop luceedocsbuilder
@@ -44,13 +46,6 @@ if [ "$DOCS_BRANCH" = "refs/heads/master" ] && [ "$DOCS_EVENT" = "push" ] ; then
   zip -q -r lucee-docs.zip *
   cd ../../
   echo "Zipped."
-  echo "Preparing dash artifacts..."
-  cp -r builds/html builds/artifacts
-  mkdir builds/artifacts/dash
-  cp builds/dash/lucee.xml builds/artifacts/dash/
-  cd builds/dash
-  tar -czf ../../builds/artifacts/dash/lucee.tgz lucee.docset
-  cd ../../
   echo "Prepared for s3 upload."
   # this is now done in a github action step
   #echo "Syncing with S3..."
@@ -60,5 +55,3 @@ fi
 
 #echo "Ping search engines with sitemaps"
 #curl https://google.com/ping?sitemap=https://docs.lucee.org/sitemap.xml
-
-
