@@ -68,6 +68,9 @@
 									<em>* #local.attrib.status# *</em>
 								</cfif>
 								#showOriginalDescription(props=local.attrib, edit=args.edit, markdownToHtml=markdownToHtml)#
+								<cfif structKeyExists(local.attrib, "introduced") and len(local.attrib.introduced) gt 0>
+									<p><strong>Introduced:</strong> #local.attrib.introduced#</p>
+								</cfif>
 							</td>
  							<cfif local.attributesHaveDefaultValues>
  								<td>

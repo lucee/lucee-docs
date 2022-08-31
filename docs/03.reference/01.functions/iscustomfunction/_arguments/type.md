@@ -1,1 +1,7 @@
-limit to a specific type (closure,lambda,udf), if not set all custom function types are accepted.
+Limit to a specific type:
+
+- closure
+- lambda
+- udf
+
+If not specified, all custom function types are accepted.

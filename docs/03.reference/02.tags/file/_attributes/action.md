@@ -12,3 +12,5 @@ Type of file manipulation that the tag performs.
 - upload [[function-fileupload]]
 - uploadall [[function-fileuploadall]]
 - touch [[function-filetouch]]
+ 
+**Note:** action upload return the [[file-upload-result| status of the upload operation ]]  as a struct after the file upload

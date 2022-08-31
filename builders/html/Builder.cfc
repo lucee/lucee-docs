@@ -248,6 +248,8 @@ component {
 				return "aToZIndex"; // todo, diff layouts depending on arguments.page.getListingStyle()
 			case "implementationStatus":
 				return "implementationStatus";
+			case "changeLog":
+				return "changelog";
 			default:
 				return "page";
 		}

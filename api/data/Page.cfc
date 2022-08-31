@@ -71,6 +71,7 @@ component accessors=true {
 			case "chapter":
 			case "category":
 			case "function":
+			case "changelog":
 			case "listing":
 			case "_object":
 			case "_method":

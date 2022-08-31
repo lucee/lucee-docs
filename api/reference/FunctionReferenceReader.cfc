@@ -65,7 +65,7 @@ component accessors=true {
 			convertedArg.default     = arg.defaultValue ?: NullValue();
 			convertedArg.alias       = arg.alias        ?: "";
 			convertedArg.status		 = arg.status		?: NullValue();
-
+			convertedArg.introduced	 = arg.introduced		?: NullValue();
 			if ( arg.status neq "hidden" )
 				parsedFunction.arguments.append( convertedArg );
 		}

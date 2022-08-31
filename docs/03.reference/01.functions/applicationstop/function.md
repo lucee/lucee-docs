@@ -3,6 +3,7 @@ title: ApplicationStop
 id: function-applicationstop
 related:
 - tag-application
+- function-sessioninvalidate
 categories:
 - application
 ---
