@@ -7,17 +7,11 @@ id: updating-lucee-update
 
 To update an existing Lucee Installation go to "Services/Update" in your Lucee Server Administrator.
 
-If a patch is available, Lucee will display a box detailing the changes made in this and all intermediate patches. Simply click the "execute update" button to patch your current version.
+If a patch is available, Lucee will display a box detailing the changes made in this and all intermediate patches. Simply click the "execute" button to patch your current version.
 
-![update.png](https://bitbucket.org/repo/rX87Rq/images/1091096189-update.png)
+You can choose from Releases, Pre Releases or Snapshots (Bleeding Edge). You can even define a custom update provider for your builds!
 
-## Update Providers ##
-
-Lucee comes with different update providers for stable, preview or development (Bleeding Edge) releases. You can even define a custom update provider for your builds!
-
-Simply choose one of the listed update providers or add your own. Lucee will then list the patches available from that update provider.
-
-![updateprovider.png](https://bitbucket.org/repo/rX87Rq/images/3132184673-updateprovider.png)
+![update.png](/images/04.guides/03.updating-lucee/services-updates.png)
 
 ## Updating the first release (4.5.0.042) ##
 
