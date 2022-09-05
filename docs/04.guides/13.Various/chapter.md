@@ -23,6 +23,8 @@ This is the temporary location where all the new links will be added.
 
 [[contributing-contributors-agreement]]
 
+[[custom-dateTime-format-locale-files]]
+
 [[event-gateways]]
 
 [[deploy-with-capistrano]]

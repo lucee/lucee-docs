@@ -1,6 +1,6 @@
 ---
 title: Custom Date and Time format for a Locale using .df files
-id: custom dateTime format locale files
+id: custom-dateTime-format-locale-files
 related:
 - function-lsparsedatetime
 categories:
