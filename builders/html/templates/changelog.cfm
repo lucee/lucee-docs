@@ -77,7 +77,7 @@
 </cfloop>
 
 <cfquery name="q" dbtype="query">
-	select * from q order by sort
+	select * from q order by sort desc
 </cfquery>
 
 <cfoutput>
