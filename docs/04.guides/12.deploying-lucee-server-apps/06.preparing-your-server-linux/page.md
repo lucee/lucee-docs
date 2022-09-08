@@ -19,7 +19,7 @@ Once the initial minimal firewall is configured by the installation process, you
 
 	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 22 -s 192.168.254.0/24 -j ACCEPT
 
-Note the line above, the "dport" or "Destination Port" is port 22, which is the default SSH port. Next, note the IP range we used as an example here, which is 192.168.254.0 – a very common internal network range. Please adjust the allowed IP ranges as necessary for your network.
+Note the line above, the "dport" or "Destination Port" is port 22, which is the default SSH port. Next, note the IP range we used as an example here, which is 192.168.254.0 - a very common internal network range. Please adjust the allowed IP ranges as necessary for your network.
 
 Once you've added or edited the line for the SSH port 22, don't forget to restart the iptables firewall with the following command (Again, using CentOS 6 as an example):
 
