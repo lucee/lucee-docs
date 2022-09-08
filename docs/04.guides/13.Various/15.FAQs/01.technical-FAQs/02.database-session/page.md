@@ -3,6 +3,7 @@ title: Using database for session data storage
 id: database-for-session
 categories:
 - session
+description: The why and how to use a database for session data storage
 ---
 
 Why you want to use database for session data storage:
