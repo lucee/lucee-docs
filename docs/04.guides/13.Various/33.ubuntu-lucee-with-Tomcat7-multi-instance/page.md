@@ -130,7 +130,7 @@ The -Xms and -Xmx options controls the memory initial and maximum of the tomcat 
 
 ### Tomcat multi-instance ###
 
-Multi-instance tomcat it just various tomcat servers with it’s own configuration and each listen in different ports. In front of this tomcat’s we will put an Apache web server that will route the users requests to the tomcats.
+Multi-instance tomcat it just various tomcat servers with their own configuration. Each tomcat server will listen on different ports. In front of these tomcat instances we will put an Apache web server that will route the users requests to them.
 
 We will install the instances in /var/lib/tomcat7/instanceX/ directories:
 
