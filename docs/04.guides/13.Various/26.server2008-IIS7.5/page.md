@@ -19,7 +19,7 @@ Select Application Pools under the main node of your site. You'll notice there a
 
 Click Set Application Pool Defaults from the right column. Here we see that Plesk has set Enable 32 Bit Applications to True. We need to set this to false.
 
-It's important here to have a clear understanding as to what Enable means. For IIS 7.5, Enable means Only Allow. So If you have this set in Application Pool Defaults IIS will create all new AppPools with 32 bit enabled preventing 64 bit apps from running. When trying to run a 64 bit app with 32 bit enabled, you will get an error: HTTP Error 500.0 – Internal Server Error Calling LoadLibraryEx on ISAPI filter "C:\lucee\connector\isapi_redirect-1.2.31.dll" failed.
+It's important here to have a clear understanding as to what Enable means. For IIS 7.5, Enable means Only Allow. So If you have this set in Application Pool Defaults IIS will create all new AppPools with 32 bit enabled preventing 64 bit apps from running. When trying to run a 64 bit app with 32 bit enabled, you will get an error: HTTP Error 500.0 - Internal Server Error Calling LoadLibraryEx on ISAPI filter "C:\lucee\connector\isapi_redirect-1.2.31.dll" failed.
 
 The other very confusing thing is that if you change the default bit-ness in Application Pool Defaults to 32, IIS overrides individually set AppPool settings and breaks all 64 bit websites. In order to have a mixed 32/64 bit environment you MUST have Application Pool > Enabled 32 bit Application set to FALSE. To allow an individual site to run 32 bit apps, you need to click on the appPool you want to change and click Advanced Settings from the right column. Change the drop down from False (the default) to True
 
