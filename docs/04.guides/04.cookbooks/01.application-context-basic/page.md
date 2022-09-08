@@ -5,6 +5,7 @@ related:
 - tag-application
 categories:
 - application
+description: How to create and configure the Application.cfc
 ---
 
 # Application.cfc #

@@ -7,6 +7,7 @@ categories:
 - application
 - cache
 menuTitle: Adding Caches
+description: How to add per Application caches via Application.cfc
 ---
 
 # Adding Caches via Application.cfc

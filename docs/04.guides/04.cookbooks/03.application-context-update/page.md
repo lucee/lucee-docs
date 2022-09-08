@@ -6,6 +6,7 @@ related:
 categories:
 - application
 menuTitle: Application Context
+description: How to update your Application settings, after they have been defined in Application.cfc
 ---
 
 ## Update Application Context ##
