@@ -8,10 +8,10 @@ related:
 categories:
 - cache
 - server
-description: Flag all the cfml code (cfm, cfcs) in the cache of compiled code (aka the PagePool) to be checked once for any changes.
+description: Flag all the cfml code (cfm, cfcs) in the cache of compiled code (aka the Page Pool) to be checked once for any changes.
 ---
 
-Flag all the cfml code (cfm, cfcs) in the cache of compiled code (aka the PagePool) to be checked once for any changes.
+Flag all the cfml code (cfm, cfcs) in the cache of compiled code (aka the Page Pool) to be checked once for any changes.
 
 To be used when Inspect Templates is set to Never (Server/Web Administrator: Settings -> Performance/Caching)
 

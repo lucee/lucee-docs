@@ -30,7 +30,7 @@ Installed extensions, with an update available have a red overlay.
 
 On the Extension detail page, you can upgrade or downgrade the version or uninstall it.
 
-With JDBC drivers, choose the version you require, the version numbers are based on the undelying JDBC Library.
+With JDBC drivers, choose the version you require, the version numbers are based on the underlying JDBC Library.
 
 By default Lucee allows installing extensions from the following sites
 

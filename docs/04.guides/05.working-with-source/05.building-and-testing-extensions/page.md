@@ -41,7 +41,7 @@ Most Lucee extensions have already been setup with a GitHub Action which automat
 
 If you find an extension without a GitHub Action configured, it's pretty easy to copy it over from another Lucee Extension [.github/workflows/main.yml](https://github.com/lucee/extension-s3/blob/master/.github/workflows/main.yml) and configure it for the specific extension.
 
-These Lucee Extension GitHub Actions have the relevant services (Redis, Oracle, MySQL etc) all configured and automatically run a subset of the full Lucee 6.0 testsuite, using test labels to run only the relevant tests using Lucee Script Runner.
+These Lucee Extension GitHub Actions have the relevant services (Redis, Oracle, MySQL etc) all configured and automatically run a subset of the full Lucee 6.0 test suite, using test labels to run only the relevant tests using Lucee Script Runner.
 
 Most of the major services are included with the [Lucee Core build GitHub Action](https://github.com/lucee/Lucee/blob/6.0/.github/workflows/main.yml), but some heavier services like Oracle are only run for the extension's [GitHub Action](https://github.com/lucee/extension-jdbc-oracle/blob/master/.github/workflows/main.yml), due to time and memory constraints on the main build process.
 
@@ -68,7 +68,7 @@ set testFilter=
 ant -buildfile="C:\work\script-runner" -DluceeVersion="6.0.0.114-SNAPSHOT" -Dwebroot="C:\work\lucee6\test" -Dexecute="/bootstrap-tests.cfm" -DextensionDir="C:\work\lucee-extensions\extension-s3\dist"
 ```
 
-This script will compile the extension using Ant, start a lightweight JSR-223 instance of Lucee 6.0.0.114, installs the built extension and then runs any tests found with [labels="s3"](https://github.com/lucee/Lucee/blob/6.0/test/extension/S3.cfc#L19) in the Lucee 6.0 testsuite. in the Lucee 6.0 testsuite.
+This script will compile the extension using Ant, start a lightweight JSR-223 instance of Lucee 6.0.0.114, installs the built extension and then runs any tests found with [labels="s3"](https://github.com/lucee/Lucee/blob/6.0/test/extension/S3.cfc#L19) in the Lucee 6.0 test suite. in the Lucee 6.0 test suite.
 
 **Initially this won't actually run any tests**, they will all be run but bypassed, as the S3 tests depend on a S3 service being configured for the test suite.
 
