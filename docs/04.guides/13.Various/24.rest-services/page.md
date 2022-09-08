@@ -142,7 +142,7 @@ http://localhost:8888/rest/metrics/system/timezone/utcHourOffset
 ### 5. Configuring your fronted web server to serve Lucee's REST services (Internet Information Services (IIS) and Apache2 ) ###
 
 In the preceding steps we have added a REST service mapping named "metrics" serving REST resources with a CFC component
-named `System.cfc` to Lucee. While the resources are accessible on Lucees default port 8888 you might not be able to access the services with a frontend webserver through port 80 or 443. This is because IIS, Apache2 or whatever server you are using in front of Lucee may need additional configuration to pass the REST requests `rest/*` to Tomcat/Lucee. 
+named `System.cfc` to Lucee. While the resources are accessible on Lucee's default port 8888 you might not be able to access the services with a frontend webserver through port 80 or 443. This is because IIS, Apache2 or whatever server you are using in front of Lucee may need additional configuration to pass the REST requests `rest/*` to Tomcat/Lucee. 
 
 To intercept requests for `rest/*` paths and direct them to Tomcat/Lucee, follow the instructions below:
 <br>
