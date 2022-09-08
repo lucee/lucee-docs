@@ -17,7 +17,7 @@
 		querySetCell(q,"ref", arguments.ref);
 		querySetCell(q,"name", arguments.name);
 		querySetCell(q,"introduced", arguments.introduced);
-		
+
 		var sort=[];
 		var intro = [];
 		loop list="#arguments.introduced#" delimiters="." item="local.v" {
@@ -49,7 +49,7 @@
 				<cfloop array="#tagAttr#" item="attr">
 					<cfif len(attr.introduced?:"")>
 						<cfscript>
-							addChangeLog(q, value.page, key, value.page.getName(), attr.introduced, 
+							addChangeLog(q, value.page, key, value.page.getName(), attr.introduced,
 								'&lt;cf#value.page.getName()# #attr.name#="#attr.type#"&gt;'
 							);
 						</cfscript>
@@ -59,7 +59,7 @@
 		<cfelseif value.page.getPageType() eq "function">
 			<!--- check arguments --->
 			<cfset funcArg = value.page.getArguments()>
-			
+
 			<cfif isArray(funcArg)>
 				<cfset newArgs = []>
 				<cfloop array="#funcArg#" item="arg">
@@ -81,7 +81,7 @@
 </cfquery>
 
 <cfoutput>
-	
+
 	#getEditLink(path=local.changeLog.getSourceFile(), edit=args.edit)#
 	#markdownToHtml( local.changeLog.getBody() )#
 </cfoutput>
@@ -95,9 +95,9 @@
 			<li>
 				<a href="#q.ref#.html">
 				<cfif len(q.description)>
-					#q.description#	
+					#q.description#
 				<cfelse>
-					#q.name#	
+					#htmlEditFormat(q.name)#
 				</cfif>
 				</a>
 			</li>

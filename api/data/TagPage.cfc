@@ -13,6 +13,7 @@ component accessors=true extends="Page" {
 	property name="examples"             type="string";
 	property name="usageNotes"           type="string";
 	property name="srcExtension"         type="struct";
+	property name="introduced"           type="string";
 
 	public string function getUsageSignature() {
 		var newLine           = Chr(10);
