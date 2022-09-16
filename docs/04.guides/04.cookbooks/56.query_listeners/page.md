@@ -28,6 +28,29 @@ They can be configured:
 
 A Query Listener is a component with two methods, `before()` and `after()`. You can have other methods in your listener component, but Lucee will only call these two.
 
+The Query Listener can be a struct(that has a key before/after with closure as value)/ closure (that calls after the query execution is completed)
+
+```luceescript
+this.query.listener = {
+	before = function (caller,args) {
+		systemOutput(arguments,1,1);
+		dump(arguments);
+		return args;
+	}
+	,after = function () {
+		systemOutput(arguments,1,1);
+		dump(arguments);
+	}
+};
+
+OR
+
+this.query.listener = function () {
+	systemOutput(arguments, 1, 1);
+	dump(arguments);
+};
+```
+
 ## Examples
 
 i.e. `QueryListener.cfc`
