@@ -22,7 +22,6 @@ It can be configured:
 - application wide, via [[tag-application]] i.e. `Application.cfc`
 - per [[tag-mail]] tag (listeners defined in listener attribute overwrites any mail listener defined in the [[tag-application]])
 
-
 we can also change some data in the listener, by returning a struct containing the following keys from the before function: from, to, bcc, replyTo, failTo, subject (ex: <code>{from:"modified@lucee.org", to:"modifiedto@lucee.org"}</code>)
 
 A Mail Listener is a component with two methods, `before()` and `after()`. You can have other methods in your listener component, but Lucee will only call these two.
@@ -94,6 +93,6 @@ To add a Mail listener to an individual [[tag-mail]] tag (listeners defined in t
 
 ### Dump of arguments to the Mail Listener after() method (cfmail)
 
-the from and to mail ids were changed to the after function as returning the struct containing the from and to keys from the before function
+The from and to mail ids were changed to the after function as returning the struct containing the from and to keys from the before function
 
 <img alt="Mail Listener After()" src="/assets/images/listeners/MailListener_after_arguments.png">
