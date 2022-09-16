@@ -6,12 +6,14 @@ related:
 - tag-mail
 categories:
 - application
-description: A Mail Listener is same like [[cookbook-query-listeners]] which can be configured to triggered before and after a sending mails.
+description: Mail Listeners can be configured to fire before and after sending an email.
 ---
 
 # Mail Listeners in Lucee
 
-A Mail Listeners is same like [[cookbook-query-listeners]] which can be configured to triggered before and after a sending mails (only for mail sending as async).
+Mail Listeners can be configured to triggered before and after sending mails (only for mail sending as async).
+
+These follow the same pattern as [[cookbook-query-listeners]]
 
 This is available as an experimental feature in Lucee 5.3 and is officially supported in Lucee 6.0.
 
@@ -22,7 +24,15 @@ It can be configured:
 - application wide, via [[tag-application]] i.e. `Application.cfc`
 - per [[tag-mail]] tag (listeners defined in listener attribute overwrites any mail listener defined in the [[tag-application]])
 
-we can also change some data in the listener, by returning a struct containing the following keys from the before function: from, to, bcc, replyTo, failTo, subject (ex: <code>{from:"modified@lucee.org", to:"modifiedto@lucee.org"}</code>)
+You can change the arguments (content) of an email in via the `before` listener method, by returning a modified arguments struct, which has the following keys:
+
+- from 
+- to, 
+- bcc 
+- replyTo 
+- failTo 
+- subject (ex: <code>{from:"modified@lucee.org" 
+- to:"modifiedto@lucee.org"}</code>)
 
 A Mail Listener is a component with two methods, `before()` and `after()`. You can have other methods in your listener component, but Lucee will only call these two.
 
@@ -77,7 +87,7 @@ To add an Application wide Mail listener, add the following to your `Application
 this.mail.listener = new MailListener();
 ```
 
-To add a Mail listener to an individual [[tag-mail]] tag (listeners defined in the listener attribute overwrites any mail listener defined in the application.cfc/cfapplication)
+To add a Mail listener to an individual [[tag-mail]] tag (listeners defined in the listener attribute overwrites any mail listener defined in the [[tag-application]]
 
 ```luceescript
 <cfset listener = new MailListener()>
@@ -93,6 +103,6 @@ To add a Mail listener to an individual [[tag-mail]] tag (listeners defined in t
 
 ### Dump of arguments to the Mail Listener after() method (cfmail)
 
-The from and to mail ids were changed to the after function as returning the struct containing the from and to keys from the before function
+You can see the `from` and `to` mail ids were changed in the arguments to the `after` function, the args struct contains the modified `from` and `to` keys from the `before` function
 
 <img alt="Mail Listener After()" src="/assets/images/listeners/MailListener_after_arguments.png">
