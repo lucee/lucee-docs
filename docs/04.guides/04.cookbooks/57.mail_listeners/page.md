@@ -36,7 +36,7 @@ You can change the arguments (content) of an email in via the `before` listener 
 
 A Mail Listener is a component with two methods, `before()` and `after()`. You can have other methods in your listener component, but Lucee will only call these two.
 
-Also Mail listener can be a struct (that has a keys before/after with closure as value) OR closure (that triggered after the sending mails)
+Also Mail listener can be a struct (that has a keys before/after with closures as value) OR closure (that triggered after the sending mails).
 
 ```luceescript
 this.mail.listener = {
@@ -81,13 +81,13 @@ component {
 </cfscript>
 ```
 
-To add an Application wide Mail listener, add the following to your `Application.cfc`
+To add an Application wide Mail listener, add the following to your `Application.cfc`:
 
 ```luceescript
 this.mail.listener = new MailListener();
 ```
 
-To add a Mail listener to an individual [[tag-mail]] tag (listeners defined in the listener attribute overwrites any mail listener defined in the [[tag-application]]
+To add a Mail listener to an individual [[tag-mail]] tag (listeners defined in the listener attribute overwrites any mail listener defined in the [[tag-application]]:
 
 ```luceescript
 <cfset listener = new MailListener()>
@@ -103,6 +103,6 @@ To add a Mail listener to an individual [[tag-mail]] tag (listeners defined in t
 
 ### Dump of arguments to the Mail Listener after() method (cfmail)
 
-You can see the `from` and `to` mail ids were changed in the arguments to the `after` function, the args struct contains the modified `from` and `to` keys from the `before` function
+You can see the `from` and `to` mail ids were changed in the arguments to the `after` function, the args struct contains the modified `from` and `to` keys from the `before` function:
 
 <img alt="Mail Listener After()" src="/assets/images/listeners/MailListener_after_arguments.png">
