@@ -86,7 +86,7 @@ To add an Application-wide Mail Listener, add the following to your `Application
 this.mail.listener = new MailListener();
 ```
 
-To add a Mail Listener to an individual [[tag-mail]] tag (listeners defined in the listener attribute overwrites any mail listener defined in the [[tag-application]]
+To add a Mail Listener to an individual [[tag-mail]] tag (listeners defined in the listener attribute overwrites any mail listener defined in the [[tag-application]]:
 
 ```luceescript
 <cfset listener = new MailListener()>
