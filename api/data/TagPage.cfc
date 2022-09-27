@@ -80,6 +80,7 @@ component accessors=true extends="Page" {
 	}
 
 	public string function getScriptSupportDescription(){
+		if(trim("cf" & LCase( this.getName()) EQ "cfscript")) return "";
 		var scriptType = this.script.type ?: "";
 
 		if ( scriptType == "none" ) {
