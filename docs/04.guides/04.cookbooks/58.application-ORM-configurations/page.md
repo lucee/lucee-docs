@@ -42,7 +42,6 @@ i.e.<code>&lt;cfapplication&gt;</code>
 <cfapplication name="ORMTest" datasource="ORM" ormEnabled="true" ormSettings=#{dbcreate="update",dialect="MicrosoftSQLServer"}# >
 ```
 
-
 Key | Description | default
 -------------- | ----------------- | -----------------
 autogenmap | **(default:true; autogenmap=false is not supported yet.)** Specifies whether Lucee should automatically generate mapping for the persistent CFCs. If autogenmap=false, mapping should be provided in the form of "{cfc-name}.cfc.hbm.xml" files. | true
