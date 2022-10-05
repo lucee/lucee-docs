@@ -1,12 +1,12 @@
 ---
 title: ORM Settings configuration via Application
-id: cookbook-Appication-ORMSettings
+id: cookbook-Application-ORMSettings
 related:
 - tag-application
 categories:
 - application
 - orm
-description: detailed description for the ORM Settings configured via Appication.cfc/cfapplication
+description: detailed description for the ORM Settings configured via Application.cfc/cfapplication
 ---
 
 ### Application ORM Settings configurations ###
