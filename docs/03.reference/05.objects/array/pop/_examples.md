@@ -7,7 +7,7 @@
 
 	moreNumbers = [ 5, 6, 7, 8 ];
 	dump( moreNumbers.pop( 4 ) ); // Outputs 8
-	dupm( moreNumbers ); // outputs [ 5, 6, 7 ]
+	dump( moreNumbers ); // outputs [ 5, 6, 7 ]
 
 	moreNumbers = [  ];
 	dump( moreNumbers.pop( 4 ) ); // Outputs 4 (default)
