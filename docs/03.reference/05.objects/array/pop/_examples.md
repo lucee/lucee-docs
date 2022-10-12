@@ -2,11 +2,14 @@
 
 ```luceescript+trycf
 	numbers = [ 1, 2, 3, 4 ];
-	Dump( numbers.pop( 0 ) ); // Outputs 4
+	dump( numbers.pop( 0 ) ); // Outputs 4
+	dump( numbers ); // Outputs [ 1, 2, 3 ]
 
 	moreNumbers = [ 5, 6, 7, 8 ];
-	Dump( moreNumbers.pop( 4 ) ); // Outputs 8
+	dump( moreNumbers.pop( 4 ) ); // Outputs 8
+	dupm( moreNumbers ); // outputs [ 5, 6, 7 ]
 
 	moreNumbers = [  ];
-	Dump( moreNumbers.pop( 4 ) ); // Outputs 4
+	dump( moreNumbers.pop( 4 ) ); // Outputs 4 (default)
+	dump( moreNumbers ); // Outputs [  ];
 ```
