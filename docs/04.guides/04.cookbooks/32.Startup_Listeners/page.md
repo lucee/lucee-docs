@@ -1,62 +1,87 @@
 ---
 title: Startup Listeners, server.cfc and web.cfc
 id: Startup Listeners-code
-menuTitle: Startup Listeners
-description: Lucee supports two types of Startup Listeners, server.cfc and web.cfc
+related:
+- function-configimport
 categories:
+- server
 - system
+description: Lucee supports two types of Startup Listeners, server.cfc and web.cfc
+menuTitle: Startup Listeners
 ---
+
 ## Startup Listeners Code ##
 
 Lucee has two kinds of startup listeners.
 
-- **Server.cfc** which runs when the Lucee Server starts up. It exists only once per Lucee server.
-- **web.cfc** which can be used for each web context on your Lucee server.
+- **Server.cfc** which runs when the Lucee Server starts up. It exists only once per Lucee instance.
+- **Web.cfc** which can be used for each web context.
 
-#### server.cfc ####
+### Server.cfc ###
 
-Create a server.cfc file in lucee-server\context\context directory.
+Create a `Server.cfc` file in `lucee-server\context\context` directory.
 
 ```lucee
 
 // lucee-server\context\context\Server.cfc
 
-	component{
-		public function onServerStart(){
-			systemOutput("--------------------------",true);
-			systemOutput("-------server Context-----",true);
-			systemOutput("--------------------------",true);
+component{
+	public function onServerStart( reload ){
+		if ( !arguments.reload ){
+			systemOutput("-------Server Context started -----",true);
+			// this is when the server is first started.
+			// you can for example, use configImport() to import a  .cfConfig.json setting file
+			var config_web = "/www/config/lucee_server_cfConfig.json";
+			configImport(
+				type: "server",
+				data: deserializeJSON(fileRead(config_web)),
+				password: "your lucee server admin password"
+			);
+		} else {
+			// the server config is reloaded each time an extension is installed / or the config is updated
+			systemOutput("-------Server Context config reloaded -----",true);
 		}
 	}
+}
 ```
 
-* Here, Server.cfc has one function ``onServerStart()`` . It outputs three lines of content.
-* Start the Lucee server ``Startup`` . Here the console shows the server context which means it triggered Server.cfc
-* Finally, stop Lucee.
+- Here, Server.cfc has one function ``onServerStart()`` . It outputs three lines of content.
+- Start the Lucee server ``Startup`` . Here the console shows the server context which means it triggered Server.cfc
+- Finally, stop Lucee.
 
-#### web.cfc ####
+### Web.cfc ###
 
-Create a web.cfc file in webapps\ROOT\WEB-INF\lucee\context\ directory.
+Create a `Web.cfc` file in `webapps\ROOT\WEB-INF\lucee\context\` directory, or the context webroot.
 
 ```lucee
 
 // webapps\ROOT\WEB-INF\lucee\context\Web.cfc
 
 component {
-	public function onWebStart(reload){
-		systemOutput("--------------------------",true);
-		systemOutput--------web Context---------true);
-		systemOutput("reload?"&reload,true);
-		systemOutput("--------------------------",true);
+	public function onWebStart( reload ){
+		if ( !arguments.reload ){
+			systemOutput("-------Web Context started -----",true);
+			// this is when the web content is first started.
+			// you can for example, use configImport() to import a .cfConfig.json setting file
+			var config_web = "/www/config/lucee_web_cfConfig.json"
+			configImport(
+				type: "web",
+				data: deserializeJSON( fileRead( config_web ) ),
+				password: "your lucee web content admin password"
+			);
+		} else {
+			// the web context is reloaded each time an extension is installed / or the config is updated
+			systemOutput("-------Web Context config reloaded -----",true);
+		}
 	}
 }
 ```
 
-Here Web.cfc has one function ``onWebStart()`` and one argument ``reload`` that indicates if the web context is a new startup of the server. Here ``reload`` is used to reload the web context. We see the difference when setting reload to true or false.
+Here `Web.cfc` has one function ``onWebStart()`` and one argument ``reload`` that indicates if the web context is a new startup of the server. Here ``reload`` is used to reload the web context. We see the difference when setting reload to true or false.
 
-* Start the Lucee server ``Startup`` . Here we see the server context first, then the web context is next. So both listeners get triggered by Lucee.
-* Next, change the **settings --> charset** for web charset "UTF-8" in web admin.
-* After setting the charset in web admin, the web context only is reloaded and we do not have the server context. So this feature is used to stop/prevent any difficulties with the server context.
+- Start the Lucee server ``Startup`` . Here we see the server context first, then the web context is next. So both listeners get triggered by Lucee.
+- Next, change the **settings --> charset** for web charset "UTF-8" in web admin.
+- After setting the charset in web admin, the web context only is reloaded and we do not have the server context. So this feature is used to stop/prevent any difficulties with the server context.
 
 This is a simple way to stop the server context. It is never triggered because there is no event happening inside java.
 
