@@ -1,9 +1,10 @@
 ---
-title: configimport
+itle: configImport
 id: function-configimport
 related:
 categories:
 - server
+description: Imports a configuration using the "CFConfig.json" format.
 ---
 
 Imports a configuration based on the "CFConfig" format. 
