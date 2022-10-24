@@ -39,15 +39,15 @@ component{
 			);
 		} else {
 			// the server config is reloaded each time an extension is installed / or the config is updated
-			systemOutput("-------Server Context config reloaded -----",true);
+			systemOutput( "-------Server Context config reloaded -----", true );
 		}
 	}
 }
 ```
 
-- Here, Server.cfc has one function ``onServerStart()`` . It outputs three lines of content.
-- Start the Lucee server ``Startup`` . Here the console shows the server context which means it triggered Server.cfc
-- Finally, stop Lucee.
+- Here, Server.cfc has one function ``onServerStart()``
+- Start Lucee Server. 
+- The server console or `out.log` should should the above systemOutput's which means it has run the `Server.cfc`
 
 ### Web.cfc ###
 
@@ -77,9 +77,12 @@ component {
 }
 ```
 
-Here `Web.cfc` has one function ``onWebStart()`` and one argument ``reload`` that indicates if the web context is a new startup of the server. Here ``reload`` is used to reload the web context. We see the difference when setting reload to true or false.
+Here `Web.cfc` has one function ``onWebStart()`` and one argument ``reload`` that indicates if the web context is a new startup of the server. 
 
-- Start the Lucee server ``Startup`` . Here we see the server context first, then the web context is next. So both listeners get triggered by Lucee.
+Here ``reload`` is used to reload the web context. We see the difference when setting reload to true or false.
+
+- Start your Lucee server. 
+- Here we see the server context output first, then the web context output next. So you can see that both listeners get triggered by Lucee.
 - Next, change the **settings --> charset** for web charset "UTF-8" in web admin.
 - After setting the charset in web admin, the web context only is reloaded and we do not have the server context. So this feature is used to stop/prevent any difficulties with the server context.
 
