@@ -15,6 +15,6 @@ Why do we document something as deprecated? It's because there's newer functiona
 - cleaner, clearer programming styles
 - less overloaded functionality which results in complicated code signatures / documentation.
 
-Realistically we seldom actually remove deprecated fuctionality from Lucee (eg [[function-IsDefined]] still works in Lucee 5.x), but when something is deprecated, it's a warning that it might be removed, so you should act accordingly.
+Realistically we seldom actually remove deprecated functionality from Lucee (eg [[function-IsDefined]] still works in Lucee 5.x), but when something is deprecated, it's a warning that it might be removed, so you should act accordingly.
 
 Deprecation also flags that the given feature **might** possibly be removed in a future **major** release of Lucee, therefore it acts as advice to stop using the functionality.

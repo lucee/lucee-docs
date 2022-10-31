@@ -1,1 +1,1 @@
-The namesapce of the tag with the separator Example: cf, rc: aso.
+The namespace of the tag with the separator Example: cf, rc: aso.

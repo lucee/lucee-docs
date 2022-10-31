@@ -1,1 +1,1 @@
-HTML attribute: Specifies one ore more forms the input field belongs to
+HTML attribute: Specifies one or more forms the input field belongs to
