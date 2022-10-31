@@ -7,18 +7,17 @@ related:
 
 ### Setting up Secure LDAP ###
 
-Import the SSL Certificate for ldap via command line:
+Import the SSL Certificate for your LDAP sever via the command line:
 
-* {jdk bin directory}\keytool -import -keystore c:\{path_to_lucee}\jdk\lib\security\cacerts* -alias mySSLCert -storepass changeit -noprompt -trustcacerts -file c:\mySSLCert .cert
-
-* Do the same with ROOT/Intermediate Certificate.
-
-* {jdk bin directory}\keytool -import -keystore c:\{path_to_webserver}\WEB-INF\lucee\security\cacerts* -alias mySSLCert -storepass changeit -noprompt -trustcacerts -file c:\mySSLCert .cert
+* `{jdk bin directory}\keytool -import -keystore c:\{path_to_lucee}\jre\lib\security\cacerts* -alias mySSLCert -storepass changeit -noprompt -trustcacerts -file c:\mySSLCert .cert`
 
 * Do the same with ROOT/Intermediate Certificate.
 
-* {jdk bin directory}\keytool -import -keystore c:\{path_to_tomcat_root}\webapps\ROOT\WEB-INF\lucee\security\cacerts* -alias mySSLCert -storepass changeit -noprompt -trustcacerts -file c:\mySSLCert .cert
-Do the same with ROOT/Intermediate Certificate.
+* `{jdk bin directory}\keytool -import -keystore c:\{path_to_lucee}\jre\lib\security\cacerts* -alias mySSLCert -storepass changeit -noprompt -trustcacerts -file c:\mySSLCert .cert`
+
+Since Lucee 6.0, rather than using the bundles cacerts file, the bundled JRE cacerts file is used, so you need to change the path to cacerts. 
+
+To use the Lucee file cacerts with 6.0, set `lucee.use.lucee.SSL.TrustStore<=true`
 
 ### Example usage with CFLDAP tag: ###
 
