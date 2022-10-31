@@ -15,9 +15,11 @@ Import the SSL Certificate for your LDAP sever via the command line:
 
 * `{jdk bin directory}\keytool -import -keystore c:\{path_to_lucee}\jre\lib\security\cacerts* -alias mySSLCert -storepass changeit -noprompt -trustcacerts -file c:\mySSLCert .cert`
 
-Since Lucee 6.0, rather than using the bundles cacerts file, the bundled JRE cacerts file is used, so you need to change the path to cacerts. 
+Since Lucee 6.0, rather than using the bundled `cacerts` file (which doesn't get automatically updated), the JRE's `cacerts` file is used by default. 
 
-To use the Lucee file cacerts with 6.0, set `lucee.use.lucee.SSL.TrustStore<=true`
+So change the path above (i.e. `c:\{path_to_lucee}\jre`) to point to your `JAVA_HOME`. 
+
+To use the old behavior, i.e. the Lucee file cacerts with 6.0, set `lucee.use.lucee.SSL.TrustStore=true`
 
 ### Example usage with CFLDAP tag: ###
 
