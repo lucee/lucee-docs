@@ -22,7 +22,7 @@ to develop Lucee driven CFML web applications. You may also use the same tools s
 
 ### 3. Step By Step Instruction Guide ###
 
-This step by step guide shows a basic installation of XAMPP on Windows and Lucee with the "Lucee Windows Installer" that also ships Tomcat coming with a pre-bundled Java Runtime Environment. We are **NOT(!!!)** installing Tomcat from XAMPP, but from the Lucee installer. The reason is that it already comes preconfigured to run Lucee with all its necessary libaries. Of course, you may use XAMPPs Tomcat if wished, but then you'd also need to do all manual configuration and setup to run Lucee JVM servlet container in XAMPPs Tomcat.  
+This step by step guide shows a basic installation of XAMPP on Windows and Lucee with the "Lucee Windows Installer" that also ships Tomcat coming with a pre-bundled Java Runtime Environment. We are **NOT(!!!)** installing Tomcat from XAMPP, but from the Lucee installer. The reason is that it already comes preconfigured to run Lucee with all its necessary libraries. Of course, you may use XAMPPs Tomcat if wished, but then you'd also need to do all manual configuration and setup to run Lucee JVM servlet container in XAMPPs Tomcat.  
 
 - Step 1: Make sure you don't have IIS feature installed or IIS running on your Windows, because it will interfere with your Apache2 webserver installation. Also, Lucee installer will try to detect the webserver automatically, so make sure you have no webserver installed and running before the following steps. 
 - Step 2: Download XAMPP for Windows at [Apachefriends.org Downloads](https://www.apachefriends.org/de/download.html)
@@ -56,7 +56,7 @@ ProxyPassReverse / ajp://127.0.0.1:8009/
 ```
 
 - Step 18: Make sure to set as comment any additional proxyPass directives that may conflict with the cfml proxyPass above.
-- Step 19: Try openeing `http://localhost`. You will see a Tomcat `403 Forbidden` Page. That means Apache2 webserver is connected correctly to AJP, but AJP isn't configured with the proper permission in Tomcat. The cause is that Tomcat comes with a "secretRequired" attribute by default.
+- Step 19: Try opening `http://localhost`. You will see a Tomcat `403 Forbidden` Page. That means Apache2 webserver is connected correctly to AJP, but AJP isn't configured with the proper permission in Tomcat. The cause is that Tomcat comes with a "secretRequired" attribute by default.
 - Step 20: Make sure that your XAMPP comes with an Apache2 server that already supports secret for AJP. According to their docs that is from 2.4.42 and later (see [mod_proxy_ajp.html documentation](https://httpd.apache.org/docs/2.4/mod/mod_proxy_ajp.html))
 You can find you installed Apache2 Version by reading `C:\xampp\readme_en.txt`. By time of writing of this setup guide, the Apache2 version bundled with XAMPP is Apache 2.4.53, so we will configure the secret in the following steps.
 - Step 21: Open the apache AJP config file at `C:\xampp\apache\conf\extra\httpd-ajp.conf` and add the secret (we will use the string `MySecretPassword` in this example) to your active proxyPass directive like so:
@@ -87,7 +87,7 @@ ProxyPassReverse / ajp://127.0.0.1:8009/ secret=MySecretPassword
 
 - Step 23: Restart Tomcat/Lucee in your Windows services and wait Tomcat to start and create all the web contexts
 - Step 24: Restart Apache2 from within your **XAMPP Control Pannel**
-- Step 25: Try opening `http://localhost` and you'll see the cfm page being delivered, but the static files will fail to load making the page look ugly without images and css. That's because you need to adapt your configuraion in such a manner, that your `wwwroot` works in Apache2 but also in Tomcat
+- Step 25: Try opening `http://localhost` and you'll see the cfm page being delivered, but the static files will fail to load making the page look ugly without images and css. That's because you need to adapt your configuration in such a manner, that your `wwwroot` works in Apache2 but also in Tomcat
 - Step 26: Open to edit `C:\xampp\apache\conf\httpd.conf` and search for the string `DocumentRoot`.
 - Step 27: Change the document root directive from `C:/xampp/htdocs` and your directory directive to Lucees default localhost directory like so:
 
@@ -96,7 +96,7 @@ DocumentRoot "C:\lucee\tomcat\webapps\ROOT"
 <Directory "C:\lucee\tomcat\webapps\ROOT"> 
 ``` 
 
-- Step 28: Restart Apache2 from within your XAMP control pannel
+- Step 28: Restart Apache2 from within your XAMP control panel
 - Step 29: Open `http://localhost/index.cfm` and you should see the Lucee welcome page reendered with all static files.
 
 For installing mod_cfml for Tomcat automatic host configuration, please following the mod_cfml instructions at [Viviotech mod_cfml windows apache installation](https://viviotech.github.io/mod_cfml/install-win-apache.html)
