@@ -8,3 +8,5 @@ Engines:
 - **java:** Use java as regex engine
 
 i.e. `{engine: "perl"}`
+
+``` this.useJavaAsRegexEngine = true; ``` also works
