@@ -28,7 +28,7 @@ This step by step guide shows a basic installation of XAMPP on Windows and Lucee
 - Step 2: Download XAMPP for Windows at [Apachefriends.org Downloads](https://www.apachefriends.org/de/download.html)
 - Step 3: Right-click the XAMPP installer file and run it as administrator 
 - Step 4: Select to install everything you need but NOT Tomcat(!!!): Tomcat will come from the Lucee Installer
-- Step 5: Open the **XAMPP Control Pannel** and start Apache2 webserver. Then check if the Apache2 is running fine by navigating to `http://localhost`. You should see the *"XAMPP Welcome Page"*
+- Step 5: Open the **XAMPP Control Panel** and start Apache2 webserver. Then check if the Apache2 is running fine by navigating to `http://localhost`. You should see the *"XAMPP Welcome Page"*
 - Step 6: Download "Lucee Installer For Windows" at [Lucee's Downloads](https://download.lucee.org/)
 - Step 7: Right-click the downloaded *"Lucee Installer For Windows"* file and run it as administrator 
 - Step 8: Accept the terms of services and click *"next"*
@@ -86,7 +86,7 @@ ProxyPassReverse / ajp://127.0.0.1:8009/ secret=MySecretPassword
 ```
 
 - Step 23: Restart Tomcat/Lucee in your Windows services and wait Tomcat to start and create all the web contexts
-- Step 24: Restart Apache2 from within your **XAMPP Control Pannel**
+- Step 24: Restart Apache2 from within your **XAMPP Control Panel**
 - Step 25: Try opening `http://localhost` and you'll see the cfm page being delivered, but the static files will fail to load making the page look ugly without images and css. That's because you need to adapt your configuration in such a manner, that your `wwwroot` works in Apache2 but also in Tomcat
 - Step 26: Open to edit `C:\xampp\apache\conf\httpd.conf` and search for the string `DocumentRoot`.
 - Step 27: Change the document root directive from `C:/xampp/htdocs` and your directory directive to Lucees default localhost directory like so:

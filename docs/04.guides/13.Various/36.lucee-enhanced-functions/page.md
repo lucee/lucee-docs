@@ -141,7 +141,7 @@ Lucee 3.0 now supports them as well.
 
 **[[tag-flush]]**
 
-The tag CFFLUSH can even be used inside a CFTHREAD tag in order to follow the process of a thread. The results in this case can of course interfer with the output generated outside the tag CFTHREAD
+The tag CFFLUSH can even be used inside a CFTHREAD tag in order to follow the process of a thread. The results in this case can of course interfere with the output generated outside the tag CFTHREAD
 
 **[[tag-pdf]]**
 
