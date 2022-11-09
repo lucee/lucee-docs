@@ -1,0 +1,1 @@
+For multipart with quoted boundary response, `filecontent` will be an array, see [LDEV-3545](https://luceeserver.atlassian.net/browse/LDEV-3545)
