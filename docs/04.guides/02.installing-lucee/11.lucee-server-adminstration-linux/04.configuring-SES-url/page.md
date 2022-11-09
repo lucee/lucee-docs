@@ -27,9 +27,9 @@ Using the Lucee Installer along with SES URL's is a relatively simple process, o
 
 ### Modify Apache Config ###
 
-You can control what URL patters are passed off to Tomcat by updating the main Apache Config file. This is usually httpd.conf in RedHat-based systems (like CentOS) or apache2.conf in Debian-based systems (like Ubuntu). Further, you'll need a part of the URL to "Key" off of. This "key" will tell Apache that this is a URL that needs to be passed off. CMS systems, such as [Mura](http://getmura.com/), give you the ability to specify a "site" for your SES URL. This site name makes a perfect "key".
+You can control what URL patterns are passed off to Tomcat by updating the main Apache Config file. This is usually httpd.conf in RedHat-based systems (like CentOS) or apache2.conf in Debian-based systems (like Ubuntu). Further, you'll need a part of the URL to "Key" off of. This "key" will tell Apache that this is a URL that needs to be passed off. CMS systems, such as [Mura](http://getmura.com/), give you the ability to specify a "site" for your SES URL. This site name makes a perfect "key".
 
-So, with this in mind, if your SES URL is suppose to look like this:
+So, with this in mind, if your SES URL is supposed to look like this:
 
 	https://lucee.org/site/contact/business/
 
