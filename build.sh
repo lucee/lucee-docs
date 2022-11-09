@@ -52,7 +52,7 @@ if [ "$DOCS_BRANCH" = "refs/heads/master" ] && [ "$DOCS_EVENT" = "push" ] ; then
   tar -czf ../../builds/artifacts/dash/lucee.tgz lucee.docset
   cd ../../
   echo "Prepared for s3 upload."
-  # this is now done in a github action step
+  # this is now done in a GitHub Action step
   #echo "Syncing with S3..."
   #s3_website push
   #echo "All done :)"
