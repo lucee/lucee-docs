@@ -39,7 +39,7 @@ Good titles makes it is easier for other developers to understand what the issue
 When a bug is posted the first thing we do is to try to reproduce it. It is very important to have information about the environment where the issue was detected.
 
 * Operating System
-* Lucee Version and deployment ( Ex: Lucee 5.3.7.47 / Tomcat 9.5 | Commandbox )
+* Lucee Version and deployment ( Ex: Lucee 5.3.7.47 / Tomcat 9.5 | CommandBox )
 * Java Version (i.e. 1.8.0_162)
 * Browser or other details (if relevant)
 * Webserver configuration (if relevant)
