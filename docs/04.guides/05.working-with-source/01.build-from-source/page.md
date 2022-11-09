@@ -17,7 +17,7 @@ Before you can start building Lucee from source, you will need a few things inst
 1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  
 
 - Lucee requires JDK 8 or later in order to compile.  [Oracle](https://www.oracle.com/technetwork/java/javase/downloads/) or [AdoptOpenJDK](https://adoptopenjdk.net/)
-- Java 11 is *recommended*, Java 15 is *not yet supported* due the removal of the Nashorn Javascript engine which is used in the build process 
+- Java 11 is *recommended*, Java 15 is *not yet supported* due the removal of the Nashorn JavaScript engine which is used in the build process 
 - Java 17 *isn't yet fully supported* due to some Apache Felix issues (fixed in 5.3.9, but some extensions need updating)
 
 1. **Apache Maven** - the source code contains several build scripts that will automate the build process for you. you will need Maven installed in order to run these build scripts. <http://maven.apache.org/>
