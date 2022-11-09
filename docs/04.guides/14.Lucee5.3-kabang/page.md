@@ -16,7 +16,7 @@ The main focus of Kabang is to improve the Lucee Administrator and debugging out
 
 In admin - > overview page now has four graphs which contain details about the heap memory and non-heap memory, CPU (Whole System, Lucee Process)
 
-![Charts](/images/kabang/charts.PNG)
+![Charts](/images/kabang/charts.png)
 
 You can view the detailed information about Scopes in Memory, Request/CF Threads, Datasource Connections, Task Spooler
 
@@ -28,7 +28,7 @@ Datasource Connections- Open datasource connections.
 
 Task Spooler: Active and failed tasks in the Task Spooler.  This includes tasks to send E-mail messages.
 
-![scopesImages](/images/kabang/scopesImages.PNG)
+![scopesImages](/images/kabang/scopesImages.png)
 
 #### Extensions ####
 
@@ -36,11 +36,11 @@ Under Server Admin -> Applications, you can view the extensions: installed exten
 
 You can enable them as you like or disable them.
 
-![Extension Not Installed](/images/kabang/extNotInstalled.PNG)
+![Extension Not Installed](/images/kabang/extNotInstalled.png)
 
 Similarly, you can view the extensions installed. Go to the detail page of the extension and see the Releases, Pre-Release, and Snapshots for that extension. This allows us to handle different kinds of updates without changing the provider.
 
-![Detail of the extension](/images/kabang/detailExtension.PNG)
+![Detail of the extension](/images/kabang/detailExtension.png)
 
 #### Core Update ####
 
@@ -50,7 +50,7 @@ You can view the Lucee core update provider. Here also we can see three kinds of
 
 There is an overview of which versions are available without changing the provider.
 
-![update provider](/images/kabang/updateProvider.PNG)
+![update provider](/images/kabang/updateProvider.png)
 
 ### Lucee Bundle Info ###
 
@@ -64,11 +64,11 @@ In the Debug output we added two additional tabs: Metric and Reference
 
 * Metrics tab - > This tab provides the same information you saw on the Admin overview page. There are four graphs which contain details about the heap memory and non-heap memory, CPU (Whole System, Lucee Process), and scope details what we see in overview page of the admin.
 
-![Metric Tab](/images/kabang/MetricsTab.PNG)
+![Metric Tab](/images/kabang/MetricsTab.png)
 
 * Reference - > In the reference tab we can reference the Lucee documentation.
 
-![Reference Tab](/images/kabang/Referncetab.PNG)
+![Reference Tab](/images/kabang/Referncetab.png)
 
 In the debugging information, we also added additional information to tell you where an abort is happening within your Lucee code when you use cfabort tag.
 
@@ -151,7 +151,7 @@ BufferOutput is no longer used by default. Buffering the output slows the tag be
 
 In Lucee Kabang, you can log to the datasource instead of only files. Go to admin - > Settings -> logging, edit the log file which you want to store into database.
 
-![Logging](/images/kabang/logging.PNG)
+![Logging](/images/kabang/logging.png)
 
 You can select the datasource, create the name of the table and pass the custom data that will be provided with every log entry.
 
