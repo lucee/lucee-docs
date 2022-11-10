@@ -2,10 +2,10 @@
 title: Application.cfc / <cfapplication>
 id: tag-application
 categories:
+- application
 - core
 - scopes
 - session
-- application
 description: Defines a CFML Application and configures the properties / behavior of that Application
 ---
 
@@ -36,5 +36,5 @@ this.ormsettings.autogenmap = false;
 // instead this application will write out all default logs to a log file
 // named after the Application ( i.e. 'myApplication.log')
 
-this.tag.log.file = this.name & ".log";
+this.tag.log.log = this.name & ".log";
 ```
