@@ -15,3 +15,16 @@ this.regex.engine = "java";  // default is "perl"
 // or 
 this.useJavaAsRegexEngine = true;
 ```
+
+To switch between regex engines on the fly
+
+```
+<!--- do perl regex stuff --->
+<cfapplication action=“update” regex=“java”>
+<!--- do modern java regex stuff --->
+<cfapplication action=“update” regex=“perl”>
+<!--- back to cperl  regex stuff --->
+```
+
+`<cfapplication>` here only affects the current thread / request
+
