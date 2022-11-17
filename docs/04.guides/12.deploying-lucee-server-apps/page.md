@@ -1,6 +1,8 @@
 ---
 title: Deploying Lucee
 id: deploying-lucee-server-apps
+categories:
+- server
 forceSortOrder: '22'
 ---
 
