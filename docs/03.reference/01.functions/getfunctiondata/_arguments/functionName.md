@@ -1,1 +1,1 @@
-name of the function getting information for
+Name of the built in function to return information about

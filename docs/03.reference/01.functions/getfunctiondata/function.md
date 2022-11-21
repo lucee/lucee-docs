@@ -8,4 +8,4 @@ categories:
 - server
 ---
 
-Returns information about a function
+Returns information about a built in function (BIF)
