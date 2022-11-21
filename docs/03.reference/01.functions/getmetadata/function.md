@@ -1,6 +1,8 @@
 ---
 title: GetMetadata
 id: function-getmetadata
+related:
+- function-getcomponentmetadata
 categories:
 - component
 - debugging
