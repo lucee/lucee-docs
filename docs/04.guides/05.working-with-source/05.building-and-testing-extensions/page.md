@@ -51,9 +51,9 @@ The tests for Lucee Extensions are usually all included in the [Lucee Core test 
 
 How to run the automated tests locally for an extension (without committing and relying on the GitHub Action):
 
-Assuming your working dir for Lucee is `c:\work\` and you want to test the [S3 Extension](https://github.com/lucee/extension-s3)
+Assuming your local working dir for Lucee is `c:\work\` and you want to test the [S3 Extension](https://github.com/lucee/extension-s3)
 
-- fork [Lucee](https://github.com/lucee/Lucee) and check out to `c:\work\lucee6`
+- fork [Lucee](https://github.com/lucee/Lucee) and check out to `c:\work\lucee6` (use the 6.0 Branch)
 - fork (or just checkout) the [Lucee script-runner](https://github.com/lucee/script-runner) to `C:\work\script-runner`
 - fork the [Lucee S3 extension](https://github.com/lucee/extension-s3) and checkout into `C:\work\lucee-extensions\extension-s3` (there's a lot of Lucee extensions, so I prefer to group them under a sub-directory)
 
@@ -65,16 +65,16 @@ if %errorlevel% neq 0 exit /b %errorlevel%
 set testLabels=s3
 set testFilter=
 
-ant -buildfile="C:\work\script-runner" -DluceeVersion="6.0.0.114-SNAPSHOT" -Dwebroot="C:\work\lucee6\test" -Dexecute="/bootstrap-tests.cfm" -DextensionDir="C:\work\lucee-extensions\extension-s3\dist"
+ant -buildfile="C:\work\script-runner" -DluceeVersion="6.0.0.300-SNAPSHOT" -Dwebroot="C:\work\lucee6\test" -Dexecute="/bootstrap-tests.cfm" -DextensionDir="C:\work\lucee-extensions\extension-s3\dist"
 ```
 
-This script will compile the extension using Ant, start a lightweight JSR-223 instance of Lucee 6.0.0.114, installs the built extension and then runs any tests found with [labels="s3"](https://github.com/lucee/Lucee/blob/6.0/test/extension/S3.cfc#L19) in the Lucee 6.0 test suite. in the Lucee 6.0 test suite.
+This script will compile the extension using Ant, start a lightweight JSR-223 instance of Lucee `6.0.0.300`, installs the built extension and then runs any tests found with [labels="s3"](https://github.com/lucee/Lucee/blob/6.0/test/extension/S3.cfc#L19) in the Lucee `6.0` test suite. in the Lucee 6.0 test suite.
 
 **Initially this won't actually run any tests**, they will all be run but bypassed, as the S3 tests depend on a S3 service being configured for the test suite.
 
-**NOTE: 6.0.0.114 is just an example SNAPSHOT / version number**, best you pick the latest snapshot to develop against, see [Loader/pom/xml](https://github.com/lucee/Lucee/blob/6.0/loader/pom.xml) in your checked out source tree for the current version, as tests are tightly coupled with the source.
+**NOTE: 6.0.0.300 is just an example SNAPSHOT / version number**, best you pick the latest snapshot to develop against, see [Loader/pom/xml](https://github.com/lucee/Lucee/blob/6.0/loader/pom.xml) in your checked out source tree for the current version, as tests are tightly coupled with the source.
 
-The Lucee test suite `/bootstrap-tests.cfm` is also available with 5.3, but without all the nice build args (-DtestFilter, -DtestLabels, etc) which the 6.0 build has, see [LDEV-4114](https://luceeserver.atlassian.net/browse/LDEV-4114)
+The Lucee test suite `/bootstrap-tests.cfm` is also available with `5.3`, but without all the nice build args (-DtestFilter, -DtestLabels, etc) which the `6.0` build has, see [LDEV-4114](https://luceeserver.atlassian.net/browse/LDEV-4114)
 
 ## Configuring Test Services
 
