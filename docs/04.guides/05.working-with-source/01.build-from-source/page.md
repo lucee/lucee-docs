@@ -123,9 +123,15 @@ Any invalid tests (syntax errors etc) are skipped by default
 
 	ant -DtestSkip="false" -DtestFilter="_" -DtestDebug="true"
 
-**testRandomSort** allows running tests in a random sort order (since 6.0.0.305)
+**testRandomSort** allows running tests in a random sort order. It takes a boolean or numeric argument. (since 6.0.0.305)
 
-	ant -DtestRandomSort="true"
+- `false` (default) tests are sorted by `textnocase`
+- `numeric` the value is passed into the `randomize()` function before applying the random sort, (i.e. repeatable random order)
+- `true` a random seed number is chosen to pass to `randomize()` which is listed after `----Start Tests----` so the run can be repeated
+
+		ant -DtestRandomSort="true"
+
+		ant -DtestRandomSort="3"
 
 **testServices** allows restricting which Test Services (db, mail, ftp, s3 etc) to enable, if configured, whilst disabling any other configured services
 
