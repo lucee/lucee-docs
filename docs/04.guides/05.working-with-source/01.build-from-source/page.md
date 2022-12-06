@@ -123,6 +123,10 @@ Any invalid tests (syntax errors etc) are skipped by default
 
 	ant -DtestSkip="false" -DtestFilter="_" -DtestDebug="true"
 
+**testRandomSort** allows running tests in a random sort order (since 6.0.0.305)
+
+	ant -DtestRandomSort="true"
+
 **testServices** allows restricting which Test Services (db, mail, ftp, s3 etc) to enable, if configured, whilst disabling any other configured services
 
 	ant -DtestServices="s3,orm"
