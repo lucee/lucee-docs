@@ -1,4 +1,6 @@
-### SELECT
+
+# SELECT
+
 ```luceescript+trycf
     _test = queryNew(
         "_id, _need, _forWorld",
@@ -19,7 +21,10 @@
     );
     dump(queryResult);
 ```
-### INSERT and returning the generated key in result
+
+# INSERT
+
+and returning the generated key in result
 
 ```luceescript
 queryExecute(
