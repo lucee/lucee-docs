@@ -1,3 +1,4 @@
+### SELECT
 ```luceescript+trycf
     _test = queryNew(
         "_id, _need, _forWorld",
@@ -17,4 +18,22 @@
         }
     );
     dump(queryResult);
+```
+### INSERT and returning the generated key in result
+
+```luceescript
+queryExecute(
+        sql = 'insert into user (name) values (:name)',
+        params = {
+            name: {
+                value: "lucee",
+                type: "varchar"
+            }
+        },
+        options = {
+            dbtype = 'query',
+            result: "insertResult"
+        }
+    );
+    dump( insertResult.generatedKey );
 ```
