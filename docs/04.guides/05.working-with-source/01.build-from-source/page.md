@@ -118,6 +118,12 @@ If you are using VS Code and the cflint plugin, make sure you exclude the `temp/
 Any invalid tests (syntax errors etc) are skipped by default
 
 	ant -DtestDebug="true"
+	
+**testDebugAbort** used with `testDebug` to check test cases
+
+Build will abort after scanning tests cases for errors, good for finding invalid test cases
+
+	ant -DtestDebug="true" -DtestDebugAbort="true"
 
 **testSkip** allows running tests which are flagged `skip=true` or prefixed with an `_` (which also disables a test)
 
@@ -140,3 +146,7 @@ Any invalid tests (syntax errors etc) are skipped by default
 **testJavaVersionExec** allows running the test suite with a different java version, pass in the path to the Java executable (the build currently uses javascript which isn't available since java 15+)
 
 	ant -DtestJavaVersionExec="/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.1-12/x64/bin/java"
+
+**testSuiteExtends** by default, only test suites extending `org.lucee.cfml.test.LuceeTestCase` are run, this allows specifying other valid BaseSpecs
+
+	-DtestSuiteExtends="org.lucee.cfml.test.LuceeTestCase,testbox.system.BaseSpec"
