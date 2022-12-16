@@ -1,40 +1,46 @@
 # This is a basic workflow to help you get started with Actions
 
 name: Lucee Docs Builder
-
-# Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [master]
   pull_request:
     branches: [master]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
-      - name: Setup CommandBox
-        uses: elpete/setup-commandbox@v1.0.1
-
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: lucee-script-runner-m2-cache
+      - name: Cache Lucee files
+        uses: actions/cache@v3
+        with:
+          path: _actions/lucee/script-runner/main/lucee-download-cache
+          key: lucee-downloads-${{ env.luceeVersion }}
+          restore-keys: |
+            lucee-downloads
       # Runs a single command using the runners shell
-      - name: Run docs build
-        run: ./build.sh
-        env:
-          DOCS_BRANCH: ${{ github.ref }}
-          DOCS_EVENT: ${{ github.event_name }}
-
+      - name: Build Lucee Docs
+        uses: lucee/script-runner@main
+        with:
+          webroot: ${{ github.workspace }}
+          execute: /build-all.cfm
+          luceeVersion: 5.3.10.97
       - name: Publish to S3
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master'}}
         uses: docker://justinharringa/s3_website:master
         with:
           args: 'push --site builds/artifacts'
@@ -43,12 +49,9 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
           AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
-        if: ${{ github.event_name == 'push'}}
-
       - name: Ping Search Engines with sitemaps
         run: curl https://google.com/ping?sitemap=https://docs.lucee.org/sitemap.xml
-        if: ${{ github.event_name == 'push'}}
-
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master'}}
       # - name: Notify slack
       #   uses: 8398a7/action-slack@v3.9.1
       #   with:
