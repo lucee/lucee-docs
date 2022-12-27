@@ -24,6 +24,8 @@
     dump(q);
     dump( var=deserializeJSON( serializeJSON(q) ),
         label="default" );
+     dump( var=deserializeJSON( serializeJSON(q, true), false ),
+        label="true" );     
     dump( var=deserializeJSON( serializeJSON(q, true) ),
         label='serializeQueryByColumns');
     dump( var=deserializeJSON( serializeJSON(q, 'struct') ),
