@@ -293,7 +293,7 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
 
 At [https://download.lucee.org](https://download.lucee.org) you will find the downloads categorized as "Releases" for Stable Releases, "RC" for Release Candidates, and "Snapshots". These file names are a reference to Lucee's continuous integration workflow.
 
-The Lucee development team is constantly making changes to the Lucee source code. These changes are released almost daily and called "snapshots". This gives Lucee developers the ability to quickly get a "Snapshot" of Lucee in its development time.
+The Lucee development team is constantly making changes to the Lucee source code. These changes are released almost daily and called "snapshots". This gives Lucee developers the ability to quickly get a "Snapshot" of Lucee in its development timeline.
 
 Once the Lucee code reaches a certain level of maturity in its development cycle, a corresponding snapshot is carefully selected and also published as a "Release Candidate (RC)" for broad testing. This is the phase where the Lucee development team focuses on fixing new regressions with the highest priority.
 
