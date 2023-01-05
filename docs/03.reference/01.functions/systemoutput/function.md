@@ -7,4 +7,4 @@ categories:
 - debugging
 ---
 
-writes the given string to the output stream
+writes the given string to the output stream (aka console)
