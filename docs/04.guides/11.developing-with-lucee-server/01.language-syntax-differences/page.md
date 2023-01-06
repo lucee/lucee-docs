@@ -209,14 +209,14 @@ Now if you call getMetaData(test) you will get a struct that contains additional
 function test(arg1) { }
 ```
 
-This notation and thus the functionality behind it means, that comments are affecting the code's behaviour, which Lucee Server does NOT support. The following example will throw a compiler error:
+This notation and thus the functionality behind it means, that comments are affecting the code's behaviour, which Lucee Server does NOT support. The following example shows the annotation and the function's declaration with differing returntypes. In this instance, the code prevails and the returntype is numeric.
 
 ```luceescript
 /**
 * @returntype string
 */
 
-public int function test(arg1) {
+public numeric function test(arg1) {
 }
 ```
 
