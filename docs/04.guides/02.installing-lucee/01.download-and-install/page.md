@@ -196,7 +196,7 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
 				<div class="attribute">Description:</div>
 			</td>
 			<td>
-				<strong>Commandbox</strong> is a commandline tool that greatly simplifies installing and running Lucee. It's very likely the easiest way to run Lucee: Simply open a terminal session from within your webroot, enter the command line 'box server start' and CommandBox will start the latest stable Lucee instance running your web application.<br>
+				<strong>CommandBox</strong> is a commandline tool that greatly simplifies installing and running Lucee. It's very likely the easiest way to run Lucee: Simply open a terminal session from within your webroot, enter the command line 'box server start' and CommandBox will start the latest stable Lucee instance running your web application.<br>
                 CommandBox makes use of it's 
 				own servlet engine "Undertow" that can be customized through a single .json configuration file. But that's not all you get with CommandBox: Because CommandBox is also a package manager, you can also install and run usefool tools for your CFML development, such as "cfconfig", "CFLint", "taskRunner", "testBox", "CFFormat" or use it to install popular CFML frameworks in a modern scaffolding manner.
 			</td>
@@ -286,6 +286,18 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
 </table>
 </div>
 <br>
+
+<a name="releaseWorkflow"></a>
+
+### The difference between "Snapshots", "Release Candidates (RC)" and "Stable Releases" of Lucee downloads ###
+
+At [https://download.lucee.org](https://download.lucee.org) you will find the downloads categorized as "Releases" for Stable Releases, "RC" for Release Candidates, and "Snapshots". These file names are a reference to Lucee's continuous integration workflow.
+
+The Lucee development team is constantly making changes to the Lucee source code. These changes are released almost daily and called **Snapshots**. This gives Lucee developers the ability to quickly get a "Snapshot" of Lucee in its development timeline.
+
+Once the Lucee code reaches a certain level of maturity in its development cycle, a corresponding snapshot is carefully selected and also published as a **Release Candidate (RC)** for broad testing. This is the phase where the Lucee development team focuses on fixing new regressions with the highest priority.
+
+Once the new bugs and regressions are fixed, a stable snapshot is selected and released as a **Stable Release**.
 
 <a name="supportedJavaVersions"></a>
 

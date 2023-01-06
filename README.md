@@ -15,7 +15,7 @@ Find out more about the project at: [https://docs.lucee.org/docs.html](https://d
 
 The only optional dependency required is [CommandBox](https://www.ortussolutions.com/products/commandbox).
 
-Commandbox is only required to run the build process via the command line, or if you don't setup a virtual server with an existing local Lucee install.
+CommandBox is only required to run the build process via the command line, or if you don't setup a virtual server with an existing local Lucee install.
 
 Ensure that commandbox is installed and that the `box` command is in your path.
 
@@ -34,7 +34,7 @@ Once this has finished, you should find `./builds/html` and `./builds/dash` dire
 You have two options
 
 - Create a webserver virtual host with a normal Lucee install, with the virtual host's DocumentRoot set to `/lucee-docs/server`
-- Run a custom docs instance via Commandbox
+- Run a custom docs instance via CommandBox
 
 We have provided a utility server whose purpose is to run locally to help while developing/writing the documentation. To start it up, execute the `serve.sh` or `serve.bat` script found in the root of the project, i.e.
 

@@ -17,7 +17,7 @@ Before you can start building Lucee from source, you will need a few things inst
 1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  
 
 - Lucee requires JDK 8 or later in order to compile.  [Oracle](https://www.oracle.com/technetwork/java/javase/downloads/) or [AdoptOpenJDK](https://adoptopenjdk.net/)
-- Java 11 is *recommended*, Java 15 is *not yet supported* due the removal of the Nashorn Javascript engine which is used in the build process 
+- Java 11 is *recommended*, Java 15 is *not yet supported* due the removal of the Nashorn JavaScript engine which is used in the build process 
 - Java 17 *isn't yet fully supported* due to some Apache Felix issues (fixed in 5.3.9, but some extensions need updating)
 
 1. **Apache Maven** - the source code contains several build scripts that will automate the build process for you. you will need Maven installed in order to run these build scripts. <http://maven.apache.org/>
@@ -118,10 +118,26 @@ If you are using VS Code and the cflint plugin, make sure you exclude the `temp/
 Any invalid tests (syntax errors etc) are skipped by default
 
 	ant -DtestDebug="true"
+	
+**testDebugAbort** used with `testDebug` to check test cases
+
+Build will abort after scanning tests cases for errors, good for finding invalid test cases
+
+	ant -DtestDebug="true" -DtestDebugAbort="true"
 
 **testSkip** allows running tests which are flagged `skip=true` or prefixed with an `_` (which also disables a test)
 
 	ant -DtestSkip="false" -DtestFilter="_" -DtestDebug="true"
+
+**testRandomSort** allows running tests in a random sort order. It takes a boolean or numeric argument. (since 6.0.0.305)
+
+- `false` (default) tests are sorted by `textnocase`
+- `numeric` the value is passed into the `randomize()` function before applying the random sort, (i.e. repeatable random order)
+- `true` a random seed number is chosen to pass to `randomize()` which is listed after `----Start Tests----` so the run can be repeated
+
+		ant -DtestRandomSort="true"
+
+		ant -DtestRandomSort="3"
 
 **testServices** allows restricting which Test Services (db, mail, ftp, s3 etc) to enable, if configured, whilst disabling any other configured services
 
@@ -130,3 +146,7 @@ Any invalid tests (syntax errors etc) are skipped by default
 **testJavaVersionExec** allows running the test suite with a different java version, pass in the path to the Java executable (the build currently uses javascript which isn't available since java 15+)
 
 	ant -DtestJavaVersionExec="/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.1-12/x64/bin/java"
+
+**testSuiteExtends** by default, only test suites extending `org.lucee.cfml.test.LuceeTestCase` are run, this allows specifying other valid BaseSpecs
+
+	-DtestSuiteExtends="org.lucee.cfml.test.LuceeTestCase,testbox.system.BaseSpec"

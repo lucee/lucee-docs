@@ -2,6 +2,7 @@
 title: <cfsavecontent>
 id: tag-savecontent
 related:
+- function-render
 categories:
 - core
 ---

@@ -258,7 +258,7 @@ $ firefox http://127.0.0.1:8080/index.cfm
 If you have successfully tested the page and you are seeing the index.cfm page displayed with the data dump, we can proceed to Step 12 to connect CommandBox inbuilt servlet container enging Undertow with the front end web server Apache2.
 
 <br>
-###  Step 12 - Connect Apache2 with Commandbox inbuilt servler container engine Undertow with AJP
+###  Step 12 - Connect Apache2 with CommandBox inbuilt servler container engine Undertow with AJP
 
 CommandBox inbuilt lightweight servlet engine Undertow can also run without a front end web server (as stand alone server). Typical options/features needed for such a scenario are configurable in server.json (e.g. urlRewirte, admin lock down, prodution-profiles, etc). Running Undertow in such a setup may suffice and should be taken into consideration. If running as 'stand alone' is wished, simply deactivate AJP by deleting the respective entries in your server.json and changing HTTP port 8080 to port 80. Nevertheless, we'll show you in this step how to connect Lucee/Undertow to Apache2 with AJP, which is a very common setup.
 

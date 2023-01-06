@@ -1,6 +1,6 @@
 Supported methods
 
-- GET
+- GET (default)
 - POST
 - HEAD
 - PUT

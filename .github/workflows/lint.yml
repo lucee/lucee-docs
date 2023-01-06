@@ -7,9 +7,9 @@ jobs:
     name: 🧹 Markdown Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: 🥝 Use Node.js
-        uses: actions/setup-node@v3.3.0
+        uses: actions/setup-node@v3.5.1
         with:
           node-version: '12.x'
       - run: npm install -g markdownlint-cli@0.23.2
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🍉 Check Out
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: 🥥 Install
         run: |
           wget -O - -q https://git.io/misspell | sh -s -- -b .
@@ -30,8 +30,8 @@ jobs:
     name: 🧹 YAML Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2.3.1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4.3.0
         with:
           python-version: '3.x'  # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64'  # optional x64 or x86. Defaults to x64 if not specified

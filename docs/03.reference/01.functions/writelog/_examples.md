@@ -1,3 +1,3 @@
 ```luceescript
-	writeLog(file="MyLog", text=now(), type="error");
+	writeLog(log="MyLog", text=now(), type="error");
 ```

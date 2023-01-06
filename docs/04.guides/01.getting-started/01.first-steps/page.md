@@ -109,3 +109,7 @@ Of course you can use tag and script in the same file...
 </div>
 </cfoutput>
 ```
+
+### Examples ###
+
+[Example code snippets](https://github.com/lucee/Example-Code)

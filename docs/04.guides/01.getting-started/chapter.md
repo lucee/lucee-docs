@@ -23,3 +23,5 @@ Here you can find guides on how to get started with Lucee:
 [[lucee-editors-IDEs]]
 
 [Issue tracker](https://luceeserver.atlassian.net/)
+
+[Example code snippets](https://github.com/lucee/Example-Code)

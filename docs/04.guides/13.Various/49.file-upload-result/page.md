@@ -25,7 +25,7 @@ contentType | MIME content type of the file (i.e image is type of the mimetype i
 dateLastAccessed | The date and time of the uploaded file accessed in the client's system
 fileExisted | Boolean value to indicate file already exists in the destination or not
 fileSize | Size of the uploaded file
-fileWasAppended | Boolean value to indicate the saved file was appened or not
+fileWasAppended | Boolean value to indicate the saved file was appended or not
 fileWasOverWritten |  Boolean value to indicate the saved file was overwritten or not
 fileWasRenamed | Boolean value to indicate the saved file name was renamed or not
 fileWasSaved | Boolean value to indicate the uploaded file was saved to destination location or not

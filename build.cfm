@@ -11,32 +11,37 @@
 	try {
 		startTime = getTickCount();
 
-		logger = new api.build.Logger( { textOnly: true } );
+		logger = new api.build.Logger( opts={ textOnly: true, console: true }, force: true );
 		request.loggerFlushEnabled = true;
+		logger.logger(" ");
 		logger.logger( "Lucee " & server.lucee.version & ", java " & server.java.version );
+		logger.logger(" ");
+		logger.logger ("assetBundleVersion: " & application.assetBundleVersion);
+		logger.logger(" ");
 
 		//savecontent variable="suppressingwhitespacehere" {
 			new api.build.BuildRunner(threads=1).buildAll();
 		//}
 
 		//content reset="true" type="text/plain";
-		echo( "---" & newline );
-		echo( "Documentation built in #NumberFormat( getTickCount()-startTime )#ms" & newline );
-		echo( "---" & newline );
+		logger.logger( "---" & newline );
+		logger.logger( "Documentation built in #NumberFormat( getTickCount()-startTime )#ms" & newline );
+		logger.logger( "---" & newline );
 	} catch ( any e ) {
-		echo( "" & newline );
-		echo( "Documentation build error" & newline );
-		echo( "-------------------------" & newline );
-		echo( "" & newline );
-		echo( "[#e.type#] error occurred while building the docs. Message: [#e.message#]. Detail: [#e.detail#]." & newline );
+		logger.logger( "" & newline );
+		logger.logger( "Documentation build error" & newline );
+		logger.logger( "-------------------------" & newline );
+		logger.logger( "" & newline );
+		logger.logger( "[#e.type#] error occurred while building the docs. Message: [#e.message#]. Detail: [#e.detail#]." & newline );
 		if ( ( e.tagContext ?: [] ).len() ) {
-			echo( "" & newline );
-			echo( "Stacktrace:" & newline );
-			for( var tracePoint in e.tagContext ) {
-				echo( "    " & tracepoint.template & " (line #tracepoint.line#)" & newline );
+			logger.logger( "" & newline );
+			logger.logger( "Stacktrace:" & newline );
+			for( tracePoint in e.tagContext ) {
+				logger.logger( "    " & tracepoint.template & " (line #tracepoint.line#)" & newline );
 			}
 		}
 
 		exitCode( 1 );
+		rethrow;
 	}
 </cfscript>

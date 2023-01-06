@@ -24,7 +24,7 @@ accessible via a public URL.
 
 [Online Contributor's Agreement from](https://cla-assistant.io/lucee/Lucee)
 
-When you make your first PR for Lucee, Github Actions will automatically check for a CA and prompt you to sign one if required.
+When you make your first PR for Lucee, GitHub Actions will automatically check for a CA and prompt you to sign one if required.
 
 ## Making a contributions ##
 

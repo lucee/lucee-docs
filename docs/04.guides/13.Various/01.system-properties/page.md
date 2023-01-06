@@ -1101,6 +1101,28 @@ Also, make sure not to publish these files with sensitive data as as part of ope
 				</p>
 			</td>
 		</tr>
+                <tr>
+			<td>
+				<div class="attribute">LUCEE_USE_LUCEE_SSL_TRUSTSTORE<br>lucee.use.lucee.SSL.TrustStore</div>
+			</td>
+			<td>
+				<p>Enables the certificate authority truststore in Lucee location, instead by the JVM default truststore location.</p>
+				<p>Previous to Lucee 6.0 Lucee served its own SSL truststore. From 6.0 the truststore is set by the JVM default truststore location.</p>
+                                <p>Enabling this setting will tell Lucee to use its own truststore, behaving as prior to Lucee 6.0.</p>
+			
+
+				<sub>Values: Boolean <code>true|false</code></sub>
+				<br>
+				<sub>Default: <code>false</code></sub>
+				<p>
+					<strong>Lucee Server Administrator:</strong> not available
+				</p>
+				<p>
+					<strong>Application.cfc:</strong> not available
+				</p>
+			</td>
+
+		</tr>
 	</tbody>
 </table>
 </div>

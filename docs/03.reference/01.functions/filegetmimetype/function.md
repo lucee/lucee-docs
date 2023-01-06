@@ -6,3 +6,5 @@ categories:
 ---
 
 Returns the mimetype of the given file
+
+Using the [Apache Tika](https://tika.apache.org/) Library 
