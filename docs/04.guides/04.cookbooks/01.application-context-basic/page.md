@@ -77,7 +77,7 @@ This is normally used to initialize the environment for a specific session, so f
 
 ### OnSessionEnd ###
 
-The opposite from "onSessionStart", this function is triggered when a specific session context ends, when the timeout of a session context is reached (this.sessionTimeout).
+The opposite from "onSessionStart", this function is triggered when a specific session context ends, when the timeout of a session context is reached (this.sessionTimeout). Irrespective of the `sessionTimeout` values, `onSessionEnd` might not be called for a minute or so after the session expiry due to how Lucee manages session tidy-up.
 
 ```cfs
 component {
