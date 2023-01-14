@@ -45,7 +45,7 @@
 				<span class="tile">
 					<div class="tile-inner">
 						<div class="text-overflow">
-							[[#htmleditformat(local.child.getId())#]]
+							<span translate="no">[[#htmleditformat(local.child.getId())#]]</span>
 							#htmleditformat( getMetaDescription(local.child, local.child.getBody()) )#
 						</div>
 					</div>

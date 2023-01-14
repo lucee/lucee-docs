@@ -19,19 +19,19 @@
 		<p><strong>Status:</strong> #local.status#</p>
 	</cfif>
 	<cfif len(local.fn.getAlias()) gt 0>
-		<p><strong>Alias:</strong> #local.fn.getAlias()#</p>
+		<p><strong>Alias:</strong> <span translate="no">#local.fn.getAlias()#</span></p>
 	</cfif>
 	<cfif len(local.fn.getIntroduced()) gt 0>
 		<p><strong>Introduced:</strong> #local.fn.getIntroduced()#</p>
 	</cfif>
 	<cfif len(local.fn.getSrcExtension()) gt 0>
-		<p><strong>Requires Extension: </strong> #local.fn.getSrcExtension().name#</p>
+		<p><strong>Requires Extension: </strong> <span translate="no">#local.fn.getSrcExtension().name#</span></p>
 	</cfif>
 	<code>
 	#local.fn.getUsageSignature()#
 	</code>
 	<div class="func-return-type-desc">
-		<p>Returns: #local.fn.getReturnTypeLink()#</p>
+		<p>Returns: <span translate="no">#local.fn.getReturnTypeLink()#</span></p>
 		<cfif Len( Trim( local.fn.getReturnTypeDesc() ) ) or args.edit>
 			
 			<div class="func-return-type-desc-edit">
@@ -76,11 +76,11 @@
 						</cfif>
 						<tr>
 							<td>
-								<div class="argument" id="argument-#local.arg.name#" title="Argument name">
+								<div class="argument" id="argument-#local.arg.name#" title="Argument name" translate="no">
 									#local.arg.name#
 								</div>
 								<sub title="Argument type">
-									#local.arg.type#,
+									<span translate="no">#local.arg.type#</span>,
 									<span title="Is this argument required">
 										#( local.arg.required ? 'required' : 'optional' )#
 									</span>
@@ -90,7 +90,8 @@
 								#getEditLink(path=local.fn.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
 								#markdownToHtml( Trim( local.arg.description ) )#
 								<cfif len(local.arg.alias) gt 0>
-									<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
+									<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> 
+									<span translate="no">#ListChangeDelims(local.arg.alias,", ",",")#</span></sub></p>
 								</cfif>
 								<cfif structKeyExists(local.arg, "status") and local.arg.status neq "implemented">
 									<em>* #local.arg.status# *</em>
@@ -101,7 +102,7 @@
 								</cfif>
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
- 								<td>
+ 								<td translate="no">
  									#markdownToHtml( local.arg.default ?: "" )#
  								</td>
 							</cfif>
@@ -124,11 +125,11 @@
 						<cfloop array="#unimplementedArgs#" item="local.arg" index="local.i">
 							<tr>
 								<td>
-									<div class="argument" id="argument-#local.arg.name#" title="Argument name">
+									<div class="argument" id="argument-#local.arg.name#" title="Argument name" translate="no">
 										#local.arg.name#
 									</div>
 									<sub title="Argument type">
-										#local.arg.type#,
+										<span translate="no">#local.arg.type#</span>,
 										<span title="Is this argument required">
 											#( local.arg.required ? 'required' : 'optional' )#
 										</span>
@@ -146,7 +147,7 @@
 									#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
 								</td>
 								<cfif local.argumentsHaveDefaultValues>
-									 <td>
+									 <td translate="no">
 										 #markdownToHtml( local.arg.default ?: "" )#
 									 </td>
 								 </cfif>

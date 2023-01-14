@@ -40,11 +40,11 @@
 						</cfif>
 						<tr>
 							<td>
-								<div class="argument" id="argument-#local.arg.name#" title="Argument name">
+								<div class="argument" id="argument-#local.arg.name#" title="Argument name" translate="no">
 									#local.arg.name#
 								</div>
 								<sub title="Argument type">
-									#local.arg.type#,
+									<span translate="no">#local.arg.type#</span>,
 									<span title="Is this argument required">
 										#( local.arg.required ? 'required' : 'optional' )#
 									</span>
@@ -59,7 +59,7 @@
 								#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
- 								<td>
+ 								<td translate="no">
  									#markdownToHtml( local.arg.default ?: "" )#
  								</td>
  							</cfif>
