@@ -40,6 +40,11 @@ jobs:
           execute: /build-all.cfm
           luceeVersion: 5.3.10.109-SNAPSHOT
           extensions: 60772C12-F179-D555-8E2CD2B4F7428718  # redis
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: lucee-docs
+          path: builds/artifacts/lucee-docs.zip
       - name: Publish to S3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master'}}
         uses: docker://justinharringa/s3_website:master
