@@ -55,14 +55,15 @@
 							<cfcontinue>
 						</cfif>
 						<tr>
-							<td><div class="attribute" id="attribute-#local.attrib.name#">#local.attrib.name#</div>
+							<td translate="no"><div class="attribute" id="attribute-#local.attrib.name#">#local.attrib.name#</div>
 							<sub>#local.attrib.type#, #( local.attrib.required ? 'required' : 'optional' )#</sub>
 							</td>
 							<td>
 								#getEditLink(path=local.tag.getSourceDir() & '_attributes/#local.attrib.name#.md', edit=args.edit)#
 								#markdownToHtml( local.attrib.description ?: "" )#
 								<cfif structKeyExists(local.attrib, "aliases") && Arraylen(local.attrib.aliases) gt 0>
-									<p title="for compatibility, this attribute has the following alias(es)"><sub>Alias:</strong> #ArrayToList(local.attrib.aliases,", ")#</sub></p>
+									<p title="for compatibility, this attribute has the following alias(es)"><sub>Alias:</strong>
+									<span translate="no">#ArrayToList(local.attrib.aliases,", ")#</span></sub></p>
 								</cfif>
 								<cfif structKeyExists(local.attrib, "status") and local.attrib.status neq "implemented">
 									<em>* #local.attrib.status# *</em>
@@ -73,7 +74,7 @@
 								</cfif>
 							</td>
  							<cfif local.attributesHaveDefaultValues>
- 								<td>
+ 								<td translate="no">
  									#markdownToHtml( local.attrib.defaultValue ?: "" )#
  								</td>
 							 </cfif>
@@ -94,8 +95,9 @@
 					<tbody>
 						<cfloop array="#unimplementedAttribs#" item="local.attrib" index="i">
 							<tr>
-								<td><div class="attribute" id="attribute-#local.attrib.name#">#local.attrib.name#</div>
-								<sub>#local.attrib.type#, #( local.attrib.required ? 'required' : 'optional' )#</sub>
+								<td><div class="attribute" id="attribute-#local.attrib.name#" translate="no">#local.attrib.name#</div>
+								<sub><span translate="no">#local.attrib.type#</span>, 
+									#( local.attrib.required ? 'required' : 'optional' )#</sub>
 								</td>
 								<td>
 									#getEditLink(path=local.tag.getSourceDir() & '_attributes/#local.attrib.name#.md', edit=args.edit)#
@@ -109,7 +111,7 @@
 									#showOriginalDescription(props=local.attrib, edit=args.edit, markdownToHtml=markdownToHtml)#
 								</td>
 								 <cfif local.attributesHaveDefaultValues>
-									 <td>
+									 <td translate="no">
 										 #markdownToHtml( local.attrib.defaultValue ?: "" )#
 									 </td>
 								 </cfif>
