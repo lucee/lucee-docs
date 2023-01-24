@@ -59,9 +59,6 @@ The following tags, from Adobe CFML, are not supported by Lucee:
 The following functions, from Adobe CFML, are not supported by Lucee:
 
 * cachegetsession
-* cacheregionexists
-* cacheregionnew
-* cacheregionremove
 * decodeforhtml
 * deserialize
 * deserializexml
@@ -144,3 +141,9 @@ The following functions, from Adobe CFML, are not supported by Lucee:
 * wsgetsubscribers
 * wspublish
 * wssendmessage
+
+The following functions are now supported, but require a web admin passwaord, to be passed in as an argument:
+
+* cacheregionexists
+* cacheregionnew
+* cacheregionremove
