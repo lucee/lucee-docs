@@ -142,7 +142,7 @@ The following functions, from Adobe CFML, are not supported by Lucee:
 * wspublish
 * wssendmessage
 
-The following functions are now supported, but require a web admin passwaord, to be passed in as an argument:
+The following functions are now supported, but require a web admin password, to be passed in as an argument:
 
 * cacheregionexists
 * cacheregionnew
