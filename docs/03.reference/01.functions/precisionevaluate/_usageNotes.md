@@ -1,0 +1,2 @@
+You can see in the examples that use of PrecisionEvaluate() uses a 'string'.
+Despite using the PrecisionEvaluate function, if you omit the quotes, Lucee will perform "normal" math on the arguments, supplied.
