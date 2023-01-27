@@ -5,8 +5,8 @@ id: tips-built-in-tag
 
 ### How do I make my custom tag built-in (e.g.: cfwave instead of cf_wave)? ###
 
-* For your local web context install them to {local host web directory}/WEB-INF/lucee/library/tag
-* Or if you want it globally to all context: {lucee installation directory}lucee-server/context/library/tag
+* For your local web context install them to `{local host web directory}/WEB-INF/lucee/library/tag`
+* Or if you want it globally to all context: `{lucee installation directory}lucee-server/context/library/tag`
 
 ## Bonus Material ##
 
