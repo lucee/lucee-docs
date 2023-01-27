@@ -1,1 +1,1 @@
-a file path.
+a file path or URI.
