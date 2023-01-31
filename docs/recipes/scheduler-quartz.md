@@ -245,7 +245,7 @@ When using components as scheduled tasks, the component must include an `execute
 
 ```cfml
 component {
-    
+
     // Constructor - receives all job parameters
     public void function init(required string label, numeric customNumber=0, boolean customBoolean=false, string customString="") {
         variables.label = arguments.label;

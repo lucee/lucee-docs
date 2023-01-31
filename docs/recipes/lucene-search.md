@@ -45,8 +45,8 @@ Vector search transforms text into numerical vector representations (embeddings)
 
 ```javascript
 // Create a vector-based collection
-collection action="Create" 
-    collection="semantic_search" 
+collection action="Create"
+    collection="semantic_search"
     path="/path/to/collection"
     mode="vector"              // Pure vector/semantic search
     embedding="word2vec";      // Using word vectors
@@ -60,8 +60,8 @@ Hybrid search combines traditional keyword (lexical) search with vector (semanti
 
 ```javascript
 // Create a hybrid collection
-collection action="Create" 
-    collection="hybrid_search" 
+collection action="Create"
+    collection="hybrid_search"
     path="/path/to/collection"
     mode="hybrid"              // Combined keyword and vector search
     embedding="TF-IDF"         // Vector embedding method
@@ -69,6 +69,7 @@ collection action="Create"
 ```
 
 The `ratio` parameter controls the balance between keyword and vector search:
+
 - 0.5: Equal weight (default)
 - >0.5: More emphasis on vector/semantic matches
 - <0.5: More emphasis on keyword/exact matches
@@ -79,7 +80,7 @@ Lucene 3 introduces advanced content chunking and passage extraction capabilitie
 
 ```javascript
 // Search with enhanced content chunking
-search 
+search
     collection="my_collection"
     criteria="machine learning"
     contextpassages=5               // Number of passages to extract
@@ -91,6 +92,7 @@ search
 ```
 
 This feature:
+
 - Extracts the most relevant passages from matched documents
 - Provides highlighted context showing where matches occurred
 - Allows fine-tuning of passage size and quantity
@@ -116,8 +118,8 @@ Lucene 3 currently supports the following embedding methods:
 
 ```javascript
 // Create a vector-based collection
-collection action="Create" 
-    collection="articles" 
+collection action="Create"
+    collection="articles"
     path=expandPath("{lucee-config-dir}/collections/articles")
     mode="vector"
     embedding="word2vec";
@@ -127,8 +129,8 @@ collection action="Create"
 
 ```javascript
 // Create a hybrid collection with emphasis on semantic matches
-collection action="Create" 
-    collection="documentation" 
+collection action="Create"
+    collection="documentation"
     path=expandPath("{lucee-config-dir}/collections/docs")
     mode="hybrid"
     embedding="TF-IDF"
@@ -139,7 +141,7 @@ collection action="Create"
 
 ```javascript
 // Search and extract relevant passages
-search 
+search
     collection="documentation"
     criteria="#form.searchTerm#"
     contextpassages=3
@@ -151,7 +153,7 @@ search
 loop query="results" {
     echo("<h3>#results.title#</h3>");
     echo("<p>Score: #results.score#</p>");
-    
+
     // Display passages
     var passages = results.context.passages;
     loop query="passages" {
@@ -171,14 +173,14 @@ search
     collection="mycollection"
     criteria="your search query"
     maxrows="10"
-    
+
     // New content chunking attributes
     contextpassages="5"
     contextBytes="4000"
     contextpassageLength="800"
     contextHighlightBegin="<mark>"
     contextHighlightEnd="</mark>"
-    
+
     name="results";
 ```
 

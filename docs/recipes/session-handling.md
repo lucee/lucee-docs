@@ -165,7 +165,7 @@ public void function onSessionStart() {
 }
 
 // Called when a session ends (timeout or invalidation)
-public void function onSessionEnd(required struct sessionScope, 
+public void function onSessionEnd(required struct sessionScope,
                                 required struct applicationScope) {
     // Clean up resources
     var userId = sessionScope.user?.id ?: "unknown";
@@ -184,10 +184,10 @@ The `SessionInvalidate()` function immediately terminates the current session an
 public void function logout() {
     // Log user activity before invalidating
     logUserActivity(session.user.id, "logout");
-    
+
     SessionInvalidate();
     // All session variables are now cleared
-    
+
     location(url="login.cfm", addToken=false);
 }
 ```
@@ -201,7 +201,7 @@ The `SessionRotate()` function creates a new session and copies existing data to
 if (authentication.success) {
     // Create new session to prevent session fixation
     SessionRotate();
-    
+
     // Set session data with new session ID
     session.user = userDetails;
     session.authenticated = true;
@@ -211,7 +211,7 @@ if (authentication.success) {
 
 ## Security
 
-The Session is linked with help of the key "CFID" that can be in the URL of the cookie of the user (the key "CFTOKEN" is not used by Lucee and only exists for compatibility with other CFML engines). 
+The Session is linked with help of the key "CFID" that can be in the URL of the cookie of the user (the key "CFTOKEN" is not used by Lucee and only exists for compatibility with other CFML engines).
 Lucee first checks for "CFID" in the URL and only if not exists in the URL it looks for it in the cookie scope.
 
 Since Lucee 6.1, Lucee only accepts the key in the URL in case it has active sessions in memory with that key.

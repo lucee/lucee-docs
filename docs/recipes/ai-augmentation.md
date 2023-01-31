@@ -19,12 +19,12 @@
 
 # AI Augmentation with Lucene
 
-Lucee's AI capabilities can be enhanced with Retrieval-Augmented Generation (RAG) using the Lucene extension. 
+Lucee's AI capabilities can be enhanced with Retrieval-Augmented Generation (RAG) using the Lucene extension.
 This powerful combination allows AI models to reference your indexed content when responding to queries, creating more accurate and contextually relevant answers.
 
 ## Overview
 
-The Lucene extension enables you to create searchable collections of content that can be used to augment AI queries with relevant context. 
+The Lucene extension enables you to create searchable collections of content that can be used to augment AI queries with relevant context.
 This approach improves AI responses by providing domain-specific information from your data sources, whether they're local documentation, databases, external APIs, or other resources.
 
 ## Requirements
@@ -69,8 +69,8 @@ if(!hasColl) {
         directoryCreate(collDirectory,true);
     }
     // Create collection with vector capabilities
-    collection action="Create" 
-        collection=collectionName 
+    collection action="Create"
+        collection=collectionName
         path=collDirectory
         mode="hybrid"
         embedding="TF-IDF"
@@ -87,7 +87,7 @@ You can index content from virtually any source you can access in CFML:
 function indexDatabaseContent() {
     // Query your data source
     var qryContent = queryExecute("
-        SELECT 
+        SELECT
             id AS url,
             title,
             description AS summary,
@@ -96,11 +96,11 @@ function indexDatabaseContent() {
         FROM knowledge_articles
         WHERE is_active = 1
     ");
-    
+
     // Index the content
-    index action="update" 
+    index action="update"
         type="custom"
-        collection=collectionName 
+        collection=collectionName
         key="url"
         title="title"
         body="content,summary"
@@ -112,15 +112,15 @@ function indexDatabaseContent() {
 function indexFileContent() {
     // Get list of files
     var files = directoryList(expandPath("./resources/docs"), true, "path", "*.md");
-    
+
     // Create query object to hold file contents
     var qryFiles = queryNew("url,title,body,keywords");
-    
+
     // Process each file
     for(var filePath in files) {
         var content = fileRead(filePath);
         var title = listLast(filePath, "/\");
-        
+
         // Extract metadata from file content if applicable
         // This is just an example - adapt to your file format
         var keywords = "";
@@ -130,7 +130,7 @@ function indexFileContent() {
                 keywords = trim(replace(keywords[1], "Keywords:", ""));
             }
         }
-        
+
         // Add to query
         queryAddRow(qryFiles);
         querySetCell(qryFiles, "url", filePath);
@@ -138,7 +138,7 @@ function indexFileContent() {
         querySetCell(qryFiles, "body", content);
         querySetCell(qryFiles, "keywords", keywords);
     }
-    
+
     // Index the files
     index action="update" 
         type="custom"

@@ -32,7 +32,7 @@ Lucee and Tomcat have comprehensive logging, which is the best starting place to
 
 Your Servlet Engine will have its own logging, as Lucee is distributed with Tomcat, this guide will focus and refer to Tomcat, but the same principle applies more or less to every Servlet Engine.
 
-Under your Lucee install directory, there will be a `tomcat` folder, inside this folder is a `logs` directory. 
+Under your Lucee install directory, there will be a `tomcat` folder, inside this folder is a `logs` directory.
 
 The main log file for tomcat is called `catalina-{date}-.log` and this log will contain the startup logs and shutdown logs, plus any exceptions along the way from the Servlet engine.
 
@@ -44,7 +44,7 @@ Under this directory is a `context/logs` directory, which contains all the Lucee
 
 Lucee startup has two stages
 
-#### Initial startup / deployment 
+#### Initial startup / deployment
 
 This happens before log4j is loaded and configured, so Lucee writes out it's early logs and any problems to these two log files, it's also the fallback "global" log if log4j ever isn't working
 

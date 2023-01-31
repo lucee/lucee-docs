@@ -1,4 +1,4 @@
-### Tag syntax 
+### Tag syntax
 
 ```lucee+trycf
 <cfset expr = 2>
@@ -26,7 +26,7 @@
         case 1:
             result = 1;
             break;
-        case 2: 
+        case 2:
         case 3:
             result = "2 or 3";
             break;

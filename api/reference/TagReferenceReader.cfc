@@ -110,8 +110,8 @@ component accessors=true {
 						version: e._getVersion()
 					}
 				}
-			} catch (e) { 
-				//ignore 
+			} catch (e) {
+				//ignore
 			}
 		}
 

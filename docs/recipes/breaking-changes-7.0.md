@@ -99,7 +99,7 @@ Prevents cfml files containing java bytecode from being executed
 
 # Pending changes (not yet implemented)
 
-All proposed changes are listed in the sprint board for 7.0 
+All proposed changes are listed in the sprint board for 7.0
 
 [https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/53?label=breaking-change&sprint=73&sprints=73](https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/53?label=breaking-change&sprint=73&sprints=73)
 

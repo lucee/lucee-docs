@@ -185,7 +185,7 @@ dbPassword = GetSecret("DB_PASSWORD");
 // Use the secret in a database connection
 dbConnection = {
     host: GetSecret("DB_HOST"),
-    username: GetSecret("DB_USER"), 
+    username: GetSecret("DB_USER"),
     password: dbPassword
 };
 ```
@@ -267,32 +267,32 @@ component implementsJava="lucee.runtime.secrets.SecretProvider" {
     function getSecret(string key) {
         // Implementation to retrieve the secret
         // Return null if the secret doesn't exist
-        
+
         // Example implementation (database-stored secrets)
         var q = queryExecute(
             "SELECT value FROM app_secrets WHERE key = :key",
             {key: key},
             {datasource: config.datasource}
         );
-        
+
         if (q.recordCount) {
             return q.value;
         }
-        
+
         return javaNull();
     }
-    
+
     // Check if a secret exists
     function hasSecret(string key) {
         // Return true if the secret exists, false otherwise
-        
+
         // Example implementation
         var q = queryExecute(
             "SELECT COUNT(*) as count FROM app_secrets WHERE key = :key",
             {key: key},
             {datasource: config.datasource}
         );
-        
+
         return q.count > 0;
     }
 }

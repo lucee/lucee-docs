@@ -20,7 +20,7 @@ This documentation shows how to setup and configure Lucee Server to serve REST (
 
 REST is an application architecture which defines stateless data transfer over networked services. In the context of the web REST is commonly implemented over HTTP as it is a RESTful protocol. 
 
-Lucee Server gives you the ability to define REST Services using collection of CFC components by using a set of REST specific attributes; and then configuring Lucee about which REST path should be used to access the service. 
+Lucee Server gives you the ability to define REST Services using collection of CFC components by using a set of REST specific attributes; and then configuring Lucee about which REST path should be used to access the service.
 
 Following you will learn how to setup REST in Lucee by adding a small example REST application with a REST service mapped to the name **metrics** ( which will be served by accessing the URL `http://localhost:8888/rest/metrics/` ).
 <br>
@@ -28,11 +28,11 @@ Following you will learn how to setup REST in Lucee by adding a small example RE
 
 ### 2. Setting up REST services with Lucee ###
 
-REST requests are executed by an additional servlet (RestServlet) that is shipped with Lucee and already pre-configured and enabled in Tomcat by default. 
+REST requests are executed by an additional servlet (RestServlet) that is shipped with Lucee and already pre-configured and enabled in Tomcat by default.
 
 Thus, you won't need to do any additional configurations in Tomcat. All you need is to configure a REST service with your Application.
 
-In Lucee you have two main options to add a REST service to your Application: 
+In Lucee you have two main options to add a REST service to your Application:
 <br>
 <br>
 
@@ -40,11 +40,11 @@ In Lucee you have two main options to add a REST service to your Application:
 
 * **Step 1:** Log into your Lucee Server Administrator or Web Administrator and navigate to **Archives & Resources** &raquo; **Rest**.
 
-* **Step 2:** Add a new mapping in the *Create new mapping* section with following values: 
+* **Step 2:** Add a new mapping in the *Create new mapping* section with following values:
     * **Virtual:** *metrics*
     * **Physical:** *C:\path-to-location-with-your-rest-components\\* and click on **save**
 
-* **Step 3:** OPTIONAL: To make sure the REST services are correctly set up, activate the check box for **List services**. When enabled, you'll see a list of all the REST service mappings by navigating to `http://localhost:8888/rest/` (this will list all REST mappings created for the localhost web-context). 
+* **Step 3:** OPTIONAL: To make sure the REST services are correctly set up, activate the check box for **List services**. When enabled, you'll see a list of all the REST service mappings by navigating to `http://localhost:8888/rest/` (this will list all REST mappings created for the localhost web-context).
 <br>
 <br>
 
@@ -142,7 +142,7 @@ http://localhost:8888/rest/metrics/system/timezone/utcHourOffset
 ### 5. Configuring your fronted web server to serve Lucee's REST services (Internet Information Services (IIS) and Apache2 ) ###
 
 In the preceding steps we have added a REST service mapping named "metrics" serving REST resources with a CFC component
-named `System.cfc` to Lucee. While the resources are accessible on Lucee's default port 8888 you might not be able to access the services with a frontend webserver through port 80 or 443. This is because IIS, Apache2 or whatever server you are using in front of Lucee may need additional configuration to pass the REST requests `rest/*` to Tomcat/Lucee. 
+named `System.cfc` to Lucee. While the resources are accessible on Lucee's default port 8888 you might not be able to access the services with a frontend webserver through port 80 or 443. This is because IIS, Apache2 or whatever server you are using in front of Lucee may need additional configuration to pass the REST requests `rest/*` to Tomcat/Lucee.
 
 To intercept requests for `rest/*` paths and direct them to Tomcat/Lucee, follow the instructions below:
 <br>
@@ -152,7 +152,7 @@ To intercept requests for `rest/*` paths and direct them to Tomcat/Lucee, follow
 
 * *Step 1:* Open the "Internet Information Services (IIS) Manager"
 
-* *Step 2:* Select the main server node for global settings, or the specific site you'd like to add the REST service 
+* *Step 2:* Select the main server node for global settings, or the specific site you'd like to add the REST service
 
 * *Step 3:* Open "Handler Mappings" with a double click
 
@@ -173,7 +173,7 @@ To intercept requests for `rest/*` paths and direct them to Tomcat/Lucee, follow
 
 #### For Apache2 on Ubuntu/Linux ####
 
-* *Step 1:* Find the settings for the "ProxyPassMatch" directive configuration for `*.cfc` and `*.cfm` files of your Apache2: In a Lucee default installation you'll usually find the directives at */etc/apache2/apache2.conf* or */etc/httpd/conf/httpd.conf*.  
+* *Step 1:* Find the settings for the "ProxyPassMatch" directive configuration for `*.cfc` and `*.cfm` files of your Apache2: In a Lucee default installation you'll usually find the directives at */etc/apache2/apache2.conf* or */etc/httpd/conf/httpd.conf*.
 
 * *Step 2:* Find the following commented line:
 
@@ -187,7 +187,7 @@ and uncomment it by removing the preceding hash sign `#` like so:
 ProxyPassMatch ^/rest/(.*)$ http://127.0.0.1:8888/rest/$1
 ```
 
-If you are using AJP instead of reverse http proxy, the line should be adapted accordingly 
+If you are using AJP instead of reverse http proxy, the line should be adapted accordingly
 by changing the string *http://* to *ajp://*, that would be: `ProxyPassMatch ^/rest/(.*)$ ajp://127.0.0.1:8009/rest/$1`.
 
 * *Step 3:* Restart/reload apache2 configuration with the command
@@ -201,17 +201,17 @@ $ sudo systemctl restart apache2
 
 ### 6. Important information when running REST applications behind IIS or Apache2 with mod_cfml enabled ###
 
-**Issue with mod_cfml:** By time of this writing **mod_cfml** is not supporting automatic configuration for pure REST web applications. 
+**Issue with mod_cfml:** By time of this writing **mod_cfml** is not supporting automatic configuration for pure REST web applications.
 
 The reason is that even if you have IIS or Apache2 configured properly, mod_cfml will fail to identify the requests (with path `rest/*`) as being cfml requests, unless they contain `.cfc` or `.cfml` in the url.
 
-As a result, mod_cfml will fail to recognise these requests and won't create the Tomcat web contexts for new added site/hostname in IIS/Apache (mod_cfml task is to create the context settings for sites/virtual hosts added to IIS/Apache in Tomcats configuration automatically for you). 
+As a result, mod_cfml will fail to recognise these requests and won't create the Tomcat web contexts for new added site/hostname in IIS/Apache (mod_cfml task is to create the context settings for sites/virtual hosts added to IIS/Apache in Tomcats configuration automatically for you).
 
 Because Tomcat has no configuration set up for those new added sites, Tomcat will deliver it's default webroot, causing the impression that Lucee serves only REST applications from the Tomcat's default webserver root at `Tomcat/webapps/ROOT`.
 
-**The quick fix**: The quickest solution is to add an empty `index.cfm` template at the physical location of the webroot of IIS site or apache virtual host and call the `index.cfm` file through port 80 (or 443 for https) of your IIS or Apache2. 
+**The quick fix**: The quickest solution is to add an empty `index.cfm` template at the physical location of the webroot of IIS site or apache virtual host and call the `index.cfm` file through port 80 (or 443 for https) of your IIS or Apache2.
 
-Then wait for *mod_cfml* to create the context in Tomcat. After that the REST service should be accessible through port 80 of IIS or Apache without issues. 
+Then wait for *mod_cfml* to create the context in Tomcat. After that the REST service should be accessible through port 80 of IIS or Apache without issues.
 
 Once the *mod_cfml* has successfully created the host configuration in Tomcat, you can safely remove the empty `index.cfm` file.
 <br>
@@ -223,15 +223,15 @@ Find below a quick reference overview of specific component attributes and funct
 <br>
 <br>
 
-#### 7.1 CFcomponent attributes for REST #### 
-	
+#### 7.1 CFcomponent attributes for REST ####
+
 * **rest (boolean):** enables/disables the component as an accessible rest component. Default value is `true`. Set it to false if you wish to disable a component from serving REST services.
 * **restpath (string):** defines the path that invokes the component. Use this to define your own REST path in case you don't want to use the components name.
 * **httpMethod (string):** defines the http method to access the component. All values that are supported and allowed by the server can be used. Common values are `GET | POST | PUT | UPDATE | DELETE | HEAD | OPTIONS`
 <br>
 <br>
 
-#### 7.2 CFfunction attributes for REST #### 
+#### 7.2 CFfunction attributes for REST ####
 
 * **access='remote':** makes the function remotely accessible
 * **restpath (string):** defines the path that invokes the function

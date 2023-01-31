@@ -19,16 +19,16 @@
 
 # Configuration - How to Configure Lucee
 
-This guide outlines best practices for configuring Lucee across different environments. While Lucee includes an 
-administrator frontend (`<your-website>/lucee/admin.cfm`), this guide focuses on configuring Lucee using 
-environment variables, configuration files, and `Application.cfc`. The goal is to explore various configuration 
-possibilities rather than providing one definitive approach. Since Lucee 6, configuration has shifted to JSON 
+This guide outlines best practices for configuring Lucee across different environments. While Lucee includes an
+administrator frontend (`<your-website>/lucee/admin.cfm`), this guide focuses on configuring Lucee using
+environment variables, configuration files, and `Application.cfc`. The goal is to explore various configuration
+possibilities rather than providing one definitive approach. Since Lucee 6, configuration has shifted to JSON
 files (`.CFConfig.json`), replacing the older XML-based configurations. This guide focuses on Lucee 6 and onwards.
 
 ## Single Mode vs Multi Mode
 
-Lucee runs within a Servlet Engine (such as Tomcat), allowing you to manage multiple websites (or web contexts) 
-within a single engine. For example, you can host `lucee.org` and `whatever.org` on one Servlet Engine, each 
+Lucee runs within a Servlet Engine (such as Tomcat), allowing you to manage multiple websites (or web contexts)
+within a single engine. For example, you can host `lucee.org` and `whatever.org` on one Servlet Engine, each
 in its own web context.
 
 Lucee 6 provides two configuration modes:
@@ -36,10 +36,10 @@ Lucee 6 provides two configuration modes:
 - **Single Mode**: A single configuration for the entire Servlet Engine.
 - **Multi Mode**: A global configuration for the engine, with separate configurations for each web context.
 
-In **multi mode**, general configurations are made in the server configuration, while specific settings 
+In **multi mode**, general configurations are made in the server configuration, while specific settings
 (e.g., datasources) can be defined for each web context. This was the only option up until Lucee 5.
 
-Starting with **Lucee 6**, you can choose between single or multi mode. Single mode simplifies configuration 
+Starting with **Lucee 6**, you can choose between single or multi mode. Single mode simplifies configuration
 by providing just one server configuration. Lucee 7 will exclusively support single mode.
 
 ### Single or Multi Mode?
@@ -47,9 +47,9 @@ by providing just one server configuration. Lucee 7 will exclusively support sin
 - **Upgrading from Lucee 5**: Lucee will migrate your XML configuration to JSON and run in multi mode by default.
 - **New Installations**: Lucee will run in single mode by default.
 
-You can toggle between "multi" and "single" modes using the Lucee administrator or by adjusting the server 
-configuration file (`.CFConfig.json`). In the administrator, you can merge all the settings from web contexts 
-into a single server configuration. Simply switching the mode flag without merging will result in losing 
+You can toggle between "multi" and "single" modes using the Lucee administrator or by adjusting the server
+configuration file (`.CFConfig.json`). In the administrator, you can merge all the settings from web contexts
+into a single server configuration. Simply switching the mode flag without merging will result in losing
 web context configurations (though Lucee keeps them in place).
 
 ```json
@@ -72,14 +72,14 @@ Each level extends or overrides the previous one.
 
 ## Environment Variables / System Properties
 
-The following document details all the possible system properties available in Lucee: 
+The following document details all the possible system properties available in Lucee:
 [Environment Variables and System Properties](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/environment-variables-system-properties.md).
 
 One commonly used property is `LUCEE_ADMIN_PASSWORD`, which allows you to set the server administrator password.
 
 ### Placeholders in JSON Configuration
 
-Placeholders can be used in `.CFConfig.json` to substitute environment variables or system properties. This is 
+Placeholders can be used in `.CFConfig.json` to substitute environment variables or system properties. This is
 useful for sensitive data or configurations that differ between servers.
 
 Example:
@@ -105,20 +105,20 @@ Three types of placeholders are supported:
 
 ## Server Configuration
 
-The global server configuration is typically located at `<installation>/lucee-server/context/.CFConfig.json`. 
-The location of the `lucee-server` directory can be customized using the `LUCEE_SERVER_DIR` environment 
+The global server configuration is typically located at `<installation>/lucee-server/context/.CFConfig.json`.
+The location of the `lucee-server` directory can be customized using the `LUCEE_SERVER_DIR` environment
 variable or the `-Dlucee.server.dir` system property.
 
-At startup, Lucee reads this configuration, applying the settings and resolving resources (e.g., extensions, 
-[[maven|Maven endpoints]], etc.). A best practice is to configure Lucee through the administrator, then export the 
+At startup, Lucee reads this configuration, applying the settings and resolving resources (e.g., extensions,
+[[maven|Maven endpoints]], etc.). A best practice is to configure Lucee through the administrator, then export the
 `.CFConfig.json` file as a base for future installations.
 
 ## Web Configurations
 
-In **multi mode**, Lucee creates a web configuration for each web context, with settings overriding the global 
+In **multi mode**, Lucee creates a web configuration for each web context, with settings overriding the global
 server configuration.
 
-By default, web configurations are stored at `<web-context>/WEB-INF/lucee/.CFConfig.json`. You can customize 
+By default, web configurations are stored at `<web-context>/WEB-INF/lucee/.CFConfig.json`. You can customize
 this location using the `LUCEE_WEB_DIR` environment variable or the `-Dlucee.web.dir` system property.
 
 To avoid conflicts between web contexts, using placeholders for each context is necessary:
