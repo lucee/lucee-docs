@@ -102,7 +102,7 @@ This video shows how to block "Lucee Server/Web Administrator" from being access
 
 ```
 
-<Location /lucee/admin>
+<Location ~ /lucee/admin>
 	Order deny,allow
 	Deny from all
 </Location>
