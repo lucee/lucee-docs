@@ -18,7 +18,7 @@ writeoutput(now());
 
 Run this index.cfm page in the browser.
 
-* Each time a cfm file is executed in Lucee, a class file is automatically created in the webroot --> WEBINFO --> lucee --> cfClasses folder. So, a class file(Ex: index_cfm$cf.class ) is usually created for your index.cfm file(Ex : index.cfm) in the cfClasses folder.
+* Each time a cfm file is executed in Lucee, a class file is automatically created in the webroot --> WEB-INF --> lucee --> cfClasses folder. So, a class file(Ex: index_cfm$cf.class ) is usually created for your index.cfm file(Ex : index.cfm) in the cfClasses folder.
 
 * Copy the class file and paste it into your current folder(\webapps\ROOT\sample). Then rename the class file to cfm file(test.cfm).
 
