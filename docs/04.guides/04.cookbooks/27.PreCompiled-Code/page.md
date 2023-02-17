@@ -18,13 +18,13 @@ writeoutput(now());
 
 Run this index.cfm page in the browser.
 
-* Each time a cfm file is executed in Lucee, a class file is automatically created in the webroot --> WEBINFO --> lucee --> cfClasses folder. So, a class file(Ex: index_cfm$cf.class ) is usually created for your index.cfm file(Ex : index.cfm) in the cfClasses folder.
+* When a cfm or cfc file is executed for the first time (or after the file has been edited), a class file holding the java byte-code representing that CFML file is automatically created within the cfclasses folder, webroot --> WEB-INF --> lucee --> cfclasses folder, in a sub-folder representing your application's context, for example `CFC__lucee_tomcat_webapps_ROOT4900`. (Differently from Adobe ColdFusion, a separate class file is not created for each method/function within a cfc/cfm file.)
 
-* Copy the class file and paste it into your current folder(\webapps\ROOT\sample). Then rename the class file to cfm file(test.cfm).
+* After executing a request to our `/sample/index.cfm` example above, a class file named `index_cfm$cf.class` will be created within a `sample` folder of the cfclasses folder for our application's context.
 
-* If we open that test.cfm, it is a binary format file.
+* To demonstrate how you can deploy that compiled byte-code for a cfm as if it was the cfm itself, you can copy that class file and paste it into your original application folder (\webapps\ROOT\sample). Since you already have the original index.cfm there, rename this class file to `test.cfm`.
 
-* Finally, run the test.cfm file in your browser. It should work as same way as the index.cfm file.
+* Finally, run the `/sample/test.cfm` file in your browser. It should show the same results as the index.cfm file would.
 
 ### Footnotes ###
 
