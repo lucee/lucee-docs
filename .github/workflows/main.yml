@@ -38,7 +38,7 @@ jobs:
         with:
           webroot: ${{ github.workspace }}
           execute: /build-all.cfm
-          luceeVersion: 6.0.0.320-SNAPSHOT
+          luceeVersion: 6.0.0.346-BETA
           extensions: 60772C12-F179-D555-8E2CD2B4F7428718  # redis
       - name: Publish to S3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master'}}
