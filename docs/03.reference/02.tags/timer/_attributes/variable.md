@@ -1,1 +1,1 @@
-The name of the variable in which to save the timer exection time into.
+The name of the variable in which to save the timer execution time into.
