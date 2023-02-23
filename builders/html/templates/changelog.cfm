@@ -83,7 +83,7 @@
 <cfoutput>
 
 	#getEditLink(path=local.changeLog.getSourceFile(), edit=args.edit)#
-	#markdownToHtml( local.changeLog.getBody() )#
+	#_markdownToHtml( local.changeLog.getBody() )#
 </cfoutput>
 
 <ul>

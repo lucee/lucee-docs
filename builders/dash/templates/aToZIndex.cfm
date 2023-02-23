@@ -6,7 +6,7 @@
 
 <cfoutput>
 	<a class="pull-right" href="#getSourceLink( path=pg.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
-	#markdownToHtml( pg.getBody() )#
+	#_markdownToHtml( pg.getBody() )#
 
 	<div class="row row-clear">
 		<cfloop array="#pg.getChildren()#" index="i" item="child">

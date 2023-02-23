@@ -6,7 +6,7 @@
 
 <cfoutput>
 	#getEditLink(path=local.fn.getSourceFile(), edit=args.edit)#
-	#markdownToHtml( local.fn.getBody() )#
+	#_markdownToHtml( local.fn.getBody() )#
 
 	<p><strong>Returns:</strong> #local.fn.getReturnType()#</p>
 	<cfif len(local.fn.getAlias()) gt 0>
@@ -41,7 +41,7 @@
 							</td>
 							<td>
 								#getEditLink(path=local.fn.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
-								#markdownToHtml( Trim( local.arg.description ) )#
+								#_markdownToHtml( Trim( local.arg.description ) )#
 								<cfif len(local.arg.alias) gt 0>
 									<p title="for compatibility, this argument has the following alias(es)">
 										<sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub>
@@ -50,7 +50,7 @@
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
  								<td>
- 									#markdownToHtml( local.arg.default ?: "" )#
+ 									#_markdownToHtml( local.arg.default ?: "" )#
  								</td>
  							</cfif>
 						</tr>
@@ -69,7 +69,7 @@
 		#getEditLink(path=local.fn.getSourceDir() & '_examples.md', edit=args.edit)#
 	</cfif>
 	<cfif Len( Trim( local.fn.getExamples() ) )>
-		#markdownToHtml( local.fn.getExamples() )#
+		#_markdownToHtml( local.fn.getExamples() )#
 	<cfelse>
 		<em>There are currently no examples for this function</em>
 	</cfif>

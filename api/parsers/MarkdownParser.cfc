@@ -11,7 +11,7 @@ component {
 		return this;
 	}
 
-	public string function markdownToHtml( required string markdown, required boolean stripParagraph=false) {
+	public string function _markdownToHtml( required string markdown, required boolean stripParagraph=false) {
 		if (variables.flexmark){
 			var processor = _getMarkdownProcessor();
 			var doc = processor.parser.parse(arguments.markdown);

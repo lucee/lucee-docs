@@ -6,10 +6,10 @@
 
 <cfoutput>
 	#getEditLink(path=local.tag.getSourceFile(), edit=args.edit)#
-	#markdownToHtml( local.tag.getBody() )#
+	#_markdownToHtml( local.tag.getBody() )#
 
-	#markdownToHtml( Trim( local.tag.getBodyTypeDescription() ) )#
-	#markdownToHtml( Trim( local.tag.getScriptSupportDescription() ) )#
+	#_markdownToHtml( Trim( local.tag.getBodyTypeDescription() ) )#
+	#_markdownToHtml( Trim( local.tag.getScriptSupportDescription() ) )#
 
 	<h2>Attributes</h2>
 	<cfif !local.tag.getAttributes().len()>
@@ -32,11 +32,11 @@
 							</td>
 							<td>
 								#getEditLink(path=local.tag.getSourceDir() & '_attributes/#local.attrib.name#.md', edit=args.edit)#
-								#markdownToHtml( local.attrib.description ?: "" )#
+								#_markdownToHtml( local.attrib.description ?: "" )#
 							</td>
  							<cfif local.attributesHaveDefaultValues>
  								<td>
- 									#markdownToHtml( local.attrib.defaultValue ?: "" )#
+ 									#_markdownToHtml( local.attrib.defaultValue ?: "" )#
  								</td>
  							</cfif>
 						</tr>
@@ -55,7 +55,7 @@
 		#getEditLink(path=local.tag.getSourceDir() & '_examples.md', edit=args.edit)#
 	</cfif>
 	<cfif Len( Trim( local.tag.getExamples() ) )>
-		#markdownToHtml( local.tag.getExamples() )#
+		#_markdownToHtml( local.tag.getExamples() )#
 	<cfelse>
 		<em>There are currently no examples for this tag.</em>
 	</cfif>

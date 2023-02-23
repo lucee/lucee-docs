@@ -11,7 +11,7 @@
 
 <cfoutput>
 	#getEditLink(path=local.pg.getSourceFile(), edit=args.edit)#
-	#markdownToHtml( local.pg.getBody() )#
+	#_markdownToHtml( local.pg.getBody() )#
 
 	<cfif StructCount(local.status.function) gt 0>
 		<div class="tile-wrap">

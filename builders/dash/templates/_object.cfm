@@ -7,9 +7,9 @@
 	#getEditLink(path=local.pg.getSourceFile(), edit=args.edit)#
 	<p>
 	<cfif local.pg.getBody().len() gt 0>
-		#markdownToHtml( local.pg.getBody())#
+		#_markdownToHtml( local.pg.getBody())#
 	<cfelse>
-		#markdownToHtml("Object")#
+		#_markdownToHtml("Object")#
 	</cfif>
 	</p>
 

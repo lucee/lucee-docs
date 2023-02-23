@@ -5,7 +5,7 @@
 <cfset local.argumentsHaveDefaultValues = local.meth.argumentsHaveDefaultValues() />
 <cfoutput>
 	#getEditLink(path=local.meth.getSourceFile(), edit=args.edit)#
-	#markdownToHtml( local.meth.getBody() )#
+	#_markdownToHtml( local.meth.getBody() )#
 
 
 	<cfif len(local.meth.getIntroduced()) gt 0>
@@ -52,15 +52,15 @@
 							</td>
 							<td>
 								#getEditLink(path=local.meth.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
-								#markdownToHtml( Trim( arg.description ) )#
+								#_markdownToHtml( Trim( arg.description ) )#
 								<cfif local.arg.keyExists("alias") and len(local.arg.alias) gt 0>
 									<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
 								</cfif>
-								#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
+								#showOriginalDescription(props=local.arg, edit=args.edit, _markdownToHtml=_markdownToHtml)#
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
  								<td translate="no">
- 									#markdownToHtml( local.arg.default ?: "" )#
+ 									#_markdownToHtml( local.arg.default ?: "" )#
  								</td>
  							</cfif>
 						</tr>
@@ -75,7 +75,7 @@
 		#getEditLink(path=local.meth.getSourceDir() & '_examples.md', edit=args.edit)#
 	</cfif>
 	<cfif Len( Trim( local.meth.getExamples() ) )>
-		#markdownToHtml( local.meth.getExamples() )#
+		#_markdownToHtml( local.meth.getExamples() )#
 	<cfelse>
 		<em>There are currently no examples for this function</em>
 	</cfif>

@@ -13,11 +13,11 @@
 		return Replace( sourceBase, "{path}", fixPathCase( arguments.path ) );
 	}
 
-	string function showOriginalDescription( required struct props, required boolean edit, required any markdownToHtml ) {
+	string function showOriginalDescription( required struct props, required boolean edit, required any _markdownToHtml ) {
 		if (arguments.edit
 			and structKeyExists(arguments.props, "descriptionOriginal")
 			and arguments.props.descriptionOriginal neq arguments.props.description){
-				return "<b>Modified in Lucee Docs, Source Lucee definition:</b>" & arguments.markdownToHtml(arguments.props.descriptionOriginal);
+				return "<b>Modified in Lucee Docs, Source Lucee definition:</b>" & arguments._markdownToHtml(arguments.props.descriptionOriginal);
 		}
 		return "";
 	}

@@ -4,5 +4,5 @@
 
 <cfoutput>
 	#getEditLink(path=local.pg.getSourceFile(), edit=arguments.args.edit)#
-	#markdownToHtml( local.pg.getBody() )#
+	#_markdownToHtml( local.pg.getBody() )#
 </cfoutput>

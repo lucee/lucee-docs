@@ -14,10 +14,10 @@ component {
 		return Trim( rendered );
 	}
 
-	public string function markdownToHtml( required string markdown, required boolean stripParagraph=false ) {
+	public string function _markdownToHtml( required string markdown, required boolean stripParagraph=false ) {
 		var rendered = new SyntaxHighlighter().renderHighlights( arguments.markdown );
 
-		return new api.parsers.ParserFactory().getMarkdownParser().markdownToHtml( rendered, arguments.stripParagraph );
+		return new api.parsers.ParserFactory().getMarkdownParser()._markdownToHtml( rendered, arguments.stripParagraph );
 	}
 
 	private void function _includeHelpers( required string helpers ) {
