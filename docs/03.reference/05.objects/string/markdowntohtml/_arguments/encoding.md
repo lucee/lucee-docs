@@ -1,0 +1,1 @@
+Charset, only used in case the argument markdown contains a file path

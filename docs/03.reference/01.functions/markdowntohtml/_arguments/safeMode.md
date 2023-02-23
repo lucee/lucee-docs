@@ -1,0 +1,1 @@
+If set to true it does escape unsafe HTML tags

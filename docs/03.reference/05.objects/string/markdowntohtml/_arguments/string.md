@@ -1,0 +1,1 @@
+A Markdown formatted string or a path to a file containf a markdown formatted string to convert to HTML

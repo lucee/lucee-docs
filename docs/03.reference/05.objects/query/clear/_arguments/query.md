@@ -1,0 +1,1 @@
+query to clear all data.

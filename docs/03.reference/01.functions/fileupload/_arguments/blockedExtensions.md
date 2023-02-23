@@ -1,0 +1,1 @@
+String list or string array of not allowed extensions.

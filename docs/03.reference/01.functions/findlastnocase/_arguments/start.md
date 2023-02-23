@@ -1,0 +1,1 @@
+End position of search from the left.

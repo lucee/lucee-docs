@@ -1,0 +1,1 @@
+Flag allowing to disable connection reuse on one off requests.

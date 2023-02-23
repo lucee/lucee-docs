@@ -1,0 +1,1 @@
+Column name that values are used for struct key

@@ -1,0 +1,1 @@
+if set to true, the duplicate value will not be case sensitive

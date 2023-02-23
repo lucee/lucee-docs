@@ -1,0 +1,1 @@
+A component, user-defined function, query object, XML, ... . Within a CFC, the parameter can also specify the This scope

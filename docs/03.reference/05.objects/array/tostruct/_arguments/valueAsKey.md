@@ -1,0 +1,1 @@
+use the value as the key of the struct, rather than the index
