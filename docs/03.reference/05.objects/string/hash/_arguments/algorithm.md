@@ -1,4 +1,5 @@
 The algorithm to use to hash the string. Supported are the following algorithms:
+
 - QUICK: generating a fast hash string, that provides no security. this algorithm is good when you simply need to shorten a string for an id, for example
 - CFMX_COMPAT: generating a hash string using classic CFML algorithm.
 - MD5: (default) Generates a 32-character, hexadecimal string, using the MD5 algorithm.
