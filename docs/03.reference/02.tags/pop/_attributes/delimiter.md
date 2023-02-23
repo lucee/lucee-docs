@@ -1,0 +1,1 @@
+Character that separates uid list, The default value is comma(,).

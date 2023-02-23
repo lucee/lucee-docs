@@ -1,0 +1,1 @@
+data to insert, can be a query, a struct or an array.

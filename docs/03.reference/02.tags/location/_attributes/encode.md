@@ -1,0 +1,1 @@
+Encode the given URL value (changed behavior in Lucee 6.0)

@@ -1,0 +1,1 @@
+A query to copy to a struct

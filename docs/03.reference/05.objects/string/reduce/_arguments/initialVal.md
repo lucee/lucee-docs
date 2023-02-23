@@ -1,0 +1,1 @@
+Initial value that will be used for the reduce operation.

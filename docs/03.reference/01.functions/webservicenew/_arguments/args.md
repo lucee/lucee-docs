@@ -1,0 +1,1 @@
+a struct containing the following optional keys (username,password,proxyServer,proxyPort,proxyUser,proxyPassword)

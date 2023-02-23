@@ -1,0 +1,1 @@
+listener function that will be called with the data of every single row. if returns false, execution is stopped.
