@@ -6,16 +6,16 @@
 
 <cfoutput>
 	#getEditLink(path=local.tag.getSourceFile(), edit=args.edit)#
-	#markdownToHtml( local.tag.getBody() )#
+	#_markdownToHtml( local.tag.getBody() )#
 
-	#markdownToHtml( Trim( local.tag.getBodyTypeDescription() ) )#
-	#markdownToHtml( Trim( local.tag.getScriptSupportDescription() ) )#
+	#_markdownToHtml( Trim( local.tag.getBodyTypeDescription() ) )#
+	#_markdownToHtml( Trim( local.tag.getScriptSupportDescription() ) )#
 
 	<cfif len(local.tag.getStatus()) gt 0
 			and (local.tag.getStatus() neq "implemented" and local.tag.getStatus() neq "implemeted")>
 		<cfscript>
 			if (local.tag.getStatus() eq "Deprecated") {
-				local.status = markdownToHtml( "[[deprecated|#local.tag.getStatus()#]]", true );
+				local.status = _markdownToHtml( "[[deprecated|#local.tag.getStatus()#]]", true );
 			} else {
 				local.status = local.tag.getStatus();
 			}
@@ -60,7 +60,7 @@
 							</td>
 							<td>
 								#getEditLink(path=local.tag.getSourceDir() & '_attributes/#local.attrib.name#.md', edit=args.edit)#
-								#markdownToHtml( local.attrib.description ?: "" )#
+								#_markdownToHtml( local.attrib.description ?: "" )#
 								<cfif structKeyExists(local.attrib, "aliases") && Arraylen(local.attrib.aliases) gt 0>
 									<p title="for compatibility, this attribute has the following alias(es)"><sub>Alias:</strong>
 									<span translate="no">#ArrayToList(local.attrib.aliases,", ")#</span></sub></p>
@@ -68,14 +68,14 @@
 								<cfif structKeyExists(local.attrib, "status") and local.attrib.status neq "implemented">
 									<em>* #local.attrib.status# *</em>
 								</cfif>
-								#showOriginalDescription(props=local.attrib, edit=args.edit, markdownToHtml=markdownToHtml)#
+								#showOriginalDescription(props=local.attrib, edit=args.edit, _markdownToHtml=_markdownToHtml)#
 								<cfif structKeyExists(local.attrib, "introduced") and len(local.attrib.introduced) gt 0>
 									<p><strong>Introduced:</strong> #local.attrib.introduced#</p>
 								</cfif>
 							</td>
  							<cfif local.attributesHaveDefaultValues>
  								<td translate="no">
- 									#markdownToHtml( local.attrib.defaultValue ?: "" )#
+ 									#_markdownToHtml( local.attrib.defaultValue ?: "" )#
  								</td>
 							 </cfif>
 						</tr>
@@ -101,18 +101,18 @@
 								</td>
 								<td>
 									#getEditLink(path=local.tag.getSourceDir() & '_attributes/#local.attrib.name#.md', edit=args.edit)#
-									#markdownToHtml( local.attrib.description ?: "" )#
+									#_markdownToHtml( local.attrib.description ?: "" )#
 									<cfif structKeyExists(local.attrib, "aliases") && Arraylen(local.attrib.aliases) gt 0>
 										<p title="for compatibility, this attribute has the following alias(es)"><sub>Alias:</strong> #ArrayToList(local.attrib.aliases,", ")#</sub></p>
 									</cfif>
 									<cfif structKeyExists(local.attrib, "status") and local.attrib.status neq "implemented">
 										<em>* #local.attrib.status# *</em>
 									</cfif>
-									#showOriginalDescription(props=local.attrib, edit=args.edit, markdownToHtml=markdownToHtml)#
+									#showOriginalDescription(props=local.attrib, edit=args.edit, _markdownToHtml=_markdownToHtml)#
 								</td>
 								 <cfif local.attributesHaveDefaultValues>
 									 <td translate="no">
-										 #markdownToHtml( local.attrib.defaultValue ?: "" )#
+										 #_markdownToHtml( local.attrib.defaultValue ?: "" )#
 									 </td>
 								 </cfif>
 							</tr>
@@ -128,7 +128,7 @@
 			<h4>Usage Notes</h4>
 			#getEditLink(path=local.tag.getSourceDir() & '_usageNotes.md', edit=args.edit)#
 			<cfif Len( Trim( local.tag.getUsageNotes() ) )>
-				#markdownToHtml( local.tag.getUsageNotes() )#
+				#_markdownToHtml( local.tag.getUsageNotes() )#
 			</cfif>
 		</div>
 	</cfif>	
@@ -138,7 +138,7 @@
 		#getEditLink(path=local.tag.getSourceDir() & '_examples.md', edit=args.edit)#
 	</cfif>
 	<cfif Len( Trim( local.tag.getExamples() ) )>
-		#markdownToHtml( local.tag.getExamples() )#
+		#_markdownToHtml( local.tag.getExamples() )#
 	<cfelse>
 		<em>There are currently no examples for this tag.</em>
 	</cfif>

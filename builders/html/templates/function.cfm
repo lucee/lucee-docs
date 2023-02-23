@@ -5,7 +5,7 @@
 <cfset local.argumentsHaveDefaultValues = local.fn.argumentsHaveDefaultValues() />
 <cfoutput>
 	#getEditLink(path=local.fn.getSourceFile(), edit=args.edit)#
-	#markdownToHtml( local.fn.getBody() )#
+	#_markdownToHtml( local.fn.getBody() )#
 	<!--- https://github.com/lucee/Lucee/pull/876 --->
 	<cfif len(local.fn.getStatus()) gt 0
 			and (local.fn.getStatus() neq "implemented" and local.fn.getStatus() neq "implemeted")>
@@ -41,7 +41,7 @@
 				#getEditLink(path=local.fn.getSourceDir() & '_returnTypeDesc.md', edit=args.edit)#
 			</div>
 			<cfif Len( Trim( local.fn.getReturnTypeDesc() ) )>
-				#markdownToHtml( local.fn.getReturnTypeDesc() )#
+				#_markdownToHtml( local.fn.getReturnTypeDesc() )#
 			</cfif>		
 		</cfif>
 	</div>
@@ -88,7 +88,7 @@
 							</td>
 							<td>
 								#getEditLink(path=local.fn.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
-								#markdownToHtml( Trim( local.arg.description ) )#
+								#_markdownToHtml( Trim( local.arg.description ) )#
 								<cfif len(local.arg.alias) gt 0>
 									<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> 
 									<span translate="no">#ListChangeDelims(local.arg.alias,", ",",")#</span></sub></p>
@@ -96,14 +96,14 @@
 								<cfif structKeyExists(local.arg, "status") and local.arg.status neq "implemented">
 									<em>* #local.arg.status# *</em>
 								</cfif>
-								#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
+								#showOriginalDescription(props=local.arg, edit=args.edit, _markdownToHtml=_markdownToHtml)#
 								<cfif structKeyExists(local.arg, "introduced") and len(local.arg.introduced) gt 0>
 									<p><strong>Introduced:</strong> #local.arg.introduced#</p>
 								</cfif>
 							</td>
 							<cfif local.argumentsHaveDefaultValues>
  								<td translate="no">
- 									#markdownToHtml( local.arg.default ?: "" )#
+ 									#_markdownToHtml( local.arg.default ?: "" )#
  								</td>
 							</cfif>
 							
@@ -137,18 +137,18 @@
 								</td>
 								<td>
 									#getEditLink(path=local.fn.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
-									#markdownToHtml( Trim( local.arg.description ) )#
+									#_markdownToHtml( Trim( local.arg.description ) )#
 									<cfif len(local.arg.alias) gt 0>
 										<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> #ListChangeDelims(local.arg.alias,", ",",")#</sub></p>
 									</cfif>
 									<cfif structKeyExists(local.arg, "status") and local.arg.status neq "implemented">
 										<em>* #local.arg.status# *</em>
 									</cfif>
-									#showOriginalDescription(props=local.arg, edit=args.edit, markdownToHtml=markdownToHtml)#
+									#showOriginalDescription(props=local.arg, edit=args.edit, _markdownToHtml=_markdownToHtml)#
 								</td>
 								<cfif local.argumentsHaveDefaultValues>
 									 <td translate="no">
-										 #markdownToHtml( local.arg.default ?: "" )#
+										 #_markdownToHtml( local.arg.default ?: "" )#
 									 </td>
 								 </cfif>
 							</tr>
@@ -164,7 +164,7 @@
 			<h4>Usage Notes</h4>
 			#getEditLink(path=local.fn.getSourceDir() & '_usageNotes.md', edit=args.edit)#
 			<cfif Len( Trim( local.fn.getUsageNotes() ) )>
-				#markdownToHtml( local.fn.getUsageNotes() )#
+				#_markdownToHtml( local.fn.getUsageNotes() )#
 			</cfif>
 		</div>
 	</cfif>
@@ -174,7 +174,7 @@
 		#getEditLink(path=local.fn.getSourceDir() & '_examples.md', edit=args.edit)#
 	</cfif>
 	<cfif Len( Trim( local.fn.getExamples() ) )>
-		#markdownToHtml( local.fn.getExamples() )#
+		#_markdownToHtml( local.fn.getExamples() )#
 	<cfelse>
 		<em>There are currently no examples for this function</em>
 	</cfif>

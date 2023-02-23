@@ -8,7 +8,7 @@
 
 <cfoutput>
 	#getEditLink(path=local.pg.getSourceFile(), edit=args.edit)#
-	#markdownToHtml( local.pg.getBody() )#
+	#_markdownToHtml( local.pg.getBody() )#
 
 	<cfif ArrayLen(local.pg.getChildren()) lt 50>
 		<div class="tile-wrap">

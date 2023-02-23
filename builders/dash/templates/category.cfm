@@ -17,7 +17,7 @@
 
 <cfoutput>
 	#getEditLink(path=local.category.getSourceFile(), edit=args.edit)#
-	#markdownToHtml( local.category.getBody() )#
+	#_markdownToHtml( local.category.getBody() )#
 
 	<cfif not pages.len()>
 		<p><em>There are no pages tagged with this category.</em></p>
