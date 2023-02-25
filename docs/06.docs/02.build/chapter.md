@@ -3,13 +3,25 @@ title: Build
 id: docs-build
 ---
 
-## Prerequisites
+Contributions to the Lucee docs are welcome. You can edit them online in GitHub or by building the docs locally. Your proposed change will be considered by the Lucee docs team, and you'll be notified if the change is accepted or rejected for some reason which will be given.
 
-The only dependency required is [CommandBox](https://www.ortussolutions.com/products/commandbox). Ensure that commandbox is installed and that the `box` command is in your path.
+Like most docs based on GitHub, the Lucee docs are plain text files formatted as "markdown". If you may be new to working with markdown, see any of various introductory docs, including GitHub's [Basic writing and formatting syntax(https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)] page.
 
-## Fork and contribute to the documentation
+# Editing the docs online
 
-Fork the repository and clone a local copy, or you can simply use the GitHub links on any page of the docs to edit the docs and submit changes.
+To edit the docs online, noticee that while viewing any docs page there is a GitHub icon at the top right, such as is shown [on this page itself(https://docs.lucee.org/docs/build.html)]. Clicking that will take you to the [Lucee docs repository(https://github.com/lucee/lucee-docs)] for that page.
+
+GitHub also offers [more details on editing files online this way([https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-another-users-repository)], including editing, committing changes, creating pull requests, and more. 
+
+# Editing the docs by building them locally 
+
+If you may prefer to edit files locally, and especially if you may want to change many files, you can instead download the repository. Further, you can even build a local copy of the docs, and view them as a full web site. This is a more involved process than just editing a single page via GitHub online, but it's easily performed by following the steps below.
+
+## Prerequisites for building docs locally
+
+The only application dependency required to build the docs locally is [CommandBox](https://www.ortussolutions.com/products/commandbox). Ensure that commandbox is installed and that the `box` command is in your path.
+
+Fork the repository and clone a local copy:
 
 [Lucee Documentation](https://github.com/lucee/lucee-docs)
 
@@ -31,13 +43,13 @@ We have provided a utility server whose purpose is to run locally to help while 
 
 This will spin up a server using CommandBox on port 4040 and open it in your browser. You should also see a tray icon that will allow you to stop the server. Changes to the source docs should trigger an internal rebuild of the documentation tree which may take a little longer than regular requests to the documentation.
 
-## Local Editing
+## Local editing
 
 When running the server locally, you can edit the content inline and it will save your changes back to your local file system.
 
 Once you have finished making your changes, simply use your preferred git client to create a pull request to publish your changes.
 
-## Recent improvements
+## Related resources
 
 [https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662](https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662)
 
