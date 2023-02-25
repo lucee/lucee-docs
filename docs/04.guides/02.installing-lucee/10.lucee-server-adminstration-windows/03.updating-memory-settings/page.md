@@ -11,6 +11,6 @@ When Lucee is implemented using the Windows installer for Lucee, the memory sett
 
 Next, click on the "Java" tab, and edit the min/max JVM heap fields as you see fit. Don't forget to restart Lucee after you make your changes. Please note that you must restart the Lucee service in Windows: if you use the _Restart_ option of the Lucee Server Admin, that will restart the Lucee engine but that would NOT pickup any changes you just made to this _Tomcat-Lucee Service Control_ panel. Restarting the service (or rebooting the box) would pickup such changes.
 
-### Additional JVM Settings ###
+## Additional JVM Settings
 
 The same "Java" tab can be used to pass other parameters to your JVM, such as "-XX:MaxPermSize=128m". Simply add the option to the "Java Options" text area on that same screen. note that new items should each be added on a new line within that "Java Options" text area, which differs from when providing mutiple java arguments via other means.
