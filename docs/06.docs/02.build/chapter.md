@@ -51,6 +51,6 @@ Once you have finished making your changes, simply use your preferred git client
 
 ## Related resources
 
-[https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662](https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662)
+<https://dev.lucee.org/t/building-lucee-documentation-on-windows-and-performance-tuning/3662>
 
-[https://dev.lucee.org/t/lucee-documentation-visual-and-navigation-improvements/3683](https://dev.lucee.org/t/lucee-documentation-visual-and-navigation-improvements/3683)
+<https://dev.lucee.org/t/lucee-documentation-visual-and-navigation-improvements/3683>
