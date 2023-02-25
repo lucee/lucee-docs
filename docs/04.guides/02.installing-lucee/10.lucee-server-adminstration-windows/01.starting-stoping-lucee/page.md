@@ -21,6 +21,6 @@ Once launched, the _Tomcat Service Control_ panel also offers the ability to sta
 
 (Beware that if you make a change in this _Lucee-Tomcat Service Control_ panel, that change only takes effect on a restart of the Lucee _service_. If instead you restart Lucee using the Lucee Server Admin's _Restart_ option, that will restart the Lucee engine but does not technically restart the Windows Service for Lucee, so would NOT see changes you made in the control panel. Always restart the Lucee service using one of the two options discussed above, if you change any configuration settings in that _Lucee-Tomcat Service Control_ panel.)
 
-### Using the Tomcat Service Monitor system tray feature###
+### Using the Tomcat Service Monitor system tray feature
 
 The _Tomcat Service Monitor_ is another feature which can be opened from the _Start_ Menu for Lucee as `Lucee-Tomcat Service Monitor`. Once enabled, it appears in the Windows System Tray (bottom right corner of your display, by default). You can right-click it to stop/start Lucee, and the "configuration" option launches that _Lucee-Tomcat Service Control_ discussed above.
