@@ -5,13 +5,13 @@ id: 3rd-party-libraries
 
 ## Overview ##
 
-Lucee ships with a set of 3rd party libraries that help Lucee perform certain tasks like connecting to databases, sending emails, logging, and more. these libraries are found in [lucee-install-folder]\WEB-INF\lib
+Lucee ships with a set of 3rd party libraries that help Lucee perform certain tasks like connecting to databases, sending emails, logging, and more. These libraries are found in [lucee-install-folder]\WEB-INF\lib
 
 due to the risk in upgrading one piece of code without thoroughly testing its implications on the whole system, Lucee's policy is to update the libraries shipped with Lucee only in a major version release.
 
 sometimes, however, you need to use a newer library than the one that shipped with Lucee, in order to take advantage of bug fixes and/or new functionality.
 
-keep in mind that if you upgrade a library you risk breaking the code that uses that library as not all libraries are 100% backward compatible, so do it judiciously and only if you must. this practice is Not recommended in a production environment.
+keep in mind that if you upgrade a library you risk breaking the code that uses that library as not all libraries are 100% backward compatible, so do it judiciously and only if you must. This practice is Not recommended in a production environment.
 
 ## How To Update The Libraries ##
 

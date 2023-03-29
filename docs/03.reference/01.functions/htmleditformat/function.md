@@ -11,7 +11,7 @@ categories:
 ---
 
 Replaces special characters in a string with their HTML-escaped equivalents.   [version]
-HTML version to use. currently ignored.
+HTML version to use is currently ignored.
 
 -1: The latest implementation of HTML
 

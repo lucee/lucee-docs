@@ -45,7 +45,7 @@ Hit Next >
 
 Now we define the local server that we are going to be using, select Tomcat V6.0 and using the Browse... button point it to your local Tomcat installation directory
 
-Press Finish and the local server should be created. and started, you should get a window in Eclipse like the one below:
+Press Finish and the local server should be created and started, you should get a window in Eclipse like the one below:
 
 Now that we have this running fine, click on the Servers tab (shown above) and stop the server. Double click on the server and you will get a Server configuration screen.
 
