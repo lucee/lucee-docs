@@ -55,12 +55,12 @@ As you see moxi will try to use the 2 passed hosts as part of the cluster and wi
 
 If you run a single membase server on you localhost for testing purposes, you will not need to launch moxi manually cause the server will already do that . Just point your cache to the moxi host using the default port.
 
-* Memcached is designed to manage very large sets of data in a complex distributed environment. For this reason some operation like for example getting the list of the keys actually cached are not supported as could not be efficient. For this and similar reasons the following functions are not supported and will throw an exception if used on a Membase Cache instance:
+* Membase is designed to manage very large sets of data in a complex distributed environment. For this reason some operation like for example getting the list of the keys actually cached are not supported as could not be efficient. For this and similar reasons the following functions are not supported and will throw an exception if used on a Membase Cache instance:
 	* cacheCount()
 	* cacheGetAllIds()
 	* cacheGetAll()
 
 * The function cacheGetMetadata() will return metadata only for the whole cache instance but not for the single key.
-Actually the Java client allow us to manage the cache using the default bucket ( this is planned to be improved by the membase guys in a near future ).
+Actually the Java client allow us to manage the cache using the default bucket ( this is planned to be improved by the Membase team in a near future ).
 
-* Actually the Java client allow us to manage the cache using the default bucket ( this is planned to be improved by the membase guys in a near future ).
+* Actually the Java client allow us to manage the cache using the default bucket ( this is planned to be improved by the Membase team in a near future ).
