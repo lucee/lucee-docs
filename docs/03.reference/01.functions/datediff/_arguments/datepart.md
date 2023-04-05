@@ -11,3 +11,4 @@ The specific units in which to count:
 - h: Hours
 - n: Minutes
 - s: Seconds
+- l: MilliSeconds
