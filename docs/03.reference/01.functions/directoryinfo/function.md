@@ -1,5 +1,5 @@
 ---
-title: directoryinfo
+title: DirectoryInfo
 id: function-directoryinfo
 related:
 categories:

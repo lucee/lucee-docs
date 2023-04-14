@@ -1,5 +1,5 @@
 ---
-title: applicationPathCacheClear
+title: ApplicationPathCacheClear
 id: function-applicationpathcacheclear
 categories:
 - application

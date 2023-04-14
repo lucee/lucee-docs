@@ -1,5 +1,5 @@
 ---
-title: stringsort
+title: StringSort
 id: function-stringsort
 related:
 categories:

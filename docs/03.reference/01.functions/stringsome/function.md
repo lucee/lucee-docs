@@ -1,5 +1,5 @@
 ---
-title: stringsome
+title: StringSome
 id: function-stringsome
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: arraysplice
+title: ArraySplice
 id: function-arraysplice
 related:
 categories:

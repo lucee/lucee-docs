@@ -1,5 +1,5 @@
 ---
-title: stringeach
+title: StringEach
 id: function-stringeach
 related:
 categories:

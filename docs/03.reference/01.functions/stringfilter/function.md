@@ -1,5 +1,5 @@
 ---
-title: stringfilter
+title: StringFilter
 id: function-stringfilter
 related:
 categories:

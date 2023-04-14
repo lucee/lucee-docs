@@ -1,5 +1,5 @@
 ---
-title: queryisempty
+title: QueryIsEmpty
 id: function-queryisempty
 related:
 categories:

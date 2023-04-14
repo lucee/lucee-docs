@@ -1,5 +1,5 @@
 ---
-title: queryclear
+title: QueryClear
 id: function-queryclear
 related:
 categories:

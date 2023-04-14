@@ -1,5 +1,5 @@
 ---
-title: stringevery
+title: StringEvery
 id: function-stringevery
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: componentlistpackage
+title: ComponentListPackage
 id: function-componentlistpackage
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: isWithinTransaction
+title: IsWithinTransaction
 id: function-iswithintransaction
 related:
 - tag-query

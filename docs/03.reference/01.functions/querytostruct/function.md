@@ -1,5 +1,5 @@
 ---
-title: querytostruct
+title: QueryToStruct
 id: function-querytostruct
 related:
 categories:

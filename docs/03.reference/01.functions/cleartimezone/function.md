@@ -1,5 +1,5 @@
 ---
-title: clearTimeZone
+title: ClearTimeZone
 id: function-clearTimeZone
 categories:
 - datetime

@@ -1,5 +1,5 @@
 ---
-title: listqualifiedtoarray
+title: ListQualifiedToArray
 id: function-listqualifiedtoarray
 related:
 categories:

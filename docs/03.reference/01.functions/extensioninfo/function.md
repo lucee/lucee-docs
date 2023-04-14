@@ -1,5 +1,5 @@
 ---
-title: extensioninfo
+title: ExtensionInfo
 id: function-extensioninfo
 related:
 categories:

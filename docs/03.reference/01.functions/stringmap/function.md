@@ -1,5 +1,5 @@
 ---
-title: stringmap
+title: StringMap
 id: function-stringmap
 related:
 categories:
