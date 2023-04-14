@@ -1,5 +1,5 @@
 ---
-title: arrayremoveduplicates
+title: ArrayRemoveDuplicates
 id: function-arrayremoveduplicates
 related:
 categories:

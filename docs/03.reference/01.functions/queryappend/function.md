@@ -1,5 +1,5 @@
 ---
-title: queryappend
+title: QueryAppend
 id: function-queryappend
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: queryinsertat
+title: QueryInsertAt
 id: function-queryinsertat
 related:
 categories:

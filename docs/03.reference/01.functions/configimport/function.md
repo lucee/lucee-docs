@@ -1,5 +1,5 @@
 ---
-title: configImport
+title: ConfigImport
 id: function-configimport
 related:
 categories:

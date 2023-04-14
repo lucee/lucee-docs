@@ -1,5 +1,5 @@
 ---
-title: markdowntohtml
+title: MarkdownToHtml
 id: function-markdowntohtml
 related:
 categories:

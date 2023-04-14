@@ -1,5 +1,5 @@
 ---
-title: sanitizehtml
+title: SanitizeHtml
 id: function-sanitizehtml
 related:
 categories:

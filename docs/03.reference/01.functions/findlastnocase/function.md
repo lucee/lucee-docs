@@ -1,5 +1,5 @@
 ---
-title: findlastnocase
+title: FindLastNoCase
 id: function-findlastnocase
 related:
 categories:

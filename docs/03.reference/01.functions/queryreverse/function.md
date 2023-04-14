@@ -1,5 +1,5 @@
 ---
-title: queryreverse
+title: QueryReverse
 id: function-queryreverse
 related:
 categories:

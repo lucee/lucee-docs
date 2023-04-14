@@ -1,5 +1,5 @@
 ---
-title: trimwhitespace
+title: TrimWhitespace
 id: function-trimwhitespace
 related:
 categories:

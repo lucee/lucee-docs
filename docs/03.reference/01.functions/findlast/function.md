@@ -1,5 +1,5 @@
 ---
-title: findlast
+title: FindLast
 id: function-findlast
 related:
 categories:

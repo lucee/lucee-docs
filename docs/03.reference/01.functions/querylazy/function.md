@@ -1,5 +1,5 @@
 ---
-title: querylazy
+title: QueryLazy
 id: function-querylazy
 related:
 categories:

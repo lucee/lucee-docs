@@ -1,5 +1,5 @@
 ---
-title: queryprepend
+title: QueryPrepend
 id: function-queryprepend
 related:
 categories:

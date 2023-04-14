@@ -1,5 +1,5 @@
 ---
-title: stringreduce
+title: StringReduce
 id: function-stringreduce
 related:
 categories:

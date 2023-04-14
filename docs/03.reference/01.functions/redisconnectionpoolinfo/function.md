@@ -1,5 +1,5 @@
 ---
-title: redisconnectionpoolinfo
+title: RedisConnectionPoolInfo
 id: function-redisconnectionpoolinfo
 related:
 categories:

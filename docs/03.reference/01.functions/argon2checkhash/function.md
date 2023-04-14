@@ -1,5 +1,5 @@
 ---
-title: argon2checkhash
+title: Argon2CheckHash
 id: function-argon2checkhash
 related:
 categories:

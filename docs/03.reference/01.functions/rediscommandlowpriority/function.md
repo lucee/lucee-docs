@@ -1,5 +1,5 @@
 ---
-title: rediscommandlowpriority
+title: RedisCommandLowPriority
 id: function-rediscommandlowpriority
 related:
 categories:

@@ -1,5 +1,5 @@
 ---
-title: queryrenamecolumn
+title: QueryRenameColumn
 id: function-queryrenamecolumn
 related:
 categories:

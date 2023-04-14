@@ -1,5 +1,5 @@
 ---
-title: rediscommand
+title: RedisCommand
 id: function-rediscommand
 related:
 categories:
