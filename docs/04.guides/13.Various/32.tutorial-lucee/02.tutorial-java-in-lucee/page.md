@@ -16,7 +16,7 @@ Having said that, there are some instances where it makes sense to use Java obje
 * you want to use a library that was written in Java
 * you must optimize a bottleneck segment of code for speed
 
-In this tutorial I will focus on the first reason for using Java. there are many projects written in Java (many of them are open-source) that can add a lot of functionality to your application and save you a lot of time in writing, testing, and debugging. so instead of "reinventing the wheel" and writing your own code to achieve a task, it makes sense to utilize one of these projects.
+In this tutorial I will focus on the first reason for using Java. There are many projects written in Java (many of them are open-source) that can add a lot of functionality to your application and save you a lot of time in writing, testing, and debugging. so instead of "reinventing the wheel" and writing your own code to achieve a task, it makes sense to utilize one of these projects.
 
 ### How to use Java? ###
 
@@ -28,15 +28,15 @@ Since Lucee is written in Java, and is running inside a Java Virtual Machine (JV
 
 ### Step 1 - Check out the API ###
 
-the PI in API stands for Public Interface. Public Interface defines the methods (functions) and properties that are exposed publicly. these are the methods and properties that the designers of the object or library decided to make public for your use.
+the PI in API stands for Public Interface. Public Interface defines the methods (functions) and properties that are exposed publicly. These are the methods and properties that the designers of the object or library decided to make public for your use.
 
-in order to interact with an object that someone else wrote you have to study the API for that object. fortunately, most objects that are intended for someone else's (like yourself) use come with documentation.
+in order to interact with an object that someone else wrote you have to study the API for that object. Fortunately, most objects that are intended for someone else's (like yourself) use come with documentation.
 
 ### Step 2 - Get a reference to Java object(s) from CFML ###
 
-in most cases you will want to call one or more methods (functions) of the objects that you use. in order to call a method you must first define the object in CFML so that Lucee will know on which object you want to call the method.
+in most cases you will want to call one or more methods (functions) of the objects that you use. In order to call a method you must first define the object in CFML so that Lucee will know on which object you want to call the method.
 
-in order to define an object, you must ensure that the object is "visible" to Lucee. if the object is of a type that's included with the Java Runtime Environment (JRE), then it is visible and you don't have to do anything else. but if you are using an object from another project then you must ensure that the Java Archive (JAR) file(s) are in one of the paths that are visible to Lucee.
+in order to define an object, you must ensure that the object is "visible" to Lucee. If the object is of a type that's included with the Java Runtime Environment (JRE), then it is visible and you don't have to do anything else. But if you are using an object from another project then you must ensure that the Java Archive (JAR) file(s) are in one of the paths that are visible to Lucee.
 
 some of the paths include:
 
@@ -45,9 +45,9 @@ some of the paths include:
 
 ### Getting a Reference to an Object ###
 
-Now you are ready to define the object so that it's accessible to your code. you do that with the createObject( "java", objectType ) function. the objectType is the fully qualified name of the object, meaning it should have the package path as well the class name.
+Now you are ready to define the object so that it's accessible to your code. You do that with the createObject( "java", objectType ) function. The objectType is the fully qualified name of the object, meaning it should have the package path as well the class name.
 
-you will want to set the reference to a variable so that you can use it later. for example, to create a reference to the class Collections class in the java.util package, you will use:
+you will want to set the reference to a variable so that you can use it later. For example, to create a reference to the class Collections class in the java.util package, you will use:
 
 	<cfset classCollections = createObject( "java", "java.util.Collections" )>
 
@@ -60,7 +60,7 @@ please note that "createObject" is a misnomer and at this point you did not crea
 **Creating a new Object**
 
 Usually you create an instance of an object by calling its constructor.
-in Java this is done by using the new keyword. for example:
+in Java this is done by using the new keyword. For example:
 
 	myList = new java.util.ArrayList();
 
@@ -68,13 +68,13 @@ In CFML, you use the init() method to call the constructor, so the equivalent to
 
 	<cfset myList = createObject( "java", "java.util.ArrayList" ).init()>
 
-I say "usually you create an instance by calling its constructor" because some objects do not expose a public constructor, but instead let you to create an instance by calling a static method. the API should explain how to create a new object in such a case.
+I say "usually you create an instance by calling its constructor" because some objects do not expose a public constructor, but instead let you to create an instance by calling a static method. The API should explain how to create a new object in such a case.
 
 Sometimes you need to pass arguments to a constructor, you do that the same way you pass arguments to any method and I will show that below.
 
 **Inner Classes**
 
-when you need to use an Inner Class, that is a class that is defined within another class in Java, the last part of the fully qualified class name is delimited by a $ sign rather than a dot. see example below in the Lucene BooleanClause segment.
+when you need to use an Inner Class, that is a class that is defined within another class in Java, the last part of the fully qualified class name is delimited by a $ sign rather than a dot. See example below in the Lucene BooleanClause segment.
 
 ### Step 3 - Use the Java object(s) ###
 
@@ -91,7 +91,7 @@ The API will tell you whether the methods that you want to use are static or not
 
 The thing that you need to remember is that if a method is an instance method then you need to first create a new instance of the object (or get a reference to an existing instance).
 
-The following example creates a new instance of a java.util.ArrayList object, and then calls the instance method add() several times. then it defines a reference to the java.util.Collections, and calls the static method sort( List ). notice that we don't call init() on java.util.Collections since we're calling a static method. as a matter of fact, if you check out the API for java.util.Collections [http://download.oracle.com/javase/7/docs/api/java/util/Collections.html](http://download.oracle.com/javase/7/docs/api/java/util/Collections.html) you will see that it does not have a constructor.
+The following example creates a new instance of a java.util.ArrayList object, and then calls the instance method add() several times. Then it defines a reference to the java.util.Collections, and calls the static method sort( List ). Notice that we don't call init() on java.util.Collections since we're calling a static method. as a matter of fact, if you check out the API for java.util.Collections [http://download.oracle.com/javase/7/docs/api/java/util/Collections.html](http://download.oracle.com/javase/7/docs/api/java/util/Collections.html) you will see that it does not have a constructor.
 
 ```lucee
 <cfset myList = createObject( "java", "java.util.ArrayList" ).init()>	<!--- create new instance --->
@@ -108,7 +108,7 @@ The following example creates a new instance of a java.util.ArrayList object, an
 
 Unlike ColdFusion, Java is a strongly typed language, meaning that if a variable is expected to be of a certain type -- it Must be of that type (or of a type that has a "is a" relationship of that type).
 
-What this means is that if a method expects an argument to be of a certain type -- it Must be of that type. you can enforce the types passed to methods by using CFML's javaCast( type, variable ) function.
+What this means is that if a method expects an argument to be of a certain type -- it Must be of that type. You can enforce the types passed to methods by using CFML's javaCast( type, variable ) function.
 
 Consider the following scenario: you have a Java method that expects an argument of type Integer. Let's say the method's signature is as follows:
 
@@ -135,7 +135,7 @@ You can fix this by forcing CF to pass the argument as an Integer.
 
 **Data Types**
 
-In addition to the simple CF types, you will likely see many times that you have to pass complex types to/from Java. the most popular types are Collection, List, and Map. the table below shows the equivalent CF type to these Java types:
+In addition to the simple CF types, you will likely see many times that you have to pass complex types to/from Java. The most popular types are Collection, List, and Map. The table below shows the equivalent CF type to these Java types:
 
 | Java Type                              | Lucee type                                |
 | ---------------------------------------|-------------------------------------------| 
@@ -171,7 +171,7 @@ Check out StandardAnalyzer's API at <http://lucene.apache.org/java/3_3_0/api/all
 
 Perusing the Constructor Summary, you will notice that the StandardAnalyzer class does not have a no-argument constructor, so you can't just call .init() on the object -- you must pass some argument to it.
 
-The simplest constructor to use, using the default "stop words" is -- StandardAnalyzer( Version matchVersion ) -- and it expects a Version argument. the Version argument is an Enum type <http://lucene.apache.org/java/3_3_0/api/all/org/apache/lucene/util/Version.html>, so you can not simply pass a string into the StandardAnalyzer's constructor -- that would not work!
+The simplest constructor to use, using the default "stop words" is -- StandardAnalyzer( Version matchVersion ) -- and it expects a Version argument. The Version argument is an Enum type <http://lucene.apache.org/java/3_3_0/api/all/org/apache/lucene/util/Version.html>, so you can not simply pass a string into the StandardAnalyzer's constructor -- that would not work!
 
 So in order to call the StandardAnalyzer's constructor you must first get a reference to an org.apache.lucene.util.Version object.
 
@@ -179,11 +179,11 @@ One way of getting a reference to Version type is:
 
 	<cfset Lucene.version = createObject( "java", "org.apache.lucene.util.Version" ).LUCENE_33>
 
-Notice that the object's type is org.apache.lucene.util.Version and Not ~~org.apache.lucene.util.Version.LUCENE_33~~ so you can not do <cfset Lucene.version = createObject( "java", "org.apache.lucene.util.Version.LUCENE_33" )> as that is not a valid type. what you do is create a reference to org.apache.lucene.util.Version and then use a property of that reference with a dot notation, i.e. ".LUCENE_33"
+Notice that the object's type is org.apache.lucene.util.Version and Not ~~org.apache.lucene.util.Version.LUCENE_33~~ so you can not do <cfset Lucene.version = createObject( "java", "org.apache.lucene.util.Version.LUCENE_33" )> as that is not a valid type. What you do is create a reference to org.apache.lucene.util.Version and then use a property of that reference with a dot notation, i.e. ".LUCENE_33"
 
-The problem with this construct is that it forces version to be hard-coded as LUCENE_33. but what if you don't want to hard-code the version? what if you want to get it from a settings file, or get it via an argument to your own cfc or method?
+The problem with this construct is that it forces version to be hard-coded as LUCENE_33. But what if you don't want to hard-code the version? what if you want to get it from a settings file, or get it via an argument to your own cfc or method?
 
-Since the Version type is an Enum, it has a valueOf( String ) method. we can pass a string into that method and get a reference to the Version object that we can then pass to the StandardAnalyzer's constructor.
+Since the Version type is an Enum, it has a valueOf( String ) method. We can pass a string into that method and get a reference to the Version object that we can then pass to the StandardAnalyzer's constructor.
 
 ```lucee
 <cfset versionName = "LUCENE_33">
@@ -324,7 +324,7 @@ If you use that value later and its implementation is different than you expect 
 
 For example, imagine you have a method that returns a java.util.Map object. java.util.Map is a Java interface, and therefore the actual type of object returned can be one of many.
 
-So if you try to use the returned object as a ColdFusion Struct, chances are that you'll not get the results you expect. the reason is that in ColdFusion Structs the keys are case insensitive, where as in most other implementations a Map the keys are cAsE sensitive.
+So if you try to use the returned object as a ColdFusion Struct, chances are that you'll not get the results you expect. The reason is that in ColdFusion Structs the keys are case insensitive, whereas in most other implementations a Map the keys are cAsE sensitive.
 
 So if the returned Map object has a key named "Name", and you will try to reference it as myMap.Name you will likely get an error as behind the scenes Lucee will try to reference it as myMap.NAME which does not exist in a cAsE sensitive Map.
 
@@ -332,7 +332,7 @@ You will still be able to get the value by calling myName[ "Name" ] which preser
 
 ### Inspect the object with CFDUMP ###
 
-You can always use cfdump on a Java object to see what methods and properties are available. this is very useful when trying to troubleshoot a problem.
+You can always use cfdump on a Java object to see what methods and properties are available. This is very useful when trying to troubleshoot a problem.
 
 	<cfdump var="#myJavaObject#">
 

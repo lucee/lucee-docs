@@ -13,4 +13,4 @@ Next, click on the "Java" tab, and edit the min/max JVM heap fields as you see f
 
 ### Additional JVM Settings ###
 
-The same "Java" tab can be used to pass other parameters to your JVM, such as "-XX:MaxPermSize=128m". Simply add the option to the "Java Options" text area on that same screen. note that new items should each be added on a new line within that "Java Options" text area, which differs from when providing mutiple java arguments via other means.
+The same "Java" tab can be used to pass other parameters to your JVM, such as "-XX:MaxPermSize=128m". Simply add the option to the "Java Options" text area on that same screen. Note that new items should each be added on a new line within that "Java Options" text area, which differs from when providing multiple java arguments via other means.

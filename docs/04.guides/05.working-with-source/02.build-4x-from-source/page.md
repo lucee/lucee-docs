@@ -15,7 +15,7 @@ Before you can start building Lucee from source, you will need a few things inst
 
 1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  Lucee requires JDK 6 or later in order to compile.  <https://www.oracle.com/technetwork/java/javase/downloads/>
 
-1. **Apache ANT** - the source code contains several build scripts that will automate the build process for you. you will need ANT installed in order to run these build scripts. <http://ant.apache.org/bindownload.cgi>
+1. **Apache ANT** - the source code contains several build scripts that will automate the build process for you. You will need ANT installed in order to run these build scripts. <http://ant.apache.org/bindownload.cgi>
 
 ### 2. Get the source code
 

@@ -7,4 +7,4 @@ categories:
 - array
 ---
 
-create a new array. shorthand syntax is [].
+create a new array. Shorthand syntax is [].
