@@ -68,7 +68,7 @@ Find below a brief overview of available options about where and how to set your
 		<thead>
 			<tr>
 				<th>Where </th>
-				<th>Variables availablility</th>
+				<th>Variables availability</th>
 				<th>How to configure </th>
 			</tr>
 		</thead>
