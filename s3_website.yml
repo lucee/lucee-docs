@@ -19,3 +19,4 @@ gzip:
 concurrency_level: 100
 # redirects:
 #   index.html: /
+cloudfront_distribution_id: <%= ENV['AWS_CLOUDFRONT_DISTRIBUTION'] %>
