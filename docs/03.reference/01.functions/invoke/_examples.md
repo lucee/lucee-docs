@@ -6,7 +6,7 @@
     }
     
     writeDump(label:"Adding numbers with invoke()", var:invoke(variables,'calc',{a:3,b:2}));
-    private function calc(a numeric,b numeric){
+    private function calc(numeric a, numeric b){
     	return a+b;
     }
 </cfscript>
