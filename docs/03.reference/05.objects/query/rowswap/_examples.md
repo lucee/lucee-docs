@@ -6,7 +6,7 @@
         [3, "c"]
     ]);
 
-    swapped = QueryRowSwap(qry,2,3)
-    dump(swapped);
     dump(qry);
+    swapped = qry.rowSwap(2,3)
+    dump(swapped);
 ```
