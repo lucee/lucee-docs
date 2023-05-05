@@ -83,7 +83,7 @@ Specifies the location of the Apache log files. Used in the configuration of the
 **--installiis**  
 **Default Value:** [true]  
 This is a BOOLEAN value, meaning it must be true or false.  
-This value tells the installer to install the connector for IIS, the BonCode Connector. (Ignored on Linux) By setting this variable to [true], the Windows Lucee Installer will launch the BonCode Connector installer silently during the install process. You will see several DOS windows pop-up during the connector install process as the BonCode Connector varifies modules and installs what it needs.
+This value tells the installer to install the connector for IIS, the BonCode Connector. (Ignored on Linux) By setting this variable to [true], the Windows Lucee Installer will launch the BonCode Connector installer silently during the install process. You will see several DOS windows pop-up during the connector install process as the BonCode Connector verifies modules and installs what it needs.
 
 **--installmodcfml**
 **Default Value:** [true]
