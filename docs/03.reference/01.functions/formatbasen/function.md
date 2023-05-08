@@ -1,8 +1,9 @@
 ---
 title: FormatBaseN
 id: function-formatbasen
-related:
 categories:
+- math
+- number
 ---
 
 Converts a number to a string, formatted in the base specified by radix.
