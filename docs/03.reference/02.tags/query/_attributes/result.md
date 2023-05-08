@@ -5,5 +5,5 @@ the result variables.
 - Cached: If the query was cached. (boolean)
 - SqlParameters: An ordered Array of cfqueryparam values. (array)
 - RecordCount: Total number of records in the query. (numeric)
-- ColumnList: Column list, comma separated. (numeric)
+- ColumnList: Column list, comma separated. (string)
 - ExecutionTime: Execution time for the SQL request. (numeric)
