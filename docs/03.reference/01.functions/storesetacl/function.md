@@ -1,6 +1,8 @@
 ---
 title: StoreSetACL
 id: function-storesetacl
+related:
+- function-storegetacl
 categories:
 - s3
 ---
