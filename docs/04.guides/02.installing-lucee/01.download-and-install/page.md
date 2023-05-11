@@ -301,7 +301,7 @@ Once the new bugs and regressions are fixed, a stable snapshot is selected and r
 
 ### Explanation of the Lucee Version Numbers ###
 
-Whenever Lucee publishes a "Release" for Stable Releases, "RC" for Release Candidate, and "Snapshot"  the version number is added to each built (e.g. **5.3.10.120**). The version numbering is a direct reference to a development state in the development timeline. It follows a pretty standard release process using (mostly) semantic versioning. The version numbers are built as follows:
+Whenever Lucee publishes a "Release" for Stable Releases, "RC" for Release Candidate, and "Snapshot"  the version number is added to each build (e.g. **5.3.10.120**). The version numbering is a direct reference to a development state in the development timeline. It follows a pretty standard release process using (mostly) semantic versioning. The version numbers are built as follows:
 
 `major.minor.patch.build`
 
