@@ -299,6 +299,22 @@ Once the Lucee code reaches a certain level of maturity in its development cycle
 
 Once the new bugs and regressions are fixed, a stable snapshot is selected and released as a **Stable Release**.
 
+### Explanation of the Lucee Version Numbers ###
+
+Whenever Lucee publishes a "Release" for Stable Releases, "RC" for Release Candidate, and "Snapshot"  the version number is added to each build (e.g. **5.3.10.120**). The version numbering is a direct reference to a development state in the development timeline. It follows a pretty standard release process using (mostly) semantic versioning. The version numbers are built as follows:
+
+`major.minor.patch.build`
+
+- **major** is a paradigm shifting release where major overhauls happen
+- **minor** releases are when breaking changes are made and happen once a year or so
+- **patch** releases represent a stable collection of bug fixes and enhancements
+- **builds** represent a single commit/build fixing one issue or adding one feature
+
+Because the version number reflects the state of development, the Lucee Engine builds will also be consistent across all these categories **whenever they have an identical version number**. 
+
+As an example: 
+**Release 5.3.10.120, RC 5.3.10.120 and Snapshot 5.3.10.120** reflect the very same Lucee Engine *build* in its development timeline. Thus, all these Lucee engines shipped within these bundles are identical too.
+
 <a name="supportedJavaVersions"></a>
 
 ### Java Versions Supported ###
