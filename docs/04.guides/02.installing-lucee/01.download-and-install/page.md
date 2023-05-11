@@ -313,7 +313,7 @@ Whenever Lucee publishes a "Release" for Stable Releases, "RC" for Release Candi
 Because the version number reflects the state of development, the Lucee Engine builds will also be consistent across all these categories **whenever they have an identical version number**. 
 
 As an example: 
-**Release 5.3.10.120, RC 5.3.10.120 and Snapshot 5.3.10.120** reflect the very same Lucee Engine *build* in its development timeline. Thus, all these Lucee engines are identical too.
+**Release 5.3.10.120, RC 5.3.10.120 and Snapshot 5.3.10.120** reflect the very same Lucee Engine *build* in its development timeline. Thus, all these Lucee engines shipped within these bundles are identical too.
 
 <a name="supportedJavaVersions"></a>
 
