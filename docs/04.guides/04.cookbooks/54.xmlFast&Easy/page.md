@@ -1,5 +1,5 @@
 ---
-title: XML fast And Easy
+title: XML Fast And Easy, using SAX - Listener Functions
 id: xml_fast-easy
 related:
 - function-xmlparse
