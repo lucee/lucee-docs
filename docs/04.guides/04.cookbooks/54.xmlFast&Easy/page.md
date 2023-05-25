@@ -1,6 +1,10 @@
 ---
 title: XML fast And Easy
 id: xml_fast-easy
+related:
+- function-xmlparse
+categories:
+- XML
 ---
 
 This document explains how to use XML parsing in lucee.
