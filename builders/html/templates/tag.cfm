@@ -22,6 +22,9 @@
 		</cfscript>	
 		<p><strong>Status:</strong> #local.status#</p>
 	</cfif>
+	<cfif len(local.tag.getIntroduced()) gt 0>
+		<p><strong>Introduced:</strong> #local.tag.getIntroduced()#</p>
+	</cfif>
 	<cfif len(local.tag.getSrcExtension()) gt 0>
 		<p><strong>Requires Extension: </strong> #local.tag.getSrcExtension().name#</p>
 	</cfif>
