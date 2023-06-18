@@ -92,6 +92,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
     '				<label class="control-label">Change CFML Engine</label>' +
     "		        <div>" +
     '		         <select id="engine" class="form-control">' +
+    '		             <option value="lucee6-beta">Lucee 6.BETA</option>' +
     '		             <option value="lucee">Lucee 5.LATEST</option>' +
     '		             <option value="lucee4">Lucee 4.5.LATEST</option>' +
     "		             </select>" +
@@ -140,7 +141,10 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
       scope.setupCodeGist = attrs.setupCodeGist;
       scope.asserts = attrs.asserts;
       scope.saveGist = saveGist;
-      scope.engines = { lucee4: "Lucee 4.5", lucee: "Lucee 5" };
+      scope.engines = { lucee4: "Lucee 4.5",
+        lucee: "Lucee 5",
+        "lucee6-beta": "Lucee 6 BETA"
+      };
       scope.engine = attrs.engine || "lucee";
       scope.basepath = attrs.basepath || "/gist/";
       var editor = element.find(".code-editor"),
@@ -207,6 +211,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
         urlPool = {
           lucee4: ["https://lucee4-sbx.trycf.com/lucee4/getremote.cfm"],
           lucee: ["https://lucee5-sbx.trycf.com/lucee5/getremote.cfm"],
+          "lucee6-beta": ["https://lucee6-sbx.trycf.com/lucee/getremote.cfm"]
         },
         url =
           attrs.url ||
