@@ -45,7 +45,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
     '		<div class="modal fade" style="display:none;" tabindex="-1" role="dialog">' +
     '		  <div class="modal-dialog">' +
     '		    <div class="modal-content">' +
-    '		      <div class="modal-header page-header">' +
+    '		      <div class="modal-header page-header" style="margin: 5px;">' +
     '		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
     '		        <h4 class="modal-title">Editor Preferences</h4>' +
     "		      </div>" +
@@ -91,10 +91,9 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
     "		        </div>" +
     '				<label class="control-label">Change CFML Engine</label>' +
     "		        <div>" +
-    '		         <select id="engine" class="form-control">' +
-    '		             <option value="lucee">Lucee 5.LATEST</option>' +
-    '		             <option value="lucee4">Lucee 4.5.LATEST</option>' +
-    "		             </select>" +
+    '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee6-beta">Lucee 6.BETA</label>' +
+    '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee">Lucee 5.LATEST</label>' +
+    '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee4">Lucee 4.5.LATEST</label>' +
     "		        </div>" +
     "		      </div>" +
     '		      <div class="modal-footer">' +
@@ -140,7 +139,10 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
       scope.setupCodeGist = attrs.setupCodeGist;
       scope.asserts = attrs.asserts;
       scope.saveGist = saveGist;
-      scope.engines = { lucee4: "Lucee 4.5", lucee: "Lucee 5" };
+      scope.engines = { lucee4: "Lucee 4.5",
+        lucee: "Lucee 5",
+        "lucee6-beta": "Lucee 6 BETA"
+      };
       scope.engine = attrs.engine || "lucee";
       scope.basepath = attrs.basepath || "/gist/";
       var editor = element.find(".code-editor"),
@@ -207,6 +209,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
         urlPool = {
           lucee4: ["https://lucee4-sbx.trycf.com/lucee4/getremote.cfm"],
           lucee: ["https://lucee5-sbx.trycf.com/lucee5/getremote.cfm"],
+          "lucee6-beta": ["https://lucee6-sbx.trycf.com/lucee/getremote.cfm"]
         },
         url =
           attrs.url ||
@@ -251,7 +254,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
         });
         var langTools = ace.require("ace/ext/language_tools");
       }
-      element.find("#engine").val(scope.engine);
+      element.find("input.luceeEngine[type='radio'][value='" + scope.engine + "']").prop('checked',true);
       scope.$watch("code", function () {
         if (!isMobileDevice()) {
           session.setValue(scope.code);
@@ -364,7 +367,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
           aceEditor.setTheme("ace/theme/" + $(this).val());
         });
       }
-      element.find("#engine").on("change", function (e) {
+      element.find(".luceeEngine").on("change", function (e) {
         scope.engine = $(this).val();
         displayEngine();
         url =
