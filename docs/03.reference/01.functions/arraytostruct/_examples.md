@@ -3,8 +3,8 @@
 ```luceescript+trycf
 arr = ['a','b','c','d','e','f','g'];
 dump(arrayToStruct(arr));
-dump(arrayToStruct(arr, true));
-
+if (listFirst(server.lucee.version,".") gte 6)
+    dump(arrayToStruct(arr, true));
 
 //member function
 dump(arr.toStruct());
