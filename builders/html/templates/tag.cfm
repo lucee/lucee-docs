@@ -144,5 +144,8 @@
 		#_markdownToHtml( local.tag.getExamples() )#
 	<cfelse>
 		<em>There are currently no examples for this tag.</em>
+		<cfscript>
+			request.logger (text="No examples for tag " & local.tag.getName(), type="WARN");
+		</cfscript>
 	</cfif>
 </cfoutput>

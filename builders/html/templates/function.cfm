@@ -177,5 +177,8 @@
 		#_markdownToHtml( local.fn.getExamples() )#
 	<cfelse>
 		<em>There are currently no examples for this function</em>
+		<cfscript>
+			request.logger (text="No examples for function " & local.fn.getName(), type="WARN");
+		</cfscript>
 	</cfif>
 </cfoutput>
