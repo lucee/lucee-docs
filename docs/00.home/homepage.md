@@ -6,8 +6,6 @@ description: 'Lucee Server Documentation #cfml #coldfusion #lucee'
 
 Welcome to the Official [Lucee Server](https://lucee.org) Documentation.
 
-[![Meet the Lucee Team at CFCAMP 2023](/assets/images/conferences/CFCAMP-2023.png)](https://www.cfcamp.org/?utm_source=website&utm_id=Ldoc)
-
 ---
 
 Lucee is a [high performance](https://community.ortussolutions.com/t/how-does-cfml-really-perform-compared-to-other-languages/9325), [open source](https://github.com/lucee/Lucee), ColdFusion / CFML server engine, written in Java.
