@@ -7,9 +7,14 @@ related:
 
 ### Setting up Secure LDAP ###
 
+Download the SSL Certificate of your LDAP server via the command line:
+
+* `{jre bin directory}/keytool -printcert -sslserver "{LDAPHost}:{LDAP Port}" -rfc > c:\mySSLCert`
+* _Usually, the {LDAP Port} will be 636_
+
 Import the SSL Certificate for your LDAP sever via the command line:
 
-* `{jre bin directory}\keytool -import -keystore c:\{path_to_lucee}\jre\lib\security\cacerts* -alias mySSLCert -storepass changeit -noprompt -trustcacerts -file c:\mySSLCert .cert`
+* `{jre bin directory}/keytool -import -keystore c:\{path_to_lucee}\jre\lib\security\cacerts* -alias mySSLCert -storepass changeit -noprompt -trustcacerts -file c:\mySSLCert .cert`
 
 * Do the same with ROOT/Intermediate Certificate (may not be required).
 
