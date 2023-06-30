@@ -22,7 +22,6 @@
 <cffile action="rename" source="#expandPath("./myFile.pdf")#" destination="#expandPath("./myNewFileName.pdf")#" attributes="normal">
 ```
 
-
 ### File Info
 
 ```lucee
