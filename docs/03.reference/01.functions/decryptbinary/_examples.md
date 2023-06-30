@@ -1,1 +1,16 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+	// binary data
+	data = toBinary("abcd");
+
+	// generate the key
+	key = generateSecretKey("AES");
+
+	// encrypt string
+	encryptValue = encryptBinary(data, key);
+	writeDump(encryptValue);
+
+	// decrypt string
+	decryptValue = decryptBinary(encryptValue, key);
+	writeDump(decryptValue);
+
+```
