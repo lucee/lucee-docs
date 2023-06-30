@@ -37,4 +37,10 @@ dump(st);
 
 ```lucee+trycf
 <cfset st = structNew()>
+
+<cfset st["name"] = "John Doe">
+<cfset st["age"] = 30>
+<cfset st["city"] = "New York">
+
+<cfdump var="#st#">
 ```
