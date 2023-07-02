@@ -45,11 +45,11 @@ Extensions (`.lex`) can also be dropped in the `/lucee-server/context/extensions
 
 If you want to deploy a very targetted / customised install, start with Light or Zero and optionally add the extension(s) you want to use in the deploy folder, or set `LUCEE_EXTENSIONS` env var
 
-## Warming up installs 
+## Warming up installs
 
 You can pre warm a lucee installation, by setting the env var `LUCEE_ENABLE_WARMUP` to true, when set, Lucee will deploy and then exit
 
-## Admin and Docs Exentsions
+## Admin and Docs extensions
 
 You will see extensions, Lucee Admin and Lucee Docs, these simply install mappings to make them available. The admin is tightly coupled to the Lucee Version, so they aren't seperately deployed
 
