@@ -34,7 +34,9 @@ The `/patches` folder is where Lucee's core `.lco` jars are kept.  When Lucee st
 
 Extensions (`.lex`) can also be dropped in the `/lucee-server/context/extensions/available` folder and they can be installed using environment or JVM arguments without Lucee reaching out to the update provider.
 
-## Lucee Distributions (available from https://download.lucee.org/)
+## Lucee Distributions 
+
+available from [https://download.lucee.org/](https://download.lucee.org/)
 
 - **Lucee.jar** (aka the far jar) which includes lucee core and loader, java bundles, the base set of extensions, admin and docs
 - **Lucee-light.jar** which includes the lucee core and loader, java bundles, admin and docs
