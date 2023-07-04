@@ -1,1 +1,1 @@
-The domain to authenticate within. this attribute is only used when authentication type is "NTLM"
+The domain to authenticate within. This attribute is only used when authentication type is "NTLM"

@@ -1,1 +1,1 @@
-return variable name of action list. result attribute doesn't work with other actions.
+Return variable name of action list. Result attribute doesn't work with other actions.

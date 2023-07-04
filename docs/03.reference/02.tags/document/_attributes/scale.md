@@ -1,1 +1,1 @@
-define a scale factor as a percentage. this option is used to reduce the size of the HTML output so that it fits on that paper. define a number less than 100.
+Define a scale factor as a percentage. This option is used to reduce the size of the HTML output so that it fits on that paper. Define a number less than 100.

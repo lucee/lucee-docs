@@ -1,1 +1,1 @@
-Name of the media player. the name attribute is required when you invoke JavaScript functions.
+Name of the media player. The name attribute is required when you invoke JavaScript functions.
