@@ -1,1 +1,1 @@
-Size of data point marker. in pixels. Integer.
+Size of data point marker in pixels. Integer.

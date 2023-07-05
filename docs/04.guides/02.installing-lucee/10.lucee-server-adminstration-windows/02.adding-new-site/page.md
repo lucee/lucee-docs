@@ -32,7 +32,7 @@ In order to allow yourself to preview a site before it becomes "live", you can a
 
 * You need to run Notepad as the Administrator user. If you're not already running as "Administrator", right-click the "Notepad" icon and select "Run as Administrator".
 
-* Next, we need to open the "hosts" file. in Notepad, hit File -> Open, then navigate to C:\Windows\System32\drivers\etc\, then, so you can see the "hosts" file, select "All Files" from the listing in the bottom-right. You should see the "hosts" file listed, go ahead and open it.
+* Next, we need to open the "hosts" file. In Notepad, hit File -> Open, then navigate to C:\Windows\System32\drivers\etc\, then, so you can see the "hosts" file, select "All Files" from the listing in the bottom-right. You should see the "hosts" file listed, go ahead and open it.
 
 * Next, add your host to it. The format is IP -> tab -> domain name. Additional domains can be separated by commas.
 

@@ -16,7 +16,7 @@ Having said that, there are some instances where it makes sense to use Java obje
 * you want to use a library that was written in Java
 * you must optimize a bottleneck segment of code for speed
 
-In this tutorial I will focus on the first reason for using Java. There are many projects written in Java (many of them are open-source) that can add a lot of functionality to your application and save you a lot of time in writing, testing, and debugging. so instead of "reinventing the wheel" and writing your own code to achieve a task, it makes sense to utilize one of these projects.
+In this tutorial I will focus on the first reason for using Java. There are many projects written in Java (many of them are open-source) that can add a lot of functionality to your application and save you a lot of time in writing, testing, and debugging. So instead of "reinventing the wheel" and writing your own code to achieve a task, it makes sense to utilize one of these projects.
 
 ### How to use Java? ###
 
@@ -91,7 +91,7 @@ The API will tell you whether the methods that you want to use are static or not
 
 The thing that you need to remember is that if a method is an instance method then you need to first create a new instance of the object (or get a reference to an existing instance).
 
-The following example creates a new instance of a java.util.ArrayList object, and then calls the instance method add() several times. Then it defines a reference to the java.util.Collections, and calls the static method sort( List ). Notice that we don't call init() on java.util.Collections since we're calling a static method. as a matter of fact, if you check out the API for java.util.Collections [http://download.oracle.com/javase/7/docs/api/java/util/Collections.html](http://download.oracle.com/javase/7/docs/api/java/util/Collections.html) you will see that it does not have a constructor.
+The following example creates a new instance of a java.util.ArrayList object, and then calls the instance method add() several times. Then it defines a reference to the java.util.Collections, and calls the static method sort( List ). Notice that we don't call init() on java.util.Collections since we're calling a static method. As a matter of fact, if you check out the API for java.util.Collections [http://download.oracle.com/javase/7/docs/api/java/util/Collections.html](http://download.oracle.com/javase/7/docs/api/java/util/Collections.html) you will see that it does not have a constructor.
 
 ```lucee
 <cfset myList = createObject( "java", "java.util.ArrayList" ).init()>	<!--- create new instance --->
