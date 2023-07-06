@@ -564,4 +564,6 @@ Example implementation:
 
 ### Event Gateway
 
-[[event-gateways]]
+[[event-gateways-overview]]
+
+[https://github.com/lucee/task-event-gateway](https://github.com/lucee/task-event-gateway)
