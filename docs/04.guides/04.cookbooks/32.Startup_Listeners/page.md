@@ -47,7 +47,7 @@ component{
 
 - Here, Server.cfc has one function ``onServerStart()``
 - Start Lucee Server. 
-- The server console or `out.log` should should the above systemOutput's which means it has run the `Server.cfc`
+- The server console or `out.log` should show the above systemOutput's which means it has run the `Server.cfc`
 
 ### Web.cfc ###
 

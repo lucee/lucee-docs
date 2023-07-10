@@ -99,7 +99,7 @@ This function is triggered before every request, so you can prepare the environm
 ```cfs
 component {
    boolean function onRequestStart(string targetPage) {
-       echo('<html><head><body>'); // outputs the response html header
+       echo('<html><head><body>'); // outputs the response HTML header
        request.whatever=new Whatever(); // prepare an object to use within the request
        return true;
    }
@@ -115,7 +115,7 @@ This function is triggered after every request, so you can cleanup the environme
 ```cfs
 component {
    void function onRequestEnd(string targetPage) {
-       echo('</body></html>'); // outputs the response html footer
+       echo('</body></html>'); // outputs the response HTML footer
        request.whatever.finalize();
    }
 }
