@@ -17,7 +17,7 @@ The only optional dependency required is [CommandBox](https://www.ortussolutions
 
 CommandBox is only required to run the build process via the command line, or if you don't setup a virtual server with an existing local Lucee install.
 
-Ensure that commandbox is installed and that the `box` command is in your path.
+Ensure that CommandBox is installed and that the `box` command is in your path.
 
 ### Building the static documentation output
 
@@ -42,7 +42,7 @@ We have provided a utility server whose purpose is to run locally to help while 
 
 This will spin up a server using CommandBox on port 4040 and open it in your browser. You should also see a tray icon that will allow you to stop the server. Changes to the source docs should trigger an internal rebuild of the documentation tree which may take a little longer than regular requests to the documentation.
 
-When running locally there are the following urls available (these URLs below are for a commandbox instance, substitute them with the URL for your virtual host if appropriate)
+When running locally there are the following URLs available (these URLs below are for a CommandBox instance, substitute them with the URL for your virtual host if appropriate)
 
 * [Lucee documentation home](http://127.0.0.1:4040/)
 * [Build all documentation](http://127.0.0.1:4040/build_docs/all/)
@@ -53,7 +53,7 @@ When running locally there are the following urls available (these URLs below ar
 
 ## Working with the bundled JS and CSS files
 
-The build process for the JS and CSS bundles are found under /builders/html/assets and uses Sass and [Grunt](https://gruntjs.com/).
+The build process for the JS and CSS bundles are found under `/builders/html/assets` and uses Sass and [Grunt](https://gruntjs.com/).
 
 Just run npm install, then run grunt.
 
@@ -63,7 +63,7 @@ as the docs are statically deployed via Cloudfront and versioning of these files
 
 ## Contributing
 
-There is a lot of work to do and we appreciate contribution in all forms. The issues list can be found and expanded upon here: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD)
+There is a lot of work to do, and we appreciate contribution in all forms. The issues list can be found and expanded upon here: [https://luceeserver.atlassian.net/projects/LD](https://luceeserver.atlassian.net/projects/LD)
 
 Ask questions or post suggestions over on the [Lucee mailing List](https://dev.lucee.org/c/documentation) under the documentation category.
 
@@ -73,7 +73,7 @@ The workflow for contributions is:
 
 * Submit the contributor's agreement: <https://docs.lucee.org/guides/get-involved/contributing-contributors-agreement.html>
 * Fork lucee-docs on GitHub.
-* Make your changes in the master branch.
+* Make your changes in a new feature branch.
 * Push your changes to your GitHub repo.
 * Create a pull request.
 
