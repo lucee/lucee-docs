@@ -46,10 +46,10 @@ When running locally there are the following urls available (these URLs below ar
 
 * [Lucee documentation home](http://127.0.0.1:4040/)
 * [Build all documentation](http://127.0.0.1:4040/build_docs/all/)
-* [Build html documentation](http://127.0.0.1:4040/build_docs/html/)
+* [Build HTML documentation](http://127.0.0.1:4040/build_docs/html/)
 * [Build dash documentation](http://127.0.0.1:4040/build_docs/dash/)
 * [Import any new tags or functions](http://127.0.0.1:4040/build_docs/import/)
-* [View static html docs](http://127.0.0.1:4040/static/) (you need to have built the html documentation first)
+* [View static HTML docs](http://127.0.0.1:4040/static/) (you need to have built the HTML documentation first)
 
 ## Working with the bundled JS and CSS files
 

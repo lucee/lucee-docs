@@ -10,4 +10,4 @@ The tag CFVIDEOPLAYER allows you to display a video in flash (flv) format.
 
 **requires flash, so no longer useful**
 
-It includes the complete functionality to display the player with the necessary html code. Read more on the multimedia functionality.
+It includes the complete functionality to display the player with the necessary HTML code. Read more on the multimedia functionality.
