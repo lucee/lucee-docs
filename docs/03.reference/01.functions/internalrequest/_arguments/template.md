@@ -1,0 +1,1 @@
+Template path (script name) for the request (example:/test/index.cfm).

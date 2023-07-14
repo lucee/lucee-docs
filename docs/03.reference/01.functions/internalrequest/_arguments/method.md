@@ -1,0 +1,1 @@
+method of the request (GET,POST,PUT,DELETE ...)

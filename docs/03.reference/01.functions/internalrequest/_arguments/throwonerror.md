@@ -1,0 +1,1 @@
+if true (default) and the called age throws an exception, that exception is clso thrown within the caller request. If false itis catched and only reported in he resulting struct.

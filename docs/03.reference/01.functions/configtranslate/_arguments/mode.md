@@ -1,0 +1,1 @@
+Only used when type is set to [server], should be the resulting json set for single or multi mode.
