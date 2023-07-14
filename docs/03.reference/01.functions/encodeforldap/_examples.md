@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+encode = encodeForLDAP("I ** love * lucee");
+dump(encode);
+```
