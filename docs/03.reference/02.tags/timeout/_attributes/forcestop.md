@@ -1,0 +1,1 @@
+Force the thread to stop once the execution exceeds the allowed timespan
