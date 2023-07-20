@@ -21,15 +21,19 @@ To find out more about getting involved as a developer with Lucee, checkout our 
 - Our mailing list / forum is over at [https://dev.lucee.org/](https://dev.lucee.org/)
 - [[tutorial-reporting-bugs]]
 
+## Lucee 5.4
+
+Lucee 5.4 is the [stable release](https://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs.
+
 ## Lucee 6.0
 
-[Lucee 6](https://dev.lucee.org/tag/lucee-6) is the next major release of Lucee, currently in [development](https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/10?sprint=58). 
+[Lucee 6](https://dev.lucee.org/tag/lucee-6) is the next major release of Lucee, currently in [development](https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/10?sprint=58).  See the [Lucee 6 category](https://dev.lucee.org/tag/lucee-6) on our developer forum.
 
-Highlights include, reduced size, faster startup, single context mode, json based configuration and much more. 
+Highlights include, reduced size, faster startup, single context mode, json based configuration and much more.  
 
 ## Lucee 5.3
 
-Lucee 5.3 is the [stable release](https://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs.
+Lucee 5.3 now in maintenance mode and no longer actively developed. It will only be releasing critical bugfixes and security updates.
 
 ## Lucee 4.5
 
