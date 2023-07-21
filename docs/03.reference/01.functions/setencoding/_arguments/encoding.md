@@ -1,0 +1,1 @@
+The character encoding in which text in the scope variables is encoded
