@@ -1,0 +1,1 @@
+Closure function that returns a Future object, which holds the result.
