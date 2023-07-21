@@ -293,7 +293,6 @@ component displayname="Application" output="false" hint="Handle the application"
    // this.sessionManagement = true;
    
    
-   
    ////////////////////////////////////////////////////////////////
    //  SESSION TIMEOUT
    //  Sets the amount of time Lucee will keep the session scope alive. 
@@ -311,7 +310,6 @@ component displayname="Application" output="false" hint="Handle the application"
    //  - <datasource-name>: name of a datasource instance that has "Storage" enabled
    ////////////////////////////////////////////////////////////////
    // this.sessionStorage = "memory"; 
-
 
 
    ////////////////////////////////////////////////////////////////
@@ -370,7 +368,6 @@ component displayname="Application" output="false" hint="Handle the application"
    // this.localMode = "classic"; 
 
 
-
    ////////////////////////////////////////////////////////////////
    //  CASCADING  
    //  Depending on this setting Lucee scans certain scopes to find a 
@@ -383,7 +380,6 @@ component displayname="Application" output="false" hint="Handle the application"
    // this.scopeCascading = "standard";
 
 
-
    ////////////////////////////////////////////////////////////////
    //  SEARCH RESULTSETS  
    //  When a variable has no scope defined (Example: #myVar# instead of #variables.myVar#), 
@@ -391,7 +387,6 @@ component displayname="Application" output="false" hint="Handle the application"
    ////////////////////////////////////////////////////////////////
    // this.searchResults = true;
   
-
 
    ////////////////////////////////////////////////////////////////
    //  REQUEST: TIMEOUT
@@ -403,7 +398,6 @@ component displayname="Application" output="false" hint="Handle the application"
    ////////////////////////////////////////////////////////////////
    // this.requestTimeout=createTimeSpan(0,0,0,50); 
    
-   
  
    ////////////////////////////////////////////////////////////////
    //  COMPRESSION  
@@ -411,7 +405,6 @@ component displayname="Application" output="false" hint="Handle the application"
    //  for text-based responses when supported by the client (Web Browser)
    ////////////////////////////////////////////////////////////////
    // this.compression = false;
-
 
 
    ////////////////////////////////////////////////////////////////
@@ -422,7 +415,6 @@ component displayname="Application" output="false" hint="Handle the application"
    // this.suppressRemoteComponentContent = false;
   
 
-  
    ////////////////////////////////////////////////////////////////
    //  BUFFER TAG BODY OUTPUT 
    //  If true - the output written to the body of the tag is 
@@ -472,6 +464,18 @@ component displayname="Application" output="false" hint="Handle the application"
    // this.invokeImplicitAccessor = false;
 
 
+   ////////////////////////////////////////////////////////////////
+   //  ANTI-XXE CONFIGURATION
+   //  XML External Entity attack is a type of attack against
+   //  an application that parses XML input. This configuration enable/disable
+   //  protection by XXE attack. It's enabled by default from 5.4.2 and 6.0.
+   //  https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing
+   ////////////////////////////////////////////////////////////////
+   // this.xmlFeatures = {
+   //	  externalGeneralEntities: false,
+   //	  secure: true,
+   //	  disallowDoctypeDecl: false
+   // };
 
    ////////////////////////////////////////////////////////////////
    //  MAIL SERVERS 
