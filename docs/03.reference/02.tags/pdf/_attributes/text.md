@@ -1,4 +1,4 @@
-text for header or footer, you can add he following place holders within the text:
+text for header or footer, you can add the following place holders within the text:
 
 - _PAGELABEL: add current page label
 - _LASTPAGELABEL: add last page label

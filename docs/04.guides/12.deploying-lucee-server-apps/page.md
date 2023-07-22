@@ -55,6 +55,6 @@ You can pre warm a lucee installation, by setting the env var `LUCEE_ENABLE_WARM
 
 You will see extensions, Lucee Admin and Lucee Docs, these simply install mappings to make them available. The admin is tightly coupled to the Lucee Version, so they aren't separately deployed
 
-## AWS Lamdas / Serverless
+## AWS Lambdas / Serverless
 
 [Fuseless: Tools for running Serverless CFML Lambda Functions](https://fuseless.org/)

@@ -221,7 +221,7 @@ This is because the data stored in this sort of variables or files may be access
 
 Storing sensitive information e.g. hashed passwords, access-tokens, user names, database names, etc on OS or files has to be considered very carefully.
 
-Also, make sure not to publish these files with sensitive data as as part of open source code in public repositories.
+Also, make sure not to publish these files with sensitive data as part of open source code in public repositories.
 <br>
 <br>
 

@@ -50,4 +50,4 @@ The following masks can be used to format the full date and time and may not be 
 - full: equivalent to "dddd, mmmm d, yyyy h:nn:ss tt zz"
 - ISO8601/ISO: equivalent to "yyyy-mm-dd'T'HH:nn:ssXXX"
 - epoch: Total seconds of a given date (Example:1567517664) (added in Lucee 6.0.0.83)
-- epochms: Total millseconds of a given date (Example:1567517664000) (added in Lucee 6.0.0.83)
+- epochms: Total milliseconds of a given date (Example:1567517664000) (added in Lucee 6.0.0.83)

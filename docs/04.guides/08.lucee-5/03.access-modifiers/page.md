@@ -11,7 +11,7 @@ description: public and private scope for component variables
 
 Lucee already supports access modifiers for functions, but with Lucee 4 this was limited to functions,
 
-Since Lucee 5, access modifiers are also supported for for variables.
+Since Lucee 5, access modifiers are also supported for variables.
 
 Access modifiers can be defined for all variables defined within the body of a component, for example:
 

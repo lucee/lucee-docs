@@ -12,7 +12,7 @@ markdownString="" &
 "- Third item" & dNL &
 "###### Some Blockquotes"  & dNL &
 "> This is some blockquoted text" & nl &
-">> Blockquoted text with identation" & dNL;
+">> Blockquoted text with indentation" & dNL;
 
 echo( markdownToHtml( markdownString) );
 ```

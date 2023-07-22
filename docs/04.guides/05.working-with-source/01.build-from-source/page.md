@@ -63,7 +63,7 @@ To build only the update .lco file:
 
 #### Troubleshooting Build
 
-If you are are getting errors trying to compile the code, you may need to flush your Maven cache. Running the following command to refresh your dependency cache:
+If you are getting errors trying to compile the code, you may need to flush your Maven cache. Running the following command to refresh your dependency cache:
 
 ```
 mvn dependency:purge-local-repository
