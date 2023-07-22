@@ -29,7 +29,7 @@ Lucee 5.4 is the [stable release](https://lucee.org/downloads.html) and is recom
 
 [Lucee 6](https://dev.lucee.org/tag/lucee-6) is the next major release of Lucee, currently in [development](https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/10?sprint=58).  See the [Lucee 6 category](https://dev.lucee.org/tag/lucee-6) on our developer forum.
 
-Highlights include, reduced size, faster startup, single context mode, json based configuration and much more.  
+Highlights include, reduced size, faster startup, single context mode, JSON based configuration and much more. 
 
 ## Lucee 5.3
 
