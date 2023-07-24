@@ -40,7 +40,7 @@ component accessors=true {
 		// allow missing setters - fix for change in Lucee 5.2
 	}
 
-	// reset page when loading from from cache;
+	// reset page when loading from cache;
 	public void  function reset() {
 		setAncestors([]);
 		setLineage([]);
