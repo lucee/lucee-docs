@@ -4,4 +4,4 @@ an array of structs where each struct represents a permission or grant.
 Example:
 ```[{email="xxx@yyy.com", permission="full_control"}, {group="all", permission="read"}]```
 
-  Defaults to the value specified in the application's `this.s3.acl`, which is `"public"` if unspecified.
+Defaults to the value specified in the application's `this.s3.acl`, which is `"public"` if unspecified.
