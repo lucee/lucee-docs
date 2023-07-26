@@ -1,0 +1,1 @@
+Name of the string variable to test for.
