@@ -57,8 +57,10 @@
 		<meta property="og:image:alt" content="Lucee">
 		<cfif args.edit>
 		<link href="/assets/css/base.css" rel="stylesheet">
+		<link href="/assets/css/project.css" rel="stylesheet">
 		<cfelse>
 		<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
+		<link href="/assets/css/project.#application.assetBundleVersion#.min.css" rel="stylesheet">
 		</cfif>
 		<link href="/assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
@@ -211,13 +213,6 @@
 
 							#args.seeAlso#
 						</div>
-						<cfif local.path eq "/index">
-                            <div class="col-lg-4 col-lg-push-1 body">
-                                <a class="twitter-timeline" data-width="450" data-height="700"
-                                    href="https://twitter.com/lucee_server">Lucee on twitter</a>
-                                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                            </div>
-                        </cfif>
 					</div>
 				</div>
 			</div>

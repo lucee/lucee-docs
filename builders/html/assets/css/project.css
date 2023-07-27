@@ -1,3 +1,51 @@
+.toc-navigation .toc-list li {
+  list-style: none;
+}
+.toc-navigation .toc-list.toc-list-level-1 {
+  margin-left: 0;
+  padding-left: 0;
+}
 
+@media only screen and (min-width: 1720px) {
+  .toc-navigation {
+    position: fixed;
+    right: 20px;
+    top: 190px;
+    padding: 10px 10px 10px 20px;
+    width: 400px;
+    max-height: 550px;
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+  .toc-navigation:after, .toc-navigation:before {
+    content: "";
+    display: table;
+    line-height: 0;
+  }
+  .toc-navigation:after {
+    clear: both;
+  }
+  .toc-navigation[href] {
+    color: #212121;
+  }
+  .toc-navigation[href]:focus, .toc-navigation[href]:hover {
+    color: #2196f3;
+    text-decoration: none;
+  }
+  .toc-navigation .toc-navigation-title {
+    font-size: 100%;
+    margin-bottom: 4px;
+  }
+  .toc-navigation > .toc-list {
+    margin-top: 0px;
+  }
+  .toc-navigation .toc-list a {
+    font-size: 85%;
+    line-height: 1;
+  }
+}
 
 /*# sourceMappingURL=project.css.map */

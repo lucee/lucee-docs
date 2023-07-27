@@ -6,3 +6,56 @@
 @import "variable";
 
 // project css
+.toc-navigation {
+	.toc-list {
+		li {
+			list-style : none;
+		}
+	}
+
+	.toc-list.toc-list-level-1 {
+		margin-left : 0;
+		padding-left : 0;
+	}
+}
+
+@media only screen and (min-width: 1720px) {
+	.toc-navigation {
+		position : fixed;
+		right    : 20px;
+		top      : 190px;
+		padding  : 10px 10px 10px 20px;
+		// background-color : white;
+		// border-radius : 10px;
+		width         : 400px;
+		max-height    : 550px;
+		overflow-y : scroll;
+		text-overflow: ellipsis;
+
+		background-color: $white;
+		@include box-shadow(0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15));
+		@include clearfix();
+		&[href] {
+			color: $black-text;
+			&:focus,
+			&:hover {
+				color: $link-color;
+				text-decoration: none;
+			}
+		}
+
+		.toc-navigation-title {
+			font-size     : 100%;
+			margin-bottom : 4px;
+		}
+
+		> .toc-list {
+			margin-top : 0px;
+		}
+
+		.toc-list a {
+			font-size   : 85%;
+			line-height : 1;
+		}
+	}
+}
