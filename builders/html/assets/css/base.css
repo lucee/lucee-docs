@@ -5867,11 +5867,9 @@ pre {
   line-height: 20px;
   margin: 12px 0;
   padding: 6px 8px;
-  overflow-x: auto;
-  /* word-break: break-all;*/
+  word-break: break-all;
   word-wrap: break-word;
-  white-space: pre;
-  
+  white-space: pre-wrap;
 }
 pre code {
   background-color: transparent;
@@ -11348,10 +11346,6 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
 .twitter-typeahead .tt-menu .tt-cursor {
   background-color: #bbdefb;
 }
-
-.twitter-typeahead .tt-menu.tt-open {
-    cursor: pointer
-  }
 
 .content {
   padding-bottom: 24px;

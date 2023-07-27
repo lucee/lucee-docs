@@ -8,15 +8,12 @@ component {
 	this.baseDir = ExpandPath( this.cwd & "../" );
 	this.mappings[ "/"      ] = this.baseDir;
 
-	/*
 	this.mappings[ "/api"      ] = this.baseDir & "api";
 	this.mappings[ "/builders" ] = this.baseDir & "builders";
 	this.mappings[ "/builds"   ] = this.baseDir & "builds";
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
-	*/
 	this.assetBundleVersion = 35;  // see parent application.cfc
-
 	
 
 	public void function onApplicationStart()  {
