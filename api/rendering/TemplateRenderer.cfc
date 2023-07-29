@@ -31,4 +31,21 @@ component {
 			}
 		}
 	}
+
+	public string function toc( required string content ) {
+		var toc      = "";
+		var args     = {}
+
+		args.tocItems = new api.parsers.TocGenerator().generateToc( arguments.content );
+
+		if ( args.tocItems.len() && ( args.tocItems.len() != 1 || args.tocItems[1].children.len() ) ) {
+			try {
+				savecontent variable="toc" {
+					include template="/builders/html/layouts/toc.cfm";
+				}
+			} catch( missinginclude e ) {}
+		}
+
+		return toc;
+	}
 }
