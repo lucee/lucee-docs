@@ -2,6 +2,7 @@
 title: <cfforward>
 id: tag-forward
 related:
+- tag-location
 categories:
 ---
 
