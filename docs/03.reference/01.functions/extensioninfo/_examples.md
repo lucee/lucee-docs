@@ -1,0 +1,3 @@
+```luceescript
+	writeDump(ExtensionInfo( id ));
+```

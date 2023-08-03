@@ -1,1 +1,6 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+	myPath='<note><from body="sample">Bob</from></note>';
+	lastnames = XmlSearch(myPath, '//@body');
+	writeDump(lastnames);
+	writeOutput(isXMLAttribute(lastnames[1]));
+```

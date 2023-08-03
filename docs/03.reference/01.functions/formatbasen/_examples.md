@@ -1,4 +1,4 @@
-```cfm
+```lucee+trycf
 <cfoutput>
   #formatBaseN( 15, 2  )# <!--- 1111 (binary) --->
   #formatBaseN( 15, 16 )# <!--- f (hexadecimal) --->
