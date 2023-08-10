@@ -13,11 +13,11 @@ Of course there are different recommendations that go with the different operati
 
 Lucee 5.3 and 5.4 support Java 8 and 11
 
-Lucee 6 will support Java 11 on release, with Java unofficially supported as long as practical 
+Lucee 6 will support Java 11 on release, with Java 8 unofficially supported as long as practical 
 
 Full Java 17 support is planned for a later 6 point release, it currently mostly works, see https://luceeserver.atlassian.net/browse/LDEV-3807
 
-If you do run into problems running on newer version of Java, please report any problems to the developer forum https://dev.lucee.org/
+If you do run into problems running on **newer versions** of Java with Lucee 6, please report any problems to the developer forum https://dev.lucee.org/
 
 ### Microsoft Windows ###
 
