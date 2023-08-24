@@ -1,0 +1,1 @@
+Count of characters to be removed.
