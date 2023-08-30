@@ -18,6 +18,7 @@ Lucee 6 will support Java 11 on release, with Java 8 unofficially supported as l
 Full Java 17 support is planned for a later 6 point release, it currently mostly works, see <https://luceeserver.atlassian.net/browse/LDEV-3807>
 
 If you do run into problems running on **newer versions** of Java with Lucee 6, please report any problems to the developer forum [Lucee Dev](https://dev.lucee.org)
+
 ### Microsoft Windows ###
 
 * Windows Server 2019 all editions
