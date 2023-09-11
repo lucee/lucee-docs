@@ -60,7 +60,10 @@
 		<link href="/assets/css/project.css" rel="stylesheet">
 		<cfelse>
 		<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
+		<link href="/assets/css/project.css" rel="stylesheet">
+		<!---
 		<link href="/assets/css/project.#application.assetBundleVersion#.min.css" rel="stylesheet">
+		--->
 		</cfif>
 		<link href="/assets/css/highlight.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
