@@ -45,7 +45,7 @@
 							<i class="icon icon-close menu-collapse-toggle-close"></i>
 							<i class="icon icon-add menu-collapse-toggle-default"></i>
 						</span>
-						<ul class="menu-collapse <cfif local.subIsOpen>expand<cfelse>collapse</cfif>" id="#local.firstId#"
+						<ul class="menu-collapse <cfif local.subIsOpen>expand collapse in<cfelse>collapse</cfif>" id="#local.firstId#"
 							itemscope itemtype="http://www.schema.org/SiteNavigationElement">
 							#local.subnav.toList(chr(10))#
 						</ul>
