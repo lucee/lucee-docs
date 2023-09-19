@@ -14685,23 +14685,27 @@ $(function(){
     }, 750);
     // track outbound links
     $("a").click(function(){
-        var url = $(this).attr("href");
-        if (!url || url.indexOf("#") === 0)
+        let href = $(this).attr("href");
+
+        // ignore if no href or no length
+        if(!href || !href.length) return;
+
+        try {
+            // ignore if same hostname
+            if(window.location.hostname == new URL(href).hostname) return;
+        } catch(e){
+            // ignore invalid url
             return;
-        if (url.indexOf("http") === -1){
-            document.location = url; // ignore local urls
-        } else {
-            try {
-                gtag('event', 'click', {
-                    'event_category': 'outbound',
-                    'event_label': url,
-                    'transport_type': 'beacon',
-                    'event_callback': function(){document.location = url;}
-                });
-            } catch(e){
-                document.location = url;
-            }
         }
+
+        // only track outgoing links
+        try {
+            gtag('event', 'click', {
+                'event_category': 'outbound',
+                'event_label': href,
+                'transport_type': 'beacon'
+            });
+        } catch(e){}
     });
 });
 
