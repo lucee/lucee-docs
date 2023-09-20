@@ -34,6 +34,18 @@ The `/patches` folder is where Lucee's core `.lco` jars are kept.  When Lucee st
 
 Extensions (`.lex`) can also be dropped in the `/lucee-server/context/extensions/available` folder and they can be installed using environment or JVM arguments without Lucee reaching out to the update provider.
 
+## Firewalled Servers
+
+`.lco` updates either via the Lucee Admin update page, or by dropping into the `/deploy` folder, may require dynamically downloading any updated jar files from the update server. As such they may fail attempting to download the new files.
+
+To update firewalled servers, or to upgrade without Lucee downloading bundles (which is slightly slower), do the following
+
+1. Stop the server
+2. Download the (fat) lucee.jar (see below) from [https://download.lucee.org/](https://download.lucee.org/)
+3. Delete or change the file extension for the fat jar in the `lucee/lib` folder, i.e `5.4.3.2.jar`
+4. Copy the updated `lucee.jar` into that `lucee\lib` folder 
+5. Start the server
+
 ## Lucee Distributions 
 
 available from [https://download.lucee.org/](https://download.lucee.org/)
