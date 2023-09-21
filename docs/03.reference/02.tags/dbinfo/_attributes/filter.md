@@ -8,4 +8,6 @@ Filter for type="tables" with a wildcard, defaults to all types when empty.
 - "ALIAS"
 - "SYNONYM"
 
+Note: Each Database implementation has it's own supported types
+
 **Introduced: Lucee 6.0.0.76**
