@@ -34,13 +34,13 @@ If using Tomcat, then also restrict access to the following URIs that are instal
 
 An Apache directive that restricts access to /lucee, as an example, is given below:
 
-    <Location /lucee>
+    <Location ~ /lucee>
         Order Deny,Allow
         Deny from all
         Allow from 127.0.0.1
     </Location>
 
-In the above example, only the localhost IP address, 127.0.0.1, would be allowed to navigate to any url that contains /lucee. This directive effectively blocks access to URL's that begin with /lucee/ from any other IP address, cutting off any exploits that attempt to use resources located under /lucee.
+In the above example, only the localhost IP address, 127.0.0.1, would be allowed to navigate to any url that contains /lucee. This directive effectively blocks access to URL's that begin with /lucee/ from any other IP address, cutting off any exploits that attempt to use resources located under /lucee. A regular expression match `~` is required to match any URL's that use a semi-colon to try and bypass the directive (e.g. /;/lucee/... would bypass a directive without the regular expression match and pass the /lucee/... URL to Tomcat with path parameters, thus allowing requests from any IP to access /lucee URL's.
 
 So far, so good. But then how can admins access the admin panels such as /lucee/admin/server.cfm if they don't have physical access to the server???
 
