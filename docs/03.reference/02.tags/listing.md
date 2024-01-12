@@ -10,7 +10,7 @@ Tags are at the core of Lucee Server's templating language.
 CFML Tags can also be called via [[tag-script]]. Usually you don't even need the CF prefix, but you need it in some cases when there is an existing function with the same name. You can also omit () when using the script syntax for tags.
 
 ```luceescript
-cflog(text="I called a tag from script);  // use cflog, because there is already a maths [[function-log]] function
+cflog(text="I called a tag from script");  // use cflog, because there is already a maths [[function-log]] function
 
 
 cfhttp(url="https://docs.lucee.org");
