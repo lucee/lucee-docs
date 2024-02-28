@@ -19,7 +19,7 @@
 			<cfloop collection="#local.status.function#" index="local.i" item="local.child">
 				<span class="tile">
 					<div class="tile-inner">
-						<div class="text-overflow">[[#local.child.getId()#]] #htmleditformat(local.child.getDescription())#</div>
+						<div class="word-wrap">[[#local.child.getId()#]] #htmleditformat(local.child.getDescription())#</div>
 					</div>
 				</span>
 			</cfloop>
@@ -32,7 +32,7 @@
 			<cfloop collection="#local.status.tag#" index="local.i" item="local.child">
 				<span class="tile">
 					<div class="tile-inner">
-						<div class="text-overflow">[[#local.child.getId()#]] #htmleditformat(local.child.getDescription())#</div>
+						<div class="word-wrap">[[#local.child.getId()#]] #htmleditformat(local.child.getDescription())#</div>
 					</div>
 				</span>
 			</cfloop>
