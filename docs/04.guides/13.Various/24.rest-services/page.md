@@ -150,7 +150,7 @@ To intercept requests for `rest/*` paths and direct them to Tomcat/Lucee, follow
 
 #### For Internet Information Services (IIS) on Windows: ####
 
-* *Step 1:* Open the "Internet Internet Information Services (IIS) Manager"
+* *Step 1:* Open the "Internet Information Services (IIS) Manager"
 
 * *Step 2:* Select the main server node for global settings, or the specific site you'd like to add the REST service 
 
