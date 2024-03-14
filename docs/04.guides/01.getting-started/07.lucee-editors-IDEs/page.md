@@ -27,6 +27,8 @@ Lucee dictionaries are available for download to support spell checking your cod
 
 <https://marketplace.visualstudio.com/items?itemName=KamasamaK.vscode-cflint>
 
+<https://marketplace.visualstudio.com/items?itemName=CFMLEditor.cfmleditor>
+
 <https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker>
 
 ## Sublime Text
