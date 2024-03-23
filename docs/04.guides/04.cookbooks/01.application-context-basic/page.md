@@ -446,7 +446,7 @@ component displayname="Application" output="false" hint="Handle the application"
    //  REGEX 
    //  Defines the regular expression dialect to be used.
    //  - modern: Modern type is the dialect used by Java itself.
-   //  - classic CFML default, the classic CFML tradional type Perl5 dialect
+   //  - classic CFML default, the classic CFML traditional type Perl5 dialect
    ////////////////////////////////////////////////////////////////
    // this.regex.type = "perl";
 
