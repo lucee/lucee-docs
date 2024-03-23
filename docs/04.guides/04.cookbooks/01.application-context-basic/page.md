@@ -77,7 +77,7 @@ This is normally used to initialize the environment for a specific session, so f
 
 ### OnSessionEnd ###
 
-The opposite from "onSessionStart", this function is triggered when a specific session context ends, when the timeout of a session context is reached (this.sessionTimeout). 
+The opposite from "onSessionStart", this function is triggered when a specific session context ends, when the timeout of a session context is reached (this.sessionTimeout).
 
 Irrespective of the exact `sessionTimeout` value, `onSessionEnd` is called when the background controller thread cleans up expired scopes (i.e. `session`, `application`), by default, this process runs every minute.
 
@@ -200,14 +200,14 @@ component {
 
 ## Application.cfc Default Template ##
 
-Below you can find an Application.cfc template that may serve as a starting point for your own applications settings with Lucee CFML engine. 
+Below you can find an Application.cfc template that may serve as a starting point for your own applications settings with Lucee CFML engine.
 
 When creating an Application.cfc for the first time, you can configure all the settings within the Lucee Server or Web Administrator and use its "Export" tool ( Lucee Adminisitrator => Settings => Export )  to move (by copy and paste) the settings to your Application.cfc.
 
 ```cfs
 component displayname="Application" output="false" hint="Handle the application" {
 
-         
+
     /***************************************************************************
     * INTRODUCTION
     ****************************************************************************

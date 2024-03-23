@@ -32,4 +32,4 @@ Twitter: [https://twitter.com/bmanclt](https://twitter.com/bmanclt)
 Some other open source projects:
 
 [BonCode Connector](http://www.boncode.net/boncode-connector)  
-[PGP for ColdFusion](https://github.com/Bilal-S/cfpgp)  
+[PGP for ColdFusion](https://github.com/Bilal-S/cfpgp)

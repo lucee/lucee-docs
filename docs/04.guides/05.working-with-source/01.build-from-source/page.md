@@ -14,10 +14,10 @@ See [[building-testing-extensions]] for instructions regarding Extensions
 
 Before you can start building Lucee from source, you will need a few things installed on your machine:
 
-1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  
+1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.
 
 - Lucee requires JDK 8 or later in order to compile.  [Oracle](https://www.oracle.com/technetwork/java/javase/downloads/) or [AdoptOpenJDK](https://adoptopenjdk.net/)
-- Java 11 is *recommended*, Java 15 is *not yet supported* due the removal of the Nashorn JavaScript engine which is used in the build process 
+- Java 11 is *recommended*, Java 15 is *not yet supported* due the removal of the Nashorn JavaScript engine which is used in the build process
 - Java 17 *isn't yet fully supported* due to some Apache Felix issues (fixed in 5.3.9, but some extensions need updating)
 
 1. **Apache Maven** - the source code contains several build scripts that will automate the build process for you. You will need Maven installed in order to run these build scripts. <http://maven.apache.org/>
@@ -113,12 +113,12 @@ If you are using VS Code and the cflint plugin, make sure you exclude the `temp/
 
 	ant -DtestFilter="zip" -DtestAdditional="C:\work\lucee-extensions\extension-compress\tests"
 
-**testDebug** outputs debug information about tests which don't compile and why they are filtered out, plus full stacktraces. 
+**testDebug** outputs debug information about tests which don't compile and why they are filtered out, plus full stacktraces.
 
 Any invalid tests (syntax errors etc) are skipped by default
 
 	ant -DtestDebug="true"
-	
+
 **testDebugAbort** used with `testDebug` to check test cases
 
 Build will abort after scanning tests cases for errors, good for finding invalid test cases
