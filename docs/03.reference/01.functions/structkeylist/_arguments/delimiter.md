@@ -1,1 +1,1 @@
-Character that separates keys in list. Default: comma.
+String that separates keys in list. Default: comma.
