@@ -35,7 +35,7 @@ Example Usage (RedHat/CentOS):
 
 If you change the Lucee to something other then the ROOT user, you need to configure your sites to allow write access from whatever the Lucee user is. This will allow Lucee/Tomcat to write the WEB-INF files to that directory. If you don't want the Lucee/Tomcat user to have write access to your site directory, you'll need to create the WEB-INF directory yourself and at least provide write access to that WEB-INF directory.
 
-To show how this is done, let's use the "apache" user again, like we did above. If our site directory is /home/admin/[www.sitename.com](http://www.sitename.com/)/, we'll need to create the directory and assign permissions to it so that the "apache" user can write to it. We can do that with this command:
+To show how this is done, let's use the "apache" user again, like we did above. If our site directory is /home/admin/www.sitename.com/, we'll need to create the directory and assign permissions to it so that the "apache" user can write to it. We can do that with this command:
 
 Example Usage (Debian/Ubuntu/Mint):
 
