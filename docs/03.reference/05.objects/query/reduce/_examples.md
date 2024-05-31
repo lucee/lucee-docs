@@ -18,7 +18,7 @@
 	| Jim  | 1988-01-01 00:00:00 | 0   |
 	*/
 
-	// intitialise age as a second argument
+	// initialise age as a second argument
 	totalAge = people.reduce( function(age, row, rowNumber, recordset ){
 	    return age +  DateDiff( 'yyyy', recordset.dob, Now() );
 	},0);
@@ -28,7 +28,7 @@
 	    totalAge = 167
 	*/
 
-	// intitialise age in closure
+	// initialise age in closure
 	totalAge = people.reduce( function(age=0, row, rowNumber, recordset ){
 	    return age +  DateDiff( 'yyyy', recordset.dob, Now() );
 	});
