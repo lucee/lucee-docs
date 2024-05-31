@@ -1,0 +1,1 @@
+For unsorted structs, Adobe returns a text sorted Array of keys, for performance reasons, Lucee simply returns the raw sort order
