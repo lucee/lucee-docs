@@ -2,8 +2,9 @@
 title: StructKeyList
 id: function-structkeylist
 related:
+- function-structkeyarray
 categories:
-    - struct
+- struct
 ---
 
 Extracts keys from a struct.
