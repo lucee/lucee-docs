@@ -19,7 +19,7 @@
   ]
 }
 -->
-## Introduction
+# Query of Queries (QoQ)
 
 Query of queries (QoQ) is a technique for re-querying an existing (in memory) query without another trip to the database. This allows you to dynamically combine queries from different databases.
 
@@ -42,7 +42,7 @@ The above example isn't very useful, because `newQry` is a straight copy of the 
 * The dbtype="query" attribute
 * A source query object name (e.g., sourceQry) instead of a table name in the FROM clause.
 
-### Example: Filtering
+## Example: Filtering
 
 Let's say you have the following database query, `myQuery`:
 
@@ -68,17 +68,17 @@ Say you want to filter out people under 18 and over 90, but you don't want to hi
 
 `filteredQry` contains the desired records.
 
-### Internals
+## Internals
 
 Lucee uses its own SQL implementation for QoQ; when that fails, HSQLDB is tried.
 
 Lucee's SQL implementation is a basic subset of ANSI92, but it is relatively fast. [HSQLDB is a more complete SQL implementation](http://hsqldb.org/doc/2.0/guide/sqlgeneral-chapt.html), but it is slow compared to Lucee's implementation.
 
-### Supported Constructs
+## Supported Constructs
 
 Even though under the hood, Lucee handles the fallback to HSQLDB automatically, it still can be useful to know what's possible with the fast Lucee SQL implementation versus the slower, fallback HSQLDB SQL implementation.
 
-### Lucee's SQL Implementation
+## Lucee's SQL Implementation
 
 **Keywords and Operators**
 
@@ -117,10 +117,10 @@ Functions
 
 TODO: Flesh this out.
 
-### HSQLDB SQL Implementation
+## HSQLDB SQL Implementation
 
 This is the fallback for when Lucee's SQL implementation can't handle the QoQ syntax. See the [HSQLDB documentation](http://hsqldb.org/doc/2.0/guide/sqlgeneral-chapt.html) for details.
 
-### Footnotes
+## Footnotes
 
 Lucee Google Groups Post: SQL syntax supported by query-of-queries?
