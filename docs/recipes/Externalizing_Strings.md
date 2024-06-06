@@ -12,7 +12,7 @@
   ]
 }
 -->
-## Externalize strings ##
+# Externalize strings
 
 Externalize strings from generated class files to separate files. This method is used to reduce the memory of the static contents for templates. We explain this method with a simple example below:
 
@@ -47,7 +47,7 @@ Externalize strings from generated class files to separate files. This method is
 
 So, the string 'year' is no longer in memory. When the bytecode is called, it loads the string into memory. The memory is not occupied forever and this reduces the footprint of our application.
 
-### Footnotes ###
+## Footnotes
 
 Here you can see the above details in video
 
