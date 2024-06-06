@@ -188,11 +188,11 @@ This document explains the different return types for a query with some examples
 
 Learn how to use request timeout correctly with Lucee.
 
-## [Untitled](/docs/recipes/retry.md)
+## [Retry](/docs/recipes/retry.md)
 
 This document explains how to use retry functionality with some simple examples.
 
-## [Untitled](/docs/recipes/s3.md)
+## [Using S3 directly for source code](/docs/recipes/s3.md)
 
 Using S3 directly for source code
 

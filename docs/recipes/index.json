@@ -283,15 +283,15 @@
   },
   {
     "file": "retry.md",
-    "title": "Untitled",
+    "title": "Retry",
     "path": "/docs/recipes/retry.md",
-    "hash": "b36863bbebee833416f8a7ff0fb7f190"
+    "hash": "8e93cf8f7b9b0d433c435b4824d5e175"
   },
   {
     "file": "s3.md",
-    "title": "Untitled",
+    "title": "Using S3 directly for source code",
     "path": "/docs/recipes/s3.md",
-    "hash": "4dc472f2c3feb0019809732d87a4a42c"
+    "hash": "3a4357699c85ff0ba3ac342952056d9f"
   },
   {
     "file": "sax.md",
