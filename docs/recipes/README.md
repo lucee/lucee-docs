@@ -104,7 +104,7 @@ The new CFDOCUMENT PDF engine, Flying Saucer in Lucee 5.3
 
 This document explains how to use a function listeners in Lucee.
 
-## [Untitled](/docs/recipes/gateways-overview.md)
+## [How does an Event Gateway work?](/docs/recipes/gateways-overview.md)
 
 Overview of how Event Gateways work in Lucee.
 
@@ -132,7 +132,7 @@ No description available.
 
 How to use lazy queries
 
-## [Untitled](/docs/recipes/loop_through_files.md)
+## [Looping Through File](/docs/recipes/loop_through_files.md)
 
 This document explains how to handle big files in Lucee in a better way.
 

@@ -157,9 +157,9 @@
   },
   {
     "file": "gateways-overview.md",
-    "title": "Untitled",
+    "title": "How does an Event Gateway work?",
     "path": "/docs/recipes/gateways-overview.md",
-    "hash": "0568f450c9368645e0add455a4e742c7"
+    "hash": "2a3a6d90932d58231547a5d7167d146c"
   },
   {
     "file": "global-proxy.md",
@@ -199,9 +199,9 @@
   },
   {
     "file": "loop_through_files.md",
-    "title": "Untitled",
+    "title": "Looping Through File",
     "path": "/docs/recipes/loop_through_files.md",
-    "hash": "f1fb2d2e527f7592b62c600cc3263612"
+    "hash": "f23ff5f744831b4d54171832ca4c7c8a"
   },
   {
     "file": "mail-listener.md",
