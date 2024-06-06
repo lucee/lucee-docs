@@ -7,9 +7,9 @@
   },
   {
     "file": "QOQ_Sucks.md",
-    "title": "Untitled",
+    "title": "The good, the bad and the ugly",
     "path": "/docs/recipes/QOQ_Sucks.md",
-    "hash": "f17ec78bf0f0d984a48e233a4fde5d03"
+    "hash": "8b0e116170e6f7e5af7c6cf979ea6d47"
   },
   {
     "file": "application-context-basic.md",
@@ -19,9 +19,9 @@
   },
   {
     "file": "application-context-set-mapping.md",
-    "title": "Untitled",
+    "title": "Event Handling in Application.cfc",
     "path": "/docs/recipes/application-context-set-mapping.md",
-    "hash": "b3d0ce76557077908974266dcfdc60c9"
+    "hash": "ee872f0d803b13de629f66107ca82e7f"
   },
   {
     "file": "application-context-update.md",
@@ -37,15 +37,15 @@
   },
   {
     "file": "cache-list.md",
-    "title": "Untitled",
+    "title": "List existing Cache Connections",
     "path": "/docs/recipes/cache-list.md",
-    "hash": "1b945113ef891419aeeedee94d49bf65"
+    "hash": "543d8af781ea6a810250f3f97f032483"
   },
   {
     "file": "cached-within-request.md",
-    "title": "Untitled",
+    "title": "Cache a Query for the current request",
     "path": "/docs/recipes/cached-within-request.md",
-    "hash": "b892be2e7faf4fb24ee97afa0499a38e"
+    "hash": "bd5bab9b5d02163a191ed2544d05e5cc"
   },
   {
     "file": "caches-in-application-cfc.md",

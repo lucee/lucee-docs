@@ -4,7 +4,7 @@
 
 Externalize strings from generated class files to separate files. This method is used to reduce the memory of the static contents for templates.
 
-## [Untitled](/docs/recipes/QOQ_Sucks.md)
+## [The good, the bad and the ugly](/docs/recipes/QOQ_Sucks.md)
 
 This document explains why Query of Queries (QoQ) may or may not be the best approach for your use case.
 
@@ -12,7 +12,7 @@ This document explains why Query of Queries (QoQ) may or may not be the best app
 
 An overview of event handling functions in Application.cfc for Lucee.
 
-## [Untitled](/docs/recipes/application-context-set-mapping.md)
+## [Event Handling in Application.cfc](/docs/recipes/application-context-set-mapping.md)
 
 An overview of event handling functions in Application.cfc for Lucee.
 
@@ -24,11 +24,11 @@ How to update your Application settings, after they have been defined in Applica
 
 Learn how to output the current date in Lucee.
 
-## [Untitled](/docs/recipes/cache-list.md)
+## [List existing Cache Connections](/docs/recipes/cache-list.md)
 
 List existing Cache Connections available in Lucee.
 
-## [Untitled](/docs/recipes/cached-within-request.md)
+## [Cache a Query for the current request](/docs/recipes/cached-within-request.md)
 
 Cache a Query for the current request in Lucee.
 
