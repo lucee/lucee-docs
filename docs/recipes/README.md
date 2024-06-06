@@ -68,7 +68,7 @@ This document explains about Encryption/Decryption with public and private keys 
 
 Here you will find a short introduction into writing your own Event Gateway type.
 
-## [Untitled](/docs/recipes/event-gateways-overview.md)
+## [How does an Event Gateway work?](/docs/recipes/event-gateways-overview.md)
 
 Overview of how Event Gateways work in Lucee.
 
@@ -88,7 +88,7 @@ How to catch and display exceptions.
 
 Learn about the different file extensions supported by Lucee, including .cfm, .cfc, .cfml, and .cfs. This guide provides examples for each type of file.
 
-## [Untitled](/docs/recipes/filesystem-mapping-define-mapping.md)
+## [How to define a regular Mapping](/docs/recipes/filesystem-mapping-define-mapping.md)
 
 All about the different mappings in Lucee and how to use them.
 

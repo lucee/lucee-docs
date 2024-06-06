@@ -103,9 +103,9 @@
   },
   {
     "file": "event-gateways-overview.md",
-    "title": "Untitled",
+    "title": "How does an Event Gateway work?",
     "path": "/docs/recipes/event-gateways-overview.md",
-    "hash": "0568f450c9368645e0add455a4e742c7"
+    "hash": "2a3a6d90932d58231547a5d7167d146c"
   },
   {
     "file": "event-gateways.md",
@@ -133,9 +133,9 @@
   },
   {
     "file": "filesystem-mapping-define-mapping.md",
-    "title": "Untitled",
+    "title": "How to define a regular Mapping",
     "path": "/docs/recipes/filesystem-mapping-define-mapping.md",
-    "hash": "47bc95b01d84c9f1424a7e98c4d1c0f0"
+    "hash": "11974926c0060257b2963482e863081f"
   },
   {
     "file": "filesystem-mapping.md",
