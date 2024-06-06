@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const crypto = require('crypto');
- 
+
 async function generateIndex() {
   const recipesDir = path.join(__dirname, '../../docs/recipes');
   const outputPath = path.join(recipesDir, 'index.json');
@@ -14,7 +14,7 @@ async function generateIndex() {
   console.log(`Reading files from ${recipesDir}`);
 
   for (const file of files) {
-    if (file.endsWith('.md')) {
+    if (file.endsWith('.md') && file !== 'README.md') {
       console.log(`Processing file: ${file}`);
       const filePath = path.join(recipesDir, file);
       const content = await fs.readFile(filePath, 'utf-8');
@@ -48,6 +48,9 @@ async function generateIndex() {
 
   console.log(`Writing README to ${readmePath}`);
   await fs.writeFile(readmePath, readmeContent, 'utf-8');
+
+  const readmeExists = await fs.pathExists(readmePath);
+  console.log(`README exists: ${readmeExists}`);
 
   console.log('Index and README generation complete.');
 }
