@@ -128,7 +128,7 @@ Learn how to write CFML code directly in a function or a closure with Java types
 
 No description available.
 
-## [Untitled](/docs/recipes/lazy_queries.md)
+## [Lazy Queries](/docs/recipes/lazy_queries.md)
 
 How to use lazy queries
 
@@ -140,7 +140,7 @@ This document explains how to handle big files in Lucee in a better way.
 
 Learn how to define mail listeners in Lucee. This guide demonstrates how to set up global mail listeners in the Application.cfc file to listen to or manipulate every mail executed. Examples include defining listeners directly in Application.cfc and using a component as a mail listener.
 
-## [Untitled](/docs/recipes/mail-send.md)
+## [How to send a Mail](/docs/recipes/mail-send.md)
 
 How to send an email using Lucee wth help of the tag cfmail.
 
@@ -164,7 +164,7 @@ How to pre-compile code for a production server while the source code is deploye
 
 Learn how to execute queries asynchronously in Lucee. This guide demonstrates how to set up asynchronous query execution using a simple flag. Examples include defining async execution for queries and using local listeners to handle exceptions. Additionally, function listeners introduced in Lucee 6.1 can be used for this purpose.
 
-## [Untitled](/docs/recipes/query-handling.md)
+## [Query Handling in Lucee](/docs/recipes/query-handling.md)
 
 How to do SQL Queries with Lucee.
 
@@ -196,7 +196,7 @@ This document explains how to use retry functionality with some simple examples.
 
 Using S3 directly for source code
 
-## [Untitled](/docs/recipes/sax.md)
+## [Read XML with a listener Model (SAX)](/docs/recipes/sax.md)
 
 Lucee not only allows you to convert an XML file to an object tree (DOM) but also supports an event-driven model (SAX).
 

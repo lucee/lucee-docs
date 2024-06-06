@@ -193,9 +193,9 @@
   },
   {
     "file": "lazy_queries.md",
-    "title": "Untitled",
+    "title": "Lazy Queries",
     "path": "/docs/recipes/lazy_queries.md",
-    "hash": "75c88bed5ea7ddc98523553a5c9760ef"
+    "hash": "fb9504f55dbe7278ee4133d63d1345f2"
   },
   {
     "file": "loop_through_files.md",
@@ -211,9 +211,9 @@
   },
   {
     "file": "mail-send.md",
-    "title": "Untitled",
+    "title": "How to send a Mail",
     "path": "/docs/recipes/mail-send.md",
-    "hash": "4a6f1268954eac27ff65e1cf37e34413"
+    "hash": "1ba54257cccef09cba13540fa7a8bbf3"
   },
   {
     "file": "mathematical-precision.md",
@@ -247,9 +247,9 @@
   },
   {
     "file": "query-handling.md",
-    "title": "Untitled",
+    "title": "Query Handling in Lucee",
     "path": "/docs/recipes/query-handling.md",
-    "hash": "25665af5991b704875419ab4a7cffda2"
+    "hash": "37936377a77a958043c262773d6cfaba"
   },
   {
     "file": "query-indexes.md",
@@ -295,9 +295,9 @@
   },
   {
     "file": "sax.md",
-    "title": "Untitled",
+    "title": "Read XML with a listener Model (SAX)",
     "path": "/docs/recipes/sax.md",
-    "hash": "ed8def929c9f8e8266dd8214ee74f135"
+    "hash": "5d98a6fd56491218643ee1ae53b6bcc8"
   },
   {
     "file": "script-templates.md",
