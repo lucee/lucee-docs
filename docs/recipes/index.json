@@ -13,9 +13,9 @@
   },
   {
     "file": "application-context-basic.md",
-    "title": "Untitled",
+    "title": "Event Handling in Application.cfc",
     "path": "/docs/recipes/application-context-basic.md",
-    "hash": "b3d0ce76557077908974266dcfdc60c9"
+    "hash": "080b30014fc42bff67681b8e12e8aee7"
   },
   {
     "file": "application-context-set-mapping.md",
@@ -49,9 +49,9 @@
   },
   {
     "file": "caches-in-application-cfc.md",
-    "title": "Untitled",
+    "title": "Adding Caches via Application.cfc",
     "path": "/docs/recipes/caches-in-application-cfc.md",
-    "hash": "cf425d1a69758abef18928e9ecfe366b"
+    "hash": "b005e611d022801778c84643020ebd57"
   },
   {
     "file": "cfml-to-java.md",
@@ -67,15 +67,15 @@
   },
   {
     "file": "checksum.md",
-    "title": "Untitled",
+    "title": "Checksum",
     "path": "/docs/recipes/checksum.md",
-    "hash": "cf4231c1e63a705a85f1da77feefaaeb"
+    "hash": "821c7cf3cb72f0084fba50be84aec6c2"
   },
   {
     "file": "configuration-administrator-cfc.md",
-    "title": "Untitled",
+    "title": "Configure Lucee within your application",
     "path": "/docs/recipes/configuration-administrator-cfc.md",
-    "hash": "0f7c973860dfd2cf9589aed06426271b"
+    "hash": "29a7c63a603f9b3a274070fd658dffb5"
   },
   {
     "file": "datasource-define-datasource.md",

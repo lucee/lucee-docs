@@ -8,7 +8,7 @@ Externalize strings from generated class files to separate files. This method is
 
 This document explains why Query of Queries (QoQ) may or may not be the best approach for your use case.
 
-## [Untitled](/docs/recipes/application-context-basic.md)
+## [Event Handling in Application.cfc](/docs/recipes/application-context-basic.md)
 
 An overview of event handling functions in Application.cfc for Lucee.
 
@@ -32,7 +32,7 @@ List existing Cache Connections available in Lucee.
 
 Cache a Query for the current request in Lucee.
 
-## [Untitled](/docs/recipes/caches-in-application-cfc.md)
+## [Adding Caches via Application.cfc](/docs/recipes/caches-in-application-cfc.md)
 
 How to add per-application caches via Application.cfc in Lucee.
 
@@ -44,11 +44,11 @@ Learn how to convert user-defined functions or components in Lucee to use them i
 
 Automatically check for changes in your configuration file with Lucee.
 
-## [Untitled](/docs/recipes/checksum.md)
+## [Checksum](/docs/recipes/checksum.md)
 
 This document explains how to use a checksum in Lucee.
 
-## [Untitled](/docs/recipes/configuration-administrator-cfc.md)
+## [Configure Lucee within your application](/docs/recipes/configuration-administrator-cfc.md)
 
 How to configure Lucee within your application using Administrator.cfc and cfadmin tag.
 
