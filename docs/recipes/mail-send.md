@@ -19,11 +19,11 @@
   ]
 }
 -->
-## How to send a Mail
+# How to send a Mail
 
 The following example shows you how you can send a mail. Before you can use this functionality, you have to define a Mail server in the Lucee Administrator.
 
-### Tags
+## Tags
 
 ```coldfusion
 <cfmail subject="Your Order" from="whatever@lucee.org" to="whatever@gmail.com">
@@ -32,7 +32,7 @@ The following example shows you how you can send a mail. Before you can use this
 </cfmail>
 ```
 
-### Script
+## Script
 
 ```cfs
 mail subject="Your Order" from="whatever@lucee.org" to="whatever@gmail.com" {
@@ -42,7 +42,3 @@ mail subject="Your Order" from="whatever@lucee.org" to="whatever@gmail.com" {
 ```
 
 That is all you need to do to send a mail.
-
-## Advanced
-
-TODO

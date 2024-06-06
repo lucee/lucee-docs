@@ -15,11 +15,11 @@
   ]
 }
 -->
-## Lazy Queries ##
+# Lazy Queries
 
 This document explains about lazy queries with some simple examples as follows:
 
-### Example 1: ###
+## Example 1
 
 **Regular query**: Regular query tags/functions load all data inside a two-dimensional structure to use.
 
@@ -39,7 +39,7 @@ loop query=qry {
 
 2) We execute this in the browser and we get the expected result.
 
-### Example 2: ###
+## Example 2
 
 **Lazy query**: Lazy queries keep a pointer to the database and only load the data on demand. If you loop through a query, the data is loaded on the spot. It does not create a two-dimensional struct to store all the data beforehand. When the query tag is done, it keeps a pointer to the database.
 
@@ -64,7 +64,7 @@ There is not really a difference between a regular query and a lazy query, just 
 
 With a lazy query, we do not have to wait until Lucee has loaded all the data into a two-dimensional structure, and it is also better for memory because you do not have to store all the older data in the memory until you are ready to use it. So there are some benefits.
 
-### Example 3: ###
+## Example 3
 
 A comparison of lazy queries and regular queries follows:
 
@@ -93,7 +93,7 @@ This example compares lazy queries with regular queries. It has a loop that loop
 
 Execute that example in the browser. The regular query takes 41 milliseconds and the lazy query takes 27 milliseconds. So we see the benefits of the lazy queries.
 
-### Footnotes ###
+## Footnotes
 
 You can see the details in this video:
 [Lazy Query](https://youtu.be/X8_TB1py8n0)

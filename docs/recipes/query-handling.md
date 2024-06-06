@@ -22,6 +22,8 @@
   ]
 }
 -->
+# Query Handling in Lucee
+
 This document explains how SQL queries are supported in Lucee.
 
 ## Query tags
