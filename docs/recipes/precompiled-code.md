@@ -14,7 +14,7 @@
   ]
 }
 -->
-## Precompiled Code
+# Precompiled Code
 
 This document explains how to pre-compile code for a production server while the source code is deployed. This method avoids compilation on the production server for security reasons. We explain this method with a simple example below:
 
@@ -38,7 +38,7 @@ Run this index.cfm page in the browser.
 
 * Finally, run the `/sample/test.cfm` file in your browser. It should show the same results as the index.cfm file would.
 
-### Footnotes
+## Footnotes
 
 Here you can see the above details in a video:
 

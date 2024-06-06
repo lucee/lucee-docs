@@ -2,6 +2,7 @@
 {
   "title": "Loop Labels",
   "id": "loop-labels",
+  "description": "Lucee supports labels for all loop tags and statements, allowing you to control the flow of nested loops more precisely.",
   "keywords": [
     "loop",
     "label",

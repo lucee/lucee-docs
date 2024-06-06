@@ -16,11 +16,11 @@
   ]
 }
 -->
-## Null Support
+# Null Support
 
 This document explains how to set null support in the Lucee server admin, assigning `null` value for a variable and how to use `null` and `nullvalue`. It is an annotation of the video found here: [https://www.youtube.com/watch?v=GSlWfLR8Frs](https://www.youtube.com/watch?v=GSlWfLR8Frs)
 
-### Enabling NULL support
+## Enabling NULL support
 
 You can enable null support via the **Lucee Server Admin** --> **Language/compiler** and setting Null support to **complete support** (exclusive to Lucee) or **partial support** (default, same as Adobe CF).
 
@@ -30,9 +30,9 @@ Or via [[tag-application]]
 this.nullSupport = true;
 ```
 
-### Explanation
+## Explanation
 
-#### Illustration 1:
+### Illustration 1:
 
 ```lucee
 <cfscript>
@@ -54,7 +54,7 @@ If we assign the function result to a variable, i.e. `t = test();`, and referenc
 
 In all cases, `dump( isNull( notexisting ) );` will throw an error.
 
-#### Illustration 2:
+### Illustration 2:
 
 ```luceescript
 query datasource="test" name="qry" {
@@ -67,7 +67,7 @@ dump( qry._null );
 With **partial support** for NULL enabled, `dump(qry._null);` will output an **empty string**.
 With **full support**, `Empty: null` will be output and `IsNull( qry._null );` will evaluate `true`.
 
-### NullValue() function and null keyword
+## NullValue() function and null keyword
 
 With **partial support** for NULL, the `NullValue()` function must be used to explicitly return a null value (this will work in all scenarios). For example:
 
