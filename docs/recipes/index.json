@@ -85,9 +85,9 @@
   },
   {
     "file": "deploy-archives.md",
-    "title": "Untitled",
+    "title": "Creating and deploying Lucee Archives (.lar files)",
     "path": "/docs/recipes/deploy-archives.md",
-    "hash": "8af685ebeb135e79527c76a638320a18"
+    "hash": "04f187142ec3dcb8548080f55a3eb4f5"
   },
   {
     "file": "encryption_decryption.md",
@@ -97,9 +97,9 @@
   },
   {
     "file": "event-gateway-create.md",
-    "title": "Untitled",
+    "title": "Custom Event Gateways",
     "path": "/docs/recipes/event-gateway-create.md",
-    "hash": "ab9bfbfa135dd0ec04aa164dbf823643"
+    "hash": "d6d4e26307ee69d9041e69265bb0c2cc"
   },
   {
     "file": "event-gateways-overview.md",
@@ -109,9 +109,9 @@
   },
   {
     "file": "event-gateways.md",
-    "title": "Untitled",
+    "title": "Lucee Event Gateways",
     "path": "/docs/recipes/event-gateways.md",
-    "hash": "8bc56d0c35fc03279d9014bb4f389cb3"
+    "hash": "26bcc3dd50ff1cb8ec2ab31f3cffd15a"
   },
   {
     "file": "exception-cause.md",
@@ -139,15 +139,15 @@
   },
   {
     "file": "filesystem-mapping.md",
-    "title": "Untitled",
+    "title": "File system - Mappings",
     "path": "/docs/recipes/filesystem-mapping.md",
-    "hash": "cd87cdc45db078471a8f711f247a3e09"
+    "hash": "fe3271c6053ef91099cfe39b10ae05fe"
   },
   {
     "file": "flying_saucer.md",
-    "title": "Untitled",
+    "title": "Flying Saucer PDF Engine - CFDOCUMENT",
     "path": "/docs/recipes/flying_saucer.md",
-    "hash": "2112724350ae392d1bd40ffe43c9d106"
+    "hash": "bff1d38699d39c1f75a6e0e5ee9480ec"
   },
   {
     "file": "function-listeners.md",

@@ -56,7 +56,7 @@ How to configure Lucee within your application using Administrator.cfc and cfadm
 
 How to define a Datasource in Lucee.
 
-## [Untitled](/docs/recipes/deploy-archives.md)
+## [Creating and deploying Lucee Archives (.lar files)](/docs/recipes/deploy-archives.md)
 
 This document explains how to deploy an Application on a live server without using a single CFML file.
 
@@ -64,7 +64,7 @@ This document explains how to deploy an Application on a live server without usi
 
 This document explains about Encryption/Decryption with public and private keys with simple examples.
 
-## [Untitled](/docs/recipes/event-gateway-create.md)
+## [Custom Event Gateways](/docs/recipes/event-gateway-create.md)
 
 Here you will find a short introduction into writing your own Event Gateway type.
 
@@ -72,7 +72,7 @@ Here you will find a short introduction into writing your own Event Gateway type
 
 Overview of how Event Gateways work in Lucee.
 
-## [Untitled](/docs/recipes/event-gateways.md)
+## [Lucee Event Gateways](/docs/recipes/event-gateways.md)
 
 EG's are another way how to communicate with your Lucee server and are kind of a service running on Lucee, reacting on certain events.
 
@@ -92,11 +92,11 @@ Learn about the different file extensions supported by Lucee, including .cfm, .c
 
 All about the different mappings in Lucee and how to use them.
 
-## [Untitled](/docs/recipes/filesystem-mapping.md)
+## [File system - Mappings](/docs/recipes/filesystem-mapping.md)
 
 Overview of different mapping types in the file system.
 
-## [Untitled](/docs/recipes/flying_saucer.md)
+## [Flying Saucer PDF Engine - CFDOCUMENT](/docs/recipes/flying_saucer.md)
 
 The new CFDOCUMENT PDF engine, Flying Saucer in Lucee 5.3
 
