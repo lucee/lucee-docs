@@ -12,12 +12,6 @@
     "hash": "f17ec78bf0f0d984a48e233a4fde5d03"
   },
   {
-    "file": "README.md",
-    "title": "Untitled",
-    "path": "/docs/recipes/README.md",
-    "hash": "d41d8cd98f00b204e9800998ecf8427e"
-  },
-  {
     "file": "application-context-basic.md",
     "title": "Untitled",
     "path": "/docs/recipes/application-context-basic.md",
@@ -97,9 +91,9 @@
   },
   {
     "file": "encryption_decryption.md",
-    "title": "Untitled",
+    "title": "Encryption/Decryption ",
     "path": "/docs/recipes/encryption_decryption.md",
-    "hash": "31db9db5d16eb6460c82e73cdc16972f"
+    "hash": "92ca4f9edf9ef5591c5810b28bc095fa"
   },
   {
     "file": "event-gateway-create.md",
