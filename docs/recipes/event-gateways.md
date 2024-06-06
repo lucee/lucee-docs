@@ -20,7 +20,7 @@
   ]
 }
 -->
-## Lucee Event Gateways
+# Lucee Event Gateways
 
 First of all, it is necessary to explain how Event Gateways (EG) are working in the first place. EG's are another way to communicate with your Lucee server and are kind of a service running on Lucee, reacting to certain events. These kinds of events could be something along the lines of:
 
@@ -37,7 +37,7 @@ Event Gateways have for a long time lived a quiet life in CFML for several reaso
 
 In Lucee, EG's can be written in CFML, and this is what this description is all about, which now makes it way more attractive to write the decisive parts with your favorite language. Some parts sometimes still need perhaps a Java library, but coding around that normally is not really a problem. Just use the according JAR solution available for the specific event (like SMS or others).
 
-### What are the involved components in Lucee?
+## What are the involved components in Lucee?
 
 There are 2 components that are important for writing an event gateway:
 
@@ -46,7 +46,7 @@ There are 2 components that are important for writing an event gateway:
 
 The gateway driver is a CFC that is always instantiated and running. It is responsible for managing the lifecycle of the event gateway. The event gateway is the actual implementation of the event handling logic.
 
-### Testing the Event Gateway
+## Testing the Event Gateway
 
 I have created a template called testGateway.cfm and use the following code to test the result.
 

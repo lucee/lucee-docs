@@ -18,12 +18,12 @@
   ]
 }
 -->
-#PDF Engine (Flying saucer)
+# Flying Saucer PDF Engine - CFDOCUMENT
 This document provides information about the new PDF engine, [Flying Saucer](https://github.com/flyingsaucerproject/flyingsaucer) (FS) in Lucee 5.3
 
 Flying saucer is a new PDF engine in Lucee. PDF engines are mainly used to convert HTML to PDF format.
 
-### Benefits of moving to Flying Saucer from the old engine (PD4ML) ###
+## Benefits of moving to Flying Saucer from the old engine (PD4ML)
 
 * Full support for CSS 2.1
 * On average the generated PDFs are smaller
@@ -31,7 +31,7 @@ Flying saucer is a new PDF engine in Lucee. PDF engines are mainly used to conve
 * Engine in active development,
 * Better Results
 
-### Downsides to Flying Saucer compared to the old engine (PD4ML) ###
+## Downsides to Flying Saucer compared to the old engine (PD4ML)
 
 * The generated PDF does not always look exactly the same when generated with the new FC compared to files generated with the PD4ML.
 
@@ -59,11 +59,11 @@ and since the PDF Extension 1.0.0.92-SNAPSHOT you can specify the engine using t
 <cfdocument type="classic">
 ```
 
-### Features of Flying Saucer ###
+## Features of Flying Saucer 
 
 You can define a font directory where you have the fonts(.ttf,.otf) you are using in your PDF.
 
-### Define the font directory ####
+## Define the font directory 
 
 ```lucee
 <cfdocument fontDirectory = "path/to/my/font">
@@ -87,7 +87,7 @@ If the font directory isn't specified, Lucee will look for fonts in /WEB_INF/luc
 
 **Note**: Classic engine works using the font-family-name from pd4fonts.properties file. Modern (Flying saucer) engine works using the font-family-name from the .ttf file with the same case.
 
-#### Simplify Attributes ####
+### Simplify Attributes 
 
 Attributes with cfdocument are a mess. You can make it clearer using the following syntax:
 
@@ -109,7 +109,7 @@ Or even simpler
 <cfdocument margin="5" page="#\{width:5,height:5,type:'A4'\}#">
 ```
 
-#### Additional Units ####
+### Additional Units
 
 In addition to "inch" and "cm", the attribute unit now supports "pixel" and "points".
 
@@ -119,7 +119,7 @@ In addition to "inch" and "cm", the attribute unit now supports "pixel" and "poi
 
 If you find any issues while using the new PDF engine, please ask a question on the [mailing list](https://dev.lucee.org/)
 
-### Footnotes ###
+## Footnotes
 
 You can see the details in this video:
 [Flying saucer](https://www.youtube.com/watch?v=B3Yfa8SUKKg)

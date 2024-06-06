@@ -16,7 +16,7 @@
   ]
 }
 -->
-### Preface
+# Custom Event Gateways
 
 Here you will find a short introduction into writing your own Event Gateway type.
 
@@ -28,7 +28,7 @@ There are 2 to 3 files you need to create:
 * the Gateway Driver CFC
 * A listener CFC
 
-### The Gateway CFC
+## The Gateway CFC
 
 This is the file which contains the action you want your gateway to do.
 

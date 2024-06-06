@@ -15,11 +15,11 @@
   ]
 }
 -->
-## Deploy Archive
+# Creating and deploying Lucee Archives (.lar files)
 
 This document explains how to deploy an Application on a live server without using a single CFML file.
 
-### Using CFC file
+## Using CFC file
 
 ```lucee
 //placed under outside root/component/org/lucee/examples/deploy/Test.cfc
@@ -52,7 +52,7 @@ An archive (lar file) is created automatically and saved in `WEB-INF/lucee/conte
 
 Now you can see the archive path on the mycfc mapping.
 
-### Using CFM file
+## Using CFM file
 
 Create a mapping for the below CFM file:
 
@@ -82,7 +82,7 @@ Copy the archive files (deploy.lar, mycfc.lar) and place them in the target serv
 
 You can now view mappings in the admin.
 
-### Footnotes
+## Footnotes
 
 Here you can see the above details in a video:
 
