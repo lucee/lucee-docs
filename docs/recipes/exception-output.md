@@ -22,7 +22,7 @@
   ]
 }
 -->
-# Output Exceptions
+# Exceptions Output
 
 How to catch and display exceptions
 

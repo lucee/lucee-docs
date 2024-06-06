@@ -1,7 +1,7 @@
 <!--
 {
   "title": "Update current Application Context",
-  "id": "cookbook-application-context-update",
+  "id": "update-application-context",
   "related": [
     "tag-application"
   ],
@@ -19,7 +19,7 @@
   ]
 }
 -->
-# Update Application Context
+# Application Context update
 
 Lucee allows you to update the existing application context defined for example in [cookbook-application-context-basic].
 

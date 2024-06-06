@@ -1,7 +1,7 @@
 <!--
 {
   "title": "Cache a query for the current request",
-  "id": "cookbook-cached-within-request",
+  "id": "cache-a-query-for-the-curr-context",
   "related": [
     "tag-query"
   ],

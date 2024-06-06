@@ -1,7 +1,7 @@
 <!--
 {
   "title": "Custom Event Gateways",
-  "id": "create-event-gateway",
+  "id": "custom-event-gateways",
   "categories": [
     "gateways"
   ],

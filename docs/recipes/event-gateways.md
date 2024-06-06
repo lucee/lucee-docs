@@ -1,7 +1,7 @@
 <!--
 {
   "title": "Event Gateways in Lucee",
-  "id": "event-gateways-lucee",
+  "id": "event-gateways",
   "related": [
     "function-sendgatewaymessage"
   ],
@@ -20,7 +20,7 @@
   ]
 }
 -->
-# Lucee Event Gateways
+# Event Gateways
 
 First of all, it is necessary to explain how Event Gateways (EG) are working in the first place. EG's are another way to communicate with your Lucee server and are kind of a service running on Lucee, reacting to certain events. These kinds of events could be something along the lines of:
 

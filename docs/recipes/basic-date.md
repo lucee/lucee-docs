@@ -14,7 +14,7 @@
   ]
 }
 -->
-# Output the current date
+# Basic Date - Output the current date
 
 The following examples show you how to output the current date.
 
