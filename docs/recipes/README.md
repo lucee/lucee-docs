@@ -126,7 +126,7 @@ Learn how to write CFML code directly in a function or a closure with Java types
 
 ## [Loop Labels](/docs/recipes/labels.md)
 
-No description available.
+Lucee supports labels for all loop tags and statements, allowing you to control the flow of nested loops more precisely.
 
 ## [Lazy Queries](/docs/recipes/lazy_queries.md)
 
@@ -152,11 +152,11 @@ Learn about the switch from double to BigDecimal in Lucee 6 for more precise mat
 
 Learn about the changes in Lucee 6.1 regarding Monitoring and Debugging. Understand the old and new behavior, and how to configure the settings in Lucee Admin and Application.cfc.
 
-## [Untitled](/docs/recipes/null_support.md)
+## [Null Support](/docs/recipes/null_support.md)
 
 This document explains how to set null support in the Lucee server admin, assigning `null` value for a variable and how to use `null` and `nullvalue`.
 
-## [Untitled](/docs/recipes/precompiled-code.md)
+## [Precompiled Code](/docs/recipes/precompiled-code.md)
 
 How to pre-compile code for a production server while the source code is deployed to avoid compilation on the production server for security reasons.
 
