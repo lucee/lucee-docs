@@ -112,7 +112,7 @@ Overview of how Event Gateways work in Lucee.
 
 Learn how to define a global proxy in Lucee. This guide demonstrates how to set up a global proxy in the Application.cfc file, limit the proxy to specific hosts, and exclude specific hosts from using the proxy.
 
-## [Untitled](/docs/recipes/hidden_gems.md)
+## [Hidden Gems](/docs/recipes/hidden_gems.md)
 
 This document explains how to declare variables, function calls with dot and bracket notation, and passing arguments via URL/form scopes as an array.
 
