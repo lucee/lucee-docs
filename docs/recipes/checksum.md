@@ -12,13 +12,15 @@
   ]
 }
 -->
+# Checksum
+
 This document explains how to use a checksum in Lucee.
 
 Many servers provide a checksum for the files they provide for download. We use the checksum to validate a download file in order to avoid a corrupted file.
 
 If you download a file in your application, you can automatically check if the download is valid or not if the necessary info was provided in the response header.
 
-### Example 1 : ###
+## Example 1
 
 ```luceescript
 <cfscript>
@@ -80,7 +82,7 @@ dump("something went wrong! give it another try?");
 
 If the checksum is provided, we can check it. However, the checksum may not always be provided. The following example shows how to provide a checksum for all downloads.
 
-### Example 2 ###
+## Example 2
 
 //download.cfm
 
@@ -140,7 +142,7 @@ dump("something went wrong! give it another try?");
 
 The above code checks and validates the downloaded file.
 
-### Footnotes ###
+## Footnotes
 
 You can see the details in this video:
 [Checksum](https://www.youtube.com/watch?v=Kb_zSsRDEOg)

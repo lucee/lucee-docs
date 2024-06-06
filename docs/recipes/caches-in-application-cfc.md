@@ -21,7 +21,7 @@
   ]
 }
 -->
-## Adding Caches via Application.cfc
+# Adding Caches via Application.cfc
 
 It is possible to add cache connections in Lucee 5.1+ on a per-application basis by adding configuration to your `Application.cfc`. You can also select the default object cache, query cache, function cache, etc. Note if these caches use an extension that provides the cache driver, the extension must be installed already.
 
@@ -44,7 +44,7 @@ this.cache.connections["myCache"] = {
 
 Note, there is a shortcut for `this.cache.connections["myCache"] = {}` and that is `this.cache["myCache"] = {}`. We support both since the latter is closer to how datasources are defined.
 
-### Generating Cache Connection code
+## Generating Cache Connection code
 
 The easiest way to generate the code block above is to follow these steps:
 
@@ -53,7 +53,7 @@ The easiest way to generate the code block above is to follow these steps:
 3. Edit the cache and scroll to the bottom
 4. Copy the code snippet that appears directly into your `Application.cfc`
 
-### Cache metadata
+## Cache metadata
 
 Let's take a look at some of the keys used to define a cache connection.
 
@@ -64,7 +64,7 @@ Let's take a look at some of the keys used to define a cache connection.
 * **custom** - A struct of key/value pairs for configuring the cache. This struct is entirely dependent on the cache driver in use, so refer to the docs for that cache driver to see the possible values. Note, some of these custom values might be required for some cache drivers to work.
 * **default** - Optional. If you want this cache to be used as a default cache, then give this one of these values: `function`, `object`, `template`, `query`, `resource`, `include`, `http`, `file`, `webservice`.
 
-### Default Caches
+## Default Caches
 
 When declaring a cache, you can make it the default cache for creation operations, but it is also possible to configure the default caches for each operation all at once in your `Application.cfc` like so:
 ```lucee
