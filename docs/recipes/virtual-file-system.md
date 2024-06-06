@@ -22,7 +22,7 @@
   ]
 }
 -->
-## Virtual File Systems
+# Virtual File Systems
 
 Lucee supports the following virtual file systems:
 
@@ -33,7 +33,7 @@ Lucee supports the following virtual file systems:
 - zip
 - tar
 
-### Local File System
+## Local File System
 
 You may already be familiar with local file systems. The local file system is the default file system in Lucee. That means if there is no other definition, Lucee will always use the local file system.
 
@@ -73,7 +73,7 @@ As seen in the example code above, the local file system is the default, so it i
 </cfscript>
 ```
 
-### ZIP File System
+## ZIP File System
 
 Another file system you can use in Lucee is the ZIP file system. To tell Lucee to use the ZIP file system, use the prefix `zip://` and end with `!`.
 
@@ -87,7 +87,7 @@ Now the file path will look like `zip://xxx/xxx/xxx/xxx/test.zip!/...`.
 </cfscript>
 ```
 
-### RAM File System
+## RAM File System
 
 RAM is a virtual file system that allows you to treat memory as a file system.
 
@@ -105,7 +105,7 @@ The RAM file system is configured with the `ram://` prefix.
 </cfscript>
 ```
 
-### S3 File System
+## S3 File System
 
 S3 is a remote file system you can use from Amazon S3 storage. You will need access credentials for accessing the S3 bucket.
 
@@ -139,7 +139,7 @@ In Lucee, we can define an S3 file system in two ways:
 </cfscript>
 ```
 
-### FTP File System
+## FTP File System
 
 Lucee allows you to treat a remote FTP server as a virtual filesystem.
 
@@ -164,7 +164,7 @@ You will need access credentials for accessing FTP. Set up an FTP file system us
 </cfscript>
 ```
 
-### Footnotes
+## Footnotes
 
 Here you can see the above details in a video:
 
