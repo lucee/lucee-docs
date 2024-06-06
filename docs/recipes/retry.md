@@ -16,11 +16,11 @@
   ]
 }
 -->
-## Retry ##
+# Retry
 
 This document explains how to use retry functionality with some simple examples.
 
-### Example 1: ###
+## Example 1
 
 ```luceescript
 // example1.cfm
@@ -46,7 +46,7 @@ In this example, we have the "try" and "catch" blocks for reading a file and out
 
 This is not the best way. 'Retry' is a better option. The retry code looks like example2.cfm
 
-### Example 2: ###
+## Example 2
 
 ```luceescript
 // example2.cfm
@@ -69,7 +69,7 @@ In this example, we use the retry functionality. Here we also still check if the
 
 We do not get an exception because if the file does not exist, we call retry (read the file again and output the file content). For this case, we simply use retry, and if it fails, we correct what is wrong.
 
-### Footnotes ###
+## Footnotes
 
 Here you can see these details in the video also:
 
