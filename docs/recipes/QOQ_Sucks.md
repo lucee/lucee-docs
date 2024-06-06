@@ -21,7 +21,7 @@
   ]
 }
 -->
-## The good, the bad and the ugly ##
+# The good, the bad and the ugly
 
 This document explains why Query of Queries (QoQ) may or may not be the best approach for your use case.
 
@@ -48,7 +48,7 @@ If the native QoQ engine fails on a single table query, by default, Lucee will a
 
 See `LUCEE_QOQ_HSQLDB_DISABLE` and `LUCEE_QOQ_HSQLDB_DEBUG` under [[running-lucee-system-properties]].
 
-### Example: ###
+## Example: 
 
 ```lucee+trycf
 <cfscript>
@@ -126,7 +126,7 @@ In this example, we have two different methods of queries.
 
 3) Execute it in the browser and we get two results (Query of Query execution time and Query filter/sort execution time). Query filter executes at least twice as fast as query of query. Because QoQ loops over and over again, it is slower. If you can avoid QoQ and use the Query filter/sort, your code will execute much faster.
 
-### Footnotes ###
+## Footnotes
 
 You can see these details in the video here:
 

@@ -37,9 +37,11 @@
   ]
 }
 -->
+# Event Handling in Application.cfc
+
 Lucee provides several event handling functions within `Application.cfc` that can be used to manage different stages and types of requests. Here is an overview of these functions and their usage.
 
-### OnApplicationStart ###
+## OnApplicationStart
 
 This method is triggered when the application starts.
 
@@ -51,7 +53,7 @@ component {
 }
 ```
 
-### OnSessionStart ###
+## OnSessionStart
 
 This method is triggered when a session starts.
 
@@ -75,7 +77,7 @@ component {
 }
 ```
 
-### OnRequest ###
+## OnRequest
 
 This method handles the actual request. In Lucee, this function is called even if the target page does not exist physically or is never used.
 
@@ -87,7 +89,7 @@ component {
 }
 ```
 
-### OnCFCRequest ###
+## OnCFCRequest
 
 Similar to "onRequest", but this function is used to handle remote component calls (HTTP Webservices).
 
@@ -99,7 +101,7 @@ component {
 }
 ```
 
-### OnError ###
+## OnError
 
 This method is triggered when an uncaught exception occurs in this application context.
 
@@ -113,7 +115,7 @@ component {
 
 As arguments you receive the exception (cfcatch block) and the eventName.
 
-### OnAbort ###
+## OnAbort 
 
 This method is triggered when a request is ended with help of the tag `<cfabort>`.
 
@@ -125,7 +127,7 @@ component {
 }
 ```
 
-### OnDebug ###
+## OnDebug 
 
 This method is triggered when debugging is enabled for this request.
 
@@ -137,7 +139,7 @@ component {
 }
 ```
 
-### OnMissingTemplate ###
+## OnMissingTemplate
 
 This method is triggered when a requested page was not found and **no function "onRequest" is defined**.
 
@@ -149,7 +151,7 @@ component {
 }
 ```
 
-## Application.cfc Default Template ##
+## Application.cfc Default Template
 
 Below you can find an Application.cfc template that may serve as a starting point for your own applications settings with Lucee CFML engine. 
 
