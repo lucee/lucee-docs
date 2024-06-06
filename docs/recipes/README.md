@@ -176,11 +176,11 @@ Learn how to set and use indexes for query results in Lucee. This guide demonstr
 
 Learn how to define query listeners in Lucee. This guide demonstrates how to set up global query listeners in the Application.cfc file to listen to or manipulate every query executed. Examples include defining listeners directly in Application.cfc and using a component as a query listener.
 
-## [Untitled](/docs/recipes/query-of-queries.md)
+## [Query of Queries (QoQ)](/docs/recipes/query-of-queries.md)
 
 Query of queries (QoQ) is a technique for re-querying an existing (in memory) query without another trip to the database.
 
-## [Untitled](/docs/recipes/query_return_type.md)
+## [Query return type](/docs/recipes/query_return_type.md)
 
 This document explains the different return types for a query with some examples.
 

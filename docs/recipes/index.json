@@ -265,15 +265,15 @@
   },
   {
     "file": "query-of-queries.md",
-    "title": "Untitled",
+    "title": "Query of Queries (QoQ)",
     "path": "/docs/recipes/query-of-queries.md",
-    "hash": "c2ab9f515eda092288e30578364114cf"
+    "hash": "457790642e8f4a4206decad94eedec20"
   },
   {
     "file": "query_return_type.md",
-    "title": "Untitled",
+    "title": "Query return type",
     "path": "/docs/recipes/query_return_type.md",
-    "hash": "75e2939902c9d6c68764dfa32ad498cc"
+    "hash": "4f289bd50dfccc35fc9d935d506eeeb6"
   },
   {
     "file": "request-timeout.md",
