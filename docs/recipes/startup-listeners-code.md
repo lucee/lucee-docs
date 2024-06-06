@@ -20,14 +20,14 @@
   ]
 }
 -->
-## Startup Listeners Code ##
+# Startup Listeners, server.cfc and web.cfc
 
 Lucee has two kinds of startup listeners.
 
 - **Server.cfc** which runs when the Lucee Server starts up. It exists only once per Lucee instance.
 - **Web.cfc** which can be used for each web context.
 
-### Server.cfc ###
+## Server.cfc
 
 Create a `Server.cfc` file in `lucee-server\context\context` directory.
 
@@ -59,7 +59,7 @@ component{
 - Start Lucee Server. 
 - The server console or `out.log` should show the above systemOutput's which means it has run the `Server.cfc`
 
-### Web.cfc ###
+## Web.cfc
 
 Create a `Web.cfc` file in `webapps\ROOT\WEB-INF\lucee\context\` directory, or the context webroot.
 
@@ -98,7 +98,7 @@ Here ``reload`` is used to reload the web context. We see the difference when se
 
 This is a simple way to stop the server context. It is never triggered because there is no event happening inside java.
 
-### Footnotes ###
+## Footnotes
 
 Here you can see above details in video
 

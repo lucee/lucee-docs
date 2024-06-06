@@ -18,7 +18,7 @@
   ]
 }
 -->
-## Static scope in components
+# Static scope in components
 
 Static scope in components is needed to create an instance of cfc and call its method. It is used to avoid creating an instance each time you use the cfc.
 
@@ -26,7 +26,7 @@ You can create an object in the Application init() function, and make it at appl
 
 We explain this methodology with a simple example below:
 
-### Example:
+## Example 1
 
 ```luceescript
 // index.cfm
@@ -61,7 +61,7 @@ cfc = new Example0();
 cfc.hey();
 ```
 
-### Example 1:
+## Example 2
 
 As our code gets more complicated, we need to make some additions to it.
 
@@ -96,7 +96,7 @@ new Example1();
 new Example1();
 ```
 
-### Example 2:
+## Example 3
 
 1) Another example is using the static scope to store the result of a time-consuming operation that does not need to be recomputed every time.
 
@@ -125,7 +125,7 @@ new Example2();
 new Example2();
 ```
 
-### Example 3:
+## Example 4
 
 1) The static scope can also be used for functions. In this example, we define a static function that is available to all instances.
 
@@ -145,7 +145,7 @@ Component {
 dump(Example3::hello());
 ```
 
-### Example 4:
+## Example 5
 
 1) The static scope can be used to count the number of instances created from a component.
 
@@ -171,7 +171,7 @@ new Example4();
 new Example4();
 ```
 
-### Example 5:
+## Example 6
 
 1) We can also use the static scope to store constant data like HOST, PORT.
 
@@ -207,7 +207,7 @@ dump(person.getLastName());
 dump(Example5::splitFullName("Quintana Jesus"));
 ```
 
-### Footnotes
+## Footnotes
 
 [Lucee 5 features reviewed: static](https://dev.lucee.org/t/lucee-5-features-reviewed-static/433)
 

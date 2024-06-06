@@ -18,6 +18,8 @@
   ]
 }
 -->
+# XML Fast And Easy, using SAX - Listener Functions
+
 This document explains how to use XML parsing in Lucee.
 
 I have XML as shown below:
@@ -423,7 +425,7 @@ The example above executes and returns a result array which contains only the ye
 
 You can modify the component as you like. Instead of storing the array, you can store the result in a database or mail, or whatever you like.
 
-### Footnotes ###
+## Footnotes
 
 You can see the details in this video:
 [Xml-Fast and Easy](https://www.youtube.com/watch?v=_AP6GpVk7TE)

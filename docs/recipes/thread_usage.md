@@ -16,11 +16,11 @@
   ]
 }
 -->
-## Thread Scope
+# Thread Scope
 
 This document explains how to use threads in Lucee. Threads are mainly used for executing code in parallel.
 
-### Example 1
+## Example 1
 
 The below example shows normal execution, waiting for all code to resolve. Here it takes 1000 milliseconds to complete the execution.
 
@@ -54,7 +54,7 @@ Threads run independently of other threads or code in Lucee. Lucee does not the 
 
 Threads are mainly used to retrieve data from the database, cfhttp, or webservice. Threads are used when it does not matter how much time it takes to execute.
 
-### Example 2
+## Example 2
 
 Here we see an example using multiple threads in Lucee. All threads run in parallel.
 
@@ -86,7 +86,7 @@ dump("done in #getTickCount()-start#ms");
 
 The above example shows five threads running in parallel. The thread action="join" line waits for all threads to finish. `cfthread` returns struct info of all thread statuses.
 
-### Example 3
+## Example 3
 
 Threads can also be used to perform long-running tasks asynchronously.
 
@@ -138,7 +138,7 @@ dump("done");
 </cfscript>
 ```
 
-### Example 4
+## Example 4
 
 Lucee members often discuss how to extend functionality to make Lucee easier to use or adding other new functionality.
 
@@ -185,7 +185,7 @@ for(i=0; i<10; i++; true) {
 
 Another planned enhancement is to extend parallel to the loop by simply adding `parallel=true`. It will execute the body of the loop in parallel.
 
-### Footnotes
+## Footnotes
 
 Here you can see the above details in a video:
 

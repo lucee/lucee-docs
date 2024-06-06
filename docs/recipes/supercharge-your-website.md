@@ -12,11 +12,11 @@
   ]
 }
 -->
-## Supercharge your website ##
+# Supercharge your website
 
 This document explains how you can improve the performance of your website in a very short time with Lucee.
 
-### Example: ###
+## Example:
 
 ```luceescript
 // index.cfm
@@ -25,7 +25,7 @@ writeDump(now());
 
 Run the above index.cfm, and you get a timestamp. Whenever we call our file, Lucee checks once at every request if a file has changed or not (for files currently residing in the template cache). If a file has changed, Lucee recompiles it, and executes it. Checking the files at every request takes time. If you have a published server, and you know your server does not produce or change any files, you can simply avoid that check that happens all the time.
 
-### Using Admin ###
+## Using Admin
 
 * Go to _Admin -> Performance/ Caching -> Inspect Templates (CFM/CFC) -> Never_
 
@@ -37,7 +37,7 @@ Run the above index.cfm, and you get a timestamp. Whenever we call our file, Luc
 
 * Another option to clear the template cache is to use clear cache via the admin by clicking the button in _Admin -> Settings -> Performance/ Caching -> Page Pool Cache_.
 
-### Footnotes ###
+## Footnotes
 
 Here you can see these details on video also:
 
