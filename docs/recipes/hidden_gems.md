@@ -15,11 +15,11 @@
   ]
 }
 -->
-## Hidden Gems
+# Hidden Gems
 
 This document explains how to declare variables, function calls with dot and bracket notation, and passing arguments via URL/form scopes as an array. These concepts are explained with simple examples below:
 
-### Example 1: Declare Variables
+## Example 1: Declare Variables
 
 // test.cfc
 
@@ -47,7 +47,7 @@ test();
 
 In the cfm page, we have a test() function with a local variable scope assigned as an empty string `var qry`. When executing this cfm, the qry returns "1". Dumping the `qry` below the var declaration returns an empty string.
 
-### Example 2: Dot and Bracket Notation for Function Calls
+## Example 2: Dot and Bracket Notation for Function Calls
 
 Lucee allows you to use bracket notation to call a component function.
 
@@ -73,7 +73,7 @@ These three different types of function calls are:
 
 All three different function calls return the same content "Susi" as defined in the CFC page.
 
-### Example 3: Passing Arguments via URL/Form Scopes as Array
+## Example 3: Passing Arguments via URL/Form Scopes as Array
 
 Lucee allows passing URL and Form scope data as an array instead of a string list.
 
@@ -116,7 +116,7 @@ In this cfm page, URL and form scopes are available. The names are used twice.
 
 These simple methods are helpful for defining variables in different ways.
 
-### Footnotes
+## Footnotes
 
 Here you can see the above details in the video
 
