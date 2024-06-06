@@ -16,7 +16,7 @@
   ]
 }
 -->
-## How does an Event Gateway work?
+# How does an Event Gateway work?
 
 An event gateway is a background process that continuously runs.
 
@@ -26,11 +26,11 @@ This looping and sleeping does not count for all types of event gateways. For ex
 
 This "doing what it is designed for" will be explained in more detail underneath.
 
-## Which gateways are available?
+# Which gateways are available?
 
 Lucee comes with 2 gateways: a Directory watcher and a Mail watcher.
 
-### Directory watcher
+## Directory watcher
 
 This event gateway checks a given directory for file changes. These changes (events) can be:
 
@@ -44,7 +44,7 @@ Please note that the files in this first snapshot are NOT seen as changes!
 
 So if you already have some files in the directory you want to watch, these files are not seen as "new file" when the gateway starts. Also, when Lucee (or your whole server) restarts, any changes which happened within this time are not seen and will not be picked up when the Directory watcher starts up again.
 
-### Filters
+## Filters
 
 You can apply filters for what you exactly want to watch changes for:
 
@@ -53,11 +53,11 @@ You can apply filters for what you exactly want to watch changes for:
 
 Note: the Extensions setting might be changed in the near future, due to an enhancement request.
 
-### Mail watcher
+## Mail watcher
 
 This gateway checks a given POP mailbox for new mail. Since it only checks for new mail, it is rather limited in what it can do, but this is what makes it fast. The Mail watcher will read the inbox, and then check all the emails found.
 
-### Logs
+## Logs
 
 Make sure you regularly check the logs, because when anything goes wrong, Lucee will report this in its logs.
 
@@ -90,7 +90,7 @@ For example, the above code would crash if a file with the same name already exi
 
 It might be even wiser to just email the complete error dump, so you will be semi-instantly notified of any errors.
 
-### Using cfadmin with Event gateways
+## Using cfadmin with Event gateways
 
 Instead of using the server/web admin, you can also use Lucee's `<cfadmin>` tag.
 
@@ -116,7 +116,7 @@ Add or update a gateway instance:
 />
 ```
 
-### Remove a gateway instance
+## Remove a gateway instance
 
 ```lucee
 <cfadmin action="removeGatewayEntry" type="server" password="server-admin-password"

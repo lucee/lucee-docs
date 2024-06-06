@@ -21,13 +21,13 @@
   ]
 }
 -->
-## How to define a regular Mapping
+# How to define a regular Mapping
 
 Lucee allows you to define a mapping to a specific location in a filesystem, so you don't always have to use the full path. In most cases, the full path is not working anyway, for example with [tag-include] which does not work with a full path.
 
 This is supported with all the various [lucee-resources] supported (local, ftp, http, ram, zip, s3, etc.).
 
-## Create a regular Mapping in the Administrator
+# Create a regular Mapping in the Administrator
 
 The most common way to define a regular mapping is in the Lucee Server or Web Administrator.
 
@@ -53,7 +53,7 @@ In that case, Lucee first checks the archive associated with the "/myMapping" ma
 
 "Inspect templates" defines the re-check interval for the physical paths.
 
-### Using the Mapping
+## Using the Mapping
 
 Now you can use that mapping in your code:
 
@@ -62,7 +62,7 @@ Now you can use that mapping in your code:
 <cfset cfc = new shop.Whatever()> <!--- load a CFC from the "shop" mapping (see also "this.componentpaths" for handling components) --->
 ```
 
-## Advanced
+# Advanced
 
 In the previous example, we simply set a path. As you can see in the Administrator, a mapping can contain more data than only a physical path. Of course, you can use these settings also with a mapping done in the [tag-application].
 
@@ -87,7 +87,7 @@ In that case, we not only define a physical path but also a Lucee archive (.lar)
 
 In that case, Lucee first checks in the archive for "whatever.cfm". If not found there, it looks inside the physical path.
 
-### Side Note
+## Side Note
 
 Of course, this can be done for all mapping types:
 
@@ -99,7 +99,7 @@ component {
 }
 ```
 
-### See Also
+## See Also
 
 - [Forcing Lucee to re-check the physical paths of application defined mappings without a restart](https://blog.simplicityweb.co.uk/123/forcing-lucee-to-re-check-the-physical-paths-of-application-defined-mappings-without-a-restart)
 - [Confusion Over this.mappings And expandPath() Not Working In Lucee](https://www.bennadel.com/blog/3718-confusion-over-this-mappings-and-expandpath-not-working-in-lucee-cfml-5-3-3-62.htm)
