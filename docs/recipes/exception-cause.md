@@ -3,6 +3,7 @@
   "title": "Exception - Cause",
   "id": "exception-cause",
   "since": "6.1",
+  "description": "Lucee 6.1 improves its support for exception causes, providing better debugging and error handling capabilities.",
   "keywords": [
     "exception",
     "error",
