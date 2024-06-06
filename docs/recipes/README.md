@@ -208,11 +208,11 @@ Learn about script templates in Lucee. This guide explains how Lucee supports te
 
 This document gives you an overview over all Environment Variables an System Properties you can set for Lucee.
 
-## [Untitled](/docs/recipes/startup-listeners-code.md)
+## [Startup Listeners, server.cfc and web.cfc](/docs/recipes/startup-listeners-code.md)
 
 Lucee supports two types of Startup Listeners, server.cfc and web.cfc
 
-## [Untitled](/docs/recipes/static_scope.md)
+## [Static scope in components](/docs/recipes/static_scope.md)
 
 Static scope in components is needed to create an instance of cfc and call its method.
 
@@ -220,7 +220,7 @@ Static scope in components is needed to create an instance of cfc and call its m
 
 Learn how to create and use sub components in Lucee. This guide demonstrates how to define additional components within a .cfc file, making it easier to organize related components. Examples include creating a main component with sub components, and how to address/load these sub components.
 
-## [Untitled](/docs/recipes/supercharge-your-website.md)
+## [Supercharge your website](/docs/recipes/supercharge-your-website.md)
 
 This document explains how you can improve the performance of your website in a very short time with Lucee.
 
@@ -228,11 +228,11 @@ This document explains how you can improve the performance of your website in a 
 
 This document explains the systemoutput function with some simple examples.
 
-## [Untitled](/docs/recipes/thread_task.md)
+## [Thread Task](/docs/recipes/thread_task.md)
 
 How to use Thread Tasks
 
-## [Untitled](/docs/recipes/thread_usage.md)
+## [Thread Scope](/docs/recipes/thread_usage.md)
 
 How to use threads in Lucee
 
@@ -248,7 +248,7 @@ This document explains types in Lucee. Lucee is still an untyped language. Types
 
 Lucee supports the following virtual file systems: ram, file, s3, http, https, zip, and tar.
 
-## [Untitled](/docs/recipes/xml_fast-easy.md)
+## [XML Fast And Easy, using SAX - Listener Functions](/docs/recipes/xml_fast-easy.md)
 
 This document explains how to use XML parsing in Lucee.
 

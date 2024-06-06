@@ -313,15 +313,15 @@
   },
   {
     "file": "startup-listeners-code.md",
-    "title": "Untitled",
+    "title": "Startup Listeners, server.cfc and web.cfc",
     "path": "/docs/recipes/startup-listeners-code.md",
-    "hash": "e84d76646ee9ae56ac4870ac3e763e55"
+    "hash": "195a873d1c4af91f02c8483928752146"
   },
   {
     "file": "static_scope.md",
-    "title": "Untitled",
+    "title": "Static scope in components",
     "path": "/docs/recipes/static_scope.md",
-    "hash": "b8a0f18b890c7e02ccf4e75dcba7b3dc"
+    "hash": "9effd7da968f01525af1fa9af5cf9fdc"
   },
   {
     "file": "sub-components.md",
@@ -331,9 +331,9 @@
   },
   {
     "file": "supercharge-your-website.md",
-    "title": "Untitled",
+    "title": "Supercharge your website",
     "path": "/docs/recipes/supercharge-your-website.md",
-    "hash": "665da857e9a08d6809609c79a0df5648"
+    "hash": "28da40f56b2a1064b5f268c5f41a7b17"
   },
   {
     "file": "systemoutput_function.md",
@@ -343,15 +343,15 @@
   },
   {
     "file": "thread_task.md",
-    "title": "Untitled",
+    "title": "Thread Task",
     "path": "/docs/recipes/thread_task.md",
-    "hash": "1bc2ba605564ff9b120339cf9e5e4e9e"
+    "hash": "65e3d23637aae905e0f1d3b7c41a0c3e"
   },
   {
     "file": "thread_usage.md",
-    "title": "Untitled",
+    "title": "Thread Scope",
     "path": "/docs/recipes/thread_usage.md",
-    "hash": "439843142f39ba9a8ea251a676441e0a"
+    "hash": "e847cdb6481a74168d921a952c84239c"
   },
   {
     "file": "timeout.md",
@@ -373,8 +373,8 @@
   },
   {
     "file": "xml_fast-easy.md",
-    "title": "Untitled",
+    "title": "XML Fast And Easy, using SAX - Listener Functions",
     "path": "/docs/recipes/xml_fast-easy.md",
-    "hash": "64e2926998278f6a31fe50fb26805188"
+    "hash": "149e7f352b14ccc1de6cb79a46bcbb5c"
   }
 ]
