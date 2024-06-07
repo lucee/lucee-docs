@@ -60,6 +60,12 @@
     "hash": "41c394a03fcec0681cd3e101948fed12"
   },
   {
+    "file": "docker.md",
+    "title": "Docker Information",
+    "path": "/docs/recipes/docker.md",
+    "hash": "b34a6869d139c87a4f08bbcae77bfb61"
+  },
+  {
     "file": "encryption_decryption.md",
     "title": "Encryption/Decryption ",
     "path": "/docs/recipes/encryption_decryption.md",
