@@ -20,28 +20,48 @@ WebSocket Listeners are created with a CFML Component - one per channel.
 
 ## Installation
 
+There are multiple ways to install the docker extension.
+
+### Lucee Administor
+
 The Extension can be installed via Lucee Administor
 
 ![Lucee Admin: Extensions - Application](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/lucee-admin-extension.png)
 
-Or downloaded the LEX file from [https://download.lucee.org/](https://download.lucee.org/) and save to `
+### Manuell Installation
 
-![Lucee Download LEX File](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket-lex.png)
+Or downloaded the LEX file from [https://download.lucee.org/](https://download.lucee.org/) and save to `/lucee/lucee-server/deploy/` (takes up to a minute for Lucee to pick up and install)
 
-eg Dockerfile
+![Lucee Download LEX File](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/websocket-lex.png)
 
+### Docker
+
+In docker there are different ways to install it
+
+Copy it into the `deploy folder` like this:
 ```Dockerfile
 ADD https://ext.lucee.org/org.lucee.websocket.extension-1.0.0.4-BETA.lex /lucee/lucee-server/deploy/
 ```
 
-Or using Environment Variables
-
-eg docker-compose.yml
-
+Use Environment Variables like this:
 ```yml
 environment:
     - LUCEE_EXTENSIONS=07082C66-510A-4F0B-B5E63814E2FDF7BE;version=1.0.0.4-BETA
 ```
+
+Or simply define it in the .CFConfig.json file (Lucee 6 only)
+```json
+{
+    "extensions": [
+            {
+                "name": "WebSocket",
+                "path": "/your/path/extensions/websocket.extension-1.0.0.4-BETA.lex",
+                "id": "07082C66-510A-4F0B-B5E63814E2FDF7BE"
+            }
+        ]
+}
+```
+See [this](https://github.com/lucee/lucee-docs/tree/master/examples/docker/with-extension) example for more details about setting up Extension in .CFConfig.json.
 
 ## Configuration
 
