@@ -80,10 +80,6 @@ Lucee 6.1 improves its support for exception causes, providing better debugging 
 
 How to catch and display exceptions.
 
-## [WebSocket Extension](/docs/recipes/extension-websocket.md)
-
-How to install, congigure and create WebSockets
-
 ## [Externalize strings](/docs/recipes/externalizing-strings.md)
 
 Externalize strings from generated class files to separate files. This method is used to reduce the memory of the static contents for templates.
@@ -255,6 +251,10 @@ Using S3 directly for source code
 ## [Virtual File Systems](/docs/recipes/virtual-file-system.md)
 
 Lucee supports the following virtual file systems: ram, file, s3, http, https, zip, and tar.
+
+## [WebSocket Extension](/docs/recipes/websocket-extension.md)
+
+How to install, congigure and create WebSockets
 
 ## [XML Fast And Easy, using SAX - Listener Functions](/docs/recipes/xml-fast-and-easy.md)
 
