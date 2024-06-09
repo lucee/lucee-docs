@@ -30,13 +30,13 @@ The Extension can be installed via Lucee Administor
 
 ### Manuell Installation
 
-Or downloaded the LEX file from [https://download.lucee.org/](https://download.lucee.org/) and save to `/lucee/lucee-server/deploy/` (takes up to a minute for Lucee to pick up and install)
+Download the LEX file from [https://download.lucee.org/](https://download.lucee.org/) and save to `/lucee/lucee-server/deploy/` (takes up to a minute for Lucee to pick up and install)
 
 ![Lucee Download LEX File](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/websocket-lex.png)
 
 ### Docker
 
-In docker there are different ways to install it
+In docker there are different ways to install it.
 
 Copy it into the `deploy folder` like this:
 ```Dockerfile
@@ -81,7 +81,7 @@ Lucee Server will create a config file if one does not exists at `{lucee-config}
 
 The WebSocket Extension comes with a helper function `websocketInfo()` that well show the current configurations settings. More on other details later ...
 
-![websocketInfo()](../_images/extension/websocket/websocketInfo.png)
+![websocketInfo()](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/websocketInfo.png)
 <em>TODO: update with new version</em>
 
 ## Component
