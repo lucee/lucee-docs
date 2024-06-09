@@ -371,7 +371,7 @@
     "file": "hidden-gems.md",
     "title": "Hidden Gems",
     "path": "/docs/recipes/hidden-gems.md",
-    "hash": "82805023c4748ca87e4265d53f101854",
+    "hash": "dbc63c01509338599782a29611c3834c",
     "keywords": [
       "Hidden gems",
       "Declare variables",
@@ -379,8 +379,7 @@
       "Dot notation",
       "Bracket notation",
       "URL form scopes",
-      "Array format",
-      "Lucee"
+      "Array format"
     ]
   },
   {
