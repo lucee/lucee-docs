@@ -3,390 +3,891 @@
     "file": "application-context-update.md",
     "title": "Application Context update",
     "path": "/docs/recipes/application-context-update.md",
-    "hash": "f6ea652f85a6df13749e743930bf8bdd"
+    "hash": "f6ea652f85a6df13749e743930bf8bdd",
+    "keywords": [
+      "Application Context",
+      "Update Application",
+      "Mappings",
+      "cfapplication",
+      "getApplicationSettings",
+      "Application.cfc"
+    ]
   },
   {
     "file": "archives-creating-and-deploy.md",
     "title": "Archives - Creating and deploying Lucee Archives (.lar files)",
     "path": "/docs/recipes/archives-creating-and-deploy.md",
-    "hash": "0d1912d222f3a7fa9d931cd7dd4e1adb"
+    "hash": "0d1912d222f3a7fa9d931cd7dd4e1adb",
+    "keywords": [
+      "Lucee",
+      "Archives",
+      ".lar files",
+      "Deploy",
+      "Mapping",
+      "Component",
+      "CFC",
+      "CFM"
+    ]
   },
   {
     "file": "basic-date.md",
     "title": "Basic Date - Output the current date",
     "path": "/docs/recipes/basic-date.md",
-    "hash": "5235b39654554c5cb736d5b5de60e193"
+    "hash": "5235b39654554c5cb736d5b5de60e193",
+    "keywords": [
+      "Date",
+      "Current date",
+      "lsDateTimeFormat",
+      "now",
+      "setLocale",
+      "Application.cfc",
+      "Locale"
+    ]
   },
   {
     "file": "cached-within-request.md",
     "title": "Cache a Query for the current request",
     "path": "/docs/recipes/cached-within-request.md",
-    "hash": "ef40c4bb574fdcf805bdd6319f6bd63d"
+    "hash": "ef40c4bb574fdcf805bdd6319f6bd63d",
+    "keywords": [
+      "Cache",
+      "Query",
+      "Request cache",
+      "cachedWithin",
+      "cfquery"
+    ]
   },
   {
     "file": "caches-defined-in-application-cfc.md",
     "title": "Caches defined in Application.cfc",
     "path": "/docs/recipes/caches-defined-in-application-cfc.md",
-    "hash": "2916263e6f7ee08150c576573db649ba"
+    "hash": "2916263e6f7ee08150c576573db649ba",
+    "keywords": [
+      "Caches",
+      "Application.cfc",
+      "Per-application caches",
+      "Cache connections",
+      "Default caches",
+      "Lucee"
+    ]
   },
   {
     "file": "check-for-changes.md",
     "title": "Check for changes in your configuration file automatically",
     "path": "/docs/recipes/check-for-changes.md",
-    "hash": "c4e5fb1483292ba2ac9e7ddb5b4fe7c4"
+    "hash": "c4e5fb1483292ba2ac9e7ddb5b4fe7c4",
+    "keywords": [
+      "Configuration",
+      "Check for changes",
+      "Lucee",
+      "Automatic update",
+      "Server context",
+      "Web context"
+    ]
   },
   {
     "file": "checksum.md",
     "title": "Checksum",
     "path": "/docs/recipes/checksum.md",
-    "hash": "821c7cf3cb72f0084fba50be84aec6c2"
+    "hash": "821c7cf3cb72f0084fba50be84aec6c2",
+    "keywords": [
+      "Checksum",
+      "File validation",
+      "cfhttp",
+      "hash",
+      "fileReadBinary"
+    ]
   },
   {
     "file": "configuration-administrator-cfc.md",
     "title": "Configure Lucee within your application",
     "path": "/docs/recipes/configuration-administrator-cfc.md",
-    "hash": "29a7c63a603f9b3a274070fd658dffb5"
+    "hash": "29a7c63a603f9b3a274070fd658dffb5",
+    "keywords": [
+      "Administrator.cfc",
+      "cfadmin",
+      "Configuration",
+      "Lucee",
+      "Web context",
+      "Server configuration"
+    ]
   },
   {
     "file": "convert-a-cfml-func-to-java.md",
     "title": "Convert a CFML Function/Component to use in Java",
     "path": "/docs/recipes/convert-a-cfml-func-to-java.md",
-    "hash": "dd524020c59d7bfbf16d94cc95a384cc"
+    "hash": "dd524020c59d7bfbf16d94cc95a384cc",
+    "keywords": [
+      "conversion",
+      "cfc",
+      "function",
+      "component",
+      "Java",
+      "lambda",
+      "Lucee"
+    ]
   },
   {
     "file": "datasource-how-to-define-them.md",
     "title": "Datasource - How to define them",
     "path": "/docs/recipes/datasource-how-to-define-them.md",
-    "hash": "41c394a03fcec0681cd3e101948fed12"
+    "hash": "41c394a03fcec0681cd3e101948fed12",
+    "keywords": [
+      "Datasource",
+      "Define datasource",
+      "Administrator",
+      "Application.cfc",
+      "Default datasource",
+      "MySQL"
+    ]
   },
   {
     "file": "docker.md",
     "title": "Docker Information",
     "path": "/docs/recipes/docker.md",
-    "hash": "b34a6869d139c87a4f08bbcae77bfb61"
+    "hash": "b34a6869d139c87a4f08bbcae77bfb61",
+    "keywords": [
+      "Docker",
+      "commandbox",
+      "installation",
+      "kubernetes"
+    ]
   },
   {
     "file": "encryption_decryption.md",
     "title": "Encryption/Decryption ",
     "path": "/docs/recipes/encryption_decryption.md",
-    "hash": "92ca4f9edf9ef5591c5810b28bc095fa"
+    "hash": "92ca4f9edf9ef5591c5810b28bc095fa",
+    "keywords": [
+      "Encryption",
+      "Decryption",
+      "RSA",
+      "Public key",
+      "Private key",
+      "Lucee"
+    ]
   },
   {
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "b315d174fdbe7e634cbaeb91f267b4e1"
+    "hash": "b315d174fdbe7e634cbaeb91f267b4e1",
+    "keywords": [
+      "Environment",
+      "Environment Variables",
+      "Properties",
+      "System Properties",
+      "setting",
+      "cofig"
+    ]
   },
   {
     "file": "event-gateway-create.md",
     "title": "Custom Event Gateways",
     "path": "/docs/recipes/event-gateway-create.md",
-    "hash": "1fc6ced3e73dcd5c28f1fb252011dd39"
+    "hash": "1fc6ced3e73dcd5c28f1fb252011dd39",
+    "keywords": [
+      "Event Gateway",
+      "Custom Gateway",
+      "Directory Watcher",
+      "File Size Checker",
+      "Lucee",
+      "Gateway Driver"
+    ]
   },
   {
     "file": "event-gateway-in-app-cfc.md",
     "title": "Event Handling in Application.cfc",
     "path": "/docs/recipes/event-gateway-in-app-cfc.md",
-    "hash": "4cb6bd674e44b161073bc9d51b8d4d3e"
+    "hash": "4cb6bd674e44b161073bc9d51b8d4d3e",
+    "keywords": [
+      "Event Handling",
+      "Application.cfc",
+      "onApplicationStart",
+      "onSessionStart",
+      "onRequestStart",
+      "onRequest",
+      "onCFCRequest",
+      "onError",
+      "onAbort",
+      "onDebug",
+      "onMissingTemplate"
+    ]
   },
   {
     "file": "event-gateways-how-they-work.md",
     "title": "Event Gateway - How they work?",
     "path": "/docs/recipes/event-gateways-how-they-work.md",
-    "hash": "ebf05fa35e87524f1ba70adf864ac127"
+    "hash": "ebf05fa35e87524f1ba70adf864ac127",
+    "keywords": [
+      "Event Gateway",
+      "Directory Watcher",
+      "Mail Watcher",
+      "Lucee",
+      "cfadmin",
+      "File Changes"
+    ]
   },
   {
     "file": "event-gateways.md",
     "title": "Event Gateways",
     "path": "/docs/recipes/event-gateways.md",
-    "hash": "e381d0d671e6579fa9742f6d29453908"
+    "hash": "e381d0d671e6579fa9742f6d29453908",
+    "keywords": [
+      "Event Gateway",
+      "Custom Gateway",
+      "SMS",
+      "File Change",
+      "Mail Server",
+      "Slack Notification",
+      "Lucee"
+    ]
   },
   {
     "file": "event-handling-in-app-cfc.md",
     "title": "Event Handling in Application.cfc",
     "path": "/docs/recipes/event-handling-in-app-cfc.md",
-    "hash": "ea6a1c5411e8ba1a2d8411a6959d8e4e"
+    "hash": "ea6a1c5411e8ba1a2d8411a6959d8e4e",
+    "keywords": [
+      "Event Handling",
+      "Application.cfc",
+      "onApplicationStart",
+      "onSessionStart",
+      "onRequestStart",
+      "onRequest",
+      "onCFCRequest",
+      "onError",
+      "onAbort",
+      "onDebug",
+      "onMissingTemplate"
+    ]
   },
   {
     "file": "exception-cause.md",
     "title": "Exception - Cause",
     "path": "/docs/recipes/exception-cause.md",
-    "hash": "23afb27a8171bde8e85bcaacc92b2d6c"
+    "hash": "23afb27a8171bde8e85bcaacc92b2d6c",
+    "keywords": [
+      "exception",
+      "error",
+      "cause",
+      "thread",
+      "parent"
+    ]
   },
   {
     "file": "exception-output.md",
     "title": "Exceptions Output",
     "path": "/docs/recipes/exception-output.md",
-    "hash": "0fadd57697a6296430e2823f9e3fbb18"
+    "hash": "0fadd57697a6296430e2823f9e3fbb18",
+    "keywords": [
+      "Exception",
+      "Output",
+      "Catch",
+      "Display exceptions",
+      "Lucee",
+      "try-catch"
+    ]
   },
   {
     "file": "externalizing-strings.md",
     "title": "Externalize strings",
     "path": "/docs/recipes/externalizing-strings.md",
-    "hash": "643349b358c2bf0079e983730844a891"
+    "hash": "643349b358c2bf0079e983730844a891",
+    "keywords": [
+      "Externalize strings",
+      "Memory reduction",
+      "Class files",
+      "Static contents",
+      "Lucee"
+    ]
   },
   {
     "file": "file-extensions.md",
     "title": "File Extensions",
     "path": "/docs/recipes/file-extensions.md",
-    "hash": "4c50c5df979593151592a73898d27f42"
+    "hash": "4c50c5df979593151592a73898d27f42",
+    "keywords": [
+      "CFML",
+      "cfm",
+      "cfc",
+      "cfml",
+      "cfs",
+      "file extensions"
+    ]
   },
   {
     "file": "filesystem-mapping.md",
     "title": "File system - Mappings",
     "path": "/docs/recipes/filesystem-mapping.md",
-    "hash": "fe3271c6053ef91099cfe39b10ae05fe"
+    "hash": "fe3271c6053ef91099cfe39b10ae05fe",
+    "keywords": [
+      "Mapping",
+      "Component mapping",
+      "Custom tag mapping",
+      "Regular mapping",
+      "File system"
+    ]
   },
   {
     "file": "function-listeners.md",
     "title": "Function Listener",
     "path": "/docs/recipes/function-listeners.md",
-    "hash": "1c036e4c3566d30a20e51ae5e2f68520"
+    "hash": "1c036e4c3566d30a20e51ae5e2f68520",
+    "keywords": [
+      "parallel",
+      "async",
+      "thread",
+      "function"
+    ]
   },
   {
     "file": "function-systemoutput.md",
     "title": "Function SystemOutput #",
     "path": "/docs/recipes/function-systemoutput.md",
-    "hash": "a1abbb5138b19230ca1716819be4fc8c"
+    "hash": "a1abbb5138b19230ca1716819be4fc8c",
+    "keywords": [
+      "SystemOutput function",
+      "Debugging",
+      "Output stream",
+      "Error stream",
+      "Stack trace"
+    ]
   },
   {
     "file": "global-proxy.md",
     "title": "Global Proxy",
     "path": "/docs/recipes/global-proxy.md",
-    "hash": "9c9e66206b05f71ea75ecc69c8881137"
+    "hash": "9c9e66206b05f71ea75ecc69c8881137",
+    "keywords": [
+      "CFML",
+      "proxy",
+      "global proxy",
+      "Lucee",
+      "Application.cfc"
+    ]
   },
   {
     "file": "hidden-gems.md",
     "title": "Hidden Gems",
     "path": "/docs/recipes/hidden-gems.md",
-    "hash": "82805023c4748ca87e4265d53f101854"
+    "hash": "82805023c4748ca87e4265d53f101854",
+    "keywords": [
+      "Hidden gems",
+      "Declare variables",
+      "Function calls",
+      "Dot notation",
+      "Bracket notation",
+      "URL form scopes",
+      "Array format",
+      "Lucee"
+    ]
   },
   {
     "file": "inline-components.md",
     "title": "Inline Component",
     "path": "/docs/recipes/inline-components.md",
-    "hash": "bb048506a358e844ade28345398223fa"
+    "hash": "bb048506a358e844ade28345398223fa",
+    "keywords": [
+      "CFML",
+      "component",
+      "inline-component",
+      "Lucee"
+    ]
   },
   {
     "file": "java-in-functions-and-closures.md",
     "title": "Java in Functions and Closures",
     "path": "/docs/recipes/java-in-functions-and-closures.md",
-    "hash": "eb86be0273c7e46a8371dfa7a5e8ea7d"
+    "hash": "eb86be0273c7e46a8371dfa7a5e8ea7d",
+    "keywords": [
+      "function",
+      "java",
+      "closures",
+      "components",
+      "lambda",
+      "Lucee"
+    ]
   },
   {
     "file": "lazy-queries.md",
     "title": "Lazy Queries",
     "path": "/docs/recipes/lazy-queries.md",
-    "hash": "fb9504f55dbe7278ee4133d63d1345f2"
+    "hash": "fb9504f55dbe7278ee4133d63d1345f2",
+    "keywords": [
+      "Lazy Queries",
+      "Regular Queries",
+      "Performance",
+      "Memory Optimization",
+      "Lucee"
+    ]
   },
   {
     "file": "list-existing-cache-conn.md",
     "title": "List existing Cache Connections",
     "path": "/docs/recipes/list-existing-cache-conn.md",
-    "hash": "94ea7960da8abdaa57091af34f0b60a3"
+    "hash": "94ea7960da8abdaa57091af34f0b60a3",
+    "keywords": [
+      "Cache",
+      "Cache connections",
+      "List cache",
+      "hasCache",
+      "cacheNames",
+      "Lucee"
+    ]
   },
   {
     "file": "loop-labels.md",
     "title": "Loop Labels",
     "path": "/docs/recipes/loop-labels.md",
-    "hash": "fb182a8eb2c29f4a988fc2d55557921e"
+    "hash": "fb182a8eb2c29f4a988fc2d55557921e",
+    "keywords": [
+      "loop",
+      "label",
+      "for",
+      "while",
+      "continue",
+      "break"
+    ]
   },
   {
     "file": "loop-through-files.md",
     "title": "Looping Through File",
     "path": "/docs/recipes/loop-through-files.md",
-    "hash": "f23ff5f744831b4d54171832ca4c7c8a"
+    "hash": "f23ff5f744831b4d54171832ca4c7c8a",
+    "keywords": [
+      "Looping through files",
+      "cffile",
+      "fileRead",
+      "fileReadBinary",
+      "Memory optimization",
+      "Lucee"
+    ]
   },
   {
     "file": "mail-how-to-send-a-mail.md",
     "title": "Mail - How to send a Mail",
     "path": "/docs/recipes/mail-how-to-send-a-mail.md",
-    "hash": "a4ee18b1acdb1a90c1aba12646476952"
+    "hash": "a4ee18b1acdb1a90c1aba12646476952",
+    "keywords": [
+      "Email",
+      "Send mail",
+      "cfmail",
+      "Mail server",
+      "Mail script",
+      "Lucee"
+    ]
   },
   {
     "file": "mail-listener.md",
     "title": "Mail Listeners",
     "path": "/docs/recipes/mail-listener.md",
-    "hash": "67637ed6ff0a361b9faff6ddfd4b2b14"
+    "hash": "67637ed6ff0a361b9faff6ddfd4b2b14",
+    "keywords": [
+      "mail",
+      "listener",
+      "Application.cfc",
+      "component"
+    ]
   },
   {
     "file": "mappings-how-to-define-a-reg-mapping.md",
     "title": "Mappings - How to define a regular Mapping",
     "path": "/docs/recipes/mappings-how-to-define-a-reg-mapping.md",
-    "hash": "76e5b5a37d504065af80b2896b9fc356"
+    "hash": "76e5b5a37d504065af80b2896b9fc356",
+    "keywords": [
+      "Mapping",
+      "Filesystem",
+      "Define mapping",
+      "Application.cfc",
+      "Lucee archive"
+    ]
   },
   {
     "file": "mathematical-precision.md",
     "title": "Mathematical Precision",
     "path": "/docs/recipes/mathematical-precision.md",
-    "hash": "f0f8a9e8dfdf71bb45600184cf6e0e53"
+    "hash": "f0f8a9e8dfdf71bb45600184cf6e0e53",
+    "keywords": [
+      "CFML",
+      "math",
+      "precision",
+      "BigDecimal",
+      "Lucee",
+      "Application.cfc",
+      "PrecisionEvaluate"
+    ]
   },
   {
     "file": "monitoring-debugging.md",
     "title": "Monitoring/Debugging",
     "path": "/docs/recipes/monitoring-debugging.md",
-    "hash": "83f0fc803a72ec7fac7c261d8506f72d"
+    "hash": "83f0fc803a72ec7fac7c261d8506f72d",
+    "keywords": [
+      "monitoring",
+      "debugging",
+      "admin",
+      "Application.cfc",
+      "cfsetting",
+      "debug",
+      "showdebugoutput",
+      "cfapplication"
+    ]
   },
   {
     "file": "monitoring-enable-for-your-session.md",
     "title": "Monitoring - Enable for your session",
     "path": "/docs/recipes/monitoring-enable-for-your-session.md",
-    "hash": "bc35e167029178cdf65574c0ccbe0ab8"
+    "hash": "bc35e167029178cdf65574c0ccbe0ab8",
+    "keywords": [
+      "monitoring",
+      "session"
+    ]
   },
   {
     "file": "null-support.md",
     "title": "Null Support",
     "path": "/docs/recipes/null-support.md",
-    "hash": "6cbb15dd62e482182521d981c642f21d"
+    "hash": "6cbb15dd62e482182521d981c642f21d",
+    "keywords": [
+      "Null support",
+      "null keyword",
+      "NullValue function",
+      "isNull function",
+      "Lucee"
+    ]
   },
   {
     "file": "pdf-engine-flying-saucer.md",
     "title": "PDF Engine - Flying Saucer (CFDocument)",
     "path": "/docs/recipes/pdf-engine-flying-saucer.md",
-    "hash": "8ea63c485f463bef34846d079d231d42"
+    "hash": "8ea63c485f463bef34846d079d231d42",
+    "keywords": [
+      "Flying Saucer",
+      "PDF Engine",
+      "CFDOCUMENT",
+      "HTML to PDF"
+    ]
   },
   {
     "file": "precompiled-code.md",
     "title": "Precompiled Code",
     "path": "/docs/recipes/precompiled-code.md",
-    "hash": "7cde26a3a57208b065a752524945d4c1"
+    "hash": "7cde26a3a57208b065a752524945d4c1",
+    "keywords": [
+      "Precompiled",
+      "Pre-compile code",
+      "Production server",
+      "Security",
+      "CFML",
+      "Class files",
+      "Lucee"
+    ]
   },
   {
     "file": "query-async.md",
     "title": "Query Async",
     "path": "/docs/recipes/query-async.md",
-    "hash": "c34897c0d058b3b7107c7c5dbd99d18e"
+    "hash": "c34897c0d058b3b7107c7c5dbd99d18e",
+    "keywords": [
+      "query",
+      "async",
+      "listener",
+      "thread",
+      "parallel"
+    ]
   },
   {
     "file": "query-handling.md",
     "title": "Query Handling in Lucee",
     "path": "/docs/recipes/query-handling.md",
-    "hash": "37936377a77a958043c262773d6cfaba"
+    "hash": "37936377a77a958043c262773d6cfaba",
+    "keywords": [
+      "Query",
+      "SQL",
+      "QueryParam",
+      "Query Builder",
+      "cfquery",
+      "params",
+      "Query Handling"
+    ]
   },
   {
     "file": "query-indexes.md",
     "title": "Query Indexes",
     "path": "/docs/recipes/query-indexes.md",
-    "hash": "845d8e3b4d135e50ca439465cc7441c6"
+    "hash": "845d8e3b4d135e50ca439465cc7441c6",
+    "keywords": [
+      "query",
+      "indexes",
+      "cfquery"
+    ]
   },
   {
     "file": "query-listener.md",
     "title": "Query Listeners",
     "path": "/docs/recipes/query-listener.md",
-    "hash": "e2325c2ef8ac68da95653f7fd5e1b473"
+    "hash": "e2325c2ef8ac68da95653f7fd5e1b473",
+    "keywords": [
+      "query",
+      "listener",
+      "Lucee",
+      "Application.cfc",
+      "component"
+    ]
   },
   {
     "file": "query-of-queries.md",
     "title": "Query of Queries (QoQ)",
     "path": "/docs/recipes/query-of-queries.md",
-    "hash": "457790642e8f4a4206decad94eedec20"
+    "hash": "457790642e8f4a4206decad94eedec20",
+    "keywords": [
+      "Query of Queries",
+      "QoQ",
+      "SQL",
+      "In memory query",
+      "Lucee",
+      "dbtype query"
+    ]
   },
   {
     "file": "query-of-query-sometime.md",
     "title": "Query of Queries sometimes it rocks, sometimes it sucks",
     "path": "/docs/recipes/query-of-query-sometime.md",
-    "hash": "841824f8dc8ecf1f1be52165574e89a0"
+    "hash": "841824f8dc8ecf1f1be52165574e89a0",
+    "keywords": [
+      "Query of Queries",
+      "QoQ",
+      "Performance",
+      "Query Filter",
+      "Query Sort",
+      "Lucee"
+    ]
   },
   {
     "file": "query-return-type.md",
     "title": "Query return type",
     "path": "/docs/recipes/query-return-type.md",
-    "hash": "4b6110717327263bec3b2a0e8439e1b4"
+    "hash": "4b6110717327263bec3b2a0e8439e1b4",
+    "keywords": [
+      "Query return type",
+      "Array return type",
+      "Struct return type",
+      "Foreign key",
+      "Lucee"
+    ]
   },
   {
     "file": "read-xml-with-a-listener-model-sax.md",
     "title": "Read XML with a listener Model (SAX)",
     "path": "/docs/recipes/read-xml-with-a-listener-model-sax.md",
-    "hash": "edbe80eecafcb10f1d0ee7faa95e5b9f"
+    "hash": "edbe80eecafcb10f1d0ee7faa95e5b9f",
+    "keywords": [
+      "XML",
+      "SAX",
+      "XML Parsing",
+      "Event Driven",
+      "XML Event Parsing",
+      "XML to Struct"
+    ]
   },
   {
     "file": "request-timeout.md",
     "title": "Request Timeout",
     "path": "/docs/recipes/request-timeout.md",
-    "hash": "8f3386a44db2fe4e3885f7ac8071d7fc"
+    "hash": "8f3386a44db2fe4e3885f7ac8071d7fc",
+    "keywords": [
+      "request timeout",
+      "timeout",
+      "memory",
+      "cpu",
+      "Concurrent Requests",
+      "Administrator",
+      "Application.cfc",
+      "cfsetting",
+      "Threshold"
+    ]
   },
   {
     "file": "retry.md",
     "title": "Retry",
     "path": "/docs/recipes/retry.md",
-    "hash": "8e93cf8f7b9b0d433c435b4824d5e175"
+    "hash": "8e93cf8f7b9b0d433c435b4824d5e175",
+    "keywords": [
+      "Retry",
+      "Exception handling",
+      "Try catch",
+      "Lucee"
+    ]
   },
   {
     "file": "script-templates.md",
     "title": "Script Templates",
     "path": "/docs/recipes/script-templates.md",
-    "hash": "2a12bbaf30d398fd1dfd1974dcddb7c6"
+    "hash": "2a12bbaf30d398fd1dfd1974dcddb7c6",
+    "keywords": [
+      "CFML",
+      "script",
+      "templates",
+      "Lucee",
+      "cfs"
+    ]
   },
   {
     "file": "startup-listeners-code.md",
     "title": "Startup Listeners, server.cfc and web.cfc",
     "path": "/docs/recipes/startup-listeners-code.md",
-    "hash": "195a873d1c4af91f02c8483928752146"
+    "hash": "195a873d1c4af91f02c8483928752146",
+    "keywords": [
+      "Startup Listeners",
+      "server.cfc",
+      "web.cfc",
+      "configImport",
+      "Lucee"
+    ]
   },
   {
     "file": "static-scope-in-components.md",
     "title": "Static scope in components",
     "path": "/docs/recipes/static-scope-in-components.md",
-    "hash": "0b27923f6dad322eae638a8081585f34"
+    "hash": "0b27923f6dad322eae638a8081585f34",
+    "keywords": [
+      "Static scope",
+      "Components",
+      "Lucee",
+      "Application scope",
+      "Server scope",
+      "GetComponentMetaData"
+    ]
   },
   {
     "file": "sub-components.md",
     "title": "Sub Component",
     "path": "/docs/recipes/sub-components.md",
-    "hash": "fdce0dce415076cca6557352e5db9b13"
+    "hash": "fdce0dce415076cca6557352e5db9b13",
+    "keywords": [
+      "CFML",
+      "component",
+      "sub-component",
+      "Lucee"
+    ]
   },
   {
     "file": "supercharge-your-website.md",
     "title": "Supercharge your website",
     "path": "/docs/recipes/supercharge-your-website.md",
-    "hash": "28da40f56b2a1064b5f268c5f41a7b17"
+    "hash": "28da40f56b2a1064b5f268c5f41a7b17",
+    "keywords": [
+      "Supercharge website",
+      "Performance",
+      "Caching",
+      "Template cache",
+      "Lucee"
+    ]
   },
   {
     "file": "thread-task.md",
     "title": "Thread Task",
     "path": "/docs/recipes/thread-task.md",
-    "hash": "65e3d23637aae905e0f1d3b7c41a0c3e"
+    "hash": "65e3d23637aae905e0f1d3b7c41a0c3e",
+    "keywords": [
+      "Thread Tasks",
+      "Daemon Threads",
+      "Task Threads",
+      "Retry",
+      "Lucee"
+    ]
   },
   {
     "file": "thread-usage.md",
     "title": "Thread Usage",
     "path": "/docs/recipes/thread-usage.md",
-    "hash": "3233f5284e28275a94b0144c6e5f74af"
+    "hash": "3233f5284e28275a94b0144c6e5f74af",
+    "keywords": [
+      "Threads",
+      "Parallel execution",
+      "cfthread",
+      "Asynchronous tasks",
+      "Lucee"
+    ]
   },
   {
     "file": "timeout.md",
     "title": "Timeout",
     "path": "/docs/recipes/timeout.md",
-    "hash": "6c5108c34266748363a2da76111e99d0"
+    "hash": "6c5108c34266748363a2da76111e99d0",
+    "keywords": [
+      "tag",
+      "timeout",
+      "listener",
+      "Lucee",
+      "cftimeout",
+      "error handling"
+    ]
   },
   {
     "file": "types-in-lucee.md",
     "title": "Types in Lucee",
     "path": "/docs/recipes/types-in-lucee.md",
-    "hash": "0bb4f5ca1491ff47a62560c4b49c72ca"
+    "hash": "0bb4f5ca1491ff47a62560c4b49c72ca",
+    "keywords": [
+      "Types",
+      "Function argument",
+      "Return value",
+      "CFParam",
+      "Lucee"
+    ]
   },
   {
     "file": "using-s3-directly-for-source-code.md",
     "title": "Using S3 directly for source code",
     "path": "/docs/recipes/using-s3-directly-for-source-code.md",
-    "hash": "aef1e1ac3b5d84fe51178dfe9f052fed"
+    "hash": "aef1e1ac3b5d84fe51178dfe9f052fed",
+    "keywords": [
+      "S3",
+      "Source code",
+      "Credentials",
+      "Mapping",
+      "Caching"
+    ]
   },
   {
     "file": "virtual-file-system.md",
     "title": "Virtual File Systems",
     "path": "/docs/recipes/virtual-file-system.md",
-    "hash": "50e027160158cc5e14b3cb556d62fece"
+    "hash": "50e027160158cc5e14b3cb556d62fece",
+    "keywords": [
+      "Virtual File System",
+      "VFS",
+      "Local File System",
+      "ZIP",
+      "RAM",
+      "S3",
+      "FTP",
+      "Lucee"
+    ]
   },
   {
     "file": "websocket-extension.md",
     "title": "WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "fbc4d92e2622a2a25416f1fc3d402588"
+    "hash": "1238504767ae21551d1f1e00870b271b",
+    "keywords": [
+      "Lucee",
+      "Extension"
+    ]
   },
   {
     "file": "xml-fast-and-easy.md",
     "title": "XML Fast And Easy, using SAX - Listener Functions",
     "path": "/docs/recipes/xml-fast-and-easy.md",
-    "hash": "6bfe4e1c0d24881bb3571c998a99afa6"
+    "hash": "6bfe4e1c0d24881bb3571c998a99afa6",
+    "keywords": [
+      "XML parsing",
+      "SAX",
+      "XML event listener",
+      "XMLCatalog",
+      "Lucee"
+    ]
   }
 ]
