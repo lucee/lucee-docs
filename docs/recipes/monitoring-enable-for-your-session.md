@@ -2,11 +2,11 @@
 {
   "title": "Monitoring - Enable for your session",
   "id": "monitoring-enable-for-your-session",
-  "since": "6.1" 
+  "since": "6.1", 
   "categories": [
     "monitoring"
   ],
-  "description": "Show",
+  "description": "Shows you a way to enable Monitoring for your session",
   "keywords": [
     "monitoring",
     "session"
