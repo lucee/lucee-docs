@@ -120,12 +120,6 @@
     "hash": "0fadd57697a6296430e2823f9e3fbb18"
   },
   {
-    "file": "extension-websocket.md",
-    "title": "WebSocket Extension",
-    "path": "/docs/recipes/extension-websocket.md",
-    "hash": "f39e088bf036ff91cbfdbe2769310125"
-  },
-  {
     "file": "externalizing-strings.md",
     "title": "Externalize strings",
     "path": "/docs/recipes/externalizing-strings.md",
@@ -382,6 +376,12 @@
     "title": "Virtual File Systems",
     "path": "/docs/recipes/virtual-file-system.md",
     "hash": "50e027160158cc5e14b3cb556d62fece"
+  },
+  {
+    "file": "websocket-extension.md",
+    "title": "WebSocket Extension",
+    "path": "/docs/recipes/websocket-extension.md",
+    "hash": "781b3a42f9b5fec49d1ca0348b1b34b8"
   },
   {
     "file": "xml-fast-and-easy.md",
