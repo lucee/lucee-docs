@@ -120,6 +120,12 @@
     "hash": "0fadd57697a6296430e2823f9e3fbb18"
   },
   {
+    "file": "extension-websocket.md",
+    "title": "WebSocket Extension",
+    "path": "/docs/recipes/extension-websocket.md",
+    "hash": "f39e088bf036ff91cbfdbe2769310125"
+  },
+  {
     "file": "externalizing-strings.md",
     "title": "Externalize strings",
     "path": "/docs/recipes/externalizing-strings.md",
