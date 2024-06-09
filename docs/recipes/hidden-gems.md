@@ -10,8 +10,7 @@
     "Dot notation",
     "Bracket notation",
     "URL form scopes",
-    "Array format",
-    "Lucee"
+    "Array format"
   ]
 }
 -->
