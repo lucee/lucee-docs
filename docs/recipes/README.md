@@ -40,6 +40,10 @@ Learn how to convert user-defined functions or components in Lucee to use them i
 
 How to define a Datasource in Lucee.
 
+## [Docker Information](/docs/recipes/docker.md)
+
+Guide on using and running Lucee with Docker
+
 ## [Encryption/Decryption ](/docs/recipes/encryption_decryption.md)
 
 This document explains about Encryption/Decryption with public and private keys with simple examples.
