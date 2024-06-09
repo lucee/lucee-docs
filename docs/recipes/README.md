@@ -80,6 +80,10 @@ Lucee 6.1 improves its support for exception causes, providing better debugging 
 
 How to catch and display exceptions.
 
+## [WebSocket Extension](/docs/recipes/extension-websocket.md)
+
+How to install, congigure and create WebSockets
+
 ## [Externalize strings](/docs/recipes/externalizing-strings.md)
 
 Externalize strings from generated class files to separate files. This method is used to reduce the memory of the static contents for templates.
@@ -151,6 +155,10 @@ Learn about the switch from double to BigDecimal in Lucee 6 for more precise mat
 ## [Monitoring/Debugging](/docs/recipes/monitoring-debugging.md)
 
 Learn about the changes in Lucee 6.1 regarding Monitoring and Debugging. Understand the old and new behavior, and how to configure the settings in Lucee Admin and Application.cfc.
+
+## [Monitoring - Enable for your session](/docs/recipes/monitoring-enable-for-your-session.md)
+
+Shows you a way to enable Monitoring for your session
 
 ## [Null Support](/docs/recipes/null-support.md)
 
