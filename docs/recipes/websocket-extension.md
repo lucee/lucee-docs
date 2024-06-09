@@ -22,11 +22,11 @@ WebSocket Listeners are created with a CFML Component - one per channel.
 
 The Extension can be installed via Lucee Administor
 
-![Lucee Admin: Extensions - Application](../_images/extension/websocket/lucee-admin-extension.png)
+![Lucee Admin: Extensions - Application](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/lucee-admin-extension.png)
 
 Or downloaded the LEX file from [https://download.lucee.org/](https://download.lucee.org/) and save to `
 
-![Lucee Download LEX File](../_images/extension/websocket/websocket-lex.png)
+![Lucee Download LEX File](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket-lex.png)
 
 eg Dockerfile
 
