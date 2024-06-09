@@ -228,6 +228,12 @@
     "hash": "83f0fc803a72ec7fac7c261d8506f72d"
   },
   {
+    "file": "monitoring-enable-for-your-session.md",
+    "title": "Monitoring - Enable for your session",
+    "path": "/docs/recipes/monitoring-enable-for-your-session.md",
+    "hash": "d2fad99a3695dfe24935bcc4ea43945c"
+  },
+  {
     "file": "null-support.md",
     "title": "Null Support",
     "path": "/docs/recipes/null-support.md",
