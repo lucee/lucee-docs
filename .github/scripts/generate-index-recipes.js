@@ -25,10 +25,14 @@ async function generateIndex() {
       // Extract metadata from the comment block
       const metadataMatch = content.match(/<!--\s*({[^]*?})\s*-->/);
       let description = 'No description available.';
+      let keywords = [];
       if (metadataMatch) {
         const metadata = JSON.parse(metadataMatch[1]);
         if (metadata.description) {
           description = metadata.description;
+        }
+        if (metadata.keywords) {
+          keywords = metadata.keywords;
         }
       }
 
@@ -37,6 +41,7 @@ async function generateIndex() {
         title: title,
         path: `/docs/recipes/${file}`,
         hash: hash,
+        keywords: keywords
       });
 
       readmeContent += `## [${title}](/docs/recipes/${file})\n\n${description}\n\n`;
