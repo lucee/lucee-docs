@@ -92,10 +92,6 @@ Learn about the different file extensions supported by Lucee, including .cfm, .c
 
 Overview of different mapping types in the file system.
 
-## [Function Listener](/docs/recipes/function-listeners.md)
-
-This document explains how to use a function listeners in Lucee.
-
 ## [Function SystemOutput #](/docs/recipes/function-systemoutput.md)
 
 This document explains the systemoutput function with some simple examples.
@@ -167,6 +163,10 @@ The new CFDOCUMENT PDF engine, Flying Saucer in Lucee 5.3
 ## [Precompiled Code](/docs/recipes/precompiled-code.md)
 
 How to pre-compile code for a production server while the source code is deployed to avoid compilation on the production server for security reasons.
+
+## [Promises](/docs/recipes/promises.md)
+
+This document explains how to use a fPromises in Lucee.
 
 ## [Query Async](/docs/recipes/query-async.md)
 
