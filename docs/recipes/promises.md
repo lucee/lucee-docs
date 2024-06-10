@@ -1,24 +1,25 @@
 <!--
 {
-  "title": "Function Listeners",
+  "title": "Promises",
   "id": "function-listener",
   "since": "6.1",
-  "description": "This document explains how to use a function listeners in Lucee.",
+  "description": "This document explains how to use a fPromises in Lucee.",
   "keywords": [
     "parallel",
     "async",
     "thread",
-    "function"
+    "function",
+    "romises"
   ]
 }
 -->
-# Function Listener
+# Promises
 
-Lucee 6.1 introduced a new feature called "function listeners". This allows you to execute a function (built-in or user-defined) in parallel, so you do not have to wait for the result of the execution, similar to using the `cfthread` tag. Function listeners provide an easy syntax to not only execute the function in parallel but also include support to handle the result by simply adding a listener after the function call. This listener can handle the result or exception of a function. 
+Lucee 6.1 introduced a new feature called "Promises". This allows you to execute a function (of any kind) in parallel, so you do not have to wait for the result of the execution, similar to using the `cfthread` tag. Promises provide an easy syntax to not only execute a function in parallel but also include support to handle the result by simply adding a listener after the function call. This listener can handle the result or exception of a function. 
 
 ## Simple Version
 
-This example demonstrates a simple function listener that executes `mySuccess` in parallel and sets a variable with the result.
+This example demonstrates a simple Promise that executes `mySuccess` in parallel and sets a variable with the result.
 
 ```run
 <cfscript>
