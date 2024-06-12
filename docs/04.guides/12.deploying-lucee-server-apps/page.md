@@ -30,7 +30,7 @@ However, if there is already a newer Lucee core version in the `/patches/` folde
 
 The `/deploy` folder is just a shortcut way to install the `.lco` version into the patches folder of a running Lucee server without needing to restart it.
 
-The `/patches` folder is where Lucee's core `.lco` jars are kept.  When Lucee starts, it determines which `*.lco` in that folder is the latest version and it loads that version. 
+The `/patches` folder is where Lucee's core `.lco` jars are kept.  When Lucee starts, it determines which `*.lco` in that folder is the latest version and it loads that version.
 
 Extensions (`.lex`) can also be dropped in the `/lucee-server/context/extensions/available` folder and they can be installed using environment or JVM arguments without Lucee reaching out to the update provider.
 

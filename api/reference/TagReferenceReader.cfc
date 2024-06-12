@@ -105,8 +105,8 @@ component accessors=true {
 						version: e.version
 					}
 				}
-			} catch (e) { 
-				//ignore 
+			} catch (e) {
+				//ignore
 			}
 		}
 

@@ -19,7 +19,7 @@
 			} else {
 				local.status = local.tag.getStatus();
 			}
-		</cfscript>	
+		</cfscript>
 		<p><strong>Status:</strong> #local.status#</p>
 	</cfif>
 	<cfif len(local.tag.getIntroduced()) gt 0>
@@ -28,7 +28,7 @@
 	<cfif len(local.tag.getSrcExtension()) gt 0>
 		<p><strong>Requires Extension: </strong> #local.tag.getSrcExtension().name#</p>
 	</cfif>
-	
+
 	<code>
 		#local.tag.getUsageSignature()#
 	</code>
@@ -99,7 +99,7 @@
 						<cfloop array="#unimplementedAttribs#" item="local.attrib" index="i">
 							<tr>
 								<td><div class="attribute" id="attribute-#local.attrib.name#" translate="no">#local.attrib.name#</div>
-								<sub><span translate="no">#local.attrib.type#</span>, 
+								<sub><span translate="no">#local.attrib.type#</span>,
 									#( local.attrib.required ? 'required' : 'optional' )#</sub>
 								</td>
 								<td>
@@ -134,7 +134,7 @@
 				#_markdownToHtml( local.tag.getUsageNotes() )#
 			</cfif>
 		</div>
-	</cfif>	
+	</cfif>
 
 	<h4>Examples</h4>
 	<cfif Len( Trim( local.tag.getExamples() ) ) or args.edit>

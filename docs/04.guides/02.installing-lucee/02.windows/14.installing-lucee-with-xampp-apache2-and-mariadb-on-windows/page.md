@@ -91,10 +91,10 @@ ProxyPassReverse / ajp://127.0.0.1:8009/ secret=MySecretPassword
 - Step 26: Open to edit `C:\xampp\apache\conf\httpd.conf` and search for the string `DocumentRoot`.
 - Step 27: Change the document root directive from `C:/xampp/htdocs` and your directory directive to Lucees default localhost directory like so:
 
-``` 
+```
 DocumentRoot "C:\lucee\tomcat\webapps\ROOT"
 <Directory "C:\lucee\tomcat\webapps\ROOT"> 
-``` 
+```
 
 - Step 28: Restart Apache2 from within your XAMP control panel
 - Step 29: Open `http://localhost/index.cfm` and you should see the Lucee welcome page reendered with all static files.
