@@ -6,7 +6,9 @@
   "description": "Learn how to get datasource drivers directly from Maven.",
   "keywords": [
     "datasource",
-    "maven"
+    "maven",
+    "mysql"
+    ,"db"
   ]
 }
 -->
