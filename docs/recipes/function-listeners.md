@@ -157,7 +157,7 @@ dump(cfthread[threadName].result.columnlist);
 ## Function Collection Listener
 
 A listener not necessarly has to be a function, it also can be a function collection (multiple functions inside a struct).
-This way you can define a function for specific events like `onSuccess` or `onFaail` like this.
+This way you can define a function for specific events like `onSuccess` or `onFail` like this.
 
 ```run
 <cfscript>
