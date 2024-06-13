@@ -359,10 +359,12 @@
     "file": "get-dbdriver-from-maven.md",
     "title": "Get Datasource Drivers Directly from Maven",
     "path": "/docs/recipes/get-dbdriver-from-maven.md",
-    "hash": "6a5ad2f6b47976ddbe2a41890e5d2db8",
+    "hash": "72cf6841c3f3fde70c53bbaf434aeae3",
     "keywords": [
       "datasource",
-      "maven"
+      "maven",
+      "mysql",
+      "db"
     ]
   },
   {
