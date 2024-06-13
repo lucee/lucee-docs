@@ -9,7 +9,7 @@
     "async",
     "thread",
     "function",
-    "romises"
+    "promises"
   ]
 }
 -->

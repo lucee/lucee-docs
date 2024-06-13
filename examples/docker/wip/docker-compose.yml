@@ -1,10 +1,11 @@
 services:
   lucee:
-    image: wip:latest
+    image: lucee/lucee:6.1.0.175-BETA
     environment:
       - LUCEE_ADMIN_PASSWORD=qwerty
     volumes:
       - "./www:/var/www"
+      - "./patches:/opt/lucee/server/lucee-server/patches"
     ports:
       - "8854:8888" # tomcat
       - "8054:80" # nginx
