@@ -100,6 +100,10 @@ This document explains how to use a Function Listeners in Lucee.
 
 This document explains the systemoutput function with some simple examples.
 
+## [Get Datasource Drivers Directly from Maven](/docs/recipes/get-dbdriver-from-maven.md)
+
+Learn how to get datasource drivers directly from Maven.
+
 ## [Global Proxy](/docs/recipes/global-proxy.md)
 
 Learn how to define a global proxy in Lucee. This guide demonstrates how to set up a global proxy in the Application.cfc file, limit the proxy to specific hosts, and exclude specific hosts from using the proxy.

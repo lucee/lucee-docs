@@ -333,13 +333,13 @@
     "file": "function-listeners.md",
     "title": "Function Listeners",
     "path": "/docs/recipes/function-listeners.md",
-    "hash": "3eed91e1b537a74fa845a7d74746fad9",
+    "hash": "4327a26340cd945ed333eafa848e2be1",
     "keywords": [
       "parallel",
       "async",
       "thread",
       "function",
-      "romises"
+      "promises"
     ]
   },
   {
@@ -353,6 +353,16 @@
       "Output stream",
       "Error stream",
       "Stack trace"
+    ]
+  },
+  {
+    "file": "get-dbdriver-from-maven.md",
+    "title": "Get Datasource Drivers Directly from Maven",
+    "path": "/docs/recipes/get-dbdriver-from-maven.md",
+    "hash": "6a5ad2f6b47976ddbe2a41890e5d2db8",
+    "keywords": [
+      "datasource",
+      "maven"
     ]
   },
   {
