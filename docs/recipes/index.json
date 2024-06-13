@@ -330,6 +330,19 @@
     ]
   },
   {
+    "file": "function-listeners.md",
+    "title": "Function Listeners",
+    "path": "/docs/recipes/function-listeners.md",
+    "hash": "3eed91e1b537a74fa845a7d74746fad9",
+    "keywords": [
+      "parallel",
+      "async",
+      "thread",
+      "function",
+      "romises"
+    ]
+  },
+  {
     "file": "function-systemoutput.md",
     "title": "Function SystemOutput #",
     "path": "/docs/recipes/function-systemoutput.md",
@@ -569,19 +582,6 @@
       "CFML",
       "Class files",
       "Lucee"
-    ]
-  },
-  {
-    "file": "promises.md",
-    "title": "Promises",
-    "path": "/docs/recipes/promises.md",
-    "hash": "c8ceb48597bee59dea24e6bf6d61ca09",
-    "keywords": [
-      "parallel",
-      "async",
-      "thread",
-      "function",
-      "romises"
     ]
   },
   {
