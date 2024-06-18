@@ -867,7 +867,7 @@
     "file": "virtual-file-system.md",
     "title": "Virtual File Systems",
     "path": "/docs/recipes/virtual-file-system.md",
-    "hash": "50e027160158cc5e14b3cb556d62fece",
+    "hash": "6189e6e5acde127a186e8c130a18028d",
     "keywords": [
       "Virtual File System",
       "VFS",
@@ -876,7 +876,23 @@
       "RAM",
       "S3",
       "FTP",
-      "Lucee"
+      "git",
+      "HTTP",
+      "MinIO",
+      "Wasabi",
+      "Backblaze B2",
+      "Google Cloud Storage",
+      "Microsoft Azure Blob Storage",
+      "IBM Cloud Object Storage",
+      "DigitalOcean Spaces",
+      "Ceph",
+      "Alibaba Cloud OSS",
+      "DreamHost DreamObjects",
+      "Scality RING",
+      "Dell EMC ECS",
+      "Cloudian HyperStore",
+      "OpenIO",
+      "NetApp StorageGRID"
     ]
   },
   {
