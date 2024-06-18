@@ -216,6 +216,10 @@ This document explains how to use retry functionality with some simple examples.
 
 Learn about script templates in Lucee. This guide explains how Lucee supports templates with the `.cfs` extension, allowing you to write direct script code without the need for the `<cfscript>` tag.
 
+## [Lucee SQS Integration Functions](/docs/recipes/sqs.md)
+
+Functions to integrate Amazon SQS with Lucee, including receiving and sending messages.
+
 ## [Startup Listeners, server.cfc and web.cfc](/docs/recipes/startup-listeners-code.md)
 
 Lucee supports two types of Startup Listeners, server.cfc and web.cfc

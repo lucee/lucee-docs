@@ -746,6 +746,23 @@
     ]
   },
   {
+    "file": "sqs.md",
+    "title": "Lucee SQS Integration Functions",
+    "path": "/docs/recipes/sqs.md",
+    "hash": "3ea2ddd7cbe769feb6aceabad4e35403",
+    "keywords": [
+      "Lucee",
+      "SQS",
+      "AWS",
+      "Messaging",
+      "Queue",
+      "messageReceive",
+      "messageSend",
+      "Integration",
+      "Cloud"
+    ]
+  },
+  {
     "file": "startup-listeners-code.md",
     "title": "Startup Listeners, server.cfc and web.cfc",
     "path": "/docs/recipes/startup-listeners-code.md",
@@ -867,7 +884,7 @@
     "file": "virtual-file-system.md",
     "title": "Virtual File Systems",
     "path": "/docs/recipes/virtual-file-system.md",
-    "hash": "50e027160158cc5e14b3cb556d62fece",
+    "hash": "6189e6e5acde127a186e8c130a18028d",
     "keywords": [
       "Virtual File System",
       "VFS",
@@ -876,7 +893,23 @@
       "RAM",
       "S3",
       "FTP",
-      "Lucee"
+      "git",
+      "HTTP",
+      "MinIO",
+      "Wasabi",
+      "Backblaze B2",
+      "Google Cloud Storage",
+      "Microsoft Azure Blob Storage",
+      "IBM Cloud Object Storage",
+      "DigitalOcean Spaces",
+      "Ceph",
+      "Alibaba Cloud OSS",
+      "DreamHost DreamObjects",
+      "Scality RING",
+      "Dell EMC ECS",
+      "Cloudian HyperStore",
+      "OpenIO",
+      "NetApp StorageGRID"
     ]
   },
   {
