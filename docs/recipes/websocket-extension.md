@@ -28,7 +28,7 @@ The Extension can be installed via Lucee Administor
 
 ![Lucee Admin: Extensions - Application](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/lucee-admin-extension.png)
 
-### Manuell Installation
+### Manual Installation
 
 Download the LEX file from [https://download.lucee.org/](https://download.lucee.org/) and save to `/lucee/lucee-server/deploy/` (takes up to a minute for Lucee to pick up and install)
 
@@ -85,6 +85,8 @@ The WebSocket Extension comes with a helper function `websocketInfo()` that well
 <em>TODO: update with new version</em>
 
 ## Component
+>[!IMPORTANT]
+>a Lucee restart is required when a new WebSocket CFC is added (just like for a ReST CFC)
 
 ```lucee
 component hint="used to test websocket client" {
