@@ -5,7 +5,7 @@
   "categories": [
     "websocket"
   ],
-  "description": "How to install, congigure and create WebSockets",
+  "description": "How to install, configure and create WebSockets",
   "keywords": [
     "Lucee",
     "Extension"
@@ -22,15 +22,15 @@ WebSocket Listeners are created with a CFML Component - one per channel.
 
 There are multiple ways to install the docker extension.
 
-### Lucee Administor
+### Lucee Administrator
 
-The Extension can be installed via Lucee Administor
+The extension can be installed via Lucee Administrator:
 
 ![Lucee Admin: Extensions - Application](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/lucee-admin-extension.png)
 
 ### Manual Installation
 
-Download the LEX file from [https://download.lucee.org/](https://download.lucee.org/) and save to `/lucee/lucee-server/deploy/` (takes up to a minute for Lucee to pick up and install)
+Download the LEX file from [https://download.lucee.org/](https://download.lucee.org/) and save to `/lucee/lucee-server/deploy/` (takes up to a minute for Lucee to pick up and install).
 
 ![Lucee Download LEX File](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/websocket-lex.png)
 
@@ -49,7 +49,7 @@ environment:
     - LUCEE_EXTENSIONS=07082C66-510A-4F0B-B5E63814E2FDF7BE;version=1.0.0.4-BETA
 ```
 
-Or simply define it in the .CFConfig.json file (Lucee 6 only)
+Or simply define it in the .CFConfig.json file (Lucee 6 only):
 ```json
 {
     "extensions": [
@@ -61,13 +61,13 @@ Or simply define it in the .CFConfig.json file (Lucee 6 only)
         ]
 }
 ```
-See [this](https://github.com/lucee/lucee-docs/tree/master/examples/docker/with-extension) example for more details about setting up Extension in .CFConfig.json.
+See [this](https://github.com/lucee/lucee-docs/tree/master/examples/docker/with-extension) example for more details about setting up extension in .CFConfig.json.
 
 ## Configuration
 
 By default, Lucee Server will look in `{lucee-config}/websockets/` for WebSocket Components.
 
-Lucee Server will create a config file if one does not exists at `{lucee-config}websocket.json` with the following defaults
+Lucee Server will create a config file if one does not exist at `{lucee-config}websocket.json` with the following defaults:
 
 *{lucee-config}: /lucee/lucee-server/context*
 
@@ -79,7 +79,7 @@ Lucee Server will create a config file if one does not exists at `{lucee-config}
 }
 ```
 
-The WebSocket Extension comes with a helper function `websocketInfo()` that well show the current configurations settings. More on other details later ...
+The WebSocket extension comes with a helper function `websocketInfo()` that will show the current configurations settings. More on other details later ...
 
 ![websocketInfo()](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/websocketInfo.png)
 <em>TODO: update with new version</em>
@@ -108,9 +108,9 @@ component hint="used to test websocket client" {
 }
 ```
 
-### Javascript Client
+### JavaScript Client
 
-Given that the Component was saved as `{lucee-config}/websockets/test.cfc`, here is native Javascript to open and use a connection to your Lucee WebSocket:
+Given that the Component was saved as `{lucee-config}/websockets/test.cfc`, here is native JavaScript to open and use a connection to your Lucee WebSocket:
 
 ```javascript
 socket = new WebSocket("ws://127.0.0.1:80/ws/test");
@@ -132,10 +132,11 @@ socket.send("Hello, Lucee Extension!");
 socketclose();
 ```
 
-### Broadcast Message to all Clients
-A broadcast is a message send to all connected clients
+### Broadcast Message to All Clients
 
-To be able to do this, we need to know who is connected. The first time a connection is made, `onFirstOpen(wsclients)` is fired. `wsclients` is a Java class with the following methods
+A broadcast is a message sent to all connected clients.
+
+To be able to do this, we need to know who is connected. The first time a connection is made, `onFirstOpen(wsclients)` is fired. `wsclients` is a Java class with the following methods:
 
 ```java
 size():number                  // the number of clients connected
@@ -144,7 +145,7 @@ getClients():Client[]          // return array of all clients currently connecte
 close():void                   // closes all clients
 ```
 
-SO we can save that for furture use
+So we can save that for future use:
 
 ```lucee
 public static function onFirstOpen(wsclients) {
@@ -152,16 +153,17 @@ public static function onFirstOpen(wsclients) {
 }
 ```
 
-For example
+For example:
+
 ```lucee
 function onOpen(wsclient) {
     static.wsclients.broadcast("There are now ##static.wsclients.size()## connections");  
 }
 ```
 
-### Send Message to one Client
+### Send Message to One Client
 
-When a connection is instantiated, `onOpen(wsclient)` is fired. `wsclient` is a Java class with the following methods
+When a connection is instantiated, `onOpen(wsclient)` is fired. `wsclient` is a Java class with the following methods:
 
 ```java
 client.broadcast(message):void // send message to all connected clients
@@ -179,7 +181,7 @@ function onOpen(wsclient) {
 }
 ```
 
-You can also send a message from `onOpen()` by returning a string
+You can also send a message from `onOpen()` by returning a string:
 
 ```lucee
 function onOpen(wsclient) {
@@ -187,7 +189,7 @@ function onOpen(wsclient) {
 }
 ```
 
-You can add your own function to the WebSocket Componet
+You can add your own function to the WebSocket component:
 
 ```lucee
 public void function sendMessage(
@@ -202,15 +204,16 @@ function onOpen(wsclient) {
 ```
 
 ## Using Lucee WebSocket to PUSH data to Client
-With webSocets being a bidirectional communication channel, your Lucee Server no longer limited to responding to a *request*, it can now *push* data to the client.
 
-This means the user no longer has to refresh a page to see if data is updated, or have a Javascript looping function that is continuosly calling a ReST API to get lasted data.
+With WebSockets being a bidirectional communication channel, your Lucee Server is no longer limited to responding to a *request*, it can now *push* data to the client.
 
-When your application has data ready for the user, have the WebSocket push the data to the cient!
+This means the user no longer has to refresh a page to see if data is updated, or have a JavaScript looping function that is continuously calling a REST API to get latest data.
+
+When your application has data ready for the user, have the WebSocket push the data to the client!
 
 ### Make use of Static Function
 
-Add a thread to start a background process, and have it continuously looping for as long as there are clients connected
+Add a thread to start a background process, and have it continuously looping for as long as there are clients connected:
 
 ```lucee
 public static function onFirstOpen(wsclients) {
@@ -225,13 +228,13 @@ public static function onFirstOpen(wsclients) {
 }
 ```
 
-Function `getDataFromSomewhere()` is respoible for obtaining the data that needs to be sent to the client. RedisQueue is an example of where data can be stored. Your Lucee application can Push data to a Redis Queue, and `getDataFromSomewhere()` can Pop one record at a time.
+Function `getDataFromSomewhere()` is responsible for obtaining the data that needs to be sent to the client. RedisQueue is an example of where data can be stored. Your Lucee application can Push data to a Redis Queue, and `getDataFromSomewhere()` can Pop one record at a time.
 
 ### Using websocketInfo() to Send Message to Client
 
-`websocketInfo()` also has an array of instances - one for each client call to a WebSocket Component. So looping through the array, gives you access to the Component, and then you can call any of it'sfunction
+`websocketInfo()` also has an array of instances, one for each client call to a WebSocket Component. So, looping through the array gives you access to the component, and then you can call any of its functions.
 
-For Example ( *excuding role management functions* )
+For example (*excluding role management functions*):
 
 ```lucee
 component hint="Test WebSocket"  {
@@ -267,6 +270,6 @@ for ( var wsI in wsInstances) {
     }
 }
 ```
-[Task Event Gateway](event-gateways-overview.md) is a good candidate for this script
+[Task Event Gateway](event-gateways-overview.md) is a good candidate for this script.
 
 *TODO: link to recipe page*
