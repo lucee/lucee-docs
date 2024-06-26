@@ -280,6 +280,8 @@ component accessors=true {
 			} catch (any e){
 				dump(page);
 				dump(e);
+				systemOutput(page, true);
+				systemOutput(e, true);
 				echo(e);
 				abort;
 			}
