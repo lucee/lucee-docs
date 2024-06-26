@@ -12,6 +12,7 @@
   ]
 }
 -->
+
 # Types in Lucee
 
 This document explains types in Lucee. Lucee is still an untyped language. Types are only a check put on top of the language. The language is not based on types, however there are different places where types come into Lucee. This is explained with some simple examples below:
@@ -40,10 +41,10 @@ For functions, the return value is returned with the specific type that was defi
 	dump(arr);
 ```
 
-* This example function has two arguments: name, age (One is a string, the other is a number). When this example is executed, the recExists() function checks if a certain record exists or not and It returns the boolean value `true`.
-* When dumping the function recExists() with arguments, if we give age as a string format in the argument, `dump(recExists("Susi","15"))`, it shows `string 15` even though we defined it as a number data type in the arguments.
-* The test() function takes an array, but in this example I do not pass an array into the function. I have passed a struct `arr={'1':'one'}` value into the test() function. The test() function contains an array value `arr[2]= "two"`, so Lucee converts this array value into a structure. So the struct has two values as per keys are 1, 2 and values are one, two.
-* Lucee can handle an array as long as the keys are all numbers, meaning it considers a struct `'1' and [2]`. Execute this cfm page, the dump shows the structure format.
+- This example function has two arguments: name, age (One is a string, the other is a number). When this example is executed, the recExists() function checks if a certain record exists or not and It returns the boolean value `true`.
+- When dumping the function recExists() with arguments, if we give age as a string format in the argument, `dump(recExists("Susi","15"))`, it shows `string 15` even though we defined it as a number data type in the arguments.
+- The test() function takes an array, but in this example I do not pass an array into the function. I have passed a struct `arr={'1':'one'}` value into the test() function. The test() function contains an array value `arr[2]= "two"`, so Lucee converts this array value into a structure. So the struct has two values as per keys are 1, 2 and values are one, two.
+- Lucee can handle an array as long as the keys are all numbers, meaning it considers a struct `'1' and [2]`. Execute this cfm page, the dump shows the structure format.
 
 ### Example 2 : CFParam
 
@@ -74,10 +75,10 @@ dump(url);
 	dump(sb);
 ```
 
-* Internally every object has a type and Lucee automatically takes care of converting from one type to another if necessary. For example when you define a function with a string, but then pass a number into that function, Lucee automatically converts the number to a string.
-* The above example is useful for converting "string to date", "date to number", "number to date" formats.
-* We have loaded a Java library and string builder. We pass a string into a constructor and execute this. We see that the string builder contains that value. We refer to this `string builder` method in the Java Doc. The method is called `substring`. This substring takes an int as its argument. For example, we pass a string value instead of an int value `sb.substring("5")`. Lucee returns a substring properly.
-* Two constructors are available for string builder. There are `StringBuilder(int), StringBuilder(string)`.
+- Internally every object has a type and Lucee automatically takes care of converting from one type to another if necessary. For example when you define a function with a string, but then pass a number into that function, Lucee automatically converts the number to a string.
+- The above example is useful for converting "string to date", "date to number", "number to date" formats.
+- We have loaded a Java library and string builder. We pass a string into a constructor and execute this. We see that the string builder contains that value. We refer to this `string builder` method in the Java Doc. The method is called `substring`. This substring takes an int as its argument. For example, we pass a string value instead of an int value `sb.substring("5")`. Lucee returns a substring properly.
+- Two constructors are available for string builder. There are `StringBuilder(int), StringBuilder(string)`.
 
 ```luceescript
 

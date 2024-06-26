@@ -12,6 +12,7 @@
   ]
 }
 -->
+
 # Checksum
 
 This document explains how to use a checksum in Lucee.
@@ -53,9 +54,9 @@ dump("something went wrong! give it another try?");
 </cfscript>
 ```
 
-* Download the jar file by using cfhttp.
-* Dump the file response header. You can see the "X-Checksum-MD5" "X-Checksum-SHA1" keys from the file itself.
-* Save the file, and dump(fileInfo(localFile.checksum)). Check to see if the dump matches the value of the downloaded file response["X-Checksum-MD5"] header.
+- Download the jar file by using cfhttp.
+- Dump the file response header. You can see the "X-Checksum-MD5" "X-Checksum-SHA1" keys from the file itself.
+- Save the file, and dump(fileInfo(localFile.checksum)). Check to see if the dump matches the value of the downloaded file response["X-Checksum-MD5"] header.
 
 Checksum values are hashed from the binaryfile itself.
 

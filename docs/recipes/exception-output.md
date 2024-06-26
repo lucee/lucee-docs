@@ -22,6 +22,7 @@
   ]
 }
 -->
+
 # Exceptions Output
 
 How to catch and display exceptions
@@ -40,7 +41,7 @@ catch ( any e ){
 Go on with your code
 ```
 
- [tag-Dump] shows the full exception structure without blocking your code. Dump includes all stack trace with it.
+[tag-Dump] shows the full exception structure without blocking your code. Dump includes all stack trace with it.
 
 ## Example 2
 

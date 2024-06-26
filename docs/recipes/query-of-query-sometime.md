@@ -21,6 +21,7 @@
   ]
 }
 -->
+
 # Query of Queries sometimes it rocks, sometimes it sucks
 
 This document explains why Query of Queries (QoQ) may or may not be the best approach for your use case.
@@ -48,7 +49,7 @@ If the native QoQ engine fails on a single table query, by default, Lucee will a
 
 See `LUCEE_QOQ_HSQLDB_DISABLE` and `LUCEE_QOQ_HSQLDB_DEBUG` under [[running-lucee-system-properties]].
 
-## Example: 
+## Example:
 
 ```lucee+trycf
 <cfscript>
@@ -120,11 +121,11 @@ dump("Query Filter/Sort Execution Time:"&(getTickCount("micro")-start));
 
 In this example, we have two different methods of queries.
 
-1) First one is QoQ. Here, `QoQ` from the `persons` table is executed a thousand times due to the looping required by QoQ.
+1. First one is QoQ. Here, `QoQ` from the `persons` table is executed a thousand times due to the looping required by QoQ.
 
-2) The second one is calling the function query filter. Query filter filters out the same row the same way the QoQ does.
+2. The second one is calling the function query filter. Query filter filters out the same row the same way the QoQ does.
 
-3) Execute it in the browser and we get two results (Query of Query execution time and Query filter/sort execution time). Query filter executes at least twice as fast as query of query. Because QoQ loops over and over again, it is slower. If you can avoid QoQ and use the Query filter/sort, your code will execute much faster.
+3. Execute it in the browser and we get two results (Query of Query execution time and Query filter/sort execution time). Query filter executes at least twice as fast as query of query. Because QoQ loops over and over again, it is slower. If you can avoid QoQ and use the Query filter/sort, your code will execute much faster.
 
 ## Footnotes
 

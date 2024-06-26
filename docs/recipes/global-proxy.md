@@ -13,6 +13,7 @@
   ]
 }
 -->
+
 # Global Proxy
 
 Since version 6.0, Lucee allows you to define a global proxy in the Application.cfc.

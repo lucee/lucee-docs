@@ -20,14 +20,15 @@
   ]
 }
 -->
+
 # Event Gateways
 
 First of all, it is necessary to explain how Event Gateways (EG) are working in the first place. EG's are another way to communicate with your Lucee server and are kind of a service running on Lucee, reacting to certain events. These kinds of events could be something along the lines of:
 
-* SMS sent to a certain receiver
-* File change happening in a directory
-* Mail received on a mail server
-* Slack notification received
+- SMS sent to a certain receiver
+- File change happening in a directory
+- Mail received on a mail server
+- Slack notification received
 
 What then can be done with these events is to trigger some actions that react to these events. For instance, if an SMS is sent to the server asking for the current heap memory space, the server could respond with an SMS returning the details. So you basically have an event producer and an event consumer.
 
@@ -41,8 +42,8 @@ In Lucee, EG's can be written in CFML, and this is what this description is all 
 
 There are 2 components that are important for writing an event gateway:
 
-* Gateway driver
-* Event Gateway
+- Gateway driver
+- Event Gateway
 
 The gateway driver is a CFC that is always instantiated and running. It is responsible for managing the lifecycle of the event gateway. The event gateway is the actual implementation of the event handling logic.
 
@@ -64,7 +65,7 @@ Now the sanity checks kick in and prevent faulty data from being sent to the Gat
 <cfset sendGatewayMessage("logMe", {message:sMessage, type:"error"})>
 ```
 
-We receive the expected blank page. In the background, the message has been passed to the Gateway through the sendGateway() method and the data will be written by the start() endless loop into the logfile with the help of the method _log().
+We receive the expected blank page. In the background, the message has been passed to the Gateway through the sendGateway() method and the data will be written by the start() endless loop into the logfile with the help of the method \_log().
 
 How you actually write your EG is totally up to you. But now, do it in CFML!
 
@@ -72,9 +73,9 @@ How you actually write your EG is totally up to you. But now, do it in CFML!
 
 Above we have introduced the possibility to asynchronously log some data to a log file. There are additional other Event Gateways you can think of or use:
 
-* ICQ watcher
-* Slack Channel inspector
-* Listen to a socket
-* On incoming email
+- ICQ watcher
+- Slack Channel inspector
+- Listen to a socket
+- On incoming email
 
 The possibilities are huge and we expect several new event gateways to emerge in the next few months. Have fun with Lucee.

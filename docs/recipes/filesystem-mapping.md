@@ -15,6 +15,7 @@
   ]
 }
 -->
+
 # File system - Mappings
 
 We distinguish 3 different mapping types:

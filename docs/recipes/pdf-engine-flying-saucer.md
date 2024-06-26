@@ -18,22 +18,24 @@
   ]
 }
 -->
+
 # PDF Engine - Flying Saucer (CFDocument)
+
 This document provides information about the new PDF engine, [Flying Saucer](https://github.com/flyingsaucerproject/flyingsaucer) (FS) in Lucee 5.3
 
 Flying saucer is a new PDF engine in Lucee. PDF engines are mainly used to convert HTML to PDF format.
 
 ## Benefits of moving to Flying Saucer from the old engine (PD4ML)
 
-* Full support for CSS 2.1
-* On average the generated PDFs are smaller
-* Consume less Memory and CPU
-* Engine in active development,
-* Better Results
+- Full support for CSS 2.1
+- On average the generated PDFs are smaller
+- Consume less Memory and CPU
+- Engine in active development,
+- Better Results
 
 ## Downsides to Flying Saucer compared to the old engine (PD4ML)
 
-* The generated PDF does not always look exactly the same when generated with the new FC compared to files generated with the PD4ML.
+- The generated PDF does not always look exactly the same when generated with the new FC compared to files generated with the PD4ML.
 
 If it's important that the PDF output remains exactly the same as the old PD4ML-generated file, you will need to check it manually.
 
@@ -59,11 +61,11 @@ and since the PDF Extension 1.0.0.92-SNAPSHOT you can specify the engine using t
 <cfdocument type="classic">
 ```
 
-## Features of Flying Saucer 
+## Features of Flying Saucer
 
 You can define a font directory where you have the fonts(.ttf,.otf) you are using in your PDF.
 
-## Define the font directory 
+## Define the font directory
 
 ```lucee
 <cfdocument fontDirectory = "path/to/my/font">
@@ -87,7 +89,7 @@ If the font directory isn't specified, Lucee will look for fonts in /WEB_INF/luc
 
 **Note**: Classic engine works using the font-family-name from pd4fonts.properties file. Modern (Flying saucer) engine works using the font-family-name from the .ttf file with the same case.
 
-### Simplify Attributes 
+### Simplify Attributes
 
 Attributes with cfdocument are a mess. You can make it clearer using the following syntax:
 

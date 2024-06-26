@@ -21,6 +21,7 @@
   ]
 }
 -->
+
 # Mappings - How to define a regular Mapping
 
 Lucee allows you to define a mapping to a specific location in a filesystem, so you don't always have to use the full path. In most cases, the full path is not working anyway, for example with [tag-include] which does not work with a full path.

@@ -19,6 +19,7 @@
   ]
 }
 -->
+
 # Query of Queries (QoQ)
 
 Query of queries (QoQ) is a technique for re-querying an existing (in memory) query without another trip to the database. This allows you to dynamically combine queries from different databases.
@@ -39,8 +40,8 @@ Query of queries (QoQ) is a technique for re-querying an existing (in memory) qu
 
 The above example isn't very useful, because `newQry` is a straight copy of the source query, but it demonstrates the two requirements of `QoQ`:
 
-* The dbtype="query" attribute
-* A source query object name (e.g., sourceQry) instead of a table name in the FROM clause.
+- The dbtype="query" attribute
+- A source query object name (e.g., sourceQry) instead of a table name in the FROM clause.
 
 ## Example: Filtering
 
@@ -82,36 +83,36 @@ Even though under the hood, Lucee handles the fallback to HSQLDB automatically, 
 
 **Keywords and Operators**
 
-* <=
-* <>
-* =
-* =>
-* =
-* !=
-* ALL
-* AND
-* AS
-* BETWEEN x AND y
-* DESC/ASC
-* DISTINCT
-* FROM
-* GROUP BY
-* HAVING
-* IN ()
-* IS
-* IS NOT NULL
-* IS NULL
-* LIKE
-* NOT
-* NOT IN ()
-* NOT LIKE
-* OR
-* ORDER BY
-* SELECT
-* TOP
-* UNION
-* WHERE
-* XOR
+- <=
+- <>
+- =
+- =>
+- =
+- !=
+- ALL
+- AND
+- AS
+- BETWEEN x AND y
+- DESC/ASC
+- DISTINCT
+- FROM
+- GROUP BY
+- HAVING
+- IN ()
+- IS
+- IS NOT NULL
+- IS NULL
+- LIKE
+- NOT
+- NOT IN ()
+- NOT LIKE
+- OR
+- ORDER BY
+- SELECT
+- TOP
+- UNION
+- WHERE
+- XOR
 
 Functions
 

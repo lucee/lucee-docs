@@ -15,6 +15,7 @@
   ]
 }
 -->
+
 # Query return type
 
 This document explains the different return types for a query with some examples.
@@ -70,9 +71,9 @@ query name="sct" datasource="test" returntype="struct" columnKey="lastname" {
 dump(sct);
 ```
 
-1) In this case you have to define which column is the key of the struct. Here I simply use the last name as the key of the struct.
+1. In this case you have to define which column is the key of the struct. Here I simply use the last name as the key of the struct.
 
-2) Execute it in the browser, and we get a struct as a result and the key is the last name. So you can directly choose one of these elements by writing the lastname.
+2. Execute it in the browser, and we get a struct as a result and the key is the last name. So you can directly choose one of these elements by writing the lastname.
 
 ## Example 4:
 
@@ -94,9 +95,9 @@ loop query=qryPerson {
 }
 ```
 
-1) In this example we have two tables. We make a query to the `person` table. Notice that some fields are foreign key references too. We store `sex_id` in the application scope because we use this in the second query. In this, `sex_id` is the key of that struct, so we can simply address it in `"(&application.sex[qryPerson.sex_id].name&")"` this way.
+1. In this example we have two tables. We make a query to the `person` table. Notice that some fields are foreign key references too. We store `sex_id` in the application scope because we use this in the second query. In this, `sex_id` is the key of that struct, so we can simply address it in `"(&application.sex[qryPerson.sex_id].name&")"` this way.
 
-2) Execute this example in the browser and we get a result from the other table that is referenced by a foreign key.
+2. Execute this example in the browser and we get a result from the other table that is referenced by a foreign key.
 
 ## Footnotes
 

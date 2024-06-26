@@ -12,6 +12,7 @@
   ]
 }
 -->
+
 # Sub Component
 
 Since Lucee 6.0, Lucee allows you to create sub components. These are additional components created in a .cfc after the main component.
@@ -24,7 +25,7 @@ component {
         return "main";
     }
 }
-component name="Sub" {  
+component name="Sub" {
     function subTest() {
         return "sub";
     }
