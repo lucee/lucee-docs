@@ -12,6 +12,7 @@
   ]
 }
 -->
+
 # WebSocket Extension
 
 This extension adds a WebSocket Server to your Lucee Server that runs over `TCP` on port 80 for `WS:` and 443 for `WSS:`
@@ -39,28 +40,32 @@ Download the LEX file from [https://download.lucee.org/](https://download.lucee.
 In docker there are different ways to install it.
 
 Copy it into the `deploy folder` like this:
+
 ```Dockerfile
 ADD https://ext.lucee.org/org.lucee.websocket.extension-1.0.0.4-BETA.lex /lucee/lucee-server/deploy/
 ```
 
 Use Environment Variables like this:
+
 ```yml
 environment:
-    - LUCEE_EXTENSIONS=07082C66-510A-4F0B-B5E63814E2FDF7BE;version=1.0.0.4-BETA
+  - LUCEE_EXTENSIONS=07082C66-510A-4F0B-B5E63814E2FDF7BE;version=1.0.0.4-BETA
 ```
 
 Or simply define it in the .CFConfig.json file (Lucee 6 only)
+
 ```json
 {
-    "extensions": [
-            {
-                "name": "WebSocket",
-                "path": "/your/path/extensions/websocket.extension-1.0.0.4-BETA.lex",
-                "id": "07082C66-510A-4F0B-B5E63814E2FDF7BE"
-            }
-        ]
+  "extensions": [
+    {
+      "name": "WebSocket",
+      "path": "/your/path/extensions/websocket.extension-1.0.0.4-BETA.lex",
+      "id": "07082C66-510A-4F0B-B5E63814E2FDF7BE"
+    }
+  ]
 }
 ```
+
 See [this](https://github.com/lucee/lucee-docs/tree/master/examples/docker/with-extension) example for more details about setting up Extension in .CFConfig.json.
 
 ## Configuration
@@ -69,13 +74,13 @@ By default, Lucee Server will look in `{lucee-config}/websockets/` for WebSocket
 
 Lucee Server will create a config file if one does not exists at `{lucee-config}websocket.json` with the following defaults
 
-*{lucee-config}: /lucee/lucee-server/context*
+_{lucee-config}: /lucee/lucee-server/context_
 
 ```json
 {
-    "directory":"{lucee-config}/websockets/", 
-    "requestTimeout":50, 
-    "idleTimeout":300
+  "directory": "{lucee-config}/websockets/",
+  "requestTimeout": 50,
+  "idleTimeout": 300
 }
 ```
 
@@ -85,14 +90,15 @@ The WebSocket Extension comes with a helper function `websocketInfo()` that well
 <em>TODO: update with new version</em>
 
 ## Component
->[!IMPORTANT]
->a Lucee restart is required when a new WebSocket CFC is added (just like for a ReST CFC)
+
+> [!IMPORTANT]
+> a Lucee restart is required when a new WebSocket CFC is added (just like for a ReST CFC)
 
 ```lucee
 component hint="used to test websocket client" {
 
     public static function onFirstOpen(wsclients) {}
-    
+
         function onOpen(wsclient) {}
 
         function onOpenAsync(wsclient) {}
@@ -115,16 +121,16 @@ Given that the Component was saved as `{lucee-config}/websockets/test.cfc`, here
 ```javascript
 socket = new WebSocket("ws://127.0.0.1:80/ws/test");
 
-socket.onopen = function(evt) {
-    console.log(['onopen()', evt]);
+socket.onopen = function (evt) {
+  console.log(["onopen()", evt]);
 };
 
 socket.onmessage = (event) => {
-    console.log(event.data);
+  console.log(event.data);
 };
 
-socket.onerror = function(error) {
-    console.error(error);
+socket.onerror = function (error) {
+  console.error(error);
 };
 
 socket.send("Hello, Lucee Extension!");
@@ -133,6 +139,7 @@ socketclose();
 ```
 
 ### Broadcast Message to all Clients
+
 A broadcast is a message send to all connected clients
 
 To be able to do this, we need to know who is connected. The first time a connection is made, `onFirstOpen(wsclients)` is fired. `wsclients` is a Java class with the following methods
@@ -153,9 +160,10 @@ public static function onFirstOpen(wsclients) {
 ```
 
 For example
+
 ```lucee
 function onOpen(wsclient) {
-    static.wsclients.broadcast("There are now ##static.wsclients.size()## connections");  
+    static.wsclients.broadcast("There are now ##static.wsclients.size()## connections");
 }
 ```
 
@@ -175,7 +183,7 @@ To send a message using wsclient
 
 ```lucee
 function onOpen(wsclient) {
-    arguments.wsclient.send("You are connected to Lucee WebSocket");  
+    arguments.wsclient.send("You are connected to Lucee WebSocket");
 }
 ```
 
@@ -183,7 +191,7 @@ You can also send a message from `onOpen()` by returning a string
 
 ```lucee
 function onOpen(wsclient) {
-    return "Welcome to the test websocket channel";  
+    return "Welcome to the test websocket channel";
 }
 ```
 
@@ -197,12 +205,13 @@ public void function sendMessage(
 }
 
 function onOpen(wsclient) {
-    sendMessage("Hello, Lucee WebSocket!");  
+    sendMessage("Hello, Lucee WebSocket!");
 }
 ```
 
 ## Using Lucee WebSocket to PUSH data to Client
-With webSocets being a bidirectional communication channel, your Lucee Server no longer limited to responding to a *request*, it can now *push* data to the client.
+
+With webSocets being a bidirectional communication channel, your Lucee Server no longer limited to responding to a _request_, it can now _push_ data to the client.
 
 This means the user no longer has to refresh a page to see if data is updated, or have a Javascript looping function that is continuously calling a ReST API to get lasted data.
 
@@ -231,7 +240,7 @@ Function `getDataFromSomewhere()` is respoible for obtaining the data that needs
 
 `websocketInfo()` also has an array of instances - one for each client call to a WebSocket Component. So looping through the array, gives you access to the Component, and then you can call any of it'sfunction
 
-For Example ( *excuding role management functions* )
+For Example ( _excuding role management functions_ )
 
 ```lucee
 component hint="Test WebSocket"  {
@@ -254,7 +263,7 @@ component hint="Test WebSocket"  {
 
 ```lucee
 var wsInfo = websocketInfo(false);
-if ( !wsInfo.instances.len() ) 
+if ( !wsInfo.instances.len() )
     return;
 
 var wsInstances = wsInfo.instances;
@@ -267,6 +276,7 @@ for ( var wsI in wsInstances) {
     }
 }
 ```
+
 [Task Event Gateway](event-gateways-overview.md) is a good candidate for this script
 
-*TODO: link to recipe page*
+_TODO: link to recipe page_
