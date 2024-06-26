@@ -3,7 +3,7 @@
     "file": "application-context-update.md",
     "title": "Application Context update",
     "path": "/docs/recipes/application-context-update.md",
-    "hash": "f6ea652f85a6df13749e743930bf8bdd",
+    "hash": "409a2f3860d5ad4e6d906b3341730352",
     "keywords": [
       "Application Context",
       "Update Application",
@@ -17,7 +17,7 @@
     "file": "archives-creating-and-deploy.md",
     "title": "Archives - Creating and deploying Lucee Archives (.lar files)",
     "path": "/docs/recipes/archives-creating-and-deploy.md",
-    "hash": "0d1912d222f3a7fa9d931cd7dd4e1adb",
+    "hash": "4726b05d39364e952a48ede93b29a67f",
     "keywords": [
       "Lucee",
       "Archives",
@@ -33,7 +33,7 @@
     "file": "basic-date.md",
     "title": "Basic Date - Output the current date",
     "path": "/docs/recipes/basic-date.md",
-    "hash": "5235b39654554c5cb736d5b5de60e193",
+    "hash": "f66410455e64f965fa03df7649e092a3",
     "keywords": [
       "Date",
       "Current date",
@@ -48,7 +48,7 @@
     "file": "cached-within-request.md",
     "title": "Cache a Query for the current request",
     "path": "/docs/recipes/cached-within-request.md",
-    "hash": "ef40c4bb574fdcf805bdd6319f6bd63d",
+    "hash": "caaac5d46fc01f776f8e29abe49c60e5",
     "keywords": [
       "Cache",
       "Query",
@@ -61,7 +61,7 @@
     "file": "caches-defined-in-application-cfc.md",
     "title": "Caches defined in Application.cfc",
     "path": "/docs/recipes/caches-defined-in-application-cfc.md",
-    "hash": "2916263e6f7ee08150c576573db649ba",
+    "hash": "c37a4cb6f4fb432f17b432e56366df13",
     "keywords": [
       "Caches",
       "Application.cfc",
@@ -75,7 +75,7 @@
     "file": "check-for-changes.md",
     "title": "Check for changes in your configuration file automatically",
     "path": "/docs/recipes/check-for-changes.md",
-    "hash": "c4e5fb1483292ba2ac9e7ddb5b4fe7c4",
+    "hash": "c953e038012d3949f25e943018d8688c",
     "keywords": [
       "Configuration",
       "Check for changes",
@@ -89,7 +89,7 @@
     "file": "checksum.md",
     "title": "Checksum",
     "path": "/docs/recipes/checksum.md",
-    "hash": "821c7cf3cb72f0084fba50be84aec6c2",
+    "hash": "a1fef15b4e0bd041aa90bd1cbb126a5d",
     "keywords": [
       "Checksum",
       "File validation",
@@ -102,7 +102,7 @@
     "file": "configuration-administrator-cfc.md",
     "title": "Configure Lucee within your application",
     "path": "/docs/recipes/configuration-administrator-cfc.md",
-    "hash": "29a7c63a603f9b3a274070fd658dffb5",
+    "hash": "c8b3b9c27321db7bec51568b5d8b3a70",
     "keywords": [
       "Administrator.cfc",
       "cfadmin",
@@ -116,7 +116,7 @@
     "file": "convert-a-cfml-func-to-java.md",
     "title": "Convert a CFML Function/Component to use in Java",
     "path": "/docs/recipes/convert-a-cfml-func-to-java.md",
-    "hash": "dd524020c59d7bfbf16d94cc95a384cc",
+    "hash": "0dcbbce8a20bcd390e27d396fd0985e1",
     "keywords": [
       "conversion",
       "cfc",
@@ -131,7 +131,7 @@
     "file": "datasource-how-to-define-them.md",
     "title": "Datasource - How to define them",
     "path": "/docs/recipes/datasource-how-to-define-them.md",
-    "hash": "41c394a03fcec0681cd3e101948fed12",
+    "hash": "612c8cd0a200d9abfc8d5b9497971e88",
     "keywords": [
       "Datasource",
       "Define datasource",
@@ -145,7 +145,7 @@
     "file": "docker.md",
     "title": "Docker Information",
     "path": "/docs/recipes/docker.md",
-    "hash": "b34a6869d139c87a4f08bbcae77bfb61",
+    "hash": "ce8a01b21c6724045884d2ee0cb639d6",
     "keywords": [
       "Docker",
       "commandbox",
@@ -155,9 +155,9 @@
   },
   {
     "file": "encryption_decryption.md",
-    "title": "Encryption/Decryption ",
+    "title": "Encryption/Decryption",
     "path": "/docs/recipes/encryption_decryption.md",
-    "hash": "92ca4f9edf9ef5591c5810b28bc095fa",
+    "hash": "54975e06c458f45f282e75438d9975b8",
     "keywords": [
       "Encryption",
       "Decryption",
@@ -185,7 +185,7 @@
     "file": "event-gateway-create.md",
     "title": "Custom Event Gateways",
     "path": "/docs/recipes/event-gateway-create.md",
-    "hash": "1fc6ced3e73dcd5c28f1fb252011dd39",
+    "hash": "f82f361b20c0bd9706d81e122024b8bb",
     "keywords": [
       "Event Gateway",
       "Custom Gateway",
@@ -199,7 +199,7 @@
     "file": "event-gateway-in-app-cfc.md",
     "title": "Event Handling in Application.cfc",
     "path": "/docs/recipes/event-gateway-in-app-cfc.md",
-    "hash": "4cb6bd674e44b161073bc9d51b8d4d3e",
+    "hash": "81f8b93eaf6629dcdf512dd247bb5b13",
     "keywords": [
       "Event Handling",
       "Application.cfc",
@@ -218,7 +218,7 @@
     "file": "event-gateways-how-they-work.md",
     "title": "Event Gateway - How they work?",
     "path": "/docs/recipes/event-gateways-how-they-work.md",
-    "hash": "ebf05fa35e87524f1ba70adf864ac127",
+    "hash": "a6dc0c39537f66692fed0d8ca1a66367",
     "keywords": [
       "Event Gateway",
       "Directory Watcher",
@@ -232,7 +232,7 @@
     "file": "event-gateways.md",
     "title": "Event Gateways",
     "path": "/docs/recipes/event-gateways.md",
-    "hash": "e381d0d671e6579fa9742f6d29453908",
+    "hash": "81f72bcc92dd36139b851423c1c7359d",
     "keywords": [
       "Event Gateway",
       "Custom Gateway",
@@ -247,7 +247,7 @@
     "file": "event-handling-in-app-cfc.md",
     "title": "Event Handling in Application.cfc",
     "path": "/docs/recipes/event-handling-in-app-cfc.md",
-    "hash": "ea6a1c5411e8ba1a2d8411a6959d8e4e",
+    "hash": "bc76937b11c5b27128f8d752c843bdae",
     "keywords": [
       "Event Handling",
       "Application.cfc",
@@ -266,7 +266,7 @@
     "file": "exception-cause.md",
     "title": "Exception - Cause",
     "path": "/docs/recipes/exception-cause.md",
-    "hash": "23afb27a8171bde8e85bcaacc92b2d6c",
+    "hash": "d38b239656cae0e99e6784155a48433d",
     "keywords": [
       "exception",
       "error",
@@ -279,7 +279,7 @@
     "file": "exception-output.md",
     "title": "Exceptions Output",
     "path": "/docs/recipes/exception-output.md",
-    "hash": "0fadd57697a6296430e2823f9e3fbb18",
+    "hash": "1ac2a166eb95cc8a7892adbf06fe736c",
     "keywords": [
       "Exception",
       "Output",
@@ -293,7 +293,7 @@
     "file": "externalizing-strings.md",
     "title": "Externalize strings",
     "path": "/docs/recipes/externalizing-strings.md",
-    "hash": "643349b358c2bf0079e983730844a891",
+    "hash": "cac194b9345a0133c8c1985b75b8981f",
     "keywords": [
       "Externalize strings",
       "Memory reduction",
@@ -306,7 +306,7 @@
     "file": "file-extensions.md",
     "title": "File Extensions",
     "path": "/docs/recipes/file-extensions.md",
-    "hash": "4c50c5df979593151592a73898d27f42",
+    "hash": "649c74438e264a8e29eec5ea07aa9eab",
     "keywords": [
       "CFML",
       "cfm",
@@ -333,7 +333,7 @@
     "file": "function-listeners.md",
     "title": "Function Listeners",
     "path": "/docs/recipes/function-listeners.md",
-    "hash": "5cdf02f987059a7d36507e89668b3f19",
+    "hash": "fb4c0a4e5e8dc80158edf3dd680c048d",
     "keywords": [
       "parallel",
       "async",

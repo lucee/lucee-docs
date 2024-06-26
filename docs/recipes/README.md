@@ -44,7 +44,7 @@ How to define a Datasource in Lucee.
 
 Guide on using and running Lucee with Docker
 
-## [Encryption/Decryption ](/docs/recipes/encryption_decryption.md)
+## [Encryption/Decryption](/docs/recipes/encryption_decryption.md)
 
 This document explains about Encryption/Decryption with public and private keys with simple examples.
 
@@ -263,3 +263,4 @@ How to install, congigure and create WebSockets
 ## [XML Fast And Easy, using SAX - Listener Functions](/docs/recipes/xml-fast-and-easy.md)
 
 This document explains how to use XML parsing in Lucee.
+
