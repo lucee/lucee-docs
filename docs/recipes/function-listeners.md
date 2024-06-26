@@ -13,9 +13,10 @@
   ]
 }
 -->
+
 # Function Listeners
 
-Lucee 6.1 introduced a new feature called "Function Listeners". This allows you to execute a function (of any kind) in parallel, so you do not have to wait for the result of the execution, similar to using the `cfthread` tag. Function Listeners provide an easy syntax to not only execute a function in parallel but also include support to handle the result by simply adding a listener after the function call. This listener can handle the result or exception of a function. 
+Lucee 6.1 introduced a new feature called "Function Listeners". This allows you to execute a function (of any kind) in parallel, so you do not have to wait for the result of the execution, similar to using the `cfthread` tag. Function Listeners provide an easy syntax to not only execute a function in parallel but also include support to handle the result by simply adding a listener after the function call. This listener can handle the result or exception of a function.
 
 ## Simple Version
 
@@ -38,7 +39,7 @@ dump(request.testFunctionListener ?: "undefined1");
 
 ## Join thread thread
 
-Instead of "run and forget" you can also join the thread with help of the function  `threadJoin` (or the tags `<cfthread action="join">`). You get a name from the call and that name you can use to join it. The thread information is available in the scope `cfhread` like a regular thread.
+Instead of "run and forget" you can also join the thread with help of the function `threadJoin` (or the tags `<cfthread action="join">`). You get a name from the call and that name you can use to join it. The thread information is available in the scope `cfhread` like a regular thread.
 
 ```run
 <cfscript>
@@ -118,7 +119,6 @@ dump(cfthread[threadName].result);
 </cfscript>
 ```
 
-
 ## Listening on a Component Instantiation
 
 You can also listen to a component instantiation.
@@ -136,7 +136,7 @@ dump(getMetadata(cfthread[threadName].result).fullname);
 </cfscript>
 ```
 
-## Listening on a Static Component Function 
+## Listening on a Static Component Function
 
 You can also listen to a static component function.
 
@@ -152,7 +152,6 @@ threadJoin(threadName);
 dump(cfthread[threadName].result.columnlist);
 </cfscript>
 ```
-
 
 ## Function Collection Listener
 
@@ -180,7 +179,6 @@ dump(cfthread[threadName1].success);
 </cfscript>
 ```
 
-
 ## Component Listener
 
 You can also define a component instance as a listener, in this case we do a inline component.
@@ -191,18 +189,17 @@ function mySuccess() {
     return "Susi Sorglos";
 }
 
-threadName1=mySuccess():new component {  
+threadName1=mySuccess():new component {
     function onSuccess(result) {
         thread.success=result;
     }
-};  
+};
 
 // wait for the thread to finish
 threadJoin(threadName1);
 dump(cfthread[threadName1].success);
 </cfscript>
 ```
-
 
 ## No Listener
 

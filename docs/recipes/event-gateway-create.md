@@ -16,6 +16,7 @@
   ]
 }
 -->
+
 # Custom Event Gateways
 
 Here you will find a short introduction into writing your own Event Gateway type.
@@ -24,9 +25,9 @@ Since you can write these in pure CFML (and Java when you want it), it is really
 
 There are 2 to 3 files you need to create:
 
-* the Gateway CFC
-* the Gateway Driver CFC
-* A listener CFC
+- the Gateway CFC
+- the Gateway Driver CFC
+- A listener CFC
 
 ## The Gateway CFC
 
@@ -36,18 +37,18 @@ Also, it is the file which is instantiated by Lucee when the gateway starts.
 
 You can take the following files as an example:
 
-* {Lucee-install}/lib/lucee-server/context/gateway/lucee/extension/gateway/DirectoryWatcher.cfc
-* {Lucee-install}/lib/lucee-server/context/gateway/lucee/extension/gateway/MailWatcher.cfc
+- {Lucee-install}/lib/lucee-server/context/gateway/lucee/extension/gateway/DirectoryWatcher.cfc
+- {Lucee-install}/lib/lucee-server/context/gateway/lucee/extension/gateway/MailWatcher.cfc
 
 The example code shown underneath is a modified version of the DirectoryWatcher.cfc, which, at time of writing, is in line for reviewing at the Lucee team.
 
 By default, you need to have the following functions:
 
-* An init function, which receives the necessary config data.
-* A start function, which continues to run while variables.state="running".
-* A stop and restart function.
-* A getState function, which returns the current state of the gateway instance (running, stopping, stopped).
-* A sendMessage function, which will be called when the CFML sendGatewayMessage function is used.
+- An init function, which receives the necessary config data.
+- A start function, which continues to run while variables.state="running".
+- A stop and restart function.
+- A getState function, which returns the current state of the gateway instance (running, stopping, stopped).
+- A sendMessage function, which will be called when the CFML sendGatewayMessage function is used.
 
 The following is all the code you need:
 

@@ -37,6 +37,7 @@
   ]
 }
 -->
+
 # Event Handling in Application.cfc
 
 Lucee provides several event handling functions within `Application.cfc` that can be used to manage different stages and types of requests. Here is an overview of these functions and their usage.
@@ -65,7 +66,7 @@ component {
 }
 ```
 
-### OnRequestStart ###
+### OnRequestStart
 
 This method is triggered at the start of each request.
 
@@ -115,7 +116,7 @@ component {
 
 As arguments you receive the exception (cfcatch block) and the eventName.
 
-## OnAbort 
+## OnAbort
 
 This method is triggered when a request is ended with help of the tag `<cfabort>`.
 
@@ -127,7 +128,7 @@ component {
 }
 ```
 
-## OnDebug 
+## OnDebug
 
 This method is triggered when debugging is enabled for this request.
 
@@ -153,7 +154,7 @@ component {
 
 ## Application.cfc Default Template
 
-Below you can find an Application.cfc template that may serve as a starting point for your own applications settings with Lucee CFML engine. 
+Below you can find an Application.cfc template that may serve as a starting point for your own applications settings with Lucee CFML engine.
 
 When creating an Application.cfc for the first time, you can configure all the settings within the Lucee Server or Web Administrator and use its "Export" tool (Lucee Administrator => Settings => Export) to move (by copy and paste) the settings into your Application.cfc file.
 

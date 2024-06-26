@@ -19,6 +19,7 @@
   ]
 }
 -->
+
 # Application Context update
 
 Lucee allows you to update the existing application context defined for example in [cookbook-application-context-basic].
