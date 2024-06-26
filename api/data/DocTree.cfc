@@ -321,19 +321,24 @@ component accessors=true {
 		var isPage = arguments.page.isPage(); // workaround for page types not being parsed out correctly in PageReader.readPageFile
 
 		if ( !IsNull( parent ) ) {
-			if (isPage)
+			if ( isPage )
 				parent.addChild( arguments.page ); // don't add page subelements, i.e _attributes etc
 			arguments.page.setParent( parent );
 
 			ancestors = parent.getAncestors();
-			if (ancestors.len() eq 0 or pageType eq "_method") // avoid duplicates, hack for methods
+			if ( ancestors.len() eq 0 or pageType eq "_method" ) // avoid duplicates, hack for methods
 				ancestors.append( parent.getId() );
 		} else {
 			variables.tree.append( arguments.page );
 		}
 
-		if (not isPage)
+ 		if ( !isPage ){
+			if ( page.getPath() comtains "/recipes" ){
+				request.logger(text="skipping coz /recipes" );
+				return;
+			}
 			throw "not a page [#page.path#]"; // only add main pages
+		}
 
 		if ( !StructKeyExists( variables.pageTypeMap, pageType ) )
 			variables.pageTypeMap[ pageType ] = 0;
