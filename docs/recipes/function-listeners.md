@@ -156,7 +156,7 @@ dump(cfthread[threadName].result.columnlist);
 
 ## Function Collection Listener
 
-A listener not necessarly has to be a function, it also can be a function collection (multiple functions inside a struct).
+A listener does not need to be a function, it also can be a function collection (multiple functions inside a struct).
 This way you can define a function for specific events like `onSuccess` or `onFail` like this.
 
 ```run
@@ -206,7 +206,7 @@ dump(cfthread[threadName1].success);
 
 ## No Listener
 
-In case you wanna simply a asynchron exection, but you don't care about the outcome, you can define no listener at all, simply pass `null` (in this case i use the function `nullValue()`, because only with full null support enabled, the constant `null` is available).
+In case you wanna simply a asynchron execution, but you don't care about the outcome, you can define no listener at all, simply pass `null` (in this case i use the function `nullValue()`, because only with full null support enabled, the constant `null` is available).
 
 ```run
 <cfscript>

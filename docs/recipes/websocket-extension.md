@@ -22,9 +22,9 @@ WebSocket Listeners are created with a CFML Component - one per channel.
 
 There are multiple ways to install the docker extension.
 
-### Lucee Administor
+### Lucee Administrator
 
-The Extension can be installed via Lucee Administor
+The Extension can be installed via Lucee Administrator
 
 ![Lucee Admin: Extensions - Application](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/lucee-admin-extension.png)
 
@@ -187,7 +187,7 @@ function onOpen(wsclient) {
 }
 ```
 
-You can add your own function to the WebSocket Componet
+You can add your own function to the WebSocket Component
 
 ```lucee
 public void function sendMessage(
