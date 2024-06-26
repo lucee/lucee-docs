@@ -96,7 +96,7 @@ Overview of different mapping types in the file system.
 
 This document explains how to use a Function Listeners in Lucee.
 
-## [Function SystemOutput #](/docs/recipes/function-systemoutput.md)
+## [Function SystemOutput](/docs/recipes/function-systemoutput.md)
 
 This document explains the systemoutput function with some simple examples.
 

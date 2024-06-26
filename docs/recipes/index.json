@@ -320,7 +320,7 @@
     "file": "filesystem-mapping.md",
     "title": "File system - Mappings",
     "path": "/docs/recipes/filesystem-mapping.md",
-    "hash": "fe3271c6053ef91099cfe39b10ae05fe",
+    "hash": "d64043f0e9b8231abd2ff02cc0dd16b1",
     "keywords": [
       "Mapping",
       "Component mapping",
@@ -344,9 +344,9 @@
   },
   {
     "file": "function-systemoutput.md",
-    "title": "Function SystemOutput #",
+    "title": "Function SystemOutput",
     "path": "/docs/recipes/function-systemoutput.md",
-    "hash": "a1abbb5138b19230ca1716819be4fc8c",
+    "hash": "59046be4f7a342b242f0fcc88468882e",
     "keywords": [
       "SystemOutput function",
       "Debugging",
@@ -359,7 +359,7 @@
     "file": "get-dbdriver-from-maven.md",
     "title": "Get Datasource Drivers Directly from Maven",
     "path": "/docs/recipes/get-dbdriver-from-maven.md",
-    "hash": "72cf6841c3f3fde70c53bbaf434aeae3",
+    "hash": "34d33dd5ea56e9ccfb539c246bdd0f4e",
     "keywords": [
       "datasource",
       "maven",
@@ -371,7 +371,7 @@
     "file": "global-proxy.md",
     "title": "Global Proxy",
     "path": "/docs/recipes/global-proxy.md",
-    "hash": "9c9e66206b05f71ea75ecc69c8881137",
+    "hash": "cdf4145a729621988220682f731e425b",
     "keywords": [
       "CFML",
       "proxy",
@@ -384,7 +384,7 @@
     "file": "hidden-gems.md",
     "title": "Hidden Gems",
     "path": "/docs/recipes/hidden-gems.md",
-    "hash": "dbc63c01509338599782a29611c3834c",
+    "hash": "3ab486e60bde4cd0203f26b5c9078758",
     "keywords": [
       "Hidden gems",
       "Declare variables",
@@ -399,7 +399,7 @@
     "file": "inline-components.md",
     "title": "Inline Component",
     "path": "/docs/recipes/inline-components.md",
-    "hash": "bb048506a358e844ade28345398223fa",
+    "hash": "cfea57ca49e66f2ba76a79d439adf2d8",
     "keywords": [
       "CFML",
       "component",
@@ -411,7 +411,7 @@
     "file": "java-in-functions-and-closures.md",
     "title": "Java in Functions and Closures",
     "path": "/docs/recipes/java-in-functions-and-closures.md",
-    "hash": "eb86be0273c7e46a8371dfa7a5e8ea7d",
+    "hash": "411e845bac8e2978a974ea3af94ab1a5",
     "keywords": [
       "function",
       "java",
@@ -425,7 +425,7 @@
     "file": "lazy-queries.md",
     "title": "Lazy Queries",
     "path": "/docs/recipes/lazy-queries.md",
-    "hash": "fb9504f55dbe7278ee4133d63d1345f2",
+    "hash": "8fe64da123e2f7e52abb3fb4f272c789",
     "keywords": [
       "Lazy Queries",
       "Regular Queries",
@@ -438,7 +438,7 @@
     "file": "list-existing-cache-conn.md",
     "title": "List existing Cache Connections",
     "path": "/docs/recipes/list-existing-cache-conn.md",
-    "hash": "94ea7960da8abdaa57091af34f0b60a3",
+    "hash": "c881e8d1cd05a738dcb92c3dcbaab1fc",
     "keywords": [
       "Cache",
       "Cache connections",
@@ -452,7 +452,7 @@
     "file": "loop-labels.md",
     "title": "Loop Labels",
     "path": "/docs/recipes/loop-labels.md",
-    "hash": "fb182a8eb2c29f4a988fc2d55557921e",
+    "hash": "aea64c62a64313fa7d87e3b8c15ef5cd",
     "keywords": [
       "loop",
       "label",
@@ -480,7 +480,7 @@
     "file": "mail-how-to-send-a-mail.md",
     "title": "Mail - How to send a Mail",
     "path": "/docs/recipes/mail-how-to-send-a-mail.md",
-    "hash": "a4ee18b1acdb1a90c1aba12646476952",
+    "hash": "c278c5dff011da0798117834fdf3c9c7",
     "keywords": [
       "Email",
       "Send mail",
@@ -494,7 +494,7 @@
     "file": "mail-listener.md",
     "title": "Mail Listeners",
     "path": "/docs/recipes/mail-listener.md",
-    "hash": "67637ed6ff0a361b9faff6ddfd4b2b14",
+    "hash": "8cea64daf2a3141d4132d74a4238ac49",
     "keywords": [
       "mail",
       "listener",
@@ -506,7 +506,7 @@
     "file": "mappings-how-to-define-a-reg-mapping.md",
     "title": "Mappings - How to define a regular Mapping",
     "path": "/docs/recipes/mappings-how-to-define-a-reg-mapping.md",
-    "hash": "76e5b5a37d504065af80b2896b9fc356",
+    "hash": "7a3dcbd7f77c1db9f805512d4d17d897",
     "keywords": [
       "Mapping",
       "Filesystem",
@@ -519,7 +519,7 @@
     "file": "mathematical-precision.md",
     "title": "Mathematical Precision",
     "path": "/docs/recipes/mathematical-precision.md",
-    "hash": "f0f8a9e8dfdf71bb45600184cf6e0e53",
+    "hash": "fd0a4bf923840d968652e201575d3fd3",
     "keywords": [
       "CFML",
       "math",
@@ -534,7 +534,7 @@
     "file": "monitoring-debugging.md",
     "title": "Monitoring/Debugging",
     "path": "/docs/recipes/monitoring-debugging.md",
-    "hash": "83f0fc803a72ec7fac7c261d8506f72d",
+    "hash": "598cdd7328ecba6f890d19338abf375f",
     "keywords": [
       "monitoring",
       "debugging",
@@ -550,7 +550,7 @@
     "file": "monitoring-enable-for-your-session.md",
     "title": "Monitoring - Enable for your session",
     "path": "/docs/recipes/monitoring-enable-for-your-session.md",
-    "hash": "bc35e167029178cdf65574c0ccbe0ab8",
+    "hash": "40b88dc626df5c52efe6c02b9e0601e9",
     "keywords": [
       "monitoring",
       "session"
@@ -560,7 +560,7 @@
     "file": "null-support.md",
     "title": "Null Support",
     "path": "/docs/recipes/null-support.md",
-    "hash": "6cbb15dd62e482182521d981c642f21d",
+    "hash": "1632a30798317207a90f34f6c1167b74",
     "keywords": [
       "Null support",
       "null keyword",
@@ -573,7 +573,7 @@
     "file": "pdf-engine-flying-saucer.md",
     "title": "PDF Engine - Flying Saucer (CFDocument)",
     "path": "/docs/recipes/pdf-engine-flying-saucer.md",
-    "hash": "8ea63c485f463bef34846d079d231d42",
+    "hash": "58a53f406410c3915ad12f6bde20f158",
     "keywords": [
       "Flying Saucer",
       "PDF Engine",
@@ -585,7 +585,7 @@
     "file": "precompiled-code.md",
     "title": "Precompiled Code",
     "path": "/docs/recipes/precompiled-code.md",
-    "hash": "7cde26a3a57208b065a752524945d4c1",
+    "hash": "106f0b51ff0b285f474d8b64add272d2",
     "keywords": [
       "Precompiled",
       "Pre-compile code",
@@ -600,7 +600,7 @@
     "file": "query-async.md",
     "title": "Query Async",
     "path": "/docs/recipes/query-async.md",
-    "hash": "c34897c0d058b3b7107c7c5dbd99d18e",
+    "hash": "185df889c6bf4de47668895c9c708d94",
     "keywords": [
       "query",
       "async",
@@ -613,7 +613,7 @@
     "file": "query-handling.md",
     "title": "Query Handling in Lucee",
     "path": "/docs/recipes/query-handling.md",
-    "hash": "37936377a77a958043c262773d6cfaba",
+    "hash": "f18d07bcde6c11ea5fd7aae6985643d0",
     "keywords": [
       "Query",
       "SQL",
@@ -628,7 +628,7 @@
     "file": "query-indexes.md",
     "title": "Query Indexes",
     "path": "/docs/recipes/query-indexes.md",
-    "hash": "845d8e3b4d135e50ca439465cc7441c6",
+    "hash": "e1d9bdad9e6a50cc9d6ee1bb08b36765",
     "keywords": [
       "query",
       "indexes",
@@ -639,7 +639,7 @@
     "file": "query-listener.md",
     "title": "Query Listeners",
     "path": "/docs/recipes/query-listener.md",
-    "hash": "e2325c2ef8ac68da95653f7fd5e1b473",
+    "hash": "9497bb3976a1910f94c2a631a43bc5eb",
     "keywords": [
       "query",
       "listener",
@@ -652,7 +652,7 @@
     "file": "query-of-queries.md",
     "title": "Query of Queries (QoQ)",
     "path": "/docs/recipes/query-of-queries.md",
-    "hash": "457790642e8f4a4206decad94eedec20",
+    "hash": "0260dff0425bb3cd893ac4767cd8e4e2",
     "keywords": [
       "Query of Queries",
       "QoQ",
@@ -680,7 +680,7 @@
     "file": "query-return-type.md",
     "title": "Query return type",
     "path": "/docs/recipes/query-return-type.md",
-    "hash": "4b6110717327263bec3b2a0e8439e1b4",
+    "hash": "792f4fe5807a39611254146c37100db9",
     "keywords": [
       "Query return type",
       "Array return type",
@@ -693,7 +693,7 @@
     "file": "read-xml-with-a-listener-model-sax.md",
     "title": "Read XML with a listener Model (SAX)",
     "path": "/docs/recipes/read-xml-with-a-listener-model-sax.md",
-    "hash": "edbe80eecafcb10f1d0ee7faa95e5b9f",
+    "hash": "b0f18d5228f3cf2e7a889d7c3954b844",
     "keywords": [
       "XML",
       "SAX",
@@ -724,7 +724,7 @@
     "file": "retry.md",
     "title": "Retry",
     "path": "/docs/recipes/retry.md",
-    "hash": "8e93cf8f7b9b0d433c435b4824d5e175",
+    "hash": "d6639c1b5be93b3de2d93e22ae0e4d8f",
     "keywords": [
       "Retry",
       "Exception handling",
@@ -749,7 +749,7 @@
     "file": "startup-listeners-code.md",
     "title": "Startup Listeners, server.cfc and web.cfc",
     "path": "/docs/recipes/startup-listeners-code.md",
-    "hash": "195a873d1c4af91f02c8483928752146",
+    "hash": "eaf0946f77c21255a4b452601a3e2328",
     "keywords": [
       "Startup Listeners",
       "server.cfc",
@@ -788,7 +788,7 @@
     "file": "supercharge-your-website.md",
     "title": "Supercharge your website",
     "path": "/docs/recipes/supercharge-your-website.md",
-    "hash": "28da40f56b2a1064b5f268c5f41a7b17",
+    "hash": "cba98355eb7396979f04febd592cee35",
     "keywords": [
       "Supercharge website",
       "Performance",
@@ -801,7 +801,7 @@
     "file": "thread-task.md",
     "title": "Thread Task",
     "path": "/docs/recipes/thread-task.md",
-    "hash": "65e3d23637aae905e0f1d3b7c41a0c3e",
+    "hash": "e0fb0c5456add34c97c1adf447cd77fb",
     "keywords": [
       "Thread Tasks",
       "Daemon Threads",
@@ -814,7 +814,7 @@
     "file": "thread-usage.md",
     "title": "Thread Usage",
     "path": "/docs/recipes/thread-usage.md",
-    "hash": "3233f5284e28275a94b0144c6e5f74af",
+    "hash": "04376a0a607d55b64c206cdd386f08d1",
     "keywords": [
       "Threads",
       "Parallel execution",
@@ -827,7 +827,7 @@
     "file": "timeout.md",
     "title": "Timeout",
     "path": "/docs/recipes/timeout.md",
-    "hash": "6c5108c34266748363a2da76111e99d0",
+    "hash": "b7e03149be0aa44af86508797a0f675c",
     "keywords": [
       "tag",
       "timeout",
@@ -841,7 +841,7 @@
     "file": "types-in-lucee.md",
     "title": "Types in Lucee",
     "path": "/docs/recipes/types-in-lucee.md",
-    "hash": "0bb4f5ca1491ff47a62560c4b49c72ca",
+    "hash": "5c5fcd8d807661d0f0988282fe41b9a2",
     "keywords": [
       "Types",
       "Function argument",
@@ -854,7 +854,7 @@
     "file": "using-s3-directly-for-source-code.md",
     "title": "Using S3 directly for source code",
     "path": "/docs/recipes/using-s3-directly-for-source-code.md",
-    "hash": "aef1e1ac3b5d84fe51178dfe9f052fed",
+    "hash": "4fc9da16c9ed40562120ffacaad51a80",
     "keywords": [
       "S3",
       "Source code",
