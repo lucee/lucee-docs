@@ -84,7 +84,7 @@ component accessors=true {
 			case "_image":
 				return false;
 			default:
-				request.logger (text="Unknown pageType: #pageType#, #arguments.page.getPath()#", type="WARN");
+				request.logger (text="Unknown pageType: #getPageType()#, #getPath()#", type="WARN");
 				return false;
 		};
 	}
