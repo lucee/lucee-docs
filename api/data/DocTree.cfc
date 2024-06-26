@@ -272,16 +272,16 @@ component accessors=true {
     	//var start = getTickCount();
 		var pages = variables.pageCache.getPages();
 		for (var pagePath in pages ){
-			var page = pages[pagePath].page;
-			if (arguments.reset)
+			var page = pages[ pagePath ].page;
+			if ( arguments.reset )
 				page.reset(); // clear previous structure data
 			try {
-				_addPageToTree(page);
+				_addPageToTree( page );
 			} catch (any e){
 				dump(page);
 				dump(e);
-				systemOutput(page, true);
-				systemOutput(e, true);
+				systemOutput( pagePath, true );
+				systemOutput( e, true );
 				echo(e);
 				abort;
 			}
@@ -333,11 +333,11 @@ component accessors=true {
 		}
 
 		if (not isPage)
-			throw "not a page"; // only add main pages
+			throw "not a page [#page.path#]"; // only add main pages
 
-		if ( !StructKeyExists(variables.pageTypeMap, pageType) )
-			variables.pageTypeMap[pageType] = 0;
-		variables.pageTypeMap[pageType]++;
+		if ( !StructKeyExists( variables.pageTypeMap, pageType ) )
+			variables.pageTypeMap[ pageType ] = 0;
+		variables.pageTypeMap[ pageType ]++;
 
 		arguments.page.setAncestors( ancestors );
 		lineage = Duplicate( ancestors );

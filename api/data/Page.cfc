@@ -65,7 +65,7 @@ component accessors=true {
 	}
 
 	public boolean function isPage() {
-		switch (this.getPageType()){
+		switch ( getPageType() ){
 			case "homepage":
 			case "page":
 			case "chapter":
