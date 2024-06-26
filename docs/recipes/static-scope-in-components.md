@@ -18,6 +18,7 @@
   ]
 }
 -->
+
 # Static scope in components
 
 Static scope in components is needed to create an instance of cfc and call its method. It is used to avoid creating an instance each time you use the cfc.
@@ -36,7 +37,7 @@ loop query=dir {
 }
 ```
 
-1) Create a constructor of the component. It is the instance of the current path and also create new function hey().
+1. Create a constructor of the component. It is the instance of the current path and also create new function hey().
 
 ```luceescript
 // Example0.cfc
@@ -50,7 +51,7 @@ Component {
 }
 ```
 
-2) Next, we instantiate the component four times, and then call the hey() function. Run this example00.cfm page in the browser. It shows five dumps. Four dumps coming from inside of the constructor and the fifth dump is from hey(). Note that the init() function is private, so you cannot load it from outside the component. Therefore, you have no access to the message within init() from the cfscript in the example below.
+2. Next, we instantiate the component four times, and then call the hey() function. Run this example00.cfm page in the browser. It shows five dumps. Four dumps coming from inside of the constructor and the fifth dump is from hey(). Note that the init() function is private, so you cannot load it from outside the component. Therefore, you have no access to the message within init() from the cfscript in the example below.
 
 ```luceescript
 // example0.cfm
@@ -65,7 +66,7 @@ cfc.hey();
 
 As our code gets more complicated, we need to make some additions to it.
 
-* One option is to create the Component in the application scope or server scope, or to use the function GetComponentMetaData to store components in a more persistent manner.
+- One option is to create the Component in the application scope or server scope, or to use the function GetComponentMetaData to store components in a more persistent manner.
 
 The static scope for components was introduced in Lucee 5.0. This is a scope that is shared with all instances of the same component.
 
@@ -87,7 +88,7 @@ Component {
 
 Here, the variable `counter` is defined in the static scope. This means that all instances of Example1.cfc share this variable.
 
-2) In the following example, we call the Example1() function three times. Each time, the `counter` variable is incremented and shared across all instances.
+2. In the following example, we call the Example1() function three times. Each time, the `counter` variable is incremented and shared across all instances.
 
 ```luceescript
 // example1.cfm
@@ -98,7 +99,7 @@ new Example1();
 
 ## Example 3
 
-1) Another example is using the static scope to store the result of a time-consuming operation that does not need to be recomputed every time.
+1. Another example is using the static scope to store the result of a time-consuming operation that does not need to be recomputed every time.
 
 ```luceescript
 // Example2.cfc
@@ -117,7 +118,7 @@ Component {
 
 Here, the array `data` is defined in the static scope, which means it will be computed only once and shared across all instances.
 
-2) In the following example, we call the Example2() function twice. The array `data` is computed only once and reused in the second instance.
+2. In the following example, we call the Example2() function twice. The array `data` is computed only once and reused in the second instance.
 
 ```luceescript
 // example2.cfm
@@ -127,7 +128,7 @@ new Example2();
 
 ## Example 4
 
-1) The static scope can also be used for functions. In this example, we define a static function that is available to all instances.
+1. The static scope can also be used for functions. In this example, we define a static function that is available to all instances.
 
 ```luceescript
 // Example3.cfc
@@ -138,7 +139,7 @@ Component {
 }
 ```
 
-2) In the following example, we call the static function `hello` without creating an instance of Example3.
+2. In the following example, we call the static function `hello` without creating an instance of Example3.
 
 ```luceescript
 // example3.cfm
@@ -147,7 +148,7 @@ dump(Example3::hello());
 
 ## Example 5
 
-1) The static scope can be used to count the number of instances created from a component.
+1. The static scope can be used to count the number of instances created from a component.
 
 ```luceescript
 // Example4.cfc
@@ -160,7 +161,7 @@ Component {
 }
 ```
 
-2) In the following example, we call the Example4() function five times. Each time the function is called, the count of `counter` in the static scope increases.
+2. In the following example, we call the Example4() function five times. Each time the function is called, the count of `counter` in the static scope increases.
 
 ```luceescript
 // example4.cfm
@@ -173,10 +174,10 @@ new Example4();
 
 ## Example 6
 
-1) We can also use the static scope to store constant data like HOST, PORT.
+1. We can also use the static scope to store constant data like HOST, PORT.
 
-* If we store the instance in the variable scope, you will run into problems when you have a thousand components or it gets loaded a thousand times. This is a waste of time and memory storage.
-* The static scope means that a variable only exists once and is independent of how many instances you have. So it is more memory efficient to do it that way. You can also do the same for functions.
+- If we store the instance in the variable scope, you will run into problems when you have a thousand components or it gets loaded a thousand times. This is a waste of time and memory storage.
+- The static scope means that a variable only exists once and is independent of how many instances you have. So it is more memory efficient to do it that way. You can also do the same for functions.
 
 ```luceescript
 // Example5.cfc
@@ -198,7 +199,7 @@ Component {
 }
 ```
 
-2) In the following example, we call the Example5() function in two ways. It has a function splitFullName() that does not need to access anything (read or write data from the disks) and a variable scope that doesn't have to be part of the instance. It returns the firstname and lastname.
+2. In the following example, we call the Example5() function in two ways. It has a function splitFullName() that does not need to access anything (read or write data from the disks) and a variable scope that doesn't have to be part of the instance. It returns the firstname and lastname.
 
 ```luceescript
 // example5.cfm
