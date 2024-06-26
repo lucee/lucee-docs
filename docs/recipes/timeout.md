@@ -13,6 +13,7 @@
   ]
 }
 -->
+
 # Timeout
 
 Since version 6.0, Lucee supports the tag `<cftimeout>`. This tag allows you to define a timeout specific to a code block.
@@ -36,11 +37,11 @@ You define how long the code within the tag is allowed to run and a listener (cl
 You can also add an additional listener `onError` that is called in case an exception occurs within the timeout block. If you want to escalate the exception, you simply rethrow the exception like in the following example:
 
 ```lucee
-<cftimeout timespan="0.1" 
+<cftimeout timespan="0.1"
     onerror="#function(cfcatch){
         dump(arguments);
         throw cfcatch;
-    }#" 
+    }#"
     ontimeout="#function(timespan) {
         dump(timespan);
     }#">

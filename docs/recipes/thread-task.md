@@ -18,6 +18,7 @@
   ]
 }
 -->
+
 # Thread Task
 
 This document explains about the thread tasks. It is useful to know the differences between regular threads and task threads.
@@ -26,11 +27,11 @@ When a regular thread throws an exception, the default exception type is `type='
 
 Regular Threads have the following characteristics:
 
-1) **Bound to current request**: With the help of CFThread you can always see what the thread is doing. With `action='join'` you can wait until the thread ends and join it. You can also call `action='terminate'` and end the thread. You always have control over the thread with the various actions.
+1. **Bound to current request**: With the help of CFThread you can always see what the thread is doing. With `action='join'` you can wait until the thread ends and join it. You can also call `action='terminate'` and end the thread. You always have control over the thread with the various actions.
 
-2) **Runs only once**: The thread runs only once. It ends at the end of the Cfthread tag or if there is an exception.
+2. **Runs only once**: The thread runs only once. It ends at the end of the Cfthread tag or if there is an exception.
 
-3) **It fails when it fails**: There is no special exception handling so when the thread fails it fails unless you have Cftry, cfcatch inside the thread and you have exception handling there.
+3. **It fails when it fails**: There is no special exception handling so when the thread fails it fails unless you have Cftry, cfcatch inside the thread and you have exception handling there.
 
 ## Example 1
 
@@ -109,11 +110,11 @@ admin.removeTask(tasks.id[tasks.recordcount]);
 admin.removeAllTask();
 ```
 
-1) `admin.getTasks()` is used to list out all existing tasks. When executed, it returns a query that contains the information from the task.
+1. `admin.getTasks()` is used to list out all existing tasks. When executed, it returns a query that contains the information from the task.
 
-2) `admin.executeTask()` is used to execute the task and we see it in the browser. It throws an exception.
+2. `admin.executeTask()` is used to execute the task and we see it in the browser. It throws an exception.
 
-3) `admin.removeTask()` and `admin.removeAllTask()` are used to remove tasks from the administrator.
+3. `admin.removeTask()` and `admin.removeAllTask()` are used to remove tasks from the administrator.
 
 ## Footnotes
 
