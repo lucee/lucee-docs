@@ -7,7 +7,7 @@ services:
       - "./www:/var/www"
       - "./patches:/opt/lucee/server/lucee-server/patches"
     ports:
-      - "8854:8888" # tomcat
-      - "8054:80" # nginx
+      - "8854:8888"  # tomcat
+      - "8054:80"  # nginx
 
 # docker-compose up -d
