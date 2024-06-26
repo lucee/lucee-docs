@@ -15,6 +15,7 @@
   ]
 }
 -->
+
 # Convert a CFML Function/Component to use in Java
 
 Lucee allows you to convert user-defined functions or components so you can use them in Java.
@@ -42,7 +43,7 @@ component {
 Then you can pass that component to a Java method needing a specific interface/class.
 
 ```lucee
-// This class has a method that takes as an argument a CharSequence. 
+// This class has a method that takes as an argument a CharSequence.
 // This way we can force Lucee to convert/wrap our component to that interface.
 HashUtil = createObject("java", "lucee.commons.digest.HashUtil");
 

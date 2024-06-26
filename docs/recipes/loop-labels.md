@@ -13,6 +13,7 @@
   ]
 }
 -->
+
 # Loop Labels
 
 Lucee supports labels for all loop tags and statements, allowing you to control the flow of nested loops more precisely.
@@ -35,6 +36,7 @@ In this example, the `break` statement is used with a label to exit the outer lo
   </cfloop>
 </cfloop>
 ```
+
 Here, the `cfbreak` statement with the `outerLoop` label causes the loop to break out of the outer loop, not just the inner loop. As a result, only a single time value is printed.
 
 ### Script-Based Example

@@ -2,7 +2,7 @@
 {
   "title": "Monitoring - Enable for your session",
   "id": "monitoring-enable-for-your-session",
-  "since": "6.1", 
+  "since": "6.1",
   "categories": [
     "monitoring"
   ],
@@ -48,6 +48,7 @@ this.monitoring.debuggingThread = session.show;
 To show debugging, add `show=true` to the URL. To disable debugging, add `show=false` to the URL.
 
 For example:
+
 - Enable debugging: `https://yourdomain.com?show=true`
 - Disable debugging: `https://yourdomain.com?show=false`
 
@@ -64,6 +65,7 @@ if (!isNull(url.fsdfsdfdfgdgdfs) || isNull(session.show)) {
 In this case, use `fsdfsdfdfgdgdfs=true` to enable debugging and `fsdfsdfdfgdgdfs=false` to disable it.
 
 For example:
+
 - Enable debugging: `https://yourdomain.com?fsdfsdfdfgdgdfs=true`
 - Disable debugging: `https://yourdomain.com?fsdfsdfdfgdgdfs=false`
 

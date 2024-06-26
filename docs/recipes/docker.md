@@ -23,6 +23,7 @@ Docker is a platform that enables developers to automate the deployment, scaling
 ## What are the benefits of running Lucee in Docker
 
 Running Lucee in Docker provides several key benefits:
+
 - **Consistency and Portability**: Docker containers ensure that Lucee and its dependencies are packaged together, eliminating compatibility issues and reducing setup time. This makes it easier to develop, test, and deploy applications consistently across different environments.
 - **Scalability**: Docker's lightweight nature allows for efficient scaling of Lucee applications. You can quickly scale up or down based on demand, making it ideal for both small and large-scale deployments.
 - **Resource Efficiency**: Docker containers share the host system's kernel, which leads to efficient utilization of system resources and improved performance compared to traditional virtual machines.
@@ -76,7 +77,7 @@ You can customize your Lucee container by creating your own Dockerfile and addin
 For more complex setups, consider using Docker Compose to manage multiple services and their dependencies. Below is an example `docker-compose.yml` file to run Lucee with an Nginx reverse proxy:
 
 ```yaml
-version: '3'
+version: "3"
 
 services:
   lucee:

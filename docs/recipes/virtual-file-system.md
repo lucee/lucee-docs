@@ -44,6 +44,7 @@
 Lucee uses virtual file systems for all file interactions. Actions like `fileRead(file)` can be done against any filesystem defined. Every virtual filesystem is addressed with a protocol prefix like "http" or "s3". When no protocol prefix is defined, the default "virtual" file system "file" is used, which is the local filesystem (can be changed).
 
 Lucee supports the following virtual file systems out of the box:
+
 - file (default)
 - ftp
 - http / https
@@ -51,6 +52,7 @@ Lucee supports the following virtual file systems out of the box:
 - zip / tgz / tar
 
 Additionally, there are extensions for the following virtual file systems:
+
 - git
 - S3
 
@@ -71,10 +73,10 @@ A simple example:
 </cfscript>
 ```
 
-* `getCurrentTemplatePath` returns the current template path.
-* `getDirectoryFromPath` returns the directory.
-* Pass the file path to `fileRead` to read the content of the file.
-* Pass the directory to `directoryList` to list all the directories in the given folder path.
+- `getCurrentTemplatePath` returns the current template path.
+- `getDirectoryFromPath` returns the directory.
+- Pass the file path to `fileRead` to read the content of the file.
+- Pass the directory to `directoryList` to list all the directories in the given folder path.
 
 However, you can explicitly define the file system you want to use. To use a local file system, use the `file://` prefix.
 
@@ -88,7 +90,7 @@ As seen in the example code above, the local file system is the default, so it i
 
     sct.file = "file://" & sct.file;
     sct.directory = "file://" & sct.directory;
-    
+
     dump(sct);
     dump(fileRead(sct.file));
     dump(directoryList(sct.directory));
@@ -100,7 +102,7 @@ As seen in the example code above, the local file system is the default, so it i
 `[file://]<path>`
 so for example
 `file:///Users/susi/Projects/local/file.txt`
-or simply 
+or simply
 `/Users/susi/Projects/local/file.txt`
 
 ## FTP File System
@@ -112,8 +114,9 @@ You will need access credentials for accessing FTP. Set up an FTP file system us
 You can define the credentials in the Application.cfc like this
 
 Application.cfc
+
 ```lucee
-// How to configure default FTP settings via Application.cfc 
+// How to configure default FTP settings via Application.cfc
 this.ftp.username = "secretUser";
 this.ftp.password = "secretPW";
 this.ftp.host = "ftp.lucee.org";
@@ -139,8 +142,9 @@ dump(dir);
 Or take parts from Application.cfc and define other parts directly like this:
 
 Application.cfc
+
 ```lucee
-// How to configure default FTP settings via Application.cfc 
+// How to configure default FTP settings via Application.cfc
 this.ftp.username = "secretUser";
 this.ftp.password = "secretPW";
 ```
@@ -162,7 +166,7 @@ so for example
 
 ## HTTP/HTTPS Filesystem
 
-This is a read-only filesystem that makes essential `get` and `head` calls to an HTTP server, with limited functionality. Because of the nature of HTML, things like `directoryList("http://...")` are not possible. This file system also does not support credentials or any definition in the Application.cfc. 
+This is a read-only filesystem that makes essential `get` and `head` calls to an HTTP server, with limited functionality. Because of the nature of HTML, things like `directoryList("http://...")` are not possible. This file system also does not support credentials or any definition in the Application.cfc.
 
 ```lucee
 <cfscript>
@@ -178,7 +182,7 @@ so for example
 
 ## RAM/Cache File System
 
-RAM is a virtual file system that allows you to treat the memory of the JVM as a file system. 
+RAM is a virtual file system that allows you to treat the memory of the JVM as a file system.
 This is useful for storing temporary files, and it is very fast since it uses the system's RAM. This data will be lost when the server restarts (unless you use a cache; see below).
 
 The RAM file system is configured with the `ram://` prefix.
@@ -194,14 +198,17 @@ dump(directoryList(sct.ram));
 ```
 
 ### Cache
-In addition, you can define a Cache in the Lucee Administrator or in the Application.cfc that then is used to store the data. 
+
+In addition, you can define a Cache in the Lucee Administrator or in the Application.cfc that then is used to store the data.
 With this cache, this file system can be distributed across multiple servers and can also survive a restart of the Server.
 
-#### Define a cache in the Admin 
-In the Lucee Administrator under "Services/Cache" you can define a cache (EHCache, Redis, Couchbase, ...) and then below "Default cache connection", 
+#### Define a cache in the Admin
+
+In the Lucee Administrator under "Services/Cache" you can define a cache (EHCache, Redis, Couchbase, ...) and then below "Default cache connection",
 you define that cache as default for "Resource".
 
-#### Define a cache in the Application.cfc 
+#### Define a cache in the Application.cfc
+
 In the Application.cfc you simply define the following:
 
 ```lucee
@@ -217,7 +224,7 @@ so for example
 
 ## ZIP/TGZ/TAR File System
 
-Another file system you can use in Lucee is the ZIP/TGZ/TAR file system to access a compressed file like a file system. 
+Another file system you can use in Lucee is the ZIP/TGZ/TAR file system to access a compressed file like a file system.
 To tell Lucee to use a compressed file system, use the prefix `zip://`, `tgz://`, or `tar://`.
 
 Now the file path will look like `zip://path/to/the/zip/test.zip!/path/inside/the/zip/file.txt`.
@@ -240,13 +247,14 @@ so for example
 
 Next to the bundled virtual file system, there are other file systems available as extensions you can install when needed.
 
-## Object Storage/S3 File System 
+## Object Storage/S3 File System
 
-Object Storage/S3 is a remote file system you can use for Amazon S3 storage. 
+Object Storage/S3 is a remote file system you can use for Amazon S3 storage.
 
 ### Support for different providers
 
 Lucee not only supports access to Amazon S3 cloud storage, it also allows using the same file system to access other Object storage providers:
+
 - Amazon S3 - Cloud Storage
 - MinIO - Open-source Object Storage
 - Wasabi - Cloud Storage
@@ -262,7 +270,7 @@ Lucee not only supports access to Amazon S3 cloud storage, it also allows using 
 - Dell EMC ECS - Enterprise Object Storage
 - Cloudian HyperStore - Object Storage
 - OpenIO - Open-source Object Storage
-- NetApp StorageGRID - Object Storage Solution 
+- NetApp StorageGRID - Object Storage Solution
 
 Traditionally only Amazon S3 Cloud Storage was supported, because of that the prefix `s3://` is used.
 
@@ -275,6 +283,7 @@ The credentials needed to access can be provided in various ways.
 You can define the credentials with the help of Environment Variables/System Properties. In that case, only a single set of credentials is possible. These are the possible settings:
 
 Environment Variables
+
 ```sh
 LUCEE_S3_ACCESSKEYID: AKIAIOSFODNN7EXAMPLE
 LUCEE_S3_SECRETACCESSKEY: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
@@ -285,6 +294,7 @@ LUCEE_S3_ACL: public-read
 ```
 
 System Properties
+
 ```sh
 -Dlucee.s3.accesskeyid: AKIAIOSFODNN7EXAMPLE
 -Dlucee.s3.secretaccesskey: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
@@ -309,7 +319,7 @@ this.s3.acl = "public-read";
 
 But you can also do multiple entries and give everyone a name.
 
-```lucee 
+```lucee
 // my wasabi
 this.vfs.s3.mywasabi.accessKeyId = "AKIAIOSFODNN7EXAMPLE";
 this.vfs.s3.mywasabi.secretKey = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
@@ -321,6 +331,7 @@ this.vfs.s3.myaws.secretKey = "sdszhHJNkliomi/K7MDENG/bPxRfiCYEXAMPLEKEY";
 ```
 
 In the code, they can be used like this:
+
 ```lucee
 dir = directoryList("s3://mywasabi@/path/inside/wasabi.txt");
 dump(dir);
@@ -338,12 +349,14 @@ dump(dir);
 ```
 
 In case you have defined it in the Application.cfc with the help of `this.vfs.s3` with a name, you can use it like this:
+
 ```lucee
 dir = directoryList("s3://mywasabi@/mybucketName/myObjectFolder/myObject.txt");
 dump(dir);
 ```
 
 Or if you want to pass all data into the path, it would look like this:
+
 ```lucee
 dir = directoryList("s3://AKIAIOSFODNN7EXAMPLE:wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY@s3.eu-central-1.wasabisys.com/mybucketName/myObjectFolder/myObject.txt");
 dump(dir);
@@ -355,7 +368,7 @@ dump(dir);
 so for example:
 `s3://AKIAIOSFODNN7EXAMPLE:wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY@s3.eu-central-1.wasabisys.com/mybucketName/myObjectFolder/myObject.txt`
 
-## GIT File System 
+## GIT File System
 
 GIT is a virtual filesystem that allows you to access GitHub like a filesystem, so you can, for example, map your webroot directly to a GitHub repository. The extension caches the files locally for faster access and recognizes any changes made on GitHub.
 
@@ -368,12 +381,14 @@ The credentials needed to access a private repository can be provided in differe
 You can define the credentials with the help of Environment Variables/System Properties. In that case, only a single set of credentials is possible. These are the possible settings:
 
 Environment Variables
+
 ```sh
 LUCEE_GIT_USERNAME: whatever
 LUCEE_GIT_PASSWORD: qwerty
 ```
 
 System Properties
+
 ```sh
 -Dlucee.git.username: whatever
 -Dlucee.git.password: qwerty
@@ -383,7 +398,7 @@ System Properties
 
 You can define the credentials in the Application.cfc like the following. Additionally, you can define the name and branch of the repository you want to access.
 
-```lucee 
+```lucee
 this.git.username = "whatever";
 this.git.password = "qwerty";
 this.git.repository = "lucee-examples";
@@ -391,12 +406,14 @@ this.git.branch = "master";
 ```
 
 In the code, this can be used as follows when you have defined everything in the environment (for example, Application.cfc).
+
 ```lucee
 dir = directoryList("git:///path/inside/git");
 dump(dir);
 ```
 
 It is not possible to define the credentials as part of the path (for security reasons), but you can define "branch" and "repository" in the path like this:
+
 ```lucee
 dir = directoryList("git://master@/path/inside/git!lucee-examples");
 dump(dir);

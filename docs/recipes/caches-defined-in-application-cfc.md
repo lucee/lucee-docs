@@ -21,6 +21,7 @@
   ]
 }
 -->
+
 # Caches defined in Application.cfc
 
 It is possible to add cache connections in Lucee 5.1+ on a per-application basis by adding configuration to your `Application.cfc`. You can also select the default object cache, query cache, function cache, etc. Note if these caches use an extension that provides the cache driver, the extension must be installed already.
@@ -57,16 +58,17 @@ The easiest way to generate the code block above is to follow these steps:
 
 Let's take a look at some of the keys used to define a cache connection.
 
-* **class** - This is the Java class of the driver for the cache engine.
-* **bundleName** - Optional. The name of the OSGI bundle to load the `class` from.
-* **bundleVersion** - Optional. The version of the OSGI bundle to load the `class` from.
-* **storage** - A boolean that flags whether this cache can be used for client or session storage.
-* **custom** - A struct of key/value pairs for configuring the cache. This struct is entirely dependent on the cache driver in use, so refer to the docs for that cache driver to see the possible values. Note, some of these custom values might be required for some cache drivers to work.
-* **default** - Optional. If you want this cache to be used as a default cache, then give this one of these values: `function`, `object`, `template`, `query`, `resource`, `include`, `http`, `file`, `webservice`.
+- **class** - This is the Java class of the driver for the cache engine.
+- **bundleName** - Optional. The name of the OSGI bundle to load the `class` from.
+- **bundleVersion** - Optional. The version of the OSGI bundle to load the `class` from.
+- **storage** - A boolean that flags whether this cache can be used for client or session storage.
+- **custom** - A struct of key/value pairs for configuring the cache. This struct is entirely dependent on the cache driver in use, so refer to the docs for that cache driver to see the possible values. Note, some of these custom values might be required for some cache drivers to work.
+- **default** - Optional. If you want this cache to be used as a default cache, then give this one of these values: `function`, `object`, `template`, `query`, `resource`, `include`, `http`, `file`, `webservice`.
 
 ## Default Caches
 
 When declaring a cache, you can make it the default cache for creation operations, but it is also possible to configure the default caches for each operation all at once in your `Application.cfc` like so:
+
 ```lucee
 this.cache.object = "myCache";
 this.cache.template = "AnotherCache";

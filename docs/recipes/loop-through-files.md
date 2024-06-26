@@ -13,6 +13,7 @@
   ]
 }
 -->
+
 # Looping Through File
 
 This document explains how to handle big files in Lucee in a better way. The classic way that you are familiar with uses cffile tag, fileRead, and fileReadBinary functions to read the file into memory. This is a simple solution, but it consumes a lot of memory.
@@ -37,9 +38,9 @@ dump(label:"Array Size",var:len(arr));
 
 In the example above,
 
-* Read the file into the memory
-* Split into array
-* Loop over the array
+- Read the file into the memory
+- Split into array
+- Loop over the array
 
 It consumes a lot of memory.
 

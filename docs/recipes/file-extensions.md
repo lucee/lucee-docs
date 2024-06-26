@@ -13,6 +13,7 @@
   ]
 }
 -->
+
 # File Extensions
 
 Lucee supports several file extensions for different types of templates and components. The most common extensions are `.cfm`, `.cfc`, `.cfml`, and `.cfs`. Each serves a specific purpose in CFML development.

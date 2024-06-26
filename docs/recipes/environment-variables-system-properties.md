@@ -13,6 +13,7 @@
   ]
 }
 -->
+
 # Environment Variables / System Properties for Lucee
 
 Below is a list of environment variables and system properties you can set for the Lucee Server.
@@ -36,6 +37,7 @@ If enabled, Lucee will validate existing datasource connections reused from the 
 **Environment Variable:** `LUCEE_DEBUGGING_OPTIONS`  
 **System Property:** `-Dlucee.debugging.options`  
 Debug options, a comma-separated list of the following possible debug options to enable:
+
 - database
 - exception
 - template
@@ -179,6 +181,7 @@ Tag Library Descriptor files (.tld or .tldx) Lucee should load to make these tag
 **Environment Variable:** `LUCEE_LISTENER_MODE`  
 **System Property:** `-Dlucee.listener.mode`  
 Where/how does Lucee look for the Application Listener?
+
 - `currenttoroot` - looks for the file "Application.cfc/Application.cfm" from the current up to the webroot directory.
 - `currentorroot` - looks for the file "Application.cfc/Application.cfm" in the current directory and in the webroot directory.
 - `root` - looks for the file "Application.cfc/Application.cfm" only in the webroot.
@@ -187,6 +190,7 @@ Where/how does Lucee look for the Application Listener?
 **Environment Variable:** `LUCEE_LISTENER_TYPE`  
 **System Property:** `-Dlucee.listener.type`  
 Which kind of Application Listener is supported?
+
 - `None` - no listener at all.
 - `Classical (CFML < 7)` - Classic handling. Lucee looks for the file "Application.cfm" and a corresponding file "OnRequestEnd.cfm".
 - `Modern` - Modern handling. Lucee only looks for the file "Application.cfc".
@@ -205,6 +209,7 @@ Let's say you have the following code:
 ```
 
 And you have the following mappings defined:
+
 - `/foo/bar`
 - `/foo`
 
@@ -285,6 +290,7 @@ A boolean value. If enabled, Lucee suppresses whitespace defined between the `cf
 **Environment Variable:** `LUCEE_SYSTEM_ERR`  
 **System Property:** `-Dlucee.system.err`  
 Where is the error stream of the JVM sent? Possible values are:
+
 - `null` (the stream is ignored)
 - `class:<class-name>` - the data is sent to an instance of that class that must implement the `java.io.PrintStream` interface
 - `file:<file-path>` - an absolute path to a file name the stream is written to
@@ -293,6 +299,7 @@ Where is the error stream of the JVM sent? Possible values are:
 **Environment Variable:** `LUCEE_SYSTEM_OUT`  
 **System Property:** `-Dlucee.system.out`  
 Where is the out stream of the JVM sent? Possible values are:
+
 - `null` (the stream is ignored)
 - `class:<class-name>` - the data is sent to an instance of that class that must implement the `java.io.PrintStream` interface
 - `file:<file-path>` - an absolute path to a file name the stream is written to
@@ -397,6 +404,7 @@ Tag Library Descriptor files (`.tld` or `.tldx`) Lucee should load to make these
 **Environment Variable:** `LUCEE_LISTENER_MODE`  
 **System Property:** `-Dlucee.listener.mode`  
 Where/how does Lucee look for the Application Listener?
+
 - `currenttoroot` - looks for the file "Application.cfc/Application.cfm" from the current up to the webroot directory.
 - `currentorroot` - looks for the file "Application.cfc/Application.cfm" in the current directory and in the webroot directory.
 - `root` - looks for the file "Application.cfc/Application.cfm" only in the webroot.
@@ -405,6 +413,7 @@ Where/how does Lucee look for the Application Listener?
 **Environment Variable:** `LUCEE_LISTENER_TYPE`  
 **System Property:** `-Dlucee.listener.type`  
 Which kind of Application Listener is supported?
+
 - `None` - no listener at all.
 - `Classical (CFML < 7)` - Classic handling. Lucee looks for the file "Application.cfm" and a corresponding file "OnRequestEnd.cfm".
 - `Modern` - Modern handling. Lucee only looks for the file "Application.cfc".
@@ -423,6 +432,7 @@ Let's say you have the following code:
 ```
 
 And you have the following mappings defined:
+
 - `/foo/bar`
 - `/foo`
 
@@ -503,6 +513,7 @@ A boolean value. If enabled, Lucee suppresses whitespace defined between the `cf
 **Environment Variable:** `LUCEE_SYSTEM_ERR`  
 **System Property:** `-Dlucee.system.err`  
 Where is the error stream of the JVM sent? Possible values are:
+
 - `null` (the stream is ignored)
 - `class:` - the data is sent to an instance of that class that must implement the `java.io.PrintStream` interface
 - `file:` - an absolute path to a file name the stream is written to
@@ -511,6 +522,7 @@ Where is the error stream of the JVM sent? Possible values are:
 **Environment Variable:** `LUCEE_SYSTEM_OUT`  
 **System Property:** `-Dlucee.system.out`  
 Where is the out stream of the JVM sent? Possible values are:
+
 - `null` (the stream is ignored)
 - `class:` - the data is sent to an instance of that class that must implement the `java.io.PrintStream` interface
 - `file:` - an absolute path to a file name the stream is written to

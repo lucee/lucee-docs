@@ -12,6 +12,7 @@
   ]
 }
 -->
+
 # Externalize strings
 
 Externalize strings from generated class files to separate files. This method is used to reduce the memory of the static contents for templates. We explain this method with a simple example below:

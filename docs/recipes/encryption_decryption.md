@@ -22,16 +22,17 @@
   ]
 }
 -->
-# Encryption/Decryption 
+
+# Encryption/Decryption
 
 This document explains about Encryption/Decryption with public and private keys with simple examples.
 
 Encryption/Decryption is a new functionality in Lucee 5.3. We have a new way to encrypt/decrypt string values. First we start with keys. In this case, there are two keys:
 
-* Private key to encrypt
-* Public key to decrypt
+- Private key to encrypt
+- Public key to decrypt
 
-## Example 1: 
+## Example 1:
 
 ```luceescript
 //index.cfm

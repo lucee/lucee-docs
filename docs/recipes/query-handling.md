@@ -22,6 +22,7 @@
   ]
 }
 -->
+
 # Query Handling in Lucee
 
 This document explains how SQL queries are supported in Lucee.
@@ -53,8 +54,8 @@ The [tag-QueryParam] is used inside the [tag-query] tag. It is used to bind the 
 
 Passing values with [tag-QueryParam] has two advantages:
 
-* The value you pass in QueryParam is very secure.
-* Lucee is able to cache the query statement and reuse it as long as the value is unchanged.
+- The value you pass in QueryParam is very secure.
+- Lucee is able to cache the query statement and reuse it as long as the value is unchanged.
 
 ### Params
 
@@ -112,10 +113,10 @@ dump(res);
 
 Use `QueryBuilder("test")` as constructor.
 
-* Define a datasource with constructor or `setDatasource('test')` function.
-* Use `select("lastName")` to select the column.
-* Use `from("person")` from which table you want to retrieve data.
-* Where statement like `where(QB::eq("firstname", "Susi"))`.
+- Define a datasource with constructor or `setDatasource('test')` function.
+- Use `select("lastName")` to select the column.
+- Use `from("person")` from which table you want to retrieve data.
+- Where statement like `where(QB::eq("firstname", "Susi"))`.
 
 Use `qb.execute()` to obtain the result.
 

@@ -12,6 +12,7 @@
   ]
 }
 -->
+
 # Mail Listeners
 
 Since Lucee 6.0, you can define a listener in the Application.cfc to listen to or manipulate every mail executed.

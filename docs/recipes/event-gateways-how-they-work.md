@@ -16,6 +16,7 @@
   ]
 }
 -->
+
 # Event Gateway - How they work?
 
 An event gateway is a background process that continuously runs.
@@ -34,9 +35,9 @@ Lucee comes with 2 gateways: a Directory watcher and a Mail watcher.
 
 This event gateway checks a given directory for file changes. These changes (events) can be:
 
-* new files
-* changed files
-* removed files
+- new files
+- changed files
+- removed files
 
 When this gateway starts, it first takes a snapshot of the current state of the directory. This is the starting point from where changes are calculated.
 
@@ -48,8 +49,8 @@ So if you already have some files in the directory you want to watch, these file
 
 You can apply filters for what you exactly want to watch changes for:
 
-* **Watch subdirectories**: same as the "Recurse" option in `<cfdirectory>` and `directoryList()`
-* **Extensions**: an optional list of comma-delimited file extensions. The default is "*", which obviously means "all files".
+- **Watch subdirectories**: same as the "Recurse" option in `<cfdirectory>` and `directoryList()`
+- **Extensions**: an optional list of comma-delimited file extensions. The default is "\*", which obviously means "all files".
 
 Note: the Extensions setting might be changed in the near future, due to an enhancement request.
 
@@ -63,8 +64,8 @@ Make sure you regularly check the logs, because when anything goes wrong, Lucee 
 
 Lucee logs can be found here:
 
-* `{Lucee-server}/context/logs/`
-* `{Lucee-web}/lucee/logs/`
+- `{Lucee-server}/context/logs/`
+- `{Lucee-web}/lucee/logs/`
 
 You can also view the logs in your web/server admin by installing the Log Analyzer plugin.
 

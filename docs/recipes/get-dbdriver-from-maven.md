@@ -12,9 +12,10 @@
   ]
 }
 -->
+
 # Get Datasource Drivers Directly from Maven
 
-The following example is for the MySQL driver, but it works for all types of datasource drivers in exactly the same way. 
+The following example is for the MySQL driver, but it works for all types of datasource drivers in exactly the same way.
 While you could install the MySQL extension to get the driver you need, it is not necessary. You can simply define the driver as shown below in the `Application.cfc` or `.CFConfig.json`.
 
 ## Application.cfc
@@ -23,8 +24,8 @@ You can define your datasource in the `Application.cfc` like this:
 
 ```lucee
 this.datasources["mysql"] = {
-    class: "com.mysql.cj.jdbc.Driver", 
-    bundleName: "com.mysql.cj", 
+    class: "com.mysql.cj.jdbc.Driver",
+    bundleName: "com.mysql.cj",
     bundleVersion: "8.4.0",
     connectionString: "jdbc:mysql://localhost:3307/test?characterEncoding=UTF-8&serverTimezone=CET&maxReconnects=3",
     username: "root",

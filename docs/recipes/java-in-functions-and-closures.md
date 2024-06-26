@@ -14,6 +14,7 @@
   ]
 }
 -->
+
 # Java in Functions and Closures
 
 You can write CFML code directly in a function or a closure.
@@ -34,7 +35,7 @@ int function echoInt(int i) type="java" {
 Of course, the function can also be part of a component.
 
 ```lucee
-component { 
+component {
     int function echoInt(int i) type="java" {
         if (i == 1) throw new Exception("Test output!!!");
         return i * 2;
