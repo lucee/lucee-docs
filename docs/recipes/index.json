@@ -333,7 +333,7 @@
     "file": "function-listeners.md",
     "title": "Function Listeners",
     "path": "/docs/recipes/function-listeners.md",
-    "hash": "8b1a972263b17fa946fe950b0d608f80",
+    "hash": "5cdf02f987059a7d36507e89668b3f19",
     "keywords": [
       "parallel",
       "async",
@@ -899,7 +899,7 @@
     "file": "websocket-extension.md",
     "title": "WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "0f57f04b9ffb8e338495d49d180b93fa",
+    "hash": "66a89cb38469d40e10864bb5322e7a88",
     "keywords": [
       "Lucee",
       "Extension"
