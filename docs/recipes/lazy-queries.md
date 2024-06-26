@@ -15,6 +15,7 @@
   ]
 }
 -->
+
 # Lazy Queries
 
 This document explains about lazy queries with some simple examples as follows:
@@ -35,9 +36,9 @@ loop query=qry {
 }
 ```
 
-1) In this example, we have a simple task. All statements return a result set with 200,000 records. We output the first ten. Then we make a break when we add ten rows.
+1. In this example, we have a simple task. All statements return a result set with 200,000 records. We output the first ten. Then we make a break when we add ten rows.
 
-2) We execute this in the browser and we get the expected result.
+2. We execute this in the browser and we get the expected result.
 
 ## Example 2
 

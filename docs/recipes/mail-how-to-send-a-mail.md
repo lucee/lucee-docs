@@ -19,6 +19,7 @@
   ]
 }
 -->
+
 # Mail - How to send a Mail
 
 The following example shows you how you can send a mail. Before you can use this functionality, you have to define a Mail server in the Lucee Administrator.

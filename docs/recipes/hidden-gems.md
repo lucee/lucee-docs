@@ -14,6 +14,7 @@
   ]
 }
 -->
+
 # Hidden Gems
 
 This document explains how to declare variables, function calls with dot and bracket notation, and passing arguments via URL/form scopes as an array. These concepts are explained with simple examples below:

@@ -11,6 +11,7 @@
   ]
 }
 -->
+
 # Query Indexes
 
 Since Lucee 6.0, you can set an index for a query result, which you can then use down the line.
