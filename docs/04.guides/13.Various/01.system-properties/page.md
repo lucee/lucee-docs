@@ -257,7 +257,7 @@ Also, make sure not to publish these files with sensitive data as part of open s
 
 		<tr>
 			<td>
-				<div class="attribute">LUCEE_EXTENSIONS_INSTALL<br>lucee.extension.install</div>
+				<div class="attribute">LUCEE_EXTENSIONS_INSTALL<br>lucee.extensions.install</div>
 			</td>
 			<td>
 
