@@ -466,7 +466,7 @@
     "file": "loop-through-files.md",
     "title": "Looping Through File",
     "path": "/docs/recipes/loop-through-files.md",
-    "hash": "f23ff5f744831b4d54171832ca4c7c8a",
+    "hash": "2387d7589d70fc3977f33db5989a8793",
     "keywords": [
       "Looping through files",
       "cffile",
@@ -762,7 +762,7 @@
     "file": "static-scope-in-components.md",
     "title": "Static scope in components",
     "path": "/docs/recipes/static-scope-in-components.md",
-    "hash": "0b27923f6dad322eae638a8081585f34",
+    "hash": "4ef213604dc8a1abf5335bc1a1073a74",
     "keywords": [
       "Static scope",
       "Components",
