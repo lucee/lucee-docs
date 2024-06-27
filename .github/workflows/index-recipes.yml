@@ -3,9 +3,9 @@ name: Generate Recipes Index
 on:
   push:
     branches:
-      - "**"  # This will trigger on push to any branch
+      - '**'  # This will trigger on push to any branch
     paths:
-      - "docs/recipes/**"
+      - 'docs/recipes/**'
   workflow_dispatch:
 
 jobs:
@@ -13,27 +13,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "14"
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
 
-      - name: Install dependencies
-        run: |
-          npm install fs-extra
+    - name: Install dependencies
+      run: |
+        npm install fs-extra
 
-      - name: Generate index
-        run: |
-          node .github/scripts/generate-index-recipes.js
+    - name: Generate index
+      run: |
+        node .github/scripts/generate-index-recipes.js
 
-      - name: Commit and push changes
-        run: |
-          BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add docs/recipes/index.json docs/recipes/README.md
-          git commit -m "Update recipes index and README"
-          git push origin $BRANCH_NAME
+    - name: Commit and push changes
+      run: |
+        BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/recipes/index.json docs/recipes/README.md
+        git commit -m "Update recipes index and README"
+        git push origin $BRANCH_NAME
