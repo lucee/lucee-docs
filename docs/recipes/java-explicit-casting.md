@@ -47,8 +47,7 @@ For instance, the `PageContext` class has two `setLocale` methods:
 
 To ensure the correct method is called, it is better to use explicit casting. Here's the modified example:
 
-```run
-<cfscript>
+```lucee
 cs = new component implementsJava="java.lang.CharSequence" {
   variables.text = "en_us";
 
@@ -63,7 +62,6 @@ dump(obj);
 
 // Use the CharSequence object
 getPageContext().setLocale(obj);
-</cfscript>
 ```
 
 In this example, we first cast the component to `java.lang.CharSequence` (the base interface for `String`), then call `setLocale`. With this explicit casting, Lucee is able to link the correct method.
