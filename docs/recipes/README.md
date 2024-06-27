@@ -116,6 +116,10 @@ This document explains how to declare variables, function calls with dot and bra
 
 Learn how to create and use inline components in Lucee. This guide demonstrates how to define components directly within your CFML code, making it easier to create and use components without needing a separate .cfc file. Examples include creating an inline component and using it similarly to closures.
 
+## [Java - Explicit Casting of a Component to a Specific Interface](/docs/recipes/java-explicit-casting.md)
+
+Shows how to explicitly cast a component to a specific interface.
+
 ## [Java in Functions and Closures](/docs/recipes/java-in-functions-and-closures.md)
 
 Learn how to write CFML code directly in a function or a closure with Java types in Lucee. This guide demonstrates how to define functions and components with Java types, and how to use Java lambda functions within Lucee. You will see examples of how to handle exceptions, define return types, and implement functional Java interfaces (Lambdas) seamlessly.
