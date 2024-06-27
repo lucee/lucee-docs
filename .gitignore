@@ -2,6 +2,7 @@ jmimemagic.log
 .exitcode
 node_modules
 .vscode
+package-lock.json
 
 server/server-luceedocslocalserver.json
 server-luceedocsbuilder.json
