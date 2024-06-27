@@ -47,7 +47,7 @@ For instance, the `PageContext` class has two `setLocale` methods:
 
 To ensure the correct method is called, it is better to use explicit casting. Here's the modified example:
 
-```lucee
+```run
 cs = new component implementsJava="java.lang.CharSequence" {
   variables.text = "en_us";
 
