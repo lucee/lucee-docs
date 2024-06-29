@@ -40,6 +40,10 @@ Learn how to convert user-defined functions or components in Lucee to use them i
 
 How to define a Datasource in Lucee.
 
+## [onBuild Function in Server.cfc](/docs/recipes/docker-onbuild.md)
+
+The onBuild function in Server.cfc is used for tasks during the build phase in Lucee, particularly useful in Docker environments.
+
 ## [Docker Information](/docs/recipes/docker.md)
 
 Guide on using and running Lucee with Docker
@@ -220,9 +224,9 @@ This document explains how to use retry functionality with some simple examples.
 
 Learn about script templates in Lucee. This guide explains how Lucee supports templates with the `.cfs` extension, allowing you to write direct script code without the need for the `<cfscript>` tag.
 
-## [Startup Listeners, server.cfc and web.cfc](/docs/recipes/startup-listeners-code.md)
+## [Startup Listeners - Server.cfc and Web.cfc](/docs/recipes/startup-listeners-code.md)
 
-Lucee supports two types of Startup Listeners, server.cfc and web.cfc
+Lucee supports two types of Startup Listeners: Server.cfc and Web.cfc.
 
 ## [Static scope in components](/docs/recipes/static-scope-in-components.md)
 

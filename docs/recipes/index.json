@@ -142,6 +142,27 @@
     ]
   },
   {
+    "file": "docker-onbuild.md",
+    "title": "onBuild Function in Server.cfc",
+    "path": "/docs/recipes/docker-onbuild.md",
+    "hash": "92f7a4fe192db1fa9869bfcc2dc0c1a8",
+    "keywords": [
+      "onBuild",
+      "Server.cfc",
+      "build",
+      "Docker",
+      "server",
+      "compile",
+      "encrypt",
+      "validate",
+      "prewarm",
+      "warmup",
+      "startup",
+      "hook",
+      "event"
+    ]
+  },
+  {
     "file": "docker.md",
     "title": "Docker Information",
     "path": "/docs/recipes/docker.md",
@@ -759,15 +780,24 @@
   },
   {
     "file": "startup-listeners-code.md",
-    "title": "Startup Listeners, server.cfc and web.cfc",
+    "title": "Startup Listeners - Server.cfc and Web.cfc",
     "path": "/docs/recipes/startup-listeners-code.md",
-    "hash": "eaf0946f77c21255a4b452601a3e2328",
+    "hash": "9390ecac97cc234930c419a9ec08d10e",
     "keywords": [
-      "Startup Listeners",
-      "server.cfc",
-      "web.cfc",
-      "configImport",
-      "Lucee"
+      "startup",
+      "warmup",
+      "prewarm",
+      "Server.cfc",
+      "Web.cfc",
+      "onServerStart",
+      "onWebStart",
+      "onBuild",
+      "initialization",
+      "bootstrap",
+      "configuration",
+      "initialization",
+      "events",
+      "hooks"
     ]
   },
   {
