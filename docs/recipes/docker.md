@@ -100,6 +100,53 @@ services:
 
 This setup defines two services: `lucee` and `nginx`. The `lucee` service runs the Lucee server, while the `nginx` service runs Nginx as a reverse proxy.
 
+## Using the LUCEE_BUILD Environment Variable
+
+The `LUCEE_BUILD` environment variable is used to prewarm Lucee, setting up the environment the first time it starts. This prewarming ensures that the Lucee server is ready for immediate use, enhancing performance and reducing initialization time during actual deployment. The `onBuild` function in `Server.cfc` is an additional feature that can be triggered during this prewarm phase to perform specific tasks.
+
+### Purpose
+
+Setting the `LUCEE_BUILD` environment variable to `true` prewarms the Lucee server. This involves setting up the environment, loading necessary configurations, and preparing the server for deployment. Additionally, the `onBuild` function in `Server.cfc` can be used to perform setup tasks such as validating configurations, copying files, compiling source code, and encrypting source code during this build process.
+
+### Example Dockerfile with LUCEE_BUILD
+
+Here's an example of how to configure your Dockerfile to use the `LUCEE_BUILD` environment variable:
+
+```dockerfile
+FROM lucee/lucee:latest
+
+# Copy your Server.cfc into the appropriate directory
+COPY Server.cfc /opt/lucee-server/context/context/Server.cfc
+
+# Set the environment variable to trigger onBuild
+ENV LUCEE_BUILD true
+
+# Expose necessary ports
+EXPOSE 8888
+
+# Start Lucee server
+COPY supporting/prewarm.sh /usr/local/tomcat/bin/
+RUN chmod +x /usr/local/tomcat/bin/prewarm.sh
+RUN /usr/local/tomcat/bin/prewarm.sh 6.1
+```
+
+You can find the `prewarm.sh` file [here](https://github.com/lucee/lucee-dockerfiles).
+
+### Example Server.cfc with onBuild Function
+
+Here's an example of a `Server.cfc` file with the `onBuild` function:
+
+```lucee
+// lucee-server\context\context\Server.cfc
+component {
+	public function onBuild() {
+		systemOutput("------- Building Lucee (Docker) -----", true);
+	}
+}
+```
+
 ## Conclusion
 
-Using Docker to run Lucee simplifies the deployment process, ensures consistency across environments, and provides a scalable and efficient way to manage your Lucee applications. With the official Lucee Docker images and the ability to customize your own images, you can easily set up and manage your Lucee environment to meet your specific needs.
+Using Docker to run Lucee simplifies the deployment process, ensures consistency across environments, and provides a scalable and efficient way to manage your Lucee applications. Setting the `LUCEE_BUILD` environment variable to `true` allows for prewarming Lucee, ensuring it is ready for immediate use. With the official Lucee Docker images and the ability to customize your own images, you can easily set up and manage your Lucee environment to meet your specific needs.
+
+For more detailed recipes and advanced usage examples, refer to the [Lucee Docker examples repository](https://github.com/lucee/lucee-docs/tree/master/examples/docker).
