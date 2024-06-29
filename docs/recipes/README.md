@@ -40,7 +40,7 @@ Learn how to convert user-defined functions or components in Lucee to use them i
 
 How to define a Datasource in Lucee.
 
-## [onBuild Function in Server.cfc](/docs/recipes/docker-onbuild.md)
+## [onBuild Function in Server.cfc (supported since Lucee 6.1.1)](/docs/recipes/docker-onbuild.md)
 
 The onBuild function in Server.cfc is used for tasks during the build phase in Lucee, particularly useful in Docker environments.
 
