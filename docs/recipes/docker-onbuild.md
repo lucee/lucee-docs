@@ -31,7 +31,7 @@
 }
 -->
 
-# onBuild Function in Server.cfc
+# onBuild Function in Server.cfc (supported since Lucee 6.1.1)
 
 The `onBuild` function in `Server.cfc` is designed for executing specific tasks during the build phase of a Lucee server, which is particularly useful in Docker environments. This function allows you to automate various setup tasks that need to be completed when building your Lucee server image.
 
