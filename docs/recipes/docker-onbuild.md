@@ -110,7 +110,3 @@ RUN /usr/local/tomcat/bin/prewarm.sh 6.1
 
 You can find the `prewarm.sh` file [here](https://github.com/lucee/lucee-dockerfiles).
 When the Docker container is built, the `onBuild` function will execute, performing any tasks you've defined in the function.
-
-## Footnotes
-
-For more information on configuring and using Lucee with Docker, refer to the [Lucee Docker documentation](https://docs.lucee.org/guides/running-lucee/docker.html).
