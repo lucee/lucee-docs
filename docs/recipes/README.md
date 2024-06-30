@@ -128,6 +128,10 @@ Shows how to explicitly cast a component to a specific interface.
 
 Learn how to write CFML code directly in a function or a closure with Java types in Lucee. This guide demonstrates how to define functions and components with Java types, and how to use Java lambda functions within Lucee. You will see examples of how to handle exceptions, define return types, and implement functional Java interfaces (Lambdas) seamlessly.
 
+## [Java Settings in Application.cfc](/docs/recipes/java-settings.md)
+
+Guide on configuring Java settings in Lucee using Application.cfc
+
 ## [Lazy Queries](/docs/recipes/lazy-queries.md)
 
 How to use lazy queries
