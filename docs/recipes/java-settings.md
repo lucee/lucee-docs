@@ -85,7 +85,6 @@ You can also configure these settings using the `<cfapplication>` tag.
 ```cfml
 <cfapplication 
     action="update"
-    name="myApp" 
     javasettings="#{
         loadPaths: [
             '/my/local/path/to/whatever/lib/',
