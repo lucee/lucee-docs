@@ -84,6 +84,10 @@ Lucee 6.1 improves its support for exception causes, providing better debugging 
 
 How to catch and display exceptions.
 
+## [Extension Installation](/docs/recipes/extension-installation.md)
+
+A comprehensive guide on how to install extensions in Lucee.
+
 ## [Externalize strings](/docs/recipes/externalizing-strings.md)
 
 Externalize strings from generated class files to separate files. This method is used to reduce the memory of the static contents for templates.

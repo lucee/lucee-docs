@@ -311,6 +311,23 @@
     ]
   },
   {
+    "file": "extension-installation.md",
+    "title": "Extension Installation",
+    "path": "/docs/recipes/extension-installation.md",
+    "hash": "75116159b5107f7c519ea6d8f4b87237",
+    "keywords": [
+      "extension",
+      "install",
+      "lucee administrator",
+      "deploy directory",
+      "CFConfig.json",
+      "environment variable",
+      "system property",
+      "hot deployment",
+      "automation"
+    ]
+  },
+  {
     "file": "externalizing-strings.md",
     "title": "Externalize strings",
     "path": "/docs/recipes/externalizing-strings.md",
