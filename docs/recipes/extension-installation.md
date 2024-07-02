@@ -76,6 +76,9 @@ On a fresh install of Lucee, Lucee will install the [bundled extensions](https:/
 
 With Lucee 6.1, the "id" attribute is no longer necessary when you define a path.
 
+### Important Notes for Multi-Mode (Server and Web Admin Enabled)
+- If you run Lucee in Multi-Mode (Server and Web Admin enabled), you need to add the extension configuration to the root of the server context JSON file located at `{lucee-installation}/lucee-server/context/.CFConfig.json` and not in the web context JSON file.
+
 ### Pros
 - You can automate the process
 - Easy to manage configurations and extensions in one place
@@ -127,6 +130,9 @@ java -Dlucee.extensions="99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;name=MSSQL;version=
 ### Cons
 - No hot deployment
 - Requires setting environment variables or system properties, which might be complex in some environments
+
+## Logging and Troubleshooting
+If you encounter issues while installing extensions, you can check the log at `{lucee-installation}/lucee-server/context/logs/deploy.log` not only for any errors reported but also to see what actions were performed. This log is by default set to info level and should contain all details about the installation process.
 
 ## Conclusion
 Lucee offers several methods to install extensions, each with its own advantages and disadvantages. Choose the method that best fits your deployment and management workflow:
