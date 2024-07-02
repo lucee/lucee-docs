@@ -116,6 +116,10 @@ Learn how to define a global proxy in Lucee. This guide demonstrates how to set 
 
 This document explains how to declare variables, function calls with dot and bracket notation, and passing arguments via URL/form scopes as an array.
 
+## [Import](/docs/recipes/import.md)
+
+Guide on using import to import components and custom tags in Lucee
+
 ## [Inline Component](/docs/recipes/inline-components.md)
 
 Learn how to create and use inline components in Lucee. This guide demonstrates how to define components directly within your CFML code, making it easier to create and use components without needing a separate .cfc file. Examples include creating an inline component and using it similarly to closures.

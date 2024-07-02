@@ -417,6 +417,20 @@
     ]
   },
   {
+    "file": "import.md",
+    "title": "Import",
+    "path": "/docs/recipes/import.md",
+    "hash": "d0a4f5427a500c100381695fcf029ff4",
+    "keywords": [
+      "cfimport",
+      "import",
+      "Lucee",
+      "components",
+      "custom tags",
+      "taglib"
+    ]
+  },
+  {
     "file": "inline-components.md",
     "title": "Inline Component",
     "path": "/docs/recipes/inline-components.md",
