@@ -57,7 +57,7 @@ Lucee Server does most of what you'll need already... but if there's anything mi
 
 ### Lucee mailing list ###
 
-Our Lucee mailing list has members from around the globe - including members of our development team - and will be happy to help you with any aspect of using Lucee Server, whether that's installation, configuration, architecting or coding. [Head over](http://groups.google.com/group/lucee) and say hello!
+Our Lucee mailing list has members from around the globe - including members of our development team - and will be happy to help you with any aspect of using Lucee Server, whether that's installation, configuration, architecting or coding. [Head over](https://dev.lucee.org/) and say hello!
 
 ### Support, training & consulting ###
 
