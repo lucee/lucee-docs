@@ -48,7 +48,7 @@ Simply copy the extension you want to install into the folder `{lucee-installati
 ## `.CFConfig.json` Configuration (Lucee 6 Only)
 With Lucee 6, you can define the extensions you need in the `.CFConfig.json` file that holds all your configurations.
 
-|||json
+```json
 {
     "extensions": [
         {
@@ -68,7 +68,7 @@ With Lucee 6, you can define the extensions you need in the `.CFConfig.json` fil
         }
     ]
 }
-|||
+```
 
 You can define the `id` and `version` like in the first example (name is always optional), or provide a local path to the extension. Lucee supports virtual filesystems, so you can also define a virtual filesystem path, such as "https", "s3", or "ftp".
 
@@ -89,26 +89,26 @@ You can also define the extension in an environment variable or system property.
 
 Define a comma-separated list of Lucee extensions to install when starting up. This can be a simple list of IDs, in which case the latest versions will be installed:
 
-|||plaintext
+```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6,
 671B01B8-B3B3-42B9-AC055A356BED5281,
 2BCD080F-4E1E-48F5-BEFE794232A21AF6
-|||
+```
 
 Or with more specific information like version and label (for better readability):
 
-|||plaintext
+```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;name=MSSQL;label=MS SQL Server;version=12.2.0.jre8,
 671B01B8-B3B3-42B9-AC055A356BED5281;name=PostgreSQL;label=PostgreSQL;version=42.7.3,
 2BCD080F-4E1E-48F5-BEFE794232A21AF6;name=JDTsSQL;label=jTDS (MSSQL);version=1.3.1
-|||
+```
 
 You can also define a path to the extension in the same way as with `.CFConfig.json`:
 
-|||plaintext
+```plaintext
 60772C12-F179-D555-8E2CD2B4F7428718;name=Redis;path=/opt/lucee/extensions/redis.extension-3.0.0.51.lex,
 17AB52DE-B300-A94B-E058BD978511E39E;name=S3 Resource Extension;path=https://ext.lucee.org/s3-extension-2.0.1.25.lex
-|||
+```
 
 ### Setting System Property
 
@@ -116,9 +116,9 @@ To set a system property for Lucee extensions, you can use the `-D` option with 
 
 Example command to start Lucee with system properties:
 
-|||plaintext
+```plaintext
 java -Dlucee.extensions="99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;name=MSSQL;version=12.2.0.jre8,671B01B8-B3B3-42B9-AC055A356BED5281;name=PostgreSQL;version=42.7.3" -jar lucee.jar
-|||
+```
 
 ### Pros
 - Can be used in various deployment environments (e.g., Docker, cloud services)
