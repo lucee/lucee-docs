@@ -217,7 +217,7 @@ component accessors=true {
 			}, (_threads != 1), _threads);
 			request.logger (text="Pages Parsed in #(getTickCount()-start)/1000#s");
 
-			_buildTreeHierachy(false);
+			_buildTreeHierarchy(false);
 			_parseTree();
 		}
 	}
@@ -263,12 +263,12 @@ component accessors=true {
 
 			if (added gt 0 or deleted.len() gt 0)
 				pageCache.reSort();
-			_buildTreeHierachy(true);
+			_buildTreeHierarchy(true);
 			_parseTree();
 		}
 	}
 
-	private void function _buildTreeHierachy(boolean reset="false") {
+	private void function _buildTreeHierarchy(boolean reset="false") {
     	//var start = getTickCount();
 		var pages = variables.pageCache.getPages();
 		for (var pagePath in pages ){
@@ -333,7 +333,7 @@ component accessors=true {
 		}
 
  		if ( !isPage ){
-			if ( page.getPath() comtains "/recipes" ){
+			if ( page.getPath() contains "/recipes" ){
 				request.logger(text="skipping coz /recipes" );
 				return;
 			}
