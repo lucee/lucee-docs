@@ -3,9 +3,9 @@ name: Generate Recipes Index
 on:
   push:
     branches:
-      - '**'  # This will trigger on push to any branch
+      - "**"  # This will trigger on push to any branch
     paths:
-      - 'docs/recipes/**'
+      - "docs/recipes/**"
   workflow_dispatch:
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
