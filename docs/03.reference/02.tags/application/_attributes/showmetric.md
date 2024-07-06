@@ -1,1 +1,1 @@
-Show metric output at the end of teh webpage or not.
+Show metric output at the end of the webpage or not.

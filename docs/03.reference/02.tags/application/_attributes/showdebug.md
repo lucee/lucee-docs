@@ -1,1 +1,1 @@
-Show debug output at the end of teh webpage or not.
+Show debug output at the end of the webpage or not.

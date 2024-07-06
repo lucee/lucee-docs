@@ -1,5 +1,5 @@
 ---
-title: createulid
+title: createULID
 id: function-createulid
 related:
 categories:
