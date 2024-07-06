@@ -3,7 +3,7 @@ name: Generate Recipes Index
 on:
   push:
     branches:
-      - "**"  # This will trigger on push to any branch
+      - "**"
     paths:
       - "docs/recipes/**"
   workflow_dispatch:
