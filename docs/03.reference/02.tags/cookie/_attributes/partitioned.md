@@ -1,0 +1,1 @@
+Used to isolate third party cookies, requires path="/" and secure="true".

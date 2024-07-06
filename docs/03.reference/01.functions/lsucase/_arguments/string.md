@@ -1,0 +1,1 @@
+The string to be converted to uppercase. This can be a direct string value or a variable that contains the string.
