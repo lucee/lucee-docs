@@ -332,9 +332,9 @@ component accessors=true {
 			variables.tree.append( arguments.page );
 		}
 
- 		if ( !isPage ){
-			if ( page.getPath() comtains "/recipes" ){
-				request.logger(text="skipping coz /recipes" );
+ 		if ( not isPage ){
+			if ( arguments.page.getPath() contains "/recipes" ) {
+				request.logger( text="skipping coz /recipes" );
 				return;
 			}
 			throw "not a page [#page.path#]"; // only add main pages
