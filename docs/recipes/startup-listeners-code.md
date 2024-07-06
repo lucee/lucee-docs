@@ -72,9 +72,11 @@ Start the Lucee Server, and the server console should display the above system o
 ### Functions in Server.cfc
 
 #### onServerStart
+
 `onServerStart` is called when you start Lucee. The `reload` argument is set to `false` on the first start, and `true` when any configuration in the Lucee Administrator is updated or an extension is installed.
 
 #### onBuild (since Lucee 6.1.1)
+
 `onBuild` is called when you start Lucee with the environment variable `LUCEE_BUILD` (or the older variable `LUCEE_ENABLE_WARMUP`) set to `true`. You can also use the system property `-Dlucee.build` (or `-dlucee-enable.warmup`). This feature got indroduced in Lucee 6.1.1.
 
 ## Web.cfc
