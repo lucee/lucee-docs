@@ -1,0 +1,1 @@
+Name of the object to delete, if not defined the bucket itself is deleted.

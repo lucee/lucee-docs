@@ -1,0 +1,1 @@
+If set to false, any exceptions thrown by the servlet engine, such as those resulting from a client disconnection, will be suppressed.

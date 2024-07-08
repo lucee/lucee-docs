@@ -23,29 +23,36 @@
 In Lucee, there are multiple ways to install an extension. This recipe will show you all the possibilities along with their pros and cons.
 
 ## Lucee Administrator
+
 You can install an extension in the Lucee Administrator by navigating to Extensions/Applications in the Lucee (Server) Administrator and installing or uninstalling the extension you need.
 
 ### Pros
+
 - No physical access to the server needed
 - User-friendly interface
 - Immediate feedback on the installation process
 
-### Cons 
+### Cons
+
 - Manual process that is not easily repeatable
 - Requires access to the Lucee Administrator interface
 
 ## `deploy` Directory
+
 Simply copy the extension you want to install into the folder `{lucee-installation}/lucee-server/deploy`. Lucee will pick it up at startup or within a minute after startup and install it. You can find extensions to install under [download.lucee.org](https://download.lucee.org).
 
 ### Pros
+
 - Hot deployment on a running server possible with no restart needed (except for some extensions)
 - Can be automated with scripts
 
 ### Cons
+
 - Requires physical or SSH access to the server
 - Some extensions may require a restart to work properly
 
 ## `.CFConfig.json` Configuration (Lucee 6 Only)
+
 With Lucee 6, you can define the extensions you need in the `.CFConfig.json` file that holds all your configurations.
 
 ```json
@@ -77,17 +84,21 @@ On a fresh install of Lucee, Lucee will install the [bundled extensions](https:/
 With Lucee 6.1, the "id" attribute is no longer necessary when you define a path.
 
 ### Important Notes for Multi-Mode (Server and Web Admin Enabled)
+
 - If you run Lucee in Multi-Mode (Server and Web Admin enabled), you need to add the extension configuration to the root of the server context JSON file located at `{lucee-installation}/lucee-server/context/.CFConfig.json` and not in the web context JSON file.
 
 ### Pros
+
 - You can automate the process
 - Easy to manage configurations and extensions in one place
 
 ### Cons
+
 - No hot deployment
 - Requires configuration file management
 
 ## Environment Variable / System Property
+
 You can also define the extension in an environment variable or system property. This option is similar to the `.CFConfig.json` option.
 
 Define a comma-separated list of Lucee extensions to install when starting up. This can be a simple list of IDs, in which case the latest versions will be installed:
@@ -124,17 +135,21 @@ java -Dlucee.extensions="99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;name=MSSQL;version=
 ```
 
 ### Pros
+
 - Can be used in various deployment environments (e.g., Docker, cloud services)
 - Supports automation and infrastructure as code practices
 
 ### Cons
+
 - No hot deployment
 - Requires setting environment variables or system properties, which might be complex in some environments
 
 ## Logging and Troubleshooting
+
 If you encounter issues while installing extensions, you can check the log at `{lucee-installation}/lucee-server/context/logs/deploy.log` not only for any errors reported but also to see what actions were performed. This log is by default set to info level and should contain all details about the installation process.
 
 ## Conclusion
+
 Lucee offers several methods to install extensions, each with its own advantages and disadvantages. Choose the method that best fits your deployment and management workflow:
 
 - **Lucee Administrator**: Best for manual, ad-hoc installations.

@@ -1,0 +1,1 @@
+The base64 encoded MD5 checksum of the object's content.

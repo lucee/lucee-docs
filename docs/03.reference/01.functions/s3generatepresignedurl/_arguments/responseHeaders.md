@@ -1,0 +1,1 @@
+Struct of custom response headers for custom metadata prefixed with "x-amz-meta-" (prefix is optional, function will add it if missed).

@@ -109,7 +109,7 @@ component {
 					links.append( variables._getTestCasesLink(name) );
 					break;
 				default:
-          break;
+					break;
 			}
 		}
 		try {

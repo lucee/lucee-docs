@@ -52,7 +52,7 @@ async function generateIndex() {
   await fs.writeJson(outputPath, index, { spaces: 2 });
 
   console.log(`Writing README to ${readmePath}`);
-  await fs.writeFile(readmePath, readmeContent, 'utf-8');
+  await fs.writeFile(readmePath, readmeContent.trim(), 'utf-8');
 
   const readmeExists = await fs.pathExists(readmePath);
   console.log(`README exists: ${readmeExists}`);

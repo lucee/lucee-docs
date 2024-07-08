@@ -1,0 +1,1 @@
+A struct of xmlFeatures directives to override defaults

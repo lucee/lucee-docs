@@ -1,0 +1,1 @@
+This can be the bucketname or a virtual filesystem path for a file/directory (example "s3://mybucket/myobject.txt").

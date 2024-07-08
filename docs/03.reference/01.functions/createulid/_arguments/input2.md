@@ -1,0 +1,1 @@
+Similar to 'input1', this string input is utilized only in the 'hash' mode to further seed the ULID's random component, enabling the creation of a deterministic ULID based on the hash of the inputs.

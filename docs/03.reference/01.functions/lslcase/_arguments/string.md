@@ -1,0 +1,1 @@
+The string to be converted to lowercase. This parameter can accept either a string literal or a variable that holds the string content.

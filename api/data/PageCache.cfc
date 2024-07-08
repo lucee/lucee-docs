@@ -82,8 +82,9 @@ component accessors=true {
 				local.q_files = QueryNew("name,directory,depth,src,dateLastModified,fullpath", "varchar,varchar,numeric,varchar,date,varchar");
 				var timestamp = CreateDate(2000,1,1);//
 				for( var file in local.files){
-					var row = QueryAddRow(local.q_files);
 					file = _removeRootDirectoryFromFilePath(file);
+					if ( ListFirst( file, "/" ) eq "recipes") continue;
+					var row = QueryAddRow(local.q_files);
 					querySetCell(local.q_files, "name", ListLast(file, "/") , row);
 					querySetCell(local.q_files, "fullpath", file , row);
 					querySetCell(local.q_files, "directory", GetDirectoryFromPath(file) , row);
