@@ -26,8 +26,16 @@ component {
 		} else if ( arguments.language.reFindNoCase( "^(lucee|cfm|coldfusion)" ) ) {
 			arguments.language = "cfm";
 		}
+		lock name="highlight" type="exclusive" timeout=10 {
+			try {
+			var highlighted = highlighter.highlight( arguments.code, arguments.language, false );
+			} catch (e ){
 
-		var highlighted = highlighter.highlight( arguments.code, arguments.language, false );
+				systemOutput( arguments, true );
+				//systemOutput( e );
+				highlighted = arguments.code;
+			}
+		}
 
 		if ( useTryCf ) {
 			var rawCode = '<script type="text/template" id="code-#LCase( Hash( highlighted ) )#" data-trycf="true" data-script="#( arguments.language == 'cfs' )#">'

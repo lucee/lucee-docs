@@ -43,14 +43,32 @@ component {
 			}
 		}
 
-		page.setPath( arguments.pagePath );
+		// hack to restructure recipes as docs content
+		if ( listFirst( page.getPath(), "/" ) eq "recipes" ){
+			page.setSlug( page.getPageType() )
+			
+			if (page.getPageType() eq "README"){
+				page.setPath( page.getPath() );
+				page.setPageType( "listing" );
+				page.setVisible( true );
+				page.setReference( false );
+				page.setBody( "Recipes" );
+				page.setTitle( "Lucee Recipes" );
+				page.setDescription( "Lucee Recipes" );
+			} else {
+				page.setPath( page.getPath() & "/" & replace( page.getPageType(), ".md", "" ) );
+				page.setPageType( "page" );
+			}
+		} else {
+			page.setPath( arguments.pagePath );
+		}
+
 		if ( !page.getId().len() ) {
 			page.setId( page.getPath() );
 		}
 
 		page.setChildren( [] );
 		page.setDepth( ListLen( page.getPath(), "/" ) );
-
 		return page;
 	}
 
@@ -74,7 +92,7 @@ component {
 		var slug            = ListLast( arguments.pageDir, "\/" );
 
 		var fileContent     = FileReadAsUnix( path );
-		var data            = _parsePage( fileContent );
+		var data            = _parsePage( fileContent, path );
 		var sortOrder       = "";
 
 		// if the last directory is in the format 00.home, flag is as visible
@@ -118,27 +136,67 @@ component {
 	public any function readPageFileSource( required string filePath ) {
 		var path            = Replace(arguments.filePath,"\","/","all");
 		var fileContent     = FileReadAsUnix( path );
-		var data            = _parsePage( fileContent );
+		var data            = _parsePage( fileContent, arguments.filePath );
 		return data;
 	}
 
-	private struct function _parsePage( required string pageContent ) {
+	private struct function _parsePage( required string pageContent, required string filePath ) {
 		var yamlAndBody = _splitYamlAndBody( arguments.pageContent );
 		var parsed      = { body = yamlAndBody.body };
 
 		if ( yamlAndBody.yaml.len() ) {
 			parsed.append( _parseYaml( yamlAndBody.yaml ), false );
+		} else if ( len( trim( arguments.pageContent ) ) ){
+			parsed = _splitCommentStructAndBody( arguments.pageContent, arguments.filePath );
 		}
 
 		return parsed;
 	}
 
-	private struct function _splitYamlAndBody( required string pageContent ) {
+	private struct function _splitYamlAndBody( required string pageContent, string filePath ) {
 		var splitterRegex = "^(\-\-\-\n(.*?)\n\-\-\-\n)?(.*)$";
 
 		return {
 			  yaml = Trim( ReReplace( arguments.pageContent, splitterRegex, "\2" ) )
 			, body = Trim( ReReplace( arguments.pageContent, splitterRegex, "\3" ) )
+		}
+	}
+
+	private struct function _splitCommentStructAndBody( required string pageContent,  string filePath ) {
+		// recipies use a different format, json in html comments
+		/*
+
+		<!--
+		{
+			{
+				"title": "XML Fast And Easy, using SAX - Listener Functions",
+				"id": "xml-fast-and-easy",
+				"related": [
+					"function-xmlparse"
+				],
+		}	
+		--->
+		*/
+		var str = trim( arguments.pageContent );
+		var startComment = find("<!--", str, 1);
+		if ( startComment != 1 ){
+			return { body: arguments.pageContent };
+			//throw "missing opening html comment metadata [#arguments.filePath#]";
+		}
+		var endComment = find( "-->", str, startComment );
+		if ( endComment == 0 )
+			throw "missing closing html comment metadata [#arguments.filePath#]";
+		var meta = mid( str, 5, endComment - 5 );
+		//systemOutput( "!!" & meta & "!!", true );
+		if ( !isJson( meta ) ){
+			throw "metadata is not json [#arguments.filePath#]";
+		}
+		var body = mid( str, endComment + 3 );
+		if ( len( trim( body ) ) eq 0 )
+			throw "empty content after metadata [#arguments.filePath#]";
+		return {
+			  yaml = deserializeJson( meta )
+			, body = body
 		}
 	}
 
