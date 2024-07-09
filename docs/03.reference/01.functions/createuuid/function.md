@@ -3,6 +3,7 @@ title: CreateUUID
 id: function-createuuid
 related:
 - function-createguid
+- function-createulid
 ---
 
 Creates a Universally Unique Identifier (UUID).
