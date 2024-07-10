@@ -33,7 +33,11 @@ jobs:
         run: |
           BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})
           git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add docs/recipes/index.json docs/recipes/README.md
-          git commit -m "Update recipes index and README"
-          git push origin $BRANCH_NAME
+          git config --local user.name "Lucee Docs GitHub Action"
+          if [ -n "$(git status --porcelain)" ];
+            git add docs/recipes/index.json docs/recipes/README.md
+            git commit -m "Update recipes index and README"
+            git push origin $BRANCH_NAME
+          else
+            echo "No changes found"
+          fi
