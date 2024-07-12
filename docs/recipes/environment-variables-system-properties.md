@@ -106,6 +106,16 @@ Specifies the file directory for the Lucee server context.
 **System Property:** `-Dlucee.version`  
 Defines the version of Lucee to load. For example, setting it to `6.1.0.0` will load that version. If not available locally, Lucee will automatically download it from Maven.
 
+## Breaking Changes
+
+Major updates for Lucee can sometimes cause breaking changes. The settings below allow you to emulate the behavior of older Lucee versions in newer versions.
+
+**Environment Variable:** `LUCEE_QUERY_ALLOWEMPTYASNULL`  
+**System Property:** `-Dlucee.query.allowemptyasnull`
+
+In Lucee 5, an empty string passed into a query parameter with a numeric type was interpreted as null. In Lucee 6, this is no longer accepted and throws an exception.
+You can simulate the old behavior by setting this environment variable or system property to `true`.
+
 ## Regular Settings
 
 Settings that are nice to know, but not that important.
