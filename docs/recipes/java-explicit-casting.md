@@ -21,6 +21,7 @@
 This guide demonstrates how to explicitly cast a component to a specific interface in Lucee.
 
 ## Implicit Casting
+
 Lucee supports implicit casting by passing a component to a method where the method argument is of a specific type. For example:
 
 ```lucee
@@ -39,9 +40,11 @@ getPageContext().setLocale(cs);
 In this example, Lucee implicitly finds a matching method and converts the component to a class implementing the `java.lang.CharSequence` interface.
 
 ## Explicit Casting
+
 Sometimes, implicit casting can be problematic if Lucee cannot make the correct fit, or if a method is overloaded and you need to specify which method to use. 
 
 For instance, the `PageContext` class has two `setLocale` methods:
+
 - `setLocale(java.lang.String): void`
 - `setLocale(java.util.Locale): void`
 

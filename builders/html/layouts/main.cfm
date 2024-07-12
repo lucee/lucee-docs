@@ -94,7 +94,7 @@
 								<a href="https://github.com/lucee/lucee-docs"><span class="fa fa-fw fa-github"></span>Source repository</a>
 							</li>
 							<li>
-								<a href="https://javadoc.lucee.org"><span class="fa fa-fw fa-code"></span>JavaDocs</a>
+								<a href="https://www.javadoc.io/doc/org.lucee/lucee/latest/index.html"><span class="fa fa-fw fa-code"></span>Lucee JavaDocs</a>
 							</li>
 							<li>
 								<a href="https://rorylaitila.gitbooks.io/lucee/content/"><span class="fa fa-fw fa-book"></span>Git Book</a>

@@ -5,7 +5,7 @@
 	if ( fileExists( docsZipFile ) )
 		fileDelete( docsZipFile );
 	if (directoryExists( "builds/artifacts") ){
-		directoryDelete(" builds/artifacts", true);
+		directoryDelete("builds/artifacts", true);
 	}
 	include  template="import.cfm";
 	include  template="build.cfm";

@@ -43,7 +43,7 @@ Lucee 4.5 is the [legacy stable release](https://lucee.org/downloads.html) of th
 
 ## Java API Docs
 
-For Java API documentation of the Lucee server engine, please visit [https://javadoc.lucee.org](https://javadoc.lucee.org).
+The Java API documentation of Lucee Server's loader interfaces, are published at [https://www.javadoc.io/doc/org.lucee/lucee/latest/index.html](https://www.javadoc.io/doc/org.lucee/lucee/latest/index.html).
 
 ## Lucee on YouTube
 

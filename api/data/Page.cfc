@@ -51,7 +51,7 @@ component accessors=true {
 	}
 
 	public string function getPageMenuTitle(){
-		if (len(getMenuTitle()) gt 0)
+		if ( len( getMenuTitle() ) gt 0 )
 			return getMenuTitle();
 		else
 			return getTitle();
@@ -109,5 +109,14 @@ component accessors=true {
 			default:
 				return "[[object-#type#]]";
 		}
+	}
+
+	public function getInstance(){
+		var st = {};
+		for ( var v in variables ){
+			if ( !isNull(variables[ v ]) && isSimpleValue( variables[ v ] ) and len( variables[v] ) lt 75 )
+				st[v ] = variables[ v ];
+		}
+		return st;
 	}
 }

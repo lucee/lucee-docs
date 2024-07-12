@@ -30,13 +30,13 @@ component accessors=true {
 
 	private void function _initializeEmptyTree() {
 		setTree( [] );
-		setIdMap( {} );
-		setPathMap( {} );
-		setPageTypeMap( {} );
-		setRelatedMap( {} );
-		setCategoryMap( {} );
-		setReferenceMap( {} );
-		setDirectlyRelatedMap( {} );
+		setIdMap( [:] );
+		setPathMap( [:] );
+		setPageTypeMap( [:] );
+		setRelatedMap( [:] );
+		setCategoryMap( [:] );
+		setReferenceMap( [:] );
+		setDirectlyRelatedMap( [:] );
 	}
 
 	public void function updateTree() {
@@ -44,10 +44,14 @@ component accessors=true {
 	}
 
 	public any function getPage( required string id ) {
+		if ( !pageExists( arguments.id ) )
+			systemOutput( "GetPage: #id# does not exist in doctree", true );
 		return variables.idMap[ arguments.id ] ?: NullValue();
 	}
 
 	public any function getPageByPath( required string path ) {
+		if ( !structKeyExists( variables.pathMap, arguments.path  ) )
+			systemOutput( "GetPageByPath: #path# does not exist in doctree", true );
 		return variables.pathMap[ arguments.path ] ?: NullValue();
 	}
 
@@ -206,16 +210,19 @@ component accessors=true {
 			var start = getTickCount();
 			var _threads = getThreads();
 			each (q_source_files, function (page) {
+				// systemOutput( arguments.page.path & arguments.page.name, true);
 				var _parsedPage = new PageReader().preparePageObject( variables.rootDir, arguments.page.name, arguments.page.directory, arguments.page.path );
 
 				if ( ! _parsedPage.getHidden() ) {
 					variables.pageCache.addPage(
 						_parsedPage,
-						arguments.page.path
+						_parsedPage.getPath()
 					);
+				} else {
+					// systemOutput("hidden--------------------#arguments.page.path#", true)
 				}
 			}, (_threads != 1), _threads);
-			request.logger (text="Pages Parsed in #(getTickCount()-start)/1000#s");
+			request.logger (text=" #len(variables.pageCache.getPages())# Pages Parsed in #(getTickCount()-start)/1000#s");
 
 			_buildTreeHierachy(false);
 			_parseTree();
@@ -292,16 +299,22 @@ component accessors=true {
 	private void function _parseTree( ) {
 		// expose guides as a top level folder
 		for (var folder in variables.tree){
-			if (folder.getId() eq "guides"){
-				var guideTree = folder.getChildren();
-				for (var guide in guideTree){
-					if (guide.getForceSortOrder() gt 0){
-						guide.setSortOrder(guide.getForceSortOrder());
-					} else {
-						guide.setSortOrder(6 + NumberFormat(guide.getSortOrder()/100,"0.00"));
+			switch( folder.getId() ){
+				case "guides":
+					var guideTree = folder.getChildren();
+					for (var guide in guideTree){
+						if (guide.getForceSortOrder() gt 0){
+							guide.setSortOrder(guide.getForceSortOrder());
+						} else {
+							guide.setSortOrder(6 + NumberFormat(guide.getSortOrder()/100,"0.00"));
+						}
+						variables.tree.append(guide);
 					}
-					variables.tree.append(guide);
-				}
+					break;
+				/*	
+				case "recipes":
+					break;
+				*/
 			}
 		}
 		_sortChildren( variables.tree );
@@ -332,12 +345,8 @@ component accessors=true {
 			variables.tree.append( arguments.page );
 		}
 
- 		if ( !isPage ){
-			if ( page.getPath() comtains "/recipes" ){
-				request.logger(text="skipping coz /recipes" );
-				return;
-			}
-			throw "not a page [#page.path#]"; // only add main pages
+		if ( !isPage ){
+			throw "not a page [#page.getFilePath()#]"; // only add main pages
 		}
 
 		if ( !StructKeyExists( variables.pageTypeMap, pageType ) )

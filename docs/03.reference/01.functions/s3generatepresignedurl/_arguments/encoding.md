@@ -1,0 +1,1 @@
+Specifies content encodings applied to the object, like gzip.
