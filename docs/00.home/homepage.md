@@ -28,7 +28,9 @@ Targetting better performance, Lucee 6.1 has full support for Java 11 thru 21.
 
 [Lucee 6](https://dev.lucee.org/tag/lucee-6) is current stable release of Lucee.
 
-Highlights include, reduced size, faster startup, single context mode, JSON based configuration and much more. 
+Highlights include, reduced size, faster startup, single context mode, JSON based configuration and much more.
+
+As a Major Release, Lucee 6 does include some potential **BREAKING CHANGES**, for a range of security reasons and better compatibility with Adobe ColdFusion, they are all documented in Jira under an Epic, [All Breaking changes in Lucee 6](https://luceeserver.atlassian.net/browse/LDEV-4534)
 
 ## Lucee 5.4 (LTS)
 
