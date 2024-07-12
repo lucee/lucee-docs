@@ -116,6 +116,10 @@ Major updates for Lucee can sometimes cause breaking changes. The settings below
 In Lucee 5, an empty string passed into a query parameter with a numeric type was interpreted as null. In Lucee 6, this is no longer accepted and throws an exception.
 You can simulate the old behavior by setting this environment variable or system property to `true`.
 
+By setting the log level of the `datasource` log to `warn`, you will receive information in the log when the old behavior is used. 
+This allows you to modify your code for the new behavior without encountering runtime issues with the existing code.
+
+
 ## Regular Settings
 
 Settings that are nice to know, but not that important.
