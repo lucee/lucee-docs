@@ -21,7 +21,7 @@ To set up **luceedebug** and make it available in Visual Studio Code you'll need
 - A **Lucee CFML-Engine** to run your CFML code: For this example, we'll use the Lucee Express Version 5.4 LTS.
 - A **Java JDK**: We will use JAVA 11 LTS as the Java Development Kit (JDK). A JDK is a *MUST have*: Using just a Java Runtime Environment (JRE) won't suffice to run luceedebug!
 - **luceedebug.jar (Debugger-Server)**: this is the server-side backend of the Lucee-Debugger that runs as a Java agent in Tomcat: While Tomcat runs the Lucee CFML Engine on the default port 8888, the Java Agent also runs in parallel providing all the necessary information for the Visual Studio Code Luceedebug Extension (Debugger-Client). That Java Agent provides this service on an additional port.
-- **Visual Studio Code Luceedebug Extension (Debugger-Client):** This is the Visual Studio Code client installed as a Visual Studio Code extension through the Visual Studio Code Extension Marketplace. When installed, this client connects from your Visual Studio Code to request the Luceedebug running server-side backend. It will also be listening for any information comming from the server side luceedebug.
+- **Visual Studio Code Luceedebug Extension (Debugger-Client):** This is the Visual Studio Code client installed as a Visual Studio Code extension through the Visual Studio Code Extension Marketplace. When installed, this client connects from your Visual Studio Code to request the Luceedebug running server-side backend. It will also be listening for any information coming from the server side luceedebug.
 - **A code base to debug**: As an example, we will use Lucee's default application shipped with the Lucee Express Version 5.4 LTS at `Lucee-Installation-Path\webapps\ROOT\`.
 
 As a quick overview: At the end of the installation process shown in this documentation, the file tree should look somehow like the one shown below (this file tree only shows the relevant file structure):
@@ -188,7 +188,7 @@ On Linux/MacOs:
 
 #### Step 7: Running everything all together
 
-While the Tomcat Lucee instance is already running at http://localhost:8888 (test it by browsing to it) and the Java Agent with luceedebug.jar is listening on localhost:9999, you can open the workspace by double-clicking the file at `D:\luceedebug_example\lucee_debug_example.code-workspace`. This should open your Visual Studio Code with Lucee's default application at `D:\luceedebug_example\lucee-express-5.4.6.9\webapps\ROOT\index.cfm`. 
+While the Tomcat Lucee instance is already running at `http://localhost:8888` (test it by browsing to it) and the Java Agent with luceedebug.jar is listening on localhost:9999, you can open the workspace by double-clicking the file at `D:\luceedebug_example\lucee_debug_example.code-workspace`. This should open your Visual Studio Code with Lucee's default application at `D:\luceedebug_example\lucee-express-5.4.6.9\webapps\ROOT\index.cfm`. 
 
 Open that file within your Visual Studio Code for editing. Click the `Debug-Icon` in the navigation pane or press `SHIFT+CTRL+D`: this will start the Visual Studio Code Debugging Mode with all debugging panes populated by the Visual Studio Code Lucee Debug Extension. 
 
