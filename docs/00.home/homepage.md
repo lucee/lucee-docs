@@ -20,7 +20,7 @@ To find out more about getting involved as a developer with Lucee, checkout our 
 
 Lucee 6.1 is the next major release, currently at the final Release Candidate stage.
 
-Targeting better performance, Lucee 6.1 has full support for Java 11 thru 21.
+Targeting better performance and reduced memory usuage, Lucee 6.1 now has full support for Java 11 thru 21.
 
 ## Lucee 6.0
 
