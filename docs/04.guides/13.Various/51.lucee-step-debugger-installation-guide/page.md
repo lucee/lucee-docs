@@ -1,6 +1,8 @@
 ---
 title: Lucee Step Debugger Installation Guide
 id: lucee-step-debugger-installation-guide
+categories:
+- debugging
 description: How to set up the step debugger "luceedebug" for enhanced CFML Debugging in Visual Studio Code and Lucee
 ---
 

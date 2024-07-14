@@ -21,6 +21,7 @@ Here are the Modern IDEs which include support for CFML development
 
 [**LuceeDebug**](https://github.com/softwareCobbler/luceedebug) supports step debugging via breakpoints via a java agent and a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=DavidRogers.luceedebug)
 
+[[lucee-step-debugger-installation-guide]]
 
 ## Sublime Text
 
