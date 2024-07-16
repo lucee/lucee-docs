@@ -22,7 +22,9 @@
 
 # Application Context update
 
-Lucee allows you to update the existing application context defined for example in [cookbook-application-context-basic].
+Lucee allows you to update the existing application context, **per request** as defined for example in [cookbook-application-context-basic].
+
+This does not affect any other request, you are only changing the application settings for the current request.
 
 For example, add a per-application mapping:
 

@@ -4,9 +4,7 @@ reference: 'false'
 description: 'Lucee Server Documentation #cfml #coldfusion #lucee'
 ---
 
-Welcome to the Official [Lucee Server](https://lucee.org) Documentation.
-
-[![Meet the Lucee Team at CFCAMP 2024](/assets/images/conferences/CFCAMP-2024.png)](https://www.cfcamp.org/?utm_source=website&utm_id=Ldoc)
+Welcome to the Official [Lucee Server](https://lucee.org) Documentation
 
 ---
 
@@ -18,24 +16,34 @@ Our documentation is an open source and community driven effort. It is also a co
 
 To find out more about getting involved as a developer with Lucee, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/6.0/CONTRIBUTING.md)
 
+## Lucee 6.1
+
+Lucee 6.1 is the next major release, currently at the final Release Candidate stage.
+
+Targeting better performance and reduced memory usuage, Lucee 6.1 now has full support for Java 11 thru 21.
+
+## Lucee 6.0
+
+[Lucee 6](https://dev.lucee.org/tag/lucee-6) is current stable release of Lucee.
+
+Highlights include, reduced size, faster startup, single context mode, JSON based configuration and much more.
+
+As a Major Release, Lucee 6 does include some potential **BREAKING CHANGES**, for a range of security reasons and better compatibility with Adobe ColdFusion, they are all documented in Jira under an Epic, [All Breaking changes in Lucee 6](https://luceeserver.atlassian.net/browse/LDEV-4534)
+
+## Lucee 5.4 (LTS)
+
+Lucee 5.4 is our [LTS stable release](https://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs.
+
+Lucee 5.4 will receive security updates and critcal regression fixes until 2026, but is no longer actively maintained.
+
 ## Getting help
 
 - Our mailing list / forum is over at [https://dev.lucee.org/](https://dev.lucee.org/)
 - [[tutorial-reporting-bugs]]
 
-## Lucee 5.4
-
-Lucee 5.4 is the [stable release](https://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs.
-
-## Lucee 6.0
-
-[Lucee 6](https://dev.lucee.org/tag/lucee-6) is the next major release of Lucee, currently in [development](https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/10?sprint=58).  See the [Lucee 6 category](https://dev.lucee.org/tag/lucee-6) on our developer forum.
-
-Highlights include, reduced size, faster startup, single context mode, JSON based configuration and much more. 
-
 ## Lucee 5.3
 
-Lucee 5.3 now in maintenance mode and no longer actively developed. It will only be releasing critical bugfixes and security updates.
+Lucee 5.3 (and older) now is no longer actively developed. It's time to upgrade to 5.4 LTS or 6 (reommended)
 
 ## Lucee 4.5
 

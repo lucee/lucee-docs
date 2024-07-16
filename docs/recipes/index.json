@@ -3,7 +3,7 @@
     "file": "application-context-update.md",
     "title": "Application Context update",
     "path": "/docs/recipes/application-context-update.md",
-    "hash": "409a2f3860d5ad4e6d906b3341730352",
+    "hash": "996c66538ed2c107fabed44863cf0885",
     "keywords": [
       "Application Context",
       "Update Application",
@@ -192,7 +192,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "077cd282c87b65c290ff79493de27da1",
+    "hash": "eca24437e534f809870da00652ddbba3",
     "keywords": [
       "Environment",
       "Environment Variables",
