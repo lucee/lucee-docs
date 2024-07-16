@@ -119,6 +119,14 @@ You can simulate the old behavior by setting this environment variable or system
 By setting the log level of the `datasource` log to `warn`, you will receive information in the log when the old behavior is used. 
 This allows you to modify your code for the new behavior without encountering runtime issues with the existing code.
 
+**Environment Variable:** `LUCEE_DESERIALIZEJSON_ALLOWEMPTY`  
+**System Property:** `-Dlucee.deserializejson.allowempty`
+
+In Lucee 5, an empty string passed into the function deserializeJson will return an empty string back. In Lucee 6, this is no longer accepted and throws an exception.
+You can simulate the old behavior by setting this environment variable or system property to `true`.
+
+By setting the log level of the `application` log to `warn`, you will receive information in the log when the old behavior is used. 
+This allows you to modify your code for the new behavior without encountering runtime issues with the existing code.
 
 ## Regular Settings
 
