@@ -18,13 +18,13 @@ To find out more about getting involved as a developer with Lucee, checkout our 
 
 ## Lucee 6.1
 
-Lucee 6.1 is the next major release, currently at the final Release Candidate stage.
+Lucee 6.1 is current stable release of Lucee.
 
-Targeting better performance and reduced memory usuage, Lucee 6.1 now has full support for Java 11 thru 21.
+Targeting better performance and reduced memory usuage, Lucee 6.1 has full support for Java 11 and 21.
 
 ## Lucee 6.0
 
-[Lucee 6](https://dev.lucee.org/tag/lucee-6) is current stable release of Lucee.
+[Lucee 6](https://dev.lucee.org/tag/lucee-6) .
 
 Highlights include, reduced size, faster startup, single context mode, JSON based configuration and much more.
 
@@ -34,7 +34,7 @@ As a Major Release, Lucee 6 does include some potential **BREAKING CHANGES**, fo
 
 Lucee 5.4 is our [LTS stable release](https://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs.
 
-Lucee 5.4 will receive security updates and critcal regression fixes until 2026, but is no longer actively maintained.
+As a LTS release, Lucee 5.4 will receive security updates and critical regression fixes until 2026, **but is no longer actively maintained.**
 
 ## Getting help
 

@@ -11,11 +11,13 @@ Of course there are different recommendations that go with the different operati
 
 ### Java Versions ###
 
-Lucee 5.3 and 5.4 support Java 8 and 11
+Lucee 5.4 (LTS) supports Java 8 and 11
 
-Lucee 6 will support Java 11 on release, with Java 8 unofficially supported as long as practical 
+Lucee 6 supports Java 11, with Java 8 unofficially supported as long as practical 
 
-Full Java 17 support is planned for a later 6 point release, it currently mostly works, see <https://luceeserver.atlassian.net/browse/LDEV-3807>
+Lucee 6.1 supports Java 11 and Java 21 (recommended)
+
+Lucee 6.2 will support both the Javax and Jakarta Namespaces, thus supporting Tomcat 10 etc
 
 If you do run into problems running on **newer versions** of Java with Lucee 6, please report any problems to the developer forum [Lucee Dev](https://dev.lucee.org)
 
