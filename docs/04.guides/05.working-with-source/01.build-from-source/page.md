@@ -12,12 +12,14 @@ See [[building-testing-extensions]] for instructions regarding Extensions
 
 ### 1. Before you get started
 
+Lucee 5.4 is in LTS mode, any new submissions should target the 6.2 branch
+
 Before you can start building Lucee from source, you will need a few things installed on your machine:
 
 1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  
 
 - Lucee requires JDK 11 or later in order to compile.  [Oracle](https://www.oracle.com/technetwork/java/javase/downloads/) or [AdoptOpenJDK](https://adoptopenjdk.net/)
-- Java 8 still works, but is no longer offically supported
+- Java 8 still works, but is no longer officially supported as of Lucee 6.0
 - Java 11 is supported
 - Java 21 is fully supported since 6.1
 
