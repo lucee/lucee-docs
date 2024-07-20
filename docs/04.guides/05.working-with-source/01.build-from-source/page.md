@@ -16,9 +16,10 @@ Before you can start building Lucee from source, you will need a few things inst
 
 1. **Java JDK** - since you're going to compile Java code you need the JDK and not just the JRE.  
 
-- Lucee requires JDK 8 or later in order to compile.  [Oracle](https://www.oracle.com/technetwork/java/javase/downloads/) or [AdoptOpenJDK](https://adoptopenjdk.net/)
-- Java 11 is *recommended*, Java 15 is *not yet supported* due the removal of the Nashorn JavaScript engine which is used in the build process 
-- Java 17 *isn't yet fully supported* due to some Apache Felix issues (fixed in 5.3.9, but some extensions need updating)
+- Lucee requires JDK 11 or later in order to compile.  [Oracle](https://www.oracle.com/technetwork/java/javase/downloads/) or [AdoptOpenJDK](https://adoptopenjdk.net/)
+- Java 8 still works, but is no longer offically supported
+- Java 11 is supported
+- Java 21 is fully supported since 6.1
 
 1. **Apache Maven** - the source code contains several build scripts that will automate the build process for you. You will need Maven installed in order to run these build scripts. <http://maven.apache.org/>
 
@@ -28,11 +29,25 @@ Before you can start building Lucee from source, you will need a few things inst
 
 Lucee's source code is version-controlled with Git, [Lucee GitHub repository](https://github.com/lucee/lucee).
 
-The repository contains a few branches, with the most important ones being "Master" (current release) and "Develop" (alpha and beta releases), currently the main branch for development is the *6.0 branch*, so best start there.
+The repository contains a few branches, with the most important ones being "Master" (current release) and "Develop" (alpha and beta releases), currently the main branch for development is the *6.1 branch*, so best start there.
 
-So simply clone the 6.0 branch (or fork your own copy) from the git repository to your local drive with the following command:
+So fork the Lucee repo and then checkout your forked repo locally
 
-    git clone -b 6.0 https://github.com/lucee/Lucee.git
+**Important**
+
+Recently (July 2024) we experienced a problem with Docker pull limits being hit, causing our CI (Github Actions) to fail
+
+Docker kindly sponsored Lucee with an open source license, so we are now using authenticated Docker pulls,
+however, this causes a problem on CI for PRs and forks, as the Github Action will fail without Docker Creds (secrets)
+
+To solve this, you'll need a Docker hub account and add the following secrets to your forked repo
+
+- DOCKERHUB_PUBLIC_USERNAME
+- DOCKERHUB_PUBLIC_TOKEN
+
+(it's named "PUBLIC" as this token under the Lucee Org only has rights to pull public images)
+
+See <https://luceeserver.atlassian.net/browse/LDEV-4979> for details.
 
 ### 3. Build it
 
