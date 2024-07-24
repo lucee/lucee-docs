@@ -254,17 +254,13 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_EXTENSIONS_INSTALL<br>lucee.extensions.install</div>
 			</td>
 			<td>
-
 				<p>Enables/disables installation of Lucee's default extensions. When this value is changed, it will need a complete redeployment of "lucee-server" (simple restart won't suffice).</p>
-
 				<p>This directive is very useful in combination with the system variable LUCEE_EXTENSIONS.</p>
-
 				<sub>Values: Boolean <code>true | false</code></sub>
 				<br>
 				<sub>Default: <code>true</code></sub>
@@ -276,22 +272,17 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_EXTENSIONS<br>lucee.extensions</div>
 			</td>
 			<td>
 				<p>Comma separated list of extension GUIDs (Globally Unique Identifiers) to be downloaded and installed during the very first server start.</p>
-
 				<p>Setting GUID alone will install latest version.</p>
-
 				<p>If you want to dictate version, append <code>;version=xx.xx.xx.xx</code> to the GUID.</p>
-
 				<p>You can find available extensions and their corresponding GUID (these are listed as IDs) in the Server Administrator or at
 				<a href="https://downloads.lucee.org" target="_blank">Lucee Downloads</a>.</p>
-
-		<sub>Values: String</sub>
+				<sub>Values: String</sub>
 				<p>
 					<strong>Example:</strong> Installing JFreeChart Extension Version 1.0.19.19:
 					<pre lang="script">LUCEE_EXTENSIONS=D46B46A9-A0E3-44E1-D972A04AC3A8DC10;version=1.0.19.19</pre>
@@ -304,7 +295,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_ENABLE_BUNDLE_DOWNLOAD<br>lucee.enable.bundle.download</div>
@@ -323,7 +313,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_TEMPLATE_CHARSET<br>lucee.template.charset</div>
@@ -348,7 +337,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_WEB_CHARSET<br>lucee.web.charset</div>
@@ -371,7 +359,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_RESOURCE_CHARSET<br>lucee.resource.charset</div>
@@ -394,7 +381,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_SCRIPT_PROTECT<br>lucee.script.protect</div>
@@ -421,7 +407,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_QUEUE_ENABLE<br>lucee.queue.enable</div>
@@ -442,7 +427,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_QUEUE_MAX<br>lucee.queue.max</div>
@@ -464,7 +448,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_QUEUE_TIMEOUT<br>lucee.queue.timeout</div>
@@ -487,14 +470,12 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_CFML_WRITER<br>lucee.cfml.writer</div>
 			</td>
 			<td>
 				Defines whitespace management of the server.<br>
-
 				<ul>
 					<li><strong>regular</strong>: No whitespace management.</li>
 					<li><strong>white-space</strong>: Simple whitespace management -
@@ -502,10 +483,9 @@ Also, make sure not to publish these files with sensitive data as part of open s
 					<li><strong>white-space-pref</strong>: Smart whitespace management - every whitespace character that follows a whitespace is removed,
 					but whitespace inside the tags: &lt;code&gt;, &lt;pre&gt; and &lt;textarea&gt; is kept</li>
 				</ul>
-
-		<sub>Values: String <code>white-space-pref | regular | white-space</code></sub>
-		<br>
-		<sub>Default: <code>regular</code></sub>
+				<sub>Values: String <code>white-space-pref | regular | white-space</code></sub>
+				<br>
+				<sub>Default: <code>regular</code></sub>
 				<p>
 					<strong>Example:</strong> The following directive will set whitespace management to simple:
 					<pre lang="script">LUCEE_CFML_WRITER=white-space</pre>
@@ -520,16 +500,13 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_SUPPRESS_WS_BEFORE_ARG<br>lucee.suppress.ws.before.arg</div>
 			</td>
 			<td>
 				<p>If set, Lucee suppresses whitespace defined between the [[tag-function]] starting tag and the last [[tag-argument]] tag.</p>
-
 				<p>This setting is ignored when there is a different output between this tags as white space.</p>
-
 				<sub>Values: Boolean <code>true | false</code></sub>
 				<br>
 				<sub>Default: <code>true</code></sub>
@@ -543,17 +520,13 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_PRESERVE_CASE<br>lucee.preserve.case</div>
 			</td>
 			<td>
-
 				<p>Keep all struct keys defined with "dot notation" in original case.</p>
-
 				<p>If set to false, all dot.notated key-names will be converted to UPPERCASE.</p>
-
 				<sub>Values: Boolean <code>true | false</code></sub>
 				<br>
 				<sub>Default: <code>false</code></sub>
@@ -571,7 +544,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_ALLOW_COMPRESSION<br>lucee.allow.compression</div>
@@ -595,7 +567,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_FULL_NULL_SUPPORT<br>lucee.full.null.support</div>
@@ -618,7 +589,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_CASCADE_TO_RESULTSET<br>lucee.cascade.to.result</div>
@@ -642,7 +612,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_TYPE_CHECKING<br>lucee.type.checking</div>
@@ -664,7 +633,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_STATUS_CODE<br>lucee.status.code</div>
@@ -685,7 +653,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">
@@ -694,15 +661,11 @@ Also, make sure not to publish these files with sensitive data as part of open s
 					LUCEE_S3_ACCESSKEYID<br>lucee.s3.accesskeyid
 				</div>
 			</td>
-
 			<td>
 				<p>Defines the default S3 virtual S3 bucket mapping credentials. </p>
-
 				<p>Use this to hide AWS S3 credentials from source code or Web Administrator. </p>
-
 				<p>That way you connect to your S3 bucket with a <code>S3:///myAwsBucketname/someDirectory/</code> <code>S3:///myAwsKey:myAwsSecretKey@/myAwsBucketname/someDirectory/</code>.
 		Please see [[category-s3]]</p>
-
 				<sub>Values: String</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
@@ -714,7 +677,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">
@@ -723,9 +685,7 @@ Also, make sure not to publish these files with sensitive data as part of open s
 			</td>
 			<td>
 				<p>Defines a comma separated list of file extensions that are not allowed to be uploaded. </p>
-
 				<p>By default Lucee will block a set of files that have potential risk. Use this setting to have more control over Lucees default settings.</p>
-
 				<sub>Values: String</sub>
 				<br>
 				<sub>Default: <code>asp,aspx,cfc,cfm,cfml,do,htm,html,jsp,jspx,php</code></sub>
@@ -744,7 +704,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">
@@ -762,7 +721,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">
@@ -771,11 +729,8 @@ Also, make sure not to publish these files with sensitive data as part of open s
 			</td>
 			<td>
 				<p>Defines the directory location where Lucee should create the server context.</p>
-
 				<p>By default Lucee places its server context in the servlet engines directory.</p>
-
 				<p>Use this to move the server context outside the Lucee installation dir. This directive is the same as the init param lucee-server-directory of <code><em>path-to-lucee-installation\tomcat\conf\web.xml</em></code></p>
-
 				<sub>Values: String</sub>
 				<p>
 					<strong>Example:</strong> Moving web contexts to another location:
@@ -789,7 +744,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">
@@ -798,15 +752,10 @@ Also, make sure not to publish these files with sensitive data as part of open s
 			</td>
 			<td>
 				Defines the directory location where Lucee should create the web contexts.
-
 				<p>By default Lucee places its web-context configuration and data files in a folder named WEB-INF under the webroot of each website.</p>
-
 				<p>Use this to move the web context outside of the websites webroot. </p>
-
 				<p>This directive is the same as the init param lucee-web-directory of <code><em>path-to-lucee-installation\tomcat\conf\web.xml</em></code>. </p>
-
 				<p>When using this directive you'll need to add Lucees label variable <code>{web-context-label}</code> to the path that will be used as the identifier hash or label for the created web contexts.</p>
-
 				<sub>Values: String</sub>
 				<p>
 					<strong>Example:</strong> Moving web contexts to another location:
@@ -820,7 +769,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">
@@ -833,8 +781,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				<sub>Values: String</sub>
 				<br>
 				<sub>Default: <code>false</code></sub>
-
-
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -843,7 +789,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">
@@ -856,7 +801,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				<sub>Values: String <code>error | warning |info | debug</code></sub>
 				<br>
 				<sub>Default: <code>error</code></sub>
-
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -867,7 +811,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">
@@ -876,9 +819,7 @@ Also, make sure not to publish these files with sensitive data as part of open s
 			</td>
 			<td>
 				Disables the controller. Default is <code>false</code>.
-
 				<p>The Controller is an internal background process which runs maintenance tasks.</p>
-
 				<strong>On Startup</strong><br>
 				<ul>
 					<li>Syncing NTP time</li>
@@ -886,7 +827,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 					<li>Clearing out cache files</li>
 					<li>Clearing out expired scopes like sessions (in persistent storage)</li>
 				</ul>
-
 				<strong>Every Minute</strong><br>
 				<ul>
 					<li>Automatically deploying updates / extensions [[deploying-lucee-server-apps]]
@@ -898,19 +838,15 @@ Also, make sure not to publish these files with sensitive data as part of open s
 					<li>Clearing out locks</li>
 					<li>Picking up changed configuration files</li>
 				</ul>
-
 				<strong>Every Hour</strong><br>
 				<ul>
 					<li>Syncing NTP time</li>
 					<li>Clearing out temp files</li>
 					<li>Clearing out cache files</li>
 				</ul>
-
 				<sub>Values: Boolean <code> true | false </code></sub>
 				<br>
 				<sub>Default: <code>false</code></sub>
-
-
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -919,7 +855,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">
@@ -928,9 +863,7 @@ Also, make sure not to publish these files with sensitive data as part of open s
 			</td>
 			<td>
 				<p>Number of milliseconds between controller calls.</p>
-
 				<p>Set to 0 to disable controller. Useful for benchmark testing.</p>
-
 				<sub>Values: Numeric</sub>
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
@@ -940,7 +873,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_LISTENER_TYPE<br>lucee.listener.type</div>
@@ -953,7 +885,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 					<li><strong>modern</strong>: Modern handling. Lucee only looks for the file <code>Application.cfc</code></li>
 					<li><strong>mixed</strong>: Mixed handling. Lucee looks for a file <code>Application.cfm / OnRequestEnd.cfm</code> as well as for the file <code>Application.cfc</code></li>
 				</ul>
-
 				<sub>Values: String <code>none | classic | modern | mixed</code></sub>
 				<br>
 				<sub>Default: <code>mixed</code></sub>
@@ -967,14 +898,12 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_LISTENER_MODE<br>lucee.listener.mode</div>
 			</td>
 			<td>
 				<p>Defines where Lucee looks for the files <code>Application.cfc / Application.cfm</code>.</p>
-
 				<p>Note: In case of having LUCEE_LISTENER_TYPE set to <code>none</code> the setting for LUCEE_LISTENER_MODE is ignored.</p>
 				<ul>
 					<li><strong>curr2root</strong>:	Looks for the file <code>Application.cfc / Application.cfm</code> from the current up to the webroot directory.</li>
@@ -982,7 +911,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 					<li><strong>root</strong>: Looks for the file <code>Application.cfc / Application.cfm</code> only in the webroot .</li>
 					<li><strong>curr</strong>: Looks for the file <code>Application.cfc / Application.cfm</code> only in the current template directory.</li>
 				</ul>
-
 				<sub>Values: String <code> curr2root | currOrRoot | root | curr</code></sub>
 				<br>
 				<sub>Default: <code>curr2root</code></sub>
@@ -996,20 +924,17 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_QOQ_HSQLDB_DISABLE<br>lucee.qoq.hsqldb.disable</div>
 			</td>
 			<td>
 				Throw exception if native QoQ logic fails, otherwise Lucee falls back to using HSQLDB (which is needed for joins etc), Default is <code>false</code>.<br>
-
 				[[http://wwvv.codersrevolution.com/blog/improving-lucees-query-of-query-support]]
 				<br>
 				<sub>Values: Boolean <code>true | false</code></sub>
 				<br>
 				<sub>Default: <code>false</code></sub>
-
 				<p>
 					<strong>Lucee Server Administrator:</strong> not available
 				</p>
@@ -1018,14 +943,12 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-
 		<tr>
 			<td>
 				<div class="attribute">LUCEE_QOQ_HSQLDB_DEBUG<br>lucee.qoq.hsqldb.debug</div>
 			</td>
 			<td>
 				<p>Log message to WEB context's datasource log any time a QoQ "falls back" to HyperSQL.</p>
-
 				<p>This could include just bad SQL syntax. Default is <code>false</code>.</p>
 				<sub>Values: Boolean <code>true|false</code></sub>
 				<br>
@@ -1044,14 +967,11 @@ Also, make sure not to publish these files with sensitive data as part of open s
 			</td>
 			<td>
 				<p>Changes Lucee default behaviour of using existing physical paths over virtually mapped paths with the same mapped name (conflicting situation).</p>
-
 				<p>Set this value to <code>true</code> to change Lucees default behaviour and force Lucee to use mappings as first priority and silently ignore conflicting physical paths.</p>
-
 				<strong>Example:</strong>
 				<pre lang="script">// Assumption:<br>// "D:/myimages/abc" is a physical valid location<br><br>// Defined mappings<br>mappings[ '/' ] = 'D:/';<br>mappings[ '/myimages' ] = 'D:/images';<br><br>// Default Lucee:<br>// the following writeDump outputs "D:/myimages/abc"<br>writeDump( expandPath( '/myimages/abc' );<br><br>// If LUCEE_MAPPING_FIRST=true:<br>// the following writeDump outputs "D:/images/abc"<br>writeDump( expandPath( '/myimages/abc' );<br>
 				</pre>
 				</p>
-
 				<sub>Values: Boolean <code>true|false</code></sub>
 				<br>
 				<sub>Default: <code>false</code></sub>
@@ -1069,7 +989,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 			</td>
 			<td>
 				<p>Enables logging on reflection calls.</p>
-
 				<sub>Values: Boolean <code>true|false</code></sub>
 				<br>
 				<sub>Default: <code>false</code></sub>
@@ -1089,7 +1008,6 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				<p>Enables warming up a Lucee instance.</p>
 				<p>When enabled, Lucee will startup, deploy itself, creating the required directories, deploying any configured extensions and then exiting.</p>
 				<p>It enables a faster startup for the deployment of Docker images, Kubernetes clusters and blue/green environments for example.</p>
-
 				<sub>Values: Boolean <code>true|false</code></sub>
 				<br>
 				<sub>Default: <code>false</code></sub>
@@ -1101,16 +1019,14 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				</p>
 			</td>
 		</tr>
-                <tr>
+		<tr>
 			<td>
 				<div class="attribute">LUCEE_USE_LUCEE_SSL_TRUSTSTORE<br>lucee.use.lucee.SSL.TrustStore</div>
 			</td>
 			<td>
 				<p>Enables the certificate authority truststore in Lucee location, instead by the JVM default truststore location.</p>
 				<p>Previous to Lucee 6.0 Lucee served its own SSL truststore. From 6.0 the truststore is set by the JVM default truststore location.</p>
-                                <p>Enabling this setting will tell Lucee to use its own truststore, behaving as prior to Lucee 6.0.</p>
-			
-
+				<p>Enabling this setting will tell Lucee to use its own truststore, behaving as prior to Lucee 6.0.</p>
 				<sub>Values: Boolean <code>true|false</code></sub>
 				<br>
 				<sub>Default: <code>false</code></sub>
@@ -1121,8 +1037,7 @@ Also, make sure not to publish these files with sensitive data as part of open s
 					<strong>Application.cfc:</strong> not available
 				</p>
 			</td>
-
 		</tr>
 	</tbody>
-</table>
+	</table>
 </div>
