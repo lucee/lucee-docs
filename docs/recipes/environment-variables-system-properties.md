@@ -108,7 +108,7 @@ Defines the version of Lucee to load. For example, setting it to `6.1.0.0` will 
 
 **Environment Variable:** `LUCEE_ADMIN_MODE="single|multi"`  
 **System Property:** `-Dlucee.admin.mode`  
-This setting only applies to Lucee 6 (above `6.1.1.53`), Lucee 6 can run in `single` mode or `multi` mode. In single mode, Lucee only has one set of configurations for the whole server. In multi mode, you have a base configuration for the whole server, but then every web context has its own configuration to override the base configuration. With Lucee 5, you only have multi mode and with Lucee 7, you only have single mode.
+This setting only applies to Lucee 6 (above `6.1.1.54`), Lucee 6 can run in `single` mode or `multi` mode. In single mode, Lucee only has one set of configurations for the whole server. In multi mode, you have a base configuration for the whole server, but then every web context has its own configuration to override the base configuration. With Lucee 5, you only have multi mode and with Lucee 7, you only have single mode.
 By default, a new version of Lucee 6 with no `.CFConfig.json` provided that contains a `mode:"single|multi"` setting starts in single mode. When you update from Lucee 5, you start in multi mode.
 To change this behavior, you can set the environment variable `LUCEE_ADMIN_MODE="single|multi"` or system property `-Dlucee.admin.mode="single|multi"`. 
 
