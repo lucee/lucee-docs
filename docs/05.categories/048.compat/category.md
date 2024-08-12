@@ -1,8 +1,10 @@
 ---
-title: Compatibilty / Migration
+title: Compatibility / Migration with other CFML engines
 id: category-compat
 categories:
 - category-core
+description: Whilst Lucee is broadly compatible with Adobe ColdFusion, there are some differences.
+menuTitle: Compatibility / Migration
 ---
 
 Whilst Lucee is broadly compatible with Adobe ColdFusion, there are some differences.
