@@ -89,7 +89,7 @@ component accessors=true {
 		// load java tags
 		variables.extensionMap = {};
 		var cfg = getPageContext().getConfig();
-		var tlds = cfg.getTLDs(1);
+		var tlds = cfg.getTLDs();
 		//dump(tlds); abort;
 		var tags = tlds[1].getTags();
 		//dump(tags); abort;

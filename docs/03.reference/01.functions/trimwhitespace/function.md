@@ -2,6 +2,9 @@
 title: TrimWhitespace
 id: function-trimwhitespace
 related:
+- function-trim
+- function-ltrim
+- function-rtrim
 categories:
     - string
 ---

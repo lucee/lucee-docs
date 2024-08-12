@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+  enc = EncodeForXPath( "<cfscript>", true );
+  writeDump( enc );
+```

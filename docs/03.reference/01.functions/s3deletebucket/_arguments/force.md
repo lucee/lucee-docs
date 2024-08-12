@@ -1,0 +1,1 @@
+Also delete bucket if it has content.

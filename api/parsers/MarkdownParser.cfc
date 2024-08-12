@@ -5,14 +5,16 @@ component {
 
 	public any function init() {
 		variables.flexmark = false; //experimental https://luceeserver.atlassian.net/browse/LD-109
-		_setupMarkdownProcessor();
+		//_setupMarkdownProcessor();
 		_setupNoticeBoxRenderer();
 
 		return this;
 	}
 
 	public string function _markdownToHtml( required string markdown, required boolean stripParagraph=false) {
-		if (variables.flexmark){
+		if (true){
+			var html = markdownToHtml( arguments.markdown );
+		} else if (variables.flexmark){
 			var processor = _getMarkdownProcessor();
 			var doc = processor.parser.parse(arguments.markdown);
 			var html = processor.renderer.render( doc );

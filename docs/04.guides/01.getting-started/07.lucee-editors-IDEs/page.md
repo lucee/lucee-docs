@@ -3,31 +3,25 @@ title: Lucee Editors & IDEs
 id: lucee-editors-IDEs
 ---
 
-There are many modern IDEs which include support for CFML development
+Here are the Modern IDEs which include support for CFML development
 
-## Lucee Dictionaries
-
-Lucee dictionaries are available for download to support spell checking your code.
-
-[Download cspell .txt dictionary](/dictionaries/lucee.txt)
-
-[Download .json dictionary](/dictionaries/lucee.json)
-
-<https://luceeserver.atlassian.net/browse/LD-115>
-
-## CFEclipse
-
-<https://www.cfeclipse.org>
+**Show your love and star these repos on GitHub!**
 
 ## VS Code
 
 <https://code.visualstudio.com>
 
-<https://marketplace.visualstudio.com/items?itemName=KamasamaK.vscode-cfml>
+<https://marketplace.visualstudio.com/items?itemName=CFMLEditor.cfmleditor>
 
-<https://marketplace.visualstudio.com/items?itemName=KamasamaK.vscode-cflint>
+<https://marketplace.visualstudio.com/items?itemName=CFMLEditor.cfmleditor-lint>
 
 <https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker>
+
+### Step debugging Lucee with VS Code (highly recommended!)
+
+[**LuceeDebug**](https://github.com/softwareCobbler/luceedebug) supports step debugging via breakpoints via a java agent and a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=DavidRogers.luceedebug)
+
+[[lucee-step-debugger-installation-guide]]
 
 ## Sublime Text
 
@@ -40,30 +34,6 @@ Lucee dictionaries are available for download to support spell checking your cod
 ## Adobe ColdFusion Builder
 
 <https://www.adobe.com/products/coldfusion-builder.html>
-
-## Atom
-
-<https://atom.io>
-
-<https://atom.io/packages/language-cfml>
-
-## CFBrackets
-
-<http://cfbrackets.org>
-
-## ActiveState Komodo
-
-<https://www.activestate.com/komodo-ide>
-
-<http://www.we3geeks.org/komodo-cfml/>
-
-## IntelliJ IDEA
-
-<https://www.jetbrains.com/idea/download/index.html>
-
-<https://plugins.jetbrains.com/plugin/14586-cfml>
-
-<https://plugins.jetbrains.com/plugin/15567-cflint>
 
 ## CFLint
 
@@ -107,4 +77,12 @@ here is a sample .cflintrc file which reduces the noise
 
 <http://www.fusion-debug.com/>
 
-<https://getcoldbug.com/>
+## Lucee Dictionaries
+
+Lucee dictionaries are available for download to support spell checking your code.
+
+[Download cspell .txt dictionary](/dictionaries/lucee.txt)
+
+[Download .json dictionary](/dictionaries/lucee.json)
+
+<https://luceeserver.atlassian.net/browse/LD-115>

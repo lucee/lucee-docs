@@ -77,8 +77,8 @@ component accessors=true {
 		// load java tags
 		variables.extensionMap = {};
 		var cfg = getPageContext().getConfig();
-		var flds = cfg.getCombinedFLDs(1);
-		var ff = flds.getFunctions()
+		var flds = cfg.getFLDs();
+		var ff = flds.getFunctions();
 		for (var fname in ff){
 			var bi = bundleInfo( ff[fname].getBIF() );
 			if ( bi.name != "lucee.core" ) {

@@ -1,0 +1,1 @@
+The MIME type of the object (e.g., "text/plain").

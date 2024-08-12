@@ -104,7 +104,7 @@ operators | Name           | Description |
 ------------------------   | -----------
 EQ        | equals         | Returns true if operands are equal, e.g. "A" EQ "A" is true |
 ==        | equals         | Returns true if operands are equal, e.g. "A" == "A" is true |
-===       | identical      | Returns true if operands are the same object in memory, false if they are not, (Note this is different than how JavaScript's === operator works. |
+===       | identical      | Returns true if operands are the same object in memory, false if they are not, (Note this is different than how JavaScript's === operator works. **Lucee 6 === works like javascript, comparing type and value** |
 NEQ       | does not equal | Returns true if operands are not equal, e.g. "A" NEQ "B" is true|
 <>        | does not equal | Returns true if operands are not equal, e.g. "A" <> "B" is true |
 !=        | does not equal | Returns true if operands are not equal, e.g. "A" != "B" is true |

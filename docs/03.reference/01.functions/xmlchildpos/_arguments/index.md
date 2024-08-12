@@ -1,1 +1,1 @@
-Index of XMLchild element for which to search.
+Index of XML child element for which to search

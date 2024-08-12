@@ -4,6 +4,7 @@ id: language-syntax-differences
 related:
 - lucee-5-unquoted-arguments
 categories:
+- compat
 - core
 menuTitle: Language and Syntax
 ---

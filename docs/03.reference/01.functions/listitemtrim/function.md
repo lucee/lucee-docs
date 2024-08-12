@@ -2,6 +2,7 @@
 title: ListItemTrim
 id: function-listitemtrim
 related:
+- function-listchangedelims
 categories:
     - list
     - string

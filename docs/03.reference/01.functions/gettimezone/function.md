@@ -4,6 +4,7 @@ id: function-gettimezone
 related:
 - function-settimezone
 categories:
+- compat
 - datetime
 ---
 

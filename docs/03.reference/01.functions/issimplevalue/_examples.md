@@ -1,10 +1,11 @@
 ```luceescript+trycf
-qry = QueryNew("name", "varchar", []);
-writedump(label:"Query is empty", var:qry.isEmpty());
-
-arr=[];
-public boolean function isEmpty1() {
-	return arr.isEmpty();
-}
-writeDump(label:"Array is empty", var:isEmpty1());
+	writeOutput( isSimpleValue("string") & "<br>" );
+	writeOutput( isSimpleValue(123456) & "<br>" );
+	writeOutput( isSimpleValue(getTimezone()) & "<br>" );
+	writeOutput( isSimpleValue(now()) & "<br>" );
+	writeOutput( isSimpleValue(javacast("char","A")) & "<br>" );
+	writeOutput( isSimpleValue(nullValue()) & "<br>" );
+	writeOutput( isSimpleValue([]) & "<br>" );
+	writeOutput( isSimpleValue({}) & "<br>" );
+	writeOutput( isSimpleValue(queryNew("test")) );
 ```
