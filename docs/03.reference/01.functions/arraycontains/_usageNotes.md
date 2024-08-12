@@ -1,0 +1,1 @@
+Lucee returns the index of the match, while ACF returns a Boolean, both of which are truthy
