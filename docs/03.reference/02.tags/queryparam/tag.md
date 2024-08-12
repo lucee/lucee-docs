@@ -4,8 +4,9 @@ id: tag-queryparam
 related:
 - function-querysetcell
 categories:
+- compat
 - query
-description: 'Checks the data type of a query parameter.'
+description: Checks the data type of a query parameter.
 ---
 
 Checks the data type of a query parameter.

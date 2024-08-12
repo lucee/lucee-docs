@@ -1,0 +1,1 @@
+Prior to Lucee 6, empty values would be auto cast to nulls, Since Lucee 6 only strings behave this way [LDEV-4410](https://luceeserver.atlassian.net/browse/LDEV-4410)
