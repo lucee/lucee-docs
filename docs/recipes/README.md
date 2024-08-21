@@ -180,6 +180,10 @@ Learn about the changes in Lucee 6.1 regarding Monitoring and Debugging. Underst
 
 Shows you a way to enable Monitoring for your session
 
+## [New Operator in Lucee](/docs/recipes/new-operator.md)
+
+This document provides a guide on using the new operator in Lucee for creating instances of CFML components and Java classes.
+
 ## [Null Support](/docs/recipes/null-support.md)
 
 This document explains how to set null support in the Lucee server admin, assigning `null` value for a variable and how to use `null` and `nullvalue`.
