@@ -1,7 +1,10 @@
 ---
 title: Deprecated Tags & Functions
 id: deprecated
+categories:
+- compat
 statusFilter: deprecated
+description: Backwards compatibility is considered super important in Lucee.
 ---
 
 Backwards compatibility is considered super important in Lucee.

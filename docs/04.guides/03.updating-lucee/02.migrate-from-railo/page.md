@@ -1,7 +1,10 @@
 ---
 title: Migrating from Railo to Lucee
 id: updating-lucee-migrate-from-railo
+categories:
+- compat
 menuTitle: Migrating from Railo
+description: Lucee 4.5 is forked from the Railo CFML Server (version 4.2) so you can easily migrate an existing Railo installation as follows.
 ---
 
 # Migrate from Railo<sup>&copy;</sup> #
