@@ -109,75 +109,75 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
     </thead>
 	<tbody>
 
-        <tr>
-			<td>
-				<div class="attribute">Description:</div>
-			</td>
-			<td>
-				<strong>Lucee Installer</strong> is the recommended "all in one" solution for a typical production installation with minimal manual configuration, including service and connectors for fronted webservers ( Apache on Linux / IIS on Windows ). It installs its own dedicated Java Development Kit (AdoptOpenJDK) and comes with the option to install "mod_cfml" for Tomcat's automatic multiple website configuration.
-			</td>
-		</tr>
-             <tr>
-			<td>
-				<div class="attribute">OS:</div>
-			</td>
-			<td>
-				Windows, Linux
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<div class="attribute">Download:</div>
-			</td>
-			<td>
-			    Download the latest <strong>Lucee Installer</strong> Release version <a href="https://lucee.org/downloads.html">here</a>.  
-           </td>
-		</tr>
-		<tr>
-			<td>
-				<div class="attribute">Includes:</div>
-			</td>
-			<td>
-			    <strong>Lucee Installer</strong> ships:<br>     
-			    - Lucee.jar (Servlet Container)<br>
-				- Tomcat (Java Servlet Engine)<br>
-				- AdoptOpenJDK (Java Development Kit)<br>
-				- mod_cfml (for Tomcat's automatic host and context configuration - <a href="/guides/installing-lucee/download-and-install.html#mod_cfml">More about mod_cfml</a><br>
- 				- Boncode Connector	(for connecting IIS to Tomcat via AJP) - <a href="/guides/installing-lucee/download-and-install.html#BoncodeAJP">More about Boncode</a>  
-           </td>
-		</tr>
-        <tr>
-			<td>
-				<div class="attribute">Best for:</div>
-			</td>
-			<td>
-				<strong>Lucee Installer</strong> is typically used for production environments where you want have a webserver, e.g. Apache or IIS, acting in front of Lucee/Tomcat and run Lucee as service.
-			</td>
-		</tr>
-        <tr>
-			<td>
-				<div class="attribute">Instructions:</div>
-			</td>
-			<td>
-				<strong>On Windows:</strong> Run the Lucee Windows Installer file (.exe) as Administrator on a Windows machine with IIS running, so that the installer can detect IIS and connect it with Lucee/Tomcat (Boncode AJP connector and mod_cfml)<br>
-                <strong>On Linux:</strong> Run the Lucee Windows Installer file (.run) with sudo user/root on a Linux machine with Apache webserver running, so that the installer can detect Apache and connect it with Lucee/Tomcat (ReverseProxy and mod_cfml). You may need to give the .run file execute permission first to be able to execute it.
-	    	</td>
-		</tr>
+<tr>
+ <td>
+		<div class="attribute">Description:</div>
+	</td>
+	<td>
+		<strong>Lucee Installer</strong> is the recommended "all in one" solution for a typical production installation with minimal manual configuration, including service and connectors for fronted webservers ( Apache on Linux / IIS on Windows ). It installs its own dedicated Java Development Kit (AdoptOpenJDK) and comes with the option to install "mod_cfml" for Tomcat's automatic multiple website configuration.
+	</td>
+</tr>
          <tr>
-			<td>
-				<div class="attribute">Note:</div>
-			</td>
-			<td>
-			  If you are missing the latest "Lucee Installer" Release at Lucee's download site and it's marked as "Coming soon", you can still install the latest available Lucee version with the following steps:<br>
-				<strong>Step 1:</strong> Select the latest possible release that has a "Lucee Installer" version available and do the complete installation process.<br>
-				<strong>Step 2:</strong> Stop the Lucee/Tomcat service.<br>
-				<strong>Step 3:</strong> Download the latest "Lucee.jar" file at Lucee's download page <a href="https://lucee.org/downloads.html">here</a>.<br>
-				<strong>Step 4:</strong> Replace the old lucee.jar with the new downloaded Lucee.jar file at <em>path-to-lucee-install/lib/</em>.<br>
-				<strong>Step 5:</strong> Delete the folder "lucee-server" at <em>path-to-lucee-install/tomcat/lucee-server</em>.<br>
-				<strong>Step 6:</strong> Restart the Lucee/Tomcat service.
-		   </td>
-		</tr>
-    </tbody>
+	<td>
+		<div class="attribute">OS:</div>
+	</td>
+	<td>
+		Windows, Linux
+	</td>
+</tr>
+<tr>
+	<td>
+		<div class="attribute">Download:</div>
+	</td>
+	<td>
+	    Download the latest <strong>Lucee Installer</strong> Release version <a href="https://lucee.org/downloads.html">here</a>.  
+       </td>
+</tr>
+<tr>
+	<td>
+		<div class="attribute">Includes:</div>
+	</td>
+	<td>
+	    <strong>Lucee Installer</strong> ships:<br>     
+	    - Lucee.jar (Servlet Container)<br>
+		- Tomcat (Java Servlet Engine)<br>
+		- AdoptOpenJDK (Java Development Kit)<br>
+		- mod_cfml (for Tomcat's automatic host and context configuration - <a href="/guides/installing-lucee/download-and-install.html#mod_cfml">More about mod_cfml</a><br>
+		- Boncode Connector	(for connecting IIS to Tomcat via AJP) - <a href="/guides/installing-lucee/download-and-install.html#BoncodeAJP">More about Boncode</a>  
+       </td>
+</tr>
+    <tr>
+	<td>
+		<div class="attribute">Best for:</div>
+	</td>
+	<td>
+		<strong>Lucee Installer</strong> is typically used for production environments where you want have a webserver, e.g. Apache or IIS, acting in front of Lucee/Tomcat and run Lucee as service.
+	</td>
+</tr>
+    <tr>
+	<td>
+		<div class="attribute">Instructions:</div>
+	</td>
+	<td>
+		<strong>On Windows:</strong> Run the Lucee Windows Installer file (.exe) as Administrator on a Windows machine with IIS running, so that the installer can detect IIS and connect it with Lucee/Tomcat (Boncode AJP connector and mod_cfml)<br>
+            <strong>On Linux:</strong> Run the Lucee Windows Installer file (.run) with sudo user/root on a Linux machine with Apache webserver running, so that the installer can detect Apache and connect it with Lucee/Tomcat (ReverseProxy and mod_cfml). You may need to give the .run file execute permission first to be able to execute it.
+  	</td>
+</tr>
+     <tr>
+	<td>
+		<div class="attribute">Note:</div>
+	</td>
+	<td>
+	  If you are missing the latest "Lucee Installer" Release at Lucee's download site and it's marked as "Coming soon", you can still install the latest available Lucee version with the following steps:<br>
+		<strong>Step 1:</strong> Select the latest possible release that has a "Lucee Installer" version available and do the complete installation process.<br>
+		<strong>Step 2:</strong> Stop the Lucee/Tomcat service.<br>
+		<strong>Step 3:</strong> Download the latest "Lucee.jar" file at Lucee's download page <a href="https://lucee.org/downloads.html">here</a>.<br>
+		<strong>Step 4:</strong> Replace the old lucee.jar with the new downloaded Lucee.jar file at <em>path-to-lucee-install/lib/</em>.<br>
+		<strong>Step 5:</strong> Delete the folder "lucee-server" at <em>path-to-lucee-install/tomcat/lucee-server</em>.<br>
+		<strong>Step 6:</strong> Restart the Lucee/Tomcat service.
+   </td>
+</tr>
+</tbody>
 </table>
 </div>
 <br>
@@ -191,12 +191,12 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
     </thead>
 	<tbody>
 
-        <tr>
-			<td>
-				<div class="attribute">Description:</div>
-			</td>
-			<td>
-				<strong>CommandBox</strong> is a commandline tool that greatly simplifies installing and running Lucee. It's very likely the easiest way to run Lucee: Simply open a terminal session from within your webroot, enter the command line 'box server start' and CommandBox will start the latest stable Lucee instance running your web application.<br>
+<tr>
+ <td>
+ 	<div class="attribute">Description:</div>
+ </td>
+ <td>
+ 	<strong>CommandBox</strong> is a commandline tool that greatly simplifies installing and running Lucee. It's very likely the easiest way to run Lucee: Simply open a terminal session from within your webroot, enter the command line 'box server start' and CommandBox will start the latest stable Lucee instance running your web application.<br>
                 CommandBox makes use of it's 
 				own servlet engine "Undertow" that can be customized through a single .json configuration file. But that's not all you get with CommandBox: Because CommandBox is also a package manager, you can also install and run usefool tools for your CFML development, such as "cfconfig", "CFLint", "taskRunner", "testBox", "CFFormat" or use it to install popular CFML frameworks in a modern scaffolding manner.
 			</td>
@@ -247,12 +247,12 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
     </thead>
 	<tbody>
 
-        <tr>
-			<td>
-				<div class="attribute">Description:</div>
-			</td>
-			<td>
-				<strong>Lucee.jar</strong> is the pure stand alone servlet containers of Lucee as compressed Java ARchive (also known as JAR-file) and <strong>Lucee.war</strong> is a Web application ARchive (also known as WAR-file) containing the Lucee.jar. Use these files if you want to run Lucee in different environments with different servlet engines (e.g. Undertow, Jetty or cloud based servlet engines like AWSElasticBeanstalk).
+<tr>
+ <td>
+ 	<div class="attribute">Description:</div>
+ </td>
+ <td>
+ 	<strong>Lucee.jar</strong> is the pure stand alone servlet containers of Lucee as compressed Java ARchive (also known as JAR-file) and <strong>Lucee.war</strong> is a Web application ARchive (also known as WAR-file) containing the Lucee.jar. Use these files if you want to run Lucee in different environments with different servlet engines (e.g. Undertow, Jetty or cloud based servlet engines like AWSElasticBeanstalk).
                 <br>                
                 You may also use Lucee.jar for upgrading/downgrading Lucee installations without a complete re-installation by simply replacing the .jar file in the servlets engine library folder. If so, please make always sure to backup Tomcat, all server- and web-contexts and your configurations before upgrading.
 			</td>
