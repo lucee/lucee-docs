@@ -9,6 +9,20 @@ A guide to limit access to a Lucee server to necessary minimum.
 
 On Windows it is recommended to run the Lucee/Tomcat service as a restricted user with only the required permissions rather than under SYSTEM account.
 
+## Production Error Templates ##
+
+By default, Lucee ships with developer friendly error templates which reveal the Lucee version and displays stacktraces, including paths.
+
+Production servers, should be configured to use the `error-public.cfm` templates, for both Error and Missing templates, which only display a generic error message.
+This can be configured via the Lucee Administrator, under Settings -- Error, which produces the following `.CFconfig.json` config. You can also use your own custom templates.
+
+```
+{
+  "errorGeneralTemplate": "/lucee/templates/error/error-public.cfm",
+  "errorMissingTemplate": "/lucee/templates/error/error-public.cfm"
+}
+```
+
 ### Don't forget to lockdown your source control metadata ###
 
 If you have .git folders (or .svn etc) make sure you restrict access to them (i.e for Apache)
