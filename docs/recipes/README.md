@@ -1,5 +1,9 @@
 # Recipes
 
+## [AI (Experimental)](/docs/recipes/ai.md)
+
+No description available.
+
 ## [Application Context update](/docs/recipes/application-context-update.md)
 
 How to update your Application settings, after they have been defined in Application.cfc.
