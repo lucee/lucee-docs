@@ -633,6 +633,20 @@
     ]
   },
   {
+    "file": "new-operator.md",
+    "title": "New Operator in Lucee",
+    "path": "/docs/recipes/new-operator.md",
+    "hash": "011473bdfa41fc6e27523f81b3d8c7d9",
+    "keywords": [
+      "new",
+      "java",
+      "classes",
+      "class",
+      "createObject",
+      "component"
+    ]
+  },
+  {
     "file": "null-support.md",
     "title": "Null Support",
     "path": "/docs/recipes/null-support.md",
