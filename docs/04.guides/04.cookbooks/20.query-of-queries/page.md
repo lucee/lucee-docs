@@ -45,7 +45,7 @@ Let's say you have the following database query, ```myQuery```:
 
 You would now have a list of names, ages and locations for all the people in a query called ```myQuery```.
 
-Say you want to filter out people under 18 and over 90, but you don't want to hit the database again:
+Say you want to filter out people under 90 and over 18, but you don't want to hit the database again:
 
 ```lucee
 <cfquery name="filteredQuery" dbtype="query">
