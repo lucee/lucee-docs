@@ -1,3 +1,4 @@
+
 <!--
 {
   "title": "Java Settings in Application.cfc",
@@ -12,17 +13,19 @@
 }
 -->
 
-# Java Settings in Application.cfc
+# Java Settings in Application.cfc (Now with Maven Support)
 
-This document provides information about configuring Java settings in Lucee using `Application.cfc` or the `<cfapplication>` tag.
+This document provides information about configuring Java settings in Lucee using `Application.cfc`, and other new places like `.CFConfig.json`, `createObject`, and components.
 
 ## Introduction
 
-The `this.javasettings` settings in `Application.cfc` allow you to define Java library paths, OSGi bundle paths, and other Java-related configurations. These settings cannot be configured through the Lucee admin or environment variables.
+The `this.javasettings` settings in `Application.cfc` allow you to define Java library paths, OSGi bundle paths, Maven libraries, and other Java-related configurations. These settings cannot be configured through the Lucee admin or environment variables.
+
+Starting with Lucee 6.2, we’ve extended Java settings to support Maven libraries and expanded their use in additional contexts, including `.CFConfig.json`, `createObject`, and individual components.
 
 ## Configuring Java Settings
 
-You can configure Java settings in `Application.cfc` or using the `<cfapplication>` tag. Below are the details of each available setting.
+You can configure Java settings in `Application.cfc`, `.CFConfig.json`, within components, or using the `createObject` function.
 
 ### Load Paths
 
@@ -46,23 +49,137 @@ this.javasettings.bundlePaths = [
 ];
 ```
 
-### Load CFML Class Path
+### Maven Support
 
-The setting `this.javasettings.loadCFMLClassPath` (an alias for compatibility with Adobe ColdFusion `this.javasettings.loadColdFusionClassPath`) indicates whether to load the classes from the main lib directory. The default value is `false`.
+Starting in Lucee 6.2, Maven support has been added to `this.javasettings`, allowing you to define Maven dependencies directly. Maven manages libraries by automatically handling their retrieval and versioning.
 
 ```cfml
-this.javasettings.loadCFMLClassPath = false;
+this.javasettings.maven = [
+    {
+      "groupId": "org.quartz-scheduler",
+      "artifactId": "quartz",
+      "version": "2.3.2"
+    },
+    {
+      "groupId": "commons-beanutils",
+      "artifactId": "commons-beanutils",
+      "version": "1.9.4"
+    }
+];
 ```
 
-### Reload On Change
+If the `version` is omitted, Lucee will use the latest available version of the Maven artifact.
 
-The setting `this.javasettings.reloadOnChange` indicates whether to reload the updated classes and JARs dynamically, without restarting ColdFusion. The default value is `false`.
+## Java Settings in `.CFConfig.json`
+
+You can also define Java settings globally for all applications through the `.CFConfig.json` configuration file. This is especially useful when managing Docker environments.
+
+```json
+{
+  "javasettings": {
+    "maven": [
+      {
+        "groupId": "org.quartz-scheduler",
+        "artifactId": "quartz",
+        "version": "2.3.2"
+      },
+      {
+        "groupId": "commons-beanutils",
+        "artifactId": "commons-beanutils",
+        "version": "1.9.4"
+      }
+    ],
+    "loadPaths": [
+      "/my/local/path/to/whatever/lib/",
+      "/my/local/path/to/whatever/lib/xyz.jar"
+    ],
+    "bundlePaths": [
+      "/my/local/path/to/whatever/lib/",
+      "/my/local/path/to/whatever/lib/xyz.jar"
+    ]
+  }
+}
+```
+
+### Using Java Settings in `Application.cfc`
+
+In your `Application.cfc`, you can define or override Java settings specific to your application. This is the primary way to configure Java dependencies at the application level.
+
+```cfml
+this.javasettings = {
+  "maven": [
+    {
+      "groupid": "commons-beanutils",
+      "artifactid": "commons-beanutils",
+      "version": "1.9.4"
+    }
+  ],
+  "loadPaths": [
+    "/my/local/path/to/libs/",
+    "/my/local/path/to/libs/example.jar"
+  ],
+  "bundlePaths": [
+    "/my/local/path/to/bundles/"
+  ],
+  "reloadOnChange": true,
+  "watchInterval": 60,
+  "watchExtensions": ["jar", "class"]
+};
+```
+
+This method gives you flexibility to handle specific Java dependencies within each application, ensuring that classloaders are configured per application.
+
+### Using Java Settings in a Component
+
+Maven dependencies and other Java settings can also be defined as part of a component. This ensures that only the classes loaded within that component will use the specified settings, isolating it from the rest of the application and avoiding conflicts.
+
+```cfml
+component javaSettings = '{
+  "maven": [
+    {
+      "groupId": "commons-beanutils",
+      "artifactId": "commons-beanutils",
+      "version": "1.9.4"
+    }
+  ]
+}' {
+  // Component logic
+}
+```
+
+This method is useful for encapsulating components with specific versions of libraries, preventing conflicts with other parts of the application.
+
+### Using Java Settings in `createObject`
+
+Java settings can also be defined dynamically when creating Java objects using the `createObject` function.
+
+```cfml
+createObject("java", "org.apache.commons.beanutils.BeanUtils", {
+  "maven": [
+    {
+      "groupId": "commons-beanutils",
+      "artifactId": "commons-beanutils",
+      "version": "1.9.4"
+    }
+  ]
+});
+```
+
+This approach provides the flexibility to load Java classes and dependencies at runtime.
+
+## Classloader Recycling
+
+Lucee automatically generates a unique hash based on the defined Java settings and maintains a pool of corresponding classloaders. This means that classloaders are reused efficiently, reducing resource consumption and improving performance.
+
+## Reload On Change
+
+The setting `this.javasettings.reloadOnChange` indicates whether to reload updated classes and JARs dynamically, without restarting Lucee. The default value is `false`.
 
 ```cfml
 this.javasettings.reloadOnChange = false;
 ```
 
-### Watch Interval
+## Watch Interval
 
 The setting `this.javasettings.watchInterval` defines the interval in seconds that Lucee looks for changes. The default value is `60`.
 
@@ -70,38 +187,14 @@ The setting `this.javasettings.watchInterval` defines the interval in seconds th
 this.javasettings.watchInterval = 60;
 ```
 
-### Watch Extensions
+## Watch Extensions
 
-The setting `this.javasettings.watchExtensions` defines the extensions Lucee looks for when you list a directory with `loadPaths` or `bundlePaths`. The default value is `["jar","class"]`.
+The setting `this.javasettings.watchExtensions` defines the extensions Lucee looks for when you list a directory with `loadPaths` or `bundlePaths`. The default value is `["jar", "class"]`.
 
 ```cfml
 this.javasettings.watchExtensions = ["jar", "class"];
 ```
 
-## Using `<cfapplication>` Tag
-
-You can also configure these settings using the `<cfapplication>` tag.
-
-```cfml
-<cfapplication 
-    action="update"
-    javasettings="#{
-        loadPaths: [
-            '/my/local/path/to/whatever/lib/',
-            '/my/local/path/to/whatever/lib/xyz.jar'
-        ],
-        bundlePaths: [
-            '/my/local/path/to/whatever/lib/',
-            '/my/local/path/to/whatever/lib/xyz.jar'
-        ],
-        loadCFMLClassPath: false,
-        reloadOnChange: false,
-        watchInterval: 60,
-        watchExtensions: ['jar', 'class']
-    }#"
-/>
-```
-
 ## Conclusion
 
-Configuring Java settings in Lucee through `Application.cfc` or the `<cfapplication>` tag provides flexibility in managing Java libraries and bundles. By setting these configurations, you can ensure that your Lucee applications are properly integrated with the necessary Java dependencies and can dynamically respond to changes as needed.
+With the introduction of Maven support and the ability to define Java settings in multiple contexts such as `.CFConfig.json`, `Application.cfc`, components, and `createObject`, Lucee provides enhanced flexibility for integrating and managing Java libraries. These features help avoid conflicts and ensure that your Java dependencies are managed efficiently across various parts of your application.
