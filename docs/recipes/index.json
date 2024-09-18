@@ -907,6 +907,18 @@
     ]
   },
   {
+    "file": "tag-syntax.md",
+    "title": "How to Use Tags in Script",
+    "path": "/docs/recipes/tag-syntax.md",
+    "hash": "4b5f355ef751fd8f686bfdaf4ac1e0fb",
+    "keywords": [
+      "Syntax",
+      "tag",
+      "function",
+      "Script"
+    ]
+  },
+  {
     "file": "thread-task.md",
     "title": "Thread Task",
     "path": "/docs/recipes/thread-task.md",

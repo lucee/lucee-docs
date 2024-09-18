@@ -260,6 +260,10 @@ Learn how to create and use sub components in Lucee. This guide demonstrates how
 
 This document explains how you can improve the performance of your website in a very short time with Lucee.
 
+## [How to Use Tags in Script](/docs/recipes/tag-syntax.md)
+
+How to use tags in script
+
 ## [Thread Task](/docs/recipes/thread-task.md)
 
 How to use Thread Tasks
