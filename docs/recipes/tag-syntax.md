@@ -92,19 +92,3 @@ loop from="1" to=max index="i" {
 ```
 
 In this case, the `max` variable is evaluated properly, and the code runs without errors.
-
-## Future Developments
-
-Looking ahead, Lucee aims to merge the two concepts of tags and functions. For instance, tags like `savecontent` could eventually return a value, which would make their usage clearer and more functional:
-
-```javascript
-result = savecontent {
-    include "susi.cfm";
-}
-
-result = cfsavecontent() {
-    include "susi.cfm";
-}
-```
-
-This planned unification will further streamline the use of tags in script, making Lucee an even more powerful tool for developers.
