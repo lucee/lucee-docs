@@ -176,6 +176,10 @@ All about the different mappings in Lucee and how to use them.
 
 Learn about the switch from double to BigDecimal in Lucee 6 for more precise mathematical operations. This guide provides information on how to change the default behavior if needed.
 
+## [Maven (Lucee 6.2)](/docs/recipes/maven.md)
+
+How to use Maven in Lucee
+
 ## [Monitoring/Debugging](/docs/recipes/monitoring-debugging.md)
 
 Learn about the changes in Lucee 6.1 regarding Monitoring and Debugging. Understand the old and new behavior, and how to configure the settings in Lucee Admin and Application.cfc.

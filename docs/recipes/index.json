@@ -617,6 +617,17 @@
     ]
   },
   {
+    "file": "maven.md",
+    "title": "Maven (Lucee 6.2)",
+    "path": "/docs/recipes/maven.md",
+    "hash": "cee6ec1423dcbbb05bae1644915db162",
+    "keywords": [
+      "Maven",
+      "Java",
+      "OSGi"
+    ]
+  },
+  {
     "file": "monitoring-debugging.md",
     "title": "Monitoring/Debugging",
     "path": "/docs/recipes/monitoring-debugging.md",
