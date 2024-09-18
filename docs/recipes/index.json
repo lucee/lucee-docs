@@ -55,6 +55,19 @@
     ]
   },
   {
+    "file": "breaking-changes-6-1.md",
+    "title": "Breaking Changes Between Lucee 6.0 and 6.1",
+    "path": "/docs/recipes/breaking-changes-6-1.md",
+    "hash": "43c020b86cf58c1e848ffafe5891f81c",
+    "keywords": [
+      "breaking changes",
+      "Lucee 6.0",
+      "Lucee 6.1",
+      "migration",
+      "upgrade"
+    ]
+  },
+  {
     "file": "cached-within-request.md",
     "title": "Cache a Query for the current request",
     "path": "/docs/recipes/cached-within-request.md",
