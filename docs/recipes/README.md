@@ -16,6 +16,10 @@ This document explains how to deploy an Application on a live server without usi
 
 Learn how to output the current date in Lucee.
 
+## [Breaking Changes Between Lucee 6.0 and 6.1](/docs/recipes/breaking-changes-6-1.md)
+
+A guide to breaking changes introduced in Lucee between version 6.0 and 6.1
+
 ## [Cache a Query for the current request](/docs/recipes/cached-within-request.md)
 
 Cache a Query for the current request in Lucee.
