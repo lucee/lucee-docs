@@ -136,6 +136,19 @@
     ]
   },
   {
+    "file": "configuration.md",
+    "title": "Configuration - How to Configure Lucee",
+    "path": "/docs/recipes/configuration.md",
+    "hash": "473fb6bd219858f3bfee1dd389332395",
+    "keywords": [
+      "configuration",
+      "config",
+      ".CFConfig.json",
+      "lucee-server.xml",
+      "lucee-web.xml"
+    ]
+  },
+  {
     "file": "convert-a-cfml-func-to-java.md",
     "title": "Convert a CFML Function/Component to use in Java",
     "path": "/docs/recipes/convert-a-cfml-func-to-java.md",
