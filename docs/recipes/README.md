@@ -40,6 +40,10 @@ This document explains how to use a checksum in Lucee.
 
 How to configure Lucee within your application using Administrator.cfc and cfadmin tag.
 
+## [Configuration - Lucee 5](/docs/recipes/configuration-lucee5.md)
+
+Best practices for configuring Lucee 5 environments.
+
 ## [Configuration - How to Configure Lucee](/docs/recipes/configuration.md)
 
 Best practices for configuring Lucee in various environments.
