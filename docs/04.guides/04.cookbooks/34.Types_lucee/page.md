@@ -10,7 +10,7 @@ This document explains types in Lucee. Lucee is still an untyped language. Types
 
 For functions, the return value is returned with the specific type that was defined in that function.
 
-```luceescript
+```lucee
 
 // function1.cfm
 
@@ -37,7 +37,7 @@ For functions, the return value is returned with the specific type that was defi
 
 #### Example 2 : CFParam ####
 
-```luceescript
+```lucee
 
 // param.cfm
 
@@ -51,7 +51,7 @@ dump(label:"Age:", var:url.age);
 
 #### Example 3 : Queries ####
 
-```luceescript
+```lucee
 
 //queries.cfm
 
@@ -82,7 +82,7 @@ query=queryNew(["name","age"],["string","numeric"]);
 
 #### Example 4 : ArrayNew ####
 
-```luceescript
+```lucee
 
 // array.cfm
 
@@ -100,7 +100,7 @@ names=arrayNew(type:"string");
 
 #### Example 5 : Literals ####
 
-```luceescript
+```lucee
 
 // literals.cfm
 
@@ -119,7 +119,7 @@ if(sct.bol)dump("is true");
 
 #### Example 6 : Converting ####
 
-```luceescript
+```lucee
 
 //converting.cfm
 
@@ -146,7 +146,7 @@ if(sct.bol)dump("is true");
 * We have loaded a Java library and string builder. We pass a string into a constructor and execute this. We see that the string builder contains that value. We refer to this ``string builder`` method in the Java Doc. The method is called ``substring``. This substring takes an int as its argument. For example, we pass a string value instead of an int value ``sb.substring("5")``. Lucee returns a substring properly.
 * Two constructors are available for string builder. There are ``StringBuilder(int), StringBuilder(string)``.
 
-```luceescript
+```lucee
 
 //index.cfm
 
@@ -156,7 +156,7 @@ loop query=dir {
 }
 ```
 
-```luceescript
+```lucee
 
 // test.cfc
 
