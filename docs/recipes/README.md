@@ -138,7 +138,7 @@ This document explains how to declare variables, function calls with dot and bra
 
 ## [Import](/docs/recipes/import.md)
 
-Guide on using import to import components and custom tags in Lucee
+Guide on using import to import components, Java classes, and custom tags in Lucee
 
 ## [Inline Component](/docs/recipes/inline-components.md)
 

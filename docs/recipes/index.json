@@ -486,12 +486,13 @@
     "file": "import.md",
     "title": "Import",
     "path": "/docs/recipes/import.md",
-    "hash": "d0a4f5427a500c100381695fcf029ff4",
+    "hash": "523e80ff0fd2993295b613c71e177c3c",
     "keywords": [
       "cfimport",
       "import",
       "Lucee",
       "components",
+      "java classes",
       "custom tags",
       "taglib"
     ]
