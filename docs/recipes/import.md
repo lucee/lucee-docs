@@ -1,13 +1,15 @@
+
 <!--
 {
   "title": "Import",
   "id": "import",
-  "description": "Guide on using import to import components and custom tags in Lucee",
+  "description": "Guide on using import to import components, Java classes, and custom tags in Lucee",
   "keywords": [
     "cfimport",
     "import",
     "Lucee",
     "components",
+    "java classes",
     "custom tags",
     "taglib"
   ]
@@ -16,7 +18,7 @@
 
 # Import
 
-The `<cfimport>` tag in Lucee has a dual purpose. It can be used to import components using the `path` attribute or CFML/JSP custom tags using the `prefix` and `taglib` attributes.
+The `<cfimport>` tag in Lucee has multiple purposes. It can be used to import components, Java classes (Lucee 6.2 and above), or custom tags using the `prefix` and `taglib` attributes.
 
 ## Import Components
 
@@ -39,7 +41,7 @@ To import a component in tag syntax:
 
 To import a component in script syntax, you have two options:
 
-Using `cfimport` function:
+Using the `cfimport` function:
 
 ```cfml
 <cfscript>
@@ -85,13 +87,28 @@ To import all components in a package, use the asterisk (`*`):
 </cfscript>
 ```
 
+## Import Java Classes (Lucee 6.2 and above)
+
+Starting with Lucee 6.2, you can also use the `import` keyword to import Java classes. This functionality is only supported in script syntax, not tag syntax.
+
+```cfml
+import java.util.HashMap;
+```
+
+If there is a naming conflict between a CFML component and a Java class (i.e., both have the same name and package structure), the CFML component will take precedence. You can explicitly specify whether you're importing a Java class or a CFML component by using the type prefix:
+
+```cfml
+import java:java.util.HashMap;
+import cfml:org.lucee.cfml.Query;
+```
+
 ### Scope of Import
 
-An import only affects the current template and not the entire request.
+An import only affects the current template and not the entire request, meaning it applies only to the file where the import is declared.
 
 ## Import Custom Tags
 
-You can also import CFML or Java custom tags using the `prefix` and `taglib` attributes.
+You can also import CFML or JSP custom tags using the `prefix` and `taglib` attributes.
 
 ### Tag Syntax
 
@@ -117,12 +134,12 @@ To import custom tags in script syntax:
 <my:customTag attribute="value">
 ```
 
-For importing custom tags, the `import` keyword cannot be used.
+Note that the `import` keyword cannot be used for custom tags—use `cfimport` instead.
 
 ## Supported Custom Tags
 
-Lucee supports CFML-based custom tags written as CFML templates or as components. You can also define a TLD file that points to JSP tags.
+Lucee supports CFML-based custom tags written as CFML templates or components. You can also define a TLD (Tag Library Descriptor) file to integrate JSP tags.
 
 ## Conclusion
 
-The `<cfimport>` tag is a versatile tool in Lucee for importing both components and custom tags, allowing for modular and organized code. By using the appropriate attributes and syntax, you can effectively manage dependencies and custom functionalities within your Lucee applications.
+The `<cfimport>` tag and `import` keyword are versatile tools in Lucee for importing both components and Java classes (Lucee 6.2 and above), along with custom tags. These allow you to modularize and manage dependencies within your Lucee applications efficiently. By using the appropriate attributes and syntax, you can organize and extend your Lucee code seamlessly.
