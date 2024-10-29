@@ -536,6 +536,20 @@
     ]
   },
   {
+    "file": "java-libraries.md",
+    "title": "Interacting with Java Libraries in Lucee 6.2",
+    "path": "/docs/recipes/java-libraries.md",
+    "hash": "87bc11020fc4f4df8ec76e5c9d732939",
+    "keywords": [
+      "java",
+      "maven",
+      "import",
+      "Lucee",
+      "libraries",
+      "new operator"
+    ]
+  },
+  {
     "file": "java-settings.md",
     "title": "Java Settings in Application.cfc (Now with Maven Support)",
     "path": "/docs/recipes/java-settings.md",
