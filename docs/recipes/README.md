@@ -136,6 +136,10 @@ Learn how to define a global proxy in Lucee. This guide demonstrates how to set 
 
 This document explains how to declare variables, function calls with dot and bracket notation, and passing arguments via URL/form scopes as an array.
 
+## [Logging CFHTTP Calls](/docs/recipes/http-logging.md)
+
+Learn how Lucee logs all CFHTTP calls and how to manage these logs. This guide explains the default behavior, log file locations, and changes in logging from earlier Lucee versions.
+
 ## [Import](/docs/recipes/import.md)
 
 Guide on using import to import components, Java classes, and custom tags in Lucee

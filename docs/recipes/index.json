@@ -483,6 +483,19 @@
     ]
   },
   {
+    "file": "http-logging.md",
+    "title": "Logging CFHTTP Calls",
+    "path": "/docs/recipes/http-logging.md",
+    "hash": "ab58506857d7220412399d5b560d8152",
+    "keywords": [
+      "cfhttp",
+      "logging",
+      "Lucee",
+      "log level",
+      "http log"
+    ]
+  },
+  {
     "file": "import.md",
     "title": "Import",
     "path": "/docs/recipes/import.md",
