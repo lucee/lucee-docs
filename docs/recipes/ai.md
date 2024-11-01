@@ -20,7 +20,8 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
 
 **OpenAI (ChatGPT) Example:**
 ```json
-"mychatgpt": {
+"ai": {
+  "mychatgpt": {
     "class": "lucee.runtime.ai.openai.OpenAIEngine",
     "custom": {
       "message": "Keep all answers as short as possible and in the style of Bob Marley",
@@ -31,10 +32,12 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
     },
     "default": "exception"
   }
+}
 ```
 
 **Google Gemini Example:**
 ```json
+"ai": {
   "mygemini": {
     "class": "lucee.runtime.ai.google.GeminiEngine",
     "custom": {
@@ -44,34 +47,39 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
       "apikey": "${GEMINI_API_KEY}"
     }
   }
+}
 ```
 
 **Ollama (Local) Example:**
 ```json
+"ai": {
   "gemma2": {
-      "class": "lucee.runtime.ai.openai.OpenAIEngine",
-      "custom": {
-        "message": "Keep all answers as short as possible",
-        "model": "gemma2",
-        "type": "ollama",
-        "timeout": 1000
-      }
+    "class": "lucee.runtime.ai.openai.OpenAIEngine",
+    "custom": {
+      "message": "Keep all answers as short as possible",
+      "model": "gemma2",
+      "type": "ollama",
+      "timeout": 1000
     }
+  }
+}
 ```
 
 In these examples, ChatGPT from OpenAI, Gemini from Google, and Ollama for local use are set up. The `OpenAIEngine` allows configuration for `openai` or `ollama` types and can also connect to any service using the OpenAI REST interface by specifying a URL:
 
 **OpenAI REST Interface Example:**
 ```json
+"ai": {
   "lucy": {
-      "class": "lucee.runtime.ai.openai.OpenAIEngine",
-      "custom": {
-        "message": "Keep all answers short and in the style of Lucy Miller",
-        "model": "lucy",
-        "url": "https://ai.lucee.org/v1/",
-        "timeout": 1000
-      }
+    "class": "lucee.runtime.ai.openai.OpenAIEngine",
+    "custom": {
+      "message": "Keep all answers short and in the style of Lucy Miller",
+      "model": "lucy",
+      "url": "https://ai.lucee.org/v1/",
+      "timeout": 1000
     }
+  }
+}
 ```
 
 Currently, driver creation is internal, but Lucee 7 will expand support for creating or using extensions with additional drivers.
