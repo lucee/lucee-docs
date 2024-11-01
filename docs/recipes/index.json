@@ -1,9 +1,34 @@
 [
   {
+    "file": "ai-for-documentation.md",
+    "title": "AI in Documentation (Experimental)",
+    "path": "/docs/recipes/ai-for-documentation.md",
+    "hash": "c68f06dcfe04faafe391016eeeda36e2",
+    "keywords": [
+      "AI",
+      "LLM",
+      "documentation",
+      "retrieval-augmented generation",
+      "RAG",
+      "setup",
+      "configuration",
+      "Lucee",
+      "Monitor",
+      "experimental",
+      "integration",
+      "monitoring",
+      "admin settings",
+      "AI engines",
+      "OpenAI",
+      "Gemini",
+      "Ollama"
+    ]
+  },
+  {
     "file": "ai.md",
     "title": "AI (Experimental)",
     "path": "/docs/recipes/ai.md",
-    "hash": "f977eeed8db2d7e7bbfad0a57d210ded",
+    "hash": "1b8a4754b2d45d266e5bd33702190fa1",
     "keywords": [
       "AI",
       "LLM"
