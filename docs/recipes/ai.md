@@ -1,4 +1,3 @@
-
 <!--
 {
   "title": "AI (experimental)",
@@ -13,13 +12,13 @@
 
 # AI (Experimental)
 
-Lucee 6.2 comes with experimental support for AI integration, which will be finalized with the release of Lucee 7. Please note that this documentation is subject to change in the future. The goal is to keep the implementation as open as possible to allow easy adaptation to future advancements in this sector.
+Lucee 6.2 includes experimental support for AI integration, which will be finalized with the release of Lucee 7. This documentation is subject to change, reflecting Lucee's aim to remain adaptable to future advancements. Feedback is welcome to help tailor functionality to users' needs.
 
 ## Configuration
 
-Lucee 6.2 allows you to create connections to various AI engines just as easily as you would define a datasource or cache. You can configure the connection in the Lucee Administrator or directly in the `.CFConfig.json` file as shown below:
+In Lucee 6.2, AI connections can be configured similarly to datasources or caches, either in the Lucee Administrator or directly in `.CFConfig.json`. Here are sample configurations:
 
-**Example for OpenAI (ChatGPT):**
+**OpenAI (ChatGPT) Example:**
 ```json
 "mychatgpt": {
     "class": "lucee.runtime.ai.openai.OpenAIEngine",
@@ -27,19 +26,19 @@ Lucee 6.2 allows you to create connections to various AI engines just as easily 
       "message": "Keep all answers as short as possible and in the style of Bob Marley",
       "secretKey": "${CHATGPT_SECRET_KEY}",
       "model": "gpt-4o-mini",
-      "type": "chatgpt",
+      "type": "openai",
       "timeout": 2000
     },
     "default": "exception"
   }
 ```
 
-**Example for Gemini (Google):**
+**Google Gemini Example:**
 ```json
   "mygemini": {
     "class": "lucee.runtime.ai.google.GeminiEngine",
     "custom": {
-      "message": "Keep all answers as short as possible",
+      "message": "Keep all answers as short as possible and in the style of Slim Shady",
       "model": "gemini-1.5-flash",
       "timeout": 2000,
       "apikey": "${GEMINI_API_KEY}"
@@ -47,7 +46,7 @@ Lucee 6.2 allows you to create connections to various AI engines just as easily 
   }
 ```
 
-**Example for Ollama (local):**
+**Ollama (Local) Example:**
 ```json
   "gemma2": {
       "class": "lucee.runtime.ai.openai.OpenAIEngine",
@@ -60,9 +59,22 @@ Lucee 6.2 allows you to create connections to various AI engines just as easily 
     }
 ```
 
-In these examples, we establish connections to three types of AI engines: ChatGPT from OpenAI, Gemini from Google, and Ollama, which can be run locally. For Ollama, you can use the OpenAI driver since it has the same interface. For credentials, you can use environment variable placeholders, as shown in the examples. 
+In these examples, ChatGPT from OpenAI, Gemini from Google, and Ollama for local use are set up. The `OpenAIEngine` allows configuration for `openai` or `ollama` types and can also connect to any service using the OpenAI REST interface by specifying a URL:
 
-Currently, the interface for creating drivers is internal to the core, but with Lucee 7, we plan to make it available for external use, allowing you to create or use extensions for additional drivers.
+**OpenAI REST Interface Example:**
+```json
+  "lucy": {
+      "class": "lucee.runtime.ai.openai.OpenAIEngine",
+      "custom": {
+        "message": "Keep all answers short and in the style of Lucy Miller",
+        "model": "lucy",
+        "url": "https://ai.lucee.org/v1/",
+        "timeout": 1000
+      }
+    }
+```
+
+Currently, driver creation is internal, but Lucee 7 will expand support for creating or using extensions with additional drivers.
 
 ## Security
 
@@ -70,55 +82,61 @@ Security is a top priority when integrating AI into Lucee. Since AI is already w
 
 ### Local AI
 
-Lucee allows you to use local AI, meaning you can host AI engines yourself for certain tasks or even all tasks, ensuring that no information leaves your environment.
+Lucee supports local AI hosting, which means you can run AI engines without external data transmission.
 
 ### Data Redaction (Work in Progress)
 
-Lucee enables the filtering of sensitive information from data sent to AI, such as hardcoded usernames, passwords, or any other sensitive data. However, this functionality is still limited and is a work in progress.
+Future releases will further refine data redaction, filtering out sensitive data such as hardcoded usernames and passwords before sending it to an AI engine.
 
 ### Logging
 
-Lucee logs all data sent to any AI engine in the `ai.log`, so you can review what information has been transmitted.
+Lucee logs all AI interactions to `ai.log`, or to `application.log` if `ai.log` is unavailable, enabling review of transmitted information.
 
 ## Integration
 
-Similar to how caches are supported in Lucee, AI can be used in two ways: directly via tags and functions, or indirectly by linking it to certain Lucee functionalities. Currently, the only indirect integration is within the error template, but we are working on other integrations such as local documentation.
+AI in Lucee can be used either directly through tags and functions or indirectly by linking it to certain functionalities, like error handling or monitoring.
 
 ### Direct Integration
 
-You can directly interact with AI using tags and functions. This feature is a work in progress, and we will continue expanding it.
+You can interact with AI directly via Lucee functions and tags. 
+At the moment, these functions use the prefix `Lucee` to avoid conflicts with existing functions in your code. With Lucee 7, we plan to remove the prefix (but still support it as an alias).
 
-**Example of a Simple AI Interaction:**
-
-At the moment, these functions use the prefix `Lucee` to avoid conflicts with existing functions in your code. With Lucee 7, we plan to remove the prefix while still supporting it as a hidden feature.
+**Direct Interaction Example:**
 ```javascript
+// start a session with a specic AI endpoint
 slim = LuceeCreateAISession(name:'gemma2', systemMessage:"Answer as Slim Shady.");
 
-// Get the entire response at once
+// Complete response at once
 dump(LuceeInquiryAISession(slim, "Who was the most influential person in your life?"));
 
-// Stream the response
+// Stream response
 dump(LuceeInquiryAISession(slim, "Count from 1 to 100", function(msg) {
     dump(msg);
     cfflush(throwonerror=false);
 }));
 ```
-This does not cover all available functionality, so refer to the AI documentation tab in Lucee for a complete list of functions and tags.
+
+This does not cover all available functionality; refer to the AI documentation tab in Lucee for the complete list of functions and tags.
 
 ### Exception Handling
 
-The first AI integration in Lucee is with the exception template. 
+AI is already integration in Lucee in the exception template. 
 When the exception template (orange screen) is displayed and you have defined an AI connection with the default type "exception", that AI engine will be used to analyze the exception. 
 Lucee provides the AI with information about the exception, allowing it to offer insights and suggestions for resolving the issue. 
 This feature is still a work in progress, and we are working to improve the quality of the AI responses by refining the input.
 
+### Monitor Documentation Tab
+
+In the Monitor's Documentation tab, AI can answer questions about Lucee based on retrieval-augmented generation (RAG) with available documentation and links to related documents. 
+This feature is also in development for enhanced input quality (read more about Monitor Documentation here https://github.com/lucee/lucee-docs/blob/master/docs/recipes/monitoring-debugging.md).
+
 ## Future Development
 
-The current AI integration is still in development, and we are continually working to enhance the existing functionality and introduce new features.
+AI integration in Lucee is actively being developed, with plans to expand functionality and add new features. Your input is encouraged.
 
 ### Retrieval-Augmented Generation (RAG)
 
-We are working on supporting RAG directly in CFML, enabling you to index local data and integrate it into your AI interactions.
+We are working on RAG support directly in CFML, allowing local data indexing for AI interactions.
 
 ### Fine-Tuning
 
