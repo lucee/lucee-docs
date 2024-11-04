@@ -1,5 +1,9 @@
 # Recipes
 
+## [AI in Documentation (Experimental)](/docs/recipes/ai-for-documentation.md)
+
+Guide to configuring AI for use in Lucee's Documentation tab, leveraging retrieval-augmented generation (RAG) and enhanced search functionality.
+
 ## [AI (Experimental)](/docs/recipes/ai.md)
 
 No description available.
