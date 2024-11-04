@@ -773,6 +773,23 @@
     ]
   },
   {
+    "file": "overwrite-build-in-functions-tags.md",
+    "title": "Overwriting and Adding Built-in Functions and Tags",
+    "path": "/docs/recipes/overwrite-build-in-functions-tags.md",
+    "hash": "dad5e4019930f6d975f8e45547bdb38f",
+    "keywords": [
+      "function",
+      "BIF",
+      "overwrite",
+      "add functions",
+      "custom tags",
+      "Lucee customization",
+      "Lucee server",
+      "backport fixes",
+      "ACF compatibility"
+    ]
+  },
+  {
     "file": "pdf-engine-flying-saucer.md",
     "title": "PDF Engine - Flying Saucer (CFDocument)",
     "path": "/docs/recipes/pdf-engine-flying-saucer.md",

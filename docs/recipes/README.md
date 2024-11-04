@@ -220,6 +220,10 @@ This document provides a guide on using the new operator in Lucee for creating i
 
 This document explains how to set null support in the Lucee server admin, assigning `null` value for a variable and how to use `null` and `nullvalue`.
 
+## [Overwriting and Adding Built-in Functions and Tags](/docs/recipes/overwrite-build-in-functions-tags.md)
+
+Learn how to overwrite or add built-in functions and tags in Lucee to customize behavior or backport fixes.
+
 ## [PDF Engine - Flying Saucer (CFDocument)](/docs/recipes/pdf-engine-flying-saucer.md)
 
 The new CFDOCUMENT PDF engine, Flying Saucer in Lucee 5.3
