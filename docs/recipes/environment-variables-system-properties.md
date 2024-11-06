@@ -158,7 +158,6 @@ Lucee caches the path information to the template; this defines the idle timeout
 **System Property:** `-Dlucee.compiler.block.bytecode`  
 Controls whether Lucee allows the direct execution of precompiled bytecode files (.cfm). Set to true to prevent bytecode execution, requiring all CFML files to be provided as source code.
 
-
 **Environment Variable:** `LUCEE_CASCADE_TO_RESULTSET`  
 **System Property:** `-Dlucee.cascade.to.resultset`  
 When a variable has no scope defined (example: `#myVar#` instead of `#variables.myVar#`), Lucee will also search available resultsets (CFML Standard) or not.
@@ -341,6 +340,10 @@ Where is the out stream of the JVM sent? Possible values are:
 - `class:<class-name>` - the data is sent to an instance of that class that must implement the `java.io.PrintStream` interface
 - `file:<file-path>` - an absolute path to a file name the stream is written to
 - `log` - stream is written to `out.log` in `context/logs/`
+
+**Environment Variable:** `LUCEE_TASKS_LIMIT`  
+**System Property:** `-Dlucee.tasks.limit`  
+Defines the maximum number of elements that can be stored in the cfthread scope. Once this limit is reached, the oldest entries are automatically removed to make room for new ones. The default value is 10000.
 
 **Environment Variable:** `LUCEE_TEMPLATE_CHARSET`  
 **System Property:** `-Dlucee.template.charset`  
