@@ -154,6 +154,11 @@ Allows compressing (GZIP) the HTTP response if the client explicitly supports it
 **System Property:** `-Dlucee.application.path.cache.timeout`  
 Lucee caches the path information to the template; this defines the idle timeout for these cache elements in milliseconds.
 
+**Environment Variable:** `LUCEE_COMPILER_BLOCK_BYTECODE`  
+**System Property:** `-Dlucee.compiler.block.bytecode`  
+Controls whether Lucee allows the direct execution of precompiled bytecode files (.cfm). Set to true to prevent bytecode execution, requiring all CFML files to be provided as source code.
+
+
 **Environment Variable:** `LUCEE_CASCADE_TO_RESULTSET`  
 **System Property:** `-Dlucee.cascade.to.resultset`  
 When a variable has no scope defined (example: `#myVar#` instead of `#variables.myVar#`), Lucee will also search available resultsets (CFML Standard) or not.
