@@ -32,7 +32,9 @@ As a Major Release, Lucee 6 does include some potential **BREAKING CHANGES**, fo
 
 ## Lucee 5.4 (LTS)
 
-Lucee 5.4 is our [LTS stable release](https://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs.
+Lucee 5.4 is our [LTS stable release](https://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs. 
+
+Only Java 8 and 11 are supported, there are various changes in Java 21 including date time handling which are not addressed in 5.4, time to upgrade!
 
 As a LTS release, Lucee 5.4 will receive security updates and critical regression fixes until 2026, **but is no longer actively maintained.**
 
