@@ -16,11 +16,16 @@ Our documentation is an open source and community driven effort. It is also a co
 
 To find out more about getting involved as a developer with Lucee, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/6.0/CONTRIBUTING.md)
 
+## Lucee 6.2
+
+Lucee 6.2 is our upcoming next major release, including enhanced Java and Maven integration, with even better runtime performance.
+
 ## Lucee 6.1
 
 Lucee 6.1 is current stable release of Lucee.
 
-Targeting better performance and reduced memory usuage, Lucee 6.1 has full support for Java 11 and 21.
+Targeting better performance and reduced memory usage, Lucee 6.1 introduces full support for Java 17 and 21, as well as Java 11.
+Java 8 is no longer officially supported.
 
 ## Lucee 6.0
 
@@ -32,7 +37,7 @@ As a Major Release, Lucee 6 does include some potential **BREAKING CHANGES**, fo
 
 ## Lucee 5.4 (LTS)
 
-Lucee 5.4 is our [LTS stable release](https://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs. 
+Lucee 5.4 is our [LTS stable release](https://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs.
 
 Only Java 8 and 11 are supported, there are various changes in Java 21 including date time handling which are not addressed in 5.4, time to upgrade!
 
@@ -45,7 +50,7 @@ As a LTS release, Lucee 5.4 will receive security updates and critical regressio
 
 ## Lucee 5.3
 
-Lucee 5.3 (and older) now is no longer actively developed. It's time to upgrade to 5.4 LTS or 6 (reommended)
+Lucee 5.3 (and older) now is no longer actively developed. It's time to upgrade to 5.4 LTS or 6 (recommended)
 
 ## Lucee 4.5
 
