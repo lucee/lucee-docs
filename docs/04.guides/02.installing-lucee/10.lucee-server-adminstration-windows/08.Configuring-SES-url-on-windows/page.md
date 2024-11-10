@@ -31,7 +31,7 @@ If your site doesn't have something in the URL to key off of, then you're going 
 
 	/*=ajp13
 
-However, at this point IIS will be pretty useless. The only thing it will be doing is handing off requests to Tomcat. You may want to consider removing IIS and just [[utilizing-tomcat-built-in-web-server]].
+However, at this point IIS will be pretty useless. The only thing it will be doing is handing off requests to Tomcat. You may want to consider removing IIS and just [[windows-utilizing-tomcat-built-in-web-server]].
 
 ### Configuring Tomcat ###
 
