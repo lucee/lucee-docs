@@ -24,6 +24,7 @@ within a single engine. For example, you can host `lucee.org` and `whatever.org`
 in its own web context.
 
 Lucee 6 provides two configuration modes:
+
 - **Single Mode**: A single configuration for the entire Servlet Engine.
 - **Multi Mode**: A global configuration for the engine, with separate configurations for each web context.
 
@@ -87,6 +88,7 @@ Example:
 ```
 
 Three types of placeholders are supported:
+
 - **`${MYDS_PASSWORD}`**: Can be an environment variable or system property.
 - **`{env:MYDS_USERNAME}`**: Refers to an environment variable.
 - **`{system:myds.url}`**: Refers to a system property.
