@@ -1,0 +1,1 @@
+javasettings to use to load the class

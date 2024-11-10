@@ -1,0 +1,1 @@
+A struct or an array of structs specifying the Maven coordinates, including groupId, artifactId, and version.

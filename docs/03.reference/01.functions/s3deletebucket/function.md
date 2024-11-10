@@ -2,7 +2,7 @@
 title: s3deletebucket
 id: function-s3deletebucket
 related:
-categories:
+- function-s3delete
 ---
 
-deletes a bucket, this function is deprecated, use instead S3Delete.
+deletes a bucket, this function is deprecated, use instead [[function-S3Delete]].
