@@ -1,0 +1,1 @@
+Lists the interfaces that the component implements, specifying the set of functions that the component must provide.

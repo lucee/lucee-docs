@@ -12,7 +12,7 @@ Right now, at the beginning, we would like to lay a solid foundation for the fut
 
 To this end, feel free to hop into the user group and join the conversation!
 
-### Download ###
+### Commandbox ###
 
 The CLI is currently available for Windows (win32 version), Linux and OS X (bin version).
 
@@ -23,8 +23,6 @@ There are RPM and DEB packages for Linux, as well as a platform neutral Jar.
 (The DEB/RPM packages put the CLI @ /usr/bin/lucee)
 
 It is available with or without a JRE, and there is an experimental "CLI Express" version, which uses the CLI in "server" mode to run an instance of Lucee.
-
-[https://commandbox.ortusbooks.com/getting-started-guide](https://commandbox.ortusbooks.com/getting-started-guide)
 
 [https://commandbox.ortusbooks.com/getting-started-guide](https://commandbox.ortusbooks.com/getting-started-guide)
 

@@ -1,0 +1,1 @@
+The provider to connect to. If not set, Amazon AWS is used.

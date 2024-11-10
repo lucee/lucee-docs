@@ -1,0 +1,1 @@
+in case `waitForIt` is set to `true`, this defines how long we wait for the process to end, default is one second.

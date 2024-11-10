@@ -1,0 +1,1 @@
+Defines the type of component: `none` for a regular component, `abstract` for a component that cannot be instantiated directly and must be extended, or `final` for a component that cannot be extended by other components.

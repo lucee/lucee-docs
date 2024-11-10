@@ -1,0 +1,1 @@
+action to execute, possible values are [start,stop and restart]

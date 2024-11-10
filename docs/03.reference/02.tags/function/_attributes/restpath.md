@@ -1,0 +1,1 @@
+Defines a sub-resource path for the function when used as part of a RESTful web service. The path is case-sensitive and should avoid special characters. Regular expressions can be included in the path.
