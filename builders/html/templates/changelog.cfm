@@ -84,6 +84,8 @@
 
 	#getEditLink(path=local.changeLog.getSourceFile(), edit=args.edit)#
 	#_markdownToHtml( local.changeLog.getBody() )#
+
+	<p>Generated from <b>#server.lucee.version#</b></p>
 </cfoutput>
 
 <ul>
