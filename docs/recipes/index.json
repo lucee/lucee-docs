@@ -3,7 +3,7 @@
     "file": "ai-for-documentation.md",
     "title": "AI in Documentation (Experimental)",
     "path": "/docs/recipes/ai-for-documentation.md",
-    "hash": "c68f06dcfe04faafe391016eeeda36e2",
+    "hash": "1c0670ed6348dc4a7292781fa159e3b1",
     "keywords": [
       "AI",
       "LLM",
@@ -28,7 +28,7 @@
     "file": "ai.md",
     "title": "AI (Experimental)",
     "path": "/docs/recipes/ai.md",
-    "hash": "1b8a4754b2d45d266e5bd33702190fa1",
+    "hash": "7925d918d2416a23327640d99df89f01",
     "keywords": [
       "AI",
       "LLM"
@@ -83,7 +83,7 @@
     "file": "breaking-changes-6-1.md",
     "title": "Breaking Changes Between Lucee 6.0 and 6.1",
     "path": "/docs/recipes/breaking-changes-6-1.md",
-    "hash": "43c020b86cf58c1e848ffafe5891f81c",
+    "hash": "90562d7712f038778721fceea4d4412d",
     "keywords": [
       "breaking changes",
       "Lucee 6.0",
@@ -164,7 +164,7 @@
     "file": "configuration-lucee5.md",
     "title": "Configuration - Lucee 5",
     "path": "/docs/recipes/configuration-lucee5.md",
-    "hash": "000c7401981a2f6597344c76593c0619",
+    "hash": "16c3dbbc3b2c1efbbd7b808bbf94df9b",
     "keywords": [
       "configuration",
       "config",
@@ -177,7 +177,7 @@
     "file": "configuration.md",
     "title": "Configuration - How to Configure Lucee",
     "path": "/docs/recipes/configuration.md",
-    "hash": "473fb6bd219858f3bfee1dd389332395",
+    "hash": "4d2c9646bafde808bffa24ecce2490d0",
     "keywords": [
       "configuration",
       "config",
@@ -776,7 +776,7 @@
     "file": "overwrite-build-in-functions-tags.md",
     "title": "Overwriting and Adding Built-in Functions and Tags",
     "path": "/docs/recipes/overwrite-build-in-functions-tags.md",
-    "hash": "dad5e4019930f6d975f8e45547bdb38f",
+    "hash": "7ae2a5e35734651ee4d8b7b162f0f7e6",
     "keywords": [
       "function",
       "BIF",
