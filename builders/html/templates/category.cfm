@@ -8,20 +8,21 @@
 	local.pages    = args.docTree.sortPagesByType( local.pages );
 
 	local.currentPageType = "";
+	// this enforces the sub category order
 	local.pageTypeTitles = [
 		"function" = { title="Functions", pages=0 },
 		"tag"      = { title="Tags", pages=0 },
 		 "_method" = { title="Methods", pages=0 },
 		 "_object" = { title="Objects", pages=0 },
 		"category" = { title="Categories", pages=0 },
-		"page"     = { title="Guides",pages=0 },
-		"implementationStatus"     = { title="Implementation Status",pages=0 }
+		"page"     = { title="Guides",pages=0 }
 	];
 
 	local.missingPageTypes = {};
 	loop array="#local.pages#" index="local.i" item="local.page" {
 		if ( !structKeyExists(local.pageTypeTitles, local.page.getPageType() ) ) {
-			throw "Unknown page type: [ #local.page.getPageType()# ] page [#local.page.getSourceFile()#]";
+			request.logger (text="Unknown page type: [ #local.page.getPageType()# ] page [#local.page.getSourceFile()#] defaulting to [page.md]", type="WARN");
+			local.page.setPageType("page");
 		}
 		local.pageTypeTitles[local.page.getPageType()].pages++;
 	}
