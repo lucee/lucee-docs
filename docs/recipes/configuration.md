@@ -53,10 +53,12 @@ web context configurations (though Lucee keeps them in place).
 ## Configuration Hierarchy
 
 Lucee follows a configuration hierarchy:
+
 1. **Environment variables/system properties**
 2. **Server configuration JSON**
 3. **Web configuration JSON**
 4. **`Application.cfc`**
+5. **Per Request**
 
 Each level extends or overrides the previous one.
 
