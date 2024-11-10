@@ -55,4 +55,3 @@ This approach not only allows you to overwrite existing functions but also to ad
 The process for tags is similar. To create or overwrite a tag, use the `…/lucee-server/context/library/tags` directory. Custom tags need to follow the same interface as regular custom tags. You can refer to existing built-in tags in this directory as templates for your implementations.
 
 By following these steps, you can extend or modify Lucee's capabilities to suit your specific needs.
-

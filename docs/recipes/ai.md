@@ -19,6 +19,7 @@ Lucee 6.2 includes experimental support for AI integration, which will be finali
 In Lucee 6.2, AI connections can be configured similarly to datasources or caches, either in the Lucee Administrator or directly in `.CFConfig.json`. Here are sample configurations:
 
 **OpenAI (ChatGPT) Example:**
+
 ```json
 "ai": {
   "mychatgpt": {
@@ -36,6 +37,7 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
 ```
 
 **Google Gemini Example:**
+
 ```json
 "ai": {
   "mygemini": {
@@ -51,6 +53,7 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
 ```
 
 **Ollama (Local) Example:**
+
 ```json
 "ai": {
   "gemma2": {
@@ -68,6 +71,7 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
 In these examples, ChatGPT from OpenAI, Gemini from Google, and Ollama for local use are set up. The `OpenAIEngine` allows configuration for `openai` or `ollama` types and can also connect to any service using the OpenAI REST interface by specifying a URL:
 
 **OpenAI REST Interface Example:**
+
 ```json
 "ai": {
   "lucy": {
@@ -110,6 +114,7 @@ You can interact with AI directly via Lucee functions and tags.
 At the moment, these functions use the prefix `Lucee` to avoid conflicts with existing functions in your code. With Lucee 7, we plan to remove the prefix (but still support it as an alias).
 
 **Direct Interaction Example:**
+
 ```javascript
 // start a session with a specic AI endpoint
 slim = LuceeCreateAISession(name:'gemma2', systemMessage:"Answer as Slim Shady.");
@@ -136,7 +141,7 @@ This feature is still a work in progress, and we are working to improve the qual
 ### Monitor Documentation Tab
 
 In the Monitor's Documentation tab, AI can answer questions about Lucee based on retrieval-augmented generation (RAG) with available documentation and links to related documents. 
-This feature is also in development for enhanced input quality (read more about Monitor Documentation here https://github.com/lucee/lucee-docs/blob/master/docs/recipes/monitoring-debugging.md).
+This feature is also in development for enhanced input quality (read more about [https://github.com/lucee/lucee-docs/blob/master/docs/recipes/monitoring-debugging.md](Monitor Documentation) ).
 
 ## Future Development
 

@@ -63,6 +63,7 @@ Example:
 ```
 
 Two types of placeholders are supported:
+
 - **`{env:MYDS_USERNAME}`**: Refers to an environment variable.
 - **`{system:myds.password}`**: Refers to a system property.
 
