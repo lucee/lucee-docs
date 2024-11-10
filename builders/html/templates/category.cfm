@@ -14,13 +14,14 @@
 		 "_method" = { title="Methods", pages=0 },
 		 "_object" = { title="Objects", pages=0 },
 		"category" = { title="Categories", pages=0 },
-		"page"     = { title="Guides",pages=0 }
+		"page"     = { title="Guides",pages=0 },
+		"implementationStatus"     = { title="Implementation Status",pages=0 }
 	];
 
 	local.missingPageTypes = {};
 	loop array="#local.pages#" index="local.i" item="local.page" {
 		if ( !structKeyExists(local.pageTypeTitles, local.page.getPageType() ) ) {
-			throw "Unknown page type: [ #local.page.getPageType()# ]";
+			throw "Unknown page type: [ #local.page.getPageType()# ] page [#local.page.getSourceFile()#]";
 		}
 		local.pageTypeTitles[local.page.getPageType()].pages++;
 	}
