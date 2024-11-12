@@ -4,6 +4,8 @@ id: function-createuuid
 related:
 - function-createguid
 - function-createulid
+categories:
+- core
 ---
 
 Creates a Universally Unique Identifier (UUID).

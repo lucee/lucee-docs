@@ -1,8 +1,11 @@
 ---
-title: lsucase
+title: LSUCase
 id: function-lsucase
 related:
+- function-ucase
 categories:
+- internationalization
+description: Converts the alphabetic characters in a specified string to uppercase, respecting locale-specific casing rules
 ---
 
 Converts the alphabetic characters in a specified string to uppercase, 

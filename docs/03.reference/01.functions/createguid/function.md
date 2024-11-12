@@ -1,8 +1,8 @@
 ---
 title: CreateGUID
 id: function-createguid
-related:
 categories:
+- core
 ---
 
 A globally unique identifier or GUID is a special type of identifier used in software applications to provide an unique reference number.
