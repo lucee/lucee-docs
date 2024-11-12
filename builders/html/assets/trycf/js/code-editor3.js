@@ -41,7 +41,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
     '		<span class="code-editor-message"></span>' +
     '	    <button class="toggle-fullscreen btn {{fullscreenbtnclass}} pull-right" ng-click="toggleFullscreen()"> <i class="icon-resize-full"></i></button>' +
     '	    <button class="editor-options btn btn-default {{optionsbtnclass}} pull-right"> <i class="icon-gear"></i></button>' +
-    '		<span ng-hide="showResults == false || showResults == 0" class="alert alert-danger pull-right" style="padding: 5px;margin: 0px 3px 0px 3px;display: inline-block;"><span class="hidden-xs">Lucee:&nbsp;</span> <span class="display-engine" style="line-height: 2.2;">></span></span>' +
+    '		<span ng-hide="showResults == false || showResults == 0" class="alert alert-danger pull-right" style="padding: 5px;margin: 0px 3px 0px 3px;display: inline-block;"><span class="hidden-xs">&nbsp;</span> <span class="display-engine" style="line-height: 2.2;">></span></span>' +
     '		<div class="modal fade" style="display:none;" tabindex="-1" role="dialog">' +
     '		  <div class="modal-dialog">' +
     '		    <div class="modal-content">' +
