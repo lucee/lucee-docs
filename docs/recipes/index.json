@@ -953,6 +953,23 @@
     ]
   },
   {
+    "file": "s3-region.md",
+    "title": "Using S3 Regions in Lucee",
+    "path": "/docs/recipes/s3-region.md",
+    "hash": "0f033d87b29ca7e2e5b8fef6c2b9f10f",
+    "keywords": [
+      "Virtual File System",
+      "VFS",
+      "S3",
+      "Regions",
+      "Buckets",
+      "Amazon S3",
+      "Wasabi",
+      "MinIO",
+      "Cloud Storage"
+    ]
+  },
+  {
     "file": "script-templates.md",
     "title": "Script Templates",
     "path": "/docs/recipes/script-templates.md",

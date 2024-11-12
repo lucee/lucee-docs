@@ -272,6 +272,10 @@ Learn how to use request timeout correctly with Lucee.
 
 This document explains how to use retry functionality with some simple examples.
 
+## [Using S3 Regions in Lucee](/docs/recipes/s3-region.md)
+
+Guide on configuring and interacting with specific S3 regions in Lucee using the S3 extension.
+
 ## [Script Templates](/docs/recipes/script-templates.md)
 
 Learn about script templates in Lucee. This guide explains how Lucee supports templates with the `.cfs` extension, allowing you to write direct script code without the need for the `<cfscript>` tag.
