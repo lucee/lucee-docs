@@ -44,7 +44,7 @@ Passing values with [[tag-QueryParam]] has two advantages:
 
 ### Params ###
 
-Here we use params as part of [[tag-cfquery]] tag, used to pass the value with SQL statement.
+Here we use params as part of [[tag-query]] tag, used to pass the value with SQL statement.
 
 Pass the params value with struct
 

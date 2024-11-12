@@ -1,5 +1,4 @@
 
-
 <!--
 {
   "title": "Breaking Changes Between Lucee 6.0 and 6.1",
@@ -23,12 +22,15 @@ As of Lucee 6.1, the **Lucee Language dialect** has been fully removed. This mea
 In Lucee 6.0, using the `<cfcontent>` tag with a file URL that returns a **403 Forbidden** response did not throw an exception. In Lucee 6.1, this behavior has changed, and now an exception **will be thrown** in this scenario. Make sure to adjust your error handling if this is relevant to your application.
 
 ### Previous Behavior (Lucee 6.0):
+
 ```cfml
 <cfcontent file="https://example.com/protected-file" />
 ```
+
 - No exception was thrown, even if a 403 was returned.
 
 ### New Behavior (Lucee 6.1):
+
 - An exception is now thrown if the server returns a 403 status code.
 
 ## `fileExists()` Function Behavior with HTTP Paths
@@ -36,11 +38,13 @@ In Lucee 6.0, using the `<cfcontent>` tag with a file URL that returns a **403 F
 In Lucee 6.0, the `fileExists()` function returned `true` when checking an HTTP path that returned a **403 Forbidden** status. In Lucee 6.1, the function now correctly returns `false` if the server responds with a 403.
 
 ### Previous Behavior (Lucee 6.0):
+
 ```cfml
 fileExists("https://example.com/protected-file") // Returns true, even with a 403 response
 ```
 
 ### New Behavior (Lucee 6.1):
+
 ```cfml
 fileExists("https://example.com/protected-file") // Now returns false for a 403 response
 ```
@@ -50,16 +54,19 @@ fileExists("https://example.com/protected-file") // Now returns false for a 403 
 The behavior of the `dollarFormat()` function when formatting negative numbers has been standardized to match **Adobe ColdFusion (ACF)**. In previous versions of Lucee, this function had inconsistent behavior depending on the Java version.
 
 ### Previous Behavior (Lucee 5 on Java 8):
+
 ```cfml
 dollarFormat(-11.34) // Returns ($11.34)
 ```
 
 ### Previous Behavior (Lucee 5 on Java 11):
+
 ```cfml
 dollarFormat(-11.34) // Returns -$11.34
 ```
 
 ### New Behavior (Lucee 6.1):
+
 The function now returns `($11.34)` for negative values, which aligns with ACF's behavior.
 
 ```cfml
@@ -69,8 +76,6 @@ dollarFormat(-11.34) // Returns ($11.34) on Lucee 6.1
 ## Conclusion
 
 These breaking changes in Lucee 6.1 may impact existing applications that rely on the old behaviors. Review your code to ensure it is compatible with these updates, particularly if you are using the Lucee Language dialect, the `cfcontent` tag with protected files, the `fileExists()` function with HTTP paths, or the `dollarFormat()` function.
-
-
 
 ## Query of Queries (QoQ) Behavior in Lucee 6.1
 
@@ -92,7 +97,9 @@ actual = QueryExecute(
 );
 
 writedump( actual );
+
 ```
+
 However, **MySQL**, **Oracle**, and **PostgreSQL** do not support square bracket character sets in their `LIKE` operator, which caused inconsistencies in behavior across different databases.
 
 ### New Behavior (Lucee 6.1)
@@ -117,6 +124,7 @@ Would need to be updated to:
 ```sql
 WHERE col1 LIKE 'foo\[bar]baz%'
 ```
+
 If a custom escape character is preferred, you can use the standard SQL `ESCAPE` syntax:
 
 ```sql
@@ -140,4 +148,3 @@ WHERE col1 LIKE 'foo@[bar]baz%' ESCAPE '@'
 ```
 
 This update ensures more consistent behavior and improved support for matching patterns with special characters, making QoQ more reliable across different databases.
-

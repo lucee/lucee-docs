@@ -38,6 +38,7 @@ To enable AI in the Documentation tab of the Monitor, set up a compatible AI con
 Below are example configurations to enable AI functionality in the Documentation tab, important here is the `default` setting.
 
 **OpenAI (ChatGPT) Configuration Example:**
+
 ```json
 "ai": {
   "docChatGPT": {

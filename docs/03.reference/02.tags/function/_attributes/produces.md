@@ -1,0 +1,1 @@
+A comma-separated list of MIME types that the function can produce. The function will respond with the most acceptable media type as declared by the client. This attribute overrides the `produces` attribute at the component level.

@@ -1,6 +1,9 @@
 ---
-title: Lucee Change Log, new Tags & Functions, Arguments and Attributes
+title: Lucee Changelog, new Tags & Functions, Arguments and Attributes
 id: changelog
+categories:
+- compat
+- core
 menuTitle: Change Log
 ---
 

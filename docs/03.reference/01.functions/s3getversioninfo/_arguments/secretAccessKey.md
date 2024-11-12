@@ -1,0 +1,1 @@
+S3 secretAccessKey. If not defined, checks the system property/environment variable for [lucee.s3.secretaccesskey].

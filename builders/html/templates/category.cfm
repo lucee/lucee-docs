@@ -8,13 +8,24 @@
 	local.pages    = args.docTree.sortPagesByType( local.pages );
 
 	local.currentPageType = "";
-	local.pageTypeTitles = {
-		"function" = "Functions",
-		 "_method" = "Methods",
-		 "_object" = "Objects",
-		"tag"      = "Tags",
-		"category" = "Categories",
-	};
+	// this enforces the sub category order
+	local.pageTypeTitles = [
+		"function" = { title="Functions", pages=0 },
+		"tag"      = { title="Tags", pages=0 },
+		 "_method" = { title="Methods", pages=0 },
+		 "_object" = { title="Objects", pages=0 },
+		"category" = { title="Categories", pages=0 },
+		"page"     = { title="Guides",pages=0 }
+	];
+
+	local.missingPageTypes = {};
+	loop array="#local.pages#" index="local.i" item="local.page" {
+		if ( !structKeyExists(local.pageTypeTitles, local.page.getPageType() ) ) {
+			request.logger (text="Unknown page type: [ #local.page.getPageType()# ] page [#local.page.getSourceFile()#] defaulting to [page.md]", type="WARN");
+			local.page.setPageType("page");
+		}
+		local.pageTypeTitles[local.page.getPageType()].pages++;
+	}
 </cfscript>
 
 
@@ -25,18 +36,17 @@
 	<cfif not pages.len()>
 		<p><em>There are no pages tagged with this category.</em></p>
 	<cfelse>
-		<cfloop array="#local.pages#" index="local.i" item="local.page">
-			<cfif local.page.getPageType() != local.currentPageType>
-				<cfif local.currentPageType.len()>
-					</ul>
-				</cfif>
-				<cfset local.currentPageType = local.page.getPageType()>
-				<h2>#( local.pageTypeTitles[ local.page.getPageType() ] ?: "Guides" )#</h2>
+		<cfloop collection="#local.pageTypeTitles#" key="local.pageTypeKey" value="local.pageType">
+			<cfif local.pageType.pages gt 0>
+				<h2>#( local.pageType.title )#</h2>
 				<ul class="list-unstyled">
+				<cfloop array="#local.pages#" index="local.i" item="local.page">
+					<cfif local.pageTypeKey eq local.page.getPageType()>
+						<li>[[#htmleditformat(local.page.getId())#]] #htmleditformat( getMetaDescription(local.page, local.page.getBody()) )#</li>
+					</cfif>
+				</cfloop>
+				</ul>
 			</cfif>
-
-			<li>[[#htmleditformat(local.page.getId())#]] #htmleditformat( getMetaDescription(local.page, local.page.getBody()) )#</li>
 		</cfloop>
-		</ul>
 	</cfif>
 </cfoutput>

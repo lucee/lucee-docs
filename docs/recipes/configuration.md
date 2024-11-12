@@ -24,6 +24,7 @@ within a single engine. For example, you can host `lucee.org` and `whatever.org`
 in its own web context.
 
 Lucee 6 provides two configuration modes:
+
 - **Single Mode**: A single configuration for the entire Servlet Engine.
 - **Multi Mode**: A global configuration for the engine, with separate configurations for each web context.
 
@@ -52,10 +53,12 @@ web context configurations (though Lucee keeps them in place).
 ## Configuration Hierarchy
 
 Lucee follows a configuration hierarchy:
+
 1. **Environment variables/system properties**
 2. **Server configuration JSON**
 3. **Web configuration JSON**
 4. **`Application.cfc`**
+5. **Per Request**
 
 Each level extends or overrides the previous one.
 
@@ -87,6 +90,7 @@ Example:
 ```
 
 Three types of placeholders are supported:
+
 - **`${MYDS_PASSWORD}`**: Can be an environment variable or system property.
 - **`{env:MYDS_USERNAME}`**: Refers to an environment variable.
 - **`{system:myds.url}`**: Refers to a system property.
