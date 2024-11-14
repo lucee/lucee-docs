@@ -41,7 +41,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
     '		<span class="code-editor-message"></span>' +
     '	    <button class="toggle-fullscreen btn {{fullscreenbtnclass}} pull-right" ng-click="toggleFullscreen()"> <i class="icon-resize-full"></i></button>' +
     '	    <button class="editor-options btn btn-default {{optionsbtnclass}} pull-right"> <i class="icon-gear"></i></button>' +
-    '		<span ng-hide="showResults == false || showResults == 0" class="alert alert-info pull-right" style="padding: 5px;margin: 0px 3px 0px 3px;display: inline-block;"><span class="hidden-xs">Current Engine:</span> <span class="display-engine" style="line-height: 2.2;">></span></span>' +
+    '		<span ng-hide="showResults == false || showResults == 0" class="alert alert-danger pull-right" style="padding: 5px;margin: 0px 3px 0px 3px;display: inline-block;"><span class="hidden-xs">&nbsp;</span> <span class="display-engine" style="line-height: 2.2;">></span></span>' +
     '		<div class="modal fade" style="display:none;" tabindex="-1" role="dialog">' +
     '		  <div class="modal-dialog">' +
     '		    <div class="modal-content">' +
@@ -91,9 +91,9 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
     "		        </div>" +
     '				<label class="control-label">Change CFML Engine</label>' +
     "		        <div>" +
-    '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee6-beta">Lucee 6.BETA</label>' +
-    '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee">Lucee 5.LATEST</label>' +
-    '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee4">Lucee 4.5.LATEST</label>' +
+    '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee6">Lucee 6 Latest</label>' +
+    '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee5">Lucee 5.4 ( LTS )</label>' +
+    '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee4">Lucee 4.5 ( EOL )</label>' +
     "		        </div>" +
     "		      </div>" +
     '		      <div class="modal-footer">' +
@@ -139,11 +139,11 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
       scope.setupCodeGist = attrs.setupCodeGist;
       scope.asserts = attrs.asserts;
       scope.saveGist = saveGist;
-      scope.engines = { lucee4: "Lucee 4.5",
-        lucee: "Lucee 5",
-        "lucee6-beta": "Lucee 6 BETA"
+      scope.engines = { lucee6: "Lucee 6 Latest",
+        lucee5: "Lucee 5.4 LTS",
+        lucee4: "Lucee 4.5 EOL"
       };
-      scope.engine = attrs.engine || "lucee";
+      scope.engine = attrs.engine || "lucee6";
       scope.basepath = attrs.basepath || "/gist/";
       var editor = element.find(".code-editor"),
         codeForm = element.find(".code-form"),
@@ -205,11 +205,11 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
         showResults =
           typeof attrs.showResults !== "undefined"
             ? attrs.showResults === "true" || attrs.showResults === "1"
-            : true,
+            : t5rue,
         urlPool = {
           lucee4: ["https://lucee4-sbx.trycf.com/lucee4/getremote.cfm"],
-          lucee: ["https://lucee5-sbx.trycf.com/lucee5/getremote.cfm"],
-          "lucee6-beta": ["https://lucee6-sbx.trycf.com/lucee/getremote.cfm"]
+          lucee5: ["https://lucee5-sbx.trycf.com/lucee5/getremote.cfm"],
+          lucee6: ["https://lucee6-sbx.trycf.com/getremote.cfm"]
         },
         url =
           attrs.url ||

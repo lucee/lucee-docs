@@ -1,8 +1,8 @@
 ---
-title: valueref
+title: ValueRef
 id: function-valueref
 related:
-categories:
+- tag-function
 ---
 
 creates a reference to a UDF that acts like a simple value.

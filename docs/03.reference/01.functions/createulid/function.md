@@ -1,10 +1,12 @@
 ---
-title: createULID
+title: CreateULID
 id: function-createulid
-description: Generates a ULID (Universally Unique Lexicographically Sortable Identifier)
 related:
 - function-createguid
 - function-createuuid
+categories:
+- core
+description: Generates a ULID (Universally Unique Lexicographically Sortable Identifier)
 ---
 
 Generates a ULID (Universally Unique Lexicographically Sortable Identifier), a 128-bit identifier where the first 48 bits are a timestamp representing milliseconds since the Unix Epoch (1970-01-01), ensuring temporal ordering. 
