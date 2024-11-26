@@ -95,7 +95,7 @@ Lucee also provides the following layouts for customizing log output:
 - **classic**: Produces traditional CFML-compatible output.
 - **datadog**: Formats logs for direct ingestion into **Datadog**.
 - **html**: Outputs logs in an HTML format suitable for browser-based debugging.
-- **json**: Generates logs in structured JSON format.
+- **json**: Generates logs in structured JSON format (uses Log4j2's JSONAppender internally).
 - **pattern**: Allows custom patterns for maximum flexibility.
 - **xml**: Outputs logs in structured XML format.
 
@@ -103,24 +103,22 @@ Lucee also provides the following layouts for customizing log output:
 
 ## Extending Logging with Custom Appenders and Layouts
 
-In addition to the built-in appenders and layouts, Lucee supports custom configurations using third-party libraries. 
-You can use OSGi based libraries or classic java libraries (Maven support will follow soon). 
-Here’s how you can define custom appenders and layouts:
+In addition to the built-in appenders and layouts, Lucee supports custom configurations using third-party libraries. Here’s how you can define custom appenders and layouts:
 
 ### Custom Appender Configuration
 
 ```json
 "appenderClass": "<custom-appender-class-name>",
-"appenderBundleName": "<custom-appender-osgi-bundle-name>", // only needed for OSGi based libraries
-"appenderBundleVersion": "<custom-appender-osgi-bundle-version>" // only needed for OSGi based libraries
+"appenderBundleName": "<custom-appender-osgi-bundle-name>",
+"appenderBundleVersion": "<custom-appender-osgi-bundle-version>"
 ```
 
 ### Custom Layout Configuration
 
 ```json
 "layoutClass": "<custom-layout-class-name>",
-"layoutBundleName": "<custom-layout-osgi-bundle-name>", // only needed for OSGi based libraries
-"layoutBundleVersion": "<custom-layout-osgi-bundle-version>" // only needed for OSGi based libraries
+"layoutBundleName": "<custom-layout-osgi-bundle-name>",
+"layoutBundleVersion": "<custom-layout-osgi-bundle-version>"
 ```
 
 ### Example: Custom Logging to Kafka
@@ -149,5 +147,36 @@ Here’s how you can define custom appenders and layouts:
 This configuration sends logs to a Kafka topic with a custom pattern layout.
 
 ---
+
+## Using the `<cflog>` Tag
+
+Lucee supports logging through the `<cflog>` tag, which allows you to send log entries to specific loggers. The tag is available in both **HTML-style** and **script-style** syntax.
+
+### Examples
+
+#### HTML-Style Syntax
+
+```html
+<cflog log="application" type="warn" text="Warning: Something went wrong!">
+```
+
+#### Script-Style Syntax (Migration)
+
+```javascript
+log log="application" type="warn" text="Warning: Something went wrong!";
+```
+
+#### Script-Style Syntax (Function)
+
+```javascript
+try {
+  throw "Warning: Something went wrong!"
+}
+catch(e) {
+  cflog(log="application", type="error", exception=e);
+}
+```
+
+Lucee's `<cflog>` tag supports various attributes, including `log`, `type`, `text`, and `exception`. Using these attributes, you can customize log entries to suit your application's needs.
 
 Lucee’s extensible logging framework offers flexibility for integrating with diverse infrastructures, enhancing monitoring, debugging, and auditing capabilities. By leveraging built-in features and custom configurations, you can adapt the logging system to your application's unique needs.
