@@ -26,6 +26,14 @@ Since version 6.0, all numbers Lucee uses in the runtime are by default BigDecim
 this.preciseMath = false;
 ```
 
+## Dynamically during a request
+
+You also simply toggle precision on or off for the current request.
+
+```lucee
+application action="update" preciseMath="true|false";
+```
+
 ## System Property / Environment Variable
 
 You can also change that behavior with the system property `-Dlucee.precise.math=false` or with the environment variable `LUCEE_PRECISE_MATH=false`.
