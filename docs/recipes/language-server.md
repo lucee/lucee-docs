@@ -57,17 +57,27 @@ The same settings can be configured using Java system properties:
 
 ## Component Implementation
 
-The LSP server delegates all language-specific functionality to a CFML component. This component must implement the `execute` method that receives JSON-formatted LSP messages:
+The LSP server delegates all language-specific functionality to a CFML component. By default, this component is located at:
+
+```
+{lucee-root-directory}/lucee-server/context/components/org/lucee/cfml/lsp/LSPEndpoint.cfc
+```
+
+The component must implement the `execute` method that receives JSON-formatted LSP messages:
 
 ```cfml
 // org/lucee/cfml/lsp/LSPEndpoint.cfc
 component {
     public string function execute(required string jsonMessage) {
-        // Process LSP message and return response
-        return jsonMessageResponse;
+        var json=deserializeJSON(jsonMessage);
+        systemOutput(json,1,1);
+        json.addition="myAddition";
+        return serializeJSON(json);
     }
 }
 ```
+
+You can customize the location of this component using the `lucee.lsp.component` configuration option.
 
 ## Logging
 
