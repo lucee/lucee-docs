@@ -35,6 +35,9 @@ export LUCEE_LSP_PORT=2089
 
 # Configure the CFML component that handles LSP requests
 export LUCEE_LSP_COMPONENT="org.lucee.cfml.lsp.LSPEndpoint"
+
+# Control component instance reuse (default: false)
+export LUCEE_LSP_STATELESS=false
 ```
 
 ### System Properties
@@ -45,6 +48,7 @@ The same settings can be configured using Java system properties:
 -Dlucee.lsp.enabled=true
 -Dlucee.lsp.port=2089
 -Dlucee.lsp.component=org.lucee.cfml.lsp.LSPEndpoint
+-Dlucee.lsp.stateless=false
 ```
 
 ## Configuration Options
@@ -54,6 +58,7 @@ The same settings can be configured using Java system properties:
 | lucee.lsp.enabled | Enables/disables the LSP server | false |
 | lucee.lsp.port | Port number for the LSP server | 2089 |
 | lucee.lsp.component | CFML component that handles LSP requests | org.lucee.cfml.lsp.LSPEndpoint |
+| lucee.lsp.stateless | When false, reuses the same component instance for all requests. When true, creates a new instance for each request. | false |
 
 ## Component Implementation
 
