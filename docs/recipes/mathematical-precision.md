@@ -18,17 +18,23 @@
 
 # Mathematical Precision
 
-So far, Lucee has handled numbers internally as “double”, but with Lucee 6 we have switched to “BigDecimal”. This makes math operations much more precise and there is no need anymore to use the function “PrecisionEvaluate”.
+So far, Lucee has handled numbers internally as “double”, but with Lucee 6 we have added support for using “BigDecimal”. 
 
-Since version 6.0, all numbers Lucee uses in the runtime are by default BigDecimal based and no longer double as before. You can still change that fact in the Application.cfc as follows:
+This makes math operations much more precise (but slower) and there is no need anymore to use the function “PrecisionEvaluate”.
+
+Since version 6.0, all numbers Lucee uses in the runtime are by default BigDecimal based and no longer double as before. 
+
+However, for performance reasons, with Lucee 6.2, we reverted the default to the old behaviour as it's much faster.
+
+You can toggle precise math in the `Application.cfc` as follows:
 
 ```lucee
-this.preciseMath = false;
+this.preciseMath = true | false;
 ```
 
 ## Dynamically during a request
 
-You also simply toggle precision on or off for the current request.
+You also simply toggle precision on or off for the current request, only as required, which is recommended for best performance.
 
 ```lucee
 application action="update" preciseMath="true|false";
