@@ -1,3 +1,1 @@
-For ACF compatibility, on Unix systems, the `mode` column is currently not populated 
-
-<https://luceeserver.atlassian.net/browse/LDEV-2118>
+The Unix `mode` column was not populated prior to Lucee 6.1

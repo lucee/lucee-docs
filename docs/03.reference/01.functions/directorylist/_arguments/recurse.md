@@ -1,3 +1,3 @@
-Whether Lucee performs the action on sub-directories:
+Specifies whether to include subdirectories in the listing.
 
-If true, the contents of all sub-directories are also included.
+If `true`, the content of all sub-directories is also included.

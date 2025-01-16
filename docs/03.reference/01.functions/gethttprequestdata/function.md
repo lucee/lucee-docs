@@ -2,7 +2,8 @@
 title: GetHTTPRequestData
 id: function-gethttprequestdata
 related:
-categories:
+- function-gethttprequestheaders
+- function-getpagecontext
 ---
 
 Makes HTTP request headers and body available to CFML pages.
