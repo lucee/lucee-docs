@@ -9,6 +9,13 @@
     "cfhttp",
     "hash",
     "fileReadBinary"
+  ],
+  "related": [
+    "function-fileReadBinary",
+    "tag-http"
+  ],
+  "categories": [
+    "crypto"
   ]
 }
 -->

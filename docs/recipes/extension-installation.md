@@ -14,6 +14,9 @@
     "system property",
     "hot deployment",
     "automation"
+  ],
+  "categories": [
+    "extensions"
   ]
 }
 -->

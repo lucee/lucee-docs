@@ -12,7 +12,15 @@
     "Lucee",
     "Application.cfc",
     "PrecisionEvaluate"
+  ],
+  "related": [
+    "function-precisionevaluate"
+  ],
+  "categories: [
+    "math",
+    "number"
   ]
+
 }
 -->
 

@@ -8,6 +8,9 @@
     "Single Mode",
     "Multi Mode",
     "Configuration"
+  ],
+  "categories": [
+    "server"
   ]
 }
 -->

@@ -8,6 +8,9 @@
     "commandbox",
     "installation",
     "kubernetes"
+  ],
+  "categories": [
+    "server"
   ]
 }
 -->

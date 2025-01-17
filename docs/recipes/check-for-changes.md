@@ -11,7 +11,7 @@
     "Server context",
     "Web context"
   ],
-    "categories": [
+  "categories": [
     "server"
   ]
 }

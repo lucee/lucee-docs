@@ -9,7 +9,10 @@
     "Properties",
     "System Properties",
     "setting",
-    "cofig"
+    "config"
+  ], 
+  "categories": [
+    "server"
   ]
 }
 -->

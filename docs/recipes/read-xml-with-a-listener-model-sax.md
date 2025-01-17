@@ -12,7 +12,7 @@
     "XML Event Parsing",
     "XML to Struct"
   ],
-  "categories" : [ 
+  "categories": [
     "xml"
   ],
   "related":[

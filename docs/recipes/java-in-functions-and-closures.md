@@ -14,7 +14,7 @@
   ],
   "categories": [
     "java"
-  ],
+  ]
 }
 -->
 

@@ -19,7 +19,8 @@
     "return"
   ],
   "related": [
-    "developing-with-lucee-server"
+    "developing-with-lucee-server",
+    "tag-script"
   ]
 }
 -->
