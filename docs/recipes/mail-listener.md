@@ -11,7 +11,7 @@
     "component"
   ],
   "related": [
-    "tag-mail",
+    "tag-mail"
   ],
   "categories": [
     "protocols"
