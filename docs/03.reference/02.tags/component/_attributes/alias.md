@@ -1,0 +1,1 @@
+Defines an alternative name or alias for the component, providing flexibility in referencing the component in different contexts.

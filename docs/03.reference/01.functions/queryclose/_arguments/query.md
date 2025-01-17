@@ -1,0 +1,1 @@
+Query object to close.

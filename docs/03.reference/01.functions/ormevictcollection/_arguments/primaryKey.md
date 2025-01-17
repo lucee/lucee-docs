@@ -1,0 +1,1 @@
+Primary key of the collection or association data of the entity

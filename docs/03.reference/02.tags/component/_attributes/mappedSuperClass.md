@@ -1,0 +1,1 @@
+Indicates whether the component acts as a mapped superclass. A mapped superclass serves as a base class for other components to extend but does not itself represent a database entity.

@@ -1,0 +1,1 @@
+A string or a variable that contains one, with HTML to be parsed
