@@ -12,6 +12,9 @@
     "Struct return type",
     "Foreign key",
     "Lucee"
+  ],
+  "related": [
+    "tag-query"
   ]
 }
 -->

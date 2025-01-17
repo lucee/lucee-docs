@@ -9,8 +9,7 @@
 <cfoutput>
 	#getEditLink(path=local.pg.getSourceFile(), edit=args.edit)#
 	#_markdownToHtml( local.pg.getBody() )#
-
-	<cfif ArrayLen(local.pg.getChildren()) lt 50>
+	<cfif ArrayLen(local.pg.getChildren()) lt 50 or local.pg.getListingStyle() eq "flat">
 		<div class="tile-wrap">
 			<cfloop array="#local.pg.getChildren()#" index="local.i" item="local.child">
 				<span class="tile">

@@ -8,6 +8,15 @@
     "query",
     "indexes",
     "cfquery"
+  ],
+  "categories": [
+    "query"
+  ],
+  "related": [
+    "tag-query",
+    "function-queryrowbyindex",
+    "function-querygetcellbyindex",
+    "function-queryrowdatabyindex"
   ]
 }
 -->

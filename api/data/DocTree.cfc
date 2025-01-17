@@ -311,10 +311,17 @@ component accessors=true {
 						variables.tree.append(guide);
 					}
 					break;
-				/*	
 				case "recipes":
+					var recipeTree = folder.getChildren();
+					for (var recipe in recipeTree){
+						if (recipe.getForceSortOrder() gt 0){
+							recipe.setSortOrder(recipe.getForceSortOrder());
+						} else {
+							recipe.setSortOrder(5 + NumberFormat(recipe.getSortOrder()/100,"0.00"));
+						}
+						variables.tree.append(recipe);
+					}
 					break;
-				*/
 			}
 		}
 		_sortChildren( variables.tree );

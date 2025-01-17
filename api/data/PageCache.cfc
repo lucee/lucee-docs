@@ -83,7 +83,7 @@ component accessors=true {
 				var timestamp = CreateDate(2000,1,1);//
 				for( var file in local.files){
 					file = _removeRootDirectoryFromFilePath(file);
-					if ( ListFirst( file, "/" ) eq "recipes") continue;
+					// if ( ListFirst( file, "/" ) eq "recipes") continue;
 					var row = QueryAddRow(local.q_files);
 					querySetCell(local.q_files, "name", ListLast(file, "/") , row);
 					querySetCell(local.q_files, "fullpath", file , row);
