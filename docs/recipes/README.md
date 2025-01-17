@@ -186,7 +186,7 @@ List existing Cache Connections available in Lucee.
 
 ## [Logging in Lucee](/docs/recipes/logging.md)
 
-No description available.
+How to configure and customize logging
 
 ## [Loop Labels](/docs/recipes/loop-labels.md)
 

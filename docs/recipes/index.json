@@ -576,7 +576,7 @@
     "file": "java-in-functions-and-closures.md",
     "title": "Java in Functions and Closures",
     "path": "/docs/recipes/java-in-functions-and-closures.md",
-    "hash": "ac1b5bb6637816db21457f5b98daef66",
+    "hash": "1e3e2d70e8be13df7caa2323edaf1fb8",
     "keywords": [
       "function",
       "java",
@@ -590,7 +590,7 @@
     "file": "java-libraries.md",
     "title": "Interacting with Java Libraries in Lucee 6.2",
     "path": "/docs/recipes/java-libraries.md",
-    "hash": "9a4a6f3d61d78494937892f0111026b2",
+    "hash": "11e13ce9bec0c7d7e22148df7007a642",
     "keywords": [
       "java",
       "maven",
@@ -657,7 +657,7 @@
     "file": "logging.md",
     "title": "Logging in Lucee",
     "path": "/docs/recipes/logging.md",
-    "hash": "2940cad084edaf4dce300c50e9bedc08",
+    "hash": "31a26b6ce13855824c8b7b9316429086",
     "keywords": [
       "Logging",
       "Log levels",
@@ -750,7 +750,7 @@
     "file": "maven.md",
     "title": "Maven (Lucee 6.2)",
     "path": "/docs/recipes/maven.md",
-    "hash": "a99e240ff13b47046b173072b166cd1c",
+    "hash": "2a607eda8b76d28a2194af17f4d0c975",
     "keywords": [
       "Maven",
       "Java",
