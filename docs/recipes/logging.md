@@ -2,18 +2,27 @@
 {
   "title": "Logging",
   "id": "logging",
-  "description": "",
+  "description": "How to configure and customize logging",
   "keywords": [
     "Logging",
     "Log levels",
     "Lucee"
+  ],
+  "related": [
+    "tag-log",
+    "function-writelog"
+  ],
+  "categories": [
+    "server"
   ]
 }
 -->
 
 # Logging in Lucee
 
-Lucee's logging system is a powerful and flexible framework designed to provide insights into your application’s behavior. By configuring logs, you can monitor errors, track events, and troubleshoot efficiently.
+Lucee's logging system is a powerful and flexible framework designed to provide insights into your application’s behavior.
+
+By configuring logs, you can monitor errors, track events, and troubleshoot efficiently.
 
 ## Why Logging?
 
@@ -23,7 +32,9 @@ Logging is an essential practice for maintaining reliable and performant applica
 - Gain insights into application usage and performance.
 - Maintain an audit trail of events and actions.
 
-Lucee supports various log types (or levels), enabling you to control the verbosity and focus of your logs. Additionally, you can configure logging destinations and formats to integrate seamlessly with your infrastructure.
+Lucee supports various log types (or levels), enabling you to control the verbosity and focus of your logs. 
+
+Additionally, you can configure logging destinations and formats to integrate seamlessly with your infrastructure.
 
 ## How to Use Log Levels?
 
@@ -38,7 +49,9 @@ Log levels (or types) categorize log entries based on their importance or severi
 
 ### Configuring Log Level Thresholds
 
-You can configure the minimum log level (threshold) for each logger in the **Lucee Administrator** or directly in the configuration file (`.CFConfig.json`). For instance, setting a threshold of `warn` means only warnings, errors, and fatal logs are recorded, ignoring `info`, `debug`, and `trace` logs.
+You can configure the minimum log level (threshold) for each logger in the **Lucee Administrator** or directly in the configuration file (`.CFConfig.json`). 
+
+For instance, setting a threshold of `warn` means only warnings, errors, and fatal logs are recorded, ignoring `info`, `debug`, and `trace` logs.
 
 This allows you to start with minimal logging in production and increase verbosity (e.g., to `debug`) for deeper analysis when needed.
 
@@ -75,7 +88,9 @@ You can add, modify, or remove loggers in the **Lucee Administrator** or directl
 
 ### Internals: Powered by Log4j2
 
-Lucee's logging system is powered by **Log4j2**, providing robust support for appenders and layouts. You can extend Lucee logging by using any appender or layout supported by Log4j2.
+Lucee's logging system is powered by **Log4j2**, providing robust support for Appenders and Layouts. 
+
+You can extend Lucee logging by using any Appender or Layout supported by Log4j2.
 
 ---
 
@@ -83,7 +98,7 @@ Lucee's logging system is powered by **Log4j2**, providing robust support for ap
 
 ### Built-in Appenders
 
-Lucee comes with built-in support for the following appenders:
+Lucee comes with built-in support for the following Appenders:
 
 - **console**: Logs output to the console, ideal for debugging in development or server environments.
 - **datasource**: Logs to a database table, allowing structured storage and querying of log data.
@@ -91,7 +106,7 @@ Lucee comes with built-in support for the following appenders:
 
 ### Built-in Layouts
 
-Lucee also provides the following layouts for customizing log output:
+Lucee also provides the following Layouts for customizing log output:
 
 - **classic**: Produces traditional CFML-compatible output.
 - **datadog**: Formats logs for direct ingestion into **Datadog**.
@@ -104,7 +119,9 @@ Lucee also provides the following layouts for customizing log output:
 
 ## Extending Logging with Custom Appenders and Layouts
 
-In addition to the built-in appenders and layouts, Lucee supports custom configurations using third-party libraries. Here’s how you can define custom appenders and layouts:
+In addition to the built-in Appenders and Layouts, Lucee supports custom configurations using third-party libraries. 
+
+Here’s how you can define custom Appenders and Layouts:
 
 ### Custom Appender Configuration
 
@@ -145,7 +162,7 @@ In addition to the built-in appenders and layouts, Lucee supports custom configu
 }
 ```
 
-This configuration sends logs to a Kafka topic with a custom pattern layout.
+This configuration sends logs to a Kafka topic with a custom pattern Layout.
 
 ---
 
@@ -177,6 +194,9 @@ catch(e) {
   cflog(log="application", type="error", exception=e);
 }
 ```
+(Due to the existing math log function, the cf prefix is still required here, unlike with other tags in script.)
+
+
 
 Lucee's `<cflog>` tag supports various attributes, including `log`, `type`, `text`, and `exception`. Using these attributes, you can customize log entries to suit your application's needs.
 

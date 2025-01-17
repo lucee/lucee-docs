@@ -63,7 +63,7 @@ In `.CFConfig.json`, you can define Maven dependencies that will be used globall
 
 The `version` attribute is optional. If not specified, Lucee will automatically fetch the latest version available for the specified Maven artifact.
 
-In addition, we also support the more concise Gradle style format.
+In addition, we also support the more concise Gradle style.
 
 ```json
 {

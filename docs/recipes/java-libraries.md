@@ -14,6 +14,9 @@
   ],
   "categories": [
     "java"
+  ],
+  "related": [
+    "maven"
   ]
 }
 -->
