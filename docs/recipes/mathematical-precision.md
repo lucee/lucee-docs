@@ -24,7 +24,7 @@ This makes math operations much more precise (but slower) and there is no need a
 
 Since version 6.0, all numbers Lucee uses in the runtime are by default BigDecimal based and no longer double as before. 
 
-However, for performance reasons, with Lucee 6.2, we reverted the default to the old behaviour as it's much faster.
+However, for performance reasons, with Lucee 6.2, we reverted the default to the old behavior as it's much faster.
 
 You can toggle precise math in the `Application.cfc` as follows:
 
