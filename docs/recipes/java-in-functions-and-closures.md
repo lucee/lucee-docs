@@ -11,7 +11,10 @@
     "components",
     "lambda",
     "Lucee"
-  ]
+  ],
+  "categories": [
+    "java"
+  ],
 }
 -->
 

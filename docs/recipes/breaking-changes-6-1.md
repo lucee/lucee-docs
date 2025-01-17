@@ -3,9 +3,12 @@
 {
   "title": "Breaking Changes Between Lucee 6.0 and 6.1",
   "id": "breaking-changes-6-0-to-6-1",
-  "categories": ["breaking changes", "migration"],
+  "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 6.0 and 6.1",
-  "keywords": ["breaking changes", "Lucee 6.0", "Lucee 6.1", "migration", "upgrade"]
+  "keywords": ["breaking changes", "Lucee 6.0", "Lucee 6.1", "migration", "upgrade"],
+  "related": [
+    "logging-cfhttp-calls"
+  ]
 }
 -->
 

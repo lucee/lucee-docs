@@ -16,6 +16,10 @@
     "Mail server",
     "Mail script",
     "Lucee"
+  ],
+  "categories": [
+    "protocols",
+    "core"
   ]
 }
 -->

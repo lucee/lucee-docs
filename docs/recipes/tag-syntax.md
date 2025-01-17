@@ -5,7 +5,8 @@
   "id": "tag-syntax",
   "categories": [
     "scopes",
-    "thread"
+    "thread",
+    "core"
   ],
   "description": "How to use tags in script",
   "keywords": [
@@ -16,6 +17,9 @@
     "throw",
     "abort",
     "return"
+  ],
+  "related": [
+    "developing-with-lucee-server"
   ]
 }
 -->

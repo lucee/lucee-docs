@@ -12,6 +12,9 @@
     "Performance",
     "Memory Optimization",
     "Lucee"
+  ],
+  "related": [
+	"tag-query"
   ]
 }
 -->

@@ -225,7 +225,13 @@ component {
 		FileWrite( arguments.buildDirectory & "/sitemap.xml", _renderSiteMap( arguments.docTree ) );
 		// google analytics for @zackster
 		FileWrite( arguments.buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");
-		FileWrite( arguments.buildDirectory & "/robots.txt", "User-agent: *#chr(10)#Disallow: /dictionaries/#chr(10)#Sitemap: https://docs.lucee.org/sitemap.xml");
+		FileWrite( arguments.buildDirectory & "/robots.txt", [
+				"User-agent: *",
+				"Disallow: /dictionaries/",
+				"Disallow: /editor.html",
+				"Sitemap: https://docs.lucee.org/sitemap.xml"
+			].toList(chr(10))
+		);
 
 		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", arguments.buildDirectory & "/editor.html" );
 	}

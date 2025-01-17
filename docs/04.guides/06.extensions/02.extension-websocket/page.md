@@ -3,9 +3,11 @@ title: Websocket gateway
 id: extensions-websocket-gateway
 categories:
 - ajax
-- gateways
 - extensions
+- gateways
 - protocols
+description: 'This extension enables you to launch a server that is capable to manage
+  messaging from HTML WebSockets. '
 ---
 
 ### WebSockets Gateway Extension ###

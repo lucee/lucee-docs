@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Types in Lucee",
+  "title": "Data Types in Lucee",
   "id": "types-in-lucee",
   "description": "This document explains types in Lucee. Lucee is still an untyped language. Types are only a check put on top of the language.",
   "keywords": [
@@ -9,6 +9,12 @@
     "Return value",
     "CFParam",
     "Lucee"
+  ],
+  "categories": [
+	"core"
+  ],
+  "related":[
+	"developing-with-lucee-server"
   ]
 }
 -->

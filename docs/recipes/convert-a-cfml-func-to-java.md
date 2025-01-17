@@ -12,6 +12,12 @@
     "Java",
     "lambda",
     "Lucee"
+  ],
+  "categories":[
+    "java"
+  ],
+  "related": [
+    "tag-component"
   ]
 }
 -->

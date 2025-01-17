@@ -9,6 +9,12 @@
     "listener",
     "Application.cfc",
     "component"
+  ],
+  "related": [
+    "tag-mail",
+  ],
+  "categories": [
+    "protocols"
   ]
 }
 -->

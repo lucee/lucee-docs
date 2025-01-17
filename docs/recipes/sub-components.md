@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Sub Components",
+  "title": "Sub Components (CFCs)",
   "id": "sub-component",
   "since": "6.0",
   "description": "Learn how to create and use sub components in Lucee. This guide demonstrates how to define additional components within a .cfc file, making it easier to organize related components. Examples include creating a main component with sub components, and how to address/load these sub components.",
@@ -12,13 +12,21 @@
     "component",
     "sub-component",
     "Lucee"
+  ],
+  "related":[
+    "inline-component",
+    "tag-component",
   ]
 }
 -->
 
-# Sub Component
+# Sub Components
 
-Since Lucee 6.0, Lucee allows you to create sub components. These are additional components created in a .cfc after the main component.
+Since Lucee 6.0, Lucee allows you to create Sub Components.
+
+These are additional components created in a `.cfc` after the main component.
+
+Before this was introduced, CFML was limited to requiring every component to be placed in a separate CFC file.
 
 After the main component, simply add as many additional components as you like with the attribute "name" like this:
 

@@ -12,6 +12,14 @@
     "java classes",
     "custom tags",
     "taglib"
+  ],
+  "categories": [
+    "java"
+  ],
+  "related":[
+    "function-createobject",
+    "tag-import",
+    "developing-with-lucee-server"
   ]
 }
 -->

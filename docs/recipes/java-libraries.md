@@ -11,7 +11,10 @@
     "Lucee",
     "libraries",
     "new operator"
-  ]
+  ],
+  "categories": [
+    "java"
+  ],
 }
 -->
 

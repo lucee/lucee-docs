@@ -12,6 +12,10 @@
     "cast",
     "convert",
     "method"
+  ],
+  "related": [
+    "function-javacast",
+    "tag-component"
   ]
 }
 -->

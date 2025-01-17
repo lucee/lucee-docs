@@ -13,6 +13,11 @@
     "debug",
     "showdebugoutput",
     "cfapplication"
+  ],
+  "categories": [
+    "monitoring",
+    "debugging",
+    "server"
   ]
 }
 -->

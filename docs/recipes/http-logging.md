@@ -10,6 +10,9 @@
     "Lucee",
     "log level",
     "http log"
+  ],
+  "related": [
+    "tag-http"
   ]
 }
 -->
