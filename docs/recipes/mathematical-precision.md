@@ -16,7 +16,7 @@
   "related": [
     "function-precisionevaluate"
   ],
-  "categories: [
+  "categories": [
     "math",
     "number"
   ]
