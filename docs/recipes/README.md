@@ -168,6 +168,10 @@ Guide on using Java libraries in Lucee 6.2 with Maven and import
 
 Guide on configuring Java settings in Lucee using Application.cfc
 
+## [Language Server Protocol (LSP) for Lucee](/docs/recipes/language-server.md)
+
+This document explains how to configure and use the Language Server Protocol implementation for Lucee CFML/CFScript.
+
 ## [Lazy Queries](/docs/recipes/lazy-queries.md)
 
 How to use lazy queries
@@ -175,6 +179,10 @@ How to use lazy queries
 ## [List existing Cache Connections](/docs/recipes/list-existing-cache-conn.md)
 
 List existing Cache Connections available in Lucee.
+
+## [Logging in Lucee](/docs/recipes/logging.md)
+
+No description available.
 
 ## [Loop Labels](/docs/recipes/loop-labels.md)
 
@@ -279,6 +287,10 @@ Guide on configuring and interacting with specific S3 regions in Lucee using the
 ## [Script Templates](/docs/recipes/script-templates.md)
 
 Learn about script templates in Lucee. This guide explains how Lucee supports templates with the `.cfs` extension, allowing you to write direct script code without the need for the `<cfscript>` tag.
+
+## [Single Mode vs Multi Mode in Lucee](/docs/recipes/single-vs-multi-mode.md)
+
+Understanding the differences between single mode and multi mode in Lucee.
 
 ## [Startup Listeners - Server.cfc and Web.cfc](/docs/recipes/startup-listeners-code.md)
 

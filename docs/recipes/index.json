@@ -600,6 +600,20 @@
     ]
   },
   {
+    "file": "language-server.md",
+    "title": "Language Server Protocol (LSP) for Lucee",
+    "path": "/docs/recipes/language-server.md",
+    "hash": "19b8dbee03749dfa0283528d9a8cfe40",
+    "keywords": [
+      "LSP",
+      "language server",
+      "IDE integration",
+      "VS Code",
+      "development tools",
+      "code completion"
+    ]
+  },
+  {
     "file": "lazy-queries.md",
     "title": "Lazy Queries",
     "path": "/docs/recipes/lazy-queries.md",
@@ -623,6 +637,17 @@
       "List cache",
       "hasCache",
       "cacheNames",
+      "Lucee"
+    ]
+  },
+  {
+    "file": "logging.md",
+    "title": "Logging in Lucee",
+    "path": "/docs/recipes/logging.md",
+    "hash": "a6e429cd36362b015987da7bad172a50",
+    "keywords": [
+      "Logging",
+      "Log levels",
       "Lucee"
     ]
   },
@@ -697,7 +722,7 @@
     "file": "mathematical-precision.md",
     "title": "Mathematical Precision",
     "path": "/docs/recipes/mathematical-precision.md",
-    "hash": "fd0a4bf923840d968652e201575d3fd3",
+    "hash": "527a9d2a0c9f234aede5478ad42d9364",
     "keywords": [
       "CFML",
       "math",
@@ -983,6 +1008,18 @@
     ]
   },
   {
+    "file": "single-vs-multi-mode.md",
+    "title": "Single Mode vs Multi Mode in Lucee",
+    "path": "/docs/recipes/single-vs-multi-mode.md",
+    "hash": "f1ecd8f99d127f42c21987716ca92890",
+    "keywords": [
+      "Lucee",
+      "Single Mode",
+      "Multi Mode",
+      "Configuration"
+    ]
+  },
+  {
     "file": "startup-listeners-code.md",
     "title": "Startup Listeners - Server.cfc and Web.cfc",
     "path": "/docs/recipes/startup-listeners-code.md",
@@ -1047,12 +1084,15 @@
     "file": "tag-syntax.md",
     "title": "How to Use Tags in Script",
     "path": "/docs/recipes/tag-syntax.md",
-    "hash": "84e96b6ce7a258509922945a9d434940",
+    "hash": "b2eb633a78b48ce8ece0427ecf74a4d9",
     "keywords": [
       "Syntax",
       "tag",
       "function",
-      "Script"
+      "Script",
+      "throw",
+      "abort",
+      "return"
     ]
   },
   {
