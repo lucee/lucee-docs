@@ -9,7 +9,8 @@
   ],
   "categories": [
     "application",
-    "files"
+    "files",
+    "server"
   ],
   "description": "All about the different mappings in Lucee and how to use them.",
   "keywords": [

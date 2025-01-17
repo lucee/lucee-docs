@@ -10,6 +10,10 @@
     "Application.cfc",
     "Default datasource",
     "MySQL"
+  ],
+  "categories":[
+    "query",
+    "server"
   ]
 }
 -->

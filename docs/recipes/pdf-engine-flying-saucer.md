@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Flying Saucer PDF Engine - CFDOCUMENT",
+  "title": "PDF Engine - CFDOCUMENT using Flying Saucer",
   "id": "pdf-engine-flying-saucer",
   "related": [
     "tag-document"

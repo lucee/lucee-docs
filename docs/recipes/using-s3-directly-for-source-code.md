@@ -3,7 +3,8 @@
   "title": "Using S3 directly for source code",
   "id": "using-s3-directly-for-source-code",
   "categories": [
-    "s3"
+    "s3",
+    "server"
   ],
   "description": "Using S3 directly for source code",
   "keywords": [
