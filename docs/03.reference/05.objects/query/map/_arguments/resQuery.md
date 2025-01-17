@@ -1,0 +1,1 @@
+Resulted query.

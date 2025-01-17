@@ -300,7 +300,7 @@ categories:
 				if ( size eq 0 ){
 					if ( len( trim( arguments.content ) ) gt 0 ){
 						request.logger( text="Updating existing zero length file: " & arguments.filePath );
-						exists = true;
+						exists = false;
 						break;
 					} else if ( !arguments.docsOnly ){
 						request.logger(text="Missing content from Lucee: " & arguments.filePath, type="warn");

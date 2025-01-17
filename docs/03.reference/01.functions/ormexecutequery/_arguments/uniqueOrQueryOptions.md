@@ -1,0 +1,1 @@
+Specifies if the object parameter is unique

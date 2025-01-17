@@ -1,0 +1,1 @@
+Log debugging information from the dump tag in the request

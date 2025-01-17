@@ -1,0 +1,1 @@
+Log debugging information from the trace tag in the request

@@ -1,0 +1,1 @@
+Number of rows of query data on a page.
