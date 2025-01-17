@@ -1,0 +1,1 @@
+Name of the collection in the component
