@@ -1,0 +1,1 @@
+The AWS region hosting the EC2 endpoint. If not specified, the default region associated with the provided credentials is used.

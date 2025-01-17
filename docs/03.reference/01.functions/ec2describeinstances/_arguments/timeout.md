@@ -1,0 +1,1 @@
+The timeout in milliseconds for the EC2 describe instances request. Defaults to 10000 milliseconds (10 seconds).

@@ -1,0 +1,1 @@
+Your AWS secret access key associated with the access key ID. This key is used in conjunction with the accessKeyId for authentication.

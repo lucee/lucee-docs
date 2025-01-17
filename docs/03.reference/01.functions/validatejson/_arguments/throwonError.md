@@ -1,0 +1,1 @@
+throw an exception in case of an error, when false no exception is thrown, instead the errors are returned in an array of structs.

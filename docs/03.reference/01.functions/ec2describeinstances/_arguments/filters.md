@@ -1,0 +1,1 @@
+A struct of filters to apply to the instance description request. Each key in the struct is a filter name, and its value is an array of filter values.
