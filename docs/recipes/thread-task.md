@@ -1,9 +1,10 @@
 <!--
 {
-  "title": "Thread Task",
+  "title": "Thread Tasks",
   "id": "thread_task",
   "related": [
-    "tag-thread"
+    "tag-thread",
+	"thread-usage"
   ],
   "categories": [
     "thread"
@@ -19,7 +20,7 @@
 }
 -->
 
-# Thread Task
+# Thread Tasks
 
 This document explains about the thread tasks. It is useful to know the differences between regular threads and task threads.
 
