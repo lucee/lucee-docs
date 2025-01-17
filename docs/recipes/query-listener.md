@@ -10,6 +10,12 @@
     "Lucee",
     "Application.cfc",
     "component"
+  ],
+  "categories": [
+    "query"
+  ],
+  "related": [
+    "tag-query"
   ]
 }
 -->

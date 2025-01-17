@@ -16,9 +16,13 @@ Our documentation is an open source and community driven effort. It is also a co
 
 To find out more about getting involved as a developer with Lucee, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/6.0/CONTRIBUTING.md)
 
+## Recipes 
+
+**New!** We have added a whole series of detailed [[Recipes]] showing you how to take advantage of the wide range of features in Lucee.
+
 ## Lucee 6.2
 
-Lucee 6.2 is our upcoming next major release, including enhanced Java and Maven integration, with even better runtime performance.
+Lucee 6.2 is our upcoming next major release, currently at the Release Candidate stage, including enhanced Java and Maven integration, with even better runtime performance, up to 50% faster than Lucee 5.4.
 
 ## Lucee 6.1
 

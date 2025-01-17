@@ -10,6 +10,12 @@
     "listener",
     "thread",
     "parallel"
+  ],
+  "categories": [
+    "query"
+  ],
+  "related": [
+    "tag-query"
   ]
 }
 -->

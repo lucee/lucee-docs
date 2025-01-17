@@ -3,6 +3,9 @@
   "title": "Basic Date",
   "id": "cookbook-basic-date",
   "description": "Learn how to output the current date in Lucee.",
+  "categories": [
+    "datetime"
+  ],
   "keywords": [
     "Date",
     "Current date",

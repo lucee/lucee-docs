@@ -10,6 +10,12 @@
     "cause",
     "thread",
     "parent"
+  ],
+  "categories": [
+    "debugging"
+  ],
+  "related": [
+    "tag-throw"
   ]
 }
 -->

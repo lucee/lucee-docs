@@ -18,6 +18,7 @@ Lucee's logging system is a powerful and flexible framework designed to provide 
 ## Why Logging?
 
 Logging is an essential practice for maintaining reliable and performant applications. It allows you to:
+
 - Monitor runtime behavior and identify issues.
 - Gain insights into application usage and performance.
 - Maintain an audit trail of events and actions.

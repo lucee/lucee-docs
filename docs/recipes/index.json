@@ -68,7 +68,7 @@
     "file": "basic-date.md",
     "title": "Basic Date - Output the current date",
     "path": "/docs/recipes/basic-date.md",
-    "hash": "f66410455e64f965fa03df7649e092a3",
+    "hash": "ac00857102cfd5086b6ac81fa6acdc46",
     "keywords": [
       "Date",
       "Current date",
@@ -164,7 +164,7 @@
     "file": "configuration-lucee5.md",
     "title": "Configuration - Lucee 5",
     "path": "/docs/recipes/configuration-lucee5.md",
-    "hash": "16c3dbbc3b2c1efbbd7b808bbf94df9b",
+    "hash": "38d52b95ef11b211ad149bcb38cc351e",
     "keywords": [
       "configuration",
       "config",
@@ -361,7 +361,7 @@
     "file": "exception-cause.md",
     "title": "Exception - Cause",
     "path": "/docs/recipes/exception-cause.md",
-    "hash": "d38b239656cae0e99e6784155a48433d",
+    "hash": "309daf755a417a7ef336093c917f0e0d",
     "keywords": [
       "exception",
       "error",
@@ -644,7 +644,7 @@
     "file": "logging.md",
     "title": "Logging in Lucee",
     "path": "/docs/recipes/logging.md",
-    "hash": "a6e429cd36362b015987da7bad172a50",
+    "hash": "2940cad084edaf4dce300c50e9bedc08",
     "keywords": [
       "Logging",
       "Log levels",
@@ -655,7 +655,7 @@
     "file": "loop-labels.md",
     "title": "Loop Labels",
     "path": "/docs/recipes/loop-labels.md",
-    "hash": "aea64c62a64313fa7d87e3b8c15ef5cd",
+    "hash": "8548e4d8f418737a716fafd4a2d3a6ab",
     "keywords": [
       "loop",
       "label",
@@ -845,7 +845,7 @@
     "file": "query-async.md",
     "title": "Query Async",
     "path": "/docs/recipes/query-async.md",
-    "hash": "185df889c6bf4de47668895c9c708d94",
+    "hash": "20015ca45615de7ad598684f678946c3",
     "keywords": [
       "query",
       "async",
@@ -873,7 +873,7 @@
     "file": "query-indexes.md",
     "title": "Query Indexes",
     "path": "/docs/recipes/query-indexes.md",
-    "hash": "e1d9bdad9e6a50cc9d6ee1bb08b36765",
+    "hash": "23ea72b4476098df760244ec879dc208",
     "keywords": [
       "query",
       "indexes",
@@ -884,7 +884,7 @@
     "file": "query-listener.md",
     "title": "Query Listeners",
     "path": "/docs/recipes/query-listener.md",
-    "hash": "9497bb3976a1910f94c2a631a43bc5eb",
+    "hash": "8c12fac2d5c427c2e91e354a90612524",
     "keywords": [
       "query",
       "listener",
@@ -925,7 +925,7 @@
     "file": "query-return-type.md",
     "title": "Query return type",
     "path": "/docs/recipes/query-return-type.md",
-    "hash": "792f4fe5807a39611254146c37100db9",
+    "hash": "bae3c3089df32f5258c1f7bc2f6d1b24",
     "keywords": [
       "Query return type",
       "Array return type",
@@ -1059,7 +1059,7 @@
     "file": "sub-components.md",
     "title": "Sub Component",
     "path": "/docs/recipes/sub-components.md",
-    "hash": "479f64357ac885abaa16ac74dc171612",
+    "hash": "7d0f3c375b048a09c81ef39b38ffd81b",
     "keywords": [
       "CFML",
       "component",
