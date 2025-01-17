@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Sub Components (CFCs)",
+  "title": "Sub Components",
   "id": "sub-component",
   "since": "6.0",
   "description": "Learn how to create and use sub components in Lucee. This guide demonstrates how to define additional components within a .cfc file, making it easier to organize related components. Examples include creating a main component with sub components, and how to address/load these sub components.",
@@ -15,7 +15,7 @@
   ],
   "related":[
     "inline-component",
-    "tag-component",
+    "tag-component"
   ]
 }
 -->

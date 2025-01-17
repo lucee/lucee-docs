@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Inline Components (CFCs)",
+  "title": "Inline Components",
   "id": "inline-component",
   "since": "6.0",
   "description": "Learn how to create and use inline components in Lucee. This guide demonstrates how to define components directly within your CFML code, making it easier to create and use components without needing a separate .cfc file. Examples include creating an inline component and using it similarly to closures.",
@@ -15,7 +15,7 @@
   ],
   "related":[
     "sub-component",
-    "tag-component",
+    "tag-component"
   ]
 }
 -->
