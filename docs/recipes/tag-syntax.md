@@ -12,9 +12,9 @@
     "Syntax",
     "tag",
     "function",
-    "Script"
-    "throw"
-    "abort"
+    "Script",
+    "throw",
+    "abort",
     "return"
   ]
 }

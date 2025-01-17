@@ -189,7 +189,7 @@ component {
 		var meta = mid( str, 5, endComment - 5 );
 		//systemOutput( "!!" & meta & "!!", true );
 		if ( !isJson( meta ) ){
-			throw "metadata is not json [#arguments.filePath#]";
+			throw (message="metadata is not json [#arguments.filePath#]", detail=meta);
 		}
 		var body = mid( str, endComment + 3 );
 		if ( len( trim( body ) ) eq 0 )
