@@ -10,6 +10,9 @@
   "keywords": [
     "Lucee",
     "Extension"
+  ],
+  "related": [
+    "function-websocketinfo"
   ]
 }
 -->
