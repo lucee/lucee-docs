@@ -27,6 +27,16 @@ Dynamically switching preciseMath on and off as required is recommended, rather 
 
 As part of this change, we updated all our test cases to test switching dynamically during a request and identified a few problems which we addressed.
 
+## Support for Jakarta Servlet
+
+Lucee 6.2 adds support for Jakarta Servlet, in addition to Javax.
+
+Javax libraries are still required for Lucee to work when deployed on a Jakarta based Servlet engine like Tomcat 10+.
+
+Our Official Lucee 6.2 Installers and Docker images have been updated to bundle Tomcat 10+.
+
+Older Javax Servlet engines (i.e. Tomcat 9) are still supported as well, just make sure they are updated and still maintained.
+
 ## Lucee is up to 50% for some operations than Lucee 5.4
 
 While not exactly what you might expect as a breaking change, we did find that all the improvements made with 6.2 managed to surface some other underlying bugs, simply because Lucee got faster.
