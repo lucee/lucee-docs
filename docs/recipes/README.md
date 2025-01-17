@@ -24,6 +24,10 @@ Learn how to output the current date in Lucee.
 
 A guide to breaking changes introduced in Lucee between version 6.0 and 6.1
 
+## [Breaking Changes between Lucee 6.1 and 6.2](/docs/recipes/breaking-changes-6-2.md)
+
+A guide to breaking changes introduced in Lucee between version 6.1 and 6.2
+
 ## [Cache a Query for the current request](/docs/recipes/cached-within-request.md)
 
 Cache a Query for the current request in Lucee.
@@ -148,7 +152,7 @@ Learn how Lucee logs all CFHTTP calls and how to manage these logs. This guide e
 
 Guide on using import to import components, Java classes, and custom tags in Lucee
 
-## [Inline Component](/docs/recipes/inline-components.md)
+## [Inline Components](/docs/recipes/inline-components.md)
 
 Learn how to create and use inline components in Lucee. This guide demonstrates how to define components directly within your CFML code, making it easier to create and use components without needing a separate .cfc file. Examples include creating an inline component and using it similarly to closures.
 
@@ -300,7 +304,7 @@ Lucee supports two types of Startup Listeners: Server.cfc and Web.cfc.
 
 Static scope in components is needed to create an instance of cfc and call its method.
 
-## [Sub Component](/docs/recipes/sub-components.md)
+## [Sub Components](/docs/recipes/sub-components.md)
 
 Learn how to create and use sub components in Lucee. This guide demonstrates how to define additional components within a .cfc file, making it easier to organize related components. Examples include creating a main component with sub components, and how to address/load these sub components.
 
@@ -312,11 +316,11 @@ This document explains how you can improve the performance of your website in a 
 
 How to use tags in script
 
-## [Thread Task](/docs/recipes/thread-task.md)
+## [Thread Tasks](/docs/recipes/thread-task.md)
 
 How to use Thread Tasks
 
-## [Thread Usage](/docs/recipes/thread-usage.md)
+## [Using Threads in Lucee](/docs/recipes/thread-usage.md)
 
 How to use threads in Lucee
 
