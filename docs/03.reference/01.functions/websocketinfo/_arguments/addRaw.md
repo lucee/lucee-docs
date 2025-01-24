@@ -1,0 +1,1 @@
+in the session array add the raw Session object.

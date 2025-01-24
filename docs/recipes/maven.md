@@ -1,14 +1,20 @@
 
 <!--
 {
-  "title": "Maven",
+  "title": "Using Maven directly via CFML",
   "id": "maven",
-  "categories": [],
+  "categories": [
+    "java"
+  ],
   "description": "How to use Maven in Lucee",
   "keywords": [
     "Maven",
     "Java",
     "OSGi"
+  ],
+  "related":[
+    "function-createobject",
+    "tag-import"
   ]
 }
 -->
@@ -56,6 +62,19 @@ In `.CFConfig.json`, you can define Maven dependencies that will be used globall
 ```
 
 The `version` attribute is optional. If not specified, Lucee will automatically fetch the latest version available for the specified Maven artifact.
+
+In addition, we also support the more concise Gradle style.
+
+```json
+{
+  "javasettings": {
+    "maven": [
+        "org.graalvm.polyglot:polyglot:24.1.1"
+        , "org.graalvm.polyglot:python:24.1.1"
+    ]
+  }
+}
+```
 
 ## Application.cfc
 

@@ -10,6 +10,13 @@
     "thread",
     "function",
     "promises"
+  ],
+  "related": [
+    "tag-function",
+    "tag-thread"
+  ],
+  "categories": [
+    "thread"
   ]
 }
 -->

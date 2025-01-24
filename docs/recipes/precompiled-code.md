@@ -11,6 +11,9 @@
     "CFML",
     "Class files",
     "Lucee"
+  ],
+  "categories":[
+    "server"
   ]
 }
 -->

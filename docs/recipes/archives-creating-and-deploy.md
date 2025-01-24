@@ -12,6 +12,9 @@
     "Component",
     "CFC",
     "CFM"
+  ],
+  "categories": [
+    "server"
   ]
 }
 -->

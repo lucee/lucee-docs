@@ -2,10 +2,13 @@
 <!--
 {
   "title": "Configuration Lucee 5",
-  "id": "config",
+  "id": "config-lucee5",
   "categories": ["configuration"],
   "description": "Best practices for configuring Lucee 5 environments.",
-  "keywords": ["configuration", "config", "lucee-server.xml", "lucee-web.xml", "Lucee 5"]
+  "keywords": ["configuration", "config", "lucee-server.xml", "lucee-web.xml", "Lucee 5"],
+  "categories": [
+    "server"
+  ]
 }
 -->
 

@@ -52,7 +52,7 @@
     "file": "archives-creating-and-deploy.md",
     "title": "Archives - Creating and deploying Lucee Archives (.lar files)",
     "path": "/docs/recipes/archives-creating-and-deploy.md",
-    "hash": "4726b05d39364e952a48ede93b29a67f",
+    "hash": "1ca3f9e41d2123af29a9c2101b403e8f",
     "keywords": [
       "Lucee",
       "Archives",
@@ -68,7 +68,7 @@
     "file": "basic-date.md",
     "title": "Basic Date - Output the current date",
     "path": "/docs/recipes/basic-date.md",
-    "hash": "f66410455e64f965fa03df7649e092a3",
+    "hash": "ac00857102cfd5086b6ac81fa6acdc46",
     "keywords": [
       "Date",
       "Current date",
@@ -83,11 +83,24 @@
     "file": "breaking-changes-6-1.md",
     "title": "Breaking Changes Between Lucee 6.0 and 6.1",
     "path": "/docs/recipes/breaking-changes-6-1.md",
-    "hash": "90562d7712f038778721fceea4d4412d",
+    "hash": "83694a88a61b9435d594bd6f079e8f47",
     "keywords": [
       "breaking changes",
       "Lucee 6.0",
       "Lucee 6.1",
+      "migration",
+      "upgrade"
+    ]
+  },
+  {
+    "file": "breaking-changes-6-2.md",
+    "title": "Breaking Changes between Lucee 6.1 and 6.2",
+    "path": "/docs/recipes/breaking-changes-6-2.md",
+    "hash": "ddc246972a2f0e278ead2fa3cfd310aa",
+    "keywords": [
+      "breaking changes",
+      "Lucee 6.1",
+      "Lucee 6.2",
       "migration",
       "upgrade"
     ]
@@ -123,7 +136,7 @@
     "file": "check-for-changes.md",
     "title": "Check for changes in your configuration file automatically",
     "path": "/docs/recipes/check-for-changes.md",
-    "hash": "c953e038012d3949f25e943018d8688c",
+    "hash": "1871271c6d6c1d999fc25d9bfcce2f6e",
     "keywords": [
       "Configuration",
       "Check for changes",
@@ -137,7 +150,7 @@
     "file": "checksum.md",
     "title": "Checksum",
     "path": "/docs/recipes/checksum.md",
-    "hash": "a1fef15b4e0bd041aa90bd1cbb126a5d",
+    "hash": "e0bdf3586c0a44803608af2981893fb7",
     "keywords": [
       "Checksum",
       "File validation",
@@ -150,7 +163,7 @@
     "file": "configuration-administrator-cfc.md",
     "title": "Configure Lucee within your application",
     "path": "/docs/recipes/configuration-administrator-cfc.md",
-    "hash": "c8b3b9c27321db7bec51568b5d8b3a70",
+    "hash": "1eb98c1ab55de06cffc2aefac70b9fe9",
     "keywords": [
       "Administrator.cfc",
       "cfadmin",
@@ -164,7 +177,7 @@
     "file": "configuration-lucee5.md",
     "title": "Configuration - Lucee 5",
     "path": "/docs/recipes/configuration-lucee5.md",
-    "hash": "16c3dbbc3b2c1efbbd7b808bbf94df9b",
+    "hash": "f12a649592d2371ea395566b63a28f03",
     "keywords": [
       "configuration",
       "config",
@@ -177,7 +190,7 @@
     "file": "configuration.md",
     "title": "Configuration - How to Configure Lucee",
     "path": "/docs/recipes/configuration.md",
-    "hash": "2c4b6dbbcf904c2fa51de69e5f9519c1",
+    "hash": "fffc5b4a5d6f986c1371c2378cbb42f2",
     "keywords": [
       "configuration",
       "config",
@@ -190,7 +203,7 @@
     "file": "convert-a-cfml-func-to-java.md",
     "title": "Convert a CFML Function/Component to use in Java",
     "path": "/docs/recipes/convert-a-cfml-func-to-java.md",
-    "hash": "0dcbbce8a20bcd390e27d396fd0985e1",
+    "hash": "9a48e8bbd3dfed94c2185ec898a2ba6c",
     "keywords": [
       "conversion",
       "cfc",
@@ -205,7 +218,7 @@
     "file": "datasource-how-to-define-them.md",
     "title": "Datasource - How to define them",
     "path": "/docs/recipes/datasource-how-to-define-them.md",
-    "hash": "612c8cd0a200d9abfc8d5b9497971e88",
+    "hash": "9f62ba260513fc3d060ba0f345dbcaed",
     "keywords": [
       "Datasource",
       "Define datasource",
@@ -240,7 +253,7 @@
     "file": "docker.md",
     "title": "Docker Information",
     "path": "/docs/recipes/docker.md",
-    "hash": "890489bc2e12ed673935f3b2d0263b78",
+    "hash": "417a8403f7b70a4b7be816e838ebe328",
     "keywords": [
       "Docker",
       "commandbox",
@@ -266,14 +279,14 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "ab594b0f78fc2d3cb133554e60c3fb09",
+    "hash": "f71a857a9386a98db4404aadd398d7dd",
     "keywords": [
       "Environment",
       "Environment Variables",
       "Properties",
       "System Properties",
       "setting",
-      "cofig"
+      "config"
     ]
   },
   {
@@ -294,7 +307,7 @@
     "file": "event-gateway-in-app-cfc.md",
     "title": "Event Handling in Application.cfc",
     "path": "/docs/recipes/event-gateway-in-app-cfc.md",
-    "hash": "81f8b93eaf6629dcdf512dd247bb5b13",
+    "hash": "d16a04c64dbcb4245d2c4dd729d697cb",
     "keywords": [
       "Event Handling",
       "Application.cfc",
@@ -361,7 +374,7 @@
     "file": "exception-cause.md",
     "title": "Exception - Cause",
     "path": "/docs/recipes/exception-cause.md",
-    "hash": "d38b239656cae0e99e6784155a48433d",
+    "hash": "309daf755a417a7ef336093c917f0e0d",
     "keywords": [
       "exception",
       "error",
@@ -388,7 +401,7 @@
     "file": "extension-installation.md",
     "title": "Extension Installation",
     "path": "/docs/recipes/extension-installation.md",
-    "hash": "9b5d3396c15710bdd224d63171ec3fd9",
+    "hash": "a9d945da5b5c3099edb1e1502693d1fb",
     "keywords": [
       "extension",
       "install",
@@ -405,7 +418,7 @@
     "file": "externalizing-strings.md",
     "title": "Externalize strings",
     "path": "/docs/recipes/externalizing-strings.md",
-    "hash": "cac194b9345a0133c8c1985b75b8981f",
+    "hash": "0468a8eb799d2ba3305a3c3c15e3a32d",
     "keywords": [
       "Externalize strings",
       "Memory reduction",
@@ -418,7 +431,7 @@
     "file": "file-extensions.md",
     "title": "File Extensions",
     "path": "/docs/recipes/file-extensions.md",
-    "hash": "649c74438e264a8e29eec5ea07aa9eab",
+    "hash": "ebe46feb87dbb9145ee212d08733ead0",
     "keywords": [
       "CFML",
       "cfm",
@@ -445,7 +458,7 @@
     "file": "function-listeners.md",
     "title": "Function Listeners",
     "path": "/docs/recipes/function-listeners.md",
-    "hash": "fb4c0a4e5e8dc80158edf3dd680c048d",
+    "hash": "993f0ad6516c54c8021d77842f48aee1",
     "keywords": [
       "parallel",
       "async",
@@ -458,7 +471,7 @@
     "file": "function-systemoutput.md",
     "title": "Function SystemOutput",
     "path": "/docs/recipes/function-systemoutput.md",
-    "hash": "59046be4f7a342b242f0fcc88468882e",
+    "hash": "c10c0a9e6ad2d16859747fce4831fd6a",
     "keywords": [
       "SystemOutput function",
       "Debugging",
@@ -471,7 +484,7 @@
     "file": "get-dbdriver-from-maven.md",
     "title": "Get Datasource Drivers Directly from Maven",
     "path": "/docs/recipes/get-dbdriver-from-maven.md",
-    "hash": "34d33dd5ea56e9ccfb539c246bdd0f4e",
+    "hash": "cf117cb0ecd677ee2f077583403ef3ec",
     "keywords": [
       "datasource",
       "maven",
@@ -511,7 +524,7 @@
     "file": "http-logging.md",
     "title": "Logging CFHTTP Calls",
     "path": "/docs/recipes/http-logging.md",
-    "hash": "ab58506857d7220412399d5b560d8152",
+    "hash": "517db531ed4aacd700ea4b78e1a3e168",
     "keywords": [
       "cfhttp",
       "logging",
@@ -524,7 +537,7 @@
     "file": "import.md",
     "title": "Import",
     "path": "/docs/recipes/import.md",
-    "hash": "523e80ff0fd2993295b613c71e177c3c",
+    "hash": "d29fb9ca4c85701d43ecd0cc521686be",
     "keywords": [
       "cfimport",
       "import",
@@ -537,9 +550,9 @@
   },
   {
     "file": "inline-components.md",
-    "title": "Inline Component",
+    "title": "Inline Components",
     "path": "/docs/recipes/inline-components.md",
-    "hash": "cfea57ca49e66f2ba76a79d439adf2d8",
+    "hash": "8bff1dddaef137a0fee3bbd7cfb1e8a5",
     "keywords": [
       "CFML",
       "component",
@@ -551,7 +564,7 @@
     "file": "java-explicit-casting.md",
     "title": "Java - Explicit Casting of a Component to a Specific Interface",
     "path": "/docs/recipes/java-explicit-casting.md",
-    "hash": "d7bf4af9b9a8bacd1cde12f9f2a15bc7",
+    "hash": "98c9cfb2af60e6e0e7785b735ccdee7a",
     "keywords": [
       "java",
       "cast",
@@ -563,7 +576,7 @@
     "file": "java-in-functions-and-closures.md",
     "title": "Java in Functions and Closures",
     "path": "/docs/recipes/java-in-functions-and-closures.md",
-    "hash": "411e845bac8e2978a974ea3af94ab1a5",
+    "hash": "1e3e2d70e8be13df7caa2323edaf1fb8",
     "keywords": [
       "function",
       "java",
@@ -577,7 +590,7 @@
     "file": "java-libraries.md",
     "title": "Interacting with Java Libraries in Lucee 6.2",
     "path": "/docs/recipes/java-libraries.md",
-    "hash": "87bc11020fc4f4df8ec76e5c9d732939",
+    "hash": "11e13ce9bec0c7d7e22148df7007a642",
     "keywords": [
       "java",
       "maven",
@@ -591,7 +604,7 @@
     "file": "java-settings.md",
     "title": "Java Settings in Application.cfc (Now with Maven Support)",
     "path": "/docs/recipes/java-settings.md",
-    "hash": "cae010adbc2b292bfc8b5abfeb5d0027",
+    "hash": "3300140a483332be2ed57ab54e2f4256",
     "keywords": [
       "Java settings",
       "Application.cfc",
@@ -600,10 +613,24 @@
     ]
   },
   {
+    "file": "language-server.md",
+    "title": "Language Server Protocol (LSP) for Lucee",
+    "path": "/docs/recipes/language-server.md",
+    "hash": "19b8dbee03749dfa0283528d9a8cfe40",
+    "keywords": [
+      "LSP",
+      "language server",
+      "IDE integration",
+      "VS Code",
+      "development tools",
+      "code completion"
+    ]
+  },
+  {
     "file": "lazy-queries.md",
     "title": "Lazy Queries",
     "path": "/docs/recipes/lazy-queries.md",
-    "hash": "8fe64da123e2f7e52abb3fb4f272c789",
+    "hash": "317d01daee08a03879da1870bae18c10",
     "keywords": [
       "Lazy Queries",
       "Regular Queries",
@@ -627,10 +654,21 @@
     ]
   },
   {
+    "file": "logging.md",
+    "title": "Logging in Lucee",
+    "path": "/docs/recipes/logging.md",
+    "hash": "31a26b6ce13855824c8b7b9316429086",
+    "keywords": [
+      "Logging",
+      "Log levels",
+      "Lucee"
+    ]
+  },
+  {
     "file": "loop-labels.md",
     "title": "Loop Labels",
     "path": "/docs/recipes/loop-labels.md",
-    "hash": "aea64c62a64313fa7d87e3b8c15ef5cd",
+    "hash": "8548e4d8f418737a716fafd4a2d3a6ab",
     "keywords": [
       "loop",
       "label",
@@ -644,7 +682,7 @@
     "file": "loop-through-files.md",
     "title": "Looping Through File",
     "path": "/docs/recipes/loop-through-files.md",
-    "hash": "2387d7589d70fc3977f33db5989a8793",
+    "hash": "10d132ae7c5b8a435b6ebf3f9cc50519",
     "keywords": [
       "Looping through files",
       "cffile",
@@ -658,7 +696,7 @@
     "file": "mail-how-to-send-a-mail.md",
     "title": "Mail - How to send a Mail",
     "path": "/docs/recipes/mail-how-to-send-a-mail.md",
-    "hash": "c278c5dff011da0798117834fdf3c9c7",
+    "hash": "3fad8fffd34a47eeaa9fb7dc070fe91a",
     "keywords": [
       "Email",
       "Send mail",
@@ -672,7 +710,7 @@
     "file": "mail-listener.md",
     "title": "Mail Listeners",
     "path": "/docs/recipes/mail-listener.md",
-    "hash": "8cea64daf2a3141d4132d74a4238ac49",
+    "hash": "0be0699447d9fb3c7bbf2a111ac19337",
     "keywords": [
       "mail",
       "listener",
@@ -684,7 +722,7 @@
     "file": "mappings-how-to-define-a-reg-mapping.md",
     "title": "Mappings - How to define a regular Mapping",
     "path": "/docs/recipes/mappings-how-to-define-a-reg-mapping.md",
-    "hash": "7a3dcbd7f77c1db9f805512d4d17d897",
+    "hash": "9a3a1faf1724628e3728db263d78052f",
     "keywords": [
       "Mapping",
       "Filesystem",
@@ -697,7 +735,7 @@
     "file": "mathematical-precision.md",
     "title": "Mathematical Precision",
     "path": "/docs/recipes/mathematical-precision.md",
-    "hash": "fd0a4bf923840d968652e201575d3fd3",
+    "hash": "4c6eb9d898793974f428d91d3bbea1fb",
     "keywords": [
       "CFML",
       "math",
@@ -712,7 +750,7 @@
     "file": "maven.md",
     "title": "Maven (Lucee 6.2)",
     "path": "/docs/recipes/maven.md",
-    "hash": "cee6ec1423dcbbb05bae1644915db162",
+    "hash": "2a607eda8b76d28a2194af17f4d0c975",
     "keywords": [
       "Maven",
       "Java",
@@ -723,7 +761,7 @@
     "file": "monitoring-debugging.md",
     "title": "Monitoring/Debugging",
     "path": "/docs/recipes/monitoring-debugging.md",
-    "hash": "598cdd7328ecba6f890d19338abf375f",
+    "hash": "f468d23742fb1601c77f516a05ac8a78",
     "keywords": [
       "monitoring",
       "debugging",
@@ -739,7 +777,7 @@
     "file": "monitoring-enable-for-your-session.md",
     "title": "Monitoring - Enable for your session",
     "path": "/docs/recipes/monitoring-enable-for-your-session.md",
-    "hash": "40b88dc626df5c52efe6c02b9e0601e9",
+    "hash": "f514983cf436185fd942585022ac198b",
     "keywords": [
       "monitoring",
       "session"
@@ -749,7 +787,7 @@
     "file": "new-operator.md",
     "title": "New Operator in Lucee",
     "path": "/docs/recipes/new-operator.md",
-    "hash": "011473bdfa41fc6e27523f81b3d8c7d9",
+    "hash": "ffd14849f9bcf50b60c9ffb09dfce6f8",
     "keywords": [
       "new",
       "java",
@@ -763,7 +801,7 @@
     "file": "null-support.md",
     "title": "Null Support",
     "path": "/docs/recipes/null-support.md",
-    "hash": "1632a30798317207a90f34f6c1167b74",
+    "hash": "a7203c9d96ab0a967bfaf4791975809b",
     "keywords": [
       "Null support",
       "null keyword",
@@ -776,7 +814,7 @@
     "file": "overwrite-build-in-functions-tags.md",
     "title": "Overwriting and Adding Built-in Functions and Tags",
     "path": "/docs/recipes/overwrite-build-in-functions-tags.md",
-    "hash": "7ae2a5e35734651ee4d8b7b162f0f7e6",
+    "hash": "a5df43a5dd71fa65bd9020221219e79d",
     "keywords": [
       "function",
       "BIF",
@@ -793,7 +831,7 @@
     "file": "pdf-engine-flying-saucer.md",
     "title": "PDF Engine - Flying Saucer (CFDocument)",
     "path": "/docs/recipes/pdf-engine-flying-saucer.md",
-    "hash": "58a53f406410c3915ad12f6bde20f158",
+    "hash": "c7c8d3949c973fa15922cfe032695ff7",
     "keywords": [
       "Flying Saucer",
       "PDF Engine",
@@ -805,7 +843,7 @@
     "file": "precompiled-code.md",
     "title": "Precompiled Code",
     "path": "/docs/recipes/precompiled-code.md",
-    "hash": "106f0b51ff0b285f474d8b64add272d2",
+    "hash": "e044a8d4bd44415a11f2605c0a8e1495",
     "keywords": [
       "Precompiled",
       "Pre-compile code",
@@ -820,7 +858,7 @@
     "file": "query-async.md",
     "title": "Query Async",
     "path": "/docs/recipes/query-async.md",
-    "hash": "185df889c6bf4de47668895c9c708d94",
+    "hash": "20015ca45615de7ad598684f678946c3",
     "keywords": [
       "query",
       "async",
@@ -848,7 +886,7 @@
     "file": "query-indexes.md",
     "title": "Query Indexes",
     "path": "/docs/recipes/query-indexes.md",
-    "hash": "e1d9bdad9e6a50cc9d6ee1bb08b36765",
+    "hash": "23ea72b4476098df760244ec879dc208",
     "keywords": [
       "query",
       "indexes",
@@ -859,7 +897,7 @@
     "file": "query-listener.md",
     "title": "Query Listeners",
     "path": "/docs/recipes/query-listener.md",
-    "hash": "9497bb3976a1910f94c2a631a43bc5eb",
+    "hash": "8c12fac2d5c427c2e91e354a90612524",
     "keywords": [
       "query",
       "listener",
@@ -900,7 +938,7 @@
     "file": "query-return-type.md",
     "title": "Query return type",
     "path": "/docs/recipes/query-return-type.md",
-    "hash": "792f4fe5807a39611254146c37100db9",
+    "hash": "bae3c3089df32f5258c1f7bc2f6d1b24",
     "keywords": [
       "Query return type",
       "Array return type",
@@ -913,7 +951,7 @@
     "file": "read-xml-with-a-listener-model-sax.md",
     "title": "Read XML with a listener Model (SAX)",
     "path": "/docs/recipes/read-xml-with-a-listener-model-sax.md",
-    "hash": "b0f18d5228f3cf2e7a889d7c3954b844",
+    "hash": "6d6838168dd41f7ea0a8cfc5e40334a7",
     "keywords": [
       "XML",
       "SAX",
@@ -927,7 +965,7 @@
     "file": "request-timeout.md",
     "title": "Request Timeout",
     "path": "/docs/recipes/request-timeout.md",
-    "hash": "d29d7f0ace7a4a6b683c825af4fd36aa",
+    "hash": "0ee1b809bf69a96385f22edeef12f94d",
     "keywords": [
       "request timeout",
       "timeout",
@@ -973,13 +1011,25 @@
     "file": "script-templates.md",
     "title": "Script Templates",
     "path": "/docs/recipes/script-templates.md",
-    "hash": "a31ad423369d46df7824c7c2e952d086",
+    "hash": "11f8398506ad1b0b4bbecbccfb473fa2",
     "keywords": [
       "CFML",
       "script",
       "templates",
       "Lucee",
       "cfs"
+    ]
+  },
+  {
+    "file": "single-vs-multi-mode.md",
+    "title": "Single Mode vs Multi Mode in Lucee",
+    "path": "/docs/recipes/single-vs-multi-mode.md",
+    "hash": "506a91089c49eb3d05e3e18f57364619",
+    "keywords": [
+      "Lucee",
+      "Single Mode",
+      "Multi Mode",
+      "Configuration"
     ]
   },
   {
@@ -1020,9 +1070,9 @@
   },
   {
     "file": "sub-components.md",
-    "title": "Sub Component",
+    "title": "Sub Components",
     "path": "/docs/recipes/sub-components.md",
-    "hash": "479f64357ac885abaa16ac74dc171612",
+    "hash": "e4a1dfbae98fe363be8068cf896596ab",
     "keywords": [
       "CFML",
       "component",
@@ -1034,7 +1084,7 @@
     "file": "supercharge-your-website.md",
     "title": "Supercharge your website",
     "path": "/docs/recipes/supercharge-your-website.md",
-    "hash": "cba98355eb7396979f04febd592cee35",
+    "hash": "16de007fd5dfccb78faba68082ad2b00",
     "keywords": [
       "Supercharge website",
       "Performance",
@@ -1047,19 +1097,22 @@
     "file": "tag-syntax.md",
     "title": "How to Use Tags in Script",
     "path": "/docs/recipes/tag-syntax.md",
-    "hash": "84e96b6ce7a258509922945a9d434940",
+    "hash": "d621a06b65dc4a2b569451e56b57a46f",
     "keywords": [
       "Syntax",
       "tag",
       "function",
-      "Script"
+      "Script",
+      "throw",
+      "abort",
+      "return"
     ]
   },
   {
     "file": "thread-task.md",
-    "title": "Thread Task",
+    "title": "Thread Tasks",
     "path": "/docs/recipes/thread-task.md",
-    "hash": "e0fb0c5456add34c97c1adf447cd77fb",
+    "hash": "d587d6a05f098f792004b2e9963d5ac4",
     "keywords": [
       "Thread Tasks",
       "Daemon Threads",
@@ -1070,9 +1123,9 @@
   },
   {
     "file": "thread-usage.md",
-    "title": "Thread Usage",
+    "title": "Using Threads in Lucee",
     "path": "/docs/recipes/thread-usage.md",
-    "hash": "04376a0a607d55b64c206cdd386f08d1",
+    "hash": "3c74853a5d561187025bec3cbaa54c24",
     "keywords": [
       "Threads",
       "Parallel execution",
@@ -1085,7 +1138,7 @@
     "file": "timeout.md",
     "title": "Timeout",
     "path": "/docs/recipes/timeout.md",
-    "hash": "b7e03149be0aa44af86508797a0f675c",
+    "hash": "dd2b8b3c1ab71400a17e6e3bd8077a8d",
     "keywords": [
       "tag",
       "timeout",
@@ -1099,7 +1152,7 @@
     "file": "types-in-lucee.md",
     "title": "Types in Lucee",
     "path": "/docs/recipes/types-in-lucee.md",
-    "hash": "5c5fcd8d807661d0f0988282fe41b9a2",
+    "hash": "8542e36d691ed1c47e9a4516236c3d2d",
     "keywords": [
       "Types",
       "Function argument",
@@ -1112,7 +1165,7 @@
     "file": "using-s3-directly-for-source-code.md",
     "title": "Using S3 directly for source code",
     "path": "/docs/recipes/using-s3-directly-for-source-code.md",
-    "hash": "4fc9da16c9ed40562120ffacaad51a80",
+    "hash": "da4c48de2627bc1301d7af1e9f215854",
     "keywords": [
       "S3",
       "Source code",
@@ -1157,7 +1210,7 @@
     "file": "websocket-extension.md",
     "title": "WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "849d999dd657e7a8485b15f2656fe969",
+    "hash": "df72ace8a16bc55cf2730f87dcce06a5",
     "keywords": [
       "Lucee",
       "Extension"

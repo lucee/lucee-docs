@@ -13,6 +13,14 @@
     "Application.cfc",
     "cfsetting",
     "Threshold"
+  ],
+  "categories": [
+    "server"
+  ],
+  "related":[
+    "tag-timeout",
+    "tag-setting",
+    "timeout"
   ]
 }
 -->

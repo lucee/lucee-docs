@@ -11,6 +11,12 @@
     "Event Driven",
     "XML Event Parsing",
     "XML to Struct"
+  ],
+  "categories": [
+    "xml"
+  ],
+  "related":[
+    "function-xmlparse"
   ]
 }
 -->

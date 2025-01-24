@@ -9,6 +9,9 @@
     "Class files",
     "Static contents",
     "Lucee"
+  ],
+  "categories": [
+    "server"
   ]
 }
 -->

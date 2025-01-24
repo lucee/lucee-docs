@@ -9,6 +9,9 @@
     "Caching",
     "Template cache",
     "Lucee"
+  ],
+  "categories": [
+    "server"
   ]
 }
 -->

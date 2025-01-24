@@ -1,0 +1,1 @@
+An object to be serialized.

@@ -10,6 +10,14 @@
     "class",
     "createObject",
     "component"
+  ],
+  "related": [
+    "tag-component",
+    "function-createobject",
+    "developing-with-lucee-server"
+  ],
+  "categories": [
+    "core"
   ]
 }
 -->

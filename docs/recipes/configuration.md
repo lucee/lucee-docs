@@ -1,11 +1,18 @@
 
 <!--
 {
-  "title": "Configuration",
+  "title": "Configuration - CFConfig.json",
   "id": "config",
   "categories": ["configuration"],
   "description": "Best practices for configuring Lucee in various environments.",
-  "keywords": ["configuration", "config", ".CFConfig.json", "lucee-server.xml", "lucee-web.xml"]
+  "keywords": ["configuration", "config", ".CFConfig.json", "lucee-server.xml", "lucee-web.xml"],
+  "categories":[
+    "server"
+  ],
+  "related": [
+    "function-configimport",
+    "tag-application"
+  ]
 }
 -->
 

@@ -1,0 +1,1 @@
+Your AWS access key ID. Used for authentication with AWS services. This key must have appropriate permissions for EC2 describe instance operations.

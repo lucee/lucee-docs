@@ -10,6 +10,9 @@
     "Automatic update",
     "Server context",
     "Web context"
+  ],
+  "categories": [
+    "server"
   ]
 }
 -->

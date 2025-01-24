@@ -9,6 +9,12 @@
     "maven",
     "mysql"
     ,"db"
+  ],
+  "categories":[
+    "query"
+  ],
+  "related": [
+    "tag-query"
   ]
 }
 -->

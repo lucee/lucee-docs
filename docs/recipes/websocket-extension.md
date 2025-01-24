@@ -3,12 +3,16 @@
   "title": "WebSocket Extension",
   "id": "extension-websocket",
   "categories": [
-    "websocket"
+    "websocket",
+    "protocols"
   ],
   "description": "How to install, congigure and create WebSockets",
   "keywords": [
     "Lucee",
     "Extension"
+  ],
+  "related": [
+    "function-websocketinfo"
   ]
 }
 -->

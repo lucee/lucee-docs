@@ -10,6 +10,9 @@
     "while",
     "continue",
     "break"
+  ],
+  "related": [
+    "tag-loop"
   ]
 }
 -->

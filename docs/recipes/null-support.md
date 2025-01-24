@@ -4,7 +4,8 @@
   "id": "null_support",
   "related": [
     "function-isnull",
-    "function-nullvalue"
+    "function-nullvalue",
+    "developing-with-lucee-server"
   ],
   "description": "This document explains how to set null support in the Lucee server admin, assigning `null` value for a variable and how to use `null` and `nullvalue`.",
   "keywords": [
@@ -13,6 +14,9 @@
     "NullValue function",
     "isNull function",
     "Lucee"
+  ],
+  "categories": [
+    "core"
   ]
 }
 -->

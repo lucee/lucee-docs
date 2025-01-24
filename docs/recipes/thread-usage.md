@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Threads",
+  "title": "Using Threads in Lucee",
   "id": "thread-usage",
   "categories": [
     "scopes",
@@ -13,13 +13,18 @@
     "cfthread",
     "Asynchronous tasks",
     "Lucee"
+  ],
+  "related": [
+    "tag-thread"
   ]
 }
 -->
 
-# Thread Usage
+# Using Threads in Lucee
 
 This document explains how to use threads in Lucee. Threads are mainly used for executing code in parallel.
+
+Prior to Lucee 6.2, the thread scope wasn't an actual real scope, which led to some strange behavior, this has been resolved.
 
 ## Example 1
 

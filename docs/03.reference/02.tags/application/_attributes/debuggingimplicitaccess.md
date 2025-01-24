@@ -1,0 +1,1 @@
+Log debugging information about unscoped variables accessed in the request

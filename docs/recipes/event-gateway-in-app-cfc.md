@@ -13,7 +13,8 @@
   ],
   "categories": [
     "application",
-    "event handling"
+    "event handling",
+    "gateways"
   ],
   "description": "An overview of event handling functions in Application.cfc for Lucee.",
   "images": {

@@ -5,17 +5,22 @@
   "id": "tag-syntax",
   "categories": [
     "scopes",
-    "thread"
+    "thread",
+    "core"
   ],
   "description": "How to use tags in script",
   "keywords": [
     "Syntax",
     "tag",
     "function",
-    "Script"
-    "throw"
-    "abort"
+    "Script",
+    "throw",
+    "abort",
     "return"
+  ],
+  "related": [
+    "developing-with-lucee-server",
+    "tag-script"
   ]
 }
 -->
@@ -99,12 +104,15 @@ In this case, the `max` variable is evaluated properly, and the code runs withou
 ## Exceptions to the rules
 
 Because some keywords already existed in script, before support for script tags was added to Lucee, this tags could not be added with migration syntax, because they would conflict with the existing keywords.
+
 This includes the following keywords
+
 - throw
 - return 
 - abort
 
 So for example this code
+
 ```html
 <cfabort showError="Upsi Dupsi!">
 <cfabort>
@@ -113,27 +121,32 @@ So for example this code
 ```
 
 translates to migration syntax like this (this are not tags)
+
 ```javascript
 abort "Upsi Dupsi!";
 abort;
 throw "Upsi Dupsi!";
 return "Upsi Dupsi!";
 ```
+
 so you can for example not translate this
+
 ```html
 <cfthrow message="Upsi Dupsi!" detail="Upsi dasy!">
 ```
 
 to migration syntax, but you can to function syntax like this
+
 ```javascript
 cfthrow (message="Upsi Dupsi!", detail="Upsi dasy!");
 ```
 
-
 ## Exceptions to Tag-to-Script Migration
+
 Certain tags cannot be directly translated into migration syntax due to conflicts with existing keywords in Lucee’s script language. This applies to tags that use keywords already reserved in script, such as throw, return, and abort. These keywords function differently in script and don’t support direct migration syntax translation.
 
 ### Unsupported Migration Syntax for Specific Tags
+
 For example, the following tags in tag syntax:
 
 ```html
@@ -142,6 +155,7 @@ For example, the following tags in tag syntax:
 <cfthrow message="Oops!">
 <cfreturn "Oops!">
 ```
+
 translate to the following in script syntax (note: these are not actual tags in script but standalone statements):
 
 ```javascript
@@ -150,15 +164,19 @@ abort;
 throw "Oops!";
 return "Oops!";
 ```
+
 ### Example of Syntax Limitation
+
 Since the throw tag uses additional attributes like message and detail, it cannot be fully expressed in migration syntax. Instead, you’ll need to use function syntax for more complex cases. For example:
 
 ```html
 <cfthrow message="Oops!" detail="More details here.">
 ```
+
 would translate to function syntax as follows:
 
 ```javascript
 cfthrow(message="Oops!", detail="More details here.");
 ```
+
 Using function syntax here allows you to specify multiple attributes, overcoming the limitations of migration syntax. This flexibility makes function syntax ideal when using tags with additional parameters or complex functionality.

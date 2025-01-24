@@ -11,6 +11,12 @@
     "components",
     "lambda",
     "Lucee"
+  ],
+  "categories": [
+    "java"
+  ],
+  "related": [
+    "tag-function"
   ]
 }
 -->
@@ -19,9 +25,9 @@
 
 You can write CFML code directly in a function or a closure.
 
-## Function
+## Functions
 
-Inside the function, you write regular Java code. The arguments and return type definition must be Java types.
+Inside the function, you can write regular Java code. The arguments and return type definition must be Java types.
 
 ```lucee
 int function echoInt(int i) type="java" {
@@ -30,7 +36,7 @@ int function echoInt(int i) type="java" {
 }
 ```
 
-## Component
+## Components
 
 Of course, the function can also be part of a component.
 
@@ -43,9 +49,11 @@ component {
 }
 ```
 
-## Java Lambda Function
+## Java Lambda Functions
 
-If the interface of a function matches a functional Java interface (Lambda), Lucee automatically implements that interface. In the following example, we implement the `IntUnaryOperator` implicitly. You can then pass it to Java and use it as such.
+If the interface of a function matches a functional Java interface (Lambda), Lucee automatically implements that interface. 
+
+In the following example, we implement the `IntUnaryOperator` implicitly. You can then pass it to Java and use it as such.
 
 ```lucee
 int function echoInt(int i) type="java" {

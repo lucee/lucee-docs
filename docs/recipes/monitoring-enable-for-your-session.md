@@ -4,7 +4,8 @@
   "id": "monitoring-enable-for-your-session",
   "since": "6.1",
   "categories": [
-    "monitoring"
+    "monitoring",
+    "debugging"
   ],
   "description": "Shows you a way to enable Monitoring for your session",
   "keywords": [

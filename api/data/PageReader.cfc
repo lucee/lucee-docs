@@ -50,11 +50,17 @@ component {
 			if (page.getPageType() eq "README"){
 				page.setPath( page.getPath() );
 				page.setPageType( "listing" );
+				page.setListingStyle( "flat" );
 				page.setVisible( true );
-				page.setReference( false );
-				page.setBody( "Recipes" );
+				page.setReference( true );
+				page.setBody( "Detailed Recipes showing you how to take advantage of the wide range of features in Lucee" );
+				page.setMenuTitle( "Recipes" );
 				page.setTitle( "Lucee Recipes" );
-				page.setDescription( "Lucee Recipes" );
+				page.setDescription( "Detailed Recipes showing you how to take advantage of the wide range of features in Lucee" );
+				page.setForceSortOrder( 5.5 );
+				page.setSortOrder( 4.5 );
+				page.setSlug("recipes");
+				page.setId("recipes");
 			} else {
 				page.setPath( page.getPath() & "/" & replace( page.getPageType(), ".md", "" ) );
 				page.setPageType( "page" );
@@ -149,7 +155,6 @@ component {
 		} else if ( len( trim( arguments.pageContent ) ) ){
 			parsed = _splitCommentStructAndBody( arguments.pageContent, arguments.filePath );
 		}
-
 		return parsed;
 	}
 
@@ -189,15 +194,14 @@ component {
 		var meta = mid( str, 5, endComment - 5 );
 		//systemOutput( "!!" & meta & "!!", true );
 		if ( !isJson( meta ) ){
-			throw "metadata is not json [#arguments.filePath#]";
+			throw (message="metadata is not json [#arguments.filePath#]", detail=meta);
 		}
 		var body = mid( str, endComment + 3 );
 		if ( len( trim( body ) ) eq 0 )
 			throw "empty content after metadata [#arguments.filePath#]";
-		return {
-			  yaml = deserializeJson( meta )
-			, body = body
-		}
+		meta = deserializeJson( meta );
+		meta.body = body;
+		return meta;
 	}
 
 	private string function _convertToUnixLineEnding( required string content ){

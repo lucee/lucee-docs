@@ -1,0 +1,1 @@
+The endpoint or the provider to connect to. If not set, Amazon AWS is used. This can be used to specify a different AWS region or a custom EC2-compatible endpoint.

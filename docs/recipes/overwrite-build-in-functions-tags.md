@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Overwriting and Adding Built-in Functions and Tags",
+  "title": "Overwriting and adding Built-in Functions and Tags",
   "id": "overwrite-build-in-functions-tags",
   "description": "Learn how to overwrite or add built-in functions and tags in Lucee to customize behavior or backport fixes.",
   "keywords": [
@@ -13,6 +13,10 @@
     "Lucee server",
     "backport fixes",
     "ACF compatibility"
+  ],
+  "related": [
+    "tag-function",
+    "developing-with-lucee-server"
   ]
 }
 -->

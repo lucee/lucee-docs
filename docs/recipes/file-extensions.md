@@ -10,6 +10,9 @@
     "cfml",
     "cfs",
     "file extensions"
+  ],
+  "categories": [
+    "server"
   ]
 }
 -->

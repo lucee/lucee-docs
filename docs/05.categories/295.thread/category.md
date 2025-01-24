@@ -1,6 +1,9 @@
 ---
 title: Threads
 id: category-thread
+categories:
+- scopes
+description: Threads
 ---
 
 - [Easy Parallelism in Lucee](https://www.rasia.io/blog/easy-parallelism-in-lucee.html)

@@ -9,6 +9,9 @@
     "Application.cfc",
     "javasettings",
     "cfapplication"
+  ],
+  "categories": [
+    "java"
   ]
 }
 -->

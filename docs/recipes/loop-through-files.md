@@ -10,6 +10,9 @@
     "fileReadBinary",
     "Memory optimization",
     "Lucee"
+  ],
+  "related": [
+    "tag-loop"
   ]
 }
 -->

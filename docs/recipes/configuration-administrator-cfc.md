@@ -10,6 +10,9 @@
     "Lucee",
     "Web context",
     "Server configuration"
+  ],
+  "categories": [
+    "server"
   ]
 }
 -->

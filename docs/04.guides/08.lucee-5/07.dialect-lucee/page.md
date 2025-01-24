@@ -1,8 +1,12 @@
 ---
-title: The Lucee dialect
+title: The Lucee dialect (removed 6.1)
 id: lucee-5-dialect-lucee
+related:
+  - breaking-changes-6-0-to-6-1
 ---
 # New Language dialect Lucee #
+
+>>>>> The Lucee dialect was removed in 6.1, as it was barely used and removing it made Lucee faster for CFML
 
 **In addition to the existing "CFML" language dialect, Lucee 5 comes with a completely new dialect simply called "Lucee".**
 

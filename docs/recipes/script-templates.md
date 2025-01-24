@@ -9,6 +9,9 @@
     "templates",
     "Lucee",
     "cfs"
+  ],
+  "related": [
+    "tag-script"
   ]
 }
 -->

@@ -1,7 +1,7 @@
 <!--
 {
-  "title": "Function SystemOutput",
-  "id": "function-systemoutput",
+  "title": "SystemOutput, writing to the console",
+  "id": "systemoutput-recipe",
   "description": "This document explains the systemoutput function with some simple examples.",
   "keywords": [
     "SystemOutput function",
@@ -9,13 +9,24 @@
     "Output stream",
     "Error stream",
     "Stack trace"
+  ],
+  "related":[
+    "function-systemoutput"
+  ],
+  "categories":[
+    "server",
+    "debugging"
   ]
 }
 -->
 
 # Function SystemOutput
 
-This document explains the systemoutput function with some simple examples.
+This document explains the systemOutput function with some simple examples.
+
+It's like dump() for your console, including support for complex types.
+
+For example, if you are using Docker, you can see this output in the console logs.
 
 ## Example 1:
 
