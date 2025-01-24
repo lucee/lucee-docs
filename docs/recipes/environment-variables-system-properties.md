@@ -48,6 +48,11 @@ Debug options, a comma-separated list of the following possible debug options to
 - query-usage
 - max-records-logged
 
+**Environment Variable:** `LUCEE_ENCRYPTION_ALGORITHM`  
+**System Property:** `-Dlucee.encryption.algorithm`  
+Default encryption algorithm used when none is specified. The default "cfmx_compat" is not cryptographically secure - strongly recommended to use "AES" instead.
+Valid values: CFMX_COMPAT, AES, BLOWFISH, DES
+
 **Environment Variable:** `LUCEE_EXTENSIONS`  
 **System Property:** `-Dlucee.extensions`  
 Define a comma-separated list of Lucee extensions to install when starting up. This can be a simple list of IDs like this, then simply the latest versions get installed:
