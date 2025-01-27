@@ -132,6 +132,37 @@ createObject("java", "org.apache.commons.beanutils.BeanUtils", {
 
 This method provides even more flexibility, allowing you to load Java classes and libraries dynamically at runtime.
 
+## Security
+Lucee validates downloaded Maven artifacts against checksums to ensure integrity through dual validation:
+
+Against Maven repository checksums
+Against user-defined checksums (if provided)
+
+Define checksums in .CFConfig.json:
+
+```json
+{
+  "javasettings": {
+    "maven": [
+      {
+        "groupId": "org.example",
+        "artifactId": "mylib",
+        "version": "1.0.0",
+        "checksum": "sha1-d52b9abcd97f38c81342bb7e7ae1eee9b73cba51"
+      }
+    ]
+  }
+}
+```
+
+Or using Gradle style:
+```
+"commons-beanutils:commons-beanutils:1.9.4:compile:false:sha1-d52b9abcd97f38c81342bb7e7ae1eee9b73cba51"
+```
+
+Supported algorithms: MD5, SHA-1, SHA-256, SHA-512
+If no checksum is specified, Lucee uses the default from the Maven repository. Failed checksum validations prevent dependency installation.
+
 ## Classloader Recycling
 
 Lucee automatically generates a unique hash based on the defined Java settings and maintains a pool of corresponding classloaders. This means that classloaders are reused efficiently, minimizing resource consumption and avoiding the overhead of creating new classloaders unnecessarily.
