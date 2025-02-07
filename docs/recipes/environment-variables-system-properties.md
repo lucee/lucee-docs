@@ -240,6 +240,11 @@ Which kind of Application Listener is supported?
 - `Modern` - Modern handling. Lucee only looks for the file "Application.cfc".
 - `Mixed (CFML >= 7)` - Mixed handling. Lucee looks for a file "Application.cfm/OnRequestEnd.cfm" as well as for the file "Application.cfc".
 
+**Environment Variable:** `LUCEE_LISTENER_SINGELTON`  
+**System Property:** `-Dlucee.listener.singelton`  
+Controls how Lucee manages Application.cfc instances (introduced in Lucee 7). When set to false (Classic behavior), Lucee creates a new Application.cfc instance for each request and executes the component body constructor every time. When set to true (Singleton behavior), the component loads only during startup or when the component template changes.
+Note: With singleton mode enabled, settings defined in the component body remain persistent between requests. Configuration changes should be made within listener functions like onApplicationStart, onSessionStart or onRequestStart.
+
 **Environment Variable:** `LUCEE_LOGGING_MAIN`  
 **System Property:** `-Dlucee.logging.main`  
 Name of the main logger used by Lucee, for example, a non-existing logger is defined.
