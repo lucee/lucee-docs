@@ -1,6 +1,8 @@
 ---
 title: ImageGetIptcMetadata
 id: function-imagegetiptcmetadata
+related:
+- function-imagegetiptctag
 categories:
 - image
 ---
