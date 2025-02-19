@@ -34,105 +34,154 @@ This document explains how session handling works in Lucee and covers configurat
 Lucee allows use of 2 types of sessions:
 -  "jee" - The session provided and managed by the ServletEngine, also known as "JSession"
 - "cfml" - The Sessions provided and managed by Lucee
-You can define the type used in the Lucee Administrator or .CFConfig.json like this
+
+You can define the type used in the Lucee Administrator or .CFConfig.json like this:
 ```json
 {
   "sessionType": "cfml"
 }
 ```
- and overwrite it in the Application.cfc like this
+and overwrite it in the Application.cfc like this:
 ```javascript
 this.sessionType="cfml";
 ```
 
-This document only addresses session type "cfml" , for "jee" (Servlet Engine Session) please see for example
-https://docs.oracle.com/cd/B31017_01/web.1013/b28959/sessions.htm#:~:text=When%20a%20servlet%20creates%20an,pair%20constitutes%20a%20session%20attribute.
+This document only addresses session type "cfml". For "jee" (Servlet Engine Session) please see the [Java EE Session Documentation](https://docs.oracle.com/cd/B31017_01/web.1013/b28959/sessions.htm#:~:text=When%20a%20servlet%20creates%20an,pair%20constitutes%20a%20session%20attribute).
 
 ## Enable Sessions
 
-You can enable session management in the Lucee Administrator or .CFConfig.json like this
+You can enable session management in the Lucee Administrator or .CFConfig.json like this:
 ```json
 {
   "sessionManagement": true
 }
 ```
 
- and overwrite it in the Application.cfc like this
+and overwrite it in the Application.cfc like this:
 ```javascript
 this.sessionManagement=true;
 ```
-By default sessions are enabled
+By default, sessions are enabled.
 
 ## (Idle)Timeout
-You can set the default session idle timeout in the Lucee Administrator or .CFConfig.json like this
+You can set the default session idle timeout in the Lucee Administrator or .CFConfig.json like this:
 ```json
 {
   "sessionTimeout": "0,0,30,0"
 }
 ```
 
- by default it is 30 minutes.
- and overwrite it in the Application.cfc like this
+The timeout format "0,0,30,0" represents days,hours,minutes,seconds. You can set it in the Application.cfc using different approaches:
 ```javascript
-this.sessionTimeout=createTimeSpan(0,0,30,0); // 30 minutes
-this.sessionTimeout=1/24/2; // 30 minutes
+// Different ways to set a 30-minute timeout
+this.sessionTimeout=createTimeSpan(0,0,30,0); // using createTimeSpan
+this.sessionTimeout=1/24/2;                   // using day fractions
 ```
 
 ## Storage
-Lucee allows to define a storage for sessions, by default this is "memory", what means that the session is simply stored in memory for the full life cycle of the session.
-You can set the default session storage in the Lucee Administrator or .CFConfig.json like this
+Lucee allows defining storage for sessions. By default, this is "memory", meaning the session is stored in memory for its full life cycle.
+
+You can set the default session storage in the Lucee Administrator or .CFConfig.json like this:
 ```json
 {
   "sessionStorage": "memory"
 }
 ```
- and overwrite it in the Application.cfc like this
+and overwrite it in the Application.cfc like this:
 ```javascript
 this.sessionStorage="memory";
 ```
 
-for any other setting than "memory", the session is only stored up to a minute (idle) in memory, after that it is removed from memory and loaded again from the storage on demand.
+For any setting other than "memory", the session is only stored up to a minute (idle) in memory, after which it is removed from memory and loaded again from storage on demand.
 
-The following settings are possible:
-- "memory" - simply store in memory for the full life cycle
-- "cookie" - stored in the cookie of the user (should be avoided from a security perspective)
-- "file" - stored in a local file 
-- <datasource-name> - name of an existing datasource, the session get stored in a table with name "cf_session_data" in that datasource.
-- <cache-name> - name of an existing cache, the session get stored in that cache, for example Redis.
+The following storage options are available:
 
-Lucee does not store "empty" sessions into a storage, so when a session does not contain any data other than the default keys, it not get stored.
+- "memory" - Stores session data in server memory for the full life cycle. Best for single-server deployments.
+- "cookie" - Stores session data in the user's browser cookies. Should be avoided for security reasons and limited by cookie size restrictions.
+- "file" - Stores session data in local files. Good for development but may cause issues in clustered environments.
+- <datasource-name> - Name of an existing datasource. Session data is stored in a table named "cf_session_data". Lucee automatically creates this table if it doesn't exist. Suitable for clustered environments.
+- <cache-name> - Name of an existing cache (e.g., Redis, Memcached). Ideal for distributed systems requiring high performance.
+
+Lucee does not store "empty" sessions (sessions containing only default keys) into storage to optimize resource usage.
 
 ### Distributed Storage
-In case you are using a cache or a datasource as storage you can define how the data synchronization between local memory and storage should work.
-You can set the default session distribution mode in the Lucee Administrator or .CFConfig.json like this
+When using a cache or datasource as storage, you can configure how data synchronization works between local memory and storage.
+
+Configure the default session distribution mode in the Lucee Administrator or .CFConfig.json:
 ```json
 {
   "sessionCluster": false
 }
 ```
- and overwrite it in the Application.cfc like this
+and overwrite it in the Application.cfc:
 ```javascript
 this.sessionCluster=false;
 ```
-If set to `false`, the local memory acts as primary storage point. When Lucee has the session locally at the beginning of a request, it will not retrieve the data from storage, only updating the storage at the end when the data is modified. This setting is optimal when the storage is used by a single server as it minimizes storage requests.
 
-If set to `true`, the external storage acts as the primary source of truth. The data is checked against the storage at the beginning of every request to ensure consistency. This setting is recommended when the storage is shared between multiple servers to ensure data consistency across the cluster.
+If set to `false`, local memory acts as the primary storage point:
+- Session data in local memory is considered authoritative
+- Storage is only updated when data is modified
+- Optimal for single-server deployments
+- Minimizes storage requests
 
-## Invalidate
-The `SessionInvalidate()` function immediately terminates the current session and removes all associated data. This is useful when you need to clear all session data, such as during user logout. Example:
+If set to `true`, external storage acts as the primary source of truth:
+- Session data is verified against storage at request start
+- Ensures data consistency across multiple servers
+- Recommended for clustered environments
+- May increase storage I/O
+
+## Event Handlers
+Lucee provides event handlers in Application.cfc for session management:
 
 ```javascript
-SessionInvalidate();
-// All session variables are now cleared
+// Called when a new session is created
+public void function onSessionStart() {
+    // Initialize session variables
+    session.created = now();
+    session.lastAccessed = now();
+}
+
+// Called when a session ends (timeout or invalidation)
+public void function onSessionEnd(required struct sessionScope, 
+                                required struct applicationScope) {
+    // Clean up resources
+    var userId = sessionScope.user?.id ?: "unknown";
+    application.logger.info("Session ended for user #userId#");
+}
 ```
 
-## Rotate
-The `SessionRotate()` function creates a new session and copies all existing session data to it, while invalidating the old session. This is a security measure typically used after authentication state changes (login/logout) to prevent session fixation attacks. Example:
+## Session Management Functions
+
+### Invalidate
+The `SessionInvalidate()` function immediately terminates the current session and removes all associated data:
 
 ```javascript
-// User logs in successfully
-SessionRotate();
-// Session data is preserved but with a new session ID
+// During logout
+public void function logout() {
+    // Log user activity before invalidating
+    logUserActivity(session.user.id, "logout");
+    
+    SessionInvalidate();
+    // All session variables are now cleared
+    
+    location(url="login.cfm", addToken=false);
+}
+```
+
+### Rotate
+The `SessionRotate()` function creates a new session and copies existing data to it while invalidating the old session:
+
+```javascript
+// After successful authentication
+if (authentication.success) {
+    // Create new session to prevent session fixation
+    SessionRotate();
+    
+    // Set session data with new session ID
+    session.user = userDetails;
+    session.authenticated = true;
+    session.lastLogin = now();
+}
 ```
 
 ## Security
@@ -147,9 +196,8 @@ Since Lucee 6.1 you can completely block the use of CFID in the url by setting t
 or environment variable
 ``` LUCEE_READ_CFID_FROM_URL=false```
 
+## Best Practices
 
-
-## Best Practice
 Lucee tries to avoid creating sessions whenever possible. It only creates a session when:
 - Session data is read or written in the code
 - A key in the session scope is checked
