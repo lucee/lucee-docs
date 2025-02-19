@@ -20,6 +20,14 @@ To find out more about getting involved as a developer with Lucee, checkout our 
 
 **New!** We have added a whole series of detailed [[Recipes]] showing you how to take advantage of the wide range of features in Lucee.
 
+## Deploying Lucee
+
+[[deploying-lucee-server-apps]] - How to configure and deploy Lucee 
+
+[[locking-down-lucee-server]] - Security best practices for Lucee
+
+[[config]] - All about Lucee's configuration file
+
 ## Lucee 6.2
 
 Lucee 6.2 is our upcoming next major release, currently at the Release Candidate stage, including enhanced Java and Maven integration, Jakarta Servlet support and better runtime performance, up to 50% faster than Lucee 5.4.

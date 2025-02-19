@@ -36,7 +36,7 @@ Cache a Query for the current request in Lucee.
 
 How to add per-application caches via Application.cfc in Lucee.
 
-## [Check for changes in your configuration file automatically](/docs/recipes/check-for-changes.md)
+## [Untitled](/docs/recipes/check-for-changes.md)
 
 Automatically check for changes in your configuration file with Lucee.
 

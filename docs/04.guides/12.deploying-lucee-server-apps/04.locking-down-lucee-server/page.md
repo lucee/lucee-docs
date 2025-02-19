@@ -14,9 +14,18 @@ Make sure the WEB-INF directory is locked down. You will need to configure your 
 
 To disable detailed error messages in Lucee, log in to the Lucee server administrator and go to Settings -> Error -> and select "error-public.cfm" from the drop down options. This will only display an extremely generic and uninformative error message to the end-users.
 
+```
+{
+    "errorGeneralTemplate": "/lucee/templates/error/error-public.cfm",
+    "errorMissingTemplate": "/lucee/templates/error/error-public.cfm"
+}
+```
+
 ### Ensure All Administrators for All Contexts Have Passwords Assigned and Use Captcha ###
 
 In the Lucee Server Administrator, go to Security -> Password. From this screen you can set the passwords of all existing web contexts and enable captcha's to prevent brute-forcing password breaking attempts on your Lucee Server & Web Administrators
+
+The Lucee Admin can be disabled by setting the env var `LUCEE_ADMIN_ENABLED=false` which is **recommended** for production/internet facing servers
 
 ### Reduce Request Timeouts as Low as Possible ###
 
