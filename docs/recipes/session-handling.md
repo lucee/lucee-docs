@@ -37,7 +37,7 @@ Lucee allows use of 2 types of sessions:
 You can define the type used in the Lucee Administrator or .CFConfig.json like this
 ```json
 {
-  sessionType: "cfml"
+  "sessionType": "cfml"
 }
 ```
  and overwrite it in the Application.cfc like this
@@ -53,7 +53,7 @@ https://docs.oracle.com/cd/B31017_01/web.1013/b28959/sessions.htm#:~:text=When%2
 You can enable session management in the Lucee Administrator or .CFConfig.json like this
 ```json
 {
-  sessionManagement: true
+  "sessionManagement": true
 }
 ```
 
@@ -67,7 +67,7 @@ By default sessions are enabled
 You can set the default session idle timeout in the Lucee Administrator or .CFConfig.json like this
 ```json
 {
-  sessionTimeout: "0,0,30,0"
+  "sessionTimeout": "0,0,30,0"
 }
 ```
 
@@ -83,7 +83,7 @@ Lucee allows to define a storage for sessions, by default this is "memory", what
 You can set the default session storage in the Lucee Administrator or .CFConfig.json like this
 ```json
 {
-  sessionStorage: "memory"
+  "sessionStorage": "memory"
 }
 ```
  and overwrite it in the Application.cfc like this
@@ -107,7 +107,7 @@ In case you are using a cache or a datasource as storage you can define how the 
 You can set the default session distribution mode in the Lucee Administrator or .CFConfig.json like this
 ```json
 {
-  sessionCluster: false
+  "sessionCluster": false
 }
 ```
  and overwrite it in the Application.cfc like this
