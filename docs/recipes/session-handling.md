@@ -192,9 +192,13 @@ Since Lucee 6.1, Lucee only accepts the key in the URL in case it has active ses
 So in case you are using a storage (not "memory"), this is only up to a minute.
 
 Since Lucee 6.1 you can completely block the use of CFID in the url by setting the following system property
-``` -Dlucee.read.cfid.from.url=false```
+```properties
+ -Dlucee.read.cfid.from.url=false
+```
 or environment variable
-``` LUCEE_READ_CFID_FROM_URL=false```
+```bash
+ LUCEE_READ_CFID_FROM_URL=false
+```
 
 ## Best Practices
 
