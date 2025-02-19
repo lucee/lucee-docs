@@ -99,8 +99,8 @@ The following storage options are available:
 - "memory" - Stores session data in server memory for the full life cycle. Best for single-server deployments.
 - "cookie" - Stores session data in the user's browser cookies. Should be avoided for security reasons and limited by cookie size restrictions.
 - "file" - Stores session data in local files. Good for development but may cause issues in clustered environments.
-- <datasource-name> - Name of an existing datasource. Session data is stored in a table named "cf_session_data". Lucee automatically creates this table if it doesn't exist. Suitable for clustered environments.
-- <cache-name> - Name of an existing cache (e.g., Redis, Memcached). Ideal for distributed systems requiring high performance.
+- [datasource-name] - Name of an existing datasource. Session data is stored in a table named "cf_session_data". Lucee automatically creates this table if it doesn't exist. Suitable for clustered environments.
+- [cache-name] - Name of an existing cache (e.g., Redis, Memcached). Ideal for distributed systems requiring high performance.
 
 Lucee does not store "empty" sessions (sessions containing only default keys) into storage to optimize resource usage.
 
