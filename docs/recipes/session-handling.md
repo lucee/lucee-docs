@@ -200,6 +200,30 @@ or environment variable
  LUCEE_READ_CFID_FROM_URL=false
 ```
 
+### Client Identification in CFID
+Lucee can enhance session security by embedding client information within the CFID. This feature helps prevent session hijacking by making it harder for one client to use another client's CFID.
+
+Enable this feature using either system property:
+```properties
+-Dlucee.identify.client=true
+```
+or environment variable:
+```bash
+LUCEE_IDENTIFY_CLIENT=true
+```
+
+When enabled:
+- The CFID includes a unique client identifier based on the client's characteristics (e.g., User-Agent)
+- A session created for Client A cannot easily be used by Client B
+- Maintains backward compatibility with older CFID patterns
+- Sessions remain valid when downgrading Lucee versions
+
+The client identification is derived from:
+1. User-Agent header
+2. If not available, falls back to accept header
+3. If no identifying information is available, reverts to standard CFID generation
+
+
 ## Best Practices
 
 Lucee tries to avoid creating sessions whenever possible. It only creates a session when:
