@@ -15,6 +15,14 @@
 
 This document outlines the breaking changes introduced when upgrading from Lucee 6.1 to Lucee 6.2. Be aware of these changes when migrating your applications to ensure smooth compatibility.
 
+## Java Support
+
+- Java 21 is recommended as it's a LTS release.
+- Java 23 is supported
+- Java 24-ea works, but there are some issues with date handling
+- Java 11 is supported
+- Java 8 is no longer supported
+
 ## Changing PreciseMath to be off by default
 
 With Lucee 6, we introduced support for higher precision maths, by switching the underlying Java class from Double to BigInteger.

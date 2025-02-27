@@ -2,6 +2,7 @@
 {
   "title": "AI Integration for Documentation (Experimental)",
   "id": "ai-documentation-setup",
+  "categories": [ "ai" ],
   "description": "Guide to configuring AI for use in Lucee's Documentation tab, leveraging retrieval-augmented generation (RAG) and enhanced search functionality.",
   "keywords": [
     "AI",
