@@ -18,7 +18,7 @@ To find out more about getting involved as a developer with Lucee, checkout our 
 
 ## Recipes 
 
-**New!** We have added a whole series of detailed [[Recipes]] showing you how to take advantage of the wide range of features in Lucee.
+We have added a whole series of detailed [[Recipes]] showing you how to take advantage of the wide range of features in Lucee.
 
 ## Deploying Lucee
 
@@ -30,13 +30,15 @@ To find out more about getting involved as a developer with Lucee, checkout our 
 
 ## Lucee 6.2
 
-Lucee 6.2 is our upcoming next major release, currently at the Release Candidate stage, including enhanced Java and Maven integration, Jakarta Servlet support and better runtime performance, up to 50% faster than Lucee 5.4.
+**New!** Lucee 6.2 is our latest stable release, with enhanced Java and Maven integration, Jakarta Servlet support and better runtime performance.
+
+Lucee 6.2 up to 50% faster than Lucee 5.4, while using less memory.
+
+Our Official Docker images and Installers for 6.2 all bundle Tomcat 10.1 and Java 21. This may cause issues with the switch to the Jakarta namespace, Lucee 6.2 supports both, but anything which integrates with Tomcat (i.e. urlrewrite) will need updating, see the [Jakarta](https://luceeserver.atlassian.net/issues/?jql=labels%20%3D%20%22jakarta%22) issues in our bug tracker.
 
 [[breaking-changes-6-1-to-6-2]]
 
 ## Lucee 6.1
-
-Lucee 6.1 is current stable release of Lucee.
 
 Targeting better performance and reduced memory usage, Lucee 6.1 introduces full support for Java 17 and 21, as well as Java 11.
 Java 8 is no longer officially supported.

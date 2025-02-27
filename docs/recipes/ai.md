@@ -2,6 +2,7 @@
 {
   "title": "AI (experimental)",
   "id": "ai",
+  "categories": ["ai"],
   "description": "",
   "keywords": [
     "AI",
