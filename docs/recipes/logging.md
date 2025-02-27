@@ -60,8 +60,8 @@ This allows you to start with minimal logging in production and increase verbosi
 Lucee 6.2 supports the following environment variables which allow overriding the log levels and appender, which is great for debugging and Docker
 
 ```bash
- LUCEE_LOGGING_FORCE_LEVEL=trace
- LUCEE_LOGGING_FORCE_APPENDER=console
+LUCEE_LOGGING_FORCE_LEVEL=info
+LUCEE_LOGGING_FORCE_APPENDER=console
 ```
 
 ### Adding or Modifying Logs
