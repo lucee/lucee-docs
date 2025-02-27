@@ -133,6 +133,7 @@ createObject("java", "org.apache.commons.beanutils.BeanUtils", {
 This method provides even more flexibility, allowing you to load Java classes and libraries dynamically at runtime.
 
 ## Security
+
 Lucee validates downloaded Maven artifacts against checksums to ensure integrity through dual validation:
 
 Against Maven repository checksums
@@ -156,6 +157,7 @@ Define checksums in .CFConfig.json:
 ```
 
 Or using Gradle style:
+
 ```
 "commons-beanutils:commons-beanutils:1.9.4:compile:false:sha1-d52b9abcd97f38c81342bb7e7ae1eee9b73cba51"
 ```
