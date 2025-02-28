@@ -11,11 +11,10 @@ id: tips-compilecode
 
 	Return to [[faq-s]] or [[tips-and-tricks]]
 
-
 ## CommandBox ##
+
 You can also leverage CommandBox along with [cfml-compiler](https://www.forgebox.io/view/cfml-compiler/version/1.0.6)
 
 ```
 box cfcompile sourcePath=./src destPath=./compiled cfengine=lucee@6
 ```
-
