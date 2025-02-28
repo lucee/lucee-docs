@@ -36,6 +36,8 @@ Lucee 6.2 up to 50% faster than Lucee 5.4, while using less memory.
 
 Our Official Docker images and Installers for 6.2 all bundle Tomcat 10.1 and Java 21. This may cause issues with the switch to the Jakarta namespace, Lucee 6.2 supports both, but anything which integrates with Tomcat (i.e. urlrewrite) will need updating, see the [Jakarta](https://luceeserver.atlassian.net/issues/?jql=labels%20%3D%20%22jakarta%22) issues in our bug tracker.
 
+[Lucee 6.2 ChangeLog](https://download.lucee.org/changelog/?version=6.2)
+
 [[breaking-changes-6-1-to-6-2]]
 
 ## Lucee 6.1
