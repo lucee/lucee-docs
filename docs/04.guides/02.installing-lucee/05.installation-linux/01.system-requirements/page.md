@@ -48,4 +48,5 @@ It's important to realize that the memory requirements stated here are for Lucee
 * Requires manual configuration of NGINX
 
 ### Tomcat Support ###
+
 * Tomcat 9.X
