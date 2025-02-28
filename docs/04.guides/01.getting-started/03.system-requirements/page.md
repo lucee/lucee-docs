@@ -23,11 +23,13 @@ If you do run into problems running on **newer versions** of Java with Lucee 6, 
 
 ### Microsoft Windows ###
 
+* Windows Server 2025 all editions
+* Windows Server 2022 all editions
 * Windows Server 2019 all editions
 * Windows Server 2016 all editions
-* Windows Server 2012 & R2 all editions
+* Windows 11 all editions
 * Windows 10 all editions
-* Windows 8.1 all editions
+
 
 ### Linux ###
 
@@ -35,11 +37,19 @@ If you do run into problems running on **newer versions** of Java with Lucee 6, 
 * SUSE Linux all editions
 * Ubuntu all editions
 * Oracle Enterprise Linux
-* Cent OS all editions
+* Alma Linux / Rocky Linux all editions
+* Debian Linux
+* Arch Linux
+* Pop_OS!
+* Fedora
 
 ### Mac OS ###
 
 * Mac OS X all editions
+
+### FreeBSD ###
+
+* All Editions
 
 ### Solaris ###
 
