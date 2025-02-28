@@ -1,4 +1,5 @@
 ### Member Function
+
 ```luceescript+trycf
         animals = {
                 cat:"rat",
@@ -9,6 +10,7 @@
         sort = animals.sort("text","asc");
         writeDump(var=sort,label="After sorting");
 ```
+
 ### Example using callback (Introduced in 6.2.1.29)
 
 ```luceescript+trycf

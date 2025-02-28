@@ -30,7 +30,6 @@ If you do run into problems running on **newer versions** of Java with Lucee 6, 
 * Windows 11 all editions
 * Windows 10 all editions
 
-
 ### Linux ###
 
 * Red Hat Enterprise Linux all editions
