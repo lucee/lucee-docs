@@ -233,19 +233,19 @@ component displayname="Application" output="false" hint="Handle the application"
     ***************************************************************************/
 
 
-
-
    ////////////////////////////////////////////////////////////////
    //  APPLICATION NAME
    //  Defines the name of your application
    ////////////////////////////////////////////////////////////////
    // this.name = "myApplication";
 
+
    ////////////////////////////////////////////////////////////////
    //  LOCALE
    //  Defines the desired time locale for the application
    ////////////////////////////////////////////////////////////////
    // this.locale = "en_US"; 
+
 
    ////////////////////////////////////////////////////////////////
    //  TIME ZONE
@@ -441,7 +441,6 @@ component displayname="Application" output="false" hint="Handle the application"
    // this.query.cachedAfter = createTimeSpan(0,0,0,0);
 
    
-
    ////////////////////////////////////////////////////////////////
    //  REGEX 
    //  Defines the regular expression dialect to be used.
@@ -449,7 +448,6 @@ component displayname="Application" output="false" hint="Handle the application"
    //  - classic CFML default, the classic CFML traditional type Perl5 dialect
    ////////////////////////////////////////////////////////////////
    // this.regex.type = "perl";
-
 
 
    ////////////////////////////////////////////////////////////////
@@ -477,6 +475,7 @@ component displayname="Application" output="false" hint="Handle the application"
    //	  disallowDoctypeDecl: false
    // };
 
+
    ////////////////////////////////////////////////////////////////
    //  MAIL SERVERS 
    //  defines one or more mail server connections. 
@@ -496,7 +495,6 @@ component displayname="Application" output="false" hint="Handle the application"
    //        ,idleTimespan: CreateTimeSpan( 0, 0, 0, 10 )
    //    } 
    // ];
-
 
 
    ////////////////////////////////////////////////////////////////
@@ -521,9 +519,6 @@ component displayname="Application" output="false" hint="Handle the application"
    // };
 
   
-
-
-
    ////////////////////////////////////////////////////////////////
    //  CACHES
    ////////////////////////////////////////////////////////////////
@@ -533,8 +528,6 @@ component displayname="Application" output="false" hint="Handle the application"
    //   , custom: {"timeToIdleSeconds":"0","timeToLiveSeconds":"0"}
    //   , default: ''
    // };
-
-
 
 
    ////////////////////////////////////////////////////////////////
@@ -551,9 +544,6 @@ component displayname="Application" output="false" hint="Handle the application"
    // };
 
 
-
-
-
     /**
     * @hint First function run when Lucee receives the first request. 
     */
@@ -562,8 +552,6 @@ component displayname="Application" output="false" hint="Handle the application"
         return true;
     
     }
-
-
 
 
     /**
@@ -575,7 +563,6 @@ component displayname="Application" output="false" hint="Handle the application"
         return;
 
     }
-
 
 
     /**
@@ -611,7 +598,6 @@ component displayname="Application" output="false" hint="Handle the application"
     }
 
 
-
     /**
     * @hint onRequest() is triggered during a request right after onRequestStart() ends and before 
     * onRequestEnd() starts. Unlike other CFML engines, Lucee executes this function without looking 
@@ -636,7 +622,6 @@ component displayname="Application" output="false" hint="Handle the application"
     }
 
 
-
     /**
     * @hint onCFCRequest() is triggered during a request for a .cfc component, typically
     * used to handle remote component calls (e.g. HTTP Webservices). 
@@ -648,7 +633,6 @@ component displayname="Application" output="false" hint="Handle the application"
     }
 
 
-
     /**
     * @hint onError() is triggered when an uncaught exception occurs in this application context. 
     */
@@ -657,8 +641,6 @@ component displayname="Application" output="false" hint="Handle the application"
         return;
 
     }
-
-
 
 
     /**
@@ -690,7 +672,6 @@ component displayname="Application" output="false" hint="Handle the application"
         return;
 
     }
-
 
 }
 ```
