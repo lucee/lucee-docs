@@ -155,6 +155,7 @@ At this moment, Lucee is already running providing your CFML generated content a
 ```
 
 ### On Linux/MacOs:
+
 ```
 {
   "folders": [
@@ -182,6 +183,7 @@ At this moment, Lucee is already running providing your CFML generated content a
   }
 }
 ```
+
 #### Step 7: Running everything all together
 
 While the Tomcat Lucee instance is already running at `http://localhost:8888` (test it by browsing to it) and the Java Agent with luceedebug.jar is listening on localhost:9999, you can open the workspace by double-clicking the file at `D:\luceedebug_example\lucee_debug_example.code-workspace`. This should open your Visual Studio Code with Lucee's default application at `D:\luceedebug_example\lucee-express-5.4.6.9\webapps\ROOT\index.cfm`. 
