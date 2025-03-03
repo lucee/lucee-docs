@@ -1,0 +1,1 @@
+Mode to for the new directory, pass -1 to inherit

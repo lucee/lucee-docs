@@ -1,0 +1,1 @@
+If true or not empty, creates and returns a unique temp directory, optionally prefixed
