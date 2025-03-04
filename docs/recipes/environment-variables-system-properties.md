@@ -378,6 +378,50 @@ Specifies the file location of the trust store that contains trusted Certificate
 **System Property:** `-Dlucee.web.charset`  
 Default character set for output streams, form-, URL-, and CGI scope variables, and reading/writing the header.
 
+**Environment Variable:** `LUCEE_CONTROLLER_GC`   
+**System Property:** `-Dlucee.controller.gc`    
+Default false, previously Lucee always ran a System.GC() every 5 minutes, available since 6.2.
+
+**Environment Variable:** `LUCEE_URL_ENCODEALLOWPLUS`     
+**System Property:** `-Dlucee.url.encodeAllowPlus`      
+Lucee before 6.2 would attempt to re-encode a url param which contained a space. If the url param was already encoded, it would trigger re-encoding the param again, breaking it. This was avoidable previously by using cfhttp encodeurl=false, set to false to enable previous behaviour.
+
+**Environment Variable:** `LUCEE_DUMP_THREADS`  
+**System Property:** `-Dlucee.dump.threads`       
+Used for debugging, when enabled, it will dump out running threads to the console via the background controller thread.
+
+**Environment Variable:** `LUCEE_SCOPE_LOCAL_CAPACITY`  
+**System Property:** `-Dlucee.scope.local.capacity`           
+Sets the initial capacity (size) for the local scope hashmap.
+
+**Environment Variable:** `LUCEE_SCOPE_ARGUMENTS_CAPACITY`  
+**System Property:** `-Dlucee.scope.arguments.capacity`         
+Sets the initial capacity (size) for the arguments scope hashmap.
+
+**Environment Variable:** `LUCEE_CACHE_VARIABLEKEYS`  
+**System Property:** `-Dlucee.cache.variableKeys`           
+Sets the max number of variable names (keys) to cache.
+
+**Environment Variable:** `LUCEE_THREADS_MAXDEFAULT`  
+**System Property:** `-Dlucee.threads.maxDefault`           
+Sets the default max number of parallel threads, default 20.
+
+**Environment Variable:** `LUCEE_DEBUGGING_MAXPAGEPARTS`  
+**System Property:** `-Dlucee.debugging.maxPageParts`           
+Maximum number of debugging page parts (executionLogs to output), 0 to disable max limit.
+
+**Environment Variable:** `LUCEE_LOGGING_FORCE_APPENDER`  
+**System Property:** `-Dlucee.logging.force.appender`           
+If set, override the default log4j appender, which is usually resource (log files), use console to log all logs to console
+
+**Environment Variable:** `LUCEE_LOGGING_FORCE_LEVEL`       
+**System Property:** `-Dlucee.logging.force.level`              
+If set, override the default log4j log level for all logs, which is usually ERROR
+
+**Environment Variable:** `LUCEE_SESSIONCOOKIE_ROTATE_UNKNOWN`  
+**System Property:** `-Dlucee.sessionCookie.rotate.unknown`         
+Default true, when false, unknown cfml session cookies won't be automatically rotated
+
 ## Edge Case Settings
 
 These settings are normally not needed in a regular environment.
