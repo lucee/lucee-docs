@@ -10,4 +10,4 @@ categories:
 - session
 ---
 
-Force saving the session to storage, useful when sessionCluster is enabled.
+Force saving the session to storage, useful when `sessionCluster` is enabled.

@@ -4,7 +4,7 @@ id: method-struct-tosorted
 methodObject: struct
 methodName: toSorted
 related:
-- function-toSorted
+- function-structtosorted
 - object-struct
 categories:
 - struct
