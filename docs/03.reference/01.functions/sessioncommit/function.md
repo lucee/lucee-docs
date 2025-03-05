@@ -1,6 +1,11 @@
 ---
-title: SessionCommit
+title: sessionCommit
 id: function-sessioncommit
+related:
+- tag-application
+- function-sessioninvalidate
+- function-sessionrotate
+- function-sessionstarttime
 categories:
 - session
 ---

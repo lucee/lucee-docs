@@ -25,3 +25,15 @@ Dump(
 	var: StructSort(animals, "numeric", "asc", "total")
 );
 ```
+
+### Example using callback (Introduced in 6.2.1.29)
+
+```luceescript+trycf
+  myStruct={a="London",b="Paris",c="Berlin",d="New York",e="Dublin"};
+  	// define callaback function
+    function callback(e1, e2){
+    	return compare(arguments.e1, arguments.e2);
+    }
+	writeDump(var=myStruct,label="Befor sorting")
+    writeDump(var=StructSort(myStruct,callback),label="After sorting");
+```

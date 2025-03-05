@@ -1,1 +1,1 @@
-Directory name
+Directory name, defaults to getTempDirectory() since 6.2.1.19
