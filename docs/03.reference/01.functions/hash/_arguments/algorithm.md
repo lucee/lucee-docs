@@ -1,6 +1,6 @@
 The algorithm to use for hashing your input. The following values are supported:
 
-* QUICK: Generates a 16-character, hexadecimal string. This algorithm provides fast hashing but offers no cryptographic security.
+* QUICK: Generates a 15 or 16-character, hexadecimal string. This algorithm provides fast hashing but offers no cryptographic security.
 * MD5: Generates a 32-character string using the MD5 algorithm. This algorithm is considered cryptographically broken and unsuitable for further cryptographical use.
 * CFMX_COMPAT: Deprecated. Lucee uses the MD5 algorithm instead.
 * SHA: Generates a 40-character string using the Secure Hash Algorithm, SHA-1, specified by National Institute of Standards and Technology (NIST) in the FIPS-180-2 standard. Cryptographic weaknesses were discovered in SHA-1, and the standard is no longer approved for most cryptographic uses.
