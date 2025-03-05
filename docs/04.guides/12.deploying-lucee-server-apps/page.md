@@ -26,9 +26,9 @@ The `/deploy` folder is polled on startup and every 60 seconds by Lucee's Contro
 
 This is the simplest way to configure / install your Lucee instance at startup or on the fly, without needing to restart it.
 
-### .json - CFConfig.json
+### .json - CFConfig.json or config.json
 
-Since Lucee 6.1.1, if Lucee finds a `*.json` (in the `/deploy` folder) it will be automatically imported and applied to your running `CFconfig` configuration. [LDEV-4994](https://luceeserver.atlassian.net/browse/LDEV-4994)
+Since Lucee 6.1.1, if Lucee finds a `.CFConfig.json` or `config.json` (in the `/deploy` folder) it will be automatically imported and applied to your running `CFconfig` configuration. [LDEV-4994](https://luceeserver.atlassian.net/browse/LDEV-4994)
 
 You can also configure Lucee to [[cookbook-check-for-changes|monitor the server's .CFConfig.json file for changes]].
 
