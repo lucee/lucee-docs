@@ -319,10 +319,18 @@ As an example:
 
 ### Java Versions Supported ###
 
-- The Official Lucee Installer comes with Java 11, which is our recommended version
-- Java 8 is still officially supported for 5.3, with Lucee 6 it will be no longer officially supported, but will be unofficially, as long as feasible
-- Lucee Supports Java 9 since version 5.3.0.57
-- Java 16 is not currently supported due to breaking internal changes with the jvm, [LDEV-3526](https://luceeserver.atlassian.net/browse/LDEV-3526)
+Lucee 6.1 and newer
+- Java 21 (recommended)
+- Java 11
+
+Lucee 6.0 and 5.4
+- Java 11
+
+We generally recommend LTS releases, but we do test against newer releases like Java 23 with 6.2.
+
+Lucee 7.0 will support Java 24 once it's releases.
+ 
+Java 8 is no longer supported
 
 ### Java Support tips ###
 
