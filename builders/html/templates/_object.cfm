@@ -17,7 +17,7 @@
 		<cfloop array="#local.pg.getChildren()#" item="local.child">
 			<span class="tile">
 				<div class="tile-inner">
-					<div class="text-overflow">[[#local.child.getId()#]] #htmleditformat(local.child.getDescription())#</div>
+					<div class="word-wrap">[[#local.child.getId()#]] #htmleditformat(local.child.getDescription())#</div>
 				</div>
 			</span>
 		</cfloop>
