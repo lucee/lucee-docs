@@ -59,7 +59,7 @@ Lucee 5.4 is our [LTS stable release](https://lucee.org/downloads.html) and is r
 
 Only Java 8 and 11 are supported, there are various changes in Java 21 including date time handling which are not addressed in 5.4, time to upgrade!
 
-As a LTS release, Lucee 5.4 will receive security updates and critical regression fixes until 2026, **but is no longer actively maintained.**
+As a LTS release, Lucee 5.4 will receive security updates and critical regression fixes until December 31st 2025, **but is no longer actively maintained.**
 
 ## Getting help
 
