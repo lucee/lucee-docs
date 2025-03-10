@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Lucee WebSocket Extension",
+  "title": "WebSocket Extension",
   "id": "extension-websocket",
   "categories": [
     "websocket",
@@ -242,26 +242,22 @@ public static function onFirstOpen(wsclients) {
 
 Function `getDataFromSomewhere()` is respoible for obtaining the data that needs to be sent to the client. RedisQueue is an example of where data can be stored. Your Lucee application can Push data to a Redis Queue, and `getDataFromSomewhere()` can Pop one record at a time.
 
-### Using websocketInfo() to Send Message to Client
+### Using webSocketInfo() to Send Message to Client
 
-`websocketInfo()` also has an array of instances - one for each client call to a WebSocket Component. So looping through the array, gives you access to the Component, and then you can call any of it'sfunction
+[[function-websocketInfo]] also has an array of instances - one for each client call to a WebSocket Component. So looping through the array, gives you access to the Component, and then you can call any of it'sfunction
 
-For Example ( _excuding role management functions_ )
+For Example ( _excluding role management functions_ )
 
 ```lucee
 component hint="Test WebSocket"  {
 	variables.roles = [];
 
-	public boolean function hasRole(
-		required string role
-	) {
-		return ( variables.roles.find(arguments.role) > 0 );
+	public boolean function hasRole( required string role ) {
+		return ( variables.roles.find( arguments.role ) > 0 );
 	}
 
-	public void function sendMessage(
-    	required string jsonData
-	) {
-		variables.wsclient.send(jsonData);
+	public void function sendMessage( required string jsonData ) {
+		variables.wsclient.send( jsonData );
 	}
 	...
 }
@@ -275,10 +271,10 @@ if ( !wsInfo.instances.len() )
 var wsInstances = wsInfo.instances;
 
 var item = getRedisData();
-var stItem = deserializeJSON(item);
-for ( var wsI in wsInstances) {
-    if ( GetMetadata(wsI).name == 'test' && wsI.hasRole(stItem.data.role) ) {
-        <b>wsI.sendMessage(item);</b>
+var stItem = deserializeJSON( item );
+for ( var wsI in wsInstances ) {
+    if ( GetMetadata( wsI ).name == 'test' && wsI.hasRole( stItem.data.role ) ) {
+        wsI.sendMessage( item );
     }
 }
 ```
