@@ -21,17 +21,26 @@ component {
 		var highlighter = CreateObject( 'java', 'com.dominicwatson.pyginblankets.PygmentsWrapper', jars );
 		var useTryCf    = reFind( "\+trycf$", arguments.language ) > 0;
 
+		// some code block types don't work, treat them as cfm for now
+		// https://luceeserver.atlassian.net/browse/LD-168
+		var override = {
+			"Dockerfile": true,
+			"yml": true
+		};
+
 		if ( arguments.language.reFindNoCase( "^(luceescript|cfs)" ) ) {
 			arguments.language = "cfs";
 		} else if ( arguments.language.reFindNoCase( "^(lucee|cfm|coldfusion)" ) ) {
 			arguments.language = "cfm";
+		} else if (structKeyExists(override, arguments.language) ){
+			arguments.language = "cfm";
 		}
+		var highlighted = arguments.code;
 		lock name="highlight" type="exclusive" timeout=10 {
 			try {
-			var highlighted = highlighter.highlight( arguments.code, arguments.language, false );
+				var highlighted = highlighter.highlight( arguments.code, arguments.language, false );
 			} catch (e ){
-
-				systemOutput( arguments, true );
+				// systemOutput( arguments, true );
 				//systemOutput( e );
 				highlighted = arguments.code;
 			}
@@ -49,7 +58,7 @@ component {
 
 // PRIVATE HELPERS
 	private any function _getNextHighlight( required string text, required string startPos=1 ) {
-		var referenceRegex  = "```([a-z\+]+)?\n(.*?)\n```";
+		var referenceRegex  = "```([a-zA-Z\+]+)?\n(.*?)\n```";
 		var match = ReFind( referenceRegex, arguments.text, arguments.startPos, true );
 		var found           = match.len[1] > 0;
 		var result          = {};
