@@ -344,7 +344,7 @@ Using S3 directly for source code
 
 Lucee supports the following virtual file systems: ram, file, s3, http, https, zip, and tar.
 
-## [Lucee WebSocket Extension](/docs/recipes/websocket-extension.md)
+## [WebSocket Extension](/docs/recipes/websocket-extension.md)
 
 How to install, configure and create WebSockets
 
