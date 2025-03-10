@@ -1,0 +1,1 @@
+Which stream the output should go to: choose between 'Output stream' and 'Error stream.' If true, the output will go to the error stream.
