@@ -17,7 +17,7 @@
 }
 -->
 
-# Lucee WebSocket Extension
+# WebSocket Extension
 
 This extension adds a WebSocket Server to your Lucee Server that runs over `TCP` on port 80 for `WS:` and 443 for `WSS:`
 
