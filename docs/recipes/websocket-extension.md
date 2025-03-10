@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "WebSocket Extension",
+  "title": "Lucee WebSocket Extension",
   "id": "extension-websocket",
   "categories": [
     "websocket",
@@ -17,7 +17,7 @@
 }
 -->
 
-# WebSocket Extension
+# Lucee WebSocket Extension
 
 This extension adds a WebSocket Server to your Lucee Server that runs over `TCP` on port 80 for `WS:` and 443 for `WSS:`
 
@@ -41,19 +41,23 @@ Download the LEX file from [https://download.lucee.org/](https://download.lucee.
 
 ### Docker
 
-In docker there are different ways to install it.
+In Docker there are different ways to install it.
 
 Copy it into the `deploy folder` like this:
 
 ```Dockerfile
-ADD https://ext.lucee.org/org.lucee.websocket.extension-1.0.0.4-BETA.lex /lucee/lucee-server/deploy/
+
+ADD https://ext.lucee.org/websocket-extension-3.0.0.14-RC.lex /lucee/lucee-server/deploy/
+
 ```
 
-Use Environment Variables like this:
+Using Environment Variables like this:
 
 ```yml
+
 environment:
-  - LUCEE_EXTENSIONS=07082C66-510A-4F0B-B5E63814E2FDF7BE;version=1.0.0.4-BETA
+  - LUCEE_EXTENSIONS=3F9DFF32-B555-449D-B0EB5DB723044045;version=3.0.0.14-RC
+
 ```
 
 Or simply define it in the .CFConfig.json file (Lucee 6 only)
@@ -63,8 +67,8 @@ Or simply define it in the .CFConfig.json file (Lucee 6 only)
   "extensions": [
     {
       "name": "WebSocket",
-      "path": "/your/path/extensions/websocket.extension-1.0.0.4-BETA.lex",
-      "id": "07082C66-510A-4F0B-B5E63814E2FDF7BE"
+      "path": "/your/path/extensions/websocket.extension-3.0.0.14-RC.lex",
+      "id": "3F9DFF32-B555-449D-B0EB5DB723044045"
     }
   ]
 }
