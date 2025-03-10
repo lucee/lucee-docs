@@ -320,10 +320,13 @@ As an example:
 ### Java Versions Supported ###
 
 Lucee 6.1 and newer
+
 - Java 21 (recommended)
+
 - Java 11
 
 Lucee 6.0 and 5.4
+
 - Java 11
 
 We generally recommend LTS releases, but we do test against newer releases like Java 23 with 6.2.
