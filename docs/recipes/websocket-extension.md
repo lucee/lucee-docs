@@ -23,6 +23,8 @@ This extension adds a WebSocket Server to your Lucee Server that runs over `TCP`
 
 WebSocket Listeners are created with a CFML Component - one per channel.
 
+Please note, on Windows, there more are limitation regarding how many websockets can be used, than with Linux.
+
 ## Installation
 
 There are multiple ways to install the docker extension.
@@ -43,24 +45,20 @@ Download the LEX file from [https://download.lucee.org/](https://download.lucee.
 
 In Docker there are different ways to install it.
 
-Copy it into the `deploy folder` like this:
+Copy it into the `deploy folder` like this via a Dockerfile:
 
 ```Dockerfile
-
 ADD https://ext.lucee.org/websocket-extension-3.0.0.14-RC.lex /lucee/lucee-server/deploy/
-
 ```
 
 Using Environment Variables like this:
 
 ```yml
-
 environment:
   - LUCEE_EXTENSIONS=3F9DFF32-B555-449D-B0EB5DB723044045;version=3.0.0.14-RC
-
 ```
 
-Or simply define it in the .CFConfig.json file (Lucee 6 only)
+Or simply define it in the .CFConfig.json file (Lucee 6+)
 
 ```json
 {
