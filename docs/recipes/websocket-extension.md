@@ -6,7 +6,7 @@
     "websocket",
     "protocols"
   ],
-  "description": "How to install, congigure and create WebSockets",
+  "description": "How to install, configure and create WebSockets",
   "keywords": [
     "Lucee",
     "Extension"
