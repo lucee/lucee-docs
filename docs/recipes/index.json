@@ -1224,9 +1224,9 @@
   },
   {
     "file": "websocket-extension.md",
-    "title": "WebSocket Extension",
+    "title": "Lucee WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "e3ac00186eed60aba9943a55c8b68c40",
+    "hash": "5c585c0683b90a7a2f493143dc895b73",
     "keywords": [
       "Lucee",
       "Extension"
