@@ -13076,12 +13076,13 @@ function AnchorJS(options) {
         // spaces with hyphens, truncate to 32 characters, and make toLowerCase.
         //
         // Example string:                                // '⚡⚡⚡ Unicode icons are cool--but they definitely don't belong in a URL fragment.'
-        tidyText = roughText.replace(/[^\w\s-]/gi, '')    // ' Unicode icons are cool--but they definitely dont belong in a URL fragment'
-                                .replace(/\s+/g, '-')     // '-Unicode-icons-are-cool--but-they-definitely-dont-belong-in-a-URL-fragment'
-                                .replace(/-{2,}/g, '-')   // '-Unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-URL-fragment'
-                                .substring(0, 64)         // '-Unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-URL'
-                                .replace(/^-+|-+$/gm, '') // 'Unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-URL'
-                                .toLowerCase();           // 'unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-url'
+       		tidyText = roughText.replace(/[^\w\s.-]/gi, '')  // ' Unicode icons are cool--but they definitely dont belong in a URL fragment'
+						.replace(/\./g, '-')             // ' Unicode icons are cool--but they definitely dont belong in a URL fragment'
+						.replace(/\s+/g, '-')            // '-Unicode-icons-are-cool--but-they-definitely-dont-belong-in-a-URL-fragment'
+						.replace(/-{2,}/g, '-')          // '-Unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-URL-fragment'
+						.substring(0, 64)                // '-Unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-URL'
+						.replace(/^-+|-+$/gm, '')        // 'Unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-URL'
+						.toLowerCase();                  // 'unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-url'
 
         // Compare our generated ID to existing IDs (and increment it if needed)
         // before we add it to the page.
