@@ -28,7 +28,7 @@
     "file": "ai.md",
     "title": "AI (Experimental)",
     "path": "/docs/recipes/ai.md",
-    "hash": "0f51d732c41e18b401687e4fc031fa58",
+    "hash": "506b91d2f94eb5f066647484d82981da",
     "keywords": [
       "AI",
       "LLM"
@@ -279,7 +279,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "73e859d2eaefeae86f5da05c2065260c",
+    "hash": "3819fd99676f0dd8744ce26f6e3edc3b",
     "keywords": [
       "Environment",
       "Environment Variables",
