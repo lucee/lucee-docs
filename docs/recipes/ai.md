@@ -29,7 +29,7 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
       "secretKey": "${CHATGPT_SECRET_KEY}",
       "model": "gpt-4o-mini",
       "type": "openai",
-      "timeout": 2000
+      "timeout": 5000
     },
     "default": "exception"
   }
@@ -45,8 +45,24 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
     "custom": {
       "message": "Keep all answers as short as possible and in the style of Slim Shady",
       "model": "gemini-1.5-flash",
-      "timeout": 2000,
+      "timeout": 5000,
       "apikey": "${GEMINI_API_KEY}"
+    }
+  }
+}
+```
+
+**Claude Anthropic Example:**
+
+```json
+"ai": {
+  "myclaude": {
+    "class": "lucee.runtime.ai.anthropic.ClaudeEngine",
+    "custom": {
+      "message": "Keep all answers as short as possible",
+      "model": "claude-3-sonnet-20240229",
+      "timeout": 5000,
+      "apikey": "${Claude_API_KEY}"
     }
   }
 }
@@ -56,19 +72,19 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
 
 ```json
 "ai": {
-  "gemma2": {
+  "mygemma": {
     "class": "lucee.runtime.ai.openai.OpenAIEngine",
     "custom": {
       "message": "Keep all answers as short as possible",
       "model": "gemma2",
       "type": "ollama",
-      "timeout": 1000
+      "timeout": 5000
     }
   }
 }
 ```
 
-In these examples, ChatGPT from OpenAI, Gemini from Google, and Ollama for local use are set up. The `OpenAIEngine` allows configuration for `openai` or `ollama` types and can also connect to any service using the OpenAI REST interface by specifying a URL:
+In these examples, ChatGPT from OpenAI, Gemini from Google, Claude from Anthropic, and Ollama for local use are set up. The `OpenAIEngine` allows configuration for `openai` or `ollama` types and can also connect to any service using the OpenAI REST interface by specifying a URL:
 
 **OpenAI REST Interface Example:**
 
