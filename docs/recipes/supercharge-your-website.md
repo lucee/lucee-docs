@@ -47,7 +47,7 @@ Whenever we call our file, by default, Lucee checks once at every request if a f
 
 - Change the `index.cfm` and run it again. No changes happen in the output because Lucee does not check if the file changed or not. Now, you'll see the faster execution and less performance memory being used.
 
-- You can flag all cached templates to be checked once for changes using [[function-inspectTemplates]]. This is more efficent than [[function-pagepoolclear]] which clears the entire template cache,  requiring every single template to be recompiled.
+- You can flag all cached templates to be checked once for changes using [[function-inspectTemplates]]. This is more efficient than [[function-pagepoolclear]] which clears the entire template cache,  requiring every single template to be recompiled.
 
 - Another option to clear the template cache is to use clear cache via the admin by clicking the button in _Admin -> Settings -> Performance/ Caching -> Page Pool Cache_.
 

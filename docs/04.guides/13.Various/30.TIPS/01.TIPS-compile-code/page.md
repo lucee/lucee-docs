@@ -10,3 +10,11 @@ id: tips-compilecode
 1. Then you'll find the compiled classes in the folder:	```/WEB-INF/lucee/cfclasses/yourappropiatemappingname/```
 
 	Return to [[faq-s]] or [[tips-and-tricks]]
+
+## CommandBox ##
+
+You can also leverage CommandBox along with [cfml-compiler](https://www.forgebox.io/view/cfml-compiler/version/1.0.6)
+
+```
+box cfcompile sourcePath=./src destPath=./compiled cfengine=lucee@6
+```

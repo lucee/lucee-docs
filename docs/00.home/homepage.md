@@ -12,13 +12,11 @@ Lucee is a [high performance](https://community.ortussolutions.com/t/how-does-cf
 
 The documentation here aims to provide a thorough reference and guide to all things to do with the Lucee Server. This includes reference material on both [[functions]] and [[tags]] as well as more in-depth articles in the [[guides]] section.
 
-Our documentation is an open source and community driven effort. It is also a constant work in progress and we always welcome feedback, improvements and suggestions. You can find out more about contributing to the Documentation in the [[about]] section.
-
-To find out more about getting involved as a developer with Lucee, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/6.0/CONTRIBUTING.md)
+Our documentation is an open source and community driven effort. It is also a constant work in progress and we always welcome feedback, improvements and suggestions. You can find out more about contributing to ted as a developer with Lucee, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/6.0/CONTRIBUTING.md)
 
 ## Recipes 
 
-**New!** We have added a whole series of detailed [[Recipes]] showing you how to take advantage of the wide range of features in Lucee.
+We have added a whole series of detailed [[Recipes]] showing you how to take advantage of the wide range of features in Lucee.
 
 ## Deploying Lucee
 
@@ -30,13 +28,17 @@ To find out more about getting involved as a developer with Lucee, checkout our 
 
 ## Lucee 6.2
 
-Lucee 6.2 is our upcoming next major release, currently at the Release Candidate stage, including enhanced Java and Maven integration, Jakarta Servlet support and better runtime performance, up to 50% faster than Lucee 5.4.
+**New!** Lucee 6.2 is our latest stable release, with enhanced Java and Maven integration, Jakarta Servlet support and better runtime performance.
+
+Lucee 6.2 up to 50% faster than Lucee 5.4, while using less memory.
+
+Our Official Docker images and Installers for 6.2 all bundle Tomcat 10.1 and Java 21. This may cause issues with the switch to the Jakarta namespace, Lucee 6.2 supports both, but anything which integrates with Tomcat (i.e. urlrewrite) will need updating, see the [Jakarta](https://luceeserver.atlassian.net/issues/?jql=labels%20%3D%20%22jakarta%22) issues in our bug tracker.
+
+[Lucee 6.2 ChangeLog](https://download.lucee.org/changelog/?version=6.2)
 
 [[breaking-changes-6-1-to-6-2]]
 
 ## Lucee 6.1
-
-Lucee 6.1 is current stable release of Lucee.
 
 Targeting better performance and reduced memory usage, Lucee 6.1 introduces full support for Java 17 and 21, as well as Java 11.
 Java 8 is no longer officially supported.
@@ -57,7 +59,7 @@ Lucee 5.4 is our [LTS stable release](https://lucee.org/downloads.html) and is r
 
 Only Java 8 and 11 are supported, there are various changes in Java 21 including date time handling which are not addressed in 5.4, time to upgrade!
 
-As a LTS release, Lucee 5.4 will receive security updates and critical regression fixes until 2026, **but is no longer actively maintained.**
+As a LTS release, Lucee 5.4 will receive security updates and critical regression fixes until December 31st 2025, **but is no longer actively maintained.**
 
 ## Getting help
 

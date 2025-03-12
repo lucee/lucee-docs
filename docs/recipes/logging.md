@@ -55,6 +55,15 @@ For instance, setting a threshold of `warn` means only warnings, errors, and fat
 
 This allows you to start with minimal logging in production and increase verbosity (e.g., to `debug`) for deeper analysis when needed.
 
+### Redirecting all logs to the console
+
+Lucee 6.2 supports the following environment variables which allow overriding the log levels and appender, which is great for debugging and Docker
+
+```bash
+LUCEE_LOGGING_FORCE_LEVEL=info
+LUCEE_LOGGING_FORCE_APPENDER=console
+```
+
 ### Adding or Modifying Logs
 
 You can add, modify, or remove loggers in the **Lucee Administrator** or directly edit the `.CFConfig.json` file. Below is an example configuration:
@@ -194,9 +203,8 @@ catch(e) {
   cflog(log="application", type="error", exception=e);
 }
 ```
+
 (Due to the existing math log function, the cf prefix is still required here, unlike with other tags in script.)
-
-
 
 Lucee's `<cflog>` tag supports various attributes, including `log`, `type`, `text`, and `exception`. Using these attributes, you can customize log entries to suit your application's needs.
 

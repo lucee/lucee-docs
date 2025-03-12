@@ -122,69 +122,65 @@ Get the `Luceedebug Visual Studio Code Extension` by installing the extension fr
 
 At this moment, Lucee is already running providing your CFML generated content at `http://localhost:8888`, and the **Luceedebug.jar** is listening at localhost:9999, but the Visual Studio Code Editor doesn't know about it yet. The last step is to link the code base at `D:\luceedebug_example\lucee-express-5.4.6.9/webapps/ROOT` to the Visual Studio Code Luceedebug Extension and configure it to use the remote endpoint at localhost:9999 (Luceedebug.jar). This can typically be done within the workspace setting file. To achieve that, create a file named `lucee_debug_example.code-workspace` at `D:\luceedebug_example\lucee_debug_example.code-workspace` with the following content:
 
-On Windows:
+## Configuration for Lucee Debugging
 
-```json
+### On Windows:
+
+```
 {
-	"folders": [
-		{
-			"path": "D:\\luceedebug_example\\lucee-express-5.4.6.9\\webapps\\ROOT"
-		}
-	],
-	"launch": {
-		"version": "0.2.0",
-		"configurations": [
-
-
-			{
-				"type": "cfml",
-				"request": "attach",
-				"name": "Attach to Luceedebug Backend",
-				"hostName": "localhost",
-				"port": 10000,
-				 "pathTransforms": []
-				
-			}
-		]
-	},
-	"settings": {
-		"files.exclude": {
-			"**/WEB-INF": true
-		}
-	}
+  "folders": [
+    {
+      "path": "D:\\luceedebug_example\\lucee-express-5.4.6.9\\webapps\\ROOT"
+    }
+  ],
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "cfml",
+        "request": "attach",
+        "name": "Attach to Lucee Debug Backend",
+        "hostName": "localhost",
+        "port": 10000,
+        "pathTransforms": []
+      }
+    ]
+  },
+  "settings": {
+    "files.exclude": {
+      "**/WEB-INF": true
+    }
+  }
 }
 ```
 
-On Linux/MacOs:
+### On Linux/MacOs:
 
-```json
+```
 {
-	"folders": [
-		{
-			"path": "/opt/luceedebug_example/lucee-express-5.4.6.9/webapps/ROOT"
-		}
-	],
-	"launch": {
-		"version": "0.2.0",
-		"configurations": [
-
-
-			{
-				"type": "cfml",
-				"request": "attach",
-				"name": "Attach to Luceedebug Backend",
-				"hostName": "localhost",
-				"port": 10000,
-				 "pathTransforms": []
-				
-			}
-		]
-	},
-	"settings": {
-		"files.exclude": {
-			"**/WEB-INF": true
-		}
-	}
+  "folders": [
+    {
+      "path": "/opt/luceedebug_example/lucee-express-5.4.6.9/webapps/ROOT"
+    }
+  ],
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "cfml",
+        "request": "attach",
+        "name": "Attach to Lucee Debug Backend",
+        "hostName": "localhost",
+        "port": 10000,
+        "pathTransforms": []
+      }
+    ]
+  },
+  "settings": {
+    "files.exclude": {
+      "**/WEB-INF": true
+    }
+  }
 }
 ```
 

@@ -1,0 +1,1 @@
+Prior to Lucee 6.2, this function didn't always work as expected

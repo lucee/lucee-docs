@@ -15,6 +15,14 @@
 
 This document outlines the breaking changes introduced when upgrading from Lucee 6.1 to Lucee 6.2. Be aware of these changes when migrating your applications to ensure smooth compatibility.
 
+## Java Support
+
+- Java 21 is recommended as it's a LTS release.
+- Java 23 is supported
+- Java 24-ea works, but there are some issues with date handling
+- Java 11 is supported
+- Java 8 is no longer supported
+
 ## Changing PreciseMath to be off by default
 
 With Lucee 6, we introduced support for higher precision maths, by switching the underlying Java class from Double to BigInteger.
@@ -37,7 +45,7 @@ Our Official Lucee 6.2 Installers and Docker images have been updated to bundle 
 
 Older Javax Servlet engines (i.e. Tomcat 9) are still supported as well, just make sure they are updated and still maintained.
 
-## Lucee is up to 50% for some operations than Lucee 5.4
+## Lucee 6.2 is up to 50% faster for some operations than Lucee 5.4
 
 While not exactly what you might expect as a breaking change, we did find that all the improvements made with 6.2 managed to surface some other underlying bugs, simply because Lucee got faster.
 

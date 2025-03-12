@@ -346,7 +346,7 @@ Lucee supports the following virtual file systems: ram, file, s3, http, https, z
 
 ## [WebSocket Extension](/docs/recipes/websocket-extension.md)
 
-How to install, congigure and create WebSockets
+How to install, configure and create WebSockets
 
 ## [XML Fast And Easy, using SAX - Listener Functions](/docs/recipes/xml-fast-and-easy.md)
 

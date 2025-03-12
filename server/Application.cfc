@@ -313,7 +313,11 @@ component {
 	}
 
 	private string function _getRequestUri() {
-		return request[ "javax.servlet.forward.request_uri" ] ?: "/";
+		if ( structKeyExists( request, "jakarta.servlet.forward.request_uri" ) )
+			return request[ "jakarta.servlet.forward.request_uri" ] ?: "/";
+		else if ( structKeyExists( request, "javax.servlet.forward.request_uri" ) )
+			return request[ "java.servlet.forward.request_uri" ] ?: "/";
+		return "/";
 	}
 
 	private void function _404(required string path, required string baseHref) {

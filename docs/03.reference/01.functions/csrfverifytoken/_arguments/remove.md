@@ -1,0 +1,1 @@
+Also remove the token from the session if it exists.

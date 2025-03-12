@@ -7,4 +7,6 @@ categories:
 menuTitle: Change Log
 ---
 
-Here is a list of all the new Tags and Functions, Attributes and Arguments that have been added to Lucee over time
+Here is a list of all the new Tags and Functions, Attributes and Arguments that have been added to Lucee over time.
+
+For the full list of changes, refer to the [Lucee Server ChangeLog](https://download.lucee.org/changelog/)

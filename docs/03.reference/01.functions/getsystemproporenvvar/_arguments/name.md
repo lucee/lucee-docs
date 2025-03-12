@@ -1,0 +1,1 @@
+Optional, when set, the value of the property as configured is returned.

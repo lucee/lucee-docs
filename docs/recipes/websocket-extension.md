@@ -6,7 +6,7 @@
     "websocket",
     "protocols"
   ],
-  "description": "How to install, congigure and create WebSockets",
+  "description": "How to install, configure and create WebSockets",
   "keywords": [
     "Lucee",
     "Extension"
@@ -22,6 +22,8 @@
 This extension adds a WebSocket Server to your Lucee Server that runs over `TCP` on port 80 for `WS:` and 443 for `WSS:`
 
 WebSocket Listeners are created with a CFML Component - one per channel.
+
+Please note, on Windows, there more are limitation regarding how many websockets can be used, than with Linux.
 
 ## Installation
 
@@ -41,30 +43,30 @@ Download the LEX file from [https://download.lucee.org/](https://download.lucee.
 
 ### Docker
 
-In docker there are different ways to install it.
+In Docker there are different ways to install it.
 
-Copy it into the `deploy folder` like this:
+Copy it into the `deploy folder` like this via a Dockerfile:
 
 ```Dockerfile
-ADD https://ext.lucee.org/org.lucee.websocket.extension-1.0.0.4-BETA.lex /lucee/lucee-server/deploy/
+ADD https://ext.lucee.org/websocket-extension-3.0.0.14-RC.lex /lucee/lucee-server/deploy/
 ```
 
-Use Environment Variables like this:
+Using Environment Variables like this:
 
 ```yml
 environment:
-  - LUCEE_EXTENSIONS=07082C66-510A-4F0B-B5E63814E2FDF7BE;version=1.0.0.4-BETA
+  - LUCEE_EXTENSIONS=3F9DFF32-B555-449D-B0EB5DB723044045;version=3.0.0.14-RC
 ```
 
-Or simply define it in the .CFConfig.json file (Lucee 6 only)
+Or simply define it in the .CFConfig.json file (Lucee 6+)
 
 ```json
 {
   "extensions": [
     {
       "name": "WebSocket",
-      "path": "/your/path/extensions/websocket.extension-1.0.0.4-BETA.lex",
-      "id": "07082C66-510A-4F0B-B5E63814E2FDF7BE"
+      "path": "/your/path/extensions/websocket.extension-3.0.0.14-RC.lex",
+      "id": "3F9DFF32-B555-449D-B0EB5DB723044045"
     }
   ]
 }
@@ -240,26 +242,22 @@ public static function onFirstOpen(wsclients) {
 
 Function `getDataFromSomewhere()` is respoible for obtaining the data that needs to be sent to the client. RedisQueue is an example of where data can be stored. Your Lucee application can Push data to a Redis Queue, and `getDataFromSomewhere()` can Pop one record at a time.
 
-### Using websocketInfo() to Send Message to Client
+### Using webSocketInfo() to Send Message to Client
 
-`websocketInfo()` also has an array of instances - one for each client call to a WebSocket Component. So looping through the array, gives you access to the Component, and then you can call any of it'sfunction
+[[function-websocketInfo]] also has an array of instances - one for each client call to a WebSocket Component. So looping through the array, gives you access to the Component, and then you can call any of it'sfunction
 
-For Example ( _excuding role management functions_ )
+For Example ( _excluding role management functions_ )
 
 ```lucee
 component hint="Test WebSocket"  {
 	variables.roles = [];
 
-	public boolean function hasRole(
-		required string role
-	) {
-		return ( variables.roles.find(arguments.role) > 0 );
+	public boolean function hasRole( required string role ) {
+		return ( variables.roles.find( arguments.role ) > 0 );
 	}
 
-	public void function sendMessage(
-    	required string jsonData
-	) {
-		variables.wsclient.send(jsonData);
+	public void function sendMessage( required string jsonData ) {
+		variables.wsclient.send( jsonData );
 	}
 	...
 }
@@ -273,10 +271,10 @@ if ( !wsInfo.instances.len() )
 var wsInstances = wsInfo.instances;
 
 var item = getRedisData();
-var stItem = deserializeJSON(item);
-for ( var wsI in wsInstances) {
-    if ( GetMetadata(wsI).name == 'test' && wsI.hasRole(stItem.data.role) ) {
-        <b>wsI.sendMessage(item);</b>
+var stItem = deserializeJSON( item );
+for ( var wsI in wsInstances ) {
+    if ( GetMetadata( wsI ).name == 'test' && wsI.hasRole( stItem.data.role ) ) {
+        wsI.sendMessage( item );
     }
 }
 ```

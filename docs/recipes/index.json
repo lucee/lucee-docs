@@ -3,7 +3,7 @@
     "file": "ai-for-documentation.md",
     "title": "AI in Documentation (Experimental)",
     "path": "/docs/recipes/ai-for-documentation.md",
-    "hash": "1c0670ed6348dc4a7292781fa159e3b1",
+    "hash": "65ba2402925af84972b1336566e70ad9",
     "keywords": [
       "AI",
       "LLM",
@@ -28,7 +28,7 @@
     "file": "ai.md",
     "title": "AI (Experimental)",
     "path": "/docs/recipes/ai.md",
-    "hash": "7925d918d2416a23327640d99df89f01",
+    "hash": "0f51d732c41e18b401687e4fc031fa58",
     "keywords": [
       "AI",
       "LLM"
@@ -96,7 +96,7 @@
     "file": "breaking-changes-6-2.md",
     "title": "Breaking Changes between Lucee 6.1 and 6.2",
     "path": "/docs/recipes/breaking-changes-6-2.md",
-    "hash": "ddc246972a2f0e278ead2fa3cfd310aa",
+    "hash": "55d3501805860351c14b6b802f71cd6c",
     "keywords": [
       "breaking changes",
       "Lucee 6.1",
@@ -279,7 +279,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "8ba721f6825e05601dd28869c5864bb6",
+    "hash": "73e859d2eaefeae86f5da05c2065260c",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -657,7 +657,7 @@
     "file": "logging.md",
     "title": "Logging in Lucee",
     "path": "/docs/recipes/logging.md",
-    "hash": "31a26b6ce13855824c8b7b9316429086",
+    "hash": "0156926250feccc64a91630c8cec5a87",
     "keywords": [
       "Logging",
       "Log levels",
@@ -750,7 +750,7 @@
     "file": "maven.md",
     "title": "Maven (Lucee 6.2)",
     "path": "/docs/recipes/maven.md",
-    "hash": "f82ac1a73a5969250e79771b610bddd0",
+    "hash": "a44047f6e5306f2f325171717cdf1f4f",
     "keywords": [
       "Maven",
       "Java",
@@ -1024,7 +1024,7 @@
     "file": "session-handling.md",
     "title": "Session Handling",
     "path": "/docs/recipes/session-handling.md",
-    "hash": "7235c45124dececcd160d95a249bc0c5",
+    "hash": "792e09990ab51ad9fd01e62087ba63bc",
     "keywords": [
       "Session Management",
       "CFML Sessions",
@@ -1100,7 +1100,7 @@
     "file": "supercharge-your-website.md",
     "title": "Supercharge your website",
     "path": "/docs/recipes/supercharge-your-website.md",
-    "hash": "ee475a28a0d9793adf735f6b78b65092",
+    "hash": "bdd6b3d0e5cdd91212bb3261d1ae3731",
     "keywords": [
       "Supercharge website",
       "Performance",
@@ -1226,7 +1226,7 @@
     "file": "websocket-extension.md",
     "title": "WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "df72ace8a16bc55cf2730f87dcce06a5",
+    "hash": "d9bdbc476717e8fa5dd5011b277c866c",
     "keywords": [
       "Lucee",
       "Extension"
