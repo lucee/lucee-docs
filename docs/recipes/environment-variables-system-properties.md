@@ -90,9 +90,18 @@ The salt used for encrypting `loginstorage`. If no salt is defined, a hardcoded 
 **System Property:** `-Dlucee.password.enc.key`  
 The private encryption key used by Lucee to encrypt passwords stored in the configuration, such as for datasources.
 
-**Environment Variable:** `LUCEE_READ_CFID_FROM_URL`  
-**System Property:** `-Dlucee.read.cfid.from.url`  
-A boolean value. If true, Lucee allows reading the CFID from the URL query string. It is strongly recommended to disable this.
+**Environment Variable:** `LUCEE_CFID_URL_ALLOW` (previously `LUCEE_READ_CFID_FROM_URL`)
+**System Property:** `-Dlucee.cfid.url.allow` (previously `-Dlucee.read.cfid.from.url`)
+Controls whether Lucee accepts CFID values from URL query strings. Set to false to enhance security by requiring CFIDs to be passed via cookies only. 
+The previous property names are still supported for backward compatibility, but the new names are preferred starting with Lucee 6.2.1.59. 
+Setting this to false is strongly recommended for all production environments.
+
+**Environment Variable:** `LUCEE_CFID_URL_LOG`
+**System Property:** `-Dlucee.cfid.url.log`
+When set to a log name, Lucee will log all instances where CFID is read from a URL parameter and used. 
+The log includes URL, IP address, user agent, referrer, and stack trace in JSON format. 
+This helps identify code that needs to be updated before URL-based CFID is disabled for security reasons.
+
 
 **Environment Variable:** `LUCEE_REQUESTTIMEOUT`  
 **System Property:** `-Dlucee.requesttimeout`  
