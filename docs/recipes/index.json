@@ -1074,7 +1074,7 @@
     "file": "static-mocking.md",
     "title": "Mocking Static Functions in Lucee",
     "path": "/docs/recipes/static-mocking.md",
-    "hash": "29389c79016674fe62bc6857ec29e490",
+    "hash": "a6865c113e01b06c81bedc23c7fb67b0",
     "keywords": [
       "Static Functions",
       "Mocking",
