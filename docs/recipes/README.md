@@ -304,9 +304,13 @@ Understanding the differences between single mode and multi mode in Lucee.
 
 Lucee supports two types of Startup Listeners: Server.cfc and Web.cfc.
 
-## [Static scope in components](/docs/recipes/static-scope-in-components.md)
+## [Mocking Static Functions in Lucee](/docs/recipes/static-mocking.md)
 
-Static scope in components is needed to create an instance of cfc and call its method.
+How to mock static functions in Lucee for better testability without unnecessary wrappers.
+
+## [Static Scope in Components](/docs/recipes/static-scope-in-components.md)
+
+Understanding the static scope in Lucee components and how it can be used for shared data and functions.
 
 ## [Sub Components](/docs/recipes/sub-components.md)
 
