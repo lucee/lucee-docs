@@ -16,7 +16,7 @@
 
 ## Understanding Static Functions in Lucee
 
-In Lucee, static functions belong to the **class** rather than an instance of a component. This means they can be called directly using the class name:
+In Lucee, static functions belong to the **component definition** rather than a specific component instance. This means they can be called directly using the component name:
 
 ```
 // Test.cfc
@@ -66,7 +66,7 @@ dump(testInstance.myStaticFunction()); // Outputs: "mockstatic"
 
 ### Why This Matters for Testing
 - There is **no need** to create instance wrapper functions for static functions.
-- Static functions can be dynamically **mocked per instance** without modifying the class.
+- Static functions can be dynamically **mocked per instance** without modifying the component.
 - This allows for **cleaner test code** and avoids unnecessary duplication.
 
 ## Retrieving Static and Instance Function Metadata
@@ -94,7 +94,7 @@ This means that **static and instance functions are represented the same way in 
 1. **No Difference in Access** – Static functions work exactly like instance functions.
 2. **Ease of Mocking** – Static functions can be mocked at the instance level, avoiding unnecessary wrappers.
 3. **Consistency** – Static functions ensure a uniform implementation across instances while still allowing for instance-level customization when needed.
-4. **Overlay vs. Overwrite** – When an instance function is redefined (mocked), it **overwrites** the original implementation for that instance. With static functions, defining an instance-level function of the same name **overlays** the static function for that instance only, while the original static function remains accessible via the class.
+4. **Overlay vs. Overwrite** – When an instance function is redefined (mocked), it **overwrites** the original implementation for that instance. With static functions, defining an instance-level function of the same name **overlays** the static function for that instance only, while the original static function remains accessible via the component definition.
 
 ## Conclusion
 
