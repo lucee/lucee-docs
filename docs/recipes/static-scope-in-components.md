@@ -1,13 +1,13 @@
 <!--
 {
-  "title": "Static scope in components",
+  "title": "Static Scope in Components",
   "id": "static-scope-in-components",
   "categories": [
     "component",
     "scopes",
     "static"
   ],
-  "description": "Static scope in components is needed to create an instance of cfc and call its method.",
+  "description": "Understanding the static scope in Lucee components and how it can be used for shared data and functions.",
   "keywords": [
     "Static scope",
     "Components",
@@ -19,197 +19,126 @@
 }
 -->
 
-# Static scope in components
+# Static Scope in Components
 
-Static scope in components is needed to create an instance of cfc and call its method. It is used to avoid creating an instance each time you use the cfc.
+## Understanding Static Scope
 
-You can create an object in the Application init() function, and make it at application scope, so you can directly call the methods.
+The **static scope** in Lucee components allows variables and functions to be shared across all instances of a component. This avoids the need to create a new instance every time a function is called, improving efficiency and consistency.
 
-We explain this methodology with a simple example below:
+Static scope was introduced in Lucee 5.0 and provides a way to store shared state at the component level rather than per instance.
 
-## Example 1
+## Defining Static Variables
 
-```luceescript
-// index.cfm
-directory sort="name" action="list" directory=getDirectoryFromPath(getCurrentTemplatePath()) filter="example*.cfm" name="dir";
-loop query=dir {
-    echo('<a href="#dir.name#">#dir.name#</a><br>');
-}
+A static variable is shared among all instances of a component and retains its value across multiple calls:
+
 ```
-
-1. Create a constructor of the component. It is the instance of the current path and also create new function hey().
-
-```luceescript
-// Example0.cfc
-Component {
-    public function init() {
-        dump("create an instance of " & listLast(getCurrentTemplatePath(),'\/'));
-    }
-    public function hey() {
-        dump("Salve!");
-    }
-}
-```
-
-2. Next, we instantiate the component four times, and then call the hey() function. Run this example00.cfm page in the browser. It shows five dumps. Four dumps coming from inside of the constructor and the fifth dump is from hey(). Note that the init() function is private, so you cannot load it from outside the component. Therefore, you have no access to the message within init() from the cfscript in the example below.
-
-```luceescript
-// example0.cfm
-new Example0();
-new Example0();
-new Example0();
-cfc = new Example0();
-cfc.hey();
-```
-
-## Example 2
-
-As our code gets more complicated, we need to make some additions to it.
-
-- One option is to create the Component in the application scope or server scope, or to use the function GetComponentMetaData to store components in a more persistent manner.
-
-The static scope for components was introduced in Lucee 5.0. This is a scope that is shared with all instances of the same component.
-
-Here is an example showing the use of static scope:
-
-```luceescript
-// Example1.cfc
-Component {
+component {
     static var counter = 0;
+    
     public function init() {
         static.counter++;
-        dump("create an instance of " & listLast(getCurrentTemplatePath(),'\/') & " " & static.counter);
+        dump("Instance created: " & static.counter);
     }
+    
     public function getCount() {
         return static.counter;
     }
 }
 ```
 
-Here, the variable `counter` is defined in the static scope. This means that all instances of Example1.cfc share this variable.
+When multiple instances of this component are created, the `counter` variable is incremented across all instances:
 
-2. In the following example, we call the Example1() function three times. Each time, the `counter` variable is incremented and shared across all instances.
-
-```luceescript
-// example1.cfm
-new Example1();
-new Example1();
-new Example1();
+```
+new Example();
+new Example();
+new Example();
 ```
 
-## Example 3
+Each instance shares the same `counter` value, demonstrating the persistent nature of static variables.
 
-1. Another example is using the static scope to store the result of a time-consuming operation that does not need to be recomputed every time.
+## Using Static Functions
 
-```luceescript
-// Example2.cfc
-Component {
-    static var data = [];
-    public function init() {
-        if (arrayLen(static.data) == 0) {
-            for (i = 1; i <= 100; i++) {
-                arrayAppend(static.data, i * i);
-            }
-        }
-        dump(static.data);
-    }
-}
+A static function can be called directly on the component itself, without needing an instance:
+
 ```
-
-Here, the array `data` is defined in the static scope, which means it will be computed only once and shared across all instances.
-
-2. In the following example, we call the Example2() function twice. The array `data` is computed only once and reused in the second instance.
-
-```luceescript
-// example2.cfm
-new Example2();
-new Example2();
-```
-
-## Example 4
-
-1. The static scope can also be used for functions. In this example, we define a static function that is available to all instances.
-
-```luceescript
-// Example3.cfc
-Component {
+component {
     public static function hello() {
         return "Hello, World!";
     }
 }
 ```
 
-2. In the following example, we call the static function `hello` without creating an instance of Example3.
+Calling a static function without instantiating the component:
 
-```luceescript
-// example3.cfm
-dump(Example3::hello());
+```
+dump(Example::hello());
 ```
 
-## Example 5
+## Static Methods vs. Instance Methods
 
-1. The static scope can be used to count the number of instances created from a component.
+- **Instance Methods**: Defined without `static` and tied to an object instance.
+- **Static Methods**: Defined with `static` and shared across all instances.
 
-```luceescript
-// Example4.cfc
-Component {
-    static var counter = 0;
-    public function init() {
-        static.counter++;
-        dump(static.counter & " instances used so far");
+Example:
+
+```
+component {
+    public static function staticMethod() {
+        return "I am static";
+    }
+    
+    public function instanceMethod() {
+        return "I am an instance method";
     }
 }
 ```
 
-2. In the following example, we call the Example4() function five times. Each time the function is called, the count of `counter` in the static scope increases.
+Usage:
 
-```luceescript
-// example4.cfm
-new Example4();
-new Example4();
-new Example4();
-new Example4();
-new Example4();
+```
+obj = new Example();
+dump(obj.instanceMethod()); // Works only on an instance
+
+dump(Example::staticMethod()); // Works without an instance
 ```
 
-## Example 6
+## Accessing Static Methods via Instances
 
-1. We can also use the static scope to store constant data like HOST, PORT.
+Lucee allows static methods to be accessed the same way as instance methods:
 
-- If we store the instance in the variable scope, you will run into problems when you have a thousand components or it gets loaded a thousand times. This is a waste of time and memory storage.
-- The static scope means that a variable only exists once and is independent of how many instances you have. So it is more memory efficient to do it that way. You can also do the same for functions.
-
-```luceescript
-// Example5.cfc
-Component {
-    static {
-        static.HOST = "lucee.org";
-        static.PORT = 8080;
-    }
-    public static function splitFullName(required string fullName) {
-        var arr = listToArray(fullName, " 	");
-        return {'lastname': arr[1], 'firstname': arr[2]};
-    }
-    public function init(required string fullName) {
-        variables.fullname = static.splitFullName(fullName);
-    }
-    public string function getLastName() {
-        return variables.fullname.lastname;
-    }
-}
+```
+obj = new Example();
+dump(obj.staticMethod()); // Outputs: "I am static"
 ```
 
-2. In the following example, we call the Example5() function in two ways. It has a function splitFullName() that does not need to access anything (read or write data from the disks) and a variable scope that doesn't have to be part of the instance. It returns the firstname and lastname.
+This means static methods do not require special handling and can be called via an instance or the class itself.
 
-```luceescript
-// example5.cfm
-person = new Example5("Sobchak Walter");
-dump(person.getLastName());
-dump(Example5::splitFullName("Quintana Jesus"));
+## Mocking Static Methods
+
+A key advantage of Lucee’s implementation is that **static methods can be accessed just like instance methods** and **can be mocked per instance**:
+
+```
+obj = new Example();
+obj.staticMethod = function() {
+    return "Mocked static method";
+};
+
+dump(Example::staticMethod()); // Outputs: "I am static"
+dump(obj.staticMethod()); // Outputs: "Mocked static method"
 ```
 
-## Footnotes
+This means:
+- Static functions can be dynamically modified per instance without affecting the original class.
+- No need for redundant instance wrappers for testing.
 
-[Lucee 5 features reviewed: static](https://dev.lucee.org/t/lucee-5-features-reviewed-static/433)
+## Benefits of Static Scope
 
-[Video: Lucee Static Scopes in Component Code](https://www.youtube.com/watch?v=B5ILIAbXBzo&feature=youtu.be)
+1. **Performance Optimization** – Avoids redundant instantiations.
+2. **Shared State** – Useful for counters, caching, and global configurations.
+3. **Mocking Flexibility** – Allows instance-level modifications for testing while keeping the original static method intact.
+4. **Overlay vs. Overwrite** – When an instance function is redefined, it **overwrites** the original implementation for that instance. With static methods, defining an instance-level function of the same name **overlays** the static method for that instance only, while the original static method remains accessible via the class.
+
+## Conclusion
+
+Static scope in Lucee enables shared variables and functions across instances, improving efficiency and making testing more flexible. By understanding how to use static variables, functions, and mocking techniques, developers can write cleaner, more maintainable code.
+
