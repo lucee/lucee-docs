@@ -74,21 +74,21 @@ Calling a static function without instantiating the component:
 dump(Example::hello());
 ```
 
-## Static Methods vs. Instance Methods
+## Static Functions vs. Instance Functions
 
-- **Instance Methods**: Defined without `static` and tied to an object instance.
-- **Static Methods**: Defined with `static` and shared across all instances.
+- **Instance Functions**: Defined without `static` and tied to an object instance.
+- **Static Functions**: Defined with `static` and shared across all instances.
 
 Example:
 
 ```
 component {
-    public static function staticMethod() {
+    public static function staticFunction() {
         return "I am static";
     }
     
-    public function instanceMethod() {
-        return "I am an instance method";
+    public function instanceFunction() {
+        return "I am an instance function";
     }
 }
 ```
@@ -97,46 +97,46 @@ Usage:
 
 ```
 obj = new Example();
-dump(obj.instanceMethod()); // Works only on an instance
+dump(obj.instanceFunction()); // Works only on an instance
 
-dump(Example::staticMethod()); // Works without an instance
+dump(Example::staticFunction()); // Works without an instance
 ```
 
-## Accessing Static Methods via Instances
+## Accessing Static Functions via Instances
 
-Lucee allows static methods to be accessed the same way as instance methods:
-
-```
-obj = new Example();
-dump(obj.staticMethod()); // Outputs: "I am static"
-```
-
-This means static methods do not require special handling and can be called via an instance or the class itself.
-
-## Mocking Static Methods
-
-A key advantage of Lucee’s implementation is that **static methods can be accessed just like instance methods** and **can be mocked per instance**:
+Lucee allows static functions to be accessed the same way as instance functions:
 
 ```
 obj = new Example();
-obj.staticMethod = function() {
-    return "Mocked static method";
+dump(obj.staticFunction()); // Outputs: "I am static"
+```
+
+This means static functions do not require special handling and can be called via a component instance or the component defintion itself.
+
+## Mocking Static Functions
+
+A key advantage of Lucee’s implementation is that **static functions can be accessed just like instance functions** and **can be mocked per instance**:
+
+```
+obj = new Example();
+obj.staticFunction = function() {
+    return "Mocked static function";
 };
 
-dump(Example::staticMethod()); // Outputs: "I am static"
-dump(obj.staticMethod()); // Outputs: "Mocked static method"
+dump(Example::staticFunction()); // Outputs: "I am static"
+dump(obj.staticFunction()); // Outputs: "Mocked static function"
 ```
 
 This means:
-- Static functions can be dynamically modified per instance without affecting the original class.
+- Static functions can be dynamically modified per instance without affecting the original component defintion.
 - No need for redundant instance wrappers for testing.
 
 ## Benefits of Static Scope
 
 1. **Performance Optimization** – Avoids redundant instantiations.
 2. **Shared State** – Useful for counters, caching, and global configurations.
-3. **Mocking Flexibility** – Allows instance-level modifications for testing while keeping the original static method intact.
-4. **Overlay vs. Overwrite** – When an instance function is redefined, it **overwrites** the original implementation for that instance. With static methods, defining an instance-level function of the same name **overlays** the static method for that instance only, while the original static method remains accessible via the class.
+3. **Mocking Flexibility** – Allows instance-level modifications for testing while keeping the original static function intact.
+4. **Overlay vs. Overwrite** – When an instance function is redefined, it **overwrites** the original implementation for that instance. With static functions, defining an instance-level function of the same name **overlays** the static function for that instance only, while the original static function remains accessible via the component defintion.
 
 ## Conclusion
 
