@@ -5,6 +5,4 @@ related:
 categories:
 ---
 
-A string literal; the character encoding to use to read the page.
-
-The value may be enclosed in single or double quotation marks, or none.
+Specifies the character encoding used for the current template file. This tag is processed at compile time and must be placed at the root level of your template. It serves the same purpose as the pageEncoding attribute of cfprocessingdirective but in a dedicated tag format.
