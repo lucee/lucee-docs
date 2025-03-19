@@ -128,6 +128,7 @@ dump(obj.staticFunction()); // Outputs: "Mocked static function"
 ```
 
 This means:
+
 - Static functions can be dynamically modified per instance without affecting the original component defintion.
 - No need for redundant instance wrappers for testing.
 
@@ -141,4 +142,3 @@ This means:
 ## Conclusion
 
 Static scope in Lucee enables shared variables and functions across instances, improving efficiency and making testing more flexible. By understanding how to use static variables, functions, and mocking techniques, developers can write cleaner, more maintainable code.
-

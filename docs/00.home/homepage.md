@@ -18,7 +18,6 @@ Our documentation is an open source and community driven effort. It is also a co
 
  [![Meet the Lucee Team at CFCAMP 2025](/assets/images/conferences/CFCAMP-2025.webp)](https://www.cfcamp.org/?utm_source=website&utm_id=Ldoc)
 
-
 ## Recipes
 
 We have added a whole series of detailed [[Recipes]] showing you how to take advantage of the wide range of features in Lucee.

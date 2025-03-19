@@ -34,6 +34,7 @@ dump(Test::myStaticFunction()); // Outputs: "static"
 ```
 
 Unlike instance functions, static functions:
+
 - Do not require an object instance to be called.
 - Are shared across all instances of the component.
 - Can be accessed **exactly like instance functions**.
@@ -65,6 +66,7 @@ dump(testInstance.myStaticFunction()); // Outputs: "mockstatic"
 ```
 
 ### Why This Matters for Testing
+
 - There is **no need** to create instance wrapper functions for static functions.
 - Static functions can be dynamically **mocked per instance** without modifying the component.
 - This allows for **cleaner test code** and avoids unnecessary duplication.
@@ -99,4 +101,3 @@ This means that **static and instance functions are represented the same way in 
 ## Conclusion
 
 Lucee’s handling of static functions provides a powerful way to structure shared functionality while maintaining flexibility in testing. Instead of introducing redundant instance function wrappers, developers can take advantage of the fact that static functions are accessible like instance functions and can be dynamically mocked per instance. Additionally, `getMetadata` provides an easy way to differentiate between static and instance functions, reinforcing the consistent handling of both in Lucee.
-
