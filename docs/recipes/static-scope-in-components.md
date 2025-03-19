@@ -111,7 +111,7 @@ obj = new Example();
 dump(obj.staticFunction()); // Outputs: "I am static"
 ```
 
-This means static functions do not require special handling and can be called via a component instance or the component defintion itself.
+This means static functions do not require special handling and can be called via a component instance or the component definition itself.
 
 ## Mocking Static Functions
 
@@ -129,7 +129,7 @@ dump(obj.staticFunction()); // Outputs: "Mocked static function"
 
 This means:
 
-- Static functions can be dynamically modified per instance without affecting the original component defintion.
+- Static functions can be dynamically modified per instance without affecting the original component definition.
 - No need for redundant instance wrappers for testing.
 
 ## Benefits of Static Scope
@@ -137,7 +137,7 @@ This means:
 1. **Performance Optimization** – Avoids redundant instantiations.
 2. **Shared State** – Useful for counters, caching, and global configurations.
 3. **Mocking Flexibility** – Allows instance-level modifications for testing while keeping the original static function intact.
-4. **Overlay vs. Overwrite** – When an instance function is redefined, it **overwrites** the original implementation for that instance. With static functions, defining an instance-level function of the same name **overlays** the static function for that instance only, while the original static function remains accessible via the component defintion.
+4. **Overlay vs. Overwrite** – When an instance function is redefined, it **overwrites** the original implementation for that instance. With static functions, defining an instance-level function of the same name **overlays** the static function for that instance only, while the original static function remains accessible via the component definition.
 
 ## Conclusion
 

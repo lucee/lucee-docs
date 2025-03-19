@@ -56,7 +56,7 @@ Example:
 
 ```
 testInstance = new Test();
-// overlay static function with diffrent behaviour
+// overlay static function with different behaviour
 testInstance.myStaticFunction = function() {
     return "mockstatic";
 };
