@@ -216,6 +216,10 @@ Learn about the switch from double to BigDecimal in Lucee 6 for more precise mat
 
 How to use Maven in Lucee
 
+## [Migrating from Classic to Modern Local Scope Mode](/docs/recipes/migrate.from.classic-to-modern-local-scope.md)
+
+Guide for safely migrating your Lucee application from classic to modern local scope mode
+
 ## [Monitoring/Debugging](/docs/recipes/monitoring-debugging.md)
 
 Learn about the changes in Lucee 6.1 regarding Monitoring and Debugging. Understand the old and new behavior, and how to configure the settings in Lucee Admin and Application.cfc.

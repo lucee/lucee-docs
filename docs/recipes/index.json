@@ -279,7 +279,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "72b3a585fb17855d6b0fb9050dd7383b",
+    "hash": "85fdcc45b6e9968f2bee4effedff8108",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -755,6 +755,20 @@
       "Maven",
       "Java",
       "OSGi"
+    ]
+  },
+  {
+    "file": "migrate.from.classic-to-modern-local-scope.md",
+    "title": "Migrating from Classic to Modern Local Scope Mode",
+    "path": "/docs/recipes/migrate.from.classic-to-modern-local-scope.md",
+    "hash": "2ef28fd7cbfe8eee72ae619bb74b7edc",
+    "keywords": [
+      "local scope",
+      "variables",
+      "migration",
+      "scope mode",
+      "classic mode",
+      "modern mode"
     ]
   },
   {
