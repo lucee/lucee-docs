@@ -279,7 +279,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "85fdcc45b6e9968f2bee4effedff8108",
+    "hash": "0f643d0bcfc298d9173399ab977dbd67",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -761,7 +761,7 @@
     "file": "migrate.from.classic-to-modern-local-scope.md",
     "title": "Migrating from Classic to Modern Local Scope Mode",
     "path": "/docs/recipes/migrate.from.classic-to-modern-local-scope.md",
-    "hash": "2ef28fd7cbfe8eee72ae619bb74b7edc",
+    "hash": "9275f393aec679ff25242bb9cde8da11",
     "keywords": [
       "local scope",
       "variables",
