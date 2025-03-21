@@ -132,6 +132,10 @@ To change this behavior, you can set the environment variable `LUCEE_ADMIN_MODE=
 **System Property:** `-Dlucee.admin.mode.default`
 This setting functions similarly to `LUCEE_ADMIN_MODE`, but it only affects the default behavior and can be overridden by any setting in `.CFConfig.json`.
 
+**Environment Variable:** `LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG`
+**System Property:** `-Dlucee.cascading.write.to.variables.log`
+This setting only applies to Lucee 6 (above `6.2.1.82`). Enables logging when variables are implicitly written to the variables scope (without an explicit scope definition). When set to a log level name (e.g., "application"), Lucee will log details about variables being assigned without explicit scope at the DEBUG level. This helps identify code that could be optimized by using proper variable scoping. 
+
 ## Breaking Changes
 
 Major updates for Lucee can sometimes cause breaking changes. The settings below allow you to emulate the behavior of older Lucee versions in newer versions.
