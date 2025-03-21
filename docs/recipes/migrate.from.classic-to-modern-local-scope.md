@@ -92,21 +92,30 @@ Switching directly to Modern mode may break existing applications that rely on C
 
 ### Step 1: Enable Cascading Write Logging
 
-Set the following environment variable or system property (This setting only applies to Lucee 6.2.1.82 and above):
+Set the following environment variables or system properties (This setting only applies to Lucee 6.2.1.82 and above):
 
 **Environment Variable:** `LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG`
 **System Property:** `-Dlucee.cascading.write.to.variables.log`
 
-Example:
+This specifies the log name where cascading write detections will be recorded.
+
+You can also customize the log level (default is DEBUG):
+
+**Environment Variable:** `LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL`
+**System Property:** `-Dlucee.cascading.write.to.variables.loglevel`
+
+Valid log levels include: DEBUG, INFO, WARN, ERROR.
+
+Example configuration:
 ```
-# Environment variable
+# Environment variables
 LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG=application
+LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL=INFO
 
-# System property 
+# System properties
 -Dlucee.cascading.write.to.variables.log=application
+-Dlucee.cascading.write.to.variables.loglevel=INFO
 ```
-
-This will log all instances where variables are implicitly written to the variables scope.
 
 ### Step 2: Analyze Logs and Modify Code
 
@@ -164,23 +173,13 @@ function processItems(items) {
 // After
 function processItems(items) {
     local.result = [];
-    for(local.i=1; i <= arrayLen(items); i++) {
+    for(local.i=1; local.i <= arrayLen(items); local.i++) {
         local.processed = processItem(items[local.i]);
-        arrayAppend(result, processed);
+        arrayAppend(local.result, local.processed);
     }
-    return result;
-}
-// or simply set local mode explicitly
-function processItems(items) localMode=true {
-    result = [];
-    for(i=1; i <= arrayLen(items); i++) {
-        processed = processItem(items[i]);
-        arrayAppend(result, processed);
-    }
-    return result;
+    return local.result;
 }
 ```
-
 
 ### Step 3: Test Thoroughly
 
@@ -191,21 +190,23 @@ After updating your code:
 3. Look for unexpected behaviors or errors
 4. Make sure you no longer get any log entries 
 
+
 ### Step 4: Disable Logging and Switch to Modern Mode
 
 Once all code has been updated and tested:
 
-1. Disable the cascading write logging by removing the environment variable or system property:
+1. Disable the cascading write logging by removing the environment variables or system properties:
    ```
-   # Remove environment variable
+   # Remove environment variables
    unset LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG
+   unset LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL
    
-   # Or remove system property from startup configuration
+   # Or remove system properties from startup configuration
    # -Dlucee.cascading.write.to.variables.log
+   # -Dlucee.cascading.write.to.variables.loglevel
    ```
 
 2. Switch to Modern mode at your preferred configuration level (server, application, or function).
-
 
 ## Conclusion
 
