@@ -14,7 +14,8 @@
 
 <cfscript>
 	dump(queryRowByIndex(q_tags_indexed, "cfquery", -1));
-	dump(queryRowDataByIndex(q_tags_indexed, "cfquery", -1));
+	default = {tag:"unknown", id:"-1"};
+    	dump(queryRowDataByIndex(q_tags_indexed, "cfquery", default));
         dump(queryGetCellByIndex(q_tags_indexed, "id", "cfquery", -1));
 </cfscript>
 ```
