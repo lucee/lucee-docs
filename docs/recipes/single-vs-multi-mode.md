@@ -34,6 +34,11 @@ Single Mode consolidates all configurations into a single context. This is ideal
 
 ## Key Differences
 
+- All hosts served by a Lucee instance share the same Application name space, so `myapp` on `host1` is the same as `myapp` on `host2`, consider using `cgi.http_host` etc as part of the application name, if required
+- Mappings are the same across all hosts, so any application specific mappings should be done in `Application.cfc`, where as previously you might have done them in the Web Context Admin
+- mod_cfml is still required in single mode when using multiple hosts with Apache
+- Lower memory usage, as there is only one Lucee instance in single mode, less memory is required
+
 ### **Configuration**
 
 - **Multi Mode**: Separate configurations exist for each web context and the server context. Some settings may overlap or conflict, leading to potential confusion.
