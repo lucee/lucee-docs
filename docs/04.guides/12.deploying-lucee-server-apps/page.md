@@ -50,15 +50,17 @@ The `/patches` folder is where Lucee's core `.lco` jars are kept.  When Lucee st
 
 ### Setting the Admin password
 
-Drop a `password.txt` into the `lucee-server/context` directory
+Drop a `password.txt` into the `lucee-server/context` directory (only works when no password set, i.e. no `hspw` set in `.CFConfig.json`
 
 Using `.CFConfig.json` you can set an unencrypted password using:
 
 ```
 {
-    "adminPassword": "topSecret"
+    "pw": "topSecret"
 }
 ```
+
+The encrypted password is stored under `hspw`.
 
 For further information, as Lucee is open source, refer to the implementation [PasswordImpl.java](https://github.com/lucee/Lucee/blob/6.2/core/src/main/java/lucee/runtime/config/PasswordImpl.java)
 
