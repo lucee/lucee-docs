@@ -38,3 +38,6 @@ this.ormsettings.autogenmap = false;
 
 this.tag.log.log = this.name & ".log";
 ```
+* BREAKING CHANGE *
+
+In Lucee 7, by default, for better performance, Lucee will only look for `Application.cfc`, `Application.cfm` and `OnRequestEnd.cfm` is still supported, but [requires changing the default settings](https://dev.lucee.org/t/defaulting-to-only-looking-for-application-cfc-in-lucee-7/14881)
