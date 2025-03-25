@@ -96,11 +96,24 @@
     "file": "breaking-changes-6-2.md",
     "title": "Breaking Changes between Lucee 6.1 and 6.2",
     "path": "/docs/recipes/breaking-changes-6-2.md",
-    "hash": "55d3501805860351c14b6b802f71cd6c",
+    "hash": "28497b2f487abd2436fae98e44fb0c0a",
     "keywords": [
       "breaking changes",
       "Lucee 6.1",
       "Lucee 6.2",
+      "migration",
+      "upgrade"
+    ]
+  },
+  {
+    "file": "breaking-changes-7.0.md",
+    "title": "Breaking Changes between Lucee 6.2 and 7.0",
+    "path": "/docs/recipes/breaking-changes-7.0.md",
+    "hash": "c271721259d8bb08a11827a45adceaa4",
+    "keywords": [
+      "breaking changes",
+      "Lucee 6.2",
+      "Lucee 7.0",
       "migration",
       "upgrade"
     ]
