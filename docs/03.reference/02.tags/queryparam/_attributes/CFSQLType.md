@@ -1,1 +1,3 @@
-This attribute has been deprecated, instead, use the attribute "sqltype" that has the same functionality.
+This attribute has been deprecated, use the `sqlType` attribute instead which provides identical functionality.
+ 	
+ 	Maintained for backward compatibility with older code that used the CFML-specific naming convention.
