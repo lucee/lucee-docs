@@ -4,7 +4,7 @@ id: types_lucee
 ---
 ## Types in lucee ##
 
-This document explains types in Lucee. Lucee is still an untyped language. Types are only a check put on top of the language. The language is not based on types, however there are different places where types come into Lucee. This is explained with some simple examples below:
+This document explains types in Lucee that is still an untyped language. Types are only a check put on top of the language. The language is not based on types, however there are different places where types come into Lucee. This is explained with some simple examples below:
 
 #### Example 1 : Function Argument and Return Value ####
 
