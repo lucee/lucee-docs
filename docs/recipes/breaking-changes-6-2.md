@@ -50,3 +50,7 @@ Older Javax Servlet engines (i.e. Tomcat 9) are still supported as well, just ma
 While not exactly what you might expect as a breaking change, we did find that all the improvements made with 6.2 managed to surface some other underlying bugs, simply because Lucee got faster.
 
 You also may find some race conditions, etc within your own code / applications.
+
+## Default Application.Log Level is ERROR
+
+[https://luceeserver.atlassian.net/browse/LDEV-5366](https://luceeserver.atlassian.net/browse/LDEV-5366)
