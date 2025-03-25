@@ -4,6 +4,9 @@ id: category-compat
 categories:
 - category-core
 - core
+related:
+- https://dev.lucee.org/t/lucee-5-4-to-6-2-upgrade-guide/14854
+- https://download.lucee.org/changelog/?version=6.2
 description: Whilst Lucee is broadly compatible with Adobe ColdFusion, there are some differences.
 menuTitle: Compatibility / Migration
 ---
