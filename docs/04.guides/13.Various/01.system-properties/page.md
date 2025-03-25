@@ -281,7 +281,7 @@ Also, make sure not to publish these files with sensitive data as part of open s
 				<p>Setting GUID alone will install latest version.</p>
 				<p>If you want to dictate version, append <code>;version=xx.xx.xx.xx</code> to the GUID.</p>
 				<p>You can find available extensions and their corresponding GUID (these are listed as IDs) in the Server Administrator or at
-				<a href="https://downloads.lucee.org" target="_blank">Lucee Downloads</a>.</p>
+				<a href="https://download.lucee.org" target="_blank">Lucee Downloads</a>.</p>
 				<sub>Values: String</sub>
 				<p>
 					<strong>Example:</strong> Installing JFreeChart Extension Version 1.0.19.19:
