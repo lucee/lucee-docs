@@ -6,7 +6,7 @@ related:
 - tag-setting
 categories:
 - debugging
-- system
+- server
 ---
 
 Sets compiler directives that affect the entire template. Unlike most CFML tags, cfprocessingdirective is processed at compile time and must be placed at the root level of your template.

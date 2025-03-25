@@ -4,7 +4,7 @@ id: function-componentcacheclear
 categories:
 - cache
 - component
-- system
+- server
 ---
 
 flush the component path cache

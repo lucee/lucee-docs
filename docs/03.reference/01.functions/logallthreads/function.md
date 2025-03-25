@@ -4,7 +4,6 @@ id: function-logallthreads
 categories:
 - debugging
 - server
-- system
 - thread
 ---
 

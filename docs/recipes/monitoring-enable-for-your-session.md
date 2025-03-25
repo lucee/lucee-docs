@@ -1,19 +1,16 @@
-<!--
-{
-  "title": "Monitoring - Enable for your session",
-  "id": "monitoring-enable-for-your-session",
-  "since": "6.1",
-  "categories": [
-    "monitoring",
-    "debugging"
-  ],
-  "description": "Shows you a way to enable Monitoring for your session",
-  "keywords": [
-    "monitoring",
-    "session"
-  ]
-}
--->
+---
+title: Monitoring - Enable for your session
+id: monitoring-enable-for-your-session
+categories:
+- debugging
+- monitoring
+- session
+since: '6.1'
+description: Shows you a way to enable Monitoring for your session
+keywords: monitoring,session
+---
+
+
 
 # Monitoring - Enable for your session
 
@@ -27,7 +24,7 @@ To enable or disable monitoring for your session, add the following code to your
 
 ```lucee
 if (!isNull(url.show) || isNull(session.show)) {
-    session.show = url.show ?: true;
+ session.show = url.show ?: true;
 }
 
 this.monitoring.showDebug = session.show;
@@ -59,7 +56,7 @@ To enhance security, you can use a more specific string in the URL:
 
 ```lucee
 if (!isNull(url.fsdfsdfdfgdgdfs) || isNull(session.show)) {
-    session.show = url.fsdfsdfdfgdgdfs ?: true;
+ session.show = url.fsdfsdfdfgdgdfs ?: true;
 }
 ```
 

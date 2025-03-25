@@ -7,7 +7,7 @@
   ],
   "categories": [
     "s3",
-    "system"
+    "server"
   ],
   "description": "Lucee supports the following virtual file systems: ram, file, s3, http, https, zip, and tar.",
   "keywords": [

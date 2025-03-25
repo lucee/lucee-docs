@@ -13,7 +13,7 @@ description: Mail Listeners can be configured to fire before and after sending a
 
 Mail Listeners can be configured to be triggered before and after sending email (only for email sending as async).
 
-These follow the same pattern as [[cookbook-query-listeners]].
+These follow the same pattern as [[query-listeners]].
 
 This is available as an experimental feature in Lucee 5.3 and is officially supported in Lucee 6.0.
 

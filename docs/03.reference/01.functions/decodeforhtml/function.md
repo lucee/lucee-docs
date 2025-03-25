@@ -2,7 +2,6 @@
 title: DecodeForHtml
 id: function-decodeforhtml
 categories:
-- encode
 - ESAPI
 - HTML
 ---

@@ -3,12 +3,13 @@
   "title": "Session Handling in Lucee",
   "id": "session-handling",
   "related": [
-    "application-cfc",
+    "tag-application",
     "request-handling",
     "caching"
   ],
   "categories": [
     "server",
+    "session",
     "state-management",
     "configuration"
   ],

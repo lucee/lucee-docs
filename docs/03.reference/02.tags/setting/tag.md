@@ -7,7 +7,7 @@ related:
 - tag-processingdirective
 categories:
 - debugging
-- system
+- server
 ---
 
 Controls various aspects of page processing, such as the output of HTML code in pages.

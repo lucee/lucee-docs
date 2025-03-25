@@ -4,7 +4,6 @@ id: object-timezone
 categories:
 - datetime
 - object
-- timezone
 visible: 'true'
 listingStyle: a-z
 description: Timezone

@@ -5,7 +5,7 @@ related:
 - function-gettimezoneinfo
 - object-timezone
 categories:
-- timezone
+- datetime
 methodObject: timezone
 methodName: info
 description: Returns a structure describing the current timezone

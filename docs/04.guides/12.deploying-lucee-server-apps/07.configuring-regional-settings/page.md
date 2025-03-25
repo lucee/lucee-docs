@@ -4,7 +4,6 @@ id: configuring-regional-settings
 categories:
 - datetime
 - server
-- timezone
 description: Lucee by default, uses the JVM's default timezone, which comes from the operating system.
 ---
 

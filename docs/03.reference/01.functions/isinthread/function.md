@@ -4,7 +4,7 @@ id: function-isinthread
 related:
 - tag-thread
 categories:
-- system
+- server
 - thread
 ---
 

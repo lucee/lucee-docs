@@ -5,7 +5,7 @@ related:
 - function-imagereadbase64
 - function-imagewritebase64
 categories:
-- encode
+- esapi
 - binary
 description: 'Calculates the Base64 representation of a string or binary object.'
 ---

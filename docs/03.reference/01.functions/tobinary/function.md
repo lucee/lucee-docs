@@ -4,7 +4,7 @@ id: function-tobinary
 related:
 - function-tobase64
 categories:
-- encode
+- esapi
 - binary
 ---
 

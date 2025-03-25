@@ -8,8 +8,6 @@ related:
 - object-string
 categories:
 - string
-
-- encode
 - ESAPI
 - HTML
 ---
