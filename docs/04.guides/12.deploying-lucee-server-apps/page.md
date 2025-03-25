@@ -48,6 +48,20 @@ However, if there is already a newer Lucee core version in the `/patches/` folde
 
 The `/patches` folder is where Lucee's core `.lco` jars are kept.  When Lucee starts, it determines which `*.lco` in that folder is the latest version and it loads that version.
 
+### Setting the Admin password
+
+Drop a `password.txt` into the `lucee-server/context` directory
+
+Using `.CFConfig.json` you can set an unencrypted password using:
+
+```
+{
+    "adminPassword": "topSecret"
+}
+```
+
+For further information, as Lucee is open source, refer to the implementation [PasswordImpl.java](https://github.com/lucee/Lucee/blob/6.2/core/src/main/java/lucee/runtime/config/PasswordImpl.java)
+
 ### Lucee Distributions 
 
 available from [https://download.lucee.org/](https://download.lucee.org/)
