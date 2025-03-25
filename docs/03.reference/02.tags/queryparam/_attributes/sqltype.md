@@ -1,6 +1,7 @@
 The SQL data type that the parameter will be bound to.
 	
 Common types include:
+
 - `varchar`: For strings (default)
 - `integer`, `bigint`, `smallint`, `tinyint`: For various sized integers
 - `double`, `decimal`, `money`: For floating point/decimal values

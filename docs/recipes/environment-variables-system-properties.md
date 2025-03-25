@@ -144,7 +144,6 @@ This setting only applies to Lucee 6 (above `6.2.1.82`). Enables logging when va
 **System Property:** `-Dlucee.cascading.write.to.variables.loglevel`
 This setting only applies to Lucee 6 (above `6.2.1.82`). Specifies the log level for cascading write detection logs. Valid values are: DEBUG, INFO, WARN, ERROR. If not specified, the default level is DEBUG.
 
-
 ## Breaking Changes
 
 Major updates for Lucee can sometimes cause breaking changes. The settings below allow you to emulate the behavior of older Lucee versions in newer versions.

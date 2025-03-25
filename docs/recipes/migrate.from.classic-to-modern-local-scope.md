@@ -55,15 +55,19 @@ If this component is stored in application scope and used across multiple concur
 Local scope mode can be configured at several levels:
 
 ### 1. Server Level (Lucee Administrator)
+
 Under "Settings > Scope", set "Local scope mode" to either "Modern" or "Classic".
 
 ### 2. Server Configuration (.CFConfig.json)
+
 ```json
 {
     "localScopeMode": "modern"
 }
 ```
+
 Or:
+
 ```json
 {
     "localScopeMode": "classic"
@@ -71,11 +75,13 @@ Or:
 ```
 
 ### 3. Application Level (Application.cfc)
+
 ```javascript
 this.localMode = "modern"; // or "classic"
 ```
 
 ### 4. Function Level
+
 ```javascript
 function test() localMode="modern" {
     // Function body
@@ -107,6 +113,7 @@ You can also customize the log level (default is DEBUG):
 Valid log levels include: DEBUG, INFO, WARN, ERROR.
 
 Example configuration:
+
 ```
 # Environment variables
 LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG=application
@@ -128,11 +135,13 @@ Variable Scope Cascading Write Detected: The variable [token] is being implicitl
 For each occurrence, decide whether to:
 
 1. **Add explicit variables scope** (if the variable should remain in the component's variables scope):
+
     ```javascript
     variables.token = createUUID();
     ```
 
 2. **Add explicit local scope** (if the variable should be function-local):
+
     ```javascript
     local.token = createUUID();
     ```
@@ -190,12 +199,12 @@ After updating your code:
 3. Look for unexpected behaviors or errors
 4. Make sure you no longer get any log entries 
 
-
 ### Step 4: Disable Logging and Switch to Modern Mode
 
 Once all code has been updated and tested:
 
 1. Disable the cascading write logging by removing the environment variables or system properties:
+
    ```
    # Remove environment variables
    unset LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG
