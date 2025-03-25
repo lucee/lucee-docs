@@ -226,7 +226,7 @@ Learn about the changes in Lucee 6.1 regarding Monitoring and Debugging. Underst
 
 ## [Monitoring - Enable for your session](/docs/recipes/monitoring-enable-for-your-session.md)
 
-Shows you a way to enable Monitoring for your session
+No description available.
 
 ## [New Operator in Lucee](/docs/recipes/new-operator.md)
 

@@ -791,11 +791,8 @@
     "file": "monitoring-enable-for-your-session.md",
     "title": "Monitoring - Enable for your session",
     "path": "/docs/recipes/monitoring-enable-for-your-session.md",
-    "hash": "f514983cf436185fd942585022ac198b",
-    "keywords": [
-      "monitoring",
-      "session"
-    ]
+    "hash": "ed0962dd1f6424691185f08dc34b2e04",
+    "keywords": []
   },
   {
     "file": "new-operator.md",
@@ -1038,7 +1035,7 @@
     "file": "session-handling.md",
     "title": "Session Handling",
     "path": "/docs/recipes/session-handling.md",
-    "hash": "792e09990ab51ad9fd01e62087ba63bc",
+    "hash": "bbaf7d65613e1c6664fc1b30b3c03122",
     "keywords": [
       "Session Management",
       "CFML Sessions",
@@ -1219,7 +1216,7 @@
     "file": "virtual-file-system.md",
     "title": "Virtual File Systems",
     "path": "/docs/recipes/virtual-file-system.md",
-    "hash": "46240b85031475591b0fa9c17b7d1a40",
+    "hash": "8c534c1c228acfb4bbe915678f15cbef",
     "keywords": [
       "Virtual File System",
       "VFS",
