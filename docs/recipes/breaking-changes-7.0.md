@@ -46,4 +46,30 @@ With Lucee 7, when these tags are used within a function, these are now written 
 
 This should have minimal impact on existing code and may avoid some concurrency race conditions, hence the change.
 
-[[LDEV-5416]](https://luceeserver.atlassian.net/browse/LDEV-5416)
+[LDEV-5416](https://luceeserver.atlassian.net/browse/LDEV-5416)
+
+# Pending changes (not yet implemented)
+
+All proposed changes are listed in the sprint board for 7.0 
+
+[https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/53?label=breaking-change&sprint=73&sprints=73](https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/53?label=breaking-change&sprint=73&sprints=73)
+
+Please raise any discussions regarding these changes on the dev forum, not in the individual tickets
+
+## Enable quoted-printable for CFMAIL by default
+
+Fore better support for HTML emails, Lucee 7 defaults to 7 bit encoding
+
+[LDEV-4039](https://luceeserver.atlassian.net/browse/LDEV-4039)
+
+## Enable Limit evaluation by default
+
+Adopting secure defaults, Lucee 7 by default sets this to true
+
+[LDEV-5177](https://luceeserver.atlassian.net/browse/LDEV-5177)
+
+## Enabled correct encoding of spaces in urls with CFHTTP
+
+Older versions of Lucee double encoded spaces in CFHTTP, causing problems calling some APIs
+
+[LDEV-3349](https://luceeserver.atlassian.net/browse/LDEV-3349)
