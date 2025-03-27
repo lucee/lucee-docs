@@ -45,6 +45,10 @@ Our Official Lucee 6.2 Installers and Docker images have been updated to bundle 
 
 Older Javax Servlet engines (i.e. Tomcat 9) are still supported as well, just make sure they are updated and still maintained.
 
+[LDEV-4910](https://luceeserver.atlassian.net/browse/LDEV-4910)
+
+[Javax to Jakarta Namespace Ecosystem Progress](https://jakarta.ee/blogs/javax-jakartaee-namespace-ecosystem-progress/)
+
 ## Lucee 6.2 is up to 50% faster for some operations than Lucee 5.4
 
 While not exactly what you might expect as a breaking change, we did find that all the improvements made with 6.2 managed to surface some other underlying bugs, simply because Lucee got faster.

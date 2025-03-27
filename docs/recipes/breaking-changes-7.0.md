@@ -26,6 +26,18 @@ Be aware of these changes when migrating your applications to ensure smooth comp
 - Java 11 is supported
 - Java 8 is no longer supported
 
+## Switching to Jakarta (from Javax)
+
+Lucee 6.2 introduced support for jakarta (Tomcat 10+) etc, but was still javax based
+
+Lucee 7.0 is now based on [Jakarta](https://jakarta.ee/).
+
+[LDEV-4910](https://luceeserver.atlassian.net/browse/LDEV-4910)
+
+[Lucee/script-runner](https://github.com/lucee/script-runner/releases/tag/1.2) was updated to include [jakarta.jakartaee-api](https://github.com/lucee/script-runner/commit/0b2750cdbf0af746ba40ae74a0510eeaf4de6fd1)
+
+[Javax to Jakarta Namespace Ecosystem Progress](https://jakarta.ee/blogs/javax-jakartaee-namespace-ecosystem-progress/)
+
 ## Single Mode Only
 
 Lucee 7.0 only supports single mode [[single-vs-multi-mode]]
