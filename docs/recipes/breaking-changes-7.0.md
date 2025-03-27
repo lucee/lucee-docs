@@ -48,6 +48,18 @@ This should have minimal impact on existing code and may avoid some concurrency 
 
 [LDEV-5416](https://luceeserver.atlassian.net/browse/LDEV-5416)
 
+## Enable Limit evaluation by default
+
+Adopting secure defaults, Lucee 7 by default sets this to true
+
+[LDEV-5177](https://luceeserver.atlassian.net/browse/LDEV-5177)
+
+## Enabled correct encoding of spaces in urls with CFHTTP
+
+Older versions of Lucee double encoded spaces in CFHTTP, causing problems calling some APIs
+
+[LDEV-3349](https://luceeserver.atlassian.net/browse/LDEV-3349)
+
 # Pending changes (not yet implemented)
 
 All proposed changes are listed in the sprint board for 7.0 
@@ -62,14 +74,8 @@ Fore better support for HTML emails, Lucee 7 defaults to 7 bit encoding
 
 [LDEV-4039](https://luceeserver.atlassian.net/browse/LDEV-4039)
 
-## Enable Limit evaluation by default
+## remove support for loginStorage="cookie" and sessionStorage="cookie"
 
-Adopting secure defaults, Lucee 7 by default sets this to true
+These are not secure and seldom used
 
-[LDEV-5177](https://luceeserver.atlassian.net/browse/LDEV-5177)
-
-## Enabled correct encoding of spaces in urls with CFHTTP
-
-Older versions of Lucee double encoded spaces in CFHTTP, causing problems calling some APIs
-
-[LDEV-3349](https://luceeserver.atlassian.net/browse/LDEV-3349)
+[LDEV-5403](https://luceeserver.atlassian.net/browse/LDEV-5403)
