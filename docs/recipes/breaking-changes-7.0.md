@@ -66,6 +66,12 @@ These are insecure and seldom used
 
 [LDEV-5403](https://luceeserver.atlassian.net/browse/LDEV-5403)
 
+## Enable quoted-printable for CFMAIL by default
+
+Fore better support for HTML emails, Lucee 7 defaults to 7 bit encoding
+
+[LDEV-4039](https://luceeserver.atlassian.net/browse/LDEV-4039)
+
 # Pending changes (not yet implemented)
 
 All proposed changes are listed in the sprint board for 7.0 
@@ -73,10 +79,3 @@ All proposed changes are listed in the sprint board for 7.0
 [https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/53?label=breaking-change&sprint=73&sprints=73](https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/53?label=breaking-change&sprint=73&sprints=73)
 
 Please raise any discussions regarding these changes on the dev forum, not in the individual tickets
-
-## Enable quoted-printable for CFMAIL by default
-
-Fore better support for HTML emails, Lucee 7 defaults to 7 bit encoding
-
-[LDEV-4039](https://luceeserver.atlassian.net/browse/LDEV-4039)
-
