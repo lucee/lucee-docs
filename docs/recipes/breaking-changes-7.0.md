@@ -80,7 +80,7 @@ These are insecure and seldom used
 
 ## Enable quoted-printable for CFMAIL by default
 
-Fore better support for HTML emails, Lucee 7 defaults to 7 bit encoding
+For better HTML email support, Lucee 7 defaults to 7-bit encoding
 
 [LDEV-4039](https://luceeserver.atlassian.net/browse/LDEV-4039)
 
