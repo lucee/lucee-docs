@@ -84,6 +84,14 @@ Fore better support for HTML emails, Lucee 7 defaults to 7 bit encoding
 
 [LDEV-4039](https://luceeserver.atlassian.net/browse/LDEV-4039)
 
+## EHCache is no longer bundled
+
+Still available as an extension, it is just no longer bundled in the default distribution.
+
+This reduced the size of the full `lucee.jar` from 84 Mb to 64 Mb.
+
+[LDEV-5267](https://luceeserver.atlassian.net/browse/LDEV-5267)
+
 # Pending changes (not yet implemented)
 
 All proposed changes are listed in the sprint board for 7.0 
