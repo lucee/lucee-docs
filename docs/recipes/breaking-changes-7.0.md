@@ -46,14 +46,6 @@ Lucee 7.0 is now based on [Jakarta](https://jakarta.ee/).
 
 Lucee 7.0 only supports single mode [[single-vs-multi-mode]]
 
-## Application.cfm / OnRequestEnd.cfm disabled by default
-
-For performance reasons, by default Lucee 7 only looks for `Application.cfc`, you can still configure your server to look for `Application.cfm` if needed.
-
-[[tag-application]]
-
-[Defaulting to only looking for Application.cfc in Lucee 7](https://dev.lucee.org/t/defaulting-to-only-looking-for-application-cfc-in-lucee-7/14881)
-
 ## Properly Scope Internal Tag Variables in Lucee Functions
 
 Prior to Lucee 7, tag results like `CFQUERY`, `CFLOCK`, `CFFILE`, `CFTHREAD` were written into the default variables scope.
