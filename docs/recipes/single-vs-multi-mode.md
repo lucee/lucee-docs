@@ -30,7 +30,7 @@ Servers were expensive, memory was also scarce, Docker didn't exist and it was q
 
 Really should have been a Star Trek reference, as Ralio, the project Lucee was forked from, was named after [Rhylo](https://memory-alpha.fandom.com/wiki/Rhylo) 
 
-The name Lucee was inspired by the Film [Lucy](https://en.wikipedia.org/wiki/Lucy_(2014_film))), a machine which took over the world.
+The name Lucee was inspired by the Film [Lucy](https://en.wikipedia.org/wiki/Lucy_(2014_film)), a machine which took over the world.
 
 ## What is Multi Mode?
 
