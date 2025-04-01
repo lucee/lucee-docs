@@ -1,0 +1,1 @@
+Path of the properties initialization file

@@ -1,0 +1,1 @@
+The replacement string to use as a mask for sensitive data. If not specified, defaults to "****".

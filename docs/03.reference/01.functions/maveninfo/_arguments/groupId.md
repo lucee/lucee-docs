@@ -1,0 +1,1 @@
+The Maven group identifier that specifies the namespace for the artifact.

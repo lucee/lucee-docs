@@ -1,0 +1,1 @@
+The input string to be sanitized.
