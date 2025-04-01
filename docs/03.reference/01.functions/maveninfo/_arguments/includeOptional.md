@@ -1,0 +1,1 @@
+If true, includes optional dependencies in the results. If false, excludes dependencies marked as optional from the query results.

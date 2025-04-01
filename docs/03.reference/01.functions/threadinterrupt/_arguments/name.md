@@ -1,0 +1,1 @@
+The name of the thread to interrupt. If omitted or empty, the current thread will be interrupted.

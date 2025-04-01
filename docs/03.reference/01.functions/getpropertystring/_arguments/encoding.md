@@ -1,0 +1,1 @@
+Encoding for the properties file

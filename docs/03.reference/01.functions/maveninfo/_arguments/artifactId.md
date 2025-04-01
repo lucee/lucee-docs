@@ -1,0 +1,1 @@
+The Maven artifact identifier that specifies the name of the artifact.
