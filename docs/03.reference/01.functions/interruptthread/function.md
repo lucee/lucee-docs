@@ -1,9 +1,10 @@
 ---
-title: interruptthread
+title: InterruptThread
 id: function-interruptthread
 related:
 - function-threadinterrupt
 categories:
+- thread
 ---
 
 Interrupts a specified thread by setting its interrupt status flag.
