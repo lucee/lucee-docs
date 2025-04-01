@@ -24,6 +24,14 @@ Lucee offers two modes of operation: **Single Mode** and **Multi Mode**. While M
 - **Lucee 5**: Only supported Multi Mode.
 - **Lucee 6**: Introduced Single Mode. New installations start in Single Mode by default. However, if upgrading from Lucee 5, the system remains in Multi Mode unless manually changed.
 
+A long time ago, in a galaxy far, far away...
+
+Servers were expensive, memory was also scarce, Docker didn't exist and it was quite common for shared hosting to run many clients on the same server, so Lucee solved this problem with multi mode.
+
+Really should have been a Star Trek reference, as Ralio, the project Lucee was forked from, was named after [Rhylo](https://memory-alpha.fandom.com/wiki/Rhylo) 
+
+The name Lucee was inspired by the Film [Lucy](https://de.wikipedia.org/wiki/Lucy_(2014))
+
 ## What is Multi Mode?
 
 Multi Mode allows for separate configurations for each web context. 
