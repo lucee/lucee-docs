@@ -26,11 +26,11 @@ Lucee offers two modes of operation: **Single Mode** and **Multi Mode**. While M
 
 A long time ago, in a galaxy far, far away...
 
-Servers were expensive, memory was also scarce, Docker didn't exist and it was quite common for shared hosting to run many clients on the same server, so Lucee solved this problem with multi mode.
+Servers were expensive, memory was also scarce, Docker didn't exist and it was quite common for shared hosting to run many clients on the same server, so Lucee solved this problem with Multi Mode.
 
 Really should have been a Star Trek reference, as Ralio, the project Lucee was forked from, was named after [Rhylo](https://memory-alpha.fandom.com/wiki/Rhylo) 
 
-The name Lucee was inspired by the Film [Lucy](https://de.wikipedia.org/wiki/Lucy_(2014))
+The name Lucee was inspired by the Film [Lucy](https://en.wikipedia.org/wiki/Lucy_(2014_film))), a machine which took over the world.
 
 ## What is Multi Mode?
 
