@@ -26,11 +26,21 @@ Lucee offers two modes of operation: **Single Mode** and **Multi Mode**. While M
 
 ## What is Multi Mode?
 
-Multi Mode allows for separate configurations for each web context. This is beneficial when running multiple web applications on a single server that require different settings. However, this flexibility introduces complexity in configuration, logging, and maintenance.
+Multi Mode allows for separate configurations for each web context. 
+
+This is beneficial when running multiple web applications on a single server that require different settings, however, this flexibility introduces complexity in configuration, logging, and maintenance.
+
+For example, in multi-mode the Lucee Admins have colour themes, Red is the Server Admin, Blue is the Web Admin. 
+
+If you only every do configuration under the Red Server Admin, you are already close t using Lucee in single mode.
 
 ## What is Single Mode?
 
-Single Mode consolidates all configurations into a single context. This is ideal for environments where multiple web contexts are unnecessary. Instead of maintaining separate configurations for each context, Single Mode simplifies operations by unifying them into one.
+Single Mode consolidates all configurations into a single context. 
+
+This is ideal for environments where multiple web contexts are unnecessary. 
+
+Instead of maintaining separate configurations for each context, Single Mode simplifies operations by unifying them into one.
 
 ## Key Differences
 
@@ -38,6 +48,7 @@ Single Mode consolidates all configurations into a single context. This is ideal
 - Mappings are the same across all hosts, so any application specific mappings should be done in `Application.cfc`, where as previously you might have done them in the Web Context Admin
 - mod_cfml is still required in single mode when using multiple hosts with Apache
 - Lower memory usage, as there is only one Lucee instance in single mode, less memory is required
+- One single common log directory
 
 ### **Configuration**
 
