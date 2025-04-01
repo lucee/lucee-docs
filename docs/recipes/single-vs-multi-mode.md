@@ -32,7 +32,7 @@ This is beneficial when running multiple web applications on a single server tha
 
 For example, in multi-mode the Lucee Admins have colour themes, Red is the Server Admin, Blue is the Web Admin. 
 
-If you only every do configuration under the Red Server Admin, you are already close t using Lucee in single mode.
+If you only every do configuration under the Red Server Admin, you are already quite close to using Lucee in single mode.
 
 ## What is Single Mode?
 
