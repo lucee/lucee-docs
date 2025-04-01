@@ -111,8 +111,15 @@ component accessors=true {
 	private any function getExtensionOfBundle( bundleName ) {
 		var cfg = getPageContext().getConfig();
 		var extensions = cfg.getAllRHExtensions();
+		var luceeMajor = listFirst( server.lucee.version, "." );
+		var bundles = "";
 		loop collection=extensions.iterator() item="local.ext" {
-			loop array = ext.bundles item="local.bundle" {
+			if (luceeMajor gte 7)
+				bundles = ext.getMetadata().getBundles();
+			else {
+				bundles = ext.bundles;
+			}
+			loop array=bundles item="local.bundle" {
 				if ( bundle.symbolicName == bundleName ) return ext;
 			}
 		}
