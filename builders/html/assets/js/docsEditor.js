@@ -264,7 +264,7 @@ $(function(){
         }
     };
 
-    var renderList = function($label, propery, v, data) {
+    var renderList = function($label, property, v, data) {
         var selected = {};
         if (!Array.isArray(v))
             v = [v];

@@ -157,7 +157,7 @@ getClients():Client[]          // return array of all clients currently connecte
 close():void                   // closes all clients
 ```
 
-SO we can save that for furture use
+SO we can save that for future use
 
 ```lucee
 public static function onFirstOpen(wsclients) {

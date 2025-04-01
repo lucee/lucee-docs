@@ -168,7 +168,7 @@ component {
 	}
 
 	private struct function _splitCommentStructAndBody( required string pageContent,  string filePath ) {
-		// recipies use a different format, json in html comments
+		// recipes use a different format, json in html comments
 		/*
 
 		<!--

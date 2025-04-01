@@ -455,7 +455,7 @@ component displayname="Application" output="false" hint="Handle the application"
    //  If there is no accessible data member (property, element of the this scope) 
    //  inside a component, Lucee searches for available matching "getters" or 
    //  "setters" for the requested property. The following example should 
-   //  clarify this behaviour. "somevar = myComponent.properyName". 
+   //  clarify this behaviour. "somevar = myComponent.propertyName". 
    //  If "myComponent" has no accessible data member named "propertyName", 
    //  Lucee searches for a function member (method) named "getPropertyName".
    ////////////////////////////////////////////////////////////////
