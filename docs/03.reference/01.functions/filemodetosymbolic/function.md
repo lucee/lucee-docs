@@ -4,7 +4,7 @@ id: function-filemodetosymbolic
 related:
 - function-filesetaccessmode
 categories:
-- file
+- files
 ---
 
 Converts a mode mask to it's symbolic representation.
