@@ -170,6 +170,14 @@ This allows you to modify your code for the new behavior without encountering ru
 
 Settings that are nice to know, but not that important.
 
+**Environment Variable:** `LUCEE_MAVEN_DEFAULT_REPOSITORIES`
+**System Property:** `-Dlucee.maven.default.repositories`
+Specifies a comma-separated list of Maven repository URLs to use before the default repositories (Maven Central, Sonatype, JCenter). This allows customizing the Maven repositories used by Lucee for downloading dependencies.
+- URLs must be valid Maven repository paths ending with a trailing slash (/)
+- Repositories specified will be added at the beginning of Lucee's repository list
+- Can be used to specify local repositories accessible to the server
+- Particularly valuable for servers behind firewalls with limited external access
+
 **Environment Variable:** `FELIX_LOG_LEVEL`
 **System Property:** `-Dfelix.log.level`
 Log level for the Felix Framework (OSGi).
