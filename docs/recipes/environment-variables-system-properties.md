@@ -21,6 +21,8 @@
 
 Below is a list of environment variables and system properties you can set for the Lucee Server.
 
+Each sub-heading is the name of the Environment Variable, the equivalent System Property is identical, simply in lower case, with underscores replaced by dots.
+
 ## Important Settings
 
 The following settings are very useful and important to know.
