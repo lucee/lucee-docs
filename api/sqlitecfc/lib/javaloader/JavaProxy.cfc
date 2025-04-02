@@ -198,7 +198,7 @@ Mark Mandel		27/08/2007		Created
 					{
 						found = true;
 					}
-					else if(param.isPrimitive()) //if it's a primitive, it can be mapped to object primtive classes
+					else if(param.isPrimitive()) //if it's a primitive, it can be mapped to object primitive classes
 					{
 						if(param.getName() eq "boolean" AND class.getName() eq "java.lang.Boolean")
 						{

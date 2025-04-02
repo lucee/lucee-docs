@@ -8,4 +8,4 @@ Valid values are:
 - test
 - system
 
-Default are all scopes exluding test.
+Default are all scopes excluding test.

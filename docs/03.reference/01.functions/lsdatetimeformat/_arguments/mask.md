@@ -52,4 +52,4 @@ The following masks can be used to format the full date and time and may not be 
 - `ISO8601/ISO`: equivalent to "yyyy-mm-dd'T'HH:nn:ssXXX"
 - `ISOMillis/ISOMs/javascript`: Javascript style ISO date, equivalent to "yyyy-mm-dd'T'HH:nn:ss.SSSXXX"
 - `epoch`: Total seconds of a given date (Example:1567517664)
-- `epochms`: Total millseconds of a given date (Example:1567517664000)
+- `epochms`: Total milliseconds of a given date (Example:1567517664000)
