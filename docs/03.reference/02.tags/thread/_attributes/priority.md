@@ -1,7 +1,9 @@
-The priority level at which to run the thread.
+Sets the execution priority level for the thread when using `action="run"`. Valid values are:
+ 				
+* **HIGH**: Thread receives more CPU time, suitable for critical operations
+* **NORMAL**: Standard priority level (default)
+* **LOW**: Thread receives less CPU time, suitable for background operations
 
-The following values are valid: HIGH, LOW, NORMAL
+Priority affects thread scheduling by the JVM but does not guarantee execution order. Higher priority threads generally get more processing time than lower priority ones, but this depends on the JVM implementation and system load.
 
-Higher priority threads get more processing time than lower priority threads.
-
-Page-level code, the code that is outside of cfthread tags, always has NORMAL priority. (optional, default=NORMAL)
+Note that page-level code (outside of `cfthread` tags) always executes at `NORMAL` priority.
