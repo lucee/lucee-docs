@@ -30,23 +30,29 @@ The following settings are very useful and important to know.
 #### LUCEE_ADMIN_ENABLED
 
 *System Property:* `-Dlucee.admin.enabled`
+*Environment Variable:* `LUCEE_ADMIN_ENABLED`
 Should the Lucee Admin be available or not.
 
 #### LUCEE_ADMIN_PASSWORD
 
 *System Property:* `-Dlucee.admin.password`
+*Environment Variable:* `LUCEE__ADMIN_PASSWORD`
 
 Password used for the Lucee admin (when you run Lucee in multi mode, the password for the Server admin).
 
 #### LUCEE_DATASOURCE_POOL_VALIDATE
 
 *System Property:* `-Dlucee.datasource.pool.validate`
+*Environment Variable:* `LUCEE_DATASOURCE_POOL_VALIDATE`
 
 If enabled, Lucee will validate existing datasource connections reused from the datasource pool before using them. This protects from exceptions caused by connections dropped by the DB server but creates additional communication between Lucee and the DB server.
+
+** removed in 6.2 **
 
 #### LUCEE_DEBUGGING_OPTIONS
 
 *System Property:* `-Dlucee.debugging.options`
+*Environment Variable:* `LUCEE_DEBUGGING_OPTIONS`
 
 Debug options, a comma-separated list of the following possible debug options to enable:
 
@@ -63,6 +69,7 @@ Debug options, a comma-separated list of the following possible debug options to
 #### LUCEE_ENCRYPTION_ALGORITHM
 
 *System Property:* `-Dlucee.encryption.algorithm`
+*Environment Variable:* `LUCEE_ENCRYPTION_ALGORITHM`
 
 Default encryption algorithm used when none is specified. The default "cfmx_compat" is not cryptographically secure - strongly recommended to use "AES" instead.
 Valid values: CFMX_COMPAT, AES, BLOWFISH, DES
@@ -70,6 +77,7 @@ Valid values: CFMX_COMPAT, AES, BLOWFISH, DES
 #### LUCEE_EXTENSIONS
 
 *System Property:* `-Dlucee.extensions`
+*Environment Variable:* `LUCEE_EXTENSIONS`
 
 Define a comma-separated list of Lucee extensions to install when starting up. This can be a simple list of IDs like this, then simply the latest versions get installed:
 
@@ -90,24 +98,28 @@ Or with more specific information like version and label (for better readability
 #### LUCEE_LOGINSTORAGE_ITERATIONS
 
 *System Property:* `-Dlucee.loginstorage.iterations`
+*Environment Variable:* `LUCEE_LOGINSTORAGE_ITERATIONS`
 
 Specifies the number of encryption iterations for `loginstorage`. The default is 0.
 
 #### LUCEE_LOGINSTORAGE_PRIVATEKEY
 
 *System Property:* `-Dlucee.loginstorage.privatekey`
+*Environment Variable:* `LUCEE_LOGINSTORAGE_PRIVATEKEY`
 
 A private key used to encrypt `loginstorage`. If not defined, a simple base64 encoding is used.
 
 #### LUCEE_LOGINSTORAGE_SALT
 
 *System Property:* `-Dlucee.loginstorage.salt`
+*Environment Variable:* `LUCEE_LOGINSTORAGE_SALT`
 
 The salt used for encrypting `loginstorage`. If no salt is defined, a hardcoded salt is used.
 
 #### LUCEE_PASSWORD_ENC_KEY
 
 *System Property:* `-Dlucee.password.enc.key`
+*Environment Variable:* `LUCEE_PASSWORD_ENC_KEY`
 
 The private encryption key used by Lucee to encrypt passwords stored in the configuration, such as for datasources.
 
@@ -116,6 +128,7 @@ The private encryption key used by Lucee to encrypt passwords stored in the conf
 previously `LUCEE_READ_CFID_FROM_URL`
 
 *System Property:* `-Dlucee.cfid.url.allow` (previously `-Dlucee.read.cfid.from.url`)
+*Environment Variable:* `LUCEE_CFID_URL_ALLOW` (previously `LUCEE_READ_CFID_FROM_URL`)
 
 Controls whether Lucee accepts CFID values from URL query strings. Set to false to enhance security by requiring CFIDs to be passed via cookies only.
 The previous property names are still supported for backward compatibility, but the new names are preferred starting with Lucee 6.2.1.59.
@@ -124,6 +137,7 @@ Setting this to false is strongly recommended for all production environments.
 #### LUCEE_CFID_URL_LOG
 
 *System Property:* `-Dlucee.cfid.url.log`
+*Environment Variable:* `LUCEE_CFID_URL_LOG`
 
 When set to a log name, Lucee will log all instances where CFID is read from a URL parameter and used.
 The log includes URL, IP address, user agent, referrer, and stack trace in JSON format.
@@ -132,36 +146,42 @@ This helps identify code that needs to be updated before URL-based CFID is disab
 #### LUCEE_REQUESTTIMEOUT
 
 *System Property:* `-Dlucee.requesttimeout`
+*Environment Variable:* `LUCEE_REQUESTTIMEOUT`
 
 A boolean value. If false, Lucee will disable request timeouts.
 
 #### LUCEE_REQUESTTIMEOUT_CONCURRENTREQUESTTHRESHOLD
 
 *System Property:* `-Dlucee.requesttimeout.concurrentrequestthreshold`
+*Environment Variable:* `LUCEE_REQUESTTIMEOUT_CONCURRENTREQUESTTHRESHOLD`
 
 Concurrent request threshold to enforce a request timeout. If a request reaches the timeout, Lucee will only enforce it if this threshold is also reached. For example, setting it to `100` means the timeout is enforced only if there are at least 99 other requests running.
 
 #### LUCEE_REQUESTTIMEOUT_CPUTHRESHOLD
 
 *System Property:* `-Dlucee.requesttimeout.cputhreshold`
+*Environment Variable:* `LUCEE.REQUESTTIMEOUT.CPUTHRESHOLD`
 
 A floating-point number between 0 and 1. CPU threshold to enforce a request timeout. If a request reaches the timeout, Lucee will only enforce it if the CPU usage of the current core is at least the specified threshold. For example, setting it to `0.5` enforces the timeout if the CPU is at least 50%.
 
 #### LUCEE_SERVER_DIR
 
 *System Property:* `-Dlucee.server.dir`
+*Environment Variable:* `LUCEE_SERVER.DIR`
 
 Specifies the file directory for the Lucee server context.
 
 #### LUCEE_VERSION
 
 *System Property:* `-Dlucee.version`
+*Environment Variable:* `LUCEE_VERSION`
 
 Defines the version of Lucee to load. For example, setting it to `6.1.0.0` will load that version. If not available locally, Lucee will automatically download it from Maven.
 
 #### LUCEE_ADMIN_MODE="single|multi"
 
 *System Property:* `-Dlucee.admin.mode`
+*Environment Variable:* `LUCEE_ADMIN_MODE`
 
 This setting only applies to Lucee 6 (above `6.1.1.54`), Lucee 6 can run in `single` mode or `multi` mode. In single mode, Lucee only has one set of configurations for the whole server. In multi mode, you have a base configuration for the whole server, but then every web context has its own configuration to override the base configuration. With Lucee 5, you only have multi mode and with Lucee 7, you only have single mode.
 By default, a new version of Lucee 6 with no `.CFConfig.json` provided that contains a `mode:"single|multi"` setting starts in single mode. When you update from Lucee 5, you start in multi mode.
@@ -170,24 +190,28 @@ To change this behavior, you can set the environment variable `LUCEE_ADMIN_MODE=
 #### LUCEE_ADMIN_MODE_DEFAULT="single|multi"
 
 *System Property:* `-Dlucee.admin.mode.default`
+*Environment Variable:* `LUCEE_ADMIN_MODE_DEFAULT`
 
 This setting functions similarly to `LUCEE_ADMIN_MODE`, but it only affects the default behavior and can be overridden by any setting in `.CFConfig.json`.
 
 #### LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG
 
 *System Property:* `-Dlucee.cascading.write.to.variables.log`
+*Environment Variable:* `LUCEE_CASCADING_WRITE_TO_VARIABLES.LOG`
 
 This setting only applies to Lucee 6 (above `6.2.1.82`). Enables logging when variables are implicitly written to the variables scope (without an explicit scope definition). When set to a log level name (e.g., "application"), Lucee will log details about variables being assigned without explicit scope at the DEBUG level. This helps identify code that could be optimized by using proper variable scoping. 
 
 #### LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG
 
 *System Property:* `-Dlucee.cascading.write.to.variables.log`
+*Environment Variable:* `LUCEE_CASCADING_WRITE_TO_VARIABLES.LOG`
 
 This setting only applies to Lucee 6 (above `6.2.1.82`). Enables logging when variables are implicitly written to the variables scope (without an explicit scope definition). When set to a log name (e.g., "application"), Lucee will log details about variables being assigned without explicit scope. The log level can be customized using the `LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL` setting. This helps identify code that could be optimized by using proper variable scoping. This setting excludes certain internal variables (_cfquery, _cflock, _thread) from being logged.
 
 #### LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL
 
 *System Property:* `-Dlucee.cascading.write.to.variables.loglevel`
+*Environment Variable:* `LUCEE_CASCADING_WRITE_TO_VARIABLES.LOGLEVEL`
 
 This setting only applies to Lucee 6 (above `6.2.1.82`). Specifies the log level for cascading write detection logs. Valid values are: DEBUG, INFO, WARN, ERROR. If not specified, the default level is DEBUG.
 
@@ -198,6 +222,7 @@ Major updates for Lucee can sometimes cause breaking changes. The settings below
 #### LUCEE_QUERY_ALLOWEMPTYASNULL
 
 *System Property:* `-Dlucee.query.allowemptyasnull`
+*Environment Variable:* `LUCEE_QUERY_ALLOWEMPTYASNULL`
 
 
 In Lucee 5, an empty string passed into a query parameter with a numeric type was interpreted as null. In Lucee 6, this is no longer accepted and throws an exception.
@@ -209,6 +234,7 @@ This allows you to modify your code for the new behavior without encountering ru
 #### LUCEE_DESERIALIZEJSON_ALLOWEMPTY
 
 *System Property:* `-Dlucee.deserializejson.allowempty`
+*Environment Variable:* `LUCEE_DESERIALIZEJSON_ALLOWEMPTY`
 
 
 In Lucee 5, an empty string passed into the function deserializeJson will return an empty string back. In Lucee 6, this is no longer accepted and throws an exception.
@@ -224,6 +250,7 @@ Settings that are nice to know, but not that important.
 #### LUCEE_MAVEN_DEFAULT_REPOSITORIES
 
 *System Property:* `-Dlucee.maven.default.repositories`
+*Environment Variable:* `LUCEE_MAVEN_DEFAULT_REPOSITORIES`
 
 Specifies a comma-separated list of Maven repository URLs to use before the default repositories (Maven Central, Sonatype, JCenter). This allows customizing the Maven repositories used by Lucee for downloading dependencies.
 - URLs must be valid Maven repository paths ending with a trailing slash (/)
@@ -234,60 +261,70 @@ Specifies a comma-separated list of Maven repository URLs to use before the defa
 #### FELIX_LOG_LEVEL
 
 *System Property:* `-Dfelix.log.level`
+*Environment Variable:* `FELIX_LOG_LEVEL`
 
 Log level for the Felix Framework (OSGi).
 
 #### LUCEE_ALLOW_COMPRESSION
 
 *System Property:* `-Dlucee.allow.compression`
+*Environment Variable:* `LUCEE_ALLOW_COMPRESSION`
 
 Allows compressing (GZIP) the HTTP response if the client explicitly supports it.
 
 #### LUCEE_APPLICATION_PATH_CACHE_TIMEOUT
 
 *System Property:* `-Dlucee.application.path.cache.timeout`
+*Environment Variable:* `LUCEE_APPLICATION_PATH_CACHE_TIMEOUT`
 
 Lucee caches the path information to the template; this defines the idle timeout for these cache elements in milliseconds.
 
 #### LUCEE_COMPILER_BLOCK_BYTECODE
 
 *System Property:* `-Dlucee.compiler.block.bytecode`
+*Environment Variable:* `LUCEE_COMPILER_BLOCK_BYTECODE`
 
 Controls whether Lucee allows the direct execution of precompiled bytecode files (.cfm). Set to true to prevent bytecode execution, requiring all CFML files to be provided as source code.
 
 #### LUCEE_CASCADE_TO_RESULTSET
 
 *System Property:* `-Dlucee.cascade.to.resultset`
+*Environment Variable:* `LUCEE_CASCADE_TO_RESULTSET`
 
 When a variable has no scope defined (example: `#myVar#` instead of `#variables.myVar#`), Lucee will also search available resultsets (CFML Standard) or not.
 
 #### LUCEE_CLI_PRINTEXCEPTIONS
 
 *System Property:* `-Dlucee.cli.printExceptions`
+*Environment Variable:* `LUCEE_CLI_PRINTEXCEPTIONS`
 
 Print out exceptions within the CLI interface.
 
 #### LUCEE_ENABLE_WARMUP
 
 *System Property:* `-Dlucee.enable.warmup`
+*Environment Variable:* `LUCEE_ENABLE_WARMUP`
 
 Boolean to enable/disable Lucee warmup on start.
 
 #### LUCEE_EXTENSIONS_INSTALL
 
 *System Property:* `-Dlucee.extensions.install`
+*Environment Variable:* `LUCEE_EXTENSIONS_INSTALL`
 
 A boolean value to enable/disable the installation of extensions.
 
 #### LUCEE_FULL_NULL_SUPPORT
 
 *System Property:* `-Dlucee.full.null.support`
+*Environment Variable:* `LUCEE_FULL_NULL_SUPPORT`
 
 A boolean value to enable/disable full null support.
 
 #### LUCEE_LIBRARY_ADDITIONAL_FUNCTION
 
 *System Property:* `-Dlucee.library.additional.function`
+*Environment Variable:* `LUCEE_LIBRARY_ADDITIONAL_FUNCTION`
 
 Path to a directory for additional CFML-based functions Lucee should load to make these functions available in the application. For example, you create a file called `length.cfm` that looks like this:
 
@@ -302,12 +339,14 @@ Then you copy that file into that directory, and you can use the function `lengt
 #### LUCEE_LIBRARY_ADDITIONAL_TAG
 
 *System Property:* `-Dlucee.library.additional.tag`
+*Environment Variable:* `LUCEE_LIBRARY_ADDITIONAL_TAG`
 
 Path to a directory for additional CFML-based tags Lucee should load as globally available tags following the custom tag interface.
 
 #### LUCEE_LIBRARY_DEFAULT_FUNCTION
 
 *System Property:* `-Dlucee.library.default.function`
+*Environment Variable:* `LUCEE_LIBRARY_DEFAULT_FUNCTION`
 
 Path to a directory for CFML-based functions Lucee should load to make these functions available in the application. For example, you create a file called `length.cfm` that looks like this:
 
@@ -322,18 +361,21 @@ Then you copy that file into that directory, and you can use the function `lengt
 #### LUCEE_LIBRARY_DEFAULT_TAG
 
 *System Property:* `-Dlucee.library.default.tag`
+*Environment Variable:* `LUCEE_LIBRARY_DEFAULT_TAG`
 
 Path to a directory for CFML-based tags Lucee should load as globally available tags following the custom tag interface.
 
 #### LUCEE_LIBRARY_DEFAULT_TLD
 
 *System Property:* `-Dlucee.library.default.tld`
+*Environment Variable:* `LUCEE_LIBRARY_DEFAULT_TLD`
 
 Tag Library Descriptor files (.tld or .tldx) Lucee should load to make these tags available in the application.
 
 #### LUCEE_LISTENER_MODE
 
 *System Property:* `-Dlucee.listener.mode`
+*Environment Variable:* `LUCEE_LISTENER.MODE`
 
 Where/how does Lucee look for the Application Listener?
 
@@ -345,6 +387,7 @@ Where/how does Lucee look for the Application Listener?
 #### LUCEE_LISTENER_TYPE
 
 *System Property:* `-Dlucee.listener.type`
+*Environment Variable:* `LUCEE_LISTENER_TYPE`
 
 Which kind of Application Listener is supported?
 
@@ -356,6 +399,7 @@ Which kind of Application Listener is supported?
 #### LUCEE_LISTENER_SINGELTON
 
 *System Property:* `-Dlucee.listener.singelton`
+*Environment Variable:* `LUCEE_LISTENER_SINGELTON`
 
 Controls how Lucee manages Application.cfc instances (introduced in Lucee 7). When set to false (Classic behavior), Lucee creates a new Application.cfc instance for each request and executes the component body constructor every time. When set to true (Singleton behavior), the component loads only during startup or when the component template changes.
 
@@ -364,12 +408,14 @@ Note: With singleton mode enabled, settings defined in the component body remain
 #### LUCEE_LOGGING_MAIN
 
 *System Property:* `-Dlucee.logging.main`
+*Environment Variable:* `LUCEE_LOGGING_MAIN`
 
 Name of the main logger used by Lucee, for example, a non-existing logger is defined.
 
 #### LUCEE_MAPPING_FIRST
 
 *System Property:* `-Dlucee.mapping.first`
+*Environment Variable:* `LUCEE_MAPPING_FIRST`
 
 Let's say you have the following code:
 
@@ -387,114 +433,133 @@ Then Lucee will look for `/index.cfm` in `/foo/bar` and for `/bar/index.cfm` in 
 #### LUCEE_MVN_REPO_RELEASES
 
 *System Property:* `-Dlucee.mvn.repo.releases`
+*Environment Variable:* `LUCEE_MVN_REPO_RELEASES`
 
 Endpoint used by Lucee >= 6 to load releases, by default this is `https://oss.sonatype.org/service/local/repositories/releases/content/`.
 
 #### LUCEE_MVN_REPO_SNAPSHOTS
 
 *System Property:* `-Dlucee.mvn.repo.snapshots`
+*Environment Variable:* `LUCEE_MVN_REPO_SNAPSHOTS`
 
 Endpoint used by Lucee >= 6 to load snapshots, by default this is `https://oss.sonatype.org/content/repositories/snapshots/`.
 
 #### LUCEE_PAGEPOOL_MAXSIZE
 
 *System Property:* `-Dlucee.pagePool.maxSize`
+*Environment Variable:* `LUCEE_PAGEPOOL_MAXSIZE`
 
 Max size of the template pool (page pool), the pool Lucee holds loaded `.cfm`/`.cfc` files. By default, this is `10000`; no number smaller than `1000` is accepted.
 
 #### LUCEE_PRECISE_MATH
 
 *System Property:* `-Dlucee.precise.math`
+*Environment Variable:* `LUCEE_PRECISE_MATH`
 
 A boolean value. If enabled, this improves the accuracy of floating-point calculations but makes them slightly slower.
 
 #### LUCEE_PRESERVE_CASE
 
 *System Property:* `-Dlucee.preserve.case`
+*Environment Variable:* `LUCEE_PRESERVE_CASE`
 
 A boolean value. If true, Lucee will not convert variable names used in "dot notation" to UPPER CASE.
 
 #### LUCEE_QUEUE_ENABLE
 
 *System Property:* `-Dlucee.queue.enable`
+*Environment Variable:* `LUCEE_QUEUE_ENABLE`
 
 A boolean value. If true, Lucee will enable the queue for requests.
 
 #### LUCEE_QUEUE_MAX
 
 *System Property:* `-Dlucee.queue.max`
+*Environment Variable:* `LUCEE.QUEUE.MAX`
 
 The maximum concurrent requests that the engine allows to run at the same time before the engine begins to queue the requests.
 
 #### LUCEE_QUEUE_TIMEOUT
 
 *System Property:* `-Dlucee.queue.timeout`
+*Environment Variable:* `LUCEE_QUEUE_TIMEOUT`
 
 The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected with an exception. If you set it to 0 seconds, the request timeout is used instead.
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP
 
 *System Property:* `-Dlucee.request.limit.concurrent.maxnosleep`
+*Environment Variable:* `LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP`
 
 The maximal number of threads that are allowed to be active on the server. If this is reached, requests get forced into a "nap" (defined by `lucee.request.limit.concurrent.sleeptime`).
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_SLEEPTIME
 
 *System Property:* `-Dlucee.request.limit.concurrent.sleeptime`
+*Environment Variable:* `LUCEE_REQUEST_LIMIT_CONCURRENT_SLEEPTIME`
 
 How long a request should "nap" in milliseconds if it reaches the `lucee.request.limit.concurrent.maxnosleep`.
 
 #### LUCEE_REQUESTTIMEOUT_MEMORYTHRESHOLD
 
 *System Property:* `-Dlucee.requesttimeout.memorythreshold`
+*Environment Variable:* `LUCEE_REQUESTTIMEOUT_MEMORYTHRESHOLD`
 
 A floating-point number between 0 and 1. Memory threshold to enforce a request timeout. If a request reaches the request timeout, Lucee will only enforce that timeout if this threshold is also reached. For example, setting it to `0.5` enforces the timeout if the memory consumption of the server is at least 50%.
 
 #### LUCEE_RESOURCE_CHARSET
 
 *System Property:* `-Dlucee.resource.charset`
+*Environment Variable:* `LUCEE_RESOURCE_CHARSET`
 
 Default character set for reading from/writing to various resources (files).
 
 #### LUCEE_SCRIPT_PROTECT
 
 *System Property:* `-Dlucee.script.protect`
+*Environment Variable:* `LUCEE_SCRIPT_PROTECT`
 
 Script protect setting used by default. Consult the Lucee admin page `/Settings/Request` for details on possible settings.
 
 #### LUCEE_SECURITY_LIMITEVALUATION
 
 *System Property:* `-Dlucee.security.limitEvaluation`
+*Environment Variable:* `LUCEE_SECURITY_LIMITEVALUATION`
 
 A boolean value. If enabled, limits variable evaluation in functions/tags. If enabled, you cannot use expressions within `[ ]` like this: `susi[getVariableName()]`. This affects the following functions: `IsDefined`, `structGet`, `empty` and the following tags: `savecontent attribute "variable"`.
 
 #### LUCEE_SSL_CHECKSERVERIDENTITY
 
 *System Property:* `-Dlucee.ssl.checkserveridentity`
+*Environment Variable:* `LUCEE_SSL_CHECKSERVERIDENTITY`
 
 A boolean value. If enabled, checks the identity of the SSL certificate with SMTP.
 
 #### LUCEE_STATUS_CODE
 
 *System Property:* `-Dlucee.status.code`
+*Environment Variable:* `LUCEE_STATUS_CODE`
 
 A boolean value. If disabled, returns a 200 status code to the client even if an uncaught exception occurs.
 
 #### LUCEE_STORE_EMPTY
 
 *System Property:* `-Dlucee.store.empty`
+*Environment Variable:* `LUCEE_STORE_EMPTY`
 
 A boolean value. If enabled, does not store empty sessions to the client or session storage.
 
 #### LUCEE_SUPPRESS_WS_BEFORE_ARG
 
 *System Property:* `-Dlucee.suppress.ws.before.arg`
+*Environment Variable:* `LUCEE_SUPPRESS_WS_BEFORE_ARG`
 
 A boolean value. If enabled, Lucee suppresses whitespace defined between the `cffunction` starting tag and the last `cfargument` tag. This setting is ignored when there is different output between these tags as whitespace.
 
 #### LUCEE_SYSTEM_ERR
 
 *System Property:* `-Dlucee.system.err`
+*Environment Variable:* `LUCEE_SYSTEM_ERR`
 
 Where is the error stream of the JVM sent? Possible values are:
 
@@ -506,6 +571,7 @@ Where is the error stream of the JVM sent? Possible values are:
 #### LUCEE_SYSTEM_OUT
 
 *System Property:* `-Dlucee.system.out`
+*Environment Variable:* `LUCEE_SYSTEM_OUT`
 
 Where is the out stream of the JVM sent? Possible values are:
 
@@ -517,102 +583,119 @@ Where is the out stream of the JVM sent? Possible values are:
 #### LUCEE_TASKS_LIMIT
 
 *System Property:* `-Dlucee.tasks.limit`
+*Environment Variable:* `LUCEE_TASKS_LIMIT`
 
 Defines the maximum number of elements that can be stored in the cfthread scope. Once this limit is reached, the oldest entries are automatically removed to make room for new ones. The default value is 10000.
 
 #### LUCEE_TEMPLATE_CHARSET
 
 *System Property:* `-Dlucee.template.charset`
+*Environment Variable:* `LUCEE_TEMPLATE_CHARSET`
 
 Default character set used to read templates (`.cfm` and `.cfc` files).
 
 #### LUCEE_TYPE_CHECKING
 
 *System Property:* `-Dlucee.type.checking`
+*Environment Variable:* `LUCEE_TYPE_CHECKING`
 
 A boolean value. If enabled, Lucee enforces types defined in the code. If false, type definitions are ignored.
 
 #### LUCEE_UPLOAD_BLOCKLIST
 
 *System Property:* `-Dlucee.upload.blocklist`
+*Environment Variable:* `LUCEE_UPLOAD_BLOCKLIST`
 
 Default block list for the tag `cffile action="upload"`. A comma-separated list of extensions that are allowed when uploading files via forms.
 
 #### LUCEE_USE_LUCEE_SSL_TRUSTSTORE
 
 *System Property:* `-Dlucee.use.lucee.SSL.TrustStore`
+*Environment Variable:* `LUCEE_USE_LUCEE_SSL_TRUSTSTORE`
 
-Specifies the file location of the trust store that contains trusted Certificate Authorities (CAs) for SSL/TLS connections in Java applications.
+Specifies the file location of the trust store that contains trusted Certificate Authorities (CAs) for SSL/TLS connections in Java applications. Lucee 6 uses the JVM trust store by default.
 
 #### LUCEE_WEB_CHARSET
 
 *System Property:* `-Dlucee.web.charset`
+*Environment Variable:* `LUCEE_WEB_CHARSET`
 
 Default character set for output streams, form-, URL-, and CGI scope variables, and reading/writing the header.
 
 #### LUCEE_CONTROLLER_GC
 
 *System Property:* `-Dlucee.controller.gc`
+*Environment Variable:* `LUCEE_CONTROLLER_GC`
 
 Default false, previously Lucee always ran a System.GC() every 5 minutes, available since 6.2.
 
 #### LUCEE_URL_ENCODEALLOWPLUS
 
 *System Property:* `-Dlucee.url.encodeAllowPlus`
+*Environment Variable:* `LUCEE_URL_ENCODEALLOWPLUS`
 
 Lucee before 6.2 would attempt to re-encode a url param which contained a space. If the url param was already encoded, it would trigger re-encoding the param again, breaking it. This was avoidable previously by using cfhttp encodeurl=false, set to false to enable previous behaviour.
 
 #### LUCEE_DUMP_THREADS
 
 *System Property:* `-Dlucee.dump.threads`
+*Environment Variable:* `LUCEE_DUMP_THREADS`
 
 Used for debugging, when enabled, it will dump out running threads to the console via the background controller thread.
 
 #### LUCEE_SCOPE_LOCAL_CAPACITY
 
 *System Property:* `-Dlucee.scope.local.capacity`
+*Environment Variable:* `LUCEE_SCOPE_LOCAL_CAPACITY`
 
 Sets the initial capacity (size) for the local scope hashmap.
 
 #### LUCEE_SCOPE_ARGUMENTS_CAPACITY
 
 *System Property:* `-Dlucee.scope.arguments.capacity`
+*Environment Variable:* `LUCEE_SCOPE_ARGUMENTS_CAPACITY`
 
 Sets the initial capacity (size) for the arguments scope hashmap.
 
 #### LUCEE_CACHE_VARIABLEKEYS
 
 *System Property:* `-Dlucee.cache.variableKeys`
+*Environment Variable:* `LUCEE.CACHE.VARIABLEKEYS`
 
 Sets the max number of variable names (keys) to cache.
 
 #### LUCEE_THREADS_MAXDEFAULT
 
 *System Property:* `-Dlucee.threads.maxDefault`
+*Environment Variable:* `LUCEE_THREADS_MAXDEFAULT`
 
 Sets the default max number of parallel threads, default 20.
 
 #### LUCEE_DEBUGGING_MAXPAGEPARTS
 
 *System Property:* `-Dlucee.debugging.maxPageParts`
+*Environment Variable:* `LUCEE_DEBUGGING_MAXPAGEPARTS`
 
 Maximum number of debugging page parts (executionLogs to output), 0 to disable max limit.
 
 #### LUCEE_LOGGING_FORCE_APPENDER
 
 *System Property:* `-Dlucee.logging.force.appender`
+*Environment Variable:* `LUCEE_LOGGING_FORCE_APPENDER`
 
 If set, override the default log4j appender, which is usually resource (log files), use console to log all logs to console
 
 #### LUCEE_LOGGING_FORCE_LEVEL
 
 *System Property:* `-Dlucee.logging.force.level`
+*Environment Variable:* `LUCEE_LOGGING_FORCE_LEVEL`
 
 If set, override the default log4j log level for all logs, which is usually ERROR
 
 #### LUCEE_SESSIONCOOKIE_ROTATE_UNKNOWN
 
 *System Property:* `-Dlucee.sessionCookie.rotate.unknown`
+*Environment Variable:* `LUCEE_SESSIONCOOKIE_ROTATE_UNKNOWN`
 
 Default true, when false, unknown cfml session cookies won't be automatically rotated
 
@@ -623,54 +706,63 @@ These settings are normally not needed in a regular environment.
 #### FELIX_LOG_LEVEL
 
 *System Property:* `-Dfelix.log.level`
+*Environment Variable:* `FELIX_LOG_LEVEL`
 
 Log level for the Felix Framework (OSGi).
 
 #### LUCEE_ALLOW_COMPRESSION
 
 *System Property:* `-Dlucee.allow.compression`
+*Environment Variable:* `LUCEE_ALLOW_COMPRESSION`
 
 Allows compressing (GZIP) the HTTP response if the client explicitly supports it.
 
 #### LUCEE_APPLICATION_PATH_CACHE_TIMEOUT
 
 *System Property:* `-Dlucee.application.path.cache.timeout`
+*Environment Variable:* `LUCEE_APPLICATION_PATH_CACHE_TIMEOUT`
 
 Lucee caches the path information to the template; this defines the idle timeout for these cache elements in milliseconds.
 
 #### LUCEE_CASCADE_TO_RESULTSET
 
 *System Property:* `-Dlucee.cascade.to.resultset`
+*Environment Variable:* `LUCEE_CASCADE_TO_RESULTSET`
 
 When a variable has no scope defined (example: `#myVar#` instead of `#variables.myVar#`), Lucee will also search available resultsets (CFML Standard) or not.
 
 #### LUCEE_CLI_PRINTEXCEPTIONS
 
 *System Property:* `-Dlucee.cli.printExceptions`
+*Environment Variable:* `LUCEE_CLI_PRINTEXCEPTIONS`
 
 Print out exceptions within the CLI interface.
 
 #### LUCEE_ENABLE_WARMUP
 
 *System Property:* `-Dlucee.enable.warmup`
+*Environment Variable:* `LUCEE_ENABLE_WARMUP`
 
 Boolean to enable/disable Lucee warmup on start.
 
 #### LUCEE_EXTENSIONS_INSTALL
 
 *System Property:* `-Dlucee.extensions.install`
+*Environment Variable:* `LUCEE_EXTENSIONS_INSTALL`
 
 A boolean value to enable/disable the installation of extensions.
 
 #### LUCEE_FULL_NULL_SUPPORT
 
 *System Property:* `-Dlucee.full.null.support`
+*Environment Variable:* `LUCEE_FULL_NULL_SUPPORT`
 
 A boolean value to enable/disable full null support.
 
 #### LUCEE_LIBRARY_ADDITIONAL_FUNCTION
 
 *System Property:* `-Dlucee.library.additional.function`
+*Environment Variable:* `LUCEE_LIBRARY_ADDITIONAL_FUNCTION`
 
 Path to a directory for additional CFML-based functions Lucee should load to make these functions available in the application. For example, you create a file called `length.cfm` that looks like this:
 
@@ -687,12 +779,14 @@ Then you copy that file into that directory, and you can use the function `lengt
 #### LUCEE_LIBRARY_ADDITIONAL_TAG
 
 *System Property:* `-Dlucee.library.additional.tag`
+*Environment Variable:* `LUCEE_LIBRARY_ADDITIONAL_TAG`
 
 Path to a directory for additional CFML-based tags Lucee should load as globally available tags following the custom tag interface.
 
 #### LUCEE_LIBRARY_DEFAULT_FUNCTION
 
 *System Property:* `-Dlucee.library.default.function`
+*Environment Variable:* `LUCEE_LIBRARY_DEFAULT_FUNCTION`
 
 Path to a directory for CFML-based functions Lucee should load to make these functions available in the application. For example, you create a file called `length.cfm` that looks like this:
 
@@ -709,18 +803,21 @@ Then you copy that file into that directory, and you can use the function `lengt
 #### LUCEE_LIBRARY_DEFAULT_TAG
 
 *System Property:* `-Dlucee.library.default.tag`
+*Environment Variable:* `LUCEE_LIBRARY_DEFAULT_TAG`
 
 Path to a directory for CFML-based tags Lucee should load as globally available tags following the custom tag interface.
 
 #### LUCEE_LIBRARY_DEFAULT_TLD
 
 *System Property:* `-Dlucee.library.default.tld`
+*Environment Variable:* `LUCEE_LIBRARY_DEFAULT_TLD`
 
 Tag Library Descriptor files (`.tld` or `.tldx`) Lucee should load to make these tags available in the application.
 
 #### LUCEE_LISTENER_MODE
 
 *System Property:* `-Dlucee.listener.mode`
+*Environment Variable:* `LUCEE_LISTENER_MODE`
 
 Where/how does Lucee look for the Application Listener?
 
@@ -732,6 +829,7 @@ Where/how does Lucee look for the Application Listener?
 #### LUCEE_LISTENER_TYPE
 
 *System Property:* `-Dlucee.listener.type`
+*Environment Variable:* `LUCEE_LISTENER_TYPE`
 
 Which kind of Application Listener is supported?
 
@@ -743,12 +841,14 @@ Which kind of Application Listener is supported?
 #### LUCEE_LOGGING_MAIN
 
 *System Property:* `-Dlucee.logging.main`
+*Environment Variable:* `LUCEE_LOGGING_MAIN`
 
 Name of the main logger used by Lucee, for example, a non-existing logger is defined.
 
 #### LUCEE_MAPPING_FIRST
 
 *System Property:* `-Dlucee.mapping.first`
+*Environment Variable:* `LUCEE_MAPPING_FIRST`
 
 Let's say you have the following code:
 
@@ -766,114 +866,135 @@ Then Lucee will look for `/index.cfm` in `/foo/bar` and for `/bar/index.cfm` in 
 #### LUCEE_MVN_REPO_RELEASES
 
 *System Property:* `-Dlucee.mvn.repo.releases`
+*Environment Variable:* `LUCEE_MVN_REPO_RELEASES`
 
 Endpoint used by Lucee >= 6 to load releases. By default, this is `https://oss.sonatype.org/service/local/repositories/releases/content/`.
 
 #### LUCEE_MVN_REPO_SNAPSHOTS
 
 *System Property:* `-Dlucee.mvn.repo.snapshots`
+*Environment Variable:* `LUCEE_MVN_REPO_SNAPSHOTS`
 
 Endpoint used by Lucee >= 6 to load snapshots. By default, this is `https://oss.sonatype.org/content/repositories/snapshots/`.
 
 #### LUCEE_PAGEPOOL_MAXSIZE
 
 *System Property:* `-Dlucee.pagePool.maxSize`
+*Environment Variable:* `LUCEE_PAGEPOOL_MAXSIZE`
 
 Max size of the template pool (page pool), the pool Lucee holds loaded `.cfm`/`.cfc` files. By default, this is `10000`; no number smaller than `1000` is accepted.
 
 #### LUCEE_PRECISE_MATH
 
 *System Property:* `-Dlucee.precise.math`
+*Environment Variable:* `LUCEE_PRECISE_MATH`
 
 A boolean value. If enabled, this improves the accuracy of floating-point calculations but makes them slightly slower.
 
 #### LUCEE_PRESERVE_CASE
 
 *System Property:* `-Dlucee.preserve.case`
+*Environment Variable:* `LUCEE_PRESERVE_CASE`
 
 A boolean value. If true, Lucee will not convert variable names used in "dot notation" to UPPER CASE.
 
 #### LUCEE_QUEUE_ENABLE
 
 *System Property:* `-Dlucee.queue.enable`
+*Environment Variable:* `LUCEE_QUEUE_ENABLE`
 
 A boolean value. If true, Lucee will enable the queue for requests.
 
 #### LUCEE_QUEUE_MAX
 
 *System Property:* `-Dlucee.queue.max`
+*Environment Variable:* `LUCEE_QUEUE_MAX`
 
 The maximum concurrent requests that the engine allows to run at the same time before the engine begins to queue the requests.
 
 #### LUCEE_QUEUE_TIMEOUT
 
 *System Property:* `-Dlucee.queue.timeout`
+*Environment Variable:* `LUCEE_QUEUE_TIMEOUT`
 
 The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected with an exception. If you set it to 0 seconds, the request timeout is used instead.
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP
 
 *System Property:* `-Dlucee.request.limit.concurrent.maxnosleep`
+*Environment Variable:* `LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP`
 
 The maximal number of threads that are allowed to be active on the server. If this is reached, requests get forced into a "nap" (defined by `lucee.request.limit.concurrent.sleeptime`).
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_SLEEPTIME
 
 *System Property:* `-Dlucee.request.limit.concurrent.sleeptime`
+*Environment Variable:* `LUCEE_REQUEST_LIMIT_CONCURRENT_SLEEPTIME`
 
 How long a request should "nap" in milliseconds if it reaches the `lucee.request.limit.concurrent.maxnosleep`.
 
 #### LUCEE_REQUESTTIMEOUT_MEMORYTHRESHOLD
 
 *System Property:* `-Dlucee.requesttimeout.memorythreshold`
+*Environment Variable:* `LUCEE_REQUESTTIMEOUT_MEMORYTHRESHOLD`
 
 A floating-point number between 0 and 1. Memory threshold to enforce a request timeout. If a request reaches the request timeout, Lucee will only enforce that timeout if this threshold is also reached. For example, setting it to `0.5` enforces the timeout if the memory consumption of the server is at least 50%.
 
 #### LUCEE_RESOURCE_CHARSET
 
 *System Property:* `-Dlucee.resource.charset`
+*Environment Variable:* `LUCEE_RESOURCE_CHARSET`
 
 Default character set for reading from/writing to various resources (files).
 
 #### LUCEE_SCRIPT_PROTECT
 
 *System Property:* `-Dlucee.script.protect`
+*Environment Variable:* `LUCEE_SCRIPT_PROTECT`
 
 Script protect setting used by default. Consult the Lucee admin page `/Settings/Request` for details on possible settings.
 
 #### LUCEE_SECURITY_LIMITEVALUATION
 
 *System Property:* `-Dlucee.security.limitEvaluation`
+*Environment Variable:* `LUCEE_SECURITY_LIMITEVALUATION`
 
 A boolean value. If enabled, limits variable evaluation in functions/tags. If enabled, you cannot use expressions within `[ ]` like this: `susi[getVariableName()]`. This affects the following functions: `IsDefined`, `structGet`, `empty` and the following tags: `savecontent attribute "variable"`.
+
+This is enabled by default in Lucee 7.
 
 #### LUCEE_SSL_CHECKSERVERIDENTITY
 
 *System Property:* `-Dlucee.ssl.checkserveridentity`
+*Environment Variable:* `LUCEE_SSL_CHECKSERVERIDENTITY`
 
 A boolean value. If enabled, checks the identity of the SSL certificate with SMTP.
 
 #### LUCEE_STATUS_CODE
 
 *System Property:* `-Dlucee.status.code`
+*Environment Variable:* `LUCEE_STATUS_CODE`
 
 A boolean value. If disabled, returns a 200 status code to the client even if an uncaught exception occurs.
 
 #### LUCEE_STORE_EMPTY
 
 *System Property:* `-Dlucee.store.empty`
+*Environment Variable:* `LUCEE.STORE.EMPTY`
 
 A boolean value. If enabled, does not store empty sessions to the client or session storage.
 
 #### LUCEE_SUPPRESS_WS_BEFORE_ARG
 
 *System Property:* `-Dlucee.suppress.ws.before.arg`
+*Environment Variable:* `LUCEE_SUPPRESS_WS_BEFORE_ARG`
 
 A boolean value. If enabled, Lucee suppresses whitespace defined between the `cffunction` starting tag and the last `cfargument` tag. This setting is ignored when there is different output between these tags as whitespace.
 
 #### LUCEE_SYSTEM_ERR
 
 *System Property:* `-Dlucee.system.err`
+*Environment Variable:* `LUCEE_SYSTEM_ERR`
 
 Where is the error stream of the JVM sent? Possible values are:
 
@@ -885,6 +1006,7 @@ Where is the error stream of the JVM sent? Possible values are:
 #### LUCEE_SYSTEM_OUT
 
 *System Property:* `-Dlucee.system.out`
+*Environment Variable:* `LUCEE_SYSTEM_OUT`
 
 Where is the out stream of the JVM sent? Possible values are:
 
@@ -896,29 +1018,34 @@ Where is the out stream of the JVM sent? Possible values are:
 #### LUCEE_TEMPLATE_CHARSET
 
 *System Property:* `-Dlucee.template.charset`
+*Environment Variable:* `LUCEE_TEMPLATE_CHARSET`
 
 Default character set used to read templates (`.cfm` and `.cfc` files).
 
 #### LUCEE_TYPE_CHECKING
 
 *System Property:* `-Dlucee.type.checking`
+*Environment Variable:* `LUCEE_TYPE_CHECKING`
 
 A boolean value. If enabled, Lucee enforces types defined in the code. If false, type definitions are ignored.
 
 #### LUCEE_UPLOAD_BLOCKLIST
 
 *System Property:* `-Dlucee.upload.blocklist`
+*Environment Variable:* `LUCEE_UPLOAD_BLOCKLIST`
 
 Default block list for the tag `cffile action="upload"`. A comma-separated list of extensions that are allowed when uploading files via forms.
 
 #### LUCEE_USE_LUCEE_SSL_TRUSTSTORE
 
 *System Property:* `-Dlucee.use.lucee.SSL.TrustStore`
+*Environment Variable:* `LUCEE_USE_LUCEE_SSL_TRUSTSTORE`
 
 Specifies the file location of the trust store that contains trusted Certificate Authorities (CAs) for SSL/TLS connections in Java applications.
 
 #### LUCEE_WEB_CHARSET
 
 *System Property:* `-Dlucee.web.charset`
+*Environment Variable:* `LUCEE_WEB_CHARSET`
 
 Default character set for output streams, form, URL, and CGI scope variables, and reading/writing the header.
