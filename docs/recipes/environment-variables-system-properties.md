@@ -225,7 +225,6 @@ Major updates for Lucee can sometimes cause breaking changes. The settings below
 *SysProp:* `-Dlucee.query.allowemptyasnull`
 *EnvVar:* `LUCEE_QUERY_ALLOWEMPTYASNULL`
 
-
 In Lucee 5, an empty string passed into a query parameter with a numeric type was interpreted as null. In Lucee 6, this is no longer accepted and throws an exception.
 You can simulate the old behavior by setting this environment variable or SysProp to `true`.
 
@@ -236,7 +235,6 @@ This allows you to modify your code for the new behavior without encountering ru
 
 *SysProp:* `-Dlucee.deserializejson.allowempty`
 *EnvVar:* `LUCEE_DESERIALIZEJSON_ALLOWEMPTY`
-
 
 In Lucee 5, an empty string passed into the function deserializeJson will return an empty string back. In Lucee 6, this is no longer accepted and throws an exception.
 You can simulate the old behavior by setting this environment variable or SysProp to `true`.
@@ -254,6 +252,7 @@ Settings that are nice to know, but not that important.
 *EnvVar:* `LUCEE_MAVEN_DEFAULT_REPOSITORIES`
 
 Specifies a comma-separated list of Maven repository URLs to use before the default repositories (Maven Central, Sonatype, JCenter). This allows customizing the Maven repositories used by Lucee for downloading dependencies.
+
 - URLs must be valid Maven repository paths ending with a trailing slash (/)
 - Repositories specified will be added at the beginning of Lucee's repository list
 - Can be used to specify local repositories accessible to the server
