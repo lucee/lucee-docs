@@ -36,7 +36,7 @@ Should the Lucee Admin be available or not.
 #### LUCEE_ADMIN_PASSWORD
 
 *System Property:* `-Dlucee.admin.password`
-*Environment Variable:* `LUCEE__ADMIN_PASSWORD`
+*Environment Variable:* `LUCEE_ADMIN_PASSWORD`
 
 Password used for the Lucee admin (when you run Lucee in multi mode, the password for the Server admin).
 
