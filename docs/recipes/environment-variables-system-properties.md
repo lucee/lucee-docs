@@ -248,6 +248,14 @@ This allows you to modify your code for the new behavior without encountering ru
 
 Settings that are nice to know, but not that important.
 
+#### LUCEE_MAVEN_LOCAL_REPOSITORY
+
+*SysProp:* `-Dlucee.maven.local.repository`
+*EnvVar:* `LUCEE_MAVEN_LOCAL_REPOSITORY`
+
+Defines the location in the local filesystem where Lucee stores downloaded Maven artifacts. If not explicitly configured, artifacts will be stored in the default location at `lucee-server/mvn/`.
+
+
 #### LUCEE_MAVEN_DEFAULT_REPOSITORIES
 
 *SysProp:* `-Dlucee.maven.default.repositories`
