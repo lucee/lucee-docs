@@ -253,7 +253,6 @@ Settings that are nice to know, but not that important.
 
 Defines the location in the local filesystem where Lucee stores downloaded Maven artifacts. If not explicitly configured, artifacts will be stored in the default location at `lucee-server/mvn/`.
 
-
 #### LUCEE_MAVEN_DEFAULT_REPOSITORIES
 
 *SysProp:* `-Dlucee.maven.default.repositories`
