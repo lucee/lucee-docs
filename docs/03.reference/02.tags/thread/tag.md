@@ -14,7 +14,7 @@ Threads are independent streams of code execution that allow you to perform mult
 * **Join** multiple threads together, synchronizing their execution
 * **Sleep** the current thread to pause execution
 * **Terminate** threads that need to be stopped immediately
-* **Interrupt** threads, allowing for cooperative stopping with resource cleanup
+* **Interrupt** threads, allowing for cooperative stopping with resource cleanup. (**Introduced:** 7.0.0.120)
     
 Each thread gets its own isolated variable scope (`thread`) that persists across the thread's lifetime and can be accessed from other parts of your application.
 
