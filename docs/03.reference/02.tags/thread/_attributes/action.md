@@ -8,4 +8,4 @@ Specifies the operation to perform on the thread. Options include:
 
 * **terminate**: Forcibly stops the specified thread's execution immediately. This is a non-cooperative shutdown that may leave resources in an inconsistent state. When terminated, the thread scope will include an `ERROR` metadata structure with termination details.
 
-* **interrupt**: Sets the interrupt status flag on the specified thread, requesting cooperative termination. If the thread is blocked in a `ThreadJoin`, `sleep`, or I/O operation, it will receive an `InterruptedException` and its interrupt status will be cleared. The thread can then perform cleanup operations before stopping, making this safer than `terminate` for most scenarios.
+* **interrupt**: Sets the interrupt status flag on the specified thread, requesting cooperative termination. If the thread is blocked in a `ThreadJoin`, `sleep`, or I/O operation, it will receive an `InterruptedException` and its interrupt status will be cleared. The thread can then perform cleanup operations before stopping, making this safer than `terminate` for most scenarios. (**Introduced**: 7.0.0.120)
