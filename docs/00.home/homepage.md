@@ -12,7 +12,9 @@ Lucee is a [high performance](https://community.ortussolutions.com/t/how-does-cf
 
 The documentation here aims to provide a thorough reference and guide to all things to do with the Lucee Server. This includes reference material on both [[functions]] and [[tags]] as well as more in-depth articles in the [[guides]] section.
 
-Our documentation is an open source and community driven effort. It is also a constant work in progress and we always welcome feedback, improvements and suggestions. You can find out more about contributing to ted as a developer with Lucee, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/6.0/CONTRIBUTING.md)
+Our documentation is an open source and community driven effort. It is also a constant work in progress and we always welcome feedback, improvements and suggestions. 
+
+If you're interested in contributing to Lucee as a Developer, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/6.0/CONTRIBUTING.md)
 
 ## CFCAMP 2025
 
