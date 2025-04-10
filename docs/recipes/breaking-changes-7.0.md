@@ -88,6 +88,15 @@ This reduced the size of the full `lucee.jar` from 84 Mb to 64 Mb.
 
 [LDEV-5267](https://luceeserver.atlassian.net/browse/LDEV-5267)
 
+LDEV-5485
+
+## Enable LUCEE_COMPILER_BLOCK_BYTECODE by default
+
+Prevents cfml files containing java bytecode from being executed
+
+[LDEV-5485](https://luceeserver.atlassian.net/browse/LDEV-5485)
+[Lucee CVE-2024-55354](https://dev.lucee.org/t/lucee-cve-2024-55354-security-advisory-april-2025/14963)
+
 # Pending changes (not yet implemented)
 
 All proposed changes are listed in the sprint board for 7.0 
