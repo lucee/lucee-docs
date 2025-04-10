@@ -95,6 +95,12 @@ The WebSocket Extension comes with a helper function `websocketInfo()` that well
 ![websocketInfo()](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/websocketInfo.png)
 <em>TODO: update with new version</em>
 
+## Logging
+
+By default the websocket extension logs to the `websocket` log, which needs to be created in the Lucee Admin, for debugging set the log level to TRACE.
+
+Once this log has been defined in the admin, you can [force all the logs to the console](https://luceeserver.atlassian.net/browse/LDEV-3420)
+
 ## Component
 
 > [!IMPORTANT]
