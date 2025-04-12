@@ -120,8 +120,9 @@ component accessors=true {
 				bundles = ext.bundles;
 			}
 			systemOutput(bundleName, true);
-			systemOutput(bundle, true);
+			
 			loop array=bundles item="local.bundle" {
+				systemOutput(bundle, true);
 				if ( bundle.symbolicName == bundleName ) return ext;
 			}
 		}
