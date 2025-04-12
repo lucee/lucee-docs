@@ -85,7 +85,7 @@ component accessors=true {
 				var e = getExtensionOfBundle( bi.name );
 				variables.extensionMap[ fname ] = {
 					name: e.getName(),
-					id: e._getVersion(),
+					id: e._getId(),
 					version: e._getVersion()
 				}
 			}
@@ -104,7 +104,6 @@ component accessors=true {
 					}
 				}
 			}
-
 		}
 	}
 

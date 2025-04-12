@@ -98,17 +98,19 @@ component accessors=true {
 			try {
 				var bi = bundleInfo( createObject( 'java', tags[tag].getTagClassDefinition().getClazz().getName() ) );
 				if ( bi.name != "lucee.core" ) {
-					var e = getExtensionOfBundle( bi.name ).toStruct();
+					var e = getExtensionOfBundle( bi.name );
 					variables.extensionMap[ tag ] = {
-						name: e.name,
-						id: e.id,
-						version: e.version
+						name: e.getName(),
+						id: e._getId(),
+						version: e._getVersion()
 					}
 				}
 			} catch (e) { 
 				//ignore 
 			}
 		}
+
+		systemOutput(variables.extensionMap);
 
 		// load cfml tags
 		var extensions = extensionList();
@@ -132,12 +134,19 @@ component accessors=true {
 	private any function getExtensionOfBundle( bundleName ) {
 		var cfg = getPageContext().getConfig();
 		var extensions = cfg.getAllRHExtensions();
+		var luceeMajor = listFirst( server.lucee.version, "." );
+		var bundles = "";
 		loop collection=extensions.iterator() item="local.ext" {
-			loop array = ext.bundles item="local.bundle" {
-				if ( bundle.symbolicName == bundleName ) return ext;
+			if (luceeMajor gte 7)
+				bundles = ext.getMetadata().getBundles();
+			else {
+				bundles = ext.bundles;
+			}
+			
+			loop array=bundles item="local.bundle" {
+				if ( bundle.getSymbolicName() == bundleName ) return ext.getMetadata();
 			}
 		}
 		throw "could not find extension for bundle [#bundleName#]";
 	}
-
 }
