@@ -82,12 +82,11 @@ component accessors=true {
 		for (var fname in ff){
 			var bi = bundleInfo( ff[fname].getBIF() );
 			if ( bi.name != "lucee.core" ) {
-				var e = getExtensionOfBundle( bi.name ).toStruct();
+				var e = getExtensionOfBundle( bi.name );
 				variables.extensionMap[ fname ] = {
-					name: e.name,
-					id: e.id,
-					version: e.version
-				}
+					name: e.getName(),
+					id: e._getVersion(),
+					version: e._getVersion()
 			}
 		}
 
@@ -121,7 +120,7 @@ component accessors=true {
 			}
 			
 			loop array=bundles item="local.bundle" {
-				if ( bundle.getSymbolicName() == bundleName ) return ext;
+				if ( bundle.getSymbolicName() == bundleName ) return ext.getMetadata();
 			}
 		}
 		throw "could not find extension for bundle [#bundleName#]";
