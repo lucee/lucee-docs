@@ -122,7 +122,8 @@ component accessors=true {
 			systemOutput(bundleName, true);
 			
 			loop array=bundles item="local.bundle" {
-				systemOutput(bundle, true);
+				for (var i in bundle)
+					systemOutput( bundle[i], true );
 				if ( bundle.symbolicName == bundleName ) return ext;
 			}
 		}
