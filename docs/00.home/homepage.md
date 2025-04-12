@@ -34,7 +34,7 @@ We have added a whole series of detailed [[Recipes]] showing you how to take adv
 
 ## Lucee 6.2
 
-**New!** Lucee 6.2 is our latest stable release, with enhanced Java and Maven integration, Jakarta Servlet support and better runtime performance.
+**New!** [Lucee 6.2](https://dev.lucee.org/tag/lucee-62) is our latest stable release, with enhanced Java and Maven integration, Jakarta Servlet support and better runtime performance.
 
 Lucee 6.2 up to 50% faster than Lucee 5.4, while using less memory.
 
