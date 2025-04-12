@@ -1,0 +1,2 @@
+A Maven artifact can be provided from different repositories, not all repositories provide all artifacts. if set to false, Lucee simply picks the most likely repository. 
+If set to true, Lucee checks all possibilities, what can take a while, so only set to true, if really neded.

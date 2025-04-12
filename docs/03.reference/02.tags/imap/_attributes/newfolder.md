@@ -1,0 +1,1 @@
+Name of new folder, used by action renameFolder and moveMail

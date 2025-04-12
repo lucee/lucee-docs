@@ -1,0 +1,1 @@
+Render chart inline using a base64 data url.

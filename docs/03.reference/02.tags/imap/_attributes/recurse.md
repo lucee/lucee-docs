@@ -1,0 +1,1 @@
+Used for action listAllFolders

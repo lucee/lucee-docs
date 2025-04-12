@@ -1,0 +1,1 @@
+When a number is negative, by default, it is wrapped in brackets
