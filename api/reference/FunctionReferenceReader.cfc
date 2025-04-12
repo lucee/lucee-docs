@@ -119,12 +119,9 @@ component accessors=true {
 			else {
 				bundles = ext.bundles;
 			}
-			systemOutput(bundleName, true);
 			
 			loop array=bundles item="local.bundle" {
-				for (var i in bundle)
-					systemOutput( bundle[i], true );
-				if ( bundle.symbolicName == bundleName ) return ext;
+				if ( bundle.getSymbolicName() == bundleName ) return ext;
 			}
 		}
 		throw "could not find extension for bundle [#bundleName#]";
