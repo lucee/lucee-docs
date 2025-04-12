@@ -25,7 +25,13 @@
 		<p><strong>Introduced:</strong> #local.fn.getIntroduced()#</p>
 	</cfif>
 	<cfif len(local.fn.getSrcExtension()) gt 0>
-		<p><strong>Requires Extension: </strong> <span translate="no">#local.fn.getSrcExtension().name#</span></p>
+		<p><strong>Requires Extension: </strong> 
+			<span translate="no">
+				<a href="https://download.lucee.org/###local.fn.getSrcExtension().id#">
+					#local.fn.getSrcExtension().name#
+				</a>
+			</span>
+		</p>
 	</cfif>
 	<code>
 	#local.fn.getUsageSignature()#

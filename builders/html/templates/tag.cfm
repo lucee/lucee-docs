@@ -26,7 +26,13 @@
 		<p><strong>Introduced:</strong> #local.tag.getIntroduced()#</p>
 	</cfif>
 	<cfif len(local.tag.getSrcExtension()) gt 0>
-		<p><strong>Requires Extension: </strong> #local.tag.getSrcExtension().name#</p>
+		<p><strong>Requires Extension: </strong> 
+			<span translate="no">
+				<a href="https://download.lucee.org/###local.tag.getSrcExtension().id#">
+					#local.tag.getSrcExtension().name#
+				</a>
+			</span>	
+		</p>
 	</cfif>
 	
 	<code>
