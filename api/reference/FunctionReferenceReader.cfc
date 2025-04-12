@@ -87,6 +87,7 @@ component accessors=true {
 					name: e.getName(),
 					id: e._getVersion(),
 					version: e._getVersion()
+				}
 			}
 		}
 
