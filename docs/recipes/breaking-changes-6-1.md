@@ -16,6 +16,11 @@
 
 This document outlines the breaking changes introduced when upgrading from Lucee 6.0 to Lucee 6.1. Be aware of these changes when migrating your applications to ensure smooth compatibility.
 
+## Changelogs
+
+- [https://download.lucee.org/changelog/?version=6.1](https://download.lucee.org/changelog/?version=6.1)
+- [New tags and functions](https://docs.lucee.org/reference/changelog.html)
+
 ## Removal of the Lucee Language Dialect
 
 As of Lucee 6.1, the **Lucee Language dialect** has been fully removed. This means that the Lucee-specific language dialect can no longer be used in any way within your applications. Ensure that any code utilizing this dialect is updated to use standard CFML.

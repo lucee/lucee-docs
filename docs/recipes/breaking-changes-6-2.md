@@ -15,6 +15,12 @@
 
 This document outlines the breaking changes introduced when upgrading from Lucee 6.1 to Lucee 6.2. Be aware of these changes when migrating your applications to ensure smooth compatibility.
 
+## Changelogs
+
+- [Release notes, guides, demos](https://dev.lucee.org/tag/lucee-62)
+- [https://download.lucee.org/changelog/?version=6.2](https://download.lucee.org/changelog/?version=6.2)
+- [New tags and functions](https://docs.lucee.org/reference/changelog.html)
+
 ## Java Support
 
 - Java 21 is recommended as it's a LTS release.
@@ -58,3 +64,9 @@ You also may find some race conditions, etc within your own code / applications.
 ## Default Application.Log Level is ERROR
 
 [https://luceeserver.atlassian.net/browse/LDEV-5366](https://luceeserver.atlassian.net/browse/LDEV-5366)
+
+## pagePoolClear() causes non heap memory to increase
+
+Use [[function-inspectTemplates]] instead.
+
+[LDEV-5491](https://luceeserver.atlassian.net/browse/LDEV-5491)
