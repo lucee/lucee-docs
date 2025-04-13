@@ -1,0 +1,1 @@
+The name of a variable to place the return struct, containing [ output, error, exitCode ]

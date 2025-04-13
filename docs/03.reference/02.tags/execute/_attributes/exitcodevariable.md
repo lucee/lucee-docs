@@ -1,0 +1,1 @@
+Variable in which to put the exit code value.
