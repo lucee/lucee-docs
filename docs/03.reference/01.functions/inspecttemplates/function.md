@@ -13,8 +13,8 @@ description: Flag all the cfml code (cfm, cfcs) in the cache of compiled code (a
 
 Flag all the cfml code (cfm, cfcs) in the cache of compiled code (aka the Page Pool) to be checked once for any changes.
 
-To be used when Inspect Templates is set to Never (Server/Web Administrator: Settings -> Performance/Caching)
+This can used for example, when Inspect Templates is set to Never (Server/Web Administrator: Settings -> Performance/Caching)
 
-This is more efficient than [[function-pagepoolclear]] which simply clears the entire cache
+This is way more efficient than [[function-pagepoolclear]] which simply clears the entire cache, which is expensive.
 
 Since 5.3.6
