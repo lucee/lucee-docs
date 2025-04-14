@@ -8,25 +8,27 @@
 </cfexecute>
 ```
 
-### Calling a shell command on Linux
+### Executing a shell command on Linux
 
 ```lucee
 <cfscript>
 	env = { "LUCEE": "rocks" }; // lucee 7+
-	exe ="bash"; // linux
+	exe ="bash";
+	// args as a string
 	args = "-c 'set'";  // or ls etc
-	cfexecute(name=exe, timeout="1", arguments=args , environment=env, variable="variables.result");
+	cfexecute(name=exe, timeout="1", arguments=args , environment=env, variable="result");	
 </cfscript>
 ```
 
-### Calling a shell command on Windows
+### Executing a shell command on Windows
 
 ```lucee
 <cfscript>
 	env = { "LUCEE": "rocks" }; // lucee 7+
-	exe = "cmd"; // windows
-	args = ["/c set"]; // or dir etc
-	cfexecute(name=exe, timeout="1", arguments=args , environment=env, variable="variables.result");
+	exe = "cmd";
+	// args as an array
+	args = ["/c", "set"]; // or dir etc
+	cfexecute(name=exe, timeout="1", arguments=args , environment=env, variable="result");
 </cfscript>
 ```
 
