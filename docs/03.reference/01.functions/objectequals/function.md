@@ -6,4 +6,4 @@ categories:
 - decision
 ---
 
-compares simply and complex objects for equality, attention string comparison is case sensitive
+Compares simply and complex objects for equality, by default, string comparison is not case sensitive
