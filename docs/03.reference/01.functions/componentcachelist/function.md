@@ -5,6 +5,8 @@ categories:
 - cache
 - component
 - debugging
+related:
+- function-componentcacheclear
 ---
 
-list elements in the component path cache
+List elements in the Component Path Cache, to clear use [[function-componentcacheclear]]
