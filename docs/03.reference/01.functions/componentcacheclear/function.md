@@ -5,6 +5,8 @@ categories:
 - cache
 - component
 - server
+related:
+- function-componentcachelist
 ---
 
-flush the component path cache
+Flush the component path cache, to inspect use [[function-componentcachelist]]
