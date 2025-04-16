@@ -509,13 +509,14 @@
     "file": "global-proxy.md",
     "title": "Global Proxy",
     "path": "/docs/recipes/global-proxy.md",
-    "hash": "cdf4145a729621988220682f731e425b",
+    "hash": "31ff8074ef671288b7211448f8171289",
     "keywords": [
       "CFML",
       "proxy",
       "global proxy",
       "Lucee",
-      "Application.cfc"
+      "Application.cfc",
+      "CFConfig"
     ]
   },
   {

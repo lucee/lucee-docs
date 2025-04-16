@@ -142,7 +142,7 @@ Learn how to get datasource drivers directly from Maven.
 
 ## [Global Proxy](/docs/recipes/global-proxy.md)
 
-Learn how to define a global proxy in Lucee. This guide demonstrates how to set up a global proxy in the Application.cfc file, limit the proxy to specific hosts, and exclude specific hosts from using the proxy.
+Learn how to define a global proxy in Lucee. This guide demonstrates how to set up a global proxy in the Application.cfc file or .CFConfig.json, limit the proxy to specific hosts, and exclude specific hosts from using the proxy.
 
 ## [Hidden Gems](/docs/recipes/hidden-gems.md)
 
