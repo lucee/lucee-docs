@@ -300,6 +300,10 @@ Guide on configuring and interacting with specific S3 regions in Lucee using the
 
 Learn about script templates in Lucee. This guide explains how Lucee supports templates with the `.cfs` extension, allowing you to write direct script code without the need for the `<cfscript>` tag.
 
+## [Secret Management](/docs/recipes/secret-provider.md)
+
+Managing secrets in Lucee applications
+
 ## [Session Handling](/docs/recipes/session-handling.md)
 
 Comprehensive guide on session handling and configuration in Lucee, including session types, storage options, and security considerations.
