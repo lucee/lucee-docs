@@ -91,6 +91,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
     "		        </div>" +
     '				<label class="control-label">Change CFML Engine</label>' +
     "		        <div>" +
+    '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee7">Lucee 7 BETA</label>' +
     '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee6">Lucee 6 Latest</label>' +
     '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee5">Lucee 5.4 ( LTS )</label>' +
     '		             <label class="radio-inline"><input type="radio" name="engine" class="luceeEngine" value="lucee4">Lucee 4.5 ( EOL )</label>' +
@@ -139,7 +140,9 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
       scope.setupCodeGist = attrs.setupCodeGist;
       scope.asserts = attrs.asserts;
       scope.saveGist = saveGist;
-      scope.engines = { lucee6: "Lucee 6 Latest",
+      scope.engines = {
+        lucee7: "Lucee 7 BETA",
+        lucee6: "Lucee 6 Latest",
         lucee5: "Lucee 5.4 LTS",
         lucee4: "Lucee 4.5 EOL"
       };
@@ -209,7 +212,9 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
         urlPool = {
           lucee4: ["https://lucee4-sbx.trycf.com/lucee4/getremote.cfm"],
           lucee5: ["https://lucee5-sbx.trycf.com/lucee5/getremote.cfm"],
+          lucee5: ["https://lucee5-sbx.trycf.com/lucee5/getremote.cfm"],
           lucee6: ["https://lucee6-sbx.trycf.com/getremote.cfm"]
+          lucee7: ["https://lucee7-sbx.trycf.com/getremote.cfm"]
         },
         url =
           attrs.url ||
