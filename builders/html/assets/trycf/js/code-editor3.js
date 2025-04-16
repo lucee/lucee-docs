@@ -140,7 +140,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
       scope.setupCodeGist = attrs.setupCodeGist;
       scope.asserts = attrs.asserts;
       scope.saveGist = saveGist;
-      scope.engines = {
+      scope.engines = {,
         lucee7: "Lucee 7 BETA",
         lucee6: "Lucee 6 Latest",
         lucee5: "Lucee 5.4 LTS",
@@ -213,7 +213,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
           lucee4: ["https://lucee4-sbx.trycf.com/lucee4/getremote.cfm"],
           lucee5: ["https://lucee5-sbx.trycf.com/lucee5/getremote.cfm"],
           lucee5: ["https://lucee5-sbx.trycf.com/lucee5/getremote.cfm"],
-          lucee6: ["https://lucee6-sbx.trycf.com/getremote.cfm"]
+          lucee6: ["https://lucee6-sbx.trycf.com/getremote.cfm"],
           lucee7: ["https://lucee7-sbx.trycf.com/getremote.cfm"]
         },
         url =
