@@ -1,0 +1,1 @@
+Use case sensitive string comparison
