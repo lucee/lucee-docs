@@ -1046,6 +1046,19 @@
     ]
   },
   {
+    "file": "secret-provider.md",
+    "title": "Secret Management",
+    "path": "/docs/recipes/secret-provider.md",
+    "hash": "ff07f2416fcfbe50a28b1afcc6b19c42",
+    "keywords": [
+      "security",
+      "secrets",
+      "credentials",
+      "environment variables",
+      "configuration"
+    ]
+  },
+  {
     "file": "session-handling.md",
     "title": "Session Handling",
     "path": "/docs/recipes/session-handling.md",
