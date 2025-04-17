@@ -1,5 +1,20 @@
 [
   {
+    "file": "ai-augmentation.md",
+    "title": "AI Augmentation with Lucene",
+    "path": "/docs/recipes/ai-augmentation.md",
+    "hash": "89e822af2493a4bbf696b45011d63ff3",
+    "keywords": [
+      "AI",
+      "LLM",
+      "RAG",
+      "Search",
+      "Augmentation",
+      "Lucene",
+      "Retrieval"
+    ]
+  },
+  {
     "file": "ai-for-documentation.md",
     "title": "AI in Documentation (Experimental)",
     "path": "/docs/recipes/ai-for-documentation.md",

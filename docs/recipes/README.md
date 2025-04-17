@@ -1,5 +1,9 @@
 # Recipes
 
+## [AI Augmentation with Lucene](/docs/recipes/ai-augmentation.md)
+
+Documentation for augmenting AI queries using Lucene search in Lucee
+
 ## [AI in Documentation (Experimental)](/docs/recipes/ai-for-documentation.md)
 
 Guide to configuring AI for use in Lucee's Documentation tab, leveraging retrieval-augmented generation (RAG) and enhanced search functionality.
