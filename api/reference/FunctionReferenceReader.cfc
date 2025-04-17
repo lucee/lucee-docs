@@ -38,7 +38,7 @@ component accessors=true {
 		var coreDefinition = getFunctionData( arguments.functionName );
 		var parsedFunction = StructNew( "linked" );
 
-		parsedFunction.name         = coreDefinition.name ?: "";
+		parsedFunction.name         = coreDefinition.nameWithCase ?: (coreDefinition.name ?: "");
 		parsedFunction.memberName   = coreDefinition.member.name ?: "";
 		parsedFunction.description  = coreDefinition.description ?: "";
 		parsedFunction.status       = coreDefinition.status ?: "";
@@ -58,7 +58,7 @@ component accessors=true {
 		for( var arg in args ) {
 			var convertedArg = StructNew( "linked" );
 
-			convertedArg.name        = arg.name        ?: "";
+			convertedArg.name        = arg.nameWithCase ?: (arg.name        ?: "");
 			convertedArg.description = arg.description ?: "";
 			convertedArg.type        = arg.type        ?: "";
 			convertedArg.required    = IsBoolean( arg.required ?: "" ) && arg.required;
