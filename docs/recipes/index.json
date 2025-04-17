@@ -25,6 +25,19 @@
     ]
   },
   {
+    "file": "ai-serialisation.md",
+    "title": "AI Session Serialization",
+    "path": "/docs/recipes/ai-serialisation.md",
+    "hash": "ce5920f51410cef335a41f2932e4bf52",
+    "keywords": [
+      "AI",
+      "LLM",
+      "Serialization",
+      "Session",
+      "Persistence"
+    ]
+  },
+  {
     "file": "ai.md",
     "title": "AI (Experimental)",
     "path": "/docs/recipes/ai.md",

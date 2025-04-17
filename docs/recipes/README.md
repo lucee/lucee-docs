@@ -4,6 +4,10 @@
 
 Guide to configuring AI for use in Lucee's Documentation tab, leveraging retrieval-augmented generation (RAG) and enhanced search functionality.
 
+## [AI Session Serialization](/docs/recipes/ai-serialisation.md)
+
+Documentation for serializing and deserializing AI sessions in Lucee
+
 ## [AI (Experimental)](/docs/recipes/ai.md)
 
 No description available.
