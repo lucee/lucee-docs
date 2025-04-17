@@ -113,7 +113,7 @@ component {
 		var data = [=];
 		data["name"] = fn.getName();
 		data["type"] = fn.getPageType();
-		data["returns"] = (fn.getPageType() == "tag") ? "void" : fn.getReturnType();
+		data["returns"] = lcase((fn.getPageType() == "tag") ? "void" : fn.getReturnType());
 		data["description"] = fn.getDescription();
 
 		data["engines"] = {
@@ -124,6 +124,8 @@ component {
 		};
 		if ( fn.getIntroduced() gt 0){
 			data.engines.lucee["minimum_version"] = left(fn.getIntroduced(), 3 );
+		} else {
+			data.engines.lucee["minimum_version"] = "";
 		}
 		if ( fn.getUsageNotes() gt 0 ){
 			data.engines.lucee["notes"] = fn.getUsageNotes()
@@ -149,7 +151,7 @@ component {
 			arg["description"] = a.description;
 			if (! isNull( a.default ) )
 				arg["default"] = a.default;
-			arg["type"] = a.type;
+			arg["type"] = lcase(a.type);
 			if ( structKeyExists( a, "introduced") && len( a.introduced ) gt 0)
 				arg["minimum_version"] = left(a.type, 3);
 			arrayAppend( data["params"], arg );
@@ -174,7 +176,11 @@ component {
 					args &= ", ";
 				args &= ArrayToList( optional, ", " );
 			}
-			data["syntax"] = fn.name & "( " & args & " )";
+			if ( len( args ) ){
+				data["syntax"] = fn.name & "( " & ArrayToList( required, ", " ) & " )";
+			} else {
+				data["syntax"] = fn.name & "()";
+			}
 		}
 		var jsonfile = variables.cfdocsPath & "/" & lcase(fn.name) & ".json";
 		fileWrite( jsonFile, variables.prettyPrinter.prettyPrint( data ) );
