@@ -37,7 +37,7 @@ component accessors=true {
 		}
 		var parsedTag      = StructNew( "linked" );
 
-		parsedTag.name                 = coreDefinition.name ?: NullValue();
+		parsedTag.name                 = coreDefinition.nameWithCase ?: (coreDefinition.name ?: NullValue());
 		parsedTag.type                 = coreDefinition.type ?: NullValue();
 		parsedTag.description          = coreDefinition.description ?: NullValue();
 		parsedTag.status               = coreDefinition.status ?: NullValue();
@@ -65,7 +65,7 @@ component accessors=true {
 			var attrib = attribs[ attribName ];
 			var parsedAttribute = StructNew( "linked" );
 
-			parsedAttribute.name                   = attribName
+			parsedAttribute.name                   = attrib.nameWithCase ?: attribName
 			parsedAttribute.type                   = attrib.type ?: NullValue();
 			parsedAttribute.description            = attrib.description ?: NullValue();
 			parsedAttribute.status                 = attrib.status ?: NullValue();
