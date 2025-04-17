@@ -310,7 +310,7 @@ Learn about script templates in Lucee. This guide explains how Lucee supports te
 
 ## [Secret Management](/docs/recipes/secret-provider.md)
 
-Managing secrets in Lucee applications
+Managing Secrets in Lucee applications
 
 ## [Session Handling](/docs/recipes/session-handling.md)
 

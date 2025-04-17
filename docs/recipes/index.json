@@ -3,7 +3,7 @@
     "file": "ai-augmentation.md",
     "title": "AI Augmentation with Lucene",
     "path": "/docs/recipes/ai-augmentation.md",
-    "hash": "89e822af2493a4bbf696b45011d63ff3",
+    "hash": "df17e30e135c2d4ea56560ea2437cf1a",
     "keywords": [
       "AI",
       "LLM",
@@ -18,7 +18,7 @@
     "file": "ai-for-documentation.md",
     "title": "AI in Documentation (Experimental)",
     "path": "/docs/recipes/ai-for-documentation.md",
-    "hash": "65ba2402925af84972b1336566e70ad9",
+    "hash": "375e663dbc51af91891b0c40fb2a599f",
     "keywords": [
       "AI",
       "LLM",
@@ -43,7 +43,7 @@
     "file": "ai-serialisation.md",
     "title": "AI Session Serialization",
     "path": "/docs/recipes/ai-serialisation.md",
-    "hash": "ce5920f51410cef335a41f2932e4bf52",
+    "hash": "32736f6cccae1321ae3001545d1b4db1",
     "keywords": [
       "AI",
       "LLM",
@@ -56,7 +56,7 @@
     "file": "ai.md",
     "title": "AI (Experimental)",
     "path": "/docs/recipes/ai.md",
-    "hash": "506b91d2f94eb5f066647484d82981da",
+    "hash": "277b9c74bc8f711eb59143aafda2af44",
     "keywords": [
       "AI",
       "LLM"
@@ -632,7 +632,7 @@
     "file": "java-libraries.md",
     "title": "Interacting with Java Libraries in Lucee 6.2",
     "path": "/docs/recipes/java-libraries.md",
-    "hash": "11e13ce9bec0c7d7e22148df7007a642",
+    "hash": "fcb4ffab9370cc0c368a03553d8b156a",
     "keywords": [
       "java",
       "maven",
@@ -646,7 +646,7 @@
     "file": "java-settings.md",
     "title": "Java Settings in Application.cfc (Now with Maven Support)",
     "path": "/docs/recipes/java-settings.md",
-    "hash": "3300140a483332be2ed57ab54e2f4256",
+    "hash": "50ed5562d154f20d39b2d7ca9d07d459",
     "keywords": [
       "Java settings",
       "Application.cfc",
@@ -658,7 +658,7 @@
     "file": "language-server.md",
     "title": "Language Server Protocol (LSP) for Lucee",
     "path": "/docs/recipes/language-server.md",
-    "hash": "19b8dbee03749dfa0283528d9a8cfe40",
+    "hash": "75257e0182da1d591a4f6fad3b61ce71",
     "keywords": [
       "LSP",
       "language server",
@@ -1077,7 +1077,7 @@
     "file": "secret-provider.md",
     "title": "Secret Management",
     "path": "/docs/recipes/secret-provider.md",
-    "hash": "ff07f2416fcfbe50a28b1afcc6b19c42",
+    "hash": "875eee70dfba91218f32e59d0db70fb0",
     "keywords": [
       "security",
       "secrets",
