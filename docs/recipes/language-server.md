@@ -2,6 +2,7 @@
 {
   "title": "Language Server Protocol (LSP) for Lucee",
   "id": "language-server-protocol",
+  "since": "6.1",
   "description": "This document explains how to configure and use the Language Server Protocol implementation for Lucee CFML/CFScript.",
   "keywords": [
     "LSP",

@@ -3,7 +3,8 @@
   "title": "Secret Management",
   "id": "secret-management",
   "categories": ["security"],
-  "description": "Managing secrets in Lucee applications",
+  "description": "Managing Secrets in Lucee applications",
+  "since": "7.0",
   "keywords": [
     "security",
     "secrets",
@@ -36,7 +37,6 @@ Read the secret directly from the enviroment variables.
   }
 }
 ```
-
 
 **File Example:**
 

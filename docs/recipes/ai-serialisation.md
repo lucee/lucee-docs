@@ -3,6 +3,7 @@
   "title": "AI Session Serialization",
   "id": "ai-session-serialization",
   "categories": ["ai"],
+  "since": "6.0",
   "description": "Documentation for serializing and deserializing AI sessions in Lucee",
   "keywords": [
     "AI",
@@ -31,11 +32,13 @@ SerializeAISession(session, maxlength, condense=false)
 ```
 
 **Arguments:**
+
 - `session`: The AI session object returned by LuceeCreateAISession(). This session maintains the conversation history and configuration settings like temperature and system message.
 - `maxlength`: Optional. Specifies the maximum number of conversation exchanges to retain in the serialized output. When specified, the function preserves the most recent exchanges up to this limit, truncating older exchanges while keeping the session configuration intact. This helps control memory usage and storage requirements for long-running conversations without losing recent context. When used with condense=true, maxlength is applied before condensation. If not specified, all conversation history is retained.
 - `condense`: Controls whether the conversation history should be condensed before serialization. When set to true, the function will intelligently summarize older parts of the conversation while preserving essential context. This reduces the overall token count and storage requirements while maintaining the important elements of the conversation history. Default is false, which preserves the complete conversation history.
 
 **Returns:**
+
 A JSON string containing:
 - Configuration settings (temperature, limits, timeouts, system message)
 - Conversation history with questions and answers, which may be:
@@ -53,6 +56,7 @@ LoadAISession(name, data)
 ```
 
 **Arguments:**
+
 - `name`: Specifies which AI endpoint configuration to use. Can be:
   - Direct endpoint name (e.g., 'claude')
   - ID-based reference with prefix (e.g., 'id:123')
@@ -62,6 +66,7 @@ LoadAISession(name, data)
   - A struct containing session configuration and conversation history
 
 **Returns:**
+
 A new AI session object with the restored configuration and conversation history.
 
 ## Cross-Model Flexibility

@@ -4,6 +4,7 @@
   "title": "Interacting with Java Libraries",
   "id": "java-libraries",
   "description": "Guide on using Java libraries in Lucee 6.2 with Maven and import",
+  "since": "6.2",
   "keywords": [
     "java",
     "maven",

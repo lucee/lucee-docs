@@ -2,6 +2,7 @@
 {
   "title": "AI Augmentation with Lucene",
   "id": "ai-augmentation-lucene",
+  "since": "7.0",
   "categories": ["ai", "search"],
   "description": "Documentation for augmenting AI queries using Lucene search in Lucee",
   "keywords": [
