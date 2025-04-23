@@ -40,6 +40,7 @@ SerializeAISession(session, maxlength, condense=false)
 **Returns:**
 
 A JSON string containing:
+
 - Configuration settings (temperature, limits, timeouts, system message)
 - Conversation history with questions and answers, which may be:
   - Complete history (if no parameters are used)
@@ -78,6 +79,7 @@ An important feature of these functions is that you are not bound to a specific 
 - Continue the conversation with the new model while maintaining the conversation history
 
 This allows for:
+
 - A/B testing different models with the same conversation history
 - Falling back to alternative models if one is unavailable
 - Moving conversations to more capable or cost-effective models as needed

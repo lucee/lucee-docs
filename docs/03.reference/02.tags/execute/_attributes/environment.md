@@ -1,1 +1,1 @@
-An array of key value pairs
+An struct of environment variables

@@ -31,3 +31,28 @@
 	cfexecute(name=exe, timeout="1", arguments=args , environment=env, variable="result");
 </cfscript>
 ```
+
+### Example for cfexecute with onprogress & onerror (Introduced: 7.0.0.188)
+
+```lucee
+<cfscript>
+    function handleProgress(line, process) {
+        writeOutput(">> " & line & "<br>");
+        return true; // Continue processing
+    }
+    function onErrorListener ( errorOutput ){
+        writeOutput("ERROR " & err);
+        return false; //cancel the process
+    };
+        // Execute the "dir" command
+    cfexecute(
+        name="cmd",//windows command line
+        arguments="/c dir", // "/c" ensures the command runs and exits
+        result="local.result", // Captures the output of the command 
+        directory="C:\Users", // Specify the directory to list
+        onError=onErrorListener, // Callback function for error handling
+        onprogress =handleProgress, // Callback function for progress
+        timeout=10 // Set a timeout to prevent hanging
+    ); 
+</cfscript>
+```
