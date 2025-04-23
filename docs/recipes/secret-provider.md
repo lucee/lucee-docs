@@ -25,7 +25,7 @@ In Lucee 7, secret providers can be configured similarly to datasources, caches,
 
 **Environment Variables Example:**
 
-Read the secret directly from the enviroment variables.
+Read the secret directly from the environment variables.
 
 ```json
 "secretProviders": {
