@@ -2,6 +2,7 @@ component {
 
 	public any function init() {
 		variables.cfdocsPath = expandPath("../builds/cfdocs/en");
+		variables.HtmlBuildRoot = expandPath("../builds/html");
 		variables.prettyPrinter = getJsonPrettyPrinter();
 		if ( !directoryExists( variables.cfdocsPath) )
 			directoryCreate( variables.cfdocsPath );
@@ -14,7 +15,7 @@ component {
 		request.filesWritten = 0;
 		request.filesToWrite = StructCount(pagePaths);
 
-		request.logger (text="CFDOCS HTML directory: #arguments.buildDirectory#");
+		request.logger (text="CFDOCS JSON Format directory: #arguments.buildDirectory#");
 
 		var tags = [];
 		var functions = [];
@@ -46,6 +47,17 @@ component {
 		ArrayAppend(all, functions, true);
 		renderIndex( all, "Tags and Functions", "all");
 
+		var zipFilename = "lucee-docs-json.zip";
+
+		zip action="zip" 
+			source="#variables.cfdocsPath#" 
+			file="#variables.cfdocsPath#/lucee-docs-json.zip" 
+			recurse="false" 
+			filter="*.json";
+		request.logger (text="CFDOCS Builder #variables.cfdocsPath#/lucee-docs-json.zip produced");
+		fileCopy("#variables.cfdocsPath#/lucee-docs-json.zip", "#variables.HtmlBuildRoot#/#zipFilename#");
+
+		request.filesWritten +=4;
 		request.logger (text="CFDOCS Builder #request.filesWritten# files produced");
 	}
 
