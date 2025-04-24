@@ -15,16 +15,37 @@ component {
 		request.filesToWrite = StructCount(pagePaths);
 
 		request.logger (text="CFDOCS HTML directory: #arguments.buildDirectory#");
+
+		var tags = [];
+		var functions = [];
+
 		for ( var path in pagePaths ) {
 		//each( pagePaths, function( path ) {
 			var tick = getTickCount();
-			if ( renderJson( pagePaths[ path ].page ))
+			var _page = pagePaths[ path ].page;
+			if ( renderJson( pagePaths[ path ].page ) ){
 				request.filesWritten++;
+				switch ( _page.getPageType() ){
+					case "tag":
+						arrayAppend( tags, _page.getName() );
+						break;
+					case "function":
+						arrayAppend( functions, _page.getName() );
+						break;
+				}
+			}
 			if ((request.filesWritten mod 50) eq 1){
 				request.logger(text="Rendering CFDOCS (#request.filesWritten#) - only tags and functions");
 			}
 		//}, (arguments.threads > 1), arguments.threads);
 		}
+
+		renderIndex( tags, "Tags", "tags");
+		renderIndex( functions, "Functions", "functions");
+		var all = duplicate(tags);
+		ArrayAppend(all, functions, true);
+		renderIndex( all, "Tags and Functions", "all");
+
 		request.logger (text="CFDOCS Builder #request.filesWritten# files produced");
 	}
 
@@ -113,6 +134,20 @@ component {
 		var jsonfile = variables.cfdocsPath & "/" & lcase(fn.name) & ".json";
 		fileWrite( jsonFile, variables.prettyPrinter.prettyPrint( data ) );
 		return true;
+	}
+
+	function renderIndex( array files, string type, string filename ){
+		var indexListing = {
+			"related": [],
+			"description": "A listing of all CFML #arguments.type#.",
+			"type": "listing",
+			"name": "All CFML #arguments.type#"
+		};
+		ArraySort( files, "textnocase" );
+		indexListing.related = files;
+		var jsonfile = variables.cfdocsPath & "/" & lCase( filename ) & ".json";
+		fileWrite( jsonFile, variables.prettyPrinter.prettyPrint( indexListing ) );
+		
 	}
 
 	public function getJsonPrettyPrinter(){
