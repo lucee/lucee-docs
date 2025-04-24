@@ -94,6 +94,7 @@ component {
 		}
 		data["params"] = [];
 		var required = [];
+		var optional = [];
 		if ( fn.getPageType() == "tag" )
 			var params = fn.getAttributes();
 		else
@@ -106,7 +107,9 @@ component {
 				arg["aliases"] = a.alias;
 			arg["required"] = a.required;
 			if ( a.required )
-				arrayAppend( required, a.name );
+				arrayAppend( required, a.type & " " & a.name );
+			else 
+				arrayAppend( optional, "[" & a.type & " " & a.name & "]" );
 			arg["description"] = a.description;
 			if (! isNull( a.default ) )
 				arg["default"] = a.default;
@@ -129,7 +132,13 @@ component {
 					& ArrayToList( attrs, ", " ) & "/>";
 			}
 		} else {
-			data["syntax"] = fn.name & "( " & ArrayToList( required, ", " ) & " )";
+			var args = ArrayToList( required, ", " );
+			if ( len ( optional ) ){
+				if (len( args ) )
+					args &= ", ";
+				args &= ArrayToList( optional, ", " );
+			}
+			data["syntax"] = fn.name & "( " & args & " )";
 		}
 		var jsonfile = variables.cfdocsPath & "/" & lcase(fn.name) & ".json";
 		fileWrite( jsonFile, variables.prettyPrinter.prettyPrint( data ) );

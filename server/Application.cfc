@@ -54,6 +54,9 @@ component {
 				case "/build_docs/html/":
 					new api.build.BuildRunner().build(builderName="html", threads=buildThreads);
 					break;
+				case "/build_docs/cfdocs/":
+					new api.build.BuildRunner().build(builderName="cfdocs", threads=buildThreads);
+					break;
 				case "/build_docs/dash/":
 					new api.build.BuildRunner().build(builderName="dash", threads=buildThreads);
 					break;
@@ -251,10 +254,14 @@ component {
 			title: "Exporting HTML",
 			menu: "Build HTML"
 		};
+		opts.cfdocs = {
+			title: "Exporting CFDOCS style json files",
+			menu: "Build CFDOCS"
+		};
 		opts.spellcheck = {
 			title: "Spellchecking built HTML",
 			menu: "Spell Check HTML"
-		};
+		};		
 		opts.dictionary = {
 			title: "Exporting Dictionary",
 			menu: "Export Dictionary"
