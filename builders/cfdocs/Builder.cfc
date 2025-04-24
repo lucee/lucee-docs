@@ -1,16 +1,18 @@
 component {
 
 	public any function init() {
-		variables.cfdocsPath = expandPath("../builds/cfdocs/en");
-		variables.HtmlBuildRoot = expandPath("../builds/html");
 		variables.prettyPrinter = getJsonPrettyPrinter();
-		if ( !directoryExists( variables.cfdocsPath) )
-			directoryCreate( variables.cfdocsPath );
 		return this;
 	}
 
 	public void function build( required any docTree, required string buildDirectory, required numeric threads) {
 		var pagePaths = arguments.docTree.getPageCache().getPages();
+
+		variables.cfdocsPath = arguments.buildDirectory;
+		variables.HtmlBuildRoot = expandPath("../html");
+		
+		if ( !directoryExists( variables.cfdocsPath) )
+			directoryCreate( variables.cfdocsPath );
 
 		request.filesWritten = 0;
 		request.filesToWrite = StructCount(pagePaths);
@@ -52,9 +54,11 @@ component {
 		zip action="zip" 
 			source="#variables.cfdocsPath#" 
 			file="#variables.cfdocsPath#/lucee-docs-json.zip" 
-			recurse="false" 
+			recurse="false"
 			filter="*.json";
+
 		request.logger (text="CFDOCS Builder #variables.cfdocsPath#/lucee-docs-json.zip produced");
+		request.logger (text="CFDOCS Builder copying zip to #variables.HtmlBuildRoot#/#zipFilename#");
 		fileCopy("#variables.cfdocsPath#/lucee-docs-json.zip", "#variables.HtmlBuildRoot#/#zipFilename#");
 
 		request.filesWritten +=4;
