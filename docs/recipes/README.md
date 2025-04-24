@@ -196,6 +196,10 @@ How to use lazy queries
 
 List existing Cache Connections available in Lucee.
 
+## [Logging HTTP Calls](/docs/recipes/logging-http-calls.md)
+
+This document explains how to log HTTP calls made by the cfhttp tag in Lucee.
+
 ## [Logging in Lucee](/docs/recipes/logging.md)
 
 How to configure and customize logging

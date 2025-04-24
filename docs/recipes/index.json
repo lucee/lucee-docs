@@ -696,6 +696,20 @@
     ]
   },
   {
+    "file": "logging-http-calls.md",
+    "title": "Logging HTTP Calls",
+    "path": "/docs/recipes/logging-http-calls.md",
+    "hash": "a0a53b1b715d10ce078d0ab9fddf89f9",
+    "keywords": [
+      "cfhttp",
+      "logging",
+      "http",
+      "debugging",
+      "application log",
+      "http log"
+    ]
+  },
+  {
     "file": "logging.md",
     "title": "Logging in Lucee",
     "path": "/docs/recipes/logging.md",
