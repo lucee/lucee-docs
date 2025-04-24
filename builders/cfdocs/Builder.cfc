@@ -9,7 +9,7 @@ component {
 		var pagePaths = arguments.docTree.getPageCache().getPages();
 
 		variables.cfdocsPath = arguments.buildDirectory;
-		variables.HtmlBuildRoot = expandPath("../html");
+		variables.HtmlBuildRoot = getHtmlBuildDir( arguments.buildDirectory );
 		
 		if ( !directoryExists( variables.cfdocsPath) )
 			directoryCreate( variables.cfdocsPath );
@@ -186,6 +186,10 @@ component {
 				return str;
 			}
 		}
+	}
+
+	function getHtmlBuildDir( buildDirectory ){
+		return left( arguments.buildDirectory, len( arguments.buildDirectory ) - len( "cfdocs" ) ) & "html";
 	}
 	
 }
