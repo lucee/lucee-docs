@@ -13,6 +13,8 @@ Here are the Modern IDEs which include support for CFML development
 
 <https://marketplace.visualstudio.com/items?itemName=CFMLEditor.cfmleditor>
 
+For complete contextual inline [Lucee help](https://dev.lucee.org/t/full-lucee-docs-for-vscode-cfmleditor/15046) with cfmleditor, there is a complete Lucee json dictionary using the [cfdocs](cfdocs.org) schema available [lucee-docs-json.zip](https://docs.lucee.org/lucee-docs-json.zip)
+
 <https://marketplace.visualstudio.com/items?itemName=CFMLEditor.cfmleditor-lint>
 
 <https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker>
