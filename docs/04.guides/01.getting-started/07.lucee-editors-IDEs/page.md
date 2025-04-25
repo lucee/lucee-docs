@@ -13,7 +13,7 @@ Here are the Modern IDEs which include support for CFML development
 
 <https://marketplace.visualstudio.com/items?itemName=CFMLEditor.cfmleditor>
 
-For complete contextual inline [Lucee help](https://dev.lucee.org/t/full-lucee-docs-for-vscode-cfmleditor/15046) with cfmleditor, there is a complete Lucee json dictionary using the [cfdocs](cfdocs.org) schema available [lucee-docs-json.zip](https://docs.lucee.org/lucee-docs-json.zip)
+For complete contextual inline [Lucee help](https://dev.lucee.org/t/full-lucee-docs-for-vscode-cfmleditor/15046) with cfmleditor, there is a complete Lucee json dictionary using the [cfdocs](cfdocs.org) schema available [lucee-docs-json.zip](https://docs.lucee.org/lucee-docs-json.zip), there is also a double zipped version (stored and then zipped) [lucee-docs-json-zipped.zip](https://docs.lucee.org/lucee-docs-json-zipped.zip) which is less than half the size of the normal zipped version.
 
 <https://marketplace.visualstudio.com/items?itemName=CFMLEditor.cfmleditor-lint>
 
