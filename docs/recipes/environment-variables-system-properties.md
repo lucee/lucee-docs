@@ -101,7 +101,10 @@ Or with more specific information like version and label (for better readability
 *SysProp:* `-Dlucee.enable.bundle.download`
 *EnvVar:* `LUCEE_ENABLE_BUNDLE_DOWNLOAD`
 
-Controls whether Lucee is allowed to download OSGi bundles. When enabled (default), Lucee can download required bundles. When disabled, Lucee will not download any OSGi bundles and will only use bundles that are already available locally.
+Controls whether Lucee is allowed to download OSGi bundles. Valid values:
+- `true` - (Default) Lucee can download required bundles if they're not available locally.
+- `false` - Lucee will not download any OSGi bundles and will only use bundles that are already available locally.
+- `always` - Forces Lucee to download bundles even if they are available locally. This is primarily useful for debugging purposes.
 
 #### LUCEE_LOGINSTORAGE_ITERATIONS
 
