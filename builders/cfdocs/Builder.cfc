@@ -11,8 +11,9 @@ component {
 		variables.cfdocsPath = arguments.buildDirectory;
 		variables.HtmlBuildRoot = getHtmlBuildDir( arguments.buildDirectory );
 		
-		if ( !directoryExists( variables.cfdocsPath) )
-			directoryCreate( variables.cfdocsPath );
+		if ( directoryExists( variables.cfdocsPath) )
+			directoryDelete( variables.cfdocsPath, true ); // clean slate
+		directoryCreate( variables.cfdocsPath  );
 
 		request.filesWritten = 0;
 		request.filesToWrite = StructCount(pagePaths);
@@ -51,9 +52,26 @@ component {
 
 		var zipFilename = "lucee-docs-json.zip";
 
+		// neat trick, storing then zipping the stored zip reduces the file size from 496 Kb to 216 Kb
 		zip action="zip" 
 			source="#variables.cfdocsPath#" 
-			file="#variables.cfdocsPath#/lucee-docs-json.zip" 
+			file="#variables.cfdocsPath#/lucee-docs-json-store.zip"
+			compressionmethod="store"
+			recurse="false"
+			filter="*.json";
+
+		zip action="zip" 
+			source="#variables.cfdocsPath#" 
+			file="#variables.cfdocsPath#/lucee-docs-json-zipped.zip"
+			compressionmethod="deflateUtra" // typo in cfzip!
+			recurse="false" {
+				zipparam entrypath="lucee-docs-json.zip" source="#variables.cfdocsPath#/lucee-docs-json-store.zip";
+		};
+		fileDelete("#variables.cfdocsPath#/lucee-docs-json-store.zip");
+
+		zip action="zip" 
+			source="#variables.cfdocsPath#" 
+			file="#variables.cfdocsPath#/lucee-docs-json.zip"
 			recurse="false"
 			filter="*.json";
 
