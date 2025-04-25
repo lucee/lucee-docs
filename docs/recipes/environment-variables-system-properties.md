@@ -96,6 +96,13 @@ Or with more specific information like version and label (for better readability
 2BCD080F-4E1E-48F5-BEFE794232A21AF6;name=JDTsSQL;label=jTDS (MSSQL);version=1.3.1
 ```
 
+#### LUCEE_ENABLE_BUNDLE_DOWNLOAD
+
+*SysProp:* `-Dlucee.enable.bundle.download`
+*EnvVar:* `LUCEE_ENABLE_BUNDLE_DOWNLOAD`
+
+Controls whether Lucee is allowed to download OSGi bundles. When enabled (default), Lucee can download required bundles. When disabled, Lucee will not download any OSGi bundles and will only use bundles that are already available locally.
+
 #### LUCEE_LOGINSTORAGE_ITERATIONS
 
 *SysProp:* `-Dlucee.loginstorage.iterations`
