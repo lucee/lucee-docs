@@ -51,6 +51,7 @@ component {
 		renderIndex( all, "Tags and Functions", "all");
 
 		var zipFilename = "lucee-docs-json.zip";
+		var doubleZipFilename = "lucee-docs-json-zipped.zip";
 
 		// neat trick, storing then zipping the stored zip reduces the file size from 496 Kb to 216 Kb
 		zip action="zip" 
@@ -62,22 +63,24 @@ component {
 
 		zip action="zip" 
 			source="#variables.cfdocsPath#" 
-			file="#variables.cfdocsPath#/lucee-docs-json-zipped.zip"
+			file="#variables.cfdocsPath#/#doubleZipFilename#"
 			compressionmethod="deflateUtra" // typo in cfzip!
 			recurse="false" {
-				zipparam entrypath="lucee-docs-json.zip" source="#variables.cfdocsPath#/lucee-docs-json-store.zip";
+				zipparam entrypath="#zipFilename#" source="#variables.cfdocsPath#/lucee-docs-json-store.zip";
 		};
 		fileDelete("#variables.cfdocsPath#/lucee-docs-json-store.zip");
 
 		zip action="zip" 
 			source="#variables.cfdocsPath#" 
-			file="#variables.cfdocsPath#/lucee-docs-json.zip"
+			file="#variables.cfdocsPath#/#zipFilename#"
 			recurse="false"
 			filter="*.json";
 
 		request.logger (text="CFDOCS Builder #variables.cfdocsPath#/lucee-docs-json.zip produced");
 		request.logger (text="CFDOCS Builder copying zip to #variables.HtmlBuildRoot#/#zipFilename#");
-		fileCopy("#variables.cfdocsPath#/lucee-docs-json.zip", "#variables.HtmlBuildRoot#/#zipFilename#");
+		fileCopy("#variables.cfdocsPath#/#zipFilename#", "#variables.HtmlBuildRoot#/#zipFilename#");
+		request.logger (text="CFDOCS Builder copying zipped store zip to #variables.HtmlBuildRoot#/#doubleZipFilename#");
+		fileCopy("#variables.cfdocsPath#/#doubleZipFilename#", "#variables.HtmlBuildRoot#/#doubleZipFilename#");
 
 		request.filesWritten +=4;
 		request.logger (text="CFDOCS Builder #request.filesWritten# files produced");
