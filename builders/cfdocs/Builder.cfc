@@ -177,7 +177,7 @@ component {
 				args &= ArrayToList( optional, ", " );
 			}
 			if ( len( args ) ){
-				data["syntax"] = fn.name & "( " & ArrayToList( required, ", " ) & " )";
+				data["syntax"] = fn.name & "( " & args & " )";
 			} else {
 				data["syntax"] = fn.name & "()";
 			}
