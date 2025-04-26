@@ -10,7 +10,7 @@ component {
 
 		variables.cfdocsPath = arguments.buildDirectory;
 		variables.HtmlBuildRoot = getHtmlBuildDir( arguments.buildDirectory );
-		
+
 		if ( directoryExists( variables.cfdocsPath) )
 			directoryDelete( variables.cfdocsPath, true ); // clean slate
 		directoryCreate( variables.cfdocsPath  );
@@ -54,15 +54,15 @@ component {
 		var doubleZipFilename = "lucee-docs-json-zipped.zip";
 
 		// neat trick, storing then zipping the stored zip reduces the file size from 496 Kb to 216 Kb
-		zip action="zip" 
-			source="#variables.cfdocsPath#" 
+		zip action="zip"
+			source="#variables.cfdocsPath#"
 			file="#variables.cfdocsPath#/lucee-docs-json-store.zip"
 			compressionmethod="store"
 			recurse="false"
 			filter="*.json";
 
-		zip action="zip" 
-			source="#variables.cfdocsPath#" 
+		zip action="zip"
+			source="#variables.cfdocsPath#"
 			file="#variables.cfdocsPath#/#doubleZipFilename#"
 			compressionmethod="deflateUtra" // typo in cfzip!
 			recurse="false" {
@@ -70,19 +70,18 @@ component {
 		};
 		fileDelete("#variables.cfdocsPath#/lucee-docs-json-store.zip");
 
-		zip action="zip" 
-			source="#variables.cfdocsPath#" 
+		zip action="zip"
+			source="#variables.cfdocsPath#"
 			file="#variables.cfdocsPath#/#zipFilename#"
 			recurse="false"
 			filter="*.json";
 
-		request.logger (text="CFDOCS Builder #variables.cfdocsPath#/lucee-docs-json.zip produced");
-		request.logger (text="CFDOCS Builder copying zip to #variables.HtmlBuildRoot#/#zipFilename#");
-		fileCopy("#variables.cfdocsPath#/#zipFilename#", "#variables.HtmlBuildRoot#/#zipFilename#");
-		request.logger (text="CFDOCS Builder copying zipped store zip to #variables.HtmlBuildRoot#/#doubleZipFilename#");
-		fileCopy("#variables.cfdocsPath#/#doubleZipFilename#", "#variables.HtmlBuildRoot#/#doubleZipFilename#");
+		publishWithChecksum("#variables.cfdocsPath#/#zipFilename#",
+				"#variables.HtmlBuildRoot#/#zipFilename#");
+		publishWithChecksum("#variables.cfdocsPath#/#doubleZipFilename#",
+				"#variables.HtmlBuildRoot#/#doubleZipFilename#");
 
-		request.filesWritten +=4;
+		request.filesWritten +=8;
 		request.logger (text="CFDOCS Builder #request.filesWritten# files produced");
 	}
 
@@ -145,7 +144,7 @@ component {
 			arg["required"] = a.required;
 			if ( a.required )
 				arrayAppend( required, a.type & " " & a.name );
-			else 
+			else
 				arrayAppend( optional, "[" & a.type & " " & a.name & "]" );
 			arg["description"] = a.description;
 			if (! isNull( a.default ) )
@@ -193,7 +192,7 @@ component {
 		indexListing.related = files;
 		var jsonfile = variables.cfdocsPath & "/" & lCase( filename ) & ".json";
 		fileWrite( jsonFile, variables.prettyPrinter.prettyPrint( indexListing ) );
-		
+
 	}
 
 	public function getJsonPrettyPrinter(){
@@ -212,5 +211,15 @@ component {
 	function getHtmlBuildDir( buildDirectory ){
 		return left( arguments.buildDirectory, len( arguments.buildDirectory ) - len( "cfdocs" ) ) & "html";
 	}
-	
+
+	function publishWithChecksum( src, dest ){
+		request.logger (text="CFDOCS Builder copying zip to #dest#");
+		fileCopy( src, dest );
+		loop list="md5,sha1" item="local.hashType" {
+			var checksumPath = left( dest, len( dest ) - 3 ) & hashType;
+			filewrite( checksumPath, lcase( hash( fileReadBinary( arguments.src ), hashType ) ) );
+			request.logger (text="CFDOCS Builder added #checksumPath# checksum");
+		}
+	}
+
 }
