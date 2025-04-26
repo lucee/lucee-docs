@@ -102,6 +102,7 @@ Or with more specific information like version and label (for better readability
 *EnvVar:* `LUCEE_ENABLE_BUNDLE_DOWNLOAD`
 
 Controls whether Lucee is allowed to download OSGi bundles (JAR files). Valid values:
+
 - `true` - (Default) Lucee can download required bundles if they're not available locally.
 - `false` - Lucee will not download any OSGi bundles and will only use bundles that are already available locally.
 - `always` - Forces Lucee to download bundles even if they are available locally. This is primarily useful for debugging purposes.

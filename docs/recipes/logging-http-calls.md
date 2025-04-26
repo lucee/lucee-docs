@@ -58,6 +58,7 @@ httpRequest [GET] to [https://lucee.org?susi=sorglos], returned [200 OK] in 159m
 ```
 
 The entry includes:
+
 - HTTP method: `GET`
 - Requested URL: `https://lucee.org?susi=sorglos`
 - Status code: `200 OK`
@@ -67,7 +68,6 @@ The entry includes:
 ## Setting Up an HTTP Log
 
 To create a dedicated HTTP log for better visibility:
-
 
 ### Using the Lucee Administrator
 
@@ -84,6 +84,7 @@ To create a dedicated HTTP log for better visibility:
 HTTP logging is designed to have minimal impact on application performance. However, in high-traffic applications with many external API calls, the volume of log entries can become significant.
 
 Consider the following practices:
+
 - Use a dedicated "http" log rather than the general application log
 - In production, you may want to set the log level to "WARN" to only capture errors
 - For detailed debugging, temporarily set the log level to "INFO" or "DEBUG"

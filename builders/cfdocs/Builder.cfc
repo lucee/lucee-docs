@@ -123,7 +123,7 @@ component {
 			}
 		};
 		if ( fn.getIntroduced() gt 0){
-			data.engines.lucee["minimum_version"] = left(fn.getIntroduced(), 3 );
+			data.engines.lucee["minimum_version"] = fn.getIntroduced();
 		} else {
 			data.engines.lucee["minimum_version"] = "";
 		}
@@ -153,7 +153,7 @@ component {
 				arg["default"] = a.default;
 			arg["type"] = lcase(a.type);
 			if ( structKeyExists( a, "introduced") && len( a.introduced ) gt 0)
-				arg["minimum_version"] = left(a.type, 3);
+				arg["minimum_version"] = a.introduced;
 			arrayAppend( data["params"], arg );
 		}
 		if ( fn.getPageType() == "tag" ){
