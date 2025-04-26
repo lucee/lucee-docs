@@ -320,7 +320,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "87e3d7f6ea55ce3d5e4b38220191ae3e",
+    "hash": "e0879a45f3a51b5f18d30e9d6ed1f3d1",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -699,7 +699,7 @@
     "file": "logging-http-calls.md",
     "title": "Logging HTTP Calls",
     "path": "/docs/recipes/logging-http-calls.md",
-    "hash": "a0a53b1b715d10ce078d0ab9fddf89f9",
+    "hash": "09d877a47f2ad48dcd77d38b73cdba1e",
     "keywords": [
       "cfhttp",
       "logging",
