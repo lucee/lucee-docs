@@ -10,6 +10,7 @@ categories:
 - core
 - string
 - struct
+- decision
 ---
 
 Determines the length of a string, array or struct
