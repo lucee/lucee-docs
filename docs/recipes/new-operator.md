@@ -13,11 +13,14 @@
   ],
   "related": [
     "tag-component",
+    "tag-import",
     "function-createobject",
     "developing-with-lucee-server"
   ],
   "categories": [
-    "core"
+    "core",
+    "component",
+    "java"
   ]
 }
 -->
