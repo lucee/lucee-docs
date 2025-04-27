@@ -9,4 +9,4 @@ categories:
 
 Evaluates a string value to determine whether the variable named in it exists.
 
-Fore better performance and security, it's recommended to use [[function-structkeyexists]] instead
+For better performance and security, it's recommended to use [[function-structkeyexists]] instead
