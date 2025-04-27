@@ -646,7 +646,7 @@
     "file": "java-settings.md",
     "title": "Java Settings in Application.cfc (Now with Maven Support)",
     "path": "/docs/recipes/java-settings.md",
-    "hash": "a3974e344f43397d5296ca6ba50fab79",
+    "hash": "ec543d6efcd5de6dd295d9ce9123ebf0",
     "keywords": [
       "Java settings",
       "Application.cfc",

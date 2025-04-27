@@ -182,7 +182,7 @@ Guide on using Java libraries in Lucee 6.2 with Maven and import
 
 ## [Java Settings in Application.cfc (Now with Maven Support)](/docs/recipes/java-settings.md)
 
-Guide on configuring Java settings in Lucee using Application.cfc
+Guide on configuring Java settings in Lucee using Application.cfc, including loading Java libaries from Maven
 
 ## [Language Server Protocol (LSP) for Lucee](/docs/recipes/language-server.md)
 
