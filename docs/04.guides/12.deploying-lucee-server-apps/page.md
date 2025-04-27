@@ -64,6 +64,12 @@ The encrypted password is stored under `hspw`.
 
 For further information, as Lucee is open source, refer to the implementation [PasswordImpl.java](https://github.com/lucee/Lucee/blob/6.2/core/src/main/java/lucee/runtime/config/PasswordImpl.java)
 
+### Using Java Libaries (jars)
+
+You can place jars in the the `context/lib` directly.
+
+If the file is available on Maven, it's recommended to use `javasettings` in `CFconfig.json` or via a [[tag-component]] via the new [[Maven]] support in Lucee 6.2.
+
 ### Lucee Distributions 
 
 available from [https://download.lucee.org/](https://download.lucee.org/)
