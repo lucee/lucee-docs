@@ -1,10 +1,10 @@
 
 <!--
 {
-  "title": "Java Settings in Application.cfc",
+  "title": "JavaSettings in Application.cfc, Components and CFConfig.json",
   "id": "java-settings",
   "since": "6.2",
-  "description": "Guide on configuring Java settings in Lucee using Application.cfc",
+  "description": "Guide on configuring Java settings in Lucee using Application.cfc, including loading Java libaries from Maven",
   "keywords": [
     "Java settings",
     "Application.cfc",
@@ -13,6 +13,11 @@
   ],
   "categories": [
     "java"
+  ],
+  "related": [
+    "tag-application",
+    "tag-component",
+    "function-createobject"
   ]
 }
 -->
