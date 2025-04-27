@@ -6,6 +6,7 @@
   "categories": [
     "java"
   ],
+  "since": "6.2",
   "description": "How to use Maven in Lucee",
   "keywords": [
     "Maven",
