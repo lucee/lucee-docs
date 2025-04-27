@@ -107,7 +107,9 @@ You can also define Java settings globally for all applications through the `.CF
 
 ### Using Java Settings in `Application.cfc`
 
-In your `Application.cfc`, you can define or override Java settings specific to your application. This is the primary way to configure Java dependencies at the application level.
+In your [[tag-Application]], you can define or override Java settings specific to your application. 
+
+This is the primary way to configure Java dependencies at the application level.
 
 ```cfml
 this.javasettings = {
@@ -135,7 +137,9 @@ This method gives you flexibility to handle specific Java dependencies within ea
 
 ### Using Java Settings in a Component
 
-Maven dependencies and other Java settings can also be defined as part of a component. This ensures that only the classes loaded within that component will use the specified settings, isolating it from the rest of the application and avoiding conflicts.
+Maven dependencies and other Java settings can also be defined as part of a [[tag-component]]. 
+
+This ensures that only the classes loaded within that component will use the specified settings, isolating it from the rest of the application and avoiding conflicts.
 
 ```cfml
 component javaSettings = '{
@@ -155,7 +159,7 @@ This method is useful for encapsulating components with specific versions of lib
 
 ### Using Java Settings in `createObject`
 
-Java settings can also be defined dynamically when creating Java objects using the `createObject` function.
+Java settings can also be defined dynamically when creating Java objects using the [[function-createObject]] function.
 
 ```cfml
 createObject("java", "org.apache.commons.beanutils.BeanUtils", {
