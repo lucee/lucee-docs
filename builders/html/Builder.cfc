@@ -202,6 +202,7 @@ component {
 	}
 
 	private void function _copyStaticAssets( required string buildDirectory ) {
+		updateHighlightsCss( arguments.buildDirectory );
 		var subdirs = directoryList(path=GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets", type="dir", recurse="false");
 		for (var subdir in subdirs){
 			var dirName = listLast(subdir, "/\");
@@ -209,6 +210,12 @@ component {
 				DirectoryCopy(subdir, arguments.buildDirectory & "/assets/" & dirName, true );
 			}
 		}
+	}
+
+	private function updateHighlightsCss( required string buildDirectory ){
+		var highlighter = new api.rendering.Pygments();
+		var cssFile = path=GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/css/highlight.css";
+		fileWrite( cssFile, highlighter.getCss() );
 	}
 
 	private void function _copySiteImages( required string buildDirectory, required any docTree ) {
