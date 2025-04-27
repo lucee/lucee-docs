@@ -96,7 +96,7 @@ Built-Date: 2016-02-05 11:39:44
 
 Built date of the extension.
 
-### Lucee core version
+### Lucee Core version
 
 ```luceescript
 lucee-core-version: "5.0.0.157"
@@ -104,7 +104,7 @@ lucee-core-version: "5.0.0.157"
 
 Minimal Lucee core version this extension needs to work properly.
 
-### Lucee loader version
+### Lucee Loader version
 
 ```luceescript
 lucee-loader-version: "5.8"
@@ -191,7 +191,7 @@ Documentation of the function(s) is via the doc comments and/or hint attributes 
 
 After installing this new extension (see above) you will see in the Lucee admin that the extension is installed and the new function(s) will now be available.
 
-### Install context files
+### Install Server Context files
 
 ```luceescript
 /context
