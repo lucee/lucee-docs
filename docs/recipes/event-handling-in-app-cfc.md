@@ -40,7 +40,11 @@
 
 # Event Handling in Application.cfc
 
-Lucee provides several event handling functions within `Application.cfc` that can be used to manage different stages and types of requests. Here is an overview of these functions and their usage.
+Lucee provides several event handling functions within `Application.cfc` that can be used to manage different stages and types of requests.
+
+It's recommend not to leave empty placeholder functions for any of these functions, unless you are using them.
+
+ Here is an overview of these functions and their usage.
 
 ## OnApplicationStart
 
@@ -58,9 +62,27 @@ component {
 
 This method is triggered when a session starts.
 
+It's recommended to avoid creating sessions unless required, especially on public pages, given all the bots around these days.
+
+You can test if a session has been created using [[function-sessionexists]], because calling [[function-structKeyExist]] on the session scope will create a session if it doesn't exist.
+
 ```cfs
 component {
    void function onSessionStart() {
+       echo('Session started');
+   }
+}
+```
+
+## OnSessionEnd
+
+This method is triggered when a session expires. 
+
+If you don't need this functionality, don't use it, it does add overhead as the session application settings are persisted with the session to be available when the session expires.
+
+```cfs
+component {
+   void function onSessionEnd() {
        echo('Session started');
    }
 }
@@ -92,7 +114,7 @@ component {
 
 ## OnCFCRequest
 
-Similar to "onRequest", but this function is used to handle remote component calls (HTTP Webservices).
+Similar to "onRequest", this function is used to pre process remote [[tag-component]] function calls (HTTP Webservices).
 
 ```cfs
 component {
@@ -118,7 +140,7 @@ As arguments you receive the exception (cfcatch block) and the eventName.
 
 ## OnAbort
 
-This method is triggered when a request is ended with help of the tag `<cfabort>`.
+This method is triggered when a request is ended with help of the tag [[tag-cfabort]].
 
 ```cfs
 component {
