@@ -1256,6 +1256,17 @@
     ]
   },
   {
+    "file": "troubleshooting.md",
+    "title": "Troubleshooting Lucee Problems",
+    "path": "/docs/recipes/troubleshooting.md",
+    "hash": "5f51b53817c9926635d782d47934adce",
+    "keywords": [
+      "startup",
+      "deployment",
+      "logs"
+    ]
+  },
+  {
     "file": "types-in-lucee.md",
     "title": "Types in Lucee",
     "path": "/docs/recipes/types-in-lucee.md",
