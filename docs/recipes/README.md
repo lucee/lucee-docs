@@ -360,6 +360,10 @@ How to use threads in Lucee
 
 Learn how to use the <cftimeout> tag in Lucee. This guide demonstrates how to define a timeout specific to a code block, handle timeouts with a listener, and handle errors within the timeout block.
 
+## [Troubleshooting Lucee Problems](/docs/recipes/troubleshooting.md)
+
+A guide to diagnosing problems with Lucee
+
 ## [Types in Lucee](/docs/recipes/types-in-lucee.md)
 
 This document explains types in Lucee. Lucee is still an untyped language. Types are only a check put on top of the language.
