@@ -119,7 +119,7 @@ component {
 		data["engines"] = {
 			"lucee": {
 				"docs": "https://docs.lucee.org/reference/functions/"
-					& "#fn.getName()#.html"
+					& "#lcase(fn.getName())#.html"
 			}
 		};
 		if ( fn.getIntroduced() gt 0){
