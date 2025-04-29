@@ -21,7 +21,7 @@
 
 This guide is about how to troubleshoot problems with Lucee, including crashes, startup problems etc.
 
-Alas this guide isn't about why the code you are writing isn't working!
+Sadly, this guide isn't about why the code you're writing isn't working!
 
 ## Logs
 
@@ -33,11 +33,11 @@ Your Servlet Egine will have it's own logging, as Lucee is distributed with Tomc
 
 Under your Lucee install directory, there will be a `tomcat` folder, inside this folder is a `logs` directory. 
 
-The main log file for tomcat is called `catalina-{date}-.log` and this log will contain the  startup logs and shutdown logs, plus any exceptions along the way from the Servlet engine.
+The main log file for tomcat is called `catalina-{date}-.log` and this log will contain the startup logs and shutdown logs, plus any exceptions along the way from the Servlet engine.
 
 ### Lucee Server
 
-Lucee is a Servlet and deploys itself into a directory called `lucee-server`. 
+Lucee is a Servlet which runs on a Servlet Engine, it deploys itself into a directory called `lucee-server`.
 
 Under this directory is a `context/logs` directory, which contains all the Lucee log file in a default configuration.
 
@@ -58,13 +58,13 @@ One the initial statup and deployment has got far enough along to haved loaded c
 
 #### Starting Tomcat manually and redirecting logs to console.
 
-A useful technique when debuggin a Lucee Server is start Tomcat manually, in a Terminal, as opposed to auto starting or running as service/dameon.
+The best first step when debugging a Lucee Server is start Tomcat manually, in a Terminal, as opposed to auto starting or running as service/dameon.
 
 In the `tomcat/bin` directory, there's a bash/batch file called `catalina.sh` or `catalina.bat` which can be run with the run option, i.e `./cataline.sh run` or `catalina run`
 
 By default, this will show all the `catalina.log` information in the console.
 
-Since Lucee 6.2, you can also redirect all the logging to the console.
+Since Lucee 6.2, you can also redirect all the log4j logging to the console. (TODO out.log and err.log!)
 
 On Windows
 
@@ -92,6 +92,8 @@ Hopefully, this guide will help you navigate around the Lucee and Tomcat logs, w
 Please first check whatever search engine or LLM, you prefer and/or search the [https://dev.lucee.org](https://dev.lucee.org) forum and our issue tracking system [https://luceeserver.atlassian.net/](https://luceeserver.atlassian.net/)
 
 If you can't find a solution to your problem, please post to the dev forum first and include all the relevant details
+
+Ask youself, if you were assiting someone else with your problem, what questions would you ask when you read your support request before you press send.
 
 - Lucee version, i.e. 6.2.1.188
 - Servlet engine, i.e. Tomcat
