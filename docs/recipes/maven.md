@@ -27,8 +27,10 @@ It allows developers to easily integrate dependencies and manage project librari
 
 ## Why Maven?
 
-Maven is a widely-used framework that simplifies the management of Java dependencies. 
-It automatically handles the retrieval and inclusion of required libraries and their dependencies, reducing the manual work needed to manage them. 
+Maven is a widely-used framework that simplifies the management of Java dependencies.
+
+Lucee automatically handles the retrieval and inclusion of required libraries and their dependencies, reducing the manual work needed to manage them. 
+
 This makes integrating third-party Java libraries into your Lucee applications much easier and more efficient.
 
 ## How to Use Maven in Lucee
