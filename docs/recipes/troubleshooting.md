@@ -4,7 +4,8 @@
   "title": "Troubleshooting Lucee Server problems",
   "id": "troubleshooting",
   "categories": [
-    "server"
+    "server",
+    "debugging"
   ],
   "description": "A guide to diagnosing problems with Lucee",
   "keywords": [
@@ -70,7 +71,7 @@ On Windows
 
 ```batch
 set LUCEE_LOGGING_FORCE_APPENDER=console
-set LUCEE_LOGGING_FORCE_LEVEL=info # or trace|debug
+set LUCEE_LOGGING_FORCE_LEVEL=info # or trace, or debug
 
 ```
 
@@ -78,7 +79,7 @@ On Linux
 
 ```bash
 export LUCEE_LOGGING_FORCE_APPENDER=console
-export LUCEE_LOGGING_FORCE_LEVEL=info  # or trace, or debug
+export LUCEE_LOGGING_FORCE_LEVEL=info # or trace, or debug
 ```
 
 This will override writing to your logs to files and instead it will stream all the logs out to the console. Changing the `LUCEE_LOGGING_FORCE_LEVEL` is optional, as it can be quite verbose, but it provide useful clues when something isn't working.
@@ -89,9 +90,9 @@ Hopefully, this guide will help you navigate around the Lucee and Tomcat logs, w
 
 ### Reaching out for help.
 
-Please first check whatever search engine or LLM, you prefer and/or search the [https://dev.lucee.org](https://dev.lucee.org) forum and our issue tracking system [https://luceeserver.atlassian.net/](https://luceeserver.atlassian.net/)
+Please first check whatever search engine or LLM, you prefer and/or search the [https://dev.lucee.org](https://dev.lucee.org) Developer forum and our issue tracking system [https://luceeserver.atlassian.net/](https://luceeserver.atlassian.net/) Jira.
 
-If you can't find a solution to your problem, please post to the dev forum first and include all the relevant details
+If you can't find a solution to your problem, please post to the dev forum first and include all the relevant details.
 
 Ask youself, if you were assiting someone else with your problem, what questions would you ask when you read your support request before you press send.
 
