@@ -104,3 +104,5 @@ Ask youself, if you were assiting someone else with your problem, what questions
 Plus whether you are using an older install which has been upgraded, or a fresh installation.
 
 If you find any relevant exceptions / stacktraces, please include them, not just the exception message.
+
+[[tutorial-reporting-bugs]]
