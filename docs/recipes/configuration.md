@@ -109,7 +109,7 @@ The location of the `lucee-server` directory can be customized using the `LUCEE_
 variable or the `-Dlucee.server.dir` system property.
 
 At startup, Lucee reads this configuration, applying the settings and resolving resources (e.g., extensions, 
-Maven endpoints, etc.). A best practice is to configure Lucee through the administrator, then export the 
+[Maven endpoints](https://docs.lucee.org/recipes/maven.html), etc.). A best practice is to configure Lucee through the administrator, then export the 
 `.CFConfig.json` file as a base for future installations.
 
 ## Web Configurations
