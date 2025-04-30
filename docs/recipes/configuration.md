@@ -11,7 +11,8 @@
   ],
   "related": [
     "function-configimport",
-    "tag-application"
+    "tag-application",
+    "maven"
   ]
 }
 -->
