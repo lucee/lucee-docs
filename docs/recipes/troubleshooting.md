@@ -94,7 +94,7 @@ Please first check whatever search engine or LLM, you prefer and/or search the [
 
 If you can't find a solution to your problem, please post to the dev forum first and include all the relevant details.
 
-Ask youself, if you were assiting someone else with your problem, what questions would you ask when you read your support request before you press send.
+Ask yourself, if you were assisting someone else with your problem, what questions would you ask when you read your support request before you press send.
 
 - Lucee version, i.e. 6.2.1.188
 - Servlet engine, i.e. Tomcat
