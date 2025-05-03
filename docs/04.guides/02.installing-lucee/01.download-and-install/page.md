@@ -6,7 +6,7 @@ menuTitle: Download and Install
 
 # Download and Install Lucee Server #
 
-Lucee can be installed and run almost everywhere that is capable of running a [supported Java Version](/guides/installing-lucee/download-and-install.html#supportedJavaVersions). You can even run Lucee on a small RasberryPI. Because of it's great flexibility, Lucee Server comes in different flavors to match your needs (Lucee Express, Lucee Installer, CommandBox, Lucee.jar/Lucee.war). This document will help you decide which one fits best for your purpose.
+Lucee can be installed and run almost everywhere that is capable of running a [supported Java Version](/guides/installing-lucee/download-and-install.html#supportedJavaVersions). You can even run Lucee on a small RaspberryPI. Because of its great flexibility, Lucee Server comes in different flavors to match your needs (Lucee Express, Lucee Installer, CommandBox, Lucee.jar/Lucee.war). This document will help you decide which one fits best for your purpose.
 <br>
 <br>
 
@@ -198,7 +198,7 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
  <td>
  	<strong>CommandBox</strong> is a commandline tool that greatly simplifies installing and running Lucee. It's very likely the easiest way to run Lucee: Simply open a terminal session from within your webroot, enter the command line 'box server start' and CommandBox will start the latest stable Lucee instance running your web application.<br>
                 CommandBox makes use of it's 
-				own servlet engine "Undertow" that can be customized through a single .json configuration file. But that's not all you get with CommandBox: Because CommandBox is also a package manager, you can also install and run usefool tools for your CFML development, such as "cfconfig", "CFLint", "taskRunner", "testBox", "CFFormat" or use it to install popular CFML frameworks in a modern scaffolding manner.
+				own servlet engine "Undertow" that can be customized through a single .json configuration file. But that's not all you get with CommandBox: Because CommandBox is also a package manager, you can also install and run useful tools for your CFML development, such as "cfconfig", "CFLint", "taskRunner", "testBox", "CFFormat" or use it to install popular CFML frameworks in a modern scaffolding manner.
 			</td>
 		</tr>
         <tr>

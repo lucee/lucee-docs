@@ -4,7 +4,7 @@
   "title": "JavaSettings in Application.cfc, Components and CFConfig.json",
   "id": "java-settings",
   "since": "6.2",
-  "description": "Guide on configuring Java settings in Lucee using Application.cfc, including loading Java libaries from Maven",
+  "description": "Guide on configuring Java settings in Lucee using Application.cfc, including loading Java libraries from Maven",
   "keywords": [
     "Java settings",
     "Application.cfc",

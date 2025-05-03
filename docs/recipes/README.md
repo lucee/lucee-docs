@@ -182,7 +182,7 @@ Guide on using Java libraries in Lucee 6.2 with Maven and import
 
 ## [Java Settings in Application.cfc (Now with Maven Support)](/docs/recipes/java-settings.md)
 
-Guide on configuring Java settings in Lucee using Application.cfc, including loading Java libaries from Maven
+Guide on configuring Java settings in Lucee using Application.cfc, including loading Java libraries from Maven
 
 ## [Language Server Protocol (LSP) for Lucee](/docs/recipes/language-server.md)
 
@@ -214,7 +214,7 @@ This document explains how to handle big files in Lucee in a better way.
 
 ## [Mail - How to send a Mail](/docs/recipes/mail-how-to-send-a-mail.md)
 
-How to send an email using Lucee wth help of the tag cfmail.
+How to send an email using Lucee with help of the tag cfmail.
 
 ## [Mail Listeners](/docs/recipes/mail-listener.md)
 

@@ -26,11 +26,11 @@ Sadly, this guide isn't about why the code you're writing isn't working!
 
 ## Logs
 
-Lucee and Tomcat have comprehensive loggging, which is the best starting place to start looking when diagnosing why something server related isn't working.
+Lucee and Tomcat have comprehensive logging, which is the best starting place to start looking when diagnosing why something server related isn't working.
 
 ### Servlet Engine - i.e. Tomcat
 
-Your Servlet Egine will have it's own logging, as Lucee is distributed with Tomcat, this guide will focus and refer to Tomcat, but the same princible applies more or less to every Servlet Engine.
+Your Servlet Engine will have its own logging, as Lucee is distributed with Tomcat, this guide will focus and refer to Tomcat, but the same principle applies more or less to every Servlet Engine.
 
 Under your Lucee install directory, there will be a `tomcat` folder, inside this folder is a `logs` directory. 
 
@@ -51,7 +51,7 @@ This happens before log4j is loaded and configured, so Lucee writes out it's ear
 - `out.log` which is the standard log, including deploying files and loading configuration
 - `err.log` which contains any errors encountered during this early stage.
 
-One the initial statup and deployment has got far enough along to haved loaded configuration and configure log4j, Lucee then switches to using it's normal logging files.
+Once the initial startup and deployment has got far enough along to have loaded configuration and configure log4j, Lucee then switches to using its normal logging files.
 
 - `application.log` the default log for Lucee and applications, aka the util folder of logging
 - `exception.log` any errors or exceptions
@@ -59,7 +59,7 @@ One the initial statup and deployment has got far enough along to haved loaded c
 
 #### Starting Tomcat manually and redirecting logs to console.
 
-The best first step when debugging a Lucee Server is start Tomcat manually, in a Terminal, as opposed to auto starting or running as service/dameon.
+The best first step when debugging a Lucee Server is start Tomcat manually, in a Terminal, as opposed to auto starting or running as service/daemon.
 
 In the `tomcat/bin` directory, there's a bash/batch file called `catalina.sh` or `catalina.bat` which can be run with the run option, i.e `./cataline.sh run` or `catalina run`
 
@@ -82,7 +82,7 @@ export LUCEE_LOGGING_FORCE_APPENDER=console
 export LUCEE_LOGGING_FORCE_LEVEL=info # or trace, or debug
 ```
 
-This will override writing to your logs to files and instead it will stream all the logs out to the console. Changing the `LUCEE_LOGGING_FORCE_LEVEL` is optional, as it can be quite verbose, but it provide useful clues when something isn't working.
+This will override writing to your logs to files and instead it will stream all the logs out to the console. Changing the `LUCEE_LOGGING_FORCE_LEVEL` is optional, as it can be quite verbose, but it provides useful clues when something isn't working.
 
 ### Summary
 
@@ -99,7 +99,7 @@ Ask yourself, if you were assisting someone else with your problem, what questio
 - Lucee version, i.e. 6.2.1.188
 - Servlet engine, i.e. Tomcat
 - Operating system: i.e, Ubuntu 24
-- Distribution, i.e. Lucee Installer, Lucee Docker images, Commandbox, homegrown etc
+- Distribution, i.e. Lucee Installer, Lucee Docker images, CommandBox, homegrown etc
 
 Plus whether you are using an older install which has been upgraded, or a fresh installation.
 

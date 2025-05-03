@@ -223,11 +223,11 @@ function onOpen(wsclient) {
 
 ## Using Lucee WebSocket to PUSH data to Client
 
-With webSocets being a bidirectional communication channel, your Lucee Server no longer limited to responding to a _request_, it can now _push_ data to the client.
+With webSockets being a bidirectional communication channel, your Lucee Server no longer limited to responding to a _request_, it can now _push_ data to the client.
 
 This means the user no longer has to refresh a page to see if data is updated, or have a Javascript looping function that is continuously calling a ReST API to get lasted data.
 
-When your application has data ready for the user, have the WebSocket push the data to the cient!
+When your application has data ready for the user, have the WebSocket push the data to the client!
 
 ### Make use of Static Function
 
@@ -246,11 +246,11 @@ public static function onFirstOpen(wsclients) {
 }
 ```
 
-Function `getDataFromSomewhere()` is respoible for obtaining the data that needs to be sent to the client. RedisQueue is an example of where data can be stored. Your Lucee application can Push data to a Redis Queue, and `getDataFromSomewhere()` can Pop one record at a time.
+Function `getDataFromSomewhere()` is responsible for obtaining the data that needs to be sent to the client. RedisQueue is an example of where data can be stored. Your Lucee application can Push data to a Redis Queue, and `getDataFromSomewhere()` can Pop one record at a time.
 
 ### Using webSocketInfo() to Send Message to Client
 
-[[function-websocketInfo]] also has an array of instances - one for each client call to a WebSocket Component. So looping through the array, gives you access to the Component, and then you can call any of it'sfunction
+[[function-websocketInfo]] also has an array of instances - one for each client call to a WebSocket Component. So looping through the array, gives you access to the Component, and then you can call any of it's function
 
 For Example ( _excluding role management functions_ )
 
