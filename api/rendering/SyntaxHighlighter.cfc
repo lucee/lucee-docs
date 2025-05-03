@@ -37,13 +37,51 @@ component {
 		var highlighted = replaceNewLines( highlighter.highlight( arguments.code, arguments.language, "html" ) );
 
 		if ( useTryCf ) {
-			var rawCode = '<script type="text/template" id="code-#LCase( Hash( highlighted ) )#" data-trycf="true" data-script="#( arguments.language == 'cfs' )#">'
+			var hashId = "code-#LCase( Hash( highlighted ) )#";
+			var rawCode = '<script type="text/template" id="#hashId#" data-trycf="true" data-script="#( arguments.language == 'cfs' )#">'
 						&     arguments.code
 						& '</script>' & Chr(10);
-			return rawCode & highlighted;
+			var codeResult = getCodeResult(arguments.code, arguments.language)
+			if ( isEmpty( codeResult ) )
+				return rawCode & highlighted;
+			var preview = '<div id="result-#hashId#" style="display:none;">#toBase64(codeResult)#</div>';
+			return rawCode & highlighted & preview;
 		}
 
 		return highlighted;
+	}
+
+	private function getCodeResult(code, lang) output=false {
+		var codeKey = createGUID();
+		server["_luceeExamples_#codeKey#"] = arguments.code;
+
+		// alas server.system is read only
+		//var env = duplicate(server.system.environment);
+		//var props = duplicate(server.system.properties);
+		//server.system.properties = {}; 
+		//server.system.environment = {}; 
+
+		try {
+			var res = _internalRequest(
+				template: "/exampleRunner/index.cfm",
+				form: {
+					codeKey: codeKey,
+					lang: arguments.lang
+				}
+			);
+		} catch(e){
+			//request.logger( e.message ); 
+			//dump(arguments);
+			//rethrow;
+			return e.message;
+		}
+
+		//server.system.environment = env;
+		//server.system.properties = props;
+
+		if (!structKeyExists(res, "fileContent"))
+			return "";
+		return res.fileContent;
 	}
 
 // PRIVATE HELPERS
