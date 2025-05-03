@@ -56,7 +56,7 @@
     "file": "ai.md",
     "title": "AI (Experimental)",
     "path": "/docs/recipes/ai.md",
-    "hash": "277b9c74bc8f711eb59143aafda2af44",
+    "hash": "941c4523e9e5d00e9218a3ea35f78b26",
     "keywords": [
       "AI",
       "LLM"
@@ -320,7 +320,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "e0879a45f3a51b5f18d30e9d6ed1f3d1",
+    "hash": "529826fe203a158a89f37a204a8bb3e7",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -646,7 +646,7 @@
     "file": "java-settings.md",
     "title": "Java Settings in Application.cfc (Now with Maven Support)",
     "path": "/docs/recipes/java-settings.md",
-    "hash": "ec543d6efcd5de6dd295d9ce9123ebf0",
+    "hash": "2b9ebcf9e7e0b012a8d154b7b41083b0",
     "keywords": [
       "Java settings",
       "Application.cfc",
@@ -752,7 +752,7 @@
     "file": "mail-how-to-send-a-mail.md",
     "title": "Mail - How to send a Mail",
     "path": "/docs/recipes/mail-how-to-send-a-mail.md",
-    "hash": "3fad8fffd34a47eeaa9fb7dc070fe91a",
+    "hash": "ad2f2f1d23ab2c846f99570b586d731c",
     "keywords": [
       "Email",
       "Send mail",
@@ -1259,7 +1259,7 @@
     "file": "troubleshooting.md",
     "title": "Troubleshooting Lucee Problems",
     "path": "/docs/recipes/troubleshooting.md",
-    "hash": "32a40861eafa18e6f12a881092b1ae76",
+    "hash": "9152e98a4d0fc0998a0e227ea6087679",
     "keywords": [
       "startup",
       "deployment",
@@ -1328,7 +1328,7 @@
     "file": "websocket-extension.md",
     "title": "WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "6eba676b8b870d5f00528732366bf655",
+    "hash": "382dc23188cd7acbb50282e5b99b1076",
     "keywords": [
       "Lucee",
       "Extension"
