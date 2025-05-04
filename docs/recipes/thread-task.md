@@ -30,9 +30,9 @@ Regular Threads have the following characteristics:
 
 1. **Bound to current request**: With the help of CFThread you can always see what the thread is doing. With `action='join'` you can wait until the thread ends and join it. You can also call `action='terminate'` and end the thread. You always have control over the thread with the various actions.
 
-2. **Runs only once**: The thread runs only once. It ends at the end of the Cfthread tag or if there is an exception.
+2. **Runs only once**: The thread runs only once. It ends at the end of the cfthread tag or if there is an exception.
 
-3. **It fails when it fails**: There is no special exception handling so when the thread fails it fails unless you have Cftry, cfcatch inside the thread and you have exception handling there.
+3. **It fails when it fails**: There is no special exception handling so when the thread fails it fails unless you have cftry, cfcatch inside the thread and you have exception handling there.
 
 ## Example 1
 
