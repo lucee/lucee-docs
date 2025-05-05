@@ -17,7 +17,7 @@
 
 # Quartz Scheduler Extension for Lucee
 
-Lucee 6.2 and 7.0 include a powerful extension for task scheduling using the industry-standard Quartz Scheduler. This extension provides robust scheduling capabilities with clustering support, flexible job definitions, and integration with the Lucee ecosystem.
+Lucee 6.2 and 7.0 include a powerful extension for task scheduling using the industry-standard Quartz Scheduler. This extension provides robust scheduling capabilities with clustering support, flexible job definitions, and integration with the Lucee ecosystem. The extension is written entirely in CFML (100%), showcasing the power and flexibility of the language.
 
 ## Overview
 
@@ -36,13 +36,37 @@ Starting with Lucee 7, the traditional "Scheduled Task" system has been moved to
 
 ## Installation
 
-The Quartz Scheduler extension can be installed through the Lucee Administrator:
+The Quartz Scheduler extension can be installed in two ways:
+
+### Using the Lucee Administrator
 
 1. Navigate to the Extensions > Available Extensions section
 2. Look for "Quartz Scheduler" in the list
 3. Click "Install" to add the extension
 
+### Manual Installation
+
+1. Download the extension from [download.lucee.org](https://download.lucee.org)
+2. Copy the downloaded .lex file to the Lucee deploy folder: `lucee-server/deploy`
+3. Lucee will automatically detect and install the extension within a minute
+
 In Lucee 6.2, this extension is considered experimental, primarily for testing purposes. In Lucee 7, it's fully supported as an alternative to the legacy Scheduled Task system.
+
+## Administration
+
+The Quartz Scheduler extension provides comprehensive administration tools to manage your scheduled tasks:
+
+### Lucee Administrator Integration
+
+The extension includes a full-featured frontend in the Lucee Administrator to manage all aspects of your scheduled tasks:
+- Job creation and management
+- Listener configuration
+- Storage settings
+- Real-time monitoring
+
+### Standalone Client
+
+In addition to the Admin integration, a read-only standalone client is available that provides an overview of all running jobs and listeners, making it easy to monitor your scheduled tasks across multiple servers.
 
 ## Configuration
 
@@ -141,6 +165,8 @@ Jobs are the tasks that will be executed according to a schedule. Each job confi
    "cron": "0 0 9-17 ? * MON-FRI"  // Every hour from 9am-5pm on weekdays
    ```
 
+   > **Tip**: Creating cron expressions can be challenging. AI tools like Google, ChatGPT, or Claude can help you define the correct cron expression for your specific scheduling needs. Simply ask something like "Create a cron expression that runs every Tuesday at 3 PM" to get assistance.
+
 ### Listeners Configuration
 
 Listeners are components that monitor job execution:
@@ -189,6 +215,17 @@ Storage determines how job information is persisted and enables clustering:
      "misfireThreshold": 60000
    }
    ```
+
+#### Database Setup for Clustering
+
+When using database storage for clustering, Quartz Scheduler needs specific tables in your database. The extension will attempt to create these tables automatically when it starts, but this requires the database user to have sufficient privileges.
+
+If you encounter errors like `Table 'quartz.QRTZ_TRIGGERS' doesn't exist`, you may need to:
+
+1. **Check Database Permissions**: Ensure your database user has privileges to create tables
+2. **Create Tables Manually**: You can manually create the required tables using database-specific SQL scripts
+
+For detailed database setup instructions, including scripts for different database systems, see the dedicated [Clustering with Quartz Scheduler](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/scheduler-quartz-clustering.md) recipe.
 
 ## Component Jobs
 
@@ -248,6 +285,8 @@ When clustering is enabled, the storage backend becomes the source of truth. The
 - As a backup for job definitions
 - To provide initial jobs only when the storage has no jobs defined
 - For listener definitions (which always come from the config file)
+
+For detailed instructions and best practices on setting up clustering with Quartz Scheduler, see the dedicated [Clustering with Quartz Scheduler](recipes/clustering-quartz-scheduler.md) recipe.
 
 ## Full Configuration Example
 
