@@ -1075,10 +1075,23 @@
     ]
   },
   {
+    "file": "scheduler-quartz-clustering.md",
+    "title": "Clustering with Quartz Scheduler",
+    "path": "/docs/recipes/scheduler-quartz-clustering.md",
+    "hash": "e7aafc0b65d307d0b4bb3110b611e1ff",
+    "keywords": [
+      "scheduler",
+      "quartz",
+      "clustering",
+      "database",
+      "redis"
+    ]
+  },
+  {
     "file": "scheduler-quartz.md",
     "title": "Quartz Scheduler Extension for Lucee",
     "path": "/docs/recipes/scheduler-quartz.md",
-    "hash": "153321f721829587278feeee4469158d",
+    "hash": "f53e61b7a4702a18b0302f41b993dfbe",
     "keywords": [
       "scheduler",
       "quartz",
