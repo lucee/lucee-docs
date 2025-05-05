@@ -143,35 +143,35 @@ Similar to other Lucee class definitions, you can specify:
 
 When creating custom implementations, you can focus on the specific logging functionality while leveraging Lucee's timing and threshold capabilities through the provided interface.
 
-### Available Properties
+### Common Arguments
 
-When configuring an ExecutionLog, you can specify the following arguments:
+When configuring any ExecutionLog implementation, you can specify these arguments:
 
-| Property | Description | Default |
-|----------|-------------|---------|
-| `min-time` | Minimum execution time to log (in ns, µs, ms, or s) | 0 |
-| `unit` | Output time unit (`nano`, `micro`, or `milli`) | `nano` |
+| Property | Description | Default | Example Values |
+|----------|-------------|---------|---------------|
+| `min-time` | Minimum execution time threshold for logging. Only statements taking longer than this threshold will be logged. Can be specified with time unit suffixes. | 0 | `"500ns"`, `"10µs"`, `"5ms"`, `"0.1s"` |
+| `unit` | The time unit to use in log output. Affects readability based on your performance targets. | `nano` | `"nano"` (nanoseconds), `"micro"` (microseconds), `"milli"` (milliseconds) |
 
 ### ConsoleExecutionLog Arguments
 
-| Property | Description | Default |
-|----------|-------------|---------|
-| `stream-type` | Output stream to use (`error` or `out`) | `out` |
-| `snippet` | Include code snippet in output | `false` |
+| Property | Description | Default | Notes |
+|----------|-------------|---------|-------|
+| `stream-type` | Determines whether to output to standard out or standard error. Use `error` to separate log output from regular application output. | `out` | `"out"` or `"error"` |
+| `snippet` | When enabled, captures and displays the actual CFML code being executed. Extremely useful for identifying exactly which code is causing performance issues, especially in complex templates with many expressions. | `false` | Set to `true` to see the actual code being executed |
 
 ### ResourceExecutionLog Arguments
 
-| Property | Description | Default |
-|----------|-------------|---------|
-| `directory` | Directory to store log files | Temp directory |
+| Property | Description | Default | Notes |
+|----------|-------------|---------|-------|
+| `directory` | Specifies where log files should be stored. If not provided, Lucee will use a temp directory. For persistent logs, specify an absolute path. Lucee's virtual filesystem support means you can write to various destinations (S3, HTTP, etc.). | Lucee temp directory | `"/var/logs/lucee"`, `"s3://my-bucket/logs"` |
 
 ### LogExecutionLog Arguments
 
-| Property | Description | Default |
-|----------|-------------|---------|
-| `log-level` | Log level (`trace`, `debug`, `info`, etc.) | `trace` |
-| `log-name` | Logger name | `lucee.runtime.engine.Controler` |
-| `snippet` | Include code snippet in output | `false` |
+| Property | Description | Default | Notes |
+|----------|-------------|---------|-------|
+| `log-level` | Sets the severity level for log entries. Controls visibility in consolidated logs and allows filtering when reviewing. | `trace` | `"trace"`, `"debug"`, `"info"`, `"warn"`, `"error"` |
+| `log-name` | Customizes the logger name for better organization and filtering in consolidated logs. | `lucee.runtime.engine.Controler` | `"execution"`, `"performance"`, `"myapp.performance"` |
+| `snippet` | When enabled, captures and displays the actual CFML code being executed alongside timing information. Particularly valuable when analyzing logs after execution. | `false` | Set to `true` to include source code in logs |
 
 ### Example Log Implementation Configuration
 
@@ -195,23 +195,63 @@ When configuring an ExecutionLog, you can specify the following arguments:
 
 ### ConsoleExecutionLog
 
+Without snippets:
 ```
 1234567890:C:/websites/myapp/index.cfm:45:72 > 123 ns
 1234567890:C:/websites/myapp/index.cfm:75:120 > 789 ns
 ```
 
-With `snippet` enabled:
+With `snippet` enabled (shows the actual code being executed):
 ```
 1234567890:C:/websites/myapp/index.cfm:45:72 > 123 ns [<cfset result = myFunction(arg1, arg2)>]
 ```
 
+In this example:
+- `1234567890` is the request ID
+- `C:/websites/myapp/index.cfm` is the template path
+- `45:72` represents the start and end position of the code in the template
+- `123 ns` is the execution time
+- `[<cfset result = myFunction(arg1, arg2)>]` is the actual code snippet (when enabled)
+
 ### ResourceExecutionLog
 
-Creates a structured log file with:
-- HTTP request information
-- Execution time summary
-- Detailed path mappings
-- Statement execution metrics
+Creates a structured log file with multiple sections:
+
+1. **Header Information**:
+   ```
+   context-path:/myapp
+   remote-user:
+   remote-addr:127.0.0.1
+   remote-host:localhost
+   script-name:/myapp/index.cfm
+   server-name:localhost
+   protocol:HTTP/1.1
+   server-port:8888
+   path-info:
+   query-string:
+   unit:ms
+   min-time-nano:1000000
+   execution-time:5462
+   ```
+
+2. **Path Mappings**:
+   ```
+   0:/myapp/index.cfm
+   1:/myapp/components/service.cfc
+   ```
+
+3. **Execution Metrics**:
+   ```
+   0   45   72   12
+   0   75   120   2
+   1   128   170   56
+   ```
+
+Each line in the execution metrics contains:
+- Template index (from path mappings)
+- Start position
+- End position
+- Execution time (in the configured unit)
 
 ## Performance Considerations
 
@@ -230,7 +270,32 @@ ExecutionLog has a significant performance impact and should only be enabled in 
 
 ## Use Cases
 
-- Identifying performance bottlenecks within complex templates
-- Profiling specific code blocks for optimization
-- Debugging execution flow in complex applications
-- Performance regression testing
+### Performance Optimization
+
+- **Identifying Hotspots**: Find the most time-consuming statements in your application
+- **Function Analysis**: Determine which function calls or methods consume disproportionate resources
+- **Query Performance**: Track the execution time of database queries embedded in your code
+- **Component Analysis**: Compare different components or services in your application architecture
+
+### Debugging
+
+- **Execution Flow Analysis**: Understand the order and timing of code execution
+- **Slow Request Investigation**: Troubleshoot specific slow requests in production environments
+- **Cache Effectiveness**: Verify if caching strategies are working as expected
+- **Performance Regression Testing**: Monitor for degradation when making code changes
+
+### Development Guidance
+
+- **Code Refactoring**: Identify candidates for optimization or refactoring
+- **Best Practice Enforcement**: Detect patterns that violate performance best practices
+- **Developer Education**: Help team members understand performance implications of their code
+
+### Real-World Example
+
+Consider a Lucee application that begins experiencing intermittent slowdowns. By enabling ExecutionLog with snippets, you might discover:
+
+```
+1234567890:C:/websites/myapp/services/userService.cfc:245:270 > 1250 ms [<cfset user = entityLoad("User", {email=arguments.email})>]
+```
+
+This immediately shows that a particular ORM entityLoad operation is taking over a second to execute, pinpointing the exact line of code causing the performance issue.
