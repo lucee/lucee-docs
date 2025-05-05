@@ -120,6 +120,10 @@ Lucee 6.1 improves its support for exception causes, providing better debugging 
 
 How to catch and display exceptions.
 
+## [ExecutionLog](/docs/recipes/execution-log.md)
+
+Log details about code execution at the statement level
+
 ## [Extension Installation](/docs/recipes/extension-installation.md)
 
 A comprehensive guide on how to install extensions in Lucee.
