@@ -1088,10 +1088,24 @@
     ]
   },
   {
+    "file": "scheduler-quartz-component-jobs.md",
+    "title": "Creating Component-Based Jobs with Quartz Scheduler",
+    "path": "/docs/recipes/scheduler-quartz-component-jobs.md",
+    "hash": "e7948b0ebd92f4fd37309948dd81ccd5",
+    "keywords": [
+      "scheduler",
+      "quartz",
+      "component",
+      "cfc",
+      "jobs",
+      "listeners"
+    ]
+  },
+  {
     "file": "scheduler-quartz.md",
     "title": "Quartz Scheduler Extension for Lucee",
     "path": "/docs/recipes/scheduler-quartz.md",
-    "hash": "f53e61b7a4702a18b0302f41b993dfbe",
+    "hash": "a2bf338ff0736e95d4450e45cb6401fa",
     "keywords": [
       "scheduler",
       "quartz",

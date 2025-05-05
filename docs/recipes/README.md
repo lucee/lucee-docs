@@ -312,6 +312,10 @@ Guide on configuring and interacting with specific S3 regions in Lucee using the
 
 How to set up and configure clustering with the Quartz Scheduler extension
 
+## [Creating Component-Based Jobs with Quartz Scheduler](/docs/recipes/scheduler-quartz-component-jobs.md)
+
+How to create and configure component-based jobs with the Quartz Scheduler extension
+
 ## [Quartz Scheduler Extension for Lucee](/docs/recipes/scheduler-quartz.md)
 
 Advanced task scheduling using Quartz Scheduler integration
