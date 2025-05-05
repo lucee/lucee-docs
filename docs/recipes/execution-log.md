@@ -80,6 +80,7 @@ Lucee includes several built-in implementations:
 - **lucee.runtime.engine.LogExecutionLog**: Writes to Lucee's logging system
 
 You can use the following shortcuts for common implementations:
+
 - `"console"` for `lucee.runtime.engine.ConsoleExecutionLog`
 - `"debug"` for `lucee.runtime.engine.DebugExecutionLog`
 
@@ -106,6 +107,7 @@ public interface ExecutionLog {
 Similar to other Lucee class definitions, you can specify:
 
 1. **OSGi Bundles**: Use `bundleName` and `bundleVersion`
+
    ```json
    {
      "executionLog": {
@@ -118,6 +120,7 @@ Similar to other Lucee class definitions, you can specify:
    ```
 
 2. **Maven Dependencies** (since Lucee 6.2):
+
    ```json
    {
      "executionLog": {
@@ -129,6 +132,7 @@ Similar to other Lucee class definitions, you can specify:
    ```
 
 3. **CFML Components** (Lucee 7+):
+
    ```json
    {
      "executionLog": {
@@ -137,6 +141,7 @@ Similar to other Lucee class definitions, you can specify:
      }
    }
    ```
+
    The component must implement `lucee.runtime.engine.ExecutionLog` via `implementsJava="lucee.runtime.engine.ExecutionLog"`.
 
 ## Implementation Details
@@ -196,12 +201,14 @@ When configuring any ExecutionLog implementation, you can specify these argument
 ### ConsoleExecutionLog
 
 Without snippets:
+
 ```
 1234567890:C:/websites/myapp/index.cfm:45:72 > 123 ns
 1234567890:C:/websites/myapp/index.cfm:75:120 > 789 ns
 ```
 
 With `snippet` enabled (shows the actual code being executed):
+
 ```
 1234567890:C:/websites/myapp/index.cfm:45:72 > 123 ns [<cfset result = myFunction(arg1, arg2)>]
 ```

@@ -67,6 +67,7 @@ FLUSH PRIVILEGES;
 Quartz Scheduler needs specific tables in your database. While the extension will attempt to create these tables automatically, you may need to create them manually if the database user doesn't have sufficient privileges.
 
 You can find database-specific scripts in the official Quartz repository:
+
 - MySQL: [tables_mysql_innodb.sql](https://github.com/quartznet/quartznet/blob/main/database/tables/tables_mysql_innodb.sql)
 - PostgreSQL: [tables_postgres.sql](https://github.com/quartznet/quartznet/blob/main/database/tables/tables_postgres.sql)
 - Oracle: [tables_oracle.sql](https://github.com/quartznet/quartznet/blob/main/database/tables/tables_oracle.sql)
@@ -75,6 +76,7 @@ You can find database-specific scripts in the official Quartz repository:
 #### 3. Configure the Datasource in Lucee
 
 Create a datasource in the Lucee Administrator:
+
 1. Navigate to Server/Web Admin > Datasources
 2. Add a new datasource with the appropriate settings
 3. Verify the connection is successful
@@ -133,6 +135,7 @@ In a clustered environment, Quartz Scheduler ensures that each job is executed b
 - It won't necessarily be the same node each time - the execution is distributed across the cluster
 
 The load-balancing mechanism is:
+
 - Near-random for busy schedulers with many triggers
 - Favors the same node that was just active for schedulers with fewer triggers
 
@@ -145,6 +148,7 @@ This behavior is normal and should not be manually adjusted. It ensures efficien
 #### Database Permission Errors
 
 If you see errors like `Table 'quartz.QRTZ_TRIGGERS' doesn't exist`, check:
+
 1. The database user has sufficient privileges to create tables
 2. The tables exist in the database
 3. The table prefix in your configuration matches the actual tables
