@@ -442,7 +442,7 @@
     "file": "execution-log.md",
     "title": "ExecutionLog",
     "path": "/docs/recipes/execution-log.md",
-    "hash": "12cc4a08ba50acf5e589f381695b0bc6",
+    "hash": "9a4a9915b4771a0f8b51a103f6c3637e",
     "keywords": [
       "executionlog",
       "debug",
@@ -1090,7 +1090,7 @@
     "file": "scheduler-quartz-clustering.md",
     "title": "Clustering with Quartz Scheduler",
     "path": "/docs/recipes/scheduler-quartz-clustering.md",
-    "hash": "e7aafc0b65d307d0b4bb3110b611e1ff",
+    "hash": "63205fda43c951704d8536f1325248bd",
     "keywords": [
       "scheduler",
       "quartz",
@@ -1103,7 +1103,7 @@
     "file": "scheduler-quartz-component-jobs.md",
     "title": "Creating Component-Based Jobs with Quartz Scheduler",
     "path": "/docs/recipes/scheduler-quartz-component-jobs.md",
-    "hash": "e7948b0ebd92f4fd37309948dd81ccd5",
+    "hash": "f6311c81005a01a5b3f12abdcb8eed17",
     "keywords": [
       "scheduler",
       "quartz",
@@ -1117,7 +1117,7 @@
     "file": "scheduler-quartz.md",
     "title": "Quartz Scheduler Extension for Lucee",
     "path": "/docs/recipes/scheduler-quartz.md",
-    "hash": "a2bf338ff0736e95d4450e45cb6401fa",
+    "hash": "644ef272d645bba42eb7cf5e2add68a3",
     "keywords": [
       "scheduler",
       "quartz",
