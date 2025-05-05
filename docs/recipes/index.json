@@ -439,6 +439,18 @@
     ]
   },
   {
+    "file": "execution-log.md",
+    "title": "ExecutionLog",
+    "path": "/docs/recipes/execution-log.md",
+    "hash": "12cc4a08ba50acf5e589f381695b0bc6",
+    "keywords": [
+      "executionlog",
+      "debug",
+      "performance",
+      "profiling"
+    ]
+  },
+  {
     "file": "extension-installation.md",
     "title": "Extension Installation",
     "path": "/docs/recipes/extension-installation.md",
