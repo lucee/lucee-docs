@@ -288,6 +288,13 @@ When clustering is enabled, the storage backend becomes the source of truth. The
 
 For detailed instructions and best practices on setting up clustering with Quartz Scheduler, see the dedicated [Clustering with Quartz Scheduler](recipes/clustering-quartz-scheduler.md) recipe.
 
+## Related Recipes
+
+For more detailed information on specific aspects of the Quartz Scheduler extension, refer to these dedicated recipes:
+
+- [Clustering with Quartz Scheduler](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/scheduler-quartz-clustering.md): Detailed instructions for setting up and configuring clustering
+- [Creating Component-Based Jobs with Quartz Scheduler](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/scheduler-quartz-component-jobs.md): Guide to creating and configuring component-based jobs
+
 ## Full Configuration Example
 
 ```json
