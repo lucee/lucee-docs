@@ -121,6 +121,7 @@ component {
 ### Step 2: Place the Component in a Mapped Location
 
 Either:
+
 1. Save your component in the default component directory: `{lucee-config}/components/jobs/DatabaseCleanupJob.cfc`
 2. Create a custom mapping that points to your component's location
 

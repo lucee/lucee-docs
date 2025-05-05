@@ -59,6 +59,7 @@ The Quartz Scheduler extension provides comprehensive administration tools to ma
 ### Lucee Administrator Integration
 
 The extension includes a full-featured frontend in the Lucee Administrator to manage all aspects of your scheduled tasks:
+
 - Job creation and management
 - Listener configuration
 - Storage settings
@@ -75,6 +76,7 @@ The Quartz Scheduler is configured using JSON, which provides full flexibility f
 ### 1. Using the Configuration File
 
 Create or modify the configuration file located at:
+
 ```
 {lucee-server}/lucee-server/context/quartz/config.json
 ```
@@ -125,6 +127,7 @@ Jobs are the tasks that will be executed according to a schedule. Each job confi
 #### Job Types
 
 1. **URL Jobs**: Execute HTTP requests to internal or external URLs
+
    ```json
    {
      "label": "Call external API",
@@ -134,6 +137,7 @@ Jobs are the tasks that will be executed according to a schedule. Each job confi
    ```
 
 2. **Internal Path Jobs**: Execute a path local to the server (important for proper load balancing in clusters)
+
    ```json
    {
      "label": "Process local data",
@@ -143,6 +147,7 @@ Jobs are the tasks that will be executed according to a schedule. Each job confi
    ```
 
 3. **Component Jobs**: Execute a CFML component
+
    ```json
    {
      "label": "Database maintenance",
@@ -156,11 +161,13 @@ Jobs are the tasks that will be executed according to a schedule. Each job confi
 #### Scheduling Options
 
 1. **Simple Interval**: Specify execution frequency in seconds
+
    ```json
    "interval": "60"  // Execute every 60 seconds
    ```
 
 2. **Cron Expression**: Use powerful cron syntax for complex schedules
+
    ```json
    "cron": "0 0 9-17 ? * MON-FRI"  // Every hour from 9am-5pm on weekdays
    ```
@@ -183,10 +190,12 @@ Listeners are components that monitor job execution:
 Storage determines how job information is persisted and enables clustering:
 
 1. **In-Memory (Default)**: No configuration needed
+
    - Jobs are stored in memory and read/saved to the config file
    - No clustering support
 
 2. **Database Storage**:
+
    ```json
    "store": {
      "type": "datasource",
@@ -282,6 +291,7 @@ One of the most powerful features of the Quartz Scheduler is clustering support,
 3. **Deploy to Multiple Servers**: Each server will coordinate with others to ensure tasks run once
 
 When clustering is enabled, the storage backend becomes the source of truth. The configuration file is used:
+
 - As a backup for job definitions
 - To provide initial jobs only when the storage has no jobs defined
 - For listener definitions (which always come from the config file)
