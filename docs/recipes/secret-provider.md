@@ -23,9 +23,9 @@ Lucee 7 introduces built-in support for secrets management, allowing you to secu
 
 In Lucee 7, secret providers can be configured similarly to datasources, caches, or AI connections, either in the Lucee Administrator (work in progress) or directly in `.CFConfig.json`. Here are sample configurations:
 
-**Environment Variables Example:**
+### Environment Variables Provider
 
-Read the secret directly from the environment variables.
+Read the secret directly from the environment variables:
 
 ```json
 "secretProviders": {
@@ -38,9 +38,9 @@ Read the secret directly from the environment variables.
 }
 ```
 
-**File Example:**
+### File Provider
 
-Read the secrets from a file, format can be json or env.
+Read the secrets from a file, format can be json or env:
 
 ```json
 "secretProviders": {
@@ -55,9 +55,9 @@ Read the secrets from a file, format can be json or env.
 }
 ```
 
-**Combined Providers Example:**
+### Combined Providers
 
-The `AndSecretProvider` allows you to combine multiple providers, checking each one in the order specified until a secret is found.
+The `AndSecretProvider` allows you to combine multiple providers, checking each one in the order specified until a secret is found:
 
 ```json
 "secretProviders": {
@@ -70,18 +70,95 @@ The `AndSecretProvider` allows you to combine multiple providers, checking each 
 }
 ```
 
+### Using External Classes
+
+Similar to other Lucee features, you can specify external classes for your secret providers using various methods:
+
+#### OSGi Bundles
+
+```json
+"secretProviders": {
+  "custom": {
+    "class": "com.mycompany.secrets.CustomSecretProvider",
+    "bundleName": "com.mycompany.secrets",
+    "bundleVersion": "1.2.0",
+    "custom": {
+      "configParam1": "value1",
+      "configParam2": "value2"
+    }
+  }
+}
+```
+
+#### Maven Dependencies
+
+Since Lucee 6.2, you can load classes directly from Maven repositories:
+
+```json
+"secretProviders": {
+  "vault": {
+    "class": "com.company.secrets.VaultSecretProvider",
+    "maven": "com.company:vault-provider:1.0.0,com.company:common-utils:1.5.0",
+    "custom": {
+      "url": "https://vault.example.com",
+      "timeout": 5000
+    }
+  }
+}
+```
+
+This allows you to specify one or more comma-separated Maven dependencies in gradle-style format.
+
+#### CFML Components (Lucee 7+)
+
+You can implement your own secret provider as a CFML component:
+
+```json
+"secretProviders": {
+  "myCustom": {
+    "component": "path.to.MySecretProviderComponent",
+    "custom": {
+      "configParam1": "value1"
+    }
+  }
+}
+```
+
+The component must implement `lucee.runtime.secrets.SecretProvider` via `implementsJava="lucee.runtime.secrets.SecretProvider"` annotation.
+
 ## Supported Providers
 
 Lucee includes several built-in secret providers:
 
-- **EnvVarSecretProvider**: Reads secrets from environment variables
-- **FileSecretProvider**: Reads secrets from a .json or .env file (more formats following)
-- **AndSecretProvider**: Combines multiple providers into one
+- **lucee.runtime.secrets.EnvVarSecretProvider**: Reads secrets from environment variables
+- **lucee.runtime.security.FileSecretProvider**: Reads secrets from a .json or .env file (more formats following)
+- **lucee.runtime.security.AndSecretProvider**: Combines multiple providers into one
 - **AWSSecretsManagerProvider**: Connects to AWS Secrets Manager (coming soon)
 - **GoogleSecretManagerProvider**: Uses Google Cloud Secret Manager (coming soon)
 - **DockerSecretsProvider**: Reads secrets from Docker secrets (coming soon)
 
-Each provider has specific configuration options as seen above.
+## Provider Configuration Options
+
+### EnvVarSecretProvider
+
+| Option | Description | Default | Notes |
+|--------|-------------|---------|-------|
+| `caseSensitive` | Determines if environment variable names are case-sensitive | `true` | Set to `false` to allow case-insensitive lookups |
+
+### FileSecretProvider
+
+| Option | Description | Default | Notes |
+|--------|-------------|---------|-------|
+| `type` | File format | `env` | Supported values: `env`, `json` |
+| `file` | Path to the secrets file | None (Required) | Can use any Lucee-supported resource path (local, S3, HTTP, etc.) |
+| `caseSensitive` | Determines if secret keys are case-sensitive | `true` | Set to `false` to allow case-insensitive lookups |
+| `refreshInterval` | How often to check for file changes (in milliseconds) | `60000` (1 minute) | Set to `0` to disable auto-refresh |
+
+### AndSecretProvider
+
+| Option | Description | Default | Notes |
+|--------|-------------|---------|-------|
+| `providers` | Comma-separated list of provider names to check | None (Required) | Providers are checked in the specified order |
 
 ## Using Secrets in Your Application
 
@@ -170,6 +247,70 @@ The `AndSecretProvider` allows you to chain multiple providers together, checkin
 apiKey = GetSecret("API_KEY", "combined");
 ```
 
+## Creating Custom Secret Providers
+
+You can create your own secret provider by implementing the `lucee.runtime.secrets.SecretProvider` interface. This can be done either in Java (compiled into a JAR and loaded via OSGi or Maven) or directly in CFML.
+
+### CFML Component Implementation
+
+```cfml
+// MySecretProvider.cfc
+component implementsJava="lucee.runtime.secrets.SecretProvider" {
+
+    // Initialize the provider with custom configuration
+    function init(struct config) {
+        variables.config = config;
+        return this;
+    }
+
+    // Get a secret by key
+    function getSecret(string key) {
+        // Implementation to retrieve the secret
+        // Return null if the secret doesn't exist
+        
+        // Example implementation (database-stored secrets)
+        var q = queryExecute(
+            "SELECT value FROM app_secrets WHERE key = :key",
+            {key: key},
+            {datasource: config.datasource}
+        );
+        
+        if (q.recordCount) {
+            return q.value;
+        }
+        
+        return javaNull();
+    }
+    
+    // Check if a secret exists
+    function hasSecret(string key) {
+        // Return true if the secret exists, false otherwise
+        
+        // Example implementation
+        var q = queryExecute(
+            "SELECT COUNT(*) as count FROM app_secrets WHERE key = :key",
+            {key: key},
+            {datasource: config.datasource}
+        );
+        
+        return q.count > 0;
+    }
+}
+```
+
+To use this custom provider, configure it in your `.CFConfig.json`:
+
+```json
+"secretProviders": {
+  "database": {
+    "component": "path.to.MySecretProvider",
+    "custom": {
+      "datasource": "secretsDB"
+    }
+  }
+}
+```
+
 ## Security Considerations
 
 ### Secret Rotation
@@ -186,21 +327,23 @@ Each provider has its own security considerations. For example:
 
 - AWS Secrets Manager requires proper IAM roles and permissions
 - Environment variables should be set securely through the operating system
+- File-based secrets need strict file permissions
 
 ## Troubleshooting
 
 ### Debugging
 
 Lucee logs every use of every key to the `application` log with the log level `trace`, this includes the stacktrace, the key used and the name of the secret provider itself.
-So when yu enable that log level you will see how and where you secrets get used (not set).
+When you enable that log level, you will see how and where your secrets get used (not the values themselves).
 
-In addition Lucee also logs in case it fails to load a secret provider.
+In addition, Lucee also logs in case it fails to load a secret provider.
 
 ### Common Issues
 
 1. **Secret not found**: Ensure the secret exists in the provider and that the key is correct.
 2. **Provider configuration**: Verify that the provider is correctly configured and accessible.
 3. **Permission issues**: Check that the application has the necessary permissions to access the secrets.
+4. **Class not found**: When using external providers, ensure all required dependencies are available.
 
 ## Best Practices
 
@@ -209,6 +352,8 @@ In addition Lucee also logs in case it fails to load a secret provider.
 3. **Implement least privilege**: Only grant access to the specific secrets an application needs.
 4. **Monitor usage**: Regularly audit secret access and usage patterns.
 5. **Layer providers**: Use the `AndSecretProvider` to implement fallback mechanisms.
+6. **Environment segregation**: Use different secret providers for development, staging, and production environments.
+7. **Regular rotation**: Rotate secrets regularly and verify that your application handles rotation gracefully.
 
 ## Reference
 
@@ -222,3 +367,31 @@ GetSecret(key [, name])
 - **name**: (Optional) Name of the Secret Provider to read from. If not provided, all configured providers are checked in order.
 
 Returns a reference to the secret value that is automatically resolved when used in a context requiring a simple value.
+
+### SecretProvider Interface
+
+```java
+package lucee.runtime.secrets;
+
+public interface SecretProvider {
+    /**
+     * Initialize the provider with the given configuration
+     * @param config Provider-specific configuration
+     */
+    public void init(java.util.Map<String, String> config);
+    
+    /**
+     * Get a secret by key
+     * @param key Secret key
+     * @return Secret value or null if not found
+     */
+    public String getSecret(String key);
+    
+    /**
+     * Check if a secret exists
+     * @param key Secret key
+     * @return true if the secret exists, false otherwise
+     */
+    public boolean hasSecret(String key);
+}
+```
