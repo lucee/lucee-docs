@@ -308,6 +308,10 @@ This document explains how to use retry functionality with some simple examples.
 
 Guide on configuring and interacting with specific S3 regions in Lucee using the S3 extension.
 
+## [Quartz Scheduler Extension for Lucee](/docs/recipes/scheduler-quartz.md)
+
+Advanced task scheduling using Quartz Scheduler integration
+
 ## [Script Templates](/docs/recipes/script-templates.md)
 
 Learn about script templates in Lucee. This guide explains how Lucee supports templates with the `.cfs` extension, allowing you to write direct script code without the need for the `<cfscript>` tag.

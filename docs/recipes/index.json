@@ -1075,6 +1075,19 @@
     ]
   },
   {
+    "file": "scheduler-quartz.md",
+    "title": "Quartz Scheduler Extension for Lucee",
+    "path": "/docs/recipes/scheduler-quartz.md",
+    "hash": "153321f721829587278feeee4469158d",
+    "keywords": [
+      "scheduler",
+      "quartz",
+      "cron",
+      "scheduled task",
+      "clustering"
+    ]
+  },
+  {
     "file": "script-templates.md",
     "title": "Script Templates",
     "path": "/docs/recipes/script-templates.md",
