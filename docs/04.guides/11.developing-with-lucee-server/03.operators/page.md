@@ -127,7 +127,7 @@ description: Mathematical, Logical, Ternary, Comparison, String and Elvis Operat
 | operators | Name           | Description |
 | --------- | -------------- | ----------- |
 | &         | concatenation  | Joins two strings, e.g. The result of "Hello" & "World" is "HelloWorld" |
-| &=        | compound concatenation |  A shorthand operator that joins two strings, e.g. a &= b would be equivalent to writing a = a & b |
+| &=        | compound concatenation |  A shorthand operator that joins two strings, e.g. a &= b would be equivalent to writing `a = a & b` |
 
 ## Ternary operator ##
 
@@ -139,7 +139,7 @@ condition ? value1 : value2
 
 This would return value1 if condition is true, otherwise it would return false. It's comparable to the following logical structure:
 
-```lucee
+```coldfusion
 <cfif condition>
     #value1#
 <cfelse>
@@ -155,8 +155,10 @@ iif(condition, "value1", "value2")
 
 For example:
 
+```lucee
 animal = "cat";
 writeOutput(animal == "cat"? "Meow" : "Woof");
+```
 
 would output "Meow".
 
@@ -205,11 +207,11 @@ dump( var=( someVar ?: true ), label="someVar ?: true" );
 
 ## Operators not available in tags ##
 
-You can use <> > < >= and <= in tags, as long as they don't interfere with the tag syntax. In that case you must use the equivalent GT, LT, etc. operators instead.
+You can use `<> > < >=` and `<=` in tags, as long as they don't interfere with the tag syntax. In that case you must use the equivalent `GT, LT,` etc. operators instead.
 
 ## Casting ##
 
-Note that in Lucee values are cast to an appropriate type automatically, except when using the identical operators === and !==
+Note that in Lucee values are cast to an appropriate type automatically, except when using the identical operators `===` and `!==`
 
 For example:
 
