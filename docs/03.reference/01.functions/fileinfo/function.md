@@ -7,4 +7,4 @@ categories:
 - files
 ---
 
-Returns detailed info about the given file.
+Returns more detailed information a file than [[function-getfileinfo]], including a hash `checksum` which is expensive (slower) to calculate.
