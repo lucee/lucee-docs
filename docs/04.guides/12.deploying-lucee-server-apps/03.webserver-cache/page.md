@@ -12,7 +12,7 @@ The settings you make here determine how Lucee deals with changed CFM files. Nor
 The following settings are possible:
 
 Setting value      |    Type  | Possible values / short description |
-------------------------   | -------------------------
+------------------------ | ------------------------- | --- |
 Inspect templates (CFM/CFC) |  Radio |  Never: Never checks templates whether they have changed or not Once Checks templates only once per request Always Checks every template for changes, Once: Checks templates only once per request, Always: Checks every template for changes |
 Template Cache |  Button  | Allows flushing the templates from the cache |
 Query Cache    |  Button  | Allows flushing the queries that are in the query cache |

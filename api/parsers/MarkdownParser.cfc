@@ -5,12 +5,13 @@ component {
 
 	public any function init() {
 		_setupNoticeBoxRenderer();
+		variables.markdownRender = new api.rendering.Markdown();
 		return this;
 	}
 
 	public string function _markdownToHtml( required string markdown, required boolean stripParagraph=false) {
 		// TODO code blocks with spaces or pre tags cause problems here
-		var html = markdownToHtml( arguments.markdown );
+		var html = variables.markdownRender.render( arguments.markdown );
 
 		if  (arguments.stripParagraph ){ // used for inline content
 			html = ReplaceNoCase( ReplaceNoCase( html, "<p>", "" ), "</p>", "");

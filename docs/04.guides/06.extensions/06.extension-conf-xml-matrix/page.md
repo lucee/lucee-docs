@@ -1,6 +1,8 @@
 ---
 title: Extension Config XML Matrix
 id: extension-config-xml-matrix
+categories:
+- extensions
 menuTitle: Config XML Matrix
 ---
 

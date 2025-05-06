@@ -1,6 +1,9 @@
 ---
 title: CFAdmin documentation
 id: cfadmin-docs
+categories:
+- server
+- system
 ---
 
 Since several people asked us to document the CFAdmin tag, we are publishing it here already so that you can have a look at all the actions and attributes as well as the examples available.

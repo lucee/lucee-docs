@@ -2,6 +2,8 @@
 title: 'Configuration: Lucee Directory Placeholders'
 id: configuration-directory-placeholders
 menuTitle: Directory Placeholders
+related:
+- directory-placeholders
 ---
 
 ## Directory Placeholders ##
