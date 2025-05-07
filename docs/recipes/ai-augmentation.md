@@ -68,8 +68,13 @@ if(!hasColl) {
     if(!directoryExists(collDirectory)) {
         directoryCreate(collDirectory,true);
     }
-    // Create collection
-    collection action="Create" collection=collectionName path=collDirectory;
+    // Create collection with vector capabilities
+    collection action="Create" 
+        collection=collectionName 
+        path=collDirectory
+        mode="hybrid"
+        embedding="TF-IDF"
+        ratio="0.5";
 }
 ```
 
@@ -312,17 +317,21 @@ These parameters let you fine-tune how much context is provided to the AI:
 - `contextBytes`: Sets the maximum total size of all context returned
 - `contextpassageLength`: Controls the maximum size of each individual passage
 
-### Content Source Flexibility
+### Leveraging Vector Search
 
-You can index virtually any content that you can access in CFML:
+When creating collections with `mode="hybrid"` or `mode="vector"`, you can take advantage of semantic search capabilities to find more relevant content:
 
-- Database records from any datasource
-- Local files in any format (parse as needed)
-- Web content from APIs or scraped pages
-- Application logs or metrics
-- User-generated content
-- PDF, Word, or other document formats (with appropriate text extraction)
-- External knowledge bases or documentation
+```javascript
+// Create a hybrid collection
+collection action="Create" 
+    collection="semantic_knowledge" 
+    path=collDirectory
+    mode="hybrid"
+    embedding="word2vec"  // Use word vectors for semantic understanding
+    ratio="0.7";          // Weight semantic matches higher than keyword matches
+```
+
+The vector search capability helps find conceptually similar content even when exact keywords aren't present, making it especially valuable for AI augmentation.
 
 ## Security Considerations
 
@@ -342,6 +351,15 @@ For best performance with the new Lucene Extension 3.0:
 - Implement caching for frequent queries
 - Schedule index maintenance during low-traffic periods
 - Monitor performance metrics to optimize configuration
+
+## Alternative Storage Options
+
+In addition to Lucene's built-in storage, Redis can be used as an alternative for vector storage:
+
+- Redis includes Redis Stack with the RediSearch module supporting vector similarity search
+- It offers high-performance in-memory operations for low-latency vector queries
+- The database can scale well for production environments with clustering capabilities
+- Redis can be used alongside the Lucene approach or as an alternative
 
 ## Examples of Use Cases
 
