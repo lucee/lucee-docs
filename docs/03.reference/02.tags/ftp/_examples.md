@@ -1,7 +1,7 @@
 ### FTP action open
 
 ```lucee
-<cfftp action="open"  username="#FTPusername#"  password="#FTPpassword#"  server="#FTPserver#" port="#FTPPort#"  connection="#connection_nam #"/>
+<cfftp action="open"  username="#FTPusername#"  password="#FTPpassword#"  server="#FTPserver#" port="#FTPPort#"  connection="#connection_name#"/>
 
 ```
 
@@ -22,14 +22,14 @@
 ### FTP action createDir
 
 ```lucee
-<cfftp action="createDir" connection="#connection_name#"  directory="diretoryName"/>
+<cfftp action="createDir" connection="#connection_name#"  directory="directoryName"/>
 
 ```
 
 ### FTP action removeDir
 
 ```lucee
-<cfftp action="removeDir" username="#FTPusername#" password="#FTPpassword#" server="#FTPserver#" port="#FTPPort#"  directory="diretoryName"/>
+<cfftp action="removeDir" username="#FTPusername#" password="#FTPpassword#" server="#FTPserver#" port="#FTPPort#"  directory="directoryName"/>
 
 ```
 
@@ -50,6 +50,6 @@
 ### FTP action existsDir
 
 ```lucee
-    <cfftp action="existsDir" username="#FTPusername#" password="#FTPpassword#" server="#FTPserver#" port="#FTPPort#"  directory="direcotryName" />
+    <cfftp action="existsDir" username="#FTPusername#" password="#FTPpassword#" server="#FTPserver#" port="#FTPPort#"  directory="directoryName" />
 
 ```

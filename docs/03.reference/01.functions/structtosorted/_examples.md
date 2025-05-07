@@ -24,6 +24,6 @@
         else
             return -1;
     };
-    writeDump(var=myNumb, label="Befor sorting");
+    writeDump(var=myNumb, label="Before sorting");
     writeDUmp(var=StructToSorted( myNumb , cb ), label="After sorting");
 ```

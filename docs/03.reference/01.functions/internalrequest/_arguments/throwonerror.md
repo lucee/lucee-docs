@@ -1,1 +1,1 @@
-if true (default) and the called page throws an exception, that exception is also thrown within the caller request. If false it is catched and only reported in the resulting struct.
+if true (default) and the called page throws an exception, that exception is also thrown within the caller request. If false it is caught and only reported in the resulting struct.
