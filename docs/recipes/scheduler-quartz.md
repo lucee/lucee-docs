@@ -208,6 +208,7 @@ Storage determines how job information is persisted and enables clustering:
    ```
 
 3. **Redis Storage**:
+
    ```json
    "store": {
      "type": "redis",

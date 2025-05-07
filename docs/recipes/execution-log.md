@@ -214,6 +214,7 @@ With `snippet` enabled (shows the actual code being executed):
 ```
 
 In this example:
+
 - `1234567890` is the request ID
 - `C:/websites/myapp/index.cfm` is the template path
 - `45:72` represents the start and end position of the code in the template
@@ -225,6 +226,7 @@ In this example:
 Creates a structured log file with multiple sections:
 
 1. **Header Information**:
+
    ```
    context-path:/myapp
    remote-user:
@@ -242,12 +244,14 @@ Creates a structured log file with multiple sections:
    ```
 
 2. **Path Mappings**:
+
    ```
    0:/myapp/index.cfm
    1:/myapp/components/service.cfc
    ```
 
 3. **Execution Metrics**:
+
    ```
    0   45   72   12
    0   75   120   2
@@ -255,6 +259,7 @@ Creates a structured log file with multiple sections:
    ```
 
 Each line in the execution metrics contains:
+
 - Template index (from path mappings)
 - Start position
 - End position
