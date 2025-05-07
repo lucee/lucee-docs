@@ -220,6 +220,10 @@ Lucee supports labels for all loop tags and statements, allowing you to control 
 
 This document explains how to handle big files in Lucee in a better way.
 
+## [Lucene 3 Extension](/docs/recipes/lucene-search.md)
+
+Documentation for the Lucene 3 Extension with vector and hybrid search capabilities
+
 ## [Mail - How to send a Mail](/docs/recipes/mail-how-to-send-a-mail.md)
 
 How to send an email using Lucee with help of the tag cfmail.

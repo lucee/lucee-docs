@@ -774,6 +774,21 @@
     ]
   },
   {
+    "file": "lucene-search.md",
+    "title": "Lucene 3 Extension",
+    "path": "/docs/recipes/lucene-search.md",
+    "hash": "8e32623ee71916cdd91e7098f76b8bd0",
+    "keywords": [
+      "Lucene",
+      "Search",
+      "Vector",
+      "Hybrid",
+      "Semantic",
+      "Content Chunks",
+      "Embeddings"
+    ]
+  },
+  {
     "file": "mail-how-to-send-a-mail.md",
     "title": "Mail - How to send a Mail",
     "path": "/docs/recipes/mail-how-to-send-a-mail.md",
