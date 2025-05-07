@@ -56,6 +56,10 @@ Automatically check for changes in your configuration file with Lucee.
 
 This document explains how to use a checksum in Lucee.
 
+## [Component Mappings](/docs/recipes/component-mappings.md)
+
+How to define and use component mappings in Lucee.
+
 ## [Configure Lucee within your application](/docs/recipes/configuration-administrator-cfc.md)
 
 How to configure Lucee within your application using Administrator.cfc and cfadmin tag.

@@ -201,6 +201,19 @@
     ]
   },
   {
+    "file": "component-mappings.md",
+    "title": "Component Mappings",
+    "path": "/docs/recipes/component-mappings.md",
+    "hash": "8df6b2d3876fef2473fc2fcbf4d603cf",
+    "keywords": [
+      "Component Mapping",
+      "Classpath",
+      "CFCs",
+      "Application.cfc",
+      "Lucee archive"
+    ]
+  },
+  {
     "file": "configuration-administrator-cfc.md",
     "title": "Configure Lucee within your application",
     "path": "/docs/recipes/configuration-administrator-cfc.md",
