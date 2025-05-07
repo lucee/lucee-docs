@@ -159,7 +159,7 @@ CommandBox uses a *'server.json'* file to configure specific server settings to 
 <br>
 ###  Step 8 - Give CommandBox read/write permissions to the server.json file
 
-Because CommandBox opens and rewrites the server.json file, the user 'cfbox' needs read/write privileges for it. To adjust it navigate to the file with the file explorer 'thunar' -&gt; right click the server.json file -&gt; 'permissisions' -&gt; group -&gt; *'cfbox'* with *read/write* permissions.
+Because CommandBox opens and rewrites the server.json file, the user 'cfbox' needs read/write privileges for it. To adjust it navigate to the file with the file explorer 'thunar' -&gt; right click the server.json file -&gt; 'permissions' -&gt; group -&gt; *'cfbox'* with *read/write* permissions.
 
 <br>
 ###  Step 9 - Run CommandBox for the first time as the user 'cfbox' for initialization
@@ -255,12 +255,12 @@ Check if the CommandBox inbuilt server Undertow is serving the page correctly at
 $ firefox http://127.0.0.1:8080/index.cfm
 ```
 
-If you have successfully tested the page and you are seeing the index.cfm page displayed with the data dump, we can proceed to Step 12 to connect CommandBox inbuilt servlet container enging Undertow with the front end web server Apache2.
+If you have successfully tested the page and you are seeing the index.cfm page displayed with the data dump, we can proceed to Step 12 to connect CommandBox inbuilt servlet container engine Undertow with the front end web server Apache2.
 
 <br>
-###  Step 12 - Connect Apache2 with CommandBox inbuilt servler container engine Undertow with AJP
+###  Step 12 - Connect Apache2 with CommandBox inbuilt servlet container engine Undertow with AJP
 
-CommandBox inbuilt lightweight servlet engine Undertow can also run without a front end web server (as stand alone server). Typical options/features needed for such a scenario are configurable in server.json (e.g. urlRewirte, admin lock down, prodution-profiles, etc). Running Undertow in such a setup may suffice and should be taken into consideration. If running as 'stand alone' is wished, simply deactivate AJP by deleting the respective entries in your server.json and changing HTTP port 8080 to port 80. Nevertheless, we'll show you in this step how to connect Lucee/Undertow to Apache2 with AJP, which is a very common setup.
+CommandBox inbuilt lightweight servlet engine Undertow can also run without a front end web server (as stand alone server). Typical options/features needed for such a scenario are configurable in server.json (e.g. urlRewrite, admin lock down, production-profiles, etc). Running Undertow in such a setup may suffice and should be taken into consideration. If running as 'stand alone' is wished, simply deactivate AJP by deleting the respective entries in your server.json and changing HTTP port 8080 to port 80. Nevertheless, we'll show you in this step how to connect Lucee/Undertow to Apache2 with AJP, which is a very common setup.
 
 We have already enabled AJP in the server.json file. Still, Apache2 needs to be configured to intercept '.cfm/.cfc' files and forward the connection (also called to 'reverse proxy') to CommandBox 'servlet container engine'. This is done with the Apache2 module mod_proxy_ajp (and mod_proxy). To configure Apache2 to for reverse proxy as AJP, you need to:
 

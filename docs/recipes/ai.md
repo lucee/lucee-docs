@@ -134,7 +134,7 @@ At the moment, these functions use the prefix `Lucee` to avoid conflicts with ex
 **Direct Interaction Example:**
 
 ```javascript
-// start a session with a specic AI endpoint
+// start a session with a specific AI endpoint
 slim = LuceeCreateAISession(name:'gemma2', systemMessage:"Answer as Slim Shady.");
 
 // Complete response at once

@@ -5,7 +5,7 @@ id: docs-build
 
 ## Prerequisites
 
-The only dependency required is [CommandBox](https://www.ortussolutions.com/products/commandbox). Ensure that commandbox is installed and that the `box` command is in your path.
+The only dependency required is [CommandBox](https://www.ortussolutions.com/products/commandbox). Ensure that CommandBox is installed and that the `box` command is in your path.
 
 ## Fork and contribute to the documentation
 

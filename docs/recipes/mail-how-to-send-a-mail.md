@@ -8,7 +8,7 @@
     "tag-mailparam",
     "tag-mailpart"
   ],
-  "description": "How to send an email using Lucee wth help of the tag cfmail.",
+  "description": "How to send an email using Lucee with help of the tag cfmail.",
   "keywords": [
     "Email",
     "Send mail",
