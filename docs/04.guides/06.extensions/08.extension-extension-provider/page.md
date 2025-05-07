@@ -27,6 +27,7 @@ description | Description of the extension provider
 image | Link to an image
 url | URL for more information
 mode | Defines how the Information of the ExtensionProvider is cached in the client (Lucee Administrator). Valid values are:
+
 <ul><li>develop - does not cache the result of the extension provider</li>
 <li>production (or no value) - caches the result in the session scope of the consumer</li></ul>
 

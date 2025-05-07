@@ -45,7 +45,7 @@ In Lucee you have two main options to add a REST service to your Application:
     * **Physical:** *C:\path-to-location-with-your-rest-components\\* and click on **save**
 
 * **Step 3:** OPTIONAL: To make sure the REST services are correctly set up, activate the check box for **List services**. When enabled, you'll see a list of all the REST service mappings by navigating to `http://localhost:8888/rest/` (this will list all REST mappings created for the localhost web-context).
-<br>
+
 <br>
 
 #### Option 2: Setting up REST service by defining a REST mapping in Application.cfc ####
@@ -88,7 +88,7 @@ If you have enabled **List services** in the REST settings of your Lucee Server 
 * Verify if you're using the correct Lucee Administrator's password in the password-attribute of the [[function-restinitapplication]] function.
 
 * Plain REST requests won't invoke the `Application.cfc`, thus no REST mapping will be added with the [[function-restinitapplication]] function with pure REST requests. Try running a `.cfm` template to invoke the `Application.cfc` then. If your application doesn't have a .cfm template, create an empty index.cfm and run it. This will ensure that the [[function-restinitapplication]] function in `Application.cfc` gets executed. It's also possible to create a special template (e.g. `initRest.cfm`) containing the [[function-restinitapplication]] function for the simple purpose of executing that function as an update of the REST mapping.
-<br>
+
 <br>
 
 ### 4. Creating the REST example application ###
@@ -168,7 +168,7 @@ To intercept requests for `rest/*` paths and direct them to Tomcat/Lucee, follow
 * *Step 7:* Click on **Request Restrictions** and uncheck *invoke handler only if request is mapped to:*
 
 * *Step 8:* Apply the changes by clicking **Ok**
-<br>
+
 <br>
 
 #### For Apache2 on Ubuntu/Linux ####
@@ -228,7 +228,7 @@ Find below a quick reference overview of specific component attributes and funct
 * **rest (boolean):** enables/disables the component as an accessible rest component. Default value is `true`. Set it to false if you wish to disable a component from serving REST services.
 * **restpath (string):** defines the path that invokes the component. Use this to define your own REST path in case you don't want to use the components name.
 * **httpMethod (string):** defines the http method to access the component. All values that are supported and allowed by the server can be used. Common values are `GET | POST | PUT | UPDATE | DELETE | HEAD | OPTIONS`
-<br>
+
 <br>
 
 #### 7.2 CFfunction attributes for REST ####
@@ -238,14 +238,14 @@ Find below a quick reference overview of specific component attributes and funct
 * **httpMethod (string)** defines the http method to access the function. All values that are supported and allowed by the server can be used. Common values are `GET | POST | PUT | UPDATE | DELETE | HEAD | OPTIONS`
 * **produces (string):** defines the content-type of the server response, e.g. `text/plain | text/html | application/json | application/xml` or other valid mime-types. Default is `application/json`.
 * **consumes (string):** defines the content-type of the expected request body from the client.
-<br>
+
 <br>
 
 #### 7.3 CFargument ####
 
 * **restArgName (string):**  Defines the variable name of the request data.  
 * **restArgSource (string):** Defines the data scope for the variable name to be extracted. Possible values are `PATH | QUERY | FORM | MATRI | HEADER | COOKIE`
-<br>
+
 <br>
 
 ### 8. Using file extensions to format return data ###
