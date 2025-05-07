@@ -4,7 +4,7 @@ The following variables will be substituted [ $SERIESLABEL$, $ITEMLABEL$, $VALUE
 
 If the url does not contain a `?` the following is appended 
 
-`?series=$SERIESLABEL$&category=$ITEMLABEL$&value=$VALUE$ `
+`?series=$SERIESLABEL$&category=$ITEMLABEL$&value=$VALUE$`
 
 Otherwise, you will need to specify the query string manually
 

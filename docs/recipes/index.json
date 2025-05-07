@@ -455,7 +455,7 @@
     "file": "execution-log.md",
     "title": "ExecutionLog",
     "path": "/docs/recipes/execution-log.md",
-    "hash": "9a4a9915b4771a0f8b51a103f6c3637e",
+    "hash": "f0afb9aa43c468371bc894db26e28245",
     "keywords": [
       "executionlog",
       "debug",
@@ -524,7 +524,7 @@
     "file": "function-listeners.md",
     "title": "Function Listeners",
     "path": "/docs/recipes/function-listeners.md",
-    "hash": "993f0ad6516c54c8021d77842f48aee1",
+    "hash": "891a59c06d52602d5714bd5d15324f7e",
     "keywords": [
       "parallel",
       "async",
@@ -1145,7 +1145,7 @@
     "file": "scheduler-quartz.md",
     "title": "Quartz Scheduler Extension for Lucee",
     "path": "/docs/recipes/scheduler-quartz.md",
-    "hash": "644ef272d645bba42eb7cf5e2add68a3",
+    "hash": "ecdcdfd9cf900d4e296d74a1bd55b8ea",
     "keywords": [
       "scheduler",
       "quartz",

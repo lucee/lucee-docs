@@ -34,6 +34,6 @@ Dump(
     function callback(e1, e2){
     	return compare(arguments.e1, arguments.e2);
     }
-	writeDump(var=myStruct,label="Befor sorting")
+	writeDump(var=myStruct,label="Before sorting")
     writeDump(var=StructSort(myStruct,callback),label="After sorting");
 ```

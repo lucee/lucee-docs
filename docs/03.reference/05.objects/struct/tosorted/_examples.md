@@ -24,6 +24,6 @@
       else
         return -1;
     };
-    writeDump(var=myNumb, label="Befor sorting");
+    writeDump(var=myNumb, label="Before sorting");
     writeDump(var=myNumb.toSorted(cb),label="After sorting");
 ```
