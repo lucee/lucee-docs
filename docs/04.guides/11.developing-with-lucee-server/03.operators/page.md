@@ -205,6 +205,26 @@ someVar=false;
 dump( var=( someVar ?: true ), label="someVar ?: true" );
 ```
 
+## Safe Navigation Operator ##
+
+The Safe Navigation Operator `?.` is used to reference nested properties which may not exist, safely returning a null value when a property doesn't exist.
+
+This makes code safer and more concise by handling null or undefined values gracefully during both property and method access.
+
+```lucee
+var property = context?.object?.property;
+```
+
+It can be also combined with the Elvis Operator, to write much cleaner and more robust code when dealing with complex, varied objects.
+
+```lucee
+var prop = some?.key?.that?.is?.not?.there ?: "I'm a default value!";
+```
+
+In Javascript, this is called [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+
+Naturally, there's a Ben Nadel blog post about this! [Using The Safe-Navigation Operator To Safely Clean Up Resources In Lucee 5.3.2.77](https://www.bennadel.com/blog/3672-using-the-safe-navigation-operator-to-safely-clean-up-resources-in-lucee-5-3-2-77.htm)
+
 ## Operators not available in tags ##
 
 You can use `<> > < >=` and `<=` in tags, as long as they don't interfere with the tag syntax. In that case you must use the equivalent `GT, LT,` etc. operators instead.
