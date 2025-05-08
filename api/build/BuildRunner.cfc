@@ -48,8 +48,8 @@ component accessors=true {
 		var builders = [];
 
 		for( var dir in dirs ){
-			if ( dir.type == "dir" 
-					&& FileExists( dir.directory & "/#dir.name#/Builder.cfc" ) 
+			if ( dir.type == "dir"
+					&& FileExists( dir.directory & "/#dir.name#/Builder.cfc" )
 					&& dir.name neq "dash" ) {
 				builders.append( dir.name );
 			}

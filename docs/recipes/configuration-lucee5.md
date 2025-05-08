@@ -14,8 +14,8 @@
 
 # Configuration - Lucee 5
 
-This guide provides best practices for configuring Lucee 5. While we highly recommend updating to Lucee 6 or above, 
-you can refer to the [Lucee 6 Configuration Guide](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/configuration.md) for guidance. 
+This guide provides best practices for configuring Lucee 5. While we highly recommend updating to Lucee 6 or above,
+you can refer to the [Lucee 6 Configuration Guide](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/configuration.md) for guidance.
 
 If an update is not feasible, this document outlines how to configure Lucee 5 effectively.
 
@@ -42,7 +42,7 @@ Each layer can modify the behavior of the lower layers.
 
 ## Environment Variables / System Properties
 
-Lucee allows you to configure settings using environment variables or system properties. 
+Lucee allows you to configure settings using environment variables or system properties.
 You can refer to the [Environment Variables and System Properties Documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/environment-variables-system-properties.md) for details on available options.
 
 A commonly used property is `LUCEE_ADMIN_PASSWORD`, which lets you set the server administrator password.
@@ -57,7 +57,7 @@ Example:
 
 ```xml
 <data-sources>
-  <data-source 
+  <data-source
     host="localhost"
     username="{env:MYDS_USERNAME}"
     password="{system:myds.password}" 

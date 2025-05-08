@@ -112,7 +112,7 @@ You can also define Java settings globally for all applications through the `.CF
 
 ### Using Java Settings in `Application.cfc`
 
-In your [[tag-Application]], you can define or override Java settings specific to your application. 
+In your [[tag-Application]], you can define or override Java settings specific to your application.
 
 This is the primary way to configure Java dependencies at the application level.
 
@@ -142,7 +142,7 @@ This method gives you flexibility to handle specific Java dependencies within ea
 
 ### Using Java Settings in a Component
 
-Maven dependencies and other Java settings can also be defined as part of a [[tag-component]]. 
+Maven dependencies and other Java settings can also be defined as part of a [[tag-component]].
 
 This ensures that only the classes loaded within that component will use the specified settings, isolating it from the rest of the application and avoiding conflicts.
 

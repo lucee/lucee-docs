@@ -3,7 +3,7 @@
     "file": "ai-augmentation.md",
     "title": "AI Augmentation with Lucene",
     "path": "/docs/recipes/ai-augmentation.md",
-    "hash": "53314e40b5bbb666c1ad9b9a8af38015",
+    "hash": "0f498ffe8d676b37960c93f1395381fb",
     "keywords": [
       "AI",
       "LLM",
@@ -56,7 +56,7 @@
     "file": "ai.md",
     "title": "AI (Experimental)",
     "path": "/docs/recipes/ai.md",
-    "hash": "941c4523e9e5d00e9218a3ea35f78b26",
+    "hash": "c6bb2dc84ea3abb12ee829131d4348d3",
     "keywords": [
       "AI",
       "LLM"
@@ -137,7 +137,7 @@
     "file": "breaking-changes-7.0.md",
     "title": "Breaking Changes between Lucee 6.2 and 7.0",
     "path": "/docs/recipes/breaking-changes-7.0.md",
-    "hash": "5d4e501588e9131467eab90514a74ef1",
+    "hash": "de8af7cf0ca8fa2002a3cd8785402121",
     "keywords": [
       "breaking changes",
       "Lucee 6.2",
@@ -231,7 +231,7 @@
     "file": "configuration-lucee5.md",
     "title": "Configuration - Lucee 5",
     "path": "/docs/recipes/configuration-lucee5.md",
-    "hash": "f12a649592d2371ea395566b63a28f03",
+    "hash": "8df45e5d583ecc6212fc5eb147d95cf1",
     "keywords": [
       "configuration",
       "config",
@@ -244,7 +244,7 @@
     "file": "configuration.md",
     "title": "Configuration - How to Configure Lucee",
     "path": "/docs/recipes/configuration.md",
-    "hash": "964b93eaee93f852551d88278aa498f4",
+    "hash": "42b09592d561faec4b3e8db0b9747406",
     "keywords": [
       "configuration",
       "config",
@@ -619,7 +619,7 @@
     "file": "inline-components.md",
     "title": "Inline Components",
     "path": "/docs/recipes/inline-components.md",
-    "hash": "8bff1dddaef137a0fee3bbd7cfb1e8a5",
+    "hash": "30b05e4fd6194eda7e916de2c5f2e198",
     "keywords": [
       "CFML",
       "component",
@@ -631,7 +631,7 @@
     "file": "java-explicit-casting.md",
     "title": "Java - Explicit Casting of a Component to a Specific Interface",
     "path": "/docs/recipes/java-explicit-casting.md",
-    "hash": "98c9cfb2af60e6e0e7785b735ccdee7a",
+    "hash": "6bd277407e1c24342952bc9ad645b7d9",
     "keywords": [
       "java",
       "cast",
@@ -657,7 +657,7 @@
     "file": "java-libraries.md",
     "title": "Interacting with Java Libraries in Lucee 6.2",
     "path": "/docs/recipes/java-libraries.md",
-    "hash": "fcb4ffab9370cc0c368a03553d8b156a",
+    "hash": "fdcea885f9a6d03e68030373bf6858b1",
     "keywords": [
       "java",
       "maven",
@@ -671,7 +671,7 @@
     "file": "java-settings.md",
     "title": "Java Settings in Application.cfc (Now with Maven Support)",
     "path": "/docs/recipes/java-settings.md",
-    "hash": "2b9ebcf9e7e0b012a8d154b7b41083b0",
+    "hash": "44f4e9f1da572d1490c1ee91491889e9",
     "keywords": [
       "Java settings",
       "Application.cfc",
@@ -683,7 +683,7 @@
     "file": "language-server.md",
     "title": "Language Server Protocol (LSP) for Lucee",
     "path": "/docs/recipes/language-server.md",
-    "hash": "75257e0182da1d591a4f6fad3b61ce71",
+    "hash": "304ba26e4c261a1afdcb6f49cb913042",
     "keywords": [
       "LSP",
       "language server",
@@ -738,7 +738,7 @@
     "file": "logging.md",
     "title": "Logging in Lucee",
     "path": "/docs/recipes/logging.md",
-    "hash": "0156926250feccc64a91630c8cec5a87",
+    "hash": "b9445d975a550f7e3a7ab39122b60317",
     "keywords": [
       "Logging",
       "Log levels",
@@ -777,7 +777,7 @@
     "file": "lucene-search.md",
     "title": "Lucene 3 Extension",
     "path": "/docs/recipes/lucene-search.md",
-    "hash": "8e32623ee71916cdd91e7098f76b8bd0",
+    "hash": "e6ae606ba2b052d7bf8fb7631db339c5",
     "keywords": [
       "Lucene",
       "Search",
@@ -831,7 +831,7 @@
     "file": "mathematical-precision.md",
     "title": "Mathematical Precision",
     "path": "/docs/recipes/mathematical-precision.md",
-    "hash": "4c6eb9d898793974f428d91d3bbea1fb",
+    "hash": "a5cc99c1a29fbfc97b58510819de4a67",
     "keywords": [
       "CFML",
       "math",
@@ -846,7 +846,7 @@
     "file": "maven.md",
     "title": "Maven (Lucee 6.2)",
     "path": "/docs/recipes/maven.md",
-    "hash": "bd00e37b0a479662766e42f2de3fa587",
+    "hash": "6107b24c9f8ed835a7417da1cba7ab38",
     "keywords": [
       "Maven",
       "Java",
@@ -894,7 +894,7 @@
     "file": "new-operator.md",
     "title": "New Operator in Lucee",
     "path": "/docs/recipes/new-operator.md",
-    "hash": "3da4d4c4b801e73f53c47980827c07fd",
+    "hash": "029c82b5d55686e8c20763bedc8835f1",
     "keywords": [
       "new",
       "java",
@@ -1101,7 +1101,7 @@
     "file": "s3-region.md",
     "title": "Using S3 Regions in Lucee",
     "path": "/docs/recipes/s3-region.md",
-    "hash": "0f033d87b29ca7e2e5b8fef6c2b9f10f",
+    "hash": "ad9893420ccc1669341076a6209cdc8e",
     "keywords": [
       "Virtual File System",
       "VFS",
@@ -1145,7 +1145,7 @@
     "file": "scheduler-quartz.md",
     "title": "Quartz Scheduler Extension for Lucee",
     "path": "/docs/recipes/scheduler-quartz.md",
-    "hash": "ecdcdfd9cf900d4e296d74a1bd55b8ea",
+    "hash": "d7fd877e79da9da7122d3a213fdb7ff0",
     "keywords": [
       "scheduler",
       "quartz",
@@ -1171,7 +1171,7 @@
     "file": "secret-provider.md",
     "title": "Secret Management",
     "path": "/docs/recipes/secret-provider.md",
-    "hash": "800617613fc7134d607fd9841cd9f891",
+    "hash": "6ad5e8b970f9a289dbf4b679ee07dbec",
     "keywords": [
       "security",
       "secrets",
@@ -1184,7 +1184,7 @@
     "file": "session-handling.md",
     "title": "Session Handling",
     "path": "/docs/recipes/session-handling.md",
-    "hash": "bbaf7d65613e1c6664fc1b30b3c03122",
+    "hash": "89fd4cd784e1c2635bbd25ff756a778d",
     "keywords": [
       "Session Management",
       "CFML Sessions",
@@ -1200,7 +1200,7 @@
     "file": "single-vs-multi-mode.md",
     "title": "Single Mode vs Multi Mode in Lucee",
     "path": "/docs/recipes/single-vs-multi-mode.md",
-    "hash": "acf6dd0ef290d01a18f5890c3a9d6363",
+    "hash": "1bc5631b7cd9cf1fdb6124d400f85f82",
     "keywords": [
       "Lucee",
       "Single Mode",
@@ -1284,7 +1284,7 @@
     "file": "tag-syntax.md",
     "title": "How to Use Tags in Script",
     "path": "/docs/recipes/tag-syntax.md",
-    "hash": "d621a06b65dc4a2b569451e56b57a46f",
+    "hash": "a10c3acda2e42f7f31bf31454542d7bf",
     "keywords": [
       "Syntax",
       "tag",
@@ -1339,7 +1339,7 @@
     "file": "troubleshooting.md",
     "title": "Troubleshooting Lucee Problems",
     "path": "/docs/recipes/troubleshooting.md",
-    "hash": "9152e98a4d0fc0998a0e227ea6087679",
+    "hash": "4243cb200941abf82af703dcf524cf33",
     "keywords": [
       "startup",
       "deployment",

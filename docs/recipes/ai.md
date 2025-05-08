@@ -128,7 +128,7 @@ AI in Lucee can be used either directly through tags and functions or indirectly
 
 ### Direct Integration
 
-You can interact with AI directly via Lucee functions and tags. 
+You can interact with AI directly via Lucee functions and tags.
 At the moment, these functions use the prefix `Lucee` to avoid conflicts with existing functions in your code. With Lucee 7, we plan to remove the prefix (but still support it as an alias).
 
 **Direct Interaction Example:**
@@ -151,14 +151,14 @@ This does not cover all available functionality; refer to the AI documentation t
 
 ### Exception Handling
 
-AI is already integration in Lucee in the exception template. 
-When the exception template (orange screen) is displayed and you have defined an AI connection with the default type "exception", that AI engine will be used to analyze the exception. 
-Lucee provides the AI with information about the exception, allowing it to offer insights and suggestions for resolving the issue. 
+AI is already integration in Lucee in the exception template.
+When the exception template (orange screen) is displayed and you have defined an AI connection with the default type "exception", that AI engine will be used to analyze the exception.
+Lucee provides the AI with information about the exception, allowing it to offer insights and suggestions for resolving the issue.
 This feature is still a work in progress, and we are working to improve the quality of the AI responses by refining the input.
 
 ### Monitor Documentation Tab
 
-In the Monitor's Documentation tab, AI can answer questions about Lucee based on retrieval-augmented generation (RAG) with available documentation and links to related documents. 
+In the Monitor's Documentation tab, AI can answer questions about Lucee based on retrieval-augmented generation (RAG) with available documentation and links to related documents.
 This feature is also in development for enhanced input quality (read more about [https://github.com/lucee/lucee-docs/blob/master/docs/recipes/monitoring-debugging.md](Monitor Documentation) ).
 
 ## Future Development

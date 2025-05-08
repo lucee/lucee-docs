@@ -22,21 +22,21 @@
 
 # Maven (Lucee 6.2)
 
-Maven is a powerful tool for managing and retrieving Java libraries in modern applications. 
+Maven is a powerful tool for managing and retrieving Java libraries in modern applications.
 It allows developers to easily integrate dependencies and manage project libraries. In Lucee 6.2, Maven integration has been added, providing more flexibility when using Java libraries within your CFML codebase.
 
 ## Why Maven?
 
 Maven is a widely-used framework that simplifies the management of Java dependencies.
 
-Lucee automatically handles the retrieval and inclusion of required libraries and their dependencies, reducing the manual work needed to manage them. 
+Lucee automatically handles the retrieval and inclusion of required libraries and their dependencies, reducing the manual work needed to manage them.
 
 This makes integrating third-party Java libraries into your Lucee applications much easier and more efficient.
 
 ## How to Use Maven in Lucee
 
-Lucee has supported the `this.javasettings` setting in the `Application.cfc` for a while. 
-This allows developers to define directories containing Java classes or `.jar` files. Starting from Lucee 6.2, this functionality has been extended to support Maven libraries. 
+Lucee has supported the `this.javasettings` setting in the `Application.cfc` for a while.
+This allows developers to define directories containing Java classes or `.jar` files. Starting from Lucee 6.2, this functionality has been extended to support Maven libraries.
 You can now define Maven dependencies in the configuration file `.CFConfig.json`, within your `Application.cfc`, or directly in your CFML components.
 
 Lucee uses these configurations to load Java classes in a structured manner, ensuring that dependencies are managed effectively.
