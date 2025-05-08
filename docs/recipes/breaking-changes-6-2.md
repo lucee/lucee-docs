@@ -70,3 +70,9 @@ You also may find some race conditions, etc within your own code / applications.
 Use [[function-inspectTemplates]] instead.
 
 [LDEV-5491](https://luceeserver.atlassian.net/browse/LDEV-5491)
+
+## Cookies Expires are now in GMT, rather than UTC
+
+More of a bug fix than a breaking change, Lucee now adheres to the spec correctly, since with 6.2.2, making Cloudflare happier
+
+[LDEV-4314](https://luceeserver.atlassian.net/browse/LDEV-4314)
