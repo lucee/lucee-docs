@@ -31,7 +31,7 @@ component {
 				request.filesWritten++;
 				switch ( _page.getPageType() ){
 					case "tag":
-						arrayAppend( tags, _page.getName() );
+						arrayAppend( tags, "cf" & _page.getName() );
 						break;
 					case "function":
 						arrayAppend( functions, _page.getName() );
@@ -111,7 +111,10 @@ component {
 	public function _render( func ){
 		var fn = arguments.func;
 		var data = [=];
-		data["name"] = fn.getName();
+		if ( ( fn.getPageType() == "tag" ) )
+			data["name"] = "cf" & fn.getName();
+		else
+			data["name"] = fn.getName();
 		data["type"] = fn.getPageType();
 		data["returns"] = lcase((fn.getPageType() == "tag") ? "void" : fn.getReturnType());
 		data["description"] = fn.getDescription();
@@ -158,8 +161,9 @@ component {
 			arrayAppend( data["params"], arg );
 		}
 		if ( fn.getPageType() == "tag" ){
-			if ( len(required) eq 0 ) {
-				data["syntax"] = "<" & fn.name & "/>";
+			var jsonfile = variables.cfdocsPath & "/cf" & lcase( fn.name ) & ".json";
+			if ( len( required ) eq 0 ) {
+				data["syntax"] = "<cf" & fn.name & "/>";
 			} else {
 				var attrs = [];
 				var att = fn.getAttributes();
@@ -171,6 +175,7 @@ component {
 					& ArrayToList( attrs, ", " ) & "/>";
 			}
 		} else {
+			var jsonfile = variables.cfdocsPath & "/" & lcase( fn.name ) & ".json";
 			var args = ArrayToList( required, ", " );
 			if ( len ( optional ) ){
 				if (len( args ) )
@@ -183,7 +188,8 @@ component {
 				data["syntax"] = fn.name & "()";
 			}
 		}
-		var jsonfile = variables.cfdocsPath & "/" & lcase(fn.name) & ".json";
+		if ( FileExists( jsonfile ) )
+			throw "File conflict [#jsonfile#] already exists!";
 		fileWrite( jsonFile, variables.prettyPrinter.prettyPrint( data ) );
 		return true;
 	}
