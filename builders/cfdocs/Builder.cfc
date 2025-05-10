@@ -31,7 +31,7 @@ component {
 				request.filesWritten++;
 				switch ( _page.getPageType() ){
 					case "tag":
-						arrayAppend( tags, "cf" & _page.getName() );
+						arrayAppend( tags, "cf" & LCase( _page.getName() ) );
 						break;
 					case "function":
 						arrayAppend( functions, _page.getName() );
@@ -112,7 +112,7 @@ component {
 		var fn = arguments.func;
 		var data = [=];
 		if ( ( fn.getPageType() == "tag" ) )
-			data["name"] = "cf" & fn.getName();
+			data["name"] = "cf" & LCase( fn.getName() );
 		else
 			data["name"] = fn.getName();
 		data["type"] = fn.getPageType();
@@ -163,7 +163,7 @@ component {
 		if ( fn.getPageType() == "tag" ){
 			var jsonfile = variables.cfdocsPath & "/cf" & lcase( fn.name ) & ".json";
 			if ( len( required ) eq 0 ) {
-				data["syntax"] = "<cf" & fn.name & "/>";
+				data["syntax"] = "<cf" & LCase( fn.name ) & "/>";
 			} else {
 				var attrs = [];
 				var att = fn.getAttributes();
@@ -171,7 +171,7 @@ component {
 					if ( !a.required ) return;
 					arrayAppend( attrs, '#a.name#=""');
 				});
-				data["syntax"] = "<" & fn.name & " "
+				data["syntax"] = "<cf" & LCase( fn.name ) & " "
 					& ArrayToList( attrs, ", " ) & "/>";
 			}
 		} else {
