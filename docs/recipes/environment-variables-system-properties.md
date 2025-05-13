@@ -1067,3 +1067,17 @@ Specifies the file location of the trust store that contains trusted Certificate
 *EnvVar:* `LUCEE_WEB_CHARSET`
 
 Default character set for output streams, form, URL, and CGI scope variables, and reading/writing the header.
+
+#### LUCEE_JSCH_DEBUG
+
+*SysProp:* `-Dlucee.jsch.debug`
+*EnvVar:* `LUCEE_JSCH_DEBUG`
+
+Boolean which enables debug logging to the console for SFTP, since 7.0.0.233
+
+#### LUCEE_FTP_DEBUG
+
+*SysProp:* `-Dlucee.ftp.debug`
+*EnvVar:* `LUCEE_FTP_DEBUG`
+
+Boolean which enables debug logging to the console for FTP, since 7.0.0.233
