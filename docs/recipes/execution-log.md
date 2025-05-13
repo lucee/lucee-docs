@@ -108,39 +108,39 @@ Similar to other Lucee class definitions, you can specify:
 
 1. **OSGi Bundles**: Use `bundleName` and `bundleVersion`
 
-   ```json
-   {
-     "executionLog": {
-       "enabled": true,
-       "class": "com.mycompany.MyExecutionLog",
-       "bundleName": "com.mycompany.logger",
-       "bundleVersion": "1.0.0"
-     }
-   }
-   ```
+```json
+{
+  "executionLog": {
+    "enabled": true,
+    "class": "com.mycompany.MyExecutionLog",
+    "bundleName": "com.mycompany.logger",
+    "bundleVersion": "1.0.0"
+  }
+}
+```   
 
 2. **Maven Dependencies** (since Lucee 6.2):
 
-   ```json
-   {
-     "executionLog": {
-       "enabled": true,
-       "class": "com.mycompany.MyExecutionLog",
-       "maven": "org.myorg:mylogger:1.0.0,org.myorg:utils:1.2.0"
-     }
-   }
-   ```
+```json
+{
+  "executionLog": {
+    "enabled": true,
+    "class": "com.mycompany.MyExecutionLog",
+    "maven": "org.myorg:mylogger:1.0.0,org.myorg:utils:1.2.0"
+  }
+}
+```   
 
 3. **CFML Components** (Lucee 7+):
 
-   ```json
-   {
-     "executionLog": {
-       "enabled": true,
-       "component": "path.to.MyExecutionLogComponent"
-     }
-   }
-   ```
+```json
+{
+  "executionLog": {
+    "enabled": true,
+    "component": "path.to.MyExecutionLogComponent"
+  }
+}
+```  
 
    The component must implement `lucee.runtime.engine.ExecutionLog` via `implementsJava="lucee.runtime.engine.ExecutionLog"`.
 
@@ -227,36 +227,36 @@ Creates a structured log file with multiple sections:
 
 1. **Header Information**:
 
-   ```
-   context-path:/myapp
-   remote-user:
-   remote-addr:127.0.0.1
-   remote-host:localhost
-   script-name:/myapp/index.cfm
-   server-name:localhost
-   protocol:HTTP/1.1
-   server-port:8888
-   path-info:
-   query-string:
-   unit:ms
-   min-time-nano:1000000
-   execution-time:5462
-   ```
+```
+context-path:/myapp
+remote-user:
+remote-addr:127.0.0.1
+remote-host:localhost
+script-name:/myapp/index.cfm
+server-name:localhost
+protocol:HTTP/1.1
+server-port:8888
+path-info:
+query-string:
+unit:ms
+min-time-nano:1000000
+execution-time:5462
+```
 
 2. **Path Mappings**:
 
-   ```
-   0:/myapp/index.cfm
-   1:/myapp/components/service.cfc
-   ```
+```
+0:/myapp/index.cfm
+1:/myapp/components/service.cfc
+```
 
 3. **Execution Metrics**:
 
-   ```
-   0   45   72   12
-   0   75   120   2
-   1   128   170   56
-   ```
+```
+0   45   72   12
+0   75   120   2
+1   128   170   56
+```
 
 Each line in the execution metrics contains:
 
