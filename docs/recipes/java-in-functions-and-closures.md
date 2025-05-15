@@ -25,6 +25,8 @@
 
 You can write CFML code directly in a function or a closure.
 
+If you aren't running Lucee with a JDK, Lucee falls back on the [Janino compiler](https://janino-compiler.github.io/janino/) to compile your java code, so any [limitations](https://janino-compiler.github.io/janino/#limitations) of Janino apply.
+
 ## Functions
 
 Inside the function, you can write regular Java code. The arguments and return type definition must be Java types.
