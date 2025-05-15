@@ -221,6 +221,16 @@ It can be also combined with the Elvis Operator, to write much cleaner and more 
 var prop = some?.key?.that?.is?.not?.there ?: "I'm a default value!";
 ```
 
+You can also use safe navigation on method calls:
+```lucee
+foo = "foo"
+
+writedump( foo.toUpperCase() )                     // FOO
+writedump( foo?.toCrazyCase() ?: "just kidding" )   // just kidding
+```
+
+The `.toCrazyCase()` method doesn't exist, so null is returned since safe navigation was used.
+
 In Javascript, this is called [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
 Naturally, there's a Ben Nadel blog post about this! [Using The Safe-Navigation Operator To Safely Clean Up Resources In Lucee 5.3.2.77](https://www.bennadel.com/blog/3672-using-the-safe-navigation-operator-to-safely-clean-up-resources-in-lucee-5-3-2-77.htm)
