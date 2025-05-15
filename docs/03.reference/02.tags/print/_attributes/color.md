@@ -1,0 +1,1 @@
+Print in color or monochrome.
