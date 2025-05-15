@@ -327,6 +327,18 @@ ACF internally stores these two literals as strings, Lucee Server stores them as
 
 The user expects it to be stored in this format in most cases
 
+### Shorthand notation for Literal Structs
+
+```
+lucee = "rocks";
+ralio = "rocked";
+ 
+st = { lucee, ralio };  // produces {"RALIO":"rocked","LUCEE":"rocks"}
+
+```
+
+Introduced Lucee 6.1 [LDEV-4790](https://luceeserver.atlassian.net/browse/LDEV-4790)
+
 ### Performance ###
 
 The chances are high that the same value type is used for mathematical or Boolean operations later. If converted to a string, it needs to be converted back to the appropriate type at runtime as necessary which has a negative effect on performance.
