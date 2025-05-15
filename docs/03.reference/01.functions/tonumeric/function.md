@@ -2,8 +2,9 @@
 title: ToNumeric
 id: function-tonumeric
 related:
+- function-int
 categories:
-  - number
+- number
 ---
 
 Converts given value to a number
