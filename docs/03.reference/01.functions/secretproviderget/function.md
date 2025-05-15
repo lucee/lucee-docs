@@ -1,6 +1,6 @@
 ---
-title: GetSecret
-id: function-getsecret
+title: SecretProviderGet
+id: function-secretproviderget
 related:
 categories:
 - server
