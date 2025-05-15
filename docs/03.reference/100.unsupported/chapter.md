@@ -41,7 +41,6 @@ The following tags, from Adobe CFML, are not supported by Lucee:
 * cfpresentation
 * cfpresentationslide
 * cfpresenter
-* cfprint
 * cfprogressbar
 * cfreport
 * cfreportparam
