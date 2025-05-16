@@ -1,6 +1,8 @@
 ---
 title: <cfinvoke>
 id: tag-invoke
+related:
+- function-invoke
 categories:
 - component
 ---
