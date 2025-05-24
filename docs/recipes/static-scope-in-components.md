@@ -33,7 +33,9 @@ A static variable is shared among all instances of a component and retains its v
 
 ```
 component {
-    static var counter = 0;
+    static {
+        counter = 0;
+    }
     
     public function init() {
         static.counter++;
@@ -55,6 +57,8 @@ new Example();
 ```
 
 Each instance shares the same `counter` value, demonstrating the persistent nature of static variables.
+
+Note: Static var persistence is across the entire application, not just per request.
 
 ## Using Static Functions
 
