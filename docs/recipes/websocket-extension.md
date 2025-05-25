@@ -223,7 +223,6 @@ function onOpen(wsclient) {
 
 ## Using Lucee WebSocket to PUSH data to Client
 
-
 With WebSockets being a bidirectional communication channel, your Lucee Server is no longer limited to responding to a _request_; it can now _push_ data to the client.
 
 This means the user no longer has to refresh a page to see if data is updated, nor have a JavaScript looping function that is continuously calling a REST API to get latest data.
