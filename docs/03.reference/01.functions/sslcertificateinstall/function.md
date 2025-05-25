@@ -2,8 +2,9 @@
 title: SSLCertificateInstall
 id: function-sslcertificateinstall
 related:
+- tag-http
 categories:
-    - server
+- server
 ---
 
 install certificates of a specific host

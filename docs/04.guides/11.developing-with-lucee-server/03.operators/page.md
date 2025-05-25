@@ -222,6 +222,7 @@ var prop = some?.key?.that?.is?.not?.there ?: "I'm a default value!";
 ```
 
 You can also use safe navigation on method calls:
+
 ```lucee
 foo = "foo"
 
