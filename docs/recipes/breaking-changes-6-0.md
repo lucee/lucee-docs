@@ -57,7 +57,7 @@ With Lucee 6, we have changed this behaviour to match ACF, as this can introduce
 
 This behaviour for VARCHAR values remains unchanged.
 
-For compatability, there is an environment variable `LUCEE_QUERY_ALLOWEMPTYASNULL=TRUE` which can be set to re-enable the older behavior.
+For compatibility, there is an environment variable `LUCEE_QUERY_ALLOWEMPTYASNULL=TRUE` which can be set to re-enable the older behavior.
 
 [LDEV-4410](https://luceeserver.atlassian.net/browse/LDEV-4410)
 
@@ -169,7 +169,6 @@ This was changed to match modern security expectation.
 
 [LDEV-3437](https://luceeserver.atlassian.net/browse/LDEV-3437)
 
-
 ### DirectoryRename() should return the new path, not void
 
 [[function-DirectoryRename]]
@@ -231,7 +230,7 @@ Changes were made to match ACF
 
 [LDEV-4271](https://luceeserver.atlassian.net/browse/LDEV-4271)
 
-### FileWriteLine uses wrong line seperator on Windows
+### FileWriteLine uses wrong line separator on Windows
 
 Behaviour was changed to match ACF and use the operating system line separator (CFLF instead of LF)
 
@@ -244,4 +243,3 @@ Number format now rounds up instead of down to match ACF behavior.
 [[function-numberformat]]
 
 [LDEV-4439](https://luceeserver.atlassian.net/browse/LDEV-4439)
-
