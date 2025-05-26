@@ -11,6 +11,9 @@
     "credentials",
     "environment variables",
     "configuration"
+  ],
+  "related": [
+    "function-secretproviderget"
   ]
 }
 -->
@@ -18,6 +21,8 @@
 # Secret Management
 
 Lucee 7 introduces built-in support for secrets management, allowing you to securely store and access sensitive information such as database credentials, API keys, and other confidential data. This feature helps maintain security best practices by keeping sensitive data out of application code and configuration files.
+
+[[function-secretproviderget]]
 
 ## Configuration
 
@@ -162,13 +167,13 @@ Lucee includes several built-in secret providers:
 
 ## Using Secrets in Your Application
 
-Secrets are accessed through the `GetSecret()` function, which returns a reference to the secret value rather than the actual value itself.
+Secrets are accessed through the [[function-SecretProviderGet]] function, which returns a reference to the secret value rather than the actual value itself.
 
 ### Basic Usage
 
 ```cfml
 // Get a secret from a specific provider
-apiKey = GetSecret("API_KEY", "env");
+apiKey = SecretProviderGet("API_KEY", "env");
 
 // Use the secret in an API call
 cfhttp(url="https://api.example.com", method="GET") {
@@ -180,12 +185,12 @@ cfhttp(url="https://api.example.com", method="GET") {
 
 ```cfml
 // Get a secret without specifying a provider (checks all providers)
-dbPassword = GetSecret("DB_PASSWORD");
+dbPassword = SecretProviderGet("DB_PASSWORD");
 
 // Use the secret in a database connection
 dbConnection = {
-    host: GetSecret("DB_HOST"),
-    username: GetSecret("DB_USER"),
+    host: SecretProviderGet("DB_HOST"),
+    username: SecretProviderGet("DB_USER"),
     password: dbPassword
 };
 ```
@@ -195,11 +200,11 @@ dbConnection = {
 ```cfml
 // Store secret references at application startup
 application.secrets = {
-    apiKey: GetSecret("API_KEY", "env"),
+    apiKey: SecretProviderGet("API_KEY", "env"),
     dbConfig: {
-        host: GetSecret("DB_HOST", "vault"),
-        username: GetSecret("DB_USER", "vault"),
-        password: GetSecret("DB_PASSWORD", "vault")
+        host: SecretProviderGet("DB_HOST", "vault"),
+        username: SecretProviderGet("DB_USER", "vault"),
+        password: SecretProviderGet("DB_PASSWORD", "vault")
     }
 };
 
@@ -213,7 +218,7 @@ cfhttp(url="https://api.example.com", method="GET") {
 
 ### Lazy Resolution
 
-When you call `GetSecret()`, it returns a reference to the secret rather than the actual value. The secret is only resolved to its actual value when it's used in a context that requires a simple value (string, boolean, number, date). This enables several powerful features:
+When you call [[function-SecretProviderGet]], it returns a reference to the secret rather than the actual value. The secret is only resolved to its actual value when it's used in a context that requires a simple value (string, boolean, number, date). This enables several powerful features:
 
 - **Auto-updating secrets**: If a secret changes in the provider, your application automatically uses the updated value without needing to reload the application or reconfigure anything.
 - **Enhanced security**: Secret values are not stored in memory until they're actually needed.
@@ -224,7 +229,7 @@ Secret values are automatically obfuscated when dumped or displayed in debug out
 
 ```cfml
 // This will display an obfuscated value rather than the actual secret
-dump(GetSecret("API_KEY"));
+dump(SecretProviderGet("API_KEY"));
 ```
 
 ### Combined Providers
@@ -244,7 +249,7 @@ The `AndSecretProvider` allows you to chain multiple providers together, checkin
 }
 
 // Use the combined provider
-apiKey = GetSecret("API_KEY", "combined");
+apiKey = SecretProviderGet("API_KEY", "combined");
 ```
 
 ## Creating Custom Secret Providers
@@ -264,7 +269,7 @@ component implementsJava="lucee.runtime.secrets.SecretProvider" {
     }
 
     // Get a secret by key
-    function getSecret(string key) {
+    function SecretProviderGet(string key) {
         // Implementation to retrieve the secret
         // Return null if the secret doesn't exist
 
@@ -360,7 +365,7 @@ In addition, Lucee also logs in case it fails to load a secret provider.
 ### GetSecret Function
 
 ```cfml
-GetSecret(key [, name])
+SecretProviderGet(key [, name])
 ```
 
 - **key**: Key to read from the Secret Provider

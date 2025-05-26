@@ -2,6 +2,7 @@
 title: SecretProviderGet
 id: function-secretproviderget
 related:
+- secret-management
 categories:
 - server
 ---
