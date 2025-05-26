@@ -214,6 +214,20 @@
     ]
   },
   {
+    "file": "component-getclass-method.md",
+    "title": "getClass() Method for Components",
+    "path": "/docs/recipes/component-getclass-method.md",
+    "hash": "fc6b5856053f5ddad4f541f625aa549c",
+    "keywords": [
+      "getClass",
+      "component",
+      "java",
+      "proxy",
+      "interface",
+      "interoperability"
+    ]
+  },
+  {
     "file": "component-mappings.md",
     "title": "Component Mappings",
     "path": "/docs/recipes/component-mappings.md",
@@ -638,6 +652,21 @@
       "component",
       "inline-component",
       "Lucee"
+    ]
+  },
+  {
+    "file": "java-class-interaction.md",
+    "title": "Java Class Interaction",
+    "path": "/docs/recipes/java-class-interaction.md",
+    "hash": "f992bd5af230ab3c1e378a37025bd9a2",
+    "keywords": [
+      "Java",
+      "Classes",
+      "Objects",
+      "Interop",
+      "Static Methods",
+      "Inner Classes",
+      "Reflection"
     ]
   },
   {

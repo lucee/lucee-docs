@@ -60,6 +60,10 @@ Automatically check for changes in your configuration file with Lucee.
 
 This document explains how to use a checksum in Lucee.
 
+## [getClass() Method for Components](/docs/recipes/component-getclass-method.md)
+
+This document explains the getClass() method for CFML components that implement Java interfaces, enabling seamless Java interoperability.
+
 ## [Component Mappings](/docs/recipes/component-mappings.md)
 
 How to define and use component mappings in Lucee.
@@ -179,6 +183,10 @@ Guide on using import to import components, Java classes, and custom tags in Luc
 ## [Inline Components](/docs/recipes/inline-components.md)
 
 Learn how to create and use inline components in Lucee. This guide demonstrates how to define components directly within your CFML code, making it easier to create and use components without needing a separate .cfc file. Examples include creating an inline component and using it similarly to closures.
+
+## [Java Class Interaction](/docs/recipes/java-class-interaction.md)
+
+Documentation for interacting with Java classes and objects in Lucee
 
 ## [Java - Explicit Casting of a Component to a Specific Interface](/docs/recipes/java-explicit-casting.md)
 
