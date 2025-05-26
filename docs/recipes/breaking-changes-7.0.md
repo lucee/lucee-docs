@@ -22,6 +22,12 @@ Be aware of these changes when migrating your applications to ensure smooth comp
 
 [New Functions and Tags](https://docs.lucee.org/reference/changelog.html)
 
+## Other Breaking Changes in Lucee Releases
+
+- [[breaking-changes-5-4-to-6-0]]
+- [[breaking-changes-6-0-to-6-1]]
+- [[breaking-changes-6-1-to-6-2]]
+
 ## Java Support
 
 - Java 21 is recommended as it's a LTS release.

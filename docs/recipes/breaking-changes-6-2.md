@@ -21,6 +21,12 @@ This document outlines the breaking changes introduced when upgrading from Lucee
 - [https://download.lucee.org/changelog/?version=6.2](https://download.lucee.org/changelog/?version=6.2)
 - [New tags and functions](https://docs.lucee.org/reference/changelog.html)
 
+## Other Breaking Changes in Lucee Releases
+
+- [[breaking-changes-5-4-to-6-0]]
+- [[breaking-changes-6-0-to-6-1]]
+- [[breaking-changes-6-2-to-7-0]]
+
 ## Java Support
 
 - Java 21 is recommended as it's a LTS release.
