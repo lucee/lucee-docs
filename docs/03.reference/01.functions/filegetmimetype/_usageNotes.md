@@ -1,0 +1,1 @@
+Since Lucee 6, this function now throws an exception when an empty or missing file is passed in

@@ -1,0 +1,1 @@
+With Lucee 6 this function now returns the new path

@@ -53,11 +53,13 @@ Java 8 is no longer officially supported.
 
 ## Lucee 6.0
 
-[Lucee 6](https://dev.lucee.org/tag/lucee-6) .
+[Lucee 6](https://dev.lucee.org/tag/lucee-6).
 
 Highlights include, reduced size, faster startup, single context mode, JSON based configuration and much more.
 
-As a Major Release, Lucee 6 does include some potential **BREAKING CHANGES**, for a range of security reasons and better compatibility with Adobe ColdFusion, they are all documented in Jira under an Epic, [All Breaking changes in Lucee 6](https://luceeserver.atlassian.net/browse/LDEV-4534)
+As a Major Release, Lucee 6 does include some potential **BREAKING CHANGES**, for a range of security reasons and better compatibility with Adobe ColdFusion.
+
+[[breaking-changes-5-4-to-6-0]]
 
 ## Lucee 5.4 (LTS)
 
