@@ -2,7 +2,7 @@
 {
   "title": "Secret Management",
   "id": "secret-management",
-  "categories": ["security"],
+  "categories": ["security","server"],
   "description": "Managing Secrets in Lucee applications",
   "since": "7.0",
   "keywords": [
