@@ -24,6 +24,7 @@ Lucee provides seamless integration with Java classes, allowing you to instantia
 ## Overview
 
 Java class interaction in Lucee supports multiple approaches for working with Java objects:
+
 - Implicit class loading using standard Java syntax
 - Explicit class loading with the `java:` prefix
 - Import statements for cleaner code

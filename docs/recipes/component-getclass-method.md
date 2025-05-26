@@ -58,7 +58,6 @@ The `getClass()` method follows a specific resolution order:
 2. **Property Getter**: If the component has a property named "class" with `accessor=true`, the getter is used
 3. **Default Behavior**: Otherwise, a dynamic proxy is created and `proxy.getClass()` is returned
 
-
 ## Requirements
 
 - The component must implement at least one Java interface
