@@ -48,6 +48,7 @@ These extension are still available, but just need to be manually installed.
 - AXIS Webservices
 - AJAX
 - EHCache (unbundled in Lucee 7)
+- Argon2 support was moved to an extension in Lucee 6.1
 
 ### CFQUERYPARAM no longer autocasts empty values to null
 
