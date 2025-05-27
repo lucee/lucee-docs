@@ -1468,5 +1468,17 @@
       "XMLCatalog",
       "Lucee"
     ]
+  },
+  {
+    "file": "yaml-processing.md",
+    "title": "YAML Processing in Lucee 7",
+    "path": "/docs/recipes/yaml-processing.md",
+    "hash": "7d0bc44493d4a7f908bfe4968c28ac05",
+    "keywords": [
+      "YAML",
+      "SnakeYAML",
+      "Maven",
+      "Java Integration"
+    ]
   }
 ]

@@ -419,3 +419,7 @@ How to install, configure and create WebSockets
 ## [XML Fast And Easy, using SAX - Listener Functions](/docs/recipes/xml-fast-and-easy.md)
 
 This document explains how to use XML parsing in Lucee.
+
+## [YAML Processing in Lucee 7](/docs/recipes/yaml-processing.md)
+
+Simple recipe for processing YAML files in Lucee 7 using Maven integration and SnakeYAML
