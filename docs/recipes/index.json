@@ -465,6 +465,20 @@
     ]
   },
   {
+    "file": "excel-processing.md",
+    "title": "Excel Processing in Lucee 7",
+    "path": "/docs/recipes/excel-processing.md",
+    "hash": "8ef7681a1def5ec5c10426ca9b773457",
+    "keywords": [
+      "Excel",
+      "Apache POI",
+      "Maven",
+      "XLSX",
+      "XLS",
+      "Spreadsheet"
+    ]
+  },
+  {
     "file": "exception-cause.md",
     "title": "Exception - Cause",
     "path": "/docs/recipes/exception-cause.md",
