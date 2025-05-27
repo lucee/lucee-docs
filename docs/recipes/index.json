@@ -296,6 +296,19 @@
     ]
   },
   {
+    "file": "csv-processing.md",
+    "title": "CSV Processing in Lucee 7",
+    "path": "/docs/recipes/csv-processing.md",
+    "hash": "29904a460f0d30c67723e2ce136e3664",
+    "keywords": [
+      "CSV",
+      "Apache Commons",
+      "Maven",
+      "Data Processing",
+      "Parsing"
+    ]
+  },
+  {
     "file": "datasource-how-to-define-them.md",
     "title": "Datasource - How to define them",
     "path": "/docs/recipes/datasource-how-to-define-them.md",
