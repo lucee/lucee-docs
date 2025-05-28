@@ -15041,7 +15041,7 @@ window.onerror = function(message, url, line, col, err) {
 
 		var reg     = generateRegexForInput( input )
 		  , fulltextitem, matches;
-		
+
 		matches = searchIndex.filter( function( item ) {
 			var srcText = item.desc ? item.desc : item.text; // cdn caching sigh
 			var titleLen = item.text.length
