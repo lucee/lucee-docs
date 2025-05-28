@@ -58,7 +58,7 @@ These extension are still available, but just need to be manually installed.
 
 ### CFQUERYPARAM no longer autocasts empty values to null
 
-Prior to Lucee 6, cfqueryparam would autmatically case empty values to null.
+Prior to Lucee 6, cfqueryparam would automatically case empty values to null.
 
 With Lucee 6, we have changed this behaviour to match ACF, as this can introduce subtle bugs and is slight less performant.
 
@@ -76,7 +76,7 @@ The order of the arguments for the member function [[method-datetime-diff]] was 
 
 ### Use JVM cacerts by default
 
-Prior to Lucee 6, Lucee would bundle it's own `cacerts` file, which caused problems over time as newer root certificates wouldn't be accepted.
+Prior to Lucee 6, Lucee would bundle its own `cacerts` file, which caused problems over time as newer root certificates wouldn't be accepted.
 
 There is an environment variable `LUCEE.USE.LUCEE.SSL.TRUSTSTORE=TRUE` which can be set to re-enable the older behavior.
 
@@ -140,7 +140,7 @@ To restore previous behaviour, use the environment variables `LUCEE_STORE_EMPTY=
 
 [LDEV-2024](https://luceeserver.atlassian.net/browse/LDEV-2024)
 
-### FileUpload now supports strict and allowedExtesions arguments
+### FileUpload now supports strict and allowedExtensions arguments
 
 For ACF compatibility, the function signature for [[function-fileupload]] was changed.
 
@@ -156,7 +156,7 @@ Lucee 6 now accepts the same arguments as ACF [[function-replacelist]]
 
 [LDEV-2729](https://luceeserver.atlassian.net/browse/LDEV-2729)
 
-### struct.delete() now returns the modfied struct
+### struct.delete() now returns the modified struct
 
 [[method-struct-delete]]
 
