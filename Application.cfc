@@ -13,7 +13,7 @@ component {
 
 	public boolean function onRequest( required string requestedTemplate ) output=true {
 		var logger = new api.build.Logger(opts:{textOnly: true, console: true});
-	
+
 		application.assetBundleVersion = variables.assetBundleVersion;
 
 		include template=arguments.requestedTemplate;

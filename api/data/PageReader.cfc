@@ -46,7 +46,7 @@ component {
 		// hack to restructure recipes as docs content
 		if ( listFirst( page.getPath(), "/" ) eq "recipes" ){
 			page.setSlug( page.getPageType() )
-			
+
 			if (page.getPageType() eq "README"){
 				page.setPath( page.getPath() );
 				page.setPageType( "listing" );
@@ -179,7 +179,7 @@ component {
 				"related": [
 					"function-xmlparse"
 				],
-		}	
+		}
 		--->
 		*/
 		var str = trim( arguments.pageContent );
