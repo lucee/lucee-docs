@@ -110,7 +110,6 @@ dump(result);
 
 This returns a proper CFML query object that you can use with all standard query functions and tags.
 
-
 ## Benefits Over Built-in SpreadSheet Functions
 
 Apache POI provides several advantages:
@@ -123,3 +122,7 @@ Apache POI provides several advantages:
 - **Cell-level Control** - Granular access to individual cells and their properties
 
 Perfect for complex Excel processing that goes beyond basic spreadsheet operations!
+
+## spreadsheet-cfml
+
+There is also the very extensive [spreadsheet-cfml](https://github.com/cfsimplicity/spreadsheet-cfml) library available, which uses the same poi library and approaches, it is well maintained and has a comprehensive range of test cases.
