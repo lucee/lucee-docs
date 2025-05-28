@@ -84,6 +84,10 @@ Best practices for configuring Lucee in various environments.
 
 Learn how to convert user-defined functions or components in Lucee to use them in Java. This guide demonstrates how to define components to implement Java interfaces, pass components to Java methods, explicitly define interfaces, and use the onMissingMethod feature. It also shows how to convert user-defined functions to Java lambdas.
 
+## [CSV Processing in Lucee 7](/docs/recipes/csv-processing.md)
+
+Simple recipe for processing CSV data in Lucee 7 using Maven integration and Apache Commons CSV
+
 ## [Datasource - How to define them](/docs/recipes/datasource-how-to-define-them.md)
 
 How to define a Datasource in Lucee.
@@ -123,6 +127,10 @@ EG's are another way how to communicate with your Lucee server and are kind of a
 ## [Event Handling in Application.cfc](/docs/recipes/event-handling-in-app-cfc.md)
 
 An overview of event handling functions in Application.cfc for Lucee.
+
+## [Excel Processing in Lucee 7](/docs/recipes/excel-processing.md)
+
+Simple recipe for processing Excel files in Lucee 7 using Maven integration and Apache POI
 
 ## [Exception - Cause](/docs/recipes/exception-cause.md)
 

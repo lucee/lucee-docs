@@ -111,7 +111,7 @@
     "file": "breaking-changes-6-0.md",
     "title": "Breaking Changes Between Lucee 5.4 and 6.0",
     "path": "/docs/recipes/breaking-changes-6-0.md",
-    "hash": "668c9ec527f02ec3d39110468cf6f488",
+    "hash": "e21c44b420f55ac43a46a8daf12fca42",
     "keywords": [
       "breaking changes",
       "Lucee 5.4",
@@ -296,6 +296,19 @@
     ]
   },
   {
+    "file": "csv-processing.md",
+    "title": "CSV Processing in Lucee 7",
+    "path": "/docs/recipes/csv-processing.md",
+    "hash": "29904a460f0d30c67723e2ce136e3664",
+    "keywords": [
+      "CSV",
+      "Apache Commons",
+      "Maven",
+      "Data Processing",
+      "Parsing"
+    ]
+  },
+  {
     "file": "datasource-how-to-define-them.md",
     "title": "Datasource - How to define them",
     "path": "/docs/recipes/datasource-how-to-define-them.md",
@@ -449,6 +462,20 @@
       "onAbort",
       "onDebug",
       "onMissingTemplate"
+    ]
+  },
+  {
+    "file": "excel-processing.md",
+    "title": "Excel Processing in Lucee 7",
+    "path": "/docs/recipes/excel-processing.md",
+    "hash": "8ef7681a1def5ec5c10426ca9b773457",
+    "keywords": [
+      "Excel",
+      "Apache POI",
+      "Maven",
+      "XLSX",
+      "XLS",
+      "Spreadsheet"
     ]
   },
   {
