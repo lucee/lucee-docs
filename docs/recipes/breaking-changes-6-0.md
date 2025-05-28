@@ -11,11 +11,13 @@
 
 # Breaking Changes Between Lucee 5.4 and 6.0
 
-This document outlines the breaking changes introduced when upgrading from Lucee 5.4 to Lucee 6.0. Be aware of these changes when migrating your applications to ensure smooth compatibility.
+This document outlines the breaking changes introduced when upgrading from Lucee 5.4 to Lucee 6.0. 
 
-There are breaking changes documents for 6.0, 6.1, 6.2 and 7.0
+The descision to make breaking changes are not made lightly, generally speaking, they are made to align Lucee with ACF where possible, address performance or edge cases which can lead to problems, and also to address potential security issues.
 
-We recommend going straight to 6.2 via a fresh install, working thru the breaking changes documents for each release.
+Please be review all these changes when upgrading your applications to ensure they run smoothly and reliably.
+
+When migrating, the Lucee team highly recommends going straight to the latest 6.2 release, via a fresh install, working thru the breaking changes documents for each release, as listed and linked below.
 
 ## CFConfig.json
 
