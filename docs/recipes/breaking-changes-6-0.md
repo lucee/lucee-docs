@@ -27,6 +27,8 @@ With Lucee 6, we switched from using XML config, `lucee-server.xml` for Lucee to
 
 Lucee 6 will automatically convert an XML config to JSON
 
+[[config]]
+
 ## Changelogs
 
 - [https://download.lucee.org/changelog/?version=6.0](https://download.lucee.org/changelog/?version=6.0)
