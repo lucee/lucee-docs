@@ -110,7 +110,7 @@ component {
 
 	public function _render( func ){
 		var fn = arguments.func;
-		var data = [=];
+		var data = structNew('ordered');
 		if ( ( fn.getPageType() == "tag" ) )
 			data["name"] = "cf" & LCase( fn.getName() );
 		else
@@ -118,6 +118,17 @@ component {
 		data["type"] = fn.getPageType();
 		data["returns"] = lcase((fn.getPageType() == "tag") ? "void" : fn.getReturnType());
 		data["description"] = fn.getDescription();
+
+		if ( fn.getPageType() != "tag" && len( fn.MemberName ?:"" ) ){
+			var memberInfo = getFunctionData( fn.getName() );
+			if ( len( memberInfo.member ?: "" ) ) {
+				data["member_details"] = [
+					"name" = memberInfo.member.name,
+					"type" = memberInfo.member.type,
+					"returns" = (memberInfo.chaining ?: false) ? fn.getReturnType() : memberInfo.member.type
+				];
+			}
+		}
 
 		data["engines"] = {
 			"lucee": {
