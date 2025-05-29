@@ -190,6 +190,12 @@ Previously it returned the number of rows, this was changed to match ACF
 
 [LDEV-3581](https://luceeserver.atlassian.net/browse/LDEV-3581)
 
+### QueryAddRow() treats struct of arrays different than Adobe
+
+[[function-queryaddrow]]
+
+[LDEV-3933](https://luceeserver.atlassian.net/browse/LDEV-3933)
+
 ### DollarFormat incorrect negative values on Java 11
 
 This was changed for consistency in CFML, as the underlying Java functionality changes between versions
@@ -203,12 +209,6 @@ Lucee 7 adds an additional argument, `useBrackets` to control this behavior
 ### String member functions assume list instead of char array like Adobe
 
 [LDEV-3747](https://luceeserver.atlassian.net/browse/LDEV-3747)
-
-### QueryAddRow() treats struct of arrays different than Adobe
-
-[[function-queryaddrow]]
-
-[LDEV-3933](https://luceeserver.atlassian.net/browse/LDEV-3933)
 
 ### Encrypt issue using Base64, invalid character [=] in base64 string at position
 
