@@ -107,7 +107,7 @@ config=getConfig();
 		<div class="container">
 			<div class="banner-content">
 				<cfoutput>
-				<img src="assets/img/lucee-white.png" alt="Lucee" width="300"> 
+				<img src="assets/img/lucee-white.png" alt="Lucee" width="300">
 				<h1>Welcome to your Lucee Docker Installation!</h1>
 				<p class="lead-text">You are now successfully running Lucee #server.lucee.version# in Docker!</p>
 				</cfoutput>
@@ -130,7 +130,7 @@ config=getConfig();
 										<img src="assets/img/img-ext.png" alt="">
 									</a>
 								</div>
-								
+
 
 								<div class="listing-content">
 									<h2 class="title">
@@ -142,7 +142,7 @@ config=getConfig();
 									</cfloop>
 									</ul>
 								</div>
-								
+
 								<div class="clearfix"></div>
 							</li>
 
@@ -152,7 +152,7 @@ config=getConfig();
 										<img src="assets/img/img-config.png" alt="">
 									</a>
 								</div>
-								
+
 
 								<div class="listing-content">
 									<h2 class="title">
@@ -166,20 +166,20 @@ config=getConfig();
 									<pre class="json-display" id="jsonw">#fileRead(config.web)#</pre>
     								<button class="copy-button" onclick="copyJson('jsonw',this)">copy</button></cfif>
 								</div>
-								
+
 								<div class="clearfix"></div>
 							</li>
 
 
 
-							
+
 						</cfoutput>
 						</ul>
 					</div>
-					
+
 
 				</div>
-				
+
 
 				<div class="col-md-4 sidebar">
 
@@ -194,24 +194,24 @@ config=getConfig();
 							Java: #server.java.version?:""# (#server.java.vendor?:""#)<br>
 							Time Zone: #getTimeZone()#<br>
 							Locale: #ucFirst(GetLocale())#</p>
-							
+
 
 							<h3 class="widget-title">Related Websites</h3>
 
 							<!--- lucee.org --->
 							<p class="file-link"><a href="http://www.lucee.org">Lucee Association Switzerland</a></p>
 							<p>Non-profit custodians and maintainers of the Lucee Project</p>
-							
-							
+
+
 							<!--- lucee.org --->
 							<p class="file-link"><a href="https://github.com/lucee/lucee-dockerfiles">Lucee Docker Files</a></p>
 							<p>A project that provides the code needed to build and run Lucee Docker instances for your CFML applications.</p>
 
 
-							<!--- Bitbucket 
+							<!--- Bitbucket
 							<p class="file-link">Lucee Bitbucket</a></p>
 							<p>Access the source code and builds</p> --->
-							
+
 							<!--- Mailinglist --->
 							<p class="file-link"><a href="##">Get Involved</a></p>
 							<p>
@@ -221,9 +221,9 @@ config=getConfig();
 							- <a href="#gitURL#">Contribute</a> to the code<br />
 							- <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LKLC7KH4JRQ8J&">Support</a> the project<br />
 							</p>
-							
 
-	
+
+
 
 							<!--- Prof Services --->
 							<p class="file-link"><a href="#profURL#">Professional Services</a></p>
@@ -236,18 +236,18 @@ config=getConfig();
 						</div>
 						</cfoutput>
 					</div>
-					
+
 				</div>
-				
+
 
 			</div>
-			
+
 
 		</div>
-		
+
 
 	</section>
-	
+
 
 
 
@@ -261,37 +261,37 @@ config=getConfig();
 		                        <a href="/" class="footer-logo">
 		                            <img src="assets/img/lucee-white.png" alt="Lucee">
 		                        </a>
-		                        
+
 
 		                    </div>
-		                    
+
 
 		                    <div class="col-md-5 col-sm-4">
 		                        <p class="copyright-text">Copyright &copy; #year(now())# by the Lucee Association Switzerland</p>
 		                    </div>
-		                    
+
 
 
 
 		                </div>
-		                
+
 
 		            </div>
-		            
+
 
 		        </div>
-		        
+
 
 		    </footer><!-- End of footer -->
 
         </div> <!-- End of .main-wrapper -->
 
 
-		
-	
 
-	
-		
+
+
+
+
 
 <script src="#cgi.context_path#/assets/js/lib/jquery-1.10.1.min.js"></script>
 <script src="#cgi.context_path#/assets/js/lib/bootstrap.min.js"></script>
@@ -308,5 +308,5 @@ config=getConfig();
 </cfif>
 </script>
 	</body>
-	
+
 </html></cfoutput>
