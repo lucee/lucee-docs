@@ -109,7 +109,8 @@ component {
 			_404(pagePath, "/");
 		}
 
-		WriteOutput( buildRunner.getBuilder( "html" ).renderPage( page, docTree, true ) );
+		var pageContent = buildRunner.getBuilder( "html" ).renderPageContent( page, docTree, false, {} );
+		WriteOutput( buildRunner.getBuilder( "html" ).renderPage( page, docTree, pageContent, true, {} ) );
 	}
 
 	private void function _renderSource() {
