@@ -125,6 +125,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
       showError: "@showError",
       asserts: "@asserts",
       code: "@code",
+      preview: "@preview",
       codeGist: "@codeGist",
       setupCode: "@setupCode",
       setupCodeGist: "@setupCodeGist",
@@ -135,6 +136,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
     template: editorTemplate,
     link: function (scope, element, attrs) {
       scope.code = attrs.code;
+      scope.preview = attrs.preview;
       scope.codeGist = attrs.codeGist;
       scope.setupCode = attrs.setupCode;
       scope.setupCodeGist = attrs.setupCodeGist;
@@ -329,6 +331,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
         aceEditor.resize(true);
       }
       editor.show();
+      resultsDiv.html(attrs.preview);
       if (scope.fullscreen !== undefined && scope.fullscreen == "true") {
         toggleFullscreen();
       }
