@@ -1328,7 +1328,7 @@
     "file": "structs-vs-components.md",
     "title": "Best Practices: Structs vs Inline Components",
     "path": "/docs/recipes/structs-vs-components.md",
-    "hash": "7c8cc2b3be3b9fa3e14c49ea3b700b21",
+    "hash": "d413d3a479b86989f3b7115fa8d93418",
     "keywords": [
       "struct",
       "component",
