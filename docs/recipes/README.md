@@ -380,6 +380,10 @@ How to mock static functions in Lucee for better testability without unnecessary
 
 Understanding the static scope in Lucee components and how it can be used for shared data and functions.
 
+## [Best Practices: Structs vs Inline Components](/docs/recipes/structs-vs-components.md)
+
+Performance analysis and best practices for choosing between structs and inline components in Lucee
+
 ## [Sub Components](/docs/recipes/sub-components.md)
 
 Learn how to create and use sub components in Lucee. This guide demonstrates how to define additional components within a .cfc file, making it easier to organize related components. Examples include creating a main component with sub components, and how to address/load these sub components.

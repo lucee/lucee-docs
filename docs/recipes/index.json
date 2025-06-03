@@ -1325,6 +1325,22 @@
     ]
   },
   {
+    "file": "structs-vs-components.md",
+    "title": "Best Practices: Structs vs Inline Components",
+    "path": "/docs/recipes/structs-vs-components.md",
+    "hash": "7c8cc2b3be3b9fa3e14c49ea3b700b21",
+    "keywords": [
+      "struct",
+      "component",
+      "inline component",
+      "performance",
+      "memory",
+      "best practices",
+      "CFC",
+      "bean"
+    ]
+  },
+  {
     "file": "sub-components.md",
     "title": "Sub Components",
     "path": "/docs/recipes/sub-components.md",
