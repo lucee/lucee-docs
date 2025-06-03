@@ -128,6 +128,10 @@ EG's are another way how to communicate with your Lucee server and are kind of a
 
 An overview of event handling functions in Application.cfc for Lucee.
 
+## [Excel Processing in Lucee 7](/docs/recipes/excel-processing.md)
+
+Simple recipe for processing Excel files in Lucee 7 using Maven integration and Apache POI
+
 ## [Exception - Cause](/docs/recipes/exception-cause.md)
 
 Lucee 6.1 improves its support for exception causes, providing better debugging and error handling capabilities.

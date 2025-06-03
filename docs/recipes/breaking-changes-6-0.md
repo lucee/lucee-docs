@@ -11,17 +11,23 @@
 
 # Breaking Changes Between Lucee 5.4 and 6.0
 
-This document outlines the breaking changes introduced when upgrading from Lucee 5.4 to Lucee 6.0. Be aware of these changes when migrating your applications to ensure smooth compatibility.
+This document outlines all the breaking changes which you should be aware with when upgrading from Lucee 5.4 to Lucee 6.0. 
 
-There are breaking changes documents for 6.0, 6.1, 6.2 and 7.0
+The descision to make breaking changes are not made lightly, generally speaking, they are made to align Lucee with ACF where possible, address performance or edge cases which can lead to problems, and also to address potential security issues.
 
-We recommend going straight to 6.2 via a fresh install, working thru the breaking changes documents for each release.
+Please review all these changes when upgrading your applications to ensure they run smoothly and reliably.
+
+When migrating, the Lucee team highly recommends going straight to the latest 6.2 release, via a fresh install, working thru the breaking changes documents for each release, as listed and linked below.
+
+Users upgrading to Lucee 6.2, running on Tomcat 11 and Java 21, have reported really improved performance and vastly reduced memory usage, so enjoy!
 
 ## CFConfig.json
 
 With Lucee 6, we switched from using XML config, `lucee-server.xml` for Lucee to adopting json config `.CFConfig.json`
 
 Lucee 6 will automatically convert an XML config to JSON
+
+[[config]]
 
 ## Changelogs
 
@@ -48,10 +54,11 @@ These extension are still available, but just need to be manually installed.
 - AXIS Webservices
 - AJAX
 - EHCache (unbundled in Lucee 7)
+- Argon2 support was moved to an extension in Lucee 6.1
 
 ### CFQUERYPARAM no longer autocasts empty values to null
 
-Prior to Lucee 6, cfqueryparam would autmatically case empty values to null.
+Prior to Lucee 6, cfqueryparam would automatically case empty values to null.
 
 With Lucee 6, we have changed this behaviour to match ACF, as this can introduce subtle bugs and is slight less performant.
 
@@ -69,7 +76,7 @@ The order of the arguments for the member function [[method-datetime-diff]] was 
 
 ### Use JVM cacerts by default
 
-Prior to Lucee 6, Lucee would bundle it's own `cacerts` file, which caused problems over time as newer root certificates wouldn't be accepted.
+Prior to Lucee 6, Lucee would bundle its own `cacerts` file, which caused problems over time as newer root certificates wouldn't be accepted.
 
 There is an environment variable `LUCEE.USE.LUCEE.SSL.TRUSTSTORE=TRUE` which can be set to re-enable the older behavior.
 
@@ -133,7 +140,7 @@ To restore previous behaviour, use the environment variables `LUCEE_STORE_EMPTY=
 
 [LDEV-2024](https://luceeserver.atlassian.net/browse/LDEV-2024)
 
-### FileUpload now supports strict and allowedExtesions arguments
+### FileUpload now supports strict and allowedExtensions arguments
 
 For ACF compatibility, the function signature for [[function-fileupload]] was changed.
 
@@ -149,7 +156,7 @@ Lucee 6 now accepts the same arguments as ACF [[function-replacelist]]
 
 [LDEV-2729](https://luceeserver.atlassian.net/browse/LDEV-2729)
 
-### struct.delete() now returns the modfied struct
+### struct.delete() now returns the modified struct
 
 [[method-struct-delete]]
 
@@ -183,6 +190,12 @@ Previously it returned the number of rows, this was changed to match ACF
 
 [LDEV-3581](https://luceeserver.atlassian.net/browse/LDEV-3581)
 
+### QueryAddRow() treats struct of arrays different than Adobe
+
+[[function-queryaddrow]]
+
+[LDEV-3933](https://luceeserver.atlassian.net/browse/LDEV-3933)
+
 ### DollarFormat incorrect negative values on Java 11
 
 This was changed for consistency in CFML, as the underlying Java functionality changes between versions
@@ -196,12 +209,6 @@ Lucee 7 adds an additional argument, `useBrackets` to control this behavior
 ### String member functions assume list instead of char array like Adobe
 
 [LDEV-3747](https://luceeserver.atlassian.net/browse/LDEV-3747)
-
-### QueryAddRow() treats struct of arrays different than Adobe
-
-[[function-queryaddrow]]
-
-[LDEV-3933](https://luceeserver.atlassian.net/browse/LDEV-3933)
 
 ### Encrypt issue using Base64, invalid character [=] in base64 string at position
 

@@ -175,7 +175,7 @@ When configuring any ExecutionLog implementation, you can specify these argument
 | Property | Description | Default | Notes |
 |----------|-------------|---------|-------|
 | `log-level` | Sets the severity level for log entries. Controls visibility in consolidated logs and allows filtering when reviewing. | `trace` | `"trace"`, `"debug"`, `"info"`, `"warn"`, `"error"` |
-| `log-name` | Customizes the logger name for better organization and filtering in consolidated logs. | `lucee.runtime.engine.Controler` | `"execution"`, `"performance"`, `"myapp.performance"` |
+| `log-name` | Customizes the logger name for better organization and filtering in consolidated logs. | `lucee.runtime.engine.Controller` | `"execution"`, `"performance"`, `"myapp.performance"` |
 | `snippet` | When enabled, captures and displays the actual CFML code being executed alongside timing information. Particularly valuable when analyzing logs after execution. | `false` | Set to `true` to include source code in logs |
 
 ### Example Log Implementation Configuration

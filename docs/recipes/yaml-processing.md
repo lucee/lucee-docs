@@ -29,6 +29,7 @@ implementation("org.yaml:snakeyaml:2.4")
 ## Simple Example
 
 Create a YAML file `customer.yaml`:
+
 ```yaml
 firstName: "John"
 lastName: "Doe"
@@ -85,6 +86,7 @@ component javasettings='{"maven":["org.yaml:snakeyaml:2.4"]}' {
 ```
 
 Usage:
+
 ```cfml
 yamlProcessor = new YamlProcessor();
 
