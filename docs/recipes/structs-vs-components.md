@@ -1,9 +1,4 @@
-Based on testing with 100,000 iterations:
-
-### Execution Time Comparison
-- **Struct creation**: 19ms
-- **Bean factory creation**: 319ms
-- **Inline<!--
+<!--
 {
   "title": "Best Practices: Structs vs Inline Components",
   "id": "structs-vs-components",
