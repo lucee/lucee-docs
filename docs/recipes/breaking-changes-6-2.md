@@ -35,6 +35,12 @@ This document outlines the breaking changes introduced when upgrading from Lucee
 - Java 11 is supported
 - Java 8 is no longer supported
 
+## Single Mode
+
+Lucee 6.0 introduced Single Mode, Lucee 7.0 only supports single mode (multi-mode, i.e. web admins/contexts are removed)
+
+[[single-vs-multi-mode]]
+
 ## Changing PreciseMath to be off by default
 
 With Lucee 6, we introduced support for higher precision maths, by switching the underlying Java class from Double to BigInteger.

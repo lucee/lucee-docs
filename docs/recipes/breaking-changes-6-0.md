@@ -29,6 +29,14 @@ Lucee 6 will automatically convert an XML config to JSON
 
 [[config]]
 
+## Single Mode
+
+Lucee 6.0 introduces Single Mode, which is on by default.
+
+Lucee 7.0 only supports single mode (multi-mode, i.e. web admins/contexts are removed)
+
+[[single-vs-multi-mode]]
+
 ## Changelogs
 
 - [https://download.lucee.org/changelog/?version=6.0](https://download.lucee.org/changelog/?version=6.0)
