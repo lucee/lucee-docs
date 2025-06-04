@@ -211,13 +211,6 @@ This setting functions similarly to `LUCEE_ADMIN_MODE`, but it only affects the 
 *SysProp:* `-Dlucee.cascading.write.to.variables.log`
 *EnvVar:* `LUCEE_CASCADING_WRITE_TO_VARIABLES.LOG`
 
-This setting only applies to Lucee 6 (above `6.2.1.82`). Enables logging when variables are implicitly written to the variables scope (without an explicit scope definition). When set to a log level name (e.g., "application"), Lucee will log details about variables being assigned without explicit scope at the DEBUG level. This helps identify code that could be optimized by using proper variable scoping. 
-
-#### LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG
-
-*SysProp:* `-Dlucee.cascading.write.to.variables.log`
-*EnvVar:* `LUCEE_CASCADING_WRITE_TO_VARIABLES.LOG`
-
 This setting only applies to Lucee 6 (above `6.2.1.82`). Enables logging when variables are implicitly written to the variables scope (without an explicit scope definition). When set to a log name (e.g., "application"), Lucee will log details about variables being assigned without explicit scope. The log level can be customized using the `LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL` setting. This helps identify code that could be optimized by using proper variable scoping. This setting excludes certain internal variables (_cfquery, _cflock, _thread) from being logged.
 
 #### LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL
