@@ -27,6 +27,7 @@ This document provides guidance on when to use structs versus inline components 
 ## Basic Examples
 
 ### Struct Approach
+
 ```javascript
 // Simple data container
 personData = {
@@ -41,6 +42,7 @@ fullName = personData.firstName & " " & personData.lastName;
 ```
 
 ### Inline Component Approach
+
 ```javascript
 // Type-safe data container
 personBean = new component accessors=true {
@@ -60,6 +62,7 @@ personBean.setLastName("Sorglos");
 ```
 
 ### Bean Factory Approach
+
 ```javascript
 // Custom bean structure with getters/setters
 function createBean(boolean readOnly=false) {
@@ -107,6 +110,7 @@ dump(personBean.getLastName());
 ## Common Use Cases
 
 ### High-Frequency Object Creation
+
 ```javascript
 // Recommended: Structs for query loops and bulk processing
 loop query=qryPersons {
@@ -154,6 +158,7 @@ loop query=qryPersons {
 ```
 
 ### Configuration Objects
+
 ```javascript
 // Appropriate: Components for configuration with validation
 config = new component accessors=true {
@@ -171,6 +176,7 @@ config = new component accessors=true {
 ```
 
 ### Simple Data Transfer
+
 ```javascript
 // Recommended: Structs for API responses and data transfer
 function getPersonData(personId) {
@@ -187,6 +193,7 @@ function getPersonData(personId) {
 ## Performance Testing
 
 ### Basic Benchmark
+
 ```javascript
 function performanceTest() {
     iterations = 100000;
@@ -274,31 +281,37 @@ function performanceTest() {
 Based on testing with 100,000 iterations (multiple runs):
 
 ### Execution Time Comparison
+
 - **Struct creation**: ~20ms (19-23ms range)
 - **Bean factory creation**: ~320ms (315-347ms range)  
 - **Inline component creation**: ~335ms (328-336ms range)
 - **Performance impact**: Bean factories are **~16x slower** than structs, components are **~17x slower** than structs
 
 ### Memory Usage Patterns
+
 **Struct Approach:**
+
 - Minimal memory overhead
 - No class loading
 - Lightweight objects
 - Fast garbage collection
 
 **Bean Factory Approach:**
+
 - Moderate memory overhead (function closures only)
 - No class loading required
 - No metaspace allocation
 - Slightly faster than components on average
 
 **Inline Component Approach:**
+
 - Creates physical class definitions
 - Metaspace allocation for class metadata
 - Component lifecycle overhead
 - Highest memory consumption due to class creation
 
 ### Key Findings
+
 1. **Performance**: Structs are dramatically faster (16-17x) than both bean factories and components
 2. **Bean vs Component**: Bean factories are slightly faster than components and have less memory overhead
 3. **Memory Efficiency**: Bean factories avoid class loading and metaspace allocation
@@ -308,6 +321,7 @@ Based on testing with 100,000 iterations (multiple runs):
 ## Recommendations
 
 ### Use Structs When:
+
 - High-frequency object creation
 - Performance is critical
 - Simple data containers
@@ -316,23 +330,32 @@ Based on testing with 100,000 iterations (multiple runs):
 - Memory optimization needed
 
 ### Use Inline Components When:
+
 - Type safety is important
 - Complex validation required
 - Long-lived objects
 - Configuration management
 - Code clarity is priority
 
-**Note**: The same performance considerations apply when choosing between structs and regular components (CFCs) or sub-components. Use components of any type when the benefits of type safety, validation, and encapsulation outweigh the performance costs.
+**Note**: The same performance considerations apply when choosing between structs and regular components (CFCs) or sub-components. 
+
+Use components of any type when the benefits of type safety, validation, and encapsulation outweigh the performance costs.
 
 ## Testing Guidelines
 
 For accurate performance testing:
+
 - Use fresh JVM instances when possible
 - Run multiple iterations
 - Consider garbage collection impact
 - Test with realistic data sizes
 - Monitor both time and memory usage
+- Run at least 30k rounds to warmup, before benchmarkings, to allow the JVM optimizations to be applied
 
 ## Summary
 
-Choose structs for performance-critical scenarios and simple data containers. Use inline components when type safety and validation are more important than raw performance. Consider hybrid approaches that combine the benefits of both.
+Choose structs for performance-critical scenarios and simple data containers. 
+
+Use inline components when type safety and validation are more important than raw performance. 
+
+Consider hybrid approaches that combine the benefits of both.
