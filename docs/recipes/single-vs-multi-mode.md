@@ -70,7 +70,7 @@ Instead of maintaining separate configurations for each context, Single Mode sim
 
 ### **Scheduled tasks**
 
-As there is only one namespace in single mode, check that the naming of scheduled tasks don't overlap when migrating to single mode, when running multiple sites of the same instance.
+As there is only one namespace in single mode, check that the naming of scheduled tasks don't overlap when migrating to single mode.
 
 ### **Logging**
 
