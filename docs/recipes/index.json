@@ -111,7 +111,7 @@
     "file": "breaking-changes-6-0.md",
     "title": "Breaking Changes Between Lucee 5.4 and 6.0",
     "path": "/docs/recipes/breaking-changes-6-0.md",
-    "hash": "6065d6a51e22f3b0b25668567038d435",
+    "hash": "0ad4d3fed75b9c4b7654dcfd5a921a8f",
     "keywords": [
       "breaking changes",
       "Lucee 5.4",
@@ -124,7 +124,7 @@
     "file": "breaking-changes-6-1.md",
     "title": "Breaking Changes Between Lucee 6.0 and 6.1",
     "path": "/docs/recipes/breaking-changes-6-1.md",
-    "hash": "7296dea0e2659b2e3f6d9f1f53893b42",
+    "hash": "e05be708d0c57f44103fc39827e6cb3f",
     "keywords": [
       "breaking changes",
       "Lucee 6.0",
@@ -137,7 +137,7 @@
     "file": "breaking-changes-6-2.md",
     "title": "Breaking Changes between Lucee 6.1 and 6.2",
     "path": "/docs/recipes/breaking-changes-6-2.md",
-    "hash": "bc29b4da037cfaa820d273ca245b049e",
+    "hash": "9191c0da502dc5bf6db134986bb5e0a9",
     "keywords": [
       "breaking changes",
       "Lucee 6.1",
@@ -150,7 +150,7 @@
     "file": "breaking-changes-7.0.md",
     "title": "Breaking Changes between Lucee 6.2 and 7.0",
     "path": "/docs/recipes/breaking-changes-7.0.md",
-    "hash": "b6112288b6882ac319df634dec09d676",
+    "hash": "c5263abf2ce13bdbb008bb9b1a1eada7",
     "keywords": [
       "breaking changes",
       "Lucee 6.2",
@@ -1269,7 +1269,7 @@
     "file": "single-vs-multi-mode.md",
     "title": "Single Mode vs Multi Mode in Lucee",
     "path": "/docs/recipes/single-vs-multi-mode.md",
-    "hash": "30f313a549b83d41e24e168483e003ea",
+    "hash": "3b3cf8a24fe8e574e29934df2fb4b8a9",
     "keywords": [
       "Lucee",
       "Single Mode",
