@@ -63,6 +63,10 @@ Instead of maintaining separate configurations for each context, Single Mode sim
 - **Multi Mode**: Separate configurations exist for each web context and the server context. Some settings may overlap or conflict, leading to potential confusion.
 - **Single Mode**: All configurations are unified in a single context. This eliminates ambiguity and simplifies administration, including having only one Lucee Administrator.
 
+### **Scheduled tasks**
+
+As there is only one namespace in single mode, check that the naming of scheduled tasks don't overlap when migrating to single mode, when running multiple sites of the same instance.
+
 ### **Logging**
 
 - **Multi Mode**: Logs are divided between web context logs (e.g., request logs) and server context logs (e.g., global actions like tasks).
