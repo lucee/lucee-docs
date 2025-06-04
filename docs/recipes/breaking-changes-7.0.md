@@ -30,11 +30,10 @@ Be aware of these changes when migrating your applications to ensure smooth comp
 
 ## Java Support
 
-- Java 21 is recommended as it's a LTS release.
-- Java 23 is supported
-- Java 24-ea works, but there are some issues with date handling
-- Java 11 is supported
-- Java 8 is no longer supported
+- Java 24 for best performance!
+- Java 21
+- Java 11 is supported, but it's slower
+- **Java 8 is no longer supported**
 
 ## Switching to Jakarta (from Javax)
 
@@ -54,7 +53,11 @@ Lucee 7.0 we have changed the Loader API, so that in place upgrades via the admi
 
 The Loader Jar is found in the `lucee/lib` directory, i.e. `lucee-6.2.0.321.jar`.
 
-To upgrade to Lucee 7.0 (if you are already running Tomcat 10.1), you will need to stop Lucee, replace that jar with a 7.0 version and restart Lucee.
+To upgrade to Lucee 7.0 (if you are already running Tomcat 10.1), you will need to 
+
+- Stop Lucee
+- Replace that jar with a 7.0 version (`lucee.jar`) from [https://download.lucee.org/](https://download.lucee.org/)
+- Restart Lucee.
 
 The latest 5.4 and 6.2 releases will automatically ignore any attempts to do an in place upgrade, if the Loader jar is unsupported.
 
