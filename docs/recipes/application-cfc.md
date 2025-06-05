@@ -43,9 +43,9 @@ This is only one possible behavior of many, Lucee gives you the possibility in t
 
 So, for example, if you only have one Application.cfc in the webroot, define "Root" as setting.
 
-## Configuation Hierarchy
+## Configuration Hierarchy
 
-The base Lucee configuation is configured via the `.CFConfig.json` / the Admin.
+The base Lucee configuration is configured via the `.CFConfig.json` / the Admin.
 
 Each `Application.cfc` can then override / customise these settings per Application.
 
@@ -242,7 +242,7 @@ component {
 
 Below you can find an Application.cfc template that may serve as a starting point for your own applications settings with Lucee CFML engine.
 
-When creating an Application.cfc for the first time, you can configure all the settings within the Lucee Server or Web Administrator and use its "Export" tool ( Lucee Adminisitrator => Settings => Export )  to move (by copy and paste) the settings to your Application.cfc.
+When creating an Application.cfc for the first time, you can configure all the settings within the Lucee Server or Web Administrator and use its "Export" tool ( Lucee Administrator => Settings => Export )  to move (by copy and paste) the settings to your Application.cfc.
 
 ```cfs
 component displayname="Application" output="false" hint="Handle the application" {

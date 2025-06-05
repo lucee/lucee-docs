@@ -41,4 +41,4 @@ this.tag.log.log = this.name & ".log";
 
 To verify your current runtime Application configuration use [[function-getapplicationsettings]]
 
-The runtime configuation takes the base server `.CFConfig.json` / admin configuration, overridden by these Application settings.
+The runtime configuration takes the base server `.CFConfig.json` / admin configuration, overridden by these Application settings.

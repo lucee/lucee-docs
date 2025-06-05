@@ -32,7 +32,7 @@ Lucee settings are usually configured manually within the Server Administrator f
 
 While settings for web-context are also configurable through your web applications Application.cfc (see [[tag-application]]), specific server-context settings can be configured with *Environment Variables* or *System Properties* (since Lucee 5.3).
 
-This allowe Administrators and Developers power to tweak server settings from startup without having to configure in the Server Administrators web interface.
+This allows Administrators and Developers power to tweak server settings from startup without having to configure in the Server Administrators web interface.
 
 For example, pre-define the extensions to be installed, enable full null support or define charsets for your running Lucee server instance.
 
@@ -99,7 +99,7 @@ Find below a brief overview of available options about where and how to set your
 			<tr>
 				<td>CommandBox </td>
 				<td>Limited to the running CommandBox instance </td>
-				<td>Since CommandBox 4.5 <em>Environment Variables</em> can be set in a file named ".env". You can easily create the .env file by running the command <code>dotenv set</code> from your CommanBox CLI. For more information please see <a href="https://github.com/commandbox-modules/commandbox-dotenv">How to set it up CommandBox with .env files</a> and <a href="https://commandbox.ortusbooks.com/usage/environment-variables">CommandBox Environment Variables</a> </td>
+				<td>Since CommandBox 4.5 <em>Environment Variables</em> can be set in a file named ".env". You can easily create the .env file by running the command <code>dotenv set</code> from your CommandBox CLI. For more information please see <a href="https://github.com/commandbox-modules/commandbox-dotenv">How to set it up CommandBox with .env files</a> and <a href="https://commandbox.ortusbooks.com/usage/environment-variables">CommandBox Environment Variables</a> </td>
 			</tr>
 		</tbody>
 	</table>
