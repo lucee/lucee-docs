@@ -19,7 +19,7 @@
 
 # Timeout
 
-Since version 6.0, Lucee supports the tag `<cftimeout>`. This tag allows you to define a timeout specific to a code block.
+Since version 6.0, Lucee supports the tag [[tag-timeout]]. This tag allows you to define a timeout specific to a code block.
 
 ## Basic Usage
 

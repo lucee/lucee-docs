@@ -3,13 +3,12 @@
   "title": "Session Handling in Lucee",
   "id": "session-handling",
   "related": [
-    "tag-application",
-    "request-handling",
-    "caching"
+    "tag-application"
   ],
   "categories": [
     "server",
     "session",
+    "cache",
     "state-management",
     "configuration"
   ],
@@ -265,6 +264,8 @@ Lucee tries to avoid creating sessions whenever possible. It only creates a sess
 - Session data is read or written in the code
 - A key in the session scope is checked
 - The Application.cfc contains session listeners like "onSessionStart" or "onSessionEnd"
+
+Use [[function-sessionexists]] to check if a session has been created, using [[function-structkeyexists]] will create a session.
 
 Best practices for session handling:
 

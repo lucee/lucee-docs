@@ -1,10 +1,19 @@
----
-title: 'Configuration: Lucee Directory Placeholders'
-id: configuration-directory-placeholders
-menuTitle: Directory Placeholders
-related:
-- directory-placeholders
----
+<!--
+{
+  "title": "Directory Placeholders",
+  "id": "configuration-directory-placeholders",
+  "related": [
+    "function-expandpath",
+    "environment-variables-system-properties"
+  ],
+  "categories": [
+    "server",
+    "files"
+  ],
+  "description": "Placeholders are uses to reference specific Lucee directories",
+  "keywords": [ ]
+}
+-->
 
 ## Directory Placeholders ##
 
@@ -28,7 +37,7 @@ Directory Placeholder         |    	Description                                 
 
 ## Directory Placeholders in CFML ##
 
-You can reference the directory placeholders in your CFML code like this:
+You can reference the directory placeholders in your CFML code using [[function-expandpath]]
 
 ```lucee
 <cfdump var="#expandPath('{lucee-web-root}')#">
