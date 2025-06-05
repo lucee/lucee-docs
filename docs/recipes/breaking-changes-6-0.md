@@ -17,7 +17,7 @@ The decision to make breaking changes are not made lightly, generally speaking, 
 
 Please review all these changes when upgrading your applications to ensure they run smoothly and reliably.
 
-When migrating, the Lucee team highly recommends going straight to the latest 6.2 release, via a fresh install, working thru the breaking changes documents for each release, as listed and linked below.
+When migrating, the Lucee team highly recommends going straight to the latest 6.2 release, via a fresh install, working through the breaking changes documents for each release, as listed and linked below.
 
 Users upgrading to Lucee 6.2, running on Tomcat 11 and Java 21, have reported really improved performance and vastly reduced memory usage, so enjoy!
 
