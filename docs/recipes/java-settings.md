@@ -12,7 +12,8 @@
     "cfapplication"
   ],
   "categories": [
-    "java"
+    "java",
+    "application"
   ],
   "related": [
     "tag-application",

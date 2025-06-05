@@ -3,7 +3,8 @@
   "title": "Update current Application Context",
   "id": "update-application-context",
   "related": [
-    "tag-application"
+    "tag-application",
+    "application-context-guide"
   ],
   "categories": [
     "application"
@@ -22,7 +23,7 @@
 
 # Application Context update
 
-Lucee allows you to update the existing application context, **per request** as defined for example in [cookbook-application-context-basic].
+Lucee allows you to update the existing application context, **per request** as defined for example in [application-context-guide].
 
 This does not affect any other request, you are only changing the application settings for the current request.
 

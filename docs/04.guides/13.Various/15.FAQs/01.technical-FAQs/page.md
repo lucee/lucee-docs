@@ -17,7 +17,7 @@ id: technical-FAQs
 
 ### How to I create a Lucee Archive File? ###
 
-[[tips-lucee-archive-file]]
+[[archives-creating-and-deploy]]
 
 ### How do I make my custom tag built-in (e.g.: cfwave instead of cf_wave)? ###
 

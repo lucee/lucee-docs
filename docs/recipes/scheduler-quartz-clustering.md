@@ -1,19 +1,16 @@
-<!--
-{
-  "title": "Clustering with Quartz Scheduler",
-  "id": "clustering-quartz-scheduler",
-  "related": ["scheduler-quartz"],
-  "categories": ["extensions", "recipes"],
-  "description": "How to set up and configure clustering with the Quartz Scheduler extension",
-  "keywords": [
-    "scheduler",
-    "quartz",
-    "clustering",
-    "database",
-    "redis"
-  ]
-}
--->
+---
+title: Quartz Scheduler Clustering
+id: clustering-quartz-scheduler
+related:
+- scheduler-quartz
+categories:
+- extensions
+- recipes
+description: How to set up and configure clustering with the Quartz Scheduler extension
+keywords: scheduler,quartz,clustering,database,redis
+---
+
+
 
 # Clustering with Quartz Scheduler
 

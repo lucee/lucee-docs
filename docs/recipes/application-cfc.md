@@ -1,16 +1,32 @@
----
-title: Create an Application.cfc
-id: cookbook-application-context-basic
-related:
-- tag-application
-categories:
-- application
-description: How to create and configure the Application.cfc
----
+<!--
+{
+  "title": "Application.cfc guide",
+  "id": "application-context-guide",
+  "related": [
+    "tag-application",
+    "function-getapplicationsettings"
+  ],
+  "categories": [
+    "application",
+    "core"
+  ],
+  "description": "How to create and configure the Application.cfc",
+  "keywords": [
+    "Application Context",
+    "Application Listeners",
+    "Mappings",
+    "cfapplication",
+    "getApplicationSettings",
+    "Application.cfc"
+  ]
+}
+-->
 
 # Application.cfc #
 
-The Application.cfc is a component you put in your web application that then is picked up by Lucee as part of the request.
+The [[tag-application]] is a component you put in your web application that then is picked up by Lucee as part of the request.
+
+
 The Application.cfc is used to define context specific configurations/settings and event driven functions.
 Your website can have multiple Application.cfc files, every single file then defines an independent application context.
 
@@ -26,10 +42,31 @@ This is only one possible behavior of many, Lucee gives you the possibility in t
 
 So, for example, if you only have one Application.cfc in the webroot, define "Root" as setting.
 
-## Functions ##
+## Configuation Hierachy 
 
-The Application.cfc supports multiple event driven functions, what does this mean?
-You can define functions inside the Application.cfc that are called when certain events happen.
+The base Lucee configuation is configured via the `.CFConfig.json` / the Admin.
+
+Each `Application.cfc` can then override / customise these settings per Application.
+
+To see your Applications current runtime Application configuration, use [[function-getapplicationsettings]].
+
+## Application Scope vs Context
+
+The `Application` scope is shared between all requests using the same application name.
+
+The `Application Context` is the runtime configuration, unique to each request and can be safely modified with affecting other requests, see [[update-application-context]]
+
+## Admin Snippets
+
+Within the admin, there are configuration snippets showing how to set various options using `Application.cfc`
+
+There are some setting which only available via `.CFConfig.json`, such as compiler directives, web accessible mappings, etc.
+
+## Application Lifecycle Functions ##
+
+The `Application.cfc` supports multiple event driven functions, what does this mean?
+
+You can define functions inside the `Application.cfc` that are called when certain events happen.
 
 ### OnApplicationStart ###
 
@@ -59,6 +96,7 @@ component {
 ```
 
 This is normally used to finalize the environment of your application, so for example unload data/objects.
+
 You receive the application scope that ends as an argument to the function.
 
 ### OnSessionStart ###
@@ -90,6 +128,7 @@ component {
 ```
 
 This is normally used to finalize the environment of your application, so for example unload data/objects.
+
 You receive the related application scope and the session scope that ends, as arguments to the function.
 
 ### OnRequestStart ###
