@@ -39,4 +39,6 @@ this.ormsettings.autogenmap = false;
 this.tag.log.log = this.name & ".log";
 ```
 
-To verify your current runtime Application configuration, which is a combination of the `.CFConfig.json` / admin configuration, overriden by these Application settings, use [[function-getapplicationsettings]]
+To verify your current runtime Application configuration use [[function-getapplicationsettings]]
+
+The runtime configuation takes the base server `.CFConfig.json` / admin configuration, overridden by these Application settings.
