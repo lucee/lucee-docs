@@ -16,13 +16,17 @@ Documentation for serializing and deserializing AI sessions in Lucee
 
 No description available.
 
+## [Application.cfc #](/docs/recipes/application-cfc.md)
+
+How to create and configure the Application.cfc
+
 ## [Application Context update](/docs/recipes/application-context-update.md)
 
 How to update your Application settings, after they have been defined in Application.cfc.
 
 ## [Archives - Creating and deploying Lucee Archives (.lar files)](/docs/recipes/archives-creating-and-deploy.md)
 
-This document explains how to deploy an Application on a live server without using a single CFML file.
+No description available.
 
 ## [Basic Date - Output the current date](/docs/recipes/basic-date.md)
 
@@ -92,6 +96,10 @@ Simple recipe for processing CSV data in Lucee 7 using Maven integration and Apa
 
 How to define a Datasource in Lucee.
 
+## [Untitled](/docs/recipes/directory-placeholders.md)
+
+Placeholders are uses to reference specific Lucee directories
+
 ## [onBuild Function in Server.cfc (supported since Lucee 6.1.1)](/docs/recipes/docker-onbuild.md)
 
 The onBuild function in Server.cfc is used for tasks during the build phase in Lucee, particularly useful in Docker environments.
@@ -106,15 +114,11 @@ This document explains about Encryption/Decryption with public and private keys 
 
 ## [Environment Variables / System Properties for Lucee](/docs/recipes/environment-variables-system-properties.md)
 
-This document gives you an overview over all Environment Variables an System Properties you can set for Lucee.
+This document gives you an overview over all Environment Variables and System Properties supported by Lucee.
 
 ## [Custom Event Gateways](/docs/recipes/event-gateway-create.md)
 
 Here you will find a short introduction into writing your own Event Gateway type.
-
-## [Event Handling in Application.cfc](/docs/recipes/event-gateway-in-app-cfc.md)
-
-An overview of event handling functions in Application.cfc for Lucee.
 
 ## [Event Gateway - How they work?](/docs/recipes/event-gateways-how-they-work.md)
 
@@ -123,10 +127,6 @@ Overview of how Event Gateways work in Lucee.
 ## [Event Gateways](/docs/recipes/event-gateways.md)
 
 EG's are another way how to communicate with your Lucee server and are kind of a service running on Lucee, reacting on certain events.
-
-## [Event Handling in Application.cfc](/docs/recipes/event-handling-in-app-cfc.md)
-
-An overview of event handling functions in Application.cfc for Lucee.
 
 ## [Excel Processing in Lucee 7](/docs/recipes/excel-processing.md)
 
@@ -238,7 +238,7 @@ Lucee supports labels for all loop tags and statements, allowing you to control 
 
 ## [Looping Through File](/docs/recipes/loop-through-files.md)
 
-This document explains how to handle big files in Lucee in a better way.
+No description available.
 
 ## [Lucene 3 Extension](/docs/recipes/lucene-search.md)
 
@@ -342,7 +342,7 @@ Guide on configuring and interacting with specific S3 regions in Lucee using the
 
 ## [Clustering with Quartz Scheduler](/docs/recipes/scheduler-quartz-clustering.md)
 
-How to set up and configure clustering with the Quartz Scheduler extension
+No description available.
 
 ## [Creating Component-Based Jobs with Quartz Scheduler](/docs/recipes/scheduler-quartz-component-jobs.md)
 
@@ -363,6 +363,10 @@ Managing Secrets in Lucee applications
 ## [Session Handling](/docs/recipes/session-handling.md)
 
 Comprehensive guide on session handling and configuration in Lucee, including session types, storage options, and security considerations.
+
+## [Keep all struct keys defined with "dot notation" in original case.](/docs/recipes/setting-system-properties-and-env-vars.md)
+
+How to set and use Environment Variables or System Properties to configure specific Lucee Server settings.
 
 ## [Single Mode vs Multi Mode in Lucee](/docs/recipes/single-vs-multi-mode.md)
 

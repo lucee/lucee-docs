@@ -63,10 +63,24 @@
     ]
   },
   {
+    "file": "application-cfc.md",
+    "title": "Application.cfc #",
+    "path": "/docs/recipes/application-cfc.md",
+    "hash": "141f1e72cb88c8ac879b5123a924c3e2",
+    "keywords": [
+      "Application Context",
+      "Application Listeners",
+      "Mappings",
+      "cfapplication",
+      "getApplicationSettings",
+      "Application.cfc"
+    ]
+  },
+  {
     "file": "application-context-update.md",
     "title": "Application Context update",
     "path": "/docs/recipes/application-context-update.md",
-    "hash": "996c66538ed2c107fabed44863cf0885",
+    "hash": "1f6846198e7b960c3decb842f198446d",
     "keywords": [
       "Application Context",
       "Update Application",
@@ -80,17 +94,8 @@
     "file": "archives-creating-and-deploy.md",
     "title": "Archives - Creating and deploying Lucee Archives (.lar files)",
     "path": "/docs/recipes/archives-creating-and-deploy.md",
-    "hash": "1ca3f9e41d2123af29a9c2101b403e8f",
-    "keywords": [
-      "Lucee",
-      "Archives",
-      ".lar files",
-      "Deploy",
-      "Mapping",
-      "Component",
-      "CFC",
-      "CFM"
-    ]
+    "hash": "7b19ed7de71449ed84d72a29f92ef867",
+    "keywords": []
   },
   {
     "file": "basic-date.md",
@@ -312,7 +317,7 @@
     "file": "datasource-how-to-define-them.md",
     "title": "Datasource - How to define them",
     "path": "/docs/recipes/datasource-how-to-define-them.md",
-    "hash": "9f62ba260513fc3d060ba0f345dbcaed",
+    "hash": "2ff205a3bab30a858e0b0dfa14c74a86",
     "keywords": [
       "Datasource",
       "Define datasource",
@@ -321,6 +326,13 @@
       "Default datasource",
       "MySQL"
     ]
+  },
+  {
+    "file": "directory-placeholders.md",
+    "title": "Untitled",
+    "path": "/docs/recipes/directory-placeholders.md",
+    "hash": "6f04f033d581ada6692591bae5dae277",
+    "keywords": []
   },
   {
     "file": "docker-onbuild.md",
@@ -373,7 +385,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "167e7ee330729a2cf0235b4844fae057",
+    "hash": "54a610eaa74962808d3b6a41e1fd54a1",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -395,25 +407,6 @@
       "File Size Checker",
       "Lucee",
       "Gateway Driver"
-    ]
-  },
-  {
-    "file": "event-gateway-in-app-cfc.md",
-    "title": "Event Handling in Application.cfc",
-    "path": "/docs/recipes/event-gateway-in-app-cfc.md",
-    "hash": "d16a04c64dbcb4245d2c4dd729d697cb",
-    "keywords": [
-      "Event Handling",
-      "Application.cfc",
-      "onApplicationStart",
-      "onSessionStart",
-      "onRequestStart",
-      "onRequest",
-      "onCFCRequest",
-      "onError",
-      "onAbort",
-      "onDebug",
-      "onMissingTemplate"
     ]
   },
   {
@@ -443,25 +436,6 @@
       "Mail Server",
       "Slack Notification",
       "Lucee"
-    ]
-  },
-  {
-    "file": "event-handling-in-app-cfc.md",
-    "title": "Event Handling in Application.cfc",
-    "path": "/docs/recipes/event-handling-in-app-cfc.md",
-    "hash": "abdf251fc76480423b83c78cc926e3cf",
-    "keywords": [
-      "Event Handling",
-      "Application.cfc",
-      "onApplicationStart",
-      "onSessionStart",
-      "onRequestStart",
-      "onRequest",
-      "onCFCRequest",
-      "onError",
-      "onAbort",
-      "onDebug",
-      "onMissingTemplate"
     ]
   },
   {
@@ -565,7 +539,7 @@
     "file": "filesystem-mapping.md",
     "title": "File system - Mappings",
     "path": "/docs/recipes/filesystem-mapping.md",
-    "hash": "d64043f0e9b8231abd2ff02cc0dd16b1",
+    "hash": "86d4fe725314ceb9b25b9de10f534c2d",
     "keywords": [
       "Mapping",
       "Component mapping",
@@ -740,7 +714,7 @@
     "file": "java-settings.md",
     "title": "Java Settings in Application.cfc (Now with Maven Support)",
     "path": "/docs/recipes/java-settings.md",
-    "hash": "44f4e9f1da572d1490c1ee91491889e9",
+    "hash": "5e077356b9eeede93122e7539d0a668c",
     "keywords": [
       "Java settings",
       "Application.cfc",
@@ -832,15 +806,8 @@
     "file": "loop-through-files.md",
     "title": "Looping Through File",
     "path": "/docs/recipes/loop-through-files.md",
-    "hash": "10d132ae7c5b8a435b6ebf3f9cc50519",
-    "keywords": [
-      "Looping through files",
-      "cffile",
-      "fileRead",
-      "fileReadBinary",
-      "Memory optimization",
-      "Lucee"
-    ]
+    "hash": "34d55144bd40f57dc2d7f6777eabed8c",
+    "keywords": []
   },
   {
     "file": "lucene-search.md",
@@ -861,7 +828,7 @@
     "file": "mail-how-to-send-a-mail.md",
     "title": "Mail - How to send a Mail",
     "path": "/docs/recipes/mail-how-to-send-a-mail.md",
-    "hash": "ad2f2f1d23ab2c846f99570b586d731c",
+    "hash": "3b25897d700ab460f293f470ce558bcc",
     "keywords": [
       "Email",
       "Send mail",
@@ -875,7 +842,7 @@
     "file": "mail-listener.md",
     "title": "Mail Listeners",
     "path": "/docs/recipes/mail-listener.md",
-    "hash": "0be0699447d9fb3c7bbf2a111ac19337",
+    "hash": "c45a2e421323b25a0a484d0e03b5c1b6",
     "keywords": [
       "mail",
       "listener",
@@ -1141,7 +1108,7 @@
     "file": "request-timeout.md",
     "title": "Request Timeout",
     "path": "/docs/recipes/request-timeout.md",
-    "hash": "0ee1b809bf69a96385f22edeef12f94d",
+    "hash": "3a8faecb7af18346f0e209dad66799fb",
     "keywords": [
       "request timeout",
       "timeout",
@@ -1187,14 +1154,8 @@
     "file": "scheduler-quartz-clustering.md",
     "title": "Clustering with Quartz Scheduler",
     "path": "/docs/recipes/scheduler-quartz-clustering.md",
-    "hash": "63205fda43c951704d8536f1325248bd",
-    "keywords": [
-      "scheduler",
-      "quartz",
-      "clustering",
-      "database",
-      "redis"
-    ]
+    "hash": "6a4822516b021262d297ca368df746f8",
+    "keywords": []
   },
   {
     "file": "scheduler-quartz-component-jobs.md",
@@ -1253,7 +1214,7 @@
     "file": "session-handling.md",
     "title": "Session Handling",
     "path": "/docs/recipes/session-handling.md",
-    "hash": "89fd4cd784e1c2635bbd25ff756a778d",
+    "hash": "f3ef772244bec024eb77648a17face95",
     "keywords": [
       "Session Management",
       "CFML Sessions",
@@ -1263,6 +1224,20 @@
       "Session Timeout",
       "Session Clustering",
       "State Management"
+    ]
+  },
+  {
+    "file": "setting-system-properties-and-env-vars.md",
+    "title": "Keep all struct keys defined with \"dot notation\" in original case.",
+    "path": "/docs/recipes/setting-system-properties-and-env-vars.md",
+    "hash": "d2150df12a1ffeb91e7eee06beb1b0a6",
+    "keywords": [
+      "Environment",
+      "Environment Variables",
+      "Properties",
+      "System Properties",
+      "setting",
+      "config"
     ]
   },
   {
@@ -1410,7 +1385,7 @@
     "file": "timeout.md",
     "title": "Timeout",
     "path": "/docs/recipes/timeout.md",
-    "hash": "dd2b8b3c1ab71400a17e6e3bd8077a8d",
+    "hash": "6ff8f17dd545142649bbef2014a1e58a",
     "keywords": [
       "tag",
       "timeout",
