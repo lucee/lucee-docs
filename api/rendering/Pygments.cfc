@@ -26,16 +26,16 @@ component
 	var result = interpreter.get("result", createObject('java', 'java.lang.String').getClass());
 	var lexer = interpreter.get("lexer");
 	// dump(var=lexer.toString(), label="#language#");
-	
+
     return result;
   }
 
   public string function getCss() {
     var interpreter = new PythonInterpreter();
-	interpreter.set("style", "default");	
+	interpreter.set("style", "default");
 	var pythonFile = expandPath( getDirectoryFromPath( getCurrentTemplatePath() ) & "pygmentsCss.py" );
     interpreter.execFile( pythonFile );
-    var css = interpreter.get("css", createObject('java', 'java.lang.String').getClass());	
+    var css = interpreter.get("css", createObject('java', 'java.lang.String').getClass());
     return css;
   }
 }
