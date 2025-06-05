@@ -3,7 +3,8 @@
   "title": "Directory Placeholders",
   "id": "configuration-directory-placeholders",
   "related": [
-    "function-expandpath"
+    "function-expandpath",
+    "environment-variables-system-properties"
   ],
   "categories": [
     "server",
