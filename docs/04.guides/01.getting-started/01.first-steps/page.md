@@ -3,9 +3,29 @@ title: First steps
 id: getting-started-first-steps
 ---
 
-# Your first Lucee Server template #
+Welcome to Lucee, a Free and Open Source, high peformance cfml engine.
 
-Most people start using "Lucee Express", so they will end up going to [http://localhost:8888](http://localhost:8888) after they've started Lucee Express, and if it's all gone well, you'll see the **"Welcome to the Lucee World!"** page.  If not, now's a good time to find out [[how to get help]].
+## Lucee Developer Forum
+
+If you need support, please reach out via the [Developer forum](https://dev.lucee.org/), 
+
+You will find additional information on the forum about new [features](https://dev.lucee.org/c/documentation/6) and [releases](https://dev.lucee.org/c/news/release/8)
+
+[[tutorial-reporting-bugs]]
+
+## Migrating from Adobe ColdFusion or other CFML Engines
+
+Lucee aims to be compatible with ACF, but there are some differences, please see the [[category-compat]] category for further information.
+
+As Lucee is free and open source, we don't have any per core licensing, but we also need your support, please consider supporting Lucee via [Open Collective](https://opencollective.com/lucee)
+
+## Recipes
+
+We have an extensive series of detailed [[Recipes]] showing you how to take advantage of the wide range of features in Lucee.
+
+## Your first Lucee Server template
+
+Most people start using "Lucee Express", so they will end up going to [http://localhost:8888](http://localhost:8888) after they've started Lucee Express, and if it's all gone well, you'll see the **"Welcome to the Lucee World!"** page.  If not, now's a good time to find out [[about-lucee-how-to-get-help]].
 
 The "Welcome to the Lucee World!" page is very helpful, because it tells us a lot of information about the Lucee CFML Server - the Lucee version, the Java version, and lots more besides - including the path where CFML files are served from.  You'll find the website's folder under "Important Notes".
 
