@@ -40,8 +40,16 @@ Never     |  22 ms             | 227 ms  |
 Once      |  23 ms             | 236 ms  |
 Always    |  345 ms            | 3447 ms |
 
-You should imagine that on a busy server several things happen at the same time and that many files are involved. Please also consider that this is only the time it takes to check for the change of a template. This means that you can save a considerable amount of time. On a development server it might make sense to set the value to „always“ in order to immediately see the changes. But just remember the pagePoolClear() function.
+You should imagine that on a busy server several things happen at the same time and that many files are involved. Please also consider that this is only the time it takes to check for the change of a template. This means that you can save a considerable amount of time. 
 
-In addition to determining the way how Lucee treats CFML templates that are in the template cache, you can additionally flush the template and query cache. The admin will always display the number of items that are currently stored in the cache. If you click on the "clear cache" button, the items are removed from it. Don’t be surprised that some elements reappear in the template cache. In order to flush the cache some templates had to be called and they land in this cache.
+On a development server it might make sense to set the value to „always“ in order to immediately see the changes. But just remember to use the [[function-inspecttemplates]] function.
 
-The server administrator determines what the standard caching method is, which of course you can overwrite in the webadmin. This is why you have a button here that will reset any changes you have made to the value set in the server admin.
+In addition to determining the way how Lucee treats CFML templates that are in the template cache, you can additionally flush the template and query cache. 
+
+The admin will always display the number of items that are currently stored in the cache. If you click on the "clear cache" button, the items are removed from it. 
+
+Don’t be surprised that some elements reappear in the template cache. In order to flush the cache some templates had to be called and they land in this cache.
+
+The server administrator determines what the standard caching method is, which of course you can overwrite in the webadmin. 
+
+This is why you have a button here that will reset any changes you have made to the value set in the server admin.
