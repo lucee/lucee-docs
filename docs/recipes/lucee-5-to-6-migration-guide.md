@@ -13,7 +13,8 @@
     "Compatibility",
     "DeserializeJSON",
     "Query Parameters",
-    "Precise Math"
+    "Precise Math",
+    "DateTimeFormat"
   ]
 }
 -->
@@ -163,7 +164,6 @@ LUCEE_PRECISE_MATH=false
 3. Benchmark performance with and without precise math
 4. Focus on loops, financial calculations, and data processing operations
 
-
 #### Verification Steps
 
 1. Document all locations where precise math is disabled and rationale
@@ -172,6 +172,68 @@ LUCEE_PRECISE_MATH=false
 4. Test application without global `LUCEE_PRECISE_MATH` setting
 5. Run performance tests under various scenarios
 
+### 4. DateTimeFormat Mask Padding Changes
+
+**Issue**: The `datetimeFormat()` function's `WW` and `FF` masks no longer return zero-padded strings. In Lucee 5, these masks would return 2-digit strings (e.g., "04", "00"), but Lucee 6 returns single digits (e.g., "4", "0") due to the switch from `SimpleDateFormat` to `DateTimeFormatter`.
+
+#### Affected Masks
+
+- **WW**: Week of month (returns "4" instead of "04")
+- **FF**: Fraction of second (returns "0" instead of "00")
+
+#### Root Cause
+
+`SimpleDateFormat` interpreted `WW` as a two-character pattern requiring zero-padding, while `DateTimeFormatter` treats `WW` as two separate `W` patterns without automatic padding.
+
+#### Temporary Solution
+
+Set the environment variable to enable legacy formatting behavior:
+```
+LUCEE_DATETIMEFORMAT_MODE=classic
+```
+
+#### Identifying Issues
+
+1. Search codebase for `datetimeFormat()` calls using `WW` or `FF` masks
+2. Test date formatting outputs to identify padding discrepancies
+3. Look for code that depends on specific string lengths from date formatting
+
+#### Permanent Fix
+
+Update code to handle formatting differences or use alternative approaches:
+
+**Before (Lucee 5):**
+```cfml
+<cfset weekOfMonth = datetimeFormat('2018-01-25 10:00:00', 'WW')>
+<!-- Returns "04" -->
+```
+
+**After (Lucee 6) - Option 1: Use classic mode temporarily:**
+```cfml
+<!-- Set LUCEE_DATETIMEFORMAT_MODE=classic -->
+<cfset weekOfMonth = datetimeFormat('2018-01-25 10:00:00', 'WW')>
+<!-- Returns "04" with classic mode -->
+```
+
+**After (Lucee 6) - Option 2: Manual padding:**
+```cfml
+<cfset weekOfMonth = numberFormat(datetimeFormat('2018-01-25 10:00:00', 'W'), '00')>
+<!-- Returns "04" -->
+```
+
+**After (Lucee 6) - Option 3: String padding:**
+```cfml
+<cfset weekOfMonth = right('0' & datetimeFormat('2018-01-25 10:00:00', 'W'), 2)>
+<!-- Returns "04" -->
+```
+
+#### Verification Steps
+
+1. Identify all uses of `WW` and `FF` masks in date formatting
+2. Update code to handle padding requirements
+3. Test all date formatting scenarios
+4. Verify string length dependencies are maintained
+5. Set `LUCEE_DATETIMEFORMAT_MODE=modern` and confirm application functions correctly
 
 ## Environment Variables Reference
 
@@ -180,11 +242,11 @@ LUCEE_PRECISE_MATH=false
 | `LUCEE_DESERIALIZEJSON_ALLOWEMPTY` | Allow empty strings in DeserializeJSON | false | Temporary compatibility |
 | `LUCEE_QUERY_ALLOWEMPTYASNULL` | Convert empty strings to NULL in queries | false | Temporary compatibility |
 | `LUCEE_PRECISE_MATH` | Use BigDecimal for all calculations | true | Performance optimization |
+| `LUCEE_DATETIMEFORMAT_MODE` | Date formatting behavior (`classic`/`modern`) | modern | Temporary compatibility |
 
 ## Logging Configuration
 
 Set appropriate logging levels to capture compatibility warnings:
-
 
 ## Testing Strategy
 
@@ -215,6 +277,16 @@ Create tests for edge cases introduced by breaking changes:
         </cfquery>
         
         <cfset assertTrue(isDefined("testQuery.cnt"))>
+    </cffunction>
+    
+    <cffunction name="testDateTimeFormatPadding">
+        <cfset var testDate = '2018-01-25 10:00:00'>
+        <cfset var weekOfMonth = "">
+        
+        <!-- Test WW mask padding -->
+        <cfset weekOfMonth = numberFormat(datetimeFormat(testDate, 'W'), '00')>
+        <cfset assertEquals("04", weekOfMonth)>
+        <cfset assertEquals(2, len(weekOfMonth))>
     </cffunction>
 </cfcomponent>
 ```

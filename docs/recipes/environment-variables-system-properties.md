@@ -248,6 +248,18 @@ You can simulate the old behavior by setting this environment variable or SysPro
 By setting the log level of the `application` log to `warn`, you will receive information in the log when the old behavior is used.
 This allows you to modify your code for the new behavior without encountering runtime issues with the existing code.
 
+#### LUCEE_DATETIMEFORMAT_MODE
+*SysProp*: `-Dlucee.datetimeformat.mode`
+*EnvVar:* `LUCEE_DATETIMEFORMAT_MODE`
+
+Controls how datetimeFormat() interprets pattern masks such as WW and FF.
+
+- `classic`: Emulates legacy formatting behavior (like Lucee 5), applying zero-padding and pattern length rules.
+- `modern` (default): Uses Lucee 6+ behavior with precise pattern interpretation, aligned with Java’s DateTimeFormatter for consistency and clarity.
+
+Use "classic" to maintain compatibility with legacy codebases that depend on padded output from formatting masks.
+
+
 ## Regular Settings
 
 Settings that are nice to know, but not that important.
