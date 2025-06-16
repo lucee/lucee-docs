@@ -13,8 +13,8 @@ Some basic examples
 
 Lucee comes with a simple framework that let's you control the flow of your application and your environment with a file named "Application.cfc".
 
-* [[cookbook-application-context-basic]]
-* [[cookbook-application-context-update]]
+* [[application-context-guide]]
+* [[update-application-context]]
 * [[cookbook-application-context-set-mapping]]
 
 ## Cache ##
@@ -25,7 +25,7 @@ Lucee supports a lot of different cache systems, for example EhCache, Memcached,
 * Query Cache (TODO)
 * Session Storage (TODO)
 * [[cookbook-cache-list]]
-* [[cookbook-caches-in-application-cfc]]
+* [[caches-defined-in-application-cfc]]
 
 ## Configuration ##
 
@@ -37,7 +37,7 @@ Lucee supports a lot of different cache systems, for example EhCache, Memcached,
 Some examples related to Datasources/Queries:
 
 * [[cookbook-datasource-define-datasource]]
-* [[cookbook-cached-within-request]]
+* [[cache-a-query-for-the-curr-context]]
 * Add a new Datasource driver (TODO)
 
 ## File System ##

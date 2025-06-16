@@ -79,8 +79,6 @@ This is the temporary location where all the new links will be added.
 
 [[why-lucee-server-great]]
 
-[[lucee-enhanced-tags]]
-
 [[deploy-awsElasticBeanStakk]]
 
 [[cfadmin-docs]]

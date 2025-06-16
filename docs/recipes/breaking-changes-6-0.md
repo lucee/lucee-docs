@@ -13,7 +13,7 @@
 
 This document outlines all the breaking changes which you should be aware with when upgrading from Lucee 5.4 to Lucee 6.0. 
 
-The descision to make breaking changes are not made lightly, generally speaking, they are made to align Lucee with ACF where possible, address performance or edge cases which can lead to problems, and also to address potential security issues.
+The decision to make breaking changes are not made lightly, generally speaking, they are made to align Lucee with ACF where possible, address performance or edge cases which can lead to problems, and also to address potential security issues.
 
 Please review all these changes when upgrading your applications to ensure they run smoothly and reliably.
 
@@ -28,6 +28,14 @@ With Lucee 6, we switched from using XML config, `lucee-server.xml` for Lucee to
 Lucee 6 will automatically convert an XML config to JSON
 
 [[config]]
+
+## Single Mode
+
+Lucee 6.0 introduces Single Mode, which is on by default.
+
+Lucee 7.0 only supports single mode (multi-mode, i.e. web admins/contexts are removed)
+
+[[single-vs-multi-mode]]
 
 ## Changelogs
 

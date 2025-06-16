@@ -21,7 +21,7 @@ Defines a CFML Application and configures the properties / behavior of that Appl
 
 By default, client variables are disabled, and Session and Application variables are stored in memory.
 
-All these settings below can also be configured using the Modern `Application.cfc` approach, see [[cookbook-application-context-basic]].
+All these settings below can also be configured using the Modern `Application.cfc` approach, see [[application-context-guide]].
 
 These properties can be configured in the `Application.cfc` constructor
 
@@ -39,6 +39,6 @@ this.ormsettings.autogenmap = false;
 this.tag.log.log = this.name & ".log";
 ```
 
-**BREAKING CHANGE**
+To verify your current runtime Application configuration use [[function-getapplicationsettings]]
 
-In Lucee 7, by default, for better performance, Lucee will only look for `Application.cfc`, `Application.cfm` and `OnRequestEnd.cfm` is still supported, but [requires changing the default settings](https://dev.lucee.org/t/defaulting-to-only-looking-for-application-cfc-in-lucee-7/14881)
+The runtime configuation takes the base server `.CFConfig.json` / admin configuration, overridden by these Application settings.

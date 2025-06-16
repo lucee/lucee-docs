@@ -30,17 +30,16 @@ Be aware of these changes when migrating your applications to ensure smooth comp
 
 ## Java Support
 
-- Java 21 is recommended as it's a LTS release.
-- Java 23 is supported
-- Java 24-ea works, but there are some issues with date handling
-- Java 11 is supported
-- Java 8 is no longer supported
+- Java 24 for best performance!
+- Java 21
+- Java 11 is supported, but it's slower
+- **Java 8 is no longer supported**
 
 ## Switching to Jakarta (from Javax)
 
 Lucee 6.2 introduced support for jakarta (Tomcat 10+) etc, but was still javax based
 
-Lucee 7.0 is now based on [Jakarta](https://jakarta.ee/).
+Lucee 7.0 is now based on [Jakarta](https://jakarta.ee/). As such, Tomcat 9.0 (or older) is no longer supported, we recommend doing a fresh install.
 
 [LDEV-4910](https://luceeserver.atlassian.net/browse/LDEV-4910)
 
@@ -48,9 +47,29 @@ Lucee 7.0 is now based on [Jakarta](https://jakarta.ee/).
 
 [Javax to Jakarta Namespace Ecosystem Progress](https://jakarta.ee/blogs/javax-jakartaee-namespace-ecosystem-progress/)
 
+## Loader Change
+
+Lucee 7.0 we have changed the Loader API, so that in place upgrades via the admin aren't supported OOTB.
+
+The Loader Jar is found in the `lucee/lib` directory, i.e. `lucee-6.2.0.321.jar`.
+
+To upgrade to Lucee 7.0 (if you are already running Tomcat 10.1), you will need to 
+
+- Stop Lucee
+- Replace that jar with a 7.0 version (`lucee.jar`) from [https://download.lucee.org/](https://download.lucee.org/)
+- Restart Lucee.
+
+The latest 5.4 and 6.2 releases will automatically ignore any attempts to do an in place upgrade, if the Loader jar is unsupported.
+
+If you try upgrading an older release without these loader version checks, you will get a 500 error on startup. 
+
+To get your Lucee instance back up and running if you experience this problem, stop Lucee and delete any lucee 7 `.lco` files from `lucee/tomcat/lucee-server/patches` and restart.
+
 ## Single Mode Only
 
-Lucee 7.0 only supports single mode [[single-vs-multi-mode]]
+Lucee 7.0 only supports Single Mode, which was introduced with Lucee 6.0.
+
+[[single-vs-multi-mode]]
 
 ## Properly Scope Internal Tag Variables in Lucee Functions
 

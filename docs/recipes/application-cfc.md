@@ -1,18 +1,34 @@
----
-title: Create an Application.cfc
-id: cookbook-application-context-basic
-related:
-- tag-application
-categories:
-- application
-description: How to create and configure the Application.cfc
----
+<!--
+{
+  "title": "Application.cfc guide",
+  "id": "application-context-guide",
+  "related": [
+    "tag-application",
+    "function-getapplicationsettings"
+  ],
+  "categories": [
+    "application",
+    "core"
+  ],
+  "description": "How to create and configure the Application.cfc",
+  "keywords": [
+    "Application Context",
+    "Application Listeners",
+    "Mappings",
+    "cfapplication",
+    "getApplicationSettings",
+    "Application.cfc"
+  ]
+}
+-->
 
 # Application.cfc #
 
-The Application.cfc is a component you put in your web application that then is picked up by Lucee as part of the request.
+The [[tag-application]] is a component you put in your web application that then is picked up by Lucee as part of the request.
+
 The Application.cfc is used to define context specific configurations/settings and event driven functions.
-Your website can have multiple Application.cfc files, every single file then defines an independent application context.
+
+Your website can have multiple Application.cfc files, each folder then defines an independent application context.
 
 Let's say you have a website that has a shop under the path "/shop" that needs user sessions, but the rest of the website does not.
 In that case you could define an Application.cfc at "/shop" that has session handling enabled and one in the webroot that has not.
@@ -20,16 +36,38 @@ In that case you could define an Application.cfc at "/shop" that has session han
 ## Location, Location, Location ##
 
 With the default setting Lucee always picks the "nearest" Application.cfc, so it searches from the current location down to the webroot.
+
 This is only one possible behavior of many, Lucee gives you the possibility in the Lucee Administrator under "Settings / Request" to decide where Lucee looks for the Application.cfc and if it looks at all.
 
 ![search mode](https://bitbucket.org/repo/rX87Rq/images/3223743265-APP-SEARCH-MODE.png)
 
 So, for example, if you only have one Application.cfc in the webroot, define "Root" as setting.
 
-## Functions ##
+## Configuation Hierarchy
 
-The Application.cfc supports multiple event driven functions, what does this mean?
-You can define functions inside the Application.cfc that are called when certain events happen.
+The base Lucee configuation is configured via the `.CFConfig.json` / the Admin.
+
+Each `Application.cfc` can then override / customise these settings per Application.
+
+To see your Applications current runtime Application configuration, use [[function-getapplicationsettings]].
+
+## Application Scope vs Context
+
+The `Application` scope is shared between all requests using the same application name.
+
+The `Application Context` is the runtime configuration, unique to each request and can be safely modified with affecting other requests, see [[update-application-context]]
+
+## Admin Snippets
+
+Within the admin, there are configuration snippets showing how to set various options using `Application.cfc`
+
+There are some setting which only available via `.CFConfig.json`, such as compiler directives, web accessible mappings, etc.
+
+## Application Lifecycle Functions ##
+
+The `Application.cfc` supports multiple event driven functions, what does this mean?
+
+You can define functions inside the `Application.cfc` that are called when certain events happen.
 
 ### OnApplicationStart ###
 
@@ -59,6 +97,7 @@ component {
 ```
 
 This is normally used to finalize the environment of your application, so for example unload data/objects.
+
 You receive the application scope that ends as an argument to the function.
 
 ### OnSessionStart ###
@@ -90,6 +129,7 @@ component {
 ```
 
 This is normally used to finalize the environment of your application, so for example unload data/objects.
+
 You receive the related application scope and the session scope that ends, as arguments to the function.
 
 ### OnRequestStart ###
@@ -211,25 +251,25 @@ component displayname="Application" output="false" hint="Handle the application"
     /***************************************************************************
     * INTRODUCTION
     ****************************************************************************
-    *  This Application.cfc template should serve as a 
+    *  This Application.cfc template should serve as a
     *  starting point for your applications settings running
-    *  with Lucee CFML engine. 
-    * 
+    *  with Lucee CFML engine.
+    *
     *  The settings/definitions are set as comments and represent Lucees default
-    *  settings. Some settings/definitions should only serve as helping 
+    *  settings. Some settings/definitions should only serve as helping
     *  examples, e.g. datasources, mailservers, cache, mappings
     *
-    *  When creating an Application.cfc for the first time, you can configure 
-    *  all the settings within the Lucee Server or Web Administrator 
-    *  and use its "Export" tool ( Lucee Adminisitrator => Settings => Export )  
+    *  When creating an Application.cfc for the first time, you can configure
+    *  all the settings within the Lucee Server or Web Administrator
+    *  and use its "Export" tool ( Lucee Adminisitrator => Settings => Export )
     *  to move (by copy and paste) the settings to your Application.cfc.
-    * 
+    *
     *  For further reference please see the following documentation at:
     *  https://docs.lucee.org/categories/application.html
     *  https://docs.lucee.org/guides/cookbooks/application-context-basic.html
     *  https://docs.lucee.org/reference/tags/application.html
     *  https://docs.lucee.org/guides/Various/system-properties.html
-    * 
+    *
     ***************************************************************************/
 
 
@@ -244,19 +284,19 @@ component displayname="Application" output="false" hint="Handle the application"
    //  LOCALE
    //  Defines the desired time locale for the application
    ////////////////////////////////////////////////////////////////
-   // this.locale = "en_US"; 
+   // this.locale = "en_US";
 
 
    ////////////////////////////////////////////////////////////////
    //  TIME ZONE
    //  Defines the desired time zone for the application
    ////////////////////////////////////////////////////////////////
-   // this.timezone = "Europe/Berlin"; 
+   // this.timezone = "Europe/Berlin";
 
 
    ////////////////////////////////////////////////////////////////
    //  WEB CHARSET
-   //  Default character set for output streams, form-, url-, and 
+   //  Default character set for output streams, form-, url-, and
    //  cgi scope variables and reading/writing the header
    ////////////////////////////////////////////////////////////////
    // this.charset.web="UTF-8";
@@ -264,26 +304,26 @@ component displayname="Application" output="false" hint="Handle the application"
 
    ////////////////////////////////////////////////////////////////
    //  RESOURCE CHARSET
-   //  Default character set for reading from/writing to 
+   //  Default character set for reading from/writing to
    //  various resources
    ////////////////////////////////////////////////////////////////
    // this.charset.resource="windows-1252";
-   
+
 
    ////////////////////////////////////////////////////////////////
    //  APPLICATION TIMEOUT
-   //  Sets the amount of time Lucee will keep the application scope alive. 
+   //  Sets the amount of time Lucee will keep the application scope alive.
    ////////////////////////////////////////////////////////////////
-   //  this.applicationTimeout = createTimeSpan( 1, 0, 0, 0 ); 
+   //  this.applicationTimeout = createTimeSpan( 1, 0, 0, 0 );
 
 
    ////////////////////////////////////////////////////////////////
    //  SESSION TYPE
-   //  Defines the session engine 
+   //  Defines the session engine
    //  - Application: Default cfml sessions
-   //  - JEE: JEE Sessions allow to make sessions over a cluster. 
+   //  - JEE: JEE Sessions allow to make sessions over a cluster.
    ////////////////////////////////////////////////////////////////
-   // this.sessionType = "application"; 
+   // this.sessionType = "application";
 
 
    ////////////////////////////////////////////////////////////////
@@ -291,13 +331,13 @@ component displayname="Application" output="false" hint="Handle the application"
    //  Enables/disables session management
    ////////////////////////////////////////////////////////////////
    // this.sessionManagement = true;
-   
-   
+
+
    ////////////////////////////////////////////////////////////////
    //  SESSION TIMEOUT
-   //  Sets the amount of time Lucee will keep the session scope alive. 
+   //  Sets the amount of time Lucee will keep the session scope alive.
    ////////////////////////////////////////////////////////////////
-   // this.sessionTimeout = createTimeSpan( 0, 0, 30, 0 ); 
+   // this.sessionTimeout = createTimeSpan( 0, 0, 30, 0 );
 
 
    ////////////////////////////////////////////////////////////////
@@ -309,14 +349,14 @@ component displayname="Application" output="false" hint="Handle the application"
    //  - <cache-name>: name of a cache instance that has "Storage" enabled
    //  - <datasource-name>: name of a datasource instance that has "Storage" enabled
    ////////////////////////////////////////////////////////////////
-   // this.sessionStorage = "memory"; 
+   // this.sessionStorage = "memory";
 
 
    ////////////////////////////////////////////////////////////////
    //  CLIENT MANAGEMENT
    //  Enables/disables client management
    ////////////////////////////////////////////////////////////////
-   // this.clientManagement = false; 
+   // this.clientManagement = false;
 
 
    ////////////////////////////////////////////////////////////////
@@ -324,15 +364,15 @@ component displayname="Application" output="false" hint="Handle the application"
    //  Enables/disables client cookies
    ////////////////////////////////////////////////////////////////
    // this.setClientCookies = true;
-   
-   
+
+
    ////////////////////////////////////////////////////////////////
    //  CLIENT TIMEOUT
    //  Sets the amount of time Lucee will keep the client scope alive.
    ////////////////////////////////////////////////////////////////
    // this.clientTimeout = createTimeSpan( 90, 0, 0, 0 );
-   
-   
+
+
    ////////////////////////////////////////////////////////////////
    //  CLIENT STORAGE
    //  Default Storage for Session, possible values are:
@@ -344,16 +384,16 @@ component displayname="Application" output="false" hint="Handle the application"
    ////////////////////////////////////////////////////////////////
    // this.clientStorage = "cookie";
 
-   
-   ////////////////////////////////////////////////////////////////
-   //  DOMAIN COOKIES
-   //  Enables or disables domain cookies. 
-   ////////////////////////////////////////////////////////////////
-   // this.setDomainCookies = false; 
-   
 
    ////////////////////////////////////////////////////////////////
-   //  CGI READ ONLY 
+   //  DOMAIN COOKIES
+   //  Enables or disables domain cookies.
+   ////////////////////////////////////////////////////////////////
+   // this.setDomainCookies = false;
+
+
+   ////////////////////////////////////////////////////////////////
+   //  CGI READ ONLY
    //  Defines whether the CGI Scope is read only or not.
    ////////////////////////////////////////////////////////////////
    // this.cgiReadOnly = true;
@@ -365,13 +405,13 @@ component displayname="Application" output="false" hint="Handle the application"
    //  - modern: the local scope is always invoked
    //  - classic: CFML default,  the local scope is only invoked when the key already exists in it
    ////////////////////////////////////////////////////////////////
-   // this.localMode = "classic"; 
+   // this.localMode = "classic";
 
 
    ////////////////////////////////////////////////////////////////
-   //  CASCADING  
-   //  Depending on this setting Lucee scans certain scopes to find a 
-   //  variable called from the CFML source. This will only happen when the 
+   //  CASCADING
+   //  Depending on this setting Lucee scans certain scopes to find a
+   //  variable called from the CFML source. This will only happen when the
    //  variable is called without a scope. (Example: #myVar# instead of #variables.myVar#)
    //  - strict: scans only the variables scope
    //  - small: scans the scopes variables,url,form
@@ -381,53 +421,53 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
    ////////////////////////////////////////////////////////////////
-   //  SEARCH RESULTSETS  
-   //  When a variable has no scope defined (Example: #myVar# instead of #variables.myVar#), 
+   //  SEARCH RESULTSETS
+   //  When a variable has no scope defined (Example: #myVar# instead of #variables.myVar#),
    //  Lucee will also search available resultsets (CFML Standard) or not
    ////////////////////////////////////////////////////////////////
    // this.searchResults = true;
-  
+
 
    ////////////////////////////////////////////////////////////////
    //  REQUEST: TIMEOUT
    //  Sets the amount of time the engine will wait
-   //  for a request to finish before a request timeout will 
-   //  be raised. This means that the execution of the request 
-   //  will be stopped. This setting can be overridden using the 
+   //  for a request to finish before a request timeout will
+   //  be raised. This means that the execution of the request
+   //  will be stopped. This setting can be overridden using the
    //  "cfsetting" tag or script equivalent.
    ////////////////////////////////////////////////////////////////
-   // this.requestTimeout=createTimeSpan(0,0,0,50); 
-   
- 
+   // this.requestTimeout=createTimeSpan(0,0,0,50);
+
+
    ////////////////////////////////////////////////////////////////
-   //  COMPRESSION  
-   //  Enable compression (GZip) for the Lucee Response stream 
+   //  COMPRESSION
+   //  Enable compression (GZip) for the Lucee Response stream
    //  for text-based responses when supported by the client (Web Browser)
    ////////////////////////////////////////////////////////////////
    // this.compression = false;
 
 
    ////////////////////////////////////////////////////////////////
-   //  SUPPRESS CONTENT FOR CFC REMOTING 
-   //  Suppress content written to response stream when a 
+   //  SUPPRESS CONTENT FOR CFC REMOTING
+   //  Suppress content written to response stream when a
    //  Component is invoked remote
    ////////////////////////////////////////////////////////////////
    // this.suppressRemoteComponentContent = false;
-  
+
 
    ////////////////////////////////////////////////////////////////
-   //  BUFFER TAG BODY OUTPUT 
-   //  If true - the output written to the body of the tag is 
+   //  BUFFER TAG BODY OUTPUT
+   //  If true - the output written to the body of the tag is
    //  buffered and is also outputted in case of an exception. Otherwise
    //  the content to body is ignored and not displayed when a failure
    //  occurs in the body of the tag.
    ////////////////////////////////////////////////////////////////
-   // this.bufferOutput = false; 
-  
+   // this.bufferOutput = false;
+
 
    ////////////////////////////////////////////////////////////////
-   //  UDF TYPE CHECKING 
-   //  Enables/disables type checking of definitions with 
+   //  UDF TYPE CHECKING
+   //  Enables/disables type checking of definitions with
    //  function arguments and return values
    ////////////////////////////////////////////////////////////////
    // this.typeChecking = true;
@@ -440,9 +480,9 @@ component displayname="Application" output="false" hint="Handle the application"
    ////////////////////////////////////////////////////////////////
    // this.query.cachedAfter = createTimeSpan(0,0,0,0);
 
-   
+
    ////////////////////////////////////////////////////////////////
-   //  REGEX 
+   //  REGEX
    //  Defines the regular expression dialect to be used.
    //  - modern: Modern type is the dialect used by Java itself.
    //  - classic CFML default, the classic CFML traditional type Perl5 dialect
@@ -452,11 +492,11 @@ component displayname="Application" output="false" hint="Handle the application"
 
    ////////////////////////////////////////////////////////////////
    //  IMPLICIT NOTATION
-   //  If there is no accessible data member (property, element of the this scope) 
-   //  inside a component, Lucee searches for available matching "getters" or 
-   //  "setters" for the requested property. The following example should 
-   //  clarify this behaviour. "somevar = myComponent.propertyName". 
-   //  If "myComponent" has no accessible data member named "propertyName", 
+   //  If there is no accessible data member (property, element of the this scope)
+   //  inside a component, Lucee searches for available matching "getters" or
+   //  "setters" for the requested property. The following example should
+   //  clarify this behaviour. "somevar = myComponent.propertyName".
+   //  If "myComponent" has no accessible data member named "propertyName",
    //  Lucee searches for a function member (method) named "getPropertyName".
    ////////////////////////////////////////////////////////////////
    // this.invokeImplicitAccessor = false;
@@ -477,10 +517,10 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
    ////////////////////////////////////////////////////////////////
-   //  MAIL SERVERS 
-   //  defines one or more mail server connections. 
-   //  When sending an email, Lucee tries to send the mail with the first 
-   //  defined mail server. If the send operation fails, Lucee will 
+   //  MAIL SERVERS
+   //  defines one or more mail server connections.
+   //  When sending an email, Lucee tries to send the mail with the first
+   //  defined mail server. If the send operation fails, Lucee will
    //  continue using the next mail server in the list.
    ////////////////////////////////////////////////////////////////
    // this.mailservers =[
@@ -493,16 +533,16 @@ component displayname="Application" output="false" hint="Handle the application"
    //        ,tls: true
    //        ,lifeTimespan: CreateTimeSpan( 0, 0, 1, 0 )
    //        ,idleTimespan: CreateTimeSpan( 0, 0, 0, 10 )
-   //    } 
+   //    }
    // ];
 
 
    ////////////////////////////////////////////////////////////////
    //  DATASOURCES
-   //  Defines datasources by datasource name. These can be addressed by 
+   //  Defines datasources by datasource name. These can be addressed by
    //  by the "datasource" attribute of a "query" tag.
    ////////////////////////////////////////////////////////////////
-   // 
+   //
    //  this.datasources["myDsnName"] = {
    //         class: 'com.mysql.cj.jdbc.Driver'
    //     , bundleName: 'com.mysql.cj'
@@ -518,7 +558,7 @@ component displayname="Application" output="false" hint="Handle the application"
    //     , validate:false // default: false
    // };
 
-  
+
    ////////////////////////////////////////////////////////////////
    //  CACHES
    ////////////////////////////////////////////////////////////////
@@ -531,7 +571,7 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
    ////////////////////////////////////////////////////////////////
-   //  MAPPINGS   
+   //  MAPPINGS
    ////////////////////////////////////////////////////////////////
    //
    // this.mappings["/lucee/admin"]={
@@ -545,18 +585,18 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
     /**
-    * @hint First function run when Lucee receives the first request. 
+    * @hint First function run when Lucee receives the first request.
     */
     public boolean function OnApplicationStart(){
 
         return true;
-    
+
     }
 
 
     /**
-    * @hint onApplicationEnd() is triggered when the application context ends, means when the 
-    * timeout of the application context is reached (this.applicationTimeout). 
+    * @hint onApplicationEnd() is triggered when the application context ends, means when the
+    * timeout of the application context is reached (this.applicationTimeout).
     */
     public void function onApplicationEnd( struct application ){
 
@@ -566,8 +606,8 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
     /**
-    * @hint onSessionStart() is triggered with every request that has no session 
-    * defined in the current application context. 
+    * @hint onSessionStart() is triggered with every request that has no session
+    * defined in the current application context.
     */
     public void function onSessionStart(){
 
@@ -576,8 +616,8 @@ component displayname="Application" output="false" hint="Handle the application"
     }
 
     /**
-    * @hint onSessionEnd() is triggered when a specific session context ends, 
-    * when the timeout of a session context is reached (this.sessionTimeout). 
+    * @hint onSessionEnd() is triggered when a specific session context ends,
+    * when the timeout of a session context is reached (this.sessionTimeout).
     */
     public void function onSessionEnd( struct session, struct application ){
 
@@ -587,9 +627,9 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
     /**
-    * @hint onRequestStart() is triggered before every request, so you can 
-    * prepare the environment for the request, for example to produce the HTML 
-    * header or load some data/objects used within the request. 
+    * @hint onRequestStart() is triggered before every request, so you can
+    * prepare the environment for the request, for example to produce the HTML
+    * header or load some data/objects used within the request.
     */
     public boolean function onRequestStart( string targetPage ){
 
@@ -599,10 +639,10 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
     /**
-    * @hint onRequest() is triggered during a request right after onRequestStart() ends and before 
-    * onRequestEnd() starts. Unlike other CFML engines, Lucee executes this function without looking 
-    * for the "targetPage" defined, while other CFML engines will complain if the targetPage doesn't 
-    * physically exist (even if not used in the onRequest() function) 
+    * @hint onRequest() is triggered during a request right after onRequestStart() ends and before
+    * onRequestEnd() starts. Unlike other CFML engines, Lucee executes this function without looking
+    * for the "targetPage" defined, while other CFML engines will complain if the targetPage doesn't
+    * physically exist (even if not used in the onRequest() function)
     */
     public void function onRequest( string targetPage ){
 
@@ -613,28 +653,28 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
     /**
-    * @hint onRequest() is triggered at the end of a request, right after onRequest() finishes. 
+    * @hint onRequest() is triggered at the end of a request, right after onRequest() finishes.
     */
     public void function onRequestEnd(){
-    
+
         return;
-    
+
     }
 
 
     /**
     * @hint onCFCRequest() is triggered during a request for a .cfc component, typically
-    * used to handle remote component calls (e.g. HTTP Webservices). 
+    * used to handle remote component calls (e.g. HTTP Webservices).
     */
     public void function onCFCRequest( string cfcName, string methodName, struct args ){
-    
+
         return;
 
     }
 
 
     /**
-    * @hint onError() is triggered when an uncaught exception occurs in this application context. 
+    * @hint onError() is triggered when an uncaught exception occurs in this application context.
     */
     public void function onError( struct exception, string eventname ){
 
@@ -644,7 +684,7 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
     /**
-    * @hint OnAbort() is triggered when a request is ended with help of the "abort" tag. 
+    * @hint OnAbort() is triggered when a request is ended with help of the "abort" tag.
     */
     public void function  onAbort( string targetPage ){
 
@@ -664,7 +704,7 @@ component displayname="Application" output="false" hint="Handle the application"
 
 
     /**
-    * @hint onMissingTemplate() is triggered when the requested page wasn't found and no "onRequest()" 
+    * @hint onMissingTemplate() is triggered when the requested page wasn't found and no "onRequest()"
     * function is defined.
     */
     public void function onMissingTemplate( string targetPage ){

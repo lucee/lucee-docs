@@ -2,7 +2,7 @@
 {
   "title": "Environment Variables / System Properties for Lucee",
   "id": "environment-variables-system-properties",
-  "description": "This document gives you an overview over all Environment Variables an System Properties you can set for Lucee.",
+  "description": "This document gives you an overview over all Environment Variables and System Properties supported by Lucee.",
   "keywords": [
     "Environment",
     "Environment Variables",
@@ -22,6 +22,8 @@
 Below is a list of environment variables and system properties you can set for the Lucee Server.
 
 Each sub-heading is the name of the Environment Variable (EnvVar), the equivalent Java System Property (SysProp) is identical, simply in lower case, with underscores replaced by dots.
+
+Refer to [[running-lucee-system-properties]] to learn how to configure these values
 
 ## Important Settings
 
@@ -205,13 +207,6 @@ To change this behavior, you can set the environment variable `LUCEE_ADMIN_MODE=
 *EnvVar:* `LUCEE_ADMIN_MODE_DEFAULT`
 
 This setting functions similarly to `LUCEE_ADMIN_MODE`, but it only affects the default behavior and can be overridden by any setting in `.CFConfig.json`.
-
-#### LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG
-
-*SysProp:* `-Dlucee.cascading.write.to.variables.log`
-*EnvVar:* `LUCEE_CASCADING_WRITE_TO_VARIABLES.LOG`
-
-This setting only applies to Lucee 6 (above `6.2.1.82`). Enables logging when variables are implicitly written to the variables scope (without an explicit scope definition). When set to a log level name (e.g., "application"), Lucee will log details about variables being assigned without explicit scope at the DEBUG level. This helps identify code that could be optimized by using proper variable scoping. 
 
 #### LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG
 

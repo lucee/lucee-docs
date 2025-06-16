@@ -30,6 +30,7 @@ jobs:
           node .github/scripts/generate-index-recipes.js
 
       - name: Commit and push changes
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master'}}
         run: |
           BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})
           if [ -n "$(git status --porcelain)" ]; then

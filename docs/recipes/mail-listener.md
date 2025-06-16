@@ -11,7 +11,8 @@
     "component"
   ],
   "related": [
-    "tag-mail"
+    "tag-mail",
+    "tag-application"
   ],
   "categories": [
     "protocols"
@@ -23,7 +24,7 @@
 
 Since Lucee 6.0, you can define a listener in the Application.cfc to listen to or manipulate every mail executed.
 
-## Global Listeners
+### Global per Application.cfc Listeners
 
 This example shows how to define a global mail listener in the Application.cfc:
 
@@ -59,3 +60,25 @@ component {
     }
 }
 ```
+
+### Per tag Listeners
+
+To add a Mail Listener to an individual [[tag-mail]] tag (listeners defined in the listener attribute overwrites any mail listener defined in the [[tag-application]]:
+
+```luceescript
+<cfset listener = new MailListener()>
+<cfmail from="testlistener@testlucee.org" to="testlistener@testlucee.org" server="stmp.testlucee.org" port="25" 
+	username="testlistener@testlucee.org" password="***********" subject="Test listener" listener="#listener#">
+	test listener mail body
+</cfmail>
+```
+
+### Dump of arguments to the Mail Listener before() method
+
+<img alt="Mail Listener Before()" src="/assets/images/listeners/MailListener_before_arguments.png">
+
+### Dump of arguments to the Mail Listener after() method (cfmail)
+
+You can see the `from` and `to` mail IDs were changed in the arguments to the `after` function, the arguments struct contains the modified `from` and `to` keys from the `before` function.
+
+<img alt="Mail Listener After()" src="/assets/images/listeners/MailListener_after_arguments.png">

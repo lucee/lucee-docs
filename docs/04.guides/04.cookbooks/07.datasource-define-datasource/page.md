@@ -20,7 +20,7 @@ After saving this page you get back to the overview page and you will get a feed
 
 ## Create a Datasource in the Application.cfc ##
 
-You cannot only define a datasource in the Lucee Administrator, you can also do this in the [[cookbook-application-context-basic]], the easiest way to do so, is to create first a datasource in the Administrator (see above) and then go to the detail view of this datasource by clicking the "edit button"
+You cannot only define a datasource in the Lucee Administrator, you can also do this in the [[application-context-guide]], the easiest way to do so, is to create first a datasource in the Administrator (see above) and then go to the detail view of this datasource by clicking the "edit button"
 
 ![select datasource](https://bitbucket.org/repo/rX87Rq/images/4142224660-select-datasource.png)
 
@@ -28,7 +28,7 @@ At the bottom of the detail page you find a box that will look like this
 
 ![datasource application definition](https://bitbucket.org/repo/rX87Rq/images/1656402808-datasource-app-def.png)
 
-You can simply copy the code inside the box to your [[cookbook-application-context-basic]] body, Lucee will pick then this definition.
+You can simply copy the code inside the box to your [[application-context-guide]] body, Lucee will pick then this definition.
 After that you can delete the datasource you have defined in the Administrator.
 
 ### Advanced ###
@@ -73,7 +73,7 @@ this.datasources["myds"] = {
 
 ### Default Datasource ###
 
-With the [[cookbook-application-context-basic]] you can also define a default datasource that is used if not "datasource" attribute is defined with the tag cfquery, cfstoredproc, cfinsert, cfupdate, ..., simply do the following
+With the [[application-context-guide]] you can also define a default datasource that is used if not "datasource" attribute is defined with the tag cfquery, cfstoredproc, cfinsert, cfupdate, ..., simply do the following
 
 ```cfs
 
