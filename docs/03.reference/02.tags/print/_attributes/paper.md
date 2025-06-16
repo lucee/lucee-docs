@@ -1,0 +1,1 @@
+Type of paper to print

@@ -32,7 +32,7 @@ Logging is an essential practice for maintaining reliable and performant applica
 - Gain insights into application usage and performance.
 - Maintain an audit trail of events and actions.
 
-Lucee supports various log types (or levels), enabling you to control the verbosity and focus of your logs. 
+Lucee supports various log types (or levels), enabling you to control the verbosity and focus of your logs.
 
 Additionally, you can configure logging destinations and formats to integrate seamlessly with your infrastructure.
 
@@ -49,7 +49,7 @@ Log levels (or types) categorize log entries based on their importance or severi
 
 ### Configuring Log Level Thresholds
 
-You can configure the minimum log level (threshold) for each logger in the **Lucee Administrator** or directly in the configuration file (`.CFConfig.json`). 
+You can configure the minimum log level (threshold) for each logger in the **Lucee Administrator** or directly in the configuration file (`.CFConfig.json`).
 
 For instance, setting a threshold of `warn` means only warnings, errors, and fatal logs are recorded, ignoring `info`, `debug`, and `trace` logs.
 
@@ -97,7 +97,7 @@ You can add, modify, or remove loggers in the **Lucee Administrator** or directl
 
 ### Internals: Powered by Log4j2
 
-Lucee's logging system is powered by **Log4j2**, providing robust support for Appenders and Layouts. 
+Lucee's logging system is powered by **Log4j2**, providing robust support for Appenders and Layouts.
 
 You can extend Lucee logging by using any Appender or Layout supported by Log4j2.
 
@@ -128,7 +128,7 @@ Lucee also provides the following Layouts for customizing log output:
 
 ## Extending Logging with Custom Appenders and Layouts
 
-In addition to the built-in Appenders and Layouts, Lucee supports custom configurations using third-party libraries. 
+In addition to the built-in Appenders and Layouts, Lucee supports custom configurations using third-party libraries.
 
 Here’s how you can define custom Appenders and Layouts:
 

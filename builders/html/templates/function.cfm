@@ -15,7 +15,7 @@
 			} else {
 				local.status = local.fn.getStatus();
 			}
-		</cfscript>	
+		</cfscript>
 		<p><strong>Status:</strong> #local.status#</p>
 	</cfif>
 	<cfif len(local.fn.getAlias()) gt 0>
@@ -39,7 +39,7 @@
 	<div class="func-return-type-desc">
 		<p>Returns: <span translate="no">#local.fn.getReturnTypeLink()#</span></p>
 		<cfif Len( Trim( local.fn.getReturnTypeDesc() ) ) or args.edit>
-			
+
 			<div class="func-return-type-desc-edit">
 				<cfif args.edit>
 					<strong>Return Type Description (title only shown in edit mode, normally just a paragraph)</strong>
@@ -96,7 +96,7 @@
 								#getEditLink(path=local.fn.getSourceDir() & '_arguments/#local.arg.name#.md', edit=args.edit)#
 								#_markdownToHtml( Trim( local.arg.description ) )#
 								<cfif len(local.arg.alias) gt 0>
-									<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong> 
+									<p title="for compatibility, this argument has the following alias(es)"><sub>Alias:</strong>
 									<span translate="no">#ListChangeDelims(local.arg.alias,", ",",")#</span></sub></p>
 								</cfif>
 								<cfif structKeyExists(local.arg, "status") and local.arg.status neq "implemented">
@@ -112,7 +112,7 @@
  									#_markdownToHtml( local.arg.default ?: "" )#
  								</td>
 							</cfif>
-							
+
 						</tr>
 					</cfloop>
 				</tbody>

@@ -21,6 +21,12 @@ This document outlines the breaking changes introduced when upgrading from Lucee
 - [https://download.lucee.org/changelog/?version=6.2](https://download.lucee.org/changelog/?version=6.2)
 - [New tags and functions](https://docs.lucee.org/reference/changelog.html)
 
+## Other Breaking Changes in Lucee Releases
+
+- [[breaking-changes-5-4-to-6-0]]
+- [[breaking-changes-6-0-to-6-1]]
+- [[breaking-changes-6-2-to-7-0]]
+
 ## Java Support
 
 - Java 21 is recommended as it's a LTS release.
@@ -28,6 +34,12 @@ This document outlines the breaking changes introduced when upgrading from Lucee
 - Java 24-ea works, but there are some issues with date handling
 - Java 11 is supported
 - Java 8 is no longer supported
+
+## Single Mode
+
+Lucee 6.0 introduced Single Mode, Lucee 7.0 only supports single mode (multi-mode, i.e. web admins/contexts are removed)
+
+[[single-vs-multi-mode]]
 
 ## Changing PreciseMath to be off by default
 
@@ -70,3 +82,9 @@ You also may find some race conditions, etc within your own code / applications.
 Use [[function-inspectTemplates]] instead.
 
 [LDEV-5491](https://luceeserver.atlassian.net/browse/LDEV-5491)
+
+## Cookies Expires are now in GMT, rather than UTC
+
+More of a bug fix than a breaking change, Lucee now adheres to the spec correctly, since with 6.2.2, making Cloudflare happier
+
+[LDEV-4314](https://luceeserver.atlassian.net/browse/LDEV-4314)

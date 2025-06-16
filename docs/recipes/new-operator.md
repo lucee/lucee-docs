@@ -13,11 +13,14 @@
   ],
   "related": [
     "tag-component",
+    "tag-import",
     "function-createobject",
     "developing-with-lucee-server"
   ],
   "categories": [
-    "core"
+    "core",
+    "component",
+    "java"
   ]
 }
 -->
@@ -62,7 +65,7 @@ The following test cases demonstrate the use of the `new` operator with Java cla
 ```lucee
 sb = new java.lang.StringBuilder("Susi"); // load a class from the Java core library
 sb = new StringBuilder("Susi"); // java.lang package always is imported automatically
-		
+
 ```
 
 Importing classes:

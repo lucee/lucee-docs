@@ -58,36 +58,36 @@ type | The type of the extension. Is it usable in the Server or Web Administrato
 Here's a sample code for an extensionProvider.cfc:
 
 ```lucee
-&lt;cfsavecontent variable="desc"&gt;
+<cfsavecontent variable="desc">
 BlogCFM is a totally free, open-source blog application for Lucee.
 BlogCFM supports MySQL, PostgreSQL, Microsoft Access and Microsoft SQL Server databases.
 * Supports MySQL and SQL Server
 * Creates search-engine friendly files for each entry, and for monthly archives
 ...
 * and more!
-&lt;/cfsavecontent&gt;
-&lt;cfset QueryAddRow(apps)&gt;
-&lt;cfset QuerySetCell(apps,'id','9')&gt;
-&lt;cfset QuerySetCell(apps,'name','blogcfm')&gt;
-&lt;cfset QuerySetCell(apps,'type','web')&gt;
-&lt;cfset QuerySetCell(apps,'label','BlogCFM')&gt;
-&lt;cfset QuerySetCell(apps,'description',desc)&gt;
-&lt;cfset QuerySetCell(apps,'author','')&gt;
-&lt;cfset QuerySetCell(apps,'codename','')&gt;
-&lt;cfset QuerySetCell(apps,'video','')&gt;
-&lt;cfset QuerySetCell(apps,'image',rootURL & '/images/blogCFM.gif')&gt;
-&lt;cfset QuerySetCell(apps,'support','')&gt;
-&lt;cfset QuerySetCell(apps,'documentation','http://www.blogcfm.org/')&gt;
-&lt;cfset QuerySetCell(apps,'forum','')&gt;
-&lt;cfset QuerySetCell(apps,'mailinglist','')&gt;
-&lt;cfset QuerySetCell(apps,'network','')&gt;
-&lt;cfset QuerySetCell(apps,'created',CreateDate(2005,1,1))&gt;
-&lt;cfset QuerySetCell(apps,'version',"1.14")&gt;
-&lt;cfset QuerySetCell(apps,'category',"Blog software")&gt;
-&lt;cfset QuerySetCell(apps,'download',rootURL & '/ext/blogcfm/archive.zip')&gt;
-&lt;cfreturn apps&gt;
-&lt;/cffunction&gt;
-&lt;/cfcomponent&gt;
+</cfsavecontent>
+<cfset QueryAddRow(apps)>
+<cfset QuerySetCell(apps,'id','9')>
+<cfset QuerySetCell(apps,'name','blogcfm')>
+<cfset QuerySetCell(apps,'type','web')>
+<cfset QuerySetCell(apps,'label','BlogCFM')>
+<cfset QuerySetCell(apps,'description',desc)>
+<cfset QuerySetCell(apps,'author','')>
+<cfset QuerySetCell(apps,'codename','')>
+<cfset QuerySetCell(apps,'video','')>
+<cfset QuerySetCell(apps,'image',rootURL & '/images/blogCFM.gif')>
+<cfset QuerySetCell(apps,'support','')>
+<cfset QuerySetCell(apps,'documentation','http://www.blogcfm.org/')>
+<cfset QuerySetCell(apps,'forum','')>
+<cfset QuerySetCell(apps,'mailinglist','')>
+<cfset QuerySetCell(apps,'network','')>
+<cfset QuerySetCell(apps,'created',CreateDate(2005,1,1))>
+<cfset QuerySetCell(apps,'version',"1.14")>
+<cfset QuerySetCell(apps,'category',"Blog software")>
+<cfset QuerySetCell(apps,'download',rootURL & '/ext/blogcfm/archive.zip')>
+<cfreturn apps>
+</cffunction>
+</cfcomponent>
 ```
 
 The most important column here is download, since it contains the link to the extension itself. The download file needs to be a zip file that is renamed to .rep (in fact it can be a .zip file as well). The REP file needs to contain the following files:

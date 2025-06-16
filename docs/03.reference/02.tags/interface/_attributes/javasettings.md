@@ -1,0 +1,1 @@
+Specifies custom JavaSettings for this component. When provided, these settings override any environment-level JavaSettings that would otherwise be applied.

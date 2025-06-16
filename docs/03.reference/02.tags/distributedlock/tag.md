@@ -8,4 +8,4 @@ categories:
 - redis
 ---
 
-Redis based [[tag-lock]] that can be used across servers, i.e. in a clustered environment
+Redis based [[tag-lock]] that can be used across servers, i.e. in a clustered, or load balanced environment

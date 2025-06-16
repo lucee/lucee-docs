@@ -31,6 +31,8 @@ Once this has finished, you should find `./builds/html` and `./builds/dash` dire
 
 ### Running a server locally
 
+Lucee Docs Requires Lucee 7 and for [urlrewrite](https://tuckey.org/urlrewrite/) to be installed
+
 You have two options
 
 - Create a webserver virtual host with a normal Lucee install, with the virtual host's DocumentRoot set to `/lucee-docs/server`

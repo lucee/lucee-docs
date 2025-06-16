@@ -9,7 +9,7 @@ id: tips-lucee
 
 * [[tips-implicit-conversions]]
 
-* [[tips-lucee-archive-file]]
+* [[archives-creating-and-deploy]]
 
 * [[tips-built-in-tag]]
 

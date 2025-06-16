@@ -26,7 +26,7 @@
 
 # Mathematical Precision
 
-So far, Lucee has handled numbers internally as “double”, but with Lucee 6 we have added support for using “BigDecimal”. 
+So far, Lucee has handled numbers internally as “double”, but with Lucee 6 we have added support for using “BigDecimal”.
 
 This makes math operations much more precise (but slower) and there is no need anymore to use the function “PrecisionEvaluate”.
 

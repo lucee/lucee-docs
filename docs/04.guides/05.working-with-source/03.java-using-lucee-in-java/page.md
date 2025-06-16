@@ -174,7 +174,7 @@ cfc.callWithNamedValues( pc, "setLastName", args );
 #### Get Lucee Scopes ####
 
 ```java
-Scope varialbesScope	= pc.variablesScope();
+Scope variablesScope	= pc.variablesScope();
 
 Scope requestScope	= pc.requestScope();
 

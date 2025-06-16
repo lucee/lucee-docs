@@ -1,6 +1,8 @@
 ---
 title: Extension CFCs matrix
 id: extension-cfcs-matrix
+categories:
+- extensions
 menuTitle: CFCs matrix
 ---
 

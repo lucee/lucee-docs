@@ -4,6 +4,7 @@
   "title": "Interacting with Java Libraries",
   "id": "java-libraries",
   "description": "Guide on using Java libraries in Lucee 6.2 with Maven and import",
+  "since": "6.2",
   "keywords": [
     "java",
     "maven",
@@ -89,10 +90,10 @@ Once you’ve imported the classes, interacting with them is straightforward. Yo
 
 ```cfml
 public static void function createQR(String data, String path, numeric height, numeric width) {
-            
+
     var hashMap = new HashMap();
     hashMap.put(EncodeHintType::ERROR_CORRECTION,ErrorCorrectionLevel::L);
-    
+
     var matrix = new MultiFormatWriter().encode(data, BarcodeFormat::QR_CODE, width, height);
     MatrixToImageWriter::writeToFile(
         matrix,

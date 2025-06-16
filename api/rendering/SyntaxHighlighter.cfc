@@ -17,34 +17,24 @@ component {
 	}
 
 	public string function renderHighlight( required string code, required string language ) {
-		var jars        = [ "../lib/pyg-in-blankets-1.0-SNAPSHOT-jar-with-dependencies.jar" ];
-		var highlighter = CreateObject( 'java', 'com.dominicwatson.pyginblankets.PygmentsWrapper', jars );
+		var highlighter = new Pygments();
 		var useTryCf    = reFind( "\+trycf$", arguments.language ) > 0;
 
 		// some code block types don't work, treat them as cfm for now
-		// https://luceeserver.atlassian.net/browse/LD-168
 		var override = {
-			"Dockerfile": true,
-			"yml": true
+			"run" : "cfm",
+			"plaintext": "text",
+			"yml": "yaml"
 		};
 
 		if ( arguments.language.reFindNoCase( "^(luceescript|cfs)" ) ) {
 			arguments.language = "cfs";
 		} else if ( arguments.language.reFindNoCase( "^(lucee|cfm|coldfusion)" ) ) {
-			arguments.language = "cfm";
+			arguments.language = "cfc";
 		} else if (structKeyExists(override, arguments.language) ){
-			arguments.language = "cfm";
+			arguments.language = override[ arguments.language ];
 		}
-		var highlighted = arguments.code;
-		lock name="highlight" type="exclusive" timeout=10 {
-			try {
-				var highlighted = highlighter.highlight( arguments.code, arguments.language, false );
-			} catch (e ){
-				// systemOutput( arguments, true );
-				//systemOutput( e );
-				highlighted = arguments.code;
-			}
-		}
+		var highlighted = replaceNewLines( highlighter.highlight( arguments.code, arguments.language, "html" ) );
 
 		if ( useTryCf ) {
 			var rawCode = '<script type="text/template" id="code-#LCase( Hash( highlighted ) )#" data-trycf="true" data-script="#( arguments.language == 'cfs' )#">'
@@ -91,6 +81,20 @@ component {
 
 	private boolean function _isWindows(){
 		return findNoCase("Windows", SERVER.os.name);
+	}
+
+	// the markdown parser will skip continuous blocks of html, so replace empty lines with a <br>
+	function replaceNewLines( html ){
+		var src = Replace(html, "#chr(10)##chr(13)#",chr(10), "all");
+		var lines = ListToArray(src, chr(10), true);
+		arrayEach( lines, function( el, idx, lines ) {
+			if ( len( trim( arguments.el ) ) eq 0 ) {
+				arguments.lines[ arguments.idx ] = "<br>";
+			} else {
+				arguments.lines[ arguments.idx ] &= chr(10);
+			}
+		});
+		return arrayToList(lines, "");
 	}
 
 }

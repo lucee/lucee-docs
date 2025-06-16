@@ -3,7 +3,7 @@
 ### Tag example
 
 ```lucee+trycf
-<cfset numb=12> 
+<cfset numb=12>
 <cfif numb gt 1>
 <cfoutput>It is greater than 1</cfoutput>
 </cfif>

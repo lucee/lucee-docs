@@ -1,8 +1,8 @@
 ---
 title: GetPrinterList
 id: function-getprinterlist
-related:
 categories:
+- print
 ---
 
 Gets a string list of available printers.

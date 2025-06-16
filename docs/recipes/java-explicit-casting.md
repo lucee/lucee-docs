@@ -2,7 +2,7 @@
 {
   "title": "Java - Explicit Casting of a Component to a Specific Interface",
   "id": "java-explicit-casting",
-  "since": "6.0", 
+  "since": "6.0",
   "categories": [
     "java"
   ],

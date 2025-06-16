@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Java in Functions and Closures",
+  "title": "Java in Functions and Closures, function() type='java'",
   "id": "java-in-functions-and-closures",
   "since": "6.0",
   "description": "Learn how to write CFML code directly in a function or a closure with Java types in Lucee. This guide demonstrates how to define functions and components with Java types, and how to use Java lambda functions within Lucee. You will see examples of how to handle exceptions, define return types, and implement functional Java interfaces (Lambdas) seamlessly.",
@@ -24,6 +24,8 @@
 # Java in Functions and Closures
 
 You can write CFML code directly in a function or a closure.
+
+If you aren't running Lucee with a JDK, Lucee falls back on the [Janino compiler](https://janino-compiler.github.io/janino/) to compile your java code, so any [limitations](https://janino-compiler.github.io/janino/#limitations) of Janino apply.
 
 ## Functions
 

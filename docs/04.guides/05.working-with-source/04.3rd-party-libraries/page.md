@@ -24,7 +24,7 @@ in order to upgrade a library you need to follow these steps:
 ### Partial Library List ###
 
 Name      |    Packaged Version  | Last Known Version | Project Homepage |
-------------------------   | -------------------------
+------------------------   | ------------------------- | --- | --- |
 Apache Commons Email   |   1.1  |  1.2   |    [http://commons.apache.org/email/](http://commons.apache.org/email/)   |
 Apache Lucene          |  2.4.1 | 3.5.0  |    [http://lucene.apache.org/](http://lucene.apache.org/)          |
 H2 Database            |  0.9   | 1.3.164|    [http://www.h2database.com/](http://www.h2database.com/)         |

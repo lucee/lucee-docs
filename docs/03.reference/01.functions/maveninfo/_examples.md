@@ -1,11 +1,5 @@
 ### Simple example for MavenInfo
 
-```lucee
-mavenData = mavenInfo(
-    groupId = "com.mysql",
-    artifactId = "mysql-connector-j",
-    version = "9.0.0",
-    scopes = ["compile"],
-    includeOptional = true
-);
+```luceescript+trycf
+dump(mavenInfo("com.icegreen","greenmail","2.1.3")); // requires Lucee 7+
 ```

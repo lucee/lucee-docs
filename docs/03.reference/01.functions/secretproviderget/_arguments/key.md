@@ -1,0 +1,1 @@
+Key to read from the Secret Provider (e.g., "database.password", "api.key")

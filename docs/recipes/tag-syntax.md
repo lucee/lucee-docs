@@ -27,15 +27,15 @@
 
 # How to Use Tags in Script
 
-Lucee is a versatile platform that supports two programming languages: a tag-based language that integrates seamlessly into HTML and a script-based language. 
-Lucee (or CFML in general) initially started as a purely tag-based language, but over time, support for scripting has grown. 
-More and more functionality from the tag environment has been brought into the script environment, including support for using tags directly in script syntax. 
+Lucee is a versatile platform that supports two programming languages: a tag-based language that integrates seamlessly into HTML and a script-based language.
+Lucee (or CFML in general) initially started as a purely tag-based language, but over time, support for scripting has grown.
+More and more functionality from the tag environment has been brought into the script environment, including support for using tags directly in script syntax.
 This guide explains how you can use tags in scripts or migrate tag.
 
 ## History of Tags in Script
 
-Lucee supports two different tag syntaxes within scripts. The reason for this is rooted in a decision made by the "CFML Advisory Committee," which included members from Railo (now Lucee), Adobe, and BlueDragon. 
-The committee agreed on one syntax for tag use in scripts, but later Adobe chose to implement a different syntax. Since Lucee had already implemented the committee's original syntax, 
+Lucee supports two different tag syntaxes within scripts. The reason for this is rooted in a decision made by the "CFML Advisory Committee," which included members from Railo (now Lucee), Adobe, and BlueDragon.
+The committee agreed on one syntax for tag use in scripts, but later Adobe chose to implement a different syntax. Since Lucee had already implemented the committee's original syntax,
 it now supports both: the "Function Syntax" and the "Migration Syntax."
 
 ### Function Syntax and Migration Syntax
@@ -108,7 +108,7 @@ Because some keywords already existed in script, before support for script tags 
 This includes the following keywords
 
 - throw
-- return 
+- return
 - abort
 
 So for example this code

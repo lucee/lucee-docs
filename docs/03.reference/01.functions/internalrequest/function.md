@@ -1,9 +1,10 @@
 ---
 title: internalRequest
 id: function-internalrequest
-rrelated:
+related:
 - tag-http
 categories:
+- protocols
 - server
 ---
 

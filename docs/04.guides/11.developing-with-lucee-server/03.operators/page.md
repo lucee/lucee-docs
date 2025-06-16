@@ -13,22 +13,22 @@ description: Mathematical, Logical, Ternary, Comparison, String and Elvis Operat
 
 ## Mathematical operators ##
 
-operators | Name           | Description                                                |
-------------------------   | -----------                                                |
-**+**     | Add            |                                                            |
-**-**     | subtract       | 															|
-\*         | multiply       |                                                            |
-/         | divide         | 															|
-^         | exponentiate   | Raises one number to the power of another, e.g. 2 ^ 2 is 4 |
-%         | modulus        | Returns the remainder of a number, e.g. 5 % 2 is 1         |
-MOD       | modulus        | Returns the remainder of a number, e.g. 5 mod 2 is 1       |
-\         | integer divide | Divides giving an integer result, e.g. 7 \ 2 is 3          |
-++        | increment      | Increments a number. Can be used before or after an assignment, e.g. a = b++ would assign the value of b to a, then increment b. a = ++b would increment b, then assign the new value to a. In both cases, b would be incremented. **(not thread safe, see below)**|
-**--**  | decrement      | Decrements a number. Can be used before or after an assignment, e.g. a = b-- would assign the value of b to a, then decrement b. a = --b would decrement b, then assign the new value to a. In both cases, b would be decremented. **(not thread safe, see below)**|
-+=        | Compound add   | A shorthand operator for adding to a value, e.g.  a **+=** b is equivalent to writing a = a + b|
--=        | Compound subtract | A shorthand operator for subtracting from a value, e.g. a **-=** b is equivalent to writing a = a *-* b |
-***=**       | Compound multiply | A shorthand operator for multiplying a value, e.g. a ***=** b is equivalent to writing a = a *  b  |
-**/=**        | Compound divide   | A shorthand operator for dividing a value, e.g. a /= b is equivalent to writing a = a / b|
+| Operator  | Name           | Description                                                |
+| --------- | -------------- | ---------------------------------------------------------- |
+| **+**     | Add            | Add numbers, e.g. `2 + 2` is 4                             |
+| **-**     | subtract       | Subtract numbers, e.g. `2 - 2` is 0                         |
+| \*        | multiply       | Multiply numbers, e.g. `2 * 3` is 6                         |
+| /         | divide         | Return the quotient of a number, e.g. `6 / 2` is 3          |
+| ^         | exponentiate   | Raises one number to the power of another, e.g. `2 ^ 2` is 4|
+| %         | modulus        | Returns the remainder of a number, e.g. `5 % 2` is 1        |
+| MOD       | modulus        | Returns the remainder of a number, e.g. `5 mod 2` is 1      |
+| \         | integer divide | Divides giving an integer result, e.g. `7 \ 2` is 3         |
+| ++        | increment      | Increments a number. Can be used before or after an assignment, e.g. `a = b++` would assign the value of b to a, then increment b. `a = ++b` would increment b, then assign the new value to a. In both cases, b would be incremented. **(not thread safe, see below)** |
+| **--**  | decrement      | Decrements a number. Can be used before or after an assignment, e.g. `a = b--` would assign the value of b to a, then decrement b. `a = --b` would decrement b, then assign the new value to a. In both cases, b would be decremented. **(not thread safe, see below)** |
+| +=        | Compound add   | A shorthand operator for adding to a value, e.g.  `a += b` is equivalent to writing `a = a + b`|
+| -=        | Compound subtract | A shorthand operator for subtracting from a value, e.g. `a -= b` is equivalent to writing `a = a - b` |
+| ***=**       | Compound multiply | A shorthand operator for multiplying a value, e.g. `a = b` is equivalent to writing `a = a *  b`  |
+| **/=**        | Compound divide   | A shorthand operator for dividing a value, e.g. `a /= b` is equivalent to writing `a = a / b` |
 
 ### Demonstration of unsafe threaded behavior with ++ and -- operators ###
 
@@ -88,46 +88,46 @@ MOD       | modulus        | Returns the remainder of a number, e.g. 5 mod 2 is 
 
 ## Logical operators ##
 
-operators | Name           | Description |
-------------------------   | -----------
-!           |  logical inversion      |     ! true is false   |
-NOT         |  logical inversion      |     not true is false |
-AND         |  logical and            |  Returns true if both operands are true, e.g. 1 eq 1 and 2 eq 2 is true|
-&&         |  logical and            |  Returns true if both operands are true, e.g. 1 eq 1 && 2 eq 2 is true|
-OR          |  logical or             | Returns true if either or both operands are true, e.g. 1 eq 1 or 2 eq 3 is true|
-**||**          |  logical or             | Returns true if either or both operand are true, e.g. 1 == 1 **||** 2 == 3 is true |
-XOR         |  logical exclusive or   | Returns true if either operand is true, but not both, e.g. 1 == 1 XOR 2 == 3 is true, but 1 == 1 XOR 2 == 2 is false |
+| operators | Name           | Description |
+| --------- | -------------- | ----------- |
+| !           |  logical inversion      |     ! true is false   |
+| NOT         |  logical inversion      |     not true is false |
+| AND         |  logical and            |  Returns true if both operands are true, e.g. `1 eq 1 and 2 eq 2` is true|
+| &&         |  logical and            |  Returns true if both operands are true, e.g. `1 eq 1 && 2 eq 2` is true|
+| OR          |  logical or             | Returns true if either or both operands are true, e.g. `1 eq 1 or 2 eq 3` is true|
+| **\|\|**          |  logical or             | Returns true if either or both operand are true, e.g. `1 == 1 \|\| 2 == 3` is true |
+| XOR         |  logical exclusive or   | Returns true if either operand is true, but not both, e.g. `1 == 1 XOR 2 == 3` is true, but `1 == 1 XOR 2 == 2` is false |
 
 ## Comparison operators ##
 
-operators | Name           | Description |
-------------------------   | -----------
-EQ        | equals         | Returns true if operands are equal, e.g. "A" EQ "A" is true |
-==        | equals         | Returns true if operands are equal, e.g. "A" == "A" is true |
-===       | identical      | Returns true if operands are the same object in memory, false if they are not, (Note this is different than how JavaScript's === operator works. **Lucee 6 === works like javascript, comparing type and value** |
-NEQ       | does not equal | Returns true if operands are not equal, e.g. "A" NEQ "B" is true|
-<>        | does not equal | Returns true if operands are not equal, e.g. "A" <> "B" is true |
-!=        | does not equal | Returns true if operands are not equal, e.g. "A" != "B" is true |
-!==       | is not identical | Returns true if operands are not equal or not of the same type, e.g. 1 !== "1" is true, but 1 !== 1 is false|
-GT        |  greater than  | Returns true if the operand on the left is has a higher value than the operand on the right, e.g. 1 GT 2 is false |
->         | greater than    |Returns true if the operand on the left is has a higher value than the operand on the right, e.g. 1 > 2 is false |
-LT        |  less than     | Returns true if the operand on the left has a lower value than the operand on the right, e.g. 1 LT 2 is true |
-<         | less than      | Returns true if the operand on the left has a lower value than the operand on the right, e.g. 1 < 2 is true|
-GTE       | greater than or equal to  | Returns true if the operand on the left has a value higher than or equal to the operand on the right, e.g. 2 GTE 2 is true |
->=       | greater than or equal to  | Returns true if the operand on the left has a value higher than or equal to the operand on the right, e.g. 2 >= 2 is true |
-LTE      |  less than or equal to   | Returns true if the operand on the left has a value lower than or equal to the operand on the right, e.g. 2 LTE 2 is true|
-<=       | less than or equal to | Returns true if the operand on the left has a value lower than or equal to the operand on the right, e.g. 2 <= 2 is true |
-CONTAINS | contains        | Returns true if the left operand contains the right operand, e.g. "SMILES" CONTAINS "MILE" is true |
-CT       | contains        | Returns true if the left operand contains the right operand, e.g. "SMILES" CT "MILE" is true |
-DOES NOT CONTAIN | does not contain | Returns true if the left operand does not contain the right operand, e.g. "SMILES" DOES NOT CONTAIN "RHUBARB" is true |
-NCT | does not contain | Returns true if the left operand does not contain the right operand, e.g. "SMILES" NCT "RHUBARB" is true |
+| operators | Name           | Description |
+| --------- | -------------- | ----------- |
+| EQ        | equals         | Returns true if operands are equal, e.g. `"A" EQ "A"` is true |
+| ==        | equals         | Returns true if operands are equal, e.g. `"A" == "A"` is true |
+| ===       | identical      | Returns true if operands are the same object in memory, false if they are not, (Note this is different than how JavaScript's `===` operator works). **Lucee 6 === works like javascript, comparing type and value** |
+| NEQ       | does not equal | Returns true if operands are not equal, e.g. `"A" NEQ "B"` is true |
+| \<\>        | does not equal | Returns true if operands are not equal, e.g. `"A" <> "B"` is true |
+| !=        | does not equal | Returns true if operands are not equal, e.g. `"A" != "B"` is true |
+| !==       | is not identical | Returns true if operands are not equal or not of the same type, e.g. `1 !== "1"` is true, but `1 !== 1` is false |
+| GT        |  greater than  | Returns true if the operand on the left is has a higher value than the operand on the right, e.g. `1 GT 2` is false |
+| >         | greater than    |Returns true if the operand on the left is has a higher value than the operand on the right, e.g. `1 > 2` is false |
+| LT        |  less than     | Returns true if the operand on the left has a lower value than the operand on the right, e.g. `1 LT 2` is true |
+| <         | less than      | Returns true if the operand on the left has a lower value than the operand on the right, e.g. `1 < 2` is true |
+| GTE       | greater than or equal to  | Returns true if the operand on the left has a value higher than or equal to the operand on the right, e.g. `2 GTE 2` is true |
+| >=       | greater than or equal to  | Returns true if the operand on the left has a value higher than or equal to the operand on the right, e.g. `2 >= 2` is true |
+| LTE      |  less than or equal to   | Returns true if the operand on the left has a value lower than or equal to the operand on the right, e.g. `2 LTE 2` is true|
+| <=       | less than or equal to | Returns true if the operand on the left has a value lower than or equal to the operand on the right, e.g. `2 <= 2` is true |
+| CONTAINS | contains        | Returns true if the left operand contains the right operand, e.g. `"SMILES" CONTAINS "MILE"` is true |
+| CT       | contains        | Returns true if the left operand contains the right operand, e.g. `"SMILES" CT "MILE"` is true |
+| DOES NOT CONTAIN | does not contain | Returns true if the left operand does not contain the right operand, e.g. `"SMILES" DOES NOT CONTAIN "RHUBARB"` is true |
+| NCT | does not contain | Returns true if the left operand does not contain the right operand, e.g. `"SMILES" NCT "RHUBARB"` is true |
 
 ## String operators ##
 
-operators | Name           | Description |
-------------------------   | -----------
-&         | concatenation  | Joins two strings, e.g. The result of "Hello" & "World" is "HelloWorld"|
-&=        | compound concatenation |  A shorthand operator that joins two strings, e.g. a &= b would be equivalent to writing a = a & b
+| operators | Name           | Description |
+| --------- | -------------- | ----------- |
+| &         | concatenation  | Joins two strings, e.g. `The result of "Hello" & "World"` is "HelloWorld" |
+| &=        | compound concatenation |  A shorthand operator that joins two strings, e.g. `a &= b` would be equivalent to writing `a = a & b` |
 
 ## Ternary operator ##
 
@@ -139,7 +139,7 @@ condition ? value1 : value2
 
 This would return value1 if condition is true, otherwise it would return false. It's comparable to the following logical structure:
 
-```lucee
+```coldfusion
 <cfif condition>
     #value1#
 <cfelse>
@@ -155,8 +155,10 @@ iif(condition, "value1", "value2")
 
 For example:
 
+```lucee
 animal = "cat";
 writeOutput(animal == "cat"? "Meow" : "Woof");
+```
 
 would output "Meow".
 
@@ -203,13 +205,44 @@ someVar=false;
 dump( var=( someVar ?: true ), label="someVar ?: true" );
 ```
 
+## Safe Navigation Operator ##
+
+The Safe Navigation Operator `?.` is used to reference nested properties which may not exist, safely returning a null value when a property doesn't exist.
+
+This makes code safer and more concise by handling null or undefined values gracefully during both property and method access.
+
+```lucee
+var property = context?.object?.property;
+```
+
+It can be also combined with the Elvis Operator, to write much cleaner and more robust code when dealing with complex, varied objects.
+
+```lucee
+var prop = some?.key?.that?.is?.not?.there ?: "I'm a default value!";
+```
+
+You can also use safe navigation on method calls:
+
+```lucee
+foo = "foo"
+
+writedump( foo.toUpperCase() )                     // FOO
+writedump( foo?.toCrazyCase() ?: "just kidding" )   // just kidding
+```
+
+The `.toCrazyCase()` method doesn't exist, so null is returned since safe navigation was used.
+
+In Javascript, this is called [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+
+Naturally, there's a Ben Nadel blog post about this! [Using The Safe-Navigation Operator To Safely Clean Up Resources In Lucee 5.3.2.77](https://www.bennadel.com/blog/3672-using-the-safe-navigation-operator-to-safely-clean-up-resources-in-lucee-5-3-2-77.htm)
+
 ## Operators not available in tags ##
 
-You can use <> > < >= and <= in tags, as long as they don't interfere with the tag syntax. In that case you must use the equivalent GT, LT, etc. operators instead.
+You can use `<> > < >=` and `<=` in tags, as long as they don't interfere with the tag syntax. In that case you must use the equivalent `GT, LT,` etc. operators instead.
 
 ## Casting ##
 
-Note that in Lucee values are cast to an appropriate type automatically, except when using the identical operators === and !==
+Note that in Lucee values are cast to an appropriate type automatically, except when using the identical operators `===` and `!==`
 
 For example:
 

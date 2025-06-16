@@ -3,7 +3,7 @@ title: Installing in Unattended Mode
 id: linux-installing-in-unattended-mode
 ---
 
-In some situations, it may be usful to launch the installer via a script or maybe you just want to install Lucee silently without being prompted at all or using any kind of GUI interface. Thankfully, unattended mode installations are a built-in feature of the Lucee Installers, and it's easy to use. The following instructions will talk about how to launch the installers in unattended mode and what variables can be customized via command-line inputs.
+In some situations, it may be useful to launch the installer via a script or maybe you just want to install Lucee silently without being prompted at all or using any kind of GUI interface. Thankfully, unattended mode installations are a built-in feature of the Lucee Installers, and it's easy to use. The following instructions will talk about how to launch the installers in unattended mode and what variables can be customized via command-line inputs.
 
 ### Launch the Installer in Unattended Mode ###
 

@@ -144,7 +144,7 @@ Other Useful Methods of the PageContext class
 
 Get Lucee Scopes
 
-	Scope varialbesScope	= pc.variablesScope();
+	Scope variablesScope	= pc.variablesScope();
 
 	Scope requestScope	= pc.requestScope();
 

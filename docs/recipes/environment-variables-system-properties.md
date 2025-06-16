@@ -2,7 +2,7 @@
 {
   "title": "Environment Variables / System Properties for Lucee",
   "id": "environment-variables-system-properties",
-  "description": "This document gives you an overview over all Environment Variables an System Properties you can set for Lucee.",
+  "description": "This document gives you an overview over all Environment Variables and System Properties supported by Lucee.",
   "keywords": [
     "Environment",
     "Environment Variables",
@@ -22,6 +22,8 @@
 Below is a list of environment variables and system properties you can set for the Lucee Server.
 
 Each sub-heading is the name of the Environment Variable (EnvVar), the equivalent Java System Property (SysProp) is identical, simply in lower case, with underscores replaced by dots.
+
+Refer to [[running-lucee-system-properties]] to learn how to configure these values
 
 ## Important Settings
 
@@ -95,6 +97,17 @@ Or with more specific information like version and label (for better readability
 671B01B8-B3B3-42B9-AC055A356BED5281;name=PostgreSQL;label=PostgreSQL;version=42.7.3,
 2BCD080F-4E1E-48F5-BEFE794232A21AF6;name=JDTsSQL;label=jTDS (MSSQL);version=1.3.1
 ```
+
+#### LUCEE_ENABLE_BUNDLE_DOWNLOAD
+
+*SysProp:* `-Dlucee.enable.bundle.download`
+*EnvVar:* `LUCEE_ENABLE_BUNDLE_DOWNLOAD`
+
+Controls whether Lucee is allowed to download OSGi bundles (JAR files). Valid values:
+
+- `true` - (Default) Lucee can download required bundles if they're not available locally.
+- `false` - Lucee will not download any OSGi bundles and will only use bundles that are already available locally.
+- `always` - Forces Lucee to download bundles even if they are available locally. This is primarily useful for debugging purposes.
 
 #### LUCEE_LOGINSTORAGE_ITERATIONS
 
@@ -200,13 +213,6 @@ This setting functions similarly to `LUCEE_ADMIN_MODE`, but it only affects the 
 *SysProp:* `-Dlucee.cascading.write.to.variables.log`
 *EnvVar:* `LUCEE_CASCADING_WRITE_TO_VARIABLES.LOG`
 
-This setting only applies to Lucee 6 (above `6.2.1.82`). Enables logging when variables are implicitly written to the variables scope (without an explicit scope definition). When set to a log level name (e.g., "application"), Lucee will log details about variables being assigned without explicit scope at the DEBUG level. This helps identify code that could be optimized by using proper variable scoping. 
-
-#### LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG
-
-*SysProp:* `-Dlucee.cascading.write.to.variables.log`
-*EnvVar:* `LUCEE_CASCADING_WRITE_TO_VARIABLES.LOG`
-
 This setting only applies to Lucee 6 (above `6.2.1.82`). Enables logging when variables are implicitly written to the variables scope (without an explicit scope definition). When set to a log name (e.g., "application"), Lucee will log details about variables being assigned without explicit scope. The log level can be customized using the `LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL` setting. This helps identify code that could be optimized by using proper variable scoping. This setting excludes certain internal variables (_cfquery, _cflock, _thread) from being logged.
 
 #### LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL
@@ -241,6 +247,18 @@ You can simulate the old behavior by setting this environment variable or SysPro
 
 By setting the log level of the `application` log to `warn`, you will receive information in the log when the old behavior is used.
 This allows you to modify your code for the new behavior without encountering runtime issues with the existing code.
+
+#### LUCEE_DATETIMEFORMAT_MODE
+*SysProp*: `-Dlucee.datetimeformat.mode`
+*EnvVar:* `LUCEE_DATETIMEFORMAT_MODE`
+
+Controls how datetimeFormat() interprets pattern masks such as WW and FF.
+
+- `classic`: Emulates legacy formatting behavior (like Lucee 5), applying zero-padding and pattern length rules.
+- `modern` (default): Uses Lucee 6+ behavior with precise pattern interpretation, aligned with Java’s DateTimeFormatter for consistency and clarity.
+
+Use "classic" to maintain compatibility with legacy codebases that depend on padded output from formatting masks.
+
 
 ## Regular Settings
 
@@ -403,10 +421,10 @@ Which kind of Application Listener is supported?
 - `Modern` - Modern handling. Lucee only looks for the file "Application.cfc".
 - `Mixed (CFML >= 7)` - Mixed handling. Lucee looks for a file "Application.cfm/OnRequestEnd.cfm" as well as for the file "Application.cfc".
 
-#### LUCEE_LISTENER_SINGELTON
+#### LUCEE_LISTENER_SINGLETON
 
-*SysProp:* `-Dlucee.listener.singelton`
-*EnvVar:* `LUCEE_LISTENER_SINGELTON`
+*SysProp:* `-Dlucee.listener.singleton`
+*EnvVar:* `LUCEE_LISTENER_SINGLETON`
 
 Controls how Lucee manages Application.cfc instances (introduced in Lucee 7). When set to false (Classic behavior), Lucee creates a new Application.cfc instance for each request and executes the component body constructor every time. When set to true (Singleton behavior), the component loads only during startup or when the component template changes.
 
@@ -1056,3 +1074,17 @@ Specifies the file location of the trust store that contains trusted Certificate
 *EnvVar:* `LUCEE_WEB_CHARSET`
 
 Default character set for output streams, form, URL, and CGI scope variables, and reading/writing the header.
+
+#### LUCEE_JSCH_DEBUG
+
+*SysProp:* `-Dlucee.jsch.debug`
+*EnvVar:* `LUCEE_JSCH_DEBUG`
+
+Boolean which enables debug logging to the console for SFTP, since 7.0.0.233
+
+#### LUCEE_FTP_DEBUG
+
+*SysProp:* `-Dlucee.ftp.debug`
+*EnvVar:* `LUCEE_FTP_DEBUG`
+
+Boolean which enables debug logging to the console for FTP, since 7.0.0.233

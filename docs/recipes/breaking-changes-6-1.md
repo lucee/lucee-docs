@@ -21,6 +21,18 @@ This document outlines the breaking changes introduced when upgrading from Lucee
 - [https://download.lucee.org/changelog/?version=6.1](https://download.lucee.org/changelog/?version=6.1)
 - [New tags and functions](https://docs.lucee.org/reference/changelog.html)
 
+## Other Breaking Changes in Lucee Releases
+
+- [[breaking-changes-5-4-to-6-0]]
+- [[breaking-changes-6-1-to-6-2]]
+- [[breaking-changes-6-2-to-7-0]]
+
+## Single Mode
+
+Lucee 6.0 introduced Single Mode, Lucee 7.0 only supports single mode (multi-mode, i.e. web admins/contexts are removed)
+
+[[single-vs-multi-mode]]
+
 ## Removal of the Lucee Language Dialect
 
 As of Lucee 6.1, the **Lucee Language dialect** has been fully removed. This means that the Lucee-specific language dialect can no longer be used in any way within your applications. Ensure that any code utilizing this dialect is updated to use standard CFML.

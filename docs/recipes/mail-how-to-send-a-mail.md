@@ -6,9 +6,10 @@
     "tag-imap",
     "tag-mail",
     "tag-mailparam",
-    "tag-mailpart"
+    "tag-mailpart",
+    "mail-listeners"
   ],
-  "description": "How to send an email using Lucee wth help of the tag cfmail.",
+  "description": "How to send an email using Lucee with help of the tag cfmail.",
   "keywords": [
     "Email",
     "Send mail",
@@ -26,7 +27,13 @@
 
 # Mail - How to send a Mail
 
-The following example shows you how you can send a mail. Before you can use this functionality, you have to define a Mail server in the Lucee Administrator.
+The following example shows you how you can send a mail using [[tag-mail]].
+
+In order to send and email, you need to provide the mail server configuration.
+
+- Define a default Mail server in the Lucee Administrator / `CFConfig.json`
+- Configure an application specific mail server in [[tag-application]]
+- Pass the server details directly using [[tag-mail]] attributes, `server`, `port` etc
 
 ## Tags
 
@@ -47,3 +54,16 @@ mail subject="Your Order" from="whatever@lucee.org" to="whatever@gmail.com" {
 ```
 
 That is all you need to do to send a mail.
+
+## Spooling
+
+By default Lucee spools mails and sends them out via a background thread, for better performance.
+
+If you need to send the mail immediately, or need catch any SMTP errors, use `async="false"` which will send the email immediately and throw an errors encountered which will otherwise be caught and logged to the `remoteclient.log`
+
+```cfs
+mail subject="Your Order" from="whatever@lucee.org" to="whatever@gmail.com" async="false" {
+  writeOutput('Hi there,');
+  writeOutput('This mail is sent to confirm that we have received your order.');
+};
+```

@@ -2,6 +2,7 @@
 {
   "title": "Language Server Protocol (LSP) for Lucee",
   "id": "language-server-protocol",
+  "since": "6.1",
   "description": "This document explains how to configure and use the Language Server Protocol implementation for Lucee CFML/CFScript.",
   "keywords": [
     "LSP",
@@ -86,7 +87,7 @@ You can customize the location of this component using the `lucee.lsp.component`
 
 ## Logging
 
-The LSP server logs its activity to Lucee's logging system. By default, it uses the 'debug' log (temporary because this is info by default), 
+The LSP server logs its activity to Lucee's logging system. By default, it uses the 'debug' log (temporary because this is info by default),
 but you can configure a specific 'lsp' log in your Lucee configuration.
 
 ## Startup and Shutdown

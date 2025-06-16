@@ -1,5 +1,5 @@
 ---
-title: sessionCommit
+title: SessionCommit
 id: function-sessioncommit
 related:
 - tag-application

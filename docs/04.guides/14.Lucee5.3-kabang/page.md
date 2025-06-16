@@ -277,11 +277,14 @@ dump(extensionExists("E6634E1A-4CC5-4839-A83C67549ECA8D5B"));
 ```
 
 The below example describes how to remove an extension installed from Lucee:
+
+```luceescript
 // Remove MongoDB
 admin=new Administrator("server","server");
 admin.removeExtension("E6634E1A-4CC5-4839-A83C67549ECA8D5B");
 dump(admin.getExtensions());
 dump(extensionExists("E6634E1A-4CC5-4839-A83C67549ECA8D5B"));
+```
 
 #### Cfquery ####
 

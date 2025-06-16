@@ -1,0 +1,1 @@
+The new `precise` argument can be set to false for backwards compatibility [LDEV-4101](https://luceeserver.atlassian.net/browse/LDEV-4101)

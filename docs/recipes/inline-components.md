@@ -22,9 +22,9 @@
 
 # Inline Components
 
-Since Lucee 6.0, Lucee allows you to create inline components. 
+Since Lucee 6.0, Lucee allows you to create inline components.
 
-These are components you can create directly in your CFML code, with no need to create a `.cfc` file for it. 
+These are components you can create directly in your CFML code, with no need to create a `.cfc` file for it.
 
 This feature allows you to directly use them, similar to closures, enabling more dynamic programming approaches.
 

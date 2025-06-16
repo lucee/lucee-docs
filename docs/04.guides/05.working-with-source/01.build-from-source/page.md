@@ -135,7 +135,7 @@ If you are using VS Code and the cflint plugin, make sure you exclude the `temp/
 Any invalid tests (syntax errors etc) are skipped by default
 
 	ant -DtestDebug="true"
-	
+
 **testDebugAbort** used with `testDebug` to check test cases
 
 Build will abort after scanning tests cases for errors, good for finding invalid test cases

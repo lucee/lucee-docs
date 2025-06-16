@@ -1,0 +1,1 @@
+Name of the column to index, see `QueryRowByIndex()`, `QueryGetCellByIndex()` and `QueryRowDataByIndex()`

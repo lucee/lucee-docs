@@ -42,7 +42,7 @@
 			<!--- check attributes --->
 			<cfset tagAttr = value.page.getAttributes()>
 			<cfif false>
-				<Cfdump var=#value.page#><cfabort>
+				<cfdump var=#value.page#><cfabort>
 			</cfif>
 			<cfif isArray(tagAttr)>
 				<cfset newArgs = []>

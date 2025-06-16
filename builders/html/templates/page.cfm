@@ -10,5 +10,8 @@
 <cfoutput>
 	#getEditLink(path=local.pg.getSourceFile(), edit=arguments.args.edit)#
 	#toc( body )#
+	<cfif structKeyExists(pg, "since")>
+		<b>Introduced:</b> #pg.since#<br>
+	</cfif>
 	#body#
 </cfoutput>

@@ -54,7 +54,7 @@ LUCEE_S3_REGION=us-west-2
 
 ## 2. Specifying Regions in VFS and Functions
 
-In addition to using the default configuration, you can specify a region directly when using the VFS interface or function interface. This approach is especially helpful when you need to interact with buckets located in different regions. 
+In addition to using the default configuration, you can specify a region directly when using the VFS interface or function interface. This approach is especially helpful when you need to interact with buckets located in different regions.
 
 ### VFS Interface with Specified Region
 
@@ -69,7 +69,7 @@ For the VFS interface, the region can be included in the hostname within the URL
 Certain S3-related functions, particularly those that create or modify buckets, allow you to specify the region as an optional argument. For instance:
 
 ```lucee
-<cfset S3CreateBucket(bucket:"exampleBucket", region:"us-west-2")> 
+<cfset S3CreateBucket(bucket:"exampleBucket", region:"us-west-2")>
 ```
 
 However, most object manipulation functions (e.g., `S3Copy`, `S3Move`, `S3Upload`) do not require a region argument, as they inherit the region from the bucket.

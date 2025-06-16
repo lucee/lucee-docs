@@ -1,0 +1,1 @@
+Requires the print extension and Lucee 6.2.1 or newer

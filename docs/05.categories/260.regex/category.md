@@ -12,7 +12,7 @@ You can switch engines using the following options in your [[tag-application]]
 
 ```
 this.regex.engine = "java";  // default is "perl"
-// or 
+// or
 this.useJavaAsRegexEngine = true;
 ```
 

@@ -5,4 +5,4 @@ categories:
 - gateways
 ---
 
-Executes a specifc action for a gateway instance.
+Executes a specific action for a gateway instance.
