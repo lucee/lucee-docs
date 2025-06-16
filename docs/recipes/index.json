@@ -810,6 +810,22 @@
     "keywords": []
   },
   {
+    "file": "lucee-5-to-6-migration-guide.md",
+    "title": "Lucee 5 to 6 Migration Guide",
+    "path": "/docs/recipes/lucee-5-to-6-migration-guide.md",
+    "hash": "4cf983f9cc2aa7022cae5f0c68553010",
+    "keywords": [
+      "Migration",
+      "Lucee 5",
+      "Lucee 6",
+      "Breaking Changes",
+      "Compatibility",
+      "DeserializeJSON",
+      "Query Parameters",
+      "Precise Math"
+    ]
+  },
+  {
     "file": "lucene-search.md",
     "title": "Lucene 3 Extension",
     "path": "/docs/recipes/lucene-search.md",

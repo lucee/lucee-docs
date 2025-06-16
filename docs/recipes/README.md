@@ -240,6 +240,10 @@ Lucee supports labels for all loop tags and statements, allowing you to control 
 
 No description available.
 
+## [Lucee 5 to 6 Migration Guide](/docs/recipes/lucee-5-to-6-migration-guide.md)
+
+Comprehensive guide for migrating from Lucee 5 to Lucee 6, addressing breaking changes and compatibility issues
+
 ## [Lucene 3 Extension](/docs/recipes/lucene-search.md)
 
 Documentation for the Lucene 3 Extension with vector and hybrid search capabilities
