@@ -304,7 +304,7 @@ How to pre-compile code for a production server while the source code is deploye
 
 Learn how to execute queries asynchronously in Lucee. This guide demonstrates how to set up asynchronous query execution using a simple flag. Examples include defining async execution for queries and using local listeners to handle exceptions. Additionally, function listeners introduced in Lucee 6.1 can be used for this purpose.
 
-## [Query Execution in Lucee - Complete Recipe](/docs/recipes/query-handling.md)
+## [Query Execution](/docs/recipes/query-handling.md)
 
 Complete guide to executing database queries in Lucee with performance comparisons and best practices
 

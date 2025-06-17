@@ -1029,9 +1029,9 @@
   },
   {
     "file": "query-handling.md",
-    "title": "Query Execution in Lucee - Complete Recipe",
+    "title": "Query Execution",
     "path": "/docs/recipes/query-handling.md",
-    "hash": "41b1df55e8642627d6418057c0b14967",
+    "hash": "f16de832e8a542beba4a661c829756e6",
     "keywords": [
       "cfquery",
       "queryExecute",
