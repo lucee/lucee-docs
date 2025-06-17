@@ -90,7 +90,7 @@ exit /b 0
 
 Then try running the file `D:\luceedebug_example\lucee-express-5.4.6.9\bin\startup.bat` on your Windows machine. 
 
-For Linux/MacOs: Create a file at `\opt\luceedebug_example\lucee-express-5.4.6.9\bin\setenv.bat` with the following content:
+For Linux/MacOs: Create a file at `\opt\luceedebug_example\lucee-express-5.4.6.9\bin\setenv.sh` with the following content:
 
 ```bash
 #!/bin/bash
