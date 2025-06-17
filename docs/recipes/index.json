@@ -385,7 +385,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "54a610eaa74962808d3b6a41e1fd54a1",
+    "hash": "25aba0f0630a2ab078528c8858357e42",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -813,7 +813,7 @@
     "file": "lucee-5-to-6-migration-guide.md",
     "title": "Lucee 5 to 6 Migration Guide",
     "path": "/docs/recipes/lucee-5-to-6-migration-guide.md",
-    "hash": "4cf983f9cc2aa7022cae5f0c68553010",
+    "hash": "b80790bef7f2aba20ee841beb44fd1a9",
     "keywords": [
       "Migration",
       "Lucee 5",
@@ -822,7 +822,8 @@
       "Compatibility",
       "DeserializeJSON",
       "Query Parameters",
-      "Precise Math"
+      "Precise Math",
+      "DateTimeFormat"
     ]
   },
   {
