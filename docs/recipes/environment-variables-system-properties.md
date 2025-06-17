@@ -249,6 +249,7 @@ By setting the log level of the `application` log to `warn`, you will receive in
 This allows you to modify your code for the new behavior without encountering runtime issues with the existing code.
 
 #### LUCEE_DATETIMEFORMAT_MODE
+
 *SysProp*: `-Dlucee.datetimeformat.mode`
 *EnvVar:* `LUCEE_DATETIMEFORMAT_MODE`
 
@@ -258,7 +259,6 @@ Controls how datetimeFormat() interprets pattern masks such as WW and FF.
 - `modern` (default): Uses Lucee 6+ behavior with precise pattern interpretation, aligned with Java’s DateTimeFormatter for consistency and clarity.
 
 Use "classic" to maintain compatibility with legacy codebases that depend on padded output from formatting masks.
-
 
 ## Regular Settings
 

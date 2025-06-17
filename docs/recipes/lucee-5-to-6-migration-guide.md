@@ -45,6 +45,7 @@ This systematic approach allows efficient identification and resolution of all c
 #### Temporary Solution
 
 Set the environment variable to enable backward compatibility:
+
 ```
 LUCEE_DESERIALIZEJSON_ALLOWEMPTY=true
 ```
@@ -54,6 +55,7 @@ LUCEE_DESERIALIZEJSON_ALLOWEMPTY=true
 1. Set application logging to WARN level
 2. Run your application to generate warning logs
 3. Look for log entries like:
+
 ```
 Deprecated functionality used at [...]. An empty string was passed as a value to the function DeserializeJSON.;
 ```
@@ -63,11 +65,13 @@ Deprecated functionality used at [...]. An empty string was passed as a value to
 Update code to handle empty strings before calling `DeserializeJSON()`:
 
 **Before (Lucee 5):**
+
 ```cfml
 <cfset result = DeserializeJSON(someVariable)>
 ```
 
 **After (Lucee 6):**
+
 ```cfml
 <cfset result = len(trim(someVariable)) ? DeserializeJSON(someVariable) : "">
 ```
@@ -97,6 +101,7 @@ Update code to handle empty strings before calling `DeserializeJSON()`:
 #### Temporary Solution
 
 Set the environment variable to enable backward compatibility:
+
 ```
 LUCEE_QUERY_ALLOWEMPTYASNULL=true
 ```
@@ -106,6 +111,7 @@ LUCEE_QUERY_ALLOWEMPTYASNULL=true
 1. Set datasource logging to WARN level
 2. Run your application to generate warning logs
 3. Look for log entries like:
+
 ```
 Deprecated functionality used at [...]. An empty string was passed as a value for type [TYPE]. Currently, this is treated as null, but it will be rejected in future releases.
 ```
@@ -115,6 +121,7 @@ Deprecated functionality used at [...]. An empty string was passed as a value fo
 Explicitly handle empty strings in query parameters:
 
 **Before (Lucee 5):**
+
 ```cfml
 <cfquery name="myQuery" datasource="myDS">
     SELECT * FROM users 
@@ -123,6 +130,7 @@ Explicitly handle empty strings in query parameters:
 ```
 
 **After (Lucee 6):**
+
 ```cfml
 <cfquery name="myQuery" datasource="myDS">
     SELECT * FROM users 
@@ -131,6 +139,7 @@ Explicitly handle empty strings in query parameters:
 ```
 
 For dates:
+
 ```cfml
 <cfquery name="myQuery" datasource="myDS">
     SELECT * FROM events 
@@ -153,6 +162,7 @@ For dates:
 #### Temporary Solution
 
 Set the environment variable to maintain double-based calculations globally:
+
 ```
 LUCEE_PRECISE_MATH=false
 ```
@@ -188,6 +198,7 @@ LUCEE_PRECISE_MATH=false
 #### Temporary Solution
 
 Set the environment variable to enable legacy formatting behavior:
+
 ```
 LUCEE_DATETIMEFORMAT_MODE=classic
 ```
@@ -203,12 +214,14 @@ LUCEE_DATETIMEFORMAT_MODE=classic
 Update code to handle formatting differences or use alternative approaches:
 
 **Before (Lucee 5):**
+
 ```cfml
 <cfset weekOfMonth = datetimeFormat('2018-01-25 10:00:00', 'WW')>
 <!-- Returns "04" -->
 ```
 
 **After (Lucee 6) - Option 1: Use classic mode temporarily:**
+
 ```cfml
 <!-- Set LUCEE_DATETIMEFORMAT_MODE=classic -->
 <cfset weekOfMonth = datetimeFormat('2018-01-25 10:00:00', 'WW')>
@@ -216,12 +229,14 @@ Update code to handle formatting differences or use alternative approaches:
 ```
 
 **After (Lucee 6) - Option 2: Manual padding:**
+
 ```cfml
 <cfset weekOfMonth = numberFormat(datetimeFormat('2018-01-25 10:00:00', 'W'), '00')>
 <!-- Returns "04" -->
 ```
 
 **After (Lucee 6) - Option 3: String padding:**
+
 ```cfml
 <cfset weekOfMonth = right('0' & datetimeFormat('2018-01-25 10:00:00', 'W'), 2)>
 <!-- Returns "04" -->
