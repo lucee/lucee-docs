@@ -308,6 +308,7 @@ queryExecute:      ~identical to cfquery (0-2ms overhead)
 new Query():       ~4-5x slower than cfquery*
 new Query(reused): ~4-5x slower than cfquery*
 ```
+
 *Note: This overhead ratio applies to fast queries. For slower queries, the relative impact decreases significantly.
 
 ### Parameterized Queries (fast execution)
@@ -318,6 +319,7 @@ queryExecute:           minimal overhead (~1-3ms vs cfquery)
 new Query():           ~4-5x slower than cfquery*
 new Query(reused):     ~4-5x slower than cfquery*
 ```
+
 *Note: This overhead ratio applies to fast queries. For slower queries, the relative impact decreases significantly.
 
 ### Why new Query() Has Additional Overhead
@@ -370,6 +372,7 @@ cfquery(name="safe", datasource="myDB", sql="SELECT * FROM users WHERE name = ?"
 ```
 
 **Why parameters are essential:**
+
 - **Security**: Complete protection against SQL injection attacks
 - **Performance**: Lucee can cache the query statement and reuse it with different parameter values
 - **Type safety**: Explicit type conversion and validation
