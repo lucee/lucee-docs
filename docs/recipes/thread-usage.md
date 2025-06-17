@@ -128,6 +128,7 @@ tasks.each(
 Arrays, structs, and queries support parallel execution for iteration functions. Here we focus on `.each()` examples, but other functions are available:
 
 **Available parallel functions:**
+
 - **`.each()`** - Execute code for every element (side effects, logging, processing)
 - **`.filter()`** - Create new collection with elements matching criteria
 - **`.map()`** - Transform every element and create new collection
@@ -181,6 +182,7 @@ employees.each(
 ```
 
 **Parameters:**
+
 - `parallel` (boolean) - Enable parallel execution
 - `maxThreads` (number, optional) - Maximum concurrent threads (alias: `maxThreadCount`)
 - When `parallel=false`, `maxThreads` is ignored
