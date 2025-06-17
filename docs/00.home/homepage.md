@@ -61,6 +61,8 @@ As a Major Release, Lucee 6 does include some potential **BREAKING CHANGES**, fo
 
 [[breaking-changes-5-4-to-6-0]]
 
+[[lucee-5-to-6-migration-guide]]
+
 ## Lucee 5.4 (LTS)
 
 Lucee 5.4 is our [LTS stable release](https://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs.

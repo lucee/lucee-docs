@@ -2,7 +2,10 @@
 {
   "title": "Lucee 5 to 6 Migration Guide",
   "id": "lucee-5-to-6-migration-guide",
-  "categories": ["migration", "lucee"],
+  "categories": [
+    "compat",
+    "core"
+   ],
   "since": "6.0",
   "description": "Comprehensive guide for migrating from Lucee 5 to Lucee 6, addressing breaking changes and compatibility issues",
   "keywords": [
