@@ -408,9 +408,9 @@ How to use tags in script
 
 How to use Thread Tasks
 
-## [Using Threads in Lucee](/docs/recipes/thread-usage.md)
+## [Complete Guide to Threading in Lucee](/docs/recipes/thread-usage.md)
 
-How to use threads in Lucee
+No description available.
 
 ## [Timeout](/docs/recipes/timeout.md)
 

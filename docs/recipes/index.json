@@ -1388,16 +1388,10 @@
   },
   {
     "file": "thread-usage.md",
-    "title": "Using Threads in Lucee",
+    "title": "Complete Guide to Threading in Lucee",
     "path": "/docs/recipes/thread-usage.md",
-    "hash": "3c74853a5d561187025bec3cbaa54c24",
-    "keywords": [
-      "Threads",
-      "Parallel execution",
-      "cfthread",
-      "Asynchronous tasks",
-      "Lucee"
-    ]
+    "hash": "de42182fac36f6ecc11ae55fa1a9adbe",
+    "keywords": []
   },
   {
     "file": "timeout.md",
