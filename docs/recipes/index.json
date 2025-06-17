@@ -1029,17 +1029,18 @@
   },
   {
     "file": "query-handling.md",
-    "title": "Query Handling in Lucee",
+    "title": "Query Execution in Lucee - Complete Recipe",
     "path": "/docs/recipes/query-handling.md",
-    "hash": "e085752d844690c376eecc253cfdecdd",
+    "hash": "41b1df55e8642627d6418057c0b14967",
     "keywords": [
-      "Query",
-      "SQL",
-      "QueryParam",
-      "Query Builder",
       "cfquery",
-      "params",
-      "Query Handling"
+      "queryExecute",
+      "Query",
+      "database",
+      "parameters",
+      "performance",
+      "SQL",
+      "prepared statements"
     ]
   },
   {
