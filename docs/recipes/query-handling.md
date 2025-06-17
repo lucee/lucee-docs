@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Query Execution in Lucee - Complete Recipe",
+  "title": "Query Execution in Lucee",
   "id": "query-execution-recipe",
   "categories": [
     "database",
@@ -27,7 +27,7 @@
 }
 -->
 
-# Query Execution in Lucee - Complete Recipe
+# Query Execution
 
 Lucee provides multiple ways to execute database queries, each with different syntax styles, performance characteristics, and use cases. This comprehensive guide covers all approaches from simple queries to complex parameterized statements, including performance analysis and best practices.
 
