@@ -253,12 +253,14 @@ This allows you to modify your code for the new behavior without encountering ru
 *SysProp*: `-Dlucee.datetimeformat.mode`
 *EnvVar:* `LUCEE_DATETIMEFORMAT_MODE`
 
-Controls how datetimeFormat() interprets pattern masks such as WW and FF.
+Controls how datetimeFormat() interprets pattern masks such as WW and FF. [LDEV-5567](https://luceeserver.atlassian.net/browse/LDEV-5567)
 
 - `classic`: Emulates legacy formatting behavior (like Lucee 5), applying zero-padding and pattern length rules.
 - `modern` (default): Uses Lucee 6+ behavior with precise pattern interpretation, aligned with Java’s DateTimeFormatter for consistency and clarity.
 
-Use "classic" to maintain compatibility with legacy codebases that depend on padded output from formatting masks.
+Use `classic` to maintain compatibility with legacy codebases that depend on padded output from formatting masks.
+
+Added in Lucee 6.2.2.53
 
 ## Regular Settings
 

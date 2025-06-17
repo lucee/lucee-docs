@@ -184,7 +184,11 @@ LUCEE_PRECISE_MATH=false
 
 ### 4. DateTimeFormat Mask Padding Changes
 
-**Issue**: The `datetimeFormat()` function's `WW` and `FF` masks no longer return zero-padded strings. In Lucee 5, these masks would return 2-digit strings (e.g., "04", "00"), but Lucee 6 returns single digits (e.g., "4", "0") due to the switch from `SimpleDateFormat` to `DateTimeFormatter`.
+**Issue**: The `datetimeFormat()` function's `WW` and `FF` masks no longer return zero-padded strings. 
+
+In Lucee 5, these masks would return 2-digit strings (e.g., "04", "00"), but Lucee 6 returns single digits (e.g., "4", "0") due to the switch from `SimpleDateFormat` to `DateTimeFormatter`.
+
+[LDEV-5567](https://luceeserver.atlassian.net/browse/LDEV-5567)
 
 #### Affected Masks
 
@@ -202,6 +206,8 @@ Set the environment variable to enable legacy formatting behavior:
 ```
 LUCEE_DATETIMEFORMAT_MODE=classic
 ```
+
+Added in Lucee 6.2.2.53
 
 #### Identifying Issues
 
