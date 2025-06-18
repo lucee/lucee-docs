@@ -4,7 +4,7 @@
   "id": "query-execution-recipe",
   "categories": [
     "database",
-    "queries",
+    "query",
     "performance",
     "best-practices"
   ],
