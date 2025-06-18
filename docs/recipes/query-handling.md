@@ -11,7 +11,7 @@
   "description": "Complete guide to executing database queries in Lucee with performance comparisons and best practices",
   "keywords": [
     "cfquery",
-    "queryExecute", 
+    "queryExecute",
     "Query",
     "database",
     "parameters",
@@ -21,8 +21,9 @@
   ],
   "related": [
     "tag-syntax",
-    "database-connectivity",
-    "cfqueryparam"
+    "tag-queryparam",
+    "tag-query",
+    "function-queryexecute"
   ]
 }
 -->
@@ -39,7 +40,7 @@ Lucee provides multiple ways to execute database queries, each with different sy
 
 ## Quick Start - Simple Query
 
-Let's start with the most basic database query using cfquery. Lucee supports multiple tag syntaxes in script - for complete details on tag syntax options, see the [Tag Syntax Guide](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/tag-syntax.md).
+Let's start with the most basic database query using [[tag-query]]. Lucee supports multiple tag syntaxes in script - for complete details on tag syntax options, see the [[tag-syntax]].
 
 ### Function Syntax (Recommended for Scripts)
 
@@ -198,6 +199,8 @@ cfquery(
 ```
 
 ## The Three Query Dialects
+
+All of the following dialects uses the same underlying code path, the alternatives are CFML wrappers around the [[tag-query]] tag.
 
 Lucee offers three distinct approaches to execute queries, each with unique characteristics:
 
