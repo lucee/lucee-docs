@@ -16,10 +16,6 @@ Our documentation is an open source and community driven effort. It is also a co
 
 If you're interested in contributing to Lucee as a Developer, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/6.0/CONTRIBUTING.md)
 
-## CFCAMP 2025
-
- [![Meet the Lucee Team at CFCAMP 2025](/assets/images/conferences/CFCAMP-2025.webp)](https://www.cfcamp.org/?utm_source=website&utm_id=Ldoc)
-
 ## Recipes
 
 We have added a whole series of detailed [[Recipes]] showing you how to take advantage of the wide range of features in Lucee.
