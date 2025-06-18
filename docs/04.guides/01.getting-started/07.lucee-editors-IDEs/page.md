@@ -1,6 +1,9 @@
 ---
 title: Lucee Editors & IDEs
 id: lucee-editors-IDEs
+categories:
+- core
+description: Modern IDEs supporting for CFML development
 ---
 
 Here are the Modern IDEs which include support for CFML development
