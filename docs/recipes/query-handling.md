@@ -4,14 +4,14 @@
   "id": "query-execution-recipe",
   "categories": [
     "database",
-    "queries",
+    "query",
     "performance",
     "best-practices"
   ],
   "description": "Complete guide to executing database queries in Lucee with performance comparisons and best practices",
   "keywords": [
     "cfquery",
-    "queryExecute", 
+    "queryExecute",
     "Query",
     "database",
     "parameters",
@@ -21,8 +21,9 @@
   ],
   "related": [
     "tag-syntax",
-    "database-connectivity",
-    "cfqueryparam"
+    "tag-queryparam",
+    "tag-query",
+    "function-queryexecute"
   ]
 }
 -->
@@ -39,21 +40,24 @@ Lucee provides multiple ways to execute database queries, each with different sy
 
 ## Quick Start - Simple Query
 
-Let's start with the most basic database query using cfquery. Lucee supports multiple tag syntaxes in script - for complete details on tag syntax options, see the [Tag Syntax Guide](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/tag-syntax.md).
+Let's start with the most basic database query using [[tag-query]]. Lucee supports multiple tag syntaxes in script - for complete details on tag syntax options, see the [[tag-syntax]].
 
 ### Function Syntax (Recommended for Scripts)
+
 ```javascript
 cfquery(name="users", datasource="myDB", sql="SELECT * FROM users");
 dump(users);
 ```
 
 ### Migration Syntax (Alternative Script Style)
+
 ```javascript
 query name="users" datasource="myDB" sql="SELECT * FROM users";
 dump(users);
 ```
 
 ### Traditional Tag Syntax (For Mixed HTML/CFML)
+
 ```html
 <cfquery name="users" datasource="myDB">
     SELECT * FROM users
@@ -118,6 +122,7 @@ cfquery(
 Lucee supports two ways to reference parameters in your SQL:
 
 **Positional Parameters (using `?`):**
+
 ```javascript
 cfquery(
     name="users", 
@@ -128,6 +133,7 @@ cfquery(
 ```
 
 **Named Parameters (using `:paramName`):**
+
 ```javascript
 cfquery(
     name="users", 
@@ -181,6 +187,7 @@ cfquery(
 ```
 
 ### Traditional Tag Approach (cfqueryparam)
+
 ```html
 <!-- With parameters using cfqueryparam -->
 <cfquery name="userById" datasource="myDB">
@@ -193,11 +200,14 @@ cfquery(
 
 ## The Three Query Dialects
 
+All of the following dialects uses the same underlying code path, the alternatives are CFML wrappers around the [[tag-query]] tag.
+
 Lucee offers three distinct approaches to execute queries, each with unique characteristics:
 
 ### 1. cfquery - The Traditional Powerhouse
 
 **Syntax Options:**
+
 ```javascript
 // Function syntax
 cfquery(name="result", datasource="myDB", sql="SELECT * FROM table", params=[]);
@@ -210,6 +220,7 @@ query name="result" datasource="myDB" sql="SELECT * FROM table" params=[];
 ```
 
 **Pros:**
+
 - **Fastest performance** - baseline for all comparisons
 - **Most mature and stable** - decades of optimization
 - **Flexible syntax options** - function, migration, or tag style
@@ -218,6 +229,7 @@ query name="result" datasource="myDB" sql="SELECT * FROM table" params=[];
 - **Works in all contexts** (components, pages, scripts)
 
 **Cons:**
+
 - **Tag-style syntax** may feel outdated in modern script-heavy applications
 - **Less functional programming friendly** - requires named result variable
 
@@ -226,6 +238,7 @@ query name="result" datasource="myDB" sql="SELECT * FROM table" params=[];
 ### 2. queryExecute - The Modern Alternative
 
 **Syntax:**
+
 ```javascript
 result = queryExecute(
     sql: "SELECT * FROM users WHERE id = ?",
@@ -238,6 +251,7 @@ result = queryExecute(
 ```
 
 **Pros:**
+
 - **Near-identical performance** to cfquery (minimal 0-2ms overhead)
 - **Modern functional style** - returns result directly
 - **Clean, readable syntax** - no separate name attribute needed
@@ -245,6 +259,7 @@ result = queryExecute(
 - **Better for functional programming** patterns
 
 **Cons:**
+
 - **Slightly more verbose** for simple queries
 - **Less flexible syntax** - only one way to write it
 - **Newer addition** - less familiar to some developers
@@ -254,6 +269,7 @@ result = queryExecute(
 ### 3. new Query() - The Object-Oriented Approach
 
 **Syntax:**
+
 ```javascript
 queryObj = new Query();
 queryObj.setSQL("SELECT * FROM users WHERE id = ?");
@@ -266,6 +282,7 @@ result = queryObj.execute().getResult();
 ```
 
 **Pros:**
+
 - **Object-oriented design** - full OOP capabilities
 - **Fluent interface potential** - chainable methods
 - **Most flexible for complex scenarios** - dynamic query building
@@ -273,6 +290,7 @@ result = queryObj.execute().getResult();
 - **Reusable objects** - can modify and re-execute
 
 **Cons:**
+
 - **Additional overhead** - fixed metadata collection cost that's most noticeable on fast queries
 - **More verbose syntax** - requires multiple method calls
 - **Object creation overhead** - especially for simple queries
@@ -286,21 +304,25 @@ result = queryObj.execute().getResult();
 Based on comprehensive benchmarks (100 iterations, best of 10 runs):
 
 ### Simple Queries (fast execution)
+
 ```
 cfquery:           baseline (fastest)
 queryExecute:      ~identical to cfquery (0-2ms overhead)
 new Query():       ~4-5x slower than cfquery*
 new Query(reused): ~4-5x slower than cfquery*
 ```
+
 *Note: This overhead ratio applies to fast queries. For slower queries, the relative impact decreases significantly.
 
 ### Parameterized Queries (fast execution)
+
 ```
 cfquery variants:       baseline (fastest)
 queryExecute:           minimal overhead (~1-3ms vs cfquery)
 new Query():           ~4-5x slower than cfquery*
 new Query(reused):     ~4-5x slower than cfquery*
 ```
+
 *Note: This overhead ratio applies to fast queries. For slower queries, the relative impact decreases significantly.
 
 ### Why new Query() Has Additional Overhead
@@ -308,6 +330,7 @@ new Query(reused):     ~4-5x slower than cfquery*
 The new Query() approach has additional overhead because it **always collects comprehensive result metadata**, regardless of whether you need it. This overhead is primarily **additive (fixed cost)**, not multiplicative:
 
 **Fixed overhead includes:**
+
 - **Result metadata collection**:
   - SQL: The executed SQL statement
   - Cached: Whether the query was cached
@@ -340,16 +363,19 @@ The metadata collection cost remains roughly constant regardless of query comple
 ### 2. Always Use Parameters
 
 **Never do this:**
+
 ```javascript
 cfquery(name="unsafe", datasource="myDB", sql="SELECT * FROM users WHERE name = '#form.name#'");
 ```
 
 **Always do this:**
+
 ```javascript
 cfquery(name="safe", datasource="myDB", sql="SELECT * FROM users WHERE name = ?", params=[form.name]);
 ```
 
 **Why parameters are essential:**
+
 - **Security**: Complete protection against SQL injection attacks
 - **Performance**: Lucee can cache the query statement and reuse it with different parameter values
 - **Type safety**: Explicit type conversion and validation
@@ -362,6 +388,7 @@ cfquery(name="safe", datasource="myDB", sql="SELECT * FROM users WHERE name = ?"
 These three approaches are functionally equivalent:
 
 **Traditional cfqueryparam (tag syntax):**
+
 ```html
 <cfquery name="user" datasource="myDB">
     SELECT * FROM users 
@@ -370,6 +397,7 @@ These three approaches are functionally equivalent:
 ```
 
 **Script params with array (positional):**
+
 ```javascript
 cfquery(
     name="user", 
@@ -380,6 +408,7 @@ cfquery(
 ```
 
 **Script params with struct (named):**
+
 ```javascript
 cfquery(
     name="user", 
@@ -390,6 +419,7 @@ cfquery(
 ```
 
 **Guidelines:**
+
 - **Use positional arrays** for simple, sequential parameters
 - **Use named parameters** for complex queries with many parameters  
 - **Add type specification** for better performance and type safety
@@ -401,6 +431,7 @@ cfquery(
 ### From Tag to Script
 
 **Old tag syntax:**
+
 ```html
 <cfquery name="users" datasource="myDB">
     SELECT * FROM users WHERE department = <cfqueryparam value="#form.dept#" cfsqltype="CF_SQL_VARCHAR">
@@ -409,6 +440,7 @@ cfquery(
 ```
 
 **New script syntax:**
+
 ```javascript
 cfquery(
     name="users", 
