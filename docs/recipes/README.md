@@ -96,6 +96,10 @@ Simple recipe for processing CSV data in Lucee 7 using Maven integration and Apa
 
 How to define a Datasource in Lucee.
 
+## [Date and Time Formatting in Lucee](/docs/recipes/date-time-formatting.md)
+
+Comprehensive guide to formatting dates and times in Lucee with locale and timezone support
+
 ## [Untitled](/docs/recipes/directory-placeholders.md)
 
 Placeholders are uses to reference specific Lucee directories

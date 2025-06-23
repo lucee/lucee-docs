@@ -328,6 +328,24 @@
     ]
   },
   {
+    "file": "date-time-formatting.md",
+    "title": "Date and Time Formatting in Lucee",
+    "path": "/docs/recipes/date-time-formatting.md",
+    "hash": "4e7de4c29441170ebe0136832e844f4c",
+    "keywords": [
+      "Date",
+      "Time",
+      "Formatting",
+      "Locale",
+      "Timezone",
+      "dateFormat",
+      "timeFormat",
+      "dateTimeFormat",
+      "lsDateFormat",
+      "createTime"
+    ]
+  },
+  {
     "file": "directory-placeholders.md",
     "title": "Untitled",
     "path": "/docs/recipes/directory-placeholders.md",
