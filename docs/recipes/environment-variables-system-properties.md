@@ -146,7 +146,8 @@ previously `LUCEE_READ_CFID_FROM_URL`
 
 Controls whether Lucee accepts CFID values from URL query strings. Set to false to enhance security by requiring CFIDs to be passed via cookies only.
 The previous property names are still supported for backward compatibility, but the new names are preferred starting with Lucee 6.2.1.59.
-Setting this to false is strongly recommended for all production environments.
+
+*Setting this to `false` is strongly recommended for all production environments.*
 
 #### LUCEE_CFID_URL_LOG
 
