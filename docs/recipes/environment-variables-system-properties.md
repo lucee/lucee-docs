@@ -727,6 +727,17 @@ If set, override the default log4j log level for all logs, which is usually ERRO
 
 Default true, when false, unknown cfml session cookies won't be automatically rotated
 
+#### LUCEE_CONTROLLER_LOG_THRESHOLD
+
+*SysProp:* `-Dlucee.controller.log.threshold`
+*EnvVar:* `LUCEE_CONTROLLER_LOG_THRESHOLD`
+
+Enables logging out when a step in the background controller thread exceeds a certain threshold in seconds.
+
+Default is 20, set 0 to disable, entries are logged out in the application.log file, when the log level is set to INFO
+
+Since: 6.2.2.62 / 7.0.0.270
+
 ## Edge Case Settings
 
 These settings are normally not needed in a regular environment.
