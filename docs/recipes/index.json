@@ -328,6 +328,24 @@
     ]
   },
   {
+    "file": "date-time-formatting.md",
+    "title": "Date and Time Formatting in Lucee",
+    "path": "/docs/recipes/date-time-formatting.md",
+    "hash": "4e7de4c29441170ebe0136832e844f4c",
+    "keywords": [
+      "Date",
+      "Time",
+      "Formatting",
+      "Locale",
+      "Timezone",
+      "dateFormat",
+      "timeFormat",
+      "dateTimeFormat",
+      "lsDateFormat",
+      "createTime"
+    ]
+  },
+  {
     "file": "directory-placeholders.md",
     "title": "Untitled",
     "path": "/docs/recipes/directory-placeholders.md",
@@ -385,7 +403,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "25aba0f0630a2ab078528c8858357e42",
+    "hash": "255354ec8fbe49552f0f2a7ec3b59864",
     "keywords": [
       "Environment",
       "Environment Variables",

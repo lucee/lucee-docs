@@ -146,7 +146,8 @@ previously `LUCEE_READ_CFID_FROM_URL`
 
 Controls whether Lucee accepts CFID values from URL query strings. Set to false to enhance security by requiring CFIDs to be passed via cookies only.
 The previous property names are still supported for backward compatibility, but the new names are preferred starting with Lucee 6.2.1.59.
-Setting this to false is strongly recommended for all production environments.
+
+*Setting this to `false` is strongly recommended for all production environments.*
 
 #### LUCEE_CFID_URL_LOG
 
@@ -734,6 +735,17 @@ If set, override the default log4j log level for all logs, which is usually ERRO
 *EnvVar:* `LUCEE_SESSIONCOOKIE_ROTATE_UNKNOWN`
 
 Default true, when false, unknown cfml session cookies won't be automatically rotated
+
+#### LUCEE_CONTROLLER_LOG_THRESHOLD
+
+*SysProp:* `-Dlucee.controller.log.threshold`
+*EnvVar:* `LUCEE_CONTROLLER_LOG_THRESHOLD`
+
+Enables logging out when a step in the background controller thread exceeds a certain threshold in seconds.
+
+Default is 20, set 0 to disable, entries are logged out in the application.log file, when the log level is set to INFO
+
+Since: 6.2.2.62 / 7.0.0.270
 
 ## Edge Case Settings
 
