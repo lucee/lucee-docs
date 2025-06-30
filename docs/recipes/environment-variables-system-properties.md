@@ -268,9 +268,15 @@ Added in Lucee 6.2.2.53
 *SysProp:* `-Dlucee.log.webcontext`
 *EnvVar:* `LUCEE_LOG_WEBCONTEXT`
 
-A boolean value that enables web context identification in log entries when running in single mode. When enabled, log entries include web context labels (e.g., `http://localhost:8886|engine`) to distinguish which web context generated the log entry. Only active in single mode where all web contexts share the same log directory. In multi mode, this setting has no effect as each web context has its own log directory.
+A boolean value that controls web context identification in log entries when running in single mode. 
+When enabled, log entries include web context labels and an additional "Context" column/field to distinguish which web context generated the log entry. 
+Only active in single mode where all web contexts share the same log directory. 
+In multi mode, this setting has no effect as each web context has its own log directory.
+Default Values:
 
-Added in Lucee 6.2.2.63
+*Lucee 6:* `false` (disabled by default for backward compatibility)
+*Lucee 7:* `true` (enabled by default for better debugging experience)
+
 
 ## Regular Settings
 
