@@ -114,11 +114,11 @@ For any setting other than "memory", the session is only stored up to a minute (
 
 The following storage options are available:
 
-- "memory" - Stores session data in server memory for the full life cycle. Best for single-server deployments.
-- "cookie" - Stores session data in the user's browser cookies. **Removed in Lucee 7.0.0.156-SNAPSHOT.** Should be avoided for security reasons and limited by cookie size restrictions.
-- "file" - Stores session data in local files. Good for development but may cause issues in clustered environments.
-- [datasource-name] - Name of an existing datasource. Session data is stored in a table named "cf_session_data". Lucee automatically creates this table if it doesn't exist. Suitable for clustered environments.
-- [cache-name] - Name of an existing cache (e.g., Redis, Memcached). Ideal for distributed systems requiring high performance.
+- `memory` - Stores session data in server memory for the full life cycle. Best for single-server deployments.
+- `cookie` - Stores session data in the user's browser cookies. **Removed in Lucee 7.0.0.156-SNAPSHOT.** Should be avoided for security reasons and limited by cookie size restrictions.
+- `file` - Stores session data in local files. Good for development but may cause issues in clustered environments.
+- `[datasource-name]` - Name of an existing datasource. Session data is stored in a table named `cf_session_data`. Lucee automatically creates this table if it doesn't exist. Suitable for clustered environments, requires the `storage` attribute on the datasource to be `true`
+- `[cache-name]` - Name of an existing cache (e.g., Redis, Memcached). Ideal for distributed systems requiring high performance.
 
 Lucee does not store "empty" sessions (sessions containing only default keys) into storage to optimize resource usage.
 
@@ -179,9 +179,9 @@ public void function onSessionEnd(required struct sessionScope,
 
 ### Checking if a session exists
 
-Since Lucee 6.2, [[function-sessionExists]] can be used to check if a sessions exists for the current request.
+Since Lucee 6.2.1, [[function-sessionExists]] can be used to check if a sessions exists for the current request.
 
-Note, using [[function-structKeyExists]] on the `session` scope will trigger creating a session, if one doesn't already exist.
+Note, using [[function-structKeyExists]] on the `session` scope will trigger creating an empty session, if one doesn't already exist.
 
 ### Invalidating a session
 
