@@ -185,9 +185,11 @@ Note, using [[function-structKeyExists]] on the `session` scope will trigger cre
 
 ### Invalidating a session
 
+Used for example when logging a user out.
+
 The [[function-sessionInvalidate]] function immediately terminates the current session and removes all associated data:
 
-```javascript
+```cfml
 // During logout
 public void function logout() {
     // Log user activity before invalidating
@@ -204,7 +206,7 @@ public void function logout() {
 
 The [[function-sessionRotate]] function creates a new session (i.e. with a fresh session token) and copies over existing session data and invalidating the old session token:
 
-```javascript
+```cfml
 // After successful authentication
 if (authentication.success) {
     // Create new session to prevent session fixation
