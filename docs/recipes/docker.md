@@ -155,7 +155,17 @@ Since Lucee 6.2, you can redirect all the logs to the Docker console using the f
 ```dockerfile
 ENV LUCEE_LOGGING_FORCE_APPENDER=console
 ENV LUCEE_LOGGING_FORCE_LEVEL=info
-````
+```
+
+Alternatively, you can use symlinks with the default configuration:
+
+```dockerfile
+RUN ln -sf /proc/1/fd/1 /opt/lucee/server/lucee-server/context/logs/application.log \
+&& ln -sf /proc/1/fd/1 /opt/lucee/server/lucee-server/context/logs/deploy.log \
+&& ln -sf /proc/1/fd/1 /opt/lucee/server/lucee-server/context/logs/exception.log
+```
+
+Or you can edit the `.CFConfig.json` configuration via the Lucee Admin (under Settings, Logging) and select the Console appender
 
 ## Performance Tips
 
