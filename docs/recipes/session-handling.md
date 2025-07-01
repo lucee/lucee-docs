@@ -3,7 +3,10 @@
   "title": "Session Handling in Lucee",
   "id": "session-handling",
   "related": [
-    "tag-application"
+    "tag-application",
+    "function-sessionexists",
+    "function-sessioninvalidate",
+    "function-sessionrotate"
   ],
   "categories": [
     "server",
@@ -174,9 +177,15 @@ public void function onSessionEnd(required struct sessionScope,
 
 ## Session Management Functions
 
-### Invalidate
+### Checking if a session exists
 
-The `SessionInvalidate()` function immediately terminates the current session and removes all associated data:
+Since Lucee 6.2, [[function-sessionExists]] can be used to check if a sessions exists for the current request.
+
+Note, using [[function-structKeyExists]] on the `session` scope will trigger creating a session, if one doesn't already exist.
+
+### Invalidating a session
+
+The [[function-sessionInvalidate]] function immediately terminates the current session and removes all associated data:
 
 ```javascript
 // During logout
@@ -191,9 +200,9 @@ public void function logout() {
 }
 ```
 
-### Rotate
+### Rotating session coookies
 
-The `SessionRotate()` function creates a new session and copies existing data to it while invalidating the old session:
+The [[function-sessionRotate]] function creates a new session (i.e. with a fresh session token) and copies over existing session data and invalidating the old session token:
 
 ```javascript
 // After successful authentication
@@ -211,6 +220,7 @@ if (authentication.success) {
 ## Security
 
 The Session is linked with help of the key "CFID" that can be in the URL of the cookie of the user (the key "CFTOKEN" is not used by Lucee and only exists for compatibility with other CFML engines).
+
 Lucee first checks for "CFID" in the URL and only if not exists in the URL it looks for it in the cookie scope.
 
 Since Lucee 6.1, Lucee only accepts the key in the URL in case it has active sessions in memory with that key.
