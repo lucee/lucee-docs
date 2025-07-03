@@ -431,6 +431,7 @@ result = dateTimeFormat(myDate, "yyyy-MM-dd HH:mm:ss Z", "Europe/Helsinki");
 ### Current Behavior
 
 Modern Lucee versions automatically detect and handle synthetic date issues:
+
 - **`createTime()` objects** with synthetic dates before 1899-12-31 use standard timezone offsets (the fix)
 - **Actual historical dates** (like 1905-12-24) continue to use historically accurate timezone rules (no fix needed)
 - **Modern dates** continue to use full timezone rules including DST
