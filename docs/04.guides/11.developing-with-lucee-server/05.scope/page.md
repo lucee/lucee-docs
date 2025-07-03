@@ -54,6 +54,26 @@ These scopes persist between requests, i.e. a value can be set during one reques
 | session     | Holds data pertaining to the user's session.                                       |            |
 | cluster     |                                                                                    | Deprecated |
 
+## Form and URL scope struct behaviour ##
+
+Lucee by default, will parse dotted form fields and url parameter names into structs, which differs from ACF.
+
+I.e. calling `index.cfm?p=hello&p.ico=1`, results in an URL scope of `{"p":{"ico":"1"},"p.ico":"1"}`
+
+Since Lucee 6.1, this behaviour can be toggled off via the admin / `.CFConfig.json` under **Settings - Scope** .
+
+It can also be configured per [[tag-application]] using `this.formUrlAsStruct=boolean`
+
+```cfml
+component {
+   this.formUrlAsStruct=false;
+}
+```
+
+Which results in an URL scope of `{"p":"hello","p.ico":"1"}`
+
+[LDEV-4815](https://luceeserver.atlassian.net/browse/LDEV-4815)
+
 ## What scope should I use in...? ##
 
 ### Custom tags ###
