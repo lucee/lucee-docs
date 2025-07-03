@@ -12742,3 +12742,6 @@ div.oembedall-lanyard .first {
 }
 
 /*# sourceMappingURL=base.css.map */
+.word-wrap {
+  word-break: break-word;
+}
