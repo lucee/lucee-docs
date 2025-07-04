@@ -76,5 +76,5 @@ commands:
 ```
 
 - The `run` option starts Tomcat in the current console, to stop, use `ctrl-c`.
-- The `start` option starts Tomcat in a separate window, similiar to `startup.bat`
+- The `start` option starts Tomcat in a separate window, similar to `startup.bat`
 - The `jpda start` option starts Lucee with java debugging enabled.

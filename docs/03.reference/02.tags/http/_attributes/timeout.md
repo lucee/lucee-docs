@@ -1,9 +1,6 @@
-A value, in seconds.
+**General timeout value** in seconds or as a TimeSpan object that serves as a fallback for connection and socket timeouts. 
 
-When a URL timeout is specified in the browser, the timeout attribute setting takes precedence over the Lucee Administrator timeout.
+When `connectionTimeout` or `socketTimeout` are not specified, this value is used for those timeouts.
 
-The server then uses the lesser of the URL timeout and the timeout passed in the timeout attribute, so that the request always times out before or at the same time as the page times out.
-
-If there is no URL timeout specified, Lucee takes the lesser of the Lucee Administrator timeout and the timeout passed in the timeout attribute.
-
-If there is no timeout set on the URL in the browser, no timeout set in the Lucee Administrator, and no timeout set with the timeout attribute, Lucee waits indefinitely for the cfhttp request to process.
+If no timeout is set, Lucee uses the **remaining request timeout** from the current page context. 
+The request will always timeout at or before the page timeout, using whichever is smaller: the specified timeout or remaining request time.

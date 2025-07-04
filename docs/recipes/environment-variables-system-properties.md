@@ -277,7 +277,6 @@ Default Values:
 *Lucee 6:* `false` (disabled by default for backward compatibility)
 *Lucee 7:* `true` (enabled by default for better debugging experience)
 
-
 ## Regular Settings
 
 Settings that are nice to know, but not that important.
