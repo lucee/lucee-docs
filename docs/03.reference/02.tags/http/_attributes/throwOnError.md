@@ -1,11 +1,7 @@
-Boolean indicating whether to throw an exception that can be caught by using the [[tag-try]] and [[tag-catch]] tags.
+Whether to throw an exception on HTTP errors that can be caught with `cftry`/`cfcatch`.
 
-Errors include 
+When **true**: Throws exceptions for connection failures, lookup errors, or non-2xx status codes.
 
-- a connection/response timeout
-- a http response status code which isn't between 200 and 299
-- a connection failure
-- unable to resolve hostname (i.e. DNS)
-- TLS/SSL problems
+When **false** (default): Populates the result struct with error information instead.
 
-The default is YES.
+The result struct always contains an `ERROR` key indicating if an error occurred, regardless of this setting.
