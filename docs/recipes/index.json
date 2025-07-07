@@ -331,7 +331,7 @@
     "file": "date-time-formatting.md",
     "title": "Date and Time Formatting in Lucee",
     "path": "/docs/recipes/date-time-formatting.md",
-    "hash": "4e7de4c29441170ebe0136832e844f4c",
+    "hash": "0cdb0f26383e798b89ee32017e442aab",
     "keywords": [
       "Date",
       "Time",
@@ -403,7 +403,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "50ce932f9791c06c2004431619fa018c",
+    "hash": "1dee53f2b4dbd676ca6d63a992323c73",
     "keywords": [
       "Environment",
       "Environment Variables",
