@@ -9,20 +9,21 @@ description: local, arguments, query, variables, this, cgi, cffile, url, form, c
 menuTitle: Scopes
 ---
 
-## Local scopes ##
+## Local scopes
 
 These scopes are not necessarily available between components in the same request -- in other words elements or variables in these scopes may be "out of scope" if set in one module and referred to in another.
 
 | Scope      |                    Description                                                   | Notes |
 | ---------- | -------------------------------------------------------------------------------- | ----- |
-| arguments  | Holds arguments that are passed to a function or CFC method                      |       |
+| local      | The local scope for just the function, i.e. `var i;`                             |       |
+| arguments  | Holds arguments that are passed to a function or CFC method, can be referenced by position or index                      |       |
 | attributes | Contains attributes that are passed to a custom tag                              |       |
 | caller     | Refers to the scope of the calling page when a custom tag or module is called    |       |
 | this       | The public scope for a Component/CFC                                             |       |
 | thread     | The scope within a thread                                                        |       |
 | variables  | The private scope for a Component/CFC                                            |       |
 
-## Request scopes ##
+## Request scopes
 
 These scopes persist through a single request, i.e. any code, in any module, can refer to these scopes during the life of the request:
 
@@ -33,7 +34,7 @@ These scopes persist through a single request, i.e. any code, in any module, can
 | request | Used to store data across an entire request. Data put into the request scope will be accessible from all templates, CFCs, custom tags, etc |                                                                                                                       |
 | url     |                                                                                                                                            |                                                                                                                       |
 
-## Query scopes ##
+## Query scopes
 
 By default in cfml, inside a query [[tag-loop]] or [[tag-output]], queries are checked for unscoped variables, even before the `variables` scope.
 
@@ -41,7 +42,14 @@ In a function / cfc the `local` scope is checked before the `queries` scope, the
 
 This (slow) lookup can be disabled (for better performance) in the Lucee admin or via the `Application.cfc` setting `this.searchResults = false;`
 
-### Global scopes ###
+```cfml
+// Application.cfc
+component {
+   his.searchResults = false;
+}
+```
+
+### Global scopes
 
 These scopes persist between requests, i.e. a value can be set during one request then retrieved in a subsequent one:
 
@@ -51,10 +59,37 @@ These scopes persist between requests, i.e. a value can be set during one reques
 | client      | Contains elements that persist indefinitely for this particular client (browser).  |            |
 | cookie      | Refers to the scope of the calling page when a custom tag or module is called      |            |
 | server      | Used to store data that is accessible from any application on a particular server. |            |
-| session     | Holds data pertaining to the user's session.                                       |            |
+| session     | Holds data pertaining to the user's session. See [[session-handling]]              |            |
 | cluster     |                                                                                    | Deprecated |
 
-## Form and URL scope struct behaviour ##
+## Scope Cascading
+
+When a variable is referenced without a scope, Lucee defaults to looking in the nearest scope.
+
+For functions that nearest scope is `local` scope, followed by the `arguments` scope, otherwise, it's the `variables` scope (which is 3rd within functions).
+
+Scope cascading is configurable in Lucee, at the server level via the Admin / .CFConfig.json, or via Application.cfc.
+
+```cfml
+// Application.cfc
+component {
+   this.scopeCascading="strict";
+}
+```
+
+The available scope cascading modes are:
+
+- `standard` [ local, arguments ], variables, cgi, url, form and cookie (default)
+- `small` [ local, arguments ], variables, url and form
+- `strict` [ local, arguments ], variables
+
+`local` and `arguments`, are only available within a function.
+
+Unlike ACF, Lucee has never included the `CFFILE` scope in the cascaded scopes.
+
+**Strict is recommended for the best performance and security**, but requires testing and refactoring your code to ensure every variable is properly scoped.
+
+## Form and URL scope struct behaviour
 
 Lucee by default, will parse dotted form fields and url parameter names into structs, which differs from ACF.
 
