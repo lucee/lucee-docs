@@ -35,3 +35,26 @@
     dump( var=deserializeJSON( serializeJSON(q, 'column') ),
         label="'column'" );
 ```
+
+### Pretty Printing
+
+```lucee+trycf
+<cfscript>
+    obj = {
+        name: "lucee",
+        versions: [ 5,6,7 ]
+    }
+</cfscript>
+<cfoutput>
+<pre>
+<b>Default behavior</b>
+#serializeJson(var=obj,compact=true)#
+
+<b>Pretty Print (compact=false)</b>
+#serializeJson(var=obj,compact=false)#
+</pre>
+</cfoutput>
+
+```
+
+dfsdfds
