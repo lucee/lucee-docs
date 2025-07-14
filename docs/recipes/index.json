@@ -1141,6 +1141,19 @@
     ]
   },
   {
+    "file": "recommended-settings.md",
+    "title": "Untitled",
+    "path": "/docs/recipes/recommended-settings.md",
+    "hash": "00d7d487bcae0ec183f16676fe996525",
+    "keywords": [
+      "settings",
+      "performance",
+      "Production server",
+      "Security",
+      "config"
+    ]
+  },
+  {
     "file": "request-timeout.md",
     "title": "Request Timeout",
     "path": "/docs/recipes/request-timeout.md",
