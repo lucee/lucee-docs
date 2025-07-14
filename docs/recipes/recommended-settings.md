@@ -42,7 +42,7 @@ The Lucee Administrator should ideally be disabled, using the `LUCEE_ADMIN_ENABL
 
 Debugging / Monitoring output templates should never be enabled on Production, see [[monitoring-debugging]]
 
-Ensure access to `.git` folders (or similiar) are blocked via the websever configuration.
+Ensure access to `.git` folders (or similar) are blocked via the websever configuration.
 
 ### Performance
 

@@ -84,7 +84,7 @@ Valid values: CFMX_COMPAT, AES, BLOWFISH, DES
 
 Defines a comma-separated list of Lucee extensions to install when starting up. 
 
-The current list of installed extensions is availble via the Lucee admin.
+The current list of installed extensions is available via the Lucee admin.
 
 This can be a simple list of IDs, then whatever the latest version(s) will be installed (SNAPSHOT or STABLE):
 
