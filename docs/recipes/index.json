@@ -403,7 +403,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "47d1fe43788e800455b8ba1ba222e4de",
+    "hash": "76b7f6f2418376bf99ff1075800a54cd",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -1144,7 +1144,7 @@
     "file": "recommended-settings.md",
     "title": "Untitled",
     "path": "/docs/recipes/recommended-settings.md",
-    "hash": "00d7d487bcae0ec183f16676fe996525",
+    "hash": "c475df828d4838a2cbf06a2da1ff0b78",
     "keywords": [
       "settings",
       "performance",
