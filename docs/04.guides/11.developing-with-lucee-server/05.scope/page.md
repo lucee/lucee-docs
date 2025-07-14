@@ -45,7 +45,7 @@ This (slow) lookup can be disabled (for better performance) in the Lucee admin o
 ```cfml
 // Application.cfc
 component {
-   his.searchResults = false;
+   this.searchResults = false; // default is true
 }
 ```
 
@@ -73,7 +73,7 @@ Scope cascading is configurable in Lucee, at the server level via the Admin / .C
 ```cfml
 // Application.cfc
 component {
-   this.scopeCascading="strict";
+   this.scopeCascading="strict"; // default is standard
 }
 ```
 
