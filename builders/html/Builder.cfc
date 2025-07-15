@@ -35,7 +35,8 @@ component {
 		//for ( var path in pagePaths ) {
 		each(pagePaths, function(path){
 			var tick = getTickCount();
-			_writePage( pagePaths[arguments.path].page, buildDirectory, docTree );
+			if (pagePaths[arguments.path].page.isPage())
+				_writePage( pagePaths[arguments.path].page, buildDirectory, docTree );
 
 			request.filesWritten++;
 			if ((request.filesWritten mod 100) eq 0){

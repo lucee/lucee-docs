@@ -340,6 +340,11 @@ component accessors=true {
 		var pageType = arguments.page.getPageType();
 		var isPage = arguments.page.isPage(); // workaround for page types not being parsed out correctly in PageReader.readPageFile
 
+		if ( !isPage ){
+			return;
+			throw "not a page [#page.getFilePath()#]"; // only add main pages
+		}
+
 		if ( !IsNull( parent ) ) {
 			if ( isPage )
 				parent.addChild( arguments.page ); // don't add page subelements, i.e _attributes etc
@@ -352,10 +357,6 @@ component accessors=true {
 			variables.tree.append( arguments.page );
 		}
 
-		if ( !isPage ){
-			return;
-			throw "not a page [#page.getFilePath()#]"; // only add main pages
-		}
 
 		if ( !StructKeyExists( variables.pageTypeMap, pageType ) )
 			variables.pageTypeMap[ pageType ] = 0;
