@@ -1,0 +1,72 @@
+name: "Lucee JSR-223 Scripting"
+technology: "JSR-223"
+since: "5.0"
+
+service_registration:
+  file: "META-INF/services/javax.script.ScriptEngineFactory"
+  implementation: "lucee.runtime.script.CFMLScriptEngineFactory"
+
+engine_discovery:
+  primary_name: "CFML"
+  aliases: ["CFM"]
+  engine_name: "Lucee"
+  mime_types: 
+    - "text/cfml"
+    - "application/cfml"
+
+dependencies:
+  required:
+    - name: "lucee.jar"
+      description: "Core Lucee engine"
+    - name: "servlet-api.jar"
+      description: "javax.servlet or jakarta.servlet"
+      note: "Lucee 6 uses javax, Lucee 7 uses jakarta"
+
+basic_usage:
+  manager: "ScriptEngineManager manager = new ScriptEngineManager();"
+  engine: "ScriptEngine engine = manager.getEngineByName(\"CFML\");"
+  set_variable: "engine.put(\"variableName\", value);"
+  execute: "Object result = engine.eval(\"cfml code here\");"
+  get_variable: "Object value = engine.get(\"variableName\");"
+
+command_line:
+  eval: "java -cp \"lucee.jar:servlet-api.jar\" lucee.runtime.script.CFMLScriptEngineFactory eval \"cfml code\""
+  put: "java -cp \"lucee.jar:servlet-api.jar\" lucee.runtime.script.CFMLScriptEngineFactory put key value"
+  get: "java -cp \"lucee.jar:servlet-api.jar\" lucee.runtime.script.CFMLScriptEngineFactory get key"
+
+ant_integration:
+  tag: "script"
+  language_attribute: "CFML"
+  example: |
+    <script language="CFML">
+    <![CDATA[
+        writeOutput("Hello from CFML");
+    ]]>
+    </script>
+
+system_properties:
+  cli_call: 
+    name: "lucee.cli.call"
+    value: "true"
+    description: "Set automatically for CLI usage"
+  context_root:
+    name: "lucee.cli.contextRoot"
+    description: "Override context root"
+    default: "."
+
+threading:
+  parameter: "THREADING"
+  value: "THREAD-ISOLATED"
+  recommendation: "Each thread should have its own ScriptEngine instance"
+
+file_extensions:
+  template: "cfm"
+  component: "cfc"
+  script: "cfs"
+
+implementation_details:
+  initialization: "Engine initializes CFMLEngineFactory if not already running"
+  servlet_context: "Creates ServletContext/ServletConfig for standalone operation"
+  working_directory: "Directory where java command was called from"
+  dialects: ["script", "tag"]
+  default_dialect: "script"
