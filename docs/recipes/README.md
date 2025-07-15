@@ -212,6 +212,10 @@ Learn how to write CFML code directly in a function or a closure with Java types
 
 Guide on using Java libraries in Lucee 6.2 with Maven and import
 
+## [Java Scripting with Lucee](/docs/recipes/java-scripting.md)
+
+Documentation for using Lucee as a scripting engine in Java applications via JSR-223
+
 ## [Java Settings in Application.cfc (Now with Maven Support)](/docs/recipes/java-settings.md)
 
 Guide on configuring Java settings in Lucee using Application.cfc, including loading Java libraries from Maven

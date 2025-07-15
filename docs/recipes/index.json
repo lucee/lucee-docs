@@ -729,6 +729,22 @@
     ]
   },
   {
+    "file": "java-scripting.md",
+    "title": "Java Scripting with Lucee",
+    "path": "/docs/recipes/java-scripting.md",
+    "hash": "59db810cdd3b6898cd19c6a9c33af539",
+    "keywords": [
+      "Java",
+      "JSR-223",
+      "ScriptEngine",
+      "CFML",
+      "Scripting",
+      "Integration",
+      "Serverless",
+      "Lambda"
+    ]
+  },
+  {
     "file": "java-settings.md",
     "title": "Java Settings in Application.cfc (Now with Maven Support)",
     "path": "/docs/recipes/java-settings.md",
