@@ -126,13 +126,17 @@ To revert to the previous behaviour, use the environment variable `LUCEE_MAPPING
 
 ### The '===' operator now checks for value and type
 
-Prior to Lucee 6, the `===` operator only returned true when comparing the same object, this has been changed to match the expected behavior.
+Prior to Lucee 6, the `===` operator only returned true when comparing the same object, this has been changed to match the expected behavior (i.e. same as javascript).
+
+[[operators]]
 
 [LDEV-1282](https://luceeserver.atlassian.net/browse/LDEV-1282)
 
 ### Query.map() member function returns a new query.
 
 Previously the `.query.map()` member function would modify the query, rather than returning a new query
+
+[[method-query-map]]
 
 [LDEV-556](https://luceeserver.atlassian.net/browse/LDEV-556)
 
@@ -141,6 +145,8 @@ Previously the `.query.map()` member function would modify the query, rather tha
 For better performance and memory usage, an empty session or client scope is no longer saved.
 
 To restore previous behaviour, use the environment variables `LUCEE_STORE_EMPTY=TRUE`
+
+[[session-handling]]
 
 [LDEV-3340](https://luceeserver.atlassian.net/browse/LDEV-3340)
 
@@ -182,7 +188,9 @@ This was changed to match ACF behaviour.
 
 ### cflocation addToken defaults to false
 
-This was changed to match modern security expectation.
+This was changed to match modern security expectations, as session tokens shouldn't never be shared with other websites
+
+[[tag-location]]
 
 [LDEV-3437](https://luceeserver.atlassian.net/browse/LDEV-3437)
 
@@ -250,6 +258,8 @@ Changes were made to match ACF
 ### FileWriteLine uses wrong line separator on Windows
 
 Behaviour was changed to match ACF and use the operating system line separator (CFLF instead of LF)
+
+[[function-FileWriteLine]]
 
 [LDEV-4332](https://luceeserver.atlassian.net/browse/LDEV-4332)
 

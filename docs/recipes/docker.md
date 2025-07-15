@@ -122,7 +122,7 @@ FROM lucee/lucee:latest
 COPY Server.cfc /opt/lucee-server/context/context/Server.cfc
 
 # Set the environment variable to trigger onBuild
-ENV LUCEE_BUILD true
+ENV LUCEE_BUILD=true
 
 # Expose necessary ports
 EXPOSE 8888
@@ -147,6 +147,31 @@ component {
 	}
 }
 ```
+
+## Redirecting Logs to the Docker console
+
+Since Lucee 6.2, you can redirect all the logs to the Docker console using the following environment variables:
+
+```dockerfile
+ENV LUCEE_LOGGING_FORCE_APPENDER=console
+ENV LUCEE_LOGGING_FORCE_LEVEL=info
+```
+
+Alternatively, you can use symlinks with the default configuration:
+
+```dockerfile
+RUN ln -sf /proc/1/fd/1 /opt/lucee/server/lucee-server/context/logs/application.log \
+&& ln -sf /proc/1/fd/1 /opt/lucee/server/lucee-server/context/logs/deploy.log \
+&& ln -sf /proc/1/fd/1 /opt/lucee/server/lucee-server/context/logs/exception.log
+```
+
+Or you can edit the `.CFConfig.json` configuration via the Lucee Admin (under Settings, Logging) and select the Console appender
+
+## Performance Tips
+
+Multiple users have reported performance problems, due to configuring directories under `lucee-server` as docker `volumes`.
+
+This is not a recommended configuration, due to the overhead involved with interacting with the host filesystem when using volumes.
 
 ## Conclusion
 

@@ -15034,6 +15034,8 @@ window.onerror = function(message, url, line, col, err) {
 	};
 	var q = "";
 	search = function( input ){
+		input = input.trim();
+
 		if (localStorage)
 			localStorage.setItem('lastSearch', input);
 

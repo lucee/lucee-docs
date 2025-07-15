@@ -1,15 +1,25 @@
 The type of the argument
 
+- any
 - array
 - binary
 - boolean
-- date
+- date, datetime, time, timestamp
+- function
 - guid
-- numeric
+- image
+- locale
+- numeric, number
 - query
+- queryColumn
+- object
 - string
 - struct
+- timezone
+- timespan
 - uuid
-- variableName
+- variableName, variable_name
+- variablestring, variable_string
+- xml
 - component
 - componentName

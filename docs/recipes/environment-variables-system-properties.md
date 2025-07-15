@@ -82,7 +82,11 @@ Valid values: CFMX_COMPAT, AES, BLOWFISH, DES
 *SysProp:* `-Dlucee.extensions`
 *EnvVar:* `LUCEE_EXTENSIONS`
 
-Define a comma-separated list of Lucee extensions to install when starting up. This can be a simple list of IDs like this, then simply the latest versions get installed:
+Defines a comma-separated list of Lucee extensions to install when starting up. 
+
+The current list of installed extensions is available via the Lucee admin.
+
+This can be a simple list of IDs, then whatever the latest version(s) will be installed (SNAPSHOT or STABLE):
 
 ```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6,
@@ -97,6 +101,8 @@ Or with more specific information like version and label (for better readability
 671B01B8-B3B3-42B9-AC055A356BED5281;name=PostgreSQL;label=PostgreSQL;version=42.7.3,
 2BCD080F-4E1E-48F5-BEFE794232A21AF6;name=JDTsSQL;label=jTDS (MSSQL);version=1.3.1
 ```
+
+**It's recommended to always specify the exact version for consistent results**
 
 #### LUCEE_ENABLE_BUNDLE_DOWNLOAD
 
@@ -276,7 +282,6 @@ Default Values:
 
 *Lucee 6:* `false` (disabled by default for backward compatibility)
 *Lucee 7:* `true` (enabled by default for better debugging experience)
-
 
 ## Regular Settings
 

@@ -49,6 +49,8 @@
 	};
 	var q = "";
 	search = function( input ){
+		input = input.trim();
+
 		if (localStorage)
 			localStorage.setItem('lastSearch', input);
 

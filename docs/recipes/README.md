@@ -336,6 +336,10 @@ This document explains the different return types for a query with some examples
 
 Lucee not only allows you to convert an XML file to an object tree (DOM) but also supports an event-driven model (SAX).
 
+## [Untitled](/docs/recipes/recommended-settings.md)
+
+A guide on how to configure your Lucee Server for the best performance and highest security.
+
 ## [Request Timeout](/docs/recipes/request-timeout.md)
 
 Learn how to use request timeout correctly with Lucee.

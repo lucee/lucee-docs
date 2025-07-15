@@ -3,7 +3,10 @@
   "title": "Session Handling in Lucee",
   "id": "session-handling",
   "related": [
-    "tag-application"
+    "tag-application",
+    "function-sessionexists",
+    "function-sessioninvalidate",
+    "function-sessionrotate"
   ],
   "categories": [
     "server",
@@ -111,11 +114,11 @@ For any setting other than "memory", the session is only stored up to a minute (
 
 The following storage options are available:
 
-- "memory" - Stores session data in server memory for the full life cycle. Best for single-server deployments.
-- "cookie" - Stores session data in the user's browser cookies. **Removed in Lucee 7.0.0.156-SNAPSHOT.** Should be avoided for security reasons and limited by cookie size restrictions.
-- "file" - Stores session data in local files. Good for development but may cause issues in clustered environments.
-- [datasource-name] - Name of an existing datasource. Session data is stored in a table named "cf_session_data". Lucee automatically creates this table if it doesn't exist. Suitable for clustered environments.
-- [cache-name] - Name of an existing cache (e.g., Redis, Memcached). Ideal for distributed systems requiring high performance.
+- `memory` - Stores session data in server memory for the full life cycle. Best for single-server deployments.
+- `cookie` - Stores session data in the user's browser cookies. **Removed in Lucee 7.0.0.156-SNAPSHOT.** Should be avoided for security reasons and limited by cookie size restrictions.
+- `file` - Stores session data in local files. Good for development but may cause issues in clustered environments.
+- `[datasource-name]` - Name of an existing datasource. Session data is stored in a table named `cf_session_data`. Lucee automatically creates this table if it doesn't exist. Suitable for clustered environments, requires the `storage` attribute on the datasource to be `true`
+- `[cache-name]` - Name of an existing cache (e.g., Redis, Memcached). Ideal for distributed systems requiring high performance.
 
 Lucee does not store "empty" sessions (sessions containing only default keys) into storage to optimize resource usage.
 
@@ -174,11 +177,19 @@ public void function onSessionEnd(required struct sessionScope,
 
 ## Session Management Functions
 
-### Invalidate
+### Checking if a session exists
 
-The `SessionInvalidate()` function immediately terminates the current session and removes all associated data:
+Since Lucee 6.2.1, [[function-sessionExists]] can be used to check if a sessions exists for the current request.
 
-```javascript
+Note, using [[function-structKeyExists]] on the `session` scope will trigger creating an empty session, if one doesn't already exist.
+
+### Invalidating a session
+
+Used for example when logging a user out.
+
+The [[function-sessionInvalidate]] function immediately terminates the current session and removes all associated data:
+
+```cfml
 // During logout
 public void function logout() {
     // Log user activity before invalidating
@@ -191,11 +202,11 @@ public void function logout() {
 }
 ```
 
-### Rotate
+### Rotating session coookies
 
-The `SessionRotate()` function creates a new session and copies existing data to it while invalidating the old session:
+The [[function-sessionRotate]] function creates a new session (i.e. with a fresh session token) and copies over existing session data and invalidating the old session token:
 
-```javascript
+```cfml
 // After successful authentication
 if (authentication.success) {
     // Create new session to prevent session fixation
@@ -211,6 +222,7 @@ if (authentication.success) {
 ## Security
 
 The Session is linked with help of the key "CFID" that can be in the URL of the cookie of the user (the key "CFTOKEN" is not used by Lucee and only exists for compatibility with other CFML engines).
+
 Lucee first checks for "CFID" in the URL and only if not exists in the URL it looks for it in the cookie scope.
 
 Since Lucee 6.1, Lucee only accepts the key in the URL in case it has active sessions in memory with that key.

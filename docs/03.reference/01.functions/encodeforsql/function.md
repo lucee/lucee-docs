@@ -15,4 +15,3 @@ _This method is not recommended_ -
 This function is no longer suppprted by the underlying ESAPI library since 2.7.0 due to security concerns.
 
 The use of query parameters are strongly encouraged. See [[tag-queryparam]].
-

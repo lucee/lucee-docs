@@ -23,7 +23,7 @@
 
 # Application Context update
 
-Lucee allows you to update the existing application context, **per request** as defined for example in [application-context-guide].
+Lucee allows you to update the existing application context, **per request** as defined for example in [[application-context-guide]].
 
 This does not affect any other request, you are only changing the application settings for the current request.
 
@@ -34,7 +34,9 @@ For example, add a per-application mapping:
 <cfapplication action="update" mappings="# {'/test': getDirectoryFromPath(getCurrentTemplatePath())} #">
 ```
 
-This example doesn't extend the existing application mappings with this new one, it replaces them. So when you plan to add a mapping, it's best to first read the existing mappings with help of the function [function-getApplicationSettings] and update these mappings as follows:
+This example doesn't extend the existing application mappings with this new one, it replaces them. 
+
+So when you plan to add a mapping, it's best to first read the existing mappings with help of the function [[function-getApplicationSettings]] and update these mappings as follows:
 
 ```lucee
 <!--- read the existing per-application mappings --->
@@ -47,4 +49,4 @@ This example doesn't extend the existing application mappings with this new one,
 <cfapplication action="update" mappings="#mappings#">
 ```
 
-Of course, it's not only mappings you can update. [tag-application] lets you update all the settings you can do in the Application.cfc!
+Of course, it's not only mappings you can update. [[tag-application]] lets you update all the settings you can do in the Application.cfc!
