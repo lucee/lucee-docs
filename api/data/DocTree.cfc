@@ -353,6 +353,7 @@ component accessors=true {
 		}
 
 		if ( !isPage ){
+			return;
 			throw "not a page [#page.getFilePath()#]"; // only add main pages
 		}
 
