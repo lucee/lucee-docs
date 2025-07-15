@@ -256,7 +256,7 @@ Comprehensive guide for migrating from Lucee 5 to Lucee 6, addressing breaking c
 
 Documentation for the Lucene 3 Extension with vector and hybrid search capabilities
 
-## [Mail - How to send a Mail](/docs/recipes/mail-how-to-send-a-mail.md)
+## [Mail - How to send an Email](/docs/recipes/mail-how-to-send-a-mail.md)
 
 How to send an email using Lucee with help of the tag cfmail.
 
