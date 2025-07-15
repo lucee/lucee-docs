@@ -25,7 +25,7 @@
 }
 -->
 
-# Mail - How to send a Mail
+# Mail - How to send an Email
 
 The following example shows you how you can send a mail using [[tag-mail]].
 
@@ -54,6 +54,21 @@ mail subject="Your Order" from="whatever@lucee.org" to="whatever@gmail.com" {
 ```
 
 That is all you need to do to send a mail.
+
+## Addressing
+
+You can pass in a list of email addresses, either bare or with titles, use quotes if the title contains a special character
+
+- `lucee1@example.com`
+- `"Server, Lucee" <lucee2@example.com>`
+- `Lucee Server <lucee3@example.com>`
+
+```coldfusion
+<cfmail subject="hello world" 
+  to='lucee1@example.com,"Server, Lucee"<lucee2@example.com>,Lucee Server<lucee3@example.com>'.....>
+Hello Possums
+</cfmail>
+```
 
 ## Spooling
 
