@@ -270,3 +270,9 @@ Number format now rounds up instead of down to match ACF behavior.
 [[function-numberformat]]
 
 [LDEV-4439](https://luceeserver.atlassian.net/browse/LDEV-4439)
+
+### CFLDAP timeout is now in ms, not seconds
+
+Fixed implementation bug and changed to milliseconds, to match ACF behavior.
+
+[LDEV-1860](https://luceeserver.atlassian.net/browse/LDEV-1860)
