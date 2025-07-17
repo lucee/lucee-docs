@@ -88,3 +88,11 @@ Use [[function-inspectTemplates]] instead.
 More of a bug fix than a breaking change, Lucee now adheres to the spec correctly, since with 6.2.2, making Cloudflare happier
 
 [LDEV-4314](https://luceeserver.atlassian.net/browse/LDEV-4314)
+
+## REST cfc will only look for Application.cfc in same directory
+
+Previous behaviour was deemed to be a bug.
+
+Workaround, create an Application.cfc which extends the parent Application.cfc
+
+[LDEV-5323](https://luceeserver.atlassian.net/browse/LDEV-5323)
