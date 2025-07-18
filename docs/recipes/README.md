@@ -28,6 +28,10 @@ How to update your Application settings, after they have been defined in Applica
 
 No description available.
 
+## [AST (Abstract Syntax Tree)](/docs/recipes/ast.md)
+
+Generate Abstract Syntax Trees from CFML code for analysis, transformation, and tooling support
+
 ## [Basic Date - Output the current date](/docs/recipes/basic-date.md)
 
 Learn how to output the current date in Lucee.
