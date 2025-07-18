@@ -114,4 +114,4 @@ You may need to remove or change some options for your specific system. Be sure 
 
 Once the file is made, run the installer using the option file like so:
 
-	# lucee-[version]-installer.run --mode unattended --optionfile=lucee-options.txt
+	# lucee-[version]-installer.run --mode unattended --optionfile lucee-options.txt
