@@ -1,0 +1,183 @@
+name: "Lucee AST (Abstract Syntax Tree)"
+technology: "AST/Parser"
+since: "7.0"
+
+builtin_functions:
+  astFromPath:
+    function_name: "astFromPath"
+    class: "lucee.runtime.functions.ast.AstFromPath"
+    keywords: ["ast", "transform", "compile"]
+    signature: "struct astFromPath(any path)"
+    return_type: "struct"
+    
+  astFromString:
+    function_name: "astFromString" 
+    class: "lucee.runtime.functions.ast.AstFromString"
+    keywords: ["ast", "transform", "compile"]
+    signature: "struct astFromString(string cfmlCode)"
+    return_type: "struct"
+
+java_integration:
+  class: "lucee.runtime.util.AstUtil"
+  instantiation: "astUtil = new lucee.runtime.util.AstUtil();"
+  methods:
+    - "Struct astFromString(String cfmlCode)"
+    - "Struct astFromPath(String path)"
+
+supported_input_types:
+  path_parameter:
+    - "String (relative/absolute path)"
+    - "java.io.File"
+    - "lucee.commons.io.res.Resource" 
+    - "File stream (from fileOpen())"
+  string_parameter:
+    - "String containing CFML code"
+
+file_extensions:
+  template: "cfm"
+  component: "cfc" 
+  script: "cfml"
+
+ast_standard:
+  convention: "ESTree"
+  format: "JSON-like struct"
+  neutrality: "Language-agnostic node types"
+
+root_node:
+  type: "Program"
+  properties:
+    - "type: string"
+    - "start: position_struct"
+    - "end: position_struct" 
+    - "sourceType: string"
+    - "body: array"
+
+position_structure:
+  properties:
+    - "line: numeric"
+    - "column: numeric"
+    - "offset: numeric"
+
+core_node_types:
+  expressions:
+    - "BinaryExpression"
+    - "UnaryExpression"
+    - "CallExpression"
+    - "MemberExpression"
+    - "ConditionalExpression"
+    - "AssignmentExpression"
+    - "UpdateExpression"
+    - "ElvisExpression"
+    - "ClosureExpression"
+    - "LambdaExpression"
+    
+  literals:
+    - "StringLiteral"
+    - "NumberLiteral"
+    - "BooleanLiteral"
+    - "NullLiteral"
+    - "ArrayExpression"
+    - "ObjectExpression"
+    
+  statements:
+    - "ExpressionStatement"
+    - "IfStatement"
+    - "ForStatement"
+    - "ForOfStatement"
+    - "ForInStatement"
+    - "WhileStatement"
+    - "DoWhileStatement"
+    - "SwitchStatement"
+    - "TryStatement"
+    - "ReturnStatement"
+    - "BreakStatement"
+    - "ContinueStatement"
+    - "BlockStatement"
+    - "FunctionDeclaration"
+    - "VariableDeclaration"
+    
+  cfml_specific:
+    - "CFMLTag"
+    - "Parameter"
+    - "Attribute"
+    - "NamedArgument"
+    - "ComputedIdentifier"
+
+binary_operators:
+  arithmetic: ["PLUS", "MINUS", "MULTIPLY", "DIVIDE", "MODULUS", "EXPONENT", "INT_DIVIDE"]
+  comparison: ["GT", "GTE", "LT", "LTE", "EQ", "NEQ", "STRICT_EQ", "STRICT_NEQ"]
+  logical: ["AND", "OR", "XOR", "EQV", "IMP"]
+  string: ["CONCAT", "CONTAINS", "NOT_CONTAINS", "STARTS_WITH", "ENDS_WITH", "EQ_IGNORE_CASE"]
+  assignment: ["ASSIGN", "PLUS_ASSIGN", "MINUS_ASSIGN", "MULTIPLY_ASSIGN", "DIVIDE_ASSIGN", "CONCAT_ASSIGN", "AND_ASSIGN", "OR_ASSIGN"]
+  other: ["ELVIS", "INSTANCEOF"]
+
+unary_operators:
+  logical: ["NOT"]
+  arithmetic: ["NEGATE", "POSITIVE"]
+  update: ["INCREMENT", "DECREMENT"]
+  type: ["TYPEOF", "IS_DEFINED", "IS_NULL"]
+
+cfml_tag_structure:
+  type: "CFMLTag"
+  properties:
+    - "name: string"
+    - "attributes: array"
+    - "body: BlockStatement|null"
+    - "selfClosing: boolean"
+
+attribute_structure:
+  type: "Attribute"
+  properties:
+    - "name: string"
+    - "value: Expression"
+
+function_types:
+  declaration: "FunctionDeclaration"
+  closure: "ClosureExpression"
+  lambda: "LambdaExpression"
+
+parameter_structure:
+  type: "Parameter"
+  properties:
+    - "name: Identifier"
+    - "typeAnnotation: string|null"
+    - "required: boolean"
+    - "default: Expression|null"
+
+switch_case_structure:
+  type: "SwitchCase"
+  properties:
+    - "test: Expression|null"
+    - "consequent: array"
+  note: "test is null for default case"
+
+catch_clause_structure:
+  type: "CatchClause"
+  properties:
+    - "param: Identifier"
+    - "body: BlockStatement"
+  multiple_catch: "handlers: array"
+
+try_statement_structure:
+  type: "TryStatement"
+  properties:
+    - "block: BlockStatement"
+    - "handler: CatchClause|null"
+    - "handlers: array"
+    - "finalizer: BlockStatement|null"
+
+named_argument_structure:
+  type: "NamedArgument"
+  properties:
+    - "name: Identifier"
+    - "value: Expression"
+
+cast_expression_structure:
+  type: "CastExpression"
+  properties:
+    - "typeAnnotation: string"
+    - "argument: Expression"
+
+output_format:
+  structure: "Nested Lucee Struct"
+  encoding: "UTF-8"
