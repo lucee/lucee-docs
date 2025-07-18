@@ -98,6 +98,21 @@
     "keywords": []
   },
   {
+    "file": "ast.md",
+    "title": "AST (Abstract Syntax Tree)",
+    "path": "/docs/recipes/ast.md",
+    "hash": "c3701438f023f66c3ec7bdf8de936438",
+    "keywords": [
+      "AST",
+      "Abstract Syntax Tree",
+      "parsing",
+      "code analysis",
+      "static analysis",
+      "transformation",
+      "IDE tooling"
+    ]
+  },
+  {
     "file": "basic-date.md",
     "title": "Basic Date - Output the current date",
     "path": "/docs/recipes/basic-date.md",
