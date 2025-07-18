@@ -201,4 +201,33 @@ The AST functionality integrates well with various development scenarios:
 - Generate API documentation automatically
 - Create dependency graphs
 
+## Docker Demo
+
+A complete working example is available as a Docker setup:
+
+**Repository**: [https://github.com/lucee/lucee-docs/tree/master/examples/docker/ast](https://github.com/lucee/lucee-docs/tree/master/examples/docker/ast)
+
+The demo includes:
+- Docker Compose configuration with Lucee 7.0.0.299-SNAPSHOT
+- Example templates demonstrating both built-in functions and Java class usage
+- Ready-to-run environment for testing AST functionality
+
+```bash
+# Clone and run the demo
+git clone https://github.com/lucee/lucee-docs.git
+cd lucee-docs/examples/docker/ast
+docker-compose up -d
+# Open http://localhost:8888
+```
+
+## Best Practices
+
+When working with AST in Lucee:
+
+1. **Handle Errors Gracefully**: Always wrap AST parsing in try-catch blocks
+2. **Cache Results**: AST generation can be expensive for large files
+3. **Use Appropriate Method**: Use `astFromPath()` for files, `astFromString()` for dynamic code
+4. **Validate Input**: Ensure files exist and strings contain valid CFML
+5. **Consider Memory Usage**: Large files generate large AST structures
+
 The AST functionality opens new possibilities for CFML development tooling and analysis, enabling sophisticated code analysis and transformation capabilities that were previously difficult to achieve.
