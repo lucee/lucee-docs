@@ -92,6 +92,7 @@ ast = astUtil.astFromPath("/test1.cfm");
 ```
 
 This approach is particularly useful when:
+
 - Building extensions or plugins
 - Creating development tools
 - Performing batch analysis of multiple files
@@ -101,7 +102,8 @@ This approach is particularly useful when:
 
 The returned AST uses neutral, language-agnostic node types that follow ESTree conventions:
 
-### Root Structure
+### Root 
+
 ```cfml
 {
   "type": "Program",           // Root AST node
@@ -115,6 +117,7 @@ The returned AST uses neutral, language-agnostic node types that follow ESTree c
 ### Common Node Types
 
 **Expressions:**
+
 - `BinaryExpression` - Operations like `x + y`, `a && b`
 - `UnaryExpression` - Operations like `!condition`, `-number`
 - `CallExpression` - Function calls like `myFunction(arg1, arg2)`
@@ -122,6 +125,7 @@ The returned AST uses neutral, language-agnostic node types that follow ESTree c
 - `ConditionalExpression` - Ternary operator `condition ? true : false`
 
 **Literals:**
+
 - `StringLiteral` - String values like `"hello"`
 - `NumberLiteral` - Numeric values like `42`, `3.14`
 - `BooleanLiteral` - Boolean values `true`, `false`
@@ -130,6 +134,7 @@ The returned AST uses neutral, language-agnostic node types that follow ESTree c
 - `ObjectExpression` - Struct literals like `{name: "value"}`
 
 **Statements:**
+
 - `IfStatement` - Conditional statements
 - `ForStatement` - Traditional for loops
 - `WhileStatement` - While loops
@@ -138,6 +143,7 @@ The returned AST uses neutral, language-agnostic node types that follow ESTree c
 - `FunctionDeclaration` - Function definitions
 
 **CFML-Specific:**
+
 - `CFMLTag` - CFML tags like `<cfquery>`, `<cfloop>`
 - `ClosureExpression` - Anonymous functions
 - `LambdaExpression` - Arrow functions
@@ -187,16 +193,19 @@ if (ast.type == "Program" && arrayLen(ast.body) > 0) {
 The AST functionality integrates well with various development scenarios:
 
 ### IDE Extensions
+
 - Use AST for syntax highlighting
 - Implement intelligent autocomplete
 - Build refactoring tools
 
 ### Static Analysis Tools
+
 - Detect code smells and anti-patterns
 - Enforce coding standards
 - Calculate complexity metrics
 
 ### Documentation Generators
+
 - Extract function signatures and comments
 - Generate API documentation automatically
 - Create dependency graphs
@@ -208,6 +217,7 @@ A complete working example is available as a Docker setup:
 **Repository**: [https://github.com/lucee/lucee-docs/tree/master/examples/docker/ast](https://github.com/lucee/lucee-docs/tree/master/examples/docker/ast)
 
 The demo includes:
+
 - Docker Compose configuration with Lucee 7.0.0.299-SNAPSHOT
 - Example templates demonstrating both built-in functions and Java class usage
 - Ready-to-run environment for testing AST functionality

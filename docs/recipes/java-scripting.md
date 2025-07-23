@@ -32,6 +32,7 @@ For developers using AI assistance or requiring structured technical data, see t
 **[Java Scripting Technical Spec](https://github.com/lucee/lucee-docs/blob/master/docs/technical-specs/java-scripting.yaml)**
 
 This YAML document contains pure technical facts optimized for:
+
 - AI systems generating code implementations
 - Quick reference lookup of engine names, dependencies, and system properties  
 - Tool consumption and automated integration
@@ -57,6 +58,7 @@ This YAML document contains pure technical facts optimized for:
 ### Adding Lucee to Your Project
 
 #### Maven Dependencies
+
 ```xml
 <dependencies>
     <!-- Lucee Core -->
@@ -76,6 +78,7 @@ This YAML document contains pure technical facts optimized for:
 ```
 
 #### Gradle Dependencies
+
 ```gradle
 dependencies {
     implementation 'org.lucee:lucee:6.0.0.677-SNAPSHOT'
@@ -457,8 +460,6 @@ spec:
           mountPath: /data
       restartPolicy: Never
 ```
-
-
 
 ## Advanced Integration Scenarios
 
