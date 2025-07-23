@@ -1,0 +1,25 @@
+services:
+  lucee:
+    image: lucee/lucee:7.0.0.299-SNAPSHOT
+    volumes:
+      - "./www:/var/www"
+      - "./lucee-config.json:/opt/lucee/server/lucee-server/context/.CFConfig.json"
+    ports:
+      - 8888:8888
+    depends_on:
+      - couchbase
+    environment:
+      - COUCHBASE_HOST=couchbase
+      - COUCHBASE_PORT=8091
+      - LUCEE_ADMIN_PASSWORD=password123
+
+  couchbase:
+    image: couchbase:community-7.2.4
+    ports:
+      - "8091-8096:8091-8096"
+      - "11210:11210"
+    volumes:
+      - couchbase_data:/opt/couchbase/var
+
+volumes:
+  couchbase_data:
