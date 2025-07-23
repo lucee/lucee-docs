@@ -1,131 +1,48 @@
-# Lucee Couchbase Cache Demo
+# Lucee AST Demo
 
-This Docker setup demonstrates how to integrate Couchbase as a cache provider with Lucee 7.0 using Docker Compose.
+This Docker setup demonstrates Lucee's Abstract Syntax Tree (AST) functionality introduced in version 7.0.
 
 ## Quick Start
 
-1. Start the containers:
+1. Start the container:
 ```bash
 docker compose up -d
 ```
 
-2. Set up Couchbase (one-time setup):
-   - Open http://localhost:8091 in your browser
-   - Click "Setup New Cluster"
-   - Set name: `couchbase`
-   - Set username: `Administrator`, password: `password`
-   - Accept default settings and finish setup
-   - Go to "Buckets" and create a new bucket named `default`
-
-3. Open the Lucee demo:
+2. Open your browser:
 ```
 http://localhost:8888
 ```
 
 ## What This Demonstrates
 
-The demo shows Lucee's integration with Couchbase as a cache provider:
+The demo shows two ways to generate AST from CFML code:
 
-### Cache Configuration
-- Couchbase configured as a named cache in Lucee
-- Connection via Docker network using service discovery
-- JSON transcoder for cross-platform compatibility
+### Built-in Functions
+- `astFromPath()` - Parse CFML files into AST
+- `astFromString()` - Parse CFML code strings into AST
 
-### Cache Functions
-- `cacheGetProperties()` - Inspect cache configuration and status
-- Full Lucee cache API available: `cachePut()`, `cacheGet()`, `cacheRemove()`, etc.
+### Java Class Integration
+- `lucee.runtime.util.AstUtil` - Direct Java class access for advanced usage
 
-## Configuration Details
+## Example Output
 
-The Couchbase cache is configured in `lucee-config.json` with:
-- **Connection**: `couchbase://couchbase` (Docker service name)
-- **Authentication**: Administrator/password
-- **Default Bucket**: `default`
-- **Transcoder**: JSON (for interoperability)
-- **Auto-creation**: Enabled for buckets, scopes, and collections
+The AST is returned as a structured representation using neutral node types following ESTree conventions:
+- `BinaryExpression`, `StringLiteral`, `NumberLiteral`
+- `IfStatement`, `ForStatement`, `FunctionDeclaration`
+- CFML-specific nodes like `CFMLTag`
 
+Each node includes source position information (line, column, offset) for precise mapping.
+
+## Requirements
+
+- Docker and Docker Compose
+- Lucee 7.0.0.299-SNAPSHOT or later
 
 ## File Structure
 
 ```
-├── docker-compose.yml      # Docker services configuration
-├── lucee-config.json       # Lucee configuration
-├── extensions/             # Lucee extensions directory 
+├── docker-compose.yml
 └── www/
-    └── index.cfm           # Demo template showing cache properties
+    └── index.cfm    # Demo template
 ```
-
-## Docker Compose Configuration
-
-```yaml
-services:
-  lucee:
-    image: lucee/lucee:7.0.0.299-SNAPSHOT
-    volumes:
-      - "./www:/var/www"
-      - "./lucee-config.json:/opt/lucee/server/lucee-server/context/.CFConfig.json"
-      - "./extensions:/opt/lucee/extensions"
-    ports:
-      - 8888:8888
-    depends_on:
-      - couchbase
-    environment:
-      - COUCHBASE_HOST=couchbase
-      - COUCHBASE_PORT=8091
-      - LUCEE_ADMIN_PASSWORD=password123
-
-  couchbase:
-    image: couchbase:community-7.2.4
-    ports:
-      - "8091-8096:8091-8096"
-      - "11210:11210"
-    volumes:
-      - couchbase_data:/opt/couchbase/var
-
-volumes:
-  couchbase_data:
-```
-
-## Lucee Cache Configuration
-
-This is the cache configuraton for Lucee in `lucee-config.json` under the `caches` section:
-
-```json
-"caches": {
-  "couchbase": {
-    "class": "org.lucee.extension.couchbase.Couchbase",
-    "bundlename": "lucee.extension.couchbase",
-    "bundleVersion": "1.0.0.34-SNAPSHOT",
-    "custom": {
-      "connectionString": "couchbase://couchbase",
-      "username": "Administrator",
-      "password": "password",
-      "bucketName": "default",
-      "scopeName": "",
-      "collectionName": "",
-      "createIfNecessaryBucket": true,
-      "createIfNecessaryScope": true,
-      "createIfNecessaryCollection": true,
-      "transcoder": "JSON",
-      "defaultExpire": "0",
-      "connectionTimeout": "10000"
-    },
-    "readOnly": "false",
-    "storage": "true"
-  }
-}
-```
-
-## Performance Notes
-
-- JSON transcoder provides good interoperability but Object transcoder may be faster for Lucee-only usage
-- Default expire time of 0 means cache entries never expire
-- Connection timeout is set to 10 seconds
-- Consider adjusting RAM allocation for production use
-
-## Security Considerations
-
-- Change default admin credentials for production
-- Use TLS connection strings (`couchbases://`) for production
-- Restrict network access to Couchbase ports
-- Consider using Couchbase RBAC for fine-grained permissions
