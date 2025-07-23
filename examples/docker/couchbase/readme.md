@@ -64,7 +64,6 @@ services:
     volumes:
       - "./www:/var/www"
       - "./lucee-config.json:/opt/lucee/server/lucee-server/context/.CFConfig.json"
-      - "./extensions:/opt/lucee/extensions"
     ports:
       - 8888:8888
     depends_on:
