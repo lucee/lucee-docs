@@ -12,7 +12,7 @@ docker compose up -d
 
 2. Set up Couchbase (one-time setup):
 
-   - Open http://localhost:8091 in your browser
+   - Open [http://localhost:8091](http://localhost:8091) in your browser
    - Click "Setup New Cluster"
    - Set name: `couchbase`
    - Set username: `Administrator`, password: `password`
@@ -49,7 +49,6 @@ The Couchbase cache is configured in `lucee-config.json` with:
 - **Default Bucket**: `default`
 - **Transcoder**: JSON (for interoperability)
 - **Auto-creation**: Enabled for buckets, scopes, and collections
-
 
 ## File Structure
 

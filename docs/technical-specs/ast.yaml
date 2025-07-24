@@ -9,7 +9,7 @@ builtin_functions:
     keywords: ["ast", "transform", "compile"]
     signature: "struct astFromPath(any path)"
     return_type: "struct"
-  
+
   astFromString:
     function_name: "astFromString"
     class: "lucee.runtime.functions.ast.AstFromString"
@@ -70,7 +70,7 @@ core_node_types:
     - "ElvisExpression"
     - "ClosureExpression"
     - "LambdaExpression"
-  
+
   literals:
     - "StringLiteral"
     - "NumberLiteral"
@@ -78,7 +78,7 @@ core_node_types:
     - "NullLiteral"
     - "ArrayExpression"
     - "ObjectExpression"
-  
+
   statements:
     - "ExpressionStatement"
     - "IfStatement"
@@ -95,7 +95,7 @@ core_node_types:
     - "BlockStatement"
     - "FunctionDeclaration"
     - "VariableDeclaration"
-  
+
   cfml_specific:
     - "CFMLTag"
     - "Parameter"

@@ -92,6 +92,7 @@ ast = astUtil.astFromPath("/test1.cfm");
 ```
 
 This approach is particularly useful when:
+
 - Building extensions or plugins
 - Creating development tools
 - Performing batch analysis of multiple files
@@ -216,6 +217,7 @@ A complete working example is available as a Docker setup:
 **Repository**: [https://github.com/lucee/lucee-docs/tree/master/examples/docker/ast](https://github.com/lucee/lucee-docs/tree/master/examples/docker/ast)
 
 The demo includes:
+
 - Docker Compose configuration with Lucee 7.0.0.299-SNAPSHOT
 - Example templates demonstrating both built-in functions and Java class usage
 - Ready-to-run environment for testing AST functionality
