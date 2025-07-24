@@ -320,6 +320,13 @@ Log level for the Felix Framework (OSGi).
 
 Allows compressing (GZIP) the HTTP response if the client explicitly supports it.
 
+#### LUCEE_ALLOW_REFLECTION
+
+*SysProp:* `-Dlucee.allow.reflection`
+*EnvVar:* `LUCEE_ALLOW_REFLECTION`
+
+A boolean value that enables java reflection, default is false.
+
 #### LUCEE_APPLICATION_PATH_CACHE_TIMEOUT
 
 *SysProp:* `-Dlucee.application.path.cache.timeout`
