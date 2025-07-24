@@ -5,12 +5,14 @@ This Docker setup demonstrates how to integrate Couchbase as a cache provider wi
 ## Quick Start
 
 1. Start the containers:
+
 ```bash
 docker compose up -d
 ```
 
 2. Set up Couchbase (one-time setup):
-   - Open http://localhost:8091 in your browser
+
+   - Open [http://localhost:8091](http://localhost:8091) in your browser
    - Click "Setup New Cluster"
    - Set name: `couchbase`
    - Set username: `Administrator`, password: `password`
@@ -18,6 +20,7 @@ docker compose up -d
    - Go to "Buckets" and create a new bucket named `default`
 
 3. Open the Lucee demo:
+
 ```
 http://localhost:8888
 ```
@@ -27,23 +30,25 @@ http://localhost:8888
 The demo shows Lucee's integration with Couchbase as a cache provider:
 
 ### Cache Configuration
+
 - Couchbase configured as a named cache in Lucee
 - Connection via Docker network using service discovery
 - JSON transcoder for cross-platform compatibility
 
 ### Cache Functions
+
 - `cacheGetProperties()` - Inspect cache configuration and status
 - Full Lucee cache API available: `cachePut()`, `cacheGet()`, `cacheRemove()`, etc.
 
 ## Configuration Details
 
 The Couchbase cache is configured in `lucee-config.json` with:
+
 - **Connection**: `couchbase://couchbase` (Docker service name)
 - **Authentication**: Administrator/password
 - **Default Bucket**: `default`
 - **Transcoder**: JSON (for interoperability)
 - **Auto-creation**: Enabled for buckets, scopes, and collections
-
 
 ## File Structure
 
