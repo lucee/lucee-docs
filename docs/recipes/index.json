@@ -101,7 +101,7 @@
     "file": "ast.md",
     "title": "AST (Abstract Syntax Tree)",
     "path": "/docs/recipes/ast.md",
-    "hash": "563abe33ae2ae919a20998f5da968e10",
+    "hash": "429aed9fc665409a8817cc6ffc5e7000",
     "keywords": [
       "AST",
       "Abstract Syntax Tree",
@@ -747,7 +747,7 @@
     "file": "java-scripting.md",
     "title": "Java Scripting with Lucee",
     "path": "/docs/recipes/java-scripting.md",
-    "hash": "59db810cdd3b6898cd19c6a9c33af539",
+    "hash": "333baf68b60b1cc97f39471a74270916",
     "keywords": [
       "Java",
       "JSR-223",
@@ -959,7 +959,7 @@
     "file": "migrate.from.classic-to-modern-local-scope.md",
     "title": "Migrating from Classic to Modern Local Scope Mode",
     "path": "/docs/recipes/migrate.from.classic-to-modern-local-scope.md",
-    "hash": "df606169087d6262cd0c9719fa170a37",
+    "hash": "b74babf65f2aeee8418fa642735d89c3",
     "keywords": [
       "local scope",
       "variables",
