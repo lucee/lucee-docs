@@ -9,9 +9,9 @@ builtin_functions:
     keywords: ["ast", "transform", "compile"]
     signature: "struct astFromPath(any path)"
     return_type: "struct"
-    
+  
   astFromString:
-    function_name: "astFromString" 
+    function_name: "astFromString"
     class: "lucee.runtime.functions.ast.AstFromString"
     keywords: ["ast", "transform", "compile"]
     signature: "struct astFromString(string cfmlCode)"
@@ -28,14 +28,14 @@ supported_input_types:
   path_parameter:
     - "String (relative/absolute path)"
     - "java.io.File"
-    - "lucee.commons.io.res.Resource" 
+    - "lucee.commons.io.res.Resource"
     - "File stream (from fileOpen())"
   string_parameter:
     - "String containing CFML code"
 
 file_extensions:
   template: "cfm"
-  component: "cfc" 
+  component: "cfc"
   script: "cfml"
 
 ast_standard:
@@ -48,7 +48,7 @@ root_node:
   properties:
     - "type: string"
     - "start: position_struct"
-    - "end: position_struct" 
+    - "end: position_struct"
     - "sourceType: string"
     - "body: array"
 
@@ -70,7 +70,7 @@ core_node_types:
     - "ElvisExpression"
     - "ClosureExpression"
     - "LambdaExpression"
-    
+  
   literals:
     - "StringLiteral"
     - "NumberLiteral"
@@ -78,7 +78,7 @@ core_node_types:
     - "NullLiteral"
     - "ArrayExpression"
     - "ObjectExpression"
-    
+  
   statements:
     - "ExpressionStatement"
     - "IfStatement"
@@ -95,7 +95,7 @@ core_node_types:
     - "BlockStatement"
     - "FunctionDeclaration"
     - "VariableDeclaration"
-    
+  
   cfml_specific:
     - "CFMLTag"
     - "Parameter"

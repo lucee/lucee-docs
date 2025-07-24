@@ -10,7 +10,7 @@ engine_discovery:
   primary_name: "CFML"
   aliases: ["CFM"]
   engine_name: "Lucee"
-  mime_types: 
+  mime_types:
     - "text/cfml"
     - "application/cfml"
 
@@ -45,7 +45,7 @@ ant_integration:
     </script>
 
 system_properties:
-  cli_call: 
+  cli_call:
     name: "lucee.cli.call"
     value: "true"
     description: "Set automatically for CLI usage"
