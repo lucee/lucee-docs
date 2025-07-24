@@ -38,7 +38,7 @@ Modern mode offers several advantages:
 
 Consider this component when running in Classic mode:
 
-```javascript
+```cfml
 component {
     function createToken(id) {
         token = createUUID();  // Stored in variables scope
@@ -76,13 +76,13 @@ Or:
 
 ### 3. Application Level (Application.cfc)
 
-```javascript
+```cfml
 this.localMode = "modern"; // or "classic"
 ```
 
 ### 4. Function Level
 
-```javascript
+```cfml
 function test() localMode="modern" {
     // Function body
 }
@@ -134,17 +134,17 @@ Variable Scope Cascading Write Detected: The variable [token] is being implicitl
 
 For each occurrence, decide whether to:
 
-1. **Add explicit variables scope** (if the variable should remain in the component's variables scope):
+1. **Add explicit `variables` scope** (if the variable should remain in the component's variables scope):
 
-    ```javascript
-    variables.token = createUUID();
-    ```
+```cfml
+variables.token = createUUID();
+```
 
-2. **Add explicit local scope** (if the variable should be function-local):
+2. **Add explicit `local` scope** (if the variable should be function-local):
 
-    ```javascript
-    local.token = createUUID();
-    ```
+```cfml
+local.token = createUUID();
+```
 
 ### Common Patterns Requiring Attention
 
@@ -152,7 +152,7 @@ For each occurrence, decide whether to:
 
 Properties meant to be stored at the component level need an explicit variables scope:
 
-```javascript
+```cfml
 // Before
 function init(datasourceName) {
     datasourceName = arguments.datasourceName;
@@ -168,7 +168,7 @@ function init(datasourceName) {
 
 Variables that should be local to a function call:
 
-```javascript
+```cfml
 // Before
 function processItems(items) {
     result = [];
