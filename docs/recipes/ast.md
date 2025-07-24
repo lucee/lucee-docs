@@ -13,7 +13,11 @@
     "static analysis",
     "transformation",
     "IDE tooling"
-  ]
+  ],
+  "related": [
+    "function-astfrompath",
+    "function-astfromstring"
+  ],
 }
 -->
 
@@ -36,7 +40,7 @@ AST generation in Lucee supports various development and analysis scenarios:
 
 ## Built-in Functions
 
-Lucee provides two built-in functions for AST generation:
+Lucee, since version 7, provides two built-in functions for AST generation:
 
 ### astFromPath()
 
@@ -57,6 +61,8 @@ ast = astFromPath("/absolute/path/to/file.cfm");
 // - File streams opened with fileOpen()
 ```
 
+[[function-astfrompath]]
+
 ### astFromString()
 
 Parses CFML source code from a string and returns its AST representation.
@@ -75,6 +81,8 @@ cfmlCode = "
 
 ast = astFromString(cfmlCode);
 ```
+
+[[function-astfromstring]]
 
 ## Java Class Integration
 

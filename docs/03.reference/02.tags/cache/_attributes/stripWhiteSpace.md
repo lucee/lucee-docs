@@ -1,0 +1,1 @@
+Whether to strip stripWhiteSpace, default is false. currently only trims

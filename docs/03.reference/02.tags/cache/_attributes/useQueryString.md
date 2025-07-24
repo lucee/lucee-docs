@@ -1,0 +1,1 @@
+Whether to consider the query_string when caching

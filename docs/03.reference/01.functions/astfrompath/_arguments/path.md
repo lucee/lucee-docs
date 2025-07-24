@@ -1,0 +1,1 @@
+reference to a cfml template, can be a string containing a rel or absolute path, or any other kind of file (java.io.File,lucee.commons.io.res.Resource) or a file stream open with help of the function fileopen
