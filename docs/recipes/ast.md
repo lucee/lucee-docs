@@ -17,7 +17,7 @@
   "related": [
     "function-astfrompath",
     "function-astfromstring"
-  ],
+  ]
 }
 -->
 
