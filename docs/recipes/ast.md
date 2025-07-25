@@ -25,7 +25,7 @@
 
 Lucee includes support for generating Abstract Syntax Trees (AST) from CFML code. An AST is a structured tree representation of the syntactic structure of source code, where each node represents a construct occurring in the programming language.
 
-AST functionality enables advanced code analysis, IDE tooling, static analysis, code transformation, and automated documentation generation. The AST uses neutral, language-agnostic node types following ESTree conventions, making it compatible with existing tooling ecosystems.
+AST functionality enables advanced code analysis, IDE tooling, static analysis, code transformation, and automated documentation generation. The AST uses neutral, language-agnostic node types following [ESTree](https://github.com/estree/estree) conventions, making it compatible with existing tooling ecosystems.
 
 ## Use Cases
 
