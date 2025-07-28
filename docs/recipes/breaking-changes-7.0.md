@@ -32,7 +32,7 @@ Be aware of these changes when migrating your applications to ensure smooth comp
 
 - Java 24 for best performance!
 - Java 21
-- Java 11 is supported, but it's slower
+- Java 11 is supported, but it's slower and support will be removed in the near future. Tomcat 11 requires Java 17
 - **Java 8 is no longer supported**
 
 ## Switching to Jakarta (from Javax)
