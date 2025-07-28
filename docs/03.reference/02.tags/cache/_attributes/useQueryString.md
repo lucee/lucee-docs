@@ -1,1 +1,1 @@
-Whether to consider the query_string when caching
+Whether to consider the query_string when caching, default is `FALSE` with Lucee 7, before this was added, it was always effectively `TRUE`

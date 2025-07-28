@@ -1,1 +1,1 @@
-Whether to use the cache, default is true. When false the cache is still updated.
+Whether to use the cache, default is `TRUE`. When `FALSE` the cache ignored and still updated.
