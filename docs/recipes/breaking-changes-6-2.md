@@ -55,13 +55,21 @@ As part of this change, we updated all our test cases to test switching dynamica
 
 ## Support for Jakarta Servlet
 
-Lucee 6.2 adds support for Jakarta Servlet, in addition to Javax.
+Lucee 6.2 adds support for Jakarta Servlets, but it still based on javax.
 
-Javax libraries are still required for Lucee to work when deployed on a Jakarta based Servlet engine like Tomcat 10+.
+Therefore, the javax libraries are required for Lucee 6.2 to work when deployed on a Jakarta based Servlet engine like Tomcat 10+, Jetty 12, Undertow 2.3.0, etc and newer.
 
-Our Official Lucee 6.2 Installers and Docker images have been updated to bundle Tomcat 10+.
+Our Official Lucee 6.2 Installers and Docker images bundle Tomcat 10+ and these required javax libaries.
 
-Older Javax Servlet engines (i.e. Tomcat 9) are still supported as well, just make sure they are updated and still maintained.
+If you are manually deploying Lucee 6.2 to a Jakarta based servlet engine, you need to add the following javax libaries to the classpath (lib directory), otherwise, Lucee will fail to deploy.
+
+- [javax.servlet-api-4.0.1.jar](https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar) 
+- [javax.servlet.jsp-api-2.3.3.jar](https://repo1.maven.org/maven2/javax/servlet/jsp/javax.servlet.jsp-api/2.3.3/javax.servlet.jsp-api-2.3.3.jar)
+- [javax.el-api-3.0.0.jar](https://repo1.maven.org/maven2/javax/el/javax.el-api/3.0.0/javax.el-api-3.0.0.jar) 
+
+Older Javax Servlet engines (i.e. Tomcat 9) are still supported for Lucee 6.2 as well, just make sure they are updated and still maintained.
+
+Lucee 7 is Jakarta based and therefore requires a Jakarta based Servlet engine.
 
 [LDEV-4910](https://luceeserver.atlassian.net/browse/LDEV-4910)
 
