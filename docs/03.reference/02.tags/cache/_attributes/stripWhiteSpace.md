@@ -1,1 +1,1 @@
-Whether to strip stripWhiteSpace, default is false. currently only trims
+Whether to strip stripWhiteSpace, default is `FALSE`. currently only trims
