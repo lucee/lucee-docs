@@ -235,16 +235,16 @@ query name="result" datasource="myDB" sql="SELECT * FROM table" params=[];
 
 **Best for:** High-performance applications, legacy codebases, developers who prefer explicit control
 
-### 2. queryExecute - The Modern Alternative
+### 2. QueryExecute - The Modern Alternative
 
 **Syntax:**
 
-```javascript
-result = queryExecute(
-    sql: "SELECT * FROM users WHERE id = ?",
-    params: [123],
-    options: {
-        datasource: "myDB",
+```luceescript
+result = QueryExecute(
+    "SELECT * FROM users WHERE id = :id",
+    {id: {value: 123, type: "integer"}},
+    {
+        datasource: "myDB",  // if not configured globally
         returntype: "query"  // optional
     }
 );
