@@ -129,3 +129,11 @@ All proposed changes are listed in the sprint board for 7.0
 [https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/53?label=breaking-change&sprint=73&sprints=73](https://luceeserver.atlassian.net/jira/software/c/projects/LDEV/boards/53?label=breaking-change&sprint=73&sprints=73)
 
 Please raise any discussions regarding these changes on the dev forum, not in the individual tickets
+
+# CFCACHE now defaults to ignoring query_string
+
+Prior to Lucee 7, Lucee would include the query string in the cache key. Changed to match ACF behaviour since CF9.
+
+The attribute, `useQueryString=boolean` was added as part of this change
+
+[LDEV-5722](https://luceeserver.atlassian.net/browse/LDEV-5722)
