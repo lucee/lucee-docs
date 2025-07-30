@@ -75,6 +75,12 @@ Lucee 7 is Jakarta based and therefore requires a Jakarta based Servlet engine.
 
 [Javax to Jakarta Namespace Ecosystem Progress](https://jakarta.ee/blogs/javax-jakartaee-namespace-ecosystem-progress/)
 
+## Latest 6.2.2+ Updates not available via the Lucee Admin
+
+Due to some upstream changes in Maven, the last visible update in the Admin maybe the 6.2.2.64-SNAPSHOT.
+
+To upgrade to 6.2.2+, you will need to perform a one off [workaround](https://dev.lucee.org/t/lucee-6-2-7-0-latest-upgrades-not-showing-in-the-admin-workaround/15299)
+
 ## Lucee 6.2 is up to 50% faster for some operations than Lucee 5.4
 
 While not exactly what you might expect as a breaking change, we did find that all the improvements made with 6.2 managed to surface some other underlying bugs, simply because Lucee got faster.
