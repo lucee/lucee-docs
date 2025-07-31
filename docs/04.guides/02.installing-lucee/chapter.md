@@ -33,6 +33,10 @@ If you do not find the answers you are looking for here, we encourage you to pos
 * [[linux-ubuntu-quick-video-guide]]
 * [[linux-install-ubuntu-commandbox]]
 
+### Deploying Lucee
+
+[[deploying-lucee-server-apps]]
+
 ### Lucee Server Administration ###
 
 **Using Lucee with multiple webserver hosts**

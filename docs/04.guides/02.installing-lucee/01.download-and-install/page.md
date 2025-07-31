@@ -289,6 +289,10 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
 
 <a name="releaseWorkflow"></a>
 
+### Deploying Lucee
+
+[[deploying-lucee-server-apps]]
+
 ### The difference between "Snapshots", "Release Candidates (RC)" and "Stable Releases" of Lucee downloads ###
 
 At [https://download.lucee.org](https://download.lucee.org) you will find the downloads categorized as "Releases" for Stable Releases, "RC" for Release Candidates, and "Snapshots". These file names are a reference to Lucee's continuous integration workflow.
@@ -298,6 +302,8 @@ The Lucee development team is constantly making changes to the Lucee source code
 Once the Lucee code reaches a certain level of maturity in its development cycle, a corresponding snapshot is carefully selected and also published as a **Release Candidate (RC)** for broad testing. This is the phase where the Lucee development team focuses on fixing new regressions with the highest priority.
 
 Once the new bugs and regressions are fixed, a stable snapshot is selected and released as a **Stable Release**.
+
+If you want to really help Lucee, testing out the RCs in your dev environment and reporting back any problems, really helps us improve our stable releases!
 
 ### Explanation of the Lucee Version Numbers ###
 

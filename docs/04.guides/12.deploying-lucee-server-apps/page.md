@@ -8,6 +8,7 @@ related:
 - locking-down-lucee-server
 - relocating-web-inf
 - cookbook-check-for-changes
+--lucee-download-and-install
 - config
 forceSortOrder: '22'
 ---
