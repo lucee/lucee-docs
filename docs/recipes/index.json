@@ -131,7 +131,7 @@
     "file": "breaking-changes-6-0.md",
     "title": "Breaking Changes Between Lucee 5.4 and 6.0",
     "path": "/docs/recipes/breaking-changes-6-0.md",
-    "hash": "610609858adfd80cefbb6c10e0ecdc00",
+    "hash": "84fd15fba70a82d33ce5ca61f7a92f50",
     "keywords": [
       "breaking changes",
       "Lucee 5.4",
@@ -862,7 +862,7 @@
     "file": "lucee-5-to-6-migration-guide.md",
     "title": "Lucee 5 to 6 Migration Guide",
     "path": "/docs/recipes/lucee-5-to-6-migration-guide.md",
-    "hash": "588bddfb1d359d2858118a25989ddc81",
+    "hash": "ecaa18fca2d6a363140432743873e4b9",
     "keywords": [
       "Migration",
       "Lucee 5",
