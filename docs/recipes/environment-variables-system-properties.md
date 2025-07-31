@@ -283,6 +283,13 @@ Default Values:
 *Lucee 6:* `false` (disabled by default for backward compatibility)
 *Lucee 7:* `true` (enabled by default for better debugging experience)
 
+#### LUCEE_BASE_CONFIG
+
+*SysProp:* `-Dlucee.base.config`
+*Envvar:* `LUCEE_BASE_CONFIG`
+
+Specifies a path to an alternate location for your .CFConfig.json file.
+
 ## Regular Settings
 
 Settings that are nice to know, but not that important.
