@@ -288,7 +288,7 @@ Default Values:
 *SysProp:* `-Dlucee.base.config`
 *Envvar:* `LUCEE_BASE_CONFIG`
 
-Specifies a path to an alternate location for your .CFConfig.json file.
+Specifies a path to an alternate location for your `.CFConfig.json` file, otherwise, the default is `lucee-server/context/.CFConfig.json`
 
 ## Regular Settings
 
