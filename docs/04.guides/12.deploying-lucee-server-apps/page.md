@@ -8,7 +8,7 @@ related:
 - locking-down-lucee-server
 - relocating-web-inf
 - cookbook-check-for-changes
-- lucee-download-and-install
+- running-lucee-download-and-install
 - config
 forceSortOrder: '22'
 ---
@@ -136,6 +136,10 @@ To update firewalled servers, or to upgrade without Lucee downloading bundles (w
 3. Delete or change the file extension for the fat jar in the `lucee/lib` folder, i.e `5.4.3.2.jar`
 4. Copy the updated `lucee.jar` into that `lucee\lib` folder 
 5. Start the server
+
+### Docker
+
+[[docker]]
 
 ### AWS Lambdas / Serverless
 
