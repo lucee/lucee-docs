@@ -3,8 +3,9 @@ Hashing algorithm used for generating key
 Example Values:
 
 - PBKDF2WithHmacSHA1
-- PBKDF2WithSHA1
-- PBKDF2WithSHA224
-- PBKDF2WithSHA256
-- PBKDF2WithSHA384
-- PBKDF2WithSHA512
+- PBKDF2WithHmacSHA384
+- PBKDF2WithHmacSHA512/256
+- PBKDF2WithHmacSHA256
+- PBKDF2WithHmacSHA512/224
+- PBKDF2WithHmacSHA224
+- PBKDF2WithHmacSHA512
