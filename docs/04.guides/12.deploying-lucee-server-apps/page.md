@@ -28,9 +28,13 @@ This is the simplest way to configure / install your Lucee instance at startup o
 
 ### .json - CFConfig.json or config.json
 
-Since Lucee 6.1.1, if Lucee finds a `.CFConfig.json` or `config.json` (in the `/deploy` folder) it will be automatically imported and applied to your running `CFconfig` configuration. [LDEV-4994](https://luceeserver.atlassian.net/browse/LDEV-4994)
+Since Lucee 6.1.1, if Lucee finds a `.CFConfig.json` or `config.json` (in the `/deploy` folder) it will be automatically imported and applied to your running `CFConfig` configuration. [LDEV-4994](https://luceeserver.atlassian.net/browse/LDEV-4994)
 
 You can also configure Lucee to [[cookbook-check-for-changes|monitor the server's .CFConfig.json file for changes]].
+
+The default location for `CFConfig.json` is under `lucee-server/context/`
+
+To specify an alternate location for `CFConfig.json` use `LUCEE_BASE_CONFIG=/path/to/CFConfig.json` or `-Dlucee.base.config=/path/to/CFConfig.json`.
 
 ### .lex - Extensions
 
