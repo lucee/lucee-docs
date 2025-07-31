@@ -12,7 +12,7 @@ Lucee can be installed and run almost everywhere that is capable of running a [s
 
 You can even run Lucee on a small RaspberryPI. 
 
-Because of its great flexibility, Lucee Server comes in different flavors to match your needs (Lucee Express, Lucee Installer, CommandBox, Lucee.jar/Lucee.war). 
+Because of its great flexibility, Lucee Server comes in different flavors to match your needs (Lucee Installer, Docker, Lucee Express, CommandBox, or manually deploying Lucee.jar/Lucee.war).
 
 This document will help you decide which one fits best for your purpose.
 
@@ -20,15 +20,11 @@ If you are migrating from Adobe Coldfusion, please also refer [[category-compat]
 <br>
 <br>
 
+# Lucee Installer (.exe/.run binaries files)
+
 <div class="table-responsive">
 <table>
-	<thead>
-		<tr>
-			<th colspan="2">Option 1: Lucee Installer (.exe/.run binaries files)</th>
-		</tr>
-	</thead>
-	<tbody>
-
+<tbody>
 <tr>
  <td>
 		<div class="attribute">Description:</div>
@@ -103,28 +99,23 @@ If you are migrating from Adobe Coldfusion, please also refer [[category-compat]
 
 </div>
 <br>
-<div class="table-responsive">
-<table>
-	<thead>
-		<tr>
-			<th colspan="2">Option 2: Docker</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Lucee also publishes a wide range of [[docker]] images</td>
-		</tr>
-	</tbody>
-</table>
-</div>
+
+# Docker
 
 <div class="table-responsive">
 <table>
-	<thead>
-		<tr>
-			<th colspan="2">Option 3: Lucee Express (ZIP-File)</th>
-		</tr>
-	</thead>
+<tbody>
+	<tr>
+		<td>Lucee publishes a wide range of [[docker]] images, standalone, or with Nginx</td>
+	</tr>
+</tbody>
+</table>
+</div>
+
+# Lucee Express (ZIP-File)
+
+<div class="table-responsive">
+<table>
 	<tbody>
 		<tr>
 			<td>
@@ -208,15 +199,11 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
 </div>
 <br>
 
+# CommandBox
+
 <div class="table-responsive">
 <table>
-	<thead>
-		<tr>
-			<th colspan="2">Option 4: CommandBox</th>
-		</tr>
-	</thead>
-	<tbody>
-
+<tbody>
 <tr>
  <td>
  	<div class="attribute">Description:</div>
@@ -264,15 +251,10 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
 </div>
 <br>
 
-<div class="table-responsive">
-<table>
-	<thead>
-		<tr>
-			<th colspan="2">Option 5: Custom Installation (Lucee.jar/Lucee.war) </th>
-		</tr>
-	</thead>
-	<tbody>
+# Custom Installation (Lucee.jar/Lucee.war)
 
+<div class="table-responsive">
+<table>	
 <tr>
  <td>
  	<div class="attribute">Description:</div>
@@ -281,6 +263,8 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
  	<strong>Lucee.jar</strong> is the pure stand alone servlet containers of Lucee as compressed Java ARchive (also known as JAR-file) and <strong>Lucee.war</strong> is a Web application ARchive (also known as WAR-file) containing the Lucee.jar. Use these files if you want to run Lucee in different environments with different servlet engines (e.g. Undertow, Jetty or cloud based servlet engines like AWSElasticBeanstalk).
 				<br>
 				You may also use Lucee.jar for upgrading/downgrading Lucee installations without a complete re-installation by simply replacing the .jar file in the servlets engine library folder. If so, please make always sure to backup Tomcat, all server- and web-contexts and your configurations before upgrading.
+				<p>Lucee 6.2 is still javax based, but also optionally supports Jakarta Servlets, so it still requires the javax servlet jars when deployed on a Jakarta based Servlet Engine, like Tomcat 11</p>
+				<p>Lucee 7.0 moves to only supporting Jakarta Servlets, like Tomcat 11, Jetty 12</p>
 			</td>
 		</tr>
 		<tr>
@@ -312,6 +296,8 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
 </table>
 </div>
 <br>
+
+## Introduction to Lucee
 
 <a name="releaseWorkflow"></a>
 
