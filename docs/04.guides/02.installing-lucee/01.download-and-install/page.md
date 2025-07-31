@@ -303,15 +303,26 @@ For further information, please refer to <a href="https://tomcat.apache.org/tomc
 
 ### Deploying Lucee
 
-After you have got Lucee up and running, check out the [[deploying-lucee-server-apps]] for lots of useful tips and tricks.
+After you have got Lucee up and running, check out the [[deploying-lucee-server-apps]] guide for lots of useful tips and tricks.
 
-### The difference between "Snapshots", "Release Candidates (RC)" and "Stable Releases" of Lucee downloads ###
+### Lucee "Stable Releases", "Release Candidates (RC)" and "Snapshots"
 
-At [https://download.lucee.org](https://download.lucee.org) you will find the downloads categorized as "Releases" for Stable Releases, "RC" for Release Candidates, and "Snapshots". These file names are a reference to Lucee's continuous integration workflow.
+At [https://download.lucee.org](https://download.lucee.org) you will find the downloads categorized as:
 
-The Lucee development team is constantly making changes to the Lucee source code. These changes are released almost daily and called **Snapshots**. This gives Lucee developers the ability to quickly get a "Snapshot" of Lucee in its development timeline.
+- "Releases" for Stable Releases
+- "RC" for Release Candidates
+- "BETA" for Beta releases, previews of the next major release
+- "Snapshots" our "nightly" bleeding edge builds
 
-Once the Lucee code reaches a certain level of maturity in its development cycle, a corresponding snapshot is carefully selected and also published as a **Release Candidate (RC)** for broad testing. This is the phase where the Lucee development team focuses on fixing new regressions with the highest priority.
+These file names are a reference to Lucee's continuous integration workflow.
+
+The Lucee development team is constantly making changes to the Lucee source code. These changes are released almost daily and called **Snapshots**. 
+
+This gives Lucee developers the ability to quickly get a "Snapshot" of Lucee in its development timeline.
+
+Once the Lucee code reaches a certain level of maturity in its development cycle, a corresponding snapshot is carefully selected and also published as a **Release Candidate (RC)** for broad testing. 
+
+This is the phase where the Lucee development team focuses on fixing new regressions with the highest priority.
 
 Once the new bugs and regressions are fixed, a stable snapshot is selected and released as a **Stable Release**.
 
@@ -319,7 +330,11 @@ If you want to really help Lucee, testing out the RCs in your dev environment an
 
 ### Explanation of the Lucee Version Numbers ###
 
-Whenever Lucee publishes a "Release" for Stable Releases, "RC" for Release Candidate, and "Snapshot"  the version number is added to each build (e.g. **5.3.10.120**). The version numbering is a direct reference to a development state in the development timeline. It follows a pretty standard release process using (mostly) semantic versioning. The version numbers are built as follows:
+Whenever Lucee publishes a "Release" for Stable Releases, "RC" for Release Candidate, and "Snapshot"  the version number is added to each build (e.g. **5.3.10.120**). The version numbering is a direct reference to a development state in the development timeline. 
+
+It follows a pretty standard release process using (mostly) semantic versioning. 
+
+The version numbers are built as follows:
 
 `major.minor.patch.build`
 
@@ -371,7 +386,9 @@ Java 8 is no longer supported
 
 ### Using Lucee with multiple websites, mod_cfml ###
 
-Lucee doesn't support multiple webserver hosts directly, however [mod_cfml](https://viviotech.github.io/mod_cfml/index.html) is available to achieve this. Mod_cfml is capable to identify new CFML web applications on the fronted webservers side, such as IIS on Windows or Apache on Linux, and automatically add the necessary configuration to your Lucee/Tomcat configuration.
+Lucee doesn't support multiple webserver hosts directly, however [mod_cfml](https://viviotech.github.io/mod_cfml/index.html) is available to achieve this. 
+
+Mod_cfml is capable to identify new CFML web applications on the fronted webservers side, such as IIS on Windows or Apache on Linux, and automatically add the necessary configuration to your Lucee/Tomcat configuration.
 
 <a name="BoncodeAJP"></a>
 
