@@ -770,9 +770,9 @@ Since: 6.2.2.62 / 7.0.0.270
 *SysProp:* `-Dlucee.fileupload.allow.mimetype.detection`
 *EnvVar:* `LUCEE_FILEUPLOAD_ALLOW_MIMETYPE_DETECTION`
 
-A boolean value, default is true. If disabled, Lucee will not attempt to detect the mime type for file uploads with missing or unknown mime types.
+A boolean value, default is true. If disabled, Lucee will not automatically attempt to detect the mime type for file uploads with missing or `application/octet-stream`` mime type.
 
-Since: 7.0.0.311
+Since: 7.0.0.312
 
 ## Edge Case Settings
 
