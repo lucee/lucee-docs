@@ -194,6 +194,12 @@ This was changed to match modern security expectations, as session tokens should
 
 [LDEV-3437](https://luceeserver.atlassian.net/browse/LDEV-3437)
 
+### cflocation no longer encodes the url by default
+
+[[tag-location]]
+
+[LDEV-2164](https://luceeserver.atlassian.net/browse/LDEV-2164)
+
 ### DirectoryRename() should return the new path, not void
 
 [[function-DirectoryRename]]
