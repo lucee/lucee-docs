@@ -41,6 +41,8 @@ This systematic approach allows efficient identification and resolution of all c
 
 ## Breaking Changes and Solutions
 
+[[breaking-changes-5-4-to-6-0]]
+
 ### 1. DeserializeJSON Empty String Handling
 
 **Issue**: Lucee 6's `DeserializeJSON()` function no longer accepts empty strings as valid input. In Lucee 5, `DeserializeJSON("")` would return an empty string, but in Lucee 6 this throws an exception: "input value cannot be empty string."

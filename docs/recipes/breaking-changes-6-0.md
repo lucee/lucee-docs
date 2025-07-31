@@ -5,7 +5,8 @@
   "id": "breaking-changes-5-4-to-6-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 5.4 and 6.0",
-  "keywords": ["breaking changes", "Lucee 5.4", "Lucee 6.0", "migration", "upgrade"]
+  "keywords": ["breaking changes", "Lucee 5.4", "Lucee 6.0", "migration", "upgrade"],
+  "related": ["lucee-5-to-6-migration-guide" ]
 }
 -->
 
@@ -17,7 +18,7 @@ The decision to make breaking changes are not made lightly, generally speaking, 
 
 Please review all these changes when upgrading your applications to ensure they run smoothly and reliably.
 
-When migrating, the Lucee team highly recommends going straight to the latest 6.2 release, via a fresh install, working thru the breaking changes documents for each release, as listed and linked below.
+When migrating, **the Lucee team highly recommends going straight to the latest 6.2 release**, via a fresh install, working thru the breaking changes documents for each release, as listed and linked below.
 
 [[lucee-5-to-6-migration-guide]]
 
@@ -46,7 +47,6 @@ Lucee 7.0 only supports single mode (multi-mode, i.e. web admins/contexts are re
 
 ## Other Breaking Changes in Lucee Releases
 
-- [[breaking-changes-5-4-to-6-0]]
 - [[breaking-changes-6-0-to-6-1]]
 - [[breaking-changes-6-1-to-6-2]]
 - [[breaking-changes-6-2-to-7-0]]
