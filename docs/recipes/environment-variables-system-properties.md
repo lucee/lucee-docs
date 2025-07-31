@@ -772,7 +772,7 @@ Since: 6.2.2.62 / 7.0.0.270
 
 A boolean value, default is true. If disabled, Lucee will not automatically attempt to detect the mime type for file uploads with missing or `application/octet-stream`` mime type.
 
-Since: 7.0.0.312
+Since: 6.2.3.2, 7.0.0.312
 
 ## Edge Case Settings
 
