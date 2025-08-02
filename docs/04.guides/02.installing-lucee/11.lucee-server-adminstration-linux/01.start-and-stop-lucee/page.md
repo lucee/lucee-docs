@@ -7,7 +7,7 @@ related:
 - windows-start-stop-lucee
 ---
 
-In a Linux environment, Lucee can be controlled by using the provided `lucee_ctl` script. 
+In a Linux environment, Lucee can be controlled by using the provided [lucee_ctl](https://github.com/lucee/lucee-installer/blob/master/lucee/linux/sys/engine_ctl_template) script, which is configured by the installer according to your choices.
 
 During a standard install, it is possible for two (2) copies of this file to be created.
 
@@ -18,6 +18,8 @@ Even though there are two copies of the file, there are no difference between th
 ### Permissions ###
 
 In all installations, root-level privileges are required to use the `lucee_ctl` script. This means you have to either be logged in directly as root, su to root, or sudo to root. This is important because it usually effects how to run the `lucee_ctl` script.
+
+You can use the bundled Tomcat shell scripts (`startup.sh`, `shutdown.sh` and `catalina.sh`), **but make sure you are running as root**, otherwise, it can causes problem, therefore, it's best to use `lucee_ctl`**
 
 ### On RHEL, CentOS, Fedora, etc ###
 
