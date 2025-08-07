@@ -1,1 +1,1 @@
-A array to Removes duplicate
+An array to deduplicate
