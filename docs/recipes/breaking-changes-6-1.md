@@ -37,6 +37,16 @@ Lucee 6.0 introduced Single Mode, Lucee 7.0 only supports single mode (multi-mod
 
 As of Lucee 6.1, the **Lucee Language dialect** has been fully removed. This means that the Lucee-specific language dialect can no longer be used in any way within your applications. Ensure that any code utilizing this dialect is updated to use standard CFML.
 
+## URLEncode and UrlDecode functions, including the url and form scopes, now use Apache Commmons Codec
+
+Prior to Lucee 6.1, Lucee used it's own implementation for url encoding and decoding.
+
+With 6.1, to address unresolved additional edge cases with the older implementation, i.e. mixed multi-byte, we switched to using the standard Apache Commons Codec Library.
+
+The older implementation was less strict and would decode invalid url encoded strings, such as an unencoded trailing `%`.
+
+[LDEV-4648](https://luceeserver.atlassian.net/browse/LDEV-4648)
+
 ## Exception Handling in `<cfcontent>` Tag
 
 In Lucee 6.0, using the `<cfcontent>` tag with a file URL that returns a **403 Forbidden** response did not throw an exception. In Lucee 6.1, this behavior has changed, and now an exception **will be thrown** in this scenario. Make sure to adjust your error handling if this is relevant to your application.
