@@ -34,6 +34,8 @@ These scopes persist through a single request, i.e. any code, in any module, can
 | request | Used to store data across an entire request. Data put into the request scope will be accessible from all templates, CFCs, custom tags, etc |                                                                                                                       |
 | url     |                                                                                                                                            |                                                                                                                       |
 
+With Lucee 6.1, the url decoding was updated to use Apache Commons Codec, which is slightly stricter, but also more robust.
+
 ## Query scopes
 
 By default in cfml, inside a query [[tag-loop]] or [[tag-output]], queries are checked for unscoped variables, even before the `variables` scope.

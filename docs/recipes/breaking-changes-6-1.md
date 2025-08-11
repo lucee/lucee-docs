@@ -37,11 +37,13 @@ Lucee 6.0 introduced Single Mode, Lucee 7.0 only supports single mode (multi-mod
 
 As of Lucee 6.1, the **Lucee Language dialect** has been fully removed. This means that the Lucee-specific language dialect can no longer be used in any way within your applications. Ensure that any code utilizing this dialect is updated to use standard CFML.
 
-## URLEncode and UrlDecode functions, including the url and form scopes, now use Apache Commmons Codec
+## URL Encoding and Decoding improvements
 
 Prior to Lucee 6.1, Lucee used it's own implementation for url encoding and decoding.
 
 With 6.1, to address unresolved additional edge cases with the older implementation, i.e. mixed multi-byte, we switched to using the standard Apache Commons Codec Library.
+
+This affects the [[function-URLEncode]] and [[function-UrlDecode]] functions, as well as the handling of the `url` and `form` scopes.
 
 The older implementation was less strict and would decode invalid url encoded strings, such as an unencoded trailing `%`.
 
