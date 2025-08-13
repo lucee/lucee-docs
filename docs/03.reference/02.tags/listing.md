@@ -36,3 +36,5 @@ attrs = { url="https://dev.lucee.org", addToken="false" };
 location attributeCollection=attrs;
 cflocation(attributeCollection=attrs);
 ```
+
+To switch into tag mode, from inside [[tag-script]] use [[tag-islands]]
