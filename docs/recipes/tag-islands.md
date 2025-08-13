@@ -43,3 +43,5 @@ Unfortunately, currently the docs markdown / wiki support doesn't quite allow es
 
 </cfscript>
 ```
+
+Ben Nadel loves this feature [Tag Islands And CFScript-Based Tags Bring Perfection To ColdFusion In Lucee CFML 5.3.4.80](https://www.bennadel.com/blog/3793-tag-islands-and-cfscript-based-tags-bring-perfection-to-coldfusion-in-lucee-cfml-5-3-4-80.htm)
