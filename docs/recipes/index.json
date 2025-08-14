@@ -692,7 +692,7 @@
     "file": "java-class-interaction.md",
     "title": "Java Class Interaction",
     "path": "/docs/recipes/java-class-interaction.md",
-    "hash": "021519daa393eb87dc3570a1a9c29fc9",
+    "hash": "4eed58da8beda85ece16519a04723fae",
     "keywords": [
       "Java",
       "Classes",
@@ -879,7 +879,7 @@
     "file": "lucene-search.md",
     "title": "Lucene 3 Extension",
     "path": "/docs/recipes/lucene-search.md",
-    "hash": "e6ae606ba2b052d7bf8fb7631db339c5",
+    "hash": "1483315b8a52008c3b86aaf141e8a543",
     "keywords": [
       "Lucene",
       "Search",
@@ -1431,7 +1431,7 @@
     "file": "tag-syntax.md",
     "title": "How to Use Tags in Script",
     "path": "/docs/recipes/tag-syntax.md",
-    "hash": "a10c3acda2e42f7f31bf31454542d7bf",
+    "hash": "0f183728f391b8d4c9648dfdc8c10bd7",
     "keywords": [
       "Syntax",
       "tag",
