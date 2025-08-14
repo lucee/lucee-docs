@@ -517,7 +517,7 @@ component accessors=true {
 	private void function _updateRecipeDates(){
 		var s = getTickCount()
 		var gitReader = new api.parsers.git.gitReader();
-		var repoRoot = expandPath( getDirectoryFromPath(GetCurrentTemplatePath()) + "../.." );
+		var repoRoot = expandPath( getDirectoryFromPath(GetCurrentTemplatePath()) & "../.." );
 		var skip = {
 			"README.md": true
 		};
