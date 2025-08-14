@@ -1,7 +1,6 @@
 component output=false {
 	function getDatesForFolder( repo, folder, stats={}, skip ) {
 		var path = arguments.repo & "\" & arguments.folder;
-		systemOutput("stats:" & structCount(stats), true);
 		var files = directoryList(path=path, filter="*.md",listinfo="query");
 		var _stats= arguments.stats;
 		var _skip = arguments.skip;
@@ -12,7 +11,7 @@ component output=false {
 		});
 
 		var stFiles = QueryToStruct( query=files, columnKey="name" );
-		
+
 		structEach(stFiles, function(name, file){
 			if ( structKeyExists(_stats, name) ){
 				structAppend(file, _stats[name], false);
