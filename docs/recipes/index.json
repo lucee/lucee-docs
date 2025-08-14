@@ -1155,6 +1155,22 @@
     ]
   },
   {
+    "file": "query-result-threshold.md",
+    "title": "Query Result Logging",
+    "path": "/docs/recipes/query-result-threshold.md",
+    "hash": "4ebaf38ebc66f8712d22c3b22cf1c012",
+    "keywords": [
+      "query",
+      "logging",
+      "monitoring",
+      "performance",
+      "OOM",
+      "OutOfMemory",
+      "database",
+      "threshold"
+    ]
+  },
+  {
     "file": "query-return-type.md",
     "title": "Query return type",
     "path": "/docs/recipes/query-return-type.md",

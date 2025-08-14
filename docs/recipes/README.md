@@ -340,6 +340,10 @@ Query of queries (QoQ) is a technique for re-querying an existing (in memory) qu
 
 This document explains why Query of Queries (QoQ) may or may not be the best approach for your use case.
 
+## [Query Result Logging](/docs/recipes/query-result-threshold.md)
+
+Monitor and log database queries that return large result sets to prevent OutOfMemory errors
+
 ## [Query return type](/docs/recipes/query-return-type.md)
 
 This document explains the different return types for a query with some examples.
