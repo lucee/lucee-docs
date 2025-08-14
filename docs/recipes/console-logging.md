@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Console Logging using SystemOutput",
+  "title": "Console logging using SystemOutput",
   "id": "console-logging",
   "description": "Use the console for debugging",
   "keywords": [
@@ -30,7 +30,7 @@ Lucee has a very useful function [[function-systemoutput]], which lets you write
 
 If you are using Tomcat, you can run it interactively using `catalina run` in the `tomcat\bin` directory.
 
-With [[getting-started-commandbox]], you can do similar, via `box server start --console`
+With [[getting-started-commandbox]], you can do similar, via `box server start --console`.
 
 Both then run the Server with the console logs being output.
 

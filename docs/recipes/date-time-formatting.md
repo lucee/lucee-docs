@@ -19,7 +19,7 @@
   ],
   "related": [
     "function-datetimeformat",
-    "function-dateformat",
+    "function-dateformat"
   ]
 }
 -->
