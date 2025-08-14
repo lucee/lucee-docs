@@ -17,6 +17,7 @@
   "related": [
     "lucene-3-extension"
   ]
+}
 -->
 
 # AI Augmentation with Lucene
