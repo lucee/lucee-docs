@@ -294,6 +294,18 @@ Specifies a path to an alternate location for your `.CFConfig.json` file, otherw
 
 Settings that are nice to know, but not that important.
 
+#### LUCEE_QUERY_RESULT_THRESHOLD
+
+*SysProp:* `-Dlucee.query.result.threshold`
+*EnvVar:* `LUCEE_QUERY_RESULT_THRESHOLD`
+
+Enables automatic logging of database queries that return large result sets to help proactively identify potential OutOfMemory (OOM) issues. When set to a positive integer, Lucee will log a warning message to the `datasource` log category whenever a query returns a number of rows greater than or equal to the specified threshold.
+
+- Set to `0` or leave unset to disable this feature (default behavior)
+- Logs include execution time, row count, column count, threshold value, SQL query, and tag context
+- Helps identify problematic queries before they cause memory issues in production environments
+- Example: Setting `LUCEE_QUERY_RESULT_THRESHOLD=100000` will log any query returning 100,000+ rows
+
 #### LUCEE_MAVEN_LOCAL_REPOSITORY
 
 *SysProp:* `-Dlucee.maven.local.repository`

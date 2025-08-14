@@ -88,6 +88,10 @@ Best practices for configuring Lucee 5 environments.
 
 Best practices for configuring Lucee in various environments.
 
+## [Untitled](/docs/recipes/console-logging.md)
+
+Use the console for debugging
+
 ## [Convert a CFML Function/Component to use in Java](/docs/recipes/convert-a-cfml-func-to-java.md)
 
 Learn how to convert user-defined functions or components in Lucee to use them in Java. This guide demonstrates how to define components to implement Java interfaces, pass components to Java methods, explicitly define interfaces, and use the onMissingMethod feature. It also shows how to convert user-defined functions to Java lambdas.
@@ -335,6 +339,10 @@ Query of queries (QoQ) is a technique for re-querying an existing (in memory) qu
 ## [Query of Queries sometimes it rocks, sometimes it sucks](/docs/recipes/query-of-query-sometime.md)
 
 This document explains why Query of Queries (QoQ) may or may not be the best approach for your use case.
+
+## [Query Result Logging](/docs/recipes/query-result-threshold.md)
+
+Monitor and log database queries that return large result sets to prevent OutOfMemory errors
 
 ## [Query return type](/docs/recipes/query-return-type.md)
 
