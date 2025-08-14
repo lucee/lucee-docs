@@ -79,6 +79,7 @@ As a LTS release, Lucee 5.4 will receive security updates and critical regressio
 
 - Our mailing list / forum is over at [https://dev.lucee.org/](https://dev.lucee.org/)
 - [[tutorial-reporting-bugs]]
+- [[troubleshooting]]
 
 ## Lucee 5.3
 

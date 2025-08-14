@@ -13,7 +13,11 @@
     "Static Methods",
     "Inner Classes",
     "Reflection"
+  ],
+  "related": [
+    "function-createobject"
   ]
+
 }
 -->
 

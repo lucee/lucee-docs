@@ -13,6 +13,11 @@
     "Semantic",
     "Content Chunks",
     "Embeddings"
+  ],
+  "related": [
+    "tag-collection",
+    "tag-search",
+    "tag-index"
   ]
 }
 -->

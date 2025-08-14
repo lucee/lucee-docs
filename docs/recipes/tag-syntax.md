@@ -20,7 +20,8 @@
   ],
   "related": [
     "developing-with-lucee-server",
-    "tag-script"
+    "tag-script",
+    "tag"
   ]
 }
 -->
