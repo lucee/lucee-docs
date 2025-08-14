@@ -88,6 +88,10 @@ Best practices for configuring Lucee 5 environments.
 
 Best practices for configuring Lucee in various environments.
 
+## [Untitled](/docs/recipes/console-logging.md)
+
+Use the console for debugging
+
 ## [Convert a CFML Function/Component to use in Java](/docs/recipes/convert-a-cfml-func-to-java.md)
 
 Learn how to convert user-defined functions or components in Lucee to use them in Java. This guide demonstrates how to define components to implement Java interfaces, pass components to Java methods, explicitly define interfaces, and use the onMissingMethod feature. It also shows how to convert user-defined functions to Java lambdas.

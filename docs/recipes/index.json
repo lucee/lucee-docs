@@ -3,7 +3,7 @@
     "file": "ai-augmentation.md",
     "title": "AI Augmentation with Lucene",
     "path": "/docs/recipes/ai-augmentation.md",
-    "hash": "0f498ffe8d676b37960c93f1395381fb",
+    "hash": "a06be52882fa793645af6426cc5ce482",
     "keywords": [
       "AI",
       "LLM",
@@ -18,7 +18,7 @@
     "file": "ai-for-documentation.md",
     "title": "AI in Documentation (Experimental)",
     "path": "/docs/recipes/ai-for-documentation.md",
-    "hash": "375e663dbc51af91891b0c40fb2a599f",
+    "hash": "910654d6219f450f9db93b070b66979b",
     "keywords": [
       "AI",
       "LLM",
@@ -43,7 +43,7 @@
     "file": "ai-serialisation.md",
     "title": "AI Session Serialization",
     "path": "/docs/recipes/ai-serialisation.md",
-    "hash": "59bc32531bd17a86c891e08abf759083",
+    "hash": "b202a3ca8f024c71da43791e6542652c",
     "keywords": [
       "AI",
       "LLM",
@@ -56,7 +56,7 @@
     "file": "ai.md",
     "title": "AI (Experimental)",
     "path": "/docs/recipes/ai.md",
-    "hash": "c6bb2dc84ea3abb12ee829131d4348d3",
+    "hash": "5c1a3e6e34db3d19be043231597b2c5c",
     "keywords": [
       "AI",
       "LLM"
@@ -196,7 +196,7 @@
     "file": "caches-defined-in-application-cfc.md",
     "title": "Caches defined in Application.cfc",
     "path": "/docs/recipes/caches-defined-in-application-cfc.md",
-    "hash": "c37a4cb6f4fb432f17b432e56366df13",
+    "hash": "b3f919269b4865f6f2e0d487be41ebe7",
     "keywords": [
       "Caches",
       "Application.cfc",
@@ -237,7 +237,7 @@
     "file": "component-getclass-method.md",
     "title": "getClass() Method for Components",
     "path": "/docs/recipes/component-getclass-method.md",
-    "hash": "29c5bc4fb10ff63cc580a3b04e9a99b7",
+    "hash": "ffa3db37c5dcfc2ea1b32e6e1b9ed0a3",
     "keywords": [
       "getClass",
       "component",
@@ -251,7 +251,7 @@
     "file": "component-mappings.md",
     "title": "Component Mappings",
     "path": "/docs/recipes/component-mappings.md",
-    "hash": "8df6b2d3876fef2473fc2fcbf4d603cf",
+    "hash": "aa0afd06a3027f30c461bf25e0bbc105",
     "keywords": [
       "Component Mapping",
       "Classpath",
@@ -291,13 +291,23 @@
     "file": "configuration.md",
     "title": "Configuration - How to Configure Lucee",
     "path": "/docs/recipes/configuration.md",
-    "hash": "42b09592d561faec4b3e8db0b9747406",
+    "hash": "c246a4ce5ace89e7aeeb14c8bba7f511",
     "keywords": [
       "configuration",
       "config",
       ".CFConfig.json",
       "lucee-server.xml",
       "lucee-web.xml"
+    ]
+  },
+  {
+    "file": "console-logging.md",
+    "title": "Untitled",
+    "path": "/docs/recipes/console-logging.md",
+    "hash": "4fc79dfeb37d282bf75b3d3a4d023d16",
+    "keywords": [
+      "Logging",
+      "console"
     ]
   },
   {
@@ -346,7 +356,7 @@
     "file": "date-time-formatting.md",
     "title": "Date and Time Formatting in Lucee",
     "path": "/docs/recipes/date-time-formatting.md",
-    "hash": "0cdb0f26383e798b89ee32017e442aab",
+    "hash": "7682e6bb25f7773f414ebcac31211db7",
     "keywords": [
       "Date",
       "Time",
@@ -1010,7 +1020,7 @@
     "file": "null-support.md",
     "title": "Null Support",
     "path": "/docs/recipes/null-support.md",
-    "hash": "a7203c9d96ab0a967bfaf4791975809b",
+    "hash": "a6208796cda4493a1d0d5a2e6b2d4000",
     "keywords": [
       "Null support",
       "null keyword",
@@ -1234,14 +1244,14 @@
     "file": "scheduler-quartz-clustering.md",
     "title": "Clustering with Quartz Scheduler",
     "path": "/docs/recipes/scheduler-quartz-clustering.md",
-    "hash": "6a4822516b021262d297ca368df746f8",
+    "hash": "0b03b19c82364f11368d16d43ad220ae",
     "keywords": []
   },
   {
     "file": "scheduler-quartz-component-jobs.md",
     "title": "Creating Component-Based Jobs with Quartz Scheduler",
     "path": "/docs/recipes/scheduler-quartz-component-jobs.md",
-    "hash": "f6311c81005a01a5b3f12abdcb8eed17",
+    "hash": "a3c9f59cb7137a2594fea05af7a900b8",
     "keywords": [
       "scheduler",
       "quartz",
@@ -1255,7 +1265,7 @@
     "file": "scheduler-quartz.md",
     "title": "Quartz Scheduler Extension for Lucee",
     "path": "/docs/recipes/scheduler-quartz.md",
-    "hash": "d7fd877e79da9da7122d3a213fdb7ff0",
+    "hash": "8e2ba9f1ffd20894a993349f586dc320",
     "keywords": [
       "scheduler",
       "quartz",
@@ -1268,7 +1278,7 @@
     "file": "script-templates.md",
     "title": "Script Templates",
     "path": "/docs/recipes/script-templates.md",
-    "hash": "11f8398506ad1b0b4bbecbccfb473fa2",
+    "hash": "2b7be4bb6517ae11e18dd333b4cac416",
     "keywords": [
       "CFML",
       "script",
@@ -1431,7 +1441,7 @@
     "file": "tag-syntax.md",
     "title": "How to Use Tags in Script",
     "path": "/docs/recipes/tag-syntax.md",
-    "hash": "0f183728f391b8d4c9648dfdc8c10bd7",
+    "hash": "ea016a23b18afd1b136411b825cc53b6",
     "keywords": [
       "Syntax",
       "tag",
@@ -1491,7 +1501,7 @@
     "file": "types-in-lucee.md",
     "title": "Types in Lucee",
     "path": "/docs/recipes/types-in-lucee.md",
-    "hash": "8542e36d691ed1c47e9a4516236c3d2d",
+    "hash": "56f868a3c48a681925bffd32bf864c72",
     "keywords": [
       "Types",
       "Function argument",
