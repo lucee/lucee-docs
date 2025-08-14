@@ -30,8 +30,8 @@ component output=false {
 		structEach(arguments.stats, function(k, v){
 			var r = QueryAddRow(q);
 			QuerySetCell(q, "name", k, r);
-			QuerySetCell(q, "created", arrayLast(v.commits), r);
-			QuerySetCell(q, "updated", arrayFirst(v.commits), r);
+			QuerySetCell(q, "created", len(v.commits) gt 0 ? arrayLast(v.commits) : now(), r);
+			QuerySetCell(q, "updated", len(v.commits) gt 0 ? arrayFirst(v.commits) : now(), r);
 			//QuerySetCell(q, "age", DateDiff("d", q.created[r],q.updated[r]), r);
 		});
 		return q
