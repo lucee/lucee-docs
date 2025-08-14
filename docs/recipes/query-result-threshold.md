@@ -3,7 +3,7 @@
   "title": "Query Result Logging",
   "id": "query-result-threshold",
   "since": "6.2.3.15",
-  "categories": ["monitoring", "performance", "database"],
+  "categories": ["monitoring", "performance", "database", "query"],
   "description": "Monitor and log database queries that return large result sets to prevent OutOfMemory errors",
   "keywords": [
     "query",
@@ -14,6 +14,9 @@
     "OutOfMemory",
     "database",
     "threshold"
+  ],
+  "related" :[
+    "tag-query"
   ]
 }
 -->
