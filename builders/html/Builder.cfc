@@ -12,6 +12,10 @@ component {
 		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
 	}
 
+	public string function renderContent( any docTree, required string content ) {
+		return docTree.renderContent( content );
+	}
+
 	public string function _getIssueTrackerLink(required string name) {
 		var link = Replace( new api.build.BuildProperties().getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
 		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';

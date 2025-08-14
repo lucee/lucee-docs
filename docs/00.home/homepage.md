@@ -16,9 +16,17 @@ Our documentation is an open source and community driven effort. It is also a co
 
 If you're interested in contributing to Lucee as a Developer, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/6.0/CONTRIBUTING.md)
 
-## Recipes
+## Recipes - Lucee Guides and Tutorials
 
-We have added a whole series of detailed [[Recipes]] showing you how to take advantage of the wide range of features in Lucee.
+We are always adding and updating our detailed [[Recipes]] showing you how to take advantage of the wide range of features in Lucee.
+
+Feel free to request new topics or ask questions via the [dev forum](https://dev.lucee.org/).
+
+**Latest Content**
+
+[[content::latest-recipies]]
+
+To see what's new in Tags and Functions refer to [[changelog]]
 
 ## Deploying Lucee
 

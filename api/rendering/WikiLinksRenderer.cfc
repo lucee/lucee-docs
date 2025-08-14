@@ -9,8 +9,14 @@ component accessors=true {
 		do {
 			link = _getNextLink( rendered, startPos );
 			if ( !IsNull( link ) ) {
-				rendered = Replace( rendered, link.rawMatch, arguments.builder.renderLink( link.page ?: NullValue(), link.title ), "all" );
-				startPos = link.nextStartPos;
+				if ( link.type eq "content" ) {
+					var content = arguments.builder.renderContent( getDocTree(), link.content );
+					rendered = Replace( rendered, link.rawMatch, content, "one" );
+					//startPos = link.nextStartPos + len( content );
+				} else {
+					rendered = Replace( rendered, link.rawMatch, arguments.builder.renderLink( link.page ?: NullValue(), link.title ), "all" );
+					startPos = link.nextStartPos;
+				}
 			}
 		} while( !IsNull( link ) );
 
@@ -37,14 +43,28 @@ component accessors=true {
 		var rawMatch  = Mid( arguments.text, match.pos[1], match.len[1] );
 		var reference = ListToArray(Mid( arguments.text, match.pos[2], match.len[2] ), "|");
 		var pageId    = reference[1];
-		var page      = getDocTree().getPage( pageId );
-		var title     = reference.len() > 1 ? reference.last() : ( IsNull( page ) ? pageId : page.getTitle() );
 
-		return {
-			  rawMatch = rawMatch
-			, page     = page  ?: NullValue()
-			, title    = title ?: pageId
-			, nextStartPos: match.pos[2] // not exact but saves reparsing the whole text again
-		};
+		if (left( pageId, 9 ) eq "content::"){
+			// special content link
+			var content = mid( pageId, 10 );
+			return {
+				type       = "content"
+				, rawMatch = rawMatch
+				, content  = content
+				, nextStartPos: match.pos[2]
+			};
+		} else {
+			var page      = getDocTree().getPage( pageId );
+			var title     = reference.len() > 1 ? reference.last() : ( IsNull( page ) ? pageId : page.getTitle() );
+
+			return {
+				type       = "link"
+				, rawMatch = rawMatch
+				, page     = page  ?: NullValue()
+				, title    = title ?: pageId
+				, nextStartPos: match.pos[2] // not exact but saves reparsing the whole text again
+			};
+		}
 	}
 }
+

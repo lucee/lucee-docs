@@ -10,8 +10,8 @@ component accessors=true {
 	property name="pageCache" type="any"; // tracks references
 	// tracks directly related pages ( i.e. BIF and object member, Struct.keyExists and StructKeyExists) LD-112
 	property name="directlyRelatedMap" type="struct";
-
 	property name="threads" type="numeric"; // tracks references
+	property name="recipeDates" type="struct"; // tracks the git created dates for recipes for latest content
 
 	public any function init( required string rootDirectory, required numeric threads ) {
 		variables.rootDir =  arguments.rootDirectory;
@@ -225,6 +225,7 @@ component accessors=true {
 			request.logger (text=" #len(variables.pageCache.getPages())# Pages Parsed in #(getTickCount()-start)/1000#s");
 
 			_buildTreeHierarchy(false);
+			_updateRecipeDates();
 			_parseTree();
 		}
 	}
@@ -271,10 +272,10 @@ component accessors=true {
 			if (added gt 0 or deleted.len() gt 0)
 				pageCache.reSort();
 			_buildTreeHierarchy(true);
+			_updateRecipeDates();
 			_parseTree();
 		}
 	}
-
 	private void function _buildTreeHierarchy(boolean reset="false") {
     	//var start = getTickCount();
 		var pages = variables.pageCache.getPages();
@@ -510,5 +511,30 @@ component accessors=true {
 		}
 		setReferenceMap( pagesByType );
 		return referenceMap;
+	}
+
+	
+	private void function _updateRecipeDates(){
+		var s = getTickCount()
+		var gitReader = new api.parsers.git.gitReader();
+		var repoRoot = expandPath("..");
+		var skip = {
+			"README.md": true
+		};
+		var folder ="docs\recipes\";
+		
+		setRecipeDates(gitReader.getDatesForFolder( repoRoot, folder, server.luceeDocsRecipeDateCache ?: {}, skip));
+		server.luceeDocsRecipeDateCache = duplicate(getRecipeDates()); // this is expensive and docTree gets blown away on reload, plus applicationStop()
+		request.logger("Scanned git logs for recipes dates in #getTickCount()-s#ms, found #structCount(getRecipeDates())# recipes");
+	}
+
+	// hack first cut
+	public function renderContent( required string content ) {
+		switch (arguments.content){
+			case "latest-recipies":
+				return new api.rendering.content.recipes().render(this, content, getRecipeDates());
+			default:
+				throw("unknown content type: " & arguments.content);
+		}
 	}
 }
