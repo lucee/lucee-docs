@@ -18,6 +18,8 @@
 
 # Script Templates
 
-Since version 6.0, Lucee supports templates with the extension `.cfs`. The idea of these templates is that they contain script code, similar to `.js` files in the JavaScript world.
+Since version 6.0, Lucee supports templates with the extension `.cfs`. 
+
+The idea of these templates is that they contain script code, similar to `.js` files in the JavaScript world.
 
 This allows you to write direct script code without the need for the `<cfscript>` tag.

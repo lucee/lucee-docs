@@ -16,17 +16,25 @@
     "dateTimeFormat",
     "lsDateFormat",
     "createTime"
+  ],
+  "related": [
+    "function-datetimeformat",
+    "function-dateformat",
   ]
 }
 -->
 
 # Date and Time Formatting in Lucee
 
-Lucee provides powerful and flexible date and time formatting capabilities that support multiple locales, timezones, and custom format patterns. Whether you need basic date display, internationalized formatting, or complex timezone handling, Lucee's date formatting functions offer comprehensive solutions for any application.
+Lucee provides powerful and flexible date and time formatting capabilities that support multiple locales, timezones, and custom format patterns. 
+
+Whether you need basic date display, internationalized formatting, or complex timezone handling, Lucee's date formatting functions offer comprehensive solutions for any application.
 
 ## Overview
 
-Date and time formatting in Lucee allows you to convert date objects into human-readable strings according to specific patterns, locales, and timezones. The formatting system supports everything from simple date displays to complex internationalized applications with multiple timezone support.
+Date and time formatting in Lucee allows you to convert date objects into human-readable strings according to specific patterns, locales, and timezones. 
+
+The formatting system supports everything from simple date displays to complex internationalized applications with multiple timezone support.
 
 ## How It Works
 
@@ -37,7 +45,9 @@ Lucee's date formatting system works by taking a date object and applying format
 3. **Timezones** - Handle timezone conversions and display
 4. **Date objects** - Work with various date types including Date, DateTime, and Time objects
 
-**Important:** Lucee uses `java.util.Date` internally, which **never holds timezone information**. Date objects represent a specific moment in time (milliseconds since Unix epoch). Timezone and locale are only applied when:
+**Important:** Lucee uses `java.util.Date` internally, which **never holds timezone information**. 
+
+Date objects represent a specific moment in time (milliseconds since Unix epoch). Timezone and locale are only applied when:
 
 - **Creating/Parsing** a date from human-readable values (to interpret what moment in time those values represent)
 - **Formatting** a date object into a string (to display that moment in a specific timezone)
@@ -110,7 +120,9 @@ echo(dateTimeFormat(now(), "yyyy-MM-dd HH:mm:ss z")); // Uses current timezone
 
 ### Creating Dates with Timezone Context
 
-When creating dates, you can specify a timezone to **interpret** what timezone the input values represent during creation. The resulting date object is still a `java.util.Date` with no timezone attached:
+When creating dates, you can specify a timezone to **interpret** what timezone the input values represent during creation. 
+
+The resulting date object is still a `java.util.Date` with no timezone attached:
 
 ```javascript
 // These create DIFFERENT date objects representing different moments in time
@@ -150,7 +162,9 @@ echo(dateTimeFormat(meetingTime, "HH:mm z", "UTC"));           // 10:00 UTC
 
 ### Parsing Dates with Timezone Context
 
-Similarly, when parsing date strings, you can specify the timezone to **interpret** what timezone the string values represent. The resulting date object is still a plain `java.util.Date`:
+Similarly, when parsing date strings, you can specify the timezone to **interpret** what timezone the string values represent. 
+
+The resulting date object is still a plain `java.util.Date`:
 
 ```javascript
 // Parse date strings with timezone context for interpretation

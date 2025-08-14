@@ -2,7 +2,7 @@
 {
   "title": "Creating Component-Based Jobs with Quartz Scheduler",
   "id": "component-jobs-quartz-scheduler",
-  "related": ["scheduler-quartz", "clustering-quartz-scheduler"],
+  "related": ["scheduler-quartz", "clustering-quartz-scheduler", "tag-schedule"],
   "categories": ["extensions", "recipes"],
   "description": "How to create and configure component-based jobs with the Quartz Scheduler extension",
   "keywords": [

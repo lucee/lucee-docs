@@ -11,10 +11,13 @@
     "Lucee"
   ],
   "categories": [
-	"core"
+	"core",
+	"decision"
   ],
   "related":[
-	"developing-with-lucee-server"
+	"developing-with-lucee-server",
+	"tag-param",
+	"function-isInstanceOf"
   ]
 }
 -->

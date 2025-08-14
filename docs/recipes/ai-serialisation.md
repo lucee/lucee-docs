@@ -17,7 +17,9 @@
 
 # AI Session Serialization
 
-Lucee provides functions to serialize and deserialize AI sessions, allowing you to save conversation state and restore it later. This enables persistent AI conversations across page requests, application restarts, or sharing conversation contexts between different parts of your application.
+Lucee provides functions to serialize and deserialize AI sessions, allowing you to save conversation state and restore it later. 
+
+This enables persistent AI conversations across page requests, application restarts, or sharing conversation contexts between different parts of your application.
 
 ## Functions
 
@@ -72,7 +74,9 @@ A new AI session object with the restored configuration and conversation history
 
 ## Cross-Model Flexibility
 
-An important feature of these functions is that you are not bound to a specific endpoint when loading a session. You can serialize a conversation from one AI model and load it into a different one. For example:
+An important feature of these functions is that you are not bound to a specific endpoint when loading a session. 
+
+You can serialize a conversation from one AI model and load it into a different one. For example:
 
 - Serialize a conversation with Claude
 - Load that conversation state into ChatGPT or Gemini

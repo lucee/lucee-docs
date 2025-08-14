@@ -29,11 +29,17 @@
 
 # AI in Documentation (Experimental)
 
-Lucee 6.2 introduces experimental support for AI-driven assistance in the Documentation tab of Lucee’s Monitor, aiming to provide intelligent guidance by connecting to various AI engines. This feature will see further refinement in Lucee 7. For an overview of Lucee's AI capabilities, see the [general AI documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai.md).
+Lucee 6.2 introduces experimental support for AI-driven assistance in the Documentation tab of Lucee’s Monitor, aiming to provide intelligent guidance by connecting to various AI engines. 
+
+This feature will see further refinement in Lucee 7. 
+
+For an overview of Lucee's AI capabilities, see the [general AI documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai.md).
 
 ## Configuration for AI in Monitor/Documentation
 
-To enable AI in the Documentation tab of the Monitor, set up a compatible AI connection in the Lucee Administrator or via the `.CFConfig.json` file. Configurations for OpenAI (ChatGPT), Google Gemini, or local services like Ollama are possible.
+To enable AI in the Documentation tab of the Monitor, set up a compatible AI connection in the Lucee Administrator or via the `.CFConfig.json` file. 
+
+Configurations for OpenAI (ChatGPT), Google Gemini, or local services like Ollama are possible.
 
 ### Example Configuration
 

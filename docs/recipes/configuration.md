@@ -21,14 +21,20 @@
 
 This guide outlines best practices for configuring Lucee across different environments. While Lucee includes an
 administrator frontend (`<your-website>/lucee/admin.cfm`), this guide focuses on configuring Lucee using
-environment variables, configuration files, and `Application.cfc`. The goal is to explore various configuration
-possibilities rather than providing one definitive approach. Since Lucee 6, configuration has shifted to JSON
-files (`.CFConfig.json`), replacing the older XML-based configurations. This guide focuses on Lucee 6 and onwards.
+environment variables, configuration files, and `Application.cfc`. 
+
+The goal is to explore various configuration possibilities rather than providing one definitive approach. 
+
+Since Lucee 6, configuration has shifted to JSON files (`.CFConfig.json`), replacing the older XML-based configurations. 
+
+This guide focuses on Lucee 6 and onwards.
 
 ## Single Mode vs Multi Mode
 
 Lucee runs within a Servlet Engine (such as Tomcat), allowing you to manage multiple websites (or web contexts)
-within a single engine. For example, you can host `lucee.org` and `whatever.org` on one Servlet Engine, each
+within a single engine. 
+
+For example, you can host `lucee.org` and `whatever.org` on one Servlet Engine, each
 in its own web context.
 
 Lucee 6 provides two configuration modes:
@@ -48,9 +54,11 @@ by providing just one server configuration. Lucee 7 will exclusively support sin
 - **New Installations**: Lucee will run in single mode by default.
 
 You can toggle between "multi" and "single" modes using the Lucee administrator or by adjusting the server
-configuration file (`.CFConfig.json`). In the administrator, you can merge all the settings from web contexts
-into a single server configuration. Simply switching the mode flag without merging will result in losing
-web context configurations (though Lucee keeps them in place).
+configuration file (`.CFConfig.json`). 
+
+In the administrator, you can merge all the settings from web contexts into a single server configuration. 
+
+Simply switching the mode flag without merging will result in losing web context configurations (though Lucee keeps them in place).
 
 ```json
 {
@@ -110,8 +118,9 @@ The location of the `lucee-server` directory can be customized using the `LUCEE_
 variable or the `-Dlucee.server.dir` system property.
 
 At startup, Lucee reads this configuration, applying the settings and resolving resources (e.g., extensions,
-[[maven|Maven endpoints]], etc.). A best practice is to configure Lucee through the administrator, then export the
-`.CFConfig.json` file as a base for future installations.
+[[maven|Maven endpoints]], etc.). 
+
+A good apporach is to configure Lucee through the administrator, then take the resulting `.CFConfig.json` file as a base for future installations / dpeloyments.
 
 ## Web Configurations
 
@@ -132,15 +141,22 @@ LUCEE_WEB_DIR="<whatever>/config/web/{web-context-label}/"
 ## Update Configuration
 
 When starting a new Lucee version without an existing configuration, Lucee will automatically generate a base configuration. 
+
 If you place a configuration in the server directory, Lucee will use that one instead.
 
 In Lucee 6.0 (no longer the case for Lucee 6.1.1), placing an empty configuration file may cause problems because Lucee 
-requires certain default settings to operate properly. For instance, Lucee needs the virtual filesystem for "zip" to 
+requires certain default settings to operate properly. 
+
+For instance, Lucee needs the virtual filesystem for "zip" to 
 read zip files.
 
 Starting with Lucee 6.1.1, you can update existing configurations by placing a configuration file in the `lucee-server/deploy` 
-folder. Lucee will automatically pick up the file at startup or within a minute after startup, applying the configuration 
-updates. Only the configurations you add will be applied—Lucee does not overwrite the entire configuration. You can also 
+folder. 
+
+Lucee will automatically pick up the file at startup or within a minute after startup, applying the configuration 
+updates. 
+
+Only the configurations you add will be applied—Lucee does not overwrite the entire configuration. You can also 
 change the location of the deploy folder using the `LUCEE_SERVER_DIR` environment variable. See the **Server Configuration** 
 section for details.
 
@@ -161,15 +177,17 @@ Event gateways can only be defined in the web context.
 Lucee allows many settings to be defined dynamically at runtime via `Application.cfc`. These settings can include 
 datasources, caches, and other configurations.
 
-For every setting available in the Lucee administrator, there is often an equivalent setting in `Application.cfc`. 
+For every setting available in the Lucee administrator, there is often an equivalent setting in `Application.cfc`.
+
 If so, the Lucee administrator shows this below the setting as a "tip". You can also export an `Application.cfc` file 
 with the administrator settings that are supported.
 
 ## Startup Listener
 
 Lucee also supports startup listeners, which are triggered at startup. These listeners allow you to manipulate 
-the configuration of your environment further. For example, you can use the `ConfigImport` function to dynamically 
-import configurations during startup.
+the configuration of your environment further. 
+
+For example, you can use the [[function-configimport]] function to dynamically import configurations during startup.
 
 For more details, consult [Lucee Startup Listeners](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/startup-listeners-code.md).
 

@@ -27,7 +27,9 @@
 
 # getClass() Method for Components
 
-In Lucee, components that implement Java interfaces can use the `getClass()` method to obtain the Java class representation. This method automatically creates (if needed) a dynamic proxy and returns the proxy's class, enabling seamless Java interoperability without explicit proxy creation.
+In Lucee, components that implement Java interfaces can use the `getClass()` method to obtain the Java class representation. 
+
+This method automatically creates (if needed) a dynamic proxy and returns the proxy's class, enabling seamless Java interoperability without explicit proxy creation.
 
 *Available since Lucee 7.0*
 

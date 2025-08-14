@@ -24,9 +24,15 @@
 
 # Caches defined in Application.cfc
 
-It is possible to add cache connections in Lucee 5.1+ on a per-application basis by adding configuration to your `Application.cfc`. You can also select the default object cache, query cache, function cache, etc. Note if these caches use an extension that provides the cache driver, the extension must be installed already.
+It is possible to add cache connections in Lucee 5.1+ on a per-application basis by adding configuration to your `Application.cfc`. 
 
-To declare cache connections, create a struct called `this.cache.connections` in the pseudo constructor of your `Application.cfc`. Each key in the struct will be the name of the cache connection to create, and the value of the item will be another struct defining the properties of that cache connection.
+You can also select the default object cache, query cache, function cache, etc. 
+
+Note if these caches use an extension that provides the cache driver, the extension must be installed already.
+
+To declare cache connections, create a struct called `this.cache.connections` in the pseudo constructor of your `Application.cfc`. 
+
+Each key in the struct will be the name of the cache connection to create, and the value of the item will be another struct defining the properties of that cache connection.
 
 ```lucee
 this.cache.connections["myCache"] = {
@@ -43,7 +49,9 @@ this.cache.connections["myCache"] = {
 };
 ```
 
-Note, there is a shortcut for `this.cache.connections["myCache"] = {}` and that is `this.cache["myCache"] = {}`. We support both since the latter is closer to how datasources are defined.
+Note, there is a shortcut for `this.cache.connections["myCache"] = {}` and that is `this.cache["myCache"] = {}`. 
+
+Lucee supports both since the latter is closer to how datasources are defined.
 
 ## Generating Cache Connection code
 
@@ -81,4 +89,6 @@ this.cache.file = "<cache-name>";
 this.cache.webservice = "<cache-name>";
 ```
 
-A single cache can only be the default storage location for a single operation at a time. For example, a cache named "myCache" cannot both be the default cache for objects as well as queries.
+A single cache can only be the default storage location for a single operation at a time. 
+
+For example, a cache named "myCache" cannot both be the default cache for objects as well as queries.

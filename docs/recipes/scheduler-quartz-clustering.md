@@ -3,6 +3,7 @@ title: Quartz Scheduler Clustering
 id: clustering-quartz-scheduler
 related:
 - scheduler-quartz
+- tag-schedule
 categories:
 - extensions
 - recipes

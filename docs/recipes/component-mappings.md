@@ -26,13 +26,19 @@
 
 # Component Mappings
 
-Component mappings in Lucee define locations where the server will look for CFML components (CFC files) when using the `createObject()` function or the `new` operator. They provide a way to organize and access your components without having to specify the full path each time.
+Component mappings in Lucee define locations where the server will look for CFML components (CFC files) when using the `createObject()` function or the `new` operator. 
+
+They provide a way to organize and access your components without having to specify the full path each time.
 
 ## Understanding Component Mappings
 
-Component mappings provide a way to organize and access your CFC files without having to specify the full path each time. This is particularly useful in large applications with multiple component packages.
+Component mappings provide a way to organize and access your CFC files without having to specify the full path each time. 
 
-**Important**: Component mappings point to the root of package paths, not to individual components. For example, if you have a mapping pointing to:
+This is particularly useful in large applications with multiple component packages.
+
+**Important**: Component mappings point to the root of package paths, not to individual components. 
+
+For example, if you have a mapping pointing to:
 
 ```
 /path/to/lucee-server/context/components/

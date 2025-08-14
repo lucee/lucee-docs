@@ -14,7 +14,9 @@
 
 # AI (Experimental)
 
-Lucee 6.2 includes experimental support for AI integration, which will be finalized with the release of Lucee 7. This documentation is subject to change, reflecting Lucee's aim to remain adaptable to future advancements. Feedback is welcome to help tailor functionality to users' needs.
+Lucee 6.2 includes experimental support for AI integration, which will be finalized with the release of Lucee 7. 
+
+This documentation is subject to change, reflecting Lucee's aim to remain adaptable to future advancements. Feedback is welcome to help tailor functionality to users' needs.
 
 ## Configuration
 

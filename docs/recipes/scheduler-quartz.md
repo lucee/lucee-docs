@@ -11,6 +11,9 @@
     "cron",
     "scheduled task",
     "clustering"
+  ],
+  "related": [
+    "tag-schedule"
   ]
 }
 -->
