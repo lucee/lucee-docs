@@ -30,6 +30,14 @@ CFML Editor has an option to use the full Lucee docs as the source for inline he
 
 [[lucee-step-debugger-installation-guide]]
 
+## NeoVim
+
+<https://neovim.io/>
+
+Vim and NeoVim both have built in syntax highlighting since 2017.
+
+Code completion in NeoVim can be achived with [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) and [cfcomplete](https://codeberg.org/oricat/cfcomplete.nvim)
+
 ## Sublime Text
 
 <https://www.sublimetext.com>
