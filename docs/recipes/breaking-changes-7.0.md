@@ -130,6 +130,12 @@ The attribute, `useQueryString=boolean` was added as part of this change
 
 [LDEV-5722](https://luceeserver.atlassian.net/browse/LDEV-5722)
 
+## CFIMAP stopOnError added
+
+Default is true, previously was effectively false
+
+[LDEV-5764](https://luceeserver.atlassian.net/browse/LDEV-5764)
+
 # Pending changes (not yet implemented)
 
 All proposed changes are listed in the sprint board for 7.0
