@@ -14,7 +14,7 @@ component {
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
 	this.assetBundleVersion = 36;  // see parent application.cfc
-	
+
 
 	public void function onApplicationStart()  {
 		application.assetBundleVersion = 36;
@@ -261,7 +261,7 @@ component {
 		opts.spellcheck = {
 			title: "Spellchecking built HTML",
 			menu: "Spell Check HTML"
-		};		
+		};
 		opts.dictionary = {
 			title: "Exporting Dictionary",
 			menu: "Export Dictionary"

@@ -6,7 +6,7 @@ function getAvailableExtensions() {
 	var extensions=deserializeJson(res.filecontent,false).extensions;
 	return extensions;
 }
-	
+
 extensions=getAvailableExtensions();
 </cfscript>
 

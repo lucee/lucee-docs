@@ -32,7 +32,7 @@ component
 		];
 		var parser = Parser::builder().extensions(extensions).build();
 		// Parse the markdown to a Node
-		var  document = parser.parse( arguments.markdown); 
+		var  document = parser.parse( arguments.markdown);
 		// Create a HTML renderer
 		var renderer = HtmlRenderer::builder().extensions(extensions).escapeHtml( arguments.safeMode ).build();
 		// Render the Node to HTML
