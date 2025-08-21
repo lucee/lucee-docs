@@ -432,6 +432,10 @@ Tag islands allow you to switch into tag mode from inside cfscript
 
 How to use tags in script
 
+## [Thread Dump During Startup](/docs/recipes/thread-dump-startup.md)
+
+How to capture thread positions during Lucee startup for debugging and performance analysis
+
 ## [Thread Tasks](/docs/recipes/thread-task.md)
 
 How to use Thread Tasks

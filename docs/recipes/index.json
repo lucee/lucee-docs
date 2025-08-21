@@ -1469,6 +1469,20 @@
     ]
   },
   {
+    "file": "thread-dump-startup.md",
+    "title": "Thread Dump During Startup",
+    "path": "/docs/recipes/thread-dump-startup.md",
+    "hash": "5b61304e082ec3a5264b697a0f27e22d",
+    "keywords": [
+      "threads",
+      "debugging",
+      "startup",
+      "performance",
+      "monitoring",
+      "stack traces"
+    ]
+  },
+  {
     "file": "thread-task.md",
     "title": "Thread Tasks",
     "path": "/docs/recipes/thread-task.md",
