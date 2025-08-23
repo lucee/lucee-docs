@@ -1,0 +1,1 @@
+Stop execution on error, default is true

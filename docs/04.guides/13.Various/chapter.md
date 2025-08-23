@@ -55,7 +55,7 @@ This is the temporary location where all the new links will be added.
 
 [[lucee-with-maven]]
 
-[[rest-services-introduction]]
+[[rest-services]]
 
 [[server-2003-IIS]]
 
