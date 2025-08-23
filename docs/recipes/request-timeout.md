@@ -52,6 +52,12 @@ Alternatively, you can set the request timeout using the `<cfsetting>` tag:
 <cfsetting requestTimeout="#createTimeSpan(0, 0, 0, 49)#">
 ```
 
+or with script syntax:
+
+```luceescript
+setting requesttimeout=60; //integer for seconds
+```
+
 ## Thresholds
 
 Lucee includes several additional thresholds that requests must meet before they are terminated due to a timeout. These thresholds help prevent unnecessary termination of requests, which can pose risks such as deadlocks and open monitors. If a request timeout is reached but the thresholds are not met, Lucee will log the event in the "requesttimeout" log instead of terminating the request.
