@@ -1228,6 +1228,17 @@
     ]
   },
   {
+    "file": "rest-services.md",
+    "title": "ProxyPassMatch ^/rest/(.*)$ http://127.0.0.1:8888/rest/$1",
+    "path": "/docs/recipes/rest-services.md",
+    "hash": "6bd7b7b5d638b23dae3b69bc75283822",
+    "keywords": [
+      "REST",
+      "verbs",
+      "methods"
+    ]
+  },
+  {
     "file": "retry.md",
     "title": "Retry",
     "path": "/docs/recipes/retry.md",

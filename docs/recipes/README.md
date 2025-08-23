@@ -360,6 +360,10 @@ A guide on how to configure your Lucee Server for the best performance and highe
 
 Learn how to use request timeout correctly with Lucee.
 
+## [ProxyPassMatch ^/rest/(.*)$ http://127.0.0.1:8888/rest/$1](/docs/recipes/rest-services.md)
+
+A detailed guide on how to create REST Sevices using CFCs
+
 ## [Retry](/docs/recipes/retry.md)
 
 This document explains how to use retry functionality with some simple examples.
