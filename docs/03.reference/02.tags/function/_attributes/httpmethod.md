@@ -11,4 +11,4 @@ Accepted values include:
 
 If not specified, the `GET` method is used by default.
 
-Since Lucee 6.1.0.155, Lucee supports multiple `httpMethods` per function, i.e `GET,HEAD`
+Since Lucee 6.1.0.155, Lucee supports multiple http methods per function, i.e `GET,HEAD`
