@@ -120,7 +120,7 @@ variable or the `-Dlucee.server.dir` system property.
 At startup, Lucee reads this configuration, applying the settings and resolving resources (e.g., extensions,
 [[maven|Maven endpoints]], etc.). 
 
-A good apporach is to configure Lucee through the administrator, then take the resulting `.CFConfig.json` file as a base for future installations / dpeloyments.
+A good approach is to configure Lucee through the administrator, then take the resulting `.CFConfig.json` file as a base for future installations / dpeloyments.
 
 ## Web Configurations
 
