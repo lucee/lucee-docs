@@ -35,15 +35,14 @@ CFML components are user-defined objects in Lucee that encapsulate data and beha
 
 ### Example
 
-The following test cases demonstrate the use of the `new` operator with CFML components:
+The following examples demonstrate the use of the `new` operator with CFML components.
 
 ```lucee
 query = new org.lucee.cfml.Query(); // load component provided by Lucee core
 query = new Query(); // org.lucee.cfml package always is imported automatically
-
 ```
 
-Importing components:
+### Example: importing components
 
 ```cfml
 import org.lucee.extension.redis.RedisUtil; // import single component
@@ -51,7 +50,16 @@ import org.lucee.extension.quartz.*; // import a complete package
 
 RedisUtil = new RedisUtil(); // load component defined with import
 cfc = new Quartz(); // load component from a package imported
+```
 
+## Relative component paths
+
+To reference a component which is in a folder _above_ the calling template in your file structure but where there is _no mapping_, you can specify the path using quotes and slashes.
+
+### Example: upwards relative component path
+
+```cfml
+user = New "../model/User"(); //the model folder is one level above the folder containing the current script
 ```
 
 ## Java Classes
@@ -65,10 +73,9 @@ The following test cases demonstrate the use of the `new` operator with Java cla
 ```lucee
 sb = new java.lang.StringBuilder("Susi"); // load a class from the Java core library
 sb = new StringBuilder("Susi"); // java.lang package always is imported automatically
-
 ```
 
-Importing classes:
+### Example: importing java classes
 
 ```cfml
 import lucee.runtime.type.StructImpl; // import single class
@@ -76,15 +83,13 @@ import java.util.*; // import a complete package
 
 sct = new StructImpl(); // load class defined with import
 map = new HashMap(); // load a class from a package imported
-
 ```
 
 ## Avoid conflicts
 
-What if you wanna Load a class that also exist as a component or the other way around? In that case you can simply define the type needed explicitly like this
+What if you want to load a class that also exists as a component or the other way around? In that case you can simply define the type needed explicitly like this:
 
 ```cfml
 quartzInterface = new java:Quarz(); // load class
 quartzComponent = new cfml:Quarz(); // load component
-
 ```
