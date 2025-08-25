@@ -216,7 +216,7 @@ Once the *mod_cfml* has successfully created the host configuration in Tomcat, y
 
 Find below a quick reference overview of specific component attributes and functions related to REST and CFML. This [video about Lucee REST Server](https://www.youtube.com/watch?v=R_VnRawOhhc) explains how to create REST components in Lucee.
 
-Since Lucee 6.1.0.155, Lucee supports multiple `httpMethods` per function. This is particulary useful/important for `GET` endpoints which may be also be accessed via a `HEAD` request, which would previously require a second function to match such requests.
+Since Lucee 6.1.0.155, Lucee supports multiple `httpMethods` per function. This is particularly useful/important for `GET` endpoints which may be also be accessed via a `HEAD` request, which would previously require a second function to match such requests.
 
 ```
 remote string function echoGET() httpMethod="GET,HEAD" restpath="echoGET" { 
