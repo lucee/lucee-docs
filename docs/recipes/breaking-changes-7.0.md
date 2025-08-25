@@ -81,12 +81,6 @@ This should have minimal impact on existing code and may avoid some concurrency 
 
 [LDEV-5416](https://luceeserver.atlassian.net/browse/LDEV-5416)
 
-## Enable Limit evaluation by default
-
-Adopting secure defaults, Lucee 7 by default sets this to true
-
-[LDEV-5177](https://luceeserver.atlassian.net/browse/LDEV-5177)
-
 ## Enabled correct encoding of spaces in urls with CFHTTP
 
 Older versions of Lucee double encoded spaces in CFHTTP, causing problems calling some APIs
