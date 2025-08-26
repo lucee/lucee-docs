@@ -659,6 +659,20 @@
     ]
   },
   {
+    "file": "hooks-and-monitors.md",
+    "title": "Hooks and Monitors",
+    "path": "/docs/recipes/hooks-and-monitors.md",
+    "hash": "66051e39e444a3d5a77e78989c925902",
+    "keywords": [
+      "hooks",
+      "monitors",
+      "startup",
+      "extension",
+      "lifecycle",
+      "injection"
+    ]
+  },
+  {
     "file": "http-logging.md",
     "title": "Logging CFHTTP Calls",
     "path": "/docs/recipes/http-logging.md",
