@@ -1,0 +1,183 @@
+name: "Lucee Startup Hooks"
+technology: "Lucee Extension Framework"
+since: "5.3"
+
+lifecycle:
+  trigger: "Server startup, before web contexts are fully initialized"
+  execution: "Sequential during ConfigServerImpl initialization"
+  thread_context: "Main server startup thread"
+
+configuration:
+  cfconfig_json:
+    location: ".CFConfig.json"
+    property: "startupHooks"
+    format: "Array of objects"
+    schema:
+      class: 
+        type: "string"
+        required: true
+        description: "Full Java class name"
+      bundleName: 
+        type: "string"
+        required: false
+        description: "OSGi bundle symbolic name"
+      bundleVersion: 
+        type: "string"
+        required: false
+        description: "OSGi bundle version"
+      maven: 
+        type: "string"
+        required: false
+        description: "Maven coordinates (groupId:artifactId:version)"
+        alternative_to: ["bundleName", "bundleVersion"]
+      component: 
+        type: "string"
+        required: false
+        description: "CFML component path"
+        alternative_to: "class"
+
+  extension_manifest:
+    location: "META-INF/MANIFEST.MF"
+    property: "startup-hook"
+    format: "JSON string (single object)"
+    schema:
+      class:
+        type: "string"
+        required: true
+      bundleName:
+        type: "string"
+        required: false
+        shortcut_alias: "name"
+      bundleVersion:
+        type: "string"
+        required: false
+        shortcut_alias: "version"
+
+constructor_resolution:
+  preferred:
+    signature: "public ClassName(Config config)"
+    parameter_type: "lucee.runtime.config.Config"
+    actual_type: "ConfigServer instance"
+    detection: "Reflector.getConstructor(clazz, new Class[]{Config.class})"
+  
+  fallback:
+    signature: "public ClassName()"
+    usage: "ClassUtil.loadInstance(clazz)"
+
+class_loading:
+  osgi_bundle:
+    condition: "bundleName is not null"
+    method: "ClassUtil.loadClassByBundle()"
+    parameters:
+      - "className"
+      - "bundleName" 
+      - "version (OSGi Version object)"
+      - "identification"
+      - "bundleDirectories"
+      - "versionOnlyMattersWhenDownloading"
+  
+  maven_dependency:
+    condition: "maven is not null"
+    method: "config.getRPCClassLoader().loadClass()"
+    settings: "JavaSettingsImpl.getInstance(config, getMaven())"
+  
+  standard_classpath:
+    condition: "fallback"
+    method: "ClassUtil.loadClass(ThreadLocalPageContext.getRPCClassLoader())"
+
+storage:
+  location: "ConfigBase.getStartups() Map<String, ConfigBase.Startup>"
+  key: "ClassDefinition.getClassName()"
+  value_type: "ConfigBase.Startup"
+  replacement_behavior: "Same className replaces existing instance"
+
+instance_management:
+  singleton_pattern:
+    recommended: true
+    static_field: "private static ClassName instance = null"
+    error_field: "private static RuntimeException re"
+    access_method: 
+      signature: "public static ClassName getInstance() throws PageException"
+      error_handling: "Throw PageException with initCause if initialization failed"
+
+lifecycle_methods:
+  initialization:
+    timing: "Constructor execution"
+    web_context_iteration: "configServer.getConfigWebs()"
+    context_filtering: "cw != null && cw.getServletContext() != null"
+    cli_exclusion: "!(cw.getServletContext() instanceof lucee.cli.servlet.ServletContextImpl)"
+  
+  finalization:
+    method: "public void finalize()"
+    trigger: "Hook replacement or server shutdown"
+    invocation: "Reflector.getMethod(instance.getClass(), 'finalize', new Class[0])"
+    error_handling: "Log but do not re-throw exceptions"
+
+background_registration:
+  pattern: "Registrar thread for delayed web context discovery"
+  thread_lifecycle:
+    daemon: true
+    intervals: [500, 1000, 10000, 60000] # ms
+    interval_triggers: [0, 5, 20, 30] # iteration counts
+    termination: "alive flag or factory.isAlive() false"
+
+error_handling:
+  initialization_failure:
+    storage: "Store RuntimeException in static field"
+    propagation: "Re-throw from constructor"
+    access: "Include as initCause in getInstance() PageException"
+  
+  runtime_errors:
+    logging: "ConfigBase.log(config, log, throwable)"
+    continuation: "Process continues with remaining hooks"
+
+implementation_details:
+  loading_method: "ConfigServerImpl._loadStartupHook()"
+  loading_trigger: "During ConfigServerImpl construction"
+  thread_safety: "Not required - sequential loading"
+  replacement_detection: "cd.equals(existing.cd)"
+  
+system_integration:
+  cfml_engine: "CFMLEngineFactory.getInstance()"
+  creation_util: "eng.getCreationUtil()"
+  servlet_context: "ConfigWeb.getServletContext()"
+  identification: "ConfigWeb.getIdentification().getId()"
+
+common_patterns:
+  service_registration:
+    servlet_container: "ServletContext attributes"
+    jndi_binding: "Context.bind()"
+    system_properties: "System.getProperties().put()"
+  
+  resource_initialization:
+    connection_pools: "DataSource configuration"
+    thread_pools: "ExecutorService creation"
+    cache_managers: "Cache provider setup"
+  
+  web_context_management:
+    concurrent_map: "Map<String, Data> contexts"
+    context_id: "cw.getIdentification().getId()"
+    lazy_initialization: "Register on first access"
+
+dependencies:
+  required:
+    - name: "lucee-core"
+      classes: 
+        - "lucee.runtime.config.Config"
+        - "lucee.runtime.config.ConfigServer"
+        - "lucee.runtime.config.ConfigWeb"
+    - name: "lucee.loader"
+      classes:
+        - "lucee.loader.engine.CFMLEngineFactory"
+  
+  optional:
+    - name: "osgi-framework"
+      purpose: "Bundle class loading"
+    - name: "maven-resolver" 
+      purpose: "Maven dependency resolution"
+
+logging:
+  initialization: "System.out.println() for startup messages"
+  errors: "System.err.println() + printStackTrace()"
+  web_context_registration: "Log context ID and servlet path"
+  replacement: "Log when hooks are replaced"

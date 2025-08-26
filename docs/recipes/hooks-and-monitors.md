@@ -20,6 +20,13 @@
 
 Lucee provides two powerful extension mechanisms that allow you to inject custom functionality at different points in the application lifecycle: **Hooks** and **Monitors**. These systems enable you to extend Lucee's capabilities, implement custom initialization logic, collect runtime metrics, and integrate with external systems seamlessly.
 
+## AI-Optimized Technical Reference
+
+For developers using AI assistance or requiring structured technical data, see the companion specification:
+**[Hooks](https://github.com/lucee/lucee-docs/blob/master/docs/technical-specs/hooks.yaml)**
+**[Monitors](https://github.com/lucee/lucee-docs/blob/master/docs/technical-specs/monitors.yaml)**
+
+
 # Hooks
 
 Hooks allow you to inject custom classes that execute at specific points during Lucee's lifecycle. The primary hook type is the startup hook, which runs during Lucee initialization.
