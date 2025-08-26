@@ -26,7 +26,6 @@ For developers using AI assistance or requiring structured technical data, see t
 **[Hooks](https://github.com/lucee/lucee-docs/blob/master/docs/technical-specs/hooks.yaml)**
 **[Monitors](https://github.com/lucee/lucee-docs/blob/master/docs/technical-specs/monitors.yaml)**
 
-
 # Hooks
 
 Hooks allow you to inject custom classes that execute at specific points during Lucee's lifecycle. The primary hook type is the startup hook, which runs during Lucee initialization.
@@ -61,13 +60,14 @@ You can define startup hooks directly in your `.CFConfig.json` configuration fil
 ```
 
 **OSGi-based Hook Example:**
+
 ```json
 {
   "startupHooks": [
     {
       "class": "com.mycompany.hooks.DatabaseInitializer",
-      "bundlename": "my-database-initializer",
-      "bundleversion": "1.0.0"
+      "bundleName": "my-database-initializer",
+      "bundleVersion": "1.0.0"
     }
   ]
 }
@@ -277,6 +277,65 @@ Monitoring is only active when enabled in configuration:
   }
 }
 ```
+
+Monitors can be configured in two ways:
+
+1. **Via Extension Manifest** - Packaged with extensions for reusable monitoring functionality
+2. **Via .CFConfig.json** - Direct configuration for application-specific monitoring
+
+### Configuration via .CFConfig.json
+
+You can define monitors directly in your `.CFConfig.json` configuration file under the `monitoring` section:
+
+```json
+{
+  "monitoring": {
+    "enabled": true,
+    "monitor": [
+      {
+        "name": "MyActionMonitor",
+        "type": "action",
+        "class": "com.mycompany.monitors.ActionMonitorImpl",
+        "bundleName": "my.monitor.bundle",
+        "bundleVersion": "1.0.0",
+        "log": true,
+        "async": false
+      },
+      {
+        "name": "MyRequestMonitor", 
+        "type": "request",
+        "class": "com.mycompany.monitors.RequestMonitorImpl",
+        "maven": "com.mycompany:monitor-lib:2.1.0",
+        "log": true,
+        "async": true
+      },
+      {
+        "name": "MyIntervalMonitor",
+        "type": "interval", 
+        "component": "monitors.SystemMonitor",
+        "log": true
+      }
+    ]
+  }
+}
+```
+
+**Configuration Properties:**
+- `name`: Unique identifier for the monitor (required)
+- `type`: Monitor type - `action`, `request`, or `interval` (required)
+- `class`: Full Java class name (required unless using component)
+- `component`: CFML component path (alternative to class)
+- `bundleName`: OSGi bundle name (optional, for OSGi resolution)
+- `bundleVersion`: OSGi bundle version (optional, for OSGi resolution)
+- `maven`: Maven coordinates in format `groupId:artifactId:version` (alternative to OSGi)
+- `log`: Enable/disable logging for this monitor (optional, default: true)
+- `async`: Run request monitors asynchronously (optional, request monitors only, default: false)
+
+**Class Definition Resolution Order:**
+1. **OSGi Bundle** - If `bundleName` is provided
+2. **Maven Dependency** - If `maven` is provided  
+3. **CFML Component** - If `component` is provided (and `class` is null)
+4. **Standard Classpath** - Fallback for simple class loading
 
 There are three types of monitors, each serving different monitoring needs:
 
