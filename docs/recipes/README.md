@@ -60,6 +60,10 @@ Cache a Query for the current request in Lucee.
 
 How to add per-application caches via Application.cfc in Lucee.
 
+## [Untitled](/docs/recipes/cfschedule-bulk-update.md)
+
+How to update scheduled tasks in a single operation
+
 ## [Untitled](/docs/recipes/check-for-changes.md)
 
 Automatically check for changes in your configuration file with Lucee.

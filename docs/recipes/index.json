@@ -207,6 +207,16 @@
     ]
   },
   {
+    "file": "cfschedule-bulk-update.md",
+    "title": "Untitled",
+    "path": "/docs/recipes/cfschedule-bulk-update.md",
+    "hash": "136499059e6b96f67947f2c60433ecc3",
+    "keywords": [
+      "scheduled tasks",
+      "config"
+    ]
+  },
+  {
     "file": "check-for-changes.md",
     "title": "Untitled",
     "path": "/docs/recipes/check-for-changes.md",
