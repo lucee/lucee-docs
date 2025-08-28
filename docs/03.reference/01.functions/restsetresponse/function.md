@@ -6,7 +6,7 @@ related:
 - function-restinitapplication
 - function-restsetresponse
 categories:
-- ajax
+- rest
 ---
 
 Sets the custom responses.

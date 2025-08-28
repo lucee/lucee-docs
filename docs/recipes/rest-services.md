@@ -9,7 +9,7 @@
     "methods"
   ],
   "categories": [
-    "ajax",
+    "rest",
     "scopes"
   ],
   "related":[

@@ -2,7 +2,7 @@
 title: RestDeleteApplication
 id: function-restdeleteapplication
 categories:
-- ajax
+- rest
 ---
 
 Deletes an existing REST mapping.
