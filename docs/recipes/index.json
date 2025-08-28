@@ -1316,7 +1316,7 @@
     "file": "scheduler-quartz.md",
     "title": "Quartz Scheduler Extension for Lucee",
     "path": "/docs/recipes/scheduler-quartz.md",
-    "hash": "8e2ba9f1ffd20894a993349f586dc320",
+    "hash": "043135ac5b5a6fe6b3d29ace46ce4cca",
     "keywords": [
       "scheduler",
       "quartz",
