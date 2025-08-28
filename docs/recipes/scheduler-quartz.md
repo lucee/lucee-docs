@@ -131,27 +131,27 @@ Jobs are the tasks that will be executed according to a schedule. Each job confi
 
 1. **URL Jobs**: Execute HTTP requests to internal or external URLs
 
-   ```json
+```json
    {
      "label": "Call external API",
      "url": "https://api.example.com/endpoint",
      "interval": "3600"
    }
-   ```
+```
 
 2. **Internal Path Jobs**: Execute a path local to the server (important for proper load balancing in clusters)
 
-   ```json
+```json
    {
      "label": "Process local data",
      "url": "/jobs/process-data.cfm",
      "cron": "0 0 * * * ?"
    }
-   ```
+```
 
 3. **Component Jobs**: Execute a CFML component
 
-   ```json
+```json
    {
      "label": "Database maintenance",
      "component": "com.example.tasks.DatabaseMaintenance",
@@ -159,23 +159,23 @@ Jobs are the tasks that will be executed according to a schedule. Each job confi
      "mode": "singleton",
      "dbName": "users"
    }
-   ```
+```
 
 #### Scheduling Options
 
 1. **Simple Interval**: Specify execution frequency in seconds
 
-   ```json
+```json
    "interval": "60"  // Execute every 60 seconds
-   ```
+```
 
 2. **Cron Expression**: Use powerful cron syntax for complex schedules
 
-   ```json
+```json
    "cron": "0 0 9-17 ? * MON-FRI"  // Every hour from 9am-5pm on weekdays
-   ```
+```
 
-   > **Tip**: Creating cron expressions can be challenging. AI tools like Google, ChatGPT, or Claude can help you define the correct cron expression for your specific scheduling needs. Simply ask something like "Create a cron expression that runs every Tuesday at 3 PM" to get assistance.
+> **Tip**: Creating cron expressions can be challenging. AI tools like Google, ChatGPT, or Claude can help you define the correct cron expression for your specific scheduling needs. Simply ask something like "Create a cron expression that runs every Tuesday at 3 PM" to get assistance.
 
 ### Listeners Configuration
 
@@ -194,12 +194,12 @@ Storage determines how job information is persisted and enables clustering:
 
 1. **In-Memory (Default)**: No configuration needed
 
-   - Jobs are stored in memory and read/saved to the config file
-   - No clustering support
+- Jobs are stored in memory and read/saved to the config file
+- No clustering support
 
 2. **Database Storage**:
 
-   ```json
+```json
    "store": {
      "type": "datasource",
      "datasource": "quartz",
@@ -208,11 +208,11 @@ Storage determines how job information is persisted and enables clustering:
      "clusterCheckinInterval": "15000",
      "misfireThreshold": "60000"
    }
-   ```
+```
 
 3. **Redis Storage**:
 
-   ```json
+```json
    "store": {
      "type": "redis",
      "host": "localhost",
@@ -227,7 +227,7 @@ Storage determines how job information is persisted and enables clustering:
      "ssl": false,
      "misfireThreshold": 60000
    }
-   ```
+```
 
 #### Database Setup for Clustering
 
