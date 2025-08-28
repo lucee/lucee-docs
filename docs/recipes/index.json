@@ -1255,7 +1255,7 @@
     "file": "rest-services.md",
     "title": "ProxyPassMatch ^/rest/(.*)$ http://127.0.0.1:8888/rest/$1",
     "path": "/docs/recipes/rest-services.md",
-    "hash": "b19972a1a13a6a28f3d8064f1329a605",
+    "hash": "dc18bdc9662891c46e3ebefd43a8e9d6",
     "keywords": [
       "REST",
       "verbs",
