@@ -2,6 +2,7 @@
 title: ConfigImport
 id: function-configimport
 related:
+- function-configtranslate
 categories:
 - server
 description: Imports configuration using the "CFConfig.json" format.
