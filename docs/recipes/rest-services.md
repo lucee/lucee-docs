@@ -142,6 +142,41 @@ http://localhost:8888/rest/metrics/system/timezone/name?locale=zh_TW
 http://localhost:8888/rest/metrics/system/timezone/utcHourOffset
 ```
 
+### REST request matching
+
+When a REST request is processed, the matching rest method is found by looping thru all the functions, in the order defined within the CFC.
+
+As in this example, specific `restPaths` should be placed before more generic, catch all `restPaths`.
+
+Since 7.0.0.368
+
+```cfml
+component restPath="/api/products" rest="true" {
+	// GET /api/products/search?category=electronics
+	remote function searchProducts(	string category="" restArgSource="url"	) 
+      httpMethod="GET" restPath="/search" {
+		return {
+			"message": "Product search completed",
+			"filters": {
+				"category": arguments.category
+			},
+			"method": "searchProducts"
+		};
+	}
+
+	// GET /api/products/123
+	remote function getProduct( string productID restArgSource="path" ) 
+      httpMethod="GET" restPath="/{productID}" {
+		return {
+			"message": "Single product retrieved",
+			"productID": arguments.productID,
+			"method": "getProduct"
+		};
+	}
+}
+```
+
+Falling back to using function names as the REST Path, when no `restPath` is defined, was implemented in 7.0.0.366
 
 ### Configuring your web server to serve Lucee's REST services
 
