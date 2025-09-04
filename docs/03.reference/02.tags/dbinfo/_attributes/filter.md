@@ -1,4 +1,4 @@
-Filter for type="tables" with a wildcard, defaults to all types when empty.
+Filter for `type="tables"` with a wildcard, defaults to all types when empty (slow, especially oracle).
 
 - "TABLE"
 - "VIEW"
