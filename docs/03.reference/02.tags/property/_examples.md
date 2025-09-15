@@ -26,8 +26,8 @@ writeOutput(jsonString); // Output: {"foo":"hello","bar":42}
 myCfc = new component accessors="true" {
   property name="foo" type="string";
   property name="bar" type="numeric";
-  property name="arr" type="numeric" default="#[1,2,3]#";
-  property name="st" type="numeric" default="#{lucee:"rocks"}#";
+  property name="arr" type="array" default="#[1,2,3]#";
+  property name="st" type="struct" default="#{lucee:"rocks"}#";
   foo = "hello";
   bar = 42;
 };
