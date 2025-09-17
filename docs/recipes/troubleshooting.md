@@ -57,6 +57,14 @@ Once the initial startup and deployment has got far enough along to have loaded 
 - `exception.log` any errors or exceptions
 - `deploy.log` Logs about the deployment of Extensions
 
+#### Deleting the felix cache
+
+Sometimes the Felix cache gets corrupted, perhaps when updating or messing around with extensions.
+
+It's found under `lucee-server\felix-cache`. Sometimes, stopping Tomcat, deleting that folder and restarting will solve problems. 
+
+Lucee will automatically recreate it on startup.
+
 #### Starting Tomcat manually and redirecting logs to console.
 
 The best first step when debugging a Lucee Server is start Tomcat manually, in a Terminal, as opposed to auto starting or running as service/daemon.
