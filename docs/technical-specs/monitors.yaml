@@ -76,16 +76,16 @@ monitor_types:
     base_interface: "lucee.runtime.monitor.Monitor"
     trigger: "Synchronous during specific operations"
     thread_context: "Operation execution thread"
-    
+
     operations:
-      query: 
+      query:
         call: "((ConfigWebPro)pageContext.getConfig()).getActionMonitorCollector().log(pageContext, 'query', 'Query', executionTime, queryResult)"
       lock:
         call: "((ConfigWebPro)pc.getConfig()).getActionMonitorCollector().log(pageContext, 'lock', 'Lock', executionTime, lockName + ':' + timeoutInMillis)"
       mail:
         call: "((ConfigWebPro)config).getActionMonitorCollector().log(config, 'mail', 'Mail', executionTime, properties)"
       cache: "Cache operations"
-      
+
     methods:
       log_request:
         signature: "void log(PageContext pc, String type, String label, long executionTime, Object data)"
@@ -96,7 +96,7 @@ monitor_types:
           label: "Operation label"
           executionTime: "Duration in milliseconds"
           data: "Operation-specific data"
-      
+
       log_background:
         signature: "void log(ConfigWeb config, String type, String label, long executionTime, Object data)"
         context: "Outside HTTP request context"
@@ -106,7 +106,7 @@ monitor_types:
           label: "Operation label"
           executionTime: "Duration in milliseconds"
           data: "Operation-specific data"
-      
+
       get_data:
         signature: "Query getData(Map<String, Object> arguments)"
         purpose: "Return collected data for reporting"
@@ -121,7 +121,7 @@ monitor_types:
     trigger: "End of each HTTP request"
     thread_context: "Request processing thread"
     async_support: true
-    
+
     methods:
       log:
         signature: "void log(PageContext pc, boolean error)"
@@ -129,7 +129,7 @@ monitor_types:
         parameters:
           pc: "Page context with request data"
           error: "True if request resulted in error"
-      
+
       get_data:
         signature: "Query getData(ConfigWeb config, Map<String, Object> arguments)"
         scope: "Single web context data"
@@ -144,13 +144,13 @@ monitor_types:
     trigger: "Timer-based (default 5000ms)"
     thread_context: "Dedicated interval monitoring thread"
     request_context: false
-    
+
     methods:
       log:
         signature: "void log()"
         timing: "Called at regular intervals"
         context: "No PageContext available"
-      
+
       get_data:
         signature: "Query getData(Map<String, Object> arguments)"
         scope: "System-wide interval data"
@@ -168,11 +168,11 @@ base_interface:
         config: "Web configuration instance"
         name: "Monitor name from configuration"
         arguments: "Additional configuration parameters"
-    
+
     get_name:
       signature: "String getName()"
       purpose: "Return monitor identifier"
-    
+
     is_enabled:
       signature: "boolean isEnabled()"
       purpose: "Runtime enable/disable check"
@@ -180,21 +180,21 @@ base_interface:
 implementation_details:
   loading_method: "ConfigFactoryImpl.loadMonitors()"
   loading_context: "Server configuration initialization"
-  
+
   constructor_resolution:
     with_config:
       signature: "public ClassName(ConfigServer configServer)"
       detection: "Reflector.getConstructorInstance()"
-    
+
     default:
       signature: "public ClassName()"
       fallback: "ClassUtil.newInstance(clazz)"
-  
+
   wrapper_classes:
     action: "ActionMonitorWrap for non-ActionMonitor objects"
     request: "RequestMonitorWrap for non-RequestMonitor objects"
     interval: "IntervallMonitorWrap for non-IntervallMonitor objects"
-  
+
   async_implementation:
     wrapper: "AsyncRequestMonitor"
     condition: "async=true in configuration"
@@ -206,12 +206,12 @@ storage:
     factory: "ActionMonitorFactory.getActionMonitorCollector()"
     storage_method: "configServer.setActionMonitorCollector()"
     access: "((ConfigWebPro)config).getActionMonitorCollector()"
-  
+
   request_monitors:
     type: "RequestMonitor[] array"
     storage_method: "configServer.setRequestMonitors()"
     wrapper: "RequestMonitorProImpl"
-  
+
   interval_monitors:
     type: "IntervallMonitor[] array"
     storage_method: "configServer.setIntervallMonitors()"
@@ -223,7 +223,7 @@ cfml_integration:
       types: ["action", "request", "interval"]
       return_type: "Query"
       implementation: "Calls monitor.getData(arguments)"
-    
+
     get_monitoring_info:
       signature: "getMonitoringInfo()"
       return_type: "Struct"
@@ -233,7 +233,7 @@ error_handling:
   monitor_failure:
     logging: "LogUtil.logGlobal(config, Log.LEVEL_INFO, class, message)"
     continuation: "Processing continues with remaining monitors"
-    
+
   runtime_exceptions:
     action_monitors: "Log error, continue operation"
     request_monitors: "Log error, continue request processing"
@@ -244,17 +244,17 @@ threading:
     execution: "Synchronous in operation thread"
     performance_impact: "Direct impact on operation timing"
     recommendations: "Keep implementations lightweight"
-  
+
   request_monitors:
     synchronous:
       execution: "End of request thread"
       blocking: "Delays request completion"
-    
+
     asynchronous:
       wrapper: "AsyncRequestMonitor"
       execution: "Background thread pool"
       impact: "No request delay"
-  
+
   interval_monitors:
     thread: "Dedicated system monitoring thread"
     isolation: "Separate from request processing"
@@ -262,13 +262,13 @@ threading:
 
 type_constants:
   action: "Monitor.TYPE_ACTION"
-  request: "IntervallMonitor.TYPE_REQUEST"  
+  request: "IntervallMonitor.TYPE_REQUEST"
   interval: "IntervallMonitor.TYPE_INTERVAL"
 
 class_definitions:
   resolution_order: "OSGi bundle > Maven > Standard classpath"
   loading: "ClassDefinition.getClazz()"
-  
+
   formats:
     osgi:
       bundleName: "OSGi symbolic name"
@@ -283,12 +283,12 @@ logging:
     level: "INFO"
     method: "LogUtil.logGlobal()"
     message: "loaded {type} monitor [{className}]"
-  
+
   monitor_initialization:
-    level: "INFO" 
+    level: "INFO"
     method: "LogUtil.logGlobal()"
     message: "initialize {type} monitor [{className}]"
-  
+
   runtime_errors:
     method: "LogUtil.logGlobal(config, className, throwable)"
     level: "ERROR"
@@ -301,7 +301,7 @@ dependencies:
         - "lucee.runtime.config.ConfigWeb"
         - "lucee.runtime.PageContext"
         - "lucee.runtime.type.Query"
-  
+
   optional:
     - name: "osgi-framework"
       purpose: "Bundle class loading"

@@ -26,3 +26,4 @@ The following list describes some of the tasks you can perform with the cfpdf ta
 - Add and remove header/footer from PDF documents
 - Optimize PDF documents
 - Extract all the words from the pdf
+- Extract images from PDF documents using the `extractimage` action.

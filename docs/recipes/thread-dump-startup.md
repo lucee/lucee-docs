@@ -169,6 +169,7 @@ function analyzeThreadDump(path, threadName) {
 ```
 
 This function provides:
+
 - **Thread filtering**: Focus on specific threads by name (case-insensitive partial matching)
 - **Relative timing**: Shows elapsed time from the first captured snapshot
 - **Stack trace limiting**: Displays only the top stack frames for better readability

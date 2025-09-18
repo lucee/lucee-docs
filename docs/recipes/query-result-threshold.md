@@ -32,11 +32,13 @@ This feature provides early warning when queries return unexpectedly large datas
 Query result logging is configured using a single environment variable or system property:
 
 **Environment Variable:**
+
 ```bash
 LUCEE_QUERY_RESULT_THRESHOLD=100000
 ```
 
 **System Property:**
+
 ```bash
 -Dlucee.query.result.threshold=100000
 ```
@@ -157,10 +159,10 @@ When large result sets are logged:
 2. Check that queries actually exceed the threshold
 3. Ensure `warn` level logging is enabled for the `datasource` category
 
-
 ### False Positives
 
 If logging captures expected large result sets:
+
 - Adjust the threshold higher
 - Use different thresholds for different environments
 - Consider the business logic requirements

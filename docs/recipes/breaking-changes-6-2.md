@@ -111,7 +111,7 @@ Workaround, create an Application.cfc which extends the parent Application.cfc
 
 [LDEV-5323](https://luceeserver.atlassian.net/browse/LDEV-5323)
 
-## Strict Equality Operator was senstive to underlying java types
+## Strict Equality Operator was sensitive to underlying java types
 
 Lucee 6 improved the `===` operator to compare type and value, but was checking only the underlying java type, rather than cfml type, so numbers might fail
 
