@@ -132,6 +132,12 @@ Prior to Lucee 6, the `===` operator only returned true when comparing the same 
 
 [LDEV-1282](https://luceeserver.atlassian.net/browse/LDEV-1282)
 
+However, prior to 6.2.3.34, it was checking the underlying java type, rather than cfml type, so comparing numbers might fail
+
+In 6.2.3.34, this was changes to compare cfml type and value, as expected
+
+[LDEV-5806](https://luceeserver.atlassian.net/browse/LDEV-5806) 
+
 ### Query.map() member function returns a new query.
 
 Previously the `.query.map()` member function would modify the query, rather than returning a new query
