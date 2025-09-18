@@ -14,6 +14,8 @@
 - setInfo
 - thumbnail 
 - write
+- extractimage (default)
+- extractimages (alias for `extractimage`)
 
 **Note:**
 
