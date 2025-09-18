@@ -42,7 +42,7 @@ component {
 }
 ```
 
-In difference to `this.mappings`, `this.componentpaths" and `this.customtagpaths` are taking arrays as input and not structs, because in that case there is not "virtual path" that needs to be defined.
+In difference to `this.mappings`, `this.componentpaths` and `this.customtagpaths` are taking arrays as input and not structs, because in that case there is not "virtual path" that needs to be defined.
 
 ## Advanced
 

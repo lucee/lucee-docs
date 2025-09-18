@@ -105,7 +105,6 @@ You can pre warm a lucee installation, by setting the env var `LUCEE_ENABLE_WARM
 
 Lucee Docker images are already pre-warmed and Lucee 6.2 includes several improvements which make deployment faster.
 
-
 ## Admin and Docs extensions
 
 You will see extensions, Lucee Admin and Lucee Docs, these simply install mappings to make them available. The admin is tightly coupled to the Lucee Version, so they aren't separately deployed

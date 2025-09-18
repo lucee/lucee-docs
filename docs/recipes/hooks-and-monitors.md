@@ -321,6 +321,7 @@ You can define monitors directly in your `.CFConfig.json` configuration file und
 ```
 
 **Configuration Properties:**
+
 - `name`: Unique identifier for the monitor (required)
 - `type`: Monitor type - `action`, `request`, or `interval` (required)
 - `class`: Full Java class name (required unless using component)
@@ -332,6 +333,7 @@ You can define monitors directly in your `.CFConfig.json` configuration file und
 - `async`: Run request monitors asynchronously (optional, request monitors only, default: false)
 
 **Class Definition Resolution Order:**
+
 1. **OSGi Bundle** - If `bundleName` is provided
 2. **Maven Dependency** - If `maven` is provided  
 3. **CFML Component** - If `component` is provided (and `class` is null)
@@ -412,6 +414,7 @@ public class MyActionMonitor implements ActionMonitor {
 ### Use Cases
 
 Action monitors are ideal for:
+
 - Database query performance tracking
 - Lock contention analysis
 - Mail delivery monitoring
@@ -488,6 +491,7 @@ public class MyRequestMonitor implements RequestMonitor {
 ### Use Cases
 
 Request monitors are ideal for:
+
 - Application performance monitoring (APM)
 - Error rate tracking
 - User behavior analysis
@@ -566,6 +570,7 @@ public class MyIntervalMonitor implements IntervallMonitor {
 ### Use Cases
 
 Interval monitors are ideal for:
+
 - System resource monitoring
 - Memory leak detection
 - Performance baseline establishment
@@ -633,16 +638,19 @@ When implementing hooks and monitors, consider these security aspects:
 ## Common Issues
 
 **Hook Not Loading**
+
 - Verify class name and path are correct
 - Check bundle/Maven dependencies are available  
 - Review Lucee logs for error messages
 
 **Monitor Not Triggering**
+
 - Ensure monitoring is enabled in `.CFConfig.json`
 - Check that the monitor interface is implemented correctly
 - Verify the extension manifest syntax is valid
 
 **Performance Issues**
+
 - Keep monitor logic lightweight
 - Use asynchronous processing for expensive operations
 - Implement proper error handling to prevent monitor failures

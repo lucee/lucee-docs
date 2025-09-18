@@ -13,24 +13,24 @@ configuration:
     property: "startupHooks"
     format: "Array of objects"
     schema:
-      class: 
+      class:
         type: "string"
         required: true
         description: "Full Java class name"
-      bundleName: 
+      bundleName:
         type: "string"
         required: false
         description: "OSGi bundle symbolic name"
-      bundleVersion: 
+      bundleVersion:
         type: "string"
         required: false
         description: "OSGi bundle version"
-      maven: 
+      maven:
         type: "string"
         required: false
         description: "Maven coordinates (groupId:artifactId:version)"
         alternative_to: ["bundleName", "bundleVersion"]
-      component: 
+      component:
         type: "string"
         required: false
         description: "CFML component path"
@@ -59,7 +59,7 @@ constructor_resolution:
     parameter_type: "lucee.runtime.config.Config"
     actual_type: "ConfigServer instance"
     detection: "Reflector.getConstructor(clazz, new Class[]{Config.class})"
-  
+
   fallback:
     signature: "public ClassName()"
     usage: "ClassUtil.loadInstance(clazz)"
@@ -70,17 +70,17 @@ class_loading:
     method: "ClassUtil.loadClassByBundle()"
     parameters:
       - "className"
-      - "bundleName" 
+      - "bundleName"
       - "version (OSGi Version object)"
       - "identification"
       - "bundleDirectories"
       - "versionOnlyMattersWhenDownloading"
-  
+
   maven_dependency:
     condition: "maven is not null"
     method: "config.getRPCClassLoader().loadClass()"
     settings: "JavaSettingsImpl.getInstance(config, getMaven())"
-  
+
   standard_classpath:
     condition: "fallback"
     method: "ClassUtil.loadClass(ThreadLocalPageContext.getRPCClassLoader())"
@@ -96,7 +96,7 @@ instance_management:
     recommended: true
     static_field: "private static ClassName instance = null"
     error_field: "private static RuntimeException re"
-    access_method: 
+    access_method:
       signature: "public static ClassName getInstance() throws PageException"
       error_handling: "Throw PageException with initCause if initialization failed"
 
@@ -106,7 +106,7 @@ lifecycle_methods:
     web_context_iteration: "configServer.getConfigWebs()"
     context_filtering: "cw != null && cw.getServletContext() != null"
     cli_exclusion: "!(cw.getServletContext() instanceof lucee.cli.servlet.ServletContextImpl)"
-  
+
   finalization:
     method: "public void finalize()"
     trigger: "Hook replacement or server shutdown"
@@ -126,7 +126,7 @@ error_handling:
     storage: "Store RuntimeException in static field"
     propagation: "Re-throw from constructor"
     access: "Include as initCause in getInstance() PageException"
-  
+
   runtime_errors:
     logging: "ConfigBase.log(config, log, throwable)"
     continuation: "Process continues with remaining hooks"
@@ -136,7 +136,7 @@ implementation_details:
   loading_trigger: "During ConfigServerImpl construction"
   thread_safety: "Not required - sequential loading"
   replacement_detection: "cd.equals(existing.cd)"
-  
+
 system_integration:
   cfml_engine: "CFMLEngineFactory.getInstance()"
   creation_util: "eng.getCreationUtil()"
@@ -148,12 +148,12 @@ common_patterns:
     servlet_container: "ServletContext attributes"
     jndi_binding: "Context.bind()"
     system_properties: "System.getProperties().put()"
-  
+
   resource_initialization:
     connection_pools: "DataSource configuration"
     thread_pools: "ExecutorService creation"
     cache_managers: "Cache provider setup"
-  
+
   web_context_management:
     concurrent_map: "Map<String, Data> contexts"
     context_id: "cw.getIdentification().getId()"
@@ -162,18 +162,18 @@ common_patterns:
 dependencies:
   required:
     - name: "lucee-core"
-      classes: 
+      classes:
         - "lucee.runtime.config.Config"
         - "lucee.runtime.config.ConfigServer"
         - "lucee.runtime.config.ConfigWeb"
     - name: "lucee.loader"
       classes:
         - "lucee.loader.engine.CFMLEngineFactory"
-  
+
   optional:
     - name: "osgi-framework"
       purpose: "Bundle class loading"
-    - name: "maven-resolver" 
+    - name: "maven-resolver"
       purpose: "Maven dependency resolution"
 
 logging:

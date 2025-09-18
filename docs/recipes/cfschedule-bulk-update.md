@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Scheduled Tasks - efficently updating in a single operation",
+  "title": "Scheduled Tasks - efficiently updating in a single operation",
   "id": "cfschedule-bulk",
   "description": "How to update scheduled tasks in a single operation",
   "since": "6.2.3.16",
@@ -19,7 +19,7 @@
 }
 -->
 
-## Efficently and reliably updating scheduled tasks in a single operation
+## Efficiently and reliably updating scheduled tasks in a single operation
 
 Using the [[tag-schedule]] to update all tasks on application start has always been a bit slow, as each update reloads the config which is slow when updating many tasks.
 
@@ -31,7 +31,7 @@ Note, this approach only works reliably since 6.2.3.16, as the config import / m
 
 ### Updating tasks in a single transaction
 
-An alternative and far more efficent approach is to 
+An alternative and far more efficient approach is to 
 
 1. Extract the **scheduledTasks** from `.CFConfig.json`, 
 2. Check and modify the array of tasks if needed (i.e. track changes)
@@ -76,7 +76,7 @@ Loop over the array and modify it as needed.
 
 ### Tip: avoid updates when there is no change
 
-It's good to avoid updating the config if there is no change, but not so important when using this efficent approach.
+It's good to avoid updating the config if there is no change, but not so important when using this efficient approach.
 
 An easy way is to simply compare the source tasks array with the updated tasks array.
 
