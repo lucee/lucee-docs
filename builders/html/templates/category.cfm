@@ -42,7 +42,8 @@
 				<ul class="list-unstyled">
 				<cfloop array="#local.pages#" index="local.i" item="local.page">
 					<cfif local.pageTypeKey eq local.page.getPageType()>
-						<li>[[#htmleditformat(local.page.getId())#]] #htmleditformat( getMetaDescription(local.page, local.page.getBody()) )#</li>
+						<cfset desc = reReplace(getMetaDescription(local.page, local.page.getBody()), "\s*##{1,6}\s*", " ", "all")>
+						<li>[[#htmleditformat(local.page.getId())#]] #_markdownToHtml(htmleditformat(desc))#</li>
 					</cfif>
 				</cfloop>
 				</ul>
