@@ -147,7 +147,7 @@ component accessors=true {
 			else {
 				bundles = ext.bundles;
 			}
-			
+
 			loop array=bundles item="local.bundle" {
 				if ( bundle.getSymbolicName() == bundleName ) return ext.getMetadata();
 			}
