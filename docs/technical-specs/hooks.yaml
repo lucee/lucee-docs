@@ -117,8 +117,8 @@ background_registration:
   pattern: "Registrar thread for delayed web context discovery"
   thread_lifecycle:
     daemon: true
-    intervals: [500, 1000, 10000, 60000] # ms
-    interval_triggers: [0, 5, 20, 30] # iteration counts
+    intervals: [500, 1000, 10000, 60000]  # ms
+    interval_triggers: [0, 5, 20, 30]  # iteration counts
     termination: "alive flag or factory.isAlive() false"
 
 error_handling:
