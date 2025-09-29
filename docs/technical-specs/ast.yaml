@@ -1,6 +1,7 @@
 name: "Lucee AST (Abstract Syntax Tree)"
 technology: "AST/Parser"
 since: "7.0"
+enhanced: "7.0.1.7"
 
 builtin_functions:
   astFromPath:
@@ -124,12 +125,20 @@ cfml_tag_structure:
     - "attributes: array"
     - "body: BlockStatement|null"
     - "selfClosing: boolean"
+    - "isBuiltIn: boolean|undefined (since 7.0.1.7)"
 
 attribute_structure:
   type: "Attribute"
   properties:
     - "name: string"
     - "value: Expression"
+
+call_expression_structure:
+  type: "CallExpression"
+  properties:
+    - "callee: Expression"
+    - "arguments: array"
+    - "isBuiltIn: boolean|undefined (since 7.0.1.7)"
 
 function_types:
   declaration: "FunctionDeclaration"
