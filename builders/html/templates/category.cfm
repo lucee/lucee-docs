@@ -43,7 +43,7 @@
 				<cfloop array="#local.pages#" index="local.i" item="local.page">
 					<cfif local.pageTypeKey eq local.page.getPageType()>
 						<cfset desc = reReplace(getMetaDescription(local.page, local.page.getBody()), "\s*##{1,6}\s*", " ", "all")>
-						<li>[[#htmleditformat(local.page.getId())#]] #_markdownToHtml(htmleditformat(desc))#</li>
+						<li>[[#htmleditformat(local.page.getId())#]] <span class="list-desc">#_markdownToHtml(htmleditformat(desc))#</span></li>
 					</cfif>
 				</cfloop>
 				</ul>
@@ -51,3 +51,10 @@
 		</cfloop>
 	</cfif>
 </cfoutput>
+<style>
+	.list-desc p {
+		display: inline;
+		margin: 0;
+		padding: 0;
+	}
+</style>
