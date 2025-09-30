@@ -32,8 +32,6 @@ The password that will be used for the Lucee Administrators at install time. **T
 
 Simply running the above will make the installer use default values, including the default ports, installing the Apache connector if Apache is present, and use default usernames and installation directories. The default values for these variables is defined in detail below.
 
-
-
 ### Installer Variables ###
 
 The following variables can also be customized by passing them to the installer via the command-line.
@@ -41,17 +39,17 @@ The following variables can also be customized by passing them to the installer 
 **--help**  
 Display the list of valid options
 
- **--version**  
- Display product information
+**--version**  
+Display product information
 
 **--unattendedmodeui**  
 **Default:** [none]  
 **Allowed:** [none minimal minimalWithDialogs]  
 Unattended Mode UI
 
- **--optionfile**  
- **Default:** [none]   
- Installation option file.
+**--optionfile**  
+**Default:** [none]   
+Installation option file.
 
 **--debuglevel**  
 **Default: [2]**  
@@ -166,7 +164,6 @@ Specifies the location of the Apache log files. Used in the configuration of the
 **Default:** infinite recursion in variable bittype  
 **Allowed:** [32 64]  
 32-bit or 64-bit system 
-
 
 ### Using an OptionFile ###
 
