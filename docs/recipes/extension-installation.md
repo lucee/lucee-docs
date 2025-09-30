@@ -25,6 +25,10 @@
 
 In Lucee, there are multiple ways to install an extension. This recipe will show you all the possibilities along with their pros and cons.
 
+The standard Lucee jar, (known as the far jar) bundles a number of common extensions (pdf, image etc).
+
+If you want to control which extensions are installed, use Lucee Light (core and admin) or Lucee Zero (core only).
+
 ## Lucee Administrator
 
 You can install an extension in the Lucee Administrator by navigating to Extensions/Applications in the Lucee (Server) Administrator and installing or uninstalling the extension you need.
