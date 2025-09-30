@@ -51,10 +51,3 @@
 		</cfloop>
 	</cfif>
 </cfoutput>
-<style>
-	.list-desc p {
-		display: inline;
-		margin: 0;
-		padding: 0;
-	}
-</style>
