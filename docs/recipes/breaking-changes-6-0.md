@@ -288,3 +288,9 @@ Number format now rounds up instead of down to match ACF behavior.
 Fixed implementation bug and changed to milliseconds, to match ACF behavior.
 
 [LDEV-1860](https://luceeserver.atlassian.net/browse/LDEV-1860)
+
+### ACF Compatibility Query.addRow(), Query.addColumn(), Query.deleteRow(), Query.deleteColumn()
+
+For ACF compatibility, the member functions `Query.addRow()`, `Query.addColumn()`, `Query.deleteRow()`, and `Query.deleteColumn()` return the updated query (allowing method chaining).
+
+[LDEV-3581](https://luceeserver.atlassian.net/browse/LDEV-3581)
