@@ -11,4 +11,4 @@ categories:
 
 ---
 
-removes a row from a query and return removed row as array
+Removes a column from a query and returns the query without the specified column.
