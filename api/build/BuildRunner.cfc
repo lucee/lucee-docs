@@ -88,14 +88,18 @@ component accessors=true {
 
 		arguments.builder.injectMethod = this.injectMethod;
 
-		arguments.builder.injectMethod( "renderLinks", function( required string text ){
-			return new api.rendering.WikiLinksRenderer( docTree=variables.docTree ).renderLinks( text=arguments.text, builder=variables._builder );
+		arguments.builder.injectMethod( "renderLinks", function( required string text, required struct args ){
+			return new api.rendering.WikiLinksRenderer( docTree=variables.docTree ).renderLinks(
+				text = arguments.text,
+				builder = variables._builder,
+				args = arguments.args
+			);
 		} );
 		arguments.builder.injectMethod( "renderTemplate", function( required string template, struct args={} ){
 			var renderer = new api.rendering.TemplateRenderer();
 			var rendered = renderer.render( argumentCollection=arguments, template=_rootPathForRenderer & arguments.template );
 
-			return builder.renderLinks( rendered );
+			return builder.renderLinks( rendered, args );
 		} );
 
 		StructDelete( arguments.builder, "injectMethod" );

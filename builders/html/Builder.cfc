@@ -32,17 +32,39 @@ component {
 		request.filesWritten = 0;
 		request.filesToWrite = StructCount(pagePaths);
 
+		var simpleBuildDirectory = arguments.buildDirectory & "Basic";
+
+		// purge previous build directory contents
+		loop array="#[buildDirectory, simpleBuildDirectory]#" item="local.dir" {
+			if ( directoryExists( dir ) )
+				DirectoryDelete(dir, true);
+			directoryCreate( dir );
+		}
 		request.logger (text="Builder HTML directory: #arguments.buildDirectory#");
+		request.logger (text="Builder Simple HTML directory: #simplebuildDirectory#");
 
 		new api.parsers.ParserFactory().getMarkdownParser(); // so the parser in use shows up in logs
 
 		//for ( var path in pagePaths ) {
 		each(pagePaths, function(path){
 			var tick = getTickCount();
-			if (pagePaths[arguments.path].page.isPage())
-				_writePage( pagePaths[arguments.path].page, buildDirectory, docTree );
+			var page = pagePaths[ arguments.path ].page;
+			// write out full html page
+			var pageContent = renderPageContent( page, docTree, false, {} );
+			_writePage( page, buildDirectory, docTree, pageContent, {} );
 
-			request.filesWritten++;
+			// write out reduced stripped down basic html page with no navigation etc
+			var basicArgs = {
+				//"no_css": true,
+				"no_google_analytics": true,
+				"no_navigation": true,
+				"mainTemplate": "main_basic.cfm",
+				"base_href": _calcRelativeBaseHref( page, simpleBuildDirectory )
+			}; 
+			if (pagePaths[arguments.path].page.isPage()) {
+				var basicPageContent = renderPageContent( page, docTree, false, basicArgs );
+				_writePage( page, simpleBuildDirectory, docTree, basicPageContent, basicArgs );
+			}
 			if ((request.filesWritten mod 100) eq 0){
 				request.logger(text="Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
 			}
@@ -56,13 +78,19 @@ component {
 		_copyStaticAssets( arguments.buildDirectory );
 		_copySiteImages( arguments.buildDirectory, arguments.docTree );
 		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
+
+		_copyStaticAssets( simpleBuildDirectory);
+		_zipBasicPages( arguments.buildDirectory, simpleBuildDirectory, "lucee-docs-basic" );
 	}
 
-	public string function renderPage( required any page, required any docTree, required boolean edit ){
+	public string function renderPageContent( required any page, required any docTree,
+			required boolean edit, required struct htmlOpts  ){
 		try {
-			var renderedPage = renderTemplate(
-				  template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
-				, args     = { page = arguments.page, docTree=arguments.docTree, edit=arguments.edit }
+			var contentArgs = { page = arguments.page, docTree=arguments.docTree, edit=arguments.edit, htmlOpts=arguments.htmlOpts };
+			
+			var pageContent = renderTemplate(
+				template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
+				, args     = contentArgs
 				, helpers  = "/builders/html/helpers"
 			);
 		} catch( any e ) {
@@ -71,7 +99,13 @@ component {
 			e.additional.luceeDocsPageId = arguments.page.getid();
 			rethrow;
 		}
-		var crumbs = arguments.docTree.getPageBreadCrumbs(arguments.page);
+		return pageContent;
+	}
+
+	public string function renderPage( required any page, required any docTree,
+			required string pageContent, required boolean edit, required struct htmlOptions ){
+
+		var crumbs = arguments.docTree.getPageBreadCrumbs( arguments.page );
 		var excludeLinkMap = {}; // tracks links to exclude from See also
 		var links = [];
 		var categories = [];
@@ -117,21 +151,50 @@ component {
 					break;
 			}
 		}
+
+		var template = arguments.htmlOptions.mainTemplate ?: "main.cfm";
+		var crumbsArgs = {
+			crumbs:crumbs,
+			page: arguments.page,
+			docTree: arguments.docTree,
+			categories: categories.sort("textNoCase"),
+			edit: arguments.edit,
+			htmlOpts:  arguments.htmlOptions
+		};
+		var seeAlsoArgs = {
+			links= links,
+			htmlOpts=arguments.htmlOptions
+		}
+
 		try {
+
+			var args = {
+				body       = Trim( arguments.pageContent )
+				, htmlOpts   = arguments.htmlOptions
+				, page       = arguments.page
+				, edit       = arguments.edit
+				, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers",
+					args = crumbsArgs
+				)
+				, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , helpers  = "/builders/html/helpers",
+					args = seeAlsoArgs )
+			};
+
+			if ( !structKeyExists(arguments.htmlOptions, "no_navigation" ) ){
+				args.navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={
+					crumbs=crumbs,
+					docTree=arguments.docTree,
+					pageLineage=arguments.page.getLineage(),
+					pageLineageMap=arguments.page.getPageLineageMap()
+				} );
+			} else  {
+				args.navTree = "";
+			}
+
 			var pageContent = renderTemplate(
-				template = "layouts/main.cfm"
+				template = "layouts/#template#"
 				, helpers  = "/builders/html/helpers"
-				, args     = {
-					body       = Trim( renderedPage )
-					, page       = arguments.page
-					, edit       = arguments.edit
-					, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, page=arguments.page, docTree=arguments.docTree, categories=categories.sort("textNoCase"), edit= arguments.edit } )
-					, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={
-						crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage(), pageLineageMap=arguments.page.getPageLineageMap()
-					} )
-					, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , helpers  = "/builders/html/helpers",
-						args={ links=links } )
-				}
+				, args     = args
 			);
 		} catch( any e ) {
 			//e.additional.luceeDocsPage = arguments.page;
@@ -178,18 +241,24 @@ component {
 	}
 
 // PRIVATE HELPERS
-	private void function _writePage( required any page, required string buildDirectory, required any docTree ) {
+	private void function _writePage( required any page, required string buildDirectory,
+			required any docTree, required string pageContent, required struct htmlOptions ) {
 		var filePath      = variables._getHtmlFilePath( arguments.page, arguments.buildDirectory );
 		var fileDirectory = GetDirectoryFromPath( filePath );
 
-		//var starttime = getTickCount();
 		lock name="CreateDirectory" timeout=10 {
 			if ( !DirectoryExists( fileDirectory ) ) {
 				DirectoryCreate( fileDirectory );
 			}
 		}
-		var pageContent = variables.cleanHtml(variables.renderPage( arguments.page, arguments.docTree, false ));
-		FileWrite( filePath, pageContent );
+
+		var html = variables.cleanHtml(
+			variables.renderPage( arguments.page,
+				arguments.docTree, arguments.pageContent, false ,
+				arguments.htmlOptions, arguments.buildDirectory
+			)
+		);
+		FileWrite( filePath, html );
 	}
 
 	// regex strips left over whitespace multiple new lines
@@ -206,6 +275,18 @@ component {
 		return arguments.buildDirectory & arguments.page.getPath() & ".html";
 	}
 
+	private string function _calcRelativeBaseHref( required any page, required string buildDirectory ) {
+		var path = arguments.page.getPath();
+		var depth = listLen( path, "/" );
+		if ( depth eq 1)
+			return "";
+		var baseHref = [];
+		loop times="#depth-1#" {
+			arrayAppend(baseHref, "..");
+		}
+		return ArrayToList(baseHref, "/");
+	}
+
 	private void function _copyStaticAssets( required string buildDirectory ) {
 		updateHighlightsCss( arguments.buildDirectory );
 		var subdirs = directoryList(path=GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets", type="dir", recurse="false");
@@ -219,8 +300,10 @@ component {
 
 	private function updateHighlightsCss( required string buildDirectory ){
 		var highlighter = new api.rendering.Pygments();
-		var cssFile = path=GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/css/highlight.css";
-		fileWrite( cssFile, highlighter.getCss() );
+		var cssFile = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/css/highlight.css";
+		var css = highlighter.getCss();
+		if ( trim( css ) neq trim( fileRead( cssFile ) ) )
+			fileWrite( cssFile, highlighter.getCss() ); // only update if changed
 	}
 
 	private void function _copySiteImages( required string buildDirectory, required any docTree ) {
@@ -310,4 +393,82 @@ component {
 		return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">#chr(10)#' &
 			ArrayToList(siteMap, chr(10) ) & '#chr(10)#</urlset>';
 	}
+
+	public string function renderLink( any page, required string title, required struct args ) {
+		if ( IsNull( arguments.page ) ) {
+			if (arguments.title.left(4) eq "http"){
+				return '<a href="#arguments.title#">#HtmlEditFormat( arguments.title )#</a>';
+			} else {
+				request.logger (text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]", type="WARN");
+				return '<a class="missing-link" title="missing link">#HtmlEditFormat( arguments.title )#</a>';
+			}
+		}
+		var link = arguments.page.getPath() & ".html";
+		if (!structKeyExists( args, "htmlOpts" ) ){
+			SystemOutput(structKeyList(args), true);
+			throw "zac";
+		}
+		//if ( arguments.page.getPath() contains "ormFlush" )	SystemOutput(args, true);
+		if ( structKeyExists( args, "htmlOpts" )
+				&& structKeyExists( args.htmlOpts, "base_href" ) ){
+			link = args.htmlOpts.base_href & link;
+		}
+
+		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
+	}
+
+	public string function _getIssueTrackerLink(required string name) {
+		var link = Replace( new api.build.BuildProperties().getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
+	}
+
+	public string function _getTestCasesLink(required string name) {
+		var link = Replace( new api.build.BuildProperties().getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <i class="fa fa-external-link"></i></a> (good for further, detailed examples)';
+	}
+
+	public function _zipBasicPages( buildDirectory, simpleBuildDirectory, zipName ){
+
+		var zipFilename = arguments.zipName & ".zip";
+		var doubleZipFilename = arguments.zipName & "-zipped.zip";
+
+		// neat trick, storing then zipping the stored zip reduces the file size from 496 Kb to 216 Kb
+		var tempStoredZip = getTempFile( "", "#zipfileName#-store", "zip" );
+		var tempDoubleZip = getTempFile( "", "#zipfileName#-normal", "zip" );
+		var tempNormalZip = getTempFile( "", "#zipfileName#-normal", "zip" );
+
+		zip action="zip"
+			source="#arguments.simpleBuildDirectory#"
+			file="#tempStoredZip#"
+			compressionmethod="store"
+			recurse="true";
+
+		zip action="zip"
+			source="#arguments.simpleBuildDirectory#"
+			file="#tempDoubleZip#"
+			compressionmethod="deflateUtra" // typo in cfzip!
+			recurse="false" {
+				zipparam entrypath="#zipFilename#" source="#tempStoredZip#";
+		};
+		fileDelete( tempStoredZip );
+
+		zip action="zip"
+			source="#arguments.simpleBuildDirectory#"
+			file="#tempNormalZip#"
+			recurse="true";
+
+		publishWithChecksum( tempNormalZip, "#buildDirectory#/#zipFilename#" );
+		publishWithChecksum( tempDoubleZip, "#buildDirectory#/#doubleZipFilename#" );
+	};
+
+	function publishWithChecksum( src, dest ){
+		request.logger (text="Builder copying zip to #dest#");
+		fileCopy( src, dest );
+		loop list="md5,sha1" item="local.hashType" {
+			var checksumPath = left( dest, len( dest ) - 3 ) & hashType;
+			filewrite( checksumPath, lcase( hash( fileReadBinary( arguments.src ), hashType ) ) );
+			request.logger (text="Builder added #checksumPath# checksum");
+		}
+	}
+
 }
