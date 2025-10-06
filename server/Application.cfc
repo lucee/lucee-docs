@@ -186,17 +186,37 @@ component {
 	}
 
 	private void function _renderStatic() {
-		var staticFile = listRest(_getRequestUri(), "/");
+		var requestUri = _getRequestUri();
+		var staticFile = listRest(requestUri, "/");
 		if (len(staticFile) eq 0)
 			staticFile = "index.html";
 
-		var staticAssetPath = "/builds/html/" & staticFile ;
+		// Check Accept header for content negotiation
+		var acceptHeader = cgi.http_accept ?: "";
+		var preferMarkdown = findNoCase("text/markdown", acceptHeader) gt 0;
+
+		// If markdown is preferred and requesting an HTML file, try to serve .md instead
+		if (preferMarkdown and listLast(staticFile, ".") eq "html") {
+			var baseName = listDeleteAt(staticFile, listLen(staticFile, "."), ".");
+			var mdFile = baseName & ".md";
+			var mdPath = "/builds/html/" & mdFile;
+			if (FileExists(mdPath)) {
+				staticFile = mdFile;
+			}
+		}
+
+		var staticAssetPath = "/builds/html/" & staticFile;
 
 		if ( !FileExists( staticAssetPath ) ) {
 			_404(staticAssetPath, "/static/");
 		}
 		var pageContent = fileRead(staticAssetPath);
-		pagecontent = reReplace(pagecontent, '\<a href="\/', '<a href="/static/', 'all');
+
+		// Only rewrite links for HTML files
+		var fileExt = listLast(staticFile, ".");
+		if (fileExt eq "html") {
+			pagecontent = reReplace(pagecontent, '\<a href="\/', '<a href="/static/', 'all');
+		}
 
 		header name="cache-control" value="no-cache";
 		setting showdebugoutput="no";
@@ -361,6 +381,7 @@ component {
 			case "ttf": return "application/octet-stream";
 			case "html": return "text/html";
 			case "text": return "text/plain";
+			case "md": return "text/markdown";
 		}
 
 		return "application/octet-stream";

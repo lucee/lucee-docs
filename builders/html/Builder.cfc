@@ -1,16 +1,4 @@
 component {
-	public string function renderLink( any page, required string title ) {
-		if ( IsNull( arguments.page ) ) {
-			if (arguments.title.left(4) eq "http"){
-				return '<a href="#arguments.title#">#HtmlEditFormat( arguments.title )#</a>';
-			} else {
-				request.logger (text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]", type="WARN");
-				return '<a class="missing-link" title="missing link">#HtmlEditFormat( arguments.title )#</a>';
-			}
-		}
-		var link = arguments.page.getPath() & ".html";
-		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
-	}
 
 	public string function renderContent( any docTree, required string content ) {
 		return docTree.renderContent( content );
@@ -32,16 +20,12 @@ component {
 		request.filesWritten = 0;
 		request.filesToWrite = StructCount(pagePaths);
 
-		var simpleBuildDirectory = arguments.buildDirectory & "Basic";
-
 		// purge previous build directory contents
-		loop array="#[buildDirectory, simpleBuildDirectory]#" item="local.dir" {
-			if ( directoryExists( dir ) )
-				DirectoryDelete(dir, true);
-			directoryCreate( dir );
-		}
+		if ( directoryExists( buildDirectory ) )
+			DirectoryDelete( buildDirectory, true );
+		directoryCreate( buildDirectory );
+
 		request.logger (text="Builder HTML directory: #arguments.buildDirectory#");
-		request.logger (text="Builder Simple HTML directory: #simplebuildDirectory#");
 
 		new api.parsers.ParserFactory().getMarkdownParser(); // so the parser in use shows up in logs
 
@@ -49,22 +33,17 @@ component {
 		each(pagePaths, function(path){
 			var tick = getTickCount();
 			var page = pagePaths[ arguments.path ].page;
-			// write out full html page
-			var pageContent = renderPageContent( page, docTree, false, {} );
-			_writePage( page, buildDirectory, docTree, pageContent, {} );
 
-			// write out reduced stripped down basic html page with no navigation etc
-			var basicArgs = {
-				//"no_css": true,
-				"no_google_analytics": true,
-				"no_navigation": true,
-				"mainTemplate": "main_basic.cfm",
-				"base_href": _calcRelativeBaseHref( page, simpleBuildDirectory )
-			}; 
-			if (pagePaths[arguments.path].page.isPage()) {
-				var basicPageContent = renderPageContent( page, docTree, false, basicArgs );
-				_writePage( page, simpleBuildDirectory, docTree, basicPageContent, basicArgs );
+			if ( page.isPage() ) {
+				// write out full html page
+				var pageContent = renderPageContent( page, docTree, false, {} );
+				_writePage( page, buildDirectory, docTree, pageContent, {} );
+
+				// write out markdown page
+				var markdownContent = renderMarkdownContent( page, docTree );
+				_writeMarkdownPage( page, buildDirectory, markdownContent, docTree );
 			}
+
 			if ((request.filesWritten mod 100) eq 0){
 				request.logger(text="Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
 			}
@@ -78,16 +57,13 @@ component {
 		_copyStaticAssets( arguments.buildDirectory );
 		_copySiteImages( arguments.buildDirectory, arguments.docTree );
 		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
-
-		_copyStaticAssets( simpleBuildDirectory);
-		_zipBasicPages( arguments.buildDirectory, simpleBuildDirectory, "lucee-docs-basic" );
 	}
 
 	public string function renderPageContent( required any page, required any docTree,
 			required boolean edit, required struct htmlOpts  ){
 		try {
 			var contentArgs = { page = arguments.page, docTree=arguments.docTree, edit=arguments.edit, htmlOpts=arguments.htmlOpts };
-			
+
 			var pageContent = renderTemplate(
 				template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
 				, args     = contentArgs
@@ -100,6 +76,25 @@ component {
 			rethrow;
 		}
 		return pageContent;
+	}
+
+	public string function renderMarkdownContent( required any page, required any docTree ){
+		try {
+			var contentArgs = { page = arguments.page, docTree=arguments.docTree, edit=false };
+
+			var markdownContent = renderTemplate(
+				template = "../markdown/templates/#_getPageLayoutFile( arguments.page )#.cfm"
+				, args     = contentArgs
+				, helpers  = "/builders/html/helpers"
+				, markdown = true
+			);
+		} catch( any e ) {
+			e.additional.luceeDocsTitle = arguments.page.getTitle();
+			e.additional.luceeDocsPath = arguments.page.getPath();
+			e.additional.luceeDocsPageId = arguments.page.getid();
+			rethrow;
+		}
+		return markdownContent;
 	}
 
 	public string function renderPage( required any page, required any docTree,
@@ -275,17 +270,34 @@ component {
 		return arguments.buildDirectory & arguments.page.getPath() & ".html";
 	}
 
-	private string function _calcRelativeBaseHref( required any page, required string buildDirectory ) {
-		var path = arguments.page.getPath();
-		var depth = listLen( path, "/" );
-		if ( depth eq 1)
-			return "";
-		var baseHref = [];
-		loop times="#depth-1#" {
-			arrayAppend(baseHref, "..");
+	private void function _writeMarkdownPage( required any page, required string buildDirectory, required string markdownContent, required any docTree ) {
+		var filePath      = _getMarkdownFilePath( arguments.page, arguments.buildDirectory );
+		var fileDirectory = GetDirectoryFromPath( filePath );
+
+		lock name="CreateDirectory" timeout=10 {
+			if ( !DirectoryExists( fileDirectory ) ) {
+				DirectoryCreate( fileDirectory );
+			}
 		}
-		return ArrayToList(baseHref, "/");
+
+		FileWrite( filePath, arguments.markdownContent );
+
+		// Set last modified date from git for recipes
+		var recipeDates = arguments.docTree.getRecipeDates();
+		var pageId = arguments.page.getId();
+		if ( structKeyExists( recipeDates, pageId ) ) {
+			FileSetLastModified( filePath, recipeDates[pageId] );
+		}
 	}
+
+	private string function _getMarkdownFilePath( required any page, required string buildDirectory ) {
+		if ( arguments.page.getPath() == "/home" ) {
+			return arguments.buildDirectory & "/index.md";
+		}
+
+		return arguments.buildDirectory & arguments.page.getPath() & ".md";
+	}
+
 
 	private void function _copyStaticAssets( required string buildDirectory ) {
 		updateHighlightsCss( arguments.buildDirectory );
@@ -394,27 +406,92 @@ component {
 			ArrayToList(siteMap, chr(10) ) & '#chr(10)#</urlset>';
 	}
 
-	public string function renderLink( any page, required string title, required struct args ) {
+	public string function renderLink( any page, required string title, struct args={}, boolean markdown=false ) {
 		if ( IsNull( arguments.page ) ) {
-			if (arguments.title.left(4) eq "http"){
+			if ( arguments.title.left( 4 ) eq "http" ){
+				if ( arguments.markdown ) {
+					return "[#arguments.title#](#arguments.title#)";
+				}
 				return '<a href="#arguments.title#">#HtmlEditFormat( arguments.title )#</a>';
 			} else {
-				request.logger (text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]", type="WARN");
+				request.logger( text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]", type="WARN" );
+				if ( arguments.markdown ) {
+					return "**#arguments.title#**";
+				}
 				return '<a class="missing-link" title="missing link">#HtmlEditFormat( arguments.title )#</a>';
 			}
 		}
-		var link = arguments.page.getPath() & ".html";
-		if (!structKeyExists( args, "htmlOpts" ) ){
-			SystemOutput(structKeyList(args), true);
-			throw "zac";
-		}
-		//if ( arguments.page.getPath() contains "ormFlush" )	SystemOutput(args, true);
-		if ( structKeyExists( args, "htmlOpts" )
-				&& structKeyExists( args.htmlOpts, "base_href" ) ){
-			link = args.htmlOpts.base_href & link;
+
+		var extension = arguments.markdown ? ".md" : ".html";
+		var link = arguments.page.getPath() & extension;
+
+		// For markdown, use relative paths
+		if ( arguments.markdown && structKeyExists( arguments.args, "page" ) ) {
+			link = _calculateRelativePath( arguments.args.page.getPath(), arguments.page.getPath() ) & extension;
+		} else if ( structKeyExists( arguments.args, "htmlOpts" )
+				&& structKeyExists( arguments.args.htmlOpts, "base_href" ) ){
+			link = arguments.args.htmlOpts.base_href & link;
 		}
 
+		if ( arguments.markdown ) {
+			return "[#arguments.title#](#link#)";
+		}
 		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
+	}
+
+	private string function _calculateRelativePath( required string fromPath, required string toPath ) {
+		// Handle home page specially
+		if ( arguments.fromPath == "/home" ) {
+			arguments.fromPath = "/";
+		}
+		if ( arguments.toPath == "/home" ) {
+			arguments.toPath = "/";
+		}
+
+		// Split paths into parts (excluding filename)
+		var fromParts = listToArray( arguments.fromPath, "/" );
+		var toParts = listToArray( arguments.toPath, "/" );
+
+		// If they're in the same directory, just use the filename
+		if ( arrayLen( fromParts ) == arrayLen( toParts ) ) {
+			var samePath = true;
+			for ( var i = 1; i < arrayLen( fromParts ); i++ ) {
+				if ( fromParts[i] != toParts[i] ) {
+					samePath = false;
+					break;
+				}
+			}
+			if ( samePath ) {
+				return listLast( arguments.toPath, "/" );
+			}
+		}
+
+		// Find common prefix
+		var commonLength = 0;
+		var minLength = min( arrayLen( fromParts ) - 1, arrayLen( toParts ) - 1 );
+		for ( var i = 1; i <= minLength; i++ ) {
+			if ( fromParts[i] == toParts[i] ) {
+				commonLength = i;
+			} else {
+				break;
+			}
+		}
+
+		// Build relative path
+		var relativeParts = [];
+
+		// Go up from current location (exclude the filename itself)
+		var upLevels = arrayLen( fromParts ) - 1 - commonLength;
+		for ( var i = 1; i <= upLevels; i++ ) {
+			arrayAppend( relativeParts, ".." );
+		}
+
+		// Go down to target location
+		for ( var i = commonLength + 1; i <= arrayLen( toParts ); i++ ) {
+			arrayAppend( relativeParts, toParts[i] );
+		}
+
+		return arrayToList( relativeParts, "/" );
 	}
 
 	public string function _getIssueTrackerLink(required string name) {
@@ -427,48 +504,5 @@ component {
 		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <i class="fa fa-external-link"></i></a> (good for further, detailed examples)';
 	}
 
-	public function _zipBasicPages( buildDirectory, simpleBuildDirectory, zipName ){
-
-		var zipFilename = arguments.zipName & ".zip";
-		var doubleZipFilename = arguments.zipName & "-zipped.zip";
-
-		// neat trick, storing then zipping the stored zip reduces the file size from 496 Kb to 216 Kb
-		var tempStoredZip = getTempFile( "", "#zipfileName#-store", "zip" );
-		var tempDoubleZip = getTempFile( "", "#zipfileName#-normal", "zip" );
-		var tempNormalZip = getTempFile( "", "#zipfileName#-normal", "zip" );
-
-		zip action="zip"
-			source="#arguments.simpleBuildDirectory#"
-			file="#tempStoredZip#"
-			compressionmethod="store"
-			recurse="true";
-
-		zip action="zip"
-			source="#arguments.simpleBuildDirectory#"
-			file="#tempDoubleZip#"
-			compressionmethod="deflateUtra" // typo in cfzip!
-			recurse="false" {
-				zipparam entrypath="#zipFilename#" source="#tempStoredZip#";
-		};
-		fileDelete( tempStoredZip );
-
-		zip action="zip"
-			source="#arguments.simpleBuildDirectory#"
-			file="#tempNormalZip#"
-			recurse="true";
-
-		publishWithChecksum( tempNormalZip, "#buildDirectory#/#zipFilename#" );
-		publishWithChecksum( tempDoubleZip, "#buildDirectory#/#doubleZipFilename#" );
-	};
-
-	function publishWithChecksum( src, dest ){
-		request.logger (text="Builder copying zip to #dest#");
-		fileCopy( src, dest );
-		loop list="md5,sha1" item="local.hashType" {
-			var checksumPath = left( dest, len( dest ) - 3 ) & hashType;
-			filewrite( checksumPath, lcase( hash( fileReadBinary( arguments.src ), hashType ) ) );
-			request.logger (text="Builder added #checksumPath# checksum");
-		}
-	}
 
 }

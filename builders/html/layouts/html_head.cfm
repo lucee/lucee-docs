@@ -8,6 +8,7 @@
 		local.path = "/index";
 	local.pageHref = "https://docs.lucee.org#local.path#.html";
 	local.pagePath = "#local.path#.html";
+	local.pagePathMd = "#local.path#.md";
 	if (args.page.getTitle() neq "Lucee Documentation")
 		local.pageTitle = args.page.getTitle() & " :: Lucee Documentation";
 	else
@@ -35,6 +36,7 @@
 			<base href="#local.baseHref#">
 		</cfif>
 		<link rel="canonical" href="#local.pageHref#">
+		<link rel="alternate" type="text/markdown" href="#local.pagePathMd#">
 		<meta name="robots" content="index, follow">
 		<meta content="#getMetaDescription( args.page, args.body )#" name="description">
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
