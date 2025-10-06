@@ -42,6 +42,8 @@ component {
 				// write out markdown page
 				var markdownContent = renderMarkdownContent( page, docTree );
 				_writeMarkdownPage( page, buildDirectory, markdownContent, docTree );
+
+				request.filesWritten++;
 			}
 
 			if ((request.filesWritten mod 100) eq 0){
