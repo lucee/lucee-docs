@@ -14774,9 +14774,9 @@ window.onerror = function(message, url, line, col, err) {
 	$(".expand-a-z").click(function(){
 		var $el = $(this);
 		var isExpanded = $el.data("expanded");
-		$el.text(isExpanded ? "Expand All" : "Collapse" );
+		$el.text(isExpanded ? "Collapse All" : "Expand All" );
 		$('.tile-active-show').each(function(){
-			$(this).toggleClass('collapse', !$(this).hasClass('collapse'));
+			$(this).collapse(isExpanded ? 'show' : 'hide');
 		});
 		$el.data("expanded", !isExpanded);
 	});
