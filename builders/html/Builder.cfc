@@ -256,6 +256,7 @@ component {
 			)
 		);
 		FileWrite( filePath, html );
+		_setRecipeFileDate( arguments.page, filePath, arguments.docTree );
 	}
 
 	// regex strips left over whitespace multiple new lines
@@ -283,13 +284,7 @@ component {
 		}
 
 		FileWrite( filePath, arguments.markdownContent );
-
-		// Set last modified date from git for recipes
-		var recipeDates = arguments.docTree.getRecipeDates();
-		var pageId = arguments.page.getId();
-		if ( structKeyExists( recipeDates, pageId ) ) {
-			FileSetLastModified( filePath, recipeDates[pageId] );
-		}
+		_setRecipeFileDate( arguments.page, filePath, arguments.docTree );
 	}
 
 	private string function _getMarkdownFilePath( required any page, required string buildDirectory ) {
@@ -506,5 +501,19 @@ component {
 		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <i class="fa fa-external-link"></i></a> (good for further, detailed examples)';
 	}
 
+	private void function _setRecipeFileDate( required any page, required string filePath, required any docTree ) {
+		// Set last modified date from git for recipes
+		var recipeDates = arguments.docTree.getRecipeDates();
+		var pagePath = arguments.page.getPath();
+
+		// recipeDates keys are filenames like "ai-augmentation.md", need to convert from pagePath
+		if ( pagePath.startsWith( "/recipes/" ) ) {
+			var recipeKey = listLast( pagePath, "/" ) & ".md";
+			if ( structKeyExists( recipeDates, recipeKey ) && arrayLen( recipeDates[ recipeKey ].commits ) ) {
+				// commits array: first is most recent (updated), last is oldest (created)
+				FileSetLastModified( arguments.filePath, arrayLast( recipeDates[ recipeKey ].commits ) );
+			}
+		}
+	}
 
 }
