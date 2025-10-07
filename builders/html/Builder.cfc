@@ -1,7 +1,7 @@
 component {
 
-	public string function renderContent( any docTree, required string content ) {
-		return docTree.renderContent( content );
+	public string function renderContent( any docTree, required string content, boolean markdown=false ) {
+		return docTree.renderContent( content, arguments.markdown );
 	}
 
 	public string function _getIssueTrackerLink(required string name) {

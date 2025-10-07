@@ -10,7 +10,7 @@ component accessors=true {
 			link = _getNextLink( rendered, startPos );
 			if ( !IsNull( link ) ) {
 				if ( link.type eq "content" ) {
-					var content = arguments.builder.renderContent( getDocTree(), link.content );
+					var content = arguments.builder.renderContent( getDocTree(), link.content, arguments.markdown );
 					rendered = Replace( rendered, link.rawMatch, content, "one" );
 					//startPos = link.nextStartPos + len( content );
 				} else {

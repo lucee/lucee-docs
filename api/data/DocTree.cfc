@@ -529,10 +529,10 @@ component accessors=true {
 	}
 
 	// hack first cut
-	public function renderContent( required string content ) {
+	public function renderContent( required string content, boolean markdown=false ) {
 		switch (arguments.content){
 			case "latest-recipies":
-				return new api.rendering.content.recipes().render(this, content, getRecipeDates());
+				return new api.rendering.content.recipes().render(this, content, getRecipeDates(), arguments.markdown);
 			default:
 				throw("unknown content type: " & arguments.content);
 		}
