@@ -392,11 +392,23 @@ component {
 
 	private string function _renderSiteMap( required any docTree ) {
 		var pages           = arguments.docTree.getPathMap();
+		var recipeDates     = arguments.docTree.getRecipeDates();
 		var siteMap     = [];
 
 		for( var path in pages ) {
+			var lastMod = now();
+
+			// Use git date for recipes if available
+			if ( path.startsWith( "/recipes/" ) ) {
+				var recipeKey = listLast( path, "/" ) & ".md";
+				if ( structKeyExists( recipeDates, recipeKey ) && arrayLen( recipeDates[ recipeKey ].commits ) ) {
+					// Use most recent commit (first in array)
+					lastMod = arrayFirst( recipeDates[ recipeKey ].commits );
+				}
+			}
+
 			siteMap.append('<url><loc>#XmlFormat("https://docs.lucee.org#path#.html")#</loc>'
-			& '<lastmod>#dateFormat(now(),"yyyy-mm-dd")#</lastmod></url>');
+			& '<lastmod>#dateFormat(lastMod,"yyyy-mm-dd")#</lastmod></url>');
 		}
 
 		return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">#chr(10)#' &
