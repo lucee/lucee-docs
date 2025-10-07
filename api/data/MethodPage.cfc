@@ -16,13 +16,13 @@ component accessors=true extends="Page" {
 	property name="member"       type="struct";
 	property name="alias"        type="string";
 
-	public string function getUsageSignature() {
+	public string function getUsageSignature( boolean plainText=false ) {
 		var usage = this.getMethodObject() & "." & this.getMethodName() & "(";
 		var delim = " ";
 		var optionalCount = 0;
 
 		for( var argument in this.getArguments() ) {
-			if ( !argument.required ) {
+			if ( !argument.required && !arguments.plainText ) {
 				usage &= "<em title='optional'>";
 				optionalCount++;
 			}
@@ -34,10 +34,14 @@ component accessors=true extends="Page" {
 			} else {
 				usage &= argument.type;
 		   	}
-			usage &= "</em>";
+			if ( !argument.required && !arguments.plainText ) {
+				usage &= "</em>";
+			}
 			delim = ", ";
 		}
-		usage &= "</em>";
+		if ( !arguments.plainText ) {
+			usage &= "</em>";
+		}
 		//usage &= RepeatString( " ]", optionalCount );
 		usage &= " )";
 

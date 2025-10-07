@@ -2,7 +2,7 @@ component accessors=true {
 
 	property name="docTree";
 
-	public string function renderLinks( required string text, required any builder ) {
+	public string function renderLinks( required string text, required any builder, required struct args, boolean markdown=false ) {
 		var rendered = arguments.text;
 		var link     = "";
 		var startPos = 1;
@@ -14,7 +14,8 @@ component accessors=true {
 					rendered = Replace( rendered, link.rawMatch, content, "one" );
 					//startPos = link.nextStartPos + len( content );
 				} else {
-					rendered = Replace( rendered, link.rawMatch, arguments.builder.renderLink( link.page ?: NullValue(), link.title ), "all" );
+					rendered = Replace( rendered, link.rawMatch,
+						arguments.builder.renderLink( link.page ?: NullValue(), link.title, args, arguments.markdown ), "all" );
 					startPos = link.nextStartPos;
 				}
 			}

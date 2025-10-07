@@ -1,6 +1,6 @@
 component {
 
-	public string function render( required string template, struct args={}, string helpers="" ) {
+	public string function render( required string template, struct args={}, string helpers="", boolean markdown=false ) {
 		var rendered = "";
 
 		_includeHelpers( arguments.helpers );
@@ -9,7 +9,7 @@ component {
 			include template=arguments.template;
 		}
 
-		rendered = new SyntaxHighlighter().renderHighlights( rendered );
+		rendered = new SyntaxHighlighter().renderHighlights( rendered, arguments.markdown );
 
 		return Trim( rendered );
 	}

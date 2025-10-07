@@ -17,13 +17,13 @@ component accessors=true extends="Page" {
 		return super.getTitle() & "()";
 	}
 
-	public string function getUsageSignature() {
+	public string function getUsageSignature( boolean plainText=false ) {
 		var usage = super.getTitle() & "(";
 		var delim = " ";
 		var optionalCount = 0;
 
 		for( var argument in this.getArguments() ) {
-			if ( !argument.required ) {
+			if ( !argument.required && !arguments.plainText ) {
 				usage &= "<em title='optional'>";
 				optionalCount++;
 			}
@@ -34,7 +34,9 @@ component accessors=true extends="Page" {
 			} else {
 				usage &= argument.type;
 		   	}
-			usage &= "</em>";
+			if ( !argument.required && !arguments.plainText ) {
+				usage &= "</em>";
+			}
 			delim = ", ";
 		}
 		//usage &= "</em>";

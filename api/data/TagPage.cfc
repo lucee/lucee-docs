@@ -15,11 +15,11 @@ component accessors=true extends="Page" {
 	property name="srcExtension"         type="struct";
 	property name="introduced"           type="string";
 
-	public string function getUsageSignature() {
+	public string function getUsageSignature( boolean plainText=false ) {
 		var newLine           = Chr(10);
 		var indent            = RepeatString( " ", 4 );
 		var tagName           = "cf" & LCase( this.getName() );
-		var usage             = "&lt;" & tagName;
+		var usage             = ( arguments.plainText ? "<" : "&lt;" ) & tagName;
 		var closingTag        = "";
 		var bodyType          = this.getBodyContentType();
 		var unnamedAttributes = ( this.getAttributeType() ?: "" ) == "noname";
@@ -30,7 +30,7 @@ component accessors=true extends="Page" {
 				usage &= " ###attribute.type# #attribute.name###";
 			} else {
 				usage &= newline & indent;
-				if ( !attribute.required ) {
+				if ( !attribute.required && !arguments.plainText ) {
 					usage &= "<em title='optional'>";
 				}
 
@@ -42,7 +42,7 @@ component accessors=true extends="Page" {
  					usage &= attribute.type;
 				}
 
-				if ( !attribute.required ) {
+				if ( !attribute.required && !arguments.plainText ) {
 					usage &= "</em>";
 				}
 			}
@@ -54,13 +54,21 @@ component accessors=true extends="Page" {
 
 		switch( bodyType ) {
 			case "free":
-				closingTag &=  htmlEditFormat("><!--- body --->[</#tagName#>]")
+				if ( arguments.plainText ) {
+					closingTag &= "><!--- body ---></#tagName#>";
+				} else {
+					closingTag &=  htmlEditFormat("><!--- body --->[</#tagName#>]");
+				}
 			break;
 			case "required":
-				closingTag &=  htmlEditFormat("><!--- body ---></#tagName#>")
+				if ( arguments.plainText ) {
+					closingTag &= "><!--- body ---></#tagName#>";
+				} else {
+					closingTag &=  htmlEditFormat("><!--- body ---></#tagName#>");
+				}
 			break;
 			default:
-				closingTag &= "&gt;";
+				closingTag &= ( arguments.plainText ? ">" : "&gt;" );
 			break;
 		}
 
