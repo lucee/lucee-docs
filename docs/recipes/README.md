@@ -416,6 +416,10 @@ How to set and use Environment Variables or System Properties to configure speci
 
 Understanding the differences between single mode and multi mode in Lucee.
 
+## [SQL Types](/docs/recipes/sql-types.md)
+
+SQL types for query parameters
+
 ## [Startup Listeners - Server.cfc and Web.cfc](/docs/recipes/startup-listeners-code.md)
 
 Lucee supports two types of Startup Listeners: Server.cfc and Web.cfc.

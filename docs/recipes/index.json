@@ -1408,6 +1408,20 @@
     ]
   },
   {
+    "file": "sql-types.md",
+    "title": "SQL Types",
+    "path": "/docs/recipes/sql-types.md",
+    "hash": "f9dca84a63c403809204eaf94907237e",
+    "keywords": [
+      "SQL",
+      "SQL types",
+      "CF_SQL",
+      "queryparam",
+      "queryexecute",
+      "cfsqltype"
+    ]
+  },
+  {
     "file": "startup-listeners-code.md",
     "title": "Startup Listeners - Server.cfc and Web.cfc",
     "path": "/docs/recipes/startup-listeners-code.md",
