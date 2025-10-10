@@ -4,9 +4,9 @@
   "id": "mappings-component-mappings",
   "related": [
     "mappings-how-to-define-a-reg-mapping",
+    "mappings-custom-tag-mappings",
     "tag-application",
-    "function-expandpath",
-    "cookbook-application-context-set-mapping"
+    "function-expandpath"
   ],
   "categories": [
     "application",
@@ -104,7 +104,7 @@ Component mappings can also be defined in the Application.cfc file, making them 
 ```cfs
 // Application.cfc
 component {
-   this.componentpaths = [
+   this.componentPaths = [
       {
          "physical": "{lucee-config}/components/",
          "archive": "",
@@ -136,7 +136,7 @@ You can package your components into a Lucee Archive (.lar) file and reference i
 ```cfs
 // Application.cfc
 component {
-   this.componentpaths = [
+   this.componentPaths = [
       {
          physical: getDirectoryFromPath(getCurrentTemplatePath()) & 'components',
          archive: getDirectoryFromPath(getCurrentTemplatePath()) & 'components.lar',
@@ -152,14 +152,16 @@ With `primary` set to "archive", Lucee first checks the .lar file for components
 
 The `inspectTemplate` attribute controls how Lucee checks for changes to your components:
 
-* **never**: Never checks for changes
-* **once**: Checks once per request
-* **always**: Always checks for changes (can impact performance)
+* **never**: Never checks for changes (best for production)
+* **once**: Checks once per request (default)
+* **always**: Always checks for changes (best for development, can impact performance)
+
+By default, mappings inherit the server-level `inspectTemplate` setting. You can override this per mapping if needed.
 
 ```cfs
 // Application.cfc
 component {
-   this.componentpaths = [
+   this.componentPaths = [
       {
          physical: getDirectoryFromPath(getCurrentTemplatePath()) & 'components',
          inspectTemplate: 'once'
