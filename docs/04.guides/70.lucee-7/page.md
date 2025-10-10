@@ -237,18 +237,21 @@ For the complete list, see [[breaking-changes-6-2-to-7-0]].
 - Recommended: Java 21
 - Avoid: Java 17-20 (Unicode issues)
 
-**4. Variable Scoping in Functions**
+**4. Implicit Tag Variables Now Scope to Local**
 
-- Tag results like [[tag-query]], [[tag-lock]], [[tag-file]], [[tag-thread]] now properly scope to `local` when used inside functions
-- Previously went to `variables` scope (potential race conditions)
-- [LDEV-5416](https://luceeserver.atlassian.net/browse/LDEV-5416)
+When tags like [[tag-query]], [[tag-lock]], [[tag-file]], and [[tag-thread]] create **implicit result variables** inside functions, they now default to `local` scope instead of `variables` scope.
+
+This fixes potential race conditions where implicit variables leaked into the shared `variables` scope.
+
+[LDEV-5416](https://luceeserver.atlassian.net/browse/LDEV-5416)
 
 **Before (Lucee 6.2):**
 
 ```cfml
 function getUsers() {
-    cfquery( name="qry", datasource="myDB", sql="SELECT * FROM users" );
-    return qry; // qry was in variables scope
+	// No name attribute - creates implicit "result" variable in variables scope
+	cfquery( datasource="myDB", sql="SELECT * FROM users" );
+	return result; // result was in variables scope (thread safety issue!)
 }
 ```
 
@@ -256,10 +259,24 @@ function getUsers() {
 
 ```cfml
 function getUsers() {
-    cfquery( name="local.qry", datasource="myDB", sql="SELECT * FROM users" );
-    return local.qry; // properly scoped!
+	// No name attribute - creates implicit "result" variable in local scope
+	cfquery( datasource="myDB", sql="SELECT * FROM users" );
+	return local.result; // properly scoped to local!
 }
 ```
+
+**Restore old behavior (if needed):**
+
+Since: 7.0.1.13
+
+If you need the pre-LDEV-5416 behavior where implicit tag variables are created in `variables` scope (unless a `local` variable already exists):
+
+- **System Property**: `-Dlucee.tag.populate.localscope=false`
+- **Environment Variable**: `LUCEE_TAG_POPULATE_LOCALSCOPE=false`
+
+Default is `true` (variables go to `local` scope).
+
+[LDEV-5849](https://luceeserver.atlassian.net/browse/LDEV-5849)
 
 **5. Loader API Changed**
 
