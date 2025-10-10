@@ -104,6 +104,10 @@ Learn how to convert user-defined functions or components in Lucee to use them i
 
 Simple recipe for processing CSV data in Lucee 7 using Maven integration and Apache Commons CSV
 
+## [Custom Tag Mappings](/docs/recipes/custom-tag-mappings.md)
+
+How to define and use custom tag mappings in Lucee.
+
 ## [Datasource - How to define them](/docs/recipes/datasource-how-to-define-them.md)
 
 How to define a Datasource in Lucee.
