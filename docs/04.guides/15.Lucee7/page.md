@@ -20,28 +20,18 @@ Lucee 7 is a major release that fundamentally changes how Lucee works by moving 
 
 ## New Features in Lucee 7
 
+For a complete list of new and updated tags and functions, checkout our [[changelog]].
+
 ### AST (Abstract Syntax Tree) Support
 
 Parse CFML code into an [[ast]] for analysis, tooling, and transformation.
 
-**New Functions:**
-
 - [[function-astFromPath]] - Parse CFML file to AST
 - [[function-astFromString]] - Parse CFML string to AST
-
-**Use cases:**
-
-- Code analysis
-- IDE tooling
-- Static analysis
-- Automated documentation
-- Code transformation
 
 ### Secret Provider
 
 Store and retrieve secrets securely using the new [[secret-management]] functionality.
-
-**New Function:**
 
 - [[function-SecretProviderGet]] - Retrieve secrets from configured providers
 
@@ -55,7 +45,7 @@ See [[dynamic-proxy-enhancements]] for details and examples.
 
 ### Lucene 3 - Vector & Hybrid Search
 
-Major upgrade to search capabilities with modern semantic search features:
+Major upgrade to [[category-search]] capabilities with modern semantic search features:
 
 **New search modes:**
 
@@ -102,6 +92,10 @@ Improved Java interop and integration that was experimental in 6.2 is now stable
 - [[java-explicit-casting]] - Type casting in Java interop
 - [[java-in-functions-and-closures]] - Java usage patterns
 - [[convert-a-cfml-func-to-java]] - Converting CFML to Java
+
+## Dark mode Admin
+
+The Admin now supports dark mode, easier on your eyes!
 
 ## Performance Improvements
 
@@ -162,14 +156,12 @@ import jakarta.servlet.http.HttpServletRequest;
 
 **Java 21: Recommended** (Target version)
 
-- Unicode handling is stable
 - Official target for Lucee 7
 
-**Java 24/25: Better Performance** (Fully supported)
+**Java 24/25: Better Performance** (supported)
 
-- Released too late in dev cycle to be the official target
+- Released too late in dev cycle to be the official target, will be for 7.1
 - Offers better performance
-- Fully tested and supported
 
 **Java 17-20: Not Recommended**
 
@@ -228,7 +220,7 @@ For the complete list, see [[breaking-changes-6-2-to-7-0]].
 
 **1. Single Mode Only**
 
-- Multi-mode removed
+- Multi-mode removed, no more web contexts or Administrators
 - Different configuration architecture
 - See [[single-vs-multi-mode]] for migration
 
@@ -277,7 +269,7 @@ function getUsers() {
 
 ### Medium Impact Changes
 
-**CFCACHE Query String Behavior**
+**[[tag-cache]] Query String Behavior**
 
 - Now **ignores query strings** by default (matches Adobe ColdFusion)
 - Use `useQueryString=true` for old behavior
@@ -285,13 +277,13 @@ function getUsers() {
 
 ### Low Impact Changes
 
-**CFHTTP URL Encoding**
+**[[tag-http]] URL Encoding**
 
 - Spaces properly encoded (not double-encoded)
 - Remove workarounds for old bug
 - [LDEV-3349](https://luceeserver.atlassian.net/browse/LDEV-3349)
 
-**CFMAIL Encoding**
+**[[tag-mail]] Encoding**
 
 - Quoted-printable encoding (7-bit) now default
 - Better HTML email rendering
@@ -378,14 +370,15 @@ If you get a 500 error:
 
 - [[breaking-changes-6-2-to-7-0]] - Complete list of breaking changes
 - [[single-vs-multi-mode]] - Understanding Single Mode
-- [AST Documentation](https://docs.lucee.org/recipes/ast.html) - Abstract Syntax Tree
-- [AI Session Serialization](https://docs.lucee.org/recipes/ai-serialisation.html) - AI Support
+- [[deploying-lucee-server-apps]] - Deployment guide
 - [[config]] - Configuration options
 - [[environment-variables-system-properties]] - Environment variable reference
 - [[lucee-5-to-6-migration-guide]] - General migration guidance
+- [Tomcat 9 to Tomcat 11 Upgrade Guide](https://dev.lucee.org/t/lucee-5-4-to-6-2-upgrade-guide-tomcat-9-to-tomcat-11/14854) - Fresh install process
 
 ## Community and Support
 
 For questions, issues, or feature requests:
 
 - [Lucee Dev Forum](https://dev.lucee.org/)
+- [[troubleshooting]]
