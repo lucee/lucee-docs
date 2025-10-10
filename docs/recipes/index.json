@@ -261,7 +261,7 @@
     "file": "component-mappings.md",
     "title": "Component Mappings",
     "path": "/docs/recipes/component-mappings.md",
-    "hash": "aa0afd06a3027f30c461bf25e0bbc105",
+    "hash": "799bd669f633cf2632835f0bf9a59ef5",
     "keywords": [
       "Component Mapping",
       "Classpath",
@@ -346,6 +346,20 @@
       "Maven",
       "Data Processing",
       "Parsing"
+    ]
+  },
+  {
+    "file": "custom-tag-mappings.md",
+    "title": "Custom Tag Mappings",
+    "path": "/docs/recipes/custom-tag-mappings.md",
+    "hash": "2213e9dd5e87884b269bdd002c4a785f",
+    "keywords": [
+      "Custom Tag Mapping",
+      "Custom Tags",
+      "cfimport",
+      "Application.cfc",
+      "Lucee archive",
+      "taglib"
     ]
   },
   {
@@ -592,7 +606,7 @@
     "file": "filesystem-mapping.md",
     "title": "File system - Mappings",
     "path": "/docs/recipes/filesystem-mapping.md",
-    "hash": "86d4fe725314ceb9b25b9de10f534c2d",
+    "hash": "7b1d7e46d46d9afceaabced4b79d2eb0",
     "keywords": [
       "Mapping",
       "Component mapping",
@@ -954,7 +968,7 @@
     "file": "mappings-how-to-define-a-reg-mapping.md",
     "title": "Mappings - How to define a regular Mapping",
     "path": "/docs/recipes/mappings-how-to-define-a-reg-mapping.md",
-    "hash": "9a3a1faf1724628e3728db263d78052f",
+    "hash": "3c7f7bfa6c939897c3a3fcb90b50913e",
     "keywords": [
       "Mapping",
       "Filesystem",
