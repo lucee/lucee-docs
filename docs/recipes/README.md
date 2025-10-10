@@ -128,6 +128,10 @@ The onBuild function in Server.cfc is used for tasks during the build phase in L
 
 Guide on using and running Lucee with Docker
 
+## [Dynamic Proxy Enhancements in Lucee 7](/docs/recipes/dynamic-proxy-enhancements.md)
+
+Learn about the improvements to dynamic proxy creation in Lucee 7, including automatic inclusion of component functions and properties when implementing Java interfaces.
+
 ## [Encryption/Decryption](/docs/recipes/encryption_decryption.md)
 
 This document explains about Encryption/Decryption with public and private keys with simple examples.

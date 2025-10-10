@@ -435,6 +435,20 @@
     ]
   },
   {
+    "file": "dynamic-proxy-enhancements.md",
+    "title": "Dynamic Proxy Enhancements in Lucee 7",
+    "path": "/docs/recipes/dynamic-proxy-enhancements.md",
+    "hash": "e11350e9e8f2ee6eccebffb8388b6900",
+    "keywords": [
+      "dynamic proxy",
+      "java",
+      "interface",
+      "component",
+      "interoperability",
+      "createDynamicProxy"
+    ]
+  },
+  {
     "file": "encryption_decryption.md",
     "title": "Encryption/Decryption",
     "path": "/docs/recipes/encryption_decryption.md",
