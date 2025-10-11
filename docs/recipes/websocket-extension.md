@@ -285,6 +285,6 @@ for ( var wsI in wsInstances ) {
 }
 ```
 
-[Task Event Gateway](event-gateways-overview.md) is a good candidate for this script.
+[[event-gateways]] is a good candidate for this script.
 
 _TODO: link to recipe page_

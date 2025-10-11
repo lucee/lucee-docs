@@ -25,9 +25,8 @@
 		</script>
 
 		<meta content="initial-scale=1.0, width=device-width" name="viewport">
-		<base href="#args.baseHref#">
 		<cfif args.noindex>
-			<meta name="ROBOTS" content="NOINDEX">
+			<meta name="ROBOTS" content="NOINDEX,NOFOLLOW">
 		</cfif>
 
 		<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">

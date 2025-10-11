@@ -318,7 +318,7 @@ When clustering is enabled, the storage backend becomes the source of truth. The
 - To provide initial jobs only when the storage has no jobs defined
 - For listener definitions (which always come from the config file)
 
-For detailed instructions and best practices on setting up clustering with Quartz Scheduler, see the dedicated [Clustering with Quartz Scheduler](recipes/clustering-quartz-scheduler.md) recipe.
+For detailed instructions and best practices on setting up clustering with Quartz Scheduler, see the dedicated [[clustering-quartz-scheduler]] recipe.
 
 ## Related Recipes
 
