@@ -271,10 +271,7 @@ Since: 7.0.1.13
 
 If you need the pre-LDEV-5416 behavior where implicit tag variables are created in `variables` scope (unless a `local` variable already exists):
 
-- **System Property**: `-Dlucee.tag.populate.localscope=false`
-- **Environment Variable**: `LUCEE_TAG_POPULATE_LOCALSCOPE=false`
-
-Default is `true` (variables go to `local` scope).
+[[content::sysprop-envvar#LUCEE_TAG_POPULATE_LOCALSCOPE]]
 
 [LDEV-5849](https://luceeserver.atlassian.net/browse/LDEV-5849)
 
@@ -317,9 +314,9 @@ Default is `true` (variables go to `local` scope).
 
 ### Bytecode Execution Blocked by Default
 
-`LUCEE_COMPILER_BLOCK_BYTECODE` is now enabled by default, preventing CFML files containing Java bytecode from being executed.
+Preventing CFML files containing Java bytecode from being executed, protecting against CVE-2024-55354.
 
-This protects against CVE-2024-55354.
+[[content::sysprop-envvar#LUCEE_COMPILER_BLOCK_BYTECODE]]
 
 [LDEV-5485](https://luceeserver.atlassian.net/browse/LDEV-5485)
 

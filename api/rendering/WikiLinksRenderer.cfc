@@ -10,7 +10,13 @@ component accessors=true {
 			link = _getNextLink( rendered, startPos );
 			if ( !IsNull( link ) ) {
 				if ( link.type eq "content" ) {
-					var content = arguments.builder.renderContent( getDocTree(), link.content, arguments.markdown );
+					var content = arguments.builder.renderContent( getDocTree(), link.content, arguments.args, arguments.markdown );
+
+					// If this is markdown and the link is on its own line, ensure proper spacing
+					if ( arguments.markdown && link.isStandalone ) {
+						content = chr(10) & chr(10) & content & chr(10) & chr(10);
+					}
+
 					rendered = Replace( rendered, link.rawMatch, content, "one" );
 					//startPos = link.nextStartPos + len( content );
 				} else {
@@ -48,10 +54,24 @@ component accessors=true {
 		if (left( pageId, 9 ) eq "content::"){
 			// special content link
 			var content = mid( pageId, 10 );
+
+			// Check if this link is standalone (on its own line with blank lines around it)
+			var isStandalone = false;
+			var beforeMatch = match.pos[1] > 1 ? left( arguments.text, match.pos[1] - 1 ) : "";
+			var afterMatch = match.pos[1] + match.len[1] <= len( arguments.text ) ? mid( arguments.text, match.pos[1] + match.len[1] ) : "";
+
+			// Check if there's nothing but whitespace/newlines before (or start of text)
+			var beforeIsEmpty = len( trim( beforeMatch ) ) == 0 || reFind( "\n\s*$", beforeMatch );
+			// Check if there's nothing but whitespace/newlines after (or end of text)
+			var afterIsEmpty = len( trim( afterMatch ) ) == 0 || reFind( "^\s*\n", afterMatch );
+
+			isStandalone = beforeIsEmpty || afterIsEmpty;
+
 			return {
 				type       = "content"
 				, rawMatch = rawMatch
 				, content  = content
+				, isStandalone = isStandalone
 				, nextStartPos: match.pos[2]
 			};
 		} else {

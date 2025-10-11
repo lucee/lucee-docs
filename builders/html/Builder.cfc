@@ -1,7 +1,7 @@
 component {
 
-	public string function renderContent( any docTree, required string content, boolean markdown=false ) {
-		return docTree.renderContent( content, arguments.markdown );
+	public string function renderContent( any docTree, required string content, required struct args, boolean markdown=false ) {
+		return docTree.renderContent( content, arguments.args, arguments.markdown );
 	}
 
 	public string function _getIssueTrackerLink(required string name) {
@@ -164,9 +164,11 @@ component {
 		}
 
 		try {
+			// Generate TOC from processed content (after WikiLinks have been replaced)
+			var tocHtml = new api.rendering.TemplateRenderer().toc( arguments.pageContent );
 
 			var args = {
-				body       = Trim( arguments.pageContent )
+				body       = tocHtml & Trim( arguments.pageContent )
 				, htmlOpts   = arguments.htmlOptions
 				, page       = arguments.page
 				, edit       = arguments.edit

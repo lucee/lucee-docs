@@ -53,6 +53,8 @@ Dynamically switching preciseMath on and off as required is recommended, rather 
 
 As part of this change, we updated all our test cases to test switching dynamically during a request and identified a few problems which we addressed.
 
+[[content::sysprop-envvar#LUCEE_PRECISE_MATH]]
+
 ## Support for Jakarta Servlet
 
 Lucee 6.2 adds support for Jakarta Servlets, but it still based on javax.

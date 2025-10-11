@@ -74,7 +74,7 @@ With Lucee 6, we have changed this behaviour to match ACF, as this can introduce
 
 This behaviour for VARCHAR values remains unchanged.
 
-For compatibility, there is an environment variable `LUCEE_QUERY_ALLOWEMPTYASNULL=TRUE` which can be set to re-enable the older behavior.
+**Restore old behavior (if needed):** [[content::sysprop-envvar#LUCEE_QUERY_ALLOWEMPTYASNULL]]
 
 [LDEV-4410](https://luceeserver.atlassian.net/browse/LDEV-4410)
 
@@ -88,7 +88,7 @@ The order of the arguments for the member function [[method-datetime-diff]] was 
 
 Prior to Lucee 6, Lucee would bundle its own `cacerts` file, which caused problems over time as newer root certificates wouldn't be accepted.
 
-There is an environment variable `LUCEE.USE.LUCEE.SSL.TRUSTSTORE=TRUE` which can be set to re-enable the older behavior.
+**Restore old behavior (if needed):** [[content::sysprop-envvar#LUCEE_USE_LUCEE_SSL_TRUSTSTORE]]
 
 Since this change, [[function-sslcertificateinstall]] no longer works
 
@@ -120,7 +120,7 @@ You can revert this change by setting custom values.
 
 The previous behaviour lead to problems on Linux systems
 
-To revert to the previous behaviour, use the environment variable `LUCEE_MAPPING_FIRST=FALSE`
+**Restore old behavior (if needed):** [[content::sysprop-envvar#LUCEE_MAPPING_FIRST]]
 
 [LDEV-1718](https://luceeserver.atlassian.net/browse/LDEV-1718)
 
@@ -150,7 +150,7 @@ Previously the `.query.map()` member function would modify the query, rather tha
 
 For better performance and memory usage, an empty session or client scope is no longer saved.
 
-To restore previous behaviour, use the environment variables `LUCEE_STORE_EMPTY=TRUE`
+**Restore old behavior (if needed):** [[content::sysprop-envvar#LUCEE_STORE_EMPTY]]
 
 [[session-handling]]
 

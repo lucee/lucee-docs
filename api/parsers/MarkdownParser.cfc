@@ -1,7 +1,6 @@
 component {
 	property name="_markdownProcessor" type="object";
 	property name="_noticeBoxRenderer" type="object";
-	property name="flexmark" type="boolean" default="false";
 
 	public any function init() {
 		_setupNoticeBoxRenderer();

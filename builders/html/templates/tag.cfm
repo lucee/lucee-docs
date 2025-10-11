@@ -154,4 +154,7 @@
 			request.logger (text="No examples for tag " & local.tag.getName(), type="WARN");
 		</cfscript>
 	</cfif>
+
+	<!--- Related System Properties --->
+	#_markdownToHtml( "[[content::sysprop-envvar-for-tag]]" )#
 </cfoutput>

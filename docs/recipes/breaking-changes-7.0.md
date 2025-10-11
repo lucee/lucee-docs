@@ -79,6 +79,8 @@ With Lucee 7, when these tags are used within a function, these are now written 
 
 This should have minimal impact on existing code and may avoid some concurrency race conditions, hence the change.
 
+**Restore old behavior (if needed):** [[content::sysprop-envvar#LUCEE_TAG_POPULATE_LOCALSCOPE]]
+
 [LDEV-5416](https://luceeserver.atlassian.net/browse/LDEV-5416)
 
 ## Enabled correct encoding of spaces in urls with CFHTTP
@@ -97,6 +99,8 @@ These are insecure and seldom used
 
 For better HTML email support, Lucee 7 defaults to 7-bit encoding
 
+[[content::sysprop-envvar#LUCEE_MAIL_USE_7BIT_TRANSFER_ENCODING_FOR_HTML_PARTS]]
+
 [LDEV-4039](https://luceeserver.atlassian.net/browse/LDEV-4039)
 
 ## EHCache is no longer bundled
@@ -112,6 +116,8 @@ LDEV-5485
 ## Enable LUCEE_COMPILER_BLOCK_BYTECODE by default
 
 Prevents cfml files containing java bytecode from being executed
+
+[[content::sysprop-envvar#LUCEE_COMPILER_BLOCK_BYTECODE]]
 
 [LDEV-5485](https://luceeserver.atlassian.net/browse/LDEV-5485)
 [Lucee CVE-2024-55354](https://dev.lucee.org/t/lucee-cve-2024-55354-security-advisory-april-2025/14963)

@@ -12,6 +12,9 @@ component accessors=true {
 	property name="directlyRelatedMap" type="struct";
 	property name="threads" type="numeric"; // tracks references
 	property name="recipeDates" type="struct"; // tracks the git created dates for recipes for latest content
+	property name="syspropEnvvars" type="array"; // all system properties and environment variables
+	property name="syspropByTag" type="struct"; // sysprops indexed by tag name
+	property name="syspropByFunction" type="struct"; // sysprops indexed by function name
 
 	public any function init( required string rootDirectory, required numeric threads ) {
 		variables.rootDir =  arguments.rootDirectory;
@@ -37,6 +40,9 @@ component accessors=true {
 		setCategoryMap( [:] );
 		setReferenceMap( [:] );
 		setDirectlyRelatedMap( [:] );
+		setSyspropEnvvars( [] );
+		setSyspropByTag( [:] );
+		setSyspropByFunction( [:] );
 	}
 
 	public void function updateTree() {
@@ -226,6 +232,7 @@ component accessors=true {
 
 			_buildTreeHierarchy(false);
 			_updateRecipeDates();
+			_loadSyspropEnvvars();
 			_parseTree();
 		}
 	}
@@ -522,19 +529,87 @@ component accessors=true {
 			"README.md": true
 		};
 		var folder ="docs\recipes\";
-		
+
 		setRecipeDates(gitReader.getDatesForFolder( repoRoot, folder, server.luceeDocsRecipeDateCache ?: {}, skip));
 		server.luceeDocsRecipeDateCache = duplicate(getRecipeDates()); // this is expensive and docTree gets blown away on reload, plus applicationStop()
 		request.logger("Scanned git logs for recipes dates in #getTickCount()-s#ms, found #structCount(getRecipeDates())# recipes");
 	}
 
+	private void function _loadSyspropEnvvars() {
+		var s = getTickCount();
+
+		// Get all sysprops/envvars from Lucee
+		var allProps = getSystemPropOrEnvVar();
+		setSyspropEnvvars( allProps );
+
+		// Build indexes by tag and function
+		var byTag = {};
+		var byFunction = {};
+
+		for ( var prop in allProps ) {
+			// Index by tags (strip cf prefix for docs compatibility)
+			if ( structKeyExists( prop, "tags" ) && isArray( prop.tags ) ) {
+				for ( var tag in prop.tags ) {
+					// Strip cf prefix if present (cfquery -> query)
+					var tagKey = left( tag, 2 ) == "cf" ? mid( tag, 3 ) : tag;
+					if ( !structKeyExists( byTag, tagKey ) ) {
+						byTag[ tagKey ] = [];
+					}
+					arrayAppend( byTag[ tagKey ], prop );
+				}
+			}
+
+			// Index by functions
+			if ( structKeyExists( prop, "functions" ) && isArray( prop.functions ) ) {
+				for ( var func in prop.functions ) {
+					if ( !structKeyExists( byFunction, func ) ) {
+						byFunction[ func ] = [];
+					}
+					arrayAppend( byFunction[ func ], prop );
+				}
+			}
+		}
+
+		setSyspropByTag( byTag );
+		setSyspropByFunction( byFunction );
+
+		request.logger( "Loaded #arrayLen(allProps)# sysprops/envvars in #getTickCount()-s#ms" );
+	}
+
+	public array function getSyspropsByTag( required string tagName ) {
+		var byTag = getSyspropByTag();
+		return structKeyExists( byTag, arguments.tagName ) ? byTag[ arguments.tagName ] : [];
+	}
+
+	public array function getSyspropsByFunction( required string functionName ) {
+		var byFunction = getSyspropByFunction();
+		return structKeyExists( byFunction, arguments.functionName ) ? byFunction[ arguments.functionName ] : [];
+	}
+
 	// hack first cut
-	public function renderContent( required string content, boolean markdown=false ) {
-		switch (arguments.content){
+	public function renderContent( required string content, required struct args, boolean markdown=false ) {
+		// Extract hash parameter if present (e.g., "sysprop-envvar#LUCEE_ADMIN_ENABLED")
+		var contentType = arguments.content;
+		var hashParam = "";
+
+		if ( find( "##", contentType ) ) {
+			hashParam = listLast( contentType, "##" );
+			contentType = listFirst( contentType, "##" );
+		}
+
+		switch (contentType){
 			case "latest-recipies":
-				return new api.rendering.content.recipes().render(this, content, getRecipeDates(), arguments.markdown);
+				return new api.rendering.content.recipes().render(this, contentType, getRecipeDates(), arguments.markdown);
+			case "sysprop-envvar-listing":
+				return new api.rendering.content.syspropEnvvar().render(this, contentType, arguments.args, arguments.markdown);
+			case "sysprop-envvar":
+				return new api.rendering.content.syspropEnvvarInline().render(this, contentType, arguments.args, hashParam, arguments.markdown);
+			case "sysprop-envvar-for-tag":
+				return new api.rendering.content.syspropEnvvarForTag().render(this, contentType, arguments.args, arguments.markdown);
+			case "sysprop-envvar-for-function":
+				return new api.rendering.content.syspropEnvvarForFunction().render(this, contentType, arguments.args, arguments.markdown);
 			default:
-				throw("unknown content type: " & arguments.content);
+				throw("unknown content type: " & contentType);
 		}
 	}
 }
