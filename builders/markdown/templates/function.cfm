@@ -80,6 +80,9 @@
 		echo( chr(10) & "*There are currently no examples for this function*" & chr(10) );
 	}
 
+	// Related System Properties
+	echo( chr(10) & "[[content::sysprop-envvar-for-function]]" & chr(10) );
+
 	// Categories and related
 	echo( renderCategoriesAndRelated( local.fn, args.docTree, true ) );
 </cfscript>

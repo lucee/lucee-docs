@@ -75,6 +75,9 @@
 		echo( "*There are currently no examples for this tag.*" & chr(10) & chr(10) );
 	}
 
+	// Related System Properties
+	echo( chr(10) & "[[content::sysprop-envvar-for-tag]]" & chr(10) );
+
 	// Categories and related
 	echo( renderCategoriesAndRelated( local.tag, args.docTree, true ) );
 </cfscript>
