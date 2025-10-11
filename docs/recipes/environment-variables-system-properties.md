@@ -269,6 +269,19 @@ Use `classic` to maintain compatibility with legacy codebases that depend on pad
 
 Added in Lucee 6.2.2.53
 
+#### LUCEE_TAG_POPULATE_LOCALSCOPE
+
+*SysProp:* `-Dlucee.tag.populate.localscope`
+*EnvVar:* `LUCEE_TAG_POPULATE_LOCALSCOPE`
+
+Boolean value that controls whether tags like [[tag-query]], [[tag-lock]], [[tag-file]], and [[tag-thread]] populate their implicit result variables to `local` scope when inside a function.
+
+Default is `true` (implicit variables go to `local` scope). Set to `false` to restore pre-LDEV-5416 behavior where implicit variables are created in `variables` scope (unless a `local` variable already exists).
+
+[LDEV-5416](https://luceeserver.atlassian.net/browse/LDEV-5416), [LDEV-5849](https://luceeserver.atlassian.net/browse/LDEV-5849)
+
+Added in Lucee 7.0.1.13
+
 #### LUCEE_LOG_WEBCONTEXT
 
 *SysProp:* `-Dlucee.log.webcontext`
