@@ -208,4 +208,4 @@ LUCEE_QUERY_ALLOWEMPTYASNULL=true
 
 However, it's recommended to explicitly handle NULL values in your code for better clarity and to match Adobe ColdFusion behavior.
 
-See [[breaking-changes-6-0]] and [[lucee-5-to-6-migration-guide]] for more details.
+See [[breaking-changes-5-4-to-6-0]] and [[lucee-5-to-6-migration-guide]] for more details.

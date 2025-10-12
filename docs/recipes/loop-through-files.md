@@ -1,15 +1,24 @@
----
-title: Looping Through Files
-id: loop_through_files
-related:
-- tag-loop
-categories:
-- files
-description: This document explains how to handle large files in Lucee more efficiently.
-keywords: Looping through files,cffile,fileRead,fileReadBinary,Memory optimization,Lucee
----
-
-
+<!--
+{
+	"title": "Looping Through Files",
+	"id": "loop_through_files",
+	"related": [
+		"tag-loop"
+	],
+	"categories": [
+		"files"
+	],
+	"description": "This document explains how to handle large files in Lucee more efficiently.",
+	"keywords": [
+		"Looping through files",
+		"cffile",
+		"fileRead",
+		"fileReadBinary",
+		"Memory optimization",
+		"Lucee"
+	]
+}
+-->
 
 # Looping Through File
 

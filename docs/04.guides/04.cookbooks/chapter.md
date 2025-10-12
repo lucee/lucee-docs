@@ -7,7 +7,7 @@ id: cookbook
 
 Some basic examples
 
-* [[basic-date]]
+* [[cookbook-basic-date]]
 
 ## Application.cfc / Tag <cfapplication> ##
 
@@ -22,7 +22,7 @@ Lucee comes with a simple framework that let's you control the flow of your appl
 Lucee supports a lot of different cache systems, for example EhCache, Memcached, Infinispan, etc.. and you can use these caches in various scenarios:
 
 * [[caches-defined-in-application-cfc]]
-* [[cached-within-request]]
+* [[cache-a-query-for-the-curr-context]]
 * [[session-handling]]
 * [[list-existing-cache-conn]]
 
@@ -36,7 +36,7 @@ Lucee supports a lot of different cache systems, for example EhCache, Memcached,
 Some examples related to Datasources/Queries:
 
 * [[datasource-how-to-define-them]]
-* [[cached-within-request]]
+* [[cache-a-query-for-the-curr-context]]
 * Add a new Datasource driver (TODO)
 
 ## File System ##

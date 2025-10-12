@@ -1,3 +1,26 @@
+<!--
+{
+  "title": "Complete Guide to Threading in Lucee",
+  "id": "thread-usage",
+  "categories": ["thread", "performance", "core"],
+  "description": "Complete guide to using threads and parallel execution in Lucee",
+  "keywords": [
+    "threads",
+    "parallel",
+    "async",
+    "concurrent",
+    "performance",
+    "cfthread"
+  ],
+  "related": [
+    "tag-thread",
+    "function-arrayeach",
+    "function-arraymap",
+    "function-arrayreduce"
+  ]
+}
+-->
+
 # Complete Guide to Threading in Lucee
 
 This document explains all the ways to use threads and parallel execution in Lucee. Threads allow you to execute code in parallel, improving performance for tasks like database queries, HTTP requests, or any long-running operations.

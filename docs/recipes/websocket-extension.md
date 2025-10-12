@@ -250,7 +250,7 @@ Function `getDataFromSomewhere()` is responsible for obtaining the data that nee
 
 ### Using webSocketInfo() to Send Message to Client
 
-[[function-websocketInfo]] also has an array of instances, one for each client call to a WebSocket Component. So, looping through the array gives you access to the component, and then you can call any of its functions.
+[[function-websocketinfo]] also has an array of instances, one for each client call to a WebSocket Component. So, looping through the array gives you access to the component, and then you can call any of its functions.
 
 For Example (_excluding role management functions_):
 

@@ -1,16 +1,20 @@
----
-title: Monitoring - Enable for your session
-id: monitoring-enable-for-your-session
-categories:
-- debugging
-- monitoring
-- session
-since: '6.1'
-description: Shows you a way to enable Monitoring for your session
-keywords: monitoring,session
----
-
-
+<!--
+{
+	"title": "Monitoring - Enable for your session",
+	"id": "monitoring-enable-for-your-session",
+	"categories": [
+		"debugging",
+		"monitoring",
+		"session"
+	],
+	"since": "6.1",
+	"description": "Shows you a way to enable Monitoring for your session",
+	"keywords": [
+		"monitoring",
+		"session"
+	]
+}
+-->
 
 # Monitoring - Enable for your session
 
