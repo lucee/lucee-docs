@@ -18,7 +18,7 @@ Member functions
 
 [[general-deviations|General deviations from CFML Standards]]
 
-[[directory-placeholders]]
+[[configuration-directory-placeholders]]
 
 [[scopes]]
 

@@ -29,7 +29,7 @@ Lucee supports a lot of different cache systems, for example EhCache, Memcached,
 ## Configuration ##
 
 * The Administrator Frontend (TODO)
-* [[configuration-administrator-cfc]]
+* [[cookbook-configuration-administrator-cfc]]
 
 ## Datasource ##
 
@@ -42,7 +42,7 @@ Some examples related to Datasources/Queries:
 ## File System ##
 
 * [[virtual-file-system]]
-* [[filesystem-mapping]]
+* [[cookbook-filesystem-mapping]]
 
 ## Mail ##
 
