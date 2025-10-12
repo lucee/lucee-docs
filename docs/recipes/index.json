@@ -1344,7 +1344,7 @@
     "file": "scheduler-quartz.md",
     "title": "Quartz Scheduler Extension for Lucee",
     "path": "/docs/recipes/scheduler-quartz.md",
-    "hash": "ccbc8b9f85ab95201ff49b253d29a4c0",
+    "hash": "c3c471b3363aa8f5169f800b72d67478",
     "keywords": [
       "scheduler",
       "quartz",
@@ -1666,7 +1666,7 @@
     "file": "websocket-extension.md",
     "title": "WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "0681e070a15aea9a52a4a252a1995d8a",
+    "hash": "42b93395c6b8f72a22e292d3a7c7bbce",
     "keywords": [
       "Lucee",
       "Extension"
