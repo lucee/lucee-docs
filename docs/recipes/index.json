@@ -917,8 +917,15 @@
     "file": "loop-through-files.md",
     "title": "Looping Through File",
     "path": "/docs/recipes/loop-through-files.md",
-    "hash": "34d55144bd40f57dc2d7f6777eabed8c",
-    "keywords": []
+    "hash": "da5ffb0221a1df8f4649fa7e02c3bd0f",
+    "keywords": [
+      "Looping through files",
+      "cffile",
+      "fileRead",
+      "fileReadBinary",
+      "Memory optimization",
+      "Lucee"
+    ]
   },
   {
     "file": "lucee-5-to-6-migration-guide.md",
@@ -1051,8 +1058,11 @@
     "file": "monitoring-enable-for-your-session.md",
     "title": "Monitoring - Enable for your session",
     "path": "/docs/recipes/monitoring-enable-for-your-session.md",
-    "hash": "ed0962dd1f6424691185f08dc34b2e04",
-    "keywords": []
+    "hash": "3355a7868b736ab48344ccd5c26726fe",
+    "keywords": [
+      "monitoring",
+      "session"
+    ]
   },
   {
     "file": "new-operator.md",
@@ -1323,8 +1333,14 @@
     "file": "scheduler-quartz-clustering.md",
     "title": "Clustering with Quartz Scheduler",
     "path": "/docs/recipes/scheduler-quartz-clustering.md",
-    "hash": "0b03b19c82364f11368d16d43ad220ae",
-    "keywords": []
+    "hash": "e49cfd62d73d50ac7eab8e5ccef107e8",
+    "keywords": [
+      "scheduler",
+      "quartz",
+      "clustering",
+      "database",
+      "redis"
+    ]
   },
   {
     "file": "scheduler-quartz-component-jobs.md",
@@ -1425,7 +1441,7 @@
     "file": "sql-types.md",
     "title": "SQL Types",
     "path": "/docs/recipes/sql-types.md",
-    "hash": "f9dca84a63c403809204eaf94907237e",
+    "hash": "e4705f00ad26d73651698e571f2021c8",
     "keywords": [
       "SQL",
       "SQL types",
@@ -1534,7 +1550,7 @@
     "file": "tag-syntax.md",
     "title": "How to Use Tags in Script",
     "path": "/docs/recipes/tag-syntax.md",
-    "hash": "ea016a23b18afd1b136411b825cc53b6",
+    "hash": "4c92646ca69d3bbea234245dad22f217",
     "keywords": [
       "Syntax",
       "tag",
@@ -1576,8 +1592,15 @@
     "file": "thread-usage.md",
     "title": "Complete Guide to Threading in Lucee",
     "path": "/docs/recipes/thread-usage.md",
-    "hash": "8a49ccf2de36c8b4e0fc1c954377449e",
-    "keywords": []
+    "hash": "b4c954f5e1e2efb666ad9bcdba3a9fac",
+    "keywords": [
+      "threads",
+      "parallel",
+      "async",
+      "concurrent",
+      "performance",
+      "cfthread"
+    ]
   },
   {
     "file": "timeout.md",
@@ -1666,7 +1689,7 @@
     "file": "websocket-extension.md",
     "title": "WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "42b93395c6b8f72a22e292d3a7c7bbce",
+    "hash": "7047e71c8fba24f8702b04d39733732c",
     "keywords": [
       "Lucee",
       "Extension"
