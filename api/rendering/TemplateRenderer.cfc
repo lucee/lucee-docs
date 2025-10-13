@@ -1,5 +1,8 @@
 component {
 
+	variables.syntaxHighlighter = "";
+	variables.markdownParser = "";
+
 	public string function render( required string template, struct args={}, string helpers="", boolean markdown=false ) {
 		var rendered = "";
 
@@ -9,15 +12,19 @@ component {
 			include template=arguments.template;
 		}
 
-		rendered = new SyntaxHighlighter().renderHighlights( rendered, arguments.markdown );
+		rendered = _getSyntaxHighlighter().renderHighlights( rendered, arguments.markdown );
 
 		return Trim( rendered );
 	}
 
 	public string function _markdownToHtml( required string markdown, required boolean stripParagraph=false ) {
-		var rendered = new SyntaxHighlighter().renderHighlights( arguments.markdown );
+		if ( !len( trim( arguments.markdown ) ) ) {
+			return "";
+		}
 
-		return new api.parsers.ParserFactory().getMarkdownParser()._markdownToHtml( rendered, arguments.stripParagraph );
+		var rendered = _getSyntaxHighlighter().renderHighlights( arguments.markdown );
+
+		return _getMarkdownParser()._markdownToHtml( rendered, arguments.stripParagraph );
 	}
 
 	private void function _includeHelpers( required string helpers ) {
@@ -47,5 +54,19 @@ component {
 		}
 
 		return toc;
+	}
+
+	private any function _getSyntaxHighlighter() {
+		if ( !isObject( variables.syntaxHighlighter ) ) {
+			variables.syntaxHighlighter = new SyntaxHighlighter();
+		}
+		return variables.syntaxHighlighter;
+	}
+
+	private any function _getMarkdownParser() {
+		if ( !isObject( variables.markdownParser ) ) {
+			variables.markdownParser = new api.parsers.ParserFactory().getMarkdownParser();
+		}
+		return variables.markdownParser;
 	}
 }

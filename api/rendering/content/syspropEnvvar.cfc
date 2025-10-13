@@ -82,7 +82,9 @@ component {
 				if ( structKeyExists( prop, "tags" ) && isArray( prop.tags ) && arrayLen( prop.tags ) ) {
 					var tagLinks = [];
 					for ( var tag in prop.tags ) {
-						arrayAppend( tagLinks, "[[tag-#tag#]]" );
+						// Strip cf prefix if present (cfquery -> query)
+						var tagKey = left( tag, 2 ) == "cf" ? mid( tag, 3 ) : tag;
+						arrayAppend( tagLinks, "[[tag-#tagKey#]]" );
 					}
 					arrayAppend( related, "**Tags:** " & arrayToList( tagLinks, ", " ) );
 				}

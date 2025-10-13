@@ -1,4 +1,8 @@
 component {
+	// Cache expensive singleton instances
+	variables.yamlParser = new api.parsers.ParserFactory().getYamlParser();
+	variables.referenceReaderFactory = new api.reference.ReferenceReaderFactory();
+
 	public any function preparePageObject(required string rootDir, required string pageType, required string pageDir, required string pagePath ) {
 		var page = "";
 		var pageData = readPageFile(arguments.rootDir, arguments.pageType, arguments.pageDir );
@@ -70,6 +74,16 @@ component {
 		}
 
 		if ( !page.getId().len() ) {
+			if ( page.isPage()
+				&& arguments.pageType != "homepage.md"
+				&& !page.getPath().startsWith("/technical-specs")
+				&& !page.getPath().contains("/_arguments")
+				&& !page.getPath().contains("/_attributes") ) {
+				throw(
+					type = "MissingPageId",
+					message = "Page is missing 'id' field in metadata: Path=#page.getPath()#, File=#arguments.pageDir##arguments.pageType#"
+				);
+			}
 			page.setId( page.getPath() );
 		}
 
@@ -209,11 +223,11 @@ component {
 	}
 
 	private struct function _parseYaml( required string yaml ) {
-		return new api.parsers.ParserFactory().getYamlParser().yamlToCfml( arguments.yaml );
+		return variables.yamlParser.yamlToCfml( arguments.yaml );
 	}
 
 	private string function _toYaml( required any data ) {
-		return new api.parsers.ParserFactory().getYamlParser().cfmlToYaml( arguments.data );
+		return variables.yamlParser.cfmlToYaml( arguments.data );
 	}
 
 	private boolean function _isWindows(){
@@ -355,20 +369,20 @@ component {
 	}
 
 	private any function _getFunctionReferenceReader() {
-		return new api.reference.ReferenceReaderFactory().getFunctionReferenceReader();
+		return variables.referenceReaderFactory.getFunctionReferenceReader();
 	}
 
 	private any function _getObjectReferenceReader() {
-		return new api.reference.ReferenceReaderFactory().getObjectReferenceReader();
+		return variables.referenceReaderFactory.getObjectReferenceReader();
 	}
 
 	private any function _getMethodReferenceReader() {
-		return new api.reference.ReferenceReaderFactory().getMethodReferenceReader();
+		return variables.referenceReaderFactory.getMethodReferenceReader();
 	}
 
 	private any function _getTagReferenceReader() {
 		//var buildProperties = new api.build.BuildProperties();
-		return new api.reference.ReferenceReaderFactory().getTagReferenceReader();
+		return variables.referenceReaderFactory.getTagReferenceReader();
 	}
 
 }

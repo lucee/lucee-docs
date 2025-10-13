@@ -12,6 +12,7 @@
 	q = QueryNew("type,ref,name,introduced,sort,description");
 
 	function addChangeLog(q, page, ref, name, introduced, description){
+		// systemOutput( "addChangeLog: ref=[#arguments.ref#], name=[#arguments.name#], introduced=[#arguments.introduced#]", true ); // Debug logging
 		var r = queryAddRow(q);
 		querySetCell(q,"type", arguments.page.getPageType());
 		querySetCell(q,"ref", arguments.ref);
@@ -36,7 +37,8 @@
 		<cfset changed = false>
 		<cfif len(value.page.getIntroduced()) gt 0>
 			<cfscript>
-				addChangeLog(q, value.page, key, value.page.getTitle(), value.page.getIntroduced(), "");
+				// systemOutput( "Page with introduced: id=[#value.page.getId()#], title=[#value.page.getTitle()#], type=[#value.page.getPageType()#], introduced=[#value.page.getIntroduced()#]", true ); // Debug logging
+				addChangeLog(q, value.page, value.page.getId(), value.page.getTitle(), value.page.getIntroduced(), "");
 			</cfscript>
 		<cfelseif value.page.getPageType() eq "tag">
 			<!--- check attributes --->
@@ -49,7 +51,8 @@
 				<cfloop array="#tagAttr#" item="attr">
 					<cfif len(attr.introduced?:"")>
 						<cfscript>
-							addChangeLog(q, value.page, key, value.page.getName(), attr.introduced,
+							// systemOutput( "Tag attribute with introduced: tagId=[#value.page.getId()#], tagName=[#value.page.getName()#], attrName=[#attr.name#], introduced=[#attr.introduced#]", true ); // Debug logging
+							addChangeLog(q, value.page, value.page.getId(), value.page.getName(), attr.introduced,
 								'&lt;cf#value.page.getName()# #attr.name#="#attr.type#"&gt;'
 							);
 						</cfscript>
@@ -65,7 +68,7 @@
 				<cfloop array="#funcArg#" item="arg">
 					<cfif len(arg.introduced?:"")>
 						<cfscript>
-							addChangeLog(q, value.page, key, value.page.getName(), arg.introduced,
+							addChangeLog(q, value.page, value.page.getId(), value.page.getName(), arg.introduced,
 								'#listFirst(value.page.getTitle(),"()")#( #arg.name#="#arg.type#")'
 							);
 						</cfscript>

@@ -13,11 +13,10 @@
 					local.firstId = local.firstLevelPage.getId();
 					local.firstLevelActive  = arguments.args.pageLineageMap.keyExists( local.firstId );
 					local.firstLevelCurrent = (arguments.args.pageLineage[ arguments.args.pageLineage.len() ] === local.firstId);
-					local.item = arguments.args.doctree.getPage(firstId);
 				</cfscript>
 				<li class="<cfif local.firstLevelActive>active</cfif> <cfif local.firstLevelCurrent>current</cfif>">
-					<a href="#local.item.getPath()#.html" itemprop="url">
-						<span itemprop="name">#HtmlEditFormat(local.item.getPageMenuTitle())#</span>
+					<a href="#local.firstLevelPage.getPath()#.html" itemprop="url">
+						<span itemprop="name">#HtmlEditFormat(local.firstLevelPage.getPageMenuTitle())#</span>
 					</a>
 					<cfsilent>
 						<cfscript>
@@ -29,11 +28,10 @@
 									local.secondLevelActive = arguments.args.pageLineageMap.keyExists( local.secondLevelPage.getId() );
 									if (local.secondLevelActive eq true)
 										local.subIsOpen = true;
-									local.item = arguments.args.doctree.getPage(local.secondLevelPage.getId());
 									subNav.append('<li' &
 										(local.secondlevelactive eq true ? ' class="active"' : "") &
-										'><a href="#local.item.getPath()#.html" itemprop="url">' &
-										'<span itemprop="name">#HtmlEditFormat(local.item.getPageMenuTitle())#</span>' &
+										'><a href="#local.secondLevelPage.getPath()#.html" itemprop="url">' &
+										'<span itemprop="name">#HtmlEditFormat(local.secondLevelPage.getPageMenuTitle())#</span>' &
 										'</a></li>'
 									);
 								}

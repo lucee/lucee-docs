@@ -50,14 +50,50 @@ component accessors=true {
 	}
 
 	public any function getPage( required string id ) {
-		if ( !pageExists( arguments.id ) )
-			systemOutput( "GetPage: #id# does not exist in doctree", true );
+		if ( !pageExists( arguments.id ) ) {
+			// Debug logging - uncomment to troubleshoot broken links
+			/*
+			var debugInfo = {
+				id: arguments.id,
+				idLength: len( arguments.id ),
+				endsWithBackslash: right( arguments.id, 1 ) eq chr( 92 ),
+				endsWithForwardSlash: right( arguments.id, 1 ) eq "/",
+				lastChar: asc( right( arguments.id, 1 ) ),
+				idBytes: []
+			};
+
+			// Capture each character's ASCII value
+			for ( var i = 1; i <= len( arguments.id ); i++ ) {
+				debugInfo.idBytes.append( asc( mid( arguments.id, i, 1 ) ) );
+			}
+
+			// Only log first 5 failures with stack trace to avoid spam
+			if ( !structKeyExists( variables, "getPageFailCount" ) ) {
+				variables.getPageFailCount = 0;
+			}
+			variables.getPageFailCount++;
+
+			systemOutput( "GetPage FAILED (#variables.getPageFailCount#): " & serializeJSON( debugInfo ), true );
+
+			if ( variables.getPageFailCount <= 5 ) {
+				systemOutput( "Stack trace:", true );
+				var stack = callStackGet();
+				for ( var i = 1; i <= min( 5, arrayLen( stack ) ); i++ ) {
+					var line = structKeyExists( stack[i], "line" ) ? stack[i].line : "?";
+					systemOutput( "  #i#: #stack[i].template# line #line#", true );
+				}
+			}
+			*/
+
+			// Don't throw - just log so we can see all broken links
+		// throw( type="PageNotFound", message="Broken link: Page ID '#arguments.id#' not found in doctree. Check wiki-link references like [[#arguments.id#]] in your markdown files.", detail=arguments.id );
+		}
 		return variables.idMap[ arguments.id ] ?: NullValue();
 	}
 
 	public any function getPageByPath( required string path ) {
 		if ( !structKeyExists( variables.pathMap, arguments.path  ) )
-			systemOutput( "GetPageByPath: #path# does not exist in doctree", true );
+			; // systemOutput( "GetPageByPath: #path# does not exist in doctree", true ); // Debug logging
 		return variables.pathMap[ arguments.path ] ?: NullValue();
 	}
 
@@ -121,7 +157,10 @@ component accessors=true {
 		if ( variables.directlyRelatedMap.keyExists(arguments.page.getId()) ){
 			var related = variables.directlyRelatedMap[arguments.page.getId()];
 			for (relatedId in related){
-				crumbs.append( _getPageBreadCrumbs( getPage(relatedId) ) );
+				// Skip URLs in related field - they're external links, not page IDs
+				if ( !relatedId.startsWith( "http://" ) && !relatedId.startsWith( "https://" ) ) {
+					crumbs.append( _getPageBreadCrumbs( getPage(relatedId) ) );
+				}
 			}
 		}
 		return crumbs;
@@ -234,6 +273,9 @@ component accessors=true {
 			_updateRecipeDates();
 			_loadSyspropEnvvars();
 			_parseTree();
+
+			// Debug: dump idMap to disk after tree is built
+			//_debugDumpIdMap();
 		}
 	}
 
@@ -330,6 +372,20 @@ component accessors=true {
 						variables.tree.append(recipe);
 					}
 					break;
+				/*
+				case "reference":
+					// add sysprop page to reference section (also stays in recipes)
+					if ( pageExists( "environment-variables-system-properties" ) ) {
+						var syspropPage = getPage( "environment-variables-system-properties" );
+						if ( !IsNull( syspropPage ) ) {
+							folder.addChild( syspropPage );
+							request.logger( text="Added sysprop page to reference menu" );
+						}
+					} else {
+						request.logger( text="Sysprop page not found in idMap", type="WARN" );
+					}
+					break;
+				*/
 			}
 		}
 		_sortChildren( variables.tree );
@@ -446,13 +502,17 @@ component accessors=true {
 
 			if ( !IsNull( relatedPageLinks ) and ArrayLen(relatedPageLinks) gt 0) {
 				for( var link in relatedPageLinks ) {
-					if (len(trim(link)) gt 0){
-						if (!structKeyExists(related, id))
-							related[id] = {};
-						if (!structKeyExists(related, link))
-							related[link] = {};
-						related[link][pageId]="";
-						related[pageId][link]="";
+					// Skip URLs in related field - they're external links, not page IDs
+					if ( !link.startsWith( "http://" ) && !link.startsWith( "https://" ) ) {
+						// systemOutput( "Processing link [#link#] from page [#pageId#]", true ); // Debug logging
+						if (len(trim(link)) gt 0){
+							if (!structKeyExists(related, id))
+								related[id] = {};
+							if (!structKeyExists(related, link))
+								related[link] = {};
+							related[link][pageId]="";
+							related[pageId][link]="";
+						}
 					}
 				}
 			}
@@ -611,5 +671,56 @@ component accessors=true {
 			default:
 				throw("unknown content type: " & contentType);
 		}
+	}
+
+	private void function _debugDumpIdMap() {
+		// Debug function - uncomment to dump idMap contents to disk for inspection
+		// systemOutput( "=== DEBUG: Dumping idMap to disk ===", true );
+		var idMapKeys = variables.idMap.keyArray().sort( "textnocase" );
+		var debugInfo = {
+			totalIds: arrayLen( idMapKeys ),
+			functionIds: [],
+			tagIds: [],
+			otherIds: [],
+			sampleIds: []
+		};
+
+		// Categorize IDs
+		for ( var id in idMapKeys ) {
+			if ( left( id, 9 ) == "function-" ) {
+				debugInfo.functionIds.append( id );
+			} else if ( left( id, 4 ) == "tag-" ) {
+				debugInfo.tagIds.append( id );
+			} else {
+				debugInfo.otherIds.append( id );
+			}
+		}
+
+		// Sample some IDs for verification
+		debugInfo.sampleIds = idMapKeys.slice( 1, min( 20, arrayLen( idMapKeys ) ) );
+
+		// Check for specific broken links
+		debugInfo.missingFromBrokenList = {
+			"function-websocketinfo": variables.idMap.keyExists( "function-websocketinfo" ),
+			"function-arraypop": variables.idMap.keyExists( "function-arraypop" ),
+			"function-javacast": variables.idMap.keyExists( "function-javacast" ),
+			"tag-imap": variables.idMap.keyExists( "tag-imap" ),
+			"tag-cache": variables.idMap.keyExists( "tag-cache" )
+		};
+
+		// Write full key list
+		fileWrite( "D:\work\lucee-docs\test-output\idmap-keys.txt", idMapKeys.toList( chr( 10 ) ) );
+
+		// Write summary
+		fileWrite( "D:\work\lucee-docs\test-output\idmap-summary.json", serializeJSON( debugInfo ) );
+
+		// systemOutput( "Total IDs in map: #debugInfo.totalIds#", true );
+		// systemOutput( "Function IDs: #arrayLen( debugInfo.functionIds )#", true );
+		// systemOutput( "Tag IDs: #arrayLen( debugInfo.tagIds )#", true );
+		// systemOutput( "Other IDs: #arrayLen( debugInfo.otherIds )#", true );
+		// systemOutput( "Written to: test-output/idmap-keys.txt and test-output/idmap-summary.json", true );
+
+		// Throw to stop build and inspect
+		throw( type="DebugStop", message="IdMap dumped - stopping build for inspection" );
 	}
 }
