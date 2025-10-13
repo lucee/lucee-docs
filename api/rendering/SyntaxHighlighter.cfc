@@ -1,5 +1,7 @@
 component {
 
+	variables.pygmentsInstance = "";
+
 	public string function renderHighlights( required string text, boolean markdown=false ) {
 		// For markdown mode, strip +trycf and normalize language names
 		if ( arguments.markdown ) {
@@ -42,7 +44,7 @@ component {
 			return "```" & cleanLanguage & chr( 10 ) & arguments.code & chr( 10 ) & "```";
 		}
 
-		var highlighter = new Pygments();
+		var highlighter = _getPygmentsInstance();
 		var useTryCf    = reFind( "\+trycf$", arguments.language ) > 0;
 
 		// some code block types don't work, treat them as cfm for now
@@ -102,6 +104,13 @@ component {
 		}
 		//dump (local);		abort;
 		return result;
+	}
+
+	private any function _getPygmentsInstance() {
+		if ( !isObject( variables.pygmentsInstance ) ) {
+			variables.pygmentsInstance = new Pygments();
+		}
+		return variables.pygmentsInstance;
 	}
 
 	private boolean function _isWindows(){

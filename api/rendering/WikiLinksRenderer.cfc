@@ -21,7 +21,7 @@ component accessors=true {
 					//startPos = link.nextStartPos + len( content );
 				} else {
 					rendered = Replace( rendered, link.rawMatch,
-						arguments.builder.renderLink( link.page ?: NullValue(), link.title, args, arguments.markdown ), "all" );
+						arguments.builder.renderLink( link.page ?: NullValue(), link.title, args, arguments.markdown, link.anchor ?: "" ), "all" );
 					startPos = link.nextStartPos;
 				}
 			}
@@ -40,10 +40,22 @@ component accessors=true {
 			return;
 		}
 
-		var precedingContent = match.pos[1] == 1 ? "" : Trim( Left( arguments.text, match.pos[1]-1 ) );
-		var matchIsWithinCodeBlock = precedingContent.endsWith( "<pre>" ) || precedingContent.endsWith( "<code>" );
+		var precedingContent = match.pos[1] == 1 ? "" : Left( arguments.text, match.pos[1]-1 );
 
-		if ( matchIsWithinCodeBlock ) {
+		// Check if we're inside an HTML code block by counting open/close tags
+		var preOpenCount = ( len( precedingContent ) - len( replaceNoCase( precedingContent, "<pre", "", "all" ) ) ) / 4;
+		var preCloseCount = ( len( precedingContent ) - len( replaceNoCase( precedingContent, "</pre>", "", "all" ) ) ) / 6;
+		var codeOpenCount = ( len( precedingContent ) - len( replaceNoCase( precedingContent, "<code", "", "all" ) ) ) / 5;
+		var codeCloseCount = ( len( precedingContent ) - len( replaceNoCase( precedingContent, "</code>", "", "all" ) ) ) / 7;
+
+		var isInsidePreBlock = preOpenCount > preCloseCount;
+		var isInsideCodeBlock = codeOpenCount > codeCloseCount;
+
+		// Check if we're inside a markdown code block (triple backticks)
+		var backtickGroups = reMatchNoCase( "```", precedingContent );
+		var isInsideMarkdownCodeBlock = arrayLen( backtickGroups ) mod 2 == 1;
+
+		if ( isInsidePreBlock || isInsideCodeBlock || isInsideMarkdownCodeBlock ) {
 			return _getNextLink( arguments.text, match.pos[1]+match.len[1] );
 		}
 
@@ -75,13 +87,23 @@ component accessors=true {
 				, nextStartPos: match.pos[2]
 			};
 		} else {
-			var page      = getDocTree().getPage( pageId );
+			// Split pageId and anchor if present
+			var anchor = "";
+			var pageSlug = pageId;
+			if ( find( chr( 35 ), pageId ) ) {
+				var parts = listToArray( pageId, chr( 35 ) );
+				pageSlug = parts[ 1 ];
+				anchor = parts.len() > 1 ? parts[ 2 ] : "";
+			}
+
+			var page      = getDocTree().getPage( pageSlug );
 			var title     = reference.len() > 1 ? reference.last() : ( IsNull( page ) ? pageId : page.getTitle() );
 
 			return {
 				type       = "link"
 				, rawMatch = rawMatch
 				, page     = page  ?: NullValue()
+				, anchor   = anchor
 				, title    = title ?: pageId
 				, nextStartPos: match.pos[2] // not exact but saves reparsing the whole text again
 			};

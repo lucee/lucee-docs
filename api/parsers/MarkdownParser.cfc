@@ -9,6 +9,10 @@ component {
 	}
 
 	public string function _markdownToHtml( required string markdown, required boolean stripParagraph=false) {
+		if ( !len( trim( arguments.markdown ) ) ) {
+			return "";
+		}
+
 		// TODO code blocks with spaces or pre tags cause problems here
 		var html = variables.markdownRender.render( arguments.markdown );
 

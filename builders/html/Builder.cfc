@@ -1,16 +1,18 @@
 component {
+	// Cache expensive singleton instances
+	variables.buildProperties = new api.build.BuildProperties();
 
 	public string function renderContent( any docTree, required string content, required struct args, boolean markdown=false ) {
 		return docTree.renderContent( content, arguments.args, arguments.markdown );
 	}
 
 	public string function _getIssueTrackerLink(required string name) {
-		var link = Replace( new api.build.BuildProperties().getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
+		var link = Replace( variables.buildProperties.getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
 		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
 	}
 
 	public string function _getTestCasesLink(required string name) {
-		var link = Replace( new api.build.BuildProperties().getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
+		var link = Replace( variables.buildProperties.getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
 		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <i class="fa fa-external-link"></i></a> (good for further, detailed examples)';
 	}
 
@@ -102,6 +104,7 @@ component {
 	public string function renderPage( required any page, required any docTree,
 			required string pageContent, required boolean edit, required struct htmlOptions ){
 
+		// systemOutput( "RENDERING PAGE: #arguments.page.getPath()# (ID: #arguments.page.getId()#)", true ); // Debug logging
 		var crumbs = arguments.docTree.getPageBreadCrumbs( arguments.page );
 		var excludeLinkMap = {}; // tracks links to exclude from See also
 		var links = [];
@@ -417,7 +420,7 @@ component {
 			ArrayToList(siteMap, chr(10) ) & '#chr(10)#</urlset>';
 	}
 
-	public string function renderLink( any page, required string title, struct args={}, boolean markdown=false ) {
+	public string function renderLink( any page, required string title, struct args={}, boolean markdown=false, string anchor="" ) {
 		if ( IsNull( arguments.page ) ) {
 			if ( arguments.title.left( 4 ) eq "http" ){
 				if ( arguments.markdown ) {
@@ -442,6 +445,11 @@ component {
 		} else if ( structKeyExists( arguments.args, "htmlOpts" )
 				&& structKeyExists( arguments.args.htmlOpts, "base_href" ) ){
 			link = arguments.args.htmlOpts.base_href & link;
+		}
+
+		// Add anchor if present
+		if ( len( arguments.anchor ) ) {
+			link &= "##" & arguments.anchor;
 		}
 
 		if ( arguments.markdown ) {
@@ -506,12 +514,12 @@ component {
 	}
 
 	public string function _getIssueTrackerLink(required string name) {
-		var link = Replace( new api.build.BuildProperties().getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
+		var link = Replace( variables.buildProperties.getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
 		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
 	}
 
 	public string function _getTestCasesLink(required string name) {
-		var link = Replace( new api.build.BuildProperties().getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
+		var link = Replace( variables.buildProperties.getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
 		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <i class="fa fa-external-link"></i></a> (good for further, detailed examples)';
 	}
 

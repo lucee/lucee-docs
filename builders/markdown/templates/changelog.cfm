@@ -33,13 +33,13 @@
 	loop collection="#pc#" key="key" value="value" {
 		if ( structKeyExists( checklist, value.page.getPageType() ) ) {
 			if ( len( value.page.getIntroduced() ) gt 0 ) {
-				addChangeLog( q, value.page, key, value.page.getTitle(), value.page.getIntroduced(), "" );
+				addChangeLog( q, value.page, value.page.getId(), value.page.getTitle(), value.page.getIntroduced(), "" );
 			} else if ( value.page.getPageType() eq "tag" ) {
 				tagAttr = value.page.getAttributes();
 				if ( isArray( tagAttr ) ) {
 					for ( attr in tagAttr ) {
 						if ( len( attr.introduced ?: "" ) ) {
-							addChangeLog( q, value.page, key, value.page.getName(), attr.introduced,
+							addChangeLog( q, value.page, value.page.getId(), value.page.getName(), attr.introduced,
 								'<cf#value.page.getName()# #attr.name#="#attr.type#">'
 							);
 						}
@@ -50,7 +50,7 @@
 				if ( isArray( funcArg ) ) {
 					for ( arg in funcArg ) {
 						if ( len( arg.introduced ?: "" ) ) {
-							addChangeLog( q, value.page, key, value.page.getName(), arg.introduced,
+							addChangeLog( q, value.page, value.page.getId(), value.page.getName(), arg.introduced,
 								'#listFirst( value.page.getTitle(), "()" )#( #arg.name#="#arg.type#")'
 							);
 						}
