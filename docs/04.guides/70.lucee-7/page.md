@@ -23,6 +23,39 @@ Lucee 7 is a major release that fundamentally changes how Lucee works by moving 
 
 For a complete list of new and updated tags and functions, checkout our [[changelog]].
 
+Some of these features were experimental in Lucee 6.2 and are now stable and production-ready in Lucee 7.
+
+### AI Support
+
+AI integration functions are now production-ready:
+
+- [[function-CreateAISession]] - Create a new AI session
+- [[function-InquiryAISession]] - Query an AI session
+- [[function-SerializeAISession]] - Save AI conversation state
+- [[function-LoadAISession]] - Restore AI conversation state
+- [[function-AIHas]] - Check if AI provider exists
+- [[function-AIGetMetadata]] - Get AI provider metadata
+
+This enables persistent AI conversations across requests and application restarts.
+
+- [[ai-session-serialization]] - AI session serialization
+- [[ai-augmentation-lucene]] - AI augmentation with Lucene (RAG)
+- [[ai]] - AI integration guide
+
+### Enhanced Java Support
+
+Improved Java interop and integration that was experimental in 6.2 is now stable.
+
+- [[java-class-interaction]] - Seamless integration with Java classes
+- [[java-settings]] - Java settings with Maven support
+- [[component-getclass-method]] - Dynamic proxy creation for components
+- [[java-libraries]] - Loading and using Java libraries
+- [[java-scripting-lucee]] - Using Java scripting engines
+- [[java-explicit-casting]] - Type casting in Java interop
+- [[java-in-functions-and-closures]] - Java usage patterns
+- [[convert-a-cfml-func-to-java]] - Converting CFML to Java
+
+
 ### AST (Abstract Syntax Tree) Support
 
 Parse CFML code into an [[ast]] for analysis, tooling, and transformation.
@@ -59,40 +92,6 @@ Major upgrade to [[category-search]] capabilities with modern semantic search fe
 These features enable Retrieval-Augmented Generation (RAG) patterns, allowing AI models to reference your indexed content for more accurate and contextually relevant responses.
 
 See the [[lucene-3-extension]] documentation for complete details.
-
-## Features Now Production Ready
-
-These features were experimental in Lucee 6.2 and are now stable and production-ready in Lucee 7.
-
-### AI Support
-
-AI integration functions are now production-ready:
-
-- [[function-CreateAISession]] - Create a new AI session
-- [[function-InquiryAISession]] - Query an AI session
-- [[function-SerializeAISession]] - Save AI conversation state
-- [[function-LoadAISession]] - Restore AI conversation state
-- [[function-AIHas]] - Check if AI provider exists
-- [[function-AIGetMetadata]] - Get AI provider metadata
-
-This enables persistent AI conversations across requests and application restarts.
-
-- [[ai-session-serialization]] - AI session serialization
-- [[ai-augmentation-lucene]] - AI augmentation with Lucene (RAG)
-- [[ai]] - AI integration guide
-
-### Enhanced Java Support
-
-Improved Java interop and integration that was experimental in 6.2 is now stable.
-
-- [[java-class-interaction]] - Seamless integration with Java classes
-- [[java-settings]] - Java settings with Maven support
-- [[component-getclass-method]] - Dynamic proxy creation for components
-- [[java-libraries]] - Loading and using Java libraries
-- [[java-scripting-lucee]] - Using Java scripting engines
-- [[java-explicit-casting]] - Type casting in Java interop
-- [[java-in-functions-and-closures]] - Java usage patterns
-- [[convert-a-cfml-func-to-java]] - Converting CFML to Java
 
 ## Dark mode Admin
 
