@@ -16,6 +16,11 @@
 		logger.logger(" ");
 		logger.logger( "Lucee " & server.lucee.version & ", java " & server.java.version );
 		logger.logger(" ");
+
+		// Require Lucee 7.x
+		if ( listFirst( server.lucee.version, "." ) < 7 ) {
+			throw( type="BuildError", message="Lucee 7.x required", detail="This build requires Lucee 7.x or later. Current version: #server.lucee.version#" );
+		}
 		logger.logger ("assetBundleVersion: " & application.assetBundleVersion);
 		logger.logger(" ");
 
