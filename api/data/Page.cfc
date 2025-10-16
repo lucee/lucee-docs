@@ -25,6 +25,7 @@ component accessors=true {
 	property name="nextPage"     type="any";
 	property name="previousPage" type="any";
 	property name="categories"   type="array";
+	property name="keywords"     type="array";
 
 	property name="methodObject"  type="string"  default="";
 	property name="methodName"  type="string"  default="";

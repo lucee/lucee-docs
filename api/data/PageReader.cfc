@@ -33,62 +33,62 @@ component {
 					default:
 						page = new Page( argumentCollection=pageData );
 				}
+
+				for( var key in pageData ) {
+					if ( !IsNull( pageData[ key ] ) ) {
+						page[ key ] = pageData[ key ];
+					}
+				}
 			}
+		
+			// hack to restructure recipes as docs content
+			if ( listFirst( page.getPath(), "/" ) eq "recipes" ){
+				page.setSlug( page.getPageType() )
+				
+				if (page.getPageType() eq "README"){
+					page.setPath( page.getPath() );
+					page.setPageType( "listing" );
+					page.setListingStyle( "flat" );
+					page.setVisible( true );
+					page.setReference( true );
+					page.setBody( "Detailed Recipes showing you how to take advantage of the wide range of features in Lucee" );
+					page.setMenuTitle( "Recipes" );
+					page.setTitle( "Lucee Recipes" );
+					page.setDescription( "Detailed Recipes showing you how to take advantage of the wide range of features in Lucee" );
+					page.setForceSortOrder( 5.5 );
+					page.setSortOrder( 4.5 );
+					page.setSlug("recipes");
+					page.setId("recipes");
+				} else {
+					page.setPath( page.getPath() & "/" & replace( page.getPageType(), ".md", "" ) );
+					page.setPageType( "page" );
+				}
+			} else {
+				page.setPath( arguments.pagePath );
+			}
+
+			if ( !page.getId().len() ) {
+				if ( page.isPage()
+					&& arguments.pageType != "homepage.md"
+					&& !page.getPath().startsWith("/technical-specs")
+					&& !page.getPath().contains("/_arguments")
+					&& !page.getPath().contains("/_attributes") ) {
+					throw(
+						type = "MissingPageId",
+						message = "Page is missing 'id' field in metadata: Path=#page.getPath()#, File=#arguments.pageDir##arguments.pageType#"
+					);
+				}
+				page.setId( page.getPath() );
+			}
+
+			page.setChildren( [] );
+			page.setDepth( ListLen( page.getPath(), "/" ) );
 		} catch (any e) {
-			writeOutput("Error preparing page: " & pageFilePath);
-			dump( pageData );
+			systemOutput("Error preparing page: " & pageFilePath & ", " & e.stacktrace);
+			writeOutput("Error preparing page: " & pageFilePath & ", " & e.stacktrace);
 			echo( e );
 			abort;
 		}
-
-		for( var key in pageData ) {
-			if ( !IsNull( pageData[ key ] ) ) {
-				page[ key ] = pageData[ key ];
-			}
-		}
-
-		// hack to restructure recipes as docs content
-		if ( listFirst( page.getPath(), "/" ) eq "recipes" ){
-			page.setSlug( page.getPageType() )
-			
-			if (page.getPageType() eq "README"){
-				page.setPath( page.getPath() );
-				page.setPageType( "listing" );
-				page.setListingStyle( "flat" );
-				page.setVisible( true );
-				page.setReference( true );
-				page.setBody( "Detailed Recipes showing you how to take advantage of the wide range of features in Lucee" );
-				page.setMenuTitle( "Recipes" );
-				page.setTitle( "Lucee Recipes" );
-				page.setDescription( "Detailed Recipes showing you how to take advantage of the wide range of features in Lucee" );
-				page.setForceSortOrder( 5.5 );
-				page.setSortOrder( 4.5 );
-				page.setSlug("recipes");
-				page.setId("recipes");
-			} else {
-				page.setPath( page.getPath() & "/" & replace( page.getPageType(), ".md", "" ) );
-				page.setPageType( "page" );
-			}
-		} else {
-			page.setPath( arguments.pagePath );
-		}
-
-		if ( !page.getId().len() ) {
-			if ( page.isPage()
-				&& arguments.pageType != "homepage.md"
-				&& !page.getPath().startsWith("/technical-specs")
-				&& !page.getPath().contains("/_arguments")
-				&& !page.getPath().contains("/_attributes") ) {
-				throw(
-					type = "MissingPageId",
-					message = "Page is missing 'id' field in metadata: Path=#page.getPath()#, File=#arguments.pageDir##arguments.pageType#"
-				);
-			}
-			page.setId( page.getPath() );
-		}
-
-		page.setChildren( [] );
-		page.setDepth( ListLen( page.getPath(), "/" ) );
 		return page;
 	}
 

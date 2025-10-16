@@ -61,6 +61,7 @@ component {
 		_copyStaticAssets( arguments.buildDirectory );
 		_copySiteImages( arguments.buildDirectory, arguments.docTree );
 		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
+		_writeRecipesIndex( arguments.docTree, arguments.buildDirectory );
 	}
 
 	public string function renderPageContent( required any page, required any docTree,
@@ -349,6 +350,26 @@ component {
 		var searchIndexFile = arguments.buildDirectory & "/assets/js/searchIndex.json";
 
 		FileWrite( searchIndexFile, renderSearchIndex( arguments.docTree ) );
+	}
+
+	private void function _writeRecipesIndex( required any docTree, required string buildDirectory ) {
+		var recipesIndexFile = arguments.buildDirectory & "/recipes/index.json";
+		var generator = new api.reference.RecipesIndexGenerator();
+		var indexData = generator.generateIndexFromDocTree( arguments.docTree );
+
+		FileWrite( recipesIndexFile, indexData.content );
+
+		// Set the file's lastModified timestamp to match the most recent recipe
+		if ( structKeyExists( indexData, "lastModified" ) ) {
+			var lastModDate = parseDateTime( indexData.lastModified );
+			FileSetLastModified( recipesIndexFile, lastModDate );
+		}
+
+		var logMsg = "Generated recipes index: #recipesIndexFile#";
+		if ( structKeyExists( indexData, "lastModified" ) ) {
+			logMsg &= " (last modified: #indexData.lastModified#)";
+		}
+		request.logger( text=logMsg );
 	}
 
 	private string function _getPageLayoutFile( required any page ) {
