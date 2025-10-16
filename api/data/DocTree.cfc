@@ -104,11 +104,11 @@ component accessors=true {
 	public array function getPagesByCategory( required string category ) {
 		var matchedPages = [];
 
-		for( var id in variables.idMap ) {
-			var pageCategories = variables.idMap[ id ].getCategories();
+		cfloop( collection=variables.idMap, item="local.page", index="local.id" ) {
+			var pageCategories = local.page.getCategories();
 
 			if ( !IsNull( pageCategories ) && pageCategories.findNoCase(arguments.category ) > 0 ) {
-				matchedPages.append( variables.idMap[ id ] );
+				matchedPages.append( local.page );
 			}
 		}
 
@@ -144,8 +144,8 @@ component accessors=true {
 
 	public array function getCategories(){
 		var cats = [];
-		for (var cat in categoryMap){
-			cats.append(cat);
+		cfloop( collection=categoryMap, index="local.cat" ) {
+			cats.append(local.cat);
 		}
 		ArraySort(cats, "textnocase");
 		return cats;
@@ -308,9 +308,9 @@ component accessors=true {
 				}
 				exists[q_source_files.path] = true;
 			}
-			for( var c in pathCache ) {
-				if (not exists.keyExists(c))
-					deleted.append(c);
+			cfloop( collection=pathCache, index="local.c" ) {
+				if (not exists.keyExists(local.c))
+					deleted.append(local.c);
 			}
 
 			if (deleted.len() gt 0){
@@ -328,8 +328,8 @@ component accessors=true {
 	private void function _buildTreeHierarchy(boolean reset="false") {
     	//var start = getTickCount();
 		var pages = variables.pageCache.getPages();
-		for (var pagePath in pages ){
-			var page = pages[ pagePath ].page;
+		cfloop( collection=pages, item="local.pageData", index="local.pagePath" ) {
+			var page = local.pageData.page;
 			if ( arguments.reset )
 				page.reset(); // clear previous structure data
 			try {
@@ -348,28 +348,28 @@ component accessors=true {
 
 	private void function _parseTree( ) {
 		// expose guides as a top level folder
-		for (var folder in variables.tree){
-			switch( folder.getId() ){
+		cfloop( array=variables.tree, item="local.folder" ) {
+			switch( local.folder.getId() ){
 				case "guides":
-					var guideTree = folder.getChildren();
-					for (var guide in guideTree){
-						if (guide.getForceSortOrder() gt 0){
-							guide.setSortOrder(guide.getForceSortOrder());
+					var guideTree = local.folder.getChildren();
+					cfloop( array=guideTree, item="local.guide" ) {
+						if (local.guide.getForceSortOrder() gt 0){
+							local.guide.setSortOrder(local.guide.getForceSortOrder());
 						} else {
-							guide.setSortOrder(6 + NumberFormat(guide.getSortOrder()/100,"0.00"));
+							local.guide.setSortOrder(6 + NumberFormat(local.guide.getSortOrder()/100,"0.00"));
 						}
-						variables.tree.append(guide);
+						variables.tree.append(local.guide);
 					}
 					break;
 				case "recipes":
-					var recipeTree = folder.getChildren();
-					for (var recipe in recipeTree){
-						if (recipe.getForceSortOrder() gt 0){
-							recipe.setSortOrder(recipe.getForceSortOrder());
+					var recipeTree = local.folder.getChildren();
+					cfloop( array=recipeTree, item="local.recipe" ) {
+						if (local.recipe.getForceSortOrder() gt 0){
+							local.recipe.setSortOrder(local.recipe.getForceSortOrder());
 						} else {
-							recipe.setSortOrder(5 + NumberFormat(recipe.getSortOrder()/100,"0.00"));
+							local.recipe.setSortOrder(5 + NumberFormat(local.recipe.getSortOrder()/100,"0.00"));
 						}
-						variables.tree.append(recipe);
+						variables.tree.append(local.recipe);
 					}
 					break;
 				/*
@@ -459,8 +459,8 @@ component accessors=true {
 		} );
 
 
-		for( var child in arguments.children ) {
-			_sortChildren( child.getChildren() );
+		cfloop( array=arguments.children, item="local.child" ) {
+			_sortChildren( local.child.getChildren() );
 		}
 	}
 
@@ -487,8 +487,8 @@ component accessors=true {
 			arguments.lastPageTouched = page;
 
 			var nextParent = ( i == pageCount ) ? ( arguments.nextParentPage ?: NullValue() ) : arguments.pages[i+1];
-			for( var child in page.getChildren() ){
-				_calculateNextAndPreviousPageLinks( child.getChildren(), ( nextParent ?: NullValue() ), arguments.lastPageTouched )
+			cfloop( array=page.getChildren(), item="local.child" ) {
+				_calculateNextAndPreviousPageLinks( local.child.getChildren(), ( nextParent ?: NullValue() ), arguments.lastPageTouched )
 			}
 		}
 	}
@@ -496,32 +496,32 @@ component accessors=true {
 	private void function _buildRelated(){
 		var related = {};
 
-		for ( var id in variables.idMap ) {
-			var relatedPageLinks = variables.idMap[ id ].getRelated();
-			var pageId = variables.idMap[ id ].getId();
+		cfloop( collection=variables.idMap, item="local.page", index="local.id" ) {
+			var relatedPageLinks = local.page.getRelated();
+			var pageId = local.page.getId();
 
 			if ( !IsNull( relatedPageLinks ) and ArrayLen(relatedPageLinks) gt 0) {
-				for( var link in relatedPageLinks ) {
+				cfloop( array=relatedPageLinks, item="local.link" ) {
 					// Skip URLs in related field - they're external links, not page IDs
-					if ( !link.startsWith( "http://" ) && !link.startsWith( "https://" ) ) {
-						// systemOutput( "Processing link [#link#] from page [#pageId#]", true ); // Debug logging
-						if (len(trim(link)) gt 0){
-							if (!structKeyExists(related, id))
-								related[id] = {};
-							if (!structKeyExists(related, link))
-								related[link] = {};
-							related[link][pageId]="";
-							related[pageId][link]="";
+					if ( !local.link.startsWith( "http://" ) && !local.link.startsWith( "https://" ) ) {
+						// systemOutput( "Processing link [#local.link#] from page [#pageId#]", true ); // Debug logging
+						if (len(trim(local.link)) gt 0){
+							if (!structKeyExists(related, local.id))
+								related[local.id] = {};
+							if (!structKeyExists(related, local.link))
+								related[local.link] = {};
+							related[local.link][pageId]="";
+							related[pageId][local.link]="";
 						}
 					}
 				}
 			}
 		}
 		var _relatedMap = {};
-		for (var id in related){
-			var links = ListToArray( structKeyList(related[id]) );
+		cfloop( collection=related, item="local.relatedLinks", index="local.id" ) {
+			var links = ListToArray( structKeyList(local.relatedLinks) );
 			ArraySort(links,"textnocase");
-			_relatedMap[id] = links;
+			_relatedMap[local.id] = links;
 		}
 		setRelatedMap(_relatedMap);
 
@@ -529,28 +529,27 @@ component accessors=true {
 		// i.e. Struct.keyExists and StructKeyExists
 
 		var _related = {};
-		for ( var id in variables.idMap ) {
-			var page = variables.idMap[ id ];
-			if (page.getMethodObject().len() && page.getMethodName().len()){
-				var relatedId = "function-" & page.getMethodObject() & page.getMethodName();
+		cfloop( collection=variables.idMap, item="local.page", index="local.id" ) {
+			if (local.page.getMethodObject().len() && local.page.getMethodName().len()){
+				var relatedId = "function-" & local.page.getMethodObject() & local.page.getMethodName();
 				if (variables.idMap.keyExists(relatedId)){
-					if (!_related.keyExists(id) )
-						_related[id] = {};
-					_related[id][relatedId] = "";
+					if (!_related.keyExists(local.id) )
+						_related[local.id] = {};
+					_related[local.id][relatedId] = "";
 					if (!_related.keyExists(relatedId) )
 						_related[relatedId] = {};
-					_related[relatedId][id] = "";
+					_related[relatedId][local.id] = "";
 				}
 			}
-			if (page.getMethodName().len()){
-				var relatedId = "function-" & page.getMethodName();
+			if (local.page.getMethodName().len()){
+				var relatedId = "function-" & local.page.getMethodName();
 				if (variables.idMap.keyExists(relatedId)){
-					if (!_related.keyExists(id) )
-						_related[id] = {};
-					_related[id][relatedId] = "";
+					if (!_related.keyExists(local.id) )
+						_related[local.id] = {};
+					_related[local.id][relatedId] = "";
 					if (!_related.keyExists(relatedId) )
 						_related[relatedId] = {};
-					_related[relatedId][id] = "";
+					_related[relatedId][local.id] = "";
 				}
 			}
 		}
@@ -563,18 +562,18 @@ component accessors=true {
 	public struct function _buildReferenceMap() {
 		var pages = {};
 		var pagesByType = {};
-		for ( var id in idMap ) {
+		cfloop( collection=idMap, index="local.id" ) {
 			var pageType = "content";
-			if ( listLen( id, "-" ) gt 1)
-				pageType = listFirst( id,"-" );
+			if ( listLen( local.id, "-" ) gt 1)
+				pageType = listFirst( local.id,"-" );
 			if ( !structKeyExists( pages, pageType ) )
 				pages[ pageType ] = {};
-			pages[ pageType ][ id ]="";
+			pages[ pageType ][ local.id ]="";
 		}
-		for (var types in pages){
-			var ids = ListToArray( structKeyList( pages[ types ] ) );
+		cfloop( collection=pages, item="local.pageIds", index="local.types" ) {
+			var ids = ListToArray( structKeyList( local.pageIds ) );
 			ArraySort( ids,"textnocase" );
-			pagesByType[ types ] = ids;
+			pagesByType[ local.types ] = ids;
 		}
 		setReferenceMap( pagesByType );
 		return referenceMap;
@@ -606,26 +605,26 @@ component accessors=true {
 		var byTag = {};
 		var byFunction = {};
 
-		for ( var prop in allProps ) {
+		cfloop( array=allProps, item="local.prop" ) {
 			// Index by tags (strip cf prefix for docs compatibility)
-			if ( structKeyExists( prop, "tags" ) && isArray( prop.tags ) ) {
-				for ( var tag in prop.tags ) {
+			if ( structKeyExists( local.prop, "tags" ) && isArray( local.prop.tags ) ) {
+				cfloop( array=local.prop.tags, item="local.tag" ) {
 					// Strip cf prefix if present (cfquery -> query)
-					var tagKey = left( tag, 2 ) == "cf" ? mid( tag, 3 ) : tag;
+					var tagKey = left( local.tag, 2 ) == "cf" ? mid( local.tag, 3 ) : local.tag;
 					if ( !structKeyExists( byTag, tagKey ) ) {
 						byTag[ tagKey ] = [];
 					}
-					arrayAppend( byTag[ tagKey ], prop );
+					arrayAppend( byTag[ tagKey ], local.prop );
 				}
 			}
 
 			// Index by functions
-			if ( structKeyExists( prop, "functions" ) && isArray( prop.functions ) ) {
-				for ( var func in prop.functions ) {
-					if ( !structKeyExists( byFunction, func ) ) {
-						byFunction[ func ] = [];
+			if ( structKeyExists( local.prop, "functions" ) && isArray( local.prop.functions ) ) {
+				cfloop( array=local.prop.functions, item="local.func" ) {
+					if ( !structKeyExists( byFunction, local.func ) ) {
+						byFunction[ local.func ] = [];
 					}
-					arrayAppend( byFunction[ func ], prop );
+					arrayAppend( byFunction[ local.func ], local.prop );
 				}
 			}
 		}
@@ -686,13 +685,13 @@ component accessors=true {
 		};
 
 		// Categorize IDs
-		for ( var id in idMapKeys ) {
-			if ( left( id, 9 ) == "function-" ) {
-				debugInfo.functionIds.append( id );
-			} else if ( left( id, 4 ) == "tag-" ) {
-				debugInfo.tagIds.append( id );
+		cfloop( array=idMapKeys, item="local.id" ) {
+			if ( left( local.id, 9 ) == "function-" ) {
+				debugInfo.functionIds.append( local.id );
+			} else if ( left( local.id, 4 ) == "tag-" ) {
+				debugInfo.tagIds.append( local.id );
 			} else {
-				debugInfo.otherIds.append( id );
+				debugInfo.otherIds.append( local.id );
 			}
 		}
 

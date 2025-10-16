@@ -34,9 +34,9 @@ component {
 						page = new Page( argumentCollection=pageData );
 				}
 
-				for( var key in pageData ) {
-					if ( !IsNull( pageData[ key ] ) ) {
-						page[ key ] = pageData[ key ];
+				cfloop( collection=pageData, item="local.value", index="local.key" ) {
+					if ( !IsNull( local.value ) ) {
+						page[ local.key ] = local.value;
 					}
 				}
 			}
@@ -247,8 +247,9 @@ component {
             }
         }
 		// add any other remaining properties which don't have an order defined
-        for (var other in props)
-            orderedProps[other] = props[other];
+        cfloop( collection=props, item="local.value", index="local.key" ) {
+            orderedProps[local.key] = local.value;
+		}
 
 		return orderedProps;
 	}
@@ -268,11 +269,11 @@ component {
 		var attributesDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributes/";
 		var attrFiles = getFilesInDirectory(attributesDir);
 
-		for( var attrib in attributes ) {
-			if (structKeyExists(attrFiles, attrib.name & ".md" )){
-				var attribDescriptionFile = attributesDir & attrFiles[attrib.name & ".md"]; // avoid file system case problems
-				attrib.descriptionOriginal = attrib.description;
-				attrib.description = FileReadAsUnix( attribDescriptionFile );
+		cfloop( array=attributes, item="local.attrib" ) {
+			if (structKeyExists(attrFiles, local.attrib.name & ".md" )){
+				var attribDescriptionFile = attributesDir & attrFiles[local.attrib.name & ".md"]; // avoid file system case problems
+				local.attrib.descriptionOriginal = local.attrib.description;
+				local.attrib.description = FileReadAsUnix( attribDescriptionFile );
 			}
 		}
 
@@ -296,11 +297,11 @@ component {
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
 		var argsFiles = getFilesInDirectory(argsDir);
 
-		for( var arg in args ) {
-			if (structKeyExists(argsFiles, arg.name & ".md" )){
-				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
-				arg.descriptionOriginal = arg.description;
-				arg.description = FileReadAsUnix( argDescriptionFile );
+		cfloop( array=args, item="local.arg" ) {
+			if (structKeyExists(argsFiles, local.arg.name & ".md" )){
+				var argDescriptionFile = argsDir & argsFiles[local.arg.name & ".md"]; // avoid file system case problems
+				local.arg.descriptionOriginal = local.arg.description;
+				local.arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
 
@@ -329,11 +330,11 @@ component {
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
 		var argsFiles = getFilesInDirectory(argsDir);
 
-		for( var arg in args ) {
-			if (structKeyExists(argsFiles, arg.name & ".md" )){
-				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
-				arg.descriptionOriginal = arg.description;
-				arg.description = FileReadAsUnix( argDescriptionFile );
+		cfloop( array=args, item="local.arg" ) {
+			if (structKeyExists(argsFiles, local.arg.name & ".md" )){
+				var argDescriptionFile = argsDir & argsFiles[local.arg.name & ".md"]; // avoid file system case problems
+				local.arg.descriptionOriginal = local.arg.description;
+				local.arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
 
@@ -352,12 +353,12 @@ component {
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
 		var argsFiles = getFilesInDirectory(argsDir);
 
-		for( var arg in args ) {
-			var argDescriptionFile = argsDir & arg.name & ".md";
-			if (structKeyExists(argsFiles, arg.name & ".md" )){
-				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
-				arg.descriptionOriginal = arg.description;
-				arg.description = FileReadAsUnix( argDescriptionFile );
+		cfloop( array=args, item="local.arg" ) {
+			var argDescriptionFile = argsDir & local.arg.name & ".md";
+			if (structKeyExists(argsFiles, local.arg.name & ".md" )){
+				argDescriptionFile = argsDir & argsFiles[local.arg.name & ".md"]; // avoid file system case problems
+				local.arg.descriptionOriginal = local.arg.description;
+				local.arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
