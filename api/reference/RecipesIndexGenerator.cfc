@@ -7,9 +7,8 @@ component {
 		var mostRecentDate = NullValue();
 
 		// Find all recipe pages
-		for ( var pageId in pages ) {
-			var page = pages[ pageId ];
-			var path = page.getPath();
+		cfloop( collection=pages, item="local.page", index="local.pageId" ) {
+			var path = local.page.getPath();
 
 			// Only process pages under /recipes/
 			if ( path.startsWith( "/recipes/" ) && path != "/recipes" ) {
@@ -20,13 +19,13 @@ component {
 				var lastModified = NullValue();
 
 				// Extract keywords from page metadata
-				if ( !isNull( page.getKeywords() ) ) {
-					keywords = page.getKeywords();
+				if ( !isNull( local.page.getKeywords() ) ) {
+					keywords = local.page.getKeywords();
 				}
 
 				// Extract categories
-				if ( !isNull( page.getCategories() ) ) {
-					categories = page.getCategories();
+				if ( !isNull( local.page.getCategories() ) ) {
+					categories = local.page.getCategories();
 				}
 
 				// Use git commit date for hash if available, otherwise fallback to content hash
@@ -41,12 +40,12 @@ component {
 					}
 				} else {
 					// Fallback to content-based hash
-					recipeHash = hash( page.getTitle() & page.getDescription(), "MD5" );
+					recipeHash = hash( local.page.getTitle() & local.page.getDescription(), "MD5" );
 				}
 
 				var entry = [:];
 				entry[ "file" ] = fileName;
-				entry[ "title" ] = page.getTitle();
+				entry[ "title" ] = local.page.getTitle();
 				entry[ "path" ] = "/recipes/#fileName#";
 				entry[ "hash" ] = recipeHash;
 				entry[ "keywords" ] = keywords;
@@ -80,8 +79,8 @@ component {
 		);
 		var index = [];
 
-		for ( var filePath in files ) {
-			var fileName = listLast( filePath, "/\" );
+		cfloop( array=files, item="local.filePath" ) {
+			var fileName = listLast( local.filePath, "/\" );
 
 			// Skip README.md
 			if ( fileName == "README.md" ) {
