@@ -94,8 +94,17 @@
     "file": "archives-creating-and-deploy.md",
     "title": "Archives - Creating and deploying Lucee Archives (.lar files)",
     "path": "/docs/recipes/archives-creating-and-deploy.md",
-    "hash": "7b19ed7de71449ed84d72a29f92ef867",
-    "keywords": []
+    "hash": "f2cd10e0e6c1f735f60a88139bcf8659",
+    "keywords": [
+      "Lucee",
+      "Archives",
+      ".lar files",
+      "Deploy",
+      "Mapping",
+      "Component",
+      "CFC",
+      "CFM"
+    ]
   },
   {
     "file": "ast.md",
@@ -466,7 +475,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "c5db1dde6290b29636c3541ca5f1e4f0",
+    "hash": "b8119f62b015dfe3b850018f430d6139",
     "keywords": [
       "Environment",
       "Environment Variables",

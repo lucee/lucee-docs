@@ -26,7 +26,7 @@ How to update your Application settings, after they have been defined in Applica
 
 ## [Archives - Creating and deploying Lucee Archives (.lar files)](/docs/recipes/archives-creating-and-deploy.md)
 
-No description available.
+This document explains how to deploy an Application on a live server without using a single CFML file.
 
 ## [AST (Abstract Syntax Tree)](/docs/recipes/ast.md)
 

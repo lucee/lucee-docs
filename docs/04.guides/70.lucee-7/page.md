@@ -55,7 +55,6 @@ Improved Java interop and integration that was experimental in 6.2 is now stable
 - [[java-in-functions-and-closures]] - Java usage patterns
 - [[convert-a-cfml-func-to-java]] - Converting CFML to Java
 
-
 ### AST (Abstract Syntax Tree) Support
 
 Parse CFML code into an [[ast]] for analysis, tooling, and transformation.
