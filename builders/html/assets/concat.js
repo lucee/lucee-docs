@@ -34,8 +34,7 @@ if ( contentIndex > webfontIndex || contentIndex > winresizeIndex ) {
 }
 
 const files = [
-	'js/jquery-3.3.1.js',
-	'js/hammer.js',
+	'js/jquery-3.7.1.js',
 	...sourceFiles
 ];
 
