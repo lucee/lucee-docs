@@ -86,7 +86,10 @@ Defines a comma-separated list of Lucee extensions to install when starting up.
 
 The current list of installed extensions is available via the Lucee admin.
 
-This can be a simple list of IDs, then whatever the latest version(s) will be installed (SNAPSHOT or STABLE):
+##### Installation Methods
+
+###### 1. Simple ID List
+A simple list of extension IDs, which will install the latest available version (SNAPSHOT or STABLE):
 
 ```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6,
@@ -94,7 +97,8 @@ This can be a simple list of IDs, then whatever the latest version(s) will be in
 2BCD080F-4E1E-48F5-BEFE794232A21AF6
 ```
 
-Or with more specific information like version and label (for better readability) like this:
+###### 2. Detailed Specification
+With specific information like version and label (for better readability):
 
 ```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;name=MSSQL;label=MS SQL Server;version=12.2.0.jre8,
@@ -103,6 +107,72 @@ Or with more specific information like version and label (for better readability
 ```
 
 **It's recommended to always specify the exact version for consistent results**
+
+###### 3. Gradle-Style Coordinates (Lucee 7.0.1+)
+Starting with Lucee 7.0.1, you can use Gradle/Maven-style coordinates in the format `groupId:artifactId:version`:
+
+```plaintext
+org.lucee:lucene-search-extension:3.0.0.163,
+org.lucee:redis-extension:3.0.0.56
+```
+
+###### 4. Custom Path Parameter
+You can specify a custom path to load an extension file (.lex) from a specific location using the `;path=` parameter. This must be combined with either an extension ID or gradle-style coordinates:
+
+**With Extension ID:**
+```plaintext
+EFDEB172-F52E-4D84-9CD1A1F561B3DFC8;path=/local/extensions/custom-extension-2.1.0.lex
+```
+
+**With Gradle-style coordinates (Lucee 7.0.1+):**
+```plaintext
+org.lucee:lucene-search-extension:3.0.0.163;path=/opt/lucee/extensions/lucene.lex
+```
+
+This allows Lucee to load the extension directly from the specified location without downloading it.
+
+##### Virtual File System Support
+
+When using the `;path=` parameter, all Lucee virtual file systems are supported (local, HTTP/HTTPS, FTP, S3, ZIP/TAR, Git, RAM, etc.). 
+
+For complete documentation on virtual file systems and their configuration, see: [Virtual File Systems Documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/virtual-file-system.md)
+
+**Quick examples:**
+```plaintext
+EFDEB172-F52E-4D84-9CD1A1F561B3DFC8;path=/opt/lucee/extensions/my-extension-1.0.0.lex
+99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;path=https://myserver.com/extensions/my-extension-1.0.0.lex
+671B01B8-B3B3-42B9-AC055A356BED5281;path=s3:///mybucket/extensions/my-extension-1.0.0.lex
+2BCD080F-4E1E-48F5-BEFE794232A21AF6;path=zip:///opt/extensions.zip!/my-extension-1.0.0.lex
+org.lucee:redis-extension:3.0.0.56;path=ftp://user:pass@ftp.example.com/extensions/redis.lex
+```
+
+##### Examples
+
+**Mixed configuration with IDs, gradle coordinates, and custom paths:**
+```plaintext
+99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;version=12.2.0.jre8,
+org.lucee:lucene-search-extension:3.0.0.163,
+EFDEB172-F52E-4D84-9CD1A1F561B3DFC8;path=/local/extensions/custom-extension-2.1.0.lex,
+671B01B8-B3B3-42B9-AC055A356BED5281;path=https://cdn.example.com/lucee/extensions/another-extension-1.5.2.lex,
+2BCD080F-4E1E-48F5-BEFE794232A21AF6;path=s3://myaws@/lucee-extensions/database-extension-3.0.0.lex
+```
+
+**Gradle-style with custom path (Lucee 7.0.1+):**
+```plaintext
+org.lucee:redis-extension:3.0.0.56;path=/opt/lucee/custom-extensions/redis.lex
+```
+
+**Extension ID with version and custom path:**
+```plaintext
+99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;version=12.2.0.jre8;path=/custom/location/mssql.lex
+```
+
+##### Notes
+
+- Extensions loaded via path must be valid .lex (Lucee Extension) files
+- When using virtual file systems, ensure appropriate credentials are configured (see [VFS documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/virtual-file-system.md))
+- Gradle-style coordinates (`groupId:artifactId:version`) require Lucee 7.0.1 or later
+
 
 #### LUCEE_ENABLE_BUNDLE_DOWNLOAD
 
@@ -293,6 +363,20 @@ Specifies a path to an alternate location for your `.CFConfig.json` file, otherw
 ## Regular Settings
 
 Settings that are nice to know, but not that important.
+
+#### LUCEE_BASE_DIR
+
+*SysProp:* `-Dlucee.base.dir`
+*EnvVar:* `LUCEE_BASE_DIR`
+
+Location of the Lucee main context folder (`lucee-server`), if not defined Lucee set it relative to the location of the lucee.jar.
+
+#### LUCEE_WEB_DIR
+
+*SysProp:* `-Dlucee.web.dir`
+*EnvVar:* `LUCEE_WEB_DIR`
+
+Location of the webroot, in case you run multiple context use placeholders in that value like `/whatever/{web-context-hash}/`.
 
 #### LUCEE_QUERY_RESULT_THRESHOLD
 

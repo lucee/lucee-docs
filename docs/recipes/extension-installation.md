@@ -124,11 +124,42 @@ Or with more specific information like version and label (for better readability
 2BCD080F-4E1E-48F5-BEFE794232A21AF6;name=JDTsSQL;label=jTDS (MSSQL);version=1.3.1
 ```
 
-You can also define a path to the extension in the same way as with `.CFConfig.json`:
+### Gradle-Style Coordinates (Lucee 7.0.1+)
 
+Starting with Lucee 7.0.1, you can also use Gradle/Maven-style coordinates in the format `groupId:artifactId:version`:
+
+```plaintext
+org.lucee:lucene-search-extension:3.0.0.163,
+org.lucee:redis-extension:3.0.0.56,
+org.lucee:mongodb-extension:4.0.0.45
+```
+
+### Custom Path Parameter
+
+You can specify a custom path to load an extension from a specific location using the `;path=` parameter. This must be combined with either an extension ID or Gradle-style coordinates:
+
+**With Extension ID:**
 ```plaintext
 60772C12-F179-D555-8E2CD2B4F7428718;name=Redis;path=/opt/lucee/extensions/redis.extension-3.0.0.51.lex,
 17AB52DE-B300-A94B-E058BD978511E39E;name=S3 Resource Extension;path=https://ext.lucee.org/s3-extension-2.0.1.25.lex
+```
+
+**With Gradle-style coordinates (Lucee 7.0.1+):**
+```plaintext
+org.lucee:redis-extension:3.0.0.56;path=/opt/lucee/custom-extensions/redis.lex
+```
+
+All Lucee virtual file systems are supported with the `;path=` parameter (local, HTTP/HTTPS, FTP, S3, ZIP/TAR, Git, RAM, etc.). For complete documentation on virtual file systems, see: [Virtual File Systems Documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/virtual-file-system.md).
+
+### Mixed Configuration Example
+
+You can combine different formats in a single configuration:
+
+```plaintext
+99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;version=12.2.0.jre8,
+org.lucee:lucene-search-extension:3.0.0.163,
+671B01B8-B3B3-42B9-AC055A356BED5281;path=s3:///mybucket/extensions/postgresql.lex,
+org.lucee:redis-extension:3.0.0.56;path=https://cdn.example.com/extensions/redis.lex
 ```
 
 ### Setting System Property
@@ -145,6 +176,7 @@ java -Dlucee.extensions="99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;name=MSSQL;version=
 
 - Can be used in various deployment environments (e.g., Docker, cloud services)
 - Supports automation and infrastructure as code practices
+- Gradle-style coordinates (7.0.1+) provide cleaner syntax
 
 ### Cons
 
