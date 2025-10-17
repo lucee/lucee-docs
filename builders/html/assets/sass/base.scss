@@ -53,4 +53,11 @@
 	@import "theme/menu";
 	@import "theme/editor";
 
-	@import "addon/jquery.oembed"
+	@import "addon/jquery.oembed";
+
+// TryCF Editor styles
+	@import "trycf/split-pane";
+	@import "trycf/code-editor";
+
+// Project styles (table of contents, loaded separately before)
+	@import "project"

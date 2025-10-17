@@ -1,5 +1,5 @@
 "use strict";
-angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
+angular.module("code.editor", []).directive("codeEditor", ["$timeout", function ($timeout) {
   var uid = +new Date().getTime() + "-" + guid();
   var editorTemplate =
     '<div id="{{id}}-editor" class="editor-wrapper"><h2 ng-hide="!title">{{title}}</h2>' +
@@ -208,7 +208,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
         showResults =
           typeof attrs.showResults !== "undefined"
             ? attrs.showResults === "true" || attrs.showResults === "1"
-            : t5rue,
+            : true,
         urlPool = {
           lucee4: ["https://lucee4-sbx.trycf.com/lucee4/getremote.cfm"],
           lucee5: ["https://lucee5-sbx.trycf.com/lucee5/getremote.cfm"],
@@ -231,16 +231,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
         ace.config.loadModule("ace/ext/language_tools", function () {
           aceEditor.setOptions({
             enableBasicAutocompletion: true,
-            enableSnippets: true,
-          });
-          var snippetManager = ace.require("ace/snippets").snippetManager;
-          var config = ace.require("ace/config");
-          ace.config.loadModule("ace/snippets/coldfusion", function (m) {
-            if (m) {
-              snippetManager.files.coldfusion = m;
-              m.snippets = snippetManager.parseSnippetFile(m.snippetText || "");
-              snippetManager.register(m.snippets, m.scope);
-            }
+            enableSnippets: false  // Disabled - doesn't work and causes 404s
           });
         });
         aceEditor.commands.addCommand({
@@ -688,7 +679,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
       }
     },
   };
-});
+}]);
 function s4() {
   return Math.floor((1 + Math.random()) * 0x10000)
     .toString(16)

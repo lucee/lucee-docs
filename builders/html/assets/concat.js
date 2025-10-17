@@ -35,7 +35,13 @@ if ( contentIndex > webfontIndex || contentIndex > winresizeIndex ) {
 
 const files = [
 	'js/jquery-3.7.1.js',
-	...sourceFiles
+	...sourceFiles,
+	// TryCF Editor files
+	'trycf/js/angular.min.js',
+	'trycf/js/split-pane.js',
+	'trycf/js/docscodeloader.js',
+	'trycf/js/code-editor3.js',
+	'trycf/js/trycf.js'
 ];
 
 const output = files.map( file => {

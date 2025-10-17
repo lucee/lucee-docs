@@ -343,7 +343,10 @@ component {
 			].toList(chr(10))
 		);
 
-		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", arguments.buildDirectory & "/editor.html" );
+		// Copy editor.html and replace asset version placeholder
+		var editorTemplate = FileRead( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html" );
+		var editorHtml = Replace( editorTemplate, "{{assetBundleVersion}}", application.assetBundleVersion, "ALL" );
+		FileWrite( arguments.buildDirectory & "/editor.html", editorHtml );
 	}
 
 	private void function _writeSearchIndex( required any docTree, required string buildDirectory ) {

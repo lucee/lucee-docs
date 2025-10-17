@@ -6,7 +6,7 @@
 		"assetVersion": "37"
 	},
 	"scripts": {
-		"build": "npm-run-all clean css js",
+		"build": "npm-run-all clean css js ace",
 		"watch": "npm-run-all clean --parallel watch:css watch:js",
 		"clean": "node -e \"const fs=require('fs'); ['css/base.css','css/base.min.css','js/base.js','js/base.min.js'].forEach(f=>{try{fs.unlinkSync(f)}catch(e){}})\"",
 		"css": "npm-run-all css:compile css:min css:version",
@@ -17,6 +17,7 @@
 		"js:concat": "node concat.js",
 		"js:min": "terser js/base.js -o js/base.min.js --source-map \"content=inline,url=base.min.js.map\" --compress --mangle",
 		"js:version": "node build.js js",
+		"ace": "node build-ace.js",
 		"watch:css": "chokidar \"sass/**/*.scss\" -c \"npm run css\"",
 		"watch:js": "chokidar \"js/src/**/*.js\" -c \"npm run js\""
 	},
@@ -27,5 +28,8 @@
 		"npm-run-all": "^4.1.5",
 		"sass": "^1.81.0",
 		"terser": "^5.36.0"
+	},
+	"dependencies": {
+		"ace-builds": "^1.43.4"
 	}
 }
