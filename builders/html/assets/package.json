@@ -30,6 +30,7 @@
 		"terser": "^5.36.0"
 	},
 	"dependencies": {
-		"ace-builds": "^1.43.4"
+		"ace-builds": "^1.43.4",
+		"material-symbols": "^0.37.0"
 	}
 }

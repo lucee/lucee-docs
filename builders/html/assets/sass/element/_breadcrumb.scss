@@ -7,12 +7,12 @@
 		display: block;
 		float: left;
 		+ li:before {
-			@extend .icon;
 			color: $black-hint;
-			content: unicode($mdicon-var-chevron-right);
+			content: ">";  // simple ASCII greater-than for breadcrumb separator
 			display: inline-block;
 			line-height: $line-height;
 			margin-left: 0.4em;
+			padding-right: 0.4em;
 		}
 	}
 	> .active {

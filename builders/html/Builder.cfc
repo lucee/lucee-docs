@@ -8,12 +8,12 @@ component {
 
 	public string function _getIssueTrackerLink(required string name) {
 		var link = Replace( variables.buildProperties.getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
-		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <span class="material-symbols-outlined">open_in_new</span></a>';
 	}
 
 	public string function _getTestCasesLink(required string name) {
 		var link = Replace( variables.buildProperties.getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
-		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <i class="fa fa-external-link"></i></a> (good for further, detailed examples)';
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <span class="material-symbols-outlined">open_in_new</span></a> (good for further, detailed examples)';
 	}
 
 	public void function build( required any docTree, required string buildDirectory, required numeric threads) {
@@ -539,12 +539,12 @@ component {
 
 	public string function _getIssueTrackerLink(required string name) {
 		var link = Replace( variables.buildProperties.getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
-		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <span class="material-symbols-outlined">open_in_new</span></a>';
 	}
 
 	public string function _getTestCasesLink(required string name) {
 		var link = Replace( variables.buildProperties.getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
-		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <i class="fa fa-external-link"></i></a> (good for further, detailed examples)';
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <span class="material-symbols-outlined">open_in_new</span></a> (good for further, detailed examples)';
 	}
 
 	private void function _setRecipeFileDate( required any page, required string filePath, required any docTree ) {

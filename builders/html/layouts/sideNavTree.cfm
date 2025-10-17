@@ -40,8 +40,8 @@
 					</cfsilent>
 					<cfif local.subnav.len()>
 						<span class="menu-collapse-toggle <cfif !local.subIsOpen>collapsed</cfif>" data-target="###local.firstId#" data-toggle="collapse" aria-expanded="#local.subIsOpen#">
-							<i class="icon icon-close menu-collapse-toggle-close"></i>
-							<i class="icon icon-add menu-collapse-toggle-default"></i>
+							<i class="material-symbols-outlined menu-collapse-toggle-close">close</i>
+							<i class="material-symbols-outlined menu-collapse-toggle-default">add</i>
 						</span>
 						<ul class="menu-collapse <cfif local.subIsOpen>expand collapse in<cfelse>collapse</cfif>" id="#local.firstId#"
 							itemscope itemtype="http://www.schema.org/SiteNavigationElement">

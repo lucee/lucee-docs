@@ -21,31 +21,31 @@
 						<hr>
 						<ul class="nav">
 							<li>
-								<a href="https://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
+								<a href="https://lucee.org"><span class="material-symbols-outlined">public</span>Lucee Website</a>
 							</li>
 							<li>
-								<a href="https://dev.lucee.org"><span class="fa fa-fw fa-comments"></span>Developer Forum</a>
+								<a href="https://dev.lucee.org"><span class="material-symbols-outlined">forum</span>Developer Forum</a>
 							</li>
 							<li>
-								<a href="https://lucee.us12.list-manage.com/subscribe?u=a8314f9282c07e84232a26805&id=172dc8293d"><span class="fa fa-fw fa-comments"></span>Newsletter Signup</a>
+								<a href="https://lucee.us12.list-manage.com/subscribe?u=a8314f9282c07e84232a26805&id=172dc8293d"><span class="material-symbols-outlined">forum</span>Newsletter Signup</a>
 							</li>
 							<li>
-								<a href="https://luceeserver.atlassian.net/browse/"><span class="fa fa-fw fa-bug"></span>Issue Tracker</a>
+								<a href="https://luceeserver.atlassian.net/browse/"><span class="material-symbols-outlined">bug_report</span>Issue Tracker</a>
 							</li>
 							<li>
-								<a href="https://github.com/lucee/lucee-docs"><span class="fa fa-fw fa-github"></span>Source repository</a>
+								<a href="https://github.com/lucee/lucee-docs"><span class="material-symbols-outlined">code</span>Source repository</a>
 							</li>
 							<li>
-								<a href="https://www.javadoc.io/doc/org.lucee/lucee/latest/index.html"><span class="fa fa-fw fa-code"></span>Lucee JavaDocs</a>
+								<a href="https://www.javadoc.io/doc/org.lucee/lucee/latest/index.html"><span class="material-symbols-outlined">code</span>Lucee JavaDocs</a>
 							</li>
 							<li>
-								<a href="https://rorylaitila.gitbooks.io/lucee/content/"><span class="fa fa-fw fa-book"></span>Git Book</a>
+								<a href="https://rorylaitila.gitbooks.io/lucee/content/"><span class="material-symbols-outlined">menu_book</span>Git Book</a>
 							</li>
 							<li>
-								<a href="/download.html"><span class="fa fa-fw fa-download"></span>Download</a>
+								<a href="/download.html"><span class="material-symbols-outlined">download</span>Download</a>
 							</li>
 							<li>
-								<a href="https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA"><span class="fa fa-fw fa-youtube-play"></span>Lucee on YouTube</a>
+								<a href="https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA"><span class="material-symbols-outlined">play_circle</span>Lucee on YouTube</a>
 							</li>
 						</ul>
 					</div>
@@ -58,8 +58,8 @@
 				<li>
 					<a class="menu-toggle menu-toggle-sidebar" href="##menu">
 						<span class="access-hide">Menu</span>
-						<span class="icon icon-menu icon-lg"></span>
-						<span class="header-close icon icon-close icon-lg"></span>
+						<span class="material-symbols-outlined">menu</span>
+						<span class="header-close material-symbols-outlined">close</span>
 					</a>
 				</li>
 			</ul>
@@ -69,13 +69,13 @@
 					<li>
 						<a href="/build_docs" title="Docs Administration">
 							<span class="access-hide">Docs Administration</span>
-							<span class="icon icon-settings icon-lg"></span>
+							<span class="material-symbols-outlined">settings</span>
 						</a>
 					</li>
 					<li>
 						<a href="#local.pagePath#?reload=true" title="Reload Sources">
 							<span class="access-hide">Reload Sources</span>
-							<span class="icon icon-refresh icon-lg"></span>
+							<span class="material-symbols-outlined">refresh</span>
 						</a>
 					</li>
 				</cfif>
@@ -86,7 +86,7 @@
 						<a href="#( local.prevPage.getPath() == '/home' ? '/' : '#local.prevPage.getPath()#.html' )#"
 							title="#HtmlEditFormat( local.prevPage.getTitle() )#">
 							<span class="access-hide">Previous page: #HtmlEditFormat( local.prevPage.getTitle() )#</span>
-							<span class="icon icon-arrow-back icon-lg"></span>
+							<span class="material-symbols-outlined">arrow_back</span>
 						</a>
 					</li>
 				</cfif>
@@ -95,21 +95,21 @@
 						<a href="#( local.nextPage.getPath() == '/home' ? '/' : '#local.nextPage.getPath()#.html' )#"
 							title="#HtmlEditFormat( local.nextPage.getTitle() )#">
 							<span class="access-hide">Previous page: #HtmlEditFormat( local.nextPage.getTitle() )#</span>
-							<span class="icon icon-arrow-forward icon-lg"></span>
+							<span class="material-symbols-outlined">arrow_forward</span>
 						</a>
 					</li>
 				</cfif>
 				<li>
 					<a class="menu-random" title="Open a random documentation page">
 						<span class="access-hide">Random page</span>
-						<span class="icon icon-swap-calls icon-lg"></span>
+						<span class="material-symbols-outlined">swap_calls</span>
 					</a>
 				</li>
 				<li>
 					<a class="menu-toggle" href="##search">
 						<span class="access-hide">Search</span>
-						<span class="icon icon-search icon-lg"></span>
-						<span class="header-close icon icon-close icon-lg"></span>
+						<span class="material-symbols-outlined">search</span>
+						<span class="header-close material-symbols-outlined">close</span>
 					</a>
 				</li>
 			</ul>
