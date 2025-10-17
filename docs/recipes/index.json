@@ -475,7 +475,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "b8119f62b015dfe3b850018f430d6139",
+    "hash": "3b491dbe86b399e9714ce75255cbe6b7",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -585,7 +585,7 @@
     "file": "extension-installation.md",
     "title": "Extension Installation",
     "path": "/docs/recipes/extension-installation.md",
-    "hash": "800e0faae6679a72abc78c34cf040892",
+    "hash": "a29e9fd7453e3a0100cb96d47b832223",
     "keywords": [
       "extension",
       "install",
