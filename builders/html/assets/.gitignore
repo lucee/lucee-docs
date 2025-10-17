@@ -1,2 +1,12 @@
 .sass-cache
 /node_modules
+
+# Intermediate build files (versioned files are committed)
+css/base.css
+css/base.css.map
+css/base.min.css
+css/base.min.css.map
+js/base.js
+js/base.js.map
+js/base.min.js
+js/base.min.js.map
