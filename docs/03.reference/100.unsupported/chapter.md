@@ -53,6 +53,10 @@ The following tags, from Adobe CFML, are not supported by Lucee:
 * cftreeitem
 * cfwebsocket
 
+The following tag attributes, from Adobe CFML, are not supported by Lucee:
+
+* cfcomponent - initMethod
+
 # Functions
 
 The following functions, from Adobe CFML, are not supported by Lucee:
