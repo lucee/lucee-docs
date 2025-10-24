@@ -139,12 +139,14 @@ org.lucee:mongodb-extension:4.0.0.45
 You can specify a custom path to load an extension from a specific location using the `;path=` parameter. This must be combined with either an extension ID or Gradle-style coordinates:
 
 **With Extension ID:**
+
 ```plaintext
 60772C12-F179-D555-8E2CD2B4F7428718;name=Redis;path=/opt/lucee/extensions/redis.extension-3.0.0.51.lex,
 17AB52DE-B300-A94B-E058BD978511E39E;name=S3 Resource Extension;path=https://ext.lucee.org/s3-extension-2.0.1.25.lex
 ```
 
 **With Gradle-style coordinates (Lucee 7.0.1+):**
+
 ```plaintext
 org.lucee:redis-extension:3.0.0.56;path=/opt/lucee/custom-extensions/redis.lex
 ```
