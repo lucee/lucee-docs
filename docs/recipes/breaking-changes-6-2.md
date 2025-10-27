@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Breaking Changes Between Lucee 6.1 and 6.2",
+  "title": "Breaking Changes between Lucee 6.1 and 6.2",
   "id": "breaking-changes-6-1-to-6-2",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 6.1 and 6.2",
