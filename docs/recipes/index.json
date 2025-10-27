@@ -691,6 +691,21 @@
     ]
   },
   {
+    "file": "heap-dumps.md",
+    "title": "Creating Heap Dumps in Lucee",
+    "path": "/docs/recipes/heap-dumps.md",
+    "hash": "cf7e6f9984f3163dfdcf868212632969",
+    "keywords": [
+      "Heap Dump",
+      "Memory",
+      "OutOfMemoryError",
+      "Troubleshooting",
+      "Performance",
+      "Debugging",
+      "JVM"
+    ]
+  },
+  {
     "file": "hidden-gems.md",
     "title": "Hidden Gems",
     "path": "/docs/recipes/hidden-gems.md",

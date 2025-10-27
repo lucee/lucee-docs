@@ -200,6 +200,10 @@ Learn how to get datasource drivers directly from Maven.
 
 Learn how to define a global proxy in Lucee. This guide demonstrates how to set up a global proxy in the Application.cfc file or .CFConfig.json, limit the proxy to specific hosts, and exclude specific hosts from using the proxy.
 
+## [Creating Heap Dumps in Lucee](/docs/recipes/heap-dumps.md)
+
+Documentation for creating and analyzing heap dumps in Lucee for memory troubleshooting
+
 ## [Hidden Gems](/docs/recipes/hidden-gems.md)
 
 This document explains how to declare variables, function calls with dot and bracket notation, and passing arguments via URL/form scopes as an array.
