@@ -1,8 +1,8 @@
 <!--
 {
-  "title": "Localmode, how to migrate from migrating from Classic to Modern Local Scope Mode",
+  "title": "Localmode, how to migrate from Classic to Modern Local Scope Mode",
   "id": "local-scope-migration",
-  "categories": ["scopes", "variables", "migration"],
+  "categories": ["scopes", "variables", "migration", "server"],
   "description": "Guide for safely migrating your Lucee application from classic to modern local scope mode",
   "keywords": [
     "local scope",
@@ -17,7 +17,11 @@
 
 # Migrating from Classic to Modern Local Scope Mode
 
-Lucee offers two different modes for managing unscoped variables within functions: Classic and Modern. This document explains the differences between these modes and provides a structured approach for migrating from Classic to Modern mode.
+Lucee offers two different modes for managing unscoped variables within functions: Classic and Modern.
+
+This document explains the differences between these modes and provides a structured approach for migrating from Classic to Modern mode.
+
+Simply switching to `localmode=true`, either per function or Application wide, will dramatically boost the performance of your Lucee applications, but requires testing.
 
 ## Understanding Local Scope Modes
 
@@ -197,7 +201,7 @@ After updating your code:
 1. Test your application thoroughly
 2. Verify that all functionality works correctly
 3. Look for unexpected behaviors or errors
-4. Make sure you no longer get any log entries 
+4. Make sure you no longer get any log entries
 
 ### Step 4: Disable Logging and Switch to Modern Mode
 
@@ -209,7 +213,7 @@ Once all code has been updated and tested:
    # Remove environment variables
    unset LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG
    unset LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL
-   
+
    # Or remove system properties from startup configuration
    # -Dlucee.cascading.write.to.variables.log
    # -Dlucee.cascading.write.to.variables.loglevel
