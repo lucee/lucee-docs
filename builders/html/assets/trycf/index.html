@@ -1,9 +1,7 @@
 <!doctype html>
 <html lang="en" ng-app="trycf">
     <head>
-        <!-- Bootstrap CSS (Flatly theme) -->
-        <link href="assets/trycf/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Main docs CSS with Material Symbols icons -->
+        <!-- Main docs CSS with Material Symbols icons and theme support -->
         <link href="assets/css/base.{{assetBundleVersion}}.min.css" rel="stylesheet">
     </head>
     <body>
@@ -19,7 +17,7 @@
              code="">
         </div>
 
-        <!-- jQuery, Bootstrap, Angular, TryCF editor now bundled in main JS -->
+        <!-- jQuery, Angular, TryCF editor now bundled in main JS -->
         <script src="assets/js/dist/base.{{assetBundleVersion}}.min.js"></script>
         <!-- ACE Editor v1.36.5 bundle (coldfusion mode + monokai theme) -->
         <script src="assets/trycf/js/ace/ace-bundle.js" type="text/javascript" charset="utf-8"></script>
@@ -30,6 +28,23 @@
             ace.config.set("basePath", "assets/trycf/js/ace");
             ace.config.set("modePath", "assets/trycf/js/ace");
             ace.config.set("themePath", "assets/trycf/js/ace");
+
+            // Listen for theme changes from parent window
+            window.addEventListener('message', function(event) {
+                if (event.data && event.data.type === 'theme-change') {
+                    document.documentElement.setAttribute('data-theme', event.data.theme);
+                }
+            });
+
+            // Apply parent's theme on load
+            try {
+                var parentTheme = window.parent.document.documentElement.getAttribute('data-theme');
+                if (parentTheme) {
+                    document.documentElement.setAttribute('data-theme', parentTheme);
+                }
+            } catch (e) {
+                // Cross-origin - parent will send theme via postMessage
+            }
         </script>
     </body>
 </html>

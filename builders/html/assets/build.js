@@ -52,7 +52,13 @@ try {
 			fs.mkdirSync( 'js/dist', { recursive: true } );
 		}
 
-		fs.copyFileSync( src, dest );
+		// Read the JS file and update sourceMappingURL
+		let jsContent = fs.readFileSync( src, 'utf8' );
+		jsContent = jsContent.replace(
+			/\/\/# sourceMappingURL=base\.min\.js\.map$/,
+			`//# sourceMappingURL=base.${ version }.min.js.map`
+		);
+		fs.writeFileSync( dest, jsContent );
 		console.log( `✓ Copied ${ src } → ${ dest }` );
 
 		// Copy source map if it exists
@@ -64,6 +70,38 @@ try {
 
 	console.log( `\n✓ Version ${ version } assets ready!` );
 	console.log( `\nReminder: Update assetBundleVersion in Application.cfc to match version ${ version }` );
+
+	// Auto-copy to builds/html/assets if it exists
+	const htmlBuildDir = path.join( __dirname, '..', '..', '..', 'builds', 'html', 'assets' );
+	if ( fs.existsSync( htmlBuildDir ) ) {
+		if ( type === 'css' ) {
+			const cssDir = path.join( htmlBuildDir, 'css' );
+			if ( !fs.existsSync( cssDir ) ) {
+				fs.mkdirSync( cssDir, { recursive: true } );
+			}
+			const dest = path.join( cssDir, `base.${ version }.min.css` );
+			fs.copyFileSync( `css/base.${ version }.min.css`, dest );
+			console.log( `✓ Auto-copied to ${ dest }` );
+
+			if ( fs.existsSync( `css/base.${ version }.min.css.map` ) ) {
+				fs.copyFileSync( `css/base.${ version }.min.css.map`, `${ dest }.map` );
+			}
+		}
+
+		if ( type === 'js' ) {
+			const jsDistDir = path.join( htmlBuildDir, 'js', 'dist' );
+			if ( !fs.existsSync( jsDistDir ) ) {
+				fs.mkdirSync( jsDistDir, { recursive: true } );
+			}
+			const dest = path.join( jsDistDir, `base.${ version }.min.js` );
+			fs.copyFileSync( `js/dist/base.${ version }.min.js`, dest );
+			console.log( `✓ Auto-copied to ${ dest }` );
+
+			if ( fs.existsSync( `js/dist/base.${ version }.min.js.map` ) ) {
+				fs.copyFileSync( `js/dist/base.${ version }.min.js.map`, `${ dest }.map` );
+			}
+		}
+	}
 
 } catch ( err ) {
 	console.error( `ERROR: ${ err.message }` );

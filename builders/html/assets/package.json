@@ -30,6 +30,7 @@
 		"terser": "^5.36.0"
 	},
 	"dependencies": {
+		"@algolia/autocomplete-js": "^1.19.4",
 		"ace-builds": "^1.43.4",
 		"material-symbols": "^0.37.0"
 	}

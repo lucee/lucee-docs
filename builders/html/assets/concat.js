@@ -35,6 +35,8 @@ if ( contentIndex > webfontIndex || contentIndex > winresizeIndex ) {
 
 const files = [
 	'js/jquery-3.7.1.js',
+	// Algolia Autocomplete.js
+	'node_modules/@algolia/autocomplete-js/dist/umd/index.production.js',
 	...sourceFiles,
 	// TryCF Editor files
 	'trycf/js/angular.min.js',

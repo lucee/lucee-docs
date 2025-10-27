@@ -1,0 +1,227 @@
+// CSS Custom Properties for theming
+// These variables can be changed at runtime for dark mode
+
+:root {
+	// Brand colors
+		--brand-color:            #{$brand-color};
+		--brand-color-dark:       #{$brand-color-dark};
+		--brand-color-dark-m:     #{$brand-color-dark-m};
+		--brand-color-light:      #{$brand-color-light};
+		--brand-color-light-m:    #{$brand-color-light-m};
+
+	// Palette colors
+		--palette-blue:           #{$palette-blue};
+		--palette-blue-dark:      #{$palette-blue-dark};
+		--palette-blue-dark-m:    #{$palette-blue-dark-m};
+		--palette-blue-light:     #{$palette-blue-light};
+		--palette-blue-light-m:   #{$palette-blue-light-m};
+
+		--palette-green:          #{$palette-green};
+		--palette-green-dark:     #{$palette-green-dark};
+		--palette-green-dark-m:   #{$palette-green-dark-m};
+		--palette-green-light:    #{$palette-green-light};
+		--palette-green-light-m:  #{$palette-green-light-m};
+
+		--palette-purple:         #{$palette-purple};
+		--palette-purple-dark:    #{$palette-purple-dark};
+		--palette-purple-dark-m:  #{$palette-purple-dark-m};
+		--palette-purple-light:   #{$palette-purple-light};
+		--palette-purple-light-m: #{$palette-purple-light-m};
+
+		--palette-red:            #{$palette-red};
+		--palette-red-dark:       #{$palette-red-dark};
+		--palette-red-dark-m:     #{$palette-red-dark-m};
+		--palette-red-light:      #{$palette-red-light};
+		--palette-red-light-m:    #{$palette-red-light-m};
+
+		--palette-yellow:         #{$palette-yellow};
+		--palette-yellow-dark:    #{$palette-yellow-dark};
+		--palette-yellow-dark-m:  #{$palette-yellow-dark-m};
+		--palette-yellow-light:   #{$palette-yellow-light};
+		--palette-yellow-light-m: #{$palette-yellow-light-m};
+
+	// Black and white
+		--black:                  #{$black};
+		--black-bg:               #{$black-bg};
+		--black-hint:             #{$black-hint};
+		--black-sec:              #{$black-sec};
+		--black-text:             #{$black-text};
+
+		--white:                  #{$white};
+		--white-bg:               #{$white-bg};
+		--white-bg-dark:          #{$white-bg-dark};
+		--white-bg-light:         #{$white-bg-light};
+
+	// Link colors
+		--link-color:             #{$link-color};
+		--link-color-hover:       #{$link-color-hover};
+
+	// Semantic colors for theming
+		--bg-color:               #{$white-bg-light};
+		--bg-surface:             #{$white};
+		--bg-elevated:            #{$white};
+		--text-color:             #{$black-text};
+		--text-secondary:         #{$black-sec};
+		--text-hint:              #{$black-hint};
+		--border-color:           #{$black-bg};
+		--code-bg:                #f5f5f5;
+		--code-border:            #{$black-bg};
+		--heading-color:          #{$brand-color};
+
+	// Theme-specific CSS visibility
+	.highlight-theme-dark {
+		display: none;
+	}
+}
+
+// Dark mode color palette
+[data-theme="dark"] {
+	// Brand colors (brighter for dark backgrounds)
+		--brand-color:            #4db8c9;
+		--brand-color-dark:       #70c5d4;
+		--brand-color-dark-m:     #5fc0d1;
+		--brand-color-light:      #01798a;
+		--brand-color-light-m:    #0a8a9b;
+
+	// Palette colors (adjusted for dark mode)
+		--palette-blue:           #64b5f6;
+		--palette-blue-dark:      #90caf9;
+		--palette-blue-dark-m:    #7ac3f7;
+		--palette-blue-light:     #0d47a1;
+		--palette-blue-light-m:   #1976d2;
+
+		--palette-green:          #aed581;
+		--palette-green-dark:     #c5e1a5;
+		--palette-green-dark-m:   #b9dc92;
+		--palette-green-light:    #33691e;
+		--palette-green-light-m:  #689f38;
+
+		--palette-purple:         #ba68c8;
+		--palette-purple-dark:    #ce93d8;
+		--palette-purple-dark-m:  #c47ed0;
+		--palette-purple-light:   #4a148c;
+		--palette-purple-light-m: #7b1fa2;
+
+		--palette-red:            #e57373;
+		--palette-red-dark:       #ef9a9a;
+		--palette-red-dark-m:     #ea8787;
+		--palette-red-light:      #b71c1c;
+		--palette-red-light-m:    #d32f2f;
+
+		--palette-yellow:         #ffd54f;
+		--palette-yellow-dark:    #ffe082;
+		--palette-yellow-dark-m:  #ffda69;
+		--palette-yellow-light:   #ff6f00;
+		--palette-yellow-light-m: #ffa000;
+
+	// Black and white (inverted)
+		--black:                  #ffffff;
+		--black-bg:               #404040;
+		--black-hint:             #808080;
+		--black-sec:              #b0b0b0;
+		--black-text:             #e0e0e0;
+
+		--white:                  #1a1a1a;
+		--white-bg:               #2d2d2d;
+		--white-bg-dark:          #242424;
+		--white-bg-light:         #1a1a1a;
+
+	// Link colors
+		--link-color:             #64b5f6;
+		--link-color-hover:       #90caf9;
+
+	// Semantic colors for dark theme
+		--bg-color:               #1a1a1a;
+		--bg-surface:             #2d2d2d;
+		--bg-elevated:            #3d3d3d;
+		--text-color:             #e0e0e0;
+		--text-secondary:         #b0b0b0;
+		--text-hint:              #808080;
+		--border-color:           #404040;
+		--code-bg:                #2d2d30;
+		--code-border:            #3e3e42;
+		--heading-color:          #7ac3d1;
+
+	// Invert logos for dark mode
+	.nav-drawer-logo img,
+	.header-logo img {
+		filter: invert( 1 ) hue-rotate( 180deg );
+	}
+}
+
+// Auto dark mode based on system preference
+@media ( prefers-color-scheme: dark ) {
+	:root:not( [data-theme="light"] ) {
+		// Brand colors (brighter for dark backgrounds)
+			--brand-color:            #4db8c9;
+			--brand-color-dark:       #70c5d4;
+			--brand-color-dark-m:     #5fc0d1;
+			--brand-color-light:      #01798a;
+			--brand-color-light-m:    #0a8a9b;
+
+		// Palette colors (adjusted for dark mode)
+			--palette-blue:           #64b5f6;
+			--palette-blue-dark:      #90caf9;
+			--palette-blue-dark-m:    #7ac3f7;
+			--palette-blue-light:     #0d47a1;
+			--palette-blue-light-m:   #1976d2;
+
+			--palette-green:          #aed581;
+			--palette-green-dark:     #c5e1a5;
+			--palette-green-dark-m:   #b9dc92;
+			--palette-green-light:    #33691e;
+			--palette-green-light-m:  #689f38;
+
+			--palette-purple:         #ba68c8;
+			--palette-purple-dark:    #ce93d8;
+			--palette-purple-dark-m:  #c47ed0;
+			--palette-purple-light:   #4a148c;
+			--palette-purple-light-m: #7b1fa2;
+
+			--palette-red:            #e57373;
+			--palette-red-dark:       #ef9a9a;
+			--palette-red-dark-m:     #ea8787;
+			--palette-red-light:      #b71c1c;
+			--palette-red-light-m:    #d32f2f;
+
+			--palette-yellow:         #ffd54f;
+			--palette-yellow-dark:    #ffe082;
+			--palette-yellow-dark-m:  #ffda69;
+			--palette-yellow-light:   #ff6f00;
+			--palette-yellow-light-m: #ffa000;
+
+		// Black and white (inverted)
+			--black:                  #ffffff;
+			--black-bg:               #404040;
+			--black-hint:             #808080;
+			--black-sec:              #b0b0b0;
+			--black-text:             #e0e0e0;
+
+			--white:                  #1a1a1a;
+			--white-bg:               #2d2d2d;
+			--white-bg-dark:          #242424;
+			--white-bg-light:         #1a1a1a;
+
+		// Link colors
+			--link-color:             #64b5f6;
+			--link-color-hover:       #90caf9;
+
+		// Semantic colors for dark theme
+			--bg-color:               #1a1a1a;
+			--bg-surface:             #2d2d2d;
+			--bg-elevated:            #3d3d3d;
+			--text-color:             #e0e0e0;
+			--text-secondary:         #b0b0b0;
+			--text-hint:              #808080;
+			--border-color:           #404040;
+			--code-bg:                #2d2d30;
+			--code-border:            #3e3e42;
+			--heading-color:          #7ac3d1;
+
+		// Invert logos for dark mode
+		.nav-drawer-logo img,
+		.header-logo img {
+			filter: invert( 1 ) hue-rotate( 180deg );
+		}
+	}
+}

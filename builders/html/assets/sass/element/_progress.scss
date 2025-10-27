@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 .load-bar {
 	float: right;
 	height: 100%;
@@ -150,7 +152,7 @@
 	}
 
 .progress {
-	background-color: lighten($link-color, 30%);
+	background-color: color.scale( $link-color, $lightness: 30% );
 	height: ($base / 2);
 	margin-top: ($line-height - $base / 4);
 	margin-bottom: ($line-height - $base / 4);

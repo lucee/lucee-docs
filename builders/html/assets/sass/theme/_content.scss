@@ -56,7 +56,7 @@
 }
 
 h2, h3, h4, h5, h6 {
-	color: $brand-color;
+	color: var( --heading-color );
 }
 
 .body {
@@ -71,7 +71,7 @@ h2, h3, h4, h5, h6 {
 
 .attribute, .argument {
 	font-weight: 600;
-	color: $brand-color;
+	color: var( --heading-color );
 }
 
 fieldset#-lucee-debug {

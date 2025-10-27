@@ -6,6 +6,7 @@
 @import "mixin/utilities";
 
 @import "variable";
+@import "css-variables";
 
 // css reset
 	@import "reset";
@@ -44,7 +45,7 @@
 	@import "element/table";
 	@import "element/tile";
 	@import "element/toast";
-	@import "element/typeahead";
+	@import "element/autocomplete";
 
 	@import "theme/content";
 	@import "theme/footer";

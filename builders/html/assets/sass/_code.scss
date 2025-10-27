@@ -6,17 +6,27 @@ samp {
 }
 
 code {
-	background-color: $white-bg;
-	border: 1px solid $black-bg;
+	background-color: var( --code-bg );
+	border: 1px solid var( --code-border );
 	border-radius: 4px;
-	color: $palette-red-dark;
-	font-size: 75%;
+	color: #c7254e;
+	font-size: 85%;
 	line-height: 1;
 	padding: 2px 4px;
 }
 
+[data-theme="dark"] code {
+	color: #f78c94;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) code {
+		color: #f78c94;
+	}
+}
+
 kbd {
-	background-color: $black-text;
+	background-color: var( --text-color );
 	border-radius: 4px;
 	color: $white;
 	font-size: 75%;
@@ -29,10 +39,10 @@ kbd {
 }
 
 pre {
-	background-color: $white-bg;
-	border: 1px solid $black-bg;
+	background-color: var( --code-bg );
+	border: 1px solid var( --code-border );
 	border-radius: 2px;
-	color: $black-text;
+	color: var( --text-color );
 	display: block;
 	font-size: $font-size-h5;
 	line-height: $line-height-h5;
@@ -47,5 +57,22 @@ pre {
 		color: inherit;
 		font-size: inherit;
 		padding: 0;
+	}
+}
+
+// Override Pygments .highlight wrapper to use our theme colors
+.highlight {
+	background-color: var( --code-bg ) !important;
+	color: var( --text-color ) !important;
+	border: 1px solid var( --code-border );
+	border-radius: 2px;
+	padding: ($line-height / 4) ($grid-gutter / 2);
+	margin: ($line-height / 2) 0;
+
+	pre {
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		margin: 0;
 	}
 }

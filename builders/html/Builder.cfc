@@ -223,11 +223,13 @@ component {
 
 			switch( page.getPageType() ){
 				case "function":
-				case "tag":
 					icon = "code";
 					break;
+				case "tag":
+					icon = "sell";
+					break;
 				default:
-					icon = "file-o";
+					icon = "description";
 			}
 
 			searchIndex.append( {
@@ -315,10 +317,18 @@ component {
 
 	private function updateHighlightsCss( required string buildDirectory ){
 		var highlighter = new api.rendering.Pygments();
+
+		// Light theme
 		var cssFile = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/css/highlight.css";
 		var css = highlighter.getCss();
 		if ( trim( css ) neq trim( fileRead( cssFile ) ) )
-			fileWrite( cssFile, highlighter.getCss() ); // only update if changed
+			fileWrite( cssFile, css );
+
+		// Dark theme
+		var cssDarkFile = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/css/highlight-dark.css";
+		var cssDark = highlighter.getCssDark();
+		if ( trim( cssDark ) neq trim( fileRead( cssDarkFile ) ) )
+			fileWrite( cssDarkFile, cssDark );
 	}
 
 	private void function _copySiteImages( required string buildDirectory, required any docTree ) {

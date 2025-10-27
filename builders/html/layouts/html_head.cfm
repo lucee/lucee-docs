@@ -54,15 +54,11 @@
 		<cfif !structKeyExists(local.args.htmlOpts, "no_css")>
 			<cfif args.edit>
 				<link href="/assets/css/base.css" rel="stylesheet">
-				<link href="/assets/css/project.css" rel="stylesheet">
 			<cfelse>
 				<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
-				<link href="/assets/css/project.css" rel="stylesheet">
-			<!---
-			<link href="/assets/css/project.#application.assetBundleVersion#.min.css" rel="stylesheet">
-			--->
 			</cfif>
-			<link href="/assets/css/highlight.css" rel="stylesheet">
+			<link href="/assets/css/highlight.css" rel="stylesheet" class="highlight-theme-light">
+			<link href="/assets/css/highlight-dark.css" rel="stylesheet" class="highlight-theme-dark">
 		</cfif>
 		<link rel="icon" type="image/png" href="https://docs.lucee.org/assets/images/favicon.png">
 	</head>

@@ -105,7 +105,24 @@
 						<span class="material-symbols-outlined">swap_calls</span>
 					</a>
 				</li>
+				<li class="header-search-item">
+					<div id="header-search-container" class="header-search-wrapper">
+						<noscript>
+							<form action="https://duckduckgo.com/" method="get" target="_blank">
+								<input type="hidden" name="sites" value="docs.lucee.org">
+								<input type="search" name="q" placeholder="Search docs..." class="header-search-fallback">
+							</form>
+						</noscript>
+					</div>
+				</li>
 				<li>
+					<a class="theme-toggle" href="javascript:void(0)" title="Toggle theme">
+						<span class="access-hide">Toggle theme</span>
+						<span class="material-symbols-outlined theme-icon-light">light_mode</span>
+						<span class="material-symbols-outlined theme-icon-dark">dark_mode</span>
+					</a>
+				</li>
+				<li class="menu-search-icon">
 					<a class="menu-toggle" href="##search">
 						<span class="access-hide">Search</span>
 						<span class="material-symbols-outlined">search</span>
@@ -120,8 +137,7 @@
 				<div class="menu-wrap">
 					<div class="menu-content">
 						<div class="menu-content-inner">
-							<label class="access-hide" for="lucee-docs-search-input">Search</label>
-							<input class="form-control form-control-lg menu-search-focus" id="lucee-docs-search-input" placeholder="Search" type="search">
+							<div id="mobile-search-container"></div>
 						</div>
 					</div>
 				</div>

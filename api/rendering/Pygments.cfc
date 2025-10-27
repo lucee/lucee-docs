@@ -32,10 +32,19 @@ component
 
   public string function getCss() {
     var interpreter = new PythonInterpreter();
-	interpreter.set("style", "default");	
+	interpreter.set("style", "default");
 	var pythonFile = expandPath( getDirectoryFromPath( getCurrentTemplatePath() ) & "pygmentsCss.py" );
     interpreter.execFile( pythonFile );
-    var css = interpreter.get("css", createObject('java', 'java.lang.String').getClass());	
+    var css = interpreter.get("css", createObject('java', 'java.lang.String').getClass());
+    return css;
+  }
+
+  public string function getCssDark() {
+    var interpreter = new PythonInterpreter();
+	interpreter.set("style", "monokai");
+	var pythonFile = expandPath( getDirectoryFromPath( getCurrentTemplatePath() ) & "pygmentsCss.py" );
+    interpreter.execFile( pythonFile );
+    var css = interpreter.get("css", createObject('java', 'java.lang.String').getClass());
     return css;
   }
 }

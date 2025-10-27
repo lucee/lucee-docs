@@ -30,7 +30,8 @@
 		</cfif>
 
 		<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
-		<link href="/assets/css/highlight.css" rel="stylesheet">
+		<link href="/assets/css/highlight.css" rel="stylesheet" class="highlight-theme-light">
+		<link href="/assets/css/highlight-dark.css" rel="stylesheet" class="highlight-theme-dark">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
 		<!-- ie -->
 		<!--[if lt IE 9]>

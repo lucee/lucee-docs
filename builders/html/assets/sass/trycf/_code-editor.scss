@@ -13,33 +13,31 @@ h2.error{font-size:1em;margin-top:2em;text-align:center;color:#c5bcb4;line-heigh
 	width: 5px;
 	/* vertical handle */
 	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAPCAYAAADDNm69AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNAay06AAAAAYdEVYdENyZWF0aW9uIFRpbWUAMTQuMDEuMjAxMNh/L3IAAAAaSURBVAiZYzh9+vT//////4fRTAxoYFgLAAA44w7VNg0kZQAAAABJRU5ErkJggg==');
-	background-color: #BEB4AA;
+	background-color: var( --border-color );
 	background-repeat: no-repeat;
 	background-position: 0 50%;
 }
 
 #right-component {
 	width: 50%;
-	background:#f3eee7;
+	background: var( --bg-color );
 }
 
 .split-pane-frame {
 	box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	width: 100%;
 	height: 100%;
 	top:0;
 	right:0;
 	left:0;
 	bottom:0;
-	border: 2px solid #BEB4AA;
+	border: 2px solid var( --border-color );
 	overflow:auto;
 	margin-bottom: 31px;
 
 }
 .decoration {
 	box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
@@ -79,10 +77,24 @@ h2.error{font-size:1em;margin-top:2em;text-align:center;color:#c5bcb4;line-heigh
 	left:0;
 	right:0;
 	border:none;
-	background:#f3eee7;
+	background: var( --bg-color );
+	color: var( --text-color );
 }
 .results-wrapper{
 	overflow:auto;
+}
+
+// Invert iframe content colors in dark mode to make black text light
+[data-theme="dark"] .results-wrapper iframe,
+[data-theme="dark"] #document {
+	filter: invert(0.9) hue-rotate(180deg);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) .results-wrapper iframe,
+	:root:not([data-theme="light"]) #document {
+		filter: invert(0.9) hue-rotate(180deg);
+	}
 }
 .editor-wrapper{
 	padding:8px;
@@ -123,16 +135,12 @@ h2.error{font-size:1em;margin-top:2em;text-align:center;color:#c5bcb4;line-heigh
 	right: 0px;
 	float: right;
 	opacity: .3;
-	border-bottom: 2px solid #BEB4AA;
-	border-left: 2px solid #BEB4AA;
-	-moz-border-radius-bottomleft: 5px;
-	-webkit-border-bottom-left-radius: 5px;
+	border-bottom: 2px solid var( --border-color );
+	border-left: 2px solid var( --border-color );
 	border-bottom-left-radius: 5px;
 	background: #000;
 	color: #fff;
 	font-size: 1.1em;
-	-webkit-box-shadow: -5px 3px 13px rgba(50, 50, 50, 0.75);
-	-moz-box-shadow: -5px 3px 13px rgba(50, 50, 50, 0.75);
 	box-shadow: -5px 3px 13px rgba(50, 50, 50, 0.75);
 	height: 28px;
 	line-height: 22px;
@@ -143,17 +151,40 @@ h2.error{font-size:1em;margin-top:2em;text-align:center;color:#c5bcb4;line-heigh
 }
 
 .editor-toolbar{
-	border: 2px solid #BEB4AA;
-	background-color: #fff;
+	border: 2px solid var( --border-color );
+	background-color: var( --bg-surface );
 	padding-top: 0px;
 	margin-top: -3px;
-	display: inline-block !important;
-	-webkit-border-bottom-right-radius: 4px;
-	-webkit-border-bottom-left-radius: 4px;
-	-moz-border-radius-bottomright: 4px;
-	-moz-border-radius-bottomleft: 4px;
+	display: flex !important;
+	align-items: center;
 	border-bottom-right-radius: 4px;
 	border-bottom-left-radius: 4px;
+
+	.pull-left {
+		float: none;
+	}
+
+	.code-editor-help {
+		line-height: 1.5;
+		flex: 1;
+		padding-left: 10px;
+	}
+
+	.pull-right {
+		float: none;
+		margin-left: 0;
+	}
+
+	// Push the dropdown (first pull-right) to the right
+	select.pull-right {
+		order: 2;
+		margin-left: auto;
+	}
+
+	// Fullscreen button comes after
+	.toggle-fullscreen {
+		order: 3;
+	}
 }
 
 .popover{

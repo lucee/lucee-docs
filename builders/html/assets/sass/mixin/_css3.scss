@@ -14,9 +14,7 @@
 }
 
 @mixin box-sizing($sizing) {
-	-webkit-box-sizing: $sizing;
-	   -moz-box-sizing: $sizing;
-	        box-sizing: $sizing;
+	box-sizing: $sizing;
 }
 
 @mixin opacity($alpha) {
@@ -40,7 +38,6 @@
 
 @mixin transform($transform...) {
 	-webkit-transform: $transform;
-	    -ms-transform: $transform;
 	        transform: $transform;
 }
 
@@ -51,7 +48,5 @@
 
 @mixin user-select($select) {
 	-webkit-user-select: $select;
-	   -moz-user-select: $select;
-	    -ms-user-select: $select;
 	        user-select: $select;
 }
