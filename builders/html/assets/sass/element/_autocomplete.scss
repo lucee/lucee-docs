@@ -163,6 +163,11 @@
 
 // Header search specific styles (desktop only)
 .header-search-item {
+	// Make container position relative so aa-Panel's absolute positioning is relative to it
+	#header-search-container {
+		position: relative;
+	}
+
 	.aa-Panel {
 		margin-top: 4px;
 		min-width: 600px;

@@ -51,10 +51,11 @@
 		var $tbl = $("#" + data.target);
 		$tbl.find('tr > *:nth-child(2)').toggle(!data.expanded);
 		$tbl.find('tr > *:nth-child(3)').toggle(!data.expanded);
-		$btn.data("expanded", !data.expanded);
+		var newExpanded = !data.expanded;
+		$btn.data("expanded", newExpanded);
 		var collapseText = data.collapseText || "Collapse All";
 		var expandText = data.expandText || "Expand All";
-		$btn.text(data.expanded ? collapseText : expandText);
+		$btn.text(newExpanded ? collapseText : expandText);
 
 		if (!data.installed){
 			$btn.data("installed", true);

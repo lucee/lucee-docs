@@ -162,6 +162,7 @@
 
 		var autocompleteInstance = lib.autocomplete({
 			container: containerElement,
+			panelContainer: containerElement, // Render panel inside container, not body
 			placeholder: 'Search docs...',
 			openOnFocus: false,
 			detachedMediaQuery: 'none', // Disable detached mode completely
@@ -242,6 +243,46 @@
 			if (autocompleteRoot) {
 				autocompleteRoot.classList.add('aa-ready');
 			}
+
+			// Fix positioning - autocomplete calculates position based on document
+			// even when panel is inside container, so we need to reset it to container-relative positioning
+			var isHeaderSearch = containerElement.id === 'header-search-container';
+			var isMobileSearch = containerElement.id === 'mobile-search-container';
+
+			if (isHeaderSearch || isMobileSearch) {
+				var fixPanelPosition = function() {
+					var panel = containerElement.querySelector('.aa-Panel');
+					if (panel) {
+						// Set position relative to the container (panel is now inside container)
+						if (isHeaderSearch) {
+							// Desktop: Input height is 36px, so panel should start right below it
+							panel.style.top = '40px'; // 36px input + 4px gap
+							panel.style.left = 'auto';
+							panel.style.right = '0';
+							panel.style.width = '600px';
+							panel.style.maxWidth = '90vw';
+						} else if (isMobileSearch) {
+							// Mobile: force relative positioning to override autocomplete's absolute
+							panel.style.position = 'relative';
+							panel.style.top = '0';
+							panel.style.left = '0';
+							panel.style.right = '0';
+							panel.style.width = 'auto';
+							panel.style.maxWidth = 'none';
+						}
+					}
+				};
+
+				// Watch for panel appearing and style changes
+				var observer = new MutationObserver(fixPanelPosition);
+				observer.observe(containerElement, {
+					childList: true,
+					subtree: true,
+					attributes: true,
+					attributeFilter: ['style']
+				});
+			}
+
 		}, 100);
 
 		return autocompleteInstance;

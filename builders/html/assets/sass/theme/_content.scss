@@ -39,7 +39,7 @@
 	background-color: $brand-color;
 	color: $white;
 	overflow: hidden;
-	padding-top: ($line-height * 1.5);
+	padding-top: 0;
 	position: relative;
 	z-index: 1;
 	@include transition(background-color 0.3s $timing, color 0.3s $timing);
