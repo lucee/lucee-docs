@@ -18,7 +18,7 @@ If you're interested in contributing to Lucee as a Developer, checkout our [Git 
 
 ## Lucee 7.0
 
-Lucee 7 is our latest release, switching to Jakarta and Single mode.
+Lucee 7 is our latest release, switching to only Single mode and Jakarta.
 
 [[lucee_7_overview]]
 

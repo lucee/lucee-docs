@@ -3,7 +3,7 @@
 	"version": "0.1.1",
 	"description": "Asset build system for Lucee documentation",
 	"config": {
-		"assetVersion": "37"
+		"assetVersion": "38"
 	},
 	"scripts": {
 		"build": "npm-run-all clean css js ace",
