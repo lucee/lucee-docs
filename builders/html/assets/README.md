@@ -7,8 +7,6 @@ Modern build system for compiling and bundling CSS and JavaScript assets for the
 - Node.js (v14 or later)
 - npm (comes with Node.js)
 
-**No Ruby required!** This build system uses pure JavaScript tooling.
-
 ## Quick Start
 
 Install dependencies:
@@ -44,10 +42,14 @@ Watches for changes to SCSS and JS files and automatically rebuilds when files c
 ### Individual Tasks
 
 ```bash
-npm run css     # Compile and minify CSS only
-npm run js      # Concatenate and minify JS only
-npm run clean   # Remove intermediate build files
+npm run css             # Compile and minify CSS only
+npm run js              # Concatenate and minify JS only
+npm run ace             # Build ACE editor bundle for TryCF
+npm run check-versions  # Verify version sync across all config files
+npm run clean           # Remove intermediate build files
 ```
+
+**Note**: `npm run build` automatically runs `check-versions` first to ensure all asset version numbers are synchronized before building.
 
 ## How It Works
 
@@ -64,6 +66,16 @@ npm run clean   # Remove intermediate build files
    - Dependencies are automatically checked: `content.js` is reordered before `webfont.js` and `winresize.js` since they depend on `contentFixPushCal()`
 2. **Minify**: Compressed to `js/base.min.js` using Terser
 3. **Version**: Copied to `js/dist/base.{version}.min.js` for cache busting
+
+### ACE Editor Pipeline
+
+The TryCF live editor uses ACE Editor with a custom bundle:
+
+1. **Bundle**: Combines ACE core, language tools, ColdFusion mode, Monokai theme, and snippets into `trycf/js/ace/ace-bundle.js`
+2. **Version**: Copied to `ace-bundle.{version}.js` for cache busting
+3. **Auto-deploy**: Automatically copied to `builds/html/assets/trycf/js/ace/` if it exists
+
+This approach eliminates the need for ACE to lazy-load modules at runtime.
 
 ### Source Maps
 
@@ -92,7 +104,15 @@ When you make changes that need to bust the CloudFront cache:
 npm run build
 ```
 
-4. **Commit all files** including the new versioned CSS/JS files
+This will create versioned files:
+
+- `css/base.{version}.min.css`
+- `js/dist/base.{version}.min.js`
+- `trycf/js/ace/ace-bundle.{version}.js`
+
+The build script automatically copies these to `builds/html/assets/` for deployment.
+
+4. **Commit all files** including the new versioned CSS/JS/ACE files
 
 ## Project Structure
 
@@ -171,6 +191,27 @@ Modern Dart Sass handles Unicode correctly, so this should no longer be an issue
 ### Build fails with "command not found"
 
 Make sure you've run `npm install` first. All build tools are installed as local dev dependencies.
+
+### Version mismatch error
+
+If you see "VERSION MISMATCH DETECTED!" when running `npm run build`, the asset version numbers are out of sync:
+
+```
+✗ VERSION MISMATCH DETECTED!
+
+Asset versions must be synchronized across all files:
+  package.json:              38
+  Application.cfc:           38
+  server/Application.cfc:    37
+```
+
+Fix by updating all three files to use the same version number:
+
+- `package.json` → `config.assetVersion`
+- `Application.cfc` → `variables.assetBundleVersion`
+- `server/Application.cfc` → `this.assetBundleVersion`
+
+You can run `npm run check-versions` to verify they're synchronized.
 
 ### Old Grunt builds
 
