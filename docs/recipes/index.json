@@ -138,9 +138,9 @@
   },
   {
     "file": "breaking-changes-6-0.md",
-    "title": "Breaking Changes Between Lucee 5.4 and 6.0",
+    "title": "Breaking Changes between Lucee 5.4 and 6.0",
     "path": "/docs/recipes/breaking-changes-6-0.md",
-    "hash": "c73d6f262f8702102719836e81cbd00d",
+    "hash": "13e09633e6eccff1a8dfb0de973bc28c",
     "keywords": [
       "breaking changes",
       "Lucee 5.4",
@@ -151,9 +151,9 @@
   },
   {
     "file": "breaking-changes-6-1.md",
-    "title": "Breaking Changes Between Lucee 6.0 and 6.1",
+    "title": "Breaking Changes between Lucee 6.0 and 6.1",
     "path": "/docs/recipes/breaking-changes-6-1.md",
-    "hash": "15245e87ac17cb4787ba94eaece27389",
+    "hash": "a56c2402cbe9591a4e83bc63f730e4fc",
     "keywords": [
       "breaking changes",
       "Lucee 6.0",
@@ -166,7 +166,7 @@
     "file": "breaking-changes-6-2.md",
     "title": "Breaking Changes between Lucee 6.1 and 6.2",
     "path": "/docs/recipes/breaking-changes-6-2.md",
-    "hash": "a8e9c5db58d407ebc842a1acc86325d5",
+    "hash": "72e66bb0411c419f85f5dc85c938ec76",
     "keywords": [
       "breaking changes",
       "Lucee 6.1",
@@ -179,7 +179,7 @@
     "file": "breaking-changes-7.0.md",
     "title": "Breaking Changes between Lucee 6.2 and 7.0",
     "path": "/docs/recipes/breaking-changes-7.0.md",
-    "hash": "5d02da5ba5fd9ef4321c94268453d980",
+    "hash": "9832fe256eaf6919ad62ae27c55550be",
     "keywords": [
       "breaking changes",
       "Lucee 6.2",
