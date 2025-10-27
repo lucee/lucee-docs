@@ -52,7 +52,7 @@ component {
 					arrayAppend( metadata, "**Deprecated:** " & prop.deprecated );
 				}
 
-				var line = "- [[environment-variables-system-properties###anchor#|#prop.envvar#]]";
+				var line = "- [[full-list-environment-variables-system-properties###anchor#|#prop.envvar#]]";
 				if ( len( desc ) ) {
 					line &= " - " & desc;
 				}

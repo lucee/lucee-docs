@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Migrating from Classic to Modern Local Scope Mode",
+  "title": "Localmode, how to migrate from migrating from Classic to Modern Local Scope Mode",
   "id": "local-scope-migration",
   "categories": ["scopes", "variables", "migration"],
   "description": "Guide for safely migrating your Lucee application from classic to modern local scope mode",

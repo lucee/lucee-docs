@@ -3,6 +3,8 @@ title: Lucee Editors & IDEs
 id: lucee-editors-IDEs
 categories:
 - core
+related:
+- docs-downloads
 description: Modern IDEs supporting for CFML development
 ---
 
