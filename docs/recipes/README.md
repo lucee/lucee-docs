@@ -418,7 +418,7 @@ How to set and use Environment Variables or System Properties to configure speci
 
 ## [Single Mode vs Multi Mode in Lucee](/docs/recipes/single-vs-multi-mode.md)
 
-Understanding the differences between single mode and multi mode in Lucee.
+Understanding the differences between Single mode and Multi mode in Lucee.
 
 ## [SQL Types](/docs/recipes/sql-types.md)
 
