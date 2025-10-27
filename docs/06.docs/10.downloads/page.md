@@ -1,5 +1,6 @@
 ---
-title: Downloads
+title: Lucee Documentation Downloads
+menuTitle: Downloads
 id: docs-downloads
 ---
 
