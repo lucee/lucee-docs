@@ -62,7 +62,10 @@
 		<div class="table-responsive">
 			<cfif local.fn.getArguments().len() gt 5>
 				<div class="tile-toolbar">
-					<button class="btn collapse-description" data-expanded="true" data-target="table-arguments">Collapse All</button>
+					<div style="display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+						<input type="text" id="argument-filter" class="form-control" placeholder="Filter arguments..." style="max-width: 300px;">
+						<button class="btn collapse-description" data-expanded="true" data-target="table-arguments" data-collapse-text="Collapse All" data-expand-text="Expand All">Collapse All</button>
+					</div>
 				</div>
 			</cfif>
 			<cfset local.unimplementedArgs = []>

@@ -10,6 +10,9 @@
 	#getEditLink(path=local.pg.getSourceFile(), edit=args.edit)#
 	#_markdownToHtml( local.pg.getBody() )#
 	<cfif ArrayLen(local.pg.getChildren()) lt 50 or local.pg.getListingStyle() eq "flat">
+		<div style="margin-bottom: 15px;">
+			<input type="text" id="az-filter" class="form-control" placeholder="Filter..." style="max-width: 300px;">
+		</div>
 		<div class="tile-wrap">
 			<cfloop array="#local.pg.getChildren()#" index="local.i" item="local.child">
 				<span class="tile">
@@ -30,8 +33,11 @@
 		</cfloop>
 
 		<div class="tile-toolbar">
-			<button class="btn expand-a-z" data-expanded="true">Collapse All</button>
-			<div style="margin-top: 10px;">
+			<div style="display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+				<input type="text" id="az-filter" class="form-control" placeholder="Filter..." style="max-width: 300px;">
+				<button class="btn expand-a-z" data-expanded="true" data-collapse-text="Collapse All" data-expand-text="Expand All">Collapse All</button>
+			</div>
+			<div>
 				<strong>Jump to:</strong>
 				<cfloop array="#local.availableLetters#" index="local.letter">
 					<a href="#local.pg.getPath()#.html##function-#LCase( local.letter )#" style="margin: 0 5px;">#local.letter#</a>

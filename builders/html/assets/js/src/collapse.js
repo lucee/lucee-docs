@@ -60,19 +60,11 @@
 		toggleCollapse( target, trigger );
 	});
 
-	// Handle clicks on tile triggers (for A-Z index)
-	document.addEventListener( 'click', function( e ) {
-		var trigger = e.target.closest( '[data-toggle="tile"]' );
-		if ( !trigger ) return;
-
-		e.preventDefault();
-		var target = getTarget( trigger );
-		toggleCollapse( target, trigger );
-	});
+	// Note: tile triggers ([data-toggle="tile"]) are handled by tile.js, not here
 
 	// Initialize collapse elements on page load
 	document.addEventListener( 'DOMContentLoaded', function() {
-		var collapseTriggers = document.querySelectorAll( '[data-toggle="collapse"], [data-toggle="tile"]' );
+		var collapseTriggers = document.querySelectorAll( '[data-toggle="collapse"]' );
 		for ( var i = 0; i < collapseTriggers.length; i++ ) {
 			var trigger = collapseTriggers[i];
 			var target = getTarget( trigger );
