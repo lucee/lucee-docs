@@ -12,7 +12,7 @@
   "categories": [
     "server"
   ],
-  ["related":
+  "related": [
     "lucee_7_overview"
   ]
 }
