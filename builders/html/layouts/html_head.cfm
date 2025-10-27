@@ -57,8 +57,8 @@
 			<cfelse>
 				<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
 			</cfif>
-			<link href="/assets/css/highlight.css" rel="stylesheet" class="highlight-theme-light">
-			<link href="/assets/css/highlight-dark.css" rel="stylesheet" class="highlight-theme-dark">
+			<link href="/assets/css/highlight.#application.assetBundleVersion#.css" rel="stylesheet" class="highlight-theme-light">
+			<link href="/assets/css/highlight-dark.#application.assetBundleVersion#.css" rel="stylesheet" class="highlight-theme-dark">
 		</cfif>
 		<link rel="icon" type="image/png" href="https://docs.lucee.org/assets/images/favicon.png">
 	</head>

@@ -3,11 +3,11 @@
 	"version": "0.1.1",
 	"description": "Asset build system for Lucee documentation",
 	"config": {
-		"assetVersion": "39"
+		"assetVersion": "40"
 	},
 	"scripts": {
 		"prebuild": "node check-versions.js",
-		"build": "npm-run-all clean css js ace",
+		"build": "npm-run-all clean css js ace highlight",
 		"watch": "npm-run-all clean --parallel watch:css watch:js",
 		"clean": "node -e \"const fs=require('fs'); ['css/base.css','css/base.min.css','js/base.js','js/base.min.js'].forEach(f=>{try{fs.unlinkSync(f)}catch(e){}})\"",
 		"check-versions": "node check-versions.js",
@@ -20,6 +20,7 @@
 		"js:min": "terser js/base.js -o js/base.min.js --source-map \"content=inline,url=base.min.js.map\" --compress --mangle",
 		"js:version": "node build.js js",
 		"ace": "node build-ace.js",
+		"highlight": "node build.js highlight",
 		"watch:css": "chokidar \"sass/**/*.scss\" -c \"npm run css\"",
 		"watch:js": "chokidar \"js/src/**/*.js\" -c \"npm run js\""
 	},

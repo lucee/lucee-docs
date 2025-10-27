@@ -23,8 +23,8 @@ if ( !version ) {
 	process.exit( 1 );
 }
 
-if ( !type || ![ 'css', 'js' ].includes( type ) ) {
-	console.error( 'Usage: node build.js [css|js]' );
+if ( !type || ![ 'css', 'js', 'highlight' ].includes( type ) ) {
+	console.error( 'Usage: node build.js [css|js|highlight]' );
 	process.exit( 1 );
 }
 
@@ -68,6 +68,19 @@ try {
 		}
 	}
 
+	if ( type === 'highlight' ) {
+		// Version the syntax highlighting CSS files
+		const files = [ 'css/highlight.css', 'css/highlight-dark.css' ];
+		files.forEach( src => {
+			if ( fs.existsSync( src ) ) {
+				const filename = path.basename( src, '.css' );
+				const dest = `css/${ filename }.${ version }.css`;
+				fs.copyFileSync( src, dest );
+				console.log( `✓ Copied ${ src } → ${ dest }` );
+			}
+		} );
+	}
+
 	console.log( `\n✓ Version ${ version } assets ready!` );
 	console.log( `\nReminder: Update assetBundleVersion in Application.cfc to match version ${ version }` );
 
@@ -100,6 +113,23 @@ try {
 			if ( fs.existsSync( `js/dist/base.${ version }.min.js.map` ) ) {
 				fs.copyFileSync( `js/dist/base.${ version }.min.js.map`, `${ dest }.map` );
 			}
+		}
+
+		if ( type === 'highlight' ) {
+			const cssDir = path.join( htmlBuildDir, 'css' );
+			if ( !fs.existsSync( cssDir ) ) {
+				fs.mkdirSync( cssDir, { recursive: true } );
+			}
+			const files = [ 'highlight.css', 'highlight-dark.css' ];
+			files.forEach( file => {
+				const filename = path.basename( file, '.css' );
+				const src = `css/${ filename }.${ version }.css`;
+				if ( fs.existsSync( src ) ) {
+					const dest = path.join( cssDir, `${ filename }.${ version }.css` );
+					fs.copyFileSync( src, dest );
+					console.log( `✓ Auto-copied to ${ dest }` );
+				}
+			} );
 		}
 	}
 

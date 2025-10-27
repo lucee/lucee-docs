@@ -353,6 +353,12 @@ component {
 			].toList(chr(10))
 		);
 
+		// Copy favicon.ico to root for browser default requests
+		var faviconSource = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/images/favicon.png";
+		if ( FileExists( faviconSource ) ) {
+			FileCopy( faviconSource, arguments.buildDirectory & "/favicon.ico" );
+		}
+
 		// Copy editor.html and replace asset version placeholder
 		var editorTemplate = FileRead( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html" );
 		var editorHtml = Replace( editorTemplate, "{{assetBundleVersion}}", application.assetBundleVersion, "ALL" );
