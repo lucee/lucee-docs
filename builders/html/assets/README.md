@@ -59,7 +59,7 @@ npm run clean   # Remove intermediate build files
 
 ### JavaScript Pipeline
 
-1. **Concatenate**: Combines jQuery, Hammer.js, and all files from `js/src/` into `js/base.js`
+1. **Concatenate**: Combines jQuery 3.7.1, Algolia autocomplete.js, all files from `js/src/`, and TryCF editor files into `js/base.js`
    - Files are sorted alphabetically for consistency
    - Dependencies are automatically checked: `content.js` is reordered before `webfont.js` and `winresize.js` since they depend on `contentFixPushCal()`
 2. **Minify**: Compressed to `js/base.min.js` using Terser
@@ -74,20 +74,23 @@ Source maps are automatically generated for both CSS and JS, making debugging ea
 When you make changes that need to bust the CloudFront cache:
 
 1. **Update version in package.json:**
-   ```json
-   "config": {
-     "assetVersion": "38"
-   }
-   ```
+
+```json
+"config": {
+   "assetVersion": "38"
+}
+```
 
 2. **Update Application.cfc files:**
-   - `lucee-docs/Application.cfc` - Update `variables.assetBundleVersion`
-   - `lucee-docs/server/Application.cfc` - Update `this.assetBundleVersion`
+
+- `lucee-docs/Application.cfc` - Update `variables.assetBundleVersion`
+- `lucee-docs/server/Application.cfc` - Update `this.assetBundleVersion`
 
 3. **Run the build:**
-   ```bash
-   npm run build
-   ```
+
+```bash
+npm run build
+```
 
 4. **Commit all files** including the new versioned CSS/JS files
 
@@ -97,17 +100,26 @@ When you make changes that need to bust the CloudFront cache:
 assets/
 ├── sass/              # SCSS source files
 │   ├── base.scss     # Main SCSS entry point
-│   ├── addon/        # Third-party styles (Font Awesome, etc)
-│   ├── element/      # UI component styles
+│   ├── _css-variables.scss  # CSS custom properties for theming
+│   ├── addon/        # Third-party styles
+│   ├── element/      # UI component styles (includes _autocomplete.scss)
 │   └── theme/        # Theme-specific styles
 ├── js/
 │   ├── src/          # JavaScript source files
+│   │   ├── luceeDocsSearch.js  # Algolia autocomplete search
+│   │   ├── theme-switcher.js   # Light/dark/auto theme toggle
+│   │   ├── collapse.js         # Collapse/expand functionality
+│   │   └── ...       # Other component scripts
 │   ├── dist/         # Minified versioned JS output
-│   ├── jquery-3.3.1.js
-│   └── hammer.js
+│   └── jquery-3.7.1.js
 ├── css/              # Compiled CSS output
+│   ├── highlight.css      # Code syntax highlighting (light mode)
+│   └── highlight-dark.css # Code syntax highlighting (dark mode)
+├── trycf/            # TryCF live code editor assets
+├── node_modules/     # Dependencies (includes @algolia/autocomplete-js)
 ├── package.json      # Dependencies and build scripts
-└── build.js          # Version copying script
+├── concat.js         # JS concatenation with dependency ordering
+└── build.js          # Version copying and auto-deployment script
 ```
 
 ## Build Tools
@@ -115,18 +127,46 @@ assets/
 - **[Sass](https://sass-lang.com/)** - Dart Sass for SCSS compilation (no Ruby!)
 - **[Lightning CSS](https://lightningcss.dev/)** - Ultra-fast CSS minification
 - **[Terser](https://terser.org/)** - Modern JavaScript minifier
-- **[concat](https://www.npmjs.com/package/concat)** - Simple file concatenation
+- **[Algolia Autocomplete](https://www.algolia.com/doc/ui-libraries/autocomplete/introduction/what-is-autocomplete/)** - Search autocomplete library
 - **[chokidar-cli](https://github.com/open-cli-tools/chokidar-cli)** - File watching for dev mode
 - **[npm-run-all](https://github.com/mysticatea/npm-run-all)** - Run multiple npm scripts
+
+## Key Features
+
+### Dark Mode Support
+
+The site now includes a comprehensive dark mode with light/dark/auto theme switching:
+
+- CSS custom properties (`--text-color`, `--bg-color`, etc.) for all colors
+- Auto mode respects system preferences via `prefers-color-scheme`
+- Theme preference stored in localStorage
+- Separate syntax highlighting for light and dark modes
+- Smooth transitions between themes
+
+### Modern Search
+
+Search powered by Algolia Autocomplete.js:
+
+- Fast fuzzy matching with prioritized scoring (substring > word boundary > fuzzy)
+- CFML-aware: "query" matches "cfquery" for tags
+- Search persistence and auto-restore
+- DuckDuckGo fallback for full-text search
+- Mobile-optimized with touch-friendly UI
+- Progressive enhancement with noscript fallback
+
+### Icon System
+
+Uses **Material Symbols** icon font for modern, crisp icons that adapt to theme colors.
 
 ## Troubleshooting
 
 ### Unicode characters corrupted in CSS
 
-Modern Dart Sass handles Unicode correctly, so this should no longer be an issue. If you see problems with Font Awesome icons, check:
+Modern Dart Sass handles Unicode correctly, so this should no longer be an issue. If you see problems with Material Symbols icons, check:
 
 1. The `@charset "UTF-8";` declaration is at the top of `sass/base.scss`
 2. Your editor is saving SCSS files as UTF-8
+3. The Material Symbols font is loading correctly (check Network tab)
 
 ### Build fails with "command not found"
 
