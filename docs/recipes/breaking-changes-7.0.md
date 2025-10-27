@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Breaking Changes Between Lucee 6.2 and 7.0",
+  "title": "Breaking Changes between Lucee 6.2 and 7.0",
   "id": "breaking-changes-6-2-to-7-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 6.2 and 7.0",
@@ -17,6 +17,8 @@
 This document outlines the breaking changes introduced when upgrading from Lucee 6.2 to Lucee 7.0.
 
 Be aware of these changes when migrating your applications to ensure smooth compatibility.
+
+[[lucee_7_overview]]
 
 [7.0 Changelog](https://download.lucee.org/changelog/?version=7.0)
 

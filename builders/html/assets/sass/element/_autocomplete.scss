@@ -1,0 +1,211 @@
+// Algolia Autocomplete.js styles with Lucee Docs theming
+
+.aa-Autocomplete {
+	width: 100%;
+
+	// Hide during initialization to prevent flash
+	&:not(.aa-ready) {
+		opacity: 0;
+
+		// Suppress all transitions during initial render
+		* {
+			transition: none !important;
+		}
+	}
+
+	// Fade in once ready
+	&.aa-ready {
+		opacity: 1;
+		transition: opacity 0.15s ease;
+	}
+}
+
+.aa-Form {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.aa-Input {
+	width: 100%;
+	height: auto;
+	box-sizing: border-box;
+	background-color: rgba(255, 255, 255, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 4px;
+	color: $white !important;
+	padding: 6px 10px;
+	font-size: 14px;
+	line-height: normal;
+	font-family: inherit;
+
+	&::placeholder {
+		color: rgba(255, 255, 255, 0.6);
+	}
+
+	&:focus {
+		background-color: rgba(255, 255, 255, 0.25);
+		border-color: rgba(255, 255, 255, 0.4);
+		outline: none;
+	}
+}
+
+.aa-InputWrapper {
+	position: relative;
+	width: 100%;
+}
+
+.aa-InputWrapperPrefix,
+.aa-InputWrapperSuffix {
+	display: none; // We use our own icon styling
+}
+
+.aa-Label,
+.aa-SubmitButton,
+.aa-LoadingIndicator,
+.aa-ClearButton {
+	display: none !important; // Hide autocomplete's default UI elements
+}
+
+.aa-Panel {
+	margin-top: 8px;
+	background-color: var( --bg-surface );
+	border: 1px solid var( --border-color );
+	border-radius: 4px;
+	box-shadow: 0 4px 12px rgba( 0, 0, 0, 0.15 );
+	max-height: 70vh;
+	overflow-y: auto;
+	position: absolute;
+	z-index: 1000;
+	width: auto;
+	min-width: 100%;
+}
+
+.aa-PanelLayout {
+	padding: 8px 0;
+}
+
+.aa-List {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.aa-Item {
+	cursor: pointer;
+	padding: 10px 12px;
+	border-bottom: 1px solid var( --border-color );
+	color: var( --text-color );
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+	&[aria-selected="true"],
+	&:hover {
+		background-color: var( --bg-elevated );
+	}
+}
+
+.aa-ItemWrapper {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.aa-ItemContent {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	gap: 6px;
+}
+
+.aa-ItemIcon {
+	flex-shrink: 0;
+	color: var( --text-secondary );
+
+	.material-symbols-outlined {
+		font-size: 18px;
+	}
+}
+
+.aa-ItemContentBody {
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.aa-ItemContentTitle {
+	color: var( --text-color );
+	font-size: 14px;
+	line-height: 1.4;
+
+	strong {
+		color: var( --brand-color );
+		font-weight: 600;
+	}
+
+	em {
+		font-style: normal;
+		color: var( --text-secondary );
+	}
+}
+
+.aa-ItemContentDescription {
+	color: var( --text-secondary );
+	font-size: 12px;
+	font-style: normal;
+	margin-left: 0.5em;
+}
+
+// Header search specific styles (desktop only)
+.header-search-item {
+	// Make container position relative so aa-Panel's absolute positioning is relative to it
+	#header-search-container {
+		position: relative;
+	}
+
+	.aa-Panel {
+		margin-top: 4px;
+		min-width: 600px;
+	}
+
+	.aa-ItemContentTitle {
+		font-size: 15px;
+	}
+
+	.aa-ItemContentDescription {
+		font-size: 13px;
+	}
+}
+
+// Mobile search menu
+.menu-search {
+	.aa-Input {
+		font-size: 18px;
+		padding: 12px 16px;
+	}
+
+	.aa-Panel {
+		position: relative;
+		margin-top: 12px;
+		max-height: 60vh;
+		min-width: 0; // Override desktop min-width
+		width: 100%;
+	}
+}
+
+// Full-page search mode
+.search-fullpage {
+	.aa-Form {
+		margin-bottom: 20px;
+	}
+
+	.aa-Panel {
+		position: relative;
+		max-height: none;
+	}
+}

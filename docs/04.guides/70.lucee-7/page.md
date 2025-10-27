@@ -11,7 +11,7 @@ Lucee 7 is a major release that fundamentally changes how Lucee works by moving 
 ## What You Need to Know
 
 - **Single Mode Only**: Multi-mode is gone - this is THE biggest change for users [[single-vs-multi-mode]]
-- **New Features**: AST parsing, Secret Provider, enhanced AI & Java support
+- **New Features**: Enhanced AI & Java support, AST parsing and a Secret Provider
 - **Performance**: Multiple optimizations - faster startup, lower memory usage
 - **Faster Startup and Deployment** Deployment is up to 3x faster than 6.2
 - **Jakarta EE**: Full migration from javax to jakarta namespace (requires Tomcat 10.1+)

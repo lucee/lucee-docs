@@ -105,6 +105,9 @@ component {
 		} else {
 			// HTML version - wrap in div so CommonMark's <p> tags don't break the structure
 			var content = [];
+			arrayAppend( content, "<div style='padding-bottom: 15px; border-bottom: 1px solid var(--text-hint); margin-bottom: 20px;'>" );
+			arrayAppend( content, "<input type='text' id='sysprop-filter' class='form-control' placeholder='Filter...' style='max-width: 300px;'>" );
+			arrayAppend( content, "</div>" );
 			arrayAppend( content, "<div class='sysprop-envvar-listing'>" );
 
 			// Render each category

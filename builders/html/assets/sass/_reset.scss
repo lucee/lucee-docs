@@ -28,9 +28,9 @@
 	}
 
 	body {
-		background-color: $white-bg-light;
+		background-color: var( --bg-color );
 		background-image: none;
-		color: $black-text;
+		color: var( --text-color );
 		font-family: $font-fam;
 		font-size: $font-size;
 		font-weight: 400;
@@ -177,7 +177,7 @@
 
 	legend {
 		border: 0;
-		color: $black-text;
+		color: var( --text-color );
 		display: block;
 		font-size: $font-size-h3;
 		font-weight: 400;
@@ -204,11 +204,11 @@
 	a {
 		background-color: transparent;
 		background-image: none;
-		color: $link-color;
+		color: var( --link-color );
 		text-decoration: none;
 		&:focus,
 		&:hover {
-			color: $link-color-hover;
+			color: var( --link-color-hover );
 			outline: 0;
 			text-decoration: underline;
 		}

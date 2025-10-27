@@ -54,12 +54,12 @@ component {
 		var doubleZipFilename = "lucee-docs-json-zipped.zip";
 
 		// neat trick, storing then zipping the stored zip reduces the file size from 496 Kb to 216 Kb
-		zip action="zip"
-			source="#variables.cfdocsPath#"
-			file="#variables.cfdocsPath#/lucee-docs-json-store.zip"
-			compressionmethod="store"
-			recurse="false"
-			filter="*.json";
+		cfzip (action="zip",
+			source="#variables.cfdocsPath#",
+			file="#variables.cfdocsPath#/lucee-docs-json-store.zip",
+			compressionmethod="store",
+			recurse="false",
+			filter="*.json");
 
 		zip action="zip"
 			source="#variables.cfdocsPath#"
@@ -70,11 +70,11 @@ component {
 		};
 		fileDelete("#variables.cfdocsPath#/lucee-docs-json-store.zip");
 
-		zip action="zip"
-			source="#variables.cfdocsPath#"
-			file="#variables.cfdocsPath#/#zipFilename#"
-			recurse="false"
-			filter="*.json";
+		cfzip (action="zip",
+			source="#variables.cfdocsPath#",
+			file="#variables.cfdocsPath#/#zipFilename#",
+			recurse="false",
+			filter="*.json");
 
 		publishWithChecksum("#variables.cfdocsPath#/#zipFilename#",
 				"#variables.HtmlBuildRoot#/#zipFilename#");
@@ -83,6 +83,30 @@ component {
 
 		request.filesWritten +=8;
 		request.logger (text="CFDOCS Builder #request.filesWritten# files produced");
+
+		// export lucee-docs.zip, the entire build directory, except zips
+		cfzip(action="zip",
+			source="#variables.HtmlBuildRoot#",
+			file="#variables.cfdocsPath#/lucee-docs.zip",
+			filter=function( entryPath ) {
+				return listLast( entryPath,"." ) == 'zip';
+			},
+			recurse="true");
+
+		publishWithChecksum("#variables.cfdocsPath#/lucee-docs.zip",
+				"#variables.HtmlBuildRoot#/lucee-docs.zip");
+		request.logger (text="Full Docs Exported as [/lucee-docs.zip] - " & numberFormat( fileInfo	( "#variables.cfdocsPath#/lucee-docs.zip" ).size / 1024 / 1024, "0.00" ) & " MB" );
+
+		// export lucee-docs-markdown.zip, all the markdown files in the html build directory
+		cfzip(action="zip",
+			source="#variables.HtmlBuildRoot#",
+			file="#variables.cfdocsPath#/lucee-docs-markdown.zip",
+			filter="*.md",
+			recurse="true");
+		request.logger (text="Markdown docs exported as [/lucee-docs-markdown.zip] - " & numberFormat( fileInfo	( "#variables.cfdocsPath#/lucee-docs-markdown.zip" ).size / 1024 / 1024, "0.00" ) & " MB" );
+
+		publishWithChecksum("#variables.cfdocsPath#/lucee-docs-markdown.zip",
+				"#variables.HtmlBuildRoot#/lucee-docs-markdown.zip");
 	}
 
 	public boolean function renderJson( page ){
@@ -237,12 +261,12 @@ component {
 	}
 
 	function publishWithChecksum( src, dest ){
-		request.logger (text="CFDOCS Builder copying zip to #dest#");
+		request.logger (text="Builder copying zip to #dest#");
 		fileCopy( src, dest );
 		loop list="md5,sha1" item="local.hashType" {
 			var checksumPath = left( dest, len( dest ) - 3 ) & hashType;
 			filewrite( checksumPath, lcase( hash( fileReadBinary( arguments.src ), hashType ) ) );
-			request.logger (text="CFDOCS Builder added #checksumPath# checksum");
+			request.logger (text="Builder added #checksumPath# checksum");
 		}
 	}
 

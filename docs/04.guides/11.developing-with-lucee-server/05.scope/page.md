@@ -2,9 +2,13 @@
 title: Scopes
 id: scopes
 categories:
+- scopes
 - compat
 - core
-- scopes
+related:
+- local-scope-migration
+- using-scopes-explicitly-in-code
+- static-scope-in-components
 description: local, arguments, query, variables, this, cgi, cffile, url, form, cookie, client, thread, caller, request
 menuTitle: Scopes
 ---

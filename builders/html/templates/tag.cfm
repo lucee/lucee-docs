@@ -45,7 +45,10 @@
 		<div class="table-responsive">
 			<cfif local.tag.getAttributes().len() gt 5>
 				<div class="tile-toolbar">
-					<button class="btn collapse-description" data-expanded="true" data-target="tag-attributes">Collapse All</button>
+					<div style="display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+						<input type="text" id="attribute-filter" class="form-control" placeholder="Filter attributes..." style="max-width: 300px;">
+						<button class="btn collapse-description" data-expanded="true" data-target="tag-attributes" data-collapse-text="Collapse All" data-expand-text="Expand All">Collapse All</button>
+					</div>
 				</div>
 			</cfif>
 			<cfset local.unimplementedAttribs = []>

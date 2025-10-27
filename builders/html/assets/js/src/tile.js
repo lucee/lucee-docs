@@ -3,33 +3,156 @@
 		var $target = $(e.target);
 
 		if ($target.is('[data-toggle="tile"], [data-toggle="tile"] *') && !$target.is('[data-ignore="tile"], [data-ignore="tile"] *')) {
+			e.stopPropagation(); // Prevent event from triggering other handlers
 			var $trigger = $target.closest('[data-toggle="tile"]');
-			if ($trigger.attr('data-parent') != null) {
-				$($trigger.attr('data-parent')).find('.tile-active-show').collapse('hide');
+			var targetSelector = getTargetFromTrigger($trigger);
+			var $collapse = $(targetSelector);
+
+			if ($collapse.length) {
+				// Close siblings if data-parent is specified (accordion behavior)
+				if ($trigger.attr('data-parent') != null) {
+					$($trigger.attr('data-parent')).find('.tile-active-show').not($collapse).each(function() {
+						$(this).removeClass('in').css({height: 0, overflow: 'hidden'});
+					});
+				}
+
+				// Toggle this tile
+				$collapse.toggleClass('in');
+				if ($collapse.hasClass('in')) {
+					// Remove inline height/overflow to let CSS take over
+				$collapse[0].style.removeProperty('height');
+				$collapse[0].style.removeProperty('overflow');
+					$trigger.attr('aria-expanded', 'true').removeClass('collapsed');
+				} else {
+					$collapse.css({height: 0, overflow: 'hidden'});
+					$trigger.attr('aria-expanded', 'false').addClass('collapsed');
+				}
 			}
-			$(getTargetFromTrigger($trigger)).collapse('toggle');
 		} else if ($target.is('[data-dismiss="tile"]')) {
-			$target.closest('.tile-collapse').find('.tile-active-show').collapse('hide');
+			$target.closest('.tile-collapse').find('.tile-active-show').removeClass('in').css({height: 0, overflow: 'hidden'});
 		} else if (!$target.is('.tile-collapse, .tile-collapse *')) {
 			tReset();
 		}
 	});
 
-	$(".expand-a-z").click(function(){
+	$(".expand-a-z").click(function(e){
+		e.stopPropagation(); // Prevent triggering tile toggle
 		var $el = $(this);
+		// jQuery .data() converts string "true"/"false" to boolean automatically
+		// But we need to ensure it's initialized from the data-expanded attribute
+		if (typeof $el.data("expanded") === 'undefined') {
+			// First click - initialize from current state
+			var anyExpanded = $('.tile-active-show.in').length > 0;
+			$el.data("expanded", anyExpanded);
+		}
 		var isExpanded = $el.data("expanded");
-		$el.text(isExpanded ? "Collapse All" : "Expand All" );
+		var collapseText = $el.data("collapse-text") || "Collapse All";
+		var expandText = $el.data("expand-text") || "Expand All";
+		$el.text(isExpanded ? collapseText : expandText);
 		$('.tile-active-show').each(function(){
-			$(this).collapse(isExpanded ? 'show' : 'hide');
+			var $collapse = $(this);
+			var targetId = this.id;
+			var $trigger = targetId ? $('[data-target="#' + targetId + '"]') : $();
+
+			if (isExpanded) {
+				// Collapse
+				$collapse.removeClass('in').css({height: 0, overflow: 'hidden'});
+				$trigger.attr('aria-expanded', 'false').addClass('collapsed');
+			} else {
+				// Expand
+				$collapse.addClass('in');
+				$collapse[0].style.removeProperty('height');
+				$collapse[0].style.removeProperty('overflow');
+				$trigger.attr('aria-expanded', 'true').removeClass('collapsed');
+			}
 		});
 		$el.data("expanded", !isExpanded);
+	});
+
+	// Filter for A-Z index pages (functions, tags, recipes, etc)
+	$("#az-filter").on('input', function() {
+		var filterText = $(this).val().toLowerCase();
+		var $tiles = $('.tile-wrap .tile');
+		var $sections = $('.tile-collapse');
+
+		if (!filterText) {
+			// Show all tiles and sections
+			$tiles.show();
+			$sections.show();
+		} else {
+			// Filter tiles
+			$tiles.each(function() {
+				var $tile = $(this);
+				var text = $tile.text().toLowerCase();
+				if (text.indexOf(filterText) !== -1) {
+					$tile.show();
+				} else {
+					$tile.hide();
+				}
+			});
+
+			// Hide empty sections
+			$sections.each(function() {
+				var $section = $(this);
+				var $visibleTiles = $section.find('.tile-active-show .tile:visible');
+				if ($visibleTiles.length > 0) {
+					$section.show();
+					// Auto-expand sections with matches
+					var $collapse = $section.find('.tile-active-show');
+					$collapse.addClass('in');
+					$collapse[0].style.removeProperty('height');
+					$collapse[0].style.removeProperty('overflow');
+				} else {
+					$section.hide();
+				}
+			});
+		}
+	});
+
+	// Filter for category pages
+	$("#category-filter").on('input', function() {
+		var filterText = $(this).val().toLowerCase();
+		var $listItems = $('.list-unstyled li');
+		var $sections = $('.list-unstyled').parent();
+
+		if (!filterText) {
+			// Show all items and section headers
+			$listItems.show();
+			$sections.find('h2').show();
+			$sections.find('ul').show();
+		} else {
+			// Filter list items
+			$listItems.each(function() {
+				var $item = $(this);
+				var text = $item.text().toLowerCase();
+				if (text.indexOf(filterText) !== -1) {
+					$item.show();
+				} else {
+					$item.hide();
+				}
+			});
+
+			// Hide empty sections
+			$sections.find('ul').each(function() {
+				var $list = $(this);
+				var $h2 = $list.prev('h2');
+				var visibleCount = $list.find('li:visible').length;
+				if (visibleCount > 0) {
+					$h2.show();
+					$list.show();
+				} else {
+					$h2.hide();
+					$list.hide();
+				}
+			});
+		}
 	});
 
 	var tReset = function () {
 		$('.tile-collapse.active').each(function() {
 			var $collapse = $('.tile-active-show', $(this));
 			if (!$collapse.hasClass('tile-active-show-still')) {
-				$collapse.collapse('hide');
+				$collapse.removeClass('in').css({height: 0, overflow: 'hidden'});
 			}
 		});
 	};

@@ -45,7 +45,7 @@ legend {
 	&.disabled,
 	fieldset[disabled] & {
 		label {
-			color: $black-hint;
+			color: var( --text-hint );
 			cursor: not-allowed;
 		}
 	}
@@ -72,19 +72,19 @@ legend {
 	background-color: transparent;
 	background-image: none;
 	border: 0;
-	border-bottom: 1px solid $black-hint;
+	border-bottom: 1px solid var( --text-hint );
 	border-radius: 0;
-	color: $black-text;
+	color: var( --text-color );
 	display: block;
 	font-size: $font-size;
 	height: $input-height;
 	line-height: $line-height;
 	padding: (($input-height - $line-height) / 2) 0 (($input-height - $line-height) / 2 - 1);
 	width: 100%;
-	@include placeholder($black-hint);
+	@include placeholder(var( --text-hint ));
 	@include transition(border-bottom-color 0.15s $timing);
 	&:focus {
-		border-color: $link-color;
+		border-color: var( --link-color );
 		border-bottom-width: 2px;
 		outline: 0;
 		padding-bottom: (($input-height - $line-height) / 2 - 2);
@@ -93,7 +93,7 @@ legend {
 	&[readonly],
 	fieldset[disabled] & {
 		border-style: dashed;
-		color: $black-hint;
+		color: var( --text-hint );
 		cursor: not-allowed;
 		opacity: 1;
 	}
@@ -104,17 +104,17 @@ legend {
 	}
 	&.form-control-default,
 	.form-control-default & {
-		border: 1px solid $black-hint;
+		border: 1px solid var( --text-hint );
 		padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
 		@include transition(none);
 		&:focus {
-			border: 1px solid $link-color;
+			border: 1px solid var( --link-color );
 			padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
 		}
 		&[disabled],
 		&[readonly],
 		fieldset[disabled] & {
-			background-color: $white-bg-dark;
+			background-color: var( --border-color );
 		}
 	}
 }
@@ -181,7 +181,7 @@ textarea.form-control {
 
 .form-control-inverse {
 	color: $white;
-	@include placeholder($white-bg);
+	@include placeholder(var( --text-hint ));
 }
 
 .form-control-static {

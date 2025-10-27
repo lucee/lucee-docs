@@ -30,7 +30,8 @@
 		</cfif>
 
 		<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
-		<link href="/assets/css/highlight.css" rel="stylesheet">
+		<link href="/assets/css/highlight.#application.assetBundleVersion#.css" rel="stylesheet" class="highlight-theme-light">
+		<link href="/assets/css/highlight-dark.#application.assetBundleVersion#.css" rel="stylesheet" class="highlight-theme-dark">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
 		<!-- ie -->
 		<!--[if lt IE 9]>
@@ -49,28 +50,28 @@
 						<hr>
 						<ul class="nav">
 							<li>
-								<a href="https://lucee.org"><span class="fa fa-fw fa-globe"></span>Lucee Website</a>
+								<a href="https://lucee.org"><span class="material-symbols-outlined">public</span>Lucee Website</a>
 							</li>
 							<li>
-								<a href="https://dev.lucee.org"><span class="fa fa-fw fa-comments"></span>Mailing List</a>
+								<a href="https://dev.lucee.org"><span class="material-symbols-outlined">forum</span>Mailing List</a>
 							</li>
 							<li>
-								<a href="https://luceeserver.atlassian.net/browse/"><span class="fa fa-fw fa-bug"></span>Issue Tracker</a>
+								<a href="https://luceeserver.atlassian.net/browse/"><span class="material-symbols-outlined">bug_report</span>Issue Tracker</a>
 							</li>
 							<li>
-								<a href="https://github.com/lucee/lucee-docs"><span class="fa fa-fw fa-github"></span>Source repository</a>
+								<a href="https://github.com/lucee/lucee-docs"><span class="material-symbols-outlined">code</span>Source repository</a>
 							</li>
 							<li>
-								<a href="https://javadoc.lucee.org"><span class="fa fa-fw fa-code"></span>JavaDocs</a>
+								<a href="https://javadoc.lucee.org"><span class="material-symbols-outlined">code</span>JavaDocs</a>
 							</li>
 							<li>
-								<a href="https://rorylaitila.gitbooks.io/lucee/content/"><span class="fa fa-fw fa-book"></span>Git Book</a>
+								<a href="https://rorylaitila.gitbooks.io/lucee/content/"><span class="material-symbols-outlined">menu_book</span>Git Book</a>
 							</li>
 							<li>
-								<a href="/download.html"><span class="fa fa-fw fa-download"></span>Download</a>
+								<a href="/download.html"><span class="material-symbols-outlined">download</span>Download</a>
 							</li>
 							<li>
-								<a href="https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA"><span class="fa fa-fw fa-youtube-play"></span>Lucee on YouTube</a>
+								<a href="https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA"><span class="material-symbols-outlined">play_circle</span>Lucee on YouTube</a>
 							</li>
 						</ul>
 					</div>
@@ -83,8 +84,8 @@
 				<li>
 					<a class="menu-toggle" href="##menu">
 						<span class="access-hide">Menu</span>
-						<span class="icon icon-menu icon-lg"></span>
-						<span class="header-close icon icon-close icon-lg"></span>
+						<span class="material-symbols-outlined">menu</span>
+						<span class="header-close material-symbols-outlined">close</span>
 					</a>
 				</li>
 			</ul>
@@ -93,8 +94,8 @@
 				<li>
 					<a class="menu-toggle" href="##search">
 						<span class="access-hide">Search</span>
-						<span class="icon icon-search icon-lg"></span>
-						<span class="header-close icon icon-close icon-lg"></span>
+						<span class="material-symbols-outlined">search</span>
+						<span class="header-close material-symbols-outlined">close</span>
 					</a>
 				</li>
 			</ul>

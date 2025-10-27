@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Breaking Changes Between Lucee 6.1 and 6.2",
+  "title": "Breaking Changes between Lucee 6.1 and 6.2",
   "id": "breaking-changes-6-1-to-6-2",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 6.1 and 6.2",
@@ -12,6 +12,8 @@
 -->
 
 # Breaking Changes between Lucee 6.1 and 6.2
+
+[[lucee_6_2_overview]]
 
 This document outlines the breaking changes introduced when upgrading from Lucee 6.1 to Lucee 6.2. Be aware of these changes when migrating your applications to ensure smooth compatibility.
 

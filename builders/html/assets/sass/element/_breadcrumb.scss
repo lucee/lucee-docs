@@ -7,19 +7,19 @@
 		display: block;
 		float: left;
 		+ li:before {
-			@extend .icon;
-			color: $black-hint;
-			content: unicode($mdicon-var-chevron-right);
+			color: var( --text-hint );
+			content: ">";  // simple ASCII greater-than for breadcrumb separator
 			display: inline-block;
 			line-height: $line-height;
 			margin-left: 0.4em;
+			padding-right: 0.4em;
 		}
 	}
 	> .active {
-		color: $black-text;
+		color: var( --text-color );
 		> a,
 		> .a {
-			color: $black-text;
+			color: var( --text-color );
 			cursor: text;
 			text-decoration: none;
 		}
@@ -36,7 +36,7 @@
 		float: left;
 		padding-right: 10px;
 		+ li.category:before {
-			color: $black-hint;
+			color: var( --text-hint );
 			display: inline-block;
 			line-height: $line-height;
 			margin-left: 0.4em;

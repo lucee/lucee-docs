@@ -138,9 +138,9 @@
   },
   {
     "file": "breaking-changes-6-0.md",
-    "title": "Breaking Changes Between Lucee 5.4 and 6.0",
+    "title": "Breaking Changes between Lucee 5.4 and 6.0",
     "path": "/docs/recipes/breaking-changes-6-0.md",
-    "hash": "c73d6f262f8702102719836e81cbd00d",
+    "hash": "13e09633e6eccff1a8dfb0de973bc28c",
     "keywords": [
       "breaking changes",
       "Lucee 5.4",
@@ -151,9 +151,9 @@
   },
   {
     "file": "breaking-changes-6-1.md",
-    "title": "Breaking Changes Between Lucee 6.0 and 6.1",
+    "title": "Breaking Changes between Lucee 6.0 and 6.1",
     "path": "/docs/recipes/breaking-changes-6-1.md",
-    "hash": "15245e87ac17cb4787ba94eaece27389",
+    "hash": "a56c2402cbe9591a4e83bc63f730e4fc",
     "keywords": [
       "breaking changes",
       "Lucee 6.0",
@@ -166,7 +166,7 @@
     "file": "breaking-changes-6-2.md",
     "title": "Breaking Changes between Lucee 6.1 and 6.2",
     "path": "/docs/recipes/breaking-changes-6-2.md",
-    "hash": "7fa1792fce5edb6581638612a53fbe23",
+    "hash": "72e66bb0411c419f85f5dc85c938ec76",
     "keywords": [
       "breaking changes",
       "Lucee 6.1",
@@ -179,7 +179,7 @@
     "file": "breaking-changes-7.0.md",
     "title": "Breaking Changes between Lucee 6.2 and 7.0",
     "path": "/docs/recipes/breaking-changes-7.0.md",
-    "hash": "3cb85ca026e0d01f671eead926549452",
+    "hash": "9832fe256eaf6919ad62ae27c55550be",
     "keywords": [
       "breaking changes",
       "Lucee 6.2",
@@ -475,7 +475,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "b8119f62b015dfe3b850018f430d6139",
+    "hash": "eeb180a118f7268a37d82ce417e39a63",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -585,7 +585,7 @@
     "file": "extension-installation.md",
     "title": "Extension Installation",
     "path": "/docs/recipes/extension-installation.md",
-    "hash": "800e0faae6679a72abc78c34cf040892",
+    "hash": "ecd0606fecd2189cff2b7333f7b0e7fa",
     "keywords": [
       "extension",
       "install",
@@ -1037,7 +1037,7 @@
     "file": "migrate.from.classic-to-modern-local-scope.md",
     "title": "Migrating from Classic to Modern Local Scope Mode",
     "path": "/docs/recipes/migrate.from.classic-to-modern-local-scope.md",
-    "hash": "b74babf65f2aeee8418fa642735d89c3",
+    "hash": "4cafb2320c000832692c787f80c47997",
     "keywords": [
       "local scope",
       "variables",
@@ -1438,7 +1438,7 @@
     "file": "single-vs-multi-mode.md",
     "title": "Single Mode vs Multi Mode in Lucee",
     "path": "/docs/recipes/single-vs-multi-mode.md",
-    "hash": "29b9656556a05a0c9f85e3cc772b665a",
+    "hash": "fe1eebeda51173fac755675d8c3d33e1",
     "keywords": [
       "Lucee",
       "Single Mode",

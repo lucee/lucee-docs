@@ -89,6 +89,7 @@ The current list of installed extensions is available via the Lucee admin.
 ##### Installation Methods
 
 ###### 1. Simple ID List
+
 A simple list of extension IDs, which will install the latest available version (SNAPSHOT or STABLE):
 
 ```plaintext
@@ -98,6 +99,7 @@ A simple list of extension IDs, which will install the latest available version 
 ```
 
 ###### 2. Detailed Specification
+
 With specific information like version and label (for better readability):
 
 ```plaintext
@@ -109,6 +111,7 @@ With specific information like version and label (for better readability):
 **It's recommended to always specify the exact version for consistent results**
 
 ###### 3. Gradle-Style Coordinates (Lucee 7.0.1+)
+
 Starting with Lucee 7.0.1, you can use Gradle/Maven-style coordinates in the format `groupId:artifactId:version`:
 
 ```plaintext
@@ -116,15 +119,18 @@ org.lucee:lucene-search-extension:3.0.0.163,
 org.lucee:redis-extension:3.0.0.56
 ```
 
-###### 4. Custom Path Parameter
+###### 4. Custom Path 
+
 You can specify a custom path to load an extension file (.lex) from a specific location using the `;path=` parameter. This must be combined with either an extension ID or gradle-style coordinates:
 
 **With Extension ID:**
+
 ```plaintext
 EFDEB172-F52E-4D84-9CD1A1F561B3DFC8;path=/local/extensions/custom-extension-2.1.0.lex
 ```
 
 **With Gradle-style coordinates (Lucee 7.0.1+):**
+
 ```plaintext
 org.lucee:lucene-search-extension:3.0.0.163;path=/opt/lucee/extensions/lucene.lex
 ```
@@ -138,6 +144,7 @@ When using the `;path=` parameter, all Lucee virtual file systems are supported 
 For complete documentation on virtual file systems and their configuration, see: [Virtual File Systems Documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/virtual-file-system.md)
 
 **Quick examples:**
+
 ```plaintext
 EFDEB172-F52E-4D84-9CD1A1F561B3DFC8;path=/opt/lucee/extensions/my-extension-1.0.0.lex
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;path=https://myserver.com/extensions/my-extension-1.0.0.lex
@@ -149,6 +156,7 @@ org.lucee:redis-extension:3.0.0.56;path=ftp://user:pass@ftp.example.com/extensio
 ##### Examples
 
 **Mixed configuration with IDs, gradle coordinates, and custom paths:**
+
 ```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;version=12.2.0.jre8,
 org.lucee:lucene-search-extension:3.0.0.163,
@@ -158,11 +166,13 @@ EFDEB172-F52E-4D84-9CD1A1F561B3DFC8;path=/local/extensions/custom-extension-2.1.
 ```
 
 **Gradle-style with custom path (Lucee 7.0.1+):**
+
 ```plaintext
 org.lucee:redis-extension:3.0.0.56;path=/opt/lucee/custom-extensions/redis.lex
 ```
 
 **Extension ID with version and custom path:**
+
 ```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;version=12.2.0.jre8;path=/custom/location/mssql.lex
 ```
@@ -172,7 +182,6 @@ org.lucee:redis-extension:3.0.0.56;path=/opt/lucee/custom-extensions/redis.lex
 - Extensions loaded via path must be valid .lex (Lucee Extension) files
 - When using virtual file systems, ensure appropriate credentials are configured (see [VFS documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/virtual-file-system.md))
 - Gradle-style coordinates (`groupId:artifactId:version`) require Lucee 7.0.1 or later
-
 
 #### LUCEE_ENABLE_BUNDLE_DOWNLOAD
 

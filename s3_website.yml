@@ -9,12 +9,25 @@ gzip:
    - .map
    - .json
    - .xml
+   - .md
    - .eot
    - .svg
    - .ttf
    - .woff
    - .woff2
    - .otf
+
+# Cache control: default 1 hour for HTML, longer for static assets
+max_age:
+  "assets/js/dist/*.js": 31536000
+  "assets/js/dist/*.map": 31536000
+  "assets/css/base.*.css": 31536000
+  "assets/css/base.*.map": 31536000
+  "assets/css/highlight*.*.css": 31536000
+  "assets/trycf/js/ace/ace-bundle.*.js": 31536000
+  "assets/fonts/*": 31536000
+  "assets/images/*": 3600
+  "*": 3600
 
 concurrency_level: 100
 # redirects:

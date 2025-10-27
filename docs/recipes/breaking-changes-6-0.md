@@ -1,7 +1,7 @@
 
 <!--
 {
-  "title": "Breaking Changes Between Lucee 5.4 and 6.0",
+  "title": "Breaking Changes between Lucee 5.4 and 6.0",
   "id": "breaking-changes-5-4-to-6-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 5.4 and 6.0",
@@ -10,7 +10,7 @@
 }
 -->
 
-# Breaking Changes Between Lucee 5.4 and 6.0
+# Breaking Changes between Lucee 5.4 and 6.0
 
 This document outlines all the breaking changes which you should be aware with when upgrading from Lucee 5.4 to Lucee 6.0. 
 

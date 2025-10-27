@@ -34,7 +34,7 @@
 }
 
 .modal-close {
-	color: $black-sec;
+	color: var( --text-secondary );
 	cursor: pointer;
 	display: block;
 	float: right;
@@ -52,8 +52,8 @@
 
 .modal-content {
 	background-clip: padding-box;
-	background-color: $white;
-	border: 1px solid transparent;
+	background-color: var( --bg-surface );
+	border: 1px solid var( --border-color );
 	border-radius: 4px;
 	outline: 0;
 	position: relative;

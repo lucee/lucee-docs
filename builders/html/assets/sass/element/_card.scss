@@ -1,10 +1,8 @@
 .card {
-	background-color: $white;
+	background-color: var( --bg-surface );
 	border-radius: 2px;
 	display: block;
 	display: -webkit-box;
-	display:    -moz-box;
-	display:     -ms-flexbox;
 	display: -webkit-flex;
 	display:         flex;
 	margin-bottom: $line-height;
@@ -16,13 +14,13 @@
 	}
 	// no boxshadow
 		.no-boxshadow & {
-			border: 1px solid $black-bg;
+			border: 1px solid var( --border-color );
 		}
 }
 
 // colour
 	.card-offwhite {
-		background-color: $white-bg;
+		background-color: var( --bg-surface );
 	}
 
 	@each $color in $palette-list {
@@ -43,7 +41,7 @@
 	}
 
 .card-action {
-	border-top: 1px solid $black-bg;
+	border-top: 1px solid var( --border-color );
 	position: relative;
 	@include clearfix();
 	&:first-child {
@@ -55,10 +53,10 @@
 		> li {
 			> a,
 			> .a {
-				color: $black-sec;
+				color: var( --text-secondary );
 				&:focus,
 				&:hover {
-					color: $link-color;
+					color: var( --link-color );
 				}
 				.card[class*="-bg"] & {
 					color: $white;
@@ -67,13 +65,13 @@
 			&.active > {
 				a,
 				.a {
-					color: $link-color;
+					color: var( --link-color );
 				}
 			}
 			&.open > {
 				a,
 				.a {
-					color: $black-text;
+					color: var( --text-color );
 				}
 			}
 		}
@@ -99,7 +97,7 @@
 	position: relative;
 	@include clearfix();
 	&:before {
-		border-bottom: 1px solid $black-bg;
+		border-bottom: 1px solid var( --border-color );
 		content: "";
 		display: block;
 		position: absolute;
@@ -177,9 +175,7 @@
 
 .card-main {
 	-webkit-box-flex: 1;
-	   -moz-box-flex: 1;
 	    -webkit-flex: 1;
-	        -ms-flex: 1;
 	            flex: 1;
 }
 
@@ -193,16 +189,16 @@
 	}
 
 .card-side {
-	background-color: $white-bg;
+	background-color: var( --bg-color );
 	border-radius: 2px 0 0 2px;
 	max-width: 33.33333%;
 	padding-right: $grid-gutter;
 	padding-left: $grid-gutter;
 	&[href] {
-		color: $black-text;
+		color: var( --text-color );
 		&:focus,
 		&:hover {
-			background-color: $white-bg-dark;
+			background-color: var( --border-color );
 			text-decoration: none;
 		}
 	}
@@ -214,8 +210,6 @@
 	&.card-side-right {
 		border-radius: 0 2px 2px 0;
 		-webkit-box-ordinal-group: 2;
-		   -moz-box-ordinal-group: 2;
-		           -ms-flex-order: 2;
 		            -webkit-order: 2;
 		                    order: 2;
 	}
@@ -223,7 +217,7 @@
 
 // colour
 	.card-offwhite .card-side {
-		background-color: $white-bg-dark;
+		background-color: var( --bg-color );
 	}
 
 	@each $color in $palette-list {

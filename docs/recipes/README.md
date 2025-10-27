@@ -36,11 +36,11 @@ Generate Abstract Syntax Trees from CFML code for analysis, transformation, and 
 
 Learn how to output the current date in Lucee.
 
-## [Breaking Changes Between Lucee 5.4 and 6.0](/docs/recipes/breaking-changes-6-0.md)
+## [Breaking Changes between Lucee 5.4 and 6.0](/docs/recipes/breaking-changes-6-0.md)
 
 A guide to breaking changes introduced in Lucee between version 5.4 and 6.0
 
-## [Breaking Changes Between Lucee 6.0 and 6.1](/docs/recipes/breaking-changes-6-1.md)
+## [Breaking Changes between Lucee 6.0 and 6.1](/docs/recipes/breaking-changes-6-1.md)
 
 A guide to breaking changes introduced in Lucee between version 6.0 and 6.1
 
@@ -418,7 +418,7 @@ How to set and use Environment Variables or System Properties to configure speci
 
 ## [Single Mode vs Multi Mode in Lucee](/docs/recipes/single-vs-multi-mode.md)
 
-Understanding the differences between single mode and multi mode in Lucee.
+Understanding the differences between Single mode and Multi mode in Lucee.
 
 ## [SQL Types](/docs/recipes/sql-types.md)
 

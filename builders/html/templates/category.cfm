@@ -36,6 +36,9 @@
 	<cfif not pages.len()>
 		<p><em>There are no pages tagged with this category.</em></p>
 	<cfelse>
+		<div style="margin-bottom: 15px;">
+			<input type="text" id="category-filter" class="form-control" placeholder="Filter..." style="max-width: 300px;">
+		</div>
 		<cfloop collection="#local.pageTypeTitles#" key="local.pageTypeKey" value="local.pageType">
 			<cfif local.pageType.pages gt 0>
 				<h2>#( local.pageType.title )#</h2>

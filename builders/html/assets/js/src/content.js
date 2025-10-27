@@ -51,8 +51,11 @@
 		var $tbl = $("#" + data.target);
 		$tbl.find('tr > *:nth-child(2)').toggle(!data.expanded);
 		$tbl.find('tr > *:nth-child(3)').toggle(!data.expanded);
-		$btn.data("expanded", !data.expanded);
-		$btn.text(data.expanded ? "Collapse All" : "Expand All");
+		var newExpanded = !data.expanded;
+		$btn.data("expanded", newExpanded);
+		var collapseText = data.collapseText || "Collapse All";
+		var expandText = data.expandText || "Expand All";
+		$btn.text(newExpanded ? collapseText : expandText);
 
 		if (!data.installed){
 			$btn.data("installed", true);
@@ -64,3 +67,79 @@
 			});
 		}
 	});
+
+	// Filter for function arguments table
+	$("#argument-filter").on('input', function() {
+		var filterText = $(this).val().toLowerCase();
+		var $rows = $("#table-arguments tbody tr");
+
+		if (!filterText) {
+			$rows.show();
+		} else {
+			$rows.each(function() {
+				var $row = $(this);
+				var text = $row.text().toLowerCase();
+				if (text.indexOf(filterText) !== -1) {
+					$row.show();
+				} else {
+					$row.hide();
+				}
+			});
+		}
+	});
+
+	// Filter for tag attributes table
+	$("#attribute-filter").on('input', function() {
+		var filterText = $(this).val().toLowerCase();
+		var $rows = $("#tag-attributes tbody tr");
+
+		if (!filterText) {
+			$rows.show();
+		} else {
+			$rows.each(function() {
+				var $row = $(this);
+				var text = $row.text().toLowerCase();
+				if (text.indexOf(filterText) !== -1) {
+					$row.show();
+				} else {
+					$row.hide();
+				}
+			});
+		}
+	});
+	// Filter for system properties/environment variables listing
+	$('#sysprop-filter').on('input', function() {
+		var filterText = $(this).val().toLowerCase();
+		var $listing = $('.sysprop-envvar-listing');
+		var $sections = $listing.find('h2');
+
+		if (!filterText) {
+			// Show all
+			$listing.find('h2, h4, p').show();
+		} else {
+			// Filter entries - each entry is h4 followed by p tags until next h4 or h2
+			$listing.find('h4').each(function() {
+				var $h4 = $(this);
+				var $entry = $h4.add($h4.nextUntil('h2, h4'));
+				var text = $entry.text().toLowerCase();
+
+				if (text.indexOf(filterText) !== -1) {
+					$entry.show();
+				} else {
+					$entry.hide();
+				}
+			});
+
+			// Hide empty category sections
+			$sections.each(function() {
+				var $h2 = $(this);
+				var visibleCount = $h2.nextUntil('h2', 'h4:visible').length;
+				if (visibleCount > 0) {
+					$h2.show();
+				} else {
+					$h2.hide();
+				}
+			});
+		}
+	});
+
