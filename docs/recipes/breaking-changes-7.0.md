@@ -18,6 +18,8 @@ This document outlines the breaking changes introduced when upgrading from Lucee
 
 Be aware of these changes when migrating your applications to ensure smooth compatibility.
 
+[[lucee_7_overview]]
+
 [7.0 Changelog](https://download.lucee.org/changelog/?version=7.0)
 
 [New Functions and Tags](https://docs.lucee.org/reference/changelog.html)
