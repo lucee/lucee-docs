@@ -6,9 +6,8 @@
 	var menuBD = document.getElementsByClassName('menu-backdrop')[0];
 
 	if (menuBD !== undefined) {
-		var menuBDTap = new Hammer(menuBD);
-
-		menuBDTap.on('tap', function(e) {
+		// Click events work for both mouse and touch on modern browsers
+		menuBD.addEventListener('click', function(e) {
 			if ($('.menu.open').length) {
 				mReset();
 			}

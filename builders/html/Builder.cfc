@@ -8,12 +8,12 @@ component {
 
 	public string function _getIssueTrackerLink(required string name) {
 		var link = Replace( variables.buildProperties.getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
-		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <span class="material-symbols-outlined">open_in_new</span></a>';
 	}
 
 	public string function _getTestCasesLink(required string name) {
 		var link = Replace( variables.buildProperties.getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
-		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <i class="fa fa-external-link"></i></a> (good for further, detailed examples)';
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <span class="material-symbols-outlined">open_in_new</span></a> (good for further, detailed examples)';
 	}
 
 	public void function build( required any docTree, required string buildDirectory, required numeric threads) {
@@ -223,11 +223,13 @@ component {
 
 			switch( page.getPageType() ){
 				case "function":
-				case "tag":
 					icon = "code";
 					break;
+				case "tag":
+					icon = "sell";
+					break;
 				default:
-					icon = "file-o";
+					icon = "description";
 			}
 
 			searchIndex.append( {
@@ -315,10 +317,18 @@ component {
 
 	private function updateHighlightsCss( required string buildDirectory ){
 		var highlighter = new api.rendering.Pygments();
+
+		// Light theme
 		var cssFile = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/css/highlight.css";
 		var css = highlighter.getCss();
 		if ( trim( css ) neq trim( fileRead( cssFile ) ) )
-			fileWrite( cssFile, highlighter.getCss() ); // only update if changed
+			fileWrite( cssFile, css );
+
+		// Dark theme
+		var cssDarkFile = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/css/highlight-dark.css";
+		var cssDark = highlighter.getCssDark();
+		if ( trim( cssDark ) neq trim( fileRead( cssDarkFile ) ) )
+			fileWrite( cssDarkFile, cssDark );
 	}
 
 	private void function _copySiteImages( required string buildDirectory, required any docTree ) {
@@ -343,7 +353,10 @@ component {
 			].toList(chr(10))
 		);
 
-		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", arguments.buildDirectory & "/editor.html" );
+		// Copy editor.html and replace asset version placeholder
+		var editorTemplate = FileRead( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html" );
+		var editorHtml = Replace( editorTemplate, "{{assetBundleVersion}}", application.assetBundleVersion, "ALL" );
+		FileWrite( arguments.buildDirectory & "/editor.html", editorHtml );
 	}
 
 	private void function _writeSearchIndex( required any docTree, required string buildDirectory ) {
@@ -536,12 +549,12 @@ component {
 
 	public string function _getIssueTrackerLink(required string name) {
 		var link = Replace( variables.buildProperties.getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
-		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <span class="material-symbols-outlined">open_in_new</span></a>';
 	}
 
 	public string function _getTestCasesLink(required string name) {
 		var link = Replace( variables.buildProperties.getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
-		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <i class="fa fa-external-link"></i></a> (good for further, detailed examples)';
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <span class="material-symbols-outlined">open_in_new</span></a> (good for further, detailed examples)';
 	}
 
 	private void function _setRecipeFileDate( required any page, required string filePath, required any docTree ) {

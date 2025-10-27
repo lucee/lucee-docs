@@ -13,11 +13,11 @@ component {
 	this.mappings[ "/builds"   ] = this.baseDir & "builds";
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
-	this.assetBundleVersion = 36;  // see parent application.cfc
-	
+	this.assetBundleVersion = 37;  // see parent application.cfc
+
 
 	public void function onApplicationStart()  {
-		application.assetBundleVersion = 36;
+		application.assetBundleVersion = 37;
 		//_addChangeWatcher();
 	}
 
@@ -229,6 +229,8 @@ component {
 	private void function _renderCodeEditor() {
 		var editorPath = "/builders/html/assets/trycf/index.html";
 		var content    = FileRead( editorPath );
+		// Replace asset version placeholder in dev mode
+		content = Replace( content, "{{assetBundleVersion}}", application.assetBundleVersion, "ALL" );
 		setting showdebugoutput="no";
 		content reset=true;echo(content);abort;
 	}

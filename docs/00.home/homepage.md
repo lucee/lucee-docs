@@ -14,7 +14,19 @@ The documentation here aims to provide a thorough reference and guide to all thi
 
 Our documentation is an open source and community driven effort. It is also a constant work in progress and we always welcome feedback, improvements and suggestions.
 
-If you're interested in contributing to Lucee as a Developer, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/6.0/CONTRIBUTING.md)
+If you're interested in contributing to Lucee as a Developer, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/7.0/CONTRIBUTING.md)
+
+## Lucee 7.0
+
+Lucee 7 is our latest release, switching to Jakarta and Single mode.
+
+[[lucee_7_overview]]
+
+[Lucee 7.0 ChangeLog](https://download.lucee.org/changelog/?version=7.0)
+
+[[breaking-changes-6-2-to-7-0]]
+
+[Form posts about Lucee 7.0](https://dev.lucee.org/tag/lucee-7)
 
 ## Recipes - Lucee Guides and Tutorials
 
@@ -38,7 +50,7 @@ To see what's new in Tags and Functions refer to [[changelog]]
 
 ## Lucee 6.2
 
-**New!** [Lucee 6.2](https://dev.lucee.org/tag/lucee-62) is our latest stable release, with enhanced Java and Maven integration, Jakarta Servlet support and better runtime performance.
+[Lucee 6.2](https://dev.lucee.org/tag/lucee-62) is our latest stable release, with enhanced Java and Maven integration, Jakarta Servlet support and better runtime performance.
 
 Lucee 6.2 up to 50% faster than Lucee 5.4, while using less memory.
 

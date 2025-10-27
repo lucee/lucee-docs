@@ -1,7 +1,7 @@
 .avatar {
-	background-color: $black-bg;
+	background-color: var( --border-color );
 	border-radius: 50%;
-	color: $black-text;
+	color: var( --text-color );
 	display: block;
 	height: ($line-height * 2);
 	line-height: ($line-height * 2);

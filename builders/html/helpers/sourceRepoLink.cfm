@@ -2,9 +2,9 @@
 
 	string function getEditLink( required string path, required boolean edit ) {
 		if (arguments.edit)
-			return '<button class="btn btn-flat pull-right local-edit-link" data-src="#arguments.path#" title="Edit"><i class="fa fa-pencil fa-fw"></i></button>';
+			return '<button class="btn btn-flat pull-right local-edit-link" data-src="#arguments.path#" title="Edit"><span class="material-symbols-outlined">edit</span></button>';
 		else
-			return '<a class="pull-right edit-link" href="#getSourceLink(arguments.path)#" title="Improve the docs"><i class="fa fa-github fa-fw"></i></a>';
+			return '<a class="pull-right edit-link" href="#getSourceLink(arguments.path)#" title="Improve the docs"><span class="material-symbols-outlined">edit</span></a>';
 	}
 
 	string function getSourceLink( required string path ) {

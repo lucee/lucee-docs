@@ -1,2 +1,4 @@
 from pygments.formatters import HtmlFormatter
-css = HtmlFormatter(style=style).get_style_defs(['.highlight']);
+# nobackground=True prevents Pygments from setting background colors
+# This allows our CSS variables to control the background via _code.scss
+css = HtmlFormatter(style=style, nobackground=True).get_style_defs(['.highlight']);
