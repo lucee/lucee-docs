@@ -11,6 +11,7 @@ component accessors=true {
 	property name="title"        type="string"  default="";
 	property name="menuTitle"    type="string"  default="";
 	property name="description"  type="string"  default="";
+	property name="extractedDescription"  type="string"  default="";
 	property name="body"         type="string"  default="";
 	property name="sortOrder"    type="numeric" default="0";
 	property name="forceSortOrder"    type="numeric" default="-1";

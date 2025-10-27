@@ -1,8 +1,18 @@
 <cfscript>
 	string function getMetaDescription( required any page, required string body ) output=false {
+		// First try explicit description from YAML frontmatter
 		var description = arguments.page.getDescription();
-		if ( len(trim(description)) eq 0 and arguments.body.len() ) {
+
+		// Fall back to extracted description from PageReader (already processed from markdown)
+		if ( !len( trim( description ) ) ) {
+			description = arguments.page.getExtractedDescription();
+		}
+
+		// Final fallback: extract from rendered HTML body (for backward compatibility)
+		if ( !len( trim( description ) ) && arguments.body.len() ) {
 			description = arguments.body;
+			// Remove edit buttons/links before processing
+			description = ReReplaceNoCase( description, '<(button|a)[^>]*class="[^"]*edit[^"]*"[^>]*>.*?</(button|a)>', '', 'all' );
 			description = ReReplaceNoCase( description, "^(.*?)</p>.*$", "\1" );
 		}
 		description = stripHtml( description );

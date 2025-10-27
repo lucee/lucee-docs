@@ -134,6 +134,12 @@ component {
 		//_extractMarkdownLinks(data.related, data.body);
 		//new api.parsers.ParserFactory().getMarkdownParser().validateMarkdown( data );
 
+		// Extract meta description from body if not explicitly set in YAML
+		// Store in separate property so it doesn't appear as custom description when editing
+		if ( !len( trim( data.description ?: "" ) ) && len( trim( data.body ?: "" ) ) ) {
+			data.extractedDescription = _extractDescriptionFromBody( data.body );
+		}
+
 		return data;
 	}
 
@@ -384,6 +390,52 @@ component {
 	private any function _getTagReferenceReader() {
 		//var buildProperties = new api.build.BuildProperties();
 		return variables.referenceReaderFactory.getTagReferenceReader();
+	}
+
+	private string function _extractDescriptionFromBody( required string body ) {
+		var description = arguments.body;
+
+		// Extract first paragraph from markdown (content before first blank line or until reasonable length)
+		var lines = ListToArray( description, chr(10) & chr(13), false, true );
+		var firstPara = "";
+
+		for ( var line in lines ) {
+			line = Trim( line );
+			// Skip empty lines at start
+			if ( !Len( line ) && !Len( firstPara ) ) {
+				continue;
+			}
+			// Stop at first empty line after content starts
+			if ( !Len( line ) && Len( firstPara ) ) {
+				break;
+			}
+			// Skip code blocks and headers
+			if ( Left( line, 3 ) == "```" || Left( line, 1 ) == "##" ) {
+				continue;
+			}
+			firstPara &= " " & line;
+		}
+
+		description = Trim( firstPara );
+
+		// Convert wiki links [[tag]] to plain text
+		description = ReReplace( description, "\[\[([^\]]+)\]\]", "\1", "all" );
+
+		// Remove markdown formatting
+		description = ReReplace( description, "\*\*([^\*]+)\*\*", "\1", "all" ); // bold
+		description = ReReplace( description, "\*([^\*]+)\*", "\1", "all" ); // italic
+		description = ReReplace( description, "`([^`]+)`", "\1", "all" ); // code
+
+		// Clean up whitespace
+		description = ReReplace( description, "\s+", " ", "all" );
+		description = Trim( description );
+
+		// Limit to reasonable length (160 chars is SEO best practice)
+		if ( Len( description ) > 160 ) {
+			description = Left( description, 157 ) & "...";
+		}
+
+		return description;
 	}
 
 }
