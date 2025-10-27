@@ -2,7 +2,7 @@
 {
   "title": "Single Mode vs Multi Mode",
   "id": "single-vs-multi-mode",
-  "description": "Understanding the differences between single mode and multi mode in Lucee.",
+  "description": "Understanding the differences between Single mode and Multi mode in Lucee.",
   "keywords": [
     "Lucee",
     "Single Mode",
@@ -11,6 +11,9 @@
   ],
   "categories": [
     "server"
+  ],
+  ["related":
+    "lucee_7_overview"
   ]
 }
 -->
@@ -27,7 +30,7 @@ Adobe Coldfusion has always been single mode and never supported multi mode.
 
 - **Lucee 5**: Only supported Multi Mode.
 - **Lucee 6**: Introduced Single Mode. New installations start in Single Mode by default. However, if upgrading from Lucee 5, the system remains in Multi Mode unless manually changed.
-- **Lucee 7**: Only supports Single mode.
+- **Lucee 7**: Only supports Single mode - [[lucee_7_overview]]
 
 A long time ago, in a galaxy far, far away...
 
