@@ -7,7 +7,7 @@
   "keywords": ["breaking changes", "Lucee 6.2", "Lucee 7.0", "migration", "upgrade"],
   "related": [
     "tag-application",
-	"single-vs-multi-mode"
+  "single-vs-multi-mode"
   ]
 }
 -->
@@ -48,6 +48,41 @@ Lucee 7.0 is now based on [Jakarta](https://jakarta.ee/). As such, Tomcat 9.0 (o
 [Lucee/script-runner](https://github.com/lucee/script-runner/releases/tag/1.2) was updated to include [jakarta.jakartaee-api](https://github.com/lucee/script-runner/commit/0b2750cdbf0af746ba40ae74a0510eeaf4de6fd1)
 
 [Javax to Jakarta Namespace Ecosystem Progress](https://jakarta.ee/blogs/javax-jakartaee-namespace-ecosystem-progress/)
+
+### Common Migration Issues and Solutions
+
+When upgrading to Lucee 7.0, you may encounter errors related to missing javax or jakarta classes. Lucee 7 provides clear, actionable error messages to help you resolve these issues quickly.
+
+#### Scenario 1: Running Lucee 7 on Jakarta Containers (Tomcat 10+) with Old Extensions
+
+**Symptom:** You see errors like:
+```
+java.lang.ClassNotFoundException: javax.servlet.jsp.tagext.TryCatchFinally not found by redis.extension
+```
+
+**Cause:** Extensions (Redis, Lucene, etc.) that were compiled against javax.servlet APIs are not compatible with Jakarta-based containers.
+
+**Solution:** Update your extensions to Jakarta-compatible versions. Check the Lucee extension marketplace or your extension provider for updated versions that support Jakarta EE.
+
+#### Scenario 2: Running Lucee 7 on Javax Containers (Tomcat 9 or earlier)
+
+**Symptom:** You see errors about missing jakarta classes:
+```
+java.lang.NoClassDefFoundError: jakarta/servlet/http/HttpServletRequest
+```
+
+**Cause:** Lucee 7 requires Jakarta EE servlet APIs, which are not present in javax-based containers like Tomcat 9.
+
+**Recommended Solution:** Upgrade to a Jakarta-based servlet container:
+- Tomcat 10.1+ (recommended)
+- Jetty 11+
+- Other Jakarta EE 9+ compatible containers
+
+**Temporary Workaround:** If you cannot immediately upgrade your servlet container, you can add Jakarta servlet APIs to your classpath:
+- Maven dependency: [jakarta.servlet-api on Maven Central](https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api)
+- Download the JAR and add it to your servlet container's `lib` directory
+
+Note: Adding Jakarta APIs is only a temporary solution. Upgrading to a Jakarta-based container is the proper long-term approach.
 
 ## Loader Change
 
