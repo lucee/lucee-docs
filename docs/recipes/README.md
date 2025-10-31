@@ -376,6 +376,10 @@ Lucee not only allows you to convert an XML file to an object tree (DOM) but als
 
 A guide on how to configure your Lucee Server for the best performance and highest security.
 
+## [Lucee Release Cycle](/docs/recipes/release-cycle.md)
+
+Documentation for Lucee's release branching and versioning strategy
+
 ## [Request Timeout](/docs/recipes/request-timeout.md)
 
 Learn how to use request timeout correctly with Lucee.

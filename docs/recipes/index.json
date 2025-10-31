@@ -1297,6 +1297,20 @@
     ]
   },
   {
+    "file": "release-cycle.md",
+    "title": "Lucee Release Cycle",
+    "path": "/docs/recipes/release-cycle.md",
+    "hash": "041e22dbe6ee084a78a383c8a2fe030d",
+    "keywords": [
+      "release",
+      "versioning",
+      "branching",
+      "development cycle",
+      "release candidate",
+      "RC"
+    ]
+  },
+  {
     "file": "request-timeout.md",
     "title": "Request Timeout",
     "path": "/docs/recipes/request-timeout.md",
