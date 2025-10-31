@@ -56,6 +56,7 @@ When upgrading to Lucee 7.0, you may encounter errors related to missing javax o
 #### Scenario 1: Running Lucee 7 on Jakarta Containers (Tomcat 10+) with Old Extensions
 
 **Symptom:** You see errors like:
+
 ```
 java.lang.ClassNotFoundException: javax.servlet.jsp.tagext.TryCatchFinally not found by redis.extension
 ```
@@ -67,6 +68,7 @@ java.lang.ClassNotFoundException: javax.servlet.jsp.tagext.TryCatchFinally not f
 #### Scenario 2: Running Lucee 7 on Javax Containers (Tomcat 9 or earlier)
 
 **Symptom:** You see errors about missing jakarta classes:
+
 ```
 java.lang.NoClassDefFoundError: jakarta/servlet/http/HttpServletRequest
 ```
@@ -74,11 +76,13 @@ java.lang.NoClassDefFoundError: jakarta/servlet/http/HttpServletRequest
 **Cause:** Lucee 7 requires Jakarta EE servlet APIs, which are not present in javax-based containers like Tomcat 9.
 
 **Recommended Solution:** Upgrade to a Jakarta-based servlet container:
+
 - Tomcat 10.1+ (recommended)
 - Jetty 11+
 - Other Jakarta EE 9+ compatible containers
 
 **Temporary Workaround:** If you cannot immediately upgrade your servlet container, you can add Jakarta servlet APIs to your classpath:
+
 - Maven dependency: [jakarta.servlet-api on Maven Central](https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api)
 - Download the JAR and add it to your servlet container's `lib` directory
 
