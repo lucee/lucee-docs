@@ -1085,6 +1085,8 @@ A boolean value. If enabled, this improves the accuracy of floating-point calcul
 
 A boolean value. If true, Lucee will not convert variable names used in "dot notation" to UPPER CASE.
 
+In Lucee 7.0.0, [this was unfortunately buggy](https://luceeserver.atlassian.net/browse/LDEV-5889)
+
 #### LUCEE_QUEUE_ENABLE
 
 *SysProp:* `-Dlucee.queue.enable`
