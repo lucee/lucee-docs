@@ -236,6 +236,22 @@ Lucee 7 adds an additional argument, `useBrackets` to control this behavior
 
 ### String member functions assume list instead of char array like Adobe
 
+In Lucee 6, string member functions were changed to iterate character by character (treating strings as character arrays) to match Adobe ColdFusion behavior.
+
+Prior to Lucee 6, these functions treated strings as delimited lists.
+
+Affected functions:
+
+- [[function-stringeach]]
+- [[function-stringmap]]
+- [[function-stringreduce]]
+- [[function-stringfilter]]
+- [[function-stringsort]]
+- [[function-stringsome]]
+- [[function-stringevery]]
+
+For list-based iteration with delimiters, use the list variants instead: [[function-listeach]], [[function-listmap]], [[function-listreduce]], etc.
+
 [LDEV-3747](https://luceeserver.atlassian.net/browse/LDEV-3747)
 
 ### Encrypt issue using Base64, invalid character [=] in base64 string at position

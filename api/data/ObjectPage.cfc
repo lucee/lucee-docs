@@ -6,6 +6,7 @@ component accessors=true extends="Page" {
 	property name="argumentType" type="string";
 	property name="arguments"    type="array";
 	property name="examples"     type="string";
+	property name="usageNotes"   type="string";
 	property name="introduced"   type="string";
 	property name="visible"      type="boolean" default="true";
 

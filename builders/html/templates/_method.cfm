@@ -70,6 +70,16 @@
 		</div>
 	</cfif>
 
+	<cfif Len( Trim( local.meth.getUsageNotes() ) ) or args.edit>
+		<div class="usage-notes">
+			<h4>Usage Notes</h4>
+			#getEditLink(path=local.meth.getSourceDir() & '_usageNotes.md', edit=args.edit)#
+			<cfif Len( Trim( local.meth.getUsageNotes() ) )>
+				#_markdownToHtml( local.meth.getUsageNotes() )#
+			</cfif>
+		</div>
+	</cfif>
+
 	<h4>Examples</h4>
 	<cfif Len( Trim( local.meth.getExamples() ) ) or args.edit>
 		#getEditLink(path=local.meth.getSourceDir() & '_examples.md', edit=args.edit)#

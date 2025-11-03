@@ -349,6 +349,11 @@ component {
 			obj.examples = FileReadAsUnix( examplesFile );
 		}
 
+		var usageNotesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_usageNotes.md";
+		if ( FileExists( usageNotesFile ) ) {
+			obj.usageNotes = FileReadAsUnix( usageNotesFile );
+		}
+
 		return obj;
 	}
 
@@ -370,6 +375,11 @@ component {
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
 		if ( FileExists( examplesFile ) ) {
 			meth.examples = FileReadAsUnix( examplesFile );
+		}
+
+		var usageNotesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_usageNotes.md";
+		if ( FileExists( usageNotesFile ) ) {
+			meth.usageNotes = FileReadAsUnix( usageNotesFile );
 		}
 
 		return meth;

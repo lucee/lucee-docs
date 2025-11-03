@@ -12,6 +12,7 @@ component accessors=true extends="Page" {
 	property name="arguments"    type="array";
 	property name="keywords"     type="array";
 	property name="examples"     type="string";
+	property name="usageNotes"   type="string";
 	property name="introduced"   type="string";
 	property name="member"       type="struct";
 	property name="alias"        type="string";
