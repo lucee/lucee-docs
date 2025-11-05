@@ -3,19 +3,19 @@ s3_secret: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
 s3_bucket: lucee-docs
 site: builds/artifacts
 gzip:
-   - .html
-   - .css
-   - .js
-   - .map
-   - .json
-   - .xml
-   - .md
-   - .eot
-   - .svg
-   - .ttf
-   - .woff
-   - .woff2
-   - .otf
+  - .html
+  - .css
+  - .js
+  - .map
+  - .json
+  - .xml
+  - .md
+  - .eot
+  - .svg
+  - .ttf
+  - .woff
+  - .woff2
+  - .otf
 
 # Cache control: default 1 hour for HTML, longer for static assets
 max_age:

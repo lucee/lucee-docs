@@ -52,6 +52,7 @@ When the team decides to prepare a release candidate, the following process occu
 ### Step 1: Create Release Branch
 
 A new release branch is created as a clone of the active branch:
+
 ```bash
 # Clone active branch to new release branch
 git checkout 7.0
@@ -63,6 +64,7 @@ The release branch is named after the patch version being released (e.g., `7.0.1
 ### Step 2: Bump Active Branch Version
 
 The active branch immediately moves to the next patch cycle:
+
 ```bash
 # On branch 7.0
 # Version changes from 7.0.1.52-SNAPSHOT to 7.0.2.0-SNAPSHOT
@@ -83,9 +85,11 @@ The release branch (`7.0.1`) enters stabilization phase:
 A release branch follows this lifecycle:
 
 ### Active Phase
+
 **Duration:** From branch creation until the release is published
 
 **Activities:**
+
 - Regression testing
 - Security fixes
 - Bug fixes for the upcoming release
@@ -94,14 +98,17 @@ A release branch follows this lifecycle:
 **Merge policy:** All changes made to the release branch are merged back into the active branch (`7.0`)
 
 ### Maintenance Phase
+
 **Duration:** From release publication until the next patch version is released
 
 **Activities:**
+
 - Urgent security fixes only
 
 **Example:** Branch `7.0.1` enters maintenance phase when version `7.0.1` is released, and remains in maintenance until version `7.0.2` is released.
 
 ### End of Life
+
 **Trigger:** When the next patch version is released
 
 **Example:** Branch `7.0.1` reaches end of life when `7.0.2` is released.
@@ -111,6 +118,7 @@ A release branch follows this lifecycle:
 **Critical Rule:** Any change committed to a release branch **must** be merged back into the active branch.
 
 This ensures that bug fixes and security patches are not lost in future releases.
+
 ```bash
 # Example: Merge changes from release branch to active branch
 git checkout 7.0
