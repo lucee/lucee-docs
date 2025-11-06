@@ -211,6 +211,8 @@ If you need EHCache, install it as an extension.
 
 These updates bring bug fixes, security patches, and better performance.
 
+Check your datasource defintions are using the latest bundle version.
+
 ## Breaking Changes
 
 For the complete list, see [[breaking-changes-6-2-to-7-0]].
