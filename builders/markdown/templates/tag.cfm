@@ -80,7 +80,7 @@
 
 			// Render attribute groups
 			for ( local.group in local.tag.getAttributeGroups() ) {
-				echo( "### " & local.group.label & chr(10) & chr(10) );
+				echo( "###### " & local.group.label & chr(10) & chr(10) );
 				if ( len( local.group.description ) ) {
 					echo( local.group.description & chr(10) & chr(10) );
 				}
