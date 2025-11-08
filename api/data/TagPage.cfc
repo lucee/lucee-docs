@@ -14,6 +14,7 @@ component accessors=true extends="Page" {
 	property name="usageNotes"           type="string";
 	property name="srcExtension"         type="struct";
 	property name="introduced"           type="string";
+	property name="attributeGroups"      type="array";
 
 	public string function getUsageSignature( boolean plainText=false ) {
 		var newLine           = Chr(10);
@@ -109,5 +110,23 @@ component accessors=true extends="Page" {
 
 	public array function getAttributes(){
 		return IsNull( this.attributes ) ? [] : this.attributes;
+	}
+
+	public boolean function hasAttributeGroups() {
+		return ArrayLen( getAttributeGroups() ) gt 0;
+	}
+
+	public array function getAttributeGroups() {
+		return IsNull( this.attributeGroups ) ? [] : this.attributeGroups;
+	}
+
+	public struct function getAttribute( required string name ) {
+		var attrs = getAttributes();
+		for( var attr in attrs ) {
+			if( attr.name == arguments.name ) {
+				return attr;
+			}
+		}
+		return {};
 	}
 }

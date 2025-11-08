@@ -62,6 +62,19 @@ component accessors=true {
 		if ( structKeyExists( variables.extensionMap, coreDefinition.name ) )
 			parsedTag.srcExtension = variables.extensionMap[ coreDefinition.name ];
 
+		// Parse attribute groups (LDEV-5901)
+		parsedTag.attributeGroups = [];
+		var groups = coreDefinition.attributeGroups ?: [];
+		for( var group in groups ) {
+			var parsedGroup = {
+				name: group.name ?: "",
+				label: group.label ?: "",
+				description: group.description ?: "",
+				attributes: ListToArray( group.attributes ?: "" )
+			};
+			parsedTag.attributeGroups.append( parsedGroup );
+		}
+
 		parsedTag.attributes = [];
 		var attribs = coreDefinition.attributes ?: {};
 		for( var attribName in attribs ) {

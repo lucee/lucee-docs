@@ -43,22 +43,82 @@
 	if ( !local.tag.getAttributes().len() ) {
 		echo( "*This tag does not use any attributes.*" & chr(10) & chr(10) );
 	} else {
-		echo( "## Attributes" & chr(10) & chr(10) );
-		echo( "| Attribute | Type | Required | Description | Default |" & chr(10) );
-		echo( "|-----------|------|----------|-------------|---------|" & chr(10) );
-
-		for ( local.attrib in local.tag.getAttributes() ) {
-			if ( local.attrib.status neq "implemented" ) {
-				continue;
+		// LDEV-5901: Check if we have attribute groups
+		if ( local.tag.hasAttributeGroups() && ArrayLen( local.tag.getAttributeGroups() ) gt 1 ) {
+			// Build a list of all attributes that are in groups
+			local.groupedAttributeNames = {};
+			for ( local.group in local.tag.getAttributeGroups() ) {
+				for ( local.attrName in local.group.attributes ) {
+					local.groupedAttributeNames[ local.attrName ] = true;
+				}
 			}
-			echo( "| " & markdownTableCell( local.attrib.name ) );
-			echo( " | " & markdownTableCell( local.attrib.type ) );
-			echo( " | " & ( local.attrib.required ? 'Yes' : 'No' ) );
-			echo( " | " & markdownTableCell( ( local.attrib.description ?: "" ) & ( structKeyExists( local.attrib, "aliases" ) && ArrayLen( local.attrib.aliases ) gt 0 ? " *Alias: " & ArrayToList( local.attrib.aliases, ", " ) & "*" : "" ) ) );
-			echo( " | " & markdownTableCell( local.attrib.defaultValue ?: "" ) );
-			echo( " |" & chr(10) );
+
+			// Find ungrouped attributes
+			local.ungroupedAttributes = [];
+			for ( local.attrib in local.tag.getAttributes() ) {
+				if ( local.attrib.status eq "implemented" && !structKeyExists( local.groupedAttributeNames, local.attrib.name ) ) {
+					arrayAppend( local.ungroupedAttributes, local.attrib );
+				}
+			}
+
+			// Render ungrouped attributes first (if any)
+			if ( arrayLen( local.ungroupedAttributes ) gt 0 ) {
+				echo( "## Attributes" & chr(10) & chr(10) );
+				echo( "| Attribute | Type | Required | Description | Default |" & chr(10) );
+				echo( "|-----------|------|----------|-------------|---------|" & chr(10) );
+
+				for ( local.attrib in local.ungroupedAttributes ) {
+					echo( "| " & markdownTableCell( local.attrib.name ) );
+					echo( " | " & markdownTableCell( local.attrib.type ) );
+					echo( " | " & ( local.attrib.required ? 'Yes' : 'No' ) );
+					echo( " | " & markdownTableCell( ( local.attrib.description ?: "" ) & ( structKeyExists( local.attrib, "aliases" ) && ArrayLen( local.attrib.aliases ) gt 0 ? " *Alias: " & ArrayToList( local.attrib.aliases, ", " ) & "*" : "" ) ) );
+					echo( " | " & markdownTableCell( local.attrib.defaultValue ?: "" ) );
+					echo( " |" & chr(10) );
+				}
+				echo( chr(10) );
+			}
+
+			// Render attribute groups
+			for ( local.group in local.tag.getAttributeGroups() ) {
+				echo( "###### " & local.group.label & chr(10) & chr(10) );
+				if ( len( local.group.description ) ) {
+					echo( local.group.description & chr(10) & chr(10) );
+				}
+				echo( "| Attribute | Type | Required | Description | Default |" & chr(10) );
+				echo( "|-----------|------|----------|-------------|---------|" & chr(10) );
+
+				for ( local.attrName in local.group.attributes ) {
+					local.attrib = local.tag.getAttribute( local.attrName );
+					if ( !isNull( local.attrib ) && !structIsEmpty( local.attrib ) && local.attrib.status eq "implemented" ) {
+						echo( "| " & markdownTableCell( local.attrib.name ) );
+						echo( " | " & markdownTableCell( local.attrib.type ) );
+						echo( " | " & ( local.attrib.required ? 'Yes' : 'No' ) );
+						echo( " | " & markdownTableCell( ( local.attrib.description ?: "" ) & ( structKeyExists( local.attrib, "aliases" ) && ArrayLen( local.attrib.aliases ) gt 0 ? " *Alias: " & ArrayToList( local.attrib.aliases, ", " ) & "*" : "" ) ) );
+						echo( " | " & markdownTableCell( local.attrib.defaultValue ?: "" ) );
+						echo( " |" & chr(10) );
+					}
+				}
+				echo( chr(10) );
+			}
+		} else {
+			// Render flat table as before (backwards compatible)
+			echo( "## Attributes" & chr(10) & chr(10) );
+			echo( "| Attribute | Type | Required | Description | Default |" & chr(10) );
+			echo( "|-----------|------|----------|-------------|---------|" & chr(10) );
+
+			for ( local.attrib in local.tag.getAttributes() ) {
+				if ( local.attrib.status neq "implemented" ) {
+					continue;
+				}
+				echo( "| " & markdownTableCell( local.attrib.name ) );
+				echo( " | " & markdownTableCell( local.attrib.type ) );
+				echo( " | " & ( local.attrib.required ? 'Yes' : 'No' ) );
+				echo( " | " & markdownTableCell( ( local.attrib.description ?: "" ) & ( structKeyExists( local.attrib, "aliases" ) && ArrayLen( local.attrib.aliases ) gt 0 ? " *Alias: " & ArrayToList( local.attrib.aliases, ", " ) & "*" : "" ) ) );
+				echo( " | " & markdownTableCell( local.attrib.defaultValue ?: "" ) );
+				echo( " |" & chr(10) );
+			}
+			echo( chr(10) );
 		}
-		echo( chr(10) );
 	}
 
 	// Usage notes
