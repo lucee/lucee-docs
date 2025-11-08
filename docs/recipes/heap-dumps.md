@@ -189,7 +189,7 @@ echo('<a href="?create=1">Create Heap Dump</a>');
 1. **Java Integration**: The code uses Lucee's built-in `HeapDumper` class to access JVM heap dump functionality
 2. **Timestamped Files**: Each dump is named with a timestamp for easy identification
 3. **Automatic Compression**: Dumps are automatically compressed to ZIP format, saving significant disk space
-4. **Web Interface**: Provides a simple UI to create, download, and delete heap dumps (never expose on production enviroments)
+4. **Web Interface**: Provides a simple UI to create, download, and delete heap dumps (never expose on production environments)
 5. **Live Objects Only**: The `dumpTo(res, true)` parameter ensures only reachable (live) objects are included, reducing file size
 
 ### Security Considerations
