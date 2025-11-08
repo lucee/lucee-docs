@@ -283,6 +283,42 @@ component {
 			}
 		}
 
+		// LDEV-5901: Merge attribute group markdown files with TLD data
+		var attributeGroups = tag.attributeGroups ?: [];
+		var attributeGroupsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributeGroups/";
+		var groupFiles = getFilesInDirectory( attributeGroupsDir );
+
+		cfloop( array=attributeGroups, item="local.group" ) {
+			if ( structKeyExists( groupFiles, local.group.name & ".md" ) ) {
+				var groupFile = attributeGroupsDir & groupFiles[ local.group.name & ".md" ];
+				var groupContent = FileReadAsUnix( groupFile );
+
+				// Parse frontmatter for label
+				if ( groupContent.trim().startsWith( "---" ) ) {
+					var parts = groupContent.split( "---" );
+					if ( arrayLen( parts ) >= 3 ) {
+						var frontmatter = parts[ 2 ].trim();
+						var body = arrayLen( parts ) > 3 ? parts.slice( 4 ).toList( "---" ) : parts[ 3 ];
+
+						// Extract label from frontmatter
+						var labelMatch = reFind( "label:\s*(.+)", frontmatter, 1, true );
+						if ( labelMatch.pos[ 2 ] > 0 ) {
+							local.group.labelOriginal = local.group.label;
+							local.group.label = mid( frontmatter, labelMatch.pos[ 2 ], labelMatch.len[ 2 ] ).trim();
+						}
+
+						// Use body as description
+						local.group.descriptionOriginal = local.group.description;
+						local.group.description = body.trim();
+					}
+				} else {
+					// No frontmatter, just override description
+					local.group.descriptionOriginal = local.group.description;
+					local.group.description = groupContent.trim();
+				}
+			}
+		}
+
 		var usageNotesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_usageNotes.md";
 		if ( FileExists( usageNotesFile ) ) {
 			tag.usageNotes = FileReadAsUnix( usageNotesFile );
