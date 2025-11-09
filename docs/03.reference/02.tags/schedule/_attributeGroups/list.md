@@ -2,4 +2,4 @@
 label: List Tasks
 ---
 
-Get all scheduled tasks
+`action="list"` - Get all scheduled tasks

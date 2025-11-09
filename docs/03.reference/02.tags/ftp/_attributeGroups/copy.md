@@ -2,4 +2,4 @@
 label: Copy File
 ---
 
-Copy file on FTP server
+`action="copy"` - Copy file on FTP server

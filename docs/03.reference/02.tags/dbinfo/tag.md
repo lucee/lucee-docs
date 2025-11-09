@@ -2,7 +2,9 @@
 title: <cfdbinfo>
 id: tag-dbinfo
 related:
+- tag-query
 categories:
+- query
 ---
 
 Lets you retrieve information about a data source, including details about the database, tables, queries, procedures, foreign keys, indexes, and version information about the database, driver, and JDBC.

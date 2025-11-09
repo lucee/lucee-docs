@@ -2,4 +2,4 @@
 label: Query Loop
 ---
 
-Iterate through query recordset
+Query loop - Iterate through query recordset

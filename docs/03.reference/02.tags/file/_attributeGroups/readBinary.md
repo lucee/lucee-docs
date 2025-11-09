@@ -2,4 +2,4 @@
 label: Read Binary File
 ---
 
-Read binary content from a file
+`action="readBinary"` - Read binary content from a file

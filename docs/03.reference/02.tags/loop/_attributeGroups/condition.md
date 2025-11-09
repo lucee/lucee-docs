@@ -2,4 +2,4 @@
 label: Conditional Loop
 ---
 
-Loop while a condition is true
+Conditional loop - Loop while a condition is true

@@ -2,4 +2,4 @@
 label: Mark as Read
 ---
 
-Mark messages as read
+`action="markRead"` - Mark messages as read

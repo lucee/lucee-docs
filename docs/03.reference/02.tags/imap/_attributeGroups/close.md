@@ -2,4 +2,4 @@
 label: Close Connection
 ---
 
-Close persistent IMAP connection
+`action="close"` - Close persistent IMAP connection

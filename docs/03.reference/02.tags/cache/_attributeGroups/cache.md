@@ -2,4 +2,4 @@
 label: Cache Page
 ---
 
-Server and client-side template caching
+`action="cache"` - Server and client-side template caching (alias `"optimal"`)

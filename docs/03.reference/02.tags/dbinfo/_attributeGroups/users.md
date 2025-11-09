@@ -2,4 +2,4 @@
 label: Database Users
 ---
 
-List database users
+`type="users"` - List database users

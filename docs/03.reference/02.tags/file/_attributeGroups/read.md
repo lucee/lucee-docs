@@ -2,4 +2,4 @@
 label: Read File
 ---
 
-Read text content from a file
+`action="read"` - Read text content from a file

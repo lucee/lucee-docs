@@ -2,4 +2,4 @@
 label: Delete Folder
 ---
 
-Delete IMAP folder
+`action="deleteFolder"` - Delete IMAP folder

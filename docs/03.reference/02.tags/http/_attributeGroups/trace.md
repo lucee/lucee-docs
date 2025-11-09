@@ -2,4 +2,4 @@
 label: TRACE Request
 ---
 
-Diagnostic method for request/response chain
+`method="trace"` - Diagnostic method for request/response chain

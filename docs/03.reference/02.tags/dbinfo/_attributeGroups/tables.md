@@ -2,4 +2,4 @@
 label: Table Information
 ---
 
-Get information about all tables
+`type="tables"` - Get information about all tables

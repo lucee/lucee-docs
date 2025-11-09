@@ -2,4 +2,4 @@
 label: Times Loop
 ---
 
-Loop a specific number of times
+Times loop - Loop a specific number of times

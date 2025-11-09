@@ -2,4 +2,4 @@
 label: Delete Messages
 ---
 
-Delete email messages from POP server
+`action="delete"` - Delete email messages from POP server

@@ -2,4 +2,4 @@
 label: PATCH Request
 ---
 
-Partially update existing resource
+`method="patch"` - Partially update existing resource

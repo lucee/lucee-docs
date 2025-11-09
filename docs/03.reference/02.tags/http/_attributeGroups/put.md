@@ -2,4 +2,4 @@
 label: PUT Request
 ---
 
-Upload/replace resource on server
+`method="put"` - Upload/replace resource on server

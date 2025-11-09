@@ -2,4 +2,4 @@
 label: Version Information
 ---
 
-Get database version info
+`type="version"` - Get database version info

@@ -2,4 +2,4 @@
 label: Rename Folder
 ---
 
-Rename IMAP folder
+`action="renameFolder"` - Rename IMAP folder

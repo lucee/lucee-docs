@@ -2,4 +2,4 @@
 label: Move Messages
 ---
 
-Move messages to different folder
+`action="moveMail"` - Move messages to different folder

@@ -2,4 +2,4 @@
 label: Run Task
 ---
 
-Execute a scheduled task immediately
+`action="run"` - Execute a scheduled task immediately

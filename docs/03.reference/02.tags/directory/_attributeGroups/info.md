@@ -2,4 +2,4 @@
 label: Get Directory Info
 ---
 
-Retrieve directory metadata
+`action="info"` - Retrieve directory metadata

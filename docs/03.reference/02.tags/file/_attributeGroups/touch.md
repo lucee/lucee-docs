@@ -2,4 +2,4 @@
 label: Touch File
 ---
 
-Create empty file or update timestamp
+`action="touch"` - Create empty file or update timestamp

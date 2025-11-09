@@ -2,4 +2,4 @@
 label: Pause Task
 ---
 
-Pause execution of a scheduled task
+`action="pause"` - Pause execution of a scheduled task

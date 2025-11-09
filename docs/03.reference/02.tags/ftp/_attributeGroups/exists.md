@@ -2,4 +2,4 @@
 label: Check Exists
 ---
 
-Check if file or directory exists
+`action="exists"` - Check if file or directory exists

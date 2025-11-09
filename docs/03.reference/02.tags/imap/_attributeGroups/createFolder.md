@@ -2,4 +2,4 @@
 label: Create Folder
 ---
 
-Create new IMAP folder
+`action="createFolder"` - Create new IMAP folder

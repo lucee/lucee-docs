@@ -2,4 +2,4 @@
 label: Open Connection
 ---
 
-Open persistent IMAP connection
+`action="open"` - Open persistent IMAP connection

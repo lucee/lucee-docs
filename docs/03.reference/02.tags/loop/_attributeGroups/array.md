@@ -2,4 +2,4 @@
 label: Array Loop
 ---
 
-Iterate through array elements
+Array loop - Iterate through array elements

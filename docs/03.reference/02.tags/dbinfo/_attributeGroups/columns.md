@@ -2,4 +2,4 @@
 label: Column Information
 ---
 
-Get column info with FK/PK relationships
+`type="columns"` - Get column info with FK/PK relationships

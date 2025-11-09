@@ -2,4 +2,4 @@
 label: List Directory
 ---
 
-Get directory contents
+`action="list"` - Get directory contents

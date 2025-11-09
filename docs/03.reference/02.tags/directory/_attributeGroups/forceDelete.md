@@ -2,4 +2,4 @@
 label: Force Delete Directory
 ---
 
-Force delete a directory and all contents
+`action="forceDelete"` - Force delete a directory and all contents

@@ -2,4 +2,4 @@
 label: Get Full Messages
 ---
 
-Retrieve complete email messages
+`action="getAll"` - Retrieve complete email messages

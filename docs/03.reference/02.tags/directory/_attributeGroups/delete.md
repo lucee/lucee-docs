@@ -2,4 +2,4 @@
 label: Delete Directory
 ---
 
-Delete a directory
+`action="delete"` - Delete a directory

@@ -2,4 +2,4 @@
 label: Close Connection
 ---
 
-Close FTP connection
+`action="close"` - Close FTP connection

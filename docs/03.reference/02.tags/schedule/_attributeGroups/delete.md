@@ -2,4 +2,4 @@
 label: Delete Task
 ---
 
-Remove a scheduled task
+`action="delete"` - Remove a scheduled task
