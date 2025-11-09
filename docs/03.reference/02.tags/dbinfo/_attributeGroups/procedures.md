@@ -2,4 +2,4 @@
 label: Stored Procedures
 ---
 
-Get information about all procedures
+`type="procedures"` - Get information about all procedures

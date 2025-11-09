@@ -2,4 +2,4 @@
 label: GET Request
 ---
 
-Retrieve content from a URL
+`method="get"` - Retrieve content from a URL

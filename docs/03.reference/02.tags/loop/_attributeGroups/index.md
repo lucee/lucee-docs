@@ -2,4 +2,4 @@
 label: Index Loop
 ---
 
-Loop with a counter from/to/step
+Index loop - Loop with a counter from/to/step

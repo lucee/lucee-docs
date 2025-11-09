@@ -2,4 +2,4 @@
 label: Open Connection
 ---
 
-Open persistent FTP connection
+`action="open"` - Open persistent FTP connection

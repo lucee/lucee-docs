@@ -2,4 +2,4 @@
 label: Get Headers
 ---
 
-Retrieve email headers without body
+`action="getHeaderOnly"` - Retrieve email headers without body

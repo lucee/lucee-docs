@@ -100,6 +100,29 @@
 				}
 				echo( chr(10) );
 			}
+
+			// Collect and render unimplemented attributes (if any)
+			local.unimplementedAttributes = [];
+			for ( local.attrib in local.tag.getAttributes() ) {
+				if ( local.attrib.status neq "implemented" ) {
+					arrayAppend( local.unimplementedAttributes, local.attrib );
+				}
+			}
+			if ( arrayLen( local.unimplementedAttributes ) gt 0 ) {
+				echo( "###### Unimplemented Attribute(s)" & chr(10) & chr(10) );
+				echo( "| Attribute | Type | Required | Description | Default |" & chr(10) );
+				echo( "|-----------|------|----------|-------------|---------|" & chr(10) );
+
+				for ( local.attrib in local.unimplementedAttributes ) {
+					echo( "| " & markdownTableCell( local.attrib.name ) );
+					echo( " | " & markdownTableCell( local.attrib.type ) );
+					echo( " | " & ( local.attrib.required ? 'Yes' : 'No' ) );
+					echo( " | " & markdownTableCell( ( local.attrib.description ?: "" ) & ( structKeyExists( local.attrib, "aliases" ) && ArrayLen( local.attrib.aliases ) gt 0 ? " *Alias: " & ArrayToList( local.attrib.aliases, ", " ) & "*" : "" ) & " *" & local.attrib.status & "*" ) );
+					echo( " | " & markdownTableCell( local.attrib.defaultValue ?: "" ) );
+					echo( " |" & chr(10) );
+				}
+				echo( chr(10) );
+			}
 		} else {
 			// Render flat table as before (backwards compatible)
 			echo( "## Attributes" & chr(10) & chr(10) );

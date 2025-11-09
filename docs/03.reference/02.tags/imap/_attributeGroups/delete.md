@@ -2,4 +2,4 @@
 label: Delete Messages
 ---
 
-Delete email messages
+`action="delete"` - Delete email messages

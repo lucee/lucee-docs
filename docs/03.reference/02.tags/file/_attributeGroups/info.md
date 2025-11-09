@@ -2,4 +2,4 @@
 label: Get File Info
 ---
 
-Retrieve file metadata
+`action="info"` - Retrieve file metadata

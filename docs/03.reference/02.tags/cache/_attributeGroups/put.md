@@ -2,4 +2,4 @@
 label: Put to Object Cache
 ---
 
-Store value in object cache
+`action="put"` - Store value in object cache

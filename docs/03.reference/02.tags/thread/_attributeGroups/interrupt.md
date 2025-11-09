@@ -2,4 +2,4 @@
 label: Interrupt Thread
 ---
 
-Request cooperative termination of a thread
+`action="interrupt"` - Request cooperative termination of a thread

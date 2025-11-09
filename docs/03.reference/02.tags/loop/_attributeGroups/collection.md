@@ -2,4 +2,4 @@
 label: Collection/Struct Loop
 ---
 
-Iterate through struct keys and values
+Collection/Struct loop - Iterate through struct keys and values (aliases: `key`/`value`, `struct`)

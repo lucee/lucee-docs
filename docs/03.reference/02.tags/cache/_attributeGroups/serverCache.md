@@ -2,4 +2,4 @@
 label: Server-Side Cache
 ---
 
-Server-side caching only
+`action="serverCache"` - Server-side caching only

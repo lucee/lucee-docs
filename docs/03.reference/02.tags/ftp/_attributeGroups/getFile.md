@@ -2,4 +2,4 @@
 label: Download File
 ---
 
-Download file from FTP server
+`action="getFile"` - Download file from FTP server

@@ -2,4 +2,4 @@
 label: Index Information
 ---
 
-Get index information
+`type="index"` - Get index information

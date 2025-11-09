@@ -2,4 +2,4 @@
 label: Upload File
 ---
 
-Handle file uploads from forms
+`action="upload"` - Handle file uploads from forms

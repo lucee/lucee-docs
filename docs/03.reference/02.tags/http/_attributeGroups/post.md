@@ -2,4 +2,4 @@
 label: POST Request
 ---
 
-Send data to a server
+`method="post"` - Send data to a server

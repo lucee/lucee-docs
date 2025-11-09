@@ -2,4 +2,4 @@
 label: Change Directory
 ---
 
-Change current directory on FTP server
+`action="changeDir"` - Change current directory on FTP server

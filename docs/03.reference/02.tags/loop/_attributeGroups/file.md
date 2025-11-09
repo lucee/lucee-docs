@@ -2,4 +2,4 @@
 label: File Loop
 ---
 
-Read file line by line
+File loop - Read file line by line (aliases: `from`/`to` for `startLine`/`endLine`)

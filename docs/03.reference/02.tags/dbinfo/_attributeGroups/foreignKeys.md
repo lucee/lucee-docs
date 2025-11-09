@@ -2,4 +2,4 @@
 label: Foreign Keys
 ---
 
-Get foreign key information
+`type="foreignKeys"` - Get foreign key information

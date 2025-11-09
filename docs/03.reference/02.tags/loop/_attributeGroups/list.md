@@ -2,4 +2,4 @@
 label: List Loop
 ---
 
-Iterate through delimited strings
+List loop - Iterate through delimited strings

@@ -2,4 +2,4 @@
 label: Get Current Directory
 ---
 
-Get current working directory path
+`action="getCurrentDir"` - Get current working directory path

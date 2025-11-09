@@ -2,4 +2,4 @@
 label: Rename Directory
 ---
 
-Rename a directory
+`action="rename"` - Rename a directory

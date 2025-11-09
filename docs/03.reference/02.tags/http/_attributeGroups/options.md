@@ -2,4 +2,4 @@
 label: OPTIONS Request
 ---
 
-Get allowed methods for resource
+`method="options"` - Get allowed methods for resource

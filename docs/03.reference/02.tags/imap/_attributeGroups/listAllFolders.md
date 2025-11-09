@@ -2,4 +2,4 @@
 label: List Folders
 ---
 
-Get list of all folders
+`action="listAllFolders"` - Get list of all folders

@@ -2,4 +2,4 @@
 label: Vendor Terms
 ---
 
-Get vendor preferred terminology
+`type="terms"` - Get vendor preferred terminology

@@ -2,4 +2,4 @@
 label: Flush Cache
 ---
 
-Clear cached pages
+`action="flush"` - Clear cached pages

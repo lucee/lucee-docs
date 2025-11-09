@@ -2,4 +2,4 @@
 label: Remove Directory
 ---
 
-Remove directory from FTP server
+`action="removeDir"` - Remove directory from FTP server

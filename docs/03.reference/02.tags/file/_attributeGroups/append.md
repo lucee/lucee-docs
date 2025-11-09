@@ -2,4 +2,4 @@
 label: Append to File
 ---
 
-Append content to existing file
+`action="append"` - Append content to existing file

@@ -2,4 +2,4 @@
 label: Create/Update Task
 ---
 
-Create or update a scheduled task
+`action="update"` - Create or update a scheduled task

@@ -2,4 +2,4 @@
 label: Delete File
 ---
 
-Delete a file
+`action="delete"` - Delete a file

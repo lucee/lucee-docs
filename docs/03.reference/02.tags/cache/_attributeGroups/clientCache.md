@@ -2,4 +2,4 @@
 label: Client-Side Cache
 ---
 
-Browser-side caching only
+`action="clientCache"` - Browser-side caching only

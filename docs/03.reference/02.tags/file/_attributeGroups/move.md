@@ -2,4 +2,4 @@
 label: Move/Rename File
 ---
 
-Move or rename a file
+`action="move"` (alias `"rename"`) - Move or rename a file

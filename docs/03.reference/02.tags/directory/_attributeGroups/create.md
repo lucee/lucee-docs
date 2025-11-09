@@ -2,4 +2,4 @@
 label: Create Directory
 ---
 
-Create a new directory
+`action="create"` - Create a new directory

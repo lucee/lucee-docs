@@ -2,4 +2,4 @@
 label: Get Current URL
 ---
 
-Get current working directory as URL
+`action="getCurrentUrl"` - Get current working directory as URL

@@ -2,4 +2,4 @@
 label: HEAD Request
 ---
 
-Retrieve headers only, no body content
+`method="head"` - Retrieve headers only, no body content

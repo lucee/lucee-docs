@@ -2,4 +2,4 @@
 label: Sleep Thread
 ---
 
-Pause the current thread for a specified duration
+`action="sleep"` - Pause the current thread for a specified duration

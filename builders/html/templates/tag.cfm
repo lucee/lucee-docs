@@ -158,6 +158,55 @@
 					</table>
 				</div>
 			</cfloop>
+
+			<!--- Collect and render unimplemented attributes (if any) --->
+			<cfset local.unimplementedAttribs = []>
+			<cfloop array="#local.tag.getAttributes()#" item="local.attrib">
+				<cfif local.attrib.status neq "implemented">
+					<cfset arrayAppend( local.unimplementedAttribs, local.attrib )>
+				</cfif>
+			</cfloop>
+			<cfif ArrayLen( local.unimplementedAttribs ) gt 0>
+				<h4>Unimplemented Attribute(s)</h4>
+				<div class="table-responsive">
+					<table class="table attributes">
+						<thead>
+							<tr>
+								<th>Attribute</th>
+								<th>Description</th>
+								<cfif local.attributesHaveDefaultValues><th>Default</th></cfif>
+							</tr>
+						</thead>
+						<tbody>
+							<cfloop array="#local.unimplementedAttribs#" item="local.attrib">
+								<tr>
+									<td translate="no">
+										<div class="attribute" id="attribute-#local.attrib.name#">#local.attrib.name#</div>
+										<sub>#local.attrib.type#, #( local.attrib.required ? 'required' : 'optional' )#</sub>
+									</td>
+									<td>
+										#getEditLink(path=local.tag.getSourceDir() & '_attributes/#local.attrib.name#.md', edit=args.edit)#
+										#_markdownToHtml( local.attrib.description ?: "" )#
+										<cfif structKeyExists(local.attrib, "aliases") && Arraylen(local.attrib.aliases) gt 0>
+											<p title="for compatibility, this attribute has the following alias(es)"><sub>Alias:
+											<span translate="no">#ArrayToList(local.attrib.aliases,", ")#</span></sub></p>
+										</cfif>
+										<cfif structKeyExists(local.attrib, "status") and local.attrib.status neq "implemented">
+											<em>* #local.attrib.status# *</em>
+										</cfif>
+										#showOriginalDescription(props=local.attrib, edit=args.edit, _markdownToHtml=_markdownToHtml)#
+									</td>
+									<cfif local.attributesHaveDefaultValues>
+										<td translate="no">
+											#_markdownToHtml( local.attrib.defaultValue ?: "" )#
+										</td>
+									</cfif>
+								</tr>
+							</cfloop>
+						</tbody>
+					</table>
+				</div>
+			</cfif>
 		<cfelse>
 			<!--- Render flat table as before (backwards compatible) --->
 			<div class="table-responsive">

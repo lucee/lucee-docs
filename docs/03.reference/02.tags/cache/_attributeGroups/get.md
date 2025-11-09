@@ -2,4 +2,4 @@
 label: Get Cached Object
 ---
 
-Retrieve value from object cache
+`action="get"` - Retrieve value from object cache

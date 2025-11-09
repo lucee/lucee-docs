@@ -2,4 +2,4 @@
 label: Copy Directory
 ---
 
-Copy directory to new location
+`action="copy"` - Copy directory to new location

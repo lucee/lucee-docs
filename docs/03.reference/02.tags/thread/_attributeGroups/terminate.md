@@ -2,4 +2,4 @@
 label: Terminate Thread
 ---
 
-Forcibly stop a thread immediately
+`action="terminate"` - Forcibly stop a thread immediately

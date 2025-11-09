@@ -2,4 +2,4 @@
 label: DELETE Request
 ---
 
-Remove resource from server
+`method="delete"` - Remove resource from server

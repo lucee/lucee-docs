@@ -2,4 +2,4 @@
 label: Check File Exists
 ---
 
-Check if file exists
+`action="existsFile"` - Check if file exists

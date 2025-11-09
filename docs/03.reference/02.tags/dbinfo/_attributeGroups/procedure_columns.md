@@ -2,4 +2,4 @@
 label: Procedure Columns
 ---
 
-Get column info for a procedure
+`type="procedure_columns"` - Get column info for a procedure

@@ -2,4 +2,4 @@
 label: Database Names
 ---
 
-Get database name and type
+`type="dbNames"` - Get database name and type

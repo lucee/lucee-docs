@@ -2,4 +2,4 @@
 label: Remove File
 ---
 
-Remove file from FTP server
+`action="remove"` - Remove file from FTP server
