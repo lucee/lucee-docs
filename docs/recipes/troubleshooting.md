@@ -69,7 +69,7 @@ Lucee will automatically recreate it on startup.
 
 The best first step when debugging a Lucee Server is start Tomcat manually, in a Terminal, as opposed to auto starting or running as service/daemon.
 
-In the `tomcat/bin` directory, there's a bash/batch file called `catalina.sh` or `catalina.bat` which can be run with the run option, i.e `./cataline.sh run` or `catalina run`
+In the `tomcat/bin` directory, there's a bash/batch file called `catalina.sh` or `catalina.bat` which can be run with the run option, i.e `./catalina.sh run` or `catalina run`
 
 By default, this will show all the `catalina.log` information in the console.
 
