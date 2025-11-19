@@ -132,6 +132,10 @@ Guide on using and running Lucee with Docker
 
 Learn about the improvements to dynamic proxy creation in Lucee 7, including automatic inclusion of component functions and properties when implementing Java interfaces.
 
+## [DynamoDB Cache Extension](/docs/recipes/dynamodb-cache-extension.md)
+
+Documentation for using Amazon DynamoDB as a cache provider in Lucee
+
 ## [Encryption/Decryption](/docs/recipes/encryption_decryption.md)
 
 This document explains about Encryption/Decryption with public and private keys with simple examples.
