@@ -12,24 +12,41 @@
 	q = QueryNew("type,ref,name,introduced,sort,description");
 
 	function addChangeLog(q, page, ref, name, introduced, description){
-		// systemOutput( "addChangeLog: ref=[#arguments.ref#], name=[#arguments.name#], introduced=[#arguments.introduced#]", true ); // Debug logging
-		var r = queryAddRow(q);
-		querySetCell(q,"type", arguments.page.getPageType());
-		querySetCell(q,"ref", arguments.ref);
-		querySetCell(q,"name", arguments.name);
-		querySetCell(q,"introduced", arguments.introduced);
+    // systemOutput( "addChangeLog: ref=[#arguments.ref#], name=[#arguments.name#], introduced=[#arguments.introduced#]", true ); // Debug logging
+    var r = queryAddRow(q);
+    querySetCell(q,"type", arguments.page.getPageType());
+    
+    // Format reference based on page type
+    var formattedRef = arguments.ref;
+    if (arguments.page.getPageType() == "function") {
+        if (arguments.ref contains "function-") {
+            formattedRef = replaceNocase(arguments.ref, "function-", "functions/");
+        } else {
+            formattedRef = "functions/" & arguments.ref;
+        }
+    } else if (arguments.page.getPageType() == "tag") {
+        if (arguments.ref contains "tag-") {
+            formattedRef = replaceNocase(arguments.ref, "tag-", "tags/");
+        } else {
+            formattedRef = "tags/" & arguments.ref;
+        }
+    }
+    
+    querySetCell(q,"ref", formattedRef);
+    querySetCell(q,"name", arguments.name);
+    querySetCell(q,"introduced", arguments.introduced);
 
-		var sort=[];
-		var intro = [];
-		loop list="#arguments.introduced#" delimiters="." item="local.v" {
-			if (v eq "000") v = 0;
-			arrayAppend(sort, numberFormat(v, "0000"));
-			arrayAppend(intro, v);
-		}
-		querySetCell(q,"introduced", intro.toList("."));
-		querySetCell(q,"sort", sort.toList(""));
-		querySetCell(q,"description", arguments.description);
-	}
+    var sort=[];
+    var intro = [];
+    loop list="#arguments.introduced#" delimiters="." item="local.v" {
+        if (v eq "000") v = 0;
+        arrayAppend(sort, numberFormat(v, "0000"));
+        arrayAppend(intro, v);
+    }
+    querySetCell(q,"introduced", intro.toList("."));
+    querySetCell(q,"sort", sort.toList(""));
+    querySetCell(q,"description", arguments.description);
+}
 </cfscript>
 
 <cfloop collection="#pc#" key="key" value="value">
@@ -93,21 +110,21 @@
 
 <ul>
 <cfoutput query=q group="introduced">
-	<li>
-		#q.introduced#
-		<ul>
-		<cfoutput>
-			<li>
-				<a href="#q.ref#.html">
-				<cfif len(q.description)>
-					#q.description#
-				<cfelse>
-					#htmlEditFormat(q.name)#
-				</cfif>
-				</a>
-			</li>
-		</cfoutput>
-		</ul>
-	</li>
+    <li>
+        #q.introduced#
+        <ul>
+        <cfoutput>
+            <li>
+                <a href="reference/#q.ref#.html">
+                <cfif len(q.description)>
+                    #q.description#
+                <cfelse>
+                    #htmlEditFormat(q.name)#
+                </cfif>
+                </a>
+            </li>
+        </cfoutput>
+        </ul>
+    </li>
 </cfoutput>
 </ul>
