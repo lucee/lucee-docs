@@ -283,7 +283,7 @@ If the session is dirty (changes detected), you can use [[function-sessionCommit
 
 With `sessionCluster` enabled, when a change in the session is detected, the change will be written out at the end of the request.
 
-The change detection, for performance reasons, does not do a deep inspection of nested objects or components. It only checks the two top level values in the session scope, deeply nested changes will not be detected, as this is expensive (happens every request).
+The change detection, for performance reasons, does not do a deep inspection of nested objects or components. It only checks the top level values in the session scope for change, deeply nested or changes inside persisted components will not be detected, as this is complicated / expensive and happens at the end of every request.
 
 Storing components in the session scope is not **recommended**, it's expensive to check for changes and it adds per request overhead serializing/deserializing (read/write) and increases the stored session size. 
 
