@@ -309,3 +309,9 @@ Best practices for session handling:
 6. Avoid storing components in the session scope, store simple values
 
 Since Lucee 6.2, empty sessions are only kept for up to a minute, independent of the storage used, to optimize resource usage.
+
+# Troubleshooting Sessions
+
+Lucee has a `scope.log` which when set to **DEBUG** (default is ERROR) logs out very detailed information about session handling.
+
+See [[troubleshooting]] for how to run Luceee interactively with logging to the console.
