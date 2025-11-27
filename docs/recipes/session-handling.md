@@ -37,7 +37,7 @@ This document explains how session handling works in Lucee and covers configurat
 
 Lucee allows use of 2 types of sessions:
 
--  "jee" - The session provided and managed by the ServletEngine, also known as "JSession"
+- "jee" - The session provided and managed by the ServletEngine, also known as "JSession"
 - "cfml" - The Sessions provided and managed by Lucee
 
 You can define the type used in the Lucee Administrator or .CFConfig.json like this:
@@ -202,7 +202,7 @@ public void function logout() {
 }
 ```
 
-### Rotating session coookies
+### Rotating session cookies
 
 The [[function-sessionRotate]] function creates a new session (i.e. with a fresh session token) and copies over existing session data and invalidating the old session token:
 
@@ -221,7 +221,7 @@ if (authentication.success) {
 
 ## Security
 
-The Session is linked with help of the key "CFID" that can be in the URL of the cookie of the user (the key "CFTOKEN" is not used by Lucee and only exists for compatibility with other CFML engines).
+The Session is linked with help of the key "CFID" that can be in the URL of the cookie of the request (the key "CFTOKEN" is not used by Lucee and only exists for compatibility with other CFML engines).
 
 Lucee first checks for "CFID" in the URL and only if not exists in the URL it looks for it in the cookie scope.
 
@@ -269,6 +269,26 @@ The client identification is derived from:
 2. If not available, falls back to accept header
 3. If no identifying information is available, reverts to standard CFID generation
 
+## Session Change Detection
+
+If you are using just the local memory based sessions, there is no change detection required / performed.
+
+When using `sessionCluster` or an external cache, Lucee needs to track what has changed (which has overhead), to know whether the external cache needs to be updated.
+
+For performance, Lucee does not constantly write back to the external cache, it enumerates the session scope to detect changes and periodically updates the cache, when it's changed / aka dirty.
+
+If you aren't using `sessionCluster`, Lucee doesn't update the external cache on every change, it periodically writes out the session to the cache. 
+
+If the session is dirty (changes detected), you can use [[function-sessionCommit]] to force this write immediately.
+
+With `sessionCluster` enabled, when a change in the session is detected, the change will be written out at the end of the request.
+
+The change detection, for performance reasons, does not do a deep inspection of nested objects or components. It only checks the two top level values in the session scope, deeply nested changes will not be detected, as this is expensive (happens every request).
+
+Storing components in the session scope is not **recommended**, it's expensive to check for changes and it adds per request overhead serializing/deserializing (read/write) and increases the stored session size. 
+
+Rather store the instance values in the session and have a component wrapper around which reads from such session properties. Such a component wrapper is loaded into the JVM memory as a class and is therefore instantly available.
+
 ## Best Practices
 
 Lucee tries to avoid creating sessions whenever possible. It only creates a session when:
@@ -286,5 +306,6 @@ Best practices for session handling:
 3. Consider security implications when choosing between URL and cookie-based session tracking
 4. Implement session rotation after authentication state changes
 5. Set appropriate timeout values based on your application's requirements
+6. Avoid storing components in the session scope, store simple values
 
 Since Lucee 6.2, empty sessions are only kept for up to a minute, independent of the storage used, to optimize resource usage.
