@@ -55,6 +55,7 @@ DynamoDB is Amazon's fully managed NoSQL database service that provides fast and
 ### Via Application.cfc
 
 Configure the cache at the application level in your `Application.cfc`:
+
 ```javascript
 this.name = "myApp";
 
@@ -79,6 +80,7 @@ this.caches = {
 ### Via .CFConfig.json
 
 For server-wide configuration, add the cache definition to your `.CFConfig.json` file located at `{lucee-server}/context/.CFConfig.json`:
+
 ```json
 {
   "caches": {
@@ -144,6 +146,7 @@ For server-wide configuration, add the cache definition to your `.CFConfig.json`
 ## Configuration Examples
 
 ### Production Configuration (AWS)
+
 ```javascript
 this.caches = {
     "dynamodb": {
@@ -164,6 +167,7 @@ this.caches = {
 ```
 
 ### Development Configuration (DynamoDB Local)
+
 ```javascript
 this.caches = {
     "dynamodb": {
@@ -187,6 +191,7 @@ this.caches = {
 ### EC2/ECS Configuration (IAM Roles)
 
 When running on EC2 or ECS with IAM roles, you don't need to provide credentials:
+
 ```javascript
 this.caches = {
     "dynamodb": {
@@ -210,6 +215,7 @@ Once configured, you can use all standard Lucee cache functions with your Dynamo
 ### Basic Operations
 
 #### Store Data in Cache
+
 ```javascript
 // Simple string value
 cachePut(id="user_session_123", value="active", cacheName="dynamodb");
@@ -235,6 +241,7 @@ cachePut(
 ```
 
 #### Retrieve Data from Cache
+
 ```javascript
 // Get value (throws error if not found)
 var sessionData = cacheGet(id="user_session_123", cacheName="dynamodb");
@@ -253,6 +260,7 @@ if(cacheIdExists(id="user_session_123", cacheName="dynamodb")) {
 ```
 
 #### Delete from Cache
+
 ```javascript
 // Delete single item
 cacheDelete(id="user_session_123", cacheName="dynamodb");
@@ -267,6 +275,7 @@ cacheClear(cacheName="dynamodb");
 ### Advanced Operations
 
 #### Working with Multiple Items
+
 ```javascript
 // Get all cache IDs
 var allIds = cacheGetAllIds(cacheName="dynamodb");
@@ -283,6 +292,7 @@ var totalItems = cacheCount(cacheName="dynamodb");
 ```
 
 #### Cache Metadata
+
 ```javascript
 // Get metadata for a cache entry
 var metadata = cacheGetMetadata(id="user_profile_456", cacheName="dynamodb");
@@ -298,6 +308,7 @@ var metadata = cacheGetMetadata(id="user_profile_456", cacheName="dynamodb");
 ### Data Type Support
 
 The DynamoDB cache extension supports all native Lucee data types:
+
 ```javascript
 // Strings
 cachePut(id="key1", value="Simple string", cacheName="dynamodb");
@@ -332,6 +343,7 @@ cachePut(id="key7", value=qryData, cacheName="dynamodb");
 The DynamoDB extension fully supports cache expiration using DynamoDB's native TTL feature.
 
 ### Setting Expiration
+
 ```javascript
 // Expire after 1 hour
 cachePut(
@@ -369,6 +381,7 @@ cachePut(
 ## Use Cases
 
 ### Session Storage
+
 ```javascript
 // Store user session
 function createUserSession(userID, sessionData) {
@@ -399,6 +412,7 @@ function getUserSession(sessionID) {
 ```
 
 ### API Rate Limiting
+
 ```javascript
 function checkRateLimit(apiKey, maxRequests=100, timeWindow=3600) {
     var cacheKey = "ratelimit_" & hash(apiKey);
@@ -432,6 +446,7 @@ function checkRateLimit(apiKey, maxRequests=100, timeWindow=3600) {
 ```
 
 ### Query Result Caching
+
 ```javascript
 function getCachedQueryResults(sql, cacheMinutes=15) {
     var cacheKey = "query_" & hash(sql);
@@ -463,6 +478,7 @@ function getCachedQueryResults(sql, cacheMinutes=15) {
 ```
 
 ### Distributed Lock Implementation
+
 ```javascript
 function acquireLock(resourceName, timeout=30) {
     var lockKey = "lock_" & resourceName;
@@ -508,6 +524,7 @@ For local development and testing, you can use DynamoDB Local instead of AWS Dyn
 ### Installing DynamoDB Local
 
 #### Using Docker
+
 ```bash
 docker run -p 8000:8000 amazon/dynamodb-local:latest
 ```
@@ -515,12 +532,15 @@ docker run -p 8000:8000 amazon/dynamodb-local:latest
 #### Using Java (Manual Installation)
 
 1. Download DynamoDB Local from [AWS Developer Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html)
+
 2. Extract and run:
+
 ```bash
 java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 ```
 
 ### Local Configuration
+
 ```javascript
 this.caches = {
     "dynamodb": {
@@ -541,6 +561,7 @@ this.caches = {
 ```
 
 ### Environment-Based Configuration
+
 ```javascript
 // Detect environment
 var isDevelopment = (server.coldfusion.productname contains "Lucee") && 
@@ -581,6 +602,7 @@ this.caches = {
 ### Best Practices
 
 1. **Use Appropriate Key Names**: Create meaningful, namespaced keys to avoid collisions
+
 ```javascript
    // Good
    cachePut(id="user:123:profile", value=data, cacheName="dynamodb");
@@ -590,6 +612,7 @@ this.caches = {
 ```
 
 2. **Implement Cache Warming**: Pre-populate frequently accessed data
+
 ```javascript
    function warmCache() {
        var criticalData = queryExecute("SELECT * FROM frequently_accessed");
@@ -604,6 +627,7 @@ this.caches = {
 ```
 
 3. **Use Batch Operations**: Leverage `cacheGetAll()` for multiple items
+
 ```javascript
    // Efficient: single query
    var userData = cacheGetAll(filter="user_*", cacheName="dynamodb");
@@ -615,6 +639,7 @@ this.caches = {
 ```
 
 4. **Set Appropriate TTL**: Balance between freshness and performance
+
 ```javascript
    // Frequently changing data: short TTL
    cachePut(id="stock_price", value=price, timeSpan=createTimeSpan(0,0,1,0), cacheName="dynamodb");
@@ -626,6 +651,7 @@ this.caches = {
 ### Monitoring and Optimization
 
 1. **Enable Logging**: Monitor cache operations
+
 ```javascript
    custom: {
        "log": "dynamodb",
