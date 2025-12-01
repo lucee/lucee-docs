@@ -273,7 +273,9 @@ The client identification is derived from:
 
 If you are using just the local memory based sessions, there is no change detection required / performed.
 
-When using `sessionCluster` or an external cache, Lucee needs to track what has changed (which has overhead), to know whether the external cache needs to be updated.
+When using `sessionCluster=true` or an external cache, Lucee needs to track what has changed (which has overhead), to know whether the external cache needs to be updated.
+
+If `sessionCluster=false`, the session held in memory is the definitive version, the external cache is simply a backup.
 
 At the end of each request, if a change in the session is detected, the change will be written out to the external storage.
 
@@ -316,7 +318,7 @@ Lucee has a `scope.log` which when set to **DEBUG** (default is ERROR) logs out 
 
 See [[troubleshooting]] for a guide on how to run Lucee with logging to the console.
 
-If you are writing tests, sessions are expired periodically, if you need to test short term session expiry, you can use [admin action="purgeExpiredSessions"](https://luceeserver.atlassian.net/browse/LDEV-4819)
+If you are writing tests, expired sessions are not immediately purged, they are cleaned up by the background controller process periodically, if you need force this, for testing short term session expiry, you can use [admin action="purgeExpiredSessions"](https://luceeserver.atlassian.net/browse/LDEV-4819)
 
 ```
 <cfadmin action="purgeExpiredSessions"
