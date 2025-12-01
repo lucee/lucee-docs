@@ -275,15 +275,15 @@ If you are using just the local memory based sessions, there is no change detect
 
 When using `sessionCluster` or an external cache, Lucee needs to track what has changed (which has overhead), to know whether the external cache needs to be updated.
 
-For performance, Lucee does not constantly write back to the external cache, it enumerates the session scope to detect changes and periodically updates the cache, when it's changed / aka dirty.
+At the end of each request, if a change in the session is detected, the change will be written out to the external storage.
 
-If you aren't using `sessionCluster`, Lucee doesn't update the external cache on every change, it periodically writes out the session to the cache. 
+For performance, Lucee does not constantly write back to the external cache, it enumerates the session scope to detect changes and updates the external cache, when it's changed / aka dirty.
 
-If the session is dirty (changes detected), you can use [[function-sessionCommit]] to force this write immediately.
+Empty sessions are not written out to the cache, empty means a session with no user defined variables. These would only occur if you use [[function-StructKeyExists]] on the session scope, use [[function-sessionexists]] instead.
 
-With `sessionCluster` enabled, when a change in the session is detected, the change will be written out at the end of the request.
+If the session is dirty (changes detected), you can use [[function-sessionCommit]] to force this write immediately during the request.
 
-The change detection, for performance reasons, does not do a deep inspection of nested objects or components. It only checks the top level values in the session scope for change, deeply nested or changes inside persisted components will not be detected, as this is complicated / expensive and happens at the end of every request.
+The change detection, for performance reasons, did not do a deep inspection of nested objects or components, prior to 6.2.4. It only checks the top level values in the session scope for change, deeply nested or changes inside persisted components will not be detected, as this is complicated / expensive and happens at the end of every request.
 
 Storing components in the session scope is not **recommended**, it's expensive to check for changes and it adds per request overhead serializing/deserializing (read/write) and increases the stored session size. 
 
@@ -315,3 +315,11 @@ Since Lucee 6.2, empty sessions are only kept for up to a minute, independent of
 Lucee has a `scope.log` which when set to **DEBUG** (default is ERROR) logs out very detailed information about session handling.
 
 See [[troubleshooting]] for a guide on how to run Lucee with logging to the console.
+
+If you are writing tests, sessions are expired periodically, if you need to test short term session expiry, you can use [admin action="purgeExpiredSessions"](https://luceeserver.atlassian.net/browse/LDEV-4819)
+
+```
+<cfadmin action="purgeExpiredSessions"
+		type="server"
+		password="#password#">
+```
