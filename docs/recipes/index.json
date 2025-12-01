@@ -461,7 +461,7 @@
     "file": "dynamodb-cache-extension.md",
     "title": "DynamoDB Cache Extension",
     "path": "/docs/recipes/dynamodb-cache-extension.md",
-    "hash": "1cf38d67ae7a91e9add020556af65ed1",
+    "hash": "8fafed6e2867b53064052fbf6ab41283",
     "keywords": [
       "DynamoDB",
       "Cache",
