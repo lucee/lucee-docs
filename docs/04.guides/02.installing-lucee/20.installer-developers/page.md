@@ -7,7 +7,7 @@ The Lucee Installer is made possible by a large number of people offering their 
 
 The Installer project is currently hosted by GitHub, and as such, we can utilize the functionality that the site offers there. There is an issue tracker for the Lucee Installer for reporting issues, but please ask for help first on the [mailing-list](https://dev.lucee.org)
 
-[https://github.com/viviotech/lucee-installer](https://github.com/viviotech/lucee-installer)
+[https://github.com/lucee/lucee-installer](https://github.com/lucee/lucee-installer)
 
 The following is a list of people who have contributed their time and resources to making Open-Source CFML easy to get installed and running.
 
