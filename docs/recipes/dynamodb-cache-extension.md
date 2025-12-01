@@ -660,6 +660,7 @@ this.caches = {
 ```
 
 2. **Check Cache Metrics**: Use `cacheGetMetadata()` to analyze usage patterns
+
 ```javascript
    var metadata = cacheGetMetadata(id="popular_item", cacheName="dynamodb");
    if(metadata.hitCount > 1000) {
@@ -690,6 +691,7 @@ this.caches = {
 4. **Enable CloudTrail logging** for audit trails
 
 ### Recommended IAM Policy
+
 ```json
 {
     "Version": "2012-10-17",
@@ -730,6 +732,7 @@ this.caches = {
 ### Common Issues
 
 #### Connection Errors
+
 ```
 Error: Unable to connect to DynamoDB
 ```
@@ -737,6 +740,7 @@ Error: Unable to connect to DynamoDB
 **Solution**: Verify your credentials and region settings. Check if the host parameter is set correctly for DynamoDB Local.
 
 #### Table Not Found
+
 ```
 Error: ResourceNotFoundException: Cannot do operations on a non-existent table
 ```
@@ -744,6 +748,7 @@ Error: ResourceNotFoundException: Cannot do operations on a non-existent table
 **Solution**: The extension automatically creates tables. If this error occurs, verify the IAM permissions include `CreateTable` action.
 
 #### Throttling
+
 ```
 Error: ProvisionedThroughputExceededException
 ```
@@ -751,17 +756,20 @@ Error: ProvisionedThroughputExceededException
 **Solution**: For production tables, consider switching to on-demand billing mode or increasing provisioned capacity.
 
 #### Invalid Security Token
+
 ```
 Error: The security token included in the request is invalid
 ```
 
-**Solution**: 
+**Solution**:
+
 - For AWS: Verify your credentials are correct and not expired
 - For DynamoDB Local: Ensure the host parameter is set to `http://localhost:8000`
 
 ### Debug Logging
 
 Enable detailed logging to troubleshoot issues:
+
 ```javascript
 custom: {
     "log": "dynamodb-debug",
@@ -774,6 +782,7 @@ Then check your Lucee logs at: `[lucee-config]/logs/dynamodb-debug.log`
 ## Migration from Other Cache Providers
 
 ### From EhCache
+
 ```javascript
 // Old EhCache configuration
 this.cache.connections["ehcache"] = {
@@ -832,6 +841,6 @@ Unlike older OSGi-based extensions, the DynamoDB extension leverages Lucee 7's M
 ## Support and Contribution
 
 - **GitHub**: [lucee/extension-dynamodb](https://github.com/lucee/extension-dynamodb)
-- **Issues**: Report bugs or request features on [ Jira](https://issues.lucee.org/)
+- **Issues**: Report bugs or request features on [Jira](https://issues.lucee.org/)
 - **Community**: Join the Lucee community forums for support
 - **Extensions**: Visit the Lucee [Download](https://download.lucee.org/) page for updates
