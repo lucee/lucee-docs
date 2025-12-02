@@ -372,6 +372,22 @@
     ]
   },
   {
+    "file": "database-connection-management.md",
+    "title": "Database Connection Management in Lucee",
+    "path": "/docs/recipes/database-connection-management.md",
+    "hash": "15c8bfdea99070cff5f53924f977cc8d",
+    "keywords": [
+      "database",
+      "connection pool",
+      "datasource",
+      "transaction",
+      "exclusive connection",
+      "Apache Commons Pool",
+      "MySQL",
+      "connection pinning"
+    ]
+  },
+  {
     "file": "datasource-how-to-define-them.md",
     "title": "Datasource - How to define them",
     "path": "/docs/recipes/datasource-how-to-define-them.md",

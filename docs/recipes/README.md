@@ -108,6 +108,10 @@ Simple recipe for processing CSV data in Lucee 7 using Maven integration and Apa
 
 How to define and use custom tag mappings in Lucee.
 
+## [Database Connection Management in Lucee](/docs/recipes/database-connection-management.md)
+
+Understanding how Lucee manages database connections: pooled, exclusive, and transaction-based connections
+
 ## [Datasource - How to define them](/docs/recipes/datasource-how-to-define-them.md)
 
 How to define a Datasource in Lucee.
