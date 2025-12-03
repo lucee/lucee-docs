@@ -23,7 +23,8 @@
     "tag-syntax",
     "tag-queryparam",
     "tag-query",
-    "function-queryexecute"
+    "function-queryexecute",
+    "recommended-settings"    
   ]
 }
 -->
