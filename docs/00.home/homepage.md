@@ -48,6 +48,8 @@ To see what's new in Tags and Functions refer to [[changelog]]
 
 [[config]] - All about Lucee's configuration file
 
+[[recommended-settings]] - Recommended Settings
+
 ## Lucee 6.2
 
 [Lucee 6.2](https://dev.lucee.org/tag/lucee-62) is our latest stable release, with enhanced Java and Maven integration, Jakarta Servlet support and better runtime performance.
