@@ -12,6 +12,12 @@
   ],
   "categories":[
     "server"
+  ], 
+  "related": [
+    "lucee-lockdown-guide",
+    "supercharge-your-website",
+    "local-scope-migration",
+    "deploying-lucee-server-apps"
   ]
 }
 -->
@@ -64,6 +70,14 @@ For the best performance in production, "Inspect Templates" should be set to `ne
 // .CFConfig.json or via the Admin, Settings - Performance/Caching
 {
   "inspectTemplate": "never"
+}
+```
+
+Simply adding `localmode=true` for hot functions can dramatically boost performance, see [[local-scope-migration]]
+
+```cfml
+function hotFunction() localmode=true {
+    // Function body
 }
 ```
 
