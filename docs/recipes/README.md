@@ -272,7 +272,7 @@ List existing Cache Connections available in Lucee.
 
 This document explains how to log HTTP calls made by the cfhttp tag in Lucee.
 
-## [Logging in Lucee](/docs/recipes/logging.md)
+## [Logging](/docs/recipes/logging.md)
 
 How to configure and customize logging
 
@@ -328,7 +328,7 @@ Shows you a way to enable Monitoring for your session
 
 How to enable and use MSSQL modern mode in Lucee for proper handling of RAISERROR exceptions and complex T-SQL batches
 
-## [New Operator in Lucee](/docs/recipes/new-operator.md)
+## [New Operator](/docs/recipes/new-operator.md)
 
 This document provides a guide on using the new operator in Lucee for creating instances of CFML components and Java classes.
 
@@ -396,7 +396,7 @@ Documentation for Lucee's release branching and versioning strategy
 
 Learn how to use request timeout correctly with Lucee.
 
-## [ProxyPassMatch ^/rest/(.*)$ http://127.0.0.1:8888/rest/$1](/docs/recipes/rest-services.md)
+## [Lucee and REST Services](/docs/recipes/rest-services.md)
 
 A detailed guide on how to create REST Sevices using CFCs
 
@@ -432,7 +432,7 @@ Managing Secrets in Lucee applications
 
 Comprehensive guide on session handling and configuration in Lucee, including session types, storage options, and security considerations.
 
-## [Keep all struct keys defined with "dot notation" in original case.](/docs/recipes/setting-system-properties-and-env-vars.md)
+## [Setting System Properties and Environment Variables](/docs/recipes/setting-system-properties-and-env-vars.md)
 
 How to set and use Environment Variables or System Properties to configure specific Lucee Server settings.
 
