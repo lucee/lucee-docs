@@ -5,7 +5,8 @@
   "related": [
     "function-isnull",
     "function-nullvalue",
-    "developing-with-lucee-server"
+    "developing-with-lucee-server",
+    "function-structkeyexists"
   ],
   "description": "This document explains how to set null support in the Lucee server admin, assigning `null` value for a variable and how to use `null` and `nullvalue`.",
   "keywords": [

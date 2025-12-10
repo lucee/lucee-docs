@@ -18,7 +18,9 @@
   "related": [
     "cfconfig",
     "cftransaction",
-    "datasource-configuration"
+    "datasource-configuration",
+    "tag-query",
+    "function-dbpoolevict"
   ]
 }
 -->
@@ -93,8 +95,8 @@ this.datasources["mydb"] = {
 }
 ```
 
-
 **Characteristics**:
+
 - Maximum connection reuse across requests
 - Optimal performance for stateless queries
 - Connection state is not guaranteed between queries
@@ -147,7 +149,6 @@ this.datasources["stateful_db"] = {
     }
 }
 ```
-
 
 **When to Use Exclusive Connections**:
 
@@ -346,11 +347,13 @@ for (var dsName in datasources) {
 **Symptoms**: Requests timeout waiting for connections
 
 **Causes**:
+
 - Too many exclusive connections enabled
 - Long-running transactions holding connections
 - Connection leaks (connections not properly returned)
 
 **Solutions**:
+
 ```javascript
 // Increase pool size if needed
 this.datasources["mydb"].connectionLimit = 50;
