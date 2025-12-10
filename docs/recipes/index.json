@@ -945,9 +945,9 @@
   },
   {
     "file": "logging.md",
-    "title": "Logging in Lucee",
+    "title": "Logging",
     "path": "/docs/recipes/logging.md",
-    "hash": "b9445d975a550f7e3a7ab39122b60317",
+    "hash": "30503fe9d1fe68d1eac303c51b08b131",
     "keywords": [
       "Logging",
       "Log levels",
@@ -1003,7 +1003,7 @@
     "file": "lucene-search.md",
     "title": "Lucene 3 Extension",
     "path": "/docs/recipes/lucene-search.md",
-    "hash": "1483315b8a52008c3b86aaf141e8a543",
+    "hash": "6dbd6bd21f6e9df9fb8342e9232a068a",
     "keywords": [
       "Lucene",
       "Search",
@@ -1083,7 +1083,7 @@
     "file": "migrate.from.classic-to-modern-local-scope.md",
     "title": "Migrating from Classic to Modern Local Scope Mode",
     "path": "/docs/recipes/migrate.from.classic-to-modern-local-scope.md",
-    "hash": "4cafb2320c000832692c787f80c47997",
+    "hash": "a01d15e33450ec5e43ff480fcd706925",
     "keywords": [
       "local scope",
       "variables",
@@ -1113,7 +1113,7 @@
     "file": "monitoring-enable-for-your-session.md",
     "title": "Monitoring - Enable for your session",
     "path": "/docs/recipes/monitoring-enable-for-your-session.md",
-    "hash": "3355a7868b736ab48344ccd5c26726fe",
+    "hash": "a82a39b230d2da63893a77f2288629b1",
     "keywords": [
       "monitoring",
       "session"
@@ -1137,9 +1137,9 @@
   },
   {
     "file": "new-operator.md",
-    "title": "New Operator in Lucee",
+    "title": "New Operator",
     "path": "/docs/recipes/new-operator.md",
-    "hash": "d164bfd9df1d33a6580280969cd85177",
+    "hash": "92d049b1ded88bb56cc61883a26cca81",
     "keywords": [
       "new",
       "java",
@@ -1195,7 +1195,7 @@
     "file": "precompiled-code.md",
     "title": "Precompiled Code",
     "path": "/docs/recipes/precompiled-code.md",
-    "hash": "e044a8d4bd44415a11f2605c0a8e1495",
+    "hash": "4a77006bca46dc792880755d9cb7dfbc",
     "keywords": [
       "Precompiled",
       "Pre-compile code",
@@ -1210,7 +1210,7 @@
     "file": "query-async.md",
     "title": "Query Async",
     "path": "/docs/recipes/query-async.md",
-    "hash": "20015ca45615de7ad598684f678946c3",
+    "hash": "2b9e6eabec0aa12606868580ed87afac",
     "keywords": [
       "query",
       "async",
@@ -1263,7 +1263,7 @@
     "file": "query-of-queries.md",
     "title": "Query of Queries (QoQ)",
     "path": "/docs/recipes/query-of-queries.md",
-    "hash": "0260dff0425bb3cd893ac4767cd8e4e2",
+    "hash": "54f3af21728ac12fc33394ec34e16508",
     "keywords": [
       "Query of Queries",
       "QoQ",
@@ -1277,7 +1277,7 @@
     "file": "query-of-query-sometime.md",
     "title": "Query of Queries sometimes it rocks, sometimes it sucks",
     "path": "/docs/recipes/query-of-query-sometime.md",
-    "hash": "9aa140cf0b422b4a0a96d52c5fbe9835",
+    "hash": "bd4cbdb1cb100df96d679e950fc69de1",
     "keywords": [
       "Query of Queries",
       "QoQ",
@@ -1307,7 +1307,7 @@
     "file": "query-return-type.md",
     "title": "Query return type",
     "path": "/docs/recipes/query-return-type.md",
-    "hash": "bae3c3089df32f5258c1f7bc2f6d1b24",
+    "hash": "3875ad145f6bc8d54c909b71a65509c6",
     "keywords": [
       "Query return type",
       "Array return type",
@@ -1320,7 +1320,7 @@
     "file": "read-xml-with-a-listener-model-sax.md",
     "title": "Read XML with a listener Model (SAX)",
     "path": "/docs/recipes/read-xml-with-a-listener-model-sax.md",
-    "hash": "6d6838168dd41f7ea0a8cfc5e40334a7",
+    "hash": "8be378eca3535b6eb68aff1e57582288",
     "keywords": [
       "XML",
       "SAX",
@@ -1361,7 +1361,7 @@
     "file": "request-timeout.md",
     "title": "Request Timeout",
     "path": "/docs/recipes/request-timeout.md",
-    "hash": "ea067f1c5a0881ce3ce8173464e4ae6c",
+    "hash": "676809618129e7d38b12fc893e61732b",
     "keywords": [
       "request timeout",
       "timeout",
@@ -1376,9 +1376,9 @@
   },
   {
     "file": "rest-services.md",
-    "title": "ProxyPassMatch ^/rest/(.*)$ http://127.0.0.1:8888/rest/$1",
+    "title": "Lucee and REST Services",
     "path": "/docs/recipes/rest-services.md",
-    "hash": "0db35b827c02fb3890b2fa5c07af41df",
+    "hash": "3a6622e469130846808dbe70140c883a",
     "keywords": [
       "REST",
       "verbs",
@@ -1458,7 +1458,7 @@
     "file": "script-templates.md",
     "title": "Script Templates",
     "path": "/docs/recipes/script-templates.md",
-    "hash": "2b7be4bb6517ae11e18dd333b4cac416",
+    "hash": "85326e1cd7f4701476bc1a48edc03635",
     "keywords": [
       "CFML",
       "script",
@@ -1471,7 +1471,7 @@
     "file": "secret-provider.md",
     "title": "Secret Management",
     "path": "/docs/recipes/secret-provider.md",
-    "hash": "ce3f991e86b389bd803f36dc14cebccc",
+    "hash": "67cabc1ef92adb92bb0402c7b650b046",
     "keywords": [
       "security",
       "secrets",
@@ -1484,7 +1484,7 @@
     "file": "session-handling.md",
     "title": "Session Handling",
     "path": "/docs/recipes/session-handling.md",
-    "hash": "1f6b90bafaa894d406dc2ce777a79e66",
+    "hash": "de3b0ccf64b1f4a29c15886cdf750ee3",
     "keywords": [
       "Session Management",
       "CFML Sessions",
@@ -1498,9 +1498,9 @@
   },
   {
     "file": "setting-system-properties-and-env-vars.md",
-    "title": "Keep all struct keys defined with \"dot notation\" in original case.",
+    "title": "Setting System Properties and Environment Variables",
     "path": "/docs/recipes/setting-system-properties-and-env-vars.md",
-    "hash": "d2150df12a1ffeb91e7eee06beb1b0a6",
+    "hash": "cadb654df6280a307fd68031141ce565",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -1514,7 +1514,7 @@
     "file": "single-vs-multi-mode.md",
     "title": "Single Mode vs Multi Mode in Lucee",
     "path": "/docs/recipes/single-vs-multi-mode.md",
-    "hash": "4ffcdd6f3889fb88342c63c8b72adeed",
+    "hash": "2750afe7067657be65f59720eff241a4",
     "keywords": [
       "Lucee",
       "Single Mode",
@@ -1587,7 +1587,7 @@
     "file": "structs-vs-components.md",
     "title": "Best Practices: Structs vs Inline Components",
     "path": "/docs/recipes/structs-vs-components.md",
-    "hash": "7af0971dd168056a6b83c7e449a17b5e",
+    "hash": "2b18f115806efb90ddf584a3de19a8b1",
     "keywords": [
       "struct",
       "component",
@@ -1603,7 +1603,7 @@
     "file": "sub-components.md",
     "title": "Sub Components",
     "path": "/docs/recipes/sub-components.md",
-    "hash": "e4a1dfbae98fe363be8068cf896596ab",
+    "hash": "6bd0cf45661976d08d16daa7fe9410da",
     "keywords": [
       "CFML",
       "component",
@@ -1664,7 +1664,7 @@
     "file": "thread-task.md",
     "title": "Thread Tasks",
     "path": "/docs/recipes/thread-task.md",
-    "hash": "c415d68e36a76d88f567024a72321edf",
+    "hash": "735683db38d4bf9844ddb56efdf22cc6",
     "keywords": [
       "Thread Tasks",
       "Daemon Threads",
@@ -1677,7 +1677,7 @@
     "file": "thread-usage.md",
     "title": "Complete Guide to Threading in Lucee",
     "path": "/docs/recipes/thread-usage.md",
-    "hash": "b4c954f5e1e2efb666ad9bcdba3a9fac",
+    "hash": "2928bd203fdb4320a03e3b0a669538f8",
     "keywords": [
       "threads",
       "parallel",
@@ -1691,7 +1691,7 @@
     "file": "timeout.md",
     "title": "Timeout",
     "path": "/docs/recipes/timeout.md",
-    "hash": "6ff8f17dd545142649bbef2014a1e58a",
+    "hash": "afb6e1fc4dce418095062653d002f234",
     "keywords": [
       "tag",
       "timeout",
@@ -1716,7 +1716,7 @@
     "file": "types-in-lucee.md",
     "title": "Types in Lucee",
     "path": "/docs/recipes/types-in-lucee.md",
-    "hash": "56f868a3c48a681925bffd32bf864c72",
+    "hash": "971bc123a6e7ef4505fe1ca8d89222d7",
     "keywords": [
       "Types",
       "Function argument",
