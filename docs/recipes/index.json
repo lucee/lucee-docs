@@ -548,7 +548,7 @@
     "file": "event-gateways.md",
     "title": "Event Gateways",
     "path": "/docs/recipes/event-gateways.md",
-    "hash": "81f72bcc92dd36139b851423c1c7359d",
+    "hash": "f12aa59f063a1429a16e0da75b81af28",
     "keywords": [
       "Event Gateway",
       "Custom Gateway",
@@ -864,7 +864,7 @@
     "file": "java-scripting.md",
     "title": "Java Scripting with Lucee",
     "path": "/docs/recipes/java-scripting.md",
-    "hash": "333baf68b60b1cc97f39471a74270916",
+    "hash": "3048a8e1cb851b258451da6ef612eb0b",
     "keywords": [
       "Java",
       "JSR-223",
@@ -878,9 +878,9 @@
   },
   {
     "file": "java-settings.md",
-    "title": "Java Settings in Application.cfc (Now with Maven Support)",
+    "title": "Java Settings",
     "path": "/docs/recipes/java-settings.md",
-    "hash": "5e077356b9eeede93122e7539d0a668c",
+    "hash": "99b9e154cb3c694b8c41685de96fce88",
     "keywords": [
       "Java settings",
       "Application.cfc",
@@ -906,7 +906,7 @@
     "file": "lazy-queries.md",
     "title": "Lazy Queries",
     "path": "/docs/recipes/lazy-queries.md",
-    "hash": "317d01daee08a03879da1870bae18c10",
+    "hash": "079ba528746daa26ae453cb07718304d",
     "keywords": [
       "Lazy Queries",
       "Regular Queries",
@@ -1097,7 +1097,7 @@
     "file": "monitoring-debugging.md",
     "title": "Monitoring/Debugging",
     "path": "/docs/recipes/monitoring-debugging.md",
-    "hash": "f468d23742fb1601c77f516a05ac8a78",
+    "hash": "5a9b6a9920586c8d1df7985d66d142e3",
     "keywords": [
       "monitoring",
       "debugging",
@@ -1223,7 +1223,7 @@
     "file": "query-handling.md",
     "title": "Query Execution",
     "path": "/docs/recipes/query-handling.md",
-    "hash": "e09e2def1c0f665f99cdcc76c2bbfce8",
+    "hash": "e59bca9267415b71aef1bb76529e0102",
     "keywords": [
       "cfquery",
       "queryExecute",
@@ -1431,7 +1431,7 @@
     "file": "scheduler-quartz-component-jobs.md",
     "title": "Creating Component-Based Jobs with Quartz Scheduler",
     "path": "/docs/recipes/scheduler-quartz-component-jobs.md",
-    "hash": "a3c9f59cb7137a2594fea05af7a900b8",
+    "hash": "79b3fbd1e45e9a157ebb0279d4a62047",
     "keywords": [
       "scheduler",
       "quartz",
@@ -1573,7 +1573,7 @@
     "file": "static-scope-in-components.md",
     "title": "Static Scope in Components",
     "path": "/docs/recipes/static-scope-in-components.md",
-    "hash": "2e2c7e79b7a9d3f2336b5cb4fe68e876",
+    "hash": "3ecee27a2cdbfbaef60a4e4cc546f2f5",
     "keywords": [
       "Static scope",
       "Components",
@@ -1742,7 +1742,7 @@
     "file": "virtual-file-system.md",
     "title": "Virtual File Systems",
     "path": "/docs/recipes/virtual-file-system.md",
-    "hash": "8c534c1c228acfb4bbe915678f15cbef",
+    "hash": "1c24195017e8aa651b95719d443dcfdc",
     "keywords": [
       "Virtual File System",
       "VFS",

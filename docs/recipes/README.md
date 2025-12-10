@@ -252,7 +252,7 @@ Guide on using Java libraries in Lucee 6.2 with Maven and import
 
 Documentation for using Lucee as a scripting engine in Java applications via JSR-223
 
-## [Java Settings in Application.cfc (Now with Maven Support)](/docs/recipes/java-settings.md)
+## [Java Settings](/docs/recipes/java-settings.md)
 
 Guide on configuring Java settings in Lucee using Application.cfc, including loading Java libraries from Maven
 
