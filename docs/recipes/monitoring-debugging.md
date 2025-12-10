@@ -28,44 +28,30 @@ Lucee 6.1 changed how you handle Monitoring/Debugging.
 
 ## Old Behaviour
 
-Previously, you could enable/disable Debugging in the Lucee admin, and enable/disable specific debug options like showing template execution. With the tag `<cfsetting showDebugOutput="true|false">`, you could define whether the debugging is shown or not.
+Previously, you enabled/disabled Debugging in admin and used `<cfsetting showDebugOutput="true|false">` to control output.
 
 ## New Behaviour
 
-Lucee 6 has completely overhauled this functionality. Instead of having "Metrics" and "Reference" as part of the "Modern" Debug Template, they are now independently controlled under the new umbrella term "Monitoring".
+Lucee 6 overhauled this. "Metrics" and "Reference" are now independently controlled under "Monitoring".
 
 ### Lucee Admin
 
-The "debugging" settings are now under the group "Monitoring" and there is a new page called "Output".
-
-#### Page "Output"
-
-On the "Output" page, you define which sections of monitoring are shown:
+Debugging settings are now under "Monitoring" with a new "Output" page where you define which sections are shown:
 
 - Debugging
 - Metrics
 - Documentation (formerly "Reference")
-- Test (available soon)
+- Test (coming soon)
 
-This is similar to the action `<cfsetting showOutput="true|false">` (more on that tag later).
+**Settings page**: Enable/disable individual debug options - if none enabled, debugging is disabled.
 
-#### Page "Settings"
+**Debug Templates page**: Choose template, limit to IP ranges, or use different templates per IP range.
 
-You no longer enable/disable debug as a whole, only the options. If no options are enabled, debugging is disabled. Thus, the general switch was/is not really needed anymore.
-
-#### Page "Debug Templates"
-
-Here you can choose the debug template you want to use. You can limit it to a specific IP Range if you like, and you can also define different templates for different IP Ranges, though one template can cover all requests.
-
-#### Page "Logs"
-
-This page allows you to show the last X requests (depending on your settings), which is useful if no debugging is shown on the output.
+**Logs page**: View last X requests - useful when debugging isn't shown in output.
 
 ### Application.cfc
 
-Lucee 6.1 now allows you to overwrite all these settings in the Application.cfc, which was not possible in previous versions.
-
-You can define what is shown:
+Lucee 6.1 lets you override all settings in Application.cfc:
 
 ```lucee
 this.monitoring.showDebug = true;
@@ -74,7 +60,7 @@ this.monitoring.showMetric = true;
 this.monitoring.showTest = true; // following soon
 ```
 
-And also enable/disable debug options:
+Enable/disable debug options:
 
 ```lucee
 this.monitoring.debuggingTemplate = true;
@@ -87,13 +73,11 @@ this.monitoring.debuggingImplicitAccess = true;
 this.monitoring.debuggingThread = true;
 ```
 
-You can also export all these settings in the Lucee Administrator on the Monitoring/Settings page.
+Export settings from Admin on the Monitoring/Settings page.
 
 ### In Your Code
 
-Even after the Application.cfc, you can still change these settings.
-
-With the help of the tag `<cfapplication>`:
+Change settings at runtime with `<cfapplication>`:
 
 ```lucee
 <cfapplication
@@ -106,7 +90,7 @@ With the help of the tag `<cfapplication>`:
     debuggingDatabase="true">
 ```
 
-Or with the tag `<cfsetting>` you can change the "show" settings (not the debug options):
+Or `<cfsetting>` for "show" settings only (not debug options):
 
 ```lucee
 <cfsetting
@@ -116,9 +100,9 @@ Or with the tag `<cfsetting>` you can change the "show" settings (not the debug 
     showTest="false">
 ```
 
-#### Downside/Upside
+#### Trade-off
 
-Of course, when you enable, for example, "debuggingTemplate" in your code, everything that happened before was not logged and is lost. But this can also be a benefit, as it allows you to do things like this:
+Enabling `debuggingTemplate` mid-request won't capture earlier activity - but you can use this to exclude sensitive code:
 
 ```lucee
 try {
@@ -129,32 +113,20 @@ try {
 }
 ```
 
-This way, you can prevent Lucee from logging certain code.
-
 ## Tab Documentation (formerly Reference)
 
-This tab now not only gives you a function and tag reference, it also provides all kinds of "recipes" like this.
+Now includes function/tag reference plus recipes like this one.
 
 ## Backward Compatibility
 
-These new features are fully backward compatible.
-
-### Tag cfsetting
-
-The old attribute "showDebugOutput" is now an alias to the newly introduced "show" attribute. This means with this attribute you can still enable/disable Monitoring as a whole.
-
-So when you do:
+Fully backward compatible. The old `showDebugOutput` is now an alias for `show`:
 
 ```lucee
 <cfsetting showDebugOutput="false">
 ```
 
-It will not show the monitoring at all, the same way as you would do:
+Is equivalent to:
 
 ```lucee
 <cfsetting show="false">
 ```
-
-## Conclusion
-
-Lucee 6.1 gives you full control over Monitoring in your code, making it easier for every developer to use it.

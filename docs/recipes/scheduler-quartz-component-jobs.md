@@ -18,26 +18,24 @@
 
 # Creating Component-Based Jobs with Quartz Scheduler
 
-This recipe provides detailed instructions for creating and configuring component-based jobs with the Quartz Scheduler extension for Lucee.
+Execute CFML components (CFCs) as scheduled tasks with Quartz Scheduler.
 
-For a general overview of the Quartz Scheduler extension, see the [Quartz Scheduler documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/scheduler-quartz.md).
+For general overview, see [[scheduler-quartz]].
 
-## Overview
+Advantages over URL-based jobs:
 
-Component-based jobs are a powerful feature of the Quartz Scheduler extension that allow you to execute CFML components (CFCs) as scheduled tasks. This approach provides several advantages over URL-based jobs:
-
-- **Full CFML Capabilities**: Leverage the full power of CFML in your scheduled tasks
-- **Object-Oriented Design**: Organize your scheduled tasks using proper OO principles
-- **Dependency Injection**: Pass configuration parameters to your components
-- **Better Testing**: Create testable, reusable components
+- Full CFML capabilities
+- Object-oriented design
+- Dependency injection for configuration
+- Testable, reusable components
 
 ## Component Mappings
 
-Before creating component-based jobs, it's important to understand how Lucee locates your components using component mappings.
+Lucee uses component mappings to locate your components.
 
 ### Default Component Mappings
 
-Every Lucee installation comes with the following default mapping configuration:
+Default mapping configuration:
 
 ```json
 {
@@ -53,25 +51,20 @@ Every Lucee installation comes with the following default mapping configuration:
 }
 ```
 
-This mapping establishes a location where Lucee looks for components, similar to classpath in Java.
+Similar to Java classpath.
 
 ### Configuring Custom Mappings
 
-You can extend the component mappings by:
+Extend mappings by:
 
-1. **Editing the Configuration File**:
-   Edit `lucee-server/context/.CFConfig.json` to add your own mappings
-
-2. **Using the Lucee Administrator**:
-   Navigate to Server/Web Admin > Archives & Resources > Component Mappings
-
-When a component is referenced in a Quartz Scheduler job configuration, Lucee will search for it in these configured mappings.
+1. Editing `lucee-server/context/.CFConfig.json`
+2. Using Lucee Administrator > Archives & Resources > Component Mappings
 
 ## Creating a Component-Based Job
 
 ### Step 1: Create the Component
 
-Create a CFC with an `execute()` method that contains your job logic. Optionally, include an `init()` method to receive configuration parameters.
+Create a CFC with an `execute()` method. Optionally include `init()` to receive configuration parameters.
 
 ```cfml
 // path: {lucee-config}/components/jobs/DatabaseCleanupJob.cfc
@@ -120,14 +113,12 @@ component {
 
 ### Step 2: Place the Component in a Mapped Location
 
-Either:
+- Save in default directory: `{lucee-config}/components/jobs/DatabaseCleanupJob.cfc`
+- Or create a custom mapping to your component's location
 
-1. Save your component in the default component directory: `{lucee-config}/components/jobs/DatabaseCleanupJob.cfc`
-2. Create a custom mapping that points to your component's location
+### Step 3: Configure the Job
 
-### Step 3: Configure the Job in Quartz Scheduler
-
-Add the component job to your Quartz Scheduler configuration:
+Add to Quartz Scheduler configuration:
 
 ```json
 {
@@ -147,19 +138,10 @@ Add the component job to your Quartz Scheduler configuration:
 
 ## Component Modes
 
-Quartz Scheduler supports two modes for component jobs:
+- **Transient** (default): New instance per execution. Use when no state needed between runs.
+- **Singleton**: Single reused instance. Use for stateful jobs or expensive initialization.
 
-1. **Transient Mode** (default):
-   - Creates a new instance of the component for each execution
-   - Useful for jobs that don't need to maintain state between executions
-   - Configuration: `"mode": "transient"`
-
-2. **Singleton Mode**:
-   - Creates a single instance that's reused across all executions
-   - Useful for jobs that maintain state or have expensive initialization
-   - Configuration: `"mode": "singleton"`
-
-Example of singleton mode:
+Singleton example:
 
 ```json
 {
@@ -173,11 +155,9 @@ Example of singleton mode:
 
 ## Creating a Job Listener
 
-Job listeners allow you to monitor and respond to job execution events. They can be used for logging, notifications, or to implement more complex job coordination.
+Job listeners monitor job execution events - useful for logging, notifications, or job coordination.
 
 ### Step 1: Create the Listener Component
-
-Create a CFC that implements the necessary listener methods:
 
 ```cfml
 // path: {lucee-config}/components/listeners/JobMonitorListener.cfc
@@ -263,12 +243,9 @@ component {
 
 ### Step 2: Place the Listener in a Mapped Location
 
-Save your listener component in a location accessible via component mapping, such as:
-`{lucee-config}/components/listeners/JobMonitorListener.cfc`
+Save in a mapped location, e.g. `{lucee-config}/components/listeners/JobMonitorListener.cfc`
 
-### Step 3: Configure the Listener in Quartz Scheduler
-
-Add the listener to your Quartz Scheduler configuration:
+### Step 3: Configure the Listener
 
 ```json
 {
@@ -284,28 +261,8 @@ Add the listener to your Quartz Scheduler configuration:
 
 ## Best Practices
 
-1. **Organize Your Components**:
-   - Create a clear structure for your job components (e.g., by function or application area)
-   - Use namespaces to avoid conflicts (e.g., `myapp.jobs.DataCleanup`)
-
-2. **Handle Exceptions Properly**:
-   - Always implement error handling in your `execute()` method
-   - Log detailed error information to help with troubleshooting
-
-3. **Keep Jobs Focused**:
-   - Each job component should have a single responsibility
-   - For complex operations, consider creating helper components
-
-4. **Use Dependency Injection**:
-   - Pass configuration values through the job configuration
-   - Avoid hardcoding values in your components
-
-5. **Include Logging**:
-   - Add detailed logging to track job execution
-   - Use listeners for centralized monitoring
-
-## Conclusion
-
-Component-based jobs in Quartz Scheduler provide a powerful way to organize and implement your scheduled tasks in Lucee. By understanding component mappings and following these patterns, you can create maintainable, testable job components that leverage the full power of CFML.
-
-Remember to place your components in locations accessible via component mappings and to configure your jobs properly in the Quartz Scheduler configuration.
+1. **Organize Components**: Use clear structure and namespaces (e.g., `myapp.jobs.DataCleanup`)
+2. **Handle Exceptions**: Always implement error handling in `execute()`, log detailed errors
+3. **Keep Jobs Focused**: Single responsibility per job, use helper components for complex operations
+4. **Use Dependency Injection**: Pass config values through job configuration, avoid hardcoding
+5. **Include Logging**: Track execution, use listeners for centralized monitoring

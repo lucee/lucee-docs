@@ -21,128 +21,88 @@
 
 # Static Scope in Components
 
-## Understanding Static Scope
+Static variables and functions belong to the component itself, not to individual instances. Use them for shared state (counters, caches, config) or utility functions that don't need instance data.
 
-The **static scope** in Lucee components allows variables and functions to be shared across all instances of a component. This avoids the need to create a new instance every time a function is called, improving efficiency and consistency.
+Call static members with `::` syntax: `MyComponent::myStaticFunction()`.
 
-Static scope was introduced in Lucee 5.0 and provides a way to store shared state at the component level rather than per instance.
+## Static Variables
 
-## Defining Static Variables
+Shared across all instances and persist for the application lifetime:
 
-A static variable is shared among all instances of a component and retains its value across multiple calls:
-
-```
+```cfml
 component {
-    static {
-        counter = 0;
-    }
-    
-    public function init() {
-        static.counter++;
-        dump("Instance created: " & static.counter);
-    }
-    
-    public function getCount() {
-        return static.counter;
-    }
+	static {
+		counter = 0;
+	}
+
+	public function init() {
+		static.counter++;
+		dump( "Instance ##" & static.counter );
+	}
+
+	public function getCount() {
+		return static.counter;
+	}
 }
 ```
 
-When multiple instances of this component are created, the `counter` variable is incremented across all instances:
+Every `new Counter()` increments the same counter.
 
-```
-new Example();
-new Example();
-new Example();
-```
+## Static Functions
 
-Each instance shares the same `counter` value, demonstrating the persistent nature of static variables.
+Call directly on the component without creating an instance:
 
-Note: Static var persistence is across the entire application, not just per request.
-
-## Using Static Functions
-
-A static function can be called directly on the component itself, without needing an instance:
-
-```
+```cfml
+// Greeter.cfc
 component {
-    public static function hello() {
-        return "Hello, World!";
-    }
+	public static function hello( name ) {
+		return "Hello, " & name & "!";
+	}
+}
+
+// Usage - no instantiation needed
+message = Greeter::hello( "World" );
+```
+
+## Static vs Instance
+
+```cfml
+component {
+	public static function utility() {
+		return "I don't need instance data";
+	}
+
+	public function process() {
+		return "I can access this and variables scope";
+	}
 }
 ```
 
-Calling a static function without instantiating the component:
+Static functions can also be called on instances (same result):
 
-```
-dump(Example::hello());
-```
-
-## Static Functions vs. Instance Functions
-
-- **Instance Functions**: Defined without `static` and tied to an object instance.
-- **Static Functions**: Defined with `static` and shared across all instances.
-
-Example:
-
-```
-component {
-    public static function staticFunction() {
-        return "I am static";
-    }
-    
-    public function instanceFunction() {
-        return "I am an instance function";
-    }
-}
-```
-
-Usage:
-
-```
+```cfml
 obj = new Example();
-dump(obj.instanceFunction()); // Works only on an instance
-
-dump(Example::staticFunction()); // Works without an instance
+dump( obj.utility() );      // works
+dump( Example::utility() ); // same thing
 ```
-
-## Accessing Static Functions via Instances
-
-Lucee allows static functions to be accessed the same way as instance functions:
-
-```
-obj = new Example();
-dump(obj.staticFunction()); // Outputs: "I am static"
-```
-
-This means static functions do not require special handling and can be called via a component instance or the component definition itself.
 
 ## Mocking Static Functions
 
-A key advantage of Lucee’s implementation is that **static functions can be accessed just like instance functions** and **can be mocked per instance**:
+You can override a static function on an instance for testing without affecting the component:
 
-```
+```cfml
 obj = new Example();
-obj.staticFunction = function() {
-    return "Mocked static function";
+obj.utility = function() {
+	return "Mocked!";
 };
 
-dump(Example::staticFunction()); // Outputs: "I am static"
-dump(obj.staticFunction()); // Outputs: "Mocked static function"
+dump( Example::utility() ); // "I don't need instance data" (original)
+dump( obj.utility() );      // "Mocked!" (instance override)
 ```
 
-This means:
+## When to Use Static
 
-- Static functions can be dynamically modified per instance without affecting the original component definition.
-- No need for redundant instance wrappers for testing.
-
-## Benefits of Static Scope
-
-1. **Performance Optimization** – Avoids redundant instantiations.
-2. **Shared State** – Useful for counters, caching, and global configurations.
-3. **Mocking Flexibility** – Allows instance-level modifications for testing while keeping the original static function intact.
-4. **Overlay vs. Overwrite** – When an instance function is redefined, it **overwrites** the original implementation for that instance. With static functions, defining an instance-level function of the same name **overlays** the static function for that instance only, while the original static function remains accessible via the component definition.
-
-## Conclusion
-
-Static scope in Lucee enables shared variables and functions across instances, improving efficiency and making testing more flexible. By understanding how to use static variables, functions, and mocking techniques, developers can write cleaner, more maintainable code.
+- **Utility functions** - helpers that don't need instance state
+- **Shared counters/caches** - track across all instances
+- **Constants** - values that don't change
+- **Factory methods** - alternative constructors

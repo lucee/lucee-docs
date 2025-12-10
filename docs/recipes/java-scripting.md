@@ -20,11 +20,15 @@
 
 # Java Scripting with Lucee
 
-Lucee provides comprehensive support for JSR-223 (Java Scripting API), enabling CFML to be used as a scripting language in any environment that supports the Java platform. This opens up powerful integration scenarios where you can leverage CFML's expressive syntax and built-in functions across diverse technology stacks, build tools, serverless platforms, and automation frameworks.
+Lucee provides comprehensive support for JSR-223 (Java Scripting API), enabling CFML to be used as a scripting language in any environment that supports the Java platform. 
+
+This opens up powerful integration scenarios where you can leverage CFML's expressive syntax and built-in functions across diverse technology stacks, build tools, serverless platforms, and automation frameworks.
 
 ## Overview
 
-Through JSR-223 support, Lucee can be used as a scripting engine in any environment that runs on the Java platform. This includes build tools like Ant and Maven, serverless platforms like AWS Lambda, CI/CD pipelines, data processing workflows, and standalone scripts. The integration requires only adding Lucee JAR files to your classpath - no complex setup or application server needed.
+Through JSR-223 support, Lucee can be used as a scripting engine in any environment that runs on the Java platform. This includes build tools like Ant and Maven, serverless platforms like AWS Lambda, CI/CD pipelines, data processing workflows, and standalone scripts. 
+
+The integration requires only adding Lucee JAR files to your classpath - no complex setup or application server needed.
 
 ## AI-Optimized Technical Reference
 
