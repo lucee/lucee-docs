@@ -6,6 +6,7 @@ related:
 - null_support
 categories:
 - struct
+- decision
 ---
 
 Determines whether a specific key is present in a structure.
