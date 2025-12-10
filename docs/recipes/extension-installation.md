@@ -23,11 +23,7 @@
 
 # Extension Installation
 
-In Lucee, there are multiple ways to install an extension. This recipe will show you all the possibilities along with their pros and cons.
-
-The standard Lucee jar, (known as the far jar) bundles a number of common extensions (pdf, image etc).
-
-If you want to control which extensions are installed, use Lucee Light (core and admin) or Lucee Zero (core only).
+Multiple ways to install extensions in Lucee. The standard jar bundles common extensions (pdf, image etc) - use Lucee Light or Zero for more control.
 
 ## Lucee Administrator
 
@@ -188,14 +184,3 @@ java -Dlucee.extensions="99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;name=MSSQL;version=
 ## Logging and Troubleshooting
 
 If you encounter issues while installing extensions, you can check the log at `{lucee-installation}/lucee-server/context/logs/deploy.log` not only for any errors reported but also to see what actions were performed. This log is by default set to info level and should contain all details about the installation process.
-
-## Conclusion
-
-Lucee offers several methods to install extensions, each with its own advantages and disadvantages. Choose the method that best fits your deployment and management workflow:
-
-- **Lucee Administrator**: Best for manual, ad-hoc installations.
-- **`deploy` Directory**: Good for automated deployments with script support.
-- **`.CFConfig.json` Configuration**: Ideal for managing configurations and extensions together.
-- **Environment Variable / System Property**: Suitable for modern deployment environments like Docker and cloud services.
-
-By understanding the pros and cons of each method, you can effectively manage Lucee extensions in your environment.

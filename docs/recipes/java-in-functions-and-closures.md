@@ -23,44 +23,72 @@
 
 # Java in Functions and Closures
 
-You can write CFML code directly in a function or a closure.
+Sometimes you need raw Java performance or want to use Java APIs that don't translate well to CFML. With `type="java"` you can write actual Java code inside a CFML function - the function body is compiled as Java, not CFML.
 
-If you aren't running Lucee with a JDK, Lucee falls back on the [Janino compiler](https://janino-compiler.github.io/janino/) to compile your java code, so any [limitations](https://janino-compiler.github.io/janino/#limitations) of Janino apply.
+This is useful for:
 
-## Functions
+- Performance-critical code (Java compiles to optimized bytecode)
+- Implementing Java functional interfaces (lambdas) to pass to Java libraries
+- Using Java syntax you're already familiar with
 
-Inside the function, you can write regular Java code. The arguments and return type definition must be Java types.
+**Note:** Without a JDK, Lucee uses the [Janino compiler](https://janino-compiler.github.io/janino/) which has some [limitations](https://janino-compiler.github.io/janino/#limitations).
+
+## Basic Syntax
+
+Add `type="java"` to any function. The return type and arguments must use Java types (`int`, `String`, `boolean`, etc.), not CFML types:
 
 ```lucee
-int function echoInt(int i) type="java" {
-    if (i == 1) throw new Exception("Upsi dupsi!!!");
-    return i * 2;
+// Java types: int, not numeric; String, not string
+int function doubleIt( int i ) type="java" {
+	return i * 2;
+}
+
+dump( doubleIt( 5 ) ); // 10
+```
+
+Java exceptions work too:
+
+```lucee
+int function safeDouble( int i ) type="java" {
+	if ( i < 0 ) throw new IllegalArgumentException( "Must be positive" );
+	return i * 2;
 }
 ```
 
-## Components
+## In Components
 
-Of course, the function can also be part of a component.
+Works the same in CFCs - mix Java and CFML functions freely:
 
 ```lucee
 component {
-    int function echoInt(int i) type="java" {
-        if (i == 1) throw new Exception("Test output!!!");
-        return i * 2;
-    }
+	// Java function
+	int function multiply( int a, int b ) type="java" {
+		return a * b;
+	}
+
+	// Regular CFML function
+	function describe( required numeric value ) {
+		return "The value is #value#";
+	}
 }
 ```
 
-## Java Lambda Functions
+## Java Lambda Functions (Functional Interfaces)
 
-If the interface of a function matches a functional Java interface (Lambda), Lucee automatically implements that interface. 
+Java 8+ uses "functional interfaces" (interfaces with one method) for lambdas. When your Java function signature matches a functional interface, Lucee can pass it directly to Java code expecting that interface.
 
-In the following example, we implement the `IntUnaryOperator` implicitly. You can then pass it to Java and use it as such.
+Example: Java's `IntUnaryOperator` is a functional interface with method `int applyAsInt(int)`. A matching CFML function:
 
 ```lucee
-int function echoInt(int i) type="java" {
-    if (i == 1) throw new Exception("Test");
-    return i * 2;
+// Matches IntUnaryOperator: takes int, returns int
+int function triple( int i ) type="java" {
+	return i * 3;
 }
-dump(echoInt(1));
+
+// Can now pass to Java methods expecting IntUnaryOperator
+import java.util.stream.IntStream;
+result = IntStream::of( 1, 2, 3 ).map( triple ).sum();
+dump( result ); // 18 (3 + 6 + 9)
 ```
+
+This lets you use CFML functions with Java's Stream API, CompletableFuture, and other functional Java APIs.

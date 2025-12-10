@@ -11,19 +11,21 @@
     "Bracket notation",
     "URL form scopes",
     "Array format"
+  ],
+  "categories": [
+    "language"
   ]
 }
 -->
 
 # Hidden Gems
 
-This document explains how to declare variables, function calls with dot and bracket notation, and passing arguments via URL/form scopes as an array. These concepts are explained with simple examples below:
+Lesser-known Lucee features that can make your code cleaner and more flexible. These aren't obscure - they're useful patterns that many developers overlook.
 
-## Example 1: Declare Variables
-
-// test.cfc
+## Variable Declaration
 
 ```luceescript
+// test.cfc
 component {
 	function getName() {
 		return "Susi";
@@ -31,9 +33,8 @@ component {
 }
 ```
 
-// example1.cfm
-
 ```luceescript
+// example.cfm
 function test() {
 	var qry;
 	dump(qry);
@@ -45,50 +46,42 @@ function test() {
 test();
 ```
 
-In the cfm page, we have a test() function with a local variable scope assigned as an empty string `var qry`. When executing this cfm, the qry returns "1". Dumping the `qry` below the var declaration returns an empty string.
+Declaring `var qry` creates an empty local variable. The query then populates it.
 
-## Example 2: Dot and Bracket Notation for Function Calls
+## Bracket Notation for Function Calls
 
-Lucee allows you to use bracket notation to call a component function.
-
-// example2.cfm
+You can call component methods using bracket notation instead of dot notation. This lets you call functions dynamically without the overhead and security concerns of `evaluate()`:
 
 ```luceescript
-// UDF call via dot notation
+// Standard dot notation
 test = new Test();
 dump( test.getName() );
-// Dynamic function name
+
+// Dynamic with evaluate (avoid this)
 funcName = "getName";
-dump(evaluate('test.#funcName#()'));
-// UDF call via bracket notation
+dump( evaluate('test.#funcName#()') );
+
+// Dynamic with bracket notation (better!)
 funcName = "getName";
 dump( test[funcName]() );
 ```
 
-These three different types of function calls are:
+All three return "Susi", but bracket notation is cleaner and safer than `evaluate()`.
 
-- Calling the user-defined function `getName()` from the component.
-- Dynamic function name with evaluate function.
-- User-defined function via bracket notation.
+## URL/Form Arrays
 
-All three different function calls return the same content "Susi" as defined in the CFC page.
-
-## Example 3: Passing Arguments via URL/Form Scopes as Array
-
-Lucee allows passing URL and Form scope data as an array instead of a string list.
-
-// example3.cfm
+When you have multiple form fields or URL parameters with the same name, Lucee normally merges them into a comma-separated string. Adding `[]` to the name tells Lucee to return an array instead - much easier to work with:
 
 ```lucee
 <cfscript>
 	dump(label:"URL", var:url);
 	dump(label:"Form", var:form);
-	// current name
 	curr = listLast(getCurrentTemplatePath(),'\/');
 </cfscript>
 
 <cfoutput>
 	<h1>Countries</h1>
+	<!--- Note the [] in country[] --->
 	<form method="post" action="#curr#?country[]=USA&country[]=UAE">
 		<pre>
 			Countries Europe:	<input type="text" name="country[]" value="Switzerland,France,Germany" size="30">
@@ -99,25 +92,6 @@ Lucee allows passing URL and Form scope data as an array instead of a string lis
 </cfoutput>
 ```
 
-// index.cfm
+With `country` you get `"USA,UAE"` (string). With `country[]` you get `["USA","UAE"]` (array).
 
-```luceescript
-directory sort="name" action="list" directory=getDirectoryFromPath(getCurrentTemplatePath()) filter="example*.cfm" name="dir";
-loop query=dir {
-	echo('<a href="#dir.name#">#dir.name#</a><br>');
-}
-```
-
-In this cfm page, URL and form scopes are available. The names are used twice.
-
-- The query string on the URL scope has the same name `country` twice. Similarly, the form also has two fields with the same name `country`.
-- Execute this cfm page in the browser & submit the form. It shows a single URL string list in merged format instead of two fields & Form fields also merged as a single `country` field.
-- Adding square brackets behind the name `country[]` means it returns two separate strings in array format. You will see the difference in the browser while dumping that name with square brackets.
-
-These simple methods are helpful for defining variables in different ways.
-
-## Footnotes
-
-Here you can see the above details in the video
-
-[Lucee Hidden Gems](https://youtu.be/4MUKPiQv1kAsss)
+Video: [Lucee Hidden Gems](https://youtu.be/4MUKPiQv1kA)

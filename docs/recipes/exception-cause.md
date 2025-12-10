@@ -26,7 +26,7 @@ Lucee 6.1 improves its support for exception causes, providing better debugging 
 
 ## Tag Attribute cause
 
-The `<cfthrow>` tag now includes a new attribute, `cause`, which allows you to add a cause to a newly created exception.
+The `<cfthrow>` tag now includes a `cause` attribute to chain exceptions:
 
 ```run
 <cfscript>
@@ -45,11 +45,11 @@ catch(ex) {
 </cfscript>
 ```
 
-Thanks to this enhancement, you get not only the tag context and Java stack trace from the top-level exception, but also the same information for the "cause" exception.
+This gives you the tag context and Java stack trace from both the top-level exception and its cause.
 
 ## Parent Thread Context
 
-When you throw an exception from a child thread, for example, a `cfhttp` call executed in parallel or an exception inside the `cfthread` tag, you can now see the stack trace from where that thread was started. Previously, you only saw the stack trace within the child thread. With Lucee 6.1, you also get the information from the parent thread as the cause. Consider the following example:
+Exceptions from child threads (parallel `cfhttp`, `cfthread`) now include the parent thread's stack trace as the cause - previously you only saw the child thread's stack trace:
 
 ```run
 <cfscript>
@@ -62,4 +62,4 @@ dump(cfthread["testexception"].error.cause.Message);
 </cfscript>
 ```
 
-The error not only includes the exception information from within the cfthread tag but also provides information from outside, making debugging much easier as you can see where the tag was called from.
+The error includes both the exception from within `cfthread` and where it was called from, making debugging much easier.

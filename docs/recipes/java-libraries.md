@@ -1,4 +1,3 @@
-
 <!--
 {
   "title": "Interacting with Java Libraries",
@@ -22,44 +21,67 @@
 }
 -->
 
-# Interacting with Java Libraries in Lucee 6.2
+# Interacting with Java Libraries
 
-With Lucee 6.2, one of the main goals was to make Java integration as seamless as possible. This includes easily loading Java libraries and adapting Java code to work within CFML. With a few enhancements, integrating Java into Lucee is now much simpler and more efficient. This recipe will guide you through setting up a simple Java library with Maven, importing Java classes, and interacting with them in Lucee.
+Need functionality that doesn't exist in CFML? There's probably a Java library for it. Lucee lets you pull in Java libraries directly - no manual JAR downloads, no classpath configuration. Just declare what you need and start coding.
 
-## Step 1: Using Maven for Dependencies
+This recipe shows how to use external Java libraries. For working with Java's built-in classes, see [[java-class-interaction]].
 
-Maven allows you to automatically download Java libraries and their dependencies. Lucee 6.2 now supports Maven integration directly, making it much easier to load Java libraries in your code.
+## Adding Dependencies
 
-Here’s how to include Maven dependencies in a Lucee component:
+Java has two main package managers: Maven and Gradle. Both identify libraries with three parts:
+
+- **groupId**: The organization (e.g., `com.google.zxing`)
+- **artifactId**: The library name (e.g., `core`)
+- **version**: The version number (e.g., `3.3.0`)
+
+Add dependencies to a component's `javasettings` attribute - Lucee downloads them automatically on first use.
+
+### Object Syntax
 
 ```cfml
-component javasettings='{
-        "maven":[
-            {
-                "groupId" : "com.google.zxing",
-                "artifactId" : "core",
-                "version" : "3.3.0"
-            },
-            {
-                "groupId" : "com.google.zxing",
-                "artifactId" : "javase",
-                "version" : "3.3.0"
-            }
-        ]
-    }' {
-    // Your code here
+component javasettings='
+{
+	"maven": [
+		{
+			"groupId": "com.google.zxing",
+			"artifactId": "core",
+			"version": "3.3.0"
+		},
+		{
+			"groupId": "com.google.zxing",
+			"artifactId": "javase",
+			"version": "3.3.0"
+		}
+	]
+}' {
+	// Your code here
 }
 ```
 
-Lucee will automatically download these libraries when they’re needed. In this case, we’re using the ZXing library to work with QR codes.
+### Shorthand Syntax
 
-For more details on Maven support, check out the [Lucee documentation on Maven](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/maven.md).
+More concise - use the `group:artifact:version` string format:
 
-## Step 2: Importing Java Classes
+```cfml
+component javasettings='
+{
+	"maven": [
+		"com.google.zxing:core:3.3.0",
+		"com.google.zxing:javase:3.3.0"
+	]
+}' {
+	// Your code here
+}
+```
 
-In Lucee 6.2, you can now import Java classes the same way you import CFML components. You can use the `import` keyword for both, making it easier to mix CFML and Java code in your projects.
+**Note:** The `javasettings` attribute must be valid JSON, not a CFML struct literal.
 
-Here’s how to import Java classes:
+This example uses the ZXing library for QR codes. See the [[maven]] recipe for more details.
+
+## Importing Java Classes
+
+Import Java classes the same way as CFML components:
 
 ```cfml
 import java.io.File;
@@ -72,40 +94,41 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 ```
 
-### Using Wildcards for Imports
+Wildcard imports work too: `import java.util.*;`
 
-You can import all classes from a package using a wildcard `*`:
+See the [[import]] recipe for more details.
 
-```cfml
-import java.util.*;
-```
+## Using Java Classes
 
-This works similarly to wildcard imports in other languages.
+Once imported, use Java classes like CFML components:
 
-For more details on importing Java classes, check out the [Lucee documentation on imports](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/import.md).
+- `new ClassName()` - create instances
+- `ClassName::methodName()` - call static methods
+- `ClassName::CONSTANT` - access static fields/constants
 
-## Step 3: Interacting with Java Classes
-
-Once you’ve imported the classes, interacting with them is straightforward. You can create instances of Java objects and call static methods just like you would with CFML components.
+Here's the complete QR code example:
 
 ```cfml
-public static void function createQR(String data, String path, numeric height, numeric width) {
+public static void function createQR( String data, String path, numeric height, numeric width ) {
+	// Configure QR code options using Java's HashMap
+	var hints = new HashMap();
+	hints.put( EncodeHintType::ERROR_CORRECTION, ErrorCorrectionLevel::L );
 
-    var hashMap = new HashMap();
-    hashMap.put(EncodeHintType::ERROR_CORRECTION,ErrorCorrectionLevel::L);
+	// Generate the QR code matrix
+	var matrix = new MultiFormatWriter().encode(
+		data,
+		BarcodeFormat::QR_CODE,
+		width,
+		height
+	);
 
-    var matrix = new MultiFormatWriter().encode(data, BarcodeFormat::QR_CODE, width, height);
-    MatrixToImageWriter::writeToFile(
-        matrix,
-        listLast(path,"."),
-        new File(path));
+	// Write to file - static method call with ::
+	MatrixToImageWriter::writeToFile(
+		matrix,
+		listLast( path, "." ),
+		new File( path )
+	);
 }
 ```
 
-In this example, we’re creating a QR code and writing it to a file using Java libraries, but the interaction feels much like working with CFML objects.
-
-For more details on interacting with Java objects in Lucee, check out the [Lucee documentation on the `new` operator](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/new-operator.md).
-
-## Conclusion
-
-By introducing easier Maven integration, flexible imports, and simplified Java interaction, Lucee 6.2 makes it more accessible than ever to work with Java libraries. These enhancements ensure you can leverage the power of Java without unnecessary complexity in your CFML projects.
+See [[new-operator]] for more on instantiating Java classes, and [[java-class-interaction]] for static methods and fields.

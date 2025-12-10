@@ -18,7 +18,7 @@
 
 # Hooks and Monitors
 
-Lucee provides two powerful extension mechanisms that allow you to inject custom functionality at different points in the application lifecycle: **Hooks** and **Monitors**. These systems enable you to extend Lucee's capabilities, implement custom initialization logic, collect runtime metrics, and integrate with external systems seamlessly.
+Two extension mechanisms for custom functionality: **Hooks** run at lifecycle points (startup), **Monitors** collect runtime metrics (requests, actions, intervals).
 
 ## AI-Optimized Technical Reference
 

@@ -23,251 +23,161 @@
 
 # Java Class Interaction
 
-Lucee provides seamless integration with Java classes, allowing you to instantiate objects, call methods, and access static members directly from CFML code. This powerful feature enables you to leverage the entire Java ecosystem within your Lucee applications.
+Lucee runs on the JVM, which means you have access to thousands of Java libraries directly from CFML. Need a high-performance collection? Use Java's `HashMap`. Want to work with ZIP files, parse XML, or use a third-party library? Just instantiate the Java class and call its methods.
 
-## Overview
+If you're new to Java, don't worry - you can start with the basics and learn as you go. Many Java classes map to familiar CFML concepts: `HashMap` is like a struct, `ArrayList` is like an array, `StringBuilder` is for efficient string concatenation.
 
-Java class interaction in Lucee supports multiple approaches for working with Java objects:
-
-- Implicit class loading using standard Java syntax
-- Explicit class loading with the `java:` prefix
-- Import statements for cleaner code
-- Static method calls and field access
-- Inner and nested class instantiation
-- Class reflection capabilities
-
-**Note**: This feature was partially available as an experimental feature in Lucee 6.2, but should not be used in production systems with that version. The complete, stable implementation is available starting with Lucee 7.0.
+**Note**: Complete, stable implementation available from Lucee 7.0 (experimental in 6.2).
 
 ## Basic Class Instantiation
 
-### Implicit Loading
-
-The most straightforward way to create Java objects is using implicit loading with the `new` keyword:
+Create Java objects with `new`, just like CFCs:
 
 ```javascript
-// Create a HashMap instance
+// HashMap - like a CFML struct, but with Java's Map interface
 map = new java.util.HashMap();
-dump(map);
+map.put( "name", "Lucee" );
+dump( map.get( "name" ) ); // "Lucee"
 
-// Create an ArrayList with initial capacity
-list = new java.util.ArrayList(10);
-dump(list);
+// ArrayList - like a CFML array, but Java-native
+list = new java.util.ArrayList();
+list.add( "one" );
+list.add( "two" );
+dump( list.get( 0 ) ); // "one"
 
-// Create a Date object
+// Date - Java's date/time (consider java.time classes for new code)
 currentDate = new java.util.Date();
-dump(currentDate);
+dump( currentDate );
 ```
 
-### Explicit Loading
+### The `java:` Prefix
 
-For better clarity and to avoid potential conflicts, you can use explicit loading with the `java:` prefix:
+When a Java class name might conflict with a CFC name, use the `java:` prefix to be explicit:
 
 ```javascript
-// Create a HashMap explicitly
-map = new java:java.util.HashMap();
-dump(map);
+// If you have a CFC called "StringBuilder", this ensures you get the Java class
+sb = new java:java.lang.StringBuilder( "Hello" );
+sb.append( " World" );
+dump( sb.toString() ); // "Hello World"
 
-// Create a StringBuilder with initial value
-sb = new java:java.lang.StringBuilder("Hello World");
-dump(sb);
-
-// Create a BigDecimal for precise calculations
-decimal = new java:java.math.BigDecimal("123.456");
-dump(decimal);
+// BigDecimal for precise decimal math (avoids floating-point issues)
+price = new java:java.math.BigDecimal( "19.99" );
+tax = new java:java.math.BigDecimal( "0.10" );
+total = price.add( price.multiply( tax ) );
+dump( total ); // 21.989
 ```
 
 ## Import Statements
 
-Use import statements to simplify class names and make your code more readable:
+Typing `java.util.HashMap` every time gets tedious. Use `import` to bring classes into scope - then use just the class name:
 
 ```javascript
 // Import specific classes
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.lang.StringBuilder;
 
-// Now you can use simplified names
+// Now use the short name
 map = new HashMap();
 list = new ArrayList();
-sb = new StringBuilder("Test");
 
-dump(map);
-dump(list);
-dump(sb);
-
-// Import entire packages with wildcard
+// Import entire packages with wildcard (like CFML's cfimport)
 import java.util.*;
 import java.text.*;
 
-// Use any class from imported packages
-map = new HashMap();
-list = new LinkedList();
-format = new SimpleDateFormat("yyyy-MM-dd");
-
-dump(map);
-dump(list);
-dump(format);
+// Now any class from those packages works without the full path
+map = new LinkedHashMap(); // maintains insertion order
+format = new SimpleDateFormat( "yyyy-MM-dd" );
+dump( format.format( new Date() ) ); // "2024-01-15"
 ```
 
-## Static Method Calls
+## Static Methods and Fields
 
-Access static methods using the double colon (`::`) operator:
-
-### Implicit Static Calls
+In Java, some methods belong to the class itself rather than instances - these are "static" methods. You don't need to create an object first; just call them on the class using `::`.
 
 ```javascript
-// Call Math.random()
-rnd = Math::random();
-dump(rnd);
+// Math utilities - no need to create a Math object
+rnd = Math::random(); // 0.0 to 1.0
+maxVal = Math::max( 10, 20 ); // 20
+rounded = Math::round( 3.7 ); // 4
 
-// Call System.currentTimeMillis()
+// System info
 timestamp = System::currentTimeMillis();
-dump(timestamp);
+osName = System::getProperty( "os.name" );
 
-// Call Integer.parseInt()
-number = Integer::parseInt("42");
-dump(number);
+// Parse strings to numbers
+number = Integer::parseInt( "42" );
+decimal = Double::parseDouble( "3.14" );
 
-// Call Arrays.toString()
-import java.util.Arrays;
-arr = [1, 2, 3, 4, 5];
-str = Arrays::toString(arr);
-dump(str);
-```
-
-### Explicit Static Calls
-
-```javascript
-// Call static methods explicitly
-rnd = java:Math::random();
-dump(rnd);
-
-// Call System properties
-osName = java:System::getProperty("os.name");
-dump(osName);
-
-// Call UUID generation
+// Generate UUIDs
 import java.util.UUID;
-uuid = java:UUID::randomUUID();
-dump(uuid);
+uuid = UUID::randomUUID();
+dump( uuid.toString() );
 ```
 
-## Static Field Access
-
-Access static fields (constants) using the same syntax:
+Static fields (constants) work the same way - useful for getting platform-specific values or predefined constants:
 
 ```javascript
-// Access Integer constants
-maxInt = java:Integer::MAX_VALUE;
-minInt = java:Integer::MIN_VALUE;
-dump(maxInt);
-dump(minInt);
+// Numeric limits
+maxInt = Integer::MAX_VALUE; // 2147483647
+minInt = Integer::MIN_VALUE; // -2147483648
 
-// Access Calendar constants
-import java.util.Calendar;
-monday = Calendar::MONDAY;
-sunday = Calendar::SUNDAY;
-dump(monday);
-dump(sunday);
-
-// Access File separator
+// Platform-specific file separator ("/" on Unix, "\" on Windows)
 separator = java:java.io.File::separator;
-dump(separator);
+
+// Line separator for the current OS
+newline = System::lineSeparator();
 ```
 
-## Inner and Nested Classes
+## Inner Classes and Enums
 
-Lucee supports instantiation of inner and nested classes using the `$` delimiter:
-
-### Static Nested Classes
+Java classes can contain other classes inside them (inner classes). To reference these, use `$` between the outer and inner class names. You'll encounter this when working with some Java APIs.
 
 ```javascript
-// Create a Map.Entry using AbstractMap.SimpleEntry
-entry = new java:java.util.AbstractMap$SimpleEntry("count", 42);
-dump(entry);
-
-// Access the key and value
-dump("Key: " & entry.getKey());
-dump("Value: " & entry.getValue());
-
-// Create a Rectangle2D.Double
-rectangle = new java:java.awt.geom.Rectangle2D$Double(10.0, 20.0, 100.0, 50.0);
-dump(rectangle);
-dump("Area: " & (rectangle.getWidth() * rectangle.getHeight()));
+// AbstractMap.SimpleEntry is an inner class - use $ to access it
+entry = new java:java.util.AbstractMap$SimpleEntry( "name", "Lucee" );
+dump( entry.getKey() ); // "name"
+dump( entry.getValue() ); // "Lucee"
 ```
 
-### Enum Classes
+### Enums
+
+Java enums are type-safe constants. Access enum values using `::`:
 
 ```javascript
-// Access Thread.State enum values
-state = java:Thread$State::RUNNABLE;
-dump(state & ""); // Convert to string for display
-
-// Get all enum values
-states = java:Thread$State::values();
-dump(states);
-
-// Access other enum types
+// TimeUnit enum - useful for time conversions
 import java.util.concurrent.TimeUnit;
 seconds = TimeUnit::SECONDS;
 minutes = TimeUnit::MINUTES;
-dump(seconds);
-dump(minutes);
+
+// Convert 2 minutes to seconds
+dump( minutes.toSeconds( 2 ) ); // 120
+
+// Thread states (inner enum, so use $)
+state = java:Thread$State::RUNNABLE;
+allStates = java:Thread$State::values();
+dump( allStates );
 ```
 
-### Character Inner Classes
+## Class Reflection (Advanced)
+
+Reflection lets you inspect classes at runtime - useful for debugging, building dynamic code, or understanding unfamiliar Java libraries.
 
 ```javascript
-// Access Character.UnicodeBlock
-basicLatin = java:Character$UnicodeBlock::BASIC_LATIN;
-dump(basicLatin);
-
-// Check if a character belongs to a Unicode block
-testChar = asc("A");
-block = java:Character$UnicodeBlock::of(testChar);
-dump("Character 'A' belongs to: " & block);
-
-// Access Character.UnicodeScript
-latin = java:Character$UnicodeScript::LATIN;
-dump(latin);
-```
-
-## Class Reflection
-
-Get Java Class objects for reflection purposes:
-
-### Implicit Class Access
-
-```javascript
-// Get the Class object for HashMap
+// Get the Class object using ::class
 clazz = java.util.HashMap::class;
-dump(clazz);
 
-// Get class name and methods
-dump("Class name: " & clazz.getName());
-dump("Simple name: " & clazz.getSimpleName());
+// Inspect the class
+dump( clazz.getName() ); // "java.util.HashMap"
+dump( clazz.getSimpleName() ); // "HashMap"
+dump( clazz.getSuperclass().getName() ); // "java.util.AbstractMap"
 
-// Get constructors
-constructors = clazz.getConstructors();
-dump("Number of constructors: " & arrayLen(constructors));
-```
+// See what interfaces it implements
+for ( iface in clazz.getInterfaces() ) {
+    dump( iface.getName() );
+}
 
-### Explicit Class Access
-
-```javascript
-// Get Class object explicitly
-clazz = java:java.util.HashMap::class;
-dump(clazz);
-
-// Get superclass
-superClass = clazz.getSuperclass();
-dump("Superclass: " & superClass.getName());
-
-// Get interfaces
-interfaces = clazz.getInterfaces();
-dump("Implements " & arrayLen(interfaces) & " interfaces");
-
-// Check if it's an interface, enum, etc.
-dump("Is interface: " & clazz.isInterface());
-dump("Is enum: " & clazz.isEnum());
+// List available methods (helpful when learning a new class)
+for ( method in clazz.getMethods() ) {
+    dump( method.getName() );
+}
 ```

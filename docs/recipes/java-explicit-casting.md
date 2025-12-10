@@ -20,55 +20,66 @@
 }
 -->
 
-# Java - Explicit Casting of a Component to a Specific Interface
+# Casting Components to Java Interfaces
 
-Use `JavaCast()` to explicitly cast a component to a specific interface when implicit casting isn't enough.
+When you pass a CFML component to Java code, Lucee needs to convert it to a Java type. Usually this happens automatically, but sometimes you need to tell Lucee exactly which Java interface to use - especially when Java methods have multiple versions that accept different types.
 
-## Implicit Casting
+## The Problem: Overloaded Methods
 
-Lucee supports implicit casting by passing a component to a method where the method argument is of a specific type. For example:
+Java allows multiple methods with the same name but different parameter types (called "overloading"). For example, `setLocale()` might accept either a `String` or a `Locale` object. When Lucee can't determine which version to call, you get errors or unexpected behavior.
+
+## How Components Implement Java Interfaces
+
+The `implementsJava` attribute tells Lucee your component should be treated as a Java interface. You implement the interface methods using `onMissingMethod` - when Java calls a method on your component, this function handles it:
+
+```lucee
+// Component that implements Java's CharSequence interface
+cs = new component implementsJava="java.lang.CharSequence" {
+	variables.text = "en_us";
+
+	// Handle calls from Java code
+	public function onMissingMethod( missingMethodName, missingMethodArguments ) {
+		if ( missingMethodName == "toString" ) return variables.text;
+		throw "method #missingMethodName# not supported yet!";
+	}
+};
+
+// Pass to Java - Lucee figures out it implements CharSequence
+getPageContext().setLocale( cs );
+```
+
+This works because Lucee automatically converts the component to match what Java expects.
+
+## When You Need Explicit Casting
+
+The automatic conversion fails when Java has multiple methods with the same name. `PageContext.setLocale()` has two versions:
+
+- `setLocale( java.lang.String )`
+- `setLocale( java.util.Locale )`
+
+Lucee doesn't know which one you want. Use `JavaCast()` to be explicit:
 
 ```lucee
 cs = new component implementsJava="java.lang.CharSequence" {
-  variables.text = "en_us";
+	variables.text = "en_us";
 
-  public function onMissingMethod(missingMethodName, missingMethodArguments) {
-    if ("toString" == missingMethodName) return variables.text;
-    else throw "method #missingMethodName# not supported yet!";
-  }
+	public function onMissingMethod( missingMethodName, missingMethodArguments ) {
+		if ( missingMethodName == "toString" ) return variables.text;
+		throw "method #missingMethodName# not supported yet!";
+	}
 };
-// setLocale expects a String as argument PageContext.setLocale(java.lang.String)
-getPageContext().setLocale(cs);
+
+// Explicitly cast to CharSequence (the base interface for String)
+obj = JavaCast( "java.lang.CharSequence", cs );
+
+// Now Lucee knows to use the String version of setLocale()
+getPageContext().setLocale( obj );
 ```
 
-In this example, Lucee implicitly finds a matching method and converts the component to a class implementing the `java.lang.CharSequence` interface.
+## When to Use This
 
-## Explicit Casting
+This is advanced Java integration - you'll typically need it when:
 
-Sometimes, implicit casting can be problematic if Lucee cannot make the correct fit, or if a method is overloaded and you need to specify which method to use. 
-
-For instance, the `PageContext` class has two `setLocale` methods:
-
-- `setLocale(java.lang.String): void`
-- `setLocale(java.util.Locale): void`
-
-To ensure the correct method is called, it is better to use explicit casting. Here's the modified example:
-
-```lucee
-cs = new component implementsJava="java.lang.CharSequence" {
-  variables.text = "en_us";
-
-  public function onMissingMethod(missingMethodName, missingMethodArguments) {
-    if ("toString" == missingMethodName) return variables.text;
-    else throw "method #missingMethodName# not supported yet!";
-  }
-};
-// Explicitly cast to java.lang.CharSequence
-obj = JavaCast("java.lang.CharSequence", cs);
-dump(obj);
-
-// Use the CharSequence object
-getPageContext().setLocale(obj);
-```
-
-In this example, we first cast the component to `java.lang.CharSequence` (the base interface for `String`), then call `setLocale`. With this explicit casting, Lucee is able to link the correct method.
+- Passing CFML components to Java libraries that expect specific interfaces
+- Working with Java APIs that have overloaded methods
+- Implementing Java callbacks or listeners in CFML

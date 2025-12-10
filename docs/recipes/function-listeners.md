@@ -23,7 +23,7 @@
 
 # Function Listeners
 
-Lucee 6.1 introduced a new feature called "Function Listeners". This allows you to execute a function (of any kind) in parallel, so you do not have to wait for the result of the execution, similar to using the `cfthread` tag. Function Listeners provide an easy syntax to not only execute a function in parallel but also include support to handle the result by simply adding a listener after the function call. This listener can handle the result or exception of a function.
+Execute functions in parallel with a simple listener syntax. Like `cfthread` but cleaner - attach a listener after any function call to handle results or exceptions asynchronously.
 
 ## Simple Version
 
