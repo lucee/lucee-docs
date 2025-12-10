@@ -27,7 +27,7 @@
 
 # New Operator
 
-The `new` operator creates instances of CFML components (CFCs) and, since Lucee 6.2, Java classes directly. It's the modern alternative to `createObject()` - cleaner syntax and works the same way across both CFML and Java.
+The `new` operator creates instances of CFML components (CFCs) and Java classes. It's the modern alternative to `createObject()` - cleaner syntax and works the same way across both CFML and Java.
 
 ## CFML Components
 
