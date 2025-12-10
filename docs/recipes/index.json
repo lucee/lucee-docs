@@ -375,7 +375,7 @@
     "file": "database-connection-management.md",
     "title": "Database Connection Management in Lucee",
     "path": "/docs/recipes/database-connection-management.md",
-    "hash": "15c8bfdea99070cff5f53924f977cc8d",
+    "hash": "da151534732a74a3e3c4713a5bf6decf",
     "keywords": [
       "database",
       "connection pool",
@@ -1153,7 +1153,7 @@
     "file": "null-support.md",
     "title": "Null Support",
     "path": "/docs/recipes/null-support.md",
-    "hash": "a6208796cda4493a1d0d5a2e6b2d4000",
+    "hash": "8788e502404b02680cff78cdde7831ef",
     "keywords": [
       "Null support",
       "null keyword",
