@@ -324,6 +324,10 @@ Learn about the changes in Lucee 6.1 regarding Monitoring and Debugging. Underst
 
 Shows you a way to enable Monitoring for your session
 
+## [MSSQL Modern Mode](/docs/recipes/mssql-modern-mode.md)
+
+How to enable and use MSSQL modern mode in Lucee for proper handling of RAISERROR exceptions and complex T-SQL batches
+
 ## [New Operator in Lucee](/docs/recipes/new-operator.md)
 
 This document provides a guide on using the new operator in Lucee for creating instances of CFML components and Java classes.

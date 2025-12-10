@@ -1120,6 +1120,22 @@
     ]
   },
   {
+    "file": "mssql-modern-mode.md",
+    "title": "MSSQL Modern Mode",
+    "path": "/docs/recipes/mssql-modern-mode.md",
+    "hash": "98fff0a47779d6495e11758cf9c237dc",
+    "keywords": [
+      "mssql",
+      "sql server",
+      "raiserror",
+      "deferred exceptions",
+      "modern mode",
+      "jdbc",
+      "stored procedures",
+      "t-sql"
+    ]
+  },
+  {
     "file": "new-operator.md",
     "title": "New Operator in Lucee",
     "path": "/docs/recipes/new-operator.md",
