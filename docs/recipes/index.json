@@ -577,7 +577,7 @@
     "file": "exception-cause.md",
     "title": "Exception - Cause",
     "path": "/docs/recipes/exception-cause.md",
-    "hash": "309daf755a417a7ef336093c917f0e0d",
+    "hash": "06f579dccdebcac3fe54116e4345db5b",
     "keywords": [
       "exception",
       "error",
@@ -616,7 +616,7 @@
     "file": "extension-installation.md",
     "title": "Extension Installation",
     "path": "/docs/recipes/extension-installation.md",
-    "hash": "ecd0606fecd2189cff2b7333f7b0e7fa",
+    "hash": "fd68a757d9496f29daf2efce812de93c",
     "keywords": [
       "extension",
       "install",
@@ -631,9 +631,9 @@
   },
   {
     "file": "externalizing-strings.md",
-    "title": "Externalize strings",
+    "title": "Externalize Strings",
     "path": "/docs/recipes/externalizing-strings.md",
-    "hash": "0468a8eb799d2ba3305a3c3c15e3a32d",
+    "hash": "c824d1fe214e8f69ddcf9fdcdd00b5f3",
     "keywords": [
       "Externalize strings",
       "Memory reduction",
@@ -646,7 +646,7 @@
     "file": "file-extensions.md",
     "title": "File Extensions",
     "path": "/docs/recipes/file-extensions.md",
-    "hash": "ebe46feb87dbb9145ee212d08733ead0",
+    "hash": "637e76c9fdc4e018a6f5558e43cd89f4",
     "keywords": [
       "CFML",
       "cfm",
@@ -673,7 +673,7 @@
     "file": "function-listeners.md",
     "title": "Function Listeners",
     "path": "/docs/recipes/function-listeners.md",
-    "hash": "891a59c06d52602d5714bd5d15324f7e",
+    "hash": "22ac82e557d07ae9f754c945b619e0fe",
     "keywords": [
       "parallel",
       "async",
@@ -740,7 +740,7 @@
     "file": "hidden-gems.md",
     "title": "Hidden Gems",
     "path": "/docs/recipes/hidden-gems.md",
-    "hash": "3ab486e60bde4cd0203f26b5c9078758",
+    "hash": "692dc4e4788edf1718091734f73c7c45",
     "keywords": [
       "Hidden gems",
       "Declare variables",
@@ -755,7 +755,7 @@
     "file": "hooks-and-monitors.md",
     "title": "Hooks and Monitors",
     "path": "/docs/recipes/hooks-and-monitors.md",
-    "hash": "cde7806873b8528ab35024f9ef7d475b",
+    "hash": "d7c336bf16152f91ab033837b35f654e",
     "keywords": [
       "hooks",
       "monitors",
@@ -769,7 +769,7 @@
     "file": "http-logging.md",
     "title": "Logging CFHTTP Calls",
     "path": "/docs/recipes/http-logging.md",
-    "hash": "517db531ed4aacd700ea4b78e1a3e168",
+    "hash": "c53e1769aff2b36d8529d3d3d5277cea",
     "keywords": [
       "cfhttp",
       "logging",
@@ -782,7 +782,7 @@
     "file": "import.md",
     "title": "Import",
     "path": "/docs/recipes/import.md",
-    "hash": "d29fb9ca4c85701d43ecd0cc521686be",
+    "hash": "ba953a5cc3fb651f6a003b0191a21be0",
     "keywords": [
       "cfimport",
       "import",
@@ -797,7 +797,7 @@
     "file": "inline-components.md",
     "title": "Inline Components",
     "path": "/docs/recipes/inline-components.md",
-    "hash": "30b05e4fd6194eda7e916de2c5f2e198",
+    "hash": "faa97f9147f712c6961095a4d56198f8",
     "keywords": [
       "CFML",
       "component",
@@ -809,7 +809,7 @@
     "file": "java-class-interaction.md",
     "title": "Java Class Interaction",
     "path": "/docs/recipes/java-class-interaction.md",
-    "hash": "4eed58da8beda85ece16519a04723fae",
+    "hash": "8b87472fd2ad7c252966f3ec25e4cbee",
     "keywords": [
       "Java",
       "Classes",
@@ -822,9 +822,9 @@
   },
   {
     "file": "java-explicit-casting.md",
-    "title": "Java - Explicit Casting of a Component to a Specific Interface",
+    "title": "Casting Components to Java Interfaces",
     "path": "/docs/recipes/java-explicit-casting.md",
-    "hash": "8b9e678b5cce22d9f54427e655379e9e",
+    "hash": "983383a669815e99dd81a259043b089c",
     "keywords": [
       "java",
       "cast",
@@ -836,7 +836,7 @@
     "file": "java-in-functions-and-closures.md",
     "title": "Java in Functions and Closures",
     "path": "/docs/recipes/java-in-functions-and-closures.md",
-    "hash": "d6b0ca1ab22811b76f533636928a2159",
+    "hash": "9f11780aea17ec9f126db747c77738cb",
     "keywords": [
       "function",
       "java",
@@ -848,9 +848,9 @@
   },
   {
     "file": "java-libraries.md",
-    "title": "Interacting with Java Libraries in Lucee 6.2",
+    "title": "Interacting with Java Libraries",
     "path": "/docs/recipes/java-libraries.md",
-    "hash": "fdcea885f9a6d03e68030373bf6858b1",
+    "hash": "794707c016506820f6c710de9f20bfe2",
     "keywords": [
       "java",
       "maven",

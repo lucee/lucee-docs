@@ -180,7 +180,7 @@ Log details about code execution at the statement level
 
 A comprehensive guide on how to install extensions in Lucee.
 
-## [Externalize strings](/docs/recipes/externalizing-strings.md)
+## [Externalize Strings](/docs/recipes/externalizing-strings.md)
 
 Externalize strings from generated class files to separate files. This method is used to reduce the memory of the static contents for templates.
 
@@ -236,7 +236,7 @@ Learn how to create and use inline components in Lucee. This guide demonstrates 
 
 Documentation for interacting with Java classes and objects in Lucee
 
-## [Java - Explicit Casting of a Component to a Specific Interface](/docs/recipes/java-explicit-casting.md)
+## [Casting Components to Java Interfaces](/docs/recipes/java-explicit-casting.md)
 
 Shows how to explicitly cast a component to a specific interface.
 
@@ -244,7 +244,7 @@ Shows how to explicitly cast a component to a specific interface.
 
 Learn how to write CFML code directly in a function or a closure with Java types in Lucee. This guide demonstrates how to define functions and components with Java types, and how to use Java lambda functions within Lucee. You will see examples of how to handle exceptions, define return types, and implement functional Java interfaces (Lambdas) seamlessly.
 
-## [Interacting with Java Libraries in Lucee 6.2](/docs/recipes/java-libraries.md)
+## [Interacting with Java Libraries](/docs/recipes/java-libraries.md)
 
 Guide on using Java libraries in Lucee 6.2 with Maven and import
 
