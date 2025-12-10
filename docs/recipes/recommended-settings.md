@@ -22,7 +22,7 @@
 }
 -->
 
-## Recommended Settings
+# Recommended Settings
 
 By default Lucee ships in compatible mode, so that most CFML applications will just work with developer friendly settings.
 

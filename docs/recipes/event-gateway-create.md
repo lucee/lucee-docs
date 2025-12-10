@@ -19,11 +19,7 @@
 
 # Custom Event Gateways
 
-Here you will find a short introduction into writing your own Event Gateway type.
-
-Since you can write these in pure CFML (and Java when you want it), it is really simple to do.
-
-There are 2 to 3 files you need to create:
+Write custom Event Gateways in pure CFML (or Java). You need 2-3 files:
 
 - the Gateway CFC
 - the Gateway Driver CFC
@@ -37,18 +33,18 @@ Also, it is the file which is instantiated by Lucee when the gateway starts.
 
 You can take the following files as an example:
 
-- {Lucee-install}/lib/lucee-server/context/gateway/lucee/extension/gateway/DirectoryWatcher.cfc
-- {Lucee-install}/lib/lucee-server/context/gateway/lucee/extension/gateway/MailWatcher.cfc
+- `{lucee-server}/context/gateway/DirectoryWatcher.cfc` ([source](https://github.com/lucee/Lucee/blob/7.0/core/src/main/cfml/context/gateway/DirectoryWatcher.cfc))
+- `{lucee-server}/context/gateway/MailWatcher.cfc` ([source](https://github.com/lucee/Lucee/blob/7.0/core/src/main/cfml/context/gateway/MailWatcher.cfc))
 
-The example code shown underneath is a modified version of the DirectoryWatcher.cfc, which, at time of writing, is in line for reviewing at the Lucee team.
+The example code shown underneath is based on `DirectoryWatcher.cfc`.
 
 By default, you need to have the following functions:
 
-- An init function, which receives the necessary config data.
-- A start function, which continues to run while variables.state="running".
-- A stop and restart function.
-- A getState function, which returns the current state of the gateway instance (running, stopping, stopped).
-- A sendMessage function, which will be called when the CFML sendGatewayMessage function is used.
+- An `init` function, which receives the necessary config data.
+- A `start` function, which continues to run while `variables.state="running"`.
+- A `stop` and `restart` function.
+- A `getState` function, which returns the current state of the gateway instance (`running`, `stopping`, `stopped`).
+- A `sendMessage` function, which will be called when the CFML `sendGatewayMessage` function is used.
 
 The following is all the code you need:
 
@@ -98,8 +94,8 @@ The following is all the code you need:
         <cfquery name="qFile" datasource="#variables.config.datasource#">
             SELECT *
             FROM FILE
-            WHERE directory = "#getDirectoryFromPath(variables.config.filepath)#"
-            AND name = "#getFileFromPath(variables.config.filepath)#"
+            WHERE directory = <cfqueryparam value="#getDirectoryFromPath(variables.config.filepath)#" cfsqltype="cf_sql_varchar">
+            AND name = <cfqueryparam value="#getFileFromPath(variables.config.filepath)#" cfsqltype="cf_sql_varchar">
         </cfquery>
 
         <!--- call the listener CFC if the file size meets the minimum requirement --->
@@ -110,11 +106,11 @@ The following is all the code you need:
 </cfcomponent>
 ```
 
-We will save the file as {Lucee-install}/lib/lucee-server/context/gateway/filesizechecker/FileSizeWatcher.cfc.
+We will save the file as `{lucee-server}/context/gateway/filesizechecker/FileSizeWatcher.cfc`.
 
-The variables.listener and variables.config variables did not just come falling from the sky; instead, it was saved to the variables scope in the init() function.
+The `variables.listener` and `variables.config` variables did not just come falling from the sky; instead, they were saved to the variables scope in the `init()` function.
 
-Lastly, we need to create the Gateway driver. We can use the Gateway driver code shown before, and then save it as {Lucee-install}/lib/lucee-server/context/admin/gdriver/FileSizeWatcher.cfc.
+Lastly, we need to create the Gateway driver. We can use the Gateway driver code shown before, and then save it as `{lucee-server}/context/admin/gdriver/FileSizeWatcher.cfc`.
 
 Now we are almost good to go! We do need to restart Lucee to have it pick up the new Gateway driver. So just go to the server admin, click on the menu-item "Restart", and then hit the "Restart Lucee" button.
 

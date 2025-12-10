@@ -27,7 +27,7 @@ This looping and sleeping does not count for all types of event gateways. For ex
 
 This "doing what it is designed for" will be explained in more detail underneath.
 
-# Which gateways are available?
+## Which gateways are available?
 
 Lucee comes with 2 gateways: a Directory watcher and a Mail watcher.
 

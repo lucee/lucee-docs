@@ -6,7 +6,7 @@
   "keywords": [
   ],
   "categories": [
-  
+    "language"
   ],
   "related": [
     "tag-script",
@@ -15,7 +15,7 @@
 }
 -->
 
-## Tag Islands
+# Tag Islands
 
 Tag Islands allows you to switch to tag mode, i.e. like a `.cfm` file, from within [[tag-script]]
 

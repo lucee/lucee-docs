@@ -23,11 +23,11 @@
 }
 -->
 
-# Exceptions Output
+# Exception Output
 
 How to catch and display exceptions
 
-## Example
+## Using dump() for Full Exception Details
 
 ```run
 <cfscript>
@@ -41,9 +41,9 @@ catch ( any e ){
 Go on with your code
 ```
 
-[tag-Dump] shows the full exception structure without blocking your code. Dump includes all stack trace with it.
+[[tag-dump]] shows the full exception structure without blocking your code. Dump includes the full stack trace.
 
-## Example 2
+## Using echo() for Simple Output
 
 ```lucee
 <cfscript>

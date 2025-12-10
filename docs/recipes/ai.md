@@ -161,7 +161,7 @@ This feature is still a work in progress, and we are working to improve the qual
 ### Monitor Documentation Tab
 
 In the Monitor's Documentation tab, AI can answer questions about Lucee based on retrieval-augmented generation (RAG) with available documentation and links to related documents.
-This feature is also in development for enhanced input quality (read more about [https://github.com/lucee/lucee-docs/blob/master/docs/recipes/monitoring-debugging.md](Monitor Documentation) ).
+This feature is also in development for enhanced input quality (read more about [Monitor Documentation](monitoring-debugging.md)).
 
 ## Future Development
 

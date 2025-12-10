@@ -22,11 +22,9 @@
 
 # Mail Listeners
 
-Since Lucee 6.0, you can define a listener in the Application.cfc to listen to or manipulate every mail executed.
+Define listeners in Application.cfc to intercept or manipulate every mail sent.
 
 ### Global per Application.cfc Listeners
-
-This example shows how to define a global mail listener in the Application.cfc:
 
 ```lucee
 this.mail.listener = {

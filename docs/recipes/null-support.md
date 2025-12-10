@@ -26,23 +26,23 @@
 }
 -->
 
-# Null Support in CFML
+# Null Support
 
-CFML supports two null handling modes: partial (default) and full. This recipe explains the behavioural differences and when to use each. 
+CFML supports two null handling modes: partial (default) and full. This recipe explains the differences.
 
-It is an annotation of the video found here: [https://www.youtube.com/watch?v=GSlWfLR8Frs](https://www.youtube.com/watch?v=GSlWfLR8Frs)
+Video: [https://www.youtube.com/watch?v=GSlWfLR8Frs](https://www.youtube.com/watch?v=GSlWfLR8Frs)
 
-## Enabling NULL support
+## Enabling NULL Support
 
-You can enable null support via the **Lucee Server Admin** --> **Language/compiler** and setting Null support to **full support** or **partial support** (default).
+Via **Lucee Server Admin** > **Language/compiler** > **Null support**.
 
-Per Application via [[tag-application]]
+Or per application via [[tag-application]]:
 
 ```lucee
 this.nullSupport = true;
 ```
 
-Or toggle dynamically via [[tag-application]]
+Or toggle dynamically:
 
 ```lucee
 application action="update" nullsupport="true";
@@ -64,11 +64,9 @@ application action="update" nullsupport="true";
 </cfscript>
 ```
 
-In this example, the function `test()` does not return a value. This, in effect, is the same as returning `null`. If you dump the result of the function (`dump( test() );`), you will see that the dump outputs `Empty: Null`.
+A function with no return value returns `null`. With **partial support**, referencing `t` throws "the key [T] does not exist". With **full support**, `t` is accessible and `isNull(t)` returns `true`.
 
-If we assign the function result to a variable, i.e. `t = test();`, and reference the variable, i.e. `dump( t );` an error will be thrown when using **partial support** for null: "the key [T] does not exist". If we enable **full support**, you will be able to reference the variable without error, the dump output will be `Empty: Null` and `IsNull( t )` will evaluate `true`.
-
-In both modes, `isNull( notexisting )` will return `true` for an undefined variable - the function is specifically designed to safely check for null/undefined values without throwing an error.
+In both modes, `isNull(notexisting)` safely returns `true` for undefined variables.
 
 ## Query Column Values
 
@@ -80,20 +78,19 @@ dump( qry );
 dump( qry._null );
 ```
 
-With **partial support** for NULL enabled, `dump(qry._null);` will output an **empty string**.
+**Partial support**: `qry._null` outputs empty string.
+**Full support**: outputs `Empty: null` and `isNull(qry._null)` returns `true`.
 
-With **full support**, `Empty: null` will be output and `IsNull( qry._null );` will evaluate `true`.
+## [[function-nullvalue]] and the null Keyword
 
-## [[function-nullvalue]] and the null keyword
-
-With **partial support** for NULL, the [[function-nullvalue]] function must be used to explicitly return a null value (this will work in all scenarios). For example:
+With **partial support**, use [[function-nullvalue]] to explicitly return null:
 
 ```luceescript
 var possibleVariable = functionThatMayOrMayNotReturnNull();
 return possibleVariable ?: NullValue();
 ```
 
-With **full support**, you are able to use the `null` keyword directly and, as illustrated above, can assign it to a variable directly:
+With **full support**, use the `null` keyword directly:
 
 ```luceescript
 t = null;
@@ -102,9 +99,9 @@ dump( t );
 
 ## StructKeyExists Behaviour
 
-One of the most significant behavioural differences between partial and full null support is how [[function-structkeyexists]] (and the member function `keyExists()`) handles keys with null values.
+Key behavioural difference: how [[function-structkeyexists]] handles null values.
 
-With **partial support**, when a struct key holds a null value, [[function-structkeyexists]] returns `false` because the key is effectively removed:
+**Partial support** - null keys are effectively removed:
 
 ```luceescript
 s = { foo: nullValue() };
@@ -113,9 +110,7 @@ dump( s.keyExists( "foo" ) );        // false
 dump( structCount( s ) );            // 0 - the key doesn't exist
 ```
 
-This standard CFML behaviour can be surprising when you explicitly set a key to null but then can't detect its presence.
-
-With **full support**, keys explicitly set to `null` still exist - they just hold a null value:
+**Full support** - keys set to `null` still exist:
 
 ```luceescript
 s = { foo: null };
@@ -125,22 +120,22 @@ dump( structCount( s ) );            // 1 - the key exists
 dump( isNull( s.foo ) );             // true - but the value is null
 ```
 
-This allows you to distinguish between "key exists with null value" and "key doesn't exist at all" - which is important when working with APIs, database results, or any scenario where the absence of a key has different meaning than a null value.
+This distinguishes "key exists with null value" from "key doesn't exist" - important for APIs and database results.
 
 ## JSON Serialization
 
-With **partial support**, null values in structs are removed before serialization, so they don't appear in the JSON output:
+**Partial support** - null values removed before serialization:
 
 ```luceescript
 s = { name: "John", middleName: nullValue() };
 dump( serializeJSON( s ) ); // {"name":"John"} - middleName is missing
 ```
 
-With **full support**, null values are properly serialized as JSON `null` via [[function-serializejson]]:
+**Full support** - null values serialized as JSON `null`:
 
 ```luceescript
 s = { name: "John", middleName: null };
 dump( serializeJSON( s ) ); // {"name":"John","middleName":null}
 ```
 
-This is critical when working with APIs that expect explicit `null` values rather than missing keys.
+Critical for APIs that expect explicit `null` values rather than missing keys.

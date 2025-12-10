@@ -10,7 +10,7 @@
 
 # Archives - Creating and deploying Lucee Archives (.lar files)
 
-This document explains how to deploy an Application on a live server without using a single CFML file.
+Deploy applications using compiled Lucee Archives (.lar files) without exposing CFML source.
 
 ## Using CFC file
 

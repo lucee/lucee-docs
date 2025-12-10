@@ -26,7 +26,7 @@
 
 # Dynamic Proxy Enhancements in Lucee 7
 
-Lucee 7 introduces significant improvements to dynamic proxy creation, making Java interoperability more seamless and predictable when components implement Java interfaces.
+All component functions and properties are now always included in dynamic proxies, making Java interoperability more predictable.
 
 ## What Changed in Lucee 7
 

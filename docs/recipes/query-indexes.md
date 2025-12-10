@@ -27,8 +27,6 @@ Since Lucee 6.0, you can set an index for a query result, which you can then use
 
 ## Setting an Index
 
-This example shows how to define a query with an index:
-
 ```lucee
 <cfquery name="qry" datasource="mysql" indexName="id">
     select 1 as id, 'Susi' as name

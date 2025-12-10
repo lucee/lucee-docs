@@ -25,15 +25,13 @@
 }
 -->
 
-# Mail - How to send an Email
+# Sending Emails
 
-The following example shows you how you can send a mail using [[tag-mail]].
+Send emails using [[tag-mail]]. Mail server configuration options:
 
-In order to send and email, you need to provide the mail server configuration.
-
-- Define a default Mail server in the Lucee Administrator / `CFConfig.json`
-- Configure an application specific mail server in [[tag-application]]
-- Pass the server details directly using [[tag-mail]] attributes, `server`, `port` etc
+- Default server in Lucee Administrator / `CFConfig.json`
+- Application-specific server in [[tag-application]]
+- Direct attributes on [[tag-mail]] (`server`, `port`, etc.)
 
 ## Tags
 
@@ -52,8 +50,6 @@ mail subject="Your Order" from="whatever@lucee.org" to="whatever@gmail.com" {
   writeOutput('This mail is sent to confirm that we have received your order.');
 };
 ```
-
-That is all you need to do to send a mail.
 
 ## Addressing
 

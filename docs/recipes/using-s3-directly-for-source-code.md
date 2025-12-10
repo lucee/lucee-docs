@@ -19,9 +19,9 @@
 
 # Using S3 directly for source code
 
-This document explains how to use S3 as for your source code and how to use S3 for your artifacts when we look at the source code itself.
+Store and serve CFML source code directly from S3.
 
-## Example:
+## Example
 
 ```luceescript
 // get an image directly from s3
@@ -29,10 +29,9 @@ content file = "s3:///cfml1/lucee.png" type = "image/png"
 "s3://##:#awsSecretKey#@/";
 ```
 
-//Application.cfc
-
 ```luceescript
-component{
+// Application.cfc
+component {
 	this.name = 'exampleS3';
 	this.s3.accesskeyid = "JHKLJHGSGSGVSGVS";
 	this.s3.awssecretkey = "Jgftiutry3uwiumcx4bvhjf9ksepu5wrwnvwbh9gj";

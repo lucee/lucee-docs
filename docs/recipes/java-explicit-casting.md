@@ -22,7 +22,7 @@
 
 # Java - Explicit Casting of a Component to a Specific Interface
 
-This guide demonstrates how to explicitly cast a component to a specific interface in Lucee.
+Use `JavaCast()` to explicitly cast a component to a specific interface when implicit casting isn't enough.
 
 ## Implicit Casting
 

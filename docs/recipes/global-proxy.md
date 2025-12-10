@@ -3,6 +3,9 @@
   "title": "Global Proxy",
   "id": "global-proxy",
   "since": "6.0",
+  "categories": [
+    "server"
+  ],
   "description": "Learn how to define a global proxy in Lucee. This guide demonstrates how to set up a global proxy in the Application.cfc file or .CFConfig.json, limit the proxy to specific hosts, and exclude specific hosts from using the proxy.",
   "keywords": [
     "CFML",
@@ -17,11 +20,9 @@
 
 # Global Proxy
 
-Since version 6.0, Lucee allows you to define a global proxy that will affect all connections made to the "outside world". There are two ways to configure the global proxy: in the Application.cfc file or in the .CFConfig.json file.
+Define a global proxy for all outbound connections via Application.cfc or .CFConfig.json.
 
-## Configuring Proxy in Application.cfc
-
-You can define a global proxy in the Application.cfc as follows:
+## Application.cfc
 
 ```lucee
 this.proxy = {
@@ -100,9 +101,7 @@ By default, local addresses (`localhost`, `127.0.0.1`, and `0:0:0:0:0:0:0:1`) ar
 - If you specify an empty list for either `includes` or `excludes`, it will be treated as if the option was not provided.
 - All hostname comparisons are case-insensitive.
 
-## Configuring Proxy in .CFConfig.json
-
-In addition to Application.cfc, you can also configure the global proxy in a .CFConfig.json file:
+## .CFConfig.json
 
 ```json
 {

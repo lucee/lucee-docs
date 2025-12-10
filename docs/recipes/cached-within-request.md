@@ -22,7 +22,7 @@
 
 # Cache a Query for the current request
 
-Perhaps you're familiar with the "cachedwithin" attribute of the tag [tag-query], which is normally used as follows:
+The `cachedWithin` attribute of [tag-query] is normally used like this:
 
 ```coldfusion
 <cfquery cachedWithin="#createTimeSpan(0,0,0,1)#">

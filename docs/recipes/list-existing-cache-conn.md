@@ -19,7 +19,7 @@
 
 # List existing Cache Connections
 
-There is now a built-in function in Lucee to list existing cache connections, but you can also easily do this using the following:
+Lucee has a built-in function to list cache connections, but you can also do it manually:
 
 ```cfs
 /**
@@ -30,7 +30,7 @@ array function cacheNames() {
 }
 ```
 
-This function returns an array containing all cache connections available.
+Returns an array of all cache connection names.
 
 ```cfs
 /**
@@ -46,4 +46,4 @@ boolean function hasCache(required string cacheName) {
 }
 ```
 
-This is a variation of this function that checks if a cache with the given name exists.
+Checks if a cache with the given name exists.
