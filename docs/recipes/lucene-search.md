@@ -24,18 +24,13 @@
 
 # Lucene 3 Extension
 
-The Lucene 3 Extension introduces significant enhancements to Lucee's search capabilities, including vector-based semantic search, hybrid search combining keyword and vector approaches, and improved content chunking for more relevant results.
+The Lucene 3 Extension brings modern search capabilities to Lucee, including vector-based semantic search that understands meaning rather than just matching keywords. You can use traditional keyword search, pure vector search, or combine both in hybrid mode for best results.
 
-## Overview
+Key features:
 
-Lucene 3 is a major update to Lucee's search functionality, bringing modern search techniques to your applications. This version introduces:
-
-- Vector-based semantic search using document embeddings
-- Hybrid search combining traditional keyword search with vector search
-- Enhanced content chunking with passage extraction
-- Improved relevance scoring and result highlighting
-
-These features enable more natural language understanding in search operations and provide better support for AI augmentation through Retrieval-Augmented Generation (RAG) patterns.
+- **Vector search** - find conceptually similar content using embeddings
+- **Hybrid search** - combine keyword and vector approaches
+- **Content chunking** - extract relevant passages for RAG (Retrieval-Augmented Generation) patterns
 
 ## Requirements
 

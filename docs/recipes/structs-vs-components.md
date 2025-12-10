@@ -20,9 +20,9 @@
 
 # Best Practices: Structs vs Inline Components
 
-This document provides guidance on when to use structs versus inline components in Lucee for transient data structures, based on performance analysis and practical considerations. Understanding the trade-offs between these approaches helps developers make informed decisions about data structures and object creation patterns.
+Performance guide for choosing between structs and components. Structs are ~16x faster but components offer type safety and validation.
 
-**Note**: The performance characteristics and recommendations in this document apply equally to regular components (CFCs), sub-components, and inline components. All component types involve class creation and instantiation overhead compared to structs.
+**Note**: These performance characteristics apply to all component types (CFCs, sub-components, inline components).
 
 ## Basic Examples
 

@@ -23,11 +23,9 @@
 
 # Complete Guide to Threading in Lucee
 
-This document explains all the ways to use threads and parallel execution in Lucee. Threads allow you to execute code in parallel, improving performance for tasks like database queries, HTTP requests, or any long-running operations.
+Threads allow you to execute code in parallel, improving performance for tasks like database queries, HTTP requests, or any long-running operations.
 
-## Threading Approaches Overview
-
-Lucee offers several approaches to threading, from simple high-level functions to full manual control:
+Lucee offers several approaches, from simple high-level functions to full manual control:
 
 1. **Collection Parallel Processing** - Simplest approach using `.each()` with parallel flag
 2. **Function Listeners** - Modern async syntax for function calls (Lucee 6.1+)
@@ -36,7 +34,7 @@ Lucee offers several approaches to threading, from simple high-level functions t
 
 ## Collection Parallel Processing
 
-The simplest way to execute code in parallel is using the `.each()` function with the parallel flag. This automatically manages thread creation and cleanup.
+The simplest way to execute code in parallel. Use `.each()` with the parallel flag and thread management is automatic.
 
 ### Parallel Array Processing
 
@@ -122,7 +120,7 @@ users.each(
 
 ### Thread Limit Control
 
-All collection functions (`.each()`, `.every()`, `.filter()`, `.map()`, `.some()`) support the `maxThreads` parameter to control resource usage:
+Collection functions (`.each()`, `.every()`, `.filter()`, `.map()`, `.some()`) all support `maxThreads`:
 
 ```javascript
 // Syntax: collection.function(function, parallel, maxThreads)
@@ -148,9 +146,7 @@ tasks.each(
 
 ### Parallel Functions
 
-Arrays, structs, and queries support parallel execution for iteration functions. Here we focus on `.each()` examples, but other functions are available:
-
-**Available parallel functions:**
+Arrays, structs, and queries support parallel execution:
 
 - **`.each()`** - Execute code for every element (side effects, logging, processing)
 - **`.filter()`** - Create new collection with elements matching criteria
@@ -212,9 +208,7 @@ employees.each(
 
 ## Function Listeners (Lucee 6.1+)
 
-Function Listeners provide a modern, promise-like syntax for asynchronous execution. They're perfect when you want to execute a function in parallel and handle the result.
-
-> **Complete Function Listeners Guide:** For detailed examples and advanced usage, see the [Function Listeners documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/function-listeners.md).
+Modern promise-like syntax for async execution. See the [[function-listeners]] recipe for full details.
 
 ### Simple Async Function Execution
 
@@ -275,7 +269,7 @@ riskyOperation():{
 
 ## Basic Thread Blocks
 
-Use `thread` blocks for simple fire-and-forget operations or when you need more control than collection processing offers.
+For fire-and-forget operations or when you need more control than collection processing.
 
 ### Fire-and-Forget Operations
 
@@ -315,7 +309,7 @@ dump("Processing started in background");
 
 ## Advanced Thread Management
 
-For maximum control over thread execution, use explicit thread management with joining, monitoring, and coordination.
+Explicit thread management with joining, monitoring, and coordination.
 
 ### Multiple Coordinated Threads
 
@@ -442,26 +436,12 @@ dump("All threads completed");
 
 ## Best Practices
 
-### Choose the Right Approach
-
-- **Use `.each()` with parallel flag** for simple collection processing
-- **Use Function Listeners** for modern async function calls with optional result handling
-- **Use basic thread blocks** for fire-and-forget background operations
-- **Use advanced thread management** when you need precise control over execution
+- **`.each()` with parallel flag** - simple collection processing
+- **Function Listeners** - modern async function calls with result handling
+- **Thread blocks** - fire-and-forget background operations
+- **Advanced thread management** - when you need precise control
 
 ## Additional Resources
 
-- **[Function Listeners Documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/function-listeners.md)** - Complete guide to async function execution
-- **[Lucee Threads Video Tutorial](https://www.youtube.com/watch?v=oGUZRrcg9KE)** - Visual explanation of threading concepts
-- **cfthread Tag Reference** - Complete tag syntax and parameters
-
-## Summary
-
-Lucee provides multiple approaches to parallel execution:
-
-1. **Start simple** with `.each()` parallel processing for collections
-2. **Use Function Listeners** for modern async function calls
-3. **Use thread blocks** for fire-and-forget operations  
-4. **Use advanced thread management** when you need full control
-
-Choose the approach that best fits your use case, starting with the simplest option that meets your needs.
+- [[function-listeners]] - Complete guide to async function execution
+- [Lucee Threads Video Tutorial](https://www.youtube.com/watch?v=oGUZRrcg9KE)

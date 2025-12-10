@@ -22,11 +22,9 @@
 
 # Query Async
 
-Since Lucee 6.0, you can define that a query gets executed asynchronously. Asynchronous execution of queries is useful in many cases where you don’t want to wait for a query to be executed. You can now set a simple flag to enable this feature.
+Execute queries asynchronously when you don't need to wait for the result.
 
 ## Async Execution
-
-This example shows how to define a query for async execution:
 
 ```lucee
 query async=true {

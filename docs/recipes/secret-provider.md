@@ -20,7 +20,7 @@
 
 # Secret Management
 
-Lucee 7 introduces built-in support for secrets management, allowing you to securely store and access sensitive information such as database credentials, API keys, and other confidential data. This feature helps maintain security best practices by keeping sensitive data out of application code and configuration files.
+Securely store and access sensitive data (credentials, API keys) using configurable secret providers. Keeps secrets out of code and config files.
 
 [[function-secretproviderget]]
 

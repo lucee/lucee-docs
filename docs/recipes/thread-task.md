@@ -22,11 +22,11 @@
 
 # Thread Tasks
 
-This document explains about the thread tasks. It is useful to know the differences between regular threads and task threads.
+This explains the differences between regular threads and task threads.
 
-When a regular thread throws an exception, the default exception type is `type='daemon'`. After an exception, the thread is dumped. If a regular thread is terminated due to an error, the information from the thread will be output with a 'terminated' status.
+When a regular thread (`type='daemon'`) throws an exception, the thread is dumped. If terminated due to an error, the thread outputs with a 'terminated' status.
 
-Regular Threads have the following characteristics:
+**Regular Threads:**
 
 1. **Bound to current request**: With the help of CFThread you can always see what the thread is doing. With `action='join'` you can wait until the thread ends and join it. You can also call `action='terminate'` and end the thread. You always have control over the thread with the various actions.
 

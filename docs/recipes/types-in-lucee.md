@@ -24,11 +24,20 @@
 
 # Types in Lucee
 
-This document explains types in Lucee. Lucee is still an untyped language. Types are only a check put on top of the language. The language is not based on types, however there are different places where types come into Lucee. This is explained with some simple examples below:
+Lucee is an untyped language - types are validation checks layered on top. Lucee automatically converts between types when needed.
 
-### Example 1 : Function Argument and Return Value
+### Function Argument and Return Value
 
-For functions, the return value is returned with the specific type that was defined in that function.
+When you define argument types on a function, Lucee checks if the passed value is **castable** to that type - it doesn't actually cast it. The value retains its original type inside the function.
+
+```luceescript
+function greet( string name ) {
+	dump( name ); // still a number internally, even though type is "string"
+}
+greet( 123 ); // passes - 123 is castable to string
+```
+
+For return values, Lucee validates the returned value matches the declared type.
 
 ```luceescript
 
@@ -55,7 +64,7 @@ For functions, the return value is returned with the specific type that was defi
 - The test() function takes an array, but in this example I do not pass an array into the function. I have passed a struct `arr={'1':'one'}` value into the test() function. The test() function contains an array value `arr[2]= "two"`, so Lucee converts this array value into a structure. So the struct has two values as per keys are 1, 2 and values are one, two.
 - Lucee can handle an array as long as the keys are all numbers, meaning it considers a struct `'1' and [2]`. Execute this cfm page, the dump shows the structure format.
 
-### Example 2 : CFParam
+### CFParam and Type Conversion
 
 ```luceescript
 
@@ -111,6 +120,32 @@ component {
 ```
 
 These types are on top of the language. Lucee contains some other different types too. Therefore, it is always good to do type checking in your code.
+
+## Disabling Type Checking
+
+Type checking adds overhead. For performance-critical production environments, you can disable UDF type checking entirely.
+
+### System Property
+
+```sh
+-Dlucee.udf.type.checking=false
+```
+
+### Environment Variable
+
+```sh
+LUCEE_UDF_TYPE_CHECKING=false
+```
+
+This is an alias for the older `lucee.type.checking` / `LUCEE_TYPE_CHECKING` settings.
+
+### Application.cfc
+
+```luceescript
+this.typeChecking = false;
+```
+
+When disabled, Lucee skips argument and return type validation - values pass through without checks.
 
 ## Footnotes
 

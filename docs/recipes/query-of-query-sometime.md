@@ -78,20 +78,9 @@ See `LUCEE_QOQ_HSQLDB_DISABLE` and `LUCEE_QOQ_HSQLDB_DEBUG` under [[running-luce
 <cfdump var=#q3.recordcount#>
 ```
 
-In this example, we have a QOQ with the persons table.
+In the example below, we compare QoQ with QueryFilter/QuerySort:
 
 ```luceescript
-// index.cfm
-
-directory sort="name" action="list" directory=getDirectoryFromPath(getCurrentTemplatePath()) filter="example.cfm" name="dir";
-loop query=dir {
-	echo('<a href="#dir.name#">#dir.name#</a><br>');
-}
-```
-
-```luceescript
-// example.cfm
-
 max=1000;
 persons=query(
 	"lastname":["Lebowski","Lebowski","Lebowski","Sobchak"],

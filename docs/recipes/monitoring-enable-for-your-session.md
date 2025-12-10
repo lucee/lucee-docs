@@ -18,13 +18,13 @@
 
 # Monitoring - Enable for your session
 
-This guide demonstrates how to enable monitoring for your session in Lucee 6.1 and above. Prior to Lucee 6.1, you could only enable or disable the display of debugging information using the `<cfsetting showDebugOutput="true|false">` tag. However, Lucee 6.1 introduces the ability to enable debugging itself directly in the `Application.cfc`.
+Since Lucee 6.1, you can enable debugging directly in `Application.cfc`. Previously, only `<cfsetting showDebugOutput="true|false">` was available.
 
 **Note:** Be cautious when deploying this to a public-facing server, as it may expose sensitive information about your web server when not used correctly.
 
-## Enabling/Disable Monitoring
+## Enable/Disable Monitoring
 
-To enable or disable monitoring for your session, add the following code to your `Application.cfc`:
+Add this to your `Application.cfc`:
 
 ```lucee
 if (!isNull(url.show) || isNull(session.show)) {
@@ -47,16 +47,12 @@ this.monitoring.debuggingThread = session.show;
 
 ## Activating and Deactivating Debugging
 
-To show debugging, add `show=true` to the URL. To disable debugging, add `show=false` to the URL.
-
-For example:
-
-- Enable debugging: `https://yourdomain.com?show=true`
-- Disable debugging: `https://yourdomain.com?show=false`
+- Enable: `https://yourdomain.com?show=true`
+- Disable: `https://yourdomain.com?show=false`
 
 ## Enhanced Security
 
-To enhance security, you can use a more specific string in the URL:
+Use a secret URL parameter instead of `show`:
 
 ```lucee
 if (!isNull(url.fsdfsdfdfgdgdfs) || isNull(session.show)) {
@@ -64,11 +60,7 @@ if (!isNull(url.fsdfsdfdfgdgdfs) || isNull(session.show)) {
 }
 ```
 
-In this case, use `fsdfsdfdfgdgdfs=true` to enable debugging and `fsdfsdfdfgdgdfs=false` to disable it.
+- Enable: `https://yourdomain.com?fsdfsdfdfgdgdfs=true`
+- Disable: `https://yourdomain.com?fsdfsdfdfgdgdfs=false`
 
-For example:
-
-- Enable debugging: `https://yourdomain.com?fsdfsdfdfgdgdfs=true`
-- Disable debugging: `https://yourdomain.com?fsdfsdfdfgdgdfs=false`
-
-This additional string requirement helps ensure that only those who know the specific string can enable or disable debugging.
+Only those who know the parameter name can toggle debugging.

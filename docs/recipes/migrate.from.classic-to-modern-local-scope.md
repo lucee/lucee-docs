@@ -17,30 +17,24 @@
 
 # Migrating from Classic to Modern Local Scope Mode
 
-Lucee offers two different modes for managing unscoped variables within functions: Classic and Modern.
+Lucee offers two modes for handling unscoped variables in functions: Classic and Modern.
 
-This document explains the differences between these modes and provides a structured approach for migrating from Classic to Modern mode.
-
-Simply switching to `localmode=true`, either per function or Application wide, will dramatically boost the performance of your Lucee applications, but requires testing.
+Switching to `localmode=true` (per function or application-wide) dramatically boosts performance, but requires testing.
 
 ## Understanding Local Scope Modes
 
-The "Local scope mode" setting defines how variables with no explicit scope are handled within functions:
+The local scope mode setting defines how unscoped variables are handled in functions:
 
-* **Classic Mode (CFML Default)**: Unscoped variables are stored in the variables scope, unless the key already exists in one of the function's local scopes (arguments or local).
-* **Modern Mode**: Unscoped variables are always stored in the local scope, regardless of whether they exist elsewhere.
+- **Classic Mode** (CFML default): Unscoped variables go to `variables` scope, unless the key exists in `arguments` or `local`.
+- **Modern Mode**: Unscoped variables always go to `local` scope.
 
 ## Why Migrate to Modern Mode?
 
-Modern mode offers several advantages:
-
-1. **Thread Safety**: Variables are isolated to the function instance, preventing race conditions when component instances are shared across requests.
-2. **Predictable Behavior**: All unscoped variables behave the same way, making code more intuitive and easier to maintain.
-3. **Performance**: Local scope lookups are typically faster than cascading scope resolution.
+- **Thread Safety**: Variables isolated to function instance - prevents race conditions with shared components
+- **Predictable Behavior**: All unscoped variables behave the same way
+- **Performance**: Local scope lookups are faster than cascading scope resolution
 
 ### Classic Mode Race Condition Example
-
-Consider this component when running in Classic mode:
 
 ```cfml
 component {
@@ -52,17 +46,15 @@ component {
 }
 ```
 
-If this component is stored in application scope and used across multiple concurrent requests, `token` becomes a shared variable. This creates a race condition where multiple threads could overwrite each other's values.
+If this component is in application scope and used concurrently, `token` becomes shared - multiple threads can overwrite each other's values.
 
 ## Configuring Local Scope Mode
 
-Local scope mode can be configured at several levels:
+### Server Level (Lucee Administrator)
 
-### 1. Server Level (Lucee Administrator)
+Under "Settings > Scope", set "Local scope mode" to "Modern" or "Classic".
 
-Under "Settings > Scope", set "Local scope mode" to either "Modern" or "Classic".
-
-### 2. Server Configuration (.CFConfig.json)
+### Server Configuration (.CFConfig.json)
 
 ```json
 {
@@ -70,21 +62,13 @@ Under "Settings > Scope", set "Local scope mode" to either "Modern" or "Classic"
 }
 ```
 
-Or:
-
-```json
-{
-    "localScopeMode": "classic"
-}
-```
-
-### 3. Application Level (Application.cfc)
+### Application Level (Application.cfc)
 
 ```cfml
 this.localMode = "modern"; // or "classic"
 ```
 
-### 4. Function Level
+### Function Level
 
 ```cfml
 function test() localMode="modern" {
@@ -94,29 +78,20 @@ function test() localMode="modern" {
 
 ## Migration Strategy: Using Cascading Write Logging
 
-Switching directly to Modern mode may break existing applications that rely on Classic behavior. A safer approach is to:
+Switching directly to Modern mode may break existing applications. A safer approach:
 
-1. Enable variable scope cascading write logging
-2. Identify and fix all occurrences of unscoped variables
+1. Enable cascading write logging
+2. Fix all unscoped variable occurrences
 3. Switch to Modern mode
 
 ### Step 1: Enable Cascading Write Logging
 
-Set the following environment variables or system properties (This setting only applies to Lucee 6.2.1.82 and above):
+Set environment variables or system properties (Lucee 6.2.1.82+):
 
-**Environment Variable:** `LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG`
-**System Property:** `-Dlucee.cascading.write.to.variables.log`
+- `LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG` / `-Dlucee.cascading.write.to.variables.log` - log name for detections
+- `LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL` / `-Dlucee.cascading.write.to.variables.loglevel` - log level (DEBUG, INFO, WARN, ERROR)
 
-This specifies the log name where cascading write detections will be recorded.
-
-You can also customize the log level (default is DEBUG):
-
-**Environment Variable:** `LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL`
-**System Property:** `-Dlucee.cascading.write.to.variables.loglevel`
-
-Valid log levels include: DEBUG, INFO, WARN, ERROR.
-
-Example configuration:
+Example:
 
 ```
 # Environment variables
@@ -130,31 +105,22 @@ LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL=INFO
 
 ### Step 2: Analyze Logs and Modify Code
 
-Monitor your application logs for entries like:
+Log entries look like:
 
 ```
 Variable Scope Cascading Write Detected: The variable [token] is being implicitly written to the variables scope at [MyComponent.cfc:42]. This occurs when no explicit scope (such as local, arguments, or variables) is specified in the assignment.
 ```
 
-For each occurrence, decide whether to:
+For each occurrence, add explicit scope:
 
-1. **Add explicit `variables` scope** (if the variable should remain in the component's variables scope):
-
-```cfml
-variables.token = createUUID();
-```
-
-2. **Add explicit `local` scope** (if the variable should be function-local):
-
-```cfml
-local.token = createUUID();
-```
+- `variables.token = createUUID();` - if it should remain component-level
+- `local.token = createUUID();` - if it should be function-local
 
 ### Common Patterns Requiring Attention
 
 #### Component Properties
 
-Properties meant to be stored at the component level need an explicit variables scope:
+Properties stored at the component level need explicit `variables` scope:
 
 ```cfml
 // Before
@@ -170,7 +136,7 @@ function init(datasourceName) {
 
 #### Local Counters and Temporary Variables
 
-Variables that should be local to a function call:
+Variables local to a function call:
 
 ```cfml
 // Before
@@ -196,31 +162,14 @@ function processItems(items) {
 
 ### Step 3: Test Thoroughly
 
-After updating your code:
-
 1. Test your application thoroughly
-2. Verify that all functionality works correctly
-3. Look for unexpected behaviors or errors
-4. Make sure you no longer get any log entries
+2. Verify all functionality works correctly
+3. Check for unexpected behaviors or errors
+4. Ensure no more log entries appear
 
 ### Step 4: Disable Logging and Switch to Modern Mode
 
-Once all code has been updated and tested:
+Once all code is updated and tested:
 
-1. Disable the cascading write logging by removing the environment variables or system properties:
-
-   ```
-   # Remove environment variables
-   unset LUCEE_CASCADING_WRITE_TO_VARIABLES_LOG
-   unset LUCEE_CASCADING_WRITE_TO_VARIABLES_LOGLEVEL
-
-   # Or remove system properties from startup configuration
-   # -Dlucee.cascading.write.to.variables.log
-   # -Dlucee.cascading.write.to.variables.loglevel
-   ```
-
-2. Switch to Modern mode at your preferred configuration level (server, application, or function).
-
-## Conclusion
-
-Migrating to Modern mode improves thread safety and code predictability, but requires careful examination of existing code. Using cascading write logging helps identify potential issues before they become problems, allowing for a smooth transition.
+1. Remove the environment variables or system properties
+2. Switch to Modern mode at your preferred configuration level

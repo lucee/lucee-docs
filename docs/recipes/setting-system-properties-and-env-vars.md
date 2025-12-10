@@ -20,23 +20,15 @@
 }
 -->
 
-## Setting System Properties and Environment Variables ##
+# Setting System Properties and Environment Variables
 
-This documentation shows how to set and use *Environment Variables* or *System Properties* to configure specific Lucee Server settings.
+Lucee settings are usually configured in the Server Administrator (server-context) or Web Administrator (web-context). Web-context settings can also be set in Application.cfc (see [[tag-application]]).
 
-Refer to [[environment-variables-system-properties]] for the full list of available settings.
+Since Lucee 5.3, server-context settings can be configured via Environment Variables or System Properties. This lets you tweak server settings at startup without using the web interface - useful for pre-defining extensions, enabling null support, or setting charsets.
 
-### 1. Introduction ###
+See [[environment-variables-system-properties]] for the full list of available settings.
 
-Lucee settings are usually configured manually within the Server Administrator for server-context  or in Web Administrator for web-context.
-
-While settings for web-context are also configurable through your web applications Application.cfc (see [[tag-application]]), specific server-context settings can be configured with *Environment Variables* or *System Properties* (since Lucee 5.3).
-
-This allowe Administrators and Developers power to tweak server settings from startup without having to configure in the Server Administrators web interface.
-
-For example, pre-define the extensions to be installed, enable full null support or define charsets for your running Lucee server instance.
-
-### 2. Naming Notation ###
+## Naming Notation
 
 On startup Lucee identifies specific *Environment Variables* or JVM *System Properties* and uses them for the server setting configuration.
 
@@ -64,11 +56,11 @@ See as an example of variable/property name notation for enabling full null supp
 	</table>
 </div>
 
-### 3. Setting The Variables ###
+## Setting The Variables
 
 There are many different ways to make *Environment Variables* or *System Properties* available to Lucee depending on how you're running the Lucee server instance.
 
-### 3.1 How To Set Environment Variables ###
+### Environment Variables
 
 Find below a brief overview of available options about where and how to set your *Environment Variables*:
 <div class="table-responsive">
@@ -140,7 +132,7 @@ LUCEE_CFML_WRITER=white-space
 
 **Important**: *When creating batch/shell script files for Tomcat, please make sure their permissions are correctly set for the user running Tomcat to read and execute them.*
 
-### 3.2 How To Set System Properties ###
+### System Properties
 
 System Properties are specific to the JVM servlet container engine.
 
@@ -201,7 +193,7 @@ If you are running Lucee with **CommandBox**, you can make use of *System Proper
 
 For further information please see [How to set it up CommandBox with .env files](https://github.com/commandbox-modules/commandbox-dotenv) and [CommandBox Environment Variables](https://commandbox.ortusbooks.com/usage/environment-variables).
 
-### 5. Verifying Variables/Properties Passed To Lucee ###
+## Verifying Variables
 
 To make sure the *Environment Variables/System Properties* are properly being passed to Tomcat/Lucee, you can simply dump these variables from within your web application with cfml as follows:
 
@@ -212,7 +204,7 @@ writeDump(server.system.properties);
 </cfscript>
 ```
 
-### 6. Security Considerations ###
+## Security Considerations
 
 When using *Environment Variables* or *System Properties* you need to consider important security implications.
 

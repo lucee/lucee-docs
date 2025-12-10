@@ -23,17 +23,13 @@
 }
 -->
 
-## Lucee and REST Services
+# Lucee and REST Services
 
-This documentation shows how to setup and configure Lucee Server to serve REST (Representation State Transfer).
+REST (Representational State Transfer) is an architecture for stateless data transfer over HTTP.
 
-### Introduction
+Lucee lets you define REST services using CFCs with REST-specific attributes - you add attributes to your components and functions, and Lucee's RestServlet handles routing requests to them.
 
-REST is an application architecture which defines stateless data transfer over networked services. In the context of the web REST is commonly implemented over HTTP as it is a RESTful protocol. 
-
-Lucee Server gives you the ability to define REST Services using collection of CFC components by using a set of REST specific attributes; and then configuring Lucee about which REST path should be used to access the service.
-
-Following you will learn how to setup REST in Lucee by adding a small example REST application with a REST service mapped to the name **metrics** ( which will be served by accessing the URL `http://localhost:8888/rest/metrics/` ).
+This guide walks through setting up a REST service mapped to `/rest/metrics/`.
 
 ### Setting up REST services with Lucee
 
