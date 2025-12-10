@@ -74,7 +74,7 @@ This document explains how to use a checksum in Lucee.
 
 ## [getClass() Method for Components](/docs/recipes/component-getclass-method.md)
 
-This document explains the getClass() method for CFML components that implement Java interfaces, enabling seamless Java interoperability.
+Get the Java class of a component that implements a Java interface.
 
 ## [Component Mappings](/docs/recipes/component-mappings.md)
 
@@ -96,9 +96,9 @@ Best practices for configuring Lucee in various environments.
 
 Use the console for debugging
 
-## [Convert a CFML Function/Component to use in Java](/docs/recipes/convert-a-cfml-func-to-java.md)
+## [Using CFML Functions and Components in Java](/docs/recipes/convert-a-cfml-func-to-java.md)
 
-Learn how to convert user-defined functions or components in Lucee to use them in Java. This guide demonstrates how to define components to implement Java interfaces, pass components to Java methods, explicitly define interfaces, and use the onMissingMethod feature. It also shows how to convert user-defined functions to Java lambdas.
+Pass CFML components and functions to Java code - implement Java interfaces with CFCs, use functions as Java lambdas.
 
 ## [CSV Processing in Lucee 7](/docs/recipes/csv-processing.md)
 
@@ -132,9 +132,9 @@ The onBuild function in Server.cfc is used for tasks during the build phase in L
 
 Guide on using and running Lucee with Docker
 
-## [Dynamic Proxy Enhancements in Lucee 7](/docs/recipes/dynamic-proxy-enhancements.md)
+## [Dynamic Proxy Enhancements](/docs/recipes/dynamic-proxy-enhancements.md)
 
-Learn about the improvements to dynamic proxy creation in Lucee 7, including automatic inclusion of component functions and properties when implementing Java interfaces.
+Lucee 7 improvements to dynamic proxy creation - all component functions and properties are now always included when implementing Java interfaces.
 
 ## [DynamoDB Cache Extension](/docs/recipes/dynamodb-cache-extension.md)
 

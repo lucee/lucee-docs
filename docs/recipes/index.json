@@ -256,14 +256,12 @@
     "file": "component-getclass-method.md",
     "title": "getClass() Method for Components",
     "path": "/docs/recipes/component-getclass-method.md",
-    "hash": "ffa3db37c5dcfc2ea1b32e6e1b9ed0a3",
+    "hash": "6877d68d8e312ea62dcca149911cd6e3",
     "keywords": [
       "getClass",
       "component",
       "java",
-      "proxy",
-      "interface",
-      "interoperability"
+      "interface"
     ]
   },
   {
@@ -331,9 +329,9 @@
   },
   {
     "file": "convert-a-cfml-func-to-java.md",
-    "title": "Convert a CFML Function/Component to use in Java",
+    "title": "Using CFML Functions and Components in Java",
     "path": "/docs/recipes/convert-a-cfml-func-to-java.md",
-    "hash": "9a48e8bbd3dfed94c2185ec898a2ba6c",
+    "hash": "96e09f4edb667f35c11bb15291086301",
     "keywords": [
       "conversion",
       "cfc",
@@ -461,9 +459,9 @@
   },
   {
     "file": "dynamic-proxy-enhancements.md",
-    "title": "Dynamic Proxy Enhancements in Lucee 7",
+    "title": "Dynamic Proxy Enhancements",
     "path": "/docs/recipes/dynamic-proxy-enhancements.md",
-    "hash": "d22edfe619c4a4d2c5357ac99d4d3156",
+    "hash": "5508d11b9d8ea62ae263da73126bce88",
     "keywords": [
       "dynamic proxy",
       "java",
@@ -1139,7 +1137,7 @@
     "file": "new-operator.md",
     "title": "New Operator",
     "path": "/docs/recipes/new-operator.md",
-    "hash": "92d049b1ded88bb56cc61883a26cca81",
+    "hash": "132cf22bcd31d5d8a9c7edab0f661869",
     "keywords": [
       "new",
       "java",
