@@ -18,31 +18,27 @@
 }
 -->
 
-# Datasource - How to define them
+# Datasources
 
-To execute queries, you need a datasource definition, which points to a specific local or remote datasource. There are different ways to do so.
+Define datasources to execute queries against local or remote databases.
 
-## Create a Datasource in the Administrator
+## Lucee Administrator
 
-The most common way to define a datasource is in the Lucee Server or Web Administrator. The only difference between the Web and Server Administrator is that datasources defined in the Server Administrator are visible to all web contexts, while datasources defined in the Web Administrator are only visible to the current web context.
-
-In your Administrator, go to the Page "Services/Datasource", in the section "create new Datasource" choose a name for your datasource and the type of your Datasource, for example "MySQL".
+Go to Services > Datasource, create a new datasource by choosing a name and type (e.g. MySQL).
 
 ![create datasource](https://bitbucket.org/repo/rX87Rq/images/3802808059-createds.png)
 
-On the following page, you can define settings to connect to your datasource. The look and feel of this page depend on the datasource type used. After saving this page, you get back to the overview page and you will get feedback if Lucee was able to connect to your datasource or not.
+Configure connection settings on the next page. Server Administrator datasources are visible to all web contexts; Web Administrator datasources only to the current context.
 
-## Create a Datasource in the Application.cfc
+## Application.cfc
 
-You cannot only define a datasource in the Lucee Administrator, you can also do this in the [application-context-guide]. The easiest way to do so is to create a datasource in the Administrator (see above) and then go to the detail view of this datasource by clicking the "edit button".
+Create a datasource in Administrator, then click "edit" to view its definition:
 
 ![select datasource](https://bitbucket.org/repo/rX87Rq/images/4142224660-select-datasource.png)
 
-At the bottom of the detail page, you find a box that will look like this:
+Copy the code from the bottom of the detail page:
 
 ![datasource application definition](https://bitbucket.org/repo/rX87Rq/images/1656402808-datasource-app-def.png)
-
-You can simply copy the code inside the box to your [application-context-guide] body, and Lucee will pick up this definition. After that, you can delete the datasource from the Administrator.
 
 ```cfs
 this.datasources["myds"] = {
@@ -53,7 +49,7 @@ this.datasources["myds"] = {
 };
 ```
 
-Alternatively, you can also use this pattern:
+Or use this pattern:
 
 ```cfs
 this.datasources["myds"] = {
@@ -75,13 +71,13 @@ this.datasources["myds"] = {
 
 ### Default Datasource
 
-With the [application-context-guide], you can also define a default datasource that is used if no "datasource" attribute is defined with the tag cfquery, cfstoredproc, cfinsert, cfupdate, etc. Simply do the following:
+Define a default datasource used when no `datasource` attribute is specified in `cfquery`, `cfstoredproc`, etc.:
 
 ```cfs
 this.defaultdatasource = "myds";
 ```
 
-In that case, the datasource "myds" is used if there is no datasource defined. Instead of defining a datasource name, you can also define the datasource directly as follows:
+Or define the datasource inline:
 
 ```cfs
 this.datasource = {
@@ -91,3 +87,41 @@ this.datasource = {
     password: 'encrypted:5120611ea34c6123fd85120a0c27ab23fd81ea34cb854'
 };
 ```
+
+### Custom JDBC Drivers (Other)
+
+When using the "Other - JDBC Driver" type for databases without built-in support, provide:
+
+- **class**: The fully qualified JDBC driver class name
+- **connectionString**: The JDBC connection URL
+
+```cfs
+this.datasources["mydb"] = {
+    class: 'com.example.jdbc.Driver',
+    connectionString: 'jdbc:example://localhost:1234/mydb',
+    username: 'user',
+    password: 'pass'
+};
+```
+
+For OSGi-based JDBC drivers (JARs deployed as bundles in `/lucee-server/bundles/`), you can also specify:
+
+- **bundleName**: The OSGi bundle symbolic name
+- **bundleVersion**: The OSGi bundle version
+
+```cfs
+this.datasources["mydb"] = {
+    class: 'com.example.jdbc.Driver',
+    connectionString: 'jdbc:example://localhost:1234/mydb',
+    bundleName: 'com.example.jdbc',
+    bundleVersion: '1.2.3',
+    username: 'user',
+    password: 'pass'
+};
+```
+
+This is useful when:
+
+- Using database drivers not bundled with Lucee
+- Deploying drivers as OSGi bundles for better version management
+- Working with multiple versions of the same driver

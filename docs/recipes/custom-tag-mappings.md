@@ -28,13 +28,7 @@
 
 # Custom Tag Mappings
 
-Custom tag mappings in Lucee define locations where the server will look for CFML custom tags when you use them in your code.
-
-They provide a way to organize and access your custom tags without having to specify the full path each time or use [[tag-import]] repeatedly.
-
-## Understanding Custom Tag Mappings
-
-Custom tags are reusable CFML templates that you can call like built-in tags. Custom tag mappings tell Lucee where to find these custom tag files.
+Custom tags are reusable CFML templates (`.cfm` files) that you can call like built-in tags. Custom tag mappings tell Lucee where to find these files, so you don't have to specify full paths or use [[tag-import]] repeatedly.
 
 For example, if you have a custom tag file at:
 

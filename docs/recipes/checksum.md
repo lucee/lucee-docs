@@ -22,13 +22,9 @@
 
 # Checksum
 
-This document explains how to use a checksum in Lucee.
+Validate downloads using checksums provided in response headers.
 
-Many servers provide a checksum for the files they provide for download. We use the checksum to validate a download file in order to avoid a corrupted file.
-
-If you download a file in your application, you can automatically check if the download is valid or not if the necessary info was provided in the response header.
-
-## Example 1
+## Download and Validate
 
 ```luceescript
 <cfscript>
@@ -61,50 +57,20 @@ dump("something went wrong! give it another try?");
 </cfscript>
 ```
 
-- Download the jar file by using cfhttp.
-- Dump the file response header. You can see the "X-Checksum-MD5" "X-Checksum-SHA1" keys from the file itself.
-- Save the file, and dump(fileInfo(localFile.checksum)). Check to see if the dump matches the value of the downloaded file response["X-Checksum-MD5"] header.
+Check `X-Checksum-MD5` or `X-Checksum-SHA1` headers against `fileInfo().checksum` or `hash(fileReadBinary(file), "md5")`.
 
-Checksum values are hashed from the binaryfile itself.
-
-```luceescript
-dump(hash(fileReadBinary(localFile),"md5"));
-dump(hash(fileReadBinary(localFile),"SHA1"));
-```
-
-You can validate the checksum as shown below:
-
-```luceescript
-// validate file
-if(!isEmpty(res.responseheader["X-Checksum-MD5"]?:"")) {
-fi=fileInfo("esapi-2.1.0.1.jar");
-if(res.responseheader["X-Checksum-MD5"]==fi.checksum) {
-dump("we have a match!");
-}
-else {
-fileDelete("esapi-2.1.0.1.jar");
-dump("something went wrong! give it another try?");
-}
-}
-```
-
-If the checksum is provided, we can check it. However, the checksum may not always be provided. The following example shows how to provide a checksum for all downloads.
-
-## Example 2
-
-//download.cfm
+## Providing Checksum Headers
 
 ```luceescript
 <cfscript>
+// download.cfm
 fi=fileInfo("esapi-2.1.0.1.jar");
 header name="Content-MD5" value=fi.checksum;
 content file="esapi-2.1.0.1.jar" type="application/x-zip-compressed";
 </cfscript>
 ```
 
-This code allows a downloading application to check if the download was successful or not. Adding the file with header content "Content-MD5" is not required.
-
-Download the file using the below example code:
+## Validate with Multiple Header Types
 
 ```luceescript
 <cfscript>
@@ -148,9 +114,4 @@ dump("something went wrong! give it another try?");
 </cfscript>
 ```
 
-The above code checks and validates the downloaded file.
-
-## Footnotes
-
-You can see the details in this video:
-[Checksum](https://www.youtube.com/watch?v=Kb_zSsRDEOg)
+Video: [Checksum](https://www.youtube.com/watch?v=Kb_zSsRDEOg)

@@ -17,7 +17,7 @@
 
 ## Directory Placeholders ##
 
-In order to make configuring Lucee a little easier, there are several constants (we call them "directory placeholders") that contain a certain value which might change depending on the system, the environment or the context.
+Directory placeholders are constants you can use in Lucee configuration instead of hardcoding paths. They resolve to actual paths at runtime, making your config portable across different systems and environments.
 
 ### Available Directory Placeholders ###
 

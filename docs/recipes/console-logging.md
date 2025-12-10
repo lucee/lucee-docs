@@ -20,29 +20,17 @@
 }
 -->
 
-## Console Logging in Lucee
+# Console Logging
 
-Most CFML developers are familiar with using [[tag-dump]] when debugging.
+Most CFML developers are familiar with [[tag-dump]] for debugging. [[function-systemoutput]] is similar but writes to the console - useful for CLI scripts, background tasks, and CI environments.
 
-Lucee has a very useful function [[function-systemoutput]], which lets you write messages and dump objects to the console.
+Like [[tag-dump]], it can output both text and complex objects. The second argument `addNewLine` controls whether a newline is added (default: `false`).
 
-### What's the console?
+## Access the Console
 
-If you are using Tomcat, you can run it interactively using `catalina run` in the `tomcat\bin` directory.
-
-With [[getting-started-commandbox]], you can do similar, via `box server start --console`.
-
-Both then run the Server with the console logs being output.
-
-### What can we log?
-
-Similar to [[tag-dump]], [[function-systemoutput]] can output both text and complex objects.
-
-By default, it doesn't output new lines, the second boolean argument, `addNewLine` does what it says.
-
-### Use with CI like GitHub Actions
-
-When you are running tests remotely, any output from [[function-systemoutput]] is then visible directly in the job log.
+- **Tomcat**: `catalina run` in `tomcat\bin`
+- **CommandBox**: `box server start --console`
+- **CI/CD**: Output appears directly in job logs
 
 ## Example
 

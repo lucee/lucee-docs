@@ -31,22 +31,18 @@
 }
 -->
 
-# onBuild Function in Server.cfc (supported since Lucee 6.1.1)
+# onBuild Function in Server.cfc
 
-The `onBuild` function in `Server.cfc` is designed for executing specific tasks during the build phase of a Lucee server, which is particularly useful in Docker environments. This function allows you to automate various setup tasks that need to be completed when building your Lucee server image.
+The `onBuild` function in `Server.cfc` executes tasks during the build phase - particularly useful in Docker environments for automating setup tasks when building your image.
 
-## Understanding Server.cfc
+## Server.cfc Lifecycle Events
 
-`Server.cfc` is a component that can be created in the `lucee-server\context\context` directory. It contains lifecycle event functions that are triggered during the startup of the Lucee server. The `onBuild` function within this component is called when you start Lucee with specific flags or environment variables indicating a build phase.
+Create `Server.cfc` in `lucee-server\context\context`:
 
-### When is Server.cfc Triggered?
+- **onServerStart**: Triggered when Lucee starts
+- **onBuild**: Triggered during build phase. Set `LUCEE_BUILD=true` or `-Dlucee.build` to activate
 
-- **onServerStart**: Triggered when the Lucee server starts.
-- **onBuild**: Triggered during the build phase, particularly useful in Docker environments. Set the environment variable `LUCEE_BUILD` to `true` or use the system property `-Dlucee.build` to activate this function.
-
-## Creating the Server.cfc File
-
-To use the `onBuild` function, create a `Server.cfc` file in the `lucee-server\context\context` directory.
+## Example Server.cfc
 
 ```lucee
 // lucee-server\context\context\Server.cfc
@@ -82,13 +78,7 @@ component {
 }
 ```
 
-## Using onBuild with Docker
-
-To leverage the `onBuild` function in a Docker environment, set the environment variable `LUCEE_BUILD` to `true` or use the system property `-Dlucee.build`.
-
-### Dockerfile Example
-
-Here's an example of how you might configure your Dockerfile to use the `onBuild` function:
+## Dockerfile Example
 
 ```dockerfile
 FROM lucee/lucee:latest
