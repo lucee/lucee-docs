@@ -3,7 +3,7 @@
 	"version": "0.1.1",
 	"description": "Asset build system for Lucee documentation",
 	"config": {
-		"assetVersion": "43"
+		"assetVersion": "44"
 	},
 	"scripts": {
 		"prebuild": "node check-versions.js",

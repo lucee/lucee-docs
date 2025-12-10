@@ -13,11 +13,11 @@ component {
 	this.mappings[ "/builds"   ] = this.baseDir & "builds";
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
-	this.assetBundleVersion = 43;  // see parent application.cfc
+	this.assetBundleVersion = 44;  // see parent application.cfc
 
 
 	public void function onApplicationStart()  {
-		application.assetBundleVersion = 43;
+		application.assetBundleVersion = 44;
 		//_addChangeWatcher();
 	}
 
