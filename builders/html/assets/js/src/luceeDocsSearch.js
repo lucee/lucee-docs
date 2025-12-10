@@ -163,7 +163,7 @@
 		var autocompleteInstance = lib.autocomplete({
 			container: containerElement,
 			panelContainer: containerElement, // Render panel inside container, not body
-			placeholder: 'Search docs...',
+			placeholder: 'Search docs... (Press /)',
 			openOnFocus: false,
 			detachedMediaQuery: 'none', // Disable detached mode completely
 			onStateChange: function(params) {
@@ -443,7 +443,7 @@
 			if (headerContainer) {
 				var headerAutocomplete = initAutocomplete(headerContainer);
 
-				// Restore last search on focus
+				// Restore last search on first focus
 				setTimeout(function() {
 					var input = headerContainer.querySelector('.aa-Input');
 					if (input) {

@@ -61,5 +61,8 @@
 			<link href="/assets/css/highlight-dark.#application.assetBundleVersion#.css" rel="stylesheet" class="highlight-theme-dark">
 		</cfif>
 		<link rel="icon" type="image/png" href="https://docs.lucee.org/assets/images/favicon.png">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 	</head>
 </cfoutput>

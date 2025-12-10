@@ -9,19 +9,19 @@ code {
 	background-color: var( --code-bg );
 	border: 1px solid var( --code-border );
 	border-radius: 4px;
-	color: #c7254e;
-	font-size: 85%;
+	color: #905;
+	font-size: 87%;
 	line-height: 1;
-	padding: 2px 4px;
+	padding: 2px 6px;
 }
 
 [data-theme="dark"] code {
-	color: #f78c94;
+	color: #e8a0a8;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root:not([data-theme="light"]) code {
-		color: #f78c94;
+		color: #e8a0a8;
 	}
 }
 

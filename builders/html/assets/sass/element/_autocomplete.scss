@@ -31,23 +31,24 @@
 	width: 100%;
 	height: auto;
 	box-sizing: border-box;
-	background-color: rgba(255, 255, 255, 0.15);
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	background-color: $white;
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 4px;
-	color: $white !important;
+	color: $black-text !important;
 	padding: 6px 10px;
 	font-size: 14px;
 	line-height: normal;
 	font-family: inherit;
 
 	&::placeholder {
-		color: rgba(255, 255, 255, 0.6);
+		color: $black-sec;
 	}
 
 	&:focus {
-		background-color: rgba(255, 255, 255, 0.25);
-		border-color: rgba(255, 255, 255, 0.4);
+		background-color: $white;
+		border-color: rgba(0, 0, 0, 0.2);
 		outline: none;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 	}
 }
 

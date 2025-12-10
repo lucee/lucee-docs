@@ -229,7 +229,7 @@
 
 	b,
 	strong {
-		font-weight: 700;
+		font-weight: 600;
 	}
 
 	blockquote,
@@ -299,7 +299,7 @@
 	.h6 {
 		color: inherit;
 		font-family: $font-fam;
-		font-weight: 700;
+		font-weight: 600;
 		margin-top: ($line-height / 2 );
 		margin-bottom: ($line-height / 3);
 	}
@@ -383,7 +383,7 @@
 	}
 
 	p {
-		margin: ($line-height / 2) 0;
+		margin: ($line-height * 0.4) 0;
 	}
 
 	small {
