@@ -17,7 +17,7 @@
   ],
   "related": [
     "database-connection-management",
-    "datasource-configuration",
+    "datasource-how-to-define-them",
     "tag-query",
     "function-queryexecute",
     "tag-storedproc"
@@ -189,7 +189,7 @@ The performance cost is far outweighed by the correctness benefits of proper err
 
 ## Compatibility
 
-- **Lucee Version**: 5.3.8.169+ (feature added in [LDEV-3127](https://luceeserver.atlassian.net/browse/LDEV-3127), fixed in [LDEV-5970](https://luceeserver.atlassian.net/browse/LDEV-5970))
+- **Lucee Version**: `5.3.8.169+` (feature added in [LDEV-3127](https://luceeserver.atlassian.net/browse/LDEV-3127)
 - **MSSQL JDBC Driver**: Tested with versions 9.x through 13.x
 - **SQL Server**: Works with SQL Server 2012 and later
 
@@ -205,7 +205,7 @@ The implementation was improved in `6.2.5.7` and `7.0.2.8` as part of [LDEV-5970
 
 ### "Result set is closed" Errors
 
-If you see this error with older Lucee versions, upgrade to 6.2+ or 6.1.1+ where this was fixed (LDEV-5970).
+If you see this error with older Lucee versions, upgrade to `6.2.5.7` and `7.0.2.8` or newer where this was fixed [LDEV-5972](https://luceeserver.atlassian.net/browse/LDEV-5972).
 
 ### Stored Procedure Returns No Data
 
