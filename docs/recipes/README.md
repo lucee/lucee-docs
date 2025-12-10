@@ -168,7 +168,7 @@ Simple recipe for processing Excel files in Lucee 7 using Maven integration and 
 
 Lucee 6.1 improves its support for exception causes, providing better debugging and error handling capabilities.
 
-## [Exceptions Output](/docs/recipes/exception-output.md)
+## [Exception Output](/docs/recipes/exception-output.md)
 
 How to catch and display exceptions.
 
@@ -280,7 +280,7 @@ How to configure and customize logging
 
 Lucee supports labels for all loop tags and statements, allowing you to control the flow of nested loops more precisely.
 
-## [Looping Through File](/docs/recipes/loop-through-files.md)
+## [Looping Through Files](/docs/recipes/loop-through-files.md)
 
 This document explains how to handle large files in Lucee more efficiently.
 
@@ -292,7 +292,7 @@ Comprehensive guide for migrating from Lucee 5 to Lucee 6, addressing breaking c
 
 Documentation for the Lucene 3 Extension with vector and hybrid search capabilities
 
-## [Mail - How to send an Email](/docs/recipes/mail-how-to-send-a-mail.md)
+## [Sending Emails](/docs/recipes/mail-how-to-send-a-mail.md)
 
 How to send an email using Lucee with help of the tag cfmail.
 
@@ -332,7 +332,7 @@ How to enable and use MSSQL modern mode in Lucee for proper handling of RAISERRO
 
 This document provides a guide on using the new operator in Lucee for creating instances of CFML components and Java classes.
 
-## [Null Support in CFML](/docs/recipes/null-support.md)
+## [Null Support](/docs/recipes/null-support.md)
 
 Understand the differences between partial and full null support - how it affects structKeyExists(), JSON serialization, queries and variable assignment.
 
@@ -384,7 +384,7 @@ This document explains the different return types for a query with some examples
 
 Lucee not only allows you to convert an XML file to an object tree (DOM) but also supports an event-driven model (SAX).
 
-## [Untitled](/docs/recipes/recommended-settings.md)
+## [Recommended Settings](/docs/recipes/recommended-settings.md)
 
 A guide on how to configure your Lucee Server for the best performance and highest security.
 
@@ -468,7 +468,7 @@ Learn how to create and use sub components in Lucee. This guide demonstrates how
 
 This document explains how you can improve the performance of your website in a very short time with Lucee.
 
-## [Untitled](/docs/recipes/tag-islands.md)
+## [Tag Islands](/docs/recipes/tag-islands.md)
 
 Tag islands allow you to switch into tag mode from inside cfscript
 
