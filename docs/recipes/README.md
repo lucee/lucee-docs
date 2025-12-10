@@ -332,9 +332,9 @@ How to enable and use MSSQL modern mode in Lucee for proper handling of RAISERRO
 
 This document provides a guide on using the new operator in Lucee for creating instances of CFML components and Java classes.
 
-## [Null Support](/docs/recipes/null-support.md)
+## [Null Support in CFML](/docs/recipes/null-support.md)
 
-This document explains how to set null support in the Lucee server admin, assigning `null` value for a variable and how to use `null` and `nullvalue`.
+Understand the differences between partial and full null support - how it affects structKeyExists(), JSON serialization, queries and variable assignment.
 
 ## [Overwriting and Adding Built-in Functions and Tags](/docs/recipes/overwrite-build-in-functions-tags.md)
 

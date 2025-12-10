@@ -1151,9 +1151,9 @@
   },
   {
     "file": "null-support.md",
-    "title": "Null Support",
+    "title": "Null Support in CFML",
     "path": "/docs/recipes/null-support.md",
-    "hash": "8788e502404b02680cff78cdde7831ef",
+    "hash": "e1ba96f4e68ddaa4fe867b21f7ddbc1b",
     "keywords": [
       "Null support",
       "null keyword",
