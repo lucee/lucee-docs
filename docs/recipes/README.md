@@ -80,7 +80,7 @@ This document explains the getClass() method for CFML components that implement 
 
 How to define and use component mappings in Lucee.
 
-## [Configure Lucee within your application](/docs/recipes/configuration-administrator-cfc.md)
+## [Configure Lucee Programmatically](/docs/recipes/configuration-administrator-cfc.md)
 
 How to configure Lucee within your application using Administrator.cfc and cfadmin tag.
 
@@ -92,7 +92,7 @@ Best practices for configuring Lucee 5 environments.
 
 Best practices for configuring Lucee in various environments.
 
-## [Untitled](/docs/recipes/console-logging.md)
+## [Console Logging](/docs/recipes/console-logging.md)
 
 Use the console for debugging
 
@@ -112,7 +112,7 @@ How to define and use custom tag mappings in Lucee.
 
 Understanding how Lucee manages database connections: pooled, exclusive, and transaction-based connections
 
-## [Datasource - How to define them](/docs/recipes/datasource-how-to-define-them.md)
+## [Datasources](/docs/recipes/datasource-how-to-define-them.md)
 
 How to define a Datasource in Lucee.
 
@@ -124,11 +124,11 @@ Comprehensive guide to formatting dates and times in Lucee with locale and timez
 
 Placeholders are uses to reference specific Lucee directories
 
-## [onBuild Function in Server.cfc (supported since Lucee 6.1.1)](/docs/recipes/docker-onbuild.md)
+## [onBuild Function in Server.cfc](/docs/recipes/docker-onbuild.md)
 
 The onBuild function in Server.cfc is used for tasks during the build phase in Lucee, particularly useful in Docker environments.
 
-## [Docker Information](/docs/recipes/docker.md)
+## [Docker](/docs/recipes/docker.md)
 
 Guide on using and running Lucee with Docker
 

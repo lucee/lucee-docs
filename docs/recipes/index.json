@@ -205,7 +205,7 @@
     "file": "caches-defined-in-application-cfc.md",
     "title": "Caches defined in Application.cfc",
     "path": "/docs/recipes/caches-defined-in-application-cfc.md",
-    "hash": "b3f919269b4865f6f2e0d487be41ebe7",
+    "hash": "23273ad42218693be3643684f70712fc",
     "keywords": [
       "Caches",
       "Application.cfc",
@@ -243,7 +243,7 @@
     "file": "checksum.md",
     "title": "Checksum",
     "path": "/docs/recipes/checksum.md",
-    "hash": "e0bdf3586c0a44803608af2981893fb7",
+    "hash": "7e07b84e97b6aa8d00ddc4e046c089fb",
     "keywords": [
       "Checksum",
       "File validation",
@@ -270,7 +270,7 @@
     "file": "component-mappings.md",
     "title": "Component Mappings",
     "path": "/docs/recipes/component-mappings.md",
-    "hash": "799bd669f633cf2632835f0bf9a59ef5",
+    "hash": "392206922e4fa29e0ba9cefd72a2dd0d",
     "keywords": [
       "Component Mapping",
       "Classpath",
@@ -281,9 +281,9 @@
   },
   {
     "file": "configuration-administrator-cfc.md",
-    "title": "Configure Lucee within your application",
+    "title": "Configure Lucee Programmatically",
     "path": "/docs/recipes/configuration-administrator-cfc.md",
-    "hash": "1eb98c1ab55de06cffc2aefac70b9fe9",
+    "hash": "7eacf6b6d60a0356a7a74a18c0816de8",
     "keywords": [
       "Administrator.cfc",
       "cfadmin",
@@ -321,9 +321,9 @@
   },
   {
     "file": "console-logging.md",
-    "title": "Untitled",
+    "title": "Console Logging",
     "path": "/docs/recipes/console-logging.md",
-    "hash": "4fc79dfeb37d282bf75b3d3a4d023d16",
+    "hash": "9747616ff0c6029f1bd774f38cbb2833",
     "keywords": [
       "Logging",
       "console"
@@ -361,7 +361,7 @@
     "file": "custom-tag-mappings.md",
     "title": "Custom Tag Mappings",
     "path": "/docs/recipes/custom-tag-mappings.md",
-    "hash": "2213e9dd5e87884b269bdd002c4a785f",
+    "hash": "b87afa3411ea67d96a04f2bef9af99fd",
     "keywords": [
       "Custom Tag Mapping",
       "Custom Tags",
@@ -389,9 +389,9 @@
   },
   {
     "file": "datasource-how-to-define-them.md",
-    "title": "Datasource - How to define them",
+    "title": "Datasources",
     "path": "/docs/recipes/datasource-how-to-define-them.md",
-    "hash": "2ff205a3bab30a858e0b0dfa14c74a86",
+    "hash": "33a274a47d360532c8ac7dcb42b30f6b",
     "keywords": [
       "Datasource",
       "Define datasource",
@@ -423,14 +423,14 @@
     "file": "directory-placeholders.md",
     "title": "Untitled",
     "path": "/docs/recipes/directory-placeholders.md",
-    "hash": "6f04f033d581ada6692591bae5dae277",
+    "hash": "a49f26b34a0ebf1c88f72b544987b45c",
     "keywords": []
   },
   {
     "file": "docker-onbuild.md",
-    "title": "onBuild Function in Server.cfc (supported since Lucee 6.1.1)",
+    "title": "onBuild Function in Server.cfc",
     "path": "/docs/recipes/docker-onbuild.md",
-    "hash": "176e7866b1e914fa52485a44d43f5a90",
+    "hash": "8fbd809ba03fdf4c2d5e83f3906eae23",
     "keywords": [
       "onBuild",
       "Server.cfc",
@@ -449,9 +449,9 @@
   },
   {
     "file": "docker.md",
-    "title": "Docker Information",
+    "title": "Docker",
     "path": "/docs/recipes/docker.md",
-    "hash": "38ef8496635fab49fad8d4bb786582c4",
+    "hash": "5ad1864a0bd4964e7886a1d38acf81cb",
     "keywords": [
       "Docker",
       "commandbox",
@@ -492,7 +492,7 @@
     "file": "encryption_decryption.md",
     "title": "Encryption/Decryption",
     "path": "/docs/recipes/encryption_decryption.md",
-    "hash": "54975e06c458f45f282e75438d9975b8",
+    "hash": "ca4487f3f9fae900bce0c638a9525b13",
     "keywords": [
       "Encryption",
       "Decryption",
