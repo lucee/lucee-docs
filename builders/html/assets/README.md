@@ -89,7 +89,7 @@ When you make changes that need to bust the CloudFront cache:
 
 ```json
 "config": {
-   "assetVersion": "38"
+   "assetVersion": "45"
 }
 ```
 
@@ -98,13 +98,13 @@ When you make changes that need to bust the CloudFront cache:
 - `lucee-docs/Application.cfc` - Update `variables.assetBundleVersion`
 - `lucee-docs/server/Application.cfc` - Update `this.assetBundleVersion`
 
-3. **Run the build:**
+3. **Run the full build** (not just css or js individually):
 
 ```bash
 npm run build
 ```
 
-This will create versioned files:
+This runs all pipelines (CSS, JS, ACE, highlight) and creates versioned files:
 
 - `css/base.{version}.min.css`
 - `js/dist/base.{version}.min.js`
