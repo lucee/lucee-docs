@@ -780,7 +780,7 @@
     "file": "import.md",
     "title": "Import",
     "path": "/docs/recipes/import.md",
-    "hash": "ba953a5cc3fb651f6a003b0191a21be0",
+    "hash": "b5064a6ad7e02e364850c8100192cb6d",
     "keywords": [
       "cfimport",
       "import",
@@ -807,7 +807,7 @@
     "file": "java-class-interaction.md",
     "title": "Java Class Interaction",
     "path": "/docs/recipes/java-class-interaction.md",
-    "hash": "8b87472fd2ad7c252966f3ec25e4cbee",
+    "hash": "cdde23dd3641a4491bd0680f5611fb58",
     "keywords": [
       "Java",
       "Classes",
