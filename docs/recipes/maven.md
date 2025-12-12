@@ -1,180 +1,174 @@
-
 <!--
 {
-  "title": "Using Maven directly via CFML",
+  "title": "Loading Java Libraries with Maven",
   "id": "maven",
   "categories": [
     "java"
   ],
   "since": "6.2",
-  "description": "How to use Maven in Lucee",
+  "description": "Load Java libraries from Maven repositories - automatic dependency management for CFML applications.",
   "keywords": [
     "Maven",
     "Java",
-    "OSGi"
+    "javaSettings",
+    "dependencies"
   ],
-  "related":[
+  "related": [
     "function-createobject",
-    "tag-import"
+    "tag-import",
+    "java-settings"
   ]
 }
 -->
 
-# Maven (Lucee 6.2)
+# Loading Java Libraries with Maven
 
-Maven is a powerful tool for managing and retrieving Java libraries in modern applications.
-It allows developers to easily integrate dependencies and manage project libraries. In Lucee 6.2, Maven integration has been added, providing more flexibility when using Java libraries within your CFML codebase.
+You want to use Apache POI to read Excel files. In the old days, you'd download the JAR, figure out its dependencies, put them all somewhere, and configure Lucee to find them. Maven handles this automatically - specify what you need and Lucee fetches everything.
 
-## Why Maven?
+**Maven terms:** Libraries are identified by *groupId* (organization), *artifactId* (library name), and *version*. These combine into coordinates like `org.apache.poi:poi-ooxml:5.2.5`.
 
-Maven is a widely-used framework that simplifies the management of Java dependencies.
+> **Common gotcha:** Using `import org.apache.poi...` alone doesn't load POI - it just shortcuts the class name. Without `javaSettings`, Lucee uses whatever's already on the classpath (often its bundled libraries). To load a specific version, you need both: `javaSettings` to fetch the library, `import` for convenience.
 
-Lucee automatically handles the retrieval and inclusion of required libraries and their dependencies, reducing the manual work needed to manage them.
+## Quick Start
 
-This makes integrating third-party Java libraries into your Lucee applications much easier and more efficient.
+```cfml
+component javaSettings='{"maven":["org.apache.poi:poi-ooxml:5.2.5"]}' {
+	import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+	import java.io.FileInputStream;
 
-## How to Use Maven in Lucee
-
-Lucee has supported the `this.javasettings` setting in the `Application.cfc` for a while.
-This allows developers to define directories containing Java classes or `.jar` files. Starting from Lucee 6.2, this functionality has been extended to support Maven libraries.
-You can now define Maven dependencies in the configuration file `.CFConfig.json`, within your `Application.cfc`, or directly in your CFML components.
-
-Lucee uses these configurations to load Java classes in a structured manner, ensuring that dependencies are managed effectively.
-
-## Lucee Config (`.CFConfig.json`)
-
-In `.CFConfig.json`, you can define Maven dependencies that will be used globally by your Lucee server for loading Java classes.
-
-```json
-{
-  "javasettings": {
-    "maven": [
-      {
-        "groupId": "org.quartz-scheduler",
-        "artifactId": "quartz",
-        "version": "2.3.2"
-      },
-      {
-        "groupId": "org.quartz-scheduler",
-        "artifactId": "quartz-jobs",
-        "version": "2.3.2"
-      }
-    ]
-  }
+	function readFirstCell( path ) {
+		var workbook = new XSSFWorkbook( new FileInputStream( arguments.path ) );
+		var sheet = workbook.getSheetAt( 0 );
+		return sheet.getRow( 0 ).getCell( 0 ).getStringCellValue();
+	}
 }
 ```
 
-The `version` attribute is optional. If not specified, Lucee will automatically fetch the latest version available for the specified Maven artifact.
+Lucee downloads POI and all its dependencies automatically.
 
-In addition, we also support the more concise Gradle style.
+## Where to Define Dependencies
 
-```json
-{
-  "javasettings": {
-    "maven": [
-        "org.graalvm.polyglot:polyglot:24.1.1"
-        , "org.graalvm.polyglot:python:24.1.1"
-    ]
-  }
+| Scope | Use Case |
+|-------|----------|
+| **Component attribute** | Isolate dependencies to a single component |
+| **Application.cfc** | Share across your application |
+| **`.CFConfig.json`** | Server-wide defaults |
+| **createObject()** | One-off dynamic loading |
+
+### Component (recommended for isolation)
+
+Each component can have its own dependencies - different components can even use different versions of the same library without conflicts:
+
+```cfml
+component javaSettings='{"maven":["org.apache.poi:poi-ooxml:5.2.5"]}' {
+	// POI 5.2.5 available here
 }
 ```
 
-## Application.cfc
+### Application.cfc
 
-In your `Application.cfc`, you can override or extend the global Java settings by adding Maven dependencies specific to your application.
+Share dependencies across your entire application:
 
-```javascript
-this.javasettings = {
-  "maven": [
-    {
-      "groupid": "commons-beanutils",
-      "artifactid": "commons-beanutils",
-      "version": "1.9.4"
-    }
-  ]
+```cfml
+// Application.cfc
+this.javaSettings = {
+	"maven": [
+		"org.apache.poi:poi-ooxml:5.2.5",
+		"com.google.guava:guava:32.1.3-jre"
+	]
 };
 ```
 
-This allows you to tailor the Java dependencies for your application, providing more flexibility in how libraries are loaded and used.
-
-## Defining Maven Dependencies in a Component
-
-You can also define Maven dependencies as part of a component, ensuring that only the classes loaded within that component will use the specified libraries.
-
-```javascript
-component javaSettings = '{
-  "maven": [
-    {
-      "groupid": "commons-beanutils",
-      "artifactid": "commons-beanutils",
-      "version": "1.9.4"
-    }
-  ]
-}' {
-
-}
-```
-
-This encapsulation is highly beneficial because it isolates a component from the rest of the environment, allowing it to use different versions of the same libraries without causing conflicts. This ensures that you can integrate components seamlessly without worrying about library version clashes.
-
-## Using Maven with `CreateObject`
-
-You can also define Maven dependencies directly when creating a Java object using the `CreateObject` function.
-
-```javascript
-createObject("java", "org.apache.commons.beanutils.BeanUtils", {
-  "maven": [
-    {
-      "groupid": "commons-beanutils",
-      "artifactid": "commons-beanutils",
-      "version": "1.9.4"
-    }
-  ]
-});
-```
-
-This method provides even more flexibility, allowing you to load Java classes and libraries dynamically at runtime.
-
-## Security
-
-Lucee validates downloaded Maven artifacts against checksums to ensure integrity through dual validation:
-
-Against Maven repository checksums
-Against user-defined checksums (if provided)
-
-Define checksums in .CFConfig.json:
+### .CFConfig.json (server-wide)
 
 ```json
 {
-  "javasettings": {
-    "maven": [
-      {
-        "groupId": "org.example",
-        "artifactId": "mylib",
-        "version": "1.0.0",
-        "checksum": "sha1-d52b9abcd97f38c81342bb7e7ae1eee9b73cba51"
-      }
-    ]
-  }
+	"javaSettings": {
+		"maven": [
+			"org.quartz-scheduler:quartz:2.3.2",
+			"org.quartz-scheduler:quartz-jobs:2.3.2"
+		]
+	}
 }
 ```
 
-Or using Gradle style:
+### createObject() (dynamic)
+
+Load dependencies at runtime for one-off usage:
+
+```cfml
+BeanUtils = createObject( "java", "org.apache.commons.beanutils.BeanUtils", {
+	"maven": [ "commons-beanutils:commons-beanutils:1.9.4" ]
+});
+```
+
+## Dependency Syntax
+
+### Shorthand (recommended)
 
 ```
+"groupId:artifactId:version"
+```
+
+Examples:
+
+```cfml
+"org.apache.poi:poi-ooxml:5.2.5"
+"com.google.guava:guava:32.1.3-jre"
+```
+
+### Verbose (when you need more control)
+
+```json
+{
+	"groupId": "org.apache.poi",
+	"artifactId": "poi-ooxml",
+	"version": "5.2.5"
+}
+```
+
+### Version is Optional
+
+Omit version to fetch the latest available:
+
+```cfml
+"org.apache.poi:poi-ooxml"  // gets latest version
+```
+
+## Security: Checksum Validation
+
+Lucee validates downloads against Maven repository checksums. For extra security, specify your own.
+
+Full shorthand syntax: `groupId:artifactId:version:scope:transitive:checksum`
+
+```cfml
+// With checksum (scope=compile, transitive=false)
 "commons-beanutils:commons-beanutils:1.9.4:compile:false:sha1-d52b9abcd97f38c81342bb7e7ae1eee9b73cba51"
+
+// Verbose
+{
+	"groupId": "commons-beanutils",
+	"artifactId": "commons-beanutils",
+	"version": "1.9.4",
+	"checksum": "sha1-d52b9abcd97f38c81342bb7e7ae1eee9b73cba51"
+}
 ```
 
-Supported algorithms: MD5, SHA-1, SHA-256, SHA-512
-If no checksum is specified, Lucee uses the default from the Maven repository. Failed checksum validations prevent dependency installation.
+Supported algorithms: MD5, SHA-1, SHA-256, SHA-512. Failed validation prevents installation.
 
-## Classloader Recycling
+## Finding Maven Coordinates
 
-Lucee automatically generates a unique hash based on the defined Java settings and maintains a pool of corresponding classloaders. This means that classloaders are reused efficiently, minimizing resource consumption and avoiding the overhead of creating new classloaders unnecessarily.
+Search [Maven Central](https://search.maven.org/) for the library you need. The coordinates are shown on the artifact page - just copy them.
+
+## Classloader Reuse
+
+Lucee hashes your javaSettings and reuses classloaders with matching configurations. This means:
+
+- Multiple components with identical dependencies share one classloader
+- No overhead from creating duplicate classloaders
+- Memory stays efficient even with many components using Maven
 
 ## Limitations
 
-- Maven libraries are downloaded at runtime, meaning you must ensure the necessary dependencies are available during the build phase. This can be handled in `Server.cfc->onBuild`, especially in Docker environments where the image is built beforehand.
-- Currently, this feature is only supported in CFML. You cannot use it in Java-based extensions for Lucee, but future updates are planned to extend this functionality to Java code as well.
-
-By integrating Maven support into Lucee, managing Java libraries becomes much more efficient and less error-prone. This feature ensures that dependencies are handled properly across different parts of your application, reducing potential conflicts and simplifying development.
+- **Runtime download** - Libraries are fetched when first needed. For Docker, pre-download in `Server.cfc->onBuild`
+- **CFML only** - Can't use this in Java-based Lucee extensions (yet)

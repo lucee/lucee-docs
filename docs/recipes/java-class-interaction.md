@@ -164,6 +164,8 @@ dump( allStates );
 
 Reflection lets you inspect classes at runtime - useful for debugging, building dynamic code, or understanding unfamiliar Java libraries.
 
+> **Note:** The `::class` syntax requires Lucee 7.0+. In 6.2, use `createObject( "java", "java.lang.Class" ).forName( "java.util.HashMap" )` instead.
+
 ```javascript
 // Get the Class object using ::class
 clazz = java.util.HashMap::class;
