@@ -83,6 +83,10 @@ Or the `cfimport` function:
 
 ## Java Classes (6.2+)
 
+Import saves you typing fully qualified class names - that's all it does. It doesn't control *which version* of a library is loaded.
+
+If you need a specific library version (especially when it conflicts with Lucee's bundled libraries), use `javasettings` to specify the dependency. See [[java-class-interaction]] for details.
+
 ```cfml
 import java.util.HashMap;
 ```

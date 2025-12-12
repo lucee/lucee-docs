@@ -71,6 +71,8 @@ dump( total ); // 21.989
 
 Typing `java.util.HashMap` every time gets tedious. Use `import` to bring classes into scope - then use just the class name:
 
+> **Coming from `createObject()`?** If you previously used `createObject( "java", "className", "/path/to/jar" )` to load classes from custom JARs, note that `import` only handles **naming** (short class names vs fully qualified). To control **which JAR or version** is loaded, you need `javaSettings` - see [Import vs javaSettings](#import-vs-javasettings--whats-the-difference) below.
+
 ```javascript
 // Import specific classes
 import java.util.HashMap;
@@ -181,3 +183,48 @@ for ( method in clazz.getMethods() ) {
     dump( method.getName() );
 }
 ```
+
+## Import vs javaSettings - What's the Difference?
+
+If you're migrating from the older `createObject()` approach where you specified a JAR path:
+
+```javascript
+// Old approach - class name AND JAR path in one call
+pdfLoader = createObject( "java", "org.apache.pdfbox.Loader", "/lib/pdfbox-3.0.6.jar" );
+```
+
+You might expect `import` to replace this entirely. But these are two separate concerns:
+
+- **`import`** = Naming convenience ("use `Loader` instead of `org.apache.pdfbox.Loader`")
+- **`javaSettings`** = Classpath control ("load this specific library version")
+
+If you use `import` without `javaSettings`, Lucee loads from whatever's already available - often its bundled libraries. This can cause confusion when you expect a specific version.
+
+### Using a Specific Library Version
+
+To use a particular version of a library (like PDFBox 3.x instead of Lucee's bundled 2.x), combine `javaSettings` with `import`:
+
+```javascript
+component javaSettings='{"maven":["org.apache.pdfbox:pdfbox:3.0.6"]}' {
+    import org.apache.pdfbox.Loader;
+    import java.io.File;
+
+    function loadPDF( path ) {
+        return Loader::loadPDF( new File( arguments.path ) );
+    }
+}
+```
+
+The `javaSettings` attribute tells Lucee to fetch PDFBox 3.0.6 from Maven. The `import` statements then let you use short class names within that component.
+
+### Where to Define javaSettings
+
+You can define `javaSettings` at different scopes:
+
+| Scope | Use Case |
+|-------|----------|
+| **Component attribute** | Isolate dependencies to a single component |
+| **Application.cfc** | Share dependencies across your application |
+| **`.CFConfig.json`** | Server-wide defaults |
+
+For full details on Maven integration, local JARs, and dependency management, see [Maven Integration](maven.md).
