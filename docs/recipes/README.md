@@ -12,9 +12,9 @@ Guide to configuring AI for use in Lucee's Documentation tab, leveraging retriev
 
 Documentation for serializing and deserializing AI sessions in Lucee
 
-## [AI (Experimental)](/docs/recipes/ai.md)
+## [AI](/docs/recipes/ai.md)
 
-No description available.
+AI integration for working with Large Language Models in Lucee
 
 ## [Application.cfc #](/docs/recipes/application-cfc.md)
 

@@ -54,12 +54,18 @@
   },
   {
     "file": "ai.md",
-    "title": "AI (Experimental)",
+    "title": "AI",
     "path": "/docs/recipes/ai.md",
-    "hash": "caa3605ba42c79cc03226d7e05eb675a",
+    "hash": "167e1f2ce00ad04fb7d9a5c1bf301ab2",
     "keywords": [
       "AI",
-      "LLM"
+      "LLM",
+      "ChatGPT",
+      "Gemini",
+      "Claude",
+      "Ollama",
+      "RAG",
+      "Multipart"
     ]
   },
   {
