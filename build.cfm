@@ -21,11 +21,35 @@
 		if ( listFirst( server.lucee.version, "." ) < 7 ) {
 			throw( type="BuildError", message="Lucee 7.x required", detail="This build requires Lucee 7.x or later. Current version: #server.lucee.version#" );
 		}
-		logger.logger ("assetBundleVersion: " & application.assetBundleVersion);
-		logger.logger(" ");
+		logger.logger( "assetBundleVersion: " & application.assetBundleVersion );
+
+		// Check all versioned asset files exist
+		assetDir = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "builders/html/assets/";
+		requiredAssets = [
+			"css/base.#application.assetBundleVersion#.min.css",
+			"js/dist/base.#application.assetBundleVersion#.min.js",
+			"trycf/js/ace/ace-bundle.#application.assetBundleVersion#.js",
+			"css/highlight.#application.assetBundleVersion#.css",
+			"css/highlight-dark.#application.assetBundleVersion#.css"
+		];
+		missingAssets = [];
+		for ( asset in requiredAssets ) {
+			if ( !fileExists( assetDir & asset ) ) {
+				missingAssets.append( asset );
+			}
+		}
+		if ( missingAssets.len() ) {
+			logger.logger( "Missing versioned asset files: #missingAssets.toList( ', ' )#" );
+			throw( message="Run 'npm run build' in builders/html/assets/ to create missing assets" );
+		}
+		logger.logger( "All versioned assets present" );
+		logger.logger( " " );
+
+		threads = 4;
+		logger.logger("Using #threads# threads for building the documentation.");
 
 		//savecontent variable="suppressingwhitespacehere" {
-			new api.build.BuildRunner(threads=1).buildAll();
+			new api.build.BuildRunner(threads=threads).buildAll();
 		//}
 
 		//content reset="true" type="text/plain";
