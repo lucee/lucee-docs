@@ -813,7 +813,7 @@
     "file": "java-class-interaction.md",
     "title": "Java Class Interaction",
     "path": "/docs/recipes/java-class-interaction.md",
-    "hash": "cdde23dd3641a4491bd0680f5611fb58",
+    "hash": "3ffc40980846d9a767b5a96434ee978f",
     "keywords": [
       "Java",
       "Classes",
@@ -1074,13 +1074,14 @@
   },
   {
     "file": "maven.md",
-    "title": "Maven (Lucee 6.2)",
+    "title": "Loading Java Libraries with Maven",
     "path": "/docs/recipes/maven.md",
-    "hash": "6107b24c9f8ed835a7417da1cba7ab38",
+    "hash": "b24c96d5def4e6b4186058f187640637",
     "keywords": [
       "Maven",
       "Java",
-      "OSGi"
+      "javaSettings",
+      "dependencies"
     ]
   },
   {

@@ -308,9 +308,9 @@ All about the different mappings in Lucee and how to use them.
 
 Learn about the switch from double to BigDecimal in Lucee 6 for more precise mathematical operations. This guide provides information on how to change the default behavior if needed.
 
-## [Maven (Lucee 6.2)](/docs/recipes/maven.md)
+## [Loading Java Libraries with Maven](/docs/recipes/maven.md)
 
-How to use Maven in Lucee
+Load Java libraries from Maven repositories - automatic dependency management for CFML applications.
 
 ## [Migrating from Classic to Modern Local Scope Mode](/docs/recipes/migrate.from.classic-to-modern-local-scope.md)
 
