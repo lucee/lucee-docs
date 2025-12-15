@@ -26,6 +26,7 @@ Lucee 7 includes full support for AI integration, allowing you to interact with 
 
 - **Multipart Content Support**: Send images, PDFs, and other documents along with text prompts
 - **Multipart Response Support**: Receive generated images and other content types from AI (currently Gemini, more providers coming soon)
+- **Structured JSON Responses**: Enforce specific JSON response schemas with Gemini beta API
 - **Simplified Function Names**: Functions are available without the `Lucee` prefix (though the prefix is still supported as an alias for backward compatibility)
 - **Stable API**: The AI functionality is no longer experimental and is ready for production use
 - **Enhanced File Handling**: Automatic detection and handling of file paths in multipart requests
@@ -321,6 +322,75 @@ if (isArray(response)) {
 - **ChatGPT (OpenAI)**: 🔄 Coming soon
 - **Ollama**: 🔄 Coming soon
 
+### Structured JSON Responses (Gemini Beta)
+
+**New in Lucee 7** - With Gemini's beta API, you can enforce structured JSON responses by defining a `generationConfig` with a response schema. This ensures the AI returns data in a specific, predictable format.
+
+#### Configuration
+
+Add `generationConfig` to your Gemini endpoint configuration to specify the desired response structure:
+
+```json
+"recipes": {
+  "class": "lucee.runtime.ai.google.GeminiEngine",
+  "custom": {
+    "connectTimeout": "2000",
+    "beta": true,
+    "message": "Keep all answers concise and accurate",
+    "model": "gemini-2.5-flash",
+    "apikey": "${GEMINI_API_KEY}",
+    "socketTimeout": "120000",
+    "temperature": "0.7",
+    "conversationSizeLimit": "10",
+    
+    "generationConfig": {
+      "responseMimeType": "application/json",
+      "responseSchema": {
+        "type": "ARRAY",
+        "items": {
+          "type": "OBJECT",
+          "properties": {
+            "recipeName": { "type": "STRING" },
+            "calories": { "type": "INTEGER" }
+          },
+          "required": ["recipeName", "calories"]
+        }
+      }
+    }
+  }
+}
+```
+
+**Configuration Options:**
+- **`responseMimeType`**: Set to `"application/json"` to enforce JSON responses
+- **`responseSchema`**: Define the expected JSON structure using a schema
+- **`generationConfig`**: All other Gemini generation config options are supported and passed directly to the API
+
+#### Usage Example
+
+```javascript
+aiSessionJson = createAISession(
+    name: "recipes",
+    limit: 100,
+    temperature: 0.2,
+    systemMessage: "Keep your answers as short as possible"
+);
+
+response = inquiryAISession(aiSessionJson, "List 3 healthy breakfast ideas.");
+dump(response);
+```
+
+**Response:**
+```json
+[
+  {"recipeName":"Oatmeal with berries","calories":300},
+  {"recipeName":"Greek yogurt with fruit","calories":250},
+  {"recipeName":"Scrambled eggs with spinach","calories":350}
+]
+```
+
+**Note**: This feature requires Gemini's beta API (`"beta": true` or URL set to `https://generativelanguage.googleapis.com/v1beta/`).
+
 ### Session Serialization
 
 Save and restore conversation state across requests. See [AI Session Serialization](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai-serialisation.md) for details.
@@ -466,6 +536,7 @@ If you're upgrading from Lucee 6.2 with the experimental AI features:
 3. **New features**: You can now use:
    - Multipart content (images, PDFs) in your AI queries
    - Multipart responses (generated images and files from AI)
+   - Structured JSON responses with Gemini beta API
    - Session serialization for persistent conversations
    - RAG with Lucene integration
 
@@ -649,6 +720,37 @@ augmentedQuery = "Question: #userQuery#\n\nRelevant Documentation:\n#serializeJS
 // Get AI response with documentation context
 answer = inquiryAISession(aiSession, augmentedQuery);
 dump(answer);
+```
+
+### Structured Data Extraction
+```javascript
+// Configure Gemini with JSON schema for product data
+aiSessionJson = createAISession(
+    name: "geminijson",
+    systemMessage: "Extract product information accurately"
+);
+
+// Extract structured data from unstructured text
+productText = "The new MacBook Pro 16-inch costs $2499 and is currently in stock. Popular tags include: laptop, apple, professional.";
+
+productData = inquiryAISession(aiSessionJson, 
+    "Extract the product information from this text: #productText#"
+);
+
+// Response is guaranteed to match the schema defined in config
+dump(productData);
+// Returns: {"productName":"MacBook Pro 16-inch","price":2499,"inStock":true,"tags":["laptop","apple","professional"]}
+
+// Direct database insertion is now easy
+queryExecute(
+    "INSERT INTO products (name, price, in_stock, tags) VALUES (?, ?, ?, ?)",
+    [
+        productData.productName,
+        productData.price,
+        productData.inStock,
+        serializeJSON(productData.tags)
+    ]
+);
 ```
 
 ## Related Documentation
