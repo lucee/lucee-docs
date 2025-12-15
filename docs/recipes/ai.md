@@ -25,6 +25,7 @@ Lucee 7 includes full support for AI integration, allowing you to interact with 
 ## What's New in Lucee 7
 
 - **Multipart Content Support**: Send images, PDFs, and other documents along with text prompts
+- **Multipart Response Support**: Receive generated images and other content types from AI (currently Gemini, more providers coming soon)
 - **Simplified Function Names**: Functions are available without the `Lucee` prefix (though the prefix is still supported as an alias for backward compatibility)
 - **Stable API**: The AI functionality is no longer experimental and is ready for production use
 - **Enhanced File Handling**: Automatic detection and handling of file paths in multipart requests
@@ -128,14 +129,14 @@ The `default` setting determines how the AI connection is used automatically:
 ### Simple Text Interaction
 ```javascript
 // Create a session with a specific AI endpoint
-session = createAISession(name:'mychatgpt', systemMessage:"Answer as a helpful assistant.");
+aiSession = createAISession(name:'mychatgpt', systemMessage:"Answer as a helpful assistant.");
 
 // Get complete response at once
-answer = inquiryAISession(session, "What is the capital of France?");
+answer = inquiryAISession(aiSession, "What is the capital of France?");
 dump(answer);
 
 // Stream response for real-time output
-inquiryAISession(session, "Count from 1 to 100", function(msg) {
+inquiryAISession(aiSession, "Count from 1 to 100", function(msg) {
     writeOutput(msg);
     cfflush(throwonerror=false);
 });
@@ -148,11 +149,11 @@ inquiryAISession(session, "Count from 1 to 100", function(msg) {
 New in Lucee 7, you can send images, PDFs, and other documents along with your text prompts:
 ```javascript
 // Create session
-session = createAISession(name:'myclaude');
+aiSession = createAISession(name:'myclaude');
 
 // Send image with question
 imageData = fileReadBinary(expandPath("./photo.jpg"));
-answer = inquiryAISession(session, [
+answer = inquiryAISession(aiSession, [
     "What do you see in this image?",
     imageData
 ]);
@@ -160,20 +161,20 @@ dump(answer);
 
 // Analyze PDF document
 pdfData = fileReadBinary(expandPath("./report.pdf"));
-answer = inquiryAISession(session, [
+answer = inquiryAISession(aiSession, [
     "Summarize the key points from this document",
     pdfData
 ]);
 dump(answer);
 
 // File path auto-detection (Lucee automatically reads the file)
-answer = inquiryAISession(session, [
+answer = inquiryAISession(aiSession, [
     "Analyze this image",
     "/path/to/image.jpg"  // Lucee detects this is a file path and reads it
 ]);
 
 // Multiple files
-answer = inquiryAISession(session, [
+answer = inquiryAISession(aiSession, [
     "Compare these two images",
     fileReadBinary("./image1.jpg"),
     fileReadBinary("./image2.jpg")
@@ -202,7 +203,7 @@ answer = inquiryAISession(session, [
 
 Sessions maintain conversation history, allowing for contextual follow-up questions:
 ```javascript
-mySession = createAISession(
+myAISession = createAISession(
     name: 'mychatgpt',
     systemMessage: "You are a helpful coding assistant.",
     temperature: 0.7,
@@ -210,37 +211,138 @@ mySession = createAISession(
 );
 
 // First question
-inquiryAISession(mySession, "What is a closure in JavaScript?");
+inquiryAISession(myAISession, "What is a closure in JavaScript?");
 
 // Follow-up question (AI remembers previous context)
-inquiryAISession(mySession, "Can you show me an example?");
+inquiryAISession(myAISession, "Can you show me an example?");
 
 // Another follow-up
-inquiryAISession(mySession, "How would that work in CFML?");
+inquiryAISession(myAISession, "How would that work in CFML?");
 ```
+
+### Multipart Responses (Images, Files)
+
+**New in Lucee 7** - AI can now generate images and other content types in response to your queries. Currently supported with **Gemini** (requires beta API and specific models), with other providers coming soon.
+
+#### Configuration for Image Generation
+
+To use image generation with Gemini, you must enable the beta API and use a compatible model:
+
+```json
+"gemini": {
+  "class": "lucee.runtime.ai.google.GeminiEngine",
+  "custom": {
+    "message": "Keep all answers concise and accurate",
+    "model": "gemini-2.5-flash-image",
+    "timeout": 120000,
+    "apikey": "${GEMINI_API_KEY}",
+    "beta": "true"
+  }
+}
+```
+
+**Important Notes:**
+- Set `"beta": "true"` to use the beta API endpoint (v1beta)
+- Use a model that supports image generation (e.g., `gemini-2.5-flash-image`, `gemini-2.5-flash-image-preview`)
+- Alternatively, you can specify the beta URL directly: `"url": "https://generativelanguage.googleapis.com/v1beta/"`
+- The v1 API does not yet support image generation models
+
+#### Using Multipart Responses
+
+When an AI generates multipart content (text + images, multiple images, etc.), `inquiryAISession()` returns an **array** where each element represents a content part:
+
+```javascript
+aiSession = createAISession(name: 'mygemini');
+
+// Request image generation along with text explanation
+response = inquiryAISession(aiSession, [
+    "Draw a developer with glasses wearing a t-shirt with this logo on it in comic noir art style and explain the image you created",
+    fileReadBinary(expandPath("./logo.png"))
+]);
+
+// Handle multipart response
+if (isArray(response)) {
+    loop array=response item="part" {
+        // Text content
+        if (part.contenttype == "text/plain") {
+            writeOutput("<p>#part.content#</p>");
+        }
+        // Image content
+        else if (left(part.contenttype, 6) == "image/") {
+            img = imageRead(part.content);
+            writeDump(img);
+            // Or save to file: fileWrite("./generated.png", part.content);
+        }
+        // Other content types
+        else {
+            writeDump(part);
+        }
+    }
+}
+else {
+    // Simple text response (backward compatible)
+    writeOutput(response);
+}
+```
+
+#### Response Structure
+
+Each part in the multipart response array contains:
+
+| Property | Type | Description | Example |
+|----------|------|-------------|---------|
+| **contenttype** | string | MIME type of the content | `"text/plain"`, `"image/png"`, `"image/jpeg"` |
+| **type** | string | Content category | `"text"` or `"binary"` |
+| **content** | string or binary | The actual content | Text string or Java byte array |
+
+#### String Conversion
+
+The multipart response array has special string conversion behavior for convenience:
+
+```javascript
+response = inquiryAISession(aiSession, "Create an image and describe it");
+
+// Array acts as string - concatenates all text/plain parts
+echo(response);  // Outputs only text portions
+writeOutput(toString(response));  // Same as above
+
+// Still works as array for detailed handling
+if (isArray(response)) {
+    writeOutput("Response contains #arrayLen(response)# parts");
+}
+```
+
+**Note**: This string conversion is unique to multipart AI responses - regular Lucee arrays cannot be used this way.
+
+#### Provider Support for Multipart Responses
+
+- **Gemini (Google)**: ✅ Full support for multipart responses
+- **Claude (Anthropic)**: 🔄 Coming soon
+- **ChatGPT (OpenAI)**: 🔄 Coming soon
+- **Ollama**: 🔄 Coming soon
 
 ### Session Serialization
 
 Save and restore conversation state across requests. See [AI Session Serialization](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai-serialisation.md) for details.
 ```javascript
 // Serialize session
-serializedData = serializeAISession(mySession);
+serializedData = serializeAISession(myAISession);
 fileWrite("session.json", serializedData);
 
 // Load session later
-restoredSession = loadAISession('mychatgpt', fileRead("session.json"));
+restoredAISession = loadAISession('mychatgpt', fileRead("session.json"));
 
 // Continue conversation
-inquiryAISession(restoredSession, "Can you remind me what we were discussing?");
+inquiryAISession(restoredAISession, "Can you remind me what we were discussing?");
 ```
 
 ### Streaming Responses
 
 Stream responses in real-time for better user experience:
 ```javascript
-session = createAISession(name:'mygemini');
+aiSession = createAISession(name:'mygemini');
 
-inquiryAISession(session, "Write a short story about AI", function(chunk) {
+inquiryAISession(aiSession, "Write a short story about AI", function(chunk) {
     writeOutput(chunk);
     cfflush(throwonerror=false);
 });
@@ -251,13 +353,13 @@ inquiryAISession(session, "Write a short story about AI", function(chunk) {
 Control randomness/creativity of responses (0.0 = deterministic, 1.0 = creative):
 ```javascript
 // More deterministic responses (good for factual questions)
-conservativeSession = createAISession(
+conservativeAISession = createAISession(
     name: 'mychatgpt',
     temperature: 0.2
 );
 
 // More creative responses (good for brainstorming)
-creativeSession = createAISession(
+creativeAISession = createAISession(
     name: 'mychatgpt',
     temperature: 0.9
 );
@@ -277,7 +379,7 @@ search
 
 // Add search results as context to AI query
 augmentedQuery = "Query: #userQuery#\n\nContext: #serializeJSON(searchResults)#";
-answer = inquiryAISession(session, augmentedQuery);
+answer = inquiryAISession(aiSession, augmentedQuery);
 ```
 
 ## Available Functions
@@ -291,6 +393,7 @@ Lucee 7 provides the following AI functions (all available with or without the `
   
 - **`inquiryAISession()`** / `LuceeInquiryAISession()` - Send a query to an AI session
   - Arguments: `session`, `question` (string or array for multipart), `listener` (optional callback)
+  - Returns: String (simple text) or Array (multipart response with text/images/files)
   
 - **`getAIMetadata()`** / `LuceeGetAIMetadata()` - Get metadata about an AI connection
   - Arguments: `name`, `refresh` (boolean)
@@ -362,31 +465,46 @@ If you're upgrading from Lucee 6.2 with the experimental AI features:
 
 3. **New features**: You can now use:
    - Multipart content (images, PDFs) in your AI queries
+   - Multipart responses (generated images and files from AI)
    - Session serialization for persistent conversations
    - RAG with Lucene integration
 
 Example migration:
 ```javascript
 // Lucee 6.2 (still works in Lucee 7)
-session = LuceeCreateAISession(name:'mychatgpt');
-answer = LuceeInquiryAISession(session, "Hello");
+aiSession = LuceeCreateAISession(name:'mychatgpt');
+answer = LuceeInquiryAISession(aiSession, "Hello");
 
 // Lucee 7 (cleaner syntax)
-session = createAISession(name:'mychatgpt');
-answer = inquiryAISession(session, "Hello");
+aiSession = createAISession(name:'mychatgpt');
+answer = inquiryAISession(aiSession, "Hello");
 
-// Lucee 7 (new multipart support)
-answer = inquiryAISession(session, [
+// Lucee 7 (new multipart request support)
+answer = inquiryAISession(aiSession, [
     "Analyze this image",
     fileReadBinary("./photo.jpg")
 ]);
+
+// Lucee 7 (new multipart response support - Gemini with beta API)
+response = inquiryAISession(aiSession, "Create a logo and describe it");
+if (isArray(response)) {
+    // Handle both text and generated images
+    loop array=response item="part" {
+        if (part.contenttype == "text/plain") {
+            echo(part.content);
+        }
+        else if (left(part.contenttype, 6) == "image/") {
+            fileWrite("./generated.png", part.content);
+        }
+    }
+}
 ```
 
 ## Examples
 
 ### Chatbot
 ```javascript
-session = createAISession(
+aiSession = createAISession(
     name: 'mychatgpt',
     systemMessage: "You are a helpful customer service assistant."
 );
@@ -397,18 +515,18 @@ form action="" method="post" {
 }
 
 if (structKeyExists(form, "question")) {
-    answer = inquiryAISession(session, form.question);
+    answer = inquiryAISession(aiSession, form.question);
     writeOutput("<div class='answer'>#answer#</div>");
 }
 ```
 
 ### Image Analysis
 ```javascript
-session = createAISession(name:'myclaude');
+aiSession = createAISession(name:'myclaude');
 
 // Upload form
 if (structKeyExists(form, "image")) {
-    answer = inquiryAISession(session, [
+    answer = inquiryAISession(aiSession, [
         "Describe what you see in this image in detail",
         form.image
     ]);
@@ -416,13 +534,67 @@ if (structKeyExists(form, "image")) {
 }
 ```
 
+### Image Generation with Description
+```javascript
+aiSession = createAISession(name: 'mygemini');
+
+// Request AI to generate an image
+response = inquiryAISession(aiSession, 
+    "Create a logo for a coffee shop called 'Binary Beans' that combines coffee and coding themes"
+);
+
+if (isArray(response)) {
+    loop array=response item="part" {
+        if (part.contenttype == "text/plain") {
+            writeOutput("<div class='description'>#part.content#</div>");
+        }
+        else if (left(part.contenttype, 6) == "image/") {
+            // Save generated image
+            imageFile = expandPath("./generated_logo.png");
+            fileWrite(imageFile, part.content);
+            writeOutput("<img src='generated_logo.png' alt='Generated Logo'>");
+        }
+    }
+}
+else {
+    writeOutput(response);
+}
+```
+
+### Process Input and Generate Visual Output
+```javascript
+aiSession = createAISession(name: 'mygemini');
+
+// Analyze user's image and create a new variation
+userImage = fileReadBinary(expandPath("./user_photo.jpg"));
+
+response = inquiryAISession(aiSession, [
+    "Analyze the style of this image and create a similar one with a mountain landscape theme",
+    userImage
+]);
+
+// Extract and save generated images
+if (isArray(response)) {
+    imageCount = 0;
+    loop array=response item="part" {
+        if (left(part.contenttype, 6) == "image/") {
+            imageCount++;
+            fileWrite("./result_#imageCount#.png", part.content);
+        }
+    }
+    
+    // Output text explanation
+    writeOutput(toString(response));  // Auto-extracts text parts
+}
+```
+
 ### Document Summarization
 ```javascript
-session = createAISession(name:'myclaude');
+aiSession = createAISession(name:'myclaude');
 
 // Process PDF report
 pdfPath = expandPath("./reports/Q4-2024.pdf");
-summary = inquiryAISession(session, [
+summary = inquiryAISession(aiSession, [
     "Provide a brief summary of the key findings and recommendations from this report",
     pdfPath  // Lucee automatically reads the file
 ]);
@@ -433,14 +605,14 @@ writeOutput("<p>#summary#</p>");
 
 ### Code Review Assistant
 ```javascript
-session = createAISession(
+aiSession = createAISession(
     name: 'mychatgpt',
     systemMessage: "You are an expert CFML developer. Review code for best practices, security, and performance."
 );
 
 code = fileRead(expandPath("./mycomponent.cfc"));
 
-review = inquiryAISession(session, 
+review = inquiryAISession(aiSession, 
     "Review this CFML code and suggest improvements:\n\n#code#"
 );
 
@@ -450,7 +622,7 @@ dump(review);
 ### Knowledge Base Assistant with RAG
 ```javascript
 // Create session
-session = createAISession(name:'myclaude');
+aiSession = createAISession(name:'myclaude');
 
 // User question
 userQuery = "How do I configure a datasource in Lucee?";
@@ -475,7 +647,7 @@ loop query=searchResults {
 augmentedQuery = "Question: #userQuery#\n\nRelevant Documentation:\n#serializeJSON(context)#";
 
 // Get AI response with documentation context
-answer = inquiryAISession(session, augmentedQuery);
+answer = inquiryAISession(aiSession, augmentedQuery);
 dump(answer);
 ```
 
@@ -492,6 +664,7 @@ AI integration in Lucee continues to be actively developed. We welcome your feed
 
 ### Planned Features
 
+- **Multipart Response Support**: Expanding support to Claude, ChatGPT, and Ollama
 - **Advanced Data Redaction**: Automatic filtering of sensitive data before sending to AI services
 - **Additional Providers**: Support for more AI providers and models
 - **Enhanced RAG Tools**: More built-in tools for retrieval-augmented generation
