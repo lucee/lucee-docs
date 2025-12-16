@@ -299,7 +299,7 @@ e.g. `s3://AKIAIOSFODNN7EXAMPLE:wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY@s3.eu-c
 
 ## GIT
 
-Access GitHub repositories as a filesystem - map webroot directly to a repo. Files cached locally, changes auto-detected.
+Access Git repositories as a filesystem - map webroot directly to a repo. Files cached locally, changes auto-detected. Read-only.
 
 ### Credentials
 
@@ -317,26 +317,26 @@ Or system properties: `-Dlucee.git.username`, `-Dlucee.git.password`
 ```lucee
 this.git.username = "whatever";
 this.git.password = "qwerty";
-this.git.repository = "lucee-examples";
+this.git.repository = "https://github.com/lucee/lucee-examples";
 this.git.branch = "master";
 ```
 
 Usage:
 
 ```lucee
-dir = directoryList("git:///path/inside/git");
+dir = directoryList("git:///path/inside/repo");
 ```
 
 Credentials can't be in the path (security), but branch and repository can:
 
 ```lucee
-dir = directoryList("git://master@/path/inside/git!lucee-examples");
+dir = directoryList("git://master@github.com/lucee/lucee-examples!/path/inside/repo");
 dump(dir);
 ```
 
 ### Pattern
 
-`git://[{branch}@]/{path-inside-git}[!{repository}]` e.g. `git://master@/path/inside/git!lucee-examples`
+`git://[{branch}@][{repository}]!/{path-inside-repo}` e.g. `git://master@github.com/lucee/lucee-examples!/path/inside/repo`
 
 ## Video
 
