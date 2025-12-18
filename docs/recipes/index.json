@@ -195,6 +195,23 @@
     ]
   },
   {
+    "file": "cache-invalidation-selective.md",
+    "title": "Selective Cache Invalidation",
+    "path": "/docs/recipes/cache-invalidation-selective.md",
+    "hash": "57a583d895b0e84cc41a02de01bbf602",
+    "keywords": [
+      "Cache",
+      "cachedWithin",
+      "cachedWithinId",
+      "cachedWithinFlush",
+      "Query cache",
+      "Function cache",
+      "HTTP cache",
+      "Cache invalidation",
+      "Performance"
+    ]
+  },
+  {
     "file": "cached-within-request.md",
     "title": "Cache a Query for the current request",
     "path": "/docs/recipes/cached-within-request.md",
