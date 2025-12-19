@@ -761,6 +761,20 @@ Defines the maximum number of elements that can be stored in the cfthread scope.
 
 Default character set used to read templates (`.cfm` and `.cfc` files).
 
+#### LUCEE_TEMPLATE_CLASSLOADER_INSPECTION_SIZE
+
+*SysProp:* `-Dlucee.template.classloader.inspection.size`
+*EnvVar:* `LUCEE_TEMPLATE_CLASSLOADER_INSPECTION_SIZE`
+
+Defines the threshold number of loaded classes that triggers an inspection to determine if the physical classloader should be flushed. When the total number of loaded classes (including all renamed versions) exceeds this value, Lucee checks the ratio of total classes to unique classes to determine if a flush is needed. The default value is 2000.
+
+#### LUCEE_TEMPLATE_CLASSLOADER_INSPECTION_RATIO
+
+*SysProp:* `-Dlucee.template.classloader.inspection.ratio`
+*EnvVar:* `LUCEE_TEMPLATE_CLASSLOADER_INSPECTION_RATIO`
+
+Defines the ratio threshold that indicates excessive memory usage from obsolete class versions. When templates are updated during development, Lucee loads new versions while old versions remain in memory, creating a "leak". This ratio (total loaded classes / unique loaded classes) measures this accumulation. A ratio of 3 means on average each unique class has 3 versions loaded. When both the inspection size and this ratio threshold are exceeded, the classloader is flushed to free memory occupied by obsolete class versions. The default value is 3.
+
 #### LUCEE_TYPE_CHECKING
 
 *SysProp:* `-Dlucee.type.checking`
