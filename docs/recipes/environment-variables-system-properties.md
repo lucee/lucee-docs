@@ -716,6 +716,21 @@ A boolean value. If disabled, returns a 200 status code to the client even if an
 
 A boolean value. If enabled, does not store empty sessions to the client or session storage.
 
+#### LUCEE_STORAGE_WARN_COMPLEX_VALUES
+
+*SysProp:* `-Dlucee.storage.warn.complex.values`
+*EnvVar:* `LUCEE_STORAGE_WARN_COMPLEX_VALUES`
+
+**Lucee 6 only** - Controls whether Lucee logs a warning when complex values (structs, arrays, queries, etc.) are stored in session or client scope. When complex values are present, Lucee 6 cannot properly detect changes and must update the storage on every request, which may impact performance.
+
+By default, this warning is enabled (`true`) to alert developers about potential performance implications. Set to `false` to suppress the warning once you understand and accept this behavior, particularly useful in production environments or when using frameworks that intentionally store complex values in these scopes (e.g., FW/1).
+
+The warning is logged to `application.log` with the message: "the session scope contains complex values, Lucee cannot proper detect changes in the values and because of that updates the storage with every request."
+
+**Default:** `true` (warnings enabled)
+
+**Note:** This setting only applies to Lucee 6. Lucee 7 natively supports complex values in session and client scopes with proper change detection, so this warning does not occur and this setting has no effect.
+
 #### LUCEE_SUPPRESS_WS_BEFORE_ARG
 
 *SysProp:* `-Dlucee.suppress.ws.before.arg`
