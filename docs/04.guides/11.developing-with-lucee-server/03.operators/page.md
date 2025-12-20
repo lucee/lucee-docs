@@ -4,6 +4,7 @@ id: operators
 related:
 - function-max
 - function-min
+- function-structkeyexists
 categories:
 - core
 - math
