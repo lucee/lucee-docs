@@ -13,11 +13,12 @@ component {
 	this.mappings[ "/builds"   ] = this.baseDir & "builds";
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
-	this.assetBundleVersion = 44;  // see parent application.cfc
+	this.assetBundleVersion = 45;  // see parent application.cfc
 
 
 	public void function onApplicationStart()  {
-		application.assetBundleVersion = 44;
+		application.assetBundleVersion = 45;
+		systemOutput("Starting Lucee Documentation Local Server - #server.lucee.version#", true);
 		//_addChangeWatcher();
 	}
 
@@ -343,6 +344,11 @@ component {
 	}
 
 	private string function _getRequestUri() {
+		// Check for nginx X-Original-URI header first (used in Docker)
+		var originalUri = getHTTPRequestData().headers[ "X-Original-URI" ] ?: "";
+		if ( len( originalUri ) )
+			return originalUri;
+		// Fall back to servlet forward attributes (Tuckey URL rewrite)
 		if ( structKeyExists( request, "jakarta.servlet.forward.request_uri" ) )
 			return request[ "jakarta.servlet.forward.request_uri" ] ?: "/";
 		else if ( structKeyExists( request, "javax.servlet.forward.request_uri" ) )
