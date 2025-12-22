@@ -25,4 +25,4 @@ if ( isNull( local.result ) ) { ... }
 if ( isNull( variables.config ) ) { ... }
 ```
 
-See [[function-structkeyexists]] for additional information regarding null handling in CFML
+See [[recipe-null-support]] for more information on null handling in CFML.

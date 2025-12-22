@@ -139,3 +139,32 @@ dump( serializeJSON( s ) ); // {"name":"John","middleName":null}
 ```
 
 Critical for APIs that expect explicit `null` values rather than missing keys.
+
+## Scoping and isNull()
+
+Always use scoped variable references with [[function-isnull]].
+
+When a variable with a `null` value shares a name with another variable in a scope accesssible via scope cascading, `isNull()` can return unexpected results:
+
+```lucee
+name = "default";
+
+function greet( name ) {
+    if ( isNull( name ) ) {
+        writeOutput( "Hello stranger" );
+    } else {
+        writeOutput( "Hello #name#" );
+    }
+}
+
+greet( javacast( "null", "" ) );
+// Outputs: "Hello default" - found the outer variable, not the null argument!
+```
+
+Use scoped references to reliably check for `null`:
+
+```lucee
+if ( isNull( arguments.name ) ) { ... }
+if ( isNull( local.result ) ) { ... }
+if ( isNull( variables.config ) ) { ... }
+```
