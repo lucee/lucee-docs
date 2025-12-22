@@ -1,7 +1,8 @@
 ---
-title: Annotations
+title: Annotating Code with Docblocks
 id: annotations
 menuTitle: Annotations
+description: How to use JavaDoc-style docblocks to add metadata to components, functions, and properties in Lucee.
 categories:
 - server
 related:
@@ -13,7 +14,7 @@ related:
 - function-getmetadata
 ---
 
-Annotations in Lucee allow you to add metadata to components, interfaces, functions, and properties using JavaDoc-style documentation blocks (docblocks). 
+Annotations in Lucee allow you to add useful metadata to components, interfaces, functions, and properties using JavaDoc-style documentation blocks (docblocks). 
 
 This metadata is available at runtime via [[function-getmetadata]] but does not affect code execution.
 
@@ -157,13 +158,26 @@ While you can use any tag name, these are commonly used:
 
 ## Parameter Hints
 
-Document function parameters using `@param.paramname` or just the parameter name:
+Document function parameters using just the parameter name, or the dotted `@param.paramname` syntax:
 
 ```luceescript
 /**
  * Greets a user
  * @name The user's name
  * @age The user's age in years
+ */
+function greet( string name, numeric age ) {
+    return "Hello #name#, you are #age# years old!";
+}
+```
+
+The dotted syntax is equivalent:
+
+```luceescript
+/**
+ * Greets a user
+ * @param.name The user's name
+ * @param.age The user's age in years
  */
 function greet( string name, numeric age ) {
     return "Hello #name#, you are #age# years old!";
