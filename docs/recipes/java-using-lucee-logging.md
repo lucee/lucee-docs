@@ -2,7 +2,6 @@
 {
   "title": "Java Classes Using Lucee's Logging",
   "id": "java-using-lucee-logging",
-  "since": "7.0",
   "categories": ["java", "logging"],
   "description": "How to make Java classes log through Lucee's logging system",
   "keywords": [
