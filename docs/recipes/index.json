@@ -910,6 +910,19 @@
     ]
   },
   {
+    "file": "java-using-lucee-logging.md",
+    "title": "Java Classes Using Lucee's Logging",
+    "path": "/docs/recipes/java-using-lucee-logging.md",
+    "hash": "3435ff12f9f78e79f17a1cfae2669569",
+    "keywords": [
+      "java",
+      "logging",
+      "slf4j",
+      "log4j",
+      "lucee.commons.io.log.Log"
+    ]
+  },
+  {
     "file": "language-server.md",
     "title": "Language Server Protocol (LSP) for Lucee",
     "path": "/docs/recipes/language-server.md",

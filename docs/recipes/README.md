@@ -260,6 +260,10 @@ Documentation for using Lucee as a scripting engine in Java applications via JSR
 
 Guide on configuring Java settings in Lucee using Application.cfc, including loading Java libraries from Maven
 
+## [Java Classes Using Lucee's Logging](/docs/recipes/java-using-lucee-logging.md)
+
+How to make Java classes log through Lucee's logging system
+
 ## [Language Server Protocol (LSP) for Lucee](/docs/recipes/language-server.md)
 
 This document explains how to configure and use the Language Server Protocol implementation for Lucee CFML/CFScript.
