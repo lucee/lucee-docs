@@ -147,7 +147,104 @@ socket.onerror = function (error) {
 
 socket.send("Hello, Lucee Extension!");
 
-socketclose();
+socket.close();
+```
+
+### CFML Client
+
+For server-to-server WebSocket communication or testing, use the **WebSocket Client Extension** which provides [[function-CreateWebSocketClient]].
+
+#### Installation
+
+Install from the Lucee Administrator or via Maven:
+
+```
+org.lucee:websocket-client-extension
+```
+
+#### Usage
+
+Create a listener component to handle WebSocket events:
+
+```lucee
+// ClientListener.cfc
+component {
+
+	variables.messages = [];
+
+	function onMessage( message ) {
+		arrayAppend( variables.messages, message );
+	}
+
+	function onBinaryMessage( binary ) {
+		// handle binary data
+	}
+
+	function onClose() {
+		systemOutput( "Connection closed", true );
+	}
+
+	function onError( type, cause, data ) {
+		systemOutput( "Error [#type#]: #cause.getMessage()#", true );
+	}
+
+	function onPing() {}
+
+	function onPong() {}
+
+	array function getMessages() {
+		return variables.messages;
+	}
+
+}
+```
+
+Connect to a WebSocket server:
+
+```lucee
+// Create listener and connect
+listener = new ClientListener();
+ws = CreateWebSocketClient( "ws://localhost/ws/test", listener );
+
+// Send messages
+ws.sendText( "Hello from CFML!" );
+ws.sendBinary( toBinary( toBase64( "binary data" ) ) );
+
+// Check connection status
+if ( ws.isOpen() ) {
+	ws.sendText( "Still connected" );
+}
+
+// Close when done
+ws.disconnect();
+```
+
+#### Listener Callbacks
+
+All callbacks are optional - implement only what you need:
+
+| Callback | Arguments | Description |
+|----------|-----------|-------------|
+| `onMessage` | `message` | Text message received |
+| `onBinaryMessage` | `binary` | Binary data received |
+| `onClose` | (none) | Connection closed |
+| `onError` | `type, cause, [data]` | Error occurred |
+| `onPing` | (none) | Ping frame received |
+| `onPong` | (none) | Pong frame received |
+
+Error types: `callback`, `connect`, `general`, `frame`, `message`, `unexpected`
+
+#### WebSocket Object Methods
+
+The `CreateWebSocketClient()` function returns a Java WebSocket object with these commonly used methods:
+
+```java
+sendText( string message )    // send text message
+sendBinary( byte[] data )     // send binary data
+sendPing()                    // send ping frame
+sendPong()                    // send pong frame
+isOpen()                      // check if connected
+disconnect()                  // close connection
 ```
 
 ### Broadcast Message to all Clients
@@ -286,5 +383,3 @@ for ( var wsI in wsInstances ) {
 ```
 
 [[event-gateways]] is a good candidate for this script.
-
-_TODO: link to recipe page_
