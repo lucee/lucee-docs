@@ -239,12 +239,12 @@ Error types: `callback`, `connect`, `general`, `frame`, `message`, `unexpected`
 The `CreateWebSocketClient()` function returns a Java WebSocket object with these commonly used methods:
 
 ```java
-sendText( string message )    // send text message
-sendBinary( byte[] data )     // send binary data
-sendPing()                    // send ping frame
-sendPong()                    // send pong frame
-isOpen()                      // check if connected
-disconnect()                  // close connection
+sendText( string message )  // send text message
+sendBinary( byte[] data )   // send binary data
+sendPing()                  // send ping frame
+sendPong()                  // send pong frame
+isOpen()                    // check if connected
+disconnect()                // close connection
 ```
 
 ### Broadcast Message to all Clients
