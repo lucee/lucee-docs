@@ -184,6 +184,10 @@ Log details about code execution at the statement level
 
 A comprehensive guide on how to install extensions in Lucee.
 
+## [Lucee Extension Utilities](/docs/recipes/extension-utilities.md)
+
+Comprehensive guide to accessing Lucee core utilities when developing extensions
+
 ## [Externalize Strings](/docs/recipes/externalizing-strings.md)
 
 Externalize strings from generated class files to separate files. This method is used to reduce the memory of the static contents for templates.

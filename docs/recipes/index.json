@@ -651,6 +651,20 @@
     ]
   },
   {
+    "file": "extension-utilities.md",
+    "title": "Lucee Extension Utilities",
+    "path": "/docs/recipes/extension-utilities.md",
+    "hash": "1e181b11d55ee18f6761231ea2873557",
+    "keywords": [
+      "Extension",
+      "Development",
+      "Utilities",
+      "CFMLEngine",
+      "Java",
+      "API"
+    ]
+  },
+  {
     "file": "externalizing-strings.md",
     "title": "Externalize Strings",
     "path": "/docs/recipes/externalizing-strings.md",
