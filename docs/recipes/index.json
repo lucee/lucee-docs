@@ -1530,6 +1530,23 @@
     ]
   },
   {
+    "file": "servlet-configuration.md",
+    "title": "Servlet Configuration",
+    "path": "/docs/recipes/servlet-configuration.md",
+    "hash": "87b44be879772f8767aa017be2779e66",
+    "keywords": [
+      "java",
+      "javax",
+      "jakarta",
+      "servlet",
+      "tomcat",
+      "jetty",
+      "undertow",
+      "war",
+      "docker"
+    ]
+  },
+  {
     "file": "session-handling.md",
     "title": "Session Handling",
     "path": "/docs/recipes/session-handling.md",

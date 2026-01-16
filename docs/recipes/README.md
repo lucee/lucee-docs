@@ -440,6 +440,10 @@ Learn about script templates in Lucee. This guide explains how Lucee supports te
 
 Managing Secrets in Lucee applications
 
+## [Servlet Configuration](/docs/recipes/servlet-configuration.md)
+
+How to deploy and configure Lucee on servlet containers
+
 ## [Session Handling](/docs/recipes/session-handling.md)
 
 Comprehensive guide on session handling and configuration in Lucee, including session types, storage options, and security considerations.
