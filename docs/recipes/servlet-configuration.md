@@ -63,9 +63,8 @@ Other servlet containers include:
 
 Lucee provides servlet classes that process CFML requests:
 
-- **CFMLServlet** - Handles `.cfm`, `.cfc`, and `.cfml` files
+- **CFMLServlet** - Handles `.cfm`, `.cfs`, `.cfc`, and `.cfml` files
 - **RESTServlet** - Handles REST API requests at `/rest/*`
-- **FileServlet** - Serves static files (optional)
 
 ## Version Compatibility Matrix
 
@@ -144,6 +143,7 @@ Use this configuration for Lucee 5.x/6.x on Tomcat 9, Jetty 9/10, or other Java 
   <servlet-mapping>
     <servlet-name>CFMLServlet</servlet-name>
     <url-pattern>*.cfm</url-pattern>
+    <url-pattern>*.cfs</url-pattern>
     <url-pattern>*.cfc</url-pattern>
     <url-pattern>*.cfml</url-pattern>
     <url-pattern>/index.cfm/*</url-pattern>
