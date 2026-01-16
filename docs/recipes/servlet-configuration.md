@@ -81,6 +81,12 @@ This affects which Lucee servlet classes you need to use.
 
 **Note:** Lucee 6.2 can run on Jakarta EE containers (Tomcat 10+, Jetty 11+) using the jakarta servlet class, but you must include the javax servlet JARs in your deployment since Lucee 6.x internally still uses the javax API.
 
+The required javax JARs (included automatically by the Lucee Installer/Express/Docker for Tomcat 10+):
+
+- [javax.servlet-api-4.0.1.jar](https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar)
+- [javax.servlet.jsp-api-2.3.3.jar](https://repo1.maven.org/maven2/javax/servlet/jsp/javax.servlet.jsp-api/2.3.3/javax.servlet.jsp-api-2.3.3.jar)
+- [javax.el-api-3.0.0.jar](https://repo1.maven.org/maven2/javax/el/javax.el-api/3.0.0/javax.el-api-3.0.0.jar)
+
 ## WAR Deployment
 
 A WAR (Web Application Archive) file is the standard way to deploy Java web applications. Lucee provides pre-built WAR files at [download.lucee.org](https://download.lucee.org), or you can build your own.
