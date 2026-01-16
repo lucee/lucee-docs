@@ -468,6 +468,10 @@ How to mock static functions in Lucee for better testability without unnecessary
 
 Understanding the static scope in Lucee components and how it can be used for shared data and functions.
 
+## [Preserving Key Case in CFML Structs / Variables](/docs/recipes/structs-preserve-key-case.md)
+
+How to configure preserve case for struct keys
+
 ## [Best Practices: Structs vs Inline Components](/docs/recipes/structs-vs-components.md)
 
 Performance analysis and best practices for choosing between structs and inline components in Lucee

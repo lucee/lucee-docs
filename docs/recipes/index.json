@@ -1633,6 +1633,17 @@
     ]
   },
   {
+    "file": "structs-preserve-key-case.md",
+    "title": "Preserving Key Case in CFML Structs / Variables",
+    "path": "/docs/recipes/structs-preserve-key-case.md",
+    "hash": "7ddd18881f462a41114f9f4de8eeb587",
+    "keywords": [
+      "struct",
+      "dotNotationUpperCase",
+      "preserve case"
+    ]
+  },
+  {
     "file": "structs-vs-components.md",
     "title": "Best Practices: Structs vs Inline Components",
     "path": "/docs/recipes/structs-vs-components.md",
