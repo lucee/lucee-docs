@@ -184,6 +184,10 @@ Log details about code execution at the statement level
 
 A comprehensive guide on how to install extensions in Lucee.
 
+## [Lucee Extension Utilities](/docs/recipes/extension-utilities.md)
+
+Comprehensive guide to accessing Lucee core utilities when developing extensions
+
 ## [Externalize Strings](/docs/recipes/externalizing-strings.md)
 
 Externalize strings from generated class files to separate files. This method is used to reduce the memory of the static contents for templates.
@@ -436,6 +440,10 @@ Learn about script templates in Lucee. This guide explains how Lucee supports te
 
 Managing Secrets in Lucee applications
 
+## [Servlet Configuration](/docs/recipes/servlet-configuration.md)
+
+How to deploy and configure Lucee on servlet containers
+
 ## [Session Handling](/docs/recipes/session-handling.md)
 
 Comprehensive guide on session handling and configuration in Lucee, including session types, storage options, and security considerations.
@@ -463,6 +471,10 @@ How to mock static functions in Lucee for better testability without unnecessary
 ## [Static Scope in Components](/docs/recipes/static-scope-in-components.md)
 
 Understanding the static scope in Lucee components and how it can be used for shared data and functions.
+
+## [Preserving Key Case in CFML Structs / Variables](/docs/recipes/structs-preserve-key-case.md)
+
+How to configure preserve case for struct keys
 
 ## [Best Practices: Structs vs Inline Components](/docs/recipes/structs-vs-components.md)
 

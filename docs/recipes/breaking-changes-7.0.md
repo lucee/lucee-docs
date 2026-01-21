@@ -88,6 +88,18 @@ java.lang.NoClassDefFoundError: jakarta/servlet/http/HttpServletRequest
 
 Note: Adding Jakarta APIs is only a temporary solution. Upgrading to a Jakarta-based container is the proper long-term approach.
 
+
+#### Scenario 3: Servlet Request Attributes
+
+Servlet request attributes have been renamed from `javax.*` to `jakarta.*`. Code that reads these attributes will need updating:
+
+```lucee
+// Support both old and new attribute names for backwards compatibility
+requestUrl = request[ "jakarta.servlet.forward.request_uri" ] ?: request[ "javax.servlet.forward.request_uri" ] ?: "";
+```
+
+Old code which relies on this may fail silently / misbehave, so search your code base for `javax` references.
+
 ## Loader Change
 
 Lucee 7.0 we have changed the Loader API, so that in place upgrades via the admin aren't supported OOTB.
