@@ -1520,7 +1520,7 @@
     "file": "secret-provider.md",
     "title": "Secret Management",
     "path": "/docs/recipes/secret-provider.md",
-    "hash": "67cabc1ef92adb92bb0402c7b650b046",
+    "hash": "ae91e2a02664537d0dc2164bfb53dcd5",
     "keywords": [
       "security",
       "secrets",
