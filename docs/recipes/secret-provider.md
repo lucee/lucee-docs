@@ -33,7 +33,7 @@ In Lucee 7, secret providers can be configured similarly to datasources, caches,
 Read the secret directly from the environment variables:
 
 ```json
-"secretProviders": {
+"secretProvider": {
   "env": {
     "class": "lucee.runtime.secrets.EnvVarSecretProvider",
     "custom": {
@@ -48,7 +48,7 @@ Read the secret directly from the environment variables:
 Read the secrets from a file, format can be json or env:
 
 ```json
-"secretProviders": {
+"secretProvider": {
    "json": {
       "class": "lucee.runtime.security.FileSecretProvider",
       "custom": {
@@ -65,7 +65,7 @@ Read the secrets from a file, format can be json or env:
 The `AndSecretProvider` allows you to combine multiple providers, checking each one in the order specified until a secret is found:
 
 ```json
-"secretProviders": {
+"secretProvider": {
   "many": {
     "class": "lucee.runtime.security.AndSecretProvider",
     "custom": {
@@ -82,7 +82,7 @@ Similar to other Lucee features, you can specify external classes for your secre
 #### OSGi Bundles
 
 ```json
-"secretProviders": {
+"secretProvider": {
   "custom": {
     "class": "com.mycompany.secrets.CustomSecretProvider",
     "bundleName": "com.mycompany.secrets",
@@ -100,7 +100,7 @@ Similar to other Lucee features, you can specify external classes for your secre
 Since Lucee 6.2, you can load classes directly from Maven repositories:
 
 ```json
-"secretProviders": {
+"secretProvider": {
   "vault": {
     "class": "com.company.secrets.VaultSecretProvider",
     "maven": "com.company:vault-provider:1.0.0,com.company:common-utils:1.5.0",
@@ -119,7 +119,7 @@ This allows you to specify one or more comma-separated Maven dependencies in gra
 You can implement your own secret provider as a CFML component:
 
 ```json
-"secretProviders": {
+"secretProvider": {
   "myCustom": {
     "component": "path.to.MySecretProviderComponent",
     "custom": {
@@ -239,7 +239,7 @@ The `AndSecretProvider` allows you to chain multiple providers together, checkin
 ```cfml
 // Configure a combined provider
 // First checks environment variables, then AWS Secrets Manager
-"secretProviders": {
+"secretProvider": {
   "combined": {
     "class": "lucee.runtime.security.AndSecretProvider",
     "custom": {
@@ -306,7 +306,7 @@ component implementsJava="lucee.runtime.secrets.SecretProvider" {
 To use this custom provider, configure it in your `.CFConfig.json`:
 
 ```json
-"secretProviders": {
+"secretProvider": {
   "database": {
     "component": "path.to.MySecretProvider",
     "custom": {
