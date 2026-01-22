@@ -60,19 +60,17 @@ The `/patches` folder is where Lucee's core `.lco` jars are kept.  When Lucee st
 
 ## Setting the Admin password
 
-Drop a `password.txt` into the `lucee-server/context` directory (only works when no password set, i.e. no `hspw` set in `.CFConfig.json`
+Drop a `password.txt` into the `lucee-server/context` directory containing your plaintext password. This only works when no password is already set (i.e., no `hspw` in `.CFConfig.json`). Lucee will hash the password and delete the file on startup.
 
-Using `.CFConfig.json` you can set an unencrypted password using:
+Alternatively, use the `LUCEE_ADMIN_PASSWORD` environment variable for automated deployments.
 
-```
-{
-    "pw": "topSecret"
-}
-```
+The hashed password is stored in `.CFConfig.json` as `hspw` with a `salt` value.
 
-The encrypted password is stored under `hspw`.
+**Note:** The `pw` key in `.CFConfig.json` expects an already-hashed value, not plaintext. For plaintext passwords, use `password.txt` or the environment variable.
 
-For further information, as Lucee is open source, refer to the implementation [PasswordImpl.java](https://github.com/lucee/Lucee/blob/6.2/core/src/main/java/lucee/runtime/config/PasswordImpl.java)
+See [[admin-password]] for more details.
+
+For implementation details, refer to [PasswordImpl.java](https://github.com/lucee/Lucee/blob/6.2/core/src/main/java/lucee/runtime/config/PasswordImpl.java)
 
 ## Starting and Stopping Lucee / Tomcat
 
