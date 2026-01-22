@@ -1,5 +1,9 @@
 # Recipes
 
+## [Setting the Lucee Admin Password](/docs/recipes/admin-password.md)
+
+How to set, hash, and reset the Lucee Administrator password
+
 ## [AI Augmentation with Lucene](/docs/recipes/ai-augmentation.md)
 
 Documentation for augmenting AI queries using Lucene search in Lucee

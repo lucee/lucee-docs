@@ -1,5 +1,18 @@
 [
   {
+    "file": "admin-password.md",
+    "title": "Setting the Lucee Admin Password",
+    "path": "/docs/recipes/admin-password.md",
+    "hash": "dd0fa2bb0aa57f814e1030dfdedfa4f7",
+    "keywords": [
+      "admin",
+      "password",
+      "security",
+      "LUCEE_ADMIN_PASSWORD",
+      "CFConfig"
+    ]
+  },
+  {
     "file": "ai-augmentation.md",
     "title": "AI Augmentation with Lucene",
     "path": "/docs/recipes/ai-augmentation.md",
