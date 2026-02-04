@@ -19,15 +19,17 @@
 
 # WebSocket Extension
 
-This extension adds a WebSocket Server to your Lucee Server that runs over `TCP` on port 80 for `WS:` and 443 for `WSS:`
+This extension adds WebSocket support to your Lucee Server. 
+
+WebSockets use the same port as your HTTP server (Tomcat) - connect via `ws://` for HTTP or `wss://` for HTTPS. For example, if Tomcat runs on port 8888, your WebSocket URL would be `ws://localhost:8888/ws/yourlistener`.
 
 WebSocket Listeners are created with a CFML Component - one per channel.
 
-Please note, on Windows, there more are limitation regarding how many websockets can be used, than with Linux.
+Please note, on Windows, there are more limitations regarding how many websockets can be used than with Linux.
 
 ## Installation
 
-There are multiple ways to install the docker extension.
+There are multiple ways to install the websocket extension.
 
 ### Lucee Administrator
 
@@ -58,7 +60,7 @@ environment:
   - LUCEE_EXTENSIONS=3F9DFF32-B555-449D-B0EB5DB723044045;version=3.0.0.14-RC
 ```
 
-Or simply define it in the .CFConfig.json file (Lucee 6+):
+Or simply define it in the `.CFConfig.json` file (Lucee 6+):
 
 ```json
 {
@@ -78,7 +80,7 @@ See [this](https://github.com/lucee/lucee-docs/tree/master/examples/docker/with-
 
 By default, Lucee Server will look in `{lucee-config}/websockets/` for WebSocket Components.
 
-Lucee Server will create a config file if one does not exist at `{lucee-config}websocket.json` with the following defaults:
+Lucee Server will create a config file if one does not exist at `{lucee-config}/websocket.json` with the following defaults:
 
 _{lucee-config}: /lucee/lucee-server/context_
 
@@ -93,7 +95,6 @@ _{lucee-config}: /lucee/lucee-server/context_
 The WebSocket extension comes with a helper function `websocketInfo()` that will show the current configurations settings. More on other details later ...
 
 ![websocketInfo()](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/websocketInfo.png)
-<em>TODO: update with new version</em>
 
 ## Logging
 
@@ -104,22 +105,22 @@ Once this log has been defined in the admin, you can [force all the logs to the 
 ## Component
 
 > [!IMPORTANT]
-> a Lucee restart is required when a new WebSocket CFC is added (just like for a ReST CFC)
+> A Lucee restart is required when a new WebSocket CFC is added (just like for a ReST CFC)
 
 ```lucee
 component hint="used to test websocket client" {
 
-    public static function onFirstOpen(wsclients) {}
+    public static function onFirstOpen( wsclients ) {}
 
-        function onOpen(wsclient) {}
+    function onOpen( wsclient ) {}
 
-        function onOpenAsync(wsclient) {}
+    function onOpenAsync( wsclient ) {}
 
-        function onMessage(wsclient, message) {}
+    function onMessage( wsclient, message ) {}
 
-        function onClose(wsclient, ReasonPhrase) {}
+    function onClose( wsclient, reasonPhrase ) {}
 
-        function onError(wsclient,cfcatch) {}
+    function onError( wsclient, cfcatch ) {}
 
     public static function onLastClose() {}
 
@@ -131,23 +132,26 @@ component hint="used to test websocket client" {
 Given that the Component was saved as `{lucee-config}/websockets/test.cfc`, here is native JavaScript to open and use a connection to your Lucee WebSocket:
 
 ```javascript
-socket = new WebSocket("ws://127.0.0.1:80/ws/test");
+const socket = new WebSocket("ws://127.0.0.1/ws/test");
 
 socket.onopen = function (evt) {
-  console.log(["onopen()", evt]);
+  console.log("Connected");
+  socket.send("Hello, Lucee Extension!");
 };
 
-socket.onmessage = (event) => {
-  console.log(event.data);
+socket.onmessage = function (event) {
+  console.log("Received:", event.data);
+};
+
+socket.onclose = function (evt) {
+  console.log("Connection closed");
 };
 
 socket.onerror = function (error) {
-  console.error(error);
+  console.error("WebSocket error:", error);
 };
 
-socket.send("Hello, Lucee Extension!");
-
-socket.close();
+// To close later: socket.close();
 ```
 
 ### CFML Client
@@ -249,7 +253,7 @@ disconnect()                // close connection
 
 ### Broadcast Message to all Clients
 
-A broadcast is a message send to all connected clients
+A broadcast is a message sent to all connected clients
 
 To be able to do this, we need to know who is connected. The first time a connection is made, `onFirstOpen(wsclients)` is fired. `wsclients` is a Java class with the following methods:
 
@@ -281,11 +285,11 @@ function onOpen(wsclient) {
 When a connection is instantiated, `onOpen(wsclient)` is fired. `wsclient` is a Java class with the following methods:
 
 ```java
-client.broadcast(message):void // send message to all connected clients
-client.send(message):void      // send message to the client
-client.isOpen():boolean        // is the client still connected?
-client.isClose():boolean       // is the client no longer connected?
-client.close():void            // closes the connection of the client
+wsclient.broadcast(message):void // send message to all connected clients
+wsclient.send(message):void      // send message to the client
+wsclient.isOpen():boolean        // is the client still connected?
+wsclient.isClose():boolean       // is the client no longer connected?
+wsclient.close():void            // closes the connection of the client
 ```
 
 To send a message using wsclient
@@ -336,7 +340,7 @@ public static function onFirstOpen(wsclients) {
     thread name="threadDataQueue" oClients=static.wsclients {
 		while( attributes.oClients.size() > 0 ) {
 			data = getDataFromSomewhere();
-			attributes.oClients.broadcastMessage(data);
+			attributes.oClients.broadcast(data);
 			sleep(1000);
 		}
     }
@@ -382,8 +386,8 @@ var wsInstances = wsInfo.instances;
 var item = getRedisData();
 var stItem = deserializeJSON( item );
 for ( var wsI in wsInstances ) {
-    if ( GetMetadata( wsI ).name == 'test' && wsI.hasRole( stItem.data.role ) ) {
-        wsI.sendMessage( item );
+    if ( GetMetadata( wsI.component ).name == 'test' && wsI.component.hasRole( stItem.data.role ) ) {
+        wsI.component.sendMessage( item );
     }
 }
 ```
