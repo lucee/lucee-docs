@@ -418,6 +418,36 @@ Specifies a comma-separated list of Maven repository URLs to use before the defa
 - Can be used to specify local repositories accessible to the server
 - Particularly valuable for servers behind firewalls with limited external access
 
+#### LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP
+
+*SysProp:* `-Dlucee.maven.download.policy.startup`
+*EnvVar:* `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP`
+
+Controls whether Lucee is allowed to download Maven artifacts during startup. Valid values:
+
+- `ignore` - (Default) Lucee can download Maven artifacts silently during startup.
+- `warn` - Lucee can download Maven artifacts but logs a warning for each download.
+- `error` - Lucee will not download any Maven artifacts during startup and throws an exception instead.
+
+Using `error` during startup may prevent Lucee from starting if required artifacts are missing locally. If you need to block runtime downloads but still allow startup to succeed, use `error` for the runtime policy and `warn` or `ignore` here.
+
+If not set, falls back to `LUCEE_MAVEN_DOWNLOAD_POLICY` if defined, otherwise defaults to `ignore`.
+
+#### LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME
+
+*SysProp:* `-Dlucee.maven.download.policy.runtime`
+*EnvVar:* `LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME`
+
+Controls whether Lucee is allowed to download Maven artifacts at runtime (after startup is complete). Valid values:
+
+- `ignore` - (Default) Lucee can download Maven artifacts silently at runtime.
+- `warn` - Lucee can download Maven artifacts but logs a warning for each download.
+- `error` - Lucee will not download any Maven artifacts at runtime and throws an exception instead.
+
+Use `error` in production environments to prevent unexpected network calls during request processing. Missing artifacts will result in an exception that includes the artifact coordinates and instructions for manual resolution.
+
+If not set, falls back to `LUCEE_MAVEN_DOWNLOAD_POLICY` if defined, otherwise defaults to `ignore`.
+
 #### FELIX_LOG_LEVEL
 
 *SysProp:* `-Dfelix.log.level`
