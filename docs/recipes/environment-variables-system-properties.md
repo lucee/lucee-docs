@@ -448,6 +448,17 @@ Use `error` in production environments to prevent unexpected network calls durin
 
 If not set, falls back to `LUCEE_MAVEN_DOWNLOAD_POLICY` if defined, otherwise defaults to `ignore`.
 
+#### LUCEE_MAVEN_DOWNLOAD_POLICY_LOG_LEVEL
+
+*SysProp:* `-Dlucee.maven.download.policy.log.level`
+*EnvVar:* `LUCEE_MAVEN_DOWNLOAD_POLICY_LOG_LEVEL`
+
+Specifies the log level used when the Maven download policy is set to `warn`. Valid values are: `trace`, `debug`, `info`, `warn`, `error`. Default is `warn`.
+
+This allows you to control the visibility of Maven download notifications in your logs. For example, set to `info` for less prominent logging during development, or `error` to ensure download notifications are highly visible without fully blocking them.
+
+This setting has no effect when the download policy is set to `ignore` or `error`.
+
 #### FELIX_LOG_LEVEL
 
 *SysProp:* `-Dfelix.log.level`
