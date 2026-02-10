@@ -9,4 +9,18 @@ categories:
 
 Returns information about the server metrics.
 
-When there are active data source connections pool, provides stats per data source
+- activeRequests
+- activeDatasourceConnections
+- applicationContextCount
+- cpuProcess
+- cpuSystem
+- queueRequests
+- activeThreads
+- sessionCount
+- clientCount
+- waitingForConn
+- idleDatasourceConnections
+- tasksClosed
+- tasksOpen
+
+When there are active datasource connection pools, this returns detailed stats about connection pool per datasource.
