@@ -132,11 +132,13 @@ cachedWithinFlush(httpResult);
 Returns the cache identifier (cache key) for a cached object. This ID can be used with `cacheRemove()` for manual cache management.
 
 **Syntax:**
+
 ```lucee
 cacheId = cachedWithinId(cacheObject [, arguments])
 ```
 
 **Arguments:**
+
 - `cacheObject` (required) - The cached query, function, or HTTP result
 - `arguments` (optional) - For functions: array or struct of arguments that identify the specific cache entry
 
@@ -173,11 +175,13 @@ cacheId = cachedWithinId(res);
 Flushes a specific cached entry from the cache. This is the primary function for selective cache invalidation.
 
 **Syntax:**
+
 ```lucee
 success = cachedWithinFlush(cacheObject [, arguments])
 ```
 
 **Arguments:**
+
 - `cacheObject` (required) - The cached query, function, or HTTP result to flush
 - `arguments` (optional) - For functions: array or struct of arguments that identify the specific cache entry
 
@@ -277,7 +281,6 @@ cachedWithinFlush(searchProducts, {
 
 // Both target the same cache entry
 ```
-
 
 ## Limitations and Considerations
 

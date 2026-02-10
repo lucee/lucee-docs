@@ -38,6 +38,7 @@ Lucee 7 includes full support for AI integration, allowing you to interact with 
 AI connections in Lucee can be configured similarly to datasources or caches, either in the Lucee Administrator or directly in `.CFConfig.json`.
 
 ### OpenAI (ChatGPT)
+
 ```json
 "ai": {
   "mychatgpt": {
@@ -55,6 +56,7 @@ AI connections in Lucee can be configured similarly to datasources or caches, ei
 ```
 
 ### Google Gemini
+
 ```json
 "ai": {
   "mygemini": {
@@ -70,6 +72,7 @@ AI connections in Lucee can be configured similarly to datasources or caches, ei
 ```
 
 ### Claude (Anthropic)
+
 ```json
 "ai": {
   "myclaude": {
@@ -85,6 +88,7 @@ AI connections in Lucee can be configured similarly to datasources or caches, ei
 ```
 
 ### Ollama (Local)
+
 ```json
 "ai": {
   "mygemma": {
@@ -102,6 +106,7 @@ AI connections in Lucee can be configured similarly to datasources or caches, ei
 ### Custom OpenAI-Compatible Endpoints
 
 The `OpenAIEngine` can connect to any service using the OpenAI REST interface:
+
 ```json
 "ai": {
   "custom": {
@@ -128,6 +133,7 @@ The `default` setting determines how the AI connection is used automatically:
 ## Basic Usage
 
 ### Simple Text Interaction
+
 ```javascript
 // Create a session with a specific AI endpoint
 aiSession = createAISession(name:'mychatgpt', systemMessage:"Answer as a helpful assistant.");
@@ -148,6 +154,7 @@ inquiryAISession(aiSession, "Count from 1 to 100", function(msg) {
 ### Multipart Content (Images, PDFs, Documents)
 
 New in Lucee 7, you can send images, PDFs, and other documents along with your text prompts:
+
 ```javascript
 // Create session
 aiSession = createAISession(name:'myclaude');
@@ -185,14 +192,17 @@ answer = inquiryAISession(aiSession, [
 #### Supported File Types by Provider (end 2025)
 
 **Claude (Anthropic)**:
+
 - Images: JPEG, PNG, GIF, WebP
 - Documents: PDF
 
 **ChatGPT (OpenAI)**:
+
 - Images: JPEG, PNG, GIF, WebP
 - Documents: Support varies by model
 
 **Gemini (Google)**:
+
 - Images: JPEG, PNG, WebP
 - Documents: PDF
 
@@ -203,6 +213,7 @@ answer = inquiryAISession(aiSession, [
 ### Session Management
 
 Sessions maintain conversation history, allowing for contextual follow-up questions:
+
 ```javascript
 myAISession = createAISession(
     name: 'mychatgpt',
@@ -243,6 +254,7 @@ To use image generation with Gemini, you must enable the beta API and use a comp
 ```
 
 **Important Notes:**
+
 - Set `"beta": "true"` to use the beta API endpoint (v1beta)
 - Use a model that supports image generation (e.g., `gemini-2.5-flash-image`, `gemini-2.5-flash-image-preview`)
 - Alternatively, you can specify the beta URL directly: `"url": "https://generativelanguage.googleapis.com/v1beta/"`
@@ -362,6 +374,7 @@ Add `generationConfig` to your Gemini endpoint configuration to specify the desi
 ```
 
 **Configuration Options:**
+
 - **`responseMimeType`**: Set to `"application/json"` to enforce JSON responses
 - **`responseSchema`**: Define the expected JSON structure using a schema
 - **`generationConfig`**: All other Gemini generation config options are supported and passed directly to the API
@@ -381,6 +394,7 @@ dump(response);
 ```
 
 **Response:**
+
 ```json
 [
   {"recipeName":"Oatmeal with berries","calories":300},
@@ -394,6 +408,7 @@ dump(response);
 ### Session Serialization
 
 Save and restore conversation state across requests. See [AI Session Serialization](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai-serialisation.md) for details.
+
 ```javascript
 // Serialize session
 serializedData = serializeAISession(myAISession);
@@ -409,6 +424,7 @@ inquiryAISession(restoredAISession, "Can you remind me what we were discussing?"
 ### Streaming Responses
 
 Stream responses in real-time for better user experience:
+
 ```javascript
 aiSession = createAISession(name:'mygemini');
 
@@ -421,6 +437,7 @@ inquiryAISession(aiSession, "Write a short story about AI", function(chunk) {
 ### Temperature Control
 
 Control randomness/creativity of responses (0.0 = deterministic, 1.0 = creative):
+
 ```javascript
 // More deterministic responses (good for factual questions)
 conservativeAISession = createAISession(
@@ -438,6 +455,7 @@ creativeAISession = createAISession(
 ### Retrieval-Augmented Generation (RAG)
 
 Enhance AI responses with your own data using Lucene search integration. See [AI Augmentation with Lucene](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai-augmentation.md) for complete details.
+
 ```javascript
 // Search your indexed content
 search 
@@ -483,6 +501,7 @@ For complete function documentation, refer to the AI functions documentation in 
 ### Exception Handling
 
 AI is integrated into Lucee's exception template. When an exception occurs and you have defined an AI connection with `"default": "exception"`, the AI engine will automatically analyze the exception and provide insights and suggestions for resolving the issue.
+
 ```json
 "ai": {
   "mychatgpt": {
@@ -541,6 +560,7 @@ If you're upgrading from Lucee 6.2 with the experimental AI features:
    - RAG with Lucene integration
 
 Example migration:
+
 ```javascript
 // Lucee 6.2 (still works in Lucee 7)
 aiSession = LuceeCreateAISession(name:'mychatgpt');
@@ -574,6 +594,7 @@ if (isArray(response)) {
 ## Examples
 
 ### Chatbot
+
 ```javascript
 aiSession = createAISession(
     name: 'mychatgpt',
@@ -592,6 +613,7 @@ if (structKeyExists(form, "question")) {
 ```
 
 ### Image Analysis
+
 ```javascript
 aiSession = createAISession(name:'myclaude');
 
@@ -606,6 +628,7 @@ if (structKeyExists(form, "image")) {
 ```
 
 ### Image Generation with Description
+
 ```javascript
 aiSession = createAISession(name: 'mygemini');
 
@@ -633,6 +656,7 @@ else {
 ```
 
 ### Process Input and Generate Visual Output
+
 ```javascript
 aiSession = createAISession(name: 'mygemini');
 
@@ -660,6 +684,7 @@ if (isArray(response)) {
 ```
 
 ### Document Summarization
+
 ```javascript
 aiSession = createAISession(name:'myclaude');
 
@@ -675,6 +700,7 @@ writeOutput("<p>#summary#</p>");
 ```
 
 ### Code Review Assistant
+
 ```javascript
 aiSession = createAISession(
     name: 'mychatgpt',
@@ -691,6 +717,7 @@ dump(review);
 ```
 
 ### Knowledge Base Assistant with RAG
+
 ```javascript
 // Create session
 aiSession = createAISession(name:'myclaude');
@@ -723,6 +750,7 @@ dump(answer);
 ```
 
 ### Structured Data Extraction
+
 ```javascript
 // Configure Gemini with JSON schema for product data
 aiSessionJson = createAISession(

@@ -1,4 +1,7 @@
-The target output context. Valid values:
+The target output context. 
+
+Valid values:
+
 - css: for style sheets
 - dn: for LDAP Distinguished Names
 - html: for HTML body content

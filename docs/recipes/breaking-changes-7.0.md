@@ -88,7 +88,6 @@ java.lang.NoClassDefFoundError: jakarta/servlet/http/HttpServletRequest
 
 Note: Adding Jakarta APIs is only a temporary solution. Upgrading to a Jakarta-based container is the proper long-term approach.
 
-
 #### Scenario 3: Servlet Request Attributes
 
 Servlet request attributes have been renamed from `javax.*` to `jakarta.*`. Code that reads these attributes will need updating:

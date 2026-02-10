@@ -43,11 +43,13 @@ The `PageContext` object (`pc`) is essential for many operations as it provides 
 **Purpose:** Access AI-related functionality and Large Language Model integrations
 
 **Getting the utility:**
+
 ```java
 AI ai = engine.getAIUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Get available AI model names
 String[] models = ai.getModelNames(null);
@@ -57,6 +59,7 @@ Struct metadata = ai.getAIMetadata(pc, "mychatgpt", false);
 ```
 
 **Use Cases:**
+
 - Integrating AI capabilities into extensions
 - Creating custom AI-powered tools
 - Building AI-enhanced error handling
@@ -68,11 +71,13 @@ Struct metadata = ai.getAIMetadata(pc, "mychatgpt", false);
 **Purpose:** Create Lucee-specific data structures (Arrays, Queries, Structs, etc.)
 
 **Getting the utility:**
+
 ```java
 Creation creator = engine.getCreationUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Create an empty array
 Array arr = creator.createArray();
@@ -95,6 +100,7 @@ DateTime dt = creator.createDateTime(2024, 1, 15, 14, 30, 0, 0);
 ```
 
 **Use Cases:**
+
 - Building data structures to return from extension functions
 - Creating queries from database results
 - Generating complex data types for CFML consumption
@@ -106,11 +112,13 @@ DateTime dt = creator.createDateTime(2024, 1, 15, 14, 30, 0, 0);
 **Purpose:** Convert between different data types safely and reliably
 
 **Getting the utility:**
+
 ```java
 Cast caster = engine.getCastUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Cast to specific types
 Query qry = caster.toQuery(object);
@@ -133,6 +141,7 @@ boolean canCast = caster.isCastableTo("array", object);
 ```
 
 **Use Cases:**
+
 - Safely converting user input to expected types
 - Handling data from external sources
 - Ensuring type safety in extension functions
@@ -144,11 +153,13 @@ boolean canCast = caster.isCastableTo("array", object);
 **Purpose:** Load classes and BIFs (Built-in Functions) from Lucee's internal classloader
 
 **Getting the utility:**
+
 ```java
 ClassUtil classing = engine.getClassUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Load a class from Lucee's internal classloader
 Class<?> cls = classing.loadClass("lucee.runtime.type.StructImpl");
@@ -166,11 +177,13 @@ boolean exists = classing.isBIF("arrayLen");
 ```
 
 **Use Cases:**
+
 - Reusing Lucee's built-in functionality in extensions
 - Loading and instantiating Lucee core classes
 - Creating custom function wrappers
 
 **Example - Using ArrayLen BIF:**
+
 ```java
 Creation creator = engine.getCreationUtil();
 ClassUtil classing = engine.getClassUtil();
@@ -194,11 +207,13 @@ System.out.println("Array length: " + length);  // Output: 2
 **Purpose:** Manage database connections and execute queries
 
 **Getting the utility:**
+
 ```java
 DBUtil db = engine.getDBUtil();
 ```
 
 **Common Methods:**
+
 ```java
 DatasourceConnection dc = null;
 try {
@@ -236,11 +251,13 @@ finally {
 ```
 
 **Use Cases:**
+
 - Executing database queries from extensions
 - Managing connection pooling
 - Converting JDBC ResultSets to Lucee Query objects
 
 **Best Practices:**
+
 - Always release connections in a finally block
 - Use prepared statements to prevent SQL injection
 - Handle exceptions appropriately
@@ -252,11 +269,13 @@ finally {
 **Purpose:** Check data types and make type decisions
 
 **Getting the utility:**
+
 ```java
 lucee.runtime.util.Decision decision = engine.getDecisionUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Type checking
 boolean isArray = decision.isArray(object);
@@ -281,11 +300,13 @@ boolean isValid2 = decision.isValid("url", urlString);
 ```
 
 **Use Cases:**
+
 - Validating input parameters
 - Determining appropriate handling for unknown data types
 - Implementing type-safe extension functions
 
 **Example:**
+
 ```java
 public Object myExtensionFunction(PageContext pc, Object input) throws PageException {
     Decision decision = CFMLEngineFactory.getInstance().getDecisionUtil();
@@ -315,11 +336,13 @@ public Object myExtensionFunction(PageContext pc, Object input) throws PageExcep
 **Purpose:** Create and manage Lucee exceptions
 
 **Getting the utility:**
+
 ```java
 Excepton expUtil = engine.getExceptionUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Create different exception types
 PageException appEx = expUtil.createApplicationException("Something went wrong!");
@@ -344,6 +367,7 @@ String type = expUtil.getType(exception);
 ```
 
 **Common Exception Types:**
+
 - `Excepton.TYPE_APPLICATION` - Application exceptions
 - `Excepton.TYPE_DATABASE` - Database exceptions
 - `Excepton.TYPE_EXPRESSION` - Expression exceptions
@@ -352,6 +376,7 @@ String type = expUtil.getType(exception);
 - `Excepton.TYPE_TEMPLATE` - Template exceptions
 
 **Use Cases:**
+
 - Throwing appropriate exceptions from extension functions
 - Creating user-friendly error messages
 - Categorizing errors for better handling
@@ -363,11 +388,13 @@ String type = expUtil.getType(exception);
 **Purpose:** Make HTTP requests and handle responses
 
 **Getting the utility:**
+
 ```java
 HTTPUtil http = engine.getHTTPUtil();
 ```
 
 **Common Methods:**
+
 ```java
 URL url = new URL("https://api.example.com/data");
 
@@ -417,6 +444,7 @@ HTTPResponse authResponse = http.get(url, null, null, 5000, null, null, null, -1
 ```
 
 **Use Cases:**
+
 - Integrating with external APIs
 - Fetching remote data
 - Webhooks and callbacks
@@ -428,11 +456,13 @@ HTTPResponse authResponse = http.get(url, null, null, 5000, null, null, null, -1
 **Purpose:** Parse and manipulate HTML content
 
 **Getting the utility:**
+
 ```java
 HTMLUtil htmlUtil = engine.getHTMLUtil();
 ```
 
 **Common Methods:**
+
 ```java
 String html = "<html><body><a href='/page1'>Link1</a><a href='http://example.com'>Link2</a></body></html>";
 URL baseURL = new URL("http://mysite.com");
@@ -448,6 +478,7 @@ String unescaped = htmlUtil.unescapeHTML("&lt;div&gt;Hello&lt;/div&gt;");
 ```
 
 **Use Cases:**
+
 - Scraping web content
 - Sanitizing user input
 - Extracting links from HTML
@@ -459,11 +490,13 @@ String unescaped = htmlUtil.unescapeHTML("&lt;div&gt;Hello&lt;/div&gt;");
 **Purpose:** Input/Output operations and stream handling
 
 **Getting the utility:**
+
 ```java
 IO io = engine.getIOUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Copy streams
 InputStream input = new ByteArrayInputStream("Hello World".getBytes());
@@ -489,6 +522,7 @@ io.closeEL(resource);  // Close without throwing exception
 ```
 
 **Use Cases:**
+
 - Stream processing
 - File operations
 - Converting between streams and strings/bytes
@@ -500,11 +534,13 @@ io.closeEL(resource);  // Close without throwing exception
 **Purpose:** Work with delimited lists (similar to CFML list functions)
 
 **Getting the utility:**
+
 ```java
 lucee.runtime.util.ListUtil listUtil = engine.getListUtil();
 ```
 
 **Common Methods:**
+
 ```java
 String list = "apple,banana,cherry,date";
 
@@ -537,6 +573,7 @@ String unique = listUtil.removeDuplicates(list, ",", false);  // case-insensitiv
 ```
 
 **Use Cases:**
+
 - Processing comma-separated values
 - Converting between lists and arrays
 - Data manipulation and filtering
@@ -548,11 +585,13 @@ String unique = listUtil.removeDuplicates(list, ",", false);  // case-insensitiv
 **Purpose:** Perform various operations (comparison, math, etc.)
 
 **Getting the utility:**
+
 ```java
 Operation opUtil = engine.getOperationUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Compare values (Lucee-style comparison)
 int cmp = opUtil.compare("false", false);  // Returns 0 (equal)
@@ -579,6 +618,7 @@ double neg = opUtil.negate(5);            // -5.0
 ```
 
 **Use Cases:**
+
 - Implementing custom operators
 - Safe mathematical operations
 - Type-aware comparisons
@@ -590,11 +630,13 @@ double neg = opUtil.negate(5);            // -5.0
 **Purpose:** Work with Object-Relational Mapping functionality
 
 **Getting the utility:**
+
 ```java
 ORMUtil ormUtil = engine.getORMUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Check if object is ORM entity
 boolean isEntity = ormUtil.isEntity(object);
@@ -617,6 +659,7 @@ ormUtil.evict(pc, entity);
 ```
 
 **Use Cases:**
+
 - Working with Hibernate ORM entities
 - Managing ORM sessions
 - Entity lifecycle management
@@ -628,11 +671,13 @@ ormUtil.evict(pc, entity);
 **Purpose:** Work with Lucee's Virtual File System (VFS) - supports local files, HTTP, FTP, S3, RAM, etc.
 
 **Getting the utility:**
+
 ```java
 lucee.runtime.util.ResourceUtil resUtil = engine.getResourceUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Get temp directory
 Resource tempDir = resUtil.getTempDirectory();
@@ -679,6 +724,7 @@ Resource[] files = resUtil.listResources(folder, "*.txt");
 ```
 
 **Supported Resource Schemes:**
+
 - `file://` - Local file system
 - `http://` - HTTP resources
 - `https://` - HTTPS resources
@@ -690,11 +736,13 @@ Resource[] files = resUtil.listResources(folder, "*.txt");
 - Custom extensions can add more
 
 **Use Cases:**
+
 - Unified file access across different storage systems
 - Reading remote files as easily as local files
 - Implementing cloud storage integration
 
 **Example - Download and Process:**
+
 ```java
 ResourceUtil resUtil = engine.getResourceUtil();
 
@@ -715,11 +763,13 @@ String csvData = resUtil.toString(localFile, "UTF-8");
 **Purpose:** String manipulation operations
 
 **Getting the utility:**
+
 ```java
 Strings stringUtil = engine.getStringUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Remove quotes
 String unquoted = stringUtil.removeQuotes("'Hello World'", false);  // Hello World
@@ -746,6 +796,7 @@ String replaced = stringUtil.replace(original, search, replace, true);  // case-
 ```
 
 **Use Cases:**
+
 - String sanitization
 - Format conversion
 - Random string generation
@@ -757,11 +808,13 @@ String replaced = stringUtil.replace(original, search, replace, true);  // case-
 **Purpose:** Access system-level information and utilities
 
 **Getting the utility:**
+
 ```java
 lucee.runtime.util.SystemUtil systemUtil = engine.getSystemUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Get system information
 String macAddress = systemUtil.getMacAddress();
@@ -787,6 +840,7 @@ String output = systemUtil.execute("ls -la");
 ```
 
 **Use Cases:**
+
 - System diagnostics
 - Environment detection
 - License verification based on hardware
@@ -798,11 +852,13 @@ String output = systemUtil.execute("ls -la");
 **Purpose:** Execute scripting languages (CFML, JavaScript, etc.)
 
 **Getting the utility:**
+
 ```java
 ScriptEngineFactory scriptEngine = engine.getScriptEngineFactory();
 ```
 
 **Common Methods:**
+
 ```java
 // Get script engine
 ScriptEngine cfmlEngine = scriptEngine.getScriptEngine();
@@ -817,6 +873,7 @@ Object result2 = cfmlEngine.eval("echo(myVar); return myVar;", bindings);
 ```
 
 **Use Cases:**
+
 - Dynamic code execution
 - Evaluating user-provided expressions
 - Creating plugin systems
@@ -828,11 +885,13 @@ Object result2 = cfmlEngine.eval("echo(myVar); return myVar;", bindings);
 **Purpose:** Work with CFML templates and components
 
 **Getting the utility:**
+
 ```java
 TemplateUtil templateUtil = engine.getTemplateUtil();
 ```
 
 **Common Methods:**
+
 ```java
 // Search for components
 Component cfc = templateUtil.searchComponent(
@@ -856,6 +915,7 @@ boolean exists = templateUtil.exists(pc, "/path/to/template.cfm");
 ```
 
 **Use Cases:**
+
 - Dynamic component loading
 - Template introspection
 - Custom framework implementations
@@ -867,11 +927,13 @@ boolean exists = templateUtil.exists(pc, "/path/to/template.cfm");
 **Purpose:** Compress and decompress ZIP archives
 
 **Getting the utility:**
+
 ```java
 ZipUtil zipUtil = engine.getZipUtil();
 ```
 
 **Common Methods:**
+
 ```java
 ResourceUtil resUtil = engine.getResourceUtil();
 
@@ -898,6 +960,7 @@ for (Resource entry : entries) {
 ```
 
 **Use Cases:**
+
 - Creating backups
 - File compression
 - Archive management
@@ -1092,6 +1155,7 @@ Object length = arrayLen.invoke(pc, new Object[] { myArray });
 ## Common Patterns
 
 ### Pattern 1: Input Validation
+
 ```java
 public static Object myFunction(PageContext pc, Object input) throws PageException {
     CFMLEngine engine = CFMLEngineFactory.getInstance();
@@ -1112,6 +1176,7 @@ public static Object myFunction(PageContext pc, Object input) throws PageExcepti
 ```
 
 ### Pattern 2: HTTP API Integration
+
 ```java
 public static Struct callAPI(PageContext pc, String endpoint, String apiKey) 
         throws PageException {
@@ -1146,6 +1211,7 @@ public static Struct callAPI(PageContext pc, String endpoint, String apiKey)
 ```
 
 ### Pattern 3: File Processing
+
 ```java
 public static void processFiles(PageContext pc, String sourcePath, String targetPath) 
         throws PageException {
@@ -1184,6 +1250,7 @@ public static void processFiles(PageContext pc, String sourcePath, String target
 ## Debugging
 
 ### Enable Detailed Logging
+
 ```java
 // Get logger
 Log log = pc.getLog("application");
@@ -1195,6 +1262,7 @@ log.error("Extension", "Error occurred: " + e.getMessage());
 ```
 
 ### Inspect Objects
+
 ```java
 // Get system util for debugging
 SystemUtil systemUtil = engine.getSystemUtil();
