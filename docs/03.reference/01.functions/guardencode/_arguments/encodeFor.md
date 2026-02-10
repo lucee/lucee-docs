@@ -1,0 +1,13 @@
+The target output context. Valid values:
+- css: for style sheets
+- dn: for LDAP Distinguished Names
+- html: for HTML body content
+- html_attr: for HTML attributes (e.g., value, title)
+- javascript: for script blocks or event handlers
+- ldap: for LDAP search filters
+- url: for URI components
+- sql: for database query literals
+- vbscript: for legacy VBScript contexts
+- xml: for XML element content
+- xml_attr: for XML attribute values
+- xpath: for XPath query parameters

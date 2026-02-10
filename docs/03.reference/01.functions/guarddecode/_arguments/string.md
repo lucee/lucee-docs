@@ -1,0 +1,1 @@
+The encoded string to process.

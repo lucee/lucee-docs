@@ -1,0 +1,1 @@
+The raw string to be encoded.
