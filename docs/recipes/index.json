@@ -69,7 +69,7 @@
     "file": "ai.md",
     "title": "AI",
     "path": "/docs/recipes/ai.md",
-    "hash": "1897adcf7caf218a8727d8e5af43dad4",
+    "hash": "7aa8d9c5863472fe4a03f3891cd2bb67",
     "keywords": [
       "AI",
       "LLM",
@@ -198,7 +198,7 @@
     "file": "breaking-changes-7.0.md",
     "title": "Breaking Changes between Lucee 6.2 and 7.0",
     "path": "/docs/recipes/breaking-changes-7.0.md",
-    "hash": "121103c7460b6bd69b6955c71ae2fe79",
+    "hash": "52c49d7323ba02678fe7732e90234c80",
     "keywords": [
       "breaking changes",
       "Lucee 6.2",
@@ -211,7 +211,7 @@
     "file": "cache-invalidation-selective.md",
     "title": "Selective Cache Invalidation",
     "path": "/docs/recipes/cache-invalidation-selective.md",
-    "hash": "57a583d895b0e84cc41a02de01bbf602",
+    "hash": "32de98cf76f32b3446071be458f3fcd7",
     "keywords": [
       "Cache",
       "cachedWithin",
@@ -667,7 +667,7 @@
     "file": "extension-utilities.md",
     "title": "Lucee Extension Utilities",
     "path": "/docs/recipes/extension-utilities.md",
-    "hash": "1e181b11d55ee18f6761231ea2873557",
+    "hash": "e20aff22594eb5bfaa6216a5ea140762",
     "keywords": [
       "Extension",
       "Development",
