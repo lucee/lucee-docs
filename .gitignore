@@ -11,3 +11,5 @@ server/performance.log
 /commandbox-luceedocslocalserver
 /coverage
 /.exl
+/.claude
+.env
