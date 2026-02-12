@@ -146,7 +146,7 @@ Lucee 7 improvements to dynamic proxy creation - all component functions and pro
 
 ## [DynamoDB Cache Extension](/docs/recipes/dynamodb-cache-extension.md)
 
-Documentation for using Amazon DynamoDB as a cache provider in Lucee
+Documentation for using Amazon DynamoDB as a cache provider and NoSQL data store in Lucee
 
 ## [Encryption/Decryption](/docs/recipes/encryption_decryption.md)
 
