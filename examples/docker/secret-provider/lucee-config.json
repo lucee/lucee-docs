@@ -1,0 +1,10 @@
+{
+	"secretProvider": {
+		"env": {
+			"class": "lucee.runtime.security.EnvVarSecretProvider",
+			"custom": {
+				"caseSensitive": false
+			}
+		}
+	}
+}
