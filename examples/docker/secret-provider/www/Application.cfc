@@ -1,4 +1,0 @@
-﻿component {
-
-	this.Name = "Lucee";
-}

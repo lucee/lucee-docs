@@ -19,7 +19,7 @@ docker build -t lucee-secret-provider .
 docker compose up -d
 ```
 
-Then open [http://localhost:8054/test.cfm](http://localhost:8054/test.cfm) to see all secret providers in action.
+Then open [http://localhost:8054/index.cfm](http://localhost:8054/index.cfm) to see all secret providers in action.
 
 ## Secret Providers Configured
 
