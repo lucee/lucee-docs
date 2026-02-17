@@ -5,6 +5,14 @@
 			"custom": {
 				"caseSensitive": false
 			}
+		},
+		"json": {
+			"class": "lucee.runtime.security.FileSecretProvider",
+			"custom": {
+				"type": "json",
+				"file": "/opt/lucee/server/artifacts/secrets.json",
+				"caseSensitive": false
+			}
 		}
 	}
 }
