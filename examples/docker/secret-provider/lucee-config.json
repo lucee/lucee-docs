@@ -13,6 +13,30 @@
 				"file": "/opt/lucee/server/artifacts/secrets.json",
 				"caseSensitive": false
 			}
+		},
+		"sm": {
+			"class": "org.lucee.extension.aws.sm.AWSSecretManagerProvider",
+			"maven": "org.lucee:aws-sm:1.0.0.6-RC",
+			"custom": {
+				"accessKeyId": "dummy",
+				"secretKey": "dummy",
+				"region": "us-east-1",
+				"endpoint": "http://localstack:4566",
+				"jsonTraversal": true,
+				"timeout": 5000
+			}
+		},
+		"ps": {
+			"class": "org.lucee.extension.aws.ssm.AWSParameterStoreProvider",
+			"maven": "org.lucee:aws-sm:1.0.0.6-RC",
+			"custom": {
+				"accessKeyId": "dummy",
+				"secretKey": "dummy",
+				"region": "us-east-1",
+				"endpoint": "http://localstack:4566",
+				"jsonTraversal": true,
+				"timeout": 5000
+			}
 		}
 	}
 }

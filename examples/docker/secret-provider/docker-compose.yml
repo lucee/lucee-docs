@@ -4,11 +4,36 @@ services:
     environment:
       - LUCEE_ADMIN_PASSWORD=qwerty
       - EXAMPLE_ENV_VAR=value from env var
+      # Point AWS SDK to localstack
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ENDPOINT_URL=http://localstack:4566
     volumes:
       - "./www:/var/www"
     ports:
       - "8854:8888"  # tomcat
-      - "8054:80"  # nginx
+      - "8054:80"    # nginx
+    depends_on:
+      localstack:
+        condition: service_healthy
 
-# how to run it
-# docker-compose up -d
+  localstack:
+    image: localstack/localstack:latest
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=secretsmanager,ssm
+      - DEFAULT_REGION=us-east-1
+      - EAGER_SERVICE_LOADING=1
+    volumes:
+      - "./localstack-init:/etc/localstack/init/ready.d"  # seed scripts
+      - localstack_data:/var/lib/localstack
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  localstack_data:
