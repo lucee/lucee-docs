@@ -511,7 +511,7 @@
     "file": "dynamodb-cache-extension.md",
     "title": "DynamoDB Cache Extension",
     "path": "/docs/recipes/dynamodb-cache-extension.md",
-    "hash": "8fafed6e2867b53064052fbf6ab41283",
+    "hash": "af975d7d9186752b8f5af98708d37e48",
     "keywords": [
       "DynamoDB",
       "Cache",
@@ -519,7 +519,8 @@
       "NoSQL",
       "Distributed Cache",
       "Cloud Storage",
-      "Maven"
+      "Maven",
+      "DynamoDBCommand"
     ]
   },
   {
