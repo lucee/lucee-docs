@@ -22,20 +22,23 @@
 
 Securely store and access sensitive data (credentials, API keys) using configurable secret providers. Keeps secrets out of code and config files.
 
+> **Working Example Available**
+> A complete Docker-based example demonstrating all providers covered in this document — including LocalStack for local AWS mocking — is available at:
+> **[github.com/lucee/lucee-docs/tree/master/examples/docker/secret-provider](https://github.com/lucee/lucee-docs/tree/master/examples/docker/secret-provider)**
+
 [[function-secretproviderget]]
 
 ## Configuration
 
-In Lucee 7, secret providers can be configured similarly to datasources, caches, or AI connections, either in the Lucee Administrator (work in progress) or directly in `.CFConfig.json`. Here are sample configurations:
+Secret providers are configured in `.CFConfig.json` under the `secretProvider` key. Each provider has a name (used when calling `SecretProviderGet`), a class, and optional custom properties.
 
 ### Environment Variables Provider
 
-Read the secret directly from the environment variables:
-
+Reads secrets directly from environment variables:
 ```json
 "secretProvider": {
   "env": {
-    "class": "lucee.runtime.secrets.EnvVarSecretProvider",
+    "class": "lucee.runtime.security.EnvVarSecretProvider",
     "custom": {
       "caseSensitive": false
     }
@@ -45,25 +48,61 @@ Read the secret directly from the environment variables:
 
 ### File Provider
 
-Read the secrets from a file, format can be json or env:
-
+Reads secrets from a `.json` or `.env` file:
 ```json
 "secretProvider": {
-   "json": {
-      "class": "lucee.runtime.security.FileSecretProvider",
-      "custom": {
-        "type": "json",
-        "file": "/my/secrets/vars.json",
-        "caseSensitive": false
-      }
+  "json": {
+    "class": "lucee.runtime.security.FileSecretProvider",
+    "custom": {
+      "type": "json",
+      "file": "/path/to/secrets.json",
+      "caseSensitive": false
     }
+  }
+}
+```
+
+### AWS Secrets Manager Provider
+
+Reads secrets from [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/). Provided by the `org.lucee:aws-sm` library, loaded automatically via Maven:
+```json
+"secretProvider": {
+  "sm": {
+    "class": "org.lucee.extension.aws.sm.AWSSecretManagerProvider",
+    "maven": "org.lucee:aws-sm:1.0.0.6-RC",
+    "custom": {
+      "accessKeyId": "your-access-key-id",
+      "secretKey": "your-secret-key",
+      "region": "us-east-1",
+      "jsonTraversal": true,
+      "timeout": 5000
+    }
+  }
+}
+```
+
+### AWS Parameter Store Provider
+
+Reads secrets from [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html). Also provided by the `org.lucee:aws-sm` library:
+```json
+"secretProvider": {
+  "ps": {
+    "class": "org.lucee.extension.aws.ssm.AWSParameterStoreProvider",
+    "maven": "org.lucee:aws-sm:1.0.0.6-RC",
+    "custom": {
+      "accessKeyId": "your-access-key-id",
+      "secretKey": "your-secret-key",
+      "region": "us-east-1",
+      "jsonTraversal": true,
+      "timeout": 5000
+    }
+  }
 }
 ```
 
 ### Combined Providers
 
-The `AndSecretProvider` allows you to combine multiple providers, checking each one in the order specified until a secret is found:
-
+The `AndSecretProvider` chains multiple providers together, checking each in order until a secret is found:
 ```json
 "secretProvider": {
   "many": {
@@ -75,236 +114,243 @@ The `AndSecretProvider` allows you to combine multiple providers, checking each 
 }
 ```
 
-### Using External Classes
+### Full Example Configuration
 
-Similar to other Lucee features, you can specify external classes for your secret providers using various methods:
-
-#### OSGi Bundles
-
+A complete `.CFConfig.json` combining all built-in and AWS providers:
 ```json
-"secretProvider": {
-  "custom": {
-    "class": "com.mycompany.secrets.CustomSecretProvider",
-    "bundleName": "com.mycompany.secrets",
-    "bundleVersion": "1.2.0",
-    "custom": {
-      "configParam1": "value1",
-      "configParam2": "value2"
+{
+  "secretProvider": {
+    "env": {
+      "class": "lucee.runtime.security.EnvVarSecretProvider",
+      "custom": {
+        "caseSensitive": false
+      }
+    },
+    "json": {
+      "class": "lucee.runtime.security.FileSecretProvider",
+      "custom": {
+        "type": "json",
+        "file": "/path/to/secrets.json",
+        "caseSensitive": false
+      }
+    },
+    "sm": {
+      "class": "org.lucee.extension.aws.sm.AWSSecretManagerProvider",
+      "maven": "org.lucee:aws-sm:1.0.0.6-RC",
+      "custom": {
+        "accessKeyId": "your-access-key-id",
+        "secretKey": "your-secret-key",
+        "region": "us-east-1",
+        "jsonTraversal": true,
+        "timeout": 5000
+      }
+    },
+    "ps": {
+      "class": "org.lucee.extension.aws.ssm.AWSParameterStoreProvider",
+      "maven": "org.lucee:aws-sm:1.0.0.6-RC",
+      "custom": {
+        "accessKeyId": "your-access-key-id",
+        "secretKey": "your-secret-key",
+        "region": "us-east-1",
+        "jsonTraversal": true,
+        "timeout": 5000
+      }
     }
   }
 }
 ```
-
-#### Maven Dependencies
-
-Since Lucee 6.2, you can load classes directly from Maven repositories:
-
-```json
-"secretProvider": {
-  "vault": {
-    "class": "com.company.secrets.VaultSecretProvider",
-    "maven": "com.company:vault-provider:1.0.0,com.company:common-utils:1.5.0",
-    "custom": {
-      "url": "https://vault.example.com",
-      "timeout": 5000
-    }
-  }
-}
-```
-
-This allows you to specify one or more comma-separated Maven dependencies in gradle-style format.
-
-#### CFML Components (Lucee 7+)
-
-You can implement your own secret provider as a CFML component:
-
-```json
-"secretProvider": {
-  "myCustom": {
-    "component": "path.to.MySecretProviderComponent",
-    "custom": {
-      "configParam1": "value1"
-    }
-  }
-}
-```
-
-The component must implement `lucee.runtime.secrets.SecretProvider` via `implementsJava="lucee.runtime.secrets.SecretProvider"` annotation.
 
 ## Supported Providers
 
-Lucee includes several built-in secret providers:
-
-- **lucee.runtime.secrets.EnvVarSecretProvider**: Reads secrets from environment variables
-- **lucee.runtime.security.FileSecretProvider**: Reads secrets from a .json or .env file (more formats following)
-- **lucee.runtime.security.AndSecretProvider**: Combines multiple providers into one
-- **AWSSecretsManagerProvider**: Connects to AWS Secrets Manager (coming soon)
-- **GoogleSecretManagerProvider**: Uses Google Cloud Secret Manager (coming soon)
-- **DockerSecretsProvider**: Reads secrets from Docker secrets (coming soon)
+| Provider | Class | Source |
+|----------|-------|--------|
+| Environment Variables | `lucee.runtime.security.EnvVarSecretProvider` | Lucee Core |
+| File (JSON/ENV) | `lucee.runtime.security.FileSecretProvider` | Lucee Core |
+| Combined/Chained | `lucee.runtime.security.AndSecretProvider` | Lucee Core |
+| AWS Secrets Manager | `org.lucee.extension.aws.sm.AWSSecretManagerProvider` | [aws-sm extension](https://maven.lucee.org) |
+| AWS Parameter Store | `org.lucee.extension.aws.ssm.AWSParameterStoreProvider` | [aws-sm extension](https://maven.lucee.org) |
 
 ## Provider Configuration Options
 
 ### EnvVarSecretProvider
 
-| Option | Description | Default | Notes |
-|--------|-------------|---------|-------|
-| `caseSensitive` | Determines if environment variable names are case-sensitive | `true` | Set to `false` to allow case-insensitive lookups |
+| Option | Description | Default |
+|--------|-------------|---------|
+| `caseSensitive` | Whether key lookups are case-sensitive | `true` |
 
 ### FileSecretProvider
 
-| Option | Description | Default | Notes |
-|--------|-------------|---------|-------|
-| `type` | File format | `env` | Supported values: `env`, `json` |
-| `file` | Path to the secrets file | None (Required) | Can use any Lucee-supported resource path (local, S3, HTTP, etc.) |
-| `caseSensitive` | Determines if secret keys are case-sensitive | `true` | Set to `false` to allow case-insensitive lookups |
-| `refreshInterval` | How often to check for file changes (in milliseconds) | `60000` (1 minute) | Set to `0` to disable auto-refresh |
+| Option | Description | Default |
+|--------|-------------|---------|
+| `type` | File format: `json` or `env` | `env` |
+| `file` | Path to the secrets file (required) | — |
+| `caseSensitive` | Whether key lookups are case-sensitive | `true` |
+| `refreshInterval` | How often to check for file changes (ms) | `60000` |
 
 ### AndSecretProvider
 
-| Option | Description | Default | Notes |
-|--------|-------------|---------|-------|
-| `providers` | Comma-separated list of provider names to check | None (Required) | Providers are checked in the specified order |
+| Option | Description | Default |
+|--------|-------------|---------|
+| `providers` | Comma-separated list of provider names to check in order (required) | — |
+
+### AWSSecretManagerProvider / AWSParameterStoreProvider
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `accessKeyId` | AWS access key ID | — |
+| `secretKey` | AWS secret access key | — |
+| `region` | AWS region | `us-east-1` |
+| `endpoint` | Custom endpoint URL (useful for local mocking with LocalStack) | — |
+| `jsonTraversal` | Enables dot-notation access into JSON secret values | `true` |
+| `timeout` | Cache duration in milliseconds. `0` disables caching | `0` |
+| `checkEnviroment` | Whether to fall back to environment credentials | `true` |
 
 ## Using Secrets in Your Application
 
-Secrets are accessed through the [[function-SecretProviderGet]] function, which returns a reference to the secret value rather than the actual value itself.
-
-### Basic Usage
-
+Secrets are accessed via the [[function-SecretProviderGet]] function.
 ```cfml
-// Get a secret from a specific provider
+// Get from a specific provider
 apiKey = SecretProviderGet("API_KEY", "env");
 
-// Use the secret in an API call
-cfhttp(url="https://api.example.com", method="GET") {
-    cfhttpparam(type="header", name="Authorization", value="Bearer #apiKey#");
-}
-```
-
-### Using Without Specifying Provider
-
-```cfml
-// Get a secret without specifying a provider (checks all providers)
+// Get from any provider (first match wins)
 dbPassword = SecretProviderGet("DB_PASSWORD");
-
-// Use the secret in a database connection
-dbConnection = {
-    host: SecretProviderGet("DB_HOST"),
-    username: SecretProviderGet("DB_USER"),
-    password: dbPassword
-};
 ```
 
-### Storing References
+### JSON Traversal
 
+When a secret value is a JSON string and `jsonTraversal` is enabled, you can use dot notation to access nested keys directly:
 ```cfml
-// Store secret references at application startup
-application.secrets = {
-    apiKey: SecretProviderGet("API_KEY", "env"),
-    dbConfig: {
-        host: SecretProviderGet("DB_HOST", "vault"),
-        username: SecretProviderGet("DB_USER", "vault"),
-        password: SecretProviderGet("DB_PASSWORD", "vault")
-    }
-};
+// Returns the full JSON string: {"username":"admin","password":"supersecret"}
+secret = SecretProviderGet("mysecret", "sm");
 
-// Use them throughout the application
-cfhttp(url="https://api.example.com", method="GET") {
-    cfhttpparam(type="header", name="Authorization", value="Bearer #application.secrets.apiKey#");
+// Returns just "supersecret"
+password = SecretProviderGet("mysecret.password", "sm");
+```
+
+### Storing References at Startup
+
+Secrets return a lazy reference — the actual value is only resolved when used. This means you can safely store references at application startup and they will always reflect the current secret value, even after rotation:
+```cfml
+// Application.cfc
+component {
+  function onApplicationStart() {
+    application.secrets = {
+      apiKey:   SecretProviderGet("API_KEY", "env"),
+      dbHost:   SecretProviderGet("DB_HOST", "sm"),
+      dbUser:   SecretProviderGet("DB_USER", "sm"),
+      dbPass:   SecretProviderGet("DB_PASSWORD", "sm")
+    };
+  }
 }
 ```
+
+## Local Development with LocalStack
+
+For local development you can mock AWS Secrets Manager and Parameter Store using [LocalStack](https://localstack.cloud/). Configure the `endpoint` property to point to your LocalStack instance instead of real AWS:
+```json
+"sm": {
+  "class": "org.lucee.extension.aws.sm.AWSSecretManagerProvider",
+  "maven": "org.lucee:aws-sm:1.0.0.6-RC",
+  "custom": {
+    "accessKeyId": "dummy",
+    "secretKey": "dummy",
+    "region": "us-east-1",
+    "endpoint": "http://localstack:4566"
+  }
+}
+```
+
+Any non-empty string works for `accessKeyId` and `secretKey` when pointing at LocalStack.
 
 ## Key Features
 
 ### Lazy Resolution
 
-When you call [[function-SecretProviderGet]], it returns a reference to the secret rather than the actual value. The secret is only resolved to its actual value when it's used in a context that requires a simple value (string, boolean, number, date). This enables several powerful features:
+`SecretProviderGet` returns a reference, not the actual value. The secret is resolved only when used as a simple value (string, number, boolean). This means:
 
-- **Auto-updating secrets**: If a secret changes in the provider, your application automatically uses the updated value without needing to reload the application or reconfigure anything.
-- **Enhanced security**: Secret values are not stored in memory until they're actually needed.
+- **Auto-updating**: If a secret rotates in the provider, your app picks up the new value automatically.
+- **Reduced memory exposure**: Secret values aren't held in memory until actually needed.
 
 ### Obfuscation
 
-Secret values are automatically obfuscated when dumped or displayed in debug output, reducing the risk of exposing sensitive information.
+Secret values are automatically obfuscated in `dump()` output and debug logs, reducing accidental exposure.
 
-```cfml
-// This will display an obfuscated value rather than the actual secret
-dump(SecretProviderGet("API_KEY"));
-```
+### Using External Classes via Maven
 
-### Combined Providers
-
-The `AndSecretProvider` allows you to chain multiple providers together, checking each one in order until a secret is found. This enables fallback scenarios and tiered approaches to secret management.
-
-```cfml
-// Configure a combined provider
-// First checks environment variables, then AWS Secrets Manager
-"secretProvider": {
-  "combined": {
-    "class": "lucee.runtime.security.AndSecretProvider",
-    "custom": {
-      "providers": "env,aws"
-    }
-  }
+Since Lucee 6.2, external provider classes can be loaded directly from Maven by specifying the `maven` key:
+```json
+"sm": {
+  "class": "org.lucee.extension.aws.sm.AWSSecretManagerProvider",
+  "maven": "org.lucee:aws-sm:1.0.0.6-RC",
+  "custom": { ... }
 }
-
-// Use the combined provider
-apiKey = SecretProviderGet("API_KEY", "combined");
 ```
+
+## Installing the AWS Extension
+
+The `org.lucee:aws-sm` Maven jar is downloaded automatically by Lucee when first used — no manual installation required. However, pre-installing the extension means the jars are already available locally, avoiding any download at startup. This is recommended for production and air-gapped environments.
+
+There are two ways to pre-install it in `.CFConfig.json`:
+
+### Via Maven (downloads from Maven repository)
+```json
+"extensions": [
+  {
+    "id": "16953C9D-0A26-4283-904AD851B30506AF",
+    "name": "AWS Secret Manager Extension",
+    "version": "1.0.0.6-RC",
+    "maven": "org.lucee:aws-sm-extension:1.0.0.6-RC"
+  }
+]
+```
+
+### Via Local File (no download needed)
+```json
+"extensions": [
+  {
+    "id": "16953C9D-0A26-4283-904AD851B30506AF",
+    "name": "AWS Secret Manager Extension",
+    "version": "1.0.0.6-RC",
+    "source": "/path/to/aws-sm-extension-1.0.0.6-RC.lex"
+  }
+]
+```
+
+Use the `source` approach when you want fully offline/reproducible deployments — for example, by including the `.lex` file in your Docker image alongside your `artifacts/` directory.
 
 ## Creating Custom Secret Providers
 
-You can create your own secret provider by implementing the `lucee.runtime.secrets.SecretProvider` interface. This can be done either in Java (compiled into a JAR and loaded via OSGi or Maven) or directly in CFML.
-
-### CFML Component Implementation
-
+You can implement your own provider as a CFML component using `implementsJava`:
 ```cfml
 // MySecretProvider.cfc
 component implementsJava="lucee.runtime.secrets.SecretProvider" {
 
-    // Initialize the provider with custom configuration
-    function init(struct config) {
-        variables.config = config;
-        return this;
-    }
+  function init(struct config) {
+    variables.config = config;
+    return this;
+  }
 
-    // Get a secret by key
-    function SecretProviderGet(string key) {
-        // Implementation to retrieve the secret
-        // Return null if the secret doesn't exist
+  function getSecret(string key) {
+    var q = queryExecute(
+      "SELECT value FROM app_secrets WHERE key = :key",
+      {key: key},
+      {datasource: config.datasource}
+    );
+    return q.recordCount ? q.value : javaNull();
+  }
 
-        // Example implementation (database-stored secrets)
-        var q = queryExecute(
-            "SELECT value FROM app_secrets WHERE key = :key",
-            {key: key},
-            {datasource: config.datasource}
-        );
-
-        if (q.recordCount) {
-            return q.value;
-        }
-
-        return javaNull();
-    }
-
-    // Check if a secret exists
-    function hasSecret(string key) {
-        // Return true if the secret exists, false otherwise
-
-        // Example implementation
-        var q = queryExecute(
-            "SELECT COUNT(*) as count FROM app_secrets WHERE key = :key",
-            {key: key},
-            {datasource: config.datasource}
-        );
-
-        return q.count > 0;
-    }
+  function hasSecret(string key) {
+    var q = queryExecute(
+      "SELECT COUNT(*) as cnt FROM app_secrets WHERE key = :key",
+      {key: key},
+      {datasource: config.datasource}
+    );
+    return q.cnt > 0;
+  }
 }
 ```
 
-To use this custom provider, configure it in your `.CFConfig.json`:
-
+Register it in `.CFConfig.json`:
 ```json
 "secretProvider": {
   "database": {
@@ -316,87 +362,14 @@ To use this custom provider, configure it in your `.CFConfig.json`:
 }
 ```
 
-## Security Considerations
+## Working Example
 
-### Secret Rotation
+A complete working Docker-based example is available in the Lucee documentation repository:
 
-Most providers support automatic secret rotation. Because secrets are resolved when used rather than when retrieved, your application automatically uses the latest value of a secret without any code changes.
+**[github.com/lucee/lucee-docs/tree/master/examples/docker/secret-provider](https://github.com/lucee/lucee-docs/tree/master/examples/docker/secret-provider)**
 
-### Secure Storage
-
-Always ensure that your `.env` files and other secret storage locations have appropriate file permissions and are excluded from version control systems.
-
-### Provider-Specific Security
-
-Each provider has its own security considerations. For example:
-
-- AWS Secrets Manager requires proper IAM roles and permissions
-- Environment variables should be set securely through the operating system
-- File-based secrets need strict file permissions
+It includes a Docker Compose setup with LocalStack mocking AWS Secrets Manager and Parameter Store, along with a `test.cfm` demonstrating all providers covered in this document.
 
 ## Troubleshooting
 
-### Debugging
-
-Lucee logs every use of every key to the `application` log with the log level `trace`, this includes the stacktrace, the key used and the name of the secret provider itself.
-When you enable that log level, you will see how and where your secrets get used (not the values themselves).
-
-In addition, Lucee also logs in case it fails to load a secret provider.
-
-### Common Issues
-
-1. **Secret not found**: Ensure the secret exists in the provider and that the key is correct.
-2. **Provider configuration**: Verify that the provider is correctly configured and accessible.
-3. **Permission issues**: Check that the application has the necessary permissions to access the secrets.
-4. **Class not found**: When using external providers, ensure all required dependencies are available.
-
-## Best Practices
-
-1. **Use namespacing for secrets**: Organize secrets with clear naming conventions, such as `DB_USER`, `DB_PASSWORD`, etc.
-2. **Store references, not values**: Store references to secrets in application or session scope rather than resolved values.
-3. **Implement least privilege**: Only grant access to the specific secrets an application needs.
-4. **Monitor usage**: Regularly audit secret access and usage patterns.
-5. **Layer providers**: Use the `AndSecretProvider` to implement fallback mechanisms.
-6. **Environment segregation**: Use different secret providers for development, staging, and production environments.
-7. **Regular rotation**: Rotate secrets regularly and verify that your application handles rotation gracefully.
-
-## Reference
-
-### GetSecret Function
-
-```cfml
-SecretProviderGet(key [, name])
-```
-
-- **key**: Key to read from the Secret Provider
-- **name**: (Optional) Name of the Secret Provider to read from. If not provided, all configured providers are checked in order.
-
-Returns a reference to the secret value that is automatically resolved when used in a context requiring a simple value.
-
-### SecretProvider Interface
-
-```java
-package lucee.runtime.secrets;
-
-public interface SecretProvider {
-    /**
-     * Initialize the provider with the given configuration
-     * @param config Provider-specific configuration
-     */
-    public void init(java.util.Map<String, String> config);
-    
-    /**
-     * Get a secret by key
-     * @param key Secret key
-     * @return Secret value or null if not found
-     */
-    public String getSecret(String key);
-    
-    /**
-     * Check if a secret exists
-     * @param key Secret key
-     * @return true if the secret exists, false otherwise
-     */
-    public boolean hasSecret(String key);
-}
-```
+Lucee logs every secret access at `trace` level in the `application` log, including the key, provider name, and stack trace (but never the value). Enable trace-level logging to audit secret usage.
