@@ -7,7 +7,7 @@ This example demonstrates Lucee 7's secret provider feature, showing how to conf
 - `Dockerfile` — Lucee server image with pre-loaded configuration and artifacts
 - `docker-compose.yml` — Orchestrates the Lucee server together with LocalStack
 - `lucee-config.json` — Configures all secret providers (`env`, `json`, `sm`, `ps`)
-- `www/test.cfm` — Live example page demonstrating all providers
+- `www/index.cfm` — Live example page demonstrating all providers
 - `localstack-init/init.sh` — Seeds LocalStack with example secrets on startup
 
 ## Quick Start
