@@ -6,6 +6,12 @@
 				"caseSensitive": false
 			}
 		},
+		"sysprop": {
+			"class": "lucee.runtime.security.SystemPropSecretProvider",
+			"custom": {
+				"caseSensitive": false
+			}
+		},
 		"json": {
 			"class": "lucee.runtime.security.FileSecretProvider",
 			"custom": {

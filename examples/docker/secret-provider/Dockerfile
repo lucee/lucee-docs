@@ -1,4 +1,4 @@
-FROM lucee/lucee:7.0.2.83-RC
+FROM lucee/lucee:7.0.2.96-SNAPSHOT
 
 # Provide test page by creating the directory and copying files
 RUN mkdir -p /var/www
