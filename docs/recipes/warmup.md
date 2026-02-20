@@ -2,7 +2,6 @@
 {
   "title": "Warmup",
   "id": "warmup",
-  "since": "6.2",
   "categories": ["docker", "configuration", "startup"],
   "description": "Docker warmup and eager config loading for fail-fast validation in Lucee",
   "keywords": [
@@ -19,7 +18,7 @@
 
 # Warmup
 
-Since Lucee 6.2, Lucee includes a native warmup mode designed for containerized (Docker) environments. It performs a full startup cycle — exploding the Lucee JAR, installing bundles and extensions, running the `onBuild` lifecycle hook — then shuts down cleanly. This ensures your Lucee image is fully initialized before deployment.
+Since Lucee 6, Lucee includes a native warmup mode designed for containerized (Docker) environments. It performs a full startup cycle — exploding the Lucee JAR, installing bundles and extensions, running the `onBuild` lifecycle hook — then shuts down cleanly. This ensures your Lucee image is fully initialized before deployment.
 
 For general Docker setup and usage, see [Running Lucee with Docker](docker.md). For details on the `onBuild` lifecycle hook, see [Docker onBuild](docker-onbuild.md).
 
