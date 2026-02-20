@@ -192,6 +192,10 @@ A comprehensive guide on how to install extensions in Lucee.
 
 Comprehensive guide to accessing Lucee core utilities when developing extensions
 
+## [External Agent](/docs/recipes/external-agent.md)
+
+Java agent for registering the Instrumentation instance in Lucee
+
 ## [Externalize Strings](/docs/recipes/externalizing-strings.md)
 
 Externalize strings from generated class files to separate files. This method is used to reduce the memory of the static contents for templates.
