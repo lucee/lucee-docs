@@ -965,6 +965,23 @@
     ]
   },
   {
+    "file": "javax-vs-jakarta.md",
+    "title": "javax vs jakarta Servlet Compatibility",
+    "path": "/docs/recipes/javax-vs-jakarta.md",
+    "hash": "53fd6b1046f5cc10caf9217e123522a9",
+    "keywords": [
+      "javax",
+      "jakarta",
+      "servlet",
+      "Tomcat",
+      "Jetty",
+      "web.xml",
+      "CFMLServlet",
+      "RestServlet",
+      "migration"
+    ]
+  },
+  {
     "file": "language-server.md",
     "title": "Language Server Protocol (LSP) for Lucee",
     "path": "/docs/recipes/language-server.md",

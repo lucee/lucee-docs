@@ -276,6 +276,10 @@ Guide on configuring Java settings in Lucee using Application.cfc, including loa
 
 How to make Java classes log through Lucee's logging system
 
+## [javax vs jakarta Servlet Compatibility](/docs/recipes/javax-vs-jakarta.md)
+
+How Lucee handles javax and jakarta servlet APIs across versions and servlet engines
+
 ## [Language Server Protocol (LSP) for Lucee](/docs/recipes/language-server.md)
 
 This document explains how to configure and use the Language Server Protocol implementation for Lucee CFML/CFScript.
