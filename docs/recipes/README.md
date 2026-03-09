@@ -536,6 +536,10 @@ This document explains types in Lucee. Lucee is still an untyped language. Types
 
 Using S3 directly for source code
 
+## [Lucee Versions and Extensions](/docs/recipes/versions.md)
+
+List and inspect available Lucee versions and extensions
+
 ## [Virtual File Systems](/docs/recipes/virtual-file-system.md)
 
 Lucee supports the following virtual file systems: ram, file, s3, http, https, zip, and tar.
