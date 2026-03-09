@@ -12,7 +12,6 @@
     "LuceeVersionsDetail",
     "LuceeExtension",
     "Maven",
-    "S3",
     "upgrade"
   ]
 }
@@ -20,15 +19,13 @@
 
 # Lucee Versions and Extensions
 
-Lucee provides built-in functions to list available versions and extensions, and to retrieve detailed artifact information. Data is sourced from Maven Central with an S3 fallback.
+Lucee provides built-in functions to list available versions and extensions and to retrieve detailed artifact information from Maven Central.
 
 > **Note**: These are currently internal functions. They will be made public in a future release.
 
 ## Version Functions
 
 ### `LuceeVersionsList(type)` / `LuceeVersionsDetail(version)`
-
-The generic functions — source-independent. They return a consistent, normalized result regardless of where the data comes from, making them the right choice for most use cases.
 
 **`LuceeVersionsList(type)`** — returns an array of version strings.
 
@@ -53,7 +50,7 @@ The generic functions — source-independent. They return a consistent, normaliz
 | `pom` | URL to the `.pom` file |
 | `lastModified` | Date the artifact was last modified |
 
-**Type values (for all list functions):**
+**Type values:**
 
 | Value | Description |
 |-------|-------------|
@@ -64,25 +61,32 @@ The generic functions — source-independent. They return a consistent, normaliz
 | `latest:release` | Latest release per development cycle |
 | `latest:snapshot` | Latest snapshot per development cycle |
 
+> `LuceeVersionsListMvn`, `LuceeVersionsDetailMvn`, `LuceeVersionsListS3`, and `LuceeVersionsDetailS3` are internal testing functions, will never be official, and should not be used.
+
+---
 
 ## Extension Function
 
-### `LuceeExtension(artifact, version)`
+### `LuceeExtension(group, artifact, version)`
+
+> **Note**: Currently a hidden/internal function. Will be made public in a future release.
 
 Lists available Lucee extensions or retrieves details for a specific one. Data is sourced from Maven only.
 
-> **Future**: A `groupId` argument will be added in a future release to support extensions published under custom Maven group IDs.
+**Since 7.0.3.2**: The signature changed to `(group, artifact, version)` with `group` as the first argument. Prior to this, the signature was `(artifact, version)` — since the function was hidden throughout, there is no backward compatibility concern.
 
-| Argument | Type | Required | Description |
-|----------|------|----------|-------------|
-| `artifact` | string | No | Extension artifact ID (alias: `artifactid`). Omit to list all extensions; provide to list versions of that extension |
-| `version` | string | No | Specific version to get details for |
+| Argument | Type | Required | Default | Description |
+|----------|------|----------|---------|-------------|
+| `group` | string | No | `org.lucee` | Maven group ID (alias: `groupid`) |
+| `artifact` | string | No | | Extension artifact ID (alias: `artifactid`) |
+| `version` | string | No | | Specific version to retrieve details for |
 
 **Returns:**
 
-- No arguments → Array of extension artifact IDs
-- `artifact` only → Array of version strings for that extension
-- `artifact` + `version` → Struct with artifact details
+- No arguments → Array of artifact IDs for the default group
+- `group` only → Array of artifact IDs for that group
+- `group` + `artifact` → Array of version strings for that extension
+- `group` + `artifact` + `version` → Struct with artifact details
 
 **Detail struct keys:**
 
@@ -102,7 +106,7 @@ Lists available Lucee extensions or retrieves details for a specific one. Data i
 versions = LuceeVersionsList("latest:release");
 dump(versions);
 
-// Get details for the newest release
+// Get details for the newest version
 detail = LuceeVersionsDetail(versions[len(versions)]);
 dump(detail);
 ```
@@ -126,14 +130,17 @@ dump(detail);
 ```
 
 ```javascript
-// List all available extensions
+// List all available extensions (default group: org.lucee)
 dump(LuceeExtension());
 
+// List all extensions for a custom group
+dump(LuceeExtension("com.mycompany"));
+
 // List all versions of a specific extension
-dump(LuceeExtension("s3-extension"));
+dump(LuceeExtension("org.lucee", "s3-extension"));
 
 // Get details for a specific version
-dump(LuceeExtension("s3-extension", "2.0.3.1"));
+dump(LuceeExtension("org.lucee", "s3-extension", "2.0.3.1"));
 ```
 
 **Example output for `LuceeExtension()`:**
@@ -145,7 +152,7 @@ dump(LuceeExtension("s3-extension", "2.0.3.1"));
  "mongodb-extension","pdf-extension","s3-extension","websocket-extension","yaml-extension", ...]
 ```
 
-**Example output for `LuceeExtension("s3-extension", "2.0.3.1")`:**
+**Example output for `LuceeExtension("org.lucee", "s3-extension", "2.0.3.1")`:**
 
 ```json
 {
@@ -183,8 +190,8 @@ writeOutput("Download: " & detail.lco);
 ### Get the Latest Version of an Extension
 
 ```javascript
-versions = LuceeExtension("s3-extension");
+versions = LuceeExtension("org.lucee", "s3-extension");
 latest = versions[len(versions)];
-detail = LuceeExtension("s3-extension", latest);
+detail = LuceeExtension("org.lucee", "s3-extension", latest);
 writeOutput("Install from: " & detail.lex);
 ```
