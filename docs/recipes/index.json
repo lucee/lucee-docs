@@ -1861,6 +1861,22 @@
     ]
   },
   {
+    "file": "versions.md",
+    "title": "Lucee Versions and Extensions",
+    "path": "/docs/recipes/versions.md",
+    "hash": "381c2137aae19ce8579c340721689848",
+    "keywords": [
+      "versions",
+      "extensions",
+      "LuceeVersionsList",
+      "LuceeVersionsDetail",
+      "LuceeExtension",
+      "Maven",
+      "S3",
+      "upgrade"
+    ]
+  },
+  {
     "file": "virtual-file-system.md",
     "title": "Virtual File Systems",
     "path": "/docs/recipes/virtual-file-system.md",
