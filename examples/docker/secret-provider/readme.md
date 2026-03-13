@@ -11,6 +11,7 @@ This example demonstrates Lucee 7's secret provider feature, showing how to conf
 - `localstack-init/init.sh` — Seeds LocalStack with example secrets on startup
 
 ## Quick Start
+
 ```bash
 # Build the image first
 docker build -t lucee-secret-provider .
@@ -44,6 +45,7 @@ Then open [http://localhost:8054/index.cfm](http://localhost:8054/index.cfm) to 
 ## Building and Running Manually
 
 If you prefer to build and run without Docker Compose:
+
 ```bash
 # Build the image
 docker build -t lucee-secret-provider .
@@ -57,6 +59,7 @@ Note that running without Docker Compose means LocalStack won't be available, so
 ## LocalStack Seeding
 
 On startup, `localstack-init/init.sh` automatically seeds LocalStack with example secrets. If you need to seed manually:
+
 ```bash
 docker compose exec localstack awslocal secretsmanager create-secret \
   --name "mysecret" \
