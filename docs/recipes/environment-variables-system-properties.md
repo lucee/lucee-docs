@@ -90,7 +90,7 @@ The current list of installed extensions is available via the Lucee admin.
 
 ###### 1. Simple ID List
 
-A simple list of extension IDs, which will install the latest available version (SNAPSHOT or STABLE):
+A simple list of extension IDs, which will install the latest available release version (SNAPSHOTs are only used as a fallback if no release exists). See [[extension-installation]] for full details.
 
 ```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6,
