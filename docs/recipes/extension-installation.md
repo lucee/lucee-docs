@@ -39,7 +39,9 @@ Version is optional in all installation methods. When omitted, Lucee resolves th
 
 > **Note (since 7.0.3.10):** Prior to this fix, a SNAPSHOT would be installed if one existed with a higher version number than the latest release.
 
-**Pinning versions is strongly recommended.** An unpinned extension may install a different version after an upgrade or redeploy, and version resolution requires a Maven query — pinning avoids that overhead at deploy time.
+**Pinning versions is strongly recommended.** An unpinned extension may install a different version after an upgrade or redeploy
+
+Pinned versions also deploy faster as version resolution requires a remote lookup — pinning avoids that overhead at deploy time.
 
 ### Bootstrapping pinned versions
 
