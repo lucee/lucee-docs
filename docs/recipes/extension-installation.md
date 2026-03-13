@@ -33,6 +33,10 @@ Extensions add capabilities to Lucee — JDBC drivers, resource providers (S3, R
 
 The standard Lucee jar bundles common extensions (PDF, image, etc.) so they are available out of the box. **Lucee Light** and **Lucee Zero** include no bundled extensions — you must explicitly declare every extension you need. This makes them ideal for containerised deployments where you want full control over what's installed.
 
+You can disable installing the bundled extensions on deploy by setting this ENV var to `false`:
+
+[[content::sysprop-envvar#LUCEE_EXTENSIONS_INSTALL]]
+
 ## Version Resolution
 
 Version is optional in all installation methods. When omitted, Lucee resolves the latest **release** version from Maven. SNAPSHOTs are only used as a fallback if no release exists. The resolved version is written back to the server's config file on disk.
@@ -118,6 +122,8 @@ Or with Gradle-style coordinates (7.0.1+):
 ```plaintext
 LUCEE_EXTENSIONS=org.lucee:s3-extension:2.0.2.21,org.lucee:redis-extension:3.0.0.56
 ```
+
+[[content::sysprop-envvar#LUCEE_EXTENSIONS_INSTALL]]
 
 Best for: Docker/container deployments, CI/CD pipelines, infrastructure-as-code.
 
