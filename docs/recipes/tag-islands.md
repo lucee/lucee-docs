@@ -6,7 +6,8 @@
   "keywords": [
   ],
   "categories": [
-    "language"
+    "core",
+    "flow-control"
   ],
   "related": [
     "tag-script",

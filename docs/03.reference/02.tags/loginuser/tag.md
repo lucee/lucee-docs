@@ -9,6 +9,8 @@ related:
 - function-isuserinanyrole
 - function-isuserinrole
 - function-isuserloggedin
+categories:
+- session
 ---
 
 Identifies an authenticated user to Lucee.

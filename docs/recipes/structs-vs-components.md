@@ -3,7 +3,7 @@
   "title": "Best Practices: Structs vs Inline Components",
   "id": "structs-vs-components",
   "since": "5.0",
-  "categories": ["performance", "best-practices", "components"],
+  "categories": ["performance", "best-practices", "component"],
   "description": "Performance analysis and best practices for choosing between structs and inline components in Lucee",
   "keywords": [
     "struct",

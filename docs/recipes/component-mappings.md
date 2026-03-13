@@ -16,7 +16,6 @@
   "description": "How to define and use component mappings in Lucee.",
   "keywords": [
     "Component Mapping",
-    "Classpath",
     "CFCs",
     "Application.cfc",
     "Lucee archive"

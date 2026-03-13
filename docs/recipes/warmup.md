@@ -2,7 +2,7 @@
 {
   "title": "Warmup",
   "id": "warmup",
-  "categories": ["docker", "configuration", "startup"],
+  "categories": ["docker", "configuration", "startup", "server", "devops"],
   "description": "Docker warmup and eager config loading for fail-fast validation in Lucee",
   "keywords": [
     "Warmup",
@@ -12,6 +12,9 @@
     "Container",
     "Startup",
     "onBuild"
+  ],
+  "related": [
+    "deploying-lucee-server-apps"
   ]
 }
 -->
@@ -26,7 +29,7 @@ For general Docker setup and usage, see [Running Lucee with Docker](docker.md). 
 
 In Lucee 6.2, warmup already performed JAR extraction, extension installation, and `onBuild` execution — but it did **not** validate lazy-loaded configuration sections. A broken datasource or invalid mapping would pass warmup silently and only fail later at runtime when first accessed.
 
-Lucee 7 adds **eager config loading** during warmup: all configuration sections are now forced to load, so any invalid setting produces an immediate error and fails the build.
+Lucee 7 adds **eager config loading** during warmup: all configuration sections are now forced to load, implementing a **fail-fast** approach — any invalid setting produces an immediate error and fails the build.
 
 ## Enabling Warmup
 

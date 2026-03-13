@@ -23,7 +23,7 @@
 
 # Java Class Interaction
 
-Lucee runs on the JVM, which means you have access to thousands of Java libraries directly from CFML. Need a high-performance collection? Use Java's `HashMap`. Want to work with ZIP files, parse XML, or use a third-party library? Just instantiate the Java class and call its methods.
+Lucee runs on the JVM, giving you seamless Java interop — access thousands of Java libraries directly from CFML. Need a high-performance collection? Use Java's `HashMap`. Want to work with ZIP files, parse XML, or use a third-party library? Just instantiate the Java class and call its methods.
 
 If you're new to Java, don't worry - you can start with the basics and learn as you go. Many Java classes map to familiar CFML concepts: `HashMap` is like a struct, `ArrayList` is like an array, `StringBuilder` is for efficient string concatenation.
 

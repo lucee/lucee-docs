@@ -5,6 +5,8 @@ related:
 - tag-content
 - tag-header
 - tag-htmlbody
+categories:
+- html
 ---
 
 Writes the text specified in the text attribute to the 'head' section of a generated HTML page.

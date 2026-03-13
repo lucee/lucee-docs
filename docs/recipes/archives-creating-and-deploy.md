@@ -2,7 +2,7 @@
 {
   "title": "Archives - Creating and deploying Lucee Archives (.lar files)",
   "id": "archives-creating-and-deploy",
-  "categories": ["server"],
+  "categories": ["server", "devops"],
   "description": "This document explains how to deploy an Application on a live server without using a single CFML file.",
   "keywords": ["Lucee", "Archives", ".lar files", "Deploy", "Mapping", "Component", "CFC", "CFM"]
 }

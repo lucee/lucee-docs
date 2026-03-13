@@ -1,6 +1,9 @@
 ---
 title: <cfschedule>
 id: tag-schedule
+categories:
+- server
+- devops
 ---
 
 Provides a programmatic interface to the scheduling engine.

@@ -3,7 +3,7 @@
   "title": "External Agent",
   "id": "external-agent",
   "since": "7.0",
-  "categories": ["instrumentation"],
+  "categories": ["instrumentation", "java"],
   "description": "Java agent for registering the Instrumentation instance in Lucee",
   "keywords": [
     "agent",

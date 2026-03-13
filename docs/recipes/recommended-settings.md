@@ -11,8 +11,9 @@
     "config"
   ],
   "categories":[
-    "server"
-  ], 
+    "server",
+    "devops"
+  ],
   "related": [
     "lucee-lockdown-guide",
     "supercharge-your-website",

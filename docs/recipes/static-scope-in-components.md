@@ -11,17 +11,15 @@
   "keywords": [
     "Static scope",
     "Components",
-    "Lucee",
     "Application scope",
-    "Server scope",
-    "GetComponentMetaData"
+    "Server scope"
   ]
 }
 -->
 
 # Static Scope in Components
 
-Static variables and functions belong to the component itself, not to individual instances. Use them for shared state (counters, caches, config) or utility functions that don't need instance data.
+Static variables and functions belong to the component itself, not to individual instances. Use them for shared state (counters, caches, config) or utility functions that don't need instance data. Static scope is similar to Application scope in lifespan, but isolated per component — unlike Server scope which is shared across all applications.
 
 Call static members with `::` syntax: `MyComponent::myStaticFunction()`.
 

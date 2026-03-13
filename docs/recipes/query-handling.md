@@ -338,7 +338,7 @@ cfquery(name="safe", datasource="myDB", sql="SELECT * FROM users WHERE name = ?"
 **Why parameters are essential:**
 
 - **Security** - complete protection against SQL injection attacks
-- **Performance** - Lucee caches the statement and reuses it with different values
+- **Performance** - Lucee uses prepared statements, caching the query plan and reusing it with different values
 - **Type safety** - explicit type conversion and validation
 - **Maintainability** - cleaner, more readable code
 

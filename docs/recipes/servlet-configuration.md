@@ -16,7 +16,8 @@
   ],
   "categories": [
     "java",
-    "server"
+    "server",
+    "devops"
   ],
   "related": [
 	"deploying-lucee-server-apps",

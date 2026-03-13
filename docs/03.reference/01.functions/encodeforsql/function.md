@@ -3,9 +3,8 @@ title: EncodeForSQL
 id: function-encodeforsql
 related:
 categories:
-    - ESAPI
-    - SQL
-    - query
+- esapi
+- query
 ---
 
 Encodes the given string for safe output in a query to reduce the risk of SQL Injection attacks.

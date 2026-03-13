@@ -3,7 +3,7 @@
   "title": "Database Connection Management in Lucee",
   "id": "database-connection-management",
   "since": "5.0",
-  "categories": ["database", "performance"],
+  "categories": ["database", "performance", "query"],
   "description": "Understanding how Lucee manages database connections: pooled, exclusive, and transaction-based connections",
   "keywords": [
     "database",

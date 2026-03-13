@@ -15,7 +15,8 @@
     "Threshold"
   ],
   "categories": [
-    "server"
+    "server",
+    "flow-control"
   ],
   "related":[
     "tag-timeout",

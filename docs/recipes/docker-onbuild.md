@@ -3,12 +3,14 @@
   "title": "onBuild Function in Server.cfc",
   "id": "onbuild-function",
   "related": [
-    "startup-listeners-code"
+    "startup-listeners-code",
+    "warmup"
   ],
   "since": "6.1.1",
   "categories": [
     "server",
     "docker",
+    "devops",
     "system"
   ],
   "description": "The onBuild function in Server.cfc is used for tasks during the build phase in Lucee, particularly useful in Docker environments.",

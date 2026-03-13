@@ -5,7 +5,6 @@
   "since": "6.0",
   "description": "Learn about the switch from double to BigDecimal in Lucee 6 for more precise mathematical operations. This guide provides information on how to change the default behavior if needed.",
   "keywords": [
-    "CFML",
     "math",
     "precision",
     "BigDecimal",

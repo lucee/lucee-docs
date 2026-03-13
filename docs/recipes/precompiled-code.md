@@ -13,14 +13,15 @@
     "Lucee"
   ],
   "categories":[
-    "server"
+    "server",
+    "devops"
   ]
 }
 -->
 
 # Precompiled Code
 
-Deploy pre-compiled bytecode instead of source files to avoid compilation on production servers.
+Deploy pre-compiled bytecode instead of source files — avoids compilation on production servers and improves security by keeping CFML source out of the deployment.
 
 ## Example
 

@@ -11,6 +11,8 @@ related:
 - function-jsstringformat
 - function-systemoutput
 - function-xmlformat
+categories:
+- core
 ---
 
 Writes the given string to the main response buffer regardless of

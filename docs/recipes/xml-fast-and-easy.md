@@ -6,7 +6,7 @@
     "function-xmlparse"
   ],
   "categories": [
-    "XML"
+    "xml"
   ],
   "description": "This document explains how to use XML parsing in Lucee.",
   "keywords": [

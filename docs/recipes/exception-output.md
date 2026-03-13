@@ -17,7 +17,6 @@
     "Output",
     "Catch",
     "Display exceptions",
-    "Lucee",
     "try-catch"
   ]
 }

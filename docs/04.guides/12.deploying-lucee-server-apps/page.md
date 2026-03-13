@@ -3,6 +3,7 @@ title: Deploying Lucee
 id: deploying-lucee-server-apps
 categories:
 - server
+- devops
 related:
 - running-lucee-system-properties
 - locking-down-lucee-server

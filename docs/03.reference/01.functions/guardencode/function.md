@@ -3,17 +3,11 @@ title: GuardEncode
 id: function-guardencode
 related:
 categories:
-    - encode
-    - xss
-    - security
-    - html
-    - javascript
-    - css
-    - url
-    - sql
-    - xml
-    - ldap
-    - xpath
+- esapi
+- html
+- javascript
+- xml
+- ldap
 ---
 
 Deprecated legacy function. Use context-specific functions (e.g., encodeForHTML) instead.

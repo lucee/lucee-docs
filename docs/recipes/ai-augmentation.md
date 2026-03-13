@@ -24,7 +24,7 @@
 
 Lucee's AI capabilities can be enhanced with Retrieval-Augmented Generation (RAG) using the [[lucene-3-extension]].
 
-This powerful combination allows AI models to reference your indexed content when responding to queries, creating more accurate and contextually relevant answers.
+This powerful combination allows AI / LLM (Large Language Models) to reference your indexed content when responding to queries, creating more accurate and contextually relevant answers.
 
 ## Overview
 

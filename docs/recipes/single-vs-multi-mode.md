@@ -10,7 +10,8 @@
     "Configuration"
   ],
   "categories": [
-    "server"
+    "server",
+    "devops"
   ],
   "since": "6.0",
   "related": [

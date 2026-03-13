@@ -3,6 +3,7 @@ title: <cfmailpart>
 id: tag-mailpart
 related:
 categories:
+- protocols
 ---
 
 Specifies one part of a multipart e-mail message.

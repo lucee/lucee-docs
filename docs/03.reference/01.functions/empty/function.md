@@ -4,6 +4,8 @@ id: function-empty
 related:
 - function-isempty
 description: This function is deprecated, use instead IsEmpty()
+categories:
+- decision
 ---
 
 This function is deprecated, use instead [[function-IsEmpty]].

@@ -3,7 +3,7 @@
   "title": "Creating Heap Dumps in Lucee",
   "id": "heap-dumps",
   "since": "5.0",
-  "categories": ["troubleshooting", "performance", "memory"],
+  "categories": ["troubleshooting", "performance", "memory", "debugging", "server", "devops"],
   "description": "Documentation for creating and analyzing heap dumps in Lucee for memory troubleshooting",
   "keywords": [
     "Heap Dump",

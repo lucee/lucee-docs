@@ -4,13 +4,11 @@
   "id": "Docker",
   "description": "Guide on using and running Lucee with Docker",
   "keywords": [
-    "Docker",
-    "commandbox",
-    "installation",
-    "kubernetes"
+    "Docker"
   ],
   "categories": [
-    "server"
+    "server",
+    "devops"
   ]
 }
 -->

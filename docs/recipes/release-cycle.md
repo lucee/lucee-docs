@@ -2,7 +2,7 @@
 {
   "title": "Lucee Release Cycle",
   "id": "release-cycle",
-  "categories": ["development", "versioning"],
+  "categories": ["development", "versioning", "server", "devops"],
   "description": "Documentation for Lucee's release branching and versioning strategy",
   "keywords": [
     "release",
@@ -18,7 +18,7 @@
 
 # Lucee Release Cycle
 
-This document describes Lucee's release branching strategy and version numbering conventions.
+This document describes Lucee's release branching strategy, versioning conventions, and version numbering scheme.
 
 ## Overview
 

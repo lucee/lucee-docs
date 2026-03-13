@@ -11,6 +11,7 @@
     "Lucee",
     "cfs"
   ],
+  "categories": ["core"],
   "related": [
     "tag-script"
   ]

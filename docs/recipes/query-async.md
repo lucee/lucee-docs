@@ -8,8 +8,7 @@
     "query",
     "async",
     "listener",
-    "thread",
-    "parallel"
+    "thread"
   ],
   "categories": [
     "query"

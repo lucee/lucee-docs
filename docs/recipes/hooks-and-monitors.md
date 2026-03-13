@@ -3,7 +3,7 @@
   "title": "Hooks and Monitors",
   "id": "hooks-monitors",
   "since": "5.3",
-  "categories": ["extension", "configuration"],
+  "categories": ["extensions", "configuration"],
   "description": "Configure and use hooks and monitors to extend Lucee functionality at various lifecycle points",
   "keywords": [
     "hooks",

@@ -2,7 +2,7 @@
 {
   "title": "Mocking Static Functions",
   "id": "mocking-static-functions-lucee",
-  "categories": ["lucee", "testing"],
+  "categories": ["lucee", "testing", "static", "component"],
   "description": "How to mock static functions in Lucee for better testability without unnecessary wrappers.",
   "keywords": [
     "Static Functions",
@@ -12,7 +12,7 @@
 }
 -->
 
-# Mocking Static Functions in Lucee
+# Mocking Static Functions in Lucee for Unit Testing
 
 ## Understanding Static Functions in Lucee
 

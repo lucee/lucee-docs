@@ -8,7 +8,6 @@
     "java",
     "logging",
     "slf4j",
-    "log4j",
     "lucee.commons.io.log.Log"
   ],
   "related": [
