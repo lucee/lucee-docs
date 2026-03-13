@@ -3,7 +3,7 @@
     "file": "admin-password.md",
     "title": "Setting the Lucee Admin Password",
     "path": "/docs/recipes/admin-password.md",
-    "hash": "dd0fa2bb0aa57f814e1030dfdedfa4f7",
+    "hash": "c8639bdb7c7b5a9653701517350312bf",
     "keywords": [
       "admin",
       "password",
@@ -16,7 +16,7 @@
     "file": "ai-augmentation.md",
     "title": "AI Augmentation with Lucene",
     "path": "/docs/recipes/ai-augmentation.md",
-    "hash": "a06be52882fa793645af6426cc5ce482",
+    "hash": "4bd7804f77df321edac9f759e29a95e1",
     "keywords": [
       "AI",
       "LLM",
@@ -31,20 +31,14 @@
     "file": "ai-for-documentation.md",
     "title": "AI in Documentation (Experimental)",
     "path": "/docs/recipes/ai-for-documentation.md",
-    "hash": "910654d6219f450f9db93b070b66979b",
+    "hash": "3d4dbafcd824bec9eb912c720bfeead9",
     "keywords": [
       "AI",
       "LLM",
       "documentation",
-      "retrieval-augmented generation",
-      "RAG",
-      "setup",
       "configuration",
-      "Lucee",
       "Monitor",
       "experimental",
-      "integration",
-      "monitoring",
       "admin settings",
       "AI engines",
       "OpenAI",
@@ -56,7 +50,7 @@
     "file": "ai-serialisation.md",
     "title": "AI Session Serialization",
     "path": "/docs/recipes/ai-serialisation.md",
-    "hash": "b202a3ca8f024c71da43791e6542652c",
+    "hash": "d6ee773e33efc6c28c7d51eec4d39bef",
     "keywords": [
       "AI",
       "LLM",
@@ -85,7 +79,7 @@
     "file": "application-cfc.md",
     "title": "Application.cfc #",
     "path": "/docs/recipes/application-cfc.md",
-    "hash": "141f1e72cb88c8ac879b5123a924c3e2",
+    "hash": "2581af97ffaf1cf66d6e60b396177778",
     "keywords": [
       "Application Context",
       "Application Listeners",
@@ -113,7 +107,7 @@
     "file": "archives-creating-and-deploy.md",
     "title": "Archives - Creating and deploying Lucee Archives (.lar files)",
     "path": "/docs/recipes/archives-creating-and-deploy.md",
-    "hash": "2e9b2e247905a48a34ca378e8be4e7b4",
+    "hash": "05a83c34360f91825642030ac1588c58",
     "keywords": [
       "Lucee",
       "Archives",
@@ -129,7 +123,7 @@
     "file": "ast.md",
     "title": "AST (Abstract Syntax Tree)",
     "path": "/docs/recipes/ast.md",
-    "hash": "62d548100917c0b068072334e37eff9f",
+    "hash": "07625132a4de6027829bae3e59ddd0a0",
     "keywords": [
       "AST",
       "Abstract Syntax Tree",
@@ -159,7 +153,7 @@
     "file": "breaking-changes-6-0.md",
     "title": "Breaking Changes between Lucee 5.4 and 6.0",
     "path": "/docs/recipes/breaking-changes-6-0.md",
-    "hash": "ffc1fb536ef7e39956e887c402f42a51",
+    "hash": "53ce5acd488d8f46e4bd2b2fa774dee4",
     "keywords": [
       "breaking changes",
       "Lucee 5.4",
@@ -172,7 +166,7 @@
     "file": "breaking-changes-6-1.md",
     "title": "Breaking Changes between Lucee 6.0 and 6.1",
     "path": "/docs/recipes/breaking-changes-6-1.md",
-    "hash": "a56c2402cbe9591a4e83bc63f730e4fc",
+    "hash": "687ad5efa20a8a7c11b89158dc562710",
     "keywords": [
       "breaking changes",
       "Lucee 6.0",
@@ -185,7 +179,7 @@
     "file": "breaking-changes-6-2.md",
     "title": "Breaking Changes between Lucee 6.1 and 6.2",
     "path": "/docs/recipes/breaking-changes-6-2.md",
-    "hash": "72e66bb0411c419f85f5dc85c938ec76",
+    "hash": "f82429f464e85f039029efca6aa5132e",
     "keywords": [
       "breaking changes",
       "Lucee 6.1",
@@ -279,7 +273,7 @@
     "file": "checksum.md",
     "title": "Checksum",
     "path": "/docs/recipes/checksum.md",
-    "hash": "7e07b84e97b6aa8d00ddc4e046c089fb",
+    "hash": "3174db9d5dbd23ae661d3d67661d6e39",
     "keywords": [
       "Checksum",
       "File validation",
@@ -304,10 +298,9 @@
     "file": "component-mappings.md",
     "title": "Component Mappings",
     "path": "/docs/recipes/component-mappings.md",
-    "hash": "392206922e4fa29e0ba9cefd72a2dd0d",
+    "hash": "aa653267b180942592c90d019e9ee04b",
     "keywords": [
       "Component Mapping",
-      "Classpath",
       "CFCs",
       "Application.cfc",
       "Lucee archive"
@@ -409,7 +402,7 @@
     "file": "database-connection-management.md",
     "title": "Database Connection Management in Lucee",
     "path": "/docs/recipes/database-connection-management.md",
-    "hash": "da151534732a74a3e3c4713a5bf6decf",
+    "hash": "f26ebc9b80ac471ad6a19a01a060ffc3",
     "keywords": [
       "database",
       "connection pool",
@@ -464,7 +457,7 @@
     "file": "docker-onbuild.md",
     "title": "onBuild Function in Server.cfc",
     "path": "/docs/recipes/docker-onbuild.md",
-    "hash": "8fbd809ba03fdf4c2d5e83f3906eae23",
+    "hash": "1742d2e9b0af0c9cf960d1d8c5ccc7b3",
     "keywords": [
       "onBuild",
       "Server.cfc",
@@ -485,19 +478,16 @@
     "file": "docker.md",
     "title": "Docker",
     "path": "/docs/recipes/docker.md",
-    "hash": "5ad1864a0bd4964e7886a1d38acf81cb",
+    "hash": "8052218f572026fad0941b130b5c30ea",
     "keywords": [
-      "Docker",
-      "commandbox",
-      "installation",
-      "kubernetes"
+      "Docker"
     ]
   },
   {
     "file": "dynamic-proxy-enhancements.md",
     "title": "Dynamic Proxy Enhancements",
     "path": "/docs/recipes/dynamic-proxy-enhancements.md",
-    "hash": "5508d11b9d8ea62ae263da73126bce88",
+    "hash": "b67d5128d7456e1a1c263624a7a1e675",
     "keywords": [
       "dynamic proxy",
       "java",
@@ -541,7 +531,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "3c54c16a71d3eb1eda2debec9e257c5a",
+    "hash": "b26c638f77410fdfe81b1e1823781ba5",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -555,13 +545,12 @@
     "file": "event-gateway-create.md",
     "title": "Custom Event Gateways",
     "path": "/docs/recipes/event-gateway-create.md",
-    "hash": "5e579c03f37e4a64bc358fca2e4004e2",
+    "hash": "fa5924fd2becd468533371821613248b",
     "keywords": [
       "Event Gateway",
       "Custom Gateway",
       "Directory Watcher",
       "File Size Checker",
-      "Lucee",
       "Gateway Driver"
     ]
   },
@@ -569,12 +558,11 @@
     "file": "event-gateways-how-they-work.md",
     "title": "Event Gateway - How they work?",
     "path": "/docs/recipes/event-gateways-how-they-work.md",
-    "hash": "0765ea400f5b4dc7cb5e44ffdeb92aff",
+    "hash": "283a18a3d0eeb173309555b107acf089",
     "keywords": [
       "Event Gateway",
       "Directory Watcher",
       "Mail Watcher",
-      "Lucee",
       "cfadmin",
       "File Changes"
     ]
@@ -583,15 +571,13 @@
     "file": "event-gateways.md",
     "title": "Event Gateways",
     "path": "/docs/recipes/event-gateways.md",
-    "hash": "f12aa59f063a1429a16e0da75b81af28",
+    "hash": "63d1a092480cf1cb4e89629b93067599",
     "keywords": [
       "Event Gateway",
-      "Custom Gateway",
       "SMS",
       "File Change",
       "Mail Server",
-      "Slack Notification",
-      "Lucee"
+      "Slack Notification"
     ]
   },
   {
@@ -625,13 +611,12 @@
     "file": "exception-output.md",
     "title": "Exception Output",
     "path": "/docs/recipes/exception-output.md",
-    "hash": "16a42ed16540d3c53d9d19f7465c310f",
+    "hash": "186e4192311db55028f4744bdd221520",
     "keywords": [
       "Exception",
       "Output",
       "Catch",
       "Display exceptions",
-      "Lucee",
       "try-catch"
     ]
   },
@@ -639,7 +624,7 @@
     "file": "execution-log.md",
     "title": "ExecutionLog",
     "path": "/docs/recipes/execution-log.md",
-    "hash": "133eff381ed64530cdac7fde118247e7",
+    "hash": "d6adbd7669bb26057c90b5435ece2e9f",
     "keywords": [
       "executionlog",
       "debug",
@@ -682,7 +667,7 @@
     "file": "external-agent.md",
     "title": "External Agent",
     "path": "/docs/recipes/external-agent.md",
-    "hash": "fa4c02a8fc78ca50bbdbb6e9973ae125",
+    "hash": "15ca2fd4a5108db05f593f9e1af4fbca",
     "keywords": [
       "agent",
       "instrumentation",
@@ -736,13 +721,12 @@
     "file": "function-listeners.md",
     "title": "Function Listeners",
     "path": "/docs/recipes/function-listeners.md",
-    "hash": "22ac82e557d07ae9f754c945b619e0fe",
+    "hash": "3a0f150732d4d9f306d76d922d21a1f5",
     "keywords": [
       "parallel",
       "async",
       "thread",
-      "function",
-      "promises"
+      "function"
     ]
   },
   {
@@ -774,9 +758,8 @@
     "file": "global-proxy.md",
     "title": "Global Proxy",
     "path": "/docs/recipes/global-proxy.md",
-    "hash": "667062eb1c68db84541ac879cdcd9c49",
+    "hash": "ab38aa15355b3b1caead619234ebfdbb",
     "keywords": [
-      "CFML",
       "proxy",
       "global proxy",
       "Lucee",
@@ -788,7 +771,7 @@
     "file": "heap-dumps.md",
     "title": "Creating Heap Dumps in Lucee",
     "path": "/docs/recipes/heap-dumps.md",
-    "hash": "5372650cd322c547b4aaef1c670a1b51",
+    "hash": "83adfafe43870f8cad27359b134d6b82",
     "keywords": [
       "Heap Dump",
       "Memory",
@@ -803,7 +786,7 @@
     "file": "hidden-gems.md",
     "title": "Hidden Gems",
     "path": "/docs/recipes/hidden-gems.md",
-    "hash": "692dc4e4788edf1718091734f73c7c45",
+    "hash": "75990b3f5447ed47526089feafe60cdb",
     "keywords": [
       "Hidden gems",
       "Declare variables",
@@ -818,7 +801,7 @@
     "file": "hooks-and-monitors.md",
     "title": "Hooks and Monitors",
     "path": "/docs/recipes/hooks-and-monitors.md",
-    "hash": "d7c336bf16152f91ab033837b35f654e",
+    "hash": "095220a8764509c7f0b09ee61f40a8bd",
     "keywords": [
       "hooks",
       "monitors",
@@ -860,19 +843,17 @@
     "file": "inline-components.md",
     "title": "Inline Components",
     "path": "/docs/recipes/inline-components.md",
-    "hash": "faa97f9147f712c6961095a4d56198f8",
+    "hash": "0df195672a6476656ac638933c190c0f",
     "keywords": [
-      "CFML",
       "component",
-      "inline-component",
-      "Lucee"
+      "inline-component"
     ]
   },
   {
     "file": "java-class-interaction.md",
     "title": "Java Class Interaction",
     "path": "/docs/recipes/java-class-interaction.md",
-    "hash": "3ffc40980846d9a767b5a96434ee978f",
+    "hash": "55c4d203e155a24ed371e3eef149761c",
     "keywords": [
       "Java",
       "Classes",
@@ -927,7 +908,7 @@
     "file": "java-scripting.md",
     "title": "Java Scripting with Lucee",
     "path": "/docs/recipes/java-scripting.md",
-    "hash": "3048a8e1cb851b258451da6ef612eb0b",
+    "hash": "3a25af800fed1a17a4caae68db60525c",
     "keywords": [
       "Java",
       "JSR-223",
@@ -955,12 +936,11 @@
     "file": "java-using-lucee-logging.md",
     "title": "Java Classes Using Lucee's Logging",
     "path": "/docs/recipes/java-using-lucee-logging.md",
-    "hash": "6b0301ab53b9260dc50a78d9b3a9b8c7",
+    "hash": "a304e2dc7bd33953429f6a75e6574255",
     "keywords": [
       "java",
       "logging",
       "slf4j",
-      "log4j",
       "lucee.commons.io.log.Log"
     ]
   },
@@ -968,7 +948,7 @@
     "file": "javax-vs-jakarta.md",
     "title": "javax vs jakarta Servlet Compatibility",
     "path": "/docs/recipes/javax-vs-jakarta.md",
-    "hash": "53fd6b1046f5cc10caf9217e123522a9",
+    "hash": "1e3ce394f3326c1bd00289a65d9d5f9c",
     "keywords": [
       "javax",
       "jakarta",
@@ -985,7 +965,7 @@
     "file": "language-server.md",
     "title": "Language Server Protocol (LSP) for Lucee",
     "path": "/docs/recipes/language-server.md",
-    "hash": "304ba26e4c261a1afdcb6f49cb913042",
+    "hash": "06acbccdd6e14704f8ae5a1878b51361",
     "keywords": [
       "LSP",
       "language server",
@@ -1026,7 +1006,7 @@
     "file": "logging-http-calls.md",
     "title": "Logging HTTP Calls",
     "path": "/docs/recipes/logging-http-calls.md",
-    "hash": "09d877a47f2ad48dcd77d38b73cdba1e",
+    "hash": "7c45c5a655a0f0366ceec61f8b78fbbc",
     "keywords": [
       "cfhttp",
       "logging",
@@ -1051,7 +1031,7 @@
     "file": "loop-labels.md",
     "title": "Loop Labels",
     "path": "/docs/recipes/loop-labels.md",
-    "hash": "21148a893182e1c19d6d1301b31db5e5",
+    "hash": "8d98fe7c0a55898cee920d3163550010",
     "keywords": [
       "loop",
       "label",
@@ -1150,9 +1130,8 @@
     "file": "mathematical-precision.md",
     "title": "Mathematical Precision",
     "path": "/docs/recipes/mathematical-precision.md",
-    "hash": "a5cc99c1a29fbfc97b58510819de4a67",
+    "hash": "06b6a0d139bda55032561a7962fac846",
     "keywords": [
-      "CFML",
       "math",
       "precision",
       "BigDecimal",
@@ -1217,7 +1196,7 @@
     "file": "mssql-modern-mode.md",
     "title": "MSSQL Modern Mode",
     "path": "/docs/recipes/mssql-modern-mode.md",
-    "hash": "b71bc58401401cf9c4765caf6282d8ba",
+    "hash": "579b5f16039c503b5378e630e4148dac",
     "keywords": [
       "mssql",
       "sql server",
@@ -1260,7 +1239,7 @@
     "file": "overwrite-build-in-functions-tags.md",
     "title": "Overwriting and Adding Built-in Functions and Tags",
     "path": "/docs/recipes/overwrite-build-in-functions-tags.md",
-    "hash": "4f532c2580466b7bac88f5cf1f182c4c",
+    "hash": "76f56c37effdda0ee6cf657e96415b66",
     "keywords": [
       "function",
       "BIF",
@@ -1289,7 +1268,7 @@
     "file": "precompiled-code.md",
     "title": "Precompiled Code",
     "path": "/docs/recipes/precompiled-code.md",
-    "hash": "4a77006bca46dc792880755d9cb7dfbc",
+    "hash": "354d630f5ded8336a5a60530fd80e350",
     "keywords": [
       "Precompiled",
       "Pre-compile code",
@@ -1304,20 +1283,19 @@
     "file": "query-async.md",
     "title": "Query Async",
     "path": "/docs/recipes/query-async.md",
-    "hash": "2b9e6eabec0aa12606868580ed87afac",
+    "hash": "56cb13e7f1c0cc4e1e93ad3dc7376aa8",
     "keywords": [
       "query",
       "async",
       "listener",
-      "thread",
-      "parallel"
+      "thread"
     ]
   },
   {
     "file": "query-handling.md",
     "title": "Query Execution",
     "path": "/docs/recipes/query-handling.md",
-    "hash": "e59bca9267415b71aef1bb76529e0102",
+    "hash": "2f6be98c4dd42b7a55e67ce2ef1eca63",
     "keywords": [
       "cfquery",
       "queryExecute",
@@ -1428,7 +1406,7 @@
     "file": "recommended-settings.md",
     "title": "Recommended Settings",
     "path": "/docs/recipes/recommended-settings.md",
-    "hash": "1c743f48855e32d85990301890d3b124",
+    "hash": "942660bb0a67ca52df8e6ec9e17794a2",
     "keywords": [
       "settings",
       "performance",
@@ -1441,7 +1419,7 @@
     "file": "release-cycle.md",
     "title": "Lucee Release Cycle",
     "path": "/docs/recipes/release-cycle.md",
-    "hash": "2a0d1289d37499a00d7f353bc0fd4d33",
+    "hash": "7247fffc83a548026fd1a5393bd65e25",
     "keywords": [
       "release",
       "versioning",
@@ -1455,7 +1433,7 @@
     "file": "request-timeout.md",
     "title": "Request Timeout",
     "path": "/docs/recipes/request-timeout.md",
-    "hash": "676809618129e7d38b12fc893e61732b",
+    "hash": "4f6019eb0f4efa34dd69f2cddd4a7ed7",
     "keywords": [
       "request timeout",
       "timeout",
@@ -1472,7 +1450,7 @@
     "file": "rest-services.md",
     "title": "Lucee and REST Services",
     "path": "/docs/recipes/rest-services.md",
-    "hash": "3a6622e469130846808dbe70140c883a",
+    "hash": "933a7b127ce9000e537cf12557130a11",
     "keywords": [
       "REST",
       "verbs",
@@ -1483,7 +1461,7 @@
     "file": "retry.md",
     "title": "Retry",
     "path": "/docs/recipes/retry.md",
-    "hash": "dff3da0c343016ae43e697fb1f3304a2",
+    "hash": "916f0ccbfb7ff49be017725496f28bd5",
     "keywords": [
       "Retry",
       "Exception handling",
@@ -1552,7 +1530,7 @@
     "file": "script-templates.md",
     "title": "Script Templates",
     "path": "/docs/recipes/script-templates.md",
-    "hash": "85326e1cd7f4701476bc1a48edc03635",
+    "hash": "6de825d66d5b21f351cd69337494b741",
     "keywords": [
       "CFML",
       "script",
@@ -1565,7 +1543,7 @@
     "file": "secret-provider.md",
     "title": "Secret Management",
     "path": "/docs/recipes/secret-provider.md",
-    "hash": "5df0dc769c25f7a7bc6e0e779e55a3b6",
+    "hash": "ba5bc358dd01f4573ce477694ae344ac",
     "keywords": [
       "security",
       "secrets",
@@ -1578,7 +1556,7 @@
     "file": "servlet-configuration.md",
     "title": "Servlet Configuration",
     "path": "/docs/recipes/servlet-configuration.md",
-    "hash": "3038726de0c3c34d5f70efde32c50cd2",
+    "hash": "3cb2b7eac5a5ff1eb829d1a2bba9575c",
     "keywords": [
       "java",
       "javax",
@@ -1611,7 +1589,7 @@
     "file": "setting-system-properties-and-env-vars.md",
     "title": "Setting System Properties and Environment Variables",
     "path": "/docs/recipes/setting-system-properties-and-env-vars.md",
-    "hash": "cadb654df6280a307fd68031141ce565",
+    "hash": "17153b8b318bf0571f771992e4e08581",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -1625,7 +1603,7 @@
     "file": "single-vs-multi-mode.md",
     "title": "Single Mode vs Multi Mode in Lucee",
     "path": "/docs/recipes/single-vs-multi-mode.md",
-    "hash": "2750afe7067657be65f59720eff241a4",
+    "hash": "b21c45abf853a24cf3b04d8f89eeda74",
     "keywords": [
       "Lucee",
       "Single Mode",
@@ -1651,7 +1629,7 @@
     "file": "startup-listeners-code.md",
     "title": "Startup Listeners - Server.cfc and Web.cfc",
     "path": "/docs/recipes/startup-listeners-code.md",
-    "hash": "373d17116152d2eca8704f288942dec1",
+    "hash": "ff6f5d3166024549cc7623d1bee194dd",
     "keywords": [
       "startup",
       "warmup",
@@ -1671,9 +1649,9 @@
   },
   {
     "file": "static-mocking.md",
-    "title": "Mocking Static Functions in Lucee",
+    "title": "Mocking Static Functions in Lucee for Unit Testing",
     "path": "/docs/recipes/static-mocking.md",
-    "hash": "96fca1330ede35cc2628a2871435f6ad",
+    "hash": "ed270f266b251adc5afb371fe6052148",
     "keywords": [
       "Static Functions",
       "Mocking",
@@ -1684,14 +1662,12 @@
     "file": "static-scope-in-components.md",
     "title": "Static Scope in Components",
     "path": "/docs/recipes/static-scope-in-components.md",
-    "hash": "3ecee27a2cdbfbaef60a4e4cc546f2f5",
+    "hash": "11825d009e6af341c846e414b0fb84e4",
     "keywords": [
       "Static scope",
       "Components",
-      "Lucee",
       "Application scope",
-      "Server scope",
-      "GetComponentMetaData"
+      "Server scope"
     ]
   },
   {
@@ -1709,7 +1685,7 @@
     "file": "structs-vs-components.md",
     "title": "Best Practices: Structs vs Inline Components",
     "path": "/docs/recipes/structs-vs-components.md",
-    "hash": "2b18f115806efb90ddf584a3de19a8b1",
+    "hash": "906c3322bc067d21bb1db3b016534a6e",
     "keywords": [
       "struct",
       "component",
@@ -1750,7 +1726,7 @@
     "file": "tag-islands.md",
     "title": "Tag Islands",
     "path": "/docs/recipes/tag-islands.md",
-    "hash": "9806cc533777fbe0fd43a2e5c079a884",
+    "hash": "2aa56a32d8f99c5a470ca9b550ef1e96",
     "keywords": []
   },
   {
@@ -1813,7 +1789,7 @@
     "file": "timeout.md",
     "title": "Timeout",
     "path": "/docs/recipes/timeout.md",
-    "hash": "afb6e1fc4dce418095062653d002f234",
+    "hash": "a016646b7f2306f534f06f04b6f61307",
     "keywords": [
       "tag",
       "timeout",
@@ -1827,7 +1803,7 @@
     "file": "troubleshooting.md",
     "title": "Troubleshooting Lucee Problems",
     "path": "/docs/recipes/troubleshooting.md",
-    "hash": "dc2b0be7c98aa79f68698f8d6366cac5",
+    "hash": "a88d5d03f1d53897e7880c5dcc33006d",
     "keywords": [
       "startup",
       "deployment",
@@ -1864,7 +1840,7 @@
     "file": "versions.md",
     "title": "Lucee Versions and Extensions",
     "path": "/docs/recipes/versions.md",
-    "hash": "a54db02cbb71aaf08e9c92b568e46bd3",
+    "hash": "757dac7d669dfeaeddee5bd20bed1941",
     "keywords": [
       "versions",
       "extensions",
@@ -1911,7 +1887,7 @@
     "file": "warmup.md",
     "title": "Warmup",
     "path": "/docs/recipes/warmup.md",
-    "hash": "db1920383e8dbae8793f756d7157a724",
+    "hash": "56200f3960fabf3c0db609e8f6ce2d4e",
     "keywords": [
       "Warmup",
       "Docker",
@@ -1936,7 +1912,7 @@
     "file": "xml-fast-and-easy.md",
     "title": "XML Fast And Easy, using SAX - Listener Functions",
     "path": "/docs/recipes/xml-fast-and-easy.md",
-    "hash": "b9267759069eab090cba5b74063715ea",
+    "hash": "db83ebf911692b6d5c7fb24463b02526",
     "keywords": [
       "XML parsing",
       "SAX",

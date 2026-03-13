@@ -10,7 +10,7 @@ Documentation for augmenting AI queries using Lucene search in Lucee
 
 ## [AI in Documentation (Experimental)](/docs/recipes/ai-for-documentation.md)
 
-Guide to configuring AI for use in Lucee's Documentation tab, leveraging retrieval-augmented generation (RAG) and enhanced search functionality.
+Guide to configuring AI / LLM for use in Lucee's Documentation tab.
 
 ## [AI Session Serialization](/docs/recipes/ai-serialisation.md)
 
@@ -476,7 +476,7 @@ SQL types for query parameters
 
 Lucee supports two types of Startup Listeners: Server.cfc and Web.cfc.
 
-## [Mocking Static Functions in Lucee](/docs/recipes/static-mocking.md)
+## [Mocking Static Functions in Lucee for Unit Testing](/docs/recipes/static-mocking.md)
 
 How to mock static functions in Lucee for better testability without unnecessary wrappers.
 
