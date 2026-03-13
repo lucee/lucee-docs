@@ -31,7 +31,13 @@ Extensions add capabilities to Lucee — JDBC drivers, resource providers (S3, R
 
 ## Standard vs Light vs Zero
 
-The standard Lucee jar bundles common extensions (PDF, image, etc.) so they are available out of the box. **Lucee Light** and **Lucee Zero** include no bundled extensions — you must explicitly declare every extension you need. This makes them ideal for containerised deployments where you want full control over what's installed.
+The standard Lucee jar bundles common extensions (PDF, image, etc.) so they are available out of the box. 
+
+**Lucee Light** and **Lucee Zero** include no bundled extensions — you must explicitly declare every extension you need. This makes them ideal for containerised deployments where you want full control over what's installed.
+
+Lucee Light includes the Lucee Admin archive (`.lar`), while Zero doesn't, saving about 2Mb.
+
+In order to enable the Admin with Lucee light, you need to install the Admin Extension, which just adds a mapping to the the archive.
 
 You can disable installing the bundled extensions on deploy by setting this ENV var to `false`:
 
