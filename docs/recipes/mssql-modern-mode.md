@@ -3,7 +3,7 @@
   "title": "Lucee MSSQL Modern Mode",
   "id": "mssql-modern-mode",
   "since": "5.3.8.169",
-  "categories": ["database", "mssql"],
+  "categories": ["database", "mssql", "query"],
   "description": "How to enable and use MSSQL modern mode in Lucee for proper handling of RAISERROR exceptions and complex T-SQL batches",
   "keywords": [
     "mssql",

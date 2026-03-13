@@ -12,7 +12,8 @@
     "break"
   ],
   "categories": [
-    "language"
+    "iterator",
+    "flow-control"
   ],
   "related": [
     "tag-loop"
@@ -57,3 +58,24 @@ outerloop:for(hour=0; hour<=4; hour++) {
 ```
 
 In this example, the `continue outerloop` statement causes the loop to skip to the next iteration of the outer loop, effectively restarting the outer loop and ignoring the remaining iterations of the inner loop.
+
+## While Loop Example
+
+Labels work the same way with `while` loops:
+
+```cfscript
+hour = 0;
+outerloop: while( hour <= 4 ) {
+    minute = 1;
+    while( minute <= 60 ) {
+        echo( "time: " & hour & ":" & minute & "<br>" );
+        minute++;
+        if( minute > 3 ) break outerloop; // exits both while loops
+    }
+    echo( "in outer loop<br>" ); // never executed
+    hour++;
+}
+echo( hour ); // outputs 0
+```
+
+`break outerloop` exits both `while` loops immediately — the outer loop body after the inner loop is never reached, and `hour` is never incremented.

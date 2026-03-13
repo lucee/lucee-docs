@@ -4,11 +4,7 @@ id: function-guarddecode
 related:
 - function-guardencode
 categories:
-- decode
-- ESAPI
-- security
-- unencode
-- url
+- esapi
 ---
 
 Reverses encoding on a string to retrieve its original value. 

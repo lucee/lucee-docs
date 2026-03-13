@@ -3,7 +3,7 @@
   "title": "Custom Event Gateways",
   "id": "custom-event-gateways",
   "categories": [
-    "gateways"
+    "event-gateways"
   ],
   "description": "Here you will find a short introduction into writing your own Event Gateway type.",
   "keywords": [
@@ -11,7 +11,6 @@
     "Custom Gateway",
     "Directory Watcher",
     "File Size Checker",
-    "Lucee",
     "Gateway Driver"
   ]
 }

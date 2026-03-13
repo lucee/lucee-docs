@@ -15,7 +15,7 @@
 
 [[lucee_6_2_overview]]
 
-This document outlines the breaking changes introduced when upgrading from Lucee 6.1 to Lucee 6.2. Be aware of these changes when migrating your applications to ensure smooth compatibility.
+This document outlines the breaking changes introduced in the upgrade from Lucee 6.1 to Lucee 6.2. Use it as a migration checklist to ensure smooth compatibility.
 
 ## Changelogs
 

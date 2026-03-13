@@ -3,6 +3,8 @@ title: Evaluate
 id: function-evaluate
 related:
 - function-serialize
+categories:
+- core
 ---
 
 Evaluates one or more string expressions, dynamically, from left to right.

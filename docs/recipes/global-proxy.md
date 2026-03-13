@@ -8,7 +8,6 @@
   ],
   "description": "Learn how to define a global proxy in Lucee. This guide demonstrates how to set up a global proxy in the Application.cfc file or .CFConfig.json, limit the proxy to specific hosts, and exclude specific hosts from using the proxy.",
   "keywords": [
-    "CFML",
     "proxy",
     "global proxy",
     "Lucee",

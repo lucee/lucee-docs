@@ -8,8 +8,7 @@
     "parallel",
     "async",
     "thread",
-    "function",
-    "promises"
+    "function"
   ],
   "related": [
     "tag-function",

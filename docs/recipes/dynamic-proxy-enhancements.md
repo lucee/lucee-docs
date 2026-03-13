@@ -27,7 +27,7 @@
 
 # Dynamic Proxy Enhancements
 
-When you pass a CFML component to Java code, Lucee creates a *proxy* - a wrapper that makes your component look like a Java object. In Lucee 7, proxies now include **all** your component's functions and properties, not just the interface methods.
+Lucee 7 improves Java interoperability by enhancing dynamic proxies. When you pass a CFML component to Java code, Lucee creates a *proxy* - a wrapper that makes your component look like a Java object. In Lucee 7, proxies now include **all** your component's functions and properties, not just the interface methods.
 
 **Java terms:** A *Java interface* is a contract defining method signatures a class must implement (like CFML's `implements` attribute). A *proxy* wraps your component so Java sees it as implementing that interface.
 

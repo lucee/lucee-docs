@@ -2,7 +2,7 @@
 {
   "title": "Setting the Lucee Admin Password",
   "id": "admin-password",
-  "categories": ["configuration", "security"],
+  "categories": ["configuration", "security", "server"],
   "description": "How to set, hash, and reset the Lucee Administrator password",
   "keywords": [
     "admin",

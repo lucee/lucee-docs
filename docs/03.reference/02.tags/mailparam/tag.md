@@ -1,6 +1,8 @@
 ---
 title: <cfmailparam>
 id: tag-mailparam
+categories:
+- protocols
 ---
 
 Can either attach a file or add a header to a message.

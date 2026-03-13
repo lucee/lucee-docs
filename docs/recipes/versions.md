@@ -3,7 +3,7 @@
   "title": "Lucee Versions and Extensions",
   "id": "versions",
   "since": "7.0",
-  "categories": ["system"],
+  "categories": ["system", "server", "devops"],
   "description": "List and inspect available Lucee versions and extensions",
   "keywords": [
     "versions",
@@ -19,7 +19,7 @@
 
 # Lucee Versions and Extensions
 
-Lucee provides built-in functions to list available versions and extensions and to retrieve detailed artifact information from Maven Central.
+Lucee provides built-in functions to list available versions and extensions and to retrieve detailed artifact information from Maven Central. These are useful when planning an upgrade or auditing installed extensions.
 
 > **Note**: These are currently internal functions. They will be made public in a future release.
 

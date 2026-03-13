@@ -259,7 +259,7 @@ remote string function echoGET() httpMethod="GET,HEAD" restpath="echoGET" {
 
 * **rest (boolean):** enables/disables the component as an accessible rest component. Default value is `true`. Set it to false if you wish to disable a component from serving REST services.
 * **restpath (string):** defines the path that invokes the component. Use this to define your own REST path in case you don't want to use the components name.
-* **httpMethod (string):** defines the http method to access the component. All values that are supported and allowed by the server can be used. Common values are `GET | POST | PUT | UPDATE | DELETE | HEAD | OPTIONS`, multiple methods are supported since 6.1.0.155.
+* **httpMethod (string):** defines the HTTP verb (method) used to access the component. All values that are supported and allowed by the server can be used. Common verbs are `GET | POST | PUT | UPDATE | DELETE | HEAD | OPTIONS`, multiple methods are supported since 6.1.0.155.
 
 #### CFFUNCTION attributes
 

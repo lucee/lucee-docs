@@ -3,7 +3,6 @@ title: WebSocketInfo
 id: function-websocketinfo
 categories:
 - protocols
-- websocket
 related:
 - extension-websocket
 ---

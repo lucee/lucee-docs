@@ -3,7 +3,7 @@
   "title": "Java Scripting with Lucee",
   "id": "java-scripting-lucee",
   "since": "5.0",
-  "categories": ["scripting", "integration", "jsr223"],
+  "categories": ["scripting", "integration", "jsr223", "java"],
   "description": "Documentation for using Lucee as a scripting engine in Java applications via JSR-223",
   "keywords": [
     "Java",

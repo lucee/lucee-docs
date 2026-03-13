@@ -5,6 +5,7 @@ categories:
 - core
 - scopes
 - server
+- flow-control
 description: 'Provides two types of locks to ensure the integrity of shared data:
   Exclusive lock and Read-only lock.'
 ---

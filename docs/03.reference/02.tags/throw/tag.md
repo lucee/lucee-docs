@@ -7,6 +7,7 @@ related:
 - tag-try
 categories:
 - debugging
+- flow-control
 description: The cfthrow tag raises a developer-specified exception
 ---
 

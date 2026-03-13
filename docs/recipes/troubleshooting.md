@@ -5,7 +5,8 @@
   "id": "troubleshooting",
   "categories": [
     "server",
-    "debugging"
+    "debugging",
+    "devops"
   ],
   "description": "A guide to diagnosing problems with Lucee",
   "keywords": [

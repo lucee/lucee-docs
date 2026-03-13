@@ -6,17 +6,15 @@
     "function-sendgatewaymessage"
   ],
   "categories": [
-    "gateways"
+    "event-gateways"
   ],
   "description": "EG's are another way how to communicate with your Lucee server and are kind of a service running on Lucee, reacting on certain events.",
   "keywords": [
     "Event Gateway",
-    "Custom Gateway",
     "SMS",
     "File Change",
     "Mail Server",
-    "Slack Notification",
-    "Lucee"
+    "Slack Notification"
   ]
 }
 -->

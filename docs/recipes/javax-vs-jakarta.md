@@ -21,7 +21,7 @@
 
 # javax vs jakarta Servlet Compatibility
 
-Lucee supports both `javax.servlet` and `jakarta.servlet` APIs, allowing it to run on older servlet engines (e.g., Tomcat 9, Jetty 10) as well as modern Jakarta-based engines (e.g., Tomcat 11, Jetty 12).
+Lucee supports both `javax.servlet` and `jakarta.servlet` APIs, allowing it to run on older servlet engines (e.g., Tomcat 9, Jetty 10) as well as modern Jakarta-based engines (e.g., Tomcat 11, Jetty 12). When planning a migration between Lucee versions, servlet API compatibility is a key consideration.
 
 ## Overview
 

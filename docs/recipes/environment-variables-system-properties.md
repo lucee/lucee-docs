@@ -12,7 +12,8 @@
     "config"
   ],
   "categories": [
-    "server"
+    "server",
+    "devops"
   ]
 }
 -->

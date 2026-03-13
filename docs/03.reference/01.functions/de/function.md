@@ -3,6 +3,7 @@ title: DE
 id: function-de
 related:
 categories:
+- core
 ---
 
 Postpones evaluation of a string as an expression, when it is

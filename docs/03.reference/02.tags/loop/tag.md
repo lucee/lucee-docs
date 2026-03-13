@@ -5,6 +5,7 @@ related:
 - tag-break
 categories:
 - core
+- flow-control
 ---
 
 Looping is a very powerful programming technique that lets you repeat a set of instructions or

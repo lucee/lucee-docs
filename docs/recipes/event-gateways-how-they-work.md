@@ -3,14 +3,13 @@
   "title": "Event Gateways",
   "id": "event-gateways-how-they-work",
   "categories": [
-    "gateways"
+    "event-gateways"
   ],
   "description": "Overview of how Event Gateways work in Lucee.",
   "keywords": [
     "Event Gateway",
     "Directory Watcher",
     "Mail Watcher",
-    "Lucee",
     "cfadmin",
     "File Changes"
   ]

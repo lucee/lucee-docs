@@ -3,7 +3,7 @@
   "title": "AST (Abstract Syntax Tree)",
   "id": "ast",
   "since": "7.0",
-  "categories": ["development", "analysis", "tooling"],
+  "categories": ["development", "analysis", "tooling", "parsing"],
   "description": "Generate Abstract Syntax Trees from CFML code for analysis, transformation, and tooling support",
   "keywords": [
     "AST",

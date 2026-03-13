@@ -22,7 +22,7 @@
 
 # Checksum
 
-Validate downloads using checksums provided in response headers.
+Validate downloads using checksums provided in response headers. Uses `cfhttp` to fetch files and check integrity.
 
 ## Download and Validate
 

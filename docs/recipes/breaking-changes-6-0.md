@@ -12,7 +12,7 @@
 
 # Breaking Changes between Lucee 5.4 and 6.0
 
-This document outlines all the breaking changes which you should be aware with when upgrading from Lucee 5.4 to Lucee 6.0. 
+This document outlines all the breaking changes you need to know for your upgrade from Lucee 5.4 to Lucee 6.0. Use it as a migration checklist. 
 
 The decision to make breaking changes are not made lightly, generally speaking, they are made to align Lucee with ACF where possible, address performance or edge cases which can lead to problems, and also to address potential security issues.
 

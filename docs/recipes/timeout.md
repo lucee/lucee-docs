@@ -11,8 +11,12 @@
     "cftimeout",
     "error handling"
   ],
+  "categories": [
+    "flow-control"
+  ],
   "related": [
-    "tag-timeout"
+    "tag-timeout",
+    "tag-setting"
   ]
 }
 -->

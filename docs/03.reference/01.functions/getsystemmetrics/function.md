@@ -2,9 +2,8 @@
 title: GetSystemMetrics
 id: function-getsystemmetrics
 categories:
-- datasource
-- query
 - server
+- devops
 ---
 
 Returns information about the server metrics.

@@ -11,6 +11,11 @@
     "VS Code",
     "development tools",
     "code completion"
+  ],
+  "categories": ["server"],
+  "related": [
+    "lucee-editors-IDEs",
+    "lucee-step-debugger-installation-guide"
   ]
 }
 -->

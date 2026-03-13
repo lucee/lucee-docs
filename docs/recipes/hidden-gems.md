@@ -13,7 +13,7 @@
     "Array format"
   ],
   "categories": [
-    "language"
+    "scopes"
   ]
 }
 -->

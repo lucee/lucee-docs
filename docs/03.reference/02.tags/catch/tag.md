@@ -7,6 +7,7 @@ related:
 - tag-try
 categories:
 - core
+- flow-control
 description: Used only inside a cftry, the cfcatch tag catches and process exceptions.
 ---
 

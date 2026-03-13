@@ -17,7 +17,9 @@
   ],
   "categories": [
     "http",
-    "logging"
+    "logging",
+    "protocols",
+    "server"
   ]
 }
 -->
