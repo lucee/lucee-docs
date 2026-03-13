@@ -657,7 +657,7 @@ component accessors=true {
 		}
 
 		switch (contentType){
-			case "latest-recipies":
+			case "latest-recipes":
 				return new api.rendering.content.recipes().render(this, contentType, getRecipeDates(), arguments.markdown);
 			case "sysprop-envvar-listing":
 				return new api.rendering.content.syspropEnvvar().render(this, contentType, arguments.args, arguments.markdown);

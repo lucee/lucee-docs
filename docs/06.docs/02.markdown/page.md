@@ -109,6 +109,36 @@ Tip boxes use six levels of blockquote indentation:
 
 >>>>>> An example tip box
 
+## Content Directives
+
+Content directives allow you to embed dynamic content from the documentation system using the `[[content::]]` syntax. These are rendered at build time.
+
+The `[[content::]]` wiki links are parsed in `api/rendering/WikiLinksRenderer.cfc` and dispatched via the `renderContent()` method in `api/data/DocTree.cfc`, which maps each content type to a renderer CFC in `api/rendering/content/`. To add a new content directive, add a case to the switch statement in `renderContent()` and create a corresponding CFC in that directory.
+
+### System Properties / Environment Variables
+
+To render the details for a single system property or environment variable inline:
+
+```html
+[[content::sysprop-envvar#LUCEE_EXTENSIONS_INSTALL]]
+```
+
+To render the full listing of all system properties and environment variables, grouped by category:
+
+```html
+[[content::sysprop-envvar-listing]]
+```
+
+The `sysprop-envvar-for-tag` and `sysprop-envvar-for-function` directives are used automatically in the tag and function reference templates to show related system properties.
+
+### Latest Recipes
+
+To render a list of the latest recipe pages:
+
+```html
+[[content::latest-recipes]]
+```
+
 ## YAML Front Matter
 
 YAML Front Matter is used to add metadata to pages that can then be used by the build system. The syntax takes the form of three dashes `---` at the very beginning of a Markdown document, followed by a YAML block, followed by three dashes on their own line. For example:

@@ -36,7 +36,7 @@ Feel free to request new topics or ask questions via the [dev forum](https://dev
 
 **Latest Content**
 
-[[content::latest-recipies]]
+[[content::latest-recipes]]
 
 To see what's new in Tags and Functions refer to [[changelog]]
 
