@@ -193,9 +193,7 @@ When multiple levels are configured, the most specific setting wins:
 
 ## Choosing the QoQ Engine
 
-::: since
-Lucee 7.1
-:::
+** Since Lucee 7.1 **
 
 By default, Lucee tries the native QoQ engine first and falls back to HSQLDB if the SQL is too complex. You can now explicitly choose which engine to use with the `engine` option:
 
