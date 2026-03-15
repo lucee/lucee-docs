@@ -111,9 +111,9 @@ Tip boxes use six levels of blockquote indentation:
 
 ## Content Directives
 
-Content directives allow you to embed dynamic content from the documentation system using the `[[content::]]` syntax. These are rendered at build time.
+Content directives allow you to embed dynamic content from the documentation system using the <code>&#91;&#91;content::type&#93;&#93;</code> syntax. These are rendered at build time.
 
-The `[[content::]]` wiki links are parsed in `api/rendering/WikiLinksRenderer.cfc` and dispatched via the `renderContent()` method in `api/data/DocTree.cfc`, which maps each content type to a renderer CFC in `api/rendering/content/`. To add a new content directive, add a case to the switch statement in `renderContent()` and create a corresponding CFC in that directory.
+The content wiki links are parsed in `api/rendering/WikiLinksRenderer.cfc` and dispatched via the `renderContent()` method in `api/data/DocTree.cfc`, which maps each content type to a renderer CFC in `api/rendering/content/`. To add a new content directive, add a case to the switch statement in `renderContent()` and create a corresponding CFC in that directory.
 
 ### System Properties / Environment Variables
 
