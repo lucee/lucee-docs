@@ -3,10 +3,12 @@
   "title": "Query of Queries (QoQ)",
   "id": "query-of-queries",
   "related": [
-    "tag-query"
+    "tag-query",
+    "query-of-queries-functions"
   ],
   "categories": [
-    "query"
+    "query",
+    "compat"
   ],
   "description": "Query of queries (QoQ) is a technique for re-querying an existing (in memory) query without another trip to the database.",
   "keywords": [
@@ -73,48 +75,9 @@ Say you want to filter out people under 18 and over 90, but you don't want to hi
 
 Lucee uses its own fast SQL implementation (basic ANSI92 subset); if that fails, it falls back to [HSQLDB](http://hsqldb.org/doc/2.0/guide/sqlgeneral-chapt.html) (more complete but slower, as the source queries are dyanically loaded into the in memory database).
 
-## Lucee's SQL Implementation
+## SQL Functions and Operators
 
-**Keywords and Operators**
-
-- <=
-- <>
-- =
-- =>
-- =
-- !=
-- ALL
-- AND
-- AS
-- BETWEEN x AND y
-- DESC/ASC
-- DISTINCT
-- FROM
-- GROUP BY
-- HAVING
-- IN ()
-- IS
-- IS NOT NULL
-- IS NULL
-- LIKE
-- NOT
-- NOT IN ()
-- NOT LIKE
-- OR
-- ORDER BY
-- SELECT
-- TOP
-- UNION
-- WHERE
-- XOR
-
-Functions
-
-TODO: Flesh this out.
-
-## HSQLDB SQL Implementation
-
-This is the fallback for when Lucee's SQL implementation can't handle the QoQ syntax. See the [HSQLDB documentation](http://hsqldb.org/doc/2.0/guide/sqlgeneral-chapt.html) for details.
+See [QoQ SQL Functions and Operators](query-of-queries-functions) for the full reference of supported keywords, operators, and functions in the native engine, plus details on the HSQLDB fallback.
 
 ## Case Sensitivity
 
@@ -124,9 +87,31 @@ Lucee 7.1
 
 By default, QoQ string comparisons (`LIKE`, `=`, `<>`, `IN`) are **case-insensitive**. This means `WHERE name LIKE '%mod%'` matches both `Modica` and `mod-lower`.
 
-This differs from Adobe ColdFusion, where QoQ string operations are case-sensitive.
+This differs from Adobe ColdFusion, where QoQ string operations have been case-sensitive since ColdFusion MX 7.
 
 You can enable case-sensitive comparisons with the `caseSensitive` option. When enabled, `WHERE name LIKE '%mod%'` matches only `mod-lower`, and `WHERE name = 'modica'` won't match `Modica`.
+
+The `caseSensitive` option works with both the native and HSQLDB engines. For HSQLDB, case sensitivity is achieved by using `VARCHAR` column types (case-sensitive) instead of `VARCHAR_IGNORECASE` (the default for case-insensitive mode).
+
+## Choosing the QoQ Engine
+
+::: since
+Lucee 7.1
+:::
+
+By default, Lucee tries the native QoQ engine first and falls back to HSQLDB if the SQL is too complex. You can now explicitly choose which engine to use with the `engine` option:
+
+- `"auto"` — default behaviour (native first, HSQLDB fallback)
+- `"native"` — use only the native engine; errors if the SQL isn't supported
+- `"hsqldb"` — skip native and go straight to HSQLDB
+
+## Configuring QoQ Options
+
+::: since
+Lucee 7.1
+:::
+
+Both `caseSensitive` and `engine` can be configured at three levels: per-query, per-application, or server-wide.
 
 ### Per-Query: `dbtype` Struct
 
@@ -152,6 +137,13 @@ The `dbtype` attribute now accepts a struct as well as a string. The struct form
 	{ dbtype: { type: "query", caseSensitive: true } }
 ) />
 <!--- result: mod-lower --->
+
+<!--- force HSQLDB engine --->
+<cfset result = queryExecute(
+	"SELECT name FROM qry ORDER BY name",
+	{},
+	{ dbtype: { type: "query", engine: "hsqldb" } }
+) />
 ```
 
 #### `dbtype` Struct Keys
@@ -190,23 +182,3 @@ When multiple levels are configured, the most specific setting wins:
 1. **Per-query** (`dbtype` struct) — highest priority
 2. **Per-application** (`this.query.qoq` in Application.cfc)
 3. **Environment variable** — lowest priority
-
-## Choosing the QoQ Engine
-
-** Since Lucee 7.1 **
-
-By default, Lucee tries the native QoQ engine first and falls back to HSQLDB if the SQL is too complex. You can now explicitly choose which engine to use with the `engine` option:
-
-- `"auto"` — default behaviour (native first, HSQLDB fallback)
-- `"native"` — use only the native engine; errors if the SQL isn't supported
-- `"hsqldb"` — skip native and go straight to HSQLDB
-
-```cfs
-result = queryExecute(
-	"SELECT name FROM qry ORDER BY name",
-	{},
-	{ dbtype: { type: "query", engine: "native" } }
-);
-```
-
-The `engine` option follows the same precedence as `caseSensitive`: per-query overrides Application.cfc, which overrides the environment variable.
