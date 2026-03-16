@@ -75,15 +75,15 @@ Say you want to filter out people under 18 and over 90, but you don't want to hi
 
 Lucee uses its own fast SQL implementation (basic ANSI92 subset); if that fails, it falls back to [HSQLDB](http://hsqldb.org/doc/2.0/guide/sqlgeneral-chapt.html) (more complete but slower, as the source queries are dyanically loaded into the in memory database).
 
+Since Lucee 7.1, HSQLDB queries use a pool of isolated database instances instead of a single synchronized instance, significantly improving throughput under concurrent load. The pool size defaults to the lesser of CPU cores or 8, and can be tuned with the system property `lucee.qoq.hsqldb.poolsize`.
+
 ## SQL Functions and Operators
 
 See [QoQ SQL Functions and Operators](query-of-queries-functions) for the full reference of supported keywords, operators, and functions in the native engine, plus details on the HSQLDB fallback.
 
 ## Case Sensitivity
 
-::: since
-Lucee 7.1
-:::
+**Since Lucee 7.1**
 
 By default, QoQ string comparisons (`LIKE`, `=`, `<>`, `IN`) are **case-insensitive**. This means `WHERE name LIKE '%mod%'` matches both `Modica` and `mod-lower`.
 
@@ -95,9 +95,7 @@ The `caseSensitive` option works with both the native and HSQLDB engines. For HS
 
 ## Choosing the QoQ Engine
 
-::: since
-Lucee 7.1
-:::
+**Since Lucee 7.1**
 
 By default, Lucee tries the native QoQ engine first and falls back to HSQLDB if the SQL is too complex. You can now explicitly choose which engine to use with the `engine` option:
 
@@ -107,9 +105,7 @@ By default, Lucee tries the native QoQ engine first and falls back to HSQLDB if 
 
 ## Configuring QoQ Options
 
-::: since
-Lucee 7.1
-:::
+**Since Lucee 7.1**
 
 Both `caseSensitive` and `engine` can be configured at three levels: per-query, per-application, or server-wide.
 
