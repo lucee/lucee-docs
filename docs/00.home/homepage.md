@@ -34,7 +34,7 @@ We are always adding and updating our detailed [[Recipes]] showing you how to ta
 
 Feel free to request new topics or ask questions via the [dev forum](https://dev.lucee.org/).
 
-**Latest Content**
+**Latest Content** [<img src="/assets/images/feed-icon.svg" alt="RSS Feed" width="14" height="14">](/feeds/recipes.xml)
 
 [[content::latest-recipes]]
 

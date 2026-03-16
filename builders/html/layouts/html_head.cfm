@@ -60,6 +60,9 @@
 			<link href="/assets/css/highlight.#application.assetBundleVersion#.css" rel="stylesheet" class="highlight-theme-light">
 			<link href="/assets/css/highlight-dark.#application.assetBundleVersion#.css" rel="stylesheet" class="highlight-theme-dark">
 		</cfif>
+		<cfif local.path.startsWith( "/recipes" )>
+			<link rel="alternate" type="application/atom+xml" title="Lucee Recipes" href="/feeds/recipes.xml">
+		</cfif>
 		<link rel="icon" type="image/png" href="https://docs.lucee.org/assets/images/favicon.png">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

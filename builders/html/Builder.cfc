@@ -343,6 +343,8 @@ component {
 		var _searchPage = _renderStaticPage( staticPagesDir & "/search.html", "Search Lucee Documentation", arguments.docTree, arguments.baseHref, true );
 		FileWrite( arguments.buildDirectory & "/search.html", cleanHtml( _searchPage ) );
 		FileWrite( arguments.buildDirectory & "/sitemap.xml", _renderSiteMap( arguments.docTree ) );
+		DirectoryCreate( arguments.buildDirectory & "/feeds", true, true );
+		FileWrite( arguments.buildDirectory & "/feeds/recipes.xml", _renderRecipesFeed( arguments.docTree ) );
 		// google analytics for @zackster
 		FileWrite( arguments.buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");
 		FileWrite( arguments.buildDirectory & "/robots.txt", [
@@ -458,6 +460,68 @@ component {
 
 		return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">#chr(10)#' &
 			ArrayToList(siteMap, chr(10) ) & '#chr(10)#</urlset>';
+	}
+
+	private string function _renderRecipesFeed( required any docTree ) {
+		var pages       = arguments.docTree.getPathMap();
+		var recipeDates = arguments.docTree.getRecipeDates();
+		var entries     = [];
+		var baseUrl     = "https://docs.lucee.org";
+		var nl          = chr( 10 );
+
+		for ( var path in pages ) {
+			if ( !path.startsWith( "/recipes/" ) || path == "/recipes" )
+				continue;
+
+			var page      = pages[ path ];
+			var recipeKey = listLast( path, "/" ) & ".md";
+			var created   = now();
+			var updated   = now();
+
+			if ( structKeyExists( recipeDates, recipeKey ) && arrayLen( recipeDates[ recipeKey ].commits ) ) {
+				created = arrayLast( recipeDates[ recipeKey ].commits );
+				updated = arrayFirst( recipeDates[ recipeKey ].commits );
+			}
+
+			entries.append( {
+				title       = page.getTitle(),
+				description = page.getDescription(),
+				url         = baseUrl & path & ".html",
+				id          = path,
+				created     = created,
+				updated     = updated
+			} );
+		}
+
+		// sort by created date descending (newest first)
+		ArraySort( entries, function( a, b ) {
+			return DateCompare( b.created, a.created );
+		} );
+
+		var feedUpdated = arrayLen( entries ) ? entries[ 1 ].updated : now();
+		var feed = [];
+
+		feed.append( '<?xml version="1.0" encoding="UTF-8"?>' );
+		feed.append( '<feed xmlns="http://www.w3.org/2005/Atom">' );
+		feed.append( '	<title>Lucee Documentation - Recipes</title>' );
+		feed.append( '	<link href="#baseUrl#/feeds/recipes.xml" rel="self" type="application/atom+xml"/>' );
+		feed.append( '	<link href="#baseUrl#/recipes.html" rel="alternate" type="text/html"/>' );
+		feed.append( '	<id>#baseUrl#/feeds/recipes.xml</id>' );
+		feed.append( '	<updated>#dateFormat( feedUpdated, "yyyy-mm-dd" )#T#timeFormat( feedUpdated, "HH:mm:ss" )#Z</updated>' );
+
+		for ( var entry in entries ) {
+			feed.append( '	<entry>' );
+			feed.append( '		<title>#XmlFormat( entry.title )#</title>' );
+			feed.append( '		<link href="#XmlFormat( entry.url )#" rel="alternate" type="text/html"/>' );
+			feed.append( '		<id>#XmlFormat( entry.url )#</id>' );
+			feed.append( '		<published>#dateFormat( entry.created, "yyyy-mm-dd" )#T#timeFormat( entry.created, "HH:mm:ss" )#Z</published>' );
+			feed.append( '		<updated>#dateFormat( entry.updated, "yyyy-mm-dd" )#T#timeFormat( entry.updated, "HH:mm:ss" )#Z</updated>' );
+			feed.append( '		<summary>#XmlFormat( entry.description )#</summary>' );
+			feed.append( '	</entry>' );
+		}
+
+		feed.append( '</feed>' );
+		return ArrayToList( feed, nl );
 	}
 
 	public string function renderLink( any page, required string title, struct args={}, boolean markdown=false, string anchor="" ) {
