@@ -202,6 +202,19 @@
     ]
   },
   {
+    "file": "breaking-changes-7.1.md",
+    "title": "Breaking Changes between Lucee 7.0 and 7.1",
+    "path": "/docs/recipes/breaking-changes-7.1.md",
+    "hash": "692e0f50efff61e2f94caa51556b0fb8",
+    "keywords": [
+      "breaking changes",
+      "Lucee 7.0",
+      "Lucee 7.1",
+      "migration",
+      "upgrade"
+    ]
+  },
+  {
     "file": "cache-invalidation-selective.md",
     "title": "Selective Cache Invalidation",
     "path": "/docs/recipes/cache-invalidation-selective.md",

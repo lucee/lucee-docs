@@ -56,6 +56,10 @@ A guide to breaking changes introduced in Lucee between version 6.1 and 6.2
 
 A guide to breaking changes introduced in Lucee between version 6.2 and 7.0
 
+## [Breaking Changes between Lucee 7.0 and 7.1](/docs/recipes/breaking-changes-7.1.md)
+
+A guide to breaking changes introduced in Lucee between version 7.0 and 7.1
+
 ## [Selective Cache Invalidation](/docs/recipes/cache-invalidation-selective.md)
 
 How to flush specific cached queries, functions, and HTTP results in Lucee without clearing entire caches.
