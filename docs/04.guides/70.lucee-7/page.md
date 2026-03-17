@@ -2,6 +2,8 @@
 title: Lucee 7 new features
 menuTitle: Lucee 7
 id: lucee_7_overview
+related:
+- breaking-changes-6-2-to-7-0
 ---
 
 # Lucee 7 - Single Mode & Jakarta Edition

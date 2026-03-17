@@ -2,6 +2,8 @@
 title: Lucee 6.2 new features
 menuTitle: Lucee 6.2
 id: lucee_6_2_overview
+related:
+- breaking-changes-6-1-to-6-2
 ---
 
 # Lucee 6.2 - Performance
