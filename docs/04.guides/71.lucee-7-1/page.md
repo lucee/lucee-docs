@@ -159,7 +159,7 @@ For the complete list, see [[breaking-changes-7-0-to-7-1]].
 
 - [[query-of-queries]] - QoQ guide with configuration options
 - [[query-of-queries-functions]] - QoQ SQL functions and operators reference
-- [[cache-invalidation-selective]] - Selective cache invalidation
+- [[selective-cache-invalidation]] - Selective cache invalidation
 - [[secret-management]] - Secret provider guide
 - [[ai]] - AI integration guide
 - [[breaking-changes-7-0-to-7-1]] - Breaking changes between 7.0 and 7.1
