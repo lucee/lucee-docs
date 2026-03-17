@@ -52,11 +52,11 @@ A guide to breaking changes introduced in Lucee between version 6.0 and 6.1
 
 A guide to breaking changes introduced in Lucee between version 6.1 and 6.2
 
-## [Breaking Changes between Lucee 6.2 and 7.0](/docs/recipes/breaking-changes-7.0.md)
+## [Breaking Changes between Lucee 6.2 and 7.0](/docs/recipes/breaking-changes-7-0.md)
 
 A guide to breaking changes introduced in Lucee between version 6.2 and 7.0
 
-## [Breaking Changes between Lucee 7.0 and 7.1](/docs/recipes/breaking-changes-7.1.md)
+## [Breaking Changes between Lucee 7.0 and 7.1](/docs/recipes/breaking-changes-7-1.md)
 
 A guide to breaking changes introduced in Lucee between version 7.0 and 7.1
 

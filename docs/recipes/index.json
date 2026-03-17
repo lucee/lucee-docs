@@ -189,9 +189,9 @@
     ]
   },
   {
-    "file": "breaking-changes-7.0.md",
+    "file": "breaking-changes-7-0.md",
     "title": "Breaking Changes between Lucee 6.2 and 7.0",
-    "path": "/docs/recipes/breaking-changes-7.0.md",
+    "path": "/docs/recipes/breaking-changes-7-0.md",
     "hash": "52c49d7323ba02678fe7732e90234c80",
     "keywords": [
       "breaking changes",
@@ -202,9 +202,9 @@
     ]
   },
   {
-    "file": "breaking-changes-7.1.md",
+    "file": "breaking-changes-7-1.md",
     "title": "Breaking Changes between Lucee 7.0 and 7.1",
-    "path": "/docs/recipes/breaking-changes-7.1.md",
+    "path": "/docs/recipes/breaking-changes-7-1.md",
     "hash": "692e0f50efff61e2f94caa51556b0fb8",
     "keywords": [
       "breaking changes",
