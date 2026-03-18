@@ -8,4 +8,4 @@ categories:
 - files
 ---
 
-Sets the value of a property entry in a properties file.
+Gets the value of a property entry from a properties file.
