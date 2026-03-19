@@ -1,6 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: Lucee Docs Builder
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 on:
   push:
     branches: [master]
