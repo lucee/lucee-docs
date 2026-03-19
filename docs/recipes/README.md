@@ -28,9 +28,9 @@ How to create and configure the Application.cfc
 
 How to update your Application settings, after they have been defined in Application.cfc.
 
-## [Archives - Creating and deploying Lucee Archives (.lar files)](/docs/recipes/archives-creating-and-deploy.md)
+## [Lucee Archives (.lar files)](/docs/recipes/archives-creating-and-deploy.md)
 
-This document explains how to deploy an Application on a live server without using a single CFML file.
+How to create, deploy and use Lucee Archives (.lar files) to distribute compiled CFML applications without exposing source code.
 
 ## [AST (Abstract Syntax Tree)](/docs/recipes/ast.md)
 

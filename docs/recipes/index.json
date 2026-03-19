@@ -105,9 +105,9 @@
   },
   {
     "file": "archives-creating-and-deploy.md",
-    "title": "Archives - Creating and deploying Lucee Archives (.lar files)",
+    "title": "Lucee Archives (.lar files)",
     "path": "/docs/recipes/archives-creating-and-deploy.md",
-    "hash": "05a83c34360f91825642030ac1588c58",
+    "hash": "e539cb334d51f9eec0b6bab2d94a7e3c",
     "keywords": [
       "Lucee",
       "Archives",
@@ -116,7 +116,9 @@
       "Mapping",
       "Component",
       "CFC",
-      "CFM"
+      "CFM",
+      "compiled",
+      "source protection"
     ]
   },
   {
