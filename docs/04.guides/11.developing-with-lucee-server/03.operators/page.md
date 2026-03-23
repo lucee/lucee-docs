@@ -105,7 +105,7 @@ description: Mathematical, Logical, Ternary, Comparison, String and Elvis Operat
 | --------- | -------------- | ----------- |
 | EQ        | equals         | Returns true if operands are equal, e.g. `"A" EQ "A"` is true |
 | ==        | equals         | Returns true if operands are equal, e.g. `"A" == "A"` is true |
-| ===       | identical      | Returns true if operands are the same object in memory, false if they are not, (Note this is different than how JavaScript's `===` operator works). **Lucee 6 === works like javascript, comparing type and value, however, prior to 6.2.3.34, it was sensitive to the underlying java types [LDEV-5806](https://luceeserver.atlassian.net/browse/LDEV-5806)** |
+| ===       | identical      | Returns true if operands are of the same type and equal in value, e.g. `1 === 1` is true, but `1 === "1"` is false. Note: string comparison in CFML is case-insensitive (matching ACF behavior), so `"a" === "A"` is true. This is different from JavaScript's `===` which is case-sensitive. **Prior to Lucee 6.2.3.34, this operator was sensitive to the underlying java types [LDEV-5806](https://luceeserver.atlassian.net/browse/LDEV-5806)** |
 | NEQ       | does not equal | Returns true if operands are not equal, e.g. `"A" NEQ "B"` is true |
 | \<\>        | does not equal | Returns true if operands are not equal, e.g. `"A" <> "B"` is true |
 | !=        | does not equal | Returns true if operands are not equal, e.g. `"A" != "B"` is true |
