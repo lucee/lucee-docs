@@ -192,6 +192,10 @@ Log details about code execution at the statement level
 
 A comprehensive guide on how to install extensions in Lucee.
 
+## [Extension Provider](/docs/recipes/extension-provider.md)
+
+How Lucee discovers and loads extensions via Maven
+
 ## [Lucee Extension Utilities](/docs/recipes/extension-utilities.md)
 
 Comprehensive guide to accessing Lucee core utilities when developing extensions
