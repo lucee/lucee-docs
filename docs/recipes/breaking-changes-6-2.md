@@ -117,8 +117,8 @@ Workaround, create an Application.cfc which extends the parent Application.cfc
 
 ## Strict Equality Operator was sensitive to underlying java types
 
-Lucee 6 improved the `===` operator to compare type and value, but was checking only the underlying java type, rather than cfml type, so numbers might fail
+Previously, the `===` operator checked if two values were the same Java object (identity check), rather than comparing CFML type and value.
 
-In 6.2.3.34, this was changes to compare cfml type and value, as expected
+In 6.2.3.34, this was changed to compare CFML type and value, as expected. Note that string comparison with `===` is case-insensitive (matching standard CFML behavior), so `"a" === "A"` is true. This is different from JavaScript's `===` which is case-sensitive.
 
 [LDEV-5806](https://luceeserver.atlassian.net/browse/LDEV-5806) 
