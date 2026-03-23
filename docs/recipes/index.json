@@ -665,6 +665,21 @@
     ]
   },
   {
+    "file": "extension-provider.md",
+    "title": "Extension Provider",
+    "path": "/docs/recipes/extension-provider.md",
+    "hash": "4a38c872b905515486007c2b7447b6ae",
+    "keywords": [
+      "extensions",
+      "Maven",
+      "provider",
+      "GroupId",
+      "repository",
+      "lex",
+      "CFConfig"
+    ]
+  },
+  {
     "file": "extension-utilities.md",
     "title": "Lucee Extension Utilities",
     "path": "/docs/recipes/extension-utilities.md",
