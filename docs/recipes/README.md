@@ -460,6 +460,10 @@ Advanced task scheduling using Quartz Scheduler integration
 
 Learn about script templates in Lucee. This guide explains how Lucee supports templates with the `.cfs` extension, allowing you to write direct script code without the need for the `<cfscript>` tag.
 
+## [Adding Full Text Search to Your Application](/docs/recipes/search.md)
+
+A practical guide to adding full-text search to your Lucee application using collections, indexing, and search
+
 ## [Secret Management](/docs/recipes/secret-provider.md)
 
 Managing Secrets in Lucee applications

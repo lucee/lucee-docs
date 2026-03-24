@@ -1585,6 +1585,22 @@
     ]
   },
   {
+    "file": "search.md",
+    "title": "Adding Full Text Search to Your Application",
+    "path": "/docs/recipes/search.md",
+    "hash": "a87f4d9368c27fabdf48ab774f3d1602",
+    "keywords": [
+      "search",
+      "cfcollection",
+      "cfindex",
+      "cfsearch",
+      "Lucene",
+      "full-text",
+      "indexing",
+      "collections"
+    ]
+  },
+  {
     "file": "secret-provider.md",
     "title": "Secret Management",
     "path": "/docs/recipes/secret-provider.md",
