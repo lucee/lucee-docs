@@ -111,6 +111,23 @@ Lucene 3 currently supports the following embedding methods:
    - Neural network approach to create word vectors
    - Better captures semantic relationships between words
    - More effective for natural language queries
+   - Requires pre-trained GloVe vectors (see [Custom Vectors File](#custom-vectors-file) below)
+
+### Custom Vectors File
+
+By default, word2vec looks for `.txt` files in `{lucee-server}/context/search/embedding/` and uses the largest one found. Pre-trained GloVe vectors can be downloaded from [Stanford NLP](https://nlp.stanford.edu/projects/glove/).
+
+You can also pass a file path directly as the `embedding` value to use a specific vectors file:
+
+```javascript
+collection action="Create"
+    collection="my_collection"
+    path="/path/to/collection"
+    mode="vector"
+    embedding="/path/to/my-vectors.txt";
+```
+
+Any `embedding` value containing a `/` or `\` is treated as a file path and loaded using the word2vec service. This is useful for testing and custom deployments.
 
 ## Usage Examples
 

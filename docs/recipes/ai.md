@@ -458,17 +458,19 @@ Enhance AI responses with your own data using Lucene search integration. See [AI
 
 ```javascript
 // Search your indexed content
-search 
+search
     contextpassages=5
     contextBytes=4000
     name="searchResults"
-    collection="knowledge_base" 
+    collection="knowledge_base"
     criteria=userQuery;
 
 // Add search results as context to AI query
 augmentedQuery = "Query: #userQuery#\n\nContext: #serializeJSON(searchResults)#";
 answer = inquiryAISession(aiSession, augmentedQuery);
 ```
+
+For semantic search in RAG pipelines, the [Lucene 3 Extension](lucene-search.md) supports vector and hybrid search modes with configurable embedding services. You can pass a file path directly as the `embedding` value, e.g. `embedding="/path/to/vectors.txt"` — see [Custom Vectors File](lucene-search.md#custom-vectors-file) for details.
 
 ## Available Functions
 

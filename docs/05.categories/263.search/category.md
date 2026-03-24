@@ -4,4 +4,6 @@ id: category-search
 related:
 ---
 
-The Lucee Search support via the Lucene extension is no longer maintained and is not recommended for new projects.
+Lucee provides full-text search capabilities via the Lucene Extension, supporting traditional keyword search, vector-based semantic search, and hybrid mode combining both approaches. 
+
+See the [Lucene Extension](lucene-3-extension) recipe for details.
