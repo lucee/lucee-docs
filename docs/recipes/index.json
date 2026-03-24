@@ -63,7 +63,7 @@
     "file": "ai.md",
     "title": "AI",
     "path": "/docs/recipes/ai.md",
-    "hash": "7aa8d9c5863472fe4a03f3891cd2bb67",
+    "hash": "3b81a67beba238e029a0eeb2b3a041ad",
     "keywords": [
       "AI",
       "LLM",
@@ -1106,7 +1106,7 @@
     "file": "lucene-search.md",
     "title": "Lucene 3 Extension",
     "path": "/docs/recipes/lucene-search.md",
-    "hash": "6dbd6bd21f6e9df9fb8342e9232a068a",
+    "hash": "e29dd0a0442d9e7e743380e474413f05",
     "keywords": [
       "Lucene",
       "Search",
