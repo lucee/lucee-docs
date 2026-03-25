@@ -995,7 +995,7 @@
     "file": "language-server.md",
     "title": "Language Server Protocol (LSP) for Lucee",
     "path": "/docs/recipes/language-server.md",
-    "hash": "06acbccdd6e14704f8ae5a1878b51361",
+    "hash": "42c856a7743ae2b4b98b80c88ed454ec",
     "keywords": [
       "LSP",
       "language server",
@@ -1729,6 +1729,22 @@
       "Components",
       "Application scope",
       "Server scope"
+    ]
+  },
+  {
+    "file": "step-debugger.md",
+    "title": "Step Debugging Lucee with Extension Debugger",
+    "path": "/docs/recipes/step-debugger.md",
+    "hash": "5b6bc31122c64e5e310f569af1a351f0",
+    "keywords": [
+      "debugger",
+      "DAP",
+      "debug adapter protocol",
+      "breakpoints",
+      "step debugging",
+      "VS Code",
+      "luceedebug",
+      "extension"
     ]
   },
   {

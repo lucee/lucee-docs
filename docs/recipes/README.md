@@ -500,6 +500,10 @@ How to mock static functions in Lucee for better testability without unnecessary
 
 Understanding the static scope in Lucee components and how it can be used for shared data and functions.
 
+## [Step Debugging Lucee with Extension Debugger](/docs/recipes/step-debugger.md)
+
+How to set up and use the Extension Debugger (formerly LuceeDebug) for Lucee CFML, covering both the native extension (7.1+) and the Java agent (6.2+).
+
 ## [Preserving Key Case in CFML Structs / Variables](/docs/recipes/structs-preserve-key-case.md)
 
 How to configure preserve case for struct keys
