@@ -39,58 +39,6 @@ There are two ways to run it:
 
 If you're on Lucee 7.1 or later, use the extension. It's simpler, faster, and supports more features.
 
-## Features
-
-| Feature | Extension | Agent |
-|---------|:---------:|:-----:|
-| Line breakpoints | yes | yes |
-| Conditional breakpoints | yes | yes |
-| Function breakpoints | yes | no |
-| Exception breakpoints | yes | no |
-| Step in/out/over | yes | yes |
-| Variable inspection | yes | yes |
-| Set variable value | yes | no |
-| Watch expressions | yes | yes |
-| Debug console evaluation | yes | yes |
-| Hover evaluation | yes | yes |
-| Completions (autocomplete) | yes | no |
-| Console output streaming | yes | no |
-| `breakpoint()` BIF | yes | no |
-| `isDebuggerEnabled()` BIF | yes | no |
-
-## CFML BIFs (Lucee 7.1+)
-
-> **Note:** These BIFs are not yet listed in the auto-generated function reference as the docs currently build against Lucee 7.0.
-
-These BIFs are part of Lucee core — they are always available and safe to call. Without the debugger extension installed and active, they simply return `false` and do nothing. You can leave them in production code without any overhead or dependency concerns.
-
-### breakpoint()
-
-Programmatic breakpoint — like JavaScript's `debugger;` statement. Suspends execution when a debugger is attached, allowing inspection of variables.
-
-```cfml
-// simple breakpoint
-breakpoint();
-
-// labelled breakpoint — shows in the debugger UI
-breakpoint( label="before query" );
-
-// conditional — only breaks when the condition is true
-breakpoint( condition=( arrayLen( errors ) > 0 ) );
-```
-
-Returns `true` if the breakpoint was hit, `false` if skipped (no debugger attached or condition was false).
-
-### isDebuggerEnabled()
-
-Returns `true` if DAP debugger support is enabled (via `LUCEE_DAP_SECRET` env var or `lucee.dap.secret` system property). Useful for conditionally including debug logic:
-
-```cfml
-if ( isDebuggerEnabled() ) {
-    systemOutput( "Debug: processing #arrayLen( items )# items" );
-}
-```
-
 ## Extension Mode (Lucee 7.1+)
 
 The extension hooks into Lucee's native debug instrumentation. When no debugger is attached, the hooks are JIT-compiled away — zero overhead in production.
@@ -142,7 +90,7 @@ See the [Docker example](https://github.com/lucee/extension-debugger/tree/main/e
 
 ## Java Agent Mode (Lucee 6.2+)
 
-For older Lucee versions, luceedebug runs as a Java agent that instruments bytecode at runtime via JDWP. This requires a full JDK (not JRE).
+For older Lucee versions, the debugger runs as a Java agent that instruments bytecode at runtime via JDWP. This requires a full JDK (not JRE).
 
 Download the agent JAR from [Maven Central](https://central.sonatype.com/artifact/org.lucee/debugger-agent) — click the version, browse, and download `debugger-agent-{version}.jar`. For example:
 
@@ -198,6 +146,58 @@ When your IDE sees files at different paths than Lucee does (e.g. Docker, remote
 ```
 
 A breakpoint set on `/Users/dev/myproject/Application.cfc` maps to `/var/www/Application.cfc` on the server. Multiple transforms can be specified — first match wins.
+
+## Features
+
+| Feature | Extension | Agent |
+|---------|:---------:|:-----:|
+| Line breakpoints | yes | yes |
+| Conditional breakpoints | yes | yes |
+| Function breakpoints | yes | no |
+| Exception breakpoints | yes | no |
+| Step in/out/over | yes | yes |
+| Variable inspection | yes | yes |
+| Set variable value | yes | no |
+| Watch expressions | yes | yes |
+| Debug console evaluation | yes | yes |
+| Hover evaluation | yes | yes |
+| Completions (autocomplete) | yes | no |
+| Console output streaming | yes | no |
+| `breakpoint()` BIF | yes | no |
+| `isDebuggerEnabled()` BIF | yes | no |
+
+## CFML BIFs (Lucee 7.1+)
+
+> **Note:** These BIFs are not yet listed in the auto-generated function reference as the docs currently build against Lucee 7.0.
+
+These BIFs are part of Lucee core — they are always available and safe to call. Without the debugger extension installed and active, they simply return `false` and do nothing. You can leave them in production code without any overhead or dependency concerns.
+
+### breakpoint()
+
+Programmatic breakpoint — like JavaScript's `debugger;` statement. Suspends execution when a debugger is attached, allowing inspection of variables.
+
+```cfml
+// simple breakpoint
+breakpoint();
+
+// labelled breakpoint — shows in the debugger UI
+breakpoint( label="before query" );
+
+// conditional — only breaks when the condition is true
+breakpoint( condition=( arrayLen( errors ) > 0 ) );
+```
+
+Returns `true` if the breakpoint was hit, `false` if skipped (no debugger attached or condition was false).
+
+### isDebuggerEnabled()
+
+Returns `true` if DAP debugger support is enabled (via `LUCEE_DAP_SECRET` env var or `lucee.dap.secret` system property). Useful for conditionally including debug logic:
+
+```cfml
+if ( isDebuggerEnabled() ) {
+    systemOutput( "Debug: processing #arrayLen( items )# items" );
+}
+```
 
 ## Troubleshooting
 
