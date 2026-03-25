@@ -144,7 +144,11 @@ See the [Docker example](https://github.com/lucee/extension-debugger/tree/main/e
 
 For older Lucee versions, luceedebug runs as a Java agent that instruments bytecode at runtime via JDWP. This requires a full JDK (not JRE).
 
-Download the agent JAR from [Maven Central](https://central.sonatype.com/artifact/org.lucee/debugger-agent).
+Download the agent JAR from [Maven Central](https://central.sonatype.com/artifact/org.lucee/debugger-agent) — click the version, browse, and download `debugger-agent-{version}.jar`. For example:
+
+```text
+https://repo1.maven.org/maven2/org/lucee/debugger-agent/3.0.0.4/debugger-agent-3.0.0.4.jar
+```
 
 See the [Java Agent setup guide](https://github.com/lucee/extension-debugger/blob/main/JAVA_AGENT.md) for detailed instructions.
 
