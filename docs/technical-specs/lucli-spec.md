@@ -20,6 +20,7 @@ author: "Mark Drew"
 **Requirements:** Java 17+. Maven 3.x only needed to build from source.
 
 **Install (latest):**
+
 ```sh
 curl -LsSf https://lucli.dev/install.sh | sh
 # Windows:
@@ -27,11 +28,13 @@ powershell -ExecutionPolicy Bypass -NoProfile -Command "irm https://lucli.dev/in
 ```
 
 **Install specific version:**
+
 ```sh
 LUCLI_VERSION=0.2.1 curl -LsSf https://lucli.dev/install.sh | sh
 ```
 
 **Build from source:**
+
 ```sh
 ./build.sh
 ```
@@ -227,6 +230,7 @@ lucli modules uninstall <name>
 **Default:** `~/.lucli/`
 
 **Override:**
+
 ```sh
 export LUCLI_HOME="$HOME/.lucli-custom"
 java -Dlucli.home=/tmp/lucli-test -jar lucli.jar ...
@@ -355,12 +359,14 @@ Optional `host` field sets hostname for cert SAN.
 Defined under `environments.<name>`. Activated with `--env=<name>`.
 
 **Configuration load order:**
+
 1. LuCLI built-in defaults
 2. `configurationFile` (if set)
 3. Base `lucee.json`
 4. `environments.<name>` override
 
 **Deep merge rules:**
+
 - Nested objects: merged recursively
 - Arrays: replaced entirely
 - `null` values: remove corresponding base key
@@ -455,6 +461,7 @@ Resolved at: `lucli server start`, `lucli server lock` (writes commands).
 NOT resolved at: `server status`, `server stop`, `server list`, `server config get`.
 
 Resolution order in `lucee.json`:
+
 1. Env vars (`#env:VAR#` / `#env:VAR:-default#`)
 2. Secrets (`#secret:NAME#`)
 
@@ -586,11 +593,13 @@ lucli daemon [--port 10000] [--lsp] [--module ModuleName]
 **JSON mode protocol** (default, `127.0.0.1:<port>`):
 
 Request (one JSON line per TCP connection):
+
 ```json
 {"id":"1","argv":["modules","list"]}
 ```
 
 Response:
+
 ```json
 {"id":"1","exitCode":0,"output":"..."}
 ```
@@ -609,5 +618,5 @@ Response:
 
 ## Source Docs
 
-- https://lucli.dev/docs/
-- https://github.com/cybersonic/LuCLI
+- <https://lucli.dev/docs/>
+- <https://github.com/cybersonic/LuCLI>
