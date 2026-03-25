@@ -43,7 +43,7 @@ jobs:
         with:
           webroot: ${{ github.workspace }}
           execute: /build-all.cfm
-          luceeVersion: 7.0.3.28-SNAPSHOT
+          luceeVersion: 7.0.3.31-SNAPSHOT
           extensions: >-
             org.lucee:redis-extension,
             org.lucee:chart-extension,
