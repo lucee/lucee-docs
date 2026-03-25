@@ -15,7 +15,7 @@
   "categories": ["server"],
   "related": [
     "lucee-editors-IDEs",
-    "lucee-step-debugger-installation-guide"
+    "lucee-step-debugger"
   ]
 }
 -->

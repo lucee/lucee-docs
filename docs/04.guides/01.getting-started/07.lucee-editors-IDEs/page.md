@@ -26,11 +26,14 @@ CFML Editor has an option to use the full Lucee docs as the source for inline he
 
 <https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker>
 
-### Step debugging Lucee with VS Code (highly recommended!)
+### Step Debugging Lucee with VS Code (highly recommended!)
 
-[**LuceeDebug**](https://github.com/softwareCobbler/luceedebug) supports step debugging via breakpoints via a java agent and a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=DavidRogers.luceedebug)
+[**Extension Debugger**](https://github.com/lucee/extension-debugger) (formerly LuceeDebug) is a DAP step debugger for Lucee. On Lucee 7.1+ it runs as a native extension with zero overhead when not attached. For older versions (6.2+), it runs as a Java agent.
 
-[[lucee-step-debugger-installation-guide]]
+- [VS Code extension](https://marketplace.visualstudio.com/items?itemName=DavidRogers.luceedebug)
+- [Maven Central](https://central.sonatype.com/artifact/org.lucee/debugger-extension)
+
+[[lucee-step-debugger]]
 
 ## NeoVim
 

@@ -22,7 +22,7 @@ Lucee 7.1 introduces a native step debugger for VS Code, a wave of performance i
 
 ## Native Step Debugger
 
-The headline feature. Lucee now has a native [Debug Adapter Protocol (DAP)](https://microsoft.github.io/debug-adapter-protocol/) debugger that integrates directly with VS Code via the [LuceeDebug extension](https://github.com/lucee/extension-debugger).
+The headline feature. Lucee now has a native [Debug Adapter Protocol (DAP)](https://microsoft.github.io/debug-adapter-protocol/) debugger that integrates directly with VS Code via the [Extension Debugger](https://github.com/lucee/extension-debugger) (formerly LuceeDebug).
 
 **What you get:**
 
@@ -39,9 +39,9 @@ The headline feature. Lucee now has a native [Debug Adapter Protocol (DAP)](http
 
 - Set `LUCEE_DAP_SECRET` (required for authentication)
 - Set `LUCEE_DAP_HOST` for Docker deployments
-- Install the LuceeDebug extension
+- Install the Extension Debugger
 
-See the [LuceeDebug extension documentation](https://github.com/lucee/extension-debugger) for full setup instructions.
+See the [Extension Debugger documentation](https://github.com/lucee/extension-debugger) for full setup instructions.
 
 [LDEV-1402](https://luceeserver.atlassian.net/browse/LDEV-1402)
 
@@ -163,5 +163,5 @@ For the complete list, see [[breaking-changes-7-0-to-7-1]].
 - [[secret-management]] - Secret provider guide
 - [[ai]] - AI integration guide
 - [[breaking-changes-7-0-to-7-1]] - Breaking changes between 7.0 and 7.1
-- [LuceeDebug Extension](https://github.com/lucee/extension-debugger) - Native step debugger for VS Code
+- [Extension Debugger](https://github.com/lucee/extension-debugger) - Native step debugger for VS Code
 - [Lucee 7.1 Changelog](https://download.lucee.org/changelog/?version=7.1) - Full changelog
