@@ -344,6 +344,49 @@ cfsearch(
 
 Results are merged and ranked by relevance across all collections.
 
+## Search Syntax
+
+The `type` attribute on `cfsearch` controls how the search criteria are parsed.
+
+### Simple (default)
+
+`type="simple"` uses a Verity-compatible syntax. This is the default and covers most use cases.
+
+| Syntax | Meaning | Example |
+| --- | --- | --- |
+| word | Match a single term | `password` |
+| word word | Phrase (words together) | `password reset` |
+| `"quoted phrase"` | Exact phrase | `"password reset"` |
+| `AND` | Both terms required | `password AND reset` |
+| `OR` or `,` | Either term | `password OR email` or `password, email` |
+| `NOT` | Exclude term | `password NOT expired` |
+| `(...)` | Grouping | `(password OR email) AND reset` |
+| `*` | Prefix wildcard | `pass*` |
+| `?` | Single-character wildcard | `p?ss` |
+| `~` | Fuzzy match | `pasword~` |
+| `+` / `-` | Required / excluded term | `+password -expired` |
+
+> **Note:** This is a subset of Verity syntax — operators like `STEM`, `NEAR`, `PARAGRAPH`, and `SENTENCE` are not supported.
+
+### Explicit (since Search Extension 3.0.0.166)
+
+`type="explicit"` passes criteria directly to the search provider's native query parser — currently [Lucene's StandardQueryParser](https://lucene.apache.org/core/9_12_1/queryparser/org/apache/lucene/queryparser/flexible/standard/StandardQueryParser.html).
+
+This gives you access to the full Lucene query syntax:
+
+| Syntax | Meaning | Example |
+| --- | --- | --- |
+| `field:term` | Search a specific field | `title:reset` |
+| `field:"phrase"` | Phrase in specific field | `title:"password reset"` |
+| `term^2` | Boost a term's relevance | `password^2 reset` |
+| `term~2` | Fuzzy with edit distance | `pasword~1` |
+| `"phrase"~3` | Proximity (words within N) | `"password reset"~5` |
+| `[a TO z]` | Range query | `modified:[2024-01-01 TO 2024-12-31]` |
+| `term1 && term2` | Boolean AND | `password && reset` |
+| `term1 \|\| term2` | Boolean OR | `password \|\| email` |
+
+Use `explicit` when you need field-specific queries, boosting, or range searches that the simple parser can't express.
+
 ## Going Further
 
 This recipe covers traditional keyword search — matching words and phrases.
