@@ -1735,7 +1735,7 @@
     "file": "step-debugger.md",
     "title": "Step Debugging Lucee with Extension Debugger",
     "path": "/docs/recipes/step-debugger.md",
-    "hash": "c49fd8f12ace5d770279b69597230b05",
+    "hash": "8f1fc35686a0219c6429cb86f8934da9",
     "keywords": [
       "debugger",
       "DAP",
