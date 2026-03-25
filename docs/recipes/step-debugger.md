@@ -31,7 +31,7 @@ It lets you set breakpoints, step through code, inspect variables, and evaluate 
 There are two ways to run it:
 
 | | Lucee Extension | Java Agent |
-|---|---|---|
+| --- | --- | --- |
 | **Lucee version** | 7.1+ | 6.2+ |
 | **Setup** | Install extension, set env vars | JVM startup flags |
 | **JDK required** | No (JRE works) | Yes |
@@ -61,7 +61,7 @@ LUCEE_DAP_PORT=10000
 ```
 
 | Variable | Required | Description |
-|----------|:--------:|-------------|
+| --------- | :-------: | ----------- |
 | `LUCEE_DAP_SECRET` | yes | Authentication secret (must match client config) |
 | `LUCEE_DAP_PORT` | | Port for DAP server (default: 10000) |
 | `LUCEE_DAP_HOST` | | Bind address (default: localhost, use `0.0.0.0` for Docker) |
@@ -106,14 +106,13 @@ See the [Java Agent setup guide](https://github.com/lucee/extension-debugger/blo
 
 2. Add a debug configuration to `.vscode/launch.json`:
 
-```json5
+```json
 {
     "type": "cfml",
     "request": "attach",
     "name": "Lucee Debugger",
     "hostName": "localhost",
     "port": 10000,
-    // Extension mode requires a secret
     "secret": "your-secret-here"
 }
 ```
@@ -123,7 +122,7 @@ See the [Java Agent setup guide](https://github.com/lucee/extension-debugger/blo
 ### Launch Options
 
 | Option | Description |
-|--------|-------------|
+| --------- | ------------- |
 | `hostName` | DAP server host (default: localhost) |
 | `port` | DAP server port (must match `LUCEE_DAP_PORT`) |
 | `secret` | Authentication secret (must match `LUCEE_DAP_SECRET`) |
@@ -150,7 +149,7 @@ A breakpoint set on `/Users/dev/myproject/Application.cfc` maps to `/var/www/App
 ## Features
 
 | Feature | Extension | Agent |
-|---------|:---------:|:-----:|
+| --------- | :---------: | :-----: |
 | Line breakpoints | yes | yes |
 | Conditional breakpoints | yes | yes |
 | Function breakpoints | yes | no |
