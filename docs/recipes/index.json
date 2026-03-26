@@ -1160,14 +1160,21 @@
     "file": "mathematical-precision.md",
     "title": "Mathematical Precision",
     "path": "/docs/recipes/mathematical-precision.md",
-    "hash": "06b6a0d139bda55032561a7962fac846",
+    "hash": "987987843c6ceb8cd9dabe350446deee",
     "keywords": [
       "math",
       "precision",
       "BigDecimal",
       "Lucee",
       "Application.cfc",
-      "PrecisionEvaluate"
+      "PrecisionEvaluate",
+      "preciseMath",
+      "floating point",
+      "money",
+      "currency",
+      "geospatial",
+      "latitude",
+      "longitude"
     ]
   },
   {

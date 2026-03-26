@@ -338,7 +338,7 @@ All about the different mappings in Lucee and how to use them.
 
 ## [Mathematical Precision](/docs/recipes/mathematical-precision.md)
 
-Learn about the switch from double to BigDecimal in Lucee 6 for more precise mathematical operations. This guide provides information on how to change the default behavior if needed.
+Learn how to enable BigDecimal-based precise math in Lucee to avoid floating point issues. Precise math is opt-in and disabled by default.
 
 ## [Loading Java Libraries with Maven](/docs/recipes/maven.md)
 
