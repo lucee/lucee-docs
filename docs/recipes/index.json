@@ -1195,6 +1195,25 @@
     ]
   },
   {
+    "file": "maven-based-extensions.md",
+    "title": "Maven Based Extensions",
+    "path": "/docs/recipes/maven-based-extensions.md",
+    "hash": "547ad10e21cebe9aea80a475bd6592f9",
+    "keywords": [
+      "extension",
+      "Maven",
+      "OSGi",
+      "lex",
+      "GAVSO",
+      "manifest",
+      "TLD",
+      "FLD",
+      "BIF",
+      "classloading",
+      "dependency"
+    ]
+  },
+  {
     "file": "maven.md",
     "title": "Loading Java Libraries with Maven",
     "path": "/docs/recipes/maven.md",

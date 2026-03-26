@@ -344,6 +344,10 @@ All about the different mappings in Lucee and how to use them.
 
 Learn how to enable BigDecimal-based precise math in Lucee to avoid floating point issues. Precise math is opt-in and disabled by default.
 
+## [Maven Based Extensions](/docs/recipes/maven-based-extensions.md)
+
+How to build Lucee extensions using Maven instead of OSGi bundles
+
 ## [Loading Java Libraries with Maven](/docs/recipes/maven.md)
 
 Load Java libraries from Maven repositories - automatic dependency management for CFML applications.
