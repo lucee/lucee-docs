@@ -44,6 +44,8 @@ Key benefits:
 
 > **Common OSGi pitfall:** With OSGi bundles, `Require-Bundle` must use the `Bundle-SymbolicName`, NOT the Maven `groupId:artifactId`. These are often completely different strings. Mixing them up causes flaky resolution failures that only surface on cold starts — see [LDEV-6189](https://luceeserver.atlassian.net/browse/LDEV-6189) for a real-world example. The Maven approach eliminates this class of bug entirely.
 
+> **Lucee 7.1 OSGi improvement:** If you do still need OSGi bundles, [LDEV-6044](https://luceeserver.atlassian.net/browse/LDEV-6044) (7.1.0.21+) removes the static system packages list and lets Felix 7.x auto-detect packages from the JVM module system. This fixes long-standing issues where OSGi bundles couldn't import modern JDK packages like `java.util.stream` and `java.time`.
+
 ## Extension Structure
 
 Each Maven-based extension publishes **two artifacts** to Maven Central:
