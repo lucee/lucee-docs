@@ -1198,7 +1198,7 @@
     "file": "maven-based-extensions.md",
     "title": "Maven Based Extensions",
     "path": "/docs/recipes/maven-based-extensions.md",
-    "hash": "547ad10e21cebe9aea80a475bd6592f9",
+    "hash": "b16a15130a098c047fc89612d40ea163",
     "keywords": [
       "extension",
       "Maven",
