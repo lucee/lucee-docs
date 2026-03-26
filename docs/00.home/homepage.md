@@ -8,17 +8,13 @@ Welcome to the Official [Lucee Server](https://lucee.org) Documentation
 
 ---
 
-Lucee is a [high performance](https://community.ortussolutions.com/t/how-does-cfml-really-perform-compared-to-other-languages/9325), [open source](https://github.com/lucee/Lucee), ColdFusion / CFML server engine, written in Java.
+Lucee is a high performance, [open source](https://github.com/lucee/Lucee) CFML server engine, written in Java.
 
 The documentation here aims to provide a thorough reference and guide to all things to do with the Lucee Server. This includes reference material on both [[functions]] and [[tags]] as well as more in-depth articles in the [[guides]] section.
 
-Our documentation is an open source and community driven effort. It is also a constant work in progress and we always welcome feedback, improvements and suggestions.
+## Lucee 7.0 - Stable
 
-If you're interested in contributing to Lucee as a Developer, checkout our [Git Repo](https://github.com/lucee/Lucee/blob/7.0/CONTRIBUTING.md)
-
-## Lucee 7.0
-
-Lucee 7 is our latest release, switching to only Single mode and Jakarta.
+Lucee 7 is the current stable release — Single mode only, full Jakarta EE migration, production-ready AI and Java integration, up to 3x faster deployment, and a 20MB smaller core.
 
 [[lucee_7_overview]]
 
@@ -26,7 +22,17 @@ Lucee 7 is our latest release, switching to only Single mode and Jakarta.
 
 [[breaking-changes-6-2-to-7-0]]
 
-[Form posts about Lucee 7.0](https://dev.lucee.org/tag/lucee-7)
+[Forum posts about Lucee 7.0](https://dev.lucee.org/tag/lucee-7)
+
+## Lucee 7.1 (upcoming)
+
+Lucee 7.1 introduces a native step debugger for VS Code, significant performance improvements across the compiler and runtime, lighter components, Query of Queries enhancements, Java 25 as the new baseline, and moves core functionality (SMTP, FTP, Compress, HSQLDB) out to independently updatable extensions.
+
+[[lucee_7_1_overview]]
+
+[[breaking-changes-7-0-to-7-1]]
+
+[Lucee 7.1 ChangeLog](https://download.lucee.org/changelog/?version=7.1)
 
 ## Recipes - Lucee Guides and Tutorials
 
@@ -38,7 +44,7 @@ Feel free to request new topics or ask questions via the [dev forum](https://dev
 
 [[content::latest-recipes]]
 
-To see what's new in Tags and Functions refer to [[changelog]]
+To see what's new in Tags and Functions refer to [[changelog]].
 
 ## Deploying Lucee
 
@@ -50,44 +56,15 @@ To see what's new in Tags and Functions refer to [[changelog]]
 
 [[recommended-settings]] - Recommended Settings
 
-## Lucee 6.2
+## Lucee 6.2 LTS
 
-[Lucee 6.2](https://dev.lucee.org/tag/lucee-62) is our latest stable release, with enhanced Java and Maven integration, Jakarta Servlet support and better runtime performance.
+Lucee 6.2 is our LTS release — up to 50% faster than 5.4, with Jakarta Servlet support, Maven integration, and experimental AI and Java features that became production-ready in 7.0.
 
-Lucee 6.2 up to 50% faster than Lucee 5.4, while using less memory.
-
-Our Official Docker images and Installers for 6.2 all bundle Tomcat 10.1 and Java 21. This may cause issues with the switch to the Jakarta namespace, Lucee 6.2 supports both, but anything which integrates with Tomcat (i.e. urlrewrite) will need updating, see the [Jakarta](https://luceeserver.atlassian.net/issues/?jql=labels%20%3D%20%22jakarta%22) issues in our bug tracker.
+[[lucee_6_2_overview]]
 
 [Lucee 6.2 ChangeLog](https://download.lucee.org/changelog/?version=6.2)
 
 [[breaking-changes-6-1-to-6-2]]
-
-## Lucee 6.1
-
-Targeting better performance and reduced memory usage, Lucee 6.1 introduces full support for Java 17 and 21, as well as Java 11.
-Java 8 is no longer officially supported.
-
-[[breaking-changes-6-0-to-6-1]]
-
-## Lucee 6.0
-
-[Lucee 6](https://dev.lucee.org/tag/lucee-6).
-
-Highlights include, reduced size, faster startup, single context mode, JSON based configuration and much more.
-
-As a Major Release, Lucee 6 does include some potential **BREAKING CHANGES**, for a range of security reasons and better compatibility with Adobe ColdFusion.
-
-[[breaking-changes-5-4-to-6-0]]
-
-[[lucee-5-to-6-migration-guide]]
-
-## Lucee 5.4 (LTS)
-
-Lucee 5.4 is our [LTS stable release](https://lucee.org/downloads.html) and is recommended for production systems. More details are available in the [Lucee 5](/guides/lucee-5.html) section of these docs.
-
-Only Java 8 and 11 are supported, there are various changes in Java 21 including date time handling which are not addressed in 5.4, time to upgrade!
-
-As a LTS release, Lucee 5.4 will receive security updates and critical regression fixes until December 31st 2025, **but is no longer actively maintained.**
 
 ## Getting help
 
@@ -95,18 +72,26 @@ As a LTS release, Lucee 5.4 will receive security updates and critical regressio
 - [[tutorial-reporting-bugs]]
 - [[troubleshooting]]
 
-## Lucee 5.3
+## Older Releases
 
-Lucee 5.3 (and older) now is no longer actively developed. It's time to upgrade to 5.4 LTS or 6 (recommended)
+**Lucee 6.1** — Performance and memory improvements, full Java 17 and 21 support, Java 8 dropped. See [[breaking-changes-6-0-to-6-1]].
 
-## Lucee 4.5
+**Lucee 6.0** — Single context mode, JSON-based configuration, reduced size. Includes **breaking changes** for security and Adobe ColdFusion compatibility. See [[breaking-changes-5-4-to-6-0]] and [[lucee-5-to-6-migration-guide]].
 
-Lucee 4.5 is the [legacy stable release](https://lucee.org/downloads.html) of the Lucee platform. It is End of Life (EOL) and no longer supported.
+**Lucee 5.4** — Reached End of Life on December 31st 2025. No longer supported.
+
+**Lucee 5.3 and older** — No longer supported. Time to upgrade to Lucee 6.2 LTS or 7.0.
 
 ## Java API Docs
 
-The Java API documentation of Lucee Server's loader interfaces, are published at [https://www.javadoc.io/doc/org.lucee/lucee/latest/index.html](https://www.javadoc.io/doc/org.lucee/lucee/latest/index.html).
+The Java API documentation of Lucee Server's loader interfaces are published at [javadoc.io](https://www.javadoc.io/doc/org.lucee/lucee/latest/index.html).
 
 ## Lucee on YouTube
 
-We also have a channel on YouTube where you can find further tutorials and tips: [Lucee YouTube Channel](https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA)
+We also have a channel on YouTube where you can find further tutorials and tips: [Lucee YouTube Channel](https://www.youtube.com/channel/UCdsCTvG8-gKUu4zA309EZYA).
+
+## Contributing
+
+Our documentation is an open source and community driven effort. We always welcome feedback, improvements and suggestions.
+
+If you're interested in contributing to Lucee as a Developer, check out our [Git Repo](https://github.com/lucee/Lucee/blob/7.0/CONTRIBUTING.md).
