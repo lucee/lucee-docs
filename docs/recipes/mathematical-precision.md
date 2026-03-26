@@ -1,28 +1,28 @@
 <!--
 {
-  “title”: “Mathematical Precision”,
-  “id”: “mathematical-precision”,
-  “since”: “6.0”,
-  “description”: “Learn how to enable BigDecimal-based precise math in Lucee to avoid floating point issues. Precise math is opt-in and disabled by default.”,
-  “keywords”: [
-    “math”,
-    “precision”,
-    “BigDecimal”,
-    “Lucee”,
-    “Application.cfc”,
-    “PrecisionEvaluate”,
-    “preciseMath”,
-    “floating point”,
-    “money”,
-    “currency”,
-    “geospatial”,
-    “latitude”,
-    “longitude”
+  "title": "Mathematical Precision",
+  "id": "mathematical-precision",
+  "since": "6.0",
+  "description": "Learn how to enable BigDecimal-based precise math in Lucee to avoid floating point issues. Precise math is opt-in and disabled by default.",
+  "keywords": [
+    "math",
+    "precision",
+    "BigDecimal",
+    "Lucee",
+    "Application.cfc",
+    "PrecisionEvaluate",
+    "preciseMath",
+    "floating point",
+    "money",
+    "currency",
+    "geospatial",
+    "latitude",
+    "longitude"
   ],
-  “related”: [
-    “function-precisionevaluate”
+  "related": [
+    "function-precisionevaluate"
   ],
-  “categories”: [
+  "categories": [
     "math",
     "core",
     "number"
@@ -37,7 +37,7 @@ Virtually every programming language — Java, JavaScript, Python — uses IEEE 
 
 ```lucee
 // 0.29 * 100 is actually 28.999999999999996 as a double
-writeOutput( numberFormat( 0.29 * 100, “0.999999999999999” ) ); // 28.999999999999996
+writeOutput( numberFormat( 0.29 * 100, "0.999999999999999" ) ); // 28.999999999999996
 writeOutput( int( 0.29 * 100 ) ); // 28 — not 29!
 ```
 
@@ -64,9 +64,9 @@ Turn precise math on for just the section of code that needs it, then turn it of
 This is often the best approach — you get exact results where they matter without slowing down the rest of your request:
 
 ```lucee
-application action=”update” preciseMath=”true”;
+application action="update" preciseMath="true";
 // precise math operations here
-application action=”update” preciseMath=”false”;
+application action="update" preciseMath="false";
 ```
 
 ### Application-wide
@@ -102,7 +102,7 @@ total = 0.1 + 0.2; // 0.30000000000000004
 totalCents = 10 + 20; // 30, always exact
 dollars = totalCents \ 100; // integer division
 cents = totalCents % 100;
-writeOutput( “$#dollars#.#numberFormat( cents, '00' )#” ); // $0.30
+writeOutput( "$#dollars#.#numberFormat( cents, '00' )#" ); // $0.30
 ```
 
 This is a data modelling choice — keep values as integers throughout your business logic and only format for display at the boundary. It has no performance overhead and doesn't depend on any runtime setting.
