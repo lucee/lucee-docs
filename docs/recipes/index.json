@@ -1033,6 +1033,23 @@
     ]
   },
   {
+    "file": "loader-api-changes-7.md",
+    "title": "Lucee 7 Loader API Changes",
+    "path": "/docs/recipes/loader-api-changes-7.md",
+    "hash": "0132a6a9b7103d9b8cae8cb13d175b0d",
+    "keywords": [
+      "loader",
+      "API",
+      "CFMLEngine",
+      "extensions",
+      "Java",
+      "Jakarta",
+      "AI",
+      "secret provider",
+      "migration"
+    ]
+  },
+  {
     "file": "logging-http-calls.md",
     "title": "Logging HTTP Calls",
     "path": "/docs/recipes/logging-http-calls.md",

@@ -300,6 +300,10 @@ How to use lazy queries
 
 List existing Cache Connections available in Lucee.
 
+## [Lucee 7 Loader API Changes](/docs/recipes/loader-api-changes-7.md)
+
+New and changed interfaces in the Lucee 7 Loader API for extension and integration developers
+
 ## [Logging HTTP Calls](/docs/recipes/logging-http-calls.md)
 
 This document explains how to log HTTP calls made by the cfhttp tag in Lucee.
