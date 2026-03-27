@@ -1036,7 +1036,7 @@
     "file": "loader-api-changes-7.md",
     "title": "Lucee 7 Loader API Changes",
     "path": "/docs/recipes/loader-api-changes-7.md",
-    "hash": "0132a6a9b7103d9b8cae8cb13d175b0d",
+    "hash": "85f59b402b346741f5b1f5c4c063f187",
     "keywords": [
       "loader",
       "API",
@@ -1198,7 +1198,7 @@
     "file": "maven-based-extensions.md",
     "title": "Maven Based Extensions",
     "path": "/docs/recipes/maven-based-extensions.md",
-    "hash": "b16a15130a098c047fc89612d40ea163",
+    "hash": "8e803b456c2a8971e87d6a542313ea76",
     "keywords": [
       "extension",
       "Maven",
