@@ -55,7 +55,7 @@ Each Maven-based extension publishes **two artifacts** to Maven Central:
 | `{name}` | The JAR library | `org.lucee:mail` |
 | `{name}-extension` | The `.lex` extension package | `org.lucee:mail-extension` |
 
-> **Important:** The `artifactId` for the extension package must end with `-extension`. This is how Lucee discovers extensions when scanning a Maven GroupId (see [[extension-provider]]).
+> **Important:** The `artifactId` must follow the `{name}-extension` pattern (e.g., `crypto-extension`, `jsonata-extension`, `redis-extension`). This is how Lucee discovers extensions when scanning a Maven GroupId (see [[extension-provider]]). Note that GitHub repos use the reverse convention (`extension-{name}`), but the Maven `artifactId` must be `{name}-extension` to match the UUID mapping in `ExtensionProvider.java`.
 
 ### Directory Layout
 
