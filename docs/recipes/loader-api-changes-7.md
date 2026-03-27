@@ -153,7 +153,6 @@ Lucee 7 exposes "Pro" variants of existing interfaces in the public loader API. 
 
 - **`lucee.runtime.cache.tag.CacheHandlerPro`** — extends `CacheHandler` with additional cache management methods (moved from core to loader)
 - **`lucee.runtime.db.DataSourcePro`** — extends `DataSource` with advanced datasource configuration (moved from core to loader)
-- **`lucee.runtime.search.SearchDataPro`** — extends `SearchData` with additional search capabilities (new in 7.0.3.30, [LDEV-6196](https://luceeserver.atlassian.net/browse/LDEV-6196))
 
 If your extension implements the base interface, it will continue to work. Implementing the "Pro" variant opts in to the new functionality.
 
