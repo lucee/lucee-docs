@@ -13,7 +13,8 @@
     "Claude",
     "Ollama",
     "RAG",
-    "Multipart"
+    "Multipart",
+    "MCP"
   ]
 }
 -->
@@ -32,6 +33,7 @@ Lucee 7 includes full support for AI integration, allowing you to interact with 
 - **Enhanced File Handling**: Automatic detection and handling of file paths in multipart requests
 - **Session Serialization**: Save and restore conversation state across requests
 - **RAG Support**: Retrieval-Augmented Generation with Lucene integration
+- **Provider Passthrough**: Forward arbitrary request body fields and HTTP headers directly to the provider API *(added in 7.0.4.3)*
 
 ## Configuration
 
@@ -405,6 +407,91 @@ dump(response);
 
 **Note**: This feature requires Gemini's beta API (`"beta": true` or URL set to `https://generativelanguage.googleapis.com/v1beta/`).
 
+### Provider Passthrough *(since 7.0.4.3)*
+
+All three AI engines (Claude, OpenAI, Gemini) support a **passthrough mechanism** for forwarding additional configuration directly to the provider's API. This allows you to use provider-specific features — including beta features — without needing Lucee to explicitly support them.
+
+#### How It Works
+
+When initializing an AI engine, Lucee extracts all known configuration properties (`model`, `apikey`, `temperature`, etc.) from the `custom` block. Any **remaining unknown keys** are collected and forwarded directly into the HTTP request body sent to the provider. Additionally, a `headers` key allows forwarding custom HTTP headers.
+
+This means:
+- New provider features work immediately via config, no Lucee update required
+- Beta APIs and experimental parameters are fully accessible
+- The passthrough respects existing keys — it will never overwrite fields Lucee sets explicitly (like `model` or `messages`)
+
+#### Passthrough Behavior by Provider
+
+| Provider | Unknown body fields | Custom headers |
+|----------|-------------------|----------------|
+| Claude (Anthropic) | Forwarded ✅ | Forwarded ✅ |
+| Gemini (Google) | Forwarded ✅ | Forwarded ✅ |
+| OpenAI / ChatGPT | Forwarded ✅ | Forwarded ✅ |
+
+**Important**: While Claude silently ignores truly unknown fields, Gemini and OpenAI will return a `400` error for fields their API does not recognize. Only forward fields that are valid for the target provider's API.
+
+#### Custom Headers
+
+Use the `headers` key inside `custom` to forward arbitrary HTTP headers:
+
+```json
+"custom": {
+  "headers": {
+    "my-custom-header": "value"
+  }
+}
+```
+
+#### Example: Claude with MCP
+
+MCP (Model Context Protocol) is an open standard that allows AI models to connect to external tool servers — databases, APIs, or any custom logic you expose. Since Anthropic's MCP support requires a beta header and specific request body fields, it is configured entirely via the passthrough mechanism — no special Lucee support is needed.
+
+```json
+"ai": {
+  "myclaude": {
+    "class": "lucee.runtime.ai.anthropic.ClaudeEngine",
+    "custom": {
+      "apikey": "${CLAUDE_API_KEY}",
+      "model": "claude-sonnet-4-6",
+      "message": "You are a helpful assistant.",
+      "headers": {
+        "anthropic-beta": "mcp-client-2025-11-20"
+      },
+      "mcp_servers": [
+        {
+          "type": "url",
+          "url": "https://your-mcp-server.com/mcp",
+          "name": "my-tools",
+          "authorization_token": "${MCP_TOKEN}"
+        }
+      ],
+      "tools": [
+        {
+          "type": "mcp_toolset",
+          "mcp_server_name": "my-tools"
+        }
+      ]
+    }
+  }
+}
+```
+
+Usage in CFML is identical to any other AI session — the MCP integration is transparent:
+
+```javascript
+aiSession = createAISession(name: 'myclaude');
+answer = inquiryAISession(aiSession, "What tools do you have available?");
+writeOutput(answer);
+```
+
+Claude will automatically discover the tools exposed by your MCP server and use them when relevant to answer the query.
+
+**Notes:**
+
+- The `anthropic-beta` header version (`mcp-client-2025-11-20`) may change as Anthropic promotes MCP out of beta. Update your config accordingly — no Lucee code change is needed.
+- Anthropic handles all MCP communication (tool discovery, tool calls, result handling) on their side. Lucee simply passes the server reference through.
+- For Gemini and OpenAI, MCP configuration format differs from Claude's. Refer to each provider's API documentation for the correct field names and structure.
+
 ### Session Serialization
 
 Save and restore conversation state across requests. See [AI Session Serialization](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai-serialisation.md) for details.
@@ -458,19 +545,17 @@ Enhance AI responses with your own data using Lucene search integration. See [AI
 
 ```javascript
 // Search your indexed content
-search
+search 
     contextpassages=5
     contextBytes=4000
     name="searchResults"
-    collection="knowledge_base"
+    collection="knowledge_base" 
     criteria=userQuery;
 
 // Add search results as context to AI query
 augmentedQuery = "Query: #userQuery#\n\nContext: #serializeJSON(searchResults)#";
 answer = inquiryAISession(aiSession, augmentedQuery);
 ```
-
-For semantic search in RAG pipelines, the [Lucene 3 Extension](lucene-search.md) supports vector and hybrid search modes with configurable embedding services. You can pass a file path directly as the `embedding` value, e.g. `embedding="/path/to/vectors.txt"` — see [Custom Vectors File](lucene-search.md#custom-vectors-file) for details.
 
 ## Available Functions
 
@@ -560,6 +645,7 @@ If you're upgrading from Lucee 6.2 with the experimental AI features:
    - Structured JSON responses with Gemini beta API
    - Session serialization for persistent conversations
    - RAG with Lucene integration
+   - Provider passthrough for beta and custom API features
 
 Example migration:
 
@@ -783,6 +869,25 @@ queryExecute(
 );
 ```
 
+### Claude with MCP Tools
+
+```javascript
+// Configure Claude with an MCP server in .CFConfig.json (see Provider Passthrough section)
+// then use it like any other session - MCP is transparent to CFML code
+
+aiSession = createAISession(name: 'myclaude');
+
+// Claude will automatically use MCP tools when relevant
+answer = inquiryAISession(aiSession, "Check the current weather in Zurich and summarize it");
+writeOutput(answer);
+
+// Streaming also works with MCP
+inquiryAISession(aiSession, "List all open tasks from the project board", function(chunk) {
+    writeOutput(chunk);
+    cfflush(throwonerror=false);
+});
+```
+
 ## Related Documentation
 
 - **[AI Augmentation with Lucene](ai-augmentation.md)** - Implement RAG to enhance AI with your own data
@@ -801,6 +906,7 @@ AI integration in Lucee continues to be actively developed. We welcome your feed
 - **Additional Providers**: Support for more AI providers and models
 - **Enhanced RAG Tools**: More built-in tools for retrieval-augmented generation
 - **Fine-Tuning Support**: More functionality for customizing AI behavior
+- **Native MCP Support**: Dedicated MCP configuration per provider beyond the current passthrough mechanism
 
 ## Getting Help
 
