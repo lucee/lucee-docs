@@ -63,7 +63,7 @@
     "file": "ai.md",
     "title": "AI",
     "path": "/docs/recipes/ai.md",
-    "hash": "3b81a67beba238e029a0eeb2b3a041ad",
+    "hash": "d19c01289ca6c0c1ea7d4e536650d82e",
     "keywords": [
       "AI",
       "LLM",
@@ -72,7 +72,8 @@
       "Claude",
       "Ollama",
       "RAG",
-      "Multipart"
+      "Multipart",
+      "MCP"
     ]
   },
   {
