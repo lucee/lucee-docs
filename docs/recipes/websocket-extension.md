@@ -393,3 +393,13 @@ for ( var wsI in wsInstances ) {
 ```
 
 [[event-gateways]] is a good candidate for this script.
+
+## Troubleshooting
+
+### "calling [onOpen] via reflection, servlet engine restart needed"
+
+This warning appears after upgrading the WebSocket extension without restarting the servlet engine (e.g. Tomcat). The WebSocket container only allows endpoint registration once per path during its lifecycle, so when Lucee restarts but the servlet engine doesn't, the new extension forwards calls to the updated code via reflection.
+
+This is normal — WebSocket functionality still works correctly, reflection is just slower.
+
+To clear the warning, restart the servlet engine, i.e. Tomcat (not just Lucee via the admin).
