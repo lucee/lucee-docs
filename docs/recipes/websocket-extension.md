@@ -418,8 +418,8 @@ Other load balancers (HAProxy, Cloudflare, AWS ALB, etc.) have similar idle time
 
 ### "calling [onOpen] via reflection, servlet engine restart needed"
 
-This warning appears after upgrading the WebSocket extension without restarting the servlet engine (e.g. Tomcat). The WebSocket container only allows endpoint registration once per path during its lifecycle, so when Lucee restarts but the servlet engine doesn't, the new extension forwards calls to the updated code via reflection.
+This log warning appears after Lucee restarts without restarting the servlet engine (e.g. Tomcat). The servlet container only allows `addEndpoint()` once per endpoint path during its lifecycle, so when Lucee restarts but Tomcat doesn't, the new extension injects itself into the previous class's static field and forwards calls via reflection.
 
-This is normal — WebSocket functionality still works correctly, using reflection is just slower.
+This is a normal hot-update mechanism — WebSocket functionality still works correctly, using reflection is just slower. To use direct calls instead, restart the servlet engine, i.e. Tomcat (not just Lucee via the admin).
 
-To clear the warning, restart the servlet engine, i.e. Tomcat (not just Lucee via the admin).
+See [LDEV-6221](https://luceeserver.atlassian.net/browse/LDEV-6221) for more details.
