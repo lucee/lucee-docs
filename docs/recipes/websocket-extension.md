@@ -92,7 +92,8 @@ _{lucee-config}: /lucee/lucee-server/context_
 }
 ```
 
-The WebSocket extension comes with a helper function `websocketInfo()` that will show the current configurations settings. More on other details later ...
+- `idleTimeout` (default 300 seconds) controls how long each connection can remain idle before the servlet engine closes it.
+- `requestTimeout` (default 50 seconds) controls the maximum time for processing a WebSocket request.
 
 ![websocketInfo()](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/websocketInfo.png)
 
@@ -393,3 +394,32 @@ for ( var wsI in wsInstances ) {
 ```
 
 [[event-gateways]] is a good candidate for this script.
+
+## Troubleshooting
+
+### Reverse Proxy Timeouts
+
+If your WebSocket connections are closing after exactly 60 seconds, the problem is almost certainly your **reverse proxy**, not the servlet engine. Most reverse proxies have their own idle timeout that defaults to 60 seconds, independently of Lucee's `idleTimeout` setting.
+
+**Nginx** — add to your WebSocket `location` block:
+
+```nginx
+proxy_read_timeout 300s;
+proxy_send_timeout 300s;
+```
+
+**Apache mod_proxy** — add to your `<VirtualHost>` or `<Location>` block:
+
+```apache
+ProxyTimeout 300
+```
+
+Other load balancers (HAProxy, Cloudflare, AWS ALB, etc.) have similar idle timeout settings — check your provider's docs.
+
+### "calling [onOpen] via reflection, servlet engine restart needed"
+
+This log warning appears after Lucee restarts without restarting the servlet engine (e.g. Tomcat). The servlet container only allows `addEndpoint()` once per endpoint path during its lifecycle, so when Lucee restarts but Tomcat doesn't, the new extension injects itself into the previous class's static field and forwards calls via reflection.
+
+This is a normal hot-update mechanism — WebSocket functionality still works correctly, using reflection is just slower. To use direct calls instead, restart the servlet engine, i.e. Tomcat (not just Lucee via the admin).
+
+See [LDEV-6221](https://luceeserver.atlassian.net/browse/LDEV-6221) for more details.

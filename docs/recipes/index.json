@@ -63,7 +63,7 @@
     "file": "ai.md",
     "title": "AI",
     "path": "/docs/recipes/ai.md",
-    "hash": "3b81a67beba238e029a0eeb2b3a041ad",
+    "hash": "d19c01289ca6c0c1ea7d4e536650d82e",
     "keywords": [
       "AI",
       "LLM",
@@ -72,7 +72,8 @@
       "Claude",
       "Ollama",
       "RAG",
-      "Multipart"
+      "Multipart",
+      "MCP"
     ]
   },
   {
@@ -2022,7 +2023,7 @@
     "file": "websocket-extension.md",
     "title": "WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "10be8a1cb37de0fcf074f3d7437b9675",
+    "hash": "2417e0adcd43654ea917acfe8014dfb5",
     "keywords": [
       "Lucee",
       "Extension"
