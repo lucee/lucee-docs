@@ -36,8 +36,8 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git config --local user.email "action@github.com"
             git config --local user.name "Lucee Docs GitHub Action"
-            git add docs/recipes/index.json docs/recipes/README.md
-            git commit -m "Update recipes index and README"
+            git add docs/recipes/index.json docs/recipes/README.md docs/recipes/lucee.skill
+            git commit -m "Update recipes index, skill and README"
             git push origin $BRANCH_NAME
           else
             echo "No changes found to commit"
