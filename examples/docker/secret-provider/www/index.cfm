@@ -6,6 +6,14 @@
 	// You can fetch secrets by key alone (first matching provider wins)
 	// or target a specific provider by name.
 	// =========================================================
+configDir=getPageContext().getConfig().getConfigServerDir();
+configFile=configDir&"/.CFConfig.json";
+systemOutput("--- #configFile# ---",1,1);
+systemOutput(fileRead(configFile),1,1);
+systemOutput("lucee.base.config system prop: " & (server.system.properties["lucee.base.config"]?:"NOT SET"), 1,1);
+systemOutput("LUCEE_BASE_CONFIG env var: " & (server.system.environment["LUCEE_BASE_CONFIG"]?:"NOT SET"), 1,1);
+
+abort;
 
 
 	// ---------------------------------------------------------
