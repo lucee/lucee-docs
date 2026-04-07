@@ -57,6 +57,8 @@ jobs:
             org.lucee:json-extension,
             org.lucee:websocket-extension,
             org.lucee:websocket-client-extension
+      - name: Copy skill file to build artifacts
+        run: cp docs/recipes/lucee.skill builds/artifacts/lucee.skill
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -72,8 +74,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
           AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
-      - name: Copy skill file to build artifacts
-        run: cp docs/recipes/lucee.skill builds/artifacts/lucee.skill
       # - name: Notify slack
       #   uses: 8398a7/action-slack@v4.9.1
       #   with:
