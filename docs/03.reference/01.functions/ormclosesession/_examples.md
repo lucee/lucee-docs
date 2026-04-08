@@ -1,1 +1,7 @@
-*There are currently no examples for this function.*
+```luceescript
+// Close the default datasource session
+ormCloseSession();
+
+// Close a specific datasource session
+ormCloseSession( "inventoryDB" );
+```

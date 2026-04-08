@@ -3,7 +3,6 @@ title: ORMEvictCollection
 id: function-ormevictcollection
 categories:
 - orm
-description: This will remove all the entries with the specified relation/collection name in the specified component.
 ---
 
-This will remove all the entries with the specified relation/collection name in the specified component.
+Evicts all cached entries for the specified collection/relationship on the given entity from the second-level cache.

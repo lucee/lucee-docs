@@ -5,4 +5,4 @@ categories:
 - orm
 ---
 
-Closes all ORM session.
+Closes all ORM sessions.

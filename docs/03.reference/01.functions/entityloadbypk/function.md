@@ -5,4 +5,4 @@ categories:
 - orm
 ---
 
-Loads and returns an array of objects for given primary key.
+Loads and returns the entity for the given primary key, or null if not found.

@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript
+// Reload ORM after changing entity CFCs during development
+ormReload();
+```
