@@ -1310,6 +1310,83 @@
     ]
   },
   {
+    "file": "orm-caching.md",
+    "title": "ORM - Caching",
+    "path": "/docs/recipes/orm-caching.md",
+    "hash": "e9df7d2cd7121e8f78cad92611a63dbf",
+    "keywords": []
+  },
+  {
+    "file": "orm-configuration.md",
+    "title": "ORM - Configuration",
+    "path": "/docs/recipes/orm-configuration.md",
+    "hash": "016aea9a398ba75ba20f65685f29ce36",
+    "keywords": []
+  },
+  {
+    "file": "orm-entity-mapping.md",
+    "title": "ORM - Entity Mapping",
+    "path": "/docs/recipes/orm-entity-mapping.md",
+    "hash": "e2807bc5f79e0c988c082335e02bef8d",
+    "keywords": []
+  },
+  {
+    "file": "orm-events.md",
+    "title": "ORM - Events",
+    "path": "/docs/recipes/orm-events.md",
+    "hash": "681a6605fcae252d49a3d16b4daddb58",
+    "keywords": []
+  },
+  {
+    "file": "orm-getting-started.md",
+    "title": "ORM - Getting Started",
+    "path": "/docs/recipes/orm-getting-started.md",
+    "hash": "73f2ea60e67a327be4197270ef9b4c67",
+    "keywords": []
+  },
+  {
+    "file": "orm-logging.md",
+    "title": "ORM - Logging and Debugging",
+    "path": "/docs/recipes/orm-logging.md",
+    "hash": "5b653c495ab4f8418a48c2cd4f1d1b60",
+    "keywords": []
+  },
+  {
+    "file": "orm-migration-guide.md",
+    "title": "ORM - Migration Guide",
+    "path": "/docs/recipes/orm-migration-guide.md",
+    "hash": "d8be79811f34c0793b461798bfed10f5",
+    "keywords": []
+  },
+  {
+    "file": "orm-querying.md",
+    "title": "ORM - Querying",
+    "path": "/docs/recipes/orm-querying.md",
+    "hash": "8c00b9c766e77d9e9614b3d1b21e6caa",
+    "keywords": []
+  },
+  {
+    "file": "orm-relationships.md",
+    "title": "ORM - Relationships",
+    "path": "/docs/recipes/orm-relationships.md",
+    "hash": "b463c203eebce1ca78a35e2cc13be6a1",
+    "keywords": []
+  },
+  {
+    "file": "orm-session-and-transactions.md",
+    "title": "ORM - Sessions and Transactions",
+    "path": "/docs/recipes/orm-session-and-transactions.md",
+    "hash": "b6b0e23a25f7e2f3f65b3f62cfe81692",
+    "keywords": []
+  },
+  {
+    "file": "orm-troubleshooting.md",
+    "title": "ORM - Troubleshooting",
+    "path": "/docs/recipes/orm-troubleshooting.md",
+    "hash": "8bd08e40f9c8ae96f76bbedf97bb6c9a",
+    "keywords": []
+  },
+  {
     "file": "overwrite-build-in-functions-tags.md",
     "title": "Overwriting and Adding Built-in Functions and Tags",
     "path": "/docs/recipes/overwrite-build-in-functions-tags.md",

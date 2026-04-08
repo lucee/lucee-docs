@@ -116,6 +116,17 @@ description: >
 | MSSQL Modern Mode | `mssql-modern-mode` | mssql, sql server, raiserror, deferred exceptions, modern mode, jdbc |
 | New Operator | `new-operator` | new, java, classes, class, createObject, component |
 | Null Support | `null-support` | Null support, null keyword, NullValue function, isNull function, Lucee |
+| ORM - Caching | `orm-caching` |  |
+| ORM - Configuration | `orm-configuration` |  |
+| ORM - Entity Mapping | `orm-entity-mapping` |  |
+| ORM - Events | `orm-events` |  |
+| ORM - Getting Started | `orm-getting-started` |  |
+| ORM - Logging and Debugging | `orm-logging` |  |
+| ORM - Migration Guide | `orm-migration-guide` |  |
+| ORM - Querying | `orm-querying` |  |
+| ORM - Relationships | `orm-relationships` |  |
+| ORM - Sessions and Transactions | `orm-session-and-transactions` |  |
+| ORM - Troubleshooting | `orm-troubleshooting` |  |
 | Overwriting and Adding Built-in Functions and Tags | `overwrite-build-in-functions-tags` | function, BIF, overwrite, add functions, custom tags, Lucee customization |
 | PDF Engine - Flying Saucer (CFDocument) | `pdf-engine-flying-saucer` | Flying Saucer, PDF Engine, CFDOCUMENT, HTML to PDF |
 | Precompiled Code | `precompiled-code` | Precompiled, Pre-compile code, Production server, Security, CFML, Class files |

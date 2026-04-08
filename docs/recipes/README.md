@@ -376,6 +376,50 @@ This document provides a guide on using the new operator in Lucee for creating i
 
 Understand the differences between partial and full null support - how it affects structKeyExists(), JSON serialization, queries and variable assignment.
 
+## [ORM - Caching](/docs/recipes/orm-caching.md)
+
+Configuring the Hibernate second-level cache and query cache with EHCache in Lucee ORM
+
+## [ORM - Configuration](/docs/recipes/orm-configuration.md)
+
+Complete guide to ORM settings, schema management, naming strategies, and custom Hibernate mappings in Lucee
+
+## [ORM - Entity Mapping](/docs/recipes/orm-entity-mapping.md)
+
+Defining ORM entities, property types, primary key strategies, computed properties, and inheritance patterns in Lucee
+
+## [ORM - Events](/docs/recipes/orm-events.md)
+
+Entity lifecycle events, global event handlers, event firing order, and patterns for setting values in preInsert/preUpdate handlers in Lucee ORM
+
+## [ORM - Getting Started](/docs/recipes/orm-getting-started.md)
+
+Quick start guide to using ORM in Lucee: enable ORM, define an entity, and perform CRUD operations
+
+## [ORM - Logging and Debugging](/docs/recipes/orm-logging.md)
+
+ORM logging settings, debugging techniques, inspecting generated SQL, savemapping, and advanced Hibernate session API in Lucee
+
+## [ORM - Migration Guide](/docs/recipes/orm-migration-guide.md)
+
+What's new in the 5.6 ORM extension, migrating from older versions, and migrating from Adobe ColdFusion ORM to Lucee
+
+## [ORM - Querying](/docs/recipes/orm-querying.md)
+
+HQL queries, entity loading functions, pagination, bulk DML, JOIN FETCH, aggregate functions, and query caching in Lucee ORM
+
+## [ORM - Relationships](/docs/recipes/orm-relationships.md)
+
+Mapping relationships between ORM entities: many-to-one, one-to-many, one-to-one, many-to-many, collections, cascade, fetching strategies, and batch loading
+
+## [ORM - Sessions and Transactions](/docs/recipes/orm-session-and-transactions.md)
+
+Understanding ORM sessions, entity lifecycle states, flush behaviour, dirty checking, transactions, savepoints, and multi-datasource usage in Lucee
+
+## [ORM - Troubleshooting](/docs/recipes/orm-troubleshooting.md)
+
+Common ORM pitfalls, error messages decoded, performance tips, and design patterns for Lucee ORM
+
 ## [Overwriting and Adding Built-in Functions and Tags](/docs/recipes/overwrite-build-in-functions-tags.md)
 
 Learn how to overwrite or add built-in functions and tags in Lucee to customize behavior or backport fixes.
