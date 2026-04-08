@@ -1,23 +1,23 @@
 <!--
 {
-	"title": "Quartz Scheduler Clustering",
-	"id": "clustering-quartz-scheduler",
-	"related": [
-		"scheduler-quartz",
-		"tag-schedule"
-	],
-	"categories": [
-		"extensions",
-		"recipes"
-	],
-	"description": "How to set up and configure clustering with the Quartz Scheduler extension",
-	"keywords": [
-		"scheduler",
-		"quartz",
-		"clustering",
-		"database",
-		"redis"
-	]
+  "title": "Quartz Scheduler Clustering",
+  "id": "clustering-quartz-scheduler",
+  "related": [
+    "scheduler-quartz",
+    "tag-schedule"
+  ],
+  "categories": [
+    "extensions",
+    "recipes"
+  ],
+  "description": "How to set up and configure clustering with the Quartz Scheduler extension",
+  "keywords": [
+    "scheduler",
+    "quartz",
+    "clustering",
+    "database",
+    "redis"
+  ]
 }
 -->
 
@@ -132,6 +132,59 @@ Update your Quartz Scheduler configuration to use Redis:
 }
 ```
 
+## Primary Configuration Source
+
+When running a cluster, you need to decide which source is authoritative for job definitions: the store or the config file. This is controlled by the `primary` setting.
+
+```json
+{
+  "primary": "store"
+}
+```
+
+| Value | Default when | Behaviour |
+|-------|-------------|-----------|
+| `"store"` | A store is defined | The store is the primary source of truth. The config file is only used to seed initial jobs when the store is empty. |
+| `"file"` | No store is defined | The config file is always the primary source of truth. Jobs missing from the file will be removed from the store on startup. |
+
+> **Note**: Listeners always come from the config file regardless of the `primary` setting.
+
+### Store as Primary (Recommended for Most Clusters)
+
+This is the default when a store is configured. Jobs are seeded from the config file on first start, after which the store takes over. Changes made through the Administrator UI or API are preserved across restarts.
+
+```json
+{
+  "primary": "store",
+  "store": {
+    "type": "datasource",
+    "datasource": "quartz",
+    "cluster": true
+  }
+}
+```
+
+Use this when you manage jobs dynamically at runtime via the Administrator UI or programmatically via the API.
+
+### File as Primary (Config-Managed Clusters)
+
+When `primary` is set to `"file"`, the config file is always authoritative. On every startup, the scheduler reconciles the store against the file — adding missing jobs, updating changed ones, and removing any that are no longer defined in the file.
+
+```json
+{
+  "primary": "file",
+  "store": {
+    "type": "datasource",
+    "datasource": "quartz",
+    "cluster": true
+  }
+}
+```
+
+Use this when you manage your cluster entirely through configuration files, for example in a CI/CD or infrastructure-as-code workflow where the config file is the single source of truth and runtime changes are not expected.
+
+> **Warning**: With `"primary": "file"`, any jobs added at runtime through the Administrator UI will be removed on the next restart. Only use this mode if the config file is your sole management interface.
+
 ## How Clustering Works
 
 In a clustered environment, Quartz Scheduler ensures that each job is executed by exactly one node in the cluster:
@@ -166,6 +219,10 @@ For clustering to work properly, all servers should have synchronized clocks. Us
 #### Connection Issues
 
 Ensure all nodes can connect to the storage backend (database or Redis) and that connection limits aren't being exceeded.
+
+#### Jobs Disappearing After Restart
+
+If jobs added at runtime are removed after a restart, check your `primary` setting. If it is set to `"file"`, the config file is authoritative and any jobs not defined there will be removed on startup. Either add the jobs to the config file or switch to `"primary": "store"`.
 
 ## Custom Logging
 

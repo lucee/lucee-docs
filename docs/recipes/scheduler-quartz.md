@@ -312,13 +312,52 @@ One of the most powerful features of the Quartz Scheduler is clustering support,
 2. **Enable Clustering**: Set the `cluster` parameter to `true` in your storage configuration
 3. **Deploy to Multiple Servers**: Each server will coordinate with others to ensure tasks run once
 
-When clustering is enabled, the storage backend becomes the source of truth. The configuration file is used:
-
-- As a backup for job definitions
-- To provide initial jobs only when the storage has no jobs defined
-- For listener definitions (which always come from the config file)
-
 For detailed instructions and best practices on setting up clustering with Quartz Scheduler, see the dedicated [[clustering-quartz-scheduler]] recipe.
+
+### Primary Configuration Source
+
+When a store is configured, you can control which source is treated as primary for job definitions using the `primary` setting:
+
+```json
+{
+  "primary": "store"
+}
+```
+
+| Value | Default when | Behaviour |
+|-------|-------------|-----------|
+| `"store"` | A store is defined | The store is the primary source of truth. The config file is only used to seed initial jobs when the store is empty. |
+| `"file"` | No store is defined | The config file is always the primary source of truth. Jobs missing from the file will be removed from the store on startup. |
+
+This is particularly useful when you want to manage a clustered environment entirely through configuration files rather than through the Administrator UI. Set `"primary": "file"` and the config file will always win, including removals.
+
+> **Note**: Listeners always come from the config file regardless of the `primary` setting.
+
+#### Examples
+
+Store is primary (default clustered behaviour — store wins once it has jobs):
+
+```json
+{
+  "primary": "store",
+  "store": {
+    "type": "redis",
+    "host": "localhost"
+  }
+}
+```
+
+File is primary (config file is always authoritative, even with a store present):
+
+```json
+{
+  "primary": "file",
+  "store": {
+    "type": "redis",
+    "host": "localhost"
+  }
+}
+```
 
 ## Related Recipes
 
@@ -331,6 +370,7 @@ For more detailed information on specific aspects of the Quartz Scheduler extens
 
 ```json
 {
+  "primary": "store",
   "jobs": [
     {
       "label": "External API Call",
