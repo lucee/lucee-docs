@@ -416,6 +416,7 @@ All three AI engines (Claude, OpenAI, Gemini) support a **passthrough mechanism*
 When initializing an AI engine, Lucee extracts all known configuration properties (`model`, `apikey`, `temperature`, etc.) from the `custom` block. Any **remaining unknown keys** are collected and forwarded directly into the HTTP request body sent to the provider. Additionally, a `headers` key allows forwarding custom HTTP headers.
 
 This means:
+
 - New provider features work immediately via config, no Lucee update required
 - Beta APIs and experimental parameters are fully accessible
 - The passthrough respects existing keys — it will never overwrite fields Lucee sets explicitly (like `model` or `messages`)
