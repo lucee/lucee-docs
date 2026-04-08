@@ -1656,7 +1656,7 @@
     "file": "scheduler-quartz-clustering.md",
     "title": "Clustering with Quartz Scheduler",
     "path": "/docs/recipes/scheduler-quartz-clustering.md",
-    "hash": "e49cfd62d73d50ac7eab8e5ccef107e8",
+    "hash": "de99f13fe073ba834c27633f173e2ffc",
     "keywords": [
       "scheduler",
       "quartz",
@@ -1683,7 +1683,7 @@
     "file": "scheduler-quartz.md",
     "title": "Quartz Scheduler Extension for Lucee",
     "path": "/docs/recipes/scheduler-quartz.md",
-    "hash": "c3c471b3363aa8f5169f800b72d67478",
+    "hash": "f2d1d7ee6bffba2c012e2179c574606a",
     "keywords": [
       "scheduler",
       "quartz",
