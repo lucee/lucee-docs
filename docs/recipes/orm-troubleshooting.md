@@ -210,7 +210,7 @@ Calling `ormFlush()` inside `preInsert` or `postInsert` = infinite loop. See [[o
 - **Use HQL for bulk operations** — `ORMExecuteQuery( "DELETE FROM Product WHERE active = false" )` is much faster than loading and deleting entities one by one
 - **Use `lazy="extra"` for large collections** where you mostly need `.size()` — avoids loading the full collection
 - **Use `entityToQuery()`** when you need tabular data, not full entity graphs
-- **Batch your saves** — don't flush after every `entitySave()`, let the transaction commit handle it
+- **Batch your saves with flush + clear** — for bulk inserts, call `ormFlush()` + `ormClearSession()` every 50 entities. Without clearing, the session grows unbounded and each flush dirty-checks everything — leading to O(N²) slowdown and eventually OOM. See [[orm-session-and-transactions]]
 - **Use query caching** (`cacheable: true`) for HQL queries that run frequently with the same parameters. See [[orm-caching]]
 - **Use L2 cache for read-heavy reference data** — lookup tables that are loaded constantly but rarely change
 - **Keep entity CFCs thin** — business logic belongs in service layers, not entities

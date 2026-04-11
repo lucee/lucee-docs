@@ -314,6 +314,49 @@ Check the current isolation level with `GetORMTransactionIsolation()`.
 
 Only **one** datasource session can be dirty within a single transaction. If you modify entities from two different datasources inside the same `transaction` block, Lucee throws an exception and rolls back.
 
+## Batch Processing
+
+When inserting or updating large numbers of entities (bulk imports, nightly jobs, data migrations), you **must** periodically flush and clear the session. Without clearing, every entity stays attached and each flush dirty-checks all of them — making total work O(N²) and eventually causing `OutOfMemoryError`.
+
+```cfml
+var batchSize = 50;
+for ( var i = 1; i <= totalRecords; i++ ) {
+	var entity = entityNew( "Product" );
+	entity.setName( "Item #i#" );
+	entity.setSku( "SKU-#i#" );
+	entitySave( entity );
+
+	if ( i mod batchSize == 0 ) {
+		ormFlush();
+		ormClearSession();  // detach processed entities, free memory
+	}
+}
+ormFlush();  // flush any remainder
+```
+
+### Why this matters
+
+Without `ormClearSession()`, Hibernate's first-level cache (the session identity map) grows with every entity. Each `ormFlush()` must dirty-check every attached entity to determine what changed — even entities from previous batches that haven't been modified.
+
+At 40,000 entities with 10 properties each, that's 400,000 property reads per flush. With 50,000 entities and 1,000 flushes, total property reads approach 500 million — almost all wasted on entities that haven't changed.
+
+### Impact
+
+Profiling with 50,000 entities (batch size 50):
+
+| | Without clear | With clear |
+|---|---|---|
+| Time | 55 sec | **3.5 sec** |
+| Rate | 903 ent/sec | **14,204 ent/sec** |
+| Heap growth | 837 MB | **244 MB** |
+
+### Tips
+
+- **Batch size of 20-50** works well for most cases — matches Hibernate's default JDBC batch size
+- **Wrap in a transaction** if you need atomicity across the full import
+- **Use HQL for simple bulk updates/deletes** instead of loading entities: `ORMExecuteQuery( "UPDATE Product SET active = false WHERE lastSold < :cutoff", { cutoff: dateAdd( "yyyy", -1, now() ) } )`
+- After `ormClearSession()`, any entity references you held are now **detached** — don't modify them
+
 ## Mixing ORM and Raw SQL
 
 A common need — use `entitySave()` for some operations and `queryExecute()` for others in the same request.
