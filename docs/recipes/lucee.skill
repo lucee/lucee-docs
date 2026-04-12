@@ -179,6 +179,7 @@ description: >
 | Warmup | `warmup` | Warmup, Docker, Fail-Fast, Configuration Validation, Container, Startup |
 | WebSocket Extension | `websocket-extension` | Lucee, Extension |
 | XML Fast And Easy, using SAX - Listener Functions | `xml-fast-and-easy` | XML parsing, SAX, XML event listener, XMLCatalog, Lucee |
+| XML Security with xmlFeatures | `xml-security-xmlfeatures` | XML, xmlFeatures, XXE, security, xmlParse, isXml |
 | YAML Processing in Lucee 7 | `yaml-processing` | YAML, SnakeYAML, Maven, Java Integration |
 
 ## Technical Specs
