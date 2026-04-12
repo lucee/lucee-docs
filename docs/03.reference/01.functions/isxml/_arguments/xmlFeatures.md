@@ -1,1 +1,1 @@
-A struct of `xmlFeatures` directives to override the application-level XML security settings for this single call. See the [XML Security with xmlFeatures](/docs/recipes/xml-security-xmlfeatures) recipe for available keys and examples.
+A struct of `xmlFeatures` directives to override the application-level XML security settings for this single call. See the [[xml-security-xmlfeatures]] recipe for available keys and examples.
