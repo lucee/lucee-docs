@@ -8,4 +8,6 @@ categories:
 - crypto
 ---
 
-Performs Kyber (ML-KEM) key encapsulation to create a shared secret. Post-quantum secure key exchange.
+Creates a shared secret using the recipient's Kyber public key.
+
+Kyber is a post-quantum key exchange algorithm — resistant to attacks by future quantum computers. The shared secret can then be used for symmetric encryption (e.g. AES).

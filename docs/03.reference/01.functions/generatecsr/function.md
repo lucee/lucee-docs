@@ -8,4 +8,6 @@ categories:
 - crypto
 ---
 
-Generates a PKCS#10 Certificate Signing Request (CSR). Returns a PEM-encoded CSR for submission to a Certificate Authority.
+Generates a Certificate Signing Request (CSR) — a message you send to a Certificate Authority (like Let's Encrypt) to request an SSL/TLS certificate.
+
+Returns a PEM-encoded string.

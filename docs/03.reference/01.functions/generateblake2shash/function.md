@@ -9,4 +9,6 @@ categories:
 - crypto
 ---
 
-Generates a Blake2s hash. Blake2s is optimized for 32-bit platforms and embedded systems.
+Generates a Blake2s hash — the 32-bit sibling of Blake2b, designed for embedded systems and constrained environments.
+
+For server-side use, prefer GenerateBlake2bHash() or GenerateBlake3Hash().

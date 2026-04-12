@@ -9,4 +9,6 @@ categories:
 - crypto
 ---
 
-Verifies a signed JWT and returns the claims. Validates signature, expiration, not-before, issuer, and audience.
+Verifies a JSON Web Token (JWT) signature and returns the claims (the data payload).
+
+Also validates expiration, not-before, issuer, and audience if specified.

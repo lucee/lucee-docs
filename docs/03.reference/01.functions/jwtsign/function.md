@@ -9,4 +9,6 @@ categories:
 - crypto
 ---
 
-Creates a signed JWT (JWS). Supports HMAC (HS256/384/512), RSA (RS256/384/512, PS256/384/512), and ECDSA (ES256/384/512) algorithms.
+Creates a signed JSON Web Token (JWT) — a compact, URL-safe token commonly used for API authentication and authorization.
+
+Sign with a shared secret (HMAC) or a private key (RSA, EC, Ed25519).

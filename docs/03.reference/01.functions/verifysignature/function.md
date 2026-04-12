@@ -9,3 +9,5 @@ categories:
 ---
 
 Verifies a digital signature using a public key.
+
+Returns true if the data hasn't been tampered with and was signed by the matching private key.

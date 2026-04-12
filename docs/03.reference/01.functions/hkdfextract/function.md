@@ -8,4 +8,6 @@ categories:
 - crypto
 ---
 
-Performs the Extract phase of HKDF to create a Pseudo-Random Key (PRK). Use with HKDFExpand to derive multiple keys.
+First step of two-phase key derivation: concentrates the entropy from a secret into a fixed-size intermediate key (PRK).
+
+Use with HKDFExpand() to efficiently derive multiple keys from the same secret.

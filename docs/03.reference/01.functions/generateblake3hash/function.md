@@ -9,4 +9,6 @@ categories:
 - crypto
 ---
 
-Generates a Blake3 hash. Blake3 is the latest in the Blake family - very fast, parallelizable, and supports arbitrary output lengths (XOF).
+Generates a Blake3 hash — the fastest general-purpose hash function available, and the recommended choice for checksums and data integrity.
+
+Supports variable output length and both keyed hashing (MAC) and key derivation modes.

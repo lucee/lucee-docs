@@ -9,4 +9,6 @@ categories:
 - crypto
 ---
 
-Generates a Blake2b hash. Blake2b is optimized for 64-bit platforms, faster than SHA-256 while being at least as secure.
+Generates a Blake2b hash — a modern, fast alternative to SHA-256 for checksums and data integrity.
+
+Optimized for 64-bit platforms. Supports variable output length and keyed hashing (MAC).

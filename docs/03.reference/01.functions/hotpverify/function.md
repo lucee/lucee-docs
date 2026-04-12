@@ -8,4 +8,6 @@ categories:
 - crypto
 ---
 
-Verifies an HOTP code against a secret and counter (RFC 4226). Optional window for counter desync tolerance.
+Verifies a counter-based One-Time Password (HOTP) against a secret and expected counter value.
+
+Supports a window parameter to handle counter desync when users generate codes without submitting them.

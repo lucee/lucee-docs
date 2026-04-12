@@ -8,4 +8,6 @@ categories:
 - crypto
 ---
 
-Converts a JWK (JSON Web Key) struct or JSON string to a Java key object. Returns PublicKey, PrivateKey, or SecretKey depending on the JWK contents.
+Converts a JWK (JSON Web Key) back into a usable key object for signing or verification.
+
+Accepts a struct or JSON string. Typically used after loading keys from an OAuth/OIDC provider's JWKS endpoint.

@@ -8,4 +8,6 @@ categories:
 - crypto
 ---
 
-Performs the Expand phase of HKDF to derive key material from a PRK. Use after HKDFExtract.
+Second step of two-phase key derivation: expands an intermediate key (from HKDFExtract) into one or more output keys.
+
+Use different info strings to derive separate keys for different purposes (e.g. encryption vs authentication).

@@ -9,4 +9,6 @@ categories:
 - crypto
 ---
 
-Converts a Java key object, PEM string, or key pair struct to a JWK (JSON Web Key) struct. Supports RSA, EC, Ed25519, and symmetric keys.
+Converts a cryptographic key to JWK (JSON Web Key) format — the standard JSON representation used by OAuth/OIDC providers to publish their public keys.
+
+Accepts a key pair struct, PEM string, or Java key object.

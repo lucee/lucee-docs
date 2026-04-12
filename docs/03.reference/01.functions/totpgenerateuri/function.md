@@ -8,4 +8,4 @@ categories:
 - crypto
 ---
 
-Generates an otpauth:// URI for TOTP, suitable for QR code generation with authenticator apps.
+Generates an otpauth:// URI that can be rendered as a QR code for users to scan with their authenticator app (Google Authenticator, Authy, etc.) during two-factor authentication setup.

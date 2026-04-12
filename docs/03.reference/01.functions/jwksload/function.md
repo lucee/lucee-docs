@@ -8,4 +8,6 @@ categories:
 - crypto
 ---
 
-Loads a JWKS (JSON Web Key Set) from a URL or JSON string. Returns an array of JWK structs, each suitable for passing to JwkToKey().
+Parses a JWKS (JSON Web Key Set) — a JSON document containing multiple public keys, commonly published by OAuth/OIDC providers like Auth0, Okta, and Google at their /.well-known/jwks.json endpoint.
+
+Returns an array of JWK structs.

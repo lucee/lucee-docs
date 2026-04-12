@@ -8,4 +8,8 @@ categories:
 - crypto
 ---
 
-Decodes a JWT without verifying the signature. Useful for debugging and inspection. WARNING: Do not trust decoded claims without verification!
+Reads the header and payload of a JSON Web Token (JWT) without verifying the signature.
+
+Useful for inspecting tokens during debugging or for reading the key ID before verification.
+
+WARNING: never trust decoded claims without calling JwtVerify() first.

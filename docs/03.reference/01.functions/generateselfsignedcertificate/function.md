@@ -9,4 +9,6 @@ categories:
 - crypto
 ---
 
-Generates a self-signed X.509 certificate.
+Generates a self-signed SSL/TLS certificate.
+
+Useful for development, testing, and internal services where you don't need a Certificate Authority.

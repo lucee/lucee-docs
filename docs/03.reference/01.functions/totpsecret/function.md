@@ -8,4 +8,6 @@ categories:
 - crypto
 ---
 
-Generates a random TOTP/HOTP secret, returned as a Base32-encoded string suitable for use with authenticator apps.
+Generates a random shared secret for two-factor authentication (2FA).
+
+Returns a Base32-encoded string that can be shared with authenticator apps like Google Authenticator via a QR code.

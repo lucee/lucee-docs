@@ -8,4 +8,6 @@ categories:
 - crypto
 ---
 
-Generates an HOTP code for a given secret and counter (RFC 4226).
+Generates a counter-based One-Time Password (HOTP).
+
+Unlike TOTP which uses the current time, HOTP uses a counter that you increment after each use. Returns a 6-digit code by default.
