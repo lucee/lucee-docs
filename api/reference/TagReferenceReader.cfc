@@ -104,67 +104,36 @@ component accessors=true {
 	}
 
 	private void function _loadExtensionInfo(){
-		// load java tags
 		variables.extensionMap = {};
 		var cfg = getPageContext().getConfig();
-		var tlds = cfg.getTLDs();
-		//dump(tlds); abort;
-		var tags = tlds[1].getTags();
-		//dump(tags); abort;
-		for (var tag in tags){
-		    //dump(tag); abort;
-			try {
-				var bi = bundleInfo( createObject( 'java', tags[tag].getTagClassDefinition().getClazz().getName() ) );
-				if ( bi.name != "lucee.core" ) {
-					var e = getExtensionOfBundle( bi.name );
-					variables.extensionMap[ tag ] = {
-						name: e.getName(),
-						id: e._getId(),
-						version: e._getVersion()
-					}
-				}
-			} catch (e) {
-				//ignore
-			}
-		}
-
-		systemOutput(variables.extensionMap);
-
-		// load cfml tags
-		var extensions = extensionList();
-		loop query="extensions" {
-			local.e = queryRowData ( extensions, extensions.currentrow, "struct" );
-			if (len(e.functions) ){
-				for ( fname in e.tags ){
-					if ( listLen( fname, "/\" eq 1 ) ){ // avoid lucee/core/ajax/css/jquery/images/ui-anim_basic_16x16.gif.cfm etc
-						variables.extensionMap[ listFirst( fname, "." ) ] = {
-							name: e.name,
-							id: e.id,
-							version: e.version
-						}
-					}
-				}
-			}
-
-		}
-	}
-
-	private any function getExtensionOfBundle( bundleName ) {
-		var cfg = getPageContext().getConfig();
+		var configDir = cfg.getConfigDir().toString();
+		var tldDir = configDir & "/library/tag/";
 		var extensions = cfg.getAllRHExtensions();
-		var luceeMajor = listFirst( server.lucee.version, "." );
-		var bundles = "";
+
+		// map tags to extensions by parsing each extension's TLD files
 		loop collection=extensions.iterator() item="local.ext" {
-			if (luceeMajor gte 7)
-				bundles = ext.getMetadata().getBundles();
-			else {
-				bundles = ext.bundles;
-			}
-			
-			loop array=bundles item="local.bundle" {
-				if ( bundle.getSymbolicName() == bundleName ) return ext.getMetadata();
+			var md = ext.getMetadata();
+			var tldNames = md.getTlds();
+			if ( arrayLen( tldNames ) == 0 ) continue;
+
+			var extInfo = {
+				name: md.getName(),
+				id: md._getId(),
+				version: md._getVersion()
+			};
+
+			for ( var tldName in tldNames ) {
+				var tldPath = tldDir & tldName;
+				if ( !fileExists( tldPath ) ) continue;
+
+				var xml = xmlParse( fileRead( tldPath ), false, { "http://apache.org/xml/features/disallow-doctype-decl": false } );
+				var tags = xmlSearch( xml, "//tag/name" );
+				for ( var t in tags ) {
+					variables.extensionMap[ lCase( t.xmlText ) ] = extInfo;
+				}
 			}
 		}
-		throw "could not find extension for bundle [#bundleName#]";
+
+		systemOutput( variables.extensionMap );
 	}
 }

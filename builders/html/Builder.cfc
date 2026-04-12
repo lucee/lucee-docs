@@ -240,6 +240,20 @@ component {
 				, "type"    = page.getPageType()
 				, "icon"    = icon
 			} );
+
+			// add search entries for function aliases pointing to the primary function
+			if ( page.getPageType() == "function" && len( page.getAlias() ?: "" ) ) {
+				for ( var alias in listToArray( page.getAlias() ) ) {
+					searchIndex.append( {
+						  "value"   = page.getPath() & ".html"
+						, "display" = trim( alias ) & "()"
+						, "text"    = HtmlEditFormat( trim( alias ) )
+						, "desc"    = "#HtmlEditFormat( trim( alias ) & " - alias for " & page.getTitle() )#"
+						, "type"    = page.getPageType()
+						, "icon"    = icon
+					} );
+				}
+			}
 		}
 
 		return SerializeJson( searchIndex );

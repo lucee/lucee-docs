@@ -19,7 +19,7 @@
 		<p><strong>Status:</strong> #local.status#</p>
 	</cfif>
 	<cfif len(local.fn.getAlias()) gt 0>
-		<p><strong>Alias:</strong> <span translate="no">#local.fn.getAlias()#</span></p>
+		<p><strong>Also known as:</strong> <span translate="no">#ListChangeDelims( local.fn.getAlias(), ", ", "," )#</span></p>
 	</cfif>
 	<cfif len(local.fn.getIntroduced()) gt 0>
 		<p><strong>Introduced:</strong> #local.fn.getIntroduced()#</p>

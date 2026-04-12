@@ -43,7 +43,7 @@ jobs:
         with:
           webroot: ${{ github.workspace }}
           execute: /build-all.cfm
-          luceeVersion: 7.0.3.31-SNAPSHOT
+          luceeVersion: 7.1.0.89-SNAPSHOT
           extensions: >-
             org.lucee:redis-extension,
             org.lucee:chart-extension,
@@ -56,7 +56,11 @@ jobs:
             org.lucee:ec2-extension,
             org.lucee:json-extension,
             org.lucee:websocket-extension,
-            org.lucee:websocket-client-extension
+            org.lucee:websocket-client-extension,
+            org.lucee:debugger-extension,
+            org.lucee:crypto-extension,
+            org.lucee:jsonata-extension,
+            org.lucee:hibernate-extension:5.6.15.12-SNAPSHOT
       - name: Copy skill file to build artifacts
         run: cp docs/recipes/lucee.skill builds/artifacts/lucee.skill
       - name: Upload Artifact
