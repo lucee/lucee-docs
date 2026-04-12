@@ -17,7 +17,9 @@
   "categories": ["debugging", "server", "devops"],
   "related": [
     "lucee-editors-IDEs",
-    "language-server-protocol"
+    "language-server-protocol",
+    "function-breakpoint",
+    "function-isdebuggerenabled"
   ]
 }
 -->
