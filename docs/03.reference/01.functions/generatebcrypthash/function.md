@@ -9,4 +9,4 @@ categories:
 - crypto
 ---
 
-Deprecated: renamed to BCryptHash() for consistency with the {Algorithm}Hash/{Algorithm}Verify naming pattern. Same defaults (cost=10), functionally identical.
+Generates a BCrypt password hash. ACF-compatible name. Also available as BCryptHash() for consistent naming.

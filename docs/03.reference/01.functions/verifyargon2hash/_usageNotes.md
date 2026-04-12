@@ -1,0 +1,1 @@
+This is an alias for [[function-argon2checkhash]] provided by the crypto extension. For new code, prefer [[function-argon2verify]] for consistent naming with [[function-bcryptverify]] and [[function-scryptverify]].

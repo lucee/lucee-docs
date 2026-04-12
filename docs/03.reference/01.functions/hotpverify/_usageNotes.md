@@ -1,0 +1,1 @@
+After a successful verification, always increment the server-side counter to prevent code reuse. The `window` parameter checks a range of counter values ahead of the expected counter to handle cases where the user generated codes without submitting them (counter desync).

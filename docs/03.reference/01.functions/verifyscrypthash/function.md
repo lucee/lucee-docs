@@ -9,4 +9,4 @@ categories:
 - crypto
 ---
 
-Deprecated: renamed to SCryptVerify() for consistency with the {Algorithm}Hash/{Algorithm}Verify naming pattern. Functionally identical.
+Verifies a password against an SCrypt hash. ACF-compatible name. Also available as SCryptVerify() for consistent naming.

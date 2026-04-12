@@ -9,4 +9,4 @@ categories:
 - crypto
 ---
 
-Deprecated: renamed to BCryptVerify() for consistency with the {Algorithm}Hash/{Algorithm}Verify naming pattern. Functionally identical.
+Verifies a password against a BCrypt hash. ACF-compatible name. Also available as BCryptVerify() for consistent naming.

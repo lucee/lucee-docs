@@ -1,0 +1,1 @@
+This function is provided by the bundled argon2 extension and also by the crypto extension (which replaces it). For new code, prefer [[function-argon2verify]] for consistent naming with [[function-bcryptverify]] and [[function-scryptverify]].

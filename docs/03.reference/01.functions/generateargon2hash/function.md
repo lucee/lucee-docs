@@ -7,4 +7,4 @@ categories:
 - crypto
 ---
 
-Returns hash of input using Argon2.
+Generates an Argon2 password hash. For new code, prefer Argon2Hash() which uses stronger OWASP-recommended defaults.

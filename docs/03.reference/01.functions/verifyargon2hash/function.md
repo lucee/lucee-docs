@@ -9,4 +9,4 @@ categories:
 - crypto
 ---
 
-Deprecated: renamed to Argon2Verify() for consistency with the {Algorithm}Hash/{Algorithm}Verify naming pattern. Functionally identical. Originally from extension-argon2.
+Verifies a password against an Argon2 hash. Alias for Argon2CheckHash(). For new code, prefer Argon2Verify() for consistent naming.
