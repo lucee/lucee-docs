@@ -628,6 +628,10 @@ How to install, configure and create WebSockets
 
 This document explains how to use XML parsing in Lucee.
 
+## [XML Security with xmlFeatures](/docs/recipes/xml-security-xmlfeatures.md)
+
+How to control XML parsing security in Lucee using xmlFeatures to protect against XXE attacks and other XML vulnerabilities.
+
 ## [YAML Processing in Lucee 7](/docs/recipes/yaml-processing.md)
 
 Simple recipe for processing YAML files in Lucee 7 using Maven integration and SnakeYAML

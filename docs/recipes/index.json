@@ -2120,6 +2120,22 @@
     ]
   },
   {
+    "file": "xml-security-xmlfeatures.md",
+    "title": "XML Security with xmlFeatures",
+    "path": "/docs/recipes/xml-security-xmlfeatures.md",
+    "hash": "638eb6a83853bf06b3ea69679e45a85e",
+    "keywords": [
+      "XML",
+      "xmlFeatures",
+      "XXE",
+      "security",
+      "xmlParse",
+      "isXml",
+      "external entities",
+      "DOCTYPE"
+    ]
+  },
+  {
     "file": "yaml-processing.md",
     "title": "YAML Processing in Lucee 7",
     "path": "/docs/recipes/yaml-processing.md",
