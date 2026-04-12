@@ -1,0 +1,1 @@
+Allowed algorithms. Array or comma-separated string. Security best practice to restrict algorithms.

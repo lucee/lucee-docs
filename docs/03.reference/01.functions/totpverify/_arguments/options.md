@@ -1,0 +1,1 @@
+Optional struct: window (default 1), digits (default 6), period (default 30), algorithm (SHA1|SHA256|SHA512, default SHA1)

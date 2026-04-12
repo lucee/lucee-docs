@@ -1,0 +1,1 @@
+If true, throws an exception on invalid hash format instead of returning false

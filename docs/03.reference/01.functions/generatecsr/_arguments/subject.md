@@ -1,0 +1,1 @@
+X.500 distinguished name (e.g. "CN=example.com,O=My Org,C=AU")

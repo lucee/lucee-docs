@@ -1,0 +1,1 @@
+Base32-encoded secret

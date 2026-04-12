@@ -1,0 +1,1 @@
+Java Key object or Base64-encoded key string

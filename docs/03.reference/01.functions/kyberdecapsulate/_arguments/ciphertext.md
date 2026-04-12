@@ -1,0 +1,1 @@
+Base64-encoded ciphertext from KyberEncapsulate

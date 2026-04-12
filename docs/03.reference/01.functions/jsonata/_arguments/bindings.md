@@ -1,0 +1,1 @@
+Optional struct of variable bindings accessible in the expression. Example: { maxPrice: 100 } makes $maxPrice available.

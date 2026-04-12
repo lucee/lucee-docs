@@ -1,0 +1,1 @@
+Algorithm name (RSA, EC, etc). Required when key is Base64-encoded. Not needed for Java Key objects or PEM strings (auto-detected).

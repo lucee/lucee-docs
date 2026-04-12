@@ -1,0 +1,1 @@
+The HQL query string to execute.

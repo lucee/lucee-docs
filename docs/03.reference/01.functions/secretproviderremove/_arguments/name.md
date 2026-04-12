@@ -1,0 +1,1 @@
+Name of the Secret Provider to remove from, as configured in .CFConfig.json. If not defined, the function searches all configured providers and removes from the first one that contains the key.

@@ -1,0 +1,1 @@
+Verification key. For HMAC: string or byte array. For RSA/EC: PEM string or Java PublicKey object.

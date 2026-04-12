@@ -1,0 +1,1 @@
+Optional struct with: format (PEM|DER|Base64, default PEM)

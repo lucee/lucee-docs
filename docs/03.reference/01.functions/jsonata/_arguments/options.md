@@ -1,0 +1,1 @@
+Optional struct with runtime options. Supported keys: timeout (milliseconds, default 5000), maxDepth (recursion limit, default 100), functions (struct of closures/UDFs to register as custom $functions).
