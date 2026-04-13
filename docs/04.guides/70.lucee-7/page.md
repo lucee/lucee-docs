@@ -194,6 +194,14 @@ When upgrading:
 2. Install latest versions from the extension provider
 3. Test thoroughly before production deployment
 
+### Scheduled Tasks Moved to Extension
+
+The traditional Scheduled Task system has been moved to the [Scheduler Classic](https://download.lucee.org/#97EB5427-F051-4684-91EBA6DBB5C5203F) extension. It is installed by default in the full distribution but **not in `-light` images**.
+
+If you use `<cfschedule>` or the admin Scheduled Tasks page, ensure the extension is installed. Consider the new [[scheduler-quartz]] extension as a more powerful alternative with clustering and cron expression support.
+
+[LDEV-4912](https://luceeserver.atlassian.net/browse/LDEV-4912)
+
 ### No Longer Bundled
 
 **EHCache** is no longer included by default (still available as an extension).
@@ -381,7 +389,8 @@ If you get a 500 error:
 8. ✅ **Check cfhttp** calls if you have URL encoding workarounds
 9. ✅ **Review cookie-based session storage** (if you were using it)
 10. ✅ **Install EHCache extension** if you need it
-11. ✅ **Run your test suite** extensively!
+11. ✅ **Install Scheduler Classic extension** if you use `<cfschedule>` (not included in `-light` images)
+12. ✅ **Run your test suite** extensively!
 
 ## Resources
 

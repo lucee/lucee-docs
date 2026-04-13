@@ -155,6 +155,14 @@ For better HTML email support, Lucee 7 defaults to 7-bit encoding
 
 [LDEV-4039](https://luceeserver.atlassian.net/browse/LDEV-4039)
 
+## Scheduled Tasks moved to an extension
+
+The traditional Scheduled Task system is no longer part of Lucee core. It has been moved to the [Scheduler Classic](https://download.lucee.org/#97EB5427-F051-4684-91EBA6DBB5C5203F) extension, which is installed by default in the full distribution but not in `-light` images.
+
+If you rely on `<cfschedule>` or the Scheduled Tasks admin page, ensure the extension is installed. Alternatively, consider migrating to the new [[scheduler-quartz]] extension which offers clustering support and cron expressions.
+
+[LDEV-4912](https://luceeserver.atlassian.net/browse/LDEV-4912)
+
 ## EHCache is no longer bundled
 
 Still available as an extension, it is just no longer bundled in the default distribution.
