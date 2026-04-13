@@ -1,14 +1,14 @@
 set CWD=%cd%
 
-echo Starting Lucee5 server with which to build the docs...
+echo Starting Lucee7 server with which to build the docs...
 box server stop luceedocsbuilder
 box start ^
 name="luceedocsbuilder" ^
-cfengine="lucee@5" ^
+cfengine="lucee@7" ^
 port=8765 ^
 openbrowser=false ^
 directory=%CWD% ^
-javaVersion=openjdk8_jre_jdk8u332-b09 ^
+javaVersion=openjdk17 ^
 heapSize=2048
 
 echo Done!
@@ -19,7 +19,7 @@ echo Building documentation (please be patient, it may take some time)...
 
 curl http://localhost:8765/build.cfm?textlogs=true
 
-echo "Stopping Lucee5 server..."
+echo "Stopping Lucee7 server..."
 box server stop luceedocsbuilder
 @echo off
 IF EXIST .exitcode (
