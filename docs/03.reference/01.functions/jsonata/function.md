@@ -8,4 +8,4 @@ categories:
 - json
 ---
 
-Query and transform JSON data using JSONata expressions. See https://jsonata.org for expression syntax.
+Query and transform JSON data using JSONata expressions. See <https://jsonata.org> for expression syntax.
