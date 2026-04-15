@@ -9,7 +9,8 @@
     "function-cacheremove",
     "function-cachegetdefaultcachename",
     "tag-function",
-    "tag-query"
+    "tag-query",
+    "caching-getting-started"
   ],
   "categories": [
     "cache",

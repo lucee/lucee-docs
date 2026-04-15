@@ -16,7 +16,7 @@
     "DynamoDBCommand"
   ],
   "related": [
-    "cache-functions",
+    "caching-getting-started",
     "s3-extension"
   ]
 }

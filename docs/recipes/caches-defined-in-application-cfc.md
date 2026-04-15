@@ -3,7 +3,8 @@
   "title": "Adding Caches via Application.cfc",
   "id": "caches-defined-in-application-cfc",
   "related": [
-    "tag-application"
+    "tag-application",
+    "caching-getting-started"
   ],
   "categories": [
     "application",

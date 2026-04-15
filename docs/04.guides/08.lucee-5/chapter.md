@@ -37,7 +37,7 @@ Lucee 5 provides the following core language enhancements:
 
 * [[lucee-5-tags]] - New and modified tags in Lucee 5.
 
-* [[lucee-5-cached-within]] - We not only added the attribute `cachedWithin` to the tag `cffile` and `cfhttp`, we have also added an interface to Lucee to make your own `cachedwithin` implementation.
+* [[cache-a-query-for-the-curr-context]] - The `cachedWithin` attribute is supported on queries, functions, `cfhttp`, and `cffile`.
 
 * [[lucee-5-unquoted-arguments]]
 
