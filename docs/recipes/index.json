@@ -221,7 +221,7 @@
     "file": "cache-invalidation-selective.md",
     "title": "Selective Cache Invalidation",
     "path": "/docs/recipes/cache-invalidation-selective.md",
-    "hash": "32de98cf76f32b3446071be458f3fcd7",
+    "hash": "0a71a1163b5462e2276dcb995d7e827c",
     "keywords": [
       "Cache",
       "cachedWithin",
@@ -236,22 +236,24 @@
   },
   {
     "file": "cached-within-request.md",
-    "title": "Cache a Query for the current request",
+    "title": "Using cachedWithin",
     "path": "/docs/recipes/cached-within-request.md",
-    "hash": "a72064347566fb4b3e21510ee9065f3e",
+    "hash": "b0c41eaf79aafd6bee9765f4c23bf562",
     "keywords": [
       "Cache",
       "Query",
       "Request cache",
       "cachedWithin",
-      "cfquery"
+      "cfquery",
+      "cfhttp",
+      "cffile"
     ]
   },
   {
     "file": "caches-defined-in-application-cfc.md",
     "title": "Caches defined in Application.cfc",
     "path": "/docs/recipes/caches-defined-in-application-cfc.md",
-    "hash": "23273ad42218693be3643684f70712fc",
+    "hash": "653d761e5c2f2b26d06584d0ec82a409",
     "keywords": [
       "Caches",
       "Application.cfc",
@@ -259,6 +261,23 @@
       "Cache connections",
       "Default caches",
       "Lucee"
+    ]
+  },
+  {
+    "file": "caching-getting-started.md",
+    "title": "Getting Started with Caching",
+    "path": "/docs/recipes/caching-getting-started.md",
+    "hash": "136c9f9bc9accffb13af153883a2a2f8",
+    "keywords": [
+      "Cache",
+      "cachePut",
+      "cacheGet",
+      "cacheClear",
+      "cacheDelete",
+      "RAM cache",
+      "Object cache",
+      "Application.cfc",
+      "Getting started"
     ]
   },
   {
@@ -517,7 +536,7 @@
     "file": "dynamodb-cache-extension.md",
     "title": "DynamoDB Cache Extension",
     "path": "/docs/recipes/dynamodb-cache-extension.md",
-    "hash": "af975d7d9186752b8f5af98708d37e48",
+    "hash": "297b080280d8a0c1bcc0ee6c114fc79c",
     "keywords": [
       "DynamoDB",
       "Cache",
@@ -1023,13 +1042,12 @@
     "file": "list-existing-cache-conn.md",
     "title": "List existing Cache Connections",
     "path": "/docs/recipes/list-existing-cache-conn.md",
-    "hash": "7ebe84bae9d103f274375f97ae95ee9c",
+    "hash": "2f82a0410aa153e5b684c49a48c14b1c",
     "keywords": [
       "Cache",
       "Cache connections",
       "List cache",
-      "hasCache",
-      "cacheNames",
+      "getApplicationSettings",
       "Lucee"
     ]
   },

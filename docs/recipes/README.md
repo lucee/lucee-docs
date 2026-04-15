@@ -64,13 +64,17 @@ A guide to breaking changes introduced in Lucee between version 7.0 and 7.1
 
 How to flush specific cached queries, functions, and HTTP results in Lucee without clearing entire caches.
 
-## [Cache a Query for the current request](/docs/recipes/cached-within-request.md)
+## [Using cachedWithin](/docs/recipes/cached-within-request.md)
 
-Cache a Query for the current request in Lucee.
+How to use the cachedWithin attribute on queries, functions, cfhttp, and cffile in Lucee.
 
 ## [Caches defined in Application.cfc](/docs/recipes/caches-defined-in-application-cfc.md)
 
 How to add per-application caches via Application.cfc in Lucee.
+
+## [Getting Started with Caching](/docs/recipes/caching-getting-started.md)
+
+An introduction to Lucee's cache layer — what it is, why you'd use it, and how to get started with the cache BIFs.
 
 ## [Untitled](/docs/recipes/cfschedule-bulk-update.md)
 
@@ -298,7 +302,7 @@ How to use lazy queries
 
 ## [List existing Cache Connections](/docs/recipes/list-existing-cache-conn.md)
 
-List existing Cache Connections available in Lucee.
+How to list and check for cache connections at runtime in Lucee.
 
 ## [Lucee 7 Loader API Changes](/docs/recipes/loader-api-changes-7.md)
 

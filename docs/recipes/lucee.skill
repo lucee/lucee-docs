@@ -38,8 +38,9 @@ description: >
 | Breaking Changes between Lucee 6.2 and 7.0 | `breaking-changes-7-0` | breaking changes, Lucee 6.2, Lucee 7.0, migration, upgrade |
 | Breaking Changes between Lucee 7.0 and 7.1 | `breaking-changes-7-1` | breaking changes, Lucee 7.0, Lucee 7.1, migration, upgrade |
 | Selective Cache Invalidation | `cache-invalidation-selective` | Cache, cachedWithin, cachedWithinId, cachedWithinFlush, Query cache, Function cache |
-| Cache a Query for the current request | `cached-within-request` | Cache, Query, Request cache, cachedWithin, cfquery |
+| Using cachedWithin | `cached-within-request` | Cache, Query, Request cache, cachedWithin, cfquery, cfhttp |
 | Caches defined in Application.cfc | `caches-defined-in-application-cfc` | Caches, Application.cfc, Per-application caches, Cache connections, Default caches, Lucee |
+| Getting Started with Caching | `caching-getting-started` | Cache, cachePut, cacheGet, cacheClear, cacheDelete, RAM cache |
 | Untitled | `cfschedule-bulk-update` | scheduled tasks, config |
 | Untitled | `check-for-changes` | Configuration, Check for changes, Lucee, Automatic update, Server context, Web context |
 | Checksum | `checksum` | Checksum, File validation, cfhttp, hash, fileReadBinary |
@@ -96,7 +97,7 @@ description: >
 | javax vs jakarta Servlet Compatibility | `javax-vs-jakarta` | javax, jakarta, servlet, Tomcat, Jetty, web.xml |
 | Language Server Protocol (LSP) for Lucee | `language-server` | LSP, language server, IDE integration, VS Code, development tools, code completion |
 | Lazy Queries | `lazy-queries` | Lazy Queries, Regular Queries, Performance, Memory Optimization, Lucee |
-| List existing Cache Connections | `list-existing-cache-conn` | Cache, Cache connections, List cache, hasCache, cacheNames, Lucee |
+| List existing Cache Connections | `list-existing-cache-conn` | Cache, Cache connections, List cache, getApplicationSettings, Lucee |
 | Lucee 7 Loader API Changes | `loader-api-changes-7` | loader, API, CFMLEngine, extensions, Java, Jakarta |
 | Logging HTTP Calls | `logging-http-calls` | cfhttp, logging, http, debugging, application log, http log |
 | Logging | `logging` | Logging, Log levels, Lucee |
