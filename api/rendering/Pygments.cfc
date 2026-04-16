@@ -10,41 +10,68 @@ component
 
   import org.python.util.PythonInterpreter;
 
+  variables.pool = application.pygmentsPool ?: _initPool();
+  variables.stringClass = createObject( "java", "java.lang.String" ).getClass();
+  variables.highlighterPy = expandPath( getDirectoryFromPath( getCurrentTemplatePath() ) & "/highlighter.py" );
+  variables.cssPy = expandPath( getDirectoryFromPath( getCurrentTemplatePath() ) & "/pygmentsCss.py" );
+
+  private any function _initPool() {
+    var pool = createObject( "java", "java.util.concurrent.LinkedBlockingQueue" ).init();
+    application.pygmentsPool = pool;
+    return pool;
+  }
+
+  private any function borrowInterpreter() {
+    var interp = variables.pool.poll();
+    if ( isNull( interp ) )
+      interp = new PythonInterpreter();
+    return interp;
+  }
+
+  private void function returnInterpreter( required any interpreter ) {
+    variables.pool.put( arguments.interpreter );
+  }
+
   /**
-   * Highlights Python code using Pygments via Jython.
-   * @param code The Python code to highlight.
+   * Highlights code using Pygments via Jython.
+   * @param code The code to highlight.
    * @return HTML string with syntax highlighting.
    */
-  public string function highlight(required string code, string language, string formatter="html") {
-    var interpreter = new PythonInterpreter();
-	interpreter.set("code", arguments.code);
-	interpreter.set("language", arguments.language);
-	interpreter.set("formatter", arguments.formatter);
-
-	var pythonFile = expandPath( getDirectoryFromPath( getCurrentTemplatePath() ) & "/highlighter.py" );
-    interpreter.execFile( pythonFile );
-	var result = interpreter.get("result", createObject('java', 'java.lang.String').getClass());
-	var lexer = interpreter.get("lexer");
-	// dump(var=lexer.toString(), label="#language#");
-	
-    return result;
+  public string function highlight( required string code, string language, string formatter="html" ) {
+    var interpreter = borrowInterpreter();
+    try {
+      interpreter.set( "code", arguments.code );
+      interpreter.set( "language", arguments.language );
+      interpreter.set( "formatter", arguments.formatter );
+      interpreter.execFile( variables.highlighterPy );
+      var result = interpreter.get( "result", variables.stringClass );
+      return result;
+    } finally {
+      returnInterpreter( interpreter );
+    }
   }
 
   public string function getCss() {
-    var interpreter = new PythonInterpreter();
-	interpreter.set("style", "default");
-	var pythonFile = expandPath( getDirectoryFromPath( getCurrentTemplatePath() ) & "pygmentsCss.py" );
-    interpreter.execFile( pythonFile );
-    var css = interpreter.get("css", createObject('java', 'java.lang.String').getClass());
-    return css;
+    var interpreter = borrowInterpreter();
+    try {
+      interpreter.set( "style", "default" );
+      interpreter.execFile( variables.cssPy );
+      var css = interpreter.get( "css", variables.stringClass );
+      return css;
+    } finally {
+      returnInterpreter( interpreter );
+    }
   }
 
   public string function getCssDark() {
-    var interpreter = new PythonInterpreter();
-	interpreter.set("style", "monokai");
-	var pythonFile = expandPath( getDirectoryFromPath( getCurrentTemplatePath() ) & "pygmentsCss.py" );
-    interpreter.execFile( pythonFile );
-    var css = interpreter.get("css", createObject('java', 'java.lang.String').getClass());
-    return css;
+    var interpreter = borrowInterpreter();
+    try {
+      interpreter.set( "style", "monokai" );
+      interpreter.execFile( variables.cssPy );
+      var css = interpreter.get( "css", variables.stringClass );
+      return css;
+    } finally {
+      returnInterpreter( interpreter );
+    }
   }
 }
