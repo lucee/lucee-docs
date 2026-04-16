@@ -18,7 +18,8 @@
     "lucee-lockdown-guide",
     "supercharge-your-website",
     "local-scope-migration",
-    "deploying-lucee-server-apps"
+    "deploying-lucee-server-apps",
+    "java-regex-engine"
   ]
 }
 -->
@@ -73,6 +74,10 @@ For the best performance in production, "Inspect Templates" should be set to `ne
   "inspectTemplate": "never"
 }
 ```
+
+For new projects, consider using Java's built-in regex engine instead of the default Apache ORO. 
+
+It's faster and supports modern features like look-behinds, but existing regexes may need changes — see [[java-regex-engine]] for the migration guide.
 
 Simply adding `localmode=true` for hot functions can dramatically boost performance, see [[local-scope-migration]]
 
