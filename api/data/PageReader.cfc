@@ -179,11 +179,11 @@ component {
 	}
 
 	private struct function _splitYamlAndBody( required string pageContent, string filePath ) {
-		var splitterRegex = "^(\-\-\-\n(.*?)\n\-\-\-\n)?(.*)$";
+		var splitterRegex = "(?s)^(\-\-\-\n(.*?)\n\-\-\-\n)?(.*)$";
 
 		return {
-			  yaml = Trim( ReReplace( arguments.pageContent, splitterRegex, "\2" ) )
-			, body = Trim( ReReplace( arguments.pageContent, splitterRegex, "\3" ) )
+			  yaml = Trim( ReReplace( arguments.pageContent, splitterRegex, "$2" ) )
+			, body = Trim( ReReplace( arguments.pageContent, splitterRegex, "$3" ) )
 		}
 	}
 
@@ -465,12 +465,12 @@ component {
 		description = Trim( firstPara );
 
 		// Convert wiki links [[tag]] to plain text
-		description = ReReplace( description, "\[\[([^\]]+)\]\]", "\1", "all" );
+		description = ReReplace( description, "\[\[([^\]]+)\]\]", "$1", "all" );
 
 		// Remove markdown formatting
-		description = ReReplace( description, "\*\*([^\*]+)\*\*", "\1", "all" ); // bold
-		description = ReReplace( description, "\*([^\*]+)\*", "\1", "all" ); // italic
-		description = ReReplace( description, "`([^`]+)`", "\1", "all" ); // code
+		description = ReReplace( description, "\*\*([^\*]+)\*\*", "$1", "all" ); // bold
+		description = ReReplace( description, "\*([^\*]+)\*", "$1", "all" ); // italic
+		description = ReReplace( description, "`([^`]+)`", "$1", "all" ); // code
 
 		// Clean up whitespace
 		description = ReReplace( description, "\s+", " ", "all" );

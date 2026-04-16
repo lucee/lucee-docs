@@ -13,7 +13,7 @@
 			description = arguments.body;
 			// Remove edit buttons/links before processing
 			description = ReReplaceNoCase( description, '<(button|a)[^>]*class="[^"]*edit[^"]*"[^>]*>.*?</(button|a)>', '', 'all' );
-			description = ReReplaceNoCase( description, "^(.*?)</p>.*$", "\1" );
+			description = ReReplaceNoCase( description, "^(.*?)</p>.*$", "$1" );
 		}
 		description = stripHtml( description );
 
