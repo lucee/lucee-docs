@@ -24,6 +24,31 @@ component output=false {
 		return jGit.getFileCommitDates(repo, folder, stFiles , "all");
 	}
 
+	function getDatesForFolderBatch( repo, folder, stats={}, skip ) {
+		var path = arguments.repo & "\" & arguments.folder;
+		var files = directoryList( path=path, filter="*.md", listinfo="query" );
+		var _stats = arguments.stats;
+		var _skip = arguments.skip;
+		var jGit = new jGit();
+
+		files = queryFilter( files, function( file ) {
+			return !structKeyExists( _skip, file.name );
+		});
+
+		var stFiles = QueryToStruct( query=files, columnKey="name" );
+
+		structEach( stFiles, function( name, file ) {
+			if ( structKeyExists( _stats, name ) ) {
+				structAppend( file, _stats[ name ], false );
+				file.isDirty = !( structKeyExists( _stats, name ) && DateCompare( _stats[ name ].dateLastModified, file.dateLastModified ) == 0 );
+			} else {
+				file.isDirty = true;
+			}
+		});
+
+		return jGit.getAllDatesForFolder( jGit.openRepository( arguments.repo ), arguments.folder, stFiles );
+	}
+
 	function convertToQuery(stats){
 		var q = queryNew("name,created,updated");
 		

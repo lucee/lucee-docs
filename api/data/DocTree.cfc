@@ -591,7 +591,7 @@ component accessors=true {
 		};
 		var folder ="docs\recipes\";
 
-		setRecipeDates(gitReader.getDatesForFolder( repoRoot, folder, server.luceeDocsRecipeDateCache ?: {}, skip));
+		setRecipeDates(gitReader.getDatesForFolderBatch( repoRoot, folder, server.luceeDocsRecipeDateCache ?: {}, skip));
 		server.luceeDocsRecipeDateCache = duplicate(getRecipeDates()); // this is expensive and docTree gets blown away on reload, plus applicationStop()
 		request.logger("Scanned git logs for recipes dates in #getTickCount()-s#ms, found #structCount(getRecipeDates())# recipes");
 	}
