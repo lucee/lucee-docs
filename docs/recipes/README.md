@@ -276,6 +276,10 @@ Learn how to write CFML code directly in a function or a closure with Java types
 
 Guide on using Java libraries in Lucee 6.2 with Maven and import
 
+## [Java Regex Engine](/docs/recipes/java-regex-engine.md)
+
+How to switch from the legacy Apache ORO regex engine to Java's built-in regex engine for better performance and modern features.
+
 ## [Java Scripting with Lucee](/docs/recipes/java-scripting.md)
 
 Documentation for using Lucee as a scripting engine in Java applications via JSR-223

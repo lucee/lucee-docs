@@ -955,6 +955,24 @@
     ]
   },
   {
+    "file": "java-regex-engine.md",
+    "title": "Java Regex Engine",
+    "path": "/docs/recipes/java-regex-engine.md",
+    "hash": "53d5afaa27b81fcab626ba6b2b4d8872",
+    "keywords": [
+      "regex",
+      "regular expressions",
+      "Java regex",
+      "Apache ORO",
+      "performance",
+      "Application.cfc",
+      "REFind",
+      "REReplace",
+      "REMatch",
+      "migration"
+    ]
+  },
+  {
     "file": "java-scripting.md",
     "title": "Java Scripting with Lucee",
     "path": "/docs/recipes/java-scripting.md",
@@ -1590,7 +1608,7 @@
     "file": "recommended-settings.md",
     "title": "Recommended Settings",
     "path": "/docs/recipes/recommended-settings.md",
-    "hash": "942660bb0a67ca52df8e6ec9e17794a2",
+    "hash": "0b43f41907677c1e360750b7640a939b",
     "keywords": [
       "settings",
       "performance",

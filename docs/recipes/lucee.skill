@@ -91,6 +91,7 @@ description: >
 | Casting Components to Java Interfaces | `java-explicit-casting` | java, cast, convert, method |
 | Java in Functions and Closures | `java-in-functions-and-closures` | function, java, closures, components, lambda, Lucee |
 | Interacting with Java Libraries | `java-libraries` | java, maven, import, Lucee, libraries, new operator |
+| Java Regex Engine | `java-regex-engine` | regex, regular expressions, Java regex, Apache ORO, performance, Application.cfc |
 | Java Scripting with Lucee | `java-scripting` | Java, JSR-223, ScriptEngine, CFML, Scripting, Integration |
 | Java Settings | `java-settings` | Java settings, Application.cfc, javasettings, cfapplication |
 | Java Classes Using Lucee's Logging | `java-using-lucee-logging` | java, logging, slf4j, lucee.commons.io.log.Log |
