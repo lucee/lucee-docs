@@ -268,6 +268,8 @@ component accessors=true {
 				}
 			}, (_threads != 1), _threads);
 			request.logger (text=" #len(variables.pageCache.getPages())# Pages Parsed in #(getTickCount()-start)/1000#s");
+			if ( _threads != 1 )
+				pageCache.reSort(); // ensure parents are processed before children
 
 			_buildTreeHierarchy(false);
 			_updateRecipeDates();
