@@ -12,69 +12,35 @@
     "Extension"
   ],
   "related": [
-    "function-websocketinfo"
+    "function-websocketinfo",
+    "websocket-client-extension",
+    "scheduler-quartz",
+    "event-gateways"
   ]
 }
 -->
 
 # WebSocket Extension
 
-This extension adds WebSocket support to your Lucee Server. 
+This extension adds WebSocket support to your Lucee Server.
 
-WebSockets use the same port as your HTTP server (Tomcat) - connect via `ws://` for HTTP or `wss://` for HTTPS. For example, if Tomcat runs on port 8888, your WebSocket URL would be `ws://localhost:8888/ws/yourlistener`.
+WebSockets use the same port as your HTTP server (Tomcat) — connect via `ws://` for HTTP or `wss://` for HTTPS. For example, if Tomcat runs on port 8888, your WebSocket URL would be `ws://localhost:8888/ws/yourlistener`.
 
-WebSocket Listeners are created with a CFML Component - one per channel.
+WebSocket Listeners are created with a CFML Component — one per channel.
 
-Please note, on Windows, there are more limitations regarding how many websockets can be used than with Linux.
+**Requires Lucee 6.2+.** Loads on both Lucee 6.x (Tomcat 9, `javax.websocket`) and Lucee 7.x (Tomcat 11, `jakarta.websocket`) — the extension ships both API bindings and picks the right one at startup.
+
+On Windows, peak concurrent WebSocket capacity is lower than on Linux. Linux's NIO uses `epoll`, which scales well across tens of thousands of idle sockets; Windows falls back to `select()`, which doesn't. Windows also has a narrower default ephemeral port range (~16k) and no `ulimit -n` equivalent. For heavy WebSocket loads, prefer Linux — or on Windows, widen the ephemeral range (`netsh int ipv4 set dynamicport tcp start=10000 num=55000`) and raise Tomcat's `maxConnections` in `server.xml`.
 
 ## Installation
 
-There are multiple ways to install the websocket extension.
+Install via the Lucee Administrator, or see [[extension-installation]] for all options (Dockerfile, deploy, env var, `.CFConfig.json`).
 
-### Lucee Administrator
-
-The extension can be installed via Lucee Administrator:
-
-![Lucee Admin: Extensions - Application](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/lucee-admin-extension.png)
-
-### Manual Installation
-
-Download the LEX file from [https://download.lucee.org/](https://download.lucee.org/) and save to `/lucee/lucee-server/deploy/` (takes up to a minute for Lucee to pick up and install).
-
-![Lucee Download LEX File](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/websocket-lex.png)
-
-### Docker
-
-In Docker there are different ways to install it.
-
-Copy it into the `deploy folder` like this via a Dockerfile:
-
-```Dockerfile
-ADD https://ext.lucee.org/websocket-extension-3.0.0.14-RC.lex /lucee/lucee-server/deploy/
-```
-
-Using Environment Variables like this:
-
-```yml
-environment:
-  - LUCEE_EXTENSIONS=3F9DFF32-B555-449D-B0EB5DB723044045;version=3.0.0.14-RC
-```
-
-Or simply define it in the `.CFConfig.json` file (Lucee 6+):
-
-```json
-{
-  "extensions": [
-    {
-      "name": "WebSocket",
-      "path": "/your/path/extensions/websocket.extension-3.0.0.14-RC.lex",
-      "id": "3F9DFF32-B555-449D-B0EB5DB723044045"
-    }
-  ]
-}
-```
-
-See [this](https://github.com/lucee/lucee-docs/tree/master/examples/docker/with-extension) example for more details about setting up Extension in .CFConfig.json.
+- **Maven GAV:** `org.lucee:websocket-extension`
+- **Extension ID:** `3F9DFF32-B555-449D-B0EB5DB723044045`
+- **Source:** [github.com/lucee/extension-websocket](https://github.com/lucee/extension-websocket)
+- **Issues:** [Jira — `websockets` label](https://luceeserver.atlassian.net/issues/?jql=labels%20%3D%20%22websockets%22)
+- **Downloads:** [download.lucee.org](https://download.lucee.org/#3F9DFF32-B555-449D-B0EB5DB723044045)
 
 ## Configuration
 
@@ -95,305 +61,320 @@ _{lucee-config}: /lucee/lucee-server/context_
 - `idleTimeout` (default 300 seconds) controls how long each connection can remain idle before the servlet engine closes it.
 - `requestTimeout` (default 50 seconds) controls the maximum time for processing a WebSocket request.
 
-![websocketInfo()](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/websocketInfo.png)
+Override the config file path with the `-Dlucee.websocket.config=/path/to/websocket.json` JVM argument or the `LUCEE_WEBSOCKET_CONFIG` environment variable.
 
-## Logging
+### Storing Listeners with Your Application
 
-By default the websocket extension logs to the `websocket` log, which needs to be created in the Lucee Admin, for debugging set the log level to TRACE.
+The default `{lucee-config}/websockets/` location is outside your application's webroot and git repository, which makes deployment awkward — the listener CFC isn't versioned alongside the rest of your code and has to be copied to each server manually.
 
-Once this log has been defined in the admin, you can [force all the logs to the console](https://luceeserver.atlassian.net/browse/LDEV-3420)
+The `directory` setting accepts **any absolute path**, so point it at a folder inside your app's repository:
 
-## Component
-
-> [!IMPORTANT]
-> A Lucee restart is required when a new WebSocket CFC is added (just like for a ReST CFC)
-
-```lucee
-component hint="used to test websocket client" {
-
-    public static function onFirstOpen( wsclients ) {}
-
-    function onOpen( wsclient ) {}
-
-    function onOpenAsync( wsclient ) {}
-
-    function onMessage( wsclient, message ) {}
-
-    function onClose( wsclient, reasonPhrase ) {}
-
-    function onError( wsclient, cfcatch ) {}
-
-    public static function onLastClose() {}
-
+```json
+{
+  "directory": "/var/www/myapp/websockets/",
+  "requestTimeout": 50,
+  "idleTimeout": 300
 }
 ```
 
-### JavaScript Client
+Now listeners live in your repo and deploy with the rest of the application. Lucee placeholders like `{lucee-config}` also work in this field.
 
-Given that the Component was saved as `{lucee-config}/websockets/test.cfc`, here is native JavaScript to open and use a connection to your Lucee WebSocket:
+> [!NOTE]
+> If the directory sits inside a publicly-served webroot, block HTTP access to it via your web server config (Apache `Deny`, Nginx `location` rule, IIS request filtering) — the listener CFCs aren't meant to be invoked directly over HTTP.
 
-```javascript
-const socket = new WebSocket("ws://127.0.0.1/ws/test");
+### Per-Listener `idleTimeout`
 
-socket.onopen = function (evt) {
-  console.log("Connected");
-  socket.send("Hello, Lucee Extension!");
-};
-
-socket.onmessage = function (event) {
-  console.log("Received:", event.data);
-};
-
-socket.onclose = function (evt) {
-  console.log("Connection closed");
-};
-
-socket.onerror = function (error) {
-  console.error("WebSocket error:", error);
-};
-
-// To close later: socket.close();
-```
-
-### CFML Client
-
-For server-to-server WebSocket communication or testing, use the **WebSocket Client Extension** which provides [[function-CreateWebSocketClient]].
-
-#### Installation
-
-Install from the Lucee Administrator or via Maven:
-
-```
-org.lucee:websocket-client-extension
-```
-
-#### Usage
-
-Create a listener component to handle WebSocket events:
+A listener can override the server-wide `idleTimeout` by declaring a component `property` (value in seconds):
 
 ```lucee
-// ClientListener.cfc
 component {
 
-	variables.messages = [];
+    property name="idleTimeout" default=60;
 
-	function onMessage( message ) {
-		arrayAppend( variables.messages, message );
-	}
-
-	function onBinaryMessage( binary ) {
-		// handle binary data
-	}
-
-	function onClose() {
-		systemOutput( "Connection closed", true );
-	}
-
-	function onError( type, cause, data ) {
-		systemOutput( "Error [#type#]: #cause.getMessage()#", true );
-	}
-
-	function onPing() {}
-
-	function onPong() {}
-
-	array function getMessages() {
-		return variables.messages;
-	}
+    function onOpen( wsClient ) {
+        wsClient.send( "CONNECTED" );
+    }
 
 }
 ```
 
-Connect to a WebSocket server:
+Only `idleTimeout` is honoured at the listener level — `requestTimeout` is server-wide.
+
+### Health Checks and Deployment
+
+The extension registers its WebSocket endpoints on a background thread after Lucee startup — there's a brief window where Tomcat is serving HTTP but `/ws/*` still 404s because the endpoints aren't registered yet.
+
+For blue/green or rolling deployments, include [[function-websocketinfo]] in your health check so the load balancer doesn't route traffic until the extension has finished registering:
 
 ```lucee
-// Create listener and connect
-listener = new ClientListener();
-ws = CreateWebSocketClient( "ws://localhost/ws/test", listener );
-
-// Send messages
-ws.sendText( "Hello from CFML!" );
-ws.sendBinary( toBinary( toBase64( "binary data" ) ) );
-
-// Check connection status
-if ( ws.isOpen() ) {
-	ws.sendText( "Still connected" );
-}
-
-// Close when done
-ws.disconnect();
+var info = websocketInfo();
+if ( isNull( info ) || ( info.mapping ?: "" ) == "" )
+    throw( message="websocket extension not ready", type="HealthCheckFailure" );
 ```
 
-#### Listener Callbacks
+> [!IMPORTANT]
+> `requestTimeout` also bounds `onFirstOpen` and any `thread` spawned inside it. A `while` loop in `onFirstOpen` will be killed once `requestTimeout` elapses. For long-running push work, don't loop inside `onFirstOpen` — move it to a [[scheduler-quartz]] job (cron expressions, clustering, component jobs) or an [[event-gateways]]. The legacy [[tag-schedule]] also works for simpler cases.
 
-All callbacks are optional - implement only what you need:
+![websocketInfo()](https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/_images/extension/websocket/websocketInfo.png)
 
-| Callback | Arguments | Description |
-|----------|-----------|-------------|
-| `onMessage` | `message` | Text message received |
-| `onBinaryMessage` | `binary` | Binary data received |
-| `onClose` | (none) | Connection closed |
-| `onError` | `type, cause, [data]` | Error occurred |
-| `onPing` | (none) | Ping frame received |
-| `onPong` | (none) | Pong frame received |
+## Example Listener
 
-Error types: `callback`, `connect`, `general`, `frame`, `message`, `unexpected`
+Drop this into the configured directory as `EchoListener.cfc`. It echoes incoming messages, tracks connected users by id and role, and exposes static helpers so the rest of your app can push to specific users or roles.
 
-#### WebSocket Object Methods
+```lucee
+component hint="Example listener — echoes, tracks users, supports targeted push" {
 
-The `CreateWebSocketClient()` function returns a Java WebSocket object with these commonly used methods:
+    static {
+        clientsByUser = {};  // userId -> wsClient
+        rolesByUser   = {};  // userId -> array of roles
+    }
+
+    function onOpen( wsClient ) {
+        var userId = getUserIdFromRequest();
+        static.clientsByUser[ userId ] = arguments.wsClient;
+        static.rolesByUser[ userId ]   = getRolesForUser( userId );
+        arguments.wsClient.send( "CONNECTED" );
+    }
+
+    function onMessage( wsClient, message ) {
+        arguments.wsClient.send( "ECHO:" & arguments.message );
+    }
+
+    function onClose( wsClient, reasonPhrase ) {
+        var userId = getUserIdFromRequest();
+        structDelete( static.clientsByUser, userId );
+        structDelete( static.rolesByUser, userId );
+    }
+
+    function onError( wsClient, cfCatch ) {
+        systemOutput( "WS error: #cfCatch.message#", true );
+    }
+
+    // --- static helpers callable from anywhere in the app ---
+
+    public static boolean function sendToUser( required string userId, required any message ) {
+        if ( !structKeyExists( static.clientsByUser, arguments.userId ) )
+            return false;
+        var client = static.clientsByUser[ arguments.userId ];
+        if ( !client.isOpen() ) {
+            structDelete( static.clientsByUser, arguments.userId );
+            return false;
+        }
+        client.send( arguments.message );
+        return true;
+    }
+
+    public static void function sendToRole( required string role, required any message ) {
+        for ( var userId in static.clientsByUser ) {
+            if ( arrayFind( static.rolesByUser[ userId ], arguments.role ) && static.clientsByUser[ userId ].isOpen() )
+                static.clientsByUser[ userId ].send( arguments.message );
+        }
+    }
+
+    // --- your auth integration ---
+
+    private string function getUserIdFromRequest() {
+        // add your business logic here — e.g. read a token from the handshake
+        // query string (?userId=42), a JWT cookie, a session, etc.
+        return cgi.query_string.listLast( "=" );
+    }
+
+    private array function getRolesForUser( required string userId ) {
+        // add your business logic here — look up roles for this user from your
+        // database, auth provider, etc.
+        return [ "user" ];
+    }
+
+}
+```
+
+> [!IMPORTANT]
+> A Lucee restart is required when a new WebSocket CFC is added (just like for a REST CFC). **Tomcat does NOT need to be restarted** — just Lucee (via the admin, `cfadmin action="restart"`, or a redeploy). The extension uses a reflection fallback so the newly-loaded classes take over the endpoint that Tomcat has already registered. See [the reflection note](#reflection-after-lucee-restart) in Troubleshooting for the detail.
+
+Restart Lucee and connect from a browser (the listener name maps to the URL):
+
+```javascript
+const socket = new WebSocket( "ws://127.0.0.1:8888/ws/EchoListener?userId=42" );
+socket.onmessage = ( evt ) => console.log( "received:", evt.data );
+socket.onopen    = ()    => socket.send( "hello" );
+// Expect: "received: CONNECTED", then "received: ECHO:hello"
+```
+
+Check server state any time:
+
+```lucee
+writeDump( websocketInfo() );
+```
+
+## Lifecycle Callbacks
+
+All callbacks are optional — implement only what you need.
+
+| Callback | Static? | When it fires | Notes |
+| --- | --- | --- | --- |
+| `onOpen( wsClient )` | no | Client connects | Return a string to send back to that client |
+| `onOpenAsync( wsClient )` | no | Same time as `onOpen`, in parallel | Long init work that shouldn't block the connection ack |
+| `onMessage( wsClient, message )` | no | Client sends a text frame | Return a string to auto-send a reply |
+| `onClose( wsClient, reasonPhrase )` | no | Client disconnects | Use to clean up `static` maps |
+| `onError( wsClient, cfCatch )` | no | Exception in any callback | Connection remains open |
+| `onFirstOpen( wsClients )` | **yes** | First connection on a "cold" listener | Fires again after `onLastClose` if new clients connect later |
+| `onLastClose()` | **yes** | Last remaining client disconnects | Channel-wide cleanup |
+
+The [Example Listener](#example-listener) uses the four everyday instance callbacks (`onOpen`, `onMessage`, `onClose`, `onError`). `onFirstOpen` and `onLastClose` are class-level bookends for channel-wide setup/teardown and don't receive a specific `wsClient` — they're not tied to any one connection.
+
+### The `wsClient` argument
+
+Every instance callback receives a `wsClient` Java object:
 
 ```java
-sendText( string message )  // send text message
-sendBinary( byte[] data )   // send binary data
-sendPing()                  // send ping frame
-sendPong()                  // send pong frame
-isOpen()                    // check if connected
-disconnect()                // close connection
+send( any message ):boolean      // send to this client; true on success, false if message was null
+broadcast( any message ):any     // send to ALL clients; null on success, false if message was null
+isOpen():boolean                 // is this connection still alive?
+isClose():boolean                // inverse of isOpen
+close():void                     // terminate this connection
 ```
 
-### Broadcast Message to all Clients
+The message argument can be a string, binary data, or a complex value (auto-serialized). If the value is binary, a binary frame is sent; otherwise a text frame.
 
-A broadcast is a message sent to all connected clients
-
-To be able to do this, we need to know who is connected. The first time a connection is made, `onFirstOpen(wsclients)` is fired. `wsclients` is a Java class with the following methods:
+### The `wsClients` argument (plural, passed to `onFirstOpen`)
 
 ```java
-size():number                  // the number of clients connected
-broadcast(any message):boolean // send message to all clients
-getClients():Client[]          // return array of all clients currently connected
-close():void                   // closes all clients
+size():number                    // currently-connected client count
+broadcast( any message ):any     // send to all; null on success, false if message was null
+getClients():Client[]            // array of individual wsClient objects
+close():void                     // close all connections
 ```
 
-So we can save that for future use:
+> [!NOTE]
+> **Incoming messages are text only.** The server-side `@OnMessage` handler only binds to text frames — if your client sends a binary frame, the server won't receive an `onMessage` call. Outgoing binary works fine (return binary from a callback, or call `wsClient.send( toBinary( base64EncodedData ) )`).
+
+## Why `static` and not `variables`?
+
+A natural first instinct is `variables.clientsByUser`. Here's why that doesn't work:
+
+Every lifecycle callback — `onOpen`, `onMessage`, `onClose` — and any external code that reaches in via [[function-websocketinfo]] can get its own fresh instance of your listener CFC. Whatever you stash in `variables` during `onOpen` isn't guaranteed to be visible when the next message arrives, let alone from a scheduled job that wants to push data in.
+
+`application` scope looks tempting next, but each callback runs in a synthetic PageContext built by the extension — no `Application.cfc`, no `OnRequestStart`, no request lifecycle at all. Treating listener state as "application data" is also the wrong shape: a WebSocket channel isn't scoped to an application, it's scoped to the listener component itself.
+
+`server` scope is too broad, and it survives Lucee restarts — you'd be left holding references to dead sessions on the next reload.
+
+`static` fits exactly. It lives on the component **class**, not on any instance, so every callback and every external caller sees the same store. Its lifetime matches the listener CFC's lifetime: populated when first touched, reset when Lucee reloads the component. That's why `static.clientsByUser` and `static.rolesByUser` in the example listener survive across callbacks and across the scheduled jobs that push to them.
+
+## Sending Messages
+
+### Inside a lifecycle callback
+
+Use the `wsClient` argument directly. The example listener's `onMessage` does this:
 
 ```lucee
-public static function onFirstOpen(wsclients) {
-    static.wsclients = arguments.wsclients;
+function onMessage( wsClient, message ) {
+    arguments.wsClient.send( "ECHO:" & arguments.message );
 }
 ```
 
-For example:
+Or return a string from `onOpen` / `onMessage` and the framework sends it for you:
 
 ```lucee
-function onOpen(wsclient) {
-    static.wsclients.broadcast("There are now ##static.wsclients.size()## connections");
-}
-```
-
-### Send Message to One Client
-
-When a connection is instantiated, `onOpen(wsclient)` is fired. `wsclient` is a Java class with the following methods:
-
-```java
-wsclient.broadcast(message):void // send message to all connected clients
-wsclient.send(message):void      // send message to the client
-wsclient.isOpen():boolean        // is the client still connected?
-wsclient.isClose():boolean       // is the client no longer connected?
-wsclient.close():void            // closes the connection of the client
-```
-
-To send a message using wsclient
-
-```lucee
-function onOpen(wsclient) {
-    arguments.wsclient.send("You are connected to Lucee WebSocket");
-}
-```
-
-You can also send a message from `onOpen()` by returning a string:
-
-```lucee
-function onOpen(wsclient) {
+function onOpen( wsClient ) {
     return "Welcome to the test websocket channel";
 }
 ```
 
-You can add your own function to the WebSocket component:
+### Broadcast to every connected client
+
+From inside a callback, use the `wsClient.broadcast()` shortcut:
 
 ```lucee
-public void function sendMessage(
-    required string jsonData
-) {
-    variables.wsclient.send(jsonData);
-}
-
-function onOpen(wsclient) {
-    sendMessage("Hello, Lucee WebSocket!");
+function onOpen( wsClient ) {
+    arguments.wsClient.broadcast( "a new client connected — #structCount( static.clientsByUser )# total" );
 }
 ```
 
-## Using Lucee WebSocket to PUSH data to Client
-
-With WebSockets being a bidirectional communication channel, your Lucee Server is no longer limited to responding to a _request_; it can now _push_ data to the client.
-
-This means the user no longer has to refresh a page to see if data is updated, nor have a JavaScript looping function that is continuously calling a REST API to get latest data.
-
-When your application has data ready for the user, have the WebSocket push the data to the client!
-
-### Make use of Static Function
-
-Add a thread to start a background process, and have it continuously looping for as long as there are clients connected:
+From outside, stash the plural `wsClients` object at `onFirstOpen` and use it:
 
 ```lucee
-public static function onFirstOpen(wsclients) {
-    static.wsclients = arguments.wsclients;
-    thread name="threadDataQueue" oClients=static.wsclients {
-		while( attributes.oClients.size() > 0 ) {
-			data = getDataFromSomewhere();
-			attributes.oClients.broadcast(data);
-			sleep(1000);
-		}
+public static function onFirstOpen( wsClients ) {
+    static.wsclients = arguments.wsClients;
+}
+
+public static void function announceMaintenance() {
+    if ( !isNull( static.wsclients ) && static.wsclients.size() > 0 )
+        static.wsclients.broadcast( "maintenance in 5 minutes" );
+}
+```
+
+### To a specific user or role (from anywhere)
+
+The example listener's `sendToUser` and `sendToRole` static helpers are callable from any CFML code that can reach the listener component — a scheduled job, an event gateway, a REST endpoint, whatever. See the next section.
+
+## Pushing Data from Outside the Connection
+
+WebSockets are bidirectional — your server can push updates without waiting for a client request. The Lucee-specific rule: **don't drive the push from `onFirstOpen`**. The `requestTimeout` (default 50s) will kill any loop or long-running thread spawned there.
+
+Drive pushes from a scheduler instead. A [[scheduler-quartz]] job, [[event-gateways]], or [[tag-schedule]] task calls your listener's static helpers:
+
+```lucee
+// in a scheduled job / event gateway / REST endpoint
+var events = popEventsFromQueue();
+for ( var e in events ) {
+    if ( structKeyExists( e, "role" ) )
+        EchoListener::sendToRole( role=e.role, message=serializeJSON( e ) );
+    else
+        EchoListener::sendToUser( userId=e.userId, message=serializeJSON( e ) );
+}
+```
+
+> [!WARNING]
+> Do not run an infinite `while { sleep() }` loop inside `onFirstOpen`. The page context's `requestTimeout` will kill it. Use a scheduler that fires on an interval instead.
+
+### Dispatching via `websocketInfo()`
+
+If you don't know the listener name at compile time, iterate the active connections from [[function-websocketinfo]]:
+
+```lucee
+var info = websocketInfo( false );
+for ( var i in info.instances ) {
+    if ( GetMetadata( i.component ).name == "EchoListener" ) {
+        i.component.sendToUser( userId=42, message="hello" );
+        break;
     }
 }
 ```
-
-Function `getDataFromSomewhere()` is responsible for obtaining the data that needs to be sent to the client. RedisQueue is an example of where data can be stored. Your Lucee application can Push data to a Redis Queue, and `getDataFromSomewhere()` can Pop one record at a time.
-
-### Using webSocketInfo() to Send Message to Client
-
-[[function-websocketinfo]] returns a struct containing an `instances` array - one entry per active WebSocket connection. 
-
-Each entry gives you access to the `component` and the `session` instance, allowing you to call the component's methods.
 
 > [!NOTE]
-> `instances` shows **active connections only**, not available listener components.
-> The array is empty until clients connect, and entries are removed when connections close.
+> `instances` shows **active connections only**, not available listener components. The array is empty until clients connect, and entries are removed when connections close.
 
-For Example (_excluding role management functions_):
+## Connecting
 
-```lucee
-component hint="Test WebSocket"  {
-	variables.roles = [];
+### JavaScript
 
-	public boolean function hasRole( required string role ) {
-		return ( variables.roles.find( arguments.role ) > 0 );
-	}
+```javascript
+const socket = new WebSocket( "ws://127.0.0.1:8888/ws/EchoListener" );
 
-	public void function sendMessage( required string jsonData ) {
-		variables.wsclient.send( jsonData );
-	}
-	...
-}
+socket.onopen    = ( evt )   => { console.log( "Connected" ); socket.send( "hello" ); };
+socket.onmessage = ( event ) => console.log( "Received:", event.data );
+socket.onclose   = ( evt )   => console.log( "Connection closed" );
+socket.onerror   = ( error ) => console.error( "WebSocket error:", error );
+
+// To close later: socket.close();
 ```
 
-```lucee
-var wsInfo = websocketInfo(false);
-if ( !wsInfo.instances.len() )
-    return;
+See MDN for the JavaScript side: [Writing WebSocket client applications](https://developer.mozilla.org/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications) (tutorial) and the [`WebSocket` interface reference](https://developer.mozilla.org/docs/Web/API/WebSocket).
 
-var wsInstances = wsInfo.instances;
+### CFML (server-to-server)
 
-var item = getRedisData();
-var stItem = deserializeJSON( item );
-for ( var wsI in wsInstances ) {
-    if ( GetMetadata( wsI.component ).name == 'test' && wsI.component.hasRole( stItem.data.role ) ) {
-        wsI.component.sendMessage( item );
-    }
-}
+Use the separate [[websocket-client-extension]], which provides [[function-CreateWebSocketClient]], for connecting **to** a WebSocket server from CFML — useful for server-to-server communication or integration testing.
+
+## Logging
+
+The extension logs to a dedicated `websocket` logger. Create it in the Lucee Administrator (or in `.CFConfig.json`) and set the level to `TRACE` when debugging — see [[logging]] for configuration details.
+
+To stream everything to the console for local debugging or containers, use the env vars from [[logging]]'s "Redirecting Logs to Console" section:
+
+```bash
+LUCEE_LOGGING_FORCE_LEVEL=trace
+LUCEE_LOGGING_FORCE_APPENDER=console
 ```
-
-[[event-gateways]] is a good candidate for this script.
 
 ## Troubleshooting
 
@@ -416,10 +397,23 @@ ProxyTimeout 300
 
 Other load balancers (HAProxy, Cloudflare, AWS ALB, etc.) have similar idle timeout settings — check your provider's docs.
 
-### "calling [onOpen] via reflection, servlet engine restart needed"
+### Reflection After Lucee Restart
 
-This log warning appears after Lucee restarts without restarting the servlet engine (e.g. Tomcat). The servlet container only allows `addEndpoint()` once per endpoint path during its lifecycle, so when Lucee restarts but Tomcat doesn't, the new extension injects itself into the previous class's static field and forwards calls via reflection.
+**This is a feature, not a warning.** The reflection fallback is what makes the "add a listener CFC → restart Lucee → new listener works immediately" workflow viable without forcing a servlet-engine restart.
 
-This is a normal hot-update mechanism — WebSocket functionality still works correctly, using reflection is just slower. To use direct calls instead, restart the servlet engine, i.e. Tomcat (not just Lucee via the admin).
+After Lucee restarts while Tomcat stays up, the log shows:
 
-See [LDEV-6221](https://luceeserver.atlassian.net/browse/LDEV-6221) for more details.
+```text
+calling [onOpen] via reflection, servlet engine restart needed
+```
+
+Why: the servlet container only allows `addEndpoint()` once per endpoint path during its lifecycle. When Lucee restarts, its fresh extension classes can't re-register — so they inject themselves into the previous class's static field and forward calls via reflection. WebSocket traffic keeps flowing; only the dispatch is marginally slower.
+
+If you want to remove that slight overhead, restart Tomcat too — not just Lucee. But for routine "I added a new listener, reload Lucee to pick it up" usage, the reflection path is designed to be transparent and can be left alone.
+
+See [LDEV-6221](https://luceeserver.atlassian.net/browse/LDEV-6221) for the implementation detail.
+
+## Further Reading
+
+- [Lucee-websocket-commandbox](https://github.com/webonix/Lucee-websocket-commandbox) — full working client + server example with JavaScript and CFML.
+- [Getting Started with Lucee 6 WebSockets](https://www.cfcamp.org/resource/getting-started-with-lucee-6-websockets.html) — CFCAMP 2024 presentation.

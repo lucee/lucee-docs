@@ -4,6 +4,7 @@ id: function-createwebsocketclient
 categories:
 - protocols
 related:
+- websocket-client-extension
 - extension-websocket
 - function-websocketinfo
 ---
