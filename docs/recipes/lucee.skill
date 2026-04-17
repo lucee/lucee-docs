@@ -179,6 +179,7 @@ description: >
 | Lucee Versions and Extensions | `versions` | versions, extensions, LuceeVersionsList, LuceeVersionsDetail, LuceeExtension, Maven |
 | Virtual File Systems | `virtual-file-system` | Virtual File System, VFS, Local File System, ZIP, RAM, S3 |
 | Warmup | `warmup` | Warmup, Docker, Fail-Fast, Configuration Validation, Container, Startup |
+| WebSocket Client Extension | `websocket-client-extension` | Lucee, Extension, WebSocket, Client |
 | WebSocket Extension | `websocket-extension` | Lucee, Extension |
 | XML Fast And Easy, using SAX - Listener Functions | `xml-fast-and-easy` | XML parsing, SAX, XML event listener, XMLCatalog, Lucee |
 | XML Security with xmlFeatures | `xml-security-xmlfeatures` | XML, xmlFeatures, XXE, security, xmlParse, isXml |

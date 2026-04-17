@@ -628,6 +628,10 @@ Lucee supports the following virtual file systems: ram, file, s3, http, https, z
 
 Docker warmup and eager config loading for fail-fast validation in Lucee
 
+## [WebSocket Client Extension](/docs/recipes/websocket-client-extension.md)
+
+WebSocket client for Lucee — connect to any WebSocket server from CFML
+
 ## [WebSocket Extension](/docs/recipes/websocket-extension.md)
 
 How to install, configure and create WebSockets

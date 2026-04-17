@@ -2133,10 +2133,22 @@
     ]
   },
   {
+    "file": "websocket-client-extension.md",
+    "title": "WebSocket Client Extension",
+    "path": "/docs/recipes/websocket-client-extension.md",
+    "hash": "c3b231f09264ae5dde9ab5202d3dd8a9",
+    "keywords": [
+      "Lucee",
+      "Extension",
+      "WebSocket",
+      "Client"
+    ]
+  },
+  {
     "file": "websocket-extension.md",
     "title": "WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "2417e0adcd43654ea917acfe8014dfb5",
+    "hash": "7224832f451e9b31d9d17c81a4c1909e",
     "keywords": [
       "Lucee",
       "Extension"
