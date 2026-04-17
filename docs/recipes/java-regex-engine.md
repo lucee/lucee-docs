@@ -68,6 +68,16 @@ You can also switch engines on the fly within a request, using `<cfapplication>`
 <!--- back to perl regex stuff --->
 ```
 
+## Checking the Current Engine
+
+You can check which regex engine is active at runtime via `getApplicationSettings()`. The regex engine is under the `regex` key as a struct with a `type` member:
+
+```luceescript
+dump( getApplicationSettings().regex.type ); // "java" or "perl"
+```
+
+> **Note:** The `regex.type` key is only populated when using `Application.cfc` (ModernApplicationContext), not `Application.cfm`.
+
 ## Migration Gotchas
 
 Switching engines is not a drop-in replacement. The Java regex engine has different syntax and behaviour in a few key areas. You will need to review and update your regex code.
