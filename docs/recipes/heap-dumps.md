@@ -15,7 +15,8 @@
     "JVM"
   ],
   "related": [
-    "performance-monitoring"
+    "performance-monitoring",
+    "troubleshooting"
   ]
 }
 -->
@@ -229,6 +230,42 @@ You can automate heap dump creation using Lucee's scheduler for periodic memory 
         interval="daily";
 
 ```
+
+## Sanitising Dumps Before Sharing Privately
+
+A heap dump is a snapshot of everything in memory — that includes passwords, API keys, session tokens, database credentials, customer PII, and any other sensitive data your application had loaded at the time.
+
+Treat a raw `.hprof` file like a credential: never upload it to a public issue tracker, or share in a public forum / channel, even once sanitised, only share privately with trusted people, like the Lucee core development team.
+
+### Are Redacted Dumps Still Useful?
+
+Yes, for most investigations. Redaction only strips string *contents* — the object graph, class names, instance counts, retained sizes, and reference chains all survive. That's enough to diagnose the classic leak patterns (oversized caches, classloader leaks, threadlocal retention, runaway collections).
+
+What you lose is the ability to see *which specific* query, template path, or session ID is involved. If that context matters, the reporter can run MAT locally and send an exported leak suspects report alongside the redacted dump.
+
+### hprof-redact
+
+[hprof-redact](https://github.com/parttimenerd/hprof-redact) is a purpose-built tool for removing sensitive string data from heap dumps while preserving the object graph and instance sizes, so the dump is still useful for memory analysis in MAT or similar.
+
+```bash
+./hprof-redact source.hprof output.hprof
+```
+
+Three redaction modes:
+
+- `zero` — replace string bytes with null bytes
+- `zero-strings` — empty the string contents but keep the String objects
+- `drop-strings` — drop string contents entirely
+
+It uses a two-pass parser so memory overhead stays low even on large dumps. Available via GitHub releases or jbang.
+
+### hprof-slurp
+
+[hprof-slurp](https://github.com/agourlay/hprof-slurp) is a Rust-based analyser that gives you a quick summary of instance counts per class straight from the CLI — useful when you want a first-pass look at what's in a dump without firing up MAT.
+
+### Further Reading
+
+Johannes Bechberger's blog post [Redacting Data from Heap Dumps via hprof-redact](https://mostlynerdless.de/blog/2026/02/24/redacting-data-from-heap-dumps-via-hprof-redact/) covers the motivation and internals in more detail, and his related [jfr-redact](https://github.com/parttimenerd/jfr-redact) tool does the equivalent job for JFR recordings.
 
 ## Best Practices
 
