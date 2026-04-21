@@ -1,0 +1,1 @@
+The Maven group identifier, or a gradle-style coordinate string `"group:artifact"` / `"group:artifact:version"` when passed as the only argument.

@@ -85,6 +85,14 @@ You can place jars in the the `context/lib` directly.
 
 If the file is available on Maven, it's recommended to use `javasettings` in `CFconfig.json` or via a [[tag-component]] via the new [[Maven]] support in Lucee 6.2.
 
+### Pre-populating the Maven cache
+
+For firewalled or air-gapped deploys, the `/mvn/` cache can be snapshotted on a machine with network access and shipped alongside the install. 
+
+Since Lucee 7.1.0.98, [[function-mavenexport]] writes the cache to a portable `pom.xml` and [[function-mavenimport]] rehydrates it — see the [[maven]] recipe. 
+
+In Docker, run the import from `Server.cfc->onBuild` (see [[onbuild-function]]) so jars are baked into the image rather than fetched on first request.
+
 ## Lucee Distributions 
 
 Available from [https://download.lucee.org/](https://download.lucee.org/)

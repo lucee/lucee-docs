@@ -168,7 +168,69 @@ Lucee hashes your javaSettings and reuses classloaders with matching configurati
 - No overhead from creating duplicate classloaders
 - Memory stays efficient even with many components using Maven
 
+## Cache Inspection and Snapshots
+
+> **Since 7.1.0.98** ([LDEV-6280](https://luceeserver.atlassian.net/browse/LDEV-6280)) — three BIFs for working with the on-disk `/mvn/` cache.
+
+Lucee stores downloaded jars under `{lucee-server}/../mvn/` in standard Maven repository layout (`{group}/{artifact}/{version}/{artifact}-{version}.jar`). Three functions let you query and move that cache around:
+
+### [[function-mavenexists]]
+
+Cheap local-cache predicate — a `File.isFile()` check, no network, no transitive resolution. Use it to guard a `mavenLoad` when you want to avoid even the resolver walk:
+
+```cfml
+if ( !mavenExists( "org.apache.poi:poi-ooxml:5.2.5" ) ) {
+    mavenLoad( "org.apache.poi:poi-ooxml:5.2.5" );
+}
+```
+
+Version can be omitted to check "is *any* version of this coord cached":
+
+```cfml
+if ( mavenExists( "org.apache.poi", "poi-ooxml" ) ) {
+    // at least one version is on disk
+}
+```
+
+Don't reach for [[function-maveninfo]] as a predicate — it walks the full dependency tree and may hit the network. `mavenExists` is the filesystem-only variant.
+
+### [[function-mavenexport]]
+
+Walks `/mvn/` and writes a `pom.xml` listing every cached jar. Useful for snapshotting an environment's cache for reproducible deploys or audit:
+
+```cfml
+mavenExport( "/app/mvn-cache.xml" );
+```
+
+The emitted pom uses a synthetic `<groupId>com.example.lucee</groupId>` with `<packaging>pom</packaging>` so maven tooling treats it as a manifest, not a compilable artifact. Classifiers (e.g. platform-specific natives) are detected from filenames and preserved. Scope is intentionally omitted — the on-disk cache doesn't track it.
+
+### [[function-mavenimport]]
+
+Rehydrates a `/mvn/` cache from a `pom.xml` — the inverse of `mavenExport`:
+
+```cfml
+q = mavenImport( "/app/mvn-cache.xml" );
+// q is a query of resolved deps (groupId, artifactId, version, path, url, ...)
+```
+
+Defaults to **literal** resolution (only the coords listed in the pom) so `mavenExport` → `mavenImport` round-trips exactly. Pass `includeTransitive=true` to walk the full tree per entry, same as [[function-mavenload]].
+
+### Round-trip workflow
+
+```cfml
+// Dev machine: snapshot a known-good cache after loading everything
+mavenLoad( "org.apache.poi:poi-ooxml:5.2.5" );
+mavenLoad( "com.google.guava:guava:32.1.3-jre" );
+mavenExport( "/app/mvn-cache.xml" );
+// commit mvn-cache.xml
+
+// Fresh install / Docker build: rehydrate
+mavenImport( "/app/mvn-cache.xml" );
+```
+
+See the [[onbuild-function]] recipe for using this in Docker builds.
+
 ## Limitations
 
-- **Runtime download** - Libraries are fetched when first needed. For Docker, pre-download in `Server.cfc->onBuild`
-- **CFML only** - Can't use this in Java-based Lucee extensions (yet)
+- **Runtime download** — libraries are fetched when first needed. For Docker, warm the cache at build time via `Server.cfc->onBuild` using `mavenImport` or guarded `mavenLoad` calls — see [[onbuild-function]].
+- **CFML only** — can't use this in Java-based Lucee extensions (yet).
