@@ -19,12 +19,15 @@
 	];
 
 	local.missingPageTypes = {};
+	local.effectiveType = {};
 	loop array="#local.pages#" index="local.i" item="local.page" {
-		if ( !structKeyExists( local.pageTypeTitles, local.page.getPageType() ) ) {
-			request.logger( text="Unknown page type: [ #local.page.getPageType()# ] page [#local.page.getSourceFile()#] defaulting to [page.md]", type="WARN" );
-			local.page.setPageType( "page" );
+		local.type = local.page.getPageType();
+		if ( !structKeyExists( local.pageTypeTitles, local.type ) ) {
+			request.logger( text="Unknown page type: [ #local.type# ] page [#local.page.getSourceFile()#] defaulting to [page.md]", type="WARN" );
+			local.type = "page";
 		}
-		local.pageTypeTitles[ local.page.getPageType() ].pages++;
+		local.effectiveType[ local.page.getId() ] = local.type;
+		local.pageTypeTitles[ local.type ].pages++;
 	}
 
 	// Title
@@ -42,7 +45,7 @@
 				echo( "## " & local.pageType.title & chr(10) & chr(10) );
 
 				loop array="#local.pages#" index="local.i" item="local.page" {
-					if ( local.pageTypeKey eq local.page.getPageType() ) {
+					if ( local.pageTypeKey eq local.effectiveType[ local.page.getId() ] ) {
 						local.desc = reReplace( getMetaDescription( local.page, local.page.getBody() ), "\s*" & chr(35) & "{1,6}\s*", " ", "all" );
 						echo( "- **" & htmleditformat( local.page.getId() ) & "** - " & htmleditformat( local.desc ) & chr(10) );
 					}

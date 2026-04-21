@@ -19,12 +19,15 @@
 	];
 
 	local.missingPageTypes = {};
+	local.effectiveType = {};
 	loop array="#local.pages#" index="local.i" item="local.page" {
-		if ( !structKeyExists(local.pageTypeTitles, local.page.getPageType() ) ) {
-			request.logger (text="Unknown page type: [ #local.page.getPageType()# ] page [#local.page.getSourceFile()#] defaulting to [page.md]", type="WARN");
-			local.page.setPageType("page");
+		local.type = local.page.getPageType();
+		if ( !structKeyExists(local.pageTypeTitles, local.type ) ) {
+			request.logger (text="Unknown page type: [ #local.type# ] page [#local.page.getSourceFile()#] defaulting to [page.md]", type="WARN");
+			local.type = "page";
 		}
-		local.pageTypeTitles[local.page.getPageType()].pages++;
+		local.effectiveType[local.page.getId()] = local.type;
+		local.pageTypeTitles[local.type].pages++;
 	}
 </cfscript>
 
@@ -44,7 +47,7 @@
 				<h2>#( local.pageType.title )#</h2>
 				<ul class="list-unstyled">
 				<cfloop array="#local.pages#" index="local.i" item="local.page">
-					<cfif local.pageTypeKey eq local.page.getPageType()>
+					<cfif local.pageTypeKey eq local.effectiveType[ local.page.getId() ]>
 						<cfset desc = reReplace(getMetaDescription(local.page, local.page.getBody()), "\s*##{1,6}\s*", " ", "all")>
 						<li>[[#htmleditformat(local.page.getId())#]] <span class="list-desc">#_markdownToHtml(htmleditformat(desc))#</span></li>
 					</cfif>
