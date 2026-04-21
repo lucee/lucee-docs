@@ -10,6 +10,7 @@ categories:
 - java
 - server
 - devops
+description: Rehydrates Lucee's local maven cache from a pom.xml, resolving each listed dependency — the inverse of mavenExport for reproducible deploys.
 ---
 
 Parses a pom.xml and resolves each declared `<dependency>` into Lucee's local maven cache, fetching any that are not already present.

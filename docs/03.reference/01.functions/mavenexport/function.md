@@ -10,6 +10,7 @@ categories:
 - java
 - server
 - devops
+description: Snapshots Lucee's local maven cache as a portable pom.xml listing every cached jar — for reproducible deploys, auditing, and air-gapped rehydration.
 ---
 
 Walks Lucee's local maven cache directory and returns a pom.xml string listing every cached artifact as a `<dependency>` entry.

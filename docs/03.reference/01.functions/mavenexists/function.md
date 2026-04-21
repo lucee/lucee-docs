@@ -10,6 +10,7 @@ categories:
 - java
 - server
 - devops
+description: Checks whether a Maven artifact is already in Lucee's local maven cache — a cheap filesystem-only predicate with no network or tree walk.
 ---
 
 Checks whether a Maven artifact is present in Lucee's local maven cache directory.
