@@ -109,26 +109,19 @@ When the Docker container is built, the `onBuild` function will execute, perform
 
 If your app uses [[maven|Maven-loaded Java libraries]], by default those jars are downloaded on first use at **runtime**. That's fine for dev, but in Docker you want the jars baked into the image — no network on container start, no first-request latency while POI downloads.
 
-`onBuild` is the hook for this. Three patterns, pick the one that fits:
-
-### Pattern 1: Import from a committed pom
-
-Snapshot your `/mvn/` cache once (on a dev machine), commit the pom, rehydrate during the Docker build:
+Snapshot your `/mvn/` cache on a dev machine, commit the pom, rehydrate during the Docker build:
 
 ```cfml
 // dev machine, after loading everything your app needs:
-mavenLoad( "org.apache.poi:poi-ooxml:5.2.5" );
-mavenLoad( "com.google.guava:guava:32.1.3-jre" );
-mavenExport( "/app/mvn-cache.xml" );
-// commit /app/mvn-cache.xml
+fileWrite( "/app/pom.xml", mavenExport() );
+// commit /app/pom.xml
 ```
 
 ```cfml
 // Server.cfc in the image
 component {
     public function onBuild() {
-        systemOutput( "Rehydrating Maven cache...", true );
-        var q = mavenImport( "/app/mvn-cache.xml" );
+        var q = mavenImport( "/app/pom.xml" );
         systemOutput( "Resolved " & q.recordcount & " dependencies", true );
     }
 }
@@ -136,39 +129,27 @@ component {
 
 Round-trip is exact — the pom lists every cached jar including classifiers. See [[function-mavenexport]] / [[function-mavenimport]].
 
-### Pattern 2: Explicit list, guarded by `mavenExists`
+## Compiling a Mapping at Build Time
 
-If you'd rather keep the dependency list in CFML (readable in the diff, no pom file to maintain):
+Precompiling every `.cfm` / `.cfc` under a mapping bakes bytecode into the image so first-hit requests don't pay compile cost. It also surfaces syntax errors in code paths your tests don't reach.
+
+The `compileMapping` admin action does this. Against the web mapping `/`:
 
 ```cfml
 component {
     public function onBuild() {
-        var deps = [
-            "org.apache.poi:poi-ooxml:5.2.5",
-            "com.google.guava:guava:32.1.3-jre",
-            "org.quartz-scheduler:quartz:2.3.2"
-        ];
-        for ( var coord in deps ) {
-            if ( !mavenExists( coord ) ) {
-                systemOutput( "Loading " & coord, true );
-                mavenLoad( coord );
-            }
-        }
+        admin
+            action="compileMapping"
+            type="web"
+            password=request.adminPassword
+            virtual="/"
+            stoponerror="false";
     }
 }
 ```
 
-[[function-mavenexists]] is a cheap filesystem check — safe to call on every build without paying for tree resolution.
+- `type="web"` compiles under a specific web context; `type="server"` walks the server-level mappings.
+- `virtual="/"` is the mapping name — pass a specific virtual path (e.g. `/app`) to limit the scope.
+- `stoponerror="false"` logs compile errors and continues. Set `true` to fail the build on the first bad file.
 
-### Pattern 3: Let `javaSettings` do the work
-
-If your `Application.cfc` / `.CFConfig.json` already declares `javaSettings.maven`, you can just trigger resolution once in `onBuild` by touching the components that use them — whatever Lucee resolves gets cached on disk and survives into the runtime image.
-
-### Auditing the image
-
-After the build, `mavenExport` against the image's `/mvn/` dir gives you an exact manifest of what shipped — useful for reproducible-build audits and for diffing between image versions:
-
-```cfml
-mavenExport( "/app/mvn-cache-actual.xml" );
-// compare against the committed /app/mvn-cache.xml
-```
+Same pattern as the [script-runner](https://github.com/lucee/script-runner) `-Dcompile=true` flag, which uses this exact admin action to smoke-test a webroot against a given Lucee version. See [[cfadmin-docs]] for the full list of admin actions.
