@@ -43,7 +43,7 @@ If you're on Lucee 7.1 or later, use the extension. It's simpler, faster, and su
 
 ## Extension Mode (Lucee 7.1+)
 
-The extension hooks into Lucee's native debug instrumentation. When no debugger is attached, the hooks are JIT-compiled away — zero overhead in production.
+The extension hooks into Lucee's native debug instrumentation. When no debugger is attached, the hooks are JIT-compiled away — close to zero overhead in production.
 
 ### Install
 
@@ -94,11 +94,7 @@ See the [Docker example](https://github.com/lucee/extension-debugger/tree/main/e
 
 For older Lucee versions, the debugger runs as a Java agent that instruments bytecode at runtime via JDWP. This requires a full JDK (not JRE).
 
-Download the agent JAR from [Maven Central](https://central.sonatype.com/artifact/org.lucee/debugger-agent) — click the version, browse, and download `debugger-agent-{version}.jar`. For example:
-
-```text
-https://repo1.maven.org/maven2/org/lucee/debugger-agent/3.0.0.4/debugger-agent-3.0.0.4.jar
-```
+Download the agent JAR from [Maven Central](https://central.sonatype.com/artifact/org.lucee/debugger-agent) — check there for the latest version, click it, browse, and download `debugger-agent-{version}.jar`.
 
 See the [Java Agent setup guide](https://github.com/lucee/extension-debugger/blob/main/JAVA_AGENT.md) for detailed instructions.
 
@@ -119,7 +115,7 @@ See the [Java Agent setup guide](https://github.com/lucee/extension-debugger/blo
 }
 ```
 
-3. Press F5 or click "Start Debugging"
+1. Press F5 or click "Start Debugging"
 
 ### Launch Options
 
@@ -169,11 +165,13 @@ A breakpoint set on `/Users/dev/myproject/Application.cfc` maps to `/var/www/App
 
 ## CFML BIFs (Lucee 7.1+)
 
-> **Note:** These BIFs are not yet listed in the auto-generated function reference as the docs currently build against Lucee 7.0.
+These BIFs are part of Lucee core — they are always available and safe to call. 
 
-These BIFs are part of Lucee core — they are always available and safe to call. Without the debugger extension installed and active, they simply return `false` and do nothing. You can leave them in production code without any overhead or dependency concerns.
+Without the debugger extension installed and active, they simply return `false` and do nothing. You can leave them in production code without any overhead or dependency concerns.
 
 ### breakpoint()
+
+[[function-breakpoint]]
 
 Programmatic breakpoint — like JavaScript's `debugger;` statement. Suspends execution when a debugger is attached, allowing inspection of variables.
 
@@ -191,6 +189,8 @@ breakpoint( condition=( arrayLen( errors ) > 0 ) );
 Returns `true` if the breakpoint was hit, `false` if skipped (no debugger attached or condition was false).
 
 ### isDebuggerEnabled()
+
+[[function-isDebuggerEnabled]]
 
 Returns `true` if DAP debugger support is enabled (via `LUCEE_DAP_SECRET` env var or `lucee.dap.secret` system property). Useful for conditionally including debug logic:
 
@@ -211,9 +211,25 @@ Use the command palette and run **"luceedebug: show class and breakpoint info"**
 - Conditions that fail (not convertible to boolean, or throw an exception) evaluate to `false`
 - Watch out for `x = 42` (assignment) vs `x == 42` (equality check)
 
+### JVM Hangs After Lucee Warmup (Agent Mode)
+
+If you use `LUCEE_ENABLE_WARMUP=true` with the Java agent, the JVM can hang at shutdown because the JDWP native agent blocks waiting to notify a debugger that was never connected.
+
+Two fixes:
+
+1. Add `timeout=10000` to your JDWP args — the agent gives up after 10 seconds if no debugger connected:
+
+```bash
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=localhost:9999,timeout=10000
+```
+
+1. The luceedebug agent (3.0.0.5+) automatically detects `LUCEE_ENABLE_WARMUP` and skips initialisation entirely, so no instrumentation or DAP setup happens during warmup.
+
 ## Links
 
 - [GitHub: lucee/extension-debugger](https://github.com/lucee/extension-debugger)
+- [Changelog](https://github.com/lucee/extension-debugger/blob/main/CHANGELOG.md)
+- [Forum: debugger topics](https://dev.lucee.org/tag/debugger)
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=DavidRogers.luceedebug)
 - [Maven Central: Extension](https://central.sonatype.com/artifact/org.lucee/debugger-extension)
 - [Maven Central: Agent](https://central.sonatype.com/artifact/org.lucee/debugger-agent)
