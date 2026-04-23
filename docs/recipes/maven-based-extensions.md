@@ -107,6 +107,26 @@ jdbc: "[{'class':'org.postgresql.Driver','maven':'org.postgresql:postgresql:42.7
 
 The `maven:` attribute tells Lucee to use Maven-style classloading (via `getRPCClassLoader()`) to find the class, rather than looking for it in OSGi bundles.
 
+## Maven Based Cache Providers
+
+OSGi-based cache extensions have always registered the cache class alongside the bundle that contains it, so Lucee can resolve the class later when a cache connection is created:
+
+```
+cache: "[{'class':'org.lucee.extension.myCache.MyCache','bundle-name':'my.cache.bundle','bundle-version':'1.0.0'}]"
+```
+
+Maven-based extensions work the same way — the manifest stores the class name and its Maven coordinates at install time:
+
+```
+cache: "[{'class':'org.lucee.extension.aws.dynamodb.DynamoDBCache','maven':'org.lucee:dynamodb:1.0.0.0'}]"
+```
+
+When a cache connection is later created using that class name — via the admin UI, application config, or programmatically — Lucee looks up the stored coordinates and loads the class via the Maven classloader.
+
+Full support for all cache creation paths (including programmatic) landed in **7.1.0.93+**, **7.0.4.21+**, and **6.2.7.7+** ([LDEV-6270](https://luceeserver.atlassian.net/browse/LDEV-6270)).
+
+See **[DynamoDB](https://github.com/lucee/extension-dynamodb)** for a complete reference implementation of this pattern.
+
 ## Maven Dependency Format (GAVSO)
 
 Maven coordinates in Lucee use **colon-separated** Gradle-style notation:
@@ -239,6 +259,7 @@ The typical build process for a Maven-based extension:
 | --- | --- | --- | --- |
 | `/maven/` folder extraction from `.lex` | ✅ | 7.0.0.68+ | 6.2.0.300+ |
 | Manifest `cache:`/`jdbc:` with `maven:` | ✅ | 7.0.0.68+ | 6.2.0.285+ |
+| Maven cache provider (all creation paths) | 7.1.0.93+ | 7.0.4.21+ | 6.2.7.7+ |
 | `start-bundles: false` | ✅ | ✅ | ✅ |
 | GAVSO coordinate parsing | ✅ | ✅ | ✅ |
 | TLD `maven=` (custom tags) | 7.1.0.2+ | 7.0.2.86+ | ❌ |
