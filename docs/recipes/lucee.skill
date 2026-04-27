@@ -46,7 +46,7 @@ description: >
 | Checksum | `checksum` | Checksum, File validation, cfhttp, hash, fileReadBinary |
 | getClass() Method for Components | `component-getclass-method` | getClass, component, java, interface |
 | Component Mappings | `component-mappings` | Component Mapping, CFCs, Application.cfc, Lucee archive |
-| Diagnosing pre-7.1 struct ordering regressions with `lucee.concurrent.map.impl=legacy` | `concurrent-map-legacy-flag` | ConcurrentHashMap, struct, lucee.concurrent.map.impl, legacy, struct ordering, LDEV-5098 |
+| Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy` | `concurrent-map-legacy-flag` | ConcurrentHashMap, struct, lucee.concurrent.map.impl, legacy, struct ordering, LDEV-5098 |
 | Configure Lucee Programmatically | `configuration-administrator-cfc` | Administrator.cfc, cfadmin, Configuration, Lucee, Web context, Server configuration |
 | Configuration - Lucee 5 | `configuration-lucee5` | configuration, config, lucee-server.xml, lucee-web.xml, Lucee 5 |
 | Configuration - How to Configure Lucee | `configuration` | configuration, config, .CFConfig.json, lucee-server.xml, lucee-web.xml |

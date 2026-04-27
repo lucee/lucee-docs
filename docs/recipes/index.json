@@ -343,9 +343,9 @@
   },
   {
     "file": "concurrent-map-legacy-flag.md",
-    "title": "Diagnosing pre-7.1 struct ordering regressions with `lucee.concurrent.map.impl=legacy`",
+    "title": "Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy`",
     "path": "/docs/recipes/concurrent-map-legacy-flag.md",
-    "hash": "c1fcfea3672fd9cb243bd5d25fefc2f2",
+    "hash": "85f7818537a2057c96d183ad2762b2f0",
     "keywords": [
       "ConcurrentHashMap",
       "struct",
