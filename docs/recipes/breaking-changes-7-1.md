@@ -44,10 +44,9 @@ var s = { "data": {}, "includes": ["a.js"], "adhoc": {} };
 - Use `StructNew("ordered")` or `StructNew("linked")` if key order matters
 - Compare deserialized structs instead of raw JSON strings
 - Use `structSort()` or sorted keys when generating deterministic output
+- As a diagnostic, the `lucee.concurrent.map.impl=legacy` flag temporarily restores pre-7.1 ordering — flip it on to confirm whether breakage is genuinely an ordering-assumption bug in your code. See [[concurrent-map-legacy-flag]].
 
-This change was made to improve struct performance.
-
-[LDEV-5908](https://luceeserver.atlassian.net/browse/LDEV-5908)
+This change was made to improve struct performance ([LDEV-5098](https://luceeserver.atlassian.net/browse/LDEV-5098)).
 
 ## QoQ SQL String Concatenation with NULL values
 
