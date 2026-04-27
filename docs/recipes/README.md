@@ -96,6 +96,10 @@ Get the Java class of a component that implements a Java interface.
 
 How to define and use component mappings in Lucee.
 
+## [Diagnosing pre-7.1 struct ordering regressions with `lucee.concurrent.map.impl=legacy`](/docs/recipes/concurrent-map-legacy-flag.md)
+
+The `lucee.concurrent.map.impl=legacy` flag restores pre-7.1 struct iteration order, used as a diagnostic to confirm whether a 7.1 regression is an ordering-assumption bug in your code.
+
 ## [Configure Lucee Programmatically](/docs/recipes/configuration-administrator-cfc.md)
 
 How to configure Lucee within your application using Administrator.cfc and cfadmin tag.

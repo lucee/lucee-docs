@@ -208,7 +208,7 @@
     "file": "breaking-changes-7-1.md",
     "title": "Breaking Changes between Lucee 7.0 and 7.1",
     "path": "/docs/recipes/breaking-changes-7-1.md",
-    "hash": "cf3509406e61f74d6fd8b56cbb1a7bb5",
+    "hash": "dba313247350cfe49064295207940588",
     "keywords": [
       "breaking changes",
       "Lucee 7.0",
@@ -339,6 +339,21 @@
       "CFCs",
       "Application.cfc",
       "Lucee archive"
+    ]
+  },
+  {
+    "file": "concurrent-map-legacy-flag.md",
+    "title": "Diagnosing pre-7.1 struct ordering regressions with `lucee.concurrent.map.impl=legacy`",
+    "path": "/docs/recipes/concurrent-map-legacy-flag.md",
+    "hash": "c1fcfea3672fd9cb243bd5d25fefc2f2",
+    "keywords": [
+      "ConcurrentHashMap",
+      "struct",
+      "lucee.concurrent.map.impl",
+      "legacy",
+      "struct ordering",
+      "LDEV-5098",
+      "LDEV-6288"
     ]
   },
   {
