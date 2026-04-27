@@ -1110,6 +1110,22 @@ Which kind of Application Listener is supported?
 
 Name of the main logger used by Lucee, for example, a non-existing logger is defined.
 
+#### LUCEE_SYSTEM_LOG_LEVEL
+
+*SysProp:* `-Dlucee.system.log.level`
+*EnvVar:* `LUCEE_SYSTEM_LOG_LEVEL`
+
+Controls the minimum log level written to `out.log` and `err.log`. These files capture output from code executed before the Lucee core is fully loaded (i.e. before the regular log configuration is available). Valid values are:
+
+- `trace`
+- `debug`
+- `info`
+- `warn` (default)
+- `error`
+- `fatal`
+
+Levels below the threshold are silently dropped. The default of `warn` suppresses `info` and `debug` messages such as the `ConfigFactoryImpl read the config file` startup noise. Set to `info` or `debug` to restore full startup visibility when debugging early initialization issues.
+
 #### LUCEE_MAPPING_FIRST
 
 *SysProp:* `-Dlucee.mapping.first`
