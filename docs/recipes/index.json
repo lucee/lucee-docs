@@ -410,7 +410,7 @@
     "file": "csv-processing.md",
     "title": "CSV Processing in Lucee 7",
     "path": "/docs/recipes/csv-processing.md",
-    "hash": "29904a460f0d30c67723e2ce136e3664",
+    "hash": "4cf4ef1d4c9da606658cb407497313e8",
     "keywords": [
       "CSV",
       "Apache Commons",
@@ -619,7 +619,7 @@
     "file": "excel-processing.md",
     "title": "Excel Processing in Lucee 7",
     "path": "/docs/recipes/excel-processing.md",
-    "hash": "d8abe817a951a5e2d0e3c2a4646ea306",
+    "hash": "adeb2182ce6ff3f5b535676322fdff34",
     "keywords": [
       "Excel",
       "Apache POI",
@@ -903,7 +903,7 @@
     "file": "java-class-interaction.md",
     "title": "Java Class Interaction",
     "path": "/docs/recipes/java-class-interaction.md",
-    "hash": "55c4d203e155a24ed371e3eef149761c",
+    "hash": "cd919c0f50b85b3789d2d1e79e3373fe",
     "keywords": [
       "Java",
       "Classes",
@@ -944,7 +944,7 @@
     "file": "java-libraries.md",
     "title": "Interacting with Java Libraries",
     "path": "/docs/recipes/java-libraries.md",
-    "hash": "794707c016506820f6c710de9f20bfe2",
+    "hash": "91b12a1f0aa29fc2bba79d2b52166d75",
     "keywords": [
       "java",
       "maven",
@@ -992,7 +992,7 @@
     "file": "java-settings.md",
     "title": "Java Settings",
     "path": "/docs/recipes/java-settings.md",
-    "hash": "99b9e154cb3c694b8c41685de96fce88",
+    "hash": "830f112bb0a9041668559d6b4961bb37",
     "keywords": [
       "Java settings",
       "Application.cfc",
@@ -1235,7 +1235,7 @@
     "file": "maven-based-extensions.md",
     "title": "Maven Based Extensions",
     "path": "/docs/recipes/maven-based-extensions.md",
-    "hash": "dbcd771e1593df41967b9e5911aeae6f",
+    "hash": "acafbc3551af1d22b60cbeedcbb908d2",
     "keywords": [
       "extension",
       "Maven",
@@ -1254,7 +1254,7 @@
     "file": "maven.md",
     "title": "Loading Java Libraries with Maven",
     "path": "/docs/recipes/maven.md",
-    "hash": "189ebf9c20619b255fb4fe02b1f76af7",
+    "hash": "34a5b3c02861a57903f36cbbef0ac648",
     "keywords": [
       "Maven",
       "Java",
@@ -2187,7 +2187,7 @@
     "file": "yaml-processing.md",
     "title": "YAML Processing in Lucee 7",
     "path": "/docs/recipes/yaml-processing.md",
-    "hash": "ea74a925eef4ae78701b172787ae1b35",
+    "hash": "f82bb55a14f210b797b7375fc26b7228",
     "keywords": [
       "YAML",
       "SnakeYAML",
