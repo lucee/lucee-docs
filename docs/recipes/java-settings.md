@@ -17,7 +17,10 @@
   "related": [
     "tag-application",
     "tag-component",
-    "function-createobject"
+    "function-createobject",
+    "maven",
+    "java-libraries",
+    "java-class-interaction"
   ]
 }
 -->

@@ -16,7 +16,10 @@
   "related": [
     "function-createobject",
     "tag-import",
-    "java-settings"
+    "java-settings",
+    "java-libraries",
+    "java-class-interaction",
+    "maven-based-extensions"
   ]
 }
 -->

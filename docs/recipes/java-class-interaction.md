@@ -15,7 +15,10 @@
     "Reflection"
   ],
   "related": [
-    "function-createobject"
+    "function-createobject",
+    "maven",
+    "java-libraries",
+    "java-settings"
   ]
 
 }
@@ -229,4 +232,4 @@ You can define `javaSettings` at different scopes:
 | **Application.cfc** | Share dependencies across your application |
 | **`.CFConfig.json`** | Server-wide defaults |
 
-For full details on Maven integration, local JARs, and dependency management, see [Maven Integration](maven.md).
+For full details on Maven integration, local JARs, and dependency management, see [[maven]].

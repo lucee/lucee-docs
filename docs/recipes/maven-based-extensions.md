@@ -22,7 +22,9 @@
     "extension-installation",
     "extension-provider",
     "extension-utilities",
-    "loader-api-changes-7"
+    "loader-api-changes-7",
+    "maven",
+    "java-class-interaction"
   ]
 }
 -->

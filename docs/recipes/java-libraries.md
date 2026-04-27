@@ -16,7 +16,9 @@
     "java"
   ],
   "related": [
-    "maven"
+    "maven",
+    "java-class-interaction",
+    "java-settings"
   ]
 }
 -->
