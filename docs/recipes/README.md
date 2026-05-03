@@ -306,7 +306,7 @@ This document explains how to configure and use the Language Server Protocol imp
 
 ## [Lazy Queries](/docs/recipes/lazy-queries.md)
 
-How to use lazy queries
+How to stream large query result sets without loading everything into memory
 
 ## [List existing Cache Connections](/docs/recipes/list-existing-cache-conn.md)
 
