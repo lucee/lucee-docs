@@ -318,6 +318,26 @@
     ]
   },
   {
+    "file": "component-accessors.md",
+    "title": "Component Accessors",
+    "path": "/docs/recipes/component-accessors.md",
+    "hash": "d32d1335b2a71e39644829936d0274e2",
+    "keywords": [
+      "accessors",
+      "getter",
+      "setter",
+      "cfproperty",
+      "property",
+      "component",
+      "bean",
+      "fluent API",
+      "mixin",
+      "virtual inheritance",
+      "ORM",
+      "type coercion"
+    ]
+  },
+  {
     "file": "component-getclass-method.md",
     "title": "getClass() Method for Components",
     "path": "/docs/recipes/component-getclass-method.md",

@@ -88,6 +88,10 @@ Automatically check for changes in your configuration file with Lucee.
 
 This document explains how to use a checksum in Lucee.
 
+## [Component Accessors](/docs/recipes/component-accessors.md)
+
+CFML component accessors=true — what gets generated, how they behave with mixins and ORM, and the gotchas that bite
+
 ## [getClass() Method for Components](/docs/recipes/component-getclass-method.md)
 
 Get the Java class of a component that implements a Java interface.

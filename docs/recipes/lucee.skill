@@ -44,6 +44,7 @@ description: >
 | Untitled | `cfschedule-bulk-update` | scheduled tasks, config |
 | Untitled | `check-for-changes` | Configuration, Check for changes, Lucee, Automatic update, Server context, Web context |
 | Checksum | `checksum` | Checksum, File validation, cfhttp, hash, fileReadBinary |
+| Component Accessors | `component-accessors` | accessors, getter, setter, cfproperty, property, component |
 | getClass() Method for Components | `component-getclass-method` | getClass, component, java, interface |
 | Component Mappings | `component-mappings` | Component Mapping, CFCs, Application.cfc, Lucee archive |
 | Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy` | `concurrent-map-legacy-flag` | ConcurrentHashMap, struct, lucee.concurrent.map.impl, legacy, struct ordering, LDEV-5098 |
