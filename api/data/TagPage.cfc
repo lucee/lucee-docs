@@ -81,9 +81,9 @@ component accessors=true extends="Page" {
 	public string function getBodyTypeDescription(){
 		switch( this.getBodyContentType() ) {
 			case "prohibited" :
-			case "empty"      : return "This tag **cannot** have a body.";
-			case "free"       : return "This tag **may** have a body.";
-			case "required"   : return "This tag **must** have a body.";
+			case "empty"      : return "This tag must stand alone — a body/content and closing tag are not allowed.";
+			case "free"       : return "This tag's body/content and closing tag are optional.";
+			case "required"   : return "This tag requires a body/content and a closing tag.";
 			default			  : return "";
 		}
 	}
