@@ -26,4 +26,3 @@ The same shape applies to `properties` and `functions`: each CFC's metadata repo
 **The `name` field is the fully-qualified dotted path.**
 
 `getMetaData( cfc ).name` is the path from the web/test root with `/` replaced by `.`, not the relative path you may have passed to `new`. `IsInstanceOf` accepts this string, the relative path, or the bare class name (see [`isinstanceof`](../isinstanceof/_usageNotes.md)).
-
