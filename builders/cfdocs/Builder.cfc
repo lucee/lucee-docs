@@ -197,6 +197,12 @@ component {
 		}
 		if ( fn.getPageType() == "tag" ){
 			var jsonfile = variables.cfdocsPath & "/cf" & lcase( fn.name ) & ".json";
+			switch ( fn.getBodyContentType() ) {
+				case "prohibited":
+				case "empty":     data["body"] = "none";     break;
+				case "free":      data["body"] = "optional"; break;
+				case "required":  data["body"] = "required"; break;
+			}
 			if ( len( required ) eq 0 ) {
 				data["syntax"] = "<cf" & LCase( fn.name ) & "/>";
 			} else {
