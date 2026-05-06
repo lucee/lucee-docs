@@ -208,7 +208,7 @@
     "file": "breaking-changes-7-1.md",
     "title": "Breaking Changes between Lucee 7.0 and 7.1",
     "path": "/docs/recipes/breaking-changes-7-1.md",
-    "hash": "dba313247350cfe49064295207940588",
+    "hash": "4bc514551f31ee94af88ea753db4f599",
     "keywords": [
       "breaking changes",
       "Lucee 7.0",
@@ -1687,7 +1687,7 @@
     "file": "rest-services.md",
     "title": "Lucee and REST Services",
     "path": "/docs/recipes/rest-services.md",
-    "hash": "933a7b127ce9000e537cf12557130a11",
+    "hash": "f239e2f51192099cda87a7519c98fc7d",
     "keywords": [
       "REST",
       "verbs",
