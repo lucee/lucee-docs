@@ -19,6 +19,7 @@ Lucee 7.1 introduces a native step debugger for VS Code, a wave of performance i
 - **QoQ Improvements**: Case sensitivity options, engine selection, HSQLDB connection pooling
 - **Maven Extensions**: Extension tags and functions can now use Maven coordinates
 - **SecretProvider API**: Extended with set, remove, and list operations
+- **REST Routing**: Cross-CFC dispatch now uses JAX-RS-style specificity scoring instead of disk-iteration order — see [[rest-services]]
 
 ## Native Step Debugger
 
