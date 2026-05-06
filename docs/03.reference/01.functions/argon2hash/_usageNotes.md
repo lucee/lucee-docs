@@ -6,4 +6,4 @@ Argon2 is the recommended password hashing algorithm for new applications. It wo
 
 **Why not BCrypt or SCrypt?** Argon2 is newer and has tuneable memory-hardness. BCrypt has a 72-byte password limit and no memory-hardness. SCrypt is memory-hard but harder to tune correctly. If you need compatibility with Adobe ColdFusion, use [[function-bcrypthash]] instead.
 
-Replaces the deprecated [[function-generateargon2hash]], which uses weaker defaults for backwards compatibility.
+Introduced by the Crypto Extension on Lucee 7+. Replaces the deprecated [[function-generateargon2hash]] (provided by the older [Argon2 Extension](https://github.com/lucee/extension-argon2) on Lucee 5.3.8+ / 6.x), which uses weaker defaults for backwards compatibility.
