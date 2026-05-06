@@ -75,3 +75,24 @@ Both `||` and `CONCAT()` are functionally identical — they now treat NULL as a
 If your code relies on NULL propagation in QoQ string concatenation, you may need to update your queries.
 
 [LDEV-6154](https://luceeserver.atlassian.net/browse/LDEV-6154)
+
+## REST request routing now uses specificity scoring
+
+Cross-CFC REST dispatch in 7.0 returned the first match in disk-iteration
+order, which varied by filesystem. Lucee 7.1 picks the most-specific
+match (literal > regex-constrained > unconstrained path-var, longer >
+shorter, with deterministic tie-breaking) — matching JAX-RS rules. See
+[[rest-services]] for the full rules.
+
+Three knock-on effects to watch for:
+
+- Routes that 404'd because the wrong CFC won may now return 200 — audit
+  overlapping `restPath` values, especially handlers that have been dead
+  for years.
+- Two CFCs in the same mapping declaring the same `restPath` fail at
+  registration with an `ApplicationException` naming both files. Pre-7.1
+  silently shadowed one.
+- Filename-ordering tricks (e.g. `aDefault.cfc` to exploit alphabetical
+  iteration) no longer work — filenames are only used as a final tie-break.
+
+[LDEV-6306](https://luceeserver.atlassian.net/browse/LDEV-6306)

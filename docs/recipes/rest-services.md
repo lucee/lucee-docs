@@ -174,6 +174,49 @@ component restPath="/api/products" rest="true" {
 
 Falling back to using function names as the REST Path, when no `restPath` is defined, was implemented in 7.0.0.366
 
+### REST request routing
+
+Since 7.1.0.116
+
+When two or more REST CFCs in the same mapping have overlapping `restPath`
+values, Lucee picks the most-specific match:
+
+* a literal path segment outranks a regex-constrained path-variable, which
+  outranks an unconstrained path-variable. So for `/users/123` the order
+  is `/users/me` (no, "me" doesn't match) > `/users/{id:[0-9]+}` >
+  `/users/{id}`
+* a longer match wins over a shorter one, so `/api/v2` wins over `/api`
+  for a request to `/api/v2/ping`, which lets you run versioned APIs
+  (`/api/v1`, `/api/v2`) alongside a generic `/api` catch-all
+* ties are broken deterministically by raw `restPath` then by the component
+  path, so dispatch never depends on filesystem order
+
+This brings Lucee in line with the JAX-RS resource-matching rules used by
+Adobe ColdFusion (via Jersey). Earlier versions returned the first match
+in disk-iteration order, which varied by filesystem — alphabetical on
+NTFS, inode-creation order on ext4 — meaning a deployment that worked on a
+Windows dev box could fail on a Linux production host with no warning.
+See [LDEV-6306](https://luceeserver.atlassian.net/browse/LDEV-6306).
+
+#### Duplicate restpaths fail at registration
+
+Since 7.1.0.116
+
+If two CFCs in the same REST mapping declare the same `restPath`, Lucee
+now refuses to register the mapping and throws an `ApplicationException`
+naming both files. Pre-7.1 builds silently shadowed one of the CFCs and
+which one won depended on filesystem order — so a deployment could work
+in dev and then route to the wrong handler in production.
+
+```text
+REST mapping [/api] has duplicate restpaths: duplicate REST path [/users]
+in mapping [/api]: /webroot/rest/UsersA.cfc, /webroot/rest/UsersB.cfc
+```
+
+Each duplicate is also written to the `rest` log at `error` level so the
+problem surfaces in monitoring dashboards even if the request that
+triggered it never reaches the user.
+
 ### Configuring your web server to serve Lucee's REST services
 
 In the preceding steps we have added a REST service mapping named "metrics" serving REST resources with a CFC component
