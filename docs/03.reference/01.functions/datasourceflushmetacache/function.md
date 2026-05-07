@@ -2,6 +2,9 @@
 title: DatasourceFlushMetaCache
 id: function-datasourceflushmetacache
 related:
+- tag-storedproc
+- tag-procparam
+- tag-procresult
 categories:
 - query
 ---
