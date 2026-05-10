@@ -208,7 +208,7 @@
     "file": "breaking-changes-7-1.md",
     "title": "Breaking Changes between Lucee 7.0 and 7.1",
     "path": "/docs/recipes/breaking-changes-7-1.md",
-    "hash": "4bc514551f31ee94af88ea753db4f599",
+    "hash": "44bf8db0d754e6fb6a99952a439f233b",
     "keywords": [
       "breaking changes",
       "Lucee 7.0",
@@ -1572,7 +1572,7 @@
     "file": "query-of-queries.md",
     "title": "Query of Queries (QoQ)",
     "path": "/docs/recipes/query-of-queries.md",
-    "hash": "a504c9ef363cffdf481e6168e36b6d78",
+    "hash": "43117e711166ceac9f3aa734e4f8aeef",
     "keywords": [
       "Query of Queries",
       "QoQ",
