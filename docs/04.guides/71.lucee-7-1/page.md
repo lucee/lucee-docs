@@ -112,6 +112,12 @@ QoQ queries that fall back to HSQLDB now use a pool of isolated database instanc
 
 [LDEV-5992](https://luceeserver.atlassian.net/browse/LDEV-5992)
 
+### HSQLDB ORDER BY null position aligned with native QoQ
+
+Nulls now sort to the end of `ORDER BY ... DESC` in HSQLDB (and stay first in `ASC`), matching native QoQ and Adobe ColdFusion. Tunable via `lucee.qoq.hsqldb.orderBy.nullsLastInDesc`. See [[breaking-changes-7-0-to-7-1]].
+
+[LDEV-6311](https://luceeserver.atlassian.net/browse/LDEV-6311)
+
 ### SQL Functions Reference
 
 See [[query-of-queries-functions]] for the full reference of supported SQL functions and operators.

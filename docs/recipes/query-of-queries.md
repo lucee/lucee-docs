@@ -103,6 +103,8 @@ By default, Lucee tries the native QoQ engine first and falls back to HSQLDB if 
 - `"native"` — use only the native engine; errors if the SQL isn't supported
 - `"hsqldb"` — skip native and go straight to HSQLDB
 
+The two engines now agree on `ORDER BY` null position (nulls first in `ASC`, last in `DESC`). See [[breaking-changes-7-0-to-7-1]] for the toggle if you need the legacy HSQLDB-always-first behaviour.
+
 ## Configuring QoQ Options
 
 **Since Lucee 7.1**

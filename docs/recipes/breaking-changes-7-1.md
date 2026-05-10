@@ -76,6 +76,14 @@ If your code relies on NULL propagation in QoQ string concatenation, you may nee
 
 [LDEV-6154](https://luceeserver.atlassian.net/browse/LDEV-6154)
 
+## QoQ HSQLDB ORDER BY null position now matches native engine
+
+The HSQLDB engine in Query of Queries sorted nulls first regardless of `ASC` or `DESC` direction, diverging from native QoQ and Adobe ColdFusion (which treat nulls as a low value: first ASC, last DESC). Lucee 7.1 aligns the engines.
+
+Opt out of the new behaviour with `lucee.qoq.hsqldb.orderBy.nullsLastInDesc=false` (or `LUCEE_QOQ_HSQLDB_ORDERBY_NULLSLASTINDESC=false`).
+
+[LDEV-6311](https://luceeserver.atlassian.net/browse/LDEV-6311)
+
 ## REST request routing now uses specificity scoring
 
 Cross-CFC REST dispatch in 7.0 returned the first match in disk-iteration
