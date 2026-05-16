@@ -107,7 +107,7 @@ component accessors=true {
 		variables.extensionMap = {};
 		var cfg = getPageContext().getConfig();
 		var configDir = cfg.getConfigDir().toString();
-		var tldDir = configDir & "/library/tag/";
+		var tldDir = configDir & "/library/tld/";
 		var extensions = cfg.getAllRHExtensions();
 
 		// map tags to extensions by parsing each extension's TLD files
@@ -133,7 +133,5 @@ component accessors=true {
 				}
 			}
 		}
-
-		systemOutput( variables.extensionMap );
 	}
 }
