@@ -5,7 +5,7 @@
   "related": [
     "tag-application",
     "function-getapplicationsettings",
-    "application-context-update"
+    "update-application-context"
   ],
   "categories": [
     "application",
@@ -721,4 +721,4 @@ component displayname="Application" output="false" hint="Handle the application"
 
 The `<cfapplication>` tag allows you to update application settings per-request at runtime, without restarting the application. This is useful for dynamically adjusting datasources, mappings, or other context settings on a per-request basis.
 
-See [[application-context-update]] for details and examples.
+See [[update-application-context]] for details and examples.

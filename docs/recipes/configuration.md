@@ -7,7 +7,8 @@
   "description": "Best practices for configuring Lucee in various environments.",
   "keywords": ["configuration", "config", ".CFConfig.json", "lucee-server.xml", "lucee-web.xml"],
   "categories":[
-    "server"
+    "server",
+    "devops"
   ],
   "related": [
     "function-configimport",

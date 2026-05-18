@@ -16,11 +16,11 @@
     "connection pinning"
   ],
   "related": [
-    "cfconfig",
-    "cftransaction",
-    "datasource-configuration",
+    "config",
+    "tag-transaction",
+    "datasource-how-to-define-them",
     "tag-query",
-    "function-dbpoolevict"
+    "function-dbpoolclear"
   ]
 }
 -->

@@ -208,7 +208,7 @@ employees.each(
 
 ## Function Listeners (Lucee 6.1+)
 
-Modern promise-like syntax for async execution. See the [[function-listeners]] recipe for full details.
+Modern promise-like syntax for async execution. See the [[function-listener]] recipe for full details.
 
 ### Simple Async Function Execution
 
@@ -443,5 +443,5 @@ dump("All threads completed");
 
 ## Additional Resources
 
-- [[function-listeners]] - Complete guide to async function execution
+- [[function-listener]] - Complete guide to async function execution
 - [Lucee Threads Video Tutorial](https://www.youtube.com/watch?v=oGUZRrcg9KE)

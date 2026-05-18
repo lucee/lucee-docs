@@ -21,7 +21,7 @@ id: tips-lucee
 
 * [[tips-template-cache]]
 
-* [[tips-cfmail-SSL-authentication]]
+* [[mail-how-to-send-a-mail]]
 
 * [[tips-serialize-data]]
 

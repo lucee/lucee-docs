@@ -45,4 +45,4 @@ id: technical-FAQs
 
 ### How to use cfmail with SSL authentication ###
 
-[[tips-cfmail-SSL-authentication]]
+[[mail-how-to-send-a-mail]]

@@ -17,7 +17,7 @@
   ],
   "related": [
     "caching-getting-started",
-    "s3-extension"
+    "category-s3"
   ]
 }
 -->

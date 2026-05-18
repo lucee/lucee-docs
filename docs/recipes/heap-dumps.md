@@ -15,7 +15,6 @@
     "JVM"
   ],
   "related": [
-    "performance-monitoring",
     "troubleshooting"
   ]
 }

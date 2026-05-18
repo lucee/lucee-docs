@@ -25,4 +25,4 @@ if ( isNull( local.result ) ) { ... }
 if ( isNull( variables.config ) ) { ... }
 ```
 
-See [[recipe-null-support]] for more information on null handling in CFML.
+See [[null_support]] for more information on null handling in CFML.
