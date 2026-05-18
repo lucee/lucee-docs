@@ -339,7 +339,7 @@
 			return;
 		}
 
-		var pathParts = document.location.pathname.split('.')[0].split('/');
+		var pathParts = document.location.pathname.split('.')[0].split('/').filter(Boolean);
 		var query = pathParts[pathParts.length - 1].split('-').join(' ');
 		var suggestions = searchDocs(query);
 
