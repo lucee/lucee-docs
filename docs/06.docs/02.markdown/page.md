@@ -139,6 +139,47 @@ To render a list of the latest recipe pages:
 [[content::latest-recipes]]
 ```
 
+### Latest Changelog
+
+To render a list of the most recently introduced tags, functions, arguments and attributes (default 20 items, sorted by `introduced` version descending):
+
+```html
+[[content::latest-changelog]]
+```
+
+Pass a custom limit via the hash parameter:
+
+```html
+[[content::latest-changelog#10]]
+```
+
+## Inline Page References
+
+In addition to the plain cross-reference <code>&#91;&#91;page-id&#93;&#93;</code>, the `::modifier` suffix renders a page's content inline rather than as a link.
+
+### `::inline`
+
+Renders a compact block with the linked title and a short description (from the page's frontmatter, or the first paragraph of the body). Works with any page type. For function and tag pages the usage signature is appended in a code block:
+
+```html
+[[function-mavenexists::inline]]
+[[tag-http::inline]]
+[[recipe-docker-onbuild::inline]]
+```
+
+### `::signature`
+
+Renders just the signature in a code block — no title, no description. Useful when the surrounding prose already names the function or tag:
+
+```html
+[[function-abs::signature]]
+[[tag-query::signature]]
+```
+
+`::signature` only supports function and tag pages. The signature is produced by `getUsageSignature()` on the page object — the same call used by the function and tag page templates — so tags with many attributes will emit the full multi-line signature.
+
+The `::modifier` suffix is parsed in `api/rendering/WikiLinksRenderer.cfc` and dispatched through `renderContent()` in `api/data/DocTree.cfc` just like the `content::` directives above, which makes it cheap to add new modifiers.
+
 ## YAML Front Matter
 
 YAML Front Matter is used to add metadata to pages that can then be used by the build system. The syntax takes the form of three dashes `---` at the very beginning of a Markdown document, followed by a YAML block, followed by three dashes on their own line. For example:

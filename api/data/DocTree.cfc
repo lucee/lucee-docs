@@ -661,6 +661,8 @@ component accessors=true {
 		switch (contentType){
 			case "latest-recipes":
 				return new api.rendering.content.recipes().render(this, contentType, getRecipeDates(), arguments.markdown);
+			case "latest-changelog":
+				return new api.rendering.content.changelog().render(this, hashParam, arguments.markdown);
 			case "sysprop-envvar-listing":
 				return new api.rendering.content.syspropEnvvar().render(this, contentType, arguments.args, arguments.markdown);
 			case "sysprop-envvar":
@@ -669,6 +671,10 @@ component accessors=true {
 				return new api.rendering.content.syspropEnvvarForTag().render(this, contentType, arguments.args, arguments.markdown);
 			case "sysprop-envvar-for-function":
 				return new api.rendering.content.syspropEnvvarForFunction().render(this, contentType, arguments.args, arguments.markdown);
+			case "page-inline":
+				return new api.rendering.content.pageInline().render(this, hashParam, arguments.markdown);
+			case "page-signature":
+				return new api.rendering.content.pageSignature().render(this, hashParam, arguments.markdown);
 			default:
 				throw("unknown content type: " & contentType);
 		}

@@ -96,6 +96,22 @@ component accessors=true {
 				anchor = parts.len() > 1 ? parts[ 2 ] : "";
 			}
 
+			// Detect modifier suffix: [[function-abs::inline]], [[tag-http::signature]] etc.
+			// Modifier renders the page inline via the content directive path (page-inline/page-signature)
+			var colonIdx = find( "::", pageSlug );
+			if ( colonIdx gt 0 ) {
+				var modSlug  = left( pageSlug, colonIdx - 1 );
+				var modifier = mid( pageSlug, colonIdx + 2 );
+
+				return {
+					type       = "content"
+					, rawMatch = rawMatch
+					, content  = "page-" & modifier & chr( 35 ) & modSlug
+					, isStandalone = false
+					, nextStartPos: match.pos[2]
+				};
+			}
+
 			var page      = getDocTree().getPage( pageSlug );
 			var title     = reference.len() > 1 ? reference.last() : ( IsNull( page ) ? pageId : page.getTitle() );
 
