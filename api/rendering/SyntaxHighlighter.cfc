@@ -108,7 +108,11 @@ component {
 
 	private any function _getPygmentsInstance() {
 		if ( !isObject( variables.pygmentsInstance ) ) {
-			variables.pygmentsInstance = new Pygments();
+			lock name="docsPygmentsInstance" timeout=10 {
+				if ( !isObject( variables.pygmentsInstance ) ) {
+					variables.pygmentsInstance = new Pygments();
+				}
+			}
 		}
 		return variables.pygmentsInstance;
 	}
