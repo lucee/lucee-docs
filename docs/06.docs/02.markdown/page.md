@@ -180,36 +180,105 @@ Renders just the signature in a code block — no title, no description. Useful 
 
 The `::modifier` suffix is parsed in `api/rendering/WikiLinksRenderer.cfc` and dispatched through `renderContent()` in `api/data/DocTree.cfc` just like the `content::` directives above, which makes it cheap to add new modifiers.
 
-## YAML Front Matter
+## Front Matter
 
-YAML Front Matter is used to add metadata to pages that can then be used by the build system. The syntax takes the form of three dashes `---` at the very beginning of a Markdown document, followed by a YAML block, followed by three dashes on their own line. For example:
+Front matter adds metadata that the build system uses for cross referencing, navigation, search indexing and rendering.
 
-```html
----
-variableName: value
-arrayVariable:
+Two formats are supported depending on page type:
 
-    - arrayValue 1
-    - arrayValue 2
----
-```
+- **YAML** — used by guides, reference pages, categories, and most content under `/docs/`. Three dashes `---` at the top of the file, a YAML block, then three dashes on their own line.
+- **JSON in HTML comment** — used by recipe pages under `/docs/recipes/`. An HTML comment containing a JSON object, before the body. New recipes must also be added to `/docs/recipes/index.json`.
 
-### Standard metadata
+YAML example:
 
-The system relies upon an **id** variable and **title** variable to be present in all pages in order to build its tree and perform cross referencing tasks. It will also allow you to tag pages with categories and 'related' links.
-
-A full example might look like:
-
-```html
+```yaml
 ---
 id: function-abs
 title: Abs()
-related:
-
-    \- "[Problem with Abs()](http://someblog.com/somearticle.html)"
+description: Returns the absolute value of a number.
 categories:
-    \- number
-    \- math
+    - number
+    - math
+related:
+    - function-sgn
+    - function-ceiling
+---
 ```
 
-Category links will be rendered as ```[[category-categoryname]]```. Related links will be rendered using the Markdown renderer so can use any valid link format, including our custom cross referencing syntax (see above, and note the required double quotes to escape the special characters).
+JSON-in-HTML-comment example (recipes):
+
+```html
+<!--
+{
+    "title": "Recipe Title",
+    "id": "recipe-slug",
+    "description": "One-line description.",
+    "keywords": ["keyword1", "keyword2"],
+    "categories": ["category-name"],
+    "related": ["other-recipe-id", "function-name"]
+}
+-->
+```
+
+Both formats accept the same fields, documented below.
+
+### Required fields
+
+| Field | Description |
+| --- | --- |
+| `id` | Unique page identifier. Used for cross referencing (`[[page-id]]`) and as the canonical key in the build's `idMap`. Must be unique across the whole site. |
+| `title` | Page title used in headings, nav, and search results. |
+
+### Common fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `description` | string | Single-line meta description used for SEO, the recipes index, and See Also blurbs. If omitted, the first paragraph of the body is auto-extracted and stored separately (so it doesn't appear as a custom description when editing). |
+| `categories` | array | Category names; each renders a `[[category-name]]` link and lists this page on the category landing page. |
+| `related` | array | Page ids or external URLs. Generates the "See Also" block automatically — don't add See Also sections manually. Strings starting with `http://` / `https://` are treated as external links. |
+| `keywords` | array | Additional terms for the search index. |
+
+### Visibility & navigation
+
+| Field | Type | Default | Description |
+| --- | --- | --- | --- |
+| `visible` | boolean | `true` for directories with a `NN.` numeric prefix (e.g. `01.getting-started`), `false` otherwise | Whether the page appears in nav menus. `visible: false` still builds the page — the URL stays accessible. |
+| `hidden` | boolean | `false` | Excludes the page from the build entirely — no HTML output, URL 404s. Use sparingly; for retiring pages, prefer a redirect mechanism. |
+| `menuTitle` | string | falls back to `title` | Alternate title shown in nav only. |
+| `sortOrder` | number | derived from the `NN.` directory prefix | Manual sort position within the parent. |
+| `forceSortOrder` | number | `-1` (disabled) | Overrides the calculated sort multiplier. Only honoured for top-level entries under `/guides/` and `/recipes/`. |
+| `slug` | string | last path segment with any `NN.` prefix stripped | URL slug override. Rarely needed. |
+
+### Specialty fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `listingStyle` | string | For listing-style pages. `flat` flattens all descendants into a single A–Z index regardless of depth. |
+| `reference` | boolean | Default `true`. When `false`, the page is excluded from the "See Also" block on other pages. |
+| `statusFilter` | string | For implementation-status listings — filters referenced pages by status (e.g. `deprecated`). |
+| `redirect` | string | Page id to redirect this URL to. The build emits a meta-refresh stub at the old URL instead of rendering the full page, and excludes it from nav, search, sitemap, recipe index, See Also, and category listings. The target id must exist or the build fails. See [Redirecting retired pages](#redirecting-retired-pages) below. |
+
+### Redirecting retired pages
+
+To retire a page without breaking inbound links, set `redirect:` to the id of the canonical replacement. The body is ignored — set only `title` (used by the stub) and `redirect`:
+
+```yaml
+---
+title: Securing Tomcat and Lucee on Windows
+redirect: locking-down-lucee-server
+---
+```
+
+The build emits a minimal HTML file at the old URL containing a `<meta http-equiv="refresh">`, a `<link rel="canonical">`, a `noindex` robots directive, and a body link for crawlers and no-JS clients. The matching `.md` export gets a one-line `> This page has moved to [Title](url).` notice so scripts that consume the markdown form still get a pointer to the canonical page.
+
+Redirect pages are excluded from `sitemap.xml`, the search index, the recipes index, the See Also block on other pages, category landing pages, and the nav. Pointing `redirect:` at an id that doesn't exist in the build fails the build with an `InvalidRedirectTarget` error.
+
+### Cross referencing
+
+Category links render as `[[category-categoryname]]`. `related` links render through the Markdown renderer, so they accept any valid link format including the `[[page-id]]` cross-reference syntax. To include surrounding quotes when using cross-reference syntax inside YAML, double-quote the value:
+
+```yaml
+related:
+    - "[Problem with Abs()](http://someblog.com/somearticle.html)"
+    - function-sgn
+```

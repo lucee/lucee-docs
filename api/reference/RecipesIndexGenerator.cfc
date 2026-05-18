@@ -8,6 +8,8 @@ component {
 
 		// Find all recipe pages
 		cfloop( collection=pages, item="local.page", index="local.pageId" ) {
+			if ( local.page.hasRedirect() )
+				continue;
 			var path = local.page.getPath();
 
 			// Only process pages under /recipes/

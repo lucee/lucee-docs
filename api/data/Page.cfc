@@ -33,6 +33,11 @@ component accessors=true {
 
 	property name="statusFilter"  type="string"  default="";
 	property name="hidden" 		 type="boolean"  default="false";
+	property name="redirect"     type="string"  default="";
+
+	public boolean function hasRedirect() {
+		return len( getRedirect() ) > 0;
+	}
 
 	public void function addChild( required any childPage ) {
 		getChildren().append( arguments.childPage );

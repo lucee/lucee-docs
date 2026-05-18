@@ -37,13 +37,18 @@ component {
 			var page = pagePaths[ arguments.path ].page;
 
 			if ( page.isPage() ) {
-				// write out full html page
-				var pageContent = renderPageContent( page, docTree, false, {} );
-				_writePage( page, buildDirectory, docTree, pageContent, {} );
+				if ( page.hasRedirect() ) {
+					_writeRedirectStub( page, buildDirectory, docTree );
+					_writeMarkdownRedirectStub( page, buildDirectory, docTree );
+				} else {
+					// write out full html page
+					var pageContent = renderPageContent( page, docTree, false, {} );
+					_writePage( page, buildDirectory, docTree, pageContent, {} );
 
-				// write out markdown page
-				var markdownContent = renderMarkdownContent( page, docTree );
-				_writeMarkdownPage( page, buildDirectory, markdownContent, docTree );
+					// write out markdown page
+					var markdownContent = renderMarkdownContent( page, docTree );
+					_writeMarkdownPage( page, buildDirectory, markdownContent, docTree );
+				}
 
 				request.filesWritten++;
 			}
@@ -219,6 +224,8 @@ component {
 
 		for( var pageId in pages ) {
 			var page = pages[ pageId ];
+			if ( page.hasRedirect() )
+				continue;
 			var icon = "";
 
 			switch( page.getPageType() ){
@@ -315,6 +322,50 @@ component {
 		}
 
 		return arguments.buildDirectory & arguments.page.getPath() & ".md";
+	}
+
+	private void function _writeRedirectStub( required any page, required string buildDirectory, required any docTree ) {
+		var target    = arguments.docTree.getPage( arguments.page.getRedirect() );
+		var targetUrl = target.getPath() & ".html";
+		var title     = HtmlEditFormat( target.getTitle() );
+		var filePath  = variables._getHtmlFilePath( arguments.page, arguments.buildDirectory );
+		var fileDirectory = GetDirectoryFromPath( filePath );
+
+		lock name="CreateDirectory" timeout=10 {
+			if ( !DirectoryExists( fileDirectory ) ) {
+				DirectoryCreate( fileDirectory );
+			}
+		}
+
+		var html = '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moved: #title#</title>
+<link rel="canonical" href="#targetUrl#">
+<meta http-equiv="refresh" content="0; url=#targetUrl#">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<p>This page has moved to <a href="#targetUrl#">#title#</a>.</p>
+</body>
+</html>';
+		FileWrite( filePath, html );
+	}
+
+	private void function _writeMarkdownRedirectStub( required any page, required string buildDirectory, required any docTree ) {
+		var target    = arguments.docTree.getPage( arguments.page.getRedirect() );
+		var targetUrl = target.getPath() & ".html";
+		var filePath  = _getMarkdownFilePath( arguments.page, arguments.buildDirectory );
+		var fileDirectory = GetDirectoryFromPath( filePath );
+
+		lock name="CreateDirectory" timeout=10 {
+			if ( !DirectoryExists( fileDirectory ) ) {
+				DirectoryCreate( fileDirectory );
+			}
+		}
+
+		FileWrite( filePath, "> This page has moved to [#target.getTitle()#](#targetUrl#)." & chr( 10 ) );
 	}
 
 
@@ -457,6 +508,8 @@ component {
 		var siteMap     = [];
 
 		for( var path in pages ) {
+			if ( pages[ path ].hasRedirect() )
+				continue;
 			var lastMod = now();
 
 			// Use git date for recipes if available
@@ -485,6 +538,8 @@ component {
 
 		for ( var path in pages ) {
 			if ( !path.startsWith( "/recipes/" ) || path == "/recipes" )
+				continue;
+			if ( pages[ path ].hasRedirect() )
 				continue;
 
 			var page      = pages[ path ];

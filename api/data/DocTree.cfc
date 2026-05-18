@@ -105,6 +105,8 @@ component accessors=true {
 		var matchedPages = [];
 
 		cfloop( collection=variables.idMap, item="local.page", index="local.id" ) {
+			if ( local.page.hasRedirect() )
+				continue;
 			var pageCategories = local.page.getCategories();
 
 			if ( !IsNull( pageCategories ) && pageCategories.findNoCase(arguments.category ) > 0 ) {
@@ -390,6 +392,7 @@ component accessors=true {
 				*/
 			}
 		}
+		_validateRedirects();
 		_sortChildren( variables.tree );
 		_calculateNextAndPreviousPageLinks( variables.tree );
 		_buildRelated();
@@ -495,10 +498,29 @@ component accessors=true {
 		}
 	}
 
+	private void function _validateRedirects() {
+		cfloop( collection=variables.idMap, item="local.page", index="local.id" ) {
+			if ( !local.page.hasRedirect() )
+				continue;
+			var targetId = local.page.getRedirect();
+			if ( !variables.idMap.keyExists( targetId ) ) {
+				throw(
+					  type    = "InvalidRedirectTarget"
+					, message = "Redirect target '#targetId#' not found for page '#local.id#' (#local.page.getPath()#)"
+					, detail  = "Set redirect: to a valid page id present in the build."
+				);
+			}
+			// Redirect stubs are never shown in nav
+			local.page.setVisible( false );
+		}
+	}
+
 	private void function _buildRelated(){
 		var related = {};
 
 		cfloop( collection=variables.idMap, item="local.page", index="local.id" ) {
+			if ( local.page.hasRedirect() )
+				continue;
 			var relatedPageLinks = local.page.getRelated();
 			var pageId = local.page.getId();
 
@@ -506,6 +528,10 @@ component accessors=true {
 				cfloop( array=relatedPageLinks, item="local.link" ) {
 					// Skip URLs in related field - they're external links, not page IDs
 					if ( !local.link.startsWith( "http://" ) && !local.link.startsWith( "https://" ) ) {
+						// Skip links to redirect pages — See Also shouldn't point at stubs
+						if ( variables.idMap.keyExists( local.link )
+							&& variables.idMap[ local.link ].hasRedirect() )
+							continue;
 						// systemOutput( "Processing link [#local.link#] from page [#pageId#]", true ); // Debug logging
 						if (len(trim(local.link)) gt 0){
 							if (!structKeyExists(related, local.id))
