@@ -43,8 +43,6 @@ Lucee 5 provides the following core language enhancements:
 
 * [[lucee-5-dialect-lucee]] - In addition to the existing "CFML" language dialect, Lucee 5 comes with a completely new dialect simply called "Lucee".
 
-* [[lucee-5-java-interface]] - (TODO) - Lucee provides an interface to interact with Lucee from within Java, Lucee 5 has extended this interface with lots of new functionality, which makes it far easier to write Extensions for Lucee.
-
 ## Extensions ##
 
 Lucee 5 has had a complete overhaul of the existing extension framework, to make it easier for anyone to create an extension. See [[lucee-5-extensions]]

@@ -24,7 +24,6 @@ need to delve into the following sections if you are using one of the above appr
 * [[running-lucee-configuring-tomcat-as-a-windows-service]]
 * [[running-lucee-starting-tomcat-and-verifying-the-installation-on-windows]]
 * [[running-lucee-installing-and-configuring-lucee-jar-file-on-windows]]
-* [[running-lucee-securing-tomcat-and-lucee-on-windows]]
 * [[running-lucee-scripts-installing-tomcat-and-lucee-on-windows]]
 * [[running-lucee-installing-the-jdk-on-windows]]
 * [[running-lucee-installing-the-server-jre-on-windows]]

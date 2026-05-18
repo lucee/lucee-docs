@@ -5,8 +5,6 @@ id: about-lucee-lucee-compared
 
 Here you can find guides on how to work with the Lucee source:
 
-[[about-lucee-lucee-compared-to-net]] - (TODO)
+[[lucee-server-compared-with-dotnet]]
 
 [[about-lucee-lucee-compared-to-java]]
-
-[[about-lucee-lucee-compared-to-php]] - (TODO)
