@@ -7,4 +7,4 @@ Here you can find guides on how to work with the Lucee source:
 
 [[lucee-server-compared-with-dotnet]]
 
-[[about-lucee-lucee-compared-to-java]]
+[[lucee-server-compared-with-java]]
