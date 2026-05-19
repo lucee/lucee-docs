@@ -87,6 +87,14 @@ Defines a comma-separated list of Lucee extensions to install when starting up.
 
 The current list of installed extensions is available via the Lucee admin.
 
+#### LUCEE_EXTENSIONS_CONFIG_ONLY
+
+*SysProp:* `-Dlucee.extensions.config.only`
+*EnvVar:* `LUCEE_EXTENSIONS_CONFIG_ONLY`
+
+When enabled, the config file (e.g. `.cfconfig.json` / `config.json`) is the sole source of truth for extension management on every startup. Extensions defined in the config are installed; extensions absent from the config are not installed. Extensions that are currently installed but no longer present in the config will be automatically uninstalled on the next startup.
+By default (disabled), Lucee installs manifest-required extensions on a fresh install and the config file takes over from subsequent starts onward.
+
 ##### Installation Methods
 
 ###### 1. Simple ID List
