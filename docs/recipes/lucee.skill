@@ -150,6 +150,7 @@ description: >
 | Lucee and REST Services | `rest-services` | REST, verbs, methods |
 | Retry | `retry` | Retry, Exception handling, Try catch, Lucee |
 | Using S3 Regions in Lucee | `s3-region` | Virtual File System, VFS, S3, Regions, Buckets, Amazon S3 |
+| S3 | `s3` | S3, MinIO, object storage, VFS, virtual file system, AWS |
 | Clustering with Quartz Scheduler | `scheduler-quartz-clustering` | scheduler, quartz, clustering, database, redis |
 | Creating Component-Based Jobs with Quartz Scheduler | `scheduler-quartz-component-jobs` | scheduler, quartz, component, cfc, jobs, listeners |
 | Quartz Scheduler Extension for Lucee | `scheduler-quartz` | scheduler, quartz, cron, scheduled task, clustering |

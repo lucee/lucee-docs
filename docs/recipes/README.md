@@ -512,6 +512,10 @@ This document explains how to use retry functionality with some simple examples.
 
 Guide on configuring and interacting with specific S3 regions in Lucee using the S3 extension.
 
+## [S3](/docs/recipes/s3.md)
+
+S3 Virtual File System and direct S3 functions for working with S3-compatible object storage in Lucee
+
 ## [Clustering with Quartz Scheduler](/docs/recipes/scheduler-quartz-clustering.md)
 
 How to set up and configure clustering with the Quartz Scheduler extension

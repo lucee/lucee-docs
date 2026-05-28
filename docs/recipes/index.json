@@ -1724,6 +1724,22 @@
     ]
   },
   {
+    "file": "s3.md",
+    "title": "S3",
+    "path": "/docs/recipes/s3.md",
+    "hash": "a5e479709dae0f4b93b35b07cab3b2c5",
+    "keywords": [
+      "S3",
+      "MinIO",
+      "object storage",
+      "VFS",
+      "virtual file system",
+      "AWS",
+      "Backblaze",
+      "Wasabi"
+    ]
+  },
+  {
     "file": "scheduler-quartz-clustering.md",
     "title": "Clustering with Quartz Scheduler",
     "path": "/docs/recipes/scheduler-quartz-clustering.md",
