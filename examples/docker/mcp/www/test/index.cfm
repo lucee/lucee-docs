@@ -252,6 +252,7 @@
 				<div class="actions">
 					<button data-tool="search_lucee_docs" data-arg-sources="searchQuery,maxResults">Call tool</button>
 					<button data-preset="search_lucee_docs" data-args='{"query":"how to read a file","maxResults":3}'>read a file</button>
+					<button data-preset="search_lucee_docs" data-args='{"query":"Application.cfc session management","maxResults":3}'>Application.cfc</button>
 					<button data-preset="search_lucee_docs" data-args='{"query":"cfquery","maxResults":5}'>cfquery</button>
 				</div>
 			</div>

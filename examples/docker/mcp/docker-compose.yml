@@ -4,6 +4,7 @@ services:
     image: lucee-mcp:latest
     environment:
       - LUCEE_ADMIN_PASSWORD=qwerty
+      - LUCEE_DOC_RECIPES_PATH=https://raw.githubusercontent.com/lucee/lucee-docs/refs/heads/master
     volumes:
       - "./www:/var/www"
     ports:
