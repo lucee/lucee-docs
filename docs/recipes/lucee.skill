@@ -393,7 +393,6 @@ description: >
 | Lucee S3 Virtual File System — MiniStack Example | `docker/s3-ministack` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/s3-ministack/readme.md` |
 | Lucee Secret Provider - Docker Example | `docker/secret-provider` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/secret-provider/readme.md` |
 | Simple Lucee Docker Setup | `docker/basic` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/basic/readme.md` |
-| Simple Lucee Docker Setup | `docker/test` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/test/readme.md` |
 
 ## Technical Specs
 
