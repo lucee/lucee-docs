@@ -56,7 +56,6 @@ description: >
 | CSV Processing in Lucee 7 | `csv-processing` | CSV, Apache Commons, Maven, Data Processing, Parsing |
 | Custom Event Gateways | `event-gateway-create` | Event Gateway, Custom Gateway, Directory Watcher, File Size Checker, Gateway Driver |
 | Custom Tag Mappings | `custom-tag-mappings` | Custom Tag Mapping, Custom Tags, cfimport, Application.cfc, Lucee archive, taglib |
-| Deploying Custom Tags via Extensions | `custom-tags-via-extensions` | Custom Tags, Extensions, LEX, cfimport, taglib, prefix |
 | Database Connection Management in Lucee | `database-connection-management` | database, connection pool, datasource, transaction, exclusive connection, Apache Commons Pool |
 | Datasources | `datasource-how-to-define-them` | Datasource, Define datasource, Administrator, Application.cfc, Default datasource, MySQL |
 | Date and Time Formatting in Lucee | `date-time-formatting` | Date, Time, Formatting, Locale, Timezone, dateFormat |
@@ -394,7 +393,6 @@ description: >
 | Lucee S3 Virtual File System — MiniStack Example | `docker/s3-ministack` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/s3-ministack/readme.md` |
 | Lucee Secret Provider - Docker Example | `docker/secret-provider` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/secret-provider/readme.md` |
 | Simple Lucee Docker Setup | `docker/basic` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/basic/readme.md` |
-| Simple Lucee Docker Setup | `docker/test` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/test/readme.md` |
 
 ## Technical Specs
 

@@ -436,21 +436,6 @@
     ]
   },
   {
-    "file": "custom-tags-via-extensions.md",
-    "title": "Deploying Custom Tags via Extensions",
-    "path": "/docs/recipes/custom-tags-via-extensions.md",
-    "hash": "561b600af6b87a9e37ffa7f0fa6887ce",
-    "keywords": [
-      "Custom Tags",
-      "Extensions",
-      "LEX",
-      "cfimport",
-      "taglib",
-      "prefix",
-      "lucee-server context"
-    ]
-  },
-  {
     "file": "database-connection-management.md",
     "title": "Database Connection Management in Lucee",
     "path": "/docs/recipes/database-connection-management.md",
