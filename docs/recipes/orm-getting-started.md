@@ -28,6 +28,7 @@
     "ormEnabled",
     "persistent component"
   ]
+}
 -->
 
 # ORM - Getting Started
