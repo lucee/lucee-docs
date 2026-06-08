@@ -1,5 +1,5 @@
 ---
 title: Securing Tomcat and Lucee on Windows
 id: running-lucee-securing-tomcat-and-lucee-on-windows
-redirect: hardening-lucee-stack
+redirect: locking-down-your-lucee-stack
 ---
