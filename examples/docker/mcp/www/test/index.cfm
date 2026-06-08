@@ -49,12 +49,28 @@
 			padding: 1rem;
 		}
 		.panel h2 {
-			margin: 0 0 .75rem;
+			margin: 0 0 .35rem;
 			font-size: 1rem;
 			text-transform: uppercase;
 			letter-spacing: .04em;
 			color: var(--muted);
 		}
+		.section-desc {
+			margin: 0 0 .85rem;
+			font-size: .85rem;
+			color: var(--muted);
+		}
+		.section-desc strong { color: var(--text); }
+		.ai-hint {
+			margin: 0 0 .65rem;
+			padding: .5rem .65rem;
+			background: #f0f6ff;
+			border-left: 3px solid var(--accent);
+			border-radius: 0 4px 4px 0;
+			font-size: .82rem;
+			color: #424a53;
+		}
+		.ai-hint code { font-size: .8rem; }
 		.panel + .panel { margin-top: 1rem; }
 		label {
 			display: block;
@@ -150,6 +166,10 @@
 	<div>
 		<div class="panel">
 			<h2>Endpoint</h2>
+			<p class="section-desc">
+				<strong>For AI:</strong> Base URL for all JSON-RPC requests. Use <code>POST</code> with
+				<code>Content-Type: application/json</code>. Change only if the MCP server is behind a proxy or alternate mapping.
+			</p>
 			<label for="endpoint">MCP URL</label>
 			<input id="endpoint" type="text" value="/lucee/mcp/">
 			<div class="actions">
@@ -166,6 +186,10 @@
 
 		<div class="panel">
 			<h2>Protocol</h2>
+			<p class="section-desc">
+				<strong>For AI:</strong> MCP handshake and discovery. Call <code>initialize</code> first when connecting a new
+				MCP client session, then <code>tools/list</code> to discover available tools and their <code>inputSchema</code>.
+			</p>
 			<div class="actions">
 				<button data-action="initialize">initialize</button>
 				<button data-action="tools/list">tools/list</button>
@@ -174,10 +198,17 @@
 
 		<div class="panel">
 			<h2>Tools</h2>
+			<p class="section-desc">
+				<strong>For AI:</strong> Callable capabilities exposed via <code>tools/call</code>. Use function/tag tools when you
+				know the exact name; use <code>search_lucee_docs</code> for exploratory questions or how-to queries.
+			</p>
 
 			<div class="tool-block">
 				<h3>get_lucee_function</h3>
-				<p>Returns the FLD descriptor for a built-in function.</p>
+				<p class="ai-hint">
+					<strong>Function Index</strong> — Use when you know a function name and need its full descriptor: arguments,
+					types, defaults, return type, and docs URL. Equivalent to reading one entry from the Lucee FLD.
+				</p>
 				<label for="fnName">Function name</label>
 				<input id="fnName" type="text" value="arraySort">
 				<div class="actions">
@@ -189,7 +220,10 @@
 
 			<div class="tool-block">
 				<h3>get_lucee_tag</h3>
-				<p>Returns the TLD descriptor for a tag (prefix optional).</p>
+				<p class="ai-hint">
+					<strong>Tag Index</strong> — Use when you know a tag name and need its full descriptor: attributes, types,
+					allowed values, and docs URL. Accepts <code>query</code> or <code>cfquery</code>; prefix is optional.
+				</p>
 				<label for="tagName">Tag name</label>
 				<input id="tagName" type="text" value="query">
 				<div class="actions">
@@ -201,7 +235,16 @@
 
 			<div class="tool-block">
 				<h3>search_lucee_docs</h3>
-				<p>Full-text search across functions, tags, and recipes (requires Lucene extension).</p>
+				<p class="ai-hint">
+					<strong>Recipe Index + Function Index + Tag Index</strong> — Use for natural-language or keyword search when
+					you do not know the exact function/tag name. Searches three Lucene indexes:
+				</p>
+				<ul class="section-desc" style="margin-top:0;padding-left:1.2rem">
+					<li><strong>Function Index</strong> — built-in function names and FLD summaries</li>
+					<li><strong>Tag Index</strong> — CFML tag names and TLD summaries</li>
+					<li><strong>Recipe Index</strong> — lucee-docs how-to guides (configuration, patterns, migration)</li>
+				</ul>
+				<p class="section-desc">Requires the Lucene 3 extension. Returns ranked passages with source URLs.</p>
 				<label for="searchQuery">Query</label>
 				<input id="searchQuery" type="text" value="arraySort">
 				<label for="maxResults">maxResults (1–10)</label>
@@ -216,6 +259,11 @@
 
 		<div class="panel">
 			<h2>Error cases</h2>
+			<p class="section-desc">
+				<strong>For AI:</strong> Negative tests for protocol validation. Expected JSON-RPC error codes:
+				<code>-32600</code> invalid request, <code>-32601</code> method not found, <code>-32602</code> invalid params,
+				<code>-32700</code> parse error.
+			</p>
 			<div class="actions">
 				<button class="danger" data-error="get">GET request</button>
 				<button class="danger" data-error="empty">Empty body</button>
@@ -226,12 +274,20 @@
 
 		<div class="panel">
 			<h2>History</h2>
+			<p class="section-desc">
+				<strong>For AI:</strong> Replays recent requests from this session. Useful to compare responses after server or
+				extension changes.
+			</p>
 			<div class="history" id="history"></div>
 		</div>
 	</div>
 
 	<div class="panel">
 		<h2>Response</h2>
+		<p class="section-desc">
+			<strong>For AI:</strong> Raw JSON-RPC response. Successful <code>tools/call</code> results are in
+			<code>result.content[].text</code> — markdown for function/tag lookups, JSON array for search results.
+		</p>
 		<div id="status">Ready.</div>
 		<div class="meta">
 			<span id="metaMethod">—</span>
