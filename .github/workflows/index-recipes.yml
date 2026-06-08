@@ -6,6 +6,9 @@ on:
       - "**"
     paths:
       - "docs/recipes/**"
+      - "docs/04.guides/**"
+      - "examples/**"
+      - ".github/scripts/generate-index-recipes.js"
   workflow_dispatch:
 
 jobs:

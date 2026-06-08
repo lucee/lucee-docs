@@ -1,15 +1,35 @@
 [
   {
-    "file": "admin-password.md",
-    "title": "Setting the Lucee Admin Password",
-    "path": "/docs/recipes/admin-password.md",
-    "hash": "c8639bdb7c7b5a9653701517350312bf",
+    "file": "search.md",
+    "title": "Adding Full Text Search to Your Application",
+    "path": "/docs/recipes/search.md",
+    "hash": "e08edf535852f4ab28bec1f3d4d672cd",
     "keywords": [
-      "admin",
-      "password",
-      "security",
-      "LUCEE_ADMIN_PASSWORD",
-      "CFConfig"
+      "search",
+      "cfcollection",
+      "cfindex",
+      "cfsearch",
+      "Lucene",
+      "full-text",
+      "indexing",
+      "collections"
+    ]
+  },
+  {
+    "file": "ai.md",
+    "title": "AI",
+    "path": "/docs/recipes/ai.md",
+    "hash": "908e27104969e767eba329cdcefce82d",
+    "keywords": [
+      "AI",
+      "LLM",
+      "ChatGPT",
+      "Gemini",
+      "Claude",
+      "Ollama",
+      "RAG",
+      "Multipart",
+      "MCP"
     ]
   },
   {
@@ -60,37 +80,6 @@
     ]
   },
   {
-    "file": "ai.md",
-    "title": "AI",
-    "path": "/docs/recipes/ai.md",
-    "hash": "908e27104969e767eba329cdcefce82d",
-    "keywords": [
-      "AI",
-      "LLM",
-      "ChatGPT",
-      "Gemini",
-      "Claude",
-      "Ollama",
-      "RAG",
-      "Multipart",
-      "MCP"
-    ]
-  },
-  {
-    "file": "application-cfc.md",
-    "title": "Application.cfc #",
-    "path": "/docs/recipes/application-cfc.md",
-    "hash": "f635190245e45ab39461438b9c83b2b4",
-    "keywords": [
-      "Application Context",
-      "Application Listeners",
-      "Mappings",
-      "cfapplication",
-      "getApplicationSettings",
-      "Application.cfc"
-    ]
-  },
-  {
     "file": "application-context-update.md",
     "title": "Application Context update",
     "path": "/docs/recipes/application-context-update.md",
@@ -105,21 +94,17 @@
     ]
   },
   {
-    "file": "archives-creating-and-deploy.md",
-    "title": "Lucee Archives (.lar files)",
-    "path": "/docs/recipes/archives-creating-and-deploy.md",
-    "hash": "e539cb334d51f9eec0b6bab2d94a7e3c",
+    "file": "application-cfc.md",
+    "title": "Application.cfc #",
+    "path": "/docs/recipes/application-cfc.md",
+    "hash": "f635190245e45ab39461438b9c83b2b4",
     "keywords": [
-      "Lucee",
-      "Archives",
-      ".lar files",
-      "Deploy",
-      "Mapping",
-      "Component",
-      "CFC",
-      "CFM",
-      "compiled",
-      "source protection"
+      "Application Context",
+      "Application Listeners",
+      "Mappings",
+      "cfapplication",
+      "getApplicationSettings",
+      "Application.cfc"
     ]
   },
   {
@@ -150,6 +135,22 @@
       "setLocale",
       "Application.cfc",
       "Locale"
+    ]
+  },
+  {
+    "file": "structs-vs-components.md",
+    "title": "Best Practices: Structs vs Inline Components",
+    "path": "/docs/recipes/structs-vs-components.md",
+    "hash": "906c3322bc067d21bb1db3b016534a6e",
+    "keywords": [
+      "struct",
+      "component",
+      "inline component",
+      "performance",
+      "memory",
+      "best practices",
+      "CFC",
+      "bean"
     ]
   },
   {
@@ -218,38 +219,6 @@
     ]
   },
   {
-    "file": "cache-invalidation-selective.md",
-    "title": "Selective Cache Invalidation",
-    "path": "/docs/recipes/cache-invalidation-selective.md",
-    "hash": "0a71a1163b5462e2276dcb995d7e827c",
-    "keywords": [
-      "Cache",
-      "cachedWithin",
-      "cachedWithinId",
-      "cachedWithinFlush",
-      "Query cache",
-      "Function cache",
-      "HTTP cache",
-      "Cache invalidation",
-      "Performance"
-    ]
-  },
-  {
-    "file": "cached-within-request.md",
-    "title": "Using cachedWithin",
-    "path": "/docs/recipes/cached-within-request.md",
-    "hash": "b0c41eaf79aafd6bee9765f4c23bf562",
-    "keywords": [
-      "Cache",
-      "Query",
-      "Request cache",
-      "cachedWithin",
-      "cfquery",
-      "cfhttp",
-      "cffile"
-    ]
-  },
-  {
     "file": "caches-defined-in-application-cfc.md",
     "title": "Caches defined in Application.cfc",
     "path": "/docs/recipes/caches-defined-in-application-cfc.md",
@@ -264,44 +233,15 @@
     ]
   },
   {
-    "file": "caching-getting-started.md",
-    "title": "Getting Started with Caching",
-    "path": "/docs/recipes/caching-getting-started.md",
-    "hash": "136c9f9bc9accffb13af153883a2a2f8",
+    "file": "java-explicit-casting.md",
+    "title": "Casting Components to Java Interfaces",
+    "path": "/docs/recipes/java-explicit-casting.md",
+    "hash": "983383a669815e99dd81a259043b089c",
     "keywords": [
-      "Cache",
-      "cachePut",
-      "cacheGet",
-      "cacheClear",
-      "cacheDelete",
-      "RAM cache",
-      "Object cache",
-      "Application.cfc",
-      "Getting started"
-    ]
-  },
-  {
-    "file": "cfschedule-bulk-update.md",
-    "title": "Untitled",
-    "path": "/docs/recipes/cfschedule-bulk-update.md",
-    "hash": "0b320756063d0a88cddb60c268842009",
-    "keywords": [
-      "scheduled tasks",
-      "config"
-    ]
-  },
-  {
-    "file": "check-for-changes.md",
-    "title": "Untitled",
-    "path": "/docs/recipes/check-for-changes.md",
-    "hash": "04f45ec74ea83bcb2c7b1870c6d905d4",
-    "keywords": [
-      "Configuration",
-      "Check for changes",
-      "Lucee",
-      "Automatic update",
-      "Server context",
-      "Web context"
+      "java",
+      "cast",
+      "convert",
+      "method"
     ]
   },
   {
@@ -315,6 +255,33 @@
       "cfhttp",
       "hash",
       "fileReadBinary"
+    ]
+  },
+  {
+    "file": "scheduler-quartz-clustering.md",
+    "title": "Clustering with Quartz Scheduler",
+    "path": "/docs/recipes/scheduler-quartz-clustering.md",
+    "hash": "de99f13fe073ba834c27633f173e2ffc",
+    "keywords": [
+      "scheduler",
+      "quartz",
+      "clustering",
+      "database",
+      "redis"
+    ]
+  },
+  {
+    "file": "thread-usage.md",
+    "title": "Complete Guide to Threading in Lucee",
+    "path": "/docs/recipes/thread-usage.md",
+    "hash": "75aff934caa66e06da5945ab135c59db",
+    "keywords": [
+      "threads",
+      "parallel",
+      "async",
+      "concurrent",
+      "performance",
+      "cfthread"
     ]
   },
   {
@@ -338,18 +305,6 @@
     ]
   },
   {
-    "file": "component-getclass-method.md",
-    "title": "getClass() Method for Components",
-    "path": "/docs/recipes/component-getclass-method.md",
-    "hash": "6877d68d8e312ea62dcca149911cd6e3",
-    "keywords": [
-      "getClass",
-      "component",
-      "java",
-      "interface"
-    ]
-  },
-  {
     "file": "component-mappings.md",
     "title": "Component Mappings",
     "path": "/docs/recipes/component-mappings.md",
@@ -362,18 +317,29 @@
     ]
   },
   {
-    "file": "concurrent-map-legacy-flag.md",
-    "title": "Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy`",
-    "path": "/docs/recipes/concurrent-map-legacy-flag.md",
-    "hash": "85f7818537a2057c96d183ad2762b2f0",
+    "file": "configuration.md",
+    "title": "Configuration - How to Configure Lucee",
+    "path": "/docs/recipes/configuration.md",
+    "hash": "40c555213efa0dab8244b2f539a20f45",
     "keywords": [
-      "ConcurrentHashMap",
-      "struct",
-      "lucee.concurrent.map.impl",
-      "legacy",
-      "struct ordering",
-      "LDEV-5098",
-      "LDEV-6288"
+      "configuration",
+      "config",
+      ".CFConfig.json",
+      "lucee-server.xml",
+      "lucee-web.xml"
+    ]
+  },
+  {
+    "file": "configuration-lucee5.md",
+    "title": "Configuration - Lucee 5",
+    "path": "/docs/recipes/configuration-lucee5.md",
+    "hash": "8df45e5d583ecc6212fc5eb147d95cf1",
+    "keywords": [
+      "configuration",
+      "config",
+      "lucee-server.xml",
+      "lucee-web.xml",
+      "Lucee 5"
     ]
   },
   {
@@ -391,32 +357,6 @@
     ]
   },
   {
-    "file": "configuration-lucee5.md",
-    "title": "Configuration - Lucee 5",
-    "path": "/docs/recipes/configuration-lucee5.md",
-    "hash": "8df45e5d583ecc6212fc5eb147d95cf1",
-    "keywords": [
-      "configuration",
-      "config",
-      "lucee-server.xml",
-      "lucee-web.xml",
-      "Lucee 5"
-    ]
-  },
-  {
-    "file": "configuration.md",
-    "title": "Configuration - How to Configure Lucee",
-    "path": "/docs/recipes/configuration.md",
-    "hash": "40c555213efa0dab8244b2f539a20f45",
-    "keywords": [
-      "configuration",
-      "config",
-      ".CFConfig.json",
-      "lucee-server.xml",
-      "lucee-web.xml"
-    ]
-  },
-  {
     "file": "console-logging.md",
     "title": "Console Logging",
     "path": "/docs/recipes/console-logging.md",
@@ -427,18 +367,32 @@
     ]
   },
   {
-    "file": "convert-a-cfml-func-to-java.md",
-    "title": "Using CFML Functions and Components in Java",
-    "path": "/docs/recipes/convert-a-cfml-func-to-java.md",
-    "hash": "96e09f4edb667f35c11bb15291086301",
+    "file": "scheduler-quartz-component-jobs.md",
+    "title": "Creating Component-Based Jobs with Quartz Scheduler",
+    "path": "/docs/recipes/scheduler-quartz-component-jobs.md",
+    "hash": "79b3fbd1e45e9a157ebb0279d4a62047",
     "keywords": [
-      "conversion",
-      "cfc",
-      "function",
+      "scheduler",
+      "quartz",
       "component",
-      "Java",
-      "lambda",
-      "Lucee"
+      "cfc",
+      "jobs",
+      "listeners"
+    ]
+  },
+  {
+    "file": "heap-dumps.md",
+    "title": "Creating Heap Dumps in Lucee",
+    "path": "/docs/recipes/heap-dumps.md",
+    "hash": "b9a0f8de29c4b823c6d7d6b730f4766b",
+    "keywords": [
+      "Heap Dump",
+      "Memory",
+      "OutOfMemoryError",
+      "Troubleshooting",
+      "Performance",
+      "Debugging",
+      "JVM"
     ]
   },
   {
@@ -452,6 +406,19 @@
       "Maven",
       "Data Processing",
       "Parsing"
+    ]
+  },
+  {
+    "file": "event-gateway-create.md",
+    "title": "Custom Event Gateways",
+    "path": "/docs/recipes/event-gateway-create.md",
+    "hash": "fa5924fd2becd468533371821613248b",
+    "keywords": [
+      "Event Gateway",
+      "Custom Gateway",
+      "Directory Watcher",
+      "File Size Checker",
+      "Gateway Driver"
     ]
   },
   {
@@ -532,31 +499,33 @@
     ]
   },
   {
-    "file": "directory-placeholders.md",
-    "title": "Untitled",
-    "path": "/docs/recipes/directory-placeholders.md",
-    "hash": "a49f26b34a0ebf1c88f72b544987b45c",
-    "keywords": []
+    "file": "custom-tags-via-extensions.md",
+    "title": "Deploying Custom Tags via Extensions",
+    "path": "/docs/recipes/custom-tags-via-extensions.md",
+    "hash": "561b600af6b87a9e37ffa7f0fa6887ce",
+    "keywords": [
+      "Custom Tags",
+      "Extensions",
+      "LEX",
+      "cfimport",
+      "taglib",
+      "prefix",
+      "lucee-server context"
+    ]
   },
   {
-    "file": "docker-onbuild.md",
-    "title": "onBuild Function in Server.cfc",
-    "path": "/docs/recipes/docker-onbuild.md",
-    "hash": "6a01975f2bff7b986b1b2190623bf732",
+    "file": "concurrent-map-legacy-flag.md",
+    "title": "Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy`",
+    "path": "/docs/recipes/concurrent-map-legacy-flag.md",
+    "hash": "85f7818537a2057c96d183ad2762b2f0",
     "keywords": [
-      "onBuild",
-      "Server.cfc",
-      "build",
-      "Docker",
-      "server",
-      "compile",
-      "encrypt",
-      "validate",
-      "prewarm",
-      "warmup",
-      "startup",
-      "hook",
-      "event"
+      "ConcurrentHashMap",
+      "struct",
+      "lucee.concurrent.map.impl",
+      "legacy",
+      "struct ordering",
+      "LDEV-5098",
+      "LDEV-6288"
     ]
   },
   {
@@ -624,19 +593,6 @@
       "System Properties",
       "setting",
       "config"
-    ]
-  },
-  {
-    "file": "event-gateway-create.md",
-    "title": "Custom Event Gateways",
-    "path": "/docs/recipes/event-gateway-create.md",
-    "hash": "fa5924fd2becd468533371821613248b",
-    "keywords": [
-      "Event Gateway",
-      "Custom Gateway",
-      "Directory Watcher",
-      "File Size Checker",
-      "Gateway Driver"
     ]
   },
   {
@@ -750,20 +706,6 @@
     ]
   },
   {
-    "file": "extension-utilities.md",
-    "title": "Lucee Extension Utilities",
-    "path": "/docs/recipes/extension-utilities.md",
-    "hash": "e20aff22594eb5bfaa6216a5ea140762",
-    "keywords": [
-      "Extension",
-      "Development",
-      "Utilities",
-      "CFMLEngine",
-      "Java",
-      "API"
-    ]
-  },
-  {
     "file": "external-agent.md",
     "title": "External Agent",
     "path": "/docs/recipes/external-agent.md",
@@ -855,6 +797,35 @@
     ]
   },
   {
+    "file": "component-getclass-method.md",
+    "title": "getClass() Method for Components",
+    "path": "/docs/recipes/component-getclass-method.md",
+    "hash": "6877d68d8e312ea62dcca149911cd6e3",
+    "keywords": [
+      "getClass",
+      "component",
+      "java",
+      "interface"
+    ]
+  },
+  {
+    "file": "caching-getting-started.md",
+    "title": "Getting Started with Caching",
+    "path": "/docs/recipes/caching-getting-started.md",
+    "hash": "136c9f9bc9accffb13af153883a2a2f8",
+    "keywords": [
+      "Cache",
+      "cachePut",
+      "cacheGet",
+      "cacheClear",
+      "cacheDelete",
+      "RAM cache",
+      "Object cache",
+      "Application.cfc",
+      "Getting started"
+    ]
+  },
+  {
     "file": "global-proxy.md",
     "title": "Global Proxy",
     "path": "/docs/recipes/global-proxy.md",
@@ -865,21 +836,6 @@
       "Lucee",
       "Application.cfc",
       "CFConfig"
-    ]
-  },
-  {
-    "file": "heap-dumps.md",
-    "title": "Creating Heap Dumps in Lucee",
-    "path": "/docs/recipes/heap-dumps.md",
-    "hash": "b9a0f8de29c4b823c6d7d6b730f4766b",
-    "keywords": [
-      "Heap Dump",
-      "Memory",
-      "OutOfMemoryError",
-      "Troubleshooting",
-      "Performance",
-      "Debugging",
-      "JVM"
     ]
   },
   {
@@ -912,16 +868,18 @@
     ]
   },
   {
-    "file": "http-logging.md",
-    "title": "Logging CFHTTP Calls",
-    "path": "/docs/recipes/http-logging.md",
-    "hash": "c53e1769aff2b36d8529d3d3d5277cea",
+    "file": "tag-syntax.md",
+    "title": "How to Use Tags in Script",
+    "path": "/docs/recipes/tag-syntax.md",
+    "hash": "4c92646ca69d3bbea234245dad22f217",
     "keywords": [
-      "cfhttp",
-      "logging",
-      "Lucee",
-      "log level",
-      "http log"
+      "Syntax",
+      "tag",
+      "function",
+      "Script",
+      "throw",
+      "abort",
+      "return"
     ]
   },
   {
@@ -950,6 +908,20 @@
     ]
   },
   {
+    "file": "java-libraries.md",
+    "title": "Interacting with Java Libraries",
+    "path": "/docs/recipes/java-libraries.md",
+    "hash": "91b12a1f0aa29fc2bba79d2b52166d75",
+    "keywords": [
+      "java",
+      "maven",
+      "import",
+      "Lucee",
+      "libraries",
+      "new operator"
+    ]
+  },
+  {
     "file": "java-class-interaction.md",
     "title": "Java Class Interaction",
     "path": "/docs/recipes/java-class-interaction.md",
@@ -965,15 +937,15 @@
     ]
   },
   {
-    "file": "java-explicit-casting.md",
-    "title": "Casting Components to Java Interfaces",
-    "path": "/docs/recipes/java-explicit-casting.md",
-    "hash": "983383a669815e99dd81a259043b089c",
+    "file": "java-using-lucee-logging.md",
+    "title": "Java Classes Using Lucee's Logging",
+    "path": "/docs/recipes/java-using-lucee-logging.md",
+    "hash": "a304e2dc7bd33953429f6a75e6574255",
     "keywords": [
       "java",
-      "cast",
-      "convert",
-      "method"
+      "logging",
+      "slf4j",
+      "lucee.commons.io.log.Log"
     ]
   },
   {
@@ -988,20 +960,6 @@
       "components",
       "lambda",
       "Lucee"
-    ]
-  },
-  {
-    "file": "java-libraries.md",
-    "title": "Interacting with Java Libraries",
-    "path": "/docs/recipes/java-libraries.md",
-    "hash": "91b12a1f0aa29fc2bba79d2b52166d75",
-    "keywords": [
-      "java",
-      "maven",
-      "import",
-      "Lucee",
-      "libraries",
-      "new operator"
     ]
   },
   {
@@ -1048,18 +1006,6 @@
       "Application.cfc",
       "javasettings",
       "cfapplication"
-    ]
-  },
-  {
-    "file": "java-using-lucee-logging.md",
-    "title": "Java Classes Using Lucee's Logging",
-    "path": "/docs/recipes/java-using-lucee-logging.md",
-    "hash": "a304e2dc7bd33953429f6a75e6574255",
-    "keywords": [
-      "java",
-      "logging",
-      "slf4j",
-      "lucee.commons.io.log.Log"
     ]
   },
   {
@@ -1120,20 +1066,39 @@
     ]
   },
   {
-    "file": "loader-api-changes-7.md",
-    "title": "Lucee 7 Loader API Changes",
-    "path": "/docs/recipes/loader-api-changes-7.md",
-    "hash": "85f59b402b346741f5b1f5c4c063f187",
+    "file": "maven.md",
+    "title": "Loading Java Libraries with Maven",
+    "path": "/docs/recipes/maven.md",
+    "hash": "34a5b3c02861a57903f36cbbef0ac648",
     "keywords": [
-      "loader",
-      "API",
-      "CFMLEngine",
-      "extensions",
+      "Maven",
       "Java",
-      "Jakarta",
-      "AI",
-      "secret provider",
-      "migration"
+      "javaSettings",
+      "dependencies"
+    ]
+  },
+  {
+    "file": "logging.md",
+    "title": "Logging",
+    "path": "/docs/recipes/logging.md",
+    "hash": "30503fe9d1fe68d1eac303c51b08b131",
+    "keywords": [
+      "Logging",
+      "Log levels",
+      "Lucee"
+    ]
+  },
+  {
+    "file": "http-logging.md",
+    "title": "Logging CFHTTP Calls",
+    "path": "/docs/recipes/http-logging.md",
+    "hash": "c53e1769aff2b36d8529d3d3d5277cea",
+    "keywords": [
+      "cfhttp",
+      "logging",
+      "Lucee",
+      "log level",
+      "http log"
     ]
   },
   {
@@ -1148,17 +1113,6 @@
       "debugging",
       "application log",
       "http log"
-    ]
-  },
-  {
-    "file": "logging.md",
-    "title": "Logging",
-    "path": "/docs/recipes/logging.md",
-    "hash": "30503fe9d1fe68d1eac303c51b08b131",
-    "keywords": [
-      "Logging",
-      "Log levels",
-      "Lucee"
     ]
   },
   {
@@ -1207,6 +1161,95 @@
     ]
   },
   {
+    "file": "loader-api-changes-7.md",
+    "title": "Lucee 7 Loader API Changes",
+    "path": "/docs/recipes/loader-api-changes-7.md",
+    "hash": "85f59b402b346741f5b1f5c4c063f187",
+    "keywords": [
+      "loader",
+      "API",
+      "CFMLEngine",
+      "extensions",
+      "Java",
+      "Jakarta",
+      "AI",
+      "secret provider",
+      "migration"
+    ]
+  },
+  {
+    "file": "rest-services.md",
+    "title": "Lucee and REST Services",
+    "path": "/docs/recipes/rest-services.md",
+    "hash": "f239e2f51192099cda87a7519c98fc7d",
+    "keywords": [
+      "REST",
+      "verbs",
+      "methods"
+    ]
+  },
+  {
+    "file": "archives-creating-and-deploy.md",
+    "title": "Lucee Archives (.lar files)",
+    "path": "/docs/recipes/archives-creating-and-deploy.md",
+    "hash": "e539cb334d51f9eec0b6bab2d94a7e3c",
+    "keywords": [
+      "Lucee",
+      "Archives",
+      ".lar files",
+      "Deploy",
+      "Mapping",
+      "Component",
+      "CFC",
+      "CFM",
+      "compiled",
+      "source protection"
+    ]
+  },
+  {
+    "file": "extension-utilities.md",
+    "title": "Lucee Extension Utilities",
+    "path": "/docs/recipes/extension-utilities.md",
+    "hash": "e20aff22594eb5bfaa6216a5ea140762",
+    "keywords": [
+      "Extension",
+      "Development",
+      "Utilities",
+      "CFMLEngine",
+      "Java",
+      "API"
+    ]
+  },
+  {
+    "file": "release-cycle.md",
+    "title": "Lucee Release Cycle",
+    "path": "/docs/recipes/release-cycle.md",
+    "hash": "7247fffc83a548026fd1a5393bd65e25",
+    "keywords": [
+      "release",
+      "versioning",
+      "branching",
+      "development cycle",
+      "release candidate",
+      "RC"
+    ]
+  },
+  {
+    "file": "versions.md",
+    "title": "Lucee Versions and Extensions",
+    "path": "/docs/recipes/versions.md",
+    "hash": "757dac7d669dfeaeddee5bd20bed1941",
+    "keywords": [
+      "versions",
+      "extensions",
+      "LuceeVersionsList",
+      "LuceeVersionsDetail",
+      "LuceeExtension",
+      "Maven",
+      "upgrade"
+    ]
+  },
+  {
     "file": "lucene-search.md",
     "title": "Lucene 3 Extension",
     "path": "/docs/recipes/lucene-search.md",
@@ -1219,20 +1262,6 @@
       "Semantic",
       "Content Chunks",
       "Embeddings"
-    ]
-  },
-  {
-    "file": "mail-how-to-send-a-mail.md",
-    "title": "Sending Emails",
-    "path": "/docs/recipes/mail-how-to-send-a-mail.md",
-    "hash": "5fd7d14f15751d813d2cb47501d876f8",
-    "keywords": [
-      "Email",
-      "Send mail",
-      "cfmail",
-      "Mail server",
-      "Mail script",
-      "Lucee"
     ]
   },
   {
@@ -1301,18 +1330,6 @@
     ]
   },
   {
-    "file": "maven.md",
-    "title": "Loading Java Libraries with Maven",
-    "path": "/docs/recipes/maven.md",
-    "hash": "34a5b3c02861a57903f36cbbef0ac648",
-    "keywords": [
-      "Maven",
-      "Java",
-      "javaSettings",
-      "dependencies"
-    ]
-  },
-  {
     "file": "migrate.from.classic-to-modern-local-scope.md",
     "title": "Migrating from Classic to Modern Local Scope Mode",
     "path": "/docs/recipes/migrate.from.classic-to-modern-local-scope.md",
@@ -1324,6 +1341,27 @@
       "scope mode",
       "classic mode",
       "modern mode"
+    ]
+  },
+  {
+    "file": "static-mocking.md",
+    "title": "Mocking Static Functions in Lucee for Unit Testing",
+    "path": "/docs/recipes/static-mocking.md",
+    "hash": "ed270f266b251adc5afb371fe6052148",
+    "keywords": [
+      "Static Functions",
+      "Mocking",
+      "Unit Testing"
+    ]
+  },
+  {
+    "file": "monitoring-enable-for-your-session.md",
+    "title": "Monitoring - Enable for your session",
+    "path": "/docs/recipes/monitoring-enable-for-your-session.md",
+    "hash": "a82a39b230d2da63893a77f2288629b1",
+    "keywords": [
+      "monitoring",
+      "session"
     ]
   },
   {
@@ -1340,16 +1378,6 @@
       "debug",
       "showdebugoutput",
       "cfapplication"
-    ]
-  },
-  {
-    "file": "monitoring-enable-for-your-session.md",
-    "title": "Monitoring - Enable for your session",
-    "path": "/docs/recipes/monitoring-enable-for-your-session.md",
-    "hash": "a82a39b230d2da63893a77f2288629b1",
-    "keywords": [
-      "monitoring",
-      "session"
     ]
   },
   {
@@ -1393,6 +1421,27 @@
       "NullValue function",
       "isNull function",
       "Lucee"
+    ]
+  },
+  {
+    "file": "docker-onbuild.md",
+    "title": "onBuild Function in Server.cfc",
+    "path": "/docs/recipes/docker-onbuild.md",
+    "hash": "6a01975f2bff7b986b1b2190623bf732",
+    "keywords": [
+      "onBuild",
+      "Server.cfc",
+      "build",
+      "Docker",
+      "server",
+      "compile",
+      "encrypt",
+      "validate",
+      "prewarm",
+      "warmup",
+      "startup",
+      "hook",
+      "event"
     ]
   },
   {
@@ -1517,6 +1566,45 @@
     ]
   },
   {
+    "file": "structs-preserve-key-case.md",
+    "title": "Preserving Key Case in CFML Structs / Variables",
+    "path": "/docs/recipes/structs-preserve-key-case.md",
+    "hash": "7ddd18881f462a41114f9f4de8eeb587",
+    "keywords": [
+      "struct",
+      "dotNotationUpperCase",
+      "preserve case"
+    ]
+  },
+  {
+    "file": "query-of-queries-functions.md",
+    "title": "QoQ SQL Functions and Operators",
+    "path": "/docs/recipes/query-of-queries-functions.md",
+    "hash": "62513a1d7378d93613fc26dfe595b168",
+    "keywords": [
+      "Query of Queries",
+      "QoQ",
+      "SQL",
+      "functions",
+      "operators",
+      "HSQLDB",
+      "Lucee"
+    ]
+  },
+  {
+    "file": "scheduler-quartz.md",
+    "title": "Quartz Scheduler Extension for Lucee",
+    "path": "/docs/recipes/scheduler-quartz.md",
+    "hash": "f2d1d7ee6bffba2c012e2179c574606a",
+    "keywords": [
+      "scheduler",
+      "quartz",
+      "cron",
+      "scheduled task",
+      "clustering"
+    ]
+  },
+  {
     "file": "query-async.md",
     "title": "Query Async",
     "path": "/docs/recipes/query-async.md",
@@ -1566,21 +1654,6 @@
       "Lucee",
       "Application.cfc",
       "component"
-    ]
-  },
-  {
-    "file": "query-of-queries-functions.md",
-    "title": "QoQ SQL Functions and Operators",
-    "path": "/docs/recipes/query-of-queries-functions.md",
-    "hash": "62513a1d7378d93613fc26dfe595b168",
-    "keywords": [
-      "Query of Queries",
-      "QoQ",
-      "SQL",
-      "functions",
-      "operators",
-      "HSQLDB",
-      "Lucee"
     ]
   },
   {
@@ -1668,20 +1741,6 @@
     ]
   },
   {
-    "file": "release-cycle.md",
-    "title": "Lucee Release Cycle",
-    "path": "/docs/recipes/release-cycle.md",
-    "hash": "7247fffc83a548026fd1a5393bd65e25",
-    "keywords": [
-      "release",
-      "versioning",
-      "branching",
-      "development cycle",
-      "release candidate",
-      "RC"
-    ]
-  },
-  {
     "file": "request-timeout.md",
     "title": "Request Timeout",
     "path": "/docs/recipes/request-timeout.md",
@@ -1699,17 +1758,6 @@
     ]
   },
   {
-    "file": "rest-services.md",
-    "title": "Lucee and REST Services",
-    "path": "/docs/recipes/rest-services.md",
-    "hash": "f239e2f51192099cda87a7519c98fc7d",
-    "keywords": [
-      "REST",
-      "verbs",
-      "methods"
-    ]
-  },
-  {
     "file": "retry.md",
     "title": "Retry",
     "path": "/docs/recipes/retry.md",
@@ -1719,23 +1767,6 @@
       "Exception handling",
       "Try catch",
       "Lucee"
-    ]
-  },
-  {
-    "file": "s3-region.md",
-    "title": "Using S3 Regions in Lucee",
-    "path": "/docs/recipes/s3-region.md",
-    "hash": "ad9893420ccc1669341076a6209cdc8e",
-    "keywords": [
-      "Virtual File System",
-      "VFS",
-      "S3",
-      "Regions",
-      "Buckets",
-      "Amazon S3",
-      "Wasabi",
-      "MinIO",
-      "Cloud Storage"
     ]
   },
   {
@@ -1755,46 +1786,6 @@
     ]
   },
   {
-    "file": "scheduler-quartz-clustering.md",
-    "title": "Clustering with Quartz Scheduler",
-    "path": "/docs/recipes/scheduler-quartz-clustering.md",
-    "hash": "de99f13fe073ba834c27633f173e2ffc",
-    "keywords": [
-      "scheduler",
-      "quartz",
-      "clustering",
-      "database",
-      "redis"
-    ]
-  },
-  {
-    "file": "scheduler-quartz-component-jobs.md",
-    "title": "Creating Component-Based Jobs with Quartz Scheduler",
-    "path": "/docs/recipes/scheduler-quartz-component-jobs.md",
-    "hash": "79b3fbd1e45e9a157ebb0279d4a62047",
-    "keywords": [
-      "scheduler",
-      "quartz",
-      "component",
-      "cfc",
-      "jobs",
-      "listeners"
-    ]
-  },
-  {
-    "file": "scheduler-quartz.md",
-    "title": "Quartz Scheduler Extension for Lucee",
-    "path": "/docs/recipes/scheduler-quartz.md",
-    "hash": "f2d1d7ee6bffba2c012e2179c574606a",
-    "keywords": [
-      "scheduler",
-      "quartz",
-      "cron",
-      "scheduled task",
-      "clustering"
-    ]
-  },
-  {
     "file": "script-templates.md",
     "title": "Script Templates",
     "path": "/docs/recipes/script-templates.md",
@@ -1808,22 +1799,6 @@
     ]
   },
   {
-    "file": "search.md",
-    "title": "Adding Full Text Search to Your Application",
-    "path": "/docs/recipes/search.md",
-    "hash": "e08edf535852f4ab28bec1f3d4d672cd",
-    "keywords": [
-      "search",
-      "cfcollection",
-      "cfindex",
-      "cfsearch",
-      "Lucene",
-      "full-text",
-      "indexing",
-      "collections"
-    ]
-  },
-  {
     "file": "secret-provider.md",
     "title": "Secret Management",
     "path": "/docs/recipes/secret-provider.md",
@@ -1834,6 +1809,37 @@
       "credentials",
       "environment variables",
       "configuration"
+    ]
+  },
+  {
+    "file": "cache-invalidation-selective.md",
+    "title": "Selective Cache Invalidation",
+    "path": "/docs/recipes/cache-invalidation-selective.md",
+    "hash": "0a71a1163b5462e2276dcb995d7e827c",
+    "keywords": [
+      "Cache",
+      "cachedWithin",
+      "cachedWithinId",
+      "cachedWithinFlush",
+      "Query cache",
+      "Function cache",
+      "HTTP cache",
+      "Cache invalidation",
+      "Performance"
+    ]
+  },
+  {
+    "file": "mail-how-to-send-a-mail.md",
+    "title": "Sending Emails",
+    "path": "/docs/recipes/mail-how-to-send-a-mail.md",
+    "hash": "5fd7d14f15751d813d2cb47501d876f8",
+    "keywords": [
+      "Email",
+      "Send mail",
+      "cfmail",
+      "Mail server",
+      "Mail script",
+      "Lucee"
     ]
   },
   {
@@ -1881,6 +1887,19 @@
       "System Properties",
       "setting",
       "config"
+    ]
+  },
+  {
+    "file": "admin-password.md",
+    "title": "Setting the Lucee Admin Password",
+    "path": "/docs/recipes/admin-password.md",
+    "hash": "c8639bdb7c7b5a9653701517350312bf",
+    "keywords": [
+      "admin",
+      "password",
+      "security",
+      "LUCEE_ADMIN_PASSWORD",
+      "CFConfig"
     ]
   },
   {
@@ -1932,17 +1951,6 @@
     ]
   },
   {
-    "file": "static-mocking.md",
-    "title": "Mocking Static Functions in Lucee for Unit Testing",
-    "path": "/docs/recipes/static-mocking.md",
-    "hash": "ed270f266b251adc5afb371fe6052148",
-    "keywords": [
-      "Static Functions",
-      "Mocking",
-      "Unit Testing"
-    ]
-  },
-  {
     "file": "static-scope-in-components.md",
     "title": "Static Scope in Components",
     "path": "/docs/recipes/static-scope-in-components.md",
@@ -1968,33 +1976,6 @@
       "VS Code",
       "luceedebug",
       "extension"
-    ]
-  },
-  {
-    "file": "structs-preserve-key-case.md",
-    "title": "Preserving Key Case in CFML Structs / Variables",
-    "path": "/docs/recipes/structs-preserve-key-case.md",
-    "hash": "7ddd18881f462a41114f9f4de8eeb587",
-    "keywords": [
-      "struct",
-      "dotNotationUpperCase",
-      "preserve case"
-    ]
-  },
-  {
-    "file": "structs-vs-components.md",
-    "title": "Best Practices: Structs vs Inline Components",
-    "path": "/docs/recipes/structs-vs-components.md",
-    "hash": "906c3322bc067d21bb1db3b016534a6e",
-    "keywords": [
-      "struct",
-      "component",
-      "inline component",
-      "performance",
-      "memory",
-      "best practices",
-      "CFC",
-      "bean"
     ]
   },
   {
@@ -2030,21 +2011,6 @@
     "keywords": []
   },
   {
-    "file": "tag-syntax.md",
-    "title": "How to Use Tags in Script",
-    "path": "/docs/recipes/tag-syntax.md",
-    "hash": "4c92646ca69d3bbea234245dad22f217",
-    "keywords": [
-      "Syntax",
-      "tag",
-      "function",
-      "Script",
-      "throw",
-      "abort",
-      "return"
-    ]
-  },
-  {
     "file": "thread-dump-startup.md",
     "title": "Thread Dump During Startup",
     "path": "/docs/recipes/thread-dump-startup.md",
@@ -2069,20 +2035,6 @@
       "Task Threads",
       "Retry",
       "Lucee"
-    ]
-  },
-  {
-    "file": "thread-usage.md",
-    "title": "Complete Guide to Threading in Lucee",
-    "path": "/docs/recipes/thread-usage.md",
-    "hash": "75aff934caa66e06da5945ab135c59db",
-    "keywords": [
-      "threads",
-      "parallel",
-      "async",
-      "concurrent",
-      "performance",
-      "cfthread"
     ]
   },
   {
@@ -2124,6 +2076,67 @@
     ]
   },
   {
+    "file": "cfschedule-bulk-update.md",
+    "title": "Untitled",
+    "path": "/docs/recipes/cfschedule-bulk-update.md",
+    "hash": "0b320756063d0a88cddb60c268842009",
+    "keywords": [
+      "scheduled tasks",
+      "config"
+    ]
+  },
+  {
+    "file": "check-for-changes.md",
+    "title": "Untitled",
+    "path": "/docs/recipes/check-for-changes.md",
+    "hash": "04f45ec74ea83bcb2c7b1870c6d905d4",
+    "keywords": [
+      "Configuration",
+      "Check for changes",
+      "Lucee",
+      "Automatic update",
+      "Server context",
+      "Web context"
+    ]
+  },
+  {
+    "file": "directory-placeholders.md",
+    "title": "Untitled",
+    "path": "/docs/recipes/directory-placeholders.md",
+    "hash": "a49f26b34a0ebf1c88f72b544987b45c",
+    "keywords": []
+  },
+  {
+    "file": "cached-within-request.md",
+    "title": "Using cachedWithin",
+    "path": "/docs/recipes/cached-within-request.md",
+    "hash": "b0c41eaf79aafd6bee9765f4c23bf562",
+    "keywords": [
+      "Cache",
+      "Query",
+      "Request cache",
+      "cachedWithin",
+      "cfquery",
+      "cfhttp",
+      "cffile"
+    ]
+  },
+  {
+    "file": "convert-a-cfml-func-to-java.md",
+    "title": "Using CFML Functions and Components in Java",
+    "path": "/docs/recipes/convert-a-cfml-func-to-java.md",
+    "hash": "96e09f4edb667f35c11bb15291086301",
+    "keywords": [
+      "conversion",
+      "cfc",
+      "function",
+      "component",
+      "Java",
+      "lambda",
+      "Lucee"
+    ]
+  },
+  {
     "file": "using-s3-directly-for-source-code.md",
     "title": "Using S3 directly for source code",
     "path": "/docs/recipes/using-s3-directly-for-source-code.md",
@@ -2137,18 +2150,20 @@
     ]
   },
   {
-    "file": "versions.md",
-    "title": "Lucee Versions and Extensions",
-    "path": "/docs/recipes/versions.md",
-    "hash": "757dac7d669dfeaeddee5bd20bed1941",
+    "file": "s3-region.md",
+    "title": "Using S3 Regions in Lucee",
+    "path": "/docs/recipes/s3-region.md",
+    "hash": "ad9893420ccc1669341076a6209cdc8e",
     "keywords": [
-      "versions",
-      "extensions",
-      "LuceeVersionsList",
-      "LuceeVersionsDetail",
-      "LuceeExtension",
-      "Maven",
-      "upgrade"
+      "Virtual File System",
+      "VFS",
+      "S3",
+      "Regions",
+      "Buckets",
+      "Amazon S3",
+      "Wasabi",
+      "MinIO",
+      "Cloud Storage"
     ]
   },
   {

@@ -1,72 +1,72 @@
 ---
 name: lucee-docs
 description: >
-  Complete Lucee CFML documentation covering recipes, guides, configuration, tags, functions,
+  Lucee CFML documentation covering recipes, guides, and runnable examples — configuration,
   extensions, AI integration, Docker, datasources, caching, logging, mappings, startup hooks,
-  and all Lucee features. Use this skill whenever the user asks anything about Lucee or CFML —
-  how to configure it, how a feature works, what a tag or function does, how to upgrade, or
-  any Lucee-specific behavior. Fetch the relevant doc(s) on demand — never guess at
-  Lucee-specific behavior; always read the source first.
+  and all Lucee features. Use this skill whenever the user asks anything about Lucee or CFML.
+  For tags and functions, use the Lucee MCP server instead. Fetch the relevant doc(s) on demand
+  — never guess at Lucee-specific behavior; always read the source first.
 ---
 
 # Lucee Documentation
 
 ## How to use this skill
 
-1. Identify the relevant recipe ID(s) from the index below using title and keywords
-2. Fetch the doc: `https://docs.lucee.org/recipes/<id>.md`
-3. For internals (class names, signatures, constants), use the Technical Specs table instead
+1. Identify the relevant entry from the indexes below using title, path, or keywords
+2. Fetch content on demand:
+   - Recipes: `https://docs.lucee.org/recipes/<id>.md`
+   - Guides: `https://docs.lucee.org<path>.md` (path includes leading slash, e.g. `/guides/getting-started/first-steps`)
+   - Examples: raw GitHub URL from the Examples Index
+   - Tags and functions: use the Lucee MCP server, not this skill
+3. For internals (class names, signatures, constants), use the Technical Specs table
 4. Answer from fetched content — do not guess at Lucee-specific details
 
 ## Recipe Index
 
 | Title | ID | Keywords |
 |-------|-----|----------|
-| Setting the Lucee Admin Password | `admin-password` | admin, password, security, LUCEE_ADMIN_PASSWORD, CFConfig |
+| Adding Full Text Search to Your Application | `search` | search, cfcollection, cfindex, cfsearch, Lucene, full-text |
+| AI | `ai` | AI, LLM, ChatGPT, Gemini, Claude, Ollama |
 | AI Augmentation with Lucene | `ai-augmentation` | AI, LLM, RAG, Search, Augmentation, Lucene |
 | AI in Documentation (Experimental) | `ai-for-documentation` | AI, LLM, documentation, configuration, Monitor, experimental |
 | AI Session Serialization | `ai-serialisation` | AI, LLM, Serialization, Session, Persistence |
-| AI | `ai` | AI, LLM, ChatGPT, Gemini, Claude, Ollama |
-| Application.cfc # | `application-cfc` | Application Context, Application Listeners, Mappings, cfapplication, getApplicationSettings, Application.cfc |
 | Application Context update | `application-context-update` | Application Context, Update Application, Mappings, cfapplication, getApplicationSettings, Application.cfc |
-| Lucee Archives (.lar files) | `archives-creating-and-deploy` | Lucee, Archives, .lar files, Deploy, Mapping, Component |
+| Application.cfc # | `application-cfc` | Application Context, Application Listeners, Mappings, cfapplication, getApplicationSettings, Application.cfc |
 | AST (Abstract Syntax Tree) | `ast` | AST, Abstract Syntax Tree, parsing, code analysis, static analysis, transformation |
 | Basic Date - Output the current date | `basic-date` | Date, Current date, lsDateTimeFormat, now, setLocale, Application.cfc |
+| Best Practices: Structs vs Inline Components | `structs-vs-components` | struct, component, inline component, performance, memory, best practices |
 | Breaking Changes between Lucee 5.4 and 6.0 | `breaking-changes-6-0` | breaking changes, Lucee 5.4, Lucee 6.0, migration, upgrade |
 | Breaking Changes between Lucee 6.0 and 6.1 | `breaking-changes-6-1` | breaking changes, Lucee 6.0, Lucee 6.1, migration, upgrade |
 | Breaking Changes between Lucee 6.1 and 6.2 | `breaking-changes-6-2` | breaking changes, Lucee 6.1, Lucee 6.2, migration, upgrade |
 | Breaking Changes between Lucee 6.2 and 7.0 | `breaking-changes-7-0` | breaking changes, Lucee 6.2, Lucee 7.0, migration, upgrade |
 | Breaking Changes between Lucee 7.0 and 7.1 | `breaking-changes-7-1` | breaking changes, Lucee 7.0, Lucee 7.1, migration, upgrade |
-| Selective Cache Invalidation | `cache-invalidation-selective` | Cache, cachedWithin, cachedWithinId, cachedWithinFlush, Query cache, Function cache |
-| Using cachedWithin | `cached-within-request` | Cache, Query, Request cache, cachedWithin, cfquery, cfhttp |
 | Caches defined in Application.cfc | `caches-defined-in-application-cfc` | Caches, Application.cfc, Per-application caches, Cache connections, Default caches, Lucee |
-| Getting Started with Caching | `caching-getting-started` | Cache, cachePut, cacheGet, cacheClear, cacheDelete, RAM cache |
-| Untitled | `cfschedule-bulk-update` | scheduled tasks, config |
-| Untitled | `check-for-changes` | Configuration, Check for changes, Lucee, Automatic update, Server context, Web context |
+| Casting Components to Java Interfaces | `java-explicit-casting` | java, cast, convert, method |
 | Checksum | `checksum` | Checksum, File validation, cfhttp, hash, fileReadBinary |
+| Clustering with Quartz Scheduler | `scheduler-quartz-clustering` | scheduler, quartz, clustering, database, redis |
+| Complete Guide to Threading in Lucee | `thread-usage` | threads, parallel, async, concurrent, performance, cfthread |
 | Component Accessors | `component-accessors` | accessors, getter, setter, cfproperty, property, component |
-| getClass() Method for Components | `component-getclass-method` | getClass, component, java, interface |
 | Component Mappings | `component-mappings` | Component Mapping, CFCs, Application.cfc, Lucee archive |
-| Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy` | `concurrent-map-legacy-flag` | ConcurrentHashMap, struct, lucee.concurrent.map.impl, legacy, struct ordering, LDEV-5098 |
-| Configure Lucee Programmatically | `configuration-administrator-cfc` | Administrator.cfc, cfadmin, Configuration, Lucee, Web context, Server configuration |
-| Configuration - Lucee 5 | `configuration-lucee5` | configuration, config, lucee-server.xml, lucee-web.xml, Lucee 5 |
 | Configuration - How to Configure Lucee | `configuration` | configuration, config, .CFConfig.json, lucee-server.xml, lucee-web.xml |
+| Configuration - Lucee 5 | `configuration-lucee5` | configuration, config, lucee-server.xml, lucee-web.xml, Lucee 5 |
+| Configure Lucee Programmatically | `configuration-administrator-cfc` | Administrator.cfc, cfadmin, Configuration, Lucee, Web context, Server configuration |
 | Console Logging | `console-logging` | Logging, console |
-| Using CFML Functions and Components in Java | `convert-a-cfml-func-to-java` | conversion, cfc, function, component, Java, lambda |
+| Creating Component-Based Jobs with Quartz Scheduler | `scheduler-quartz-component-jobs` | scheduler, quartz, component, cfc, jobs, listeners |
+| Creating Heap Dumps in Lucee | `heap-dumps` | Heap Dump, Memory, OutOfMemoryError, Troubleshooting, Performance, Debugging |
 | CSV Processing in Lucee 7 | `csv-processing` | CSV, Apache Commons, Maven, Data Processing, Parsing |
+| Custom Event Gateways | `event-gateway-create` | Event Gateway, Custom Gateway, Directory Watcher, File Size Checker, Gateway Driver |
 | Custom Tag Mappings | `custom-tag-mappings` | Custom Tag Mapping, Custom Tags, cfimport, Application.cfc, Lucee archive, taglib |
 | Deploying Custom Tags via Extensions | `custom-tags-via-extensions` | Custom Tags, Extensions, LEX, cfimport, taglib, prefix |
 | Database Connection Management in Lucee | `database-connection-management` | database, connection pool, datasource, transaction, exclusive connection, Apache Commons Pool |
 | Datasources | `datasource-how-to-define-them` | Datasource, Define datasource, Administrator, Application.cfc, Default datasource, MySQL |
 | Date and Time Formatting in Lucee | `date-time-formatting` | Date, Time, Formatting, Locale, Timezone, dateFormat |
-| Untitled | `directory-placeholders` |  |
-| onBuild Function in Server.cfc | `docker-onbuild` | onBuild, Server.cfc, build, Docker, server, compile |
+| Deploying Custom Tags via Extensions | `custom-tags-via-extensions` | Custom Tags, Extensions, LEX, cfimport, taglib, prefix |
+| Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy` | `concurrent-map-legacy-flag` | ConcurrentHashMap, struct, lucee.concurrent.map.impl, legacy, struct ordering, LDEV-5098 |
 | Docker | `docker` | Docker |
 | Dynamic Proxy Enhancements | `dynamic-proxy-enhancements` | dynamic proxy, java, interface, component, interoperability, createDynamicProxy |
 | DynamoDB Cache Extension | `dynamodb-cache-extension` | DynamoDB, Cache, AWS, NoSQL, Distributed Cache, Cloud Storage |
 | Encryption/Decryption | `encryption_decryption` | Encryption, Decryption, RSA, Public key, Private key, Lucee |
 | Environment Variables / System Properties for Lucee | `environment-variables-system-properties` | Environment, Environment Variables, Properties, System Properties, setting, config |
-| Custom Event Gateways | `event-gateway-create` | Event Gateway, Custom Gateway, Directory Watcher, File Size Checker, Gateway Driver |
 | Event Gateway - How they work? | `event-gateways-how-they-work` | Event Gateway, Directory Watcher, Mail Watcher, cfadmin, File Changes |
 | Event Gateways | `event-gateways` | Event Gateway, SMS, File Change, Mail Server, Slack Notification |
 | Excel Processing in Lucee 7 | `excel-processing` | Excel, Apache POI, Maven, XLSX, XLS, Spreadsheet |
@@ -75,7 +75,6 @@ description: >
 | ExecutionLog | `execution-log` | executionlog, debug, performance, profiling |
 | Extension Installation | `extension-installation` | extension, install, lucee administrator, deploy directory, CFConfig.json, environment variable |
 | Extension Provider | `extension-provider` | extensions, Maven, provider, GroupId, repository, lex |
-| Lucee Extension Utilities | `extension-utilities` | Extension, Development, Utilities, CFMLEngine, Java, API |
 | External Agent | `external-agent` | agent, instrumentation, java agent, premain, redefine, retransform |
 | Externalize Strings | `externalizing-strings` | Externalize strings, Memory reduction, Class files, Static contents, Lucee |
 | File Extensions | `file-extensions` | CFML, cfm, cfc, cfml, cfs, file extensions |
@@ -83,44 +82,51 @@ description: >
 | Function Listeners | `function-listeners` | parallel, async, thread, function |
 | Function SystemOutput | `function-systemoutput` | SystemOutput function, Debugging, Output stream, Error stream, Stack trace |
 | Get Datasource Drivers Directly from Maven | `get-dbdriver-from-maven` | datasource, maven, mysql, db |
+| getClass() Method for Components | `component-getclass-method` | getClass, component, java, interface |
+| Getting Started with Caching | `caching-getting-started` | Cache, cachePut, cacheGet, cacheClear, cacheDelete, RAM cache |
 | Global Proxy | `global-proxy` | proxy, global proxy, Lucee, Application.cfc, CFConfig |
-| Creating Heap Dumps in Lucee | `heap-dumps` | Heap Dump, Memory, OutOfMemoryError, Troubleshooting, Performance, Debugging |
 | Hidden Gems | `hidden-gems` | Hidden gems, Declare variables, Function calls, Dot notation, Bracket notation, URL form scopes |
 | Hooks and Monitors | `hooks-and-monitors` | hooks, monitors, startup, extension, lifecycle, injection |
-| Logging CFHTTP Calls | `http-logging` | cfhttp, logging, Lucee, log level, http log |
+| How to Use Tags in Script | `tag-syntax` | Syntax, tag, function, Script, throw, abort |
 | Import | `import` | cfimport, import, Lucee, components, java classes, custom tags |
 | Inline Components | `inline-components` | component, inline-component |
-| Java Class Interaction | `java-class-interaction` | Java, Classes, Objects, Interop, Static Methods, Inner Classes |
-| Casting Components to Java Interfaces | `java-explicit-casting` | java, cast, convert, method |
-| Java in Functions and Closures | `java-in-functions-and-closures` | function, java, closures, components, lambda, Lucee |
 | Interacting with Java Libraries | `java-libraries` | java, maven, import, Lucee, libraries, new operator |
+| Java Class Interaction | `java-class-interaction` | Java, Classes, Objects, Interop, Static Methods, Inner Classes |
+| Java Classes Using Lucee's Logging | `java-using-lucee-logging` | java, logging, slf4j, lucee.commons.io.log.Log |
+| Java in Functions and Closures | `java-in-functions-and-closures` | function, java, closures, components, lambda, Lucee |
 | Java Regex Engine | `java-regex-engine` | regex, regular expressions, Java regex, Apache ORO, performance, Application.cfc |
 | Java Scripting with Lucee | `java-scripting` | Java, JSR-223, ScriptEngine, CFML, Scripting, Integration |
 | Java Settings | `java-settings` | Java settings, Application.cfc, javasettings, cfapplication |
-| Java Classes Using Lucee's Logging | `java-using-lucee-logging` | java, logging, slf4j, lucee.commons.io.log.Log |
 | javax vs jakarta Servlet Compatibility | `javax-vs-jakarta` | javax, jakarta, servlet, Tomcat, Jetty, web.xml |
 | Language Server Protocol (LSP) for Lucee | `language-server` | LSP, language server, IDE integration, VS Code, development tools, code completion |
 | Lazy Queries | `lazy-queries` | Lazy Queries, Regular Queries, Performance, Memory Optimization, Lucee |
 | List existing Cache Connections | `list-existing-cache-conn` | Cache, Cache connections, List cache, getApplicationSettings, Lucee |
-| Lucee 7 Loader API Changes | `loader-api-changes-7` | loader, API, CFMLEngine, extensions, Java, Jakarta |
-| Logging HTTP Calls | `logging-http-calls` | cfhttp, logging, http, debugging, application log, http log |
+| Loading Java Libraries with Maven | `maven` | Maven, Java, javaSettings, dependencies |
 | Logging | `logging` | Logging, Log levels, Lucee |
+| Logging CFHTTP Calls | `http-logging` | cfhttp, logging, Lucee, log level, http log |
+| Logging HTTP Calls | `logging-http-calls` | cfhttp, logging, http, debugging, application log, http log |
 | Loop Labels | `loop-labels` | loop, label, for, while, continue, break |
 | Looping Through Files | `loop-through-files` | Looping through files, cffile, fileRead, fileReadBinary, Memory optimization, Lucee |
 | Lucee 5 to 6 Migration Guide | `lucee-5-to-6-migration-guide` | Migration, Lucee 5, Lucee 6, Breaking Changes, Compatibility, DeserializeJSON |
+| Lucee 7 Loader API Changes | `loader-api-changes-7` | loader, API, CFMLEngine, extensions, Java, Jakarta |
+| Lucee and REST Services | `rest-services` | REST, verbs, methods |
+| Lucee Archives (.lar files) | `archives-creating-and-deploy` | Lucee, Archives, .lar files, Deploy, Mapping, Component |
+| Lucee Extension Utilities | `extension-utilities` | Extension, Development, Utilities, CFMLEngine, Java, API |
+| Lucee Release Cycle | `release-cycle` | release, versioning, branching, development cycle, release candidate, RC |
+| Lucee Versions and Extensions | `versions` | versions, extensions, LuceeVersionsList, LuceeVersionsDetail, LuceeExtension, Maven |
 | Lucene 3 Extension | `lucene-search` | Lucene, Search, Vector, Hybrid, Semantic, Content Chunks |
-| Sending Emails | `mail-how-to-send-a-mail` | Email, Send mail, cfmail, Mail server, Mail script, Lucee |
 | Mail Listeners | `mail-listener` | mail, listener, Application.cfc, component |
 | Mappings - How to define a regular Mapping | `mappings-how-to-define-a-reg-mapping` | Mapping, Filesystem, Define mapping, Application.cfc, Lucee archive |
 | Mathematical Precision | `mathematical-precision` | math, precision, BigDecimal, Lucee, Application.cfc, PrecisionEvaluate |
 | Maven Based Extensions | `maven-based-extensions` | extension, Maven, OSGi, lex, GAVSO, manifest |
-| Loading Java Libraries with Maven | `maven` | Maven, Java, javaSettings, dependencies |
 | Migrating from Classic to Modern Local Scope Mode | `migrate.from.classic-to-modern-local-scope` | local scope, variables, migration, scope mode, classic mode, modern mode |
-| Monitoring/Debugging | `monitoring-debugging` | monitoring, debugging, admin, Application.cfc, cfsetting, debug |
+| Mocking Static Functions in Lucee for Unit Testing | `static-mocking` | Static Functions, Mocking, Unit Testing |
 | Monitoring - Enable for your session | `monitoring-enable-for-your-session` | monitoring, session |
+| Monitoring/Debugging | `monitoring-debugging` | monitoring, debugging, admin, Application.cfc, cfsetting, debug |
 | MSSQL Modern Mode | `mssql-modern-mode` | mssql, sql server, raiserror, deferred exceptions, modern mode, jdbc |
 | New Operator | `new-operator` | new, java, classes, class, createObject, component |
 | Null Support | `null-support` | Null support, null keyword, NullValue function, isNull function, Lucee |
+| onBuild Function in Server.cfc | `docker-onbuild` | onBuild, Server.cfc, build, Docker, server, compile |
 | ORM - Caching | `orm-caching` |  |
 | ORM - Configuration | `orm-configuration` |  |
 | ORM - Entity Mapping | `orm-entity-mapping` |  |
@@ -135,52 +141,50 @@ description: >
 | Overwriting and Adding Built-in Functions and Tags | `overwrite-build-in-functions-tags` | function, BIF, overwrite, add functions, custom tags, Lucee customization |
 | PDF Engine - Flying Saucer (CFDocument) | `pdf-engine-flying-saucer` | Flying Saucer, PDF Engine, CFDOCUMENT, HTML to PDF |
 | Precompiled Code | `precompiled-code` | Precompiled, Pre-compile code, Production server, Security, CFML, Class files |
+| Preserving Key Case in CFML Structs / Variables | `structs-preserve-key-case` | struct, dotNotationUpperCase, preserve case |
+| QoQ SQL Functions and Operators | `query-of-queries-functions` | Query of Queries, QoQ, SQL, functions, operators, HSQLDB |
+| Quartz Scheduler Extension for Lucee | `scheduler-quartz` | scheduler, quartz, cron, scheduled task, clustering |
 | Query Async | `query-async` | query, async, listener, thread |
 | Query Execution | `query-handling` | cfquery, queryExecute, Query, database, parameters, performance |
 | Query Indexes | `query-indexes` | query, indexes, cfquery |
 | Query Listeners | `query-listener` | query, listener, Lucee, Application.cfc, component |
-| QoQ SQL Functions and Operators | `query-of-queries-functions` | Query of Queries, QoQ, SQL, functions, operators, HSQLDB |
 | Query of Queries (QoQ) | `query-of-queries` | Query of Queries, QoQ, SQL, In memory query, Lucee, dbtype query |
 | Query of Queries sometimes it rocks, sometimes it sucks | `query-of-query-sometime` | Query of Queries, QoQ, Performance, Query Filter, Query Sort, Lucee |
 | Query Result Logging | `query-result-threshold` | query, logging, monitoring, performance, OOM, OutOfMemory |
 | Query return type | `query-return-type` | Query return type, Array return type, Struct return type, Foreign key, Lucee |
 | Read XML with a listener Model (SAX) | `read-xml-with-a-listener-model-sax` | XML, SAX, XML Parsing, Event Driven, XML Event Parsing, XML to Struct |
 | Recommended Settings | `recommended-settings` | settings, performance, Production server, Security, config |
-| Lucee Release Cycle | `release-cycle` | release, versioning, branching, development cycle, release candidate, RC |
 | Request Timeout | `request-timeout` | request timeout, timeout, memory, cpu, Concurrent Requests, Administrator |
-| Lucee and REST Services | `rest-services` | REST, verbs, methods |
 | Retry | `retry` | Retry, Exception handling, Try catch, Lucee |
-| Using S3 Regions in Lucee | `s3-region` | Virtual File System, VFS, S3, Regions, Buckets, Amazon S3 |
 | S3 | `s3` | S3, MinIO, object storage, VFS, virtual file system, AWS |
-| Clustering with Quartz Scheduler | `scheduler-quartz-clustering` | scheduler, quartz, clustering, database, redis |
-| Creating Component-Based Jobs with Quartz Scheduler | `scheduler-quartz-component-jobs` | scheduler, quartz, component, cfc, jobs, listeners |
-| Quartz Scheduler Extension for Lucee | `scheduler-quartz` | scheduler, quartz, cron, scheduled task, clustering |
 | Script Templates | `script-templates` | CFML, script, templates, Lucee, cfs |
-| Adding Full Text Search to Your Application | `search` | search, cfcollection, cfindex, cfsearch, Lucene, full-text |
 | Secret Management | `secret-provider` | security, secrets, credentials, environment variables, configuration |
+| Selective Cache Invalidation | `cache-invalidation-selective` | Cache, cachedWithin, cachedWithinId, cachedWithinFlush, Query cache, Function cache |
+| Sending Emails | `mail-how-to-send-a-mail` | Email, Send mail, cfmail, Mail server, Mail script, Lucee |
 | Servlet Configuration | `servlet-configuration` | java, javax, jakarta, servlet, tomcat, jetty |
 | Session Handling | `session-handling` | Session Management, CFML Sessions, JEE Sessions, Session Storage, Session Security, Session Timeout |
 | Setting System Properties and Environment Variables | `setting-system-properties-and-env-vars` | Environment, Environment Variables, Properties, System Properties, setting, config |
+| Setting the Lucee Admin Password | `admin-password` | admin, password, security, LUCEE_ADMIN_PASSWORD, CFConfig |
 | Single Mode vs Multi Mode in Lucee | `single-vs-multi-mode` | Lucee, Single Mode, Multi Mode, Configuration |
 | SQL Types | `sql-types` | SQL, SQL types, CF_SQL, queryparam, queryexecute, cfsqltype |
 | Startup Listeners - Server.cfc and Web.cfc | `startup-listeners-code` | startup, warmup, prewarm, Server.cfc, Web.cfc, onServerStart |
-| Mocking Static Functions in Lucee for Unit Testing | `static-mocking` | Static Functions, Mocking, Unit Testing |
 | Static Scope in Components | `static-scope-in-components` | Static scope, Components, Application scope, Server scope |
 | Step Debugging Lucee with Extension Debugger | `step-debugger` | debugger, DAP, debug adapter protocol, breakpoints, step debugging, VS Code |
-| Preserving Key Case in CFML Structs / Variables | `structs-preserve-key-case` | struct, dotNotationUpperCase, preserve case |
-| Best Practices: Structs vs Inline Components | `structs-vs-components` | struct, component, inline component, performance, memory, best practices |
 | Sub Components | `sub-components` | CFML, component, sub-component, Lucee |
 | Supercharge your website | `supercharge-your-website` | Supercharge website, Performance, Caching, Template cache, Lucee |
 | Tag Islands | `tag-islands` |  |
-| How to Use Tags in Script | `tag-syntax` | Syntax, tag, function, Script, throw, abort |
 | Thread Dump During Startup | `thread-dump-startup` | threads, debugging, startup, performance, monitoring, stack traces |
 | Thread Tasks | `thread-task` | Thread Tasks, Daemon Threads, Task Threads, Retry, Lucee |
-| Complete Guide to Threading in Lucee | `thread-usage` | threads, parallel, async, concurrent, performance, cfthread |
 | Timeout | `timeout` | tag, timeout, listener, Lucee, cftimeout, error handling |
 | Troubleshooting Lucee Problems | `troubleshooting` | startup, deployment, logs |
 | Types in Lucee | `types-in-lucee` | Types, Function argument, Return value, CFParam, Lucee |
+| Untitled | `cfschedule-bulk-update` | scheduled tasks, config |
+| Untitled | `check-for-changes` | Configuration, Check for changes, Lucee, Automatic update, Server context, Web context |
+| Untitled | `directory-placeholders` |  |
+| Using cachedWithin | `cached-within-request` | Cache, Query, Request cache, cachedWithin, cfquery, cfhttp |
+| Using CFML Functions and Components in Java | `convert-a-cfml-func-to-java` | conversion, cfc, function, component, Java, lambda |
 | Using S3 directly for source code | `using-s3-directly-for-source-code` | S3, Source code, Credentials, Mapping, Caching |
-| Lucee Versions and Extensions | `versions` | versions, extensions, LuceeVersionsList, LuceeVersionsDetail, LuceeExtension, Maven |
+| Using S3 Regions in Lucee | `s3-region` | Virtual File System, VFS, S3, Regions, Buckets, Amazon S3 |
 | Virtual File Systems | `virtual-file-system` | Virtual File System, VFS, Local File System, ZIP, RAM, S3 |
 | Warmup | `warmup` | Warmup, Docker, Fail-Fast, Configuration Validation, Container, Startup |
 | WebSocket Client Extension | `websocket-client-extension` | Lucee, Extension, WebSocket, Client |
@@ -188,6 +192,209 @@ description: >
 | XML Fast And Easy, using SAX - Listener Functions | `xml-fast-and-easy` | XML parsing, SAX, XML event listener, XMLCatalog, Lucee |
 | XML Security with xmlFeatures | `xml-security-xmlfeatures` | XML, xmlFeatures, XXE, security, xmlParse, isXml |
 | YAML Processing in Lucee 7 | `yaml-processing` | YAML, SnakeYAML, Maven, Java Integration |
+
+## Guide Index
+
+| Title | ID | Path | Keywords |
+|-------|-----|------|----------|
+| 3rd Party Libraries | `3rd-party-libraries` | `/guides/working-with-source/3rd-party-libraries` |  |
+| About Lucee | `about-lucee` | `/guides/about-lucee` |  |
+| Abstract/Final Modifiers | `lucee-5-abstract-final` | `/guides/lucee-5/abstract-final` |  |
+| Access Modifiers for variables | `lucee-5-access-modifiers` | `/guides/lucee-5/access-modifiers` |  |
+| Adding New Sites | `windows-adding-new-sites` | `/guides/installing-lucee/lucee-server-adminstration-windows/adding-new-site` |  |
+| Adding Sites | `linux-adding-sites` | `/guides/installing-lucee/lucee-server-adminstration-linux/adding-new-site` |  |
+| Admin Plugins | `plugins` | `/guides/extensions/plugins` |  |
+| Ajax: Bind syntax | `ajax-bind-syntax` | `/guides/Various/ajax-bind-syntax` |  |
+| Amf:configuration | `amf-configuration` | `/guides/Various/Amf-configuration` |  |
+| Building and Testing Lucee Extensions | `building-testing-extensions` | `/guides/working-with-source/building-and-testing-extensions` |  |
+| Building Lucee | `working-with-source` | `/guides/working-with-source` |  |
+| Building Lucee 4.x from source | `working-with-source-build-4x-from-source` | `/guides/working-with-source/build-4x-from-source` |  |
+| Building Lucee 5 & 6 from source | `working-with-source-build-from-source` | `/guides/working-with-source/build-from-source` |  |
+| CFAdmin documentation | `cfadmin-docs` | `/guides/Various/cfadmin` |  |
+| Changing the User Account Lucee Runs As | `changing-the-user-account-lucee-runs-as` | `/guides/installing-lucee/installation-linux/changing-the-user-account-lucee-uses` |  |
+| Class Updating | `lucee-5-class-updating` | `/guides/lucee-5/class-updating` |  |
+| CommandBox | `getting-started-commandbox` | `/guides/getting-started/commandbox` |  |
+| Configuration: Lucee web.xml | `configuration-web-xml` | `/guides/Various/configuration-web-xml` |  |
+| Configure Tomcat to Listen to Port 80 | `configure-tomcat-to-listen-to-port-linux` | `/guides/installing-lucee/lucee-server-adminstration-linux/configure-Tomcat-listen-to-port` |  |
+| Configuring Regional Settings | `configuring-regional-settings` | `/guides/deploying-lucee-server-apps/configuring-regional-settings` |  |
+| Configuring SES URL's | `lucee-configuring-SES-url` | `/guides/installing-lucee/lucee-server-adminstration-linux/configuring-SES-url` |  |
+| Configuring SES URL's on Windows OS's | `windows-configuring-SES-url-on-windows-os` | `/guides/installing-lucee/lucee-server-adminstration-windows/Configuring-SES-url-on-windows` |  |
+| Configuring Tomcat as a Windows service | `running-lucee-configuring-tomcat-as-a-windows-service` | `/guides/installing-lucee/windows/configuring-tomcat-as-a-windows-service` |  |
+| Contributing Contributor's Agreement | `contributing-contributors-agreement` | `/guides/get-involved/contributing-contributors-agreement` |  |
+| Couchdb | `extension-couchdb` | `/guides/extensions/extensions-couchdb` |  |
+| Creating an extension (2/5) | `tutorial-extension-provider-part2` | `/guides/Various/tutorial-lucee/tutorial-extension-provider/tutorial-part-2` |  |
+| Creating an extension for Lucee (1/5) | `tutorial-extension-provider-part1` | `/guides/Various/tutorial-lucee/tutorial-extension-provider/tutorial-part-1` |  |
+| Creating an Extension Installer (4/5) | `tutorial-extension-provider-part4` | `/guides/Various/tutorial-lucee/tutorial-extension-provider/tutorial-part-4` |  |
+| Credits | `installation-credits` | `/guides/about-lucee/installation-credits` |  |
+| Credits and Contributors | `credits-and-contributors` | `/guides/deploying-lucee-server-apps/security-authors-and-contributors` |  |
+| Custom Built In Functions (BIFs) | `tips-built-in-function` | `/guides/Various/TIPS/TIPS-builtIn-function` |  |
+| Custom Built in Tags | `tips-built-in-tag` | `/guides/Various/TIPS/TIPS-builtIn-Tag` |  |
+| Custom CFDUMP Templates | `tips-dump-template` | `/guides/Various/TIPS/TIPS-dump-template` |  |
+| Custom Date and Time format for a Locale using .df files | `custom-dateTime-format-locale-files` | `/guides/Various/locale-df-files` |  |
+| Custom JARs | `tips-custom-jars` | `/guides/Various/TIPS/TIPS-custom-JARs` |  |
+| Deploy AWSElasticBeanstalk | `deploy-awsElasticBeanStakk` | `/guides/Various/deploy-AWSElasticBeanstalk` |  |
+| Deploy with capistrano | `deploy-with-capistrano` | `/guides/Various/deploy-with-capistrano` |  |
+| Deploying Lucee | `deploying-lucee-server-apps` | `/guides/deploying-lucee-server-apps` |  |
+| Developer Guides | `cookbook` | `/guides/cookbooks` |  |
+| Downloading and Installing Lucee | `running-lucee-download-and-install` | `/guides/installing-lucee/download-and-install` |  |
+| Dynamic Extension Content | `extension-dynamic-content` | `/guides/extensions/extension-dynamic-context` |  |
+| Embedding Lucee in Java Applications | `lucee-with-maven` | `/guides/Various/lucee-maven` |  |
+| Enhanced functions | `lucee-enhanced-functions` | `/guides/Various/lucee-enhanced-functions` |  |
+| Enhanced Tags | `lucee-enhanced-tags` | `/guides/Various/lucee-enhanced-tags` |  |
+| Extended Java Interface | `lucee-5-java-interface` | `/guides/lucee-5/java-interface` |  |
+| Extension CFCs matrix | `extension-cfcs-matrix` | `/guides/extensions/extension-cfc-matrix` |  |
+| Extension Config XML Matrix | `extension-config-xml-matrix` | `/guides/extensions/extension-conf-xml-matrix` |  |
+| Extension Consumer | `extension-consumer` | `/guides/extensions/extension-consumer` |  |
+| Extension Provider | `extensions-extension-provider` | `/guides/extensions/extension-extension-provider` |  |
+| Extension Provider | `tutorial-extension-provider` | `/guides/Various/tutorial-lucee/tutorial-extension-provider` |  |
+| Extensions in Lucee 5 | `lucee-5-extensions` | `/guides/lucee-5/extensions` |  |
+| Extensions Support Components | `extensions-support-components` | `/guides/extensions/extension-support-components` |  |
+| FAQs | `faq-s` | `/guides/Various/FAQs` |  |
+| File System Types | `file-system-types` | `/guides/Various/file-system` |  |
+| File Upload Operation Result | `file-upload-result` | `/guides/Various/file-upload-result` |  |
+| First steps | `getting-started-first-steps` | `/guides/getting-started/first-steps` |  |
+| General Deviations | `general-deviations` | `/guides/Various/general-deviations` |  |
+| Get Involved | `get-involved` | `/guides/get-involved` |  |
+| Getting Started | `getting-started` | `/guides/getting-started` |  |
+| Getting to know Lucee Server | `getting-to-know-lucee` | `/guides/getting-started/getting-to-know-lucee` |  |
+| Guides and tutorials | `guides` | `/guides` |  |
+| Handling unquoted arguments as variables | `lucee-5-unquoted-arguments` | `/guides/lucee-5/unquoted-arguments` |  |
+| How to compile CFM/CFCs | `tips-compilecode` | `/guides/Various/TIPS/TIPS-compile-code` |  |
+| How to get help | `about-lucee-how-to-get-help` | `/guides/about-lucee/how-to-get-help` |  |
+| How to update Lucee | `updating-lucee-update` | `/guides/updating-lucee/update` |  |
+| Implementing Log Rotation with Log4j | `windows-implementing-log-rotation-with-log4j` | `/guides/installing-lucee/lucee-server-adminstration-windows/implementing-log-rotation-with-log4j` |  |
+| Implicit Conversion Functions | `tips-implicit-conversions` | `/guides/Various/TIPS/TIPS-implicit-conversions` |  |
+| Infinispan Cache Extension | `extension-infinispan` | `/guides/extensions/extension-infinispan` |  |
+| Installation on CentOS Linux 6 Best Practices | `linux-installation-on-centos-linux` | `/guides/installing-lucee/installation-linux/installation-on-centOS-linux` |  |
+| Installation URLRewriteFilter | `URLRewriteFilter-Tuckey-URLRewriteFilter` | `/guides/deploying-lucee-server-apps/url-rewriting/URLRewriteFilter-Tuckey-URLRewriteFilter` |  |
+| Installation URLRewriting mod_rewrite | `mod-rewrite-Apache-HTTPD-mod-rewrite` | `/guides/deploying-lucee-server-apps/url-rewriting/mod-rewrite-Apache-HTTPD-mod-rewrite` |  |
+| Installer Support | `installer-support` | `/guides/installing-lucee/installer-developers` |  |
+| Installing and configuring Lucee (JAR files) on Windows | `running-lucee-installing-and-configuring-lucee-jar-file-on-windows` | `/guides/installing-lucee/windows/installing-and-configuring-lucee-jar-file-on-windows` |  |
+| Installing and running Lucee with CommandBox on Ubuntu 20.04 LTS Server and Apache2 | `linux-install-ubuntu-commandbox` | `/guides/installing-lucee/installation-linux/linux-install-ubuntu-commandbox` |  |
+| Installing Apache Tomcat on Windows | `running-lucee-installing-apache-tomcat-on-windows` | `/guides/installing-lucee/windows/installing-apache-tomcat-on-windows` |  |
+| Installing in Unattended Mode | `linux-installing-in-unattended-mode` | `/guides/installing-lucee/installation-linux/installing-in-unattended-mode` |  |
+| Installing Lucee | `installation-installer-documentation` | `/guides/installing-lucee` |  |
+| Installing Lucee And XAMPP (Apache2 & MariaDB) on Windows | `running-lucee-installing-xampp-apache2-and-mariadb-on-windows` | `/guides/installing-lucee/windows/installing-lucee-with-xampp-apache2-and-mariadb-on-windows` |  |
+| Installing Lucee on a clean Windows 2019 Datacenter with installer | `running-lucee-installing-lucee-on-windows-2019-with-installer-quick-video-guide` | `/guides/installing-lucee/windows/installing-lucee-on-windows-2019-with-installer-quick-video-guide` |  |
+| Installing Lucee on Linux | `installation-linux` | `/guides/installing-lucee/installation-linux` |  |
+| Installing Lucee on MacOS | `running-lucee-osx` | `/guides/installing-lucee/osx` |  |
+| Installing Lucee on Ubuntu 20.04 LTS Server Apache2 - Video Guide | `linux-ubuntu-quick-video-guide` | `/guides/installing-lucee/installation-linux/linux-ubuntu-quick-video-guide` |  |
+| Installing Lucee on Windows | `running-lucee-windows` | `/guides/installing-lucee/windows` |  |
+| Installing Oracle Java on Windows | `running-lucee-installing-oracle-java-on-windows` | `/guides/installing-lucee/windows/installing-oracle-java-on-windows` |  |
+| Installing the Boncode connector and mod_cfml | `running-lucee-installing-the-boncode-connector-and-mod_cfml` | `/guides/installing-lucee/windows/installing-the-boncode-connector-and-mod_cfml` |  |
+| Installing the JDK on Windows | `running-lucee-installing-the-jdk-on-windows` | `/guides/installing-lucee/windows/installing-the-jdk-on-windows` |  |
+| Installing the server JRE on Windows | `running-lucee-installing-the-server-jre-on-windows` | `/guides/installing-lucee/windows/installing-the-server-jre-on-windows` |  |
+| Installing Tomcat and Lucee on Mac OS X using the Lucee WAR file | `running-lucee-installing-tomcat-and-lucee-on-os-x-using-the-lucee-war-file` | `/guides/installing-lucee/osx/installing-tomcat-and-lucee-on-os-x-using-the-lucee-war-file` |  |
+| Lambda Expressions | `lucee-5-lambda` | `/guides/lucee-5/lambda` |  |
+| Launching the Installer | `linux-launching-the-installer` | `/guides/installing-lucee/installation-linux/launching-the-installer` |  |
+| Lockdown Guide | `cookbook-lockdown-guide` | `/guides/deploying-lucee-server-apps/lockdown-guide` |  |
+| Locking Down Lucee  | `locking-down-lucee-server` | `/guides/deploying-lucee-server-apps/locking-down-lucee-server` |  |
+| Locking Down Tomcat | `locking-down-your-lucee-stack` | `/guides/deploying-lucee-server-apps/locking-down-your-lucee-stack` |  |
+| Loop - times | `lucee-5-times` | `/guides/lucee-5/times` |  |
+| Lucee 5 | `lucee-5` | `/guides/lucee-5` |  |
+| Lucee 5 and OSGi | `lucee-5-osgi` | `/guides/lucee-5/osgi` |  |
+| Lucee 5.3 (Kabang) new features | `lucee_5.3_features` | `/guides/lucee-5.3-kabang` |  |
+| Lucee 6.2 new features | `lucee_6_2_overview` | `/guides/lucee-6.2` |  |
+| Lucee 7 new features | `lucee_7_overview` | `/guides/lucee-7` |  |
+| Lucee 7.1 new features | `lucee_7_1_overview` | `/guides/lucee-7-1` |  |
+| Lucee Command Line Interface | `command-line-interface` | `/guides/Various/command-line-interface` |  |
+| Lucee Compared | `about-lucee-lucee-compared` | `/guides/about-lucee/lucee-compared` |  |
+| Lucee compared to .net | `about-lucee-lucee-compared-to-net` | `/guides/about-lucee/lucee-compared/lucee-compared-with-net` |  |
+| Lucee compared to Java | `about-lucee-lucee-compared-to-java` | `/guides/about-lucee/lucee-compared/lucee-compared-with-java` |  |
+| Lucee compared to PHP | `about-lucee-lucee-compared-to-php` | `/guides/about-lucee/lucee-compared/lucee-compared-with-php` |  |
+| Lucee Editors & IDEs | `lucee-editors-IDEs` | `/guides/getting-started/lucee-editors-IDEs` |  |
+| Lucee Extensions | `extensions` | `/guides/extensions` |  |
+| Lucee Features | `lucee-server-features-specifications` | `/guides/about-lucee/lucee-server-features-specifications` |  |
+| Lucee Language and Syntax Differences | `language-syntax-differences` | `/guides/developing-with-lucee-server/language-syntax-differences` |  |
+| Lucee License | `lucee-server-license` | `/guides/Various/FAQs/non-technical-FAQs/lucee-server-license` |  |
+| Lucee Lockdown Guide | `lucee-lockdown-guide` | `/guides/deploying-lucee-server-apps/securing-lucee-server-apps/lucee-lockdown-guide` |  |
+| Lucee Resources (Virtual File Systems) | `lucee-resources` | `/guides/Various/lucee-resources` |  |
+| Lucee Security Best Practices | `securing-lucee-server-apps` | `/guides/deploying-lucee-server-apps/securing-lucee-server-apps` |  |
+| Lucee Server & web servers | `lucee-server-webserver` | `/guides/Various/lucee-webserver` |  |
+| Lucee Server compared with .NET | `lucee-server-compared-with-dotnet` | `/guides/getting-started/getting-to-know-lucee/lucee-server-compared-with-dotnet` |  |
+| Lucee server compared with Java | `lucee-server-compared-with-java` | `/guides/getting-started/getting-to-know-lucee/lucee-server-compared-with-java` |  |
+| Lucee Support - How to report bugs/problems and get help | `tutorial-reporting-bugs` | `/guides/Various/tutorial-lucee/tutorial-reporting-bugs` |  |
+| Lucee Syntax | `developing-with-lucee-server` | `/guides/developing-with-lucee-server` |  |
+| Lucee Tips and Tricks | `tips-and-tricks` | `/guides/Various/TIPS/TIPS-tricks` |  |
+| Lucee Tutorials | `tutorial-lucee` | `/guides/Various/tutorial-lucee` |  |
+| Magic Functions - Implicit Component Getters / Setters  | `tips-magic-functions` | `/guides/Various/TIPS/TIPS-magic-function` |  |
+| Mailing List Rules | `mailing-list-rules` | `/guides/get-involved/mailing-list-rules` |  |
+| Membase | `extension-membase` | `/guides/extensions/extension-membase` |  |
+| Migrating from Railo to Lucee | `updating-lucee-migrate-from-railo` | `/guides/updating-lucee/migrate-from-railo` |  |
+| Migrating to Lucee from ColdFusion | `updating-lucee-migrate-from-acf` | `/guides/updating-lucee/migrate-from-acf` |  |
+| mod_cfml | `mod-cfml` | `/guides/installing-lucee/mod_cfml` |  |
+| Mongodb | `extension-mongodb` | `/guides/extensions/extension-mongoDB` |  |
+| New and modified functions | `lucee-5-functions-tags` | `/guides/lucee-5/functions-tags` |  |
+| New and modified tags | `lucee-5-tags` | `/guides/lucee-5/tags` |  |
+| Newbie Questions | `getting-started-newbie-questions` | `/guides/getting-started/newbie-questions` |  |
+| Non Technical FAQs | `non-technical-FAQs` | `/guides/Various/FAQs/non-technical-FAQs` |  |
+| Operators | `operators` | `/guides/developing-with-lucee-server/operators` |  |
+| Preparing your Server - Linux | `preparing-your-server-linux` | `/guides/deploying-lucee-server-apps/preparing-your-server-linux` |  |
+| Professional Services | `professional-services` | `/guides/professional-services` |  |
+| Reserved Words | `reserved-words` | `/guides/developing-with-lucee-server/reserved-word` |  |
+| Scopes | `scopes` | `/guides/developing-with-lucee-server/scope` |  |
+| Scripts installing Tomcat and Lucee on Windows | `running-lucee-scripts-installing-tomcat-and-lucee-on-windows` | `/guides/installing-lucee/windows/scripts-installing-tomcat-and-lucee-on-windows` |  |
+| Securing /WEB-INF/ by moving it outside of the web root | `relocating-web-inf` | `/guides/installing-lucee/securing-webinf` |  |
+| Securing Tomcat and Lucee on Windows | `running-lucee-securing-tomcat-and-lucee-on-windows` | `/guides/installing-lucee/windows/securing-tomcat-and-lucee-on-windows` |  |
+| Serialize all types of data by using serialize(data) | `tips-serialize-data` | `/guides/Various/TIPS/TIPS-serilization` |  |
+| Server 2003 and IIS6 | `server-2003-IIS` | `/guides/Various/server2003-IIS6` |  |
+| Server 2008 with Tomcat and Plesk | `server-2008-IIS-7.5` | `/guides/Various/server2008-IIS7.5` |  |
+| Setting Up a Dev Environment to Compare Lucee and ACF on OSX | `setting-dev-environment-osx` | `/guides/Various/dev-environment` |  |
+| Setting Up Secure LDAP | `tips-LDAP` | `/guides/Various/TIPS/TIPS-LDAP` |  |
+| Starting and Stopping Lucee on Linux | `linux-starting-and-stopping-lucee` | `/guides/installing-lucee/lucee-server-adminstration-linux/start-and-stop-lucee` |  |
+| Starting and Stopping Lucee on Windows | `windows-start-stop-lucee` | `/guides/installing-lucee/lucee-server-adminstration-windows/starting-stoping-lucee` |  |
+| Starting Tomcat and verifying the installation on Windows | `running-lucee-starting-tomcat-and-verifying-the-installation-on-windows` | `/guides/installing-lucee/windows/starting-tomcat-and-verifying-the-installation-on-windows` |  |
+| Sysadmin Linux  | `lucee-server-administration-in-linux` | `/guides/installing-lucee/lucee-server-adminstration-linux` |  |
+| Sysadmin Windows  | `lucee-server-administration-in-windows` | `/guides/installing-lucee/lucee-server-adminstration-windows` |  |
+| System requirements | `getting-started-system-requirements` | `/guides/getting-started/system-requirements` |  |
+| System Requirements Linux | `linux-system-requirements` | `/guides/installing-lucee/installation-linux/system-requirements` |  |
+| Technical FAQs | `technical-FAQs` | `/guides/Various/FAQs/technical-FAQs` |  |
+| Template Cache | `tips-template-cache` | `/guides/Various/TIPS/TIPS-template` |  |
+| Template Performance / Caching | `webserver-cache` | `/guides/deploying-lucee-server-apps/webserver-cache` |  |
+| The Lucee dialect (removed 6.1) | `lucee-5-dialect-lucee` | `/guides/lucee-5/dialect-lucee` |  |
+| Tips | `tips-lucee` | `/guides/Various/TIPS` |  |
+| Todo | `lucee-todo` | `/guides/Various/TODO` |  |
+| Translations | `installer-translation` | `/guides/get-involved/installer-Translation` |  |
+| Ubuntu 12.04 Lucee 4 with Tomcat7 multi instance | `Ubuntu-lucee-with-Tomcat-multi-instance` | `/guides/Various/ubuntu-lucee-with-Tomcat7-multi-instance` |  |
+| Updating Lucee | `updating-lucee` | `/guides/updating-lucee` |  |
+| Updating Lucee from behind a proxy | `tutorial-patch-behind-proxy` | `/guides/Various/tutorial-lucee/tutorial-patch-behind-proxy` |  |
+| Updating the uriworkermap.properties File | `windows-updating-uriworkermap-properties-file` | `/guides/installing-lucee/lucee-server-adminstration-windows/updating-Tomcat-uriworkermap-properties-file` |  |
+| Updating Tomcat Memory Settings | `windows-update-memory-settings` | `/guides/installing-lucee/lucee-server-adminstration-windows/updating-memory-settings` |  |
+| Updating Tomcat's Server.xml File | `windows-updating-tomcat-server-xml-file` | `/guides/installing-lucee/lucee-server-adminstration-windows/utilizing-Tomcat-server-xml-file` |  |
+| Upgrading from Lucee 4.5 | `lucee-5-upgrading-lucee-45` | `/guides/lucee-5/upgrading-lucee-45` |  |
+| Upgrading from Railo | `lucee-5-updating-railo` | `/guides/lucee-5/updating-railo` |  |
+| Upgrading The JRE | `linux-upgrade-the-JRE` | `/guides/installing-lucee/installation-linux/upgrade-JRE` |  |
+| URL Rewriting | `url-rewriting` | `/guides/deploying-lucee-server-apps/url-rewriting` |  |
+| Using database for session data storage | `database-for-session` | `/guides/Various/FAQs/technical-FAQs/database-session` |  |
+| Using Java in Lucee | `tutorial-using-java-in-lucee` | `/guides/Various/tutorial-lucee/tutorial-java-in-lucee` |  |
+| Using Lucee in Java | `working-with-source-java-using-lucee-in-java` | `/guides/working-with-source/java-using-lucee-in-java` |  |
+| Using Lucee in Java | `using-lucee-in-java` | `/guides/Various/tutorial-lucee/tutorial-java-in-lucee/using-lucee-in-java` |  |
+| Using scopes explicitly in code | `using-scopes-explicitly-in-code` | `/guides/developing-with-lucee-server/scope/using-scopes-explicitly-in-code` |  |
+| Using the Lucee Installer | `using-the-lucee-installer` | `/guides/installing-lucee/using-the-lucee-installer` |  |
+| Utilizing Tomcat's Built-In Web Server | `windows-utilizing-tomcat-built-in-web-server` | `/guides/installing-lucee/lucee-server-adminstration-windows/utilizing-Tomcat-built-in-web-server` |  |
+| Various | `various` | `/guides/Various` |  |
+| Why Lucee Server's great | `why-lucee-server-great` | `/guides/about-lucee/why-lucee-server-great` |  |
+| Writing an extension (3/5) | `tutorial-extension-provider-part3` | `/guides/Various/tutorial-lucee/tutorial-extension-provider/tutorial-part-3` |  |
+| Writing an extension (5/5) | `tutorial-extension-provider-part5` | `/guides/Various/tutorial-lucee/tutorial-extension-provider/tutorial-part-5` |  |
+
+## Examples Index
+
+| Title | ID | URL |
+|-------|-----|-----|
+| Docker Example | `docker` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/readme.md` |
+| Lucee AST Demo | `docker/ast` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/ast/readme.md` |
+| Lucee Couchbase Cache Demo | `docker/couchbase` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/couchbase/readme.md` |
+| Lucee Docker Setup | `docker/with-config` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/with-config/readme.md` |
+| Lucee Docker Setup with Custom Extensions | `docker/wip` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/wip/readme.md` |
+| Lucee Docker Setup with Custom Extensions | `docker/with-extension` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/with-extension/readme.md` |
+| Lucee Docker Setup with Custom Extensions | `docker/with-patch` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/with-patch/readme.md` |
+| Lucee MCP Server — Docker Example | `docker/mcp` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/mcp/readme.md` |
+| Lucee S3 Virtual File System — LocalStack Example | `docker/s3-localstack` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/s3-localstack/readme.md` |
+| Lucee S3 Virtual File System — MinIO Example | `docker/s3-minio` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/s3-minio/readme.md` |
+| Lucee S3 Virtual File System — MiniStack Example | `docker/s3-ministack` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/s3-ministack/readme.md` |
+| Lucee Secret Provider - Docker Example | `docker/secret-provider` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/secret-provider/readme.md` |
+| Simple Lucee Docker Setup | `docker/basic` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/basic/readme.md` |
+| Simple Lucee Docker Setup | `docker/test` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/test/readme.md` |
 
 ## Technical Specs
 
@@ -204,7 +411,8 @@ For implementation details, class names, and API signatures fetch directly:
 
 ## Notes
 
-- Recipe docs are fetched live from `https://docs.lucee.org/recipes/` — always current
-- Technical specs are fetched live from the lucee-docs GitHub repo
+- Recipe and guide docs are fetched live from `https://docs.lucee.org` — always current
+- Examples and technical specs are fetched live from the lucee-docs GitHub repo
+- Tags and functions are covered by the Lucee MCP server
 - If a fetch fails, fall back to answering from training knowledge and note uncertainty
-- Multiple docs can be fetched for cross-cutting questions (e.g. configuration + datasources)
+- Multiple docs can be fetched for cross-cutting questions (e.g. configuration + Docker examples)
