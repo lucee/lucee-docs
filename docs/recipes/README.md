@@ -422,7 +422,7 @@ Entity lifecycle events, global event handlers, event firing order, and patterns
 
 ## [ORM - Getting Started](/docs/recipes/orm-getting-started.md)
 
-No description available.
+Quick start guide to using ORM in Lucee: enable ORM, define an entity, and perform CRUD operations
 
 ## [ORM - Logging and Debugging](/docs/recipes/orm-logging.md)
 

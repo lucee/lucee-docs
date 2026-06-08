@@ -1542,8 +1542,18 @@
     "file": "orm-getting-started.md",
     "title": "ORM - Getting Started",
     "path": "/docs/recipes/orm-getting-started.md",
-    "hash": "14340bc0be02bf9456c8c30a48e214a1",
-    "keywords": []
+    "hash": "55241203fba04cc787ed565a157caa58",
+    "keywords": [
+      "ORM",
+      "Hibernate",
+      "entity",
+      "entitySave",
+      "entityLoad",
+      "CRUD",
+      "Application.cfc",
+      "ormEnabled",
+      "persistent component"
+    ]
   },
   {
     "file": "orm-logging.md",

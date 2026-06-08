@@ -130,7 +130,7 @@ description: >
 | ORM - Configuration | `orm-configuration` | ORM, ormSettings, Hibernate, schema management, dbCreate, naming strategy, Application.cfc, cfcMapping, custom mappings |
 | ORM - Entity Mapping | `orm-entity-mapping` | ORM, entity mapping, persistent, primary key, column, fieldtype, generator, inheritance, computed property |
 | ORM - Events | `orm-events` | ORM, lifecycle events, preInsert, preUpdate, postLoad, event handler, global event handler, audit logging |
-| ORM - Getting Started | `orm-getting-started` |  |
+| ORM - Getting Started | `orm-getting-started` | ORM, Hibernate, entity, entitySave, entityLoad, CRUD, Application.cfc, ormEnabled, persistent component |
 | ORM - Logging and Debugging | `orm-logging` | ORM, logging, debugging, SQL, savemapping, ormGetSession, Hibernate logging, showSql |
 | ORM - Migration Guide | `orm-migration-guide` | ORM, migration, Hibernate 5.6, Adobe ColdFusion, ACF, upgrade, breaking changes, orm extension |
 | ORM - Querying | `orm-querying` | ORM, HQL, entityLoad, ormExecuteQuery, pagination, JOIN FETCH, bulk DML, query cache |
