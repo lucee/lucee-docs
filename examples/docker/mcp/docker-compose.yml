@@ -1,0 +1,14 @@
+services:
+  lucee:
+    build: .
+    image: lucee-mcp:latest
+    environment:
+      - LUCEE_ADMIN_PASSWORD=qwerty
+    volumes:
+      - "./www:/var/www"
+    ports:
+      - "8856:8888"  # tomcat
+      - "8056:80"    # nginx
+
+# how to run it
+# docker compose up -d --build

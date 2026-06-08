@@ -1,0 +1,28 @@
+{
+    "mode": "single",
+    "extensions": [
+        {
+            "id": "B5059590-2112-49FB-AEDFB997252EDA18",
+            "maven": "org.lucee:mcp-server-extension",
+            "name": "MCP Server"
+        }
+    ],
+    "loggers": {
+        "application": {
+            "appender": "console",
+            "appenderArguments": {
+                "streamtype": "error"
+            },
+            "layout": "classic",
+            "level": "info"
+        },
+        "deploy": {
+            "appender": "console",
+            "appenderArguments": {
+                "streamtype": "error"
+            },
+            "layout": "classic",
+            "level": "debug"
+        }
+    }
+}
