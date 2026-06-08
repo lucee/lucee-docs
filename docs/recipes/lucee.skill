@@ -55,6 +55,7 @@ description: >
 | Using CFML Functions and Components in Java | `convert-a-cfml-func-to-java` | conversion, cfc, function, component, Java, lambda |
 | CSV Processing in Lucee 7 | `csv-processing` | CSV, Apache Commons, Maven, Data Processing, Parsing |
 | Custom Tag Mappings | `custom-tag-mappings` | Custom Tag Mapping, Custom Tags, cfimport, Application.cfc, Lucee archive, taglib |
+| Deploying Custom Tags via Extensions | `custom-tags-via-extensions` | Custom Tags, Extensions, LEX, cfimport, taglib, prefix |
 | Database Connection Management in Lucee | `database-connection-management` | database, connection pool, datasource, transaction, exclusive connection, Apache Commons Pool |
 | Datasources | `datasource-how-to-define-them` | Datasource, Define datasource, Administrator, Application.cfc, Default datasource, MySQL |
 | Date and Time Formatting in Lucee | `date-time-formatting` | Date, Time, Formatting, Locale, Timezone, dateFormat |

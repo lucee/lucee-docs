@@ -132,6 +132,10 @@ Simple recipe for processing CSV data in Lucee 7 using Maven integration and Apa
 
 How to define and use custom tag mappings in Lucee.
 
+## [Deploying Custom Tags via Extensions](/docs/recipes/custom-tags-via-extensions.md)
+
+How to bundle and deploy custom tags as part of a Lucee extension (.lex file), and how to import them using cfimport.
+
 ## [Database Connection Management in Lucee](/docs/recipes/database-connection-management.md)
 
 Understanding how Lucee manages database connections: pooled, exclusive, and transaction-based connections
