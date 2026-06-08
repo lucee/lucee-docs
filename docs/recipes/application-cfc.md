@@ -13,12 +13,20 @@
   ],
   "description": "How to create and configure the Application.cfc",
   "keywords": [
+    "Application.cfc",
     "Application Context",
-    "Application Listeners",
+    "Application Lifecycle",
+    "onApplicationStart",
+    "onRequestStart",
+    "onSessionStart",
+    "onError",
+    "session management",
+    "client management",
+    "application scope",
     "Mappings",
     "cfapplication",
     "getApplicationSettings",
-    "Application.cfc"
+    "CFConfig"
   ]
 }
 -->

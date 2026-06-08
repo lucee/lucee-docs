@@ -6,7 +6,12 @@
   "keywords": [
     "Logging",
     "Log levels",
-    "Lucee"
+    "Log4j2",
+    "appenders",
+    "writelog",
+    "cfadmin",
+    "CFConfig",
+    "log files"
   ],
   "related": [
     "tag-log",

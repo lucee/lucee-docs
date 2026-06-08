@@ -7,7 +7,11 @@
   "keywords": [
     "query",
     "indexes",
-    "cfquery"
+    "cfquery",
+    "queryRowByIndex",
+    "column index",
+    "result set",
+    "queryGetCellByIndex"
   ],
   "categories": [
     "query"

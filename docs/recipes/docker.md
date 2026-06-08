@@ -4,7 +4,14 @@
   "id": "Docker",
   "description": "Guide on using and running Lucee with Docker",
   "keywords": [
-    "Docker"
+    "Docker",
+    "container",
+    "lucee/lucee",
+    "docker-compose",
+    "Dockerfile",
+    "Tomcat",
+    "LUCEE_ADMIN_PASSWORD",
+    "Server.cfc"
   ],
   "categories": [
     "server",

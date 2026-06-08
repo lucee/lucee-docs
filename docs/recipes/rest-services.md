@@ -5,8 +5,13 @@
   "description": "A detailed guide on how to create REST Sevices using CFCs",
   "keywords": [
     "REST",
-    "verbs",
-    "methods"
+    "RESTful",
+    "HTTP verbs",
+    "taffy",
+    "restInitApplication",
+    "CFC",
+    "JSON",
+    "API"
   ],
   "categories": [
     "rest",

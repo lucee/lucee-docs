@@ -16,8 +16,18 @@
     "function-entityloadbypk",
     "function-entitydelete",
     "function-ormflush"
+  ],
+  "keywords": [
+    "ORM",
+    "Hibernate",
+    "entity",
+    "entitySave",
+    "entityLoad",
+    "CRUD",
+    "Application.cfc",
+    "ormEnabled",
+    "persistent component"
   ]
-}
 -->
 
 # ORM - Getting Started

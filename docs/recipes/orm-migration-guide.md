@@ -6,6 +6,16 @@
     "orm"
   ],
   "description": "What's new in the 5.6 ORM extension, migrating from older versions, and migrating from Adobe ColdFusion ORM to Lucee",
+  "keywords": [
+    "ORM",
+    "migration",
+    "Hibernate 5.6",
+    "Adobe ColdFusion",
+    "ACF",
+    "upgrade",
+    "breaking changes",
+    "orm extension"
+  ],
   "related": [
     "orm-configuration",
     "orm-session-and-transactions",

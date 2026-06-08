@@ -6,6 +6,17 @@
     "orm"
   ],
   "description": "Understanding ORM sessions, entity lifecycle states, flush behaviour, dirty checking, transactions, savepoints, and multi-datasource usage in Lucee",
+  "keywords": [
+    "ORM",
+    "session",
+    "transaction",
+    "flush",
+    "dirty checking",
+    "ormFlush",
+    "savepoint",
+    "entity lifecycle",
+    "multi-datasource"
+  ],
   "related": [
     "orm-getting-started",
     "orm-configuration",

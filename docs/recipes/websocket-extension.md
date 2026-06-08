@@ -8,8 +8,14 @@
   ],
   "description": "How to install, configure and create WebSockets",
   "keywords": [
-    "Lucee",
-    "Extension"
+    "WebSocket",
+    "Extension",
+    "websocketInfo",
+    "real-time",
+    "websocketSend",
+    "websocketPublish",
+    "Server.cfc",
+    "onWebSocket"
   ],
   "related": [
     "function-websocketinfo",

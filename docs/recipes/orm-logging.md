@@ -6,6 +6,16 @@
     "orm"
   ],
   "description": "ORM logging settings, debugging techniques, inspecting generated SQL, savemapping, and advanced Hibernate session API in Lucee",
+  "keywords": [
+    "ORM",
+    "logging",
+    "debugging",
+    "SQL",
+    "savemapping",
+    "ormGetSession",
+    "Hibernate logging",
+    "showSql"
+  ],
   "related": [
     "orm-configuration",
     "orm-session-and-transactions",

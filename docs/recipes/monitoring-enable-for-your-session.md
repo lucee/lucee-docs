@@ -11,7 +11,11 @@
 	"description": "Shows you a way to enable Monitoring for your session",
 	"keywords": [
 		"monitoring",
-		"session"
+		"session",
+		"Application.cfc",
+		"showDebugOutput",
+		"debugging",
+		"this.monitoring"
 	]
 }
 -->

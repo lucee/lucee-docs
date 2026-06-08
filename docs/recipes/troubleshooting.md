@@ -12,7 +12,12 @@
   "keywords": [
     "startup",
     "deployment",
-    "logs"
+    "logs",
+    "troubleshooting",
+    "crash",
+    "systemOutput",
+    "WEB-INF",
+    "lucee-server"
   ],
   "related": [
     "function-systemoutput"

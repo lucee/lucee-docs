@@ -6,6 +6,17 @@
     "orm"
   ],
   "description": "Complete guide to ORM settings, schema management, naming strategies, and custom Hibernate mappings in Lucee",
+  "keywords": [
+    "ORM",
+    "ormSettings",
+    "Hibernate",
+    "schema management",
+    "dbCreate",
+    "naming strategy",
+    "Application.cfc",
+    "cfcMapping",
+    "custom mappings"
+  ],
   "related": [
     "orm-getting-started",
     "orm-entity-mapping",

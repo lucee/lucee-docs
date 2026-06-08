@@ -5,7 +5,12 @@
   "description": "Use the console for debugging",
   "keywords": [
     "Logging",
-    "console"
+    "console",
+    "systemOutput",
+    "debugging",
+    "CLI",
+    "writelog",
+    "dump"
   ],
   "related": [
     "function-systemoutput",

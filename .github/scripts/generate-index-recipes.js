@@ -224,7 +224,7 @@ function extractMarkdownTitle(content) {
   return match ? match[1].trim() : '';
 }
 
-function formatKeywords(keywords, limit = 6) {
+function formatKeywords(keywords, limit = 10) {
   return (keywords || []).slice(0, limit).join(', ');
 }
 

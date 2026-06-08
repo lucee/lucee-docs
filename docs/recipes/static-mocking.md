@@ -7,7 +7,10 @@
   "keywords": [
     "Static Functions",
     "Mocking",
-    "Unit Testing"
+    "Unit Testing",
+    "testbox",
+    "mockStatic",
+    "component testing"
   ]
 }
 -->

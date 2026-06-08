@@ -6,6 +6,16 @@
     "orm"
   ],
   "description": "HQL queries, entity loading functions, pagination, bulk DML, JOIN FETCH, aggregate functions, and query caching in Lucee ORM",
+  "keywords": [
+    "ORM",
+    "HQL",
+    "entityLoad",
+    "ormExecuteQuery",
+    "pagination",
+    "JOIN FETCH",
+    "bulk DML",
+    "query cache"
+  ],
   "related": [
     "orm-getting-started",
     "orm-entity-mapping",

@@ -6,6 +6,17 @@
     "orm"
   ],
   "description": "Defining ORM entities, property types, primary key strategies, computed properties, and inheritance patterns in Lucee",
+  "keywords": [
+    "ORM",
+    "entity mapping",
+    "persistent",
+    "primary key",
+    "column",
+    "fieldtype",
+    "generator",
+    "inheritance",
+    "computed property"
+  ],
   "related": [
     "orm-getting-started",
     "orm-configuration",

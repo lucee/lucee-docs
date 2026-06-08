@@ -6,6 +6,16 @@
     "orm"
   ],
   "description": "Configuring the Hibernate second-level cache and query cache with EHCache in Lucee ORM",
+  "keywords": [
+    "ORM",
+    "caching",
+    "second-level cache",
+    "query cache",
+    "EHCache",
+    "cacheProvider",
+    "ormEvictEntity",
+    "Hibernate cache"
+  ],
   "related": [
     "orm-configuration",
     "orm-querying",

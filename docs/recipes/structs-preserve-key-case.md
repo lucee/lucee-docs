@@ -7,7 +7,11 @@
   "keywords": [
     "struct",
     "dotNotationUpperCase",
-    "preserve case"
+    "preserve case",
+    "JSON",
+    "REST API",
+    "processingdirective",
+    "key case"
   ],
   "related": [
     "tag-processingdirective",

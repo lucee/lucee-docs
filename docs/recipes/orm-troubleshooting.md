@@ -6,6 +6,16 @@
     "orm"
   ],
   "description": "Common ORM pitfalls, error messages decoded, performance tips, and design patterns for Lucee ORM",
+  "keywords": [
+    "ORM",
+    "troubleshooting",
+    "performance",
+    "N+1",
+    "lazy loading",
+    "error messages",
+    "design patterns",
+    "session traps"
+  ],
   "related": [
     "orm-configuration",
     "orm-session-and-transactions",

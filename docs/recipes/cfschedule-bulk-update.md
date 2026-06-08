@@ -6,7 +6,12 @@
   "since": "6.2.3.16",
   "keywords": [
     "scheduled tasks",
-    "config"
+    "cfschedule",
+    "bulk update",
+    "configImport",
+    "onApplicationStart",
+    "task scheduler",
+    "config reload"
   ],
   "related": [
     "tag-schedule",

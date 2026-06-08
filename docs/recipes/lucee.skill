@@ -25,16 +25,16 @@ description: >
 
 | Title | ID | Keywords |
 |-------|-----|----------|
-| Adding Full Text Search to Your Application | `search` | search, cfcollection, cfindex, cfsearch, Lucene, full-text |
-| AI | `ai` | AI, LLM, ChatGPT, Gemini, Claude, Ollama |
-| AI Augmentation with Lucene | `ai-augmentation` | AI, LLM, RAG, Search, Augmentation, Lucene |
-| AI in Documentation (Experimental) | `ai-for-documentation` | AI, LLM, documentation, configuration, Monitor, experimental |
+| Adding Full Text Search to Your Application | `search` | search, cfcollection, cfindex, cfsearch, Lucene, full-text, indexing, collections |
+| AI | `ai` | AI, LLM, ChatGPT, Gemini, Claude, Ollama, RAG, Multipart, MCP |
+| AI Augmentation with Lucene | `ai-augmentation` | AI, LLM, RAG, Search, Augmentation, Lucene, Retrieval |
+| AI in Documentation (Experimental) | `ai-for-documentation` | AI, LLM, documentation, configuration, Monitor, experimental, admin settings, AI engines, OpenAI, Gemini |
 | AI Session Serialization | `ai-serialisation` | AI, LLM, Serialization, Session, Persistence |
-| Application Context update | `application-context-update` | Application Context, Update Application, Mappings, cfapplication, getApplicationSettings, Application.cfc |
-| Application.cfc # | `application-cfc` | Application Context, Application Listeners, Mappings, cfapplication, getApplicationSettings, Application.cfc |
-| AST (Abstract Syntax Tree) | `ast` | AST, Abstract Syntax Tree, parsing, code analysis, static analysis, transformation |
-| Basic Date - Output the current date | `basic-date` | Date, Current date, lsDateTimeFormat, now, setLocale, Application.cfc |
-| Best Practices: Structs vs Inline Components | `structs-vs-components` | struct, component, inline component, performance, memory, best practices |
+| Application Context update | `application-context-update` | Application Context, cfapplication, action update, getApplicationSettings, mappings, per-request, runtime update, Application.cfc |
+| Application.cfc # | `application-cfc` | Application.cfc, Application Context, Application Lifecycle, onApplicationStart, onRequestStart, onSessionStart, onError, session management, client management, application scope |
+| AST (Abstract Syntax Tree) | `ast` | AST, Abstract Syntax Tree, parsing, code analysis, static analysis, transformation, IDE tooling |
+| Basic Date - Output the current date | `basic-date` | Date, Current date, lsDateTimeFormat, now, setLocale, Application.cfc, Locale |
+| Best Practices: Structs vs Inline Components | `structs-vs-components` | struct, component, inline component, performance, memory, best practices, CFC, bean |
 | Breaking Changes between Lucee 5.4 and 6.0 | `breaking-changes-6-0` | breaking changes, Lucee 5.4, Lucee 6.0, migration, upgrade |
 | Breaking Changes between Lucee 6.0 and 6.1 | `breaking-changes-6-1` | breaking changes, Lucee 6.0, Lucee 6.1, migration, upgrade |
 | Breaking Changes between Lucee 6.1 and 6.2 | `breaking-changes-6-2` | breaking changes, Lucee 6.1, Lucee 6.2, migration, upgrade |
@@ -45,25 +45,25 @@ description: >
 | Checksum | `checksum` | Checksum, File validation, cfhttp, hash, fileReadBinary |
 | Clustering with Quartz Scheduler | `scheduler-quartz-clustering` | scheduler, quartz, clustering, database, redis |
 | Complete Guide to Threading in Lucee | `thread-usage` | threads, parallel, async, concurrent, performance, cfthread |
-| Component Accessors | `component-accessors` | accessors, getter, setter, cfproperty, property, component |
+| Component Accessors | `component-accessors` | accessors, getter, setter, cfproperty, property, component, bean, fluent API, mixin, virtual inheritance |
 | Component Mappings | `component-mappings` | Component Mapping, CFCs, Application.cfc, Lucee archive |
 | Configuration - How to Configure Lucee | `configuration` | configuration, config, .CFConfig.json, lucee-server.xml, lucee-web.xml |
 | Configuration - Lucee 5 | `configuration-lucee5` | configuration, config, lucee-server.xml, lucee-web.xml, Lucee 5 |
 | Configure Lucee Programmatically | `configuration-administrator-cfc` | Administrator.cfc, cfadmin, Configuration, Lucee, Web context, Server configuration |
-| Console Logging | `console-logging` | Logging, console |
+| Console Logging | `console-logging` | Logging, console, systemOutput, debugging, CLI, writelog, dump |
 | Creating Component-Based Jobs with Quartz Scheduler | `scheduler-quartz-component-jobs` | scheduler, quartz, component, cfc, jobs, listeners |
-| Creating Heap Dumps in Lucee | `heap-dumps` | Heap Dump, Memory, OutOfMemoryError, Troubleshooting, Performance, Debugging |
+| Creating Heap Dumps in Lucee | `heap-dumps` | Heap Dump, Memory, OutOfMemoryError, Troubleshooting, Performance, Debugging, JVM |
 | CSV Processing in Lucee 7 | `csv-processing` | CSV, Apache Commons, Maven, Data Processing, Parsing |
 | Custom Event Gateways | `event-gateway-create` | Event Gateway, Custom Gateway, Directory Watcher, File Size Checker, Gateway Driver |
 | Custom Tag Mappings | `custom-tag-mappings` | Custom Tag Mapping, Custom Tags, cfimport, Application.cfc, Lucee archive, taglib |
-| Database Connection Management in Lucee | `database-connection-management` | database, connection pool, datasource, transaction, exclusive connection, Apache Commons Pool |
+| Database Connection Management in Lucee | `database-connection-management` | database, connection pool, datasource, transaction, exclusive connection, Apache Commons Pool, MySQL, connection pinning |
 | Datasources | `datasource-how-to-define-them` | Datasource, Define datasource, Administrator, Application.cfc, Default datasource, MySQL |
-| Date and Time Formatting in Lucee | `date-time-formatting` | Date, Time, Formatting, Locale, Timezone, dateFormat |
-| Deploying Custom Tags via Extensions | `custom-tags-via-extensions` | Custom Tags, Extensions, LEX, cfimport, taglib, prefix |
-| Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy` | `concurrent-map-legacy-flag` | ConcurrentHashMap, struct, lucee.concurrent.map.impl, legacy, struct ordering, LDEV-5098 |
-| Docker | `docker` | Docker |
+| Date and Time Formatting in Lucee | `date-time-formatting` | Date, Time, Formatting, Locale, Timezone, dateFormat, timeFormat, dateTimeFormat, lsDateFormat, createTime |
+| Deploying Custom Tags via Extensions | `custom-tags-via-extensions` | Custom Tags, Extensions, LEX, cfimport, taglib, prefix, lucee-server context |
+| Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy` | `concurrent-map-legacy-flag` | ConcurrentHashMap, struct, lucee.concurrent.map.impl, legacy, struct ordering, LDEV-5098, LDEV-6288 |
+| Docker | `docker` | Docker, container, lucee/lucee, docker-compose, Dockerfile, Tomcat, LUCEE_ADMIN_PASSWORD, Server.cfc |
 | Dynamic Proxy Enhancements | `dynamic-proxy-enhancements` | dynamic proxy, java, interface, component, interoperability, createDynamicProxy |
-| DynamoDB Cache Extension | `dynamodb-cache-extension` | DynamoDB, Cache, AWS, NoSQL, Distributed Cache, Cloud Storage |
+| DynamoDB Cache Extension | `dynamodb-cache-extension` | DynamoDB, Cache, AWS, NoSQL, Distributed Cache, Cloud Storage, Maven, DynamoDBCommand |
 | Encryption/Decryption | `encryption_decryption` | Encryption, Decryption, RSA, Public key, Private key, Lucee |
 | Environment Variables / System Properties for Lucee | `environment-variables-system-properties` | Environment, Environment Variables, Properties, System Properties, setting, config |
 | Event Gateway - How they work? | `event-gateways-how-they-work` | Event Gateway, Directory Watcher, Mail Watcher, cfadmin, File Changes |
@@ -72,8 +72,8 @@ description: >
 | Exception - Cause | `exception-cause` | exception, error, cause, thread, parent |
 | Exception Output | `exception-output` | Exception, Output, Catch, Display exceptions, try-catch |
 | ExecutionLog | `execution-log` | executionlog, debug, performance, profiling |
-| Extension Installation | `extension-installation` | extension, install, lucee administrator, deploy directory, CFConfig.json, environment variable |
-| Extension Provider | `extension-provider` | extensions, Maven, provider, GroupId, repository, lex |
+| Extension Installation | `extension-installation` | extension, install, lucee administrator, deploy directory, CFConfig.json, environment variable, system property, hot deployment, automation |
+| Extension Provider | `extension-provider` | extensions, Maven, provider, GroupId, repository, lex, CFConfig |
 | External Agent | `external-agent` | agent, instrumentation, java agent, premain, redefine, retransform |
 | Externalize Strings | `externalizing-strings` | Externalize strings, Memory reduction, Class files, Static contents, Lucee |
 | File Extensions | `file-extensions` | CFML, cfm, cfc, cfml, cfs, file extensions |
@@ -82,114 +82,114 @@ description: >
 | Function SystemOutput | `function-systemoutput` | SystemOutput function, Debugging, Output stream, Error stream, Stack trace |
 | Get Datasource Drivers Directly from Maven | `get-dbdriver-from-maven` | datasource, maven, mysql, db |
 | getClass() Method for Components | `component-getclass-method` | getClass, component, java, interface |
-| Getting Started with Caching | `caching-getting-started` | Cache, cachePut, cacheGet, cacheClear, cacheDelete, RAM cache |
+| Getting Started with Caching | `caching-getting-started` | Cache, cachePut, cacheGet, cacheClear, cacheDelete, RAM cache, Object cache, Application.cfc, Getting started |
 | Global Proxy | `global-proxy` | proxy, global proxy, Lucee, Application.cfc, CFConfig |
-| Hidden Gems | `hidden-gems` | Hidden gems, Declare variables, Function calls, Dot notation, Bracket notation, URL form scopes |
+| Hidden Gems | `hidden-gems` | Hidden gems, Declare variables, Function calls, Dot notation, Bracket notation, URL form scopes, Array format |
 | Hooks and Monitors | `hooks-and-monitors` | hooks, monitors, startup, extension, lifecycle, injection |
-| How to Use Tags in Script | `tag-syntax` | Syntax, tag, function, Script, throw, abort |
-| Import | `import` | cfimport, import, Lucee, components, java classes, custom tags |
-| Inline Components | `inline-components` | component, inline-component |
+| How to Use Tags in Script | `tag-syntax` | Syntax, tag, function, Script, throw, abort, return |
+| Import | `import` | cfimport, import, Lucee, components, java classes, custom tags, taglib |
+| Inline Components | `inline-components` | component, inline component, closure, anonymous component, cfscript, sub-component |
 | Interacting with Java Libraries | `java-libraries` | java, maven, import, Lucee, libraries, new operator |
-| Java Class Interaction | `java-class-interaction` | Java, Classes, Objects, Interop, Static Methods, Inner Classes |
+| Java Class Interaction | `java-class-interaction` | Java, Classes, Objects, Interop, Static Methods, Inner Classes, Reflection |
 | Java Classes Using Lucee's Logging | `java-using-lucee-logging` | java, logging, slf4j, lucee.commons.io.log.Log |
 | Java in Functions and Closures | `java-in-functions-and-closures` | function, java, closures, components, lambda, Lucee |
-| Java Regex Engine | `java-regex-engine` | regex, regular expressions, Java regex, Apache ORO, performance, Application.cfc |
-| Java Scripting with Lucee | `java-scripting` | Java, JSR-223, ScriptEngine, CFML, Scripting, Integration |
+| Java Regex Engine | `java-regex-engine` | regex, regular expressions, Java regex, Apache ORO, performance, Application.cfc, REFind, REReplace, REMatch, migration |
+| Java Scripting with Lucee | `java-scripting` | Java, JSR-223, ScriptEngine, CFML, Scripting, Integration, Serverless, Lambda |
 | Java Settings | `java-settings` | Java settings, Application.cfc, javasettings, cfapplication |
-| javax vs jakarta Servlet Compatibility | `javax-vs-jakarta` | javax, jakarta, servlet, Tomcat, Jetty, web.xml |
+| javax vs jakarta Servlet Compatibility | `javax-vs-jakarta` | javax, jakarta, servlet, Tomcat, Jetty, web.xml, CFMLServlet, RestServlet, migration |
 | Language Server Protocol (LSP) for Lucee | `language-server` | LSP, language server, IDE integration, VS Code, development tools, code completion |
 | Lazy Queries | `lazy-queries` | Lazy Queries, Regular Queries, Performance, Memory Optimization, Lucee |
 | List existing Cache Connections | `list-existing-cache-conn` | Cache, Cache connections, List cache, getApplicationSettings, Lucee |
 | Loading Java Libraries with Maven | `maven` | Maven, Java, javaSettings, dependencies |
-| Logging | `logging` | Logging, Log levels, Lucee |
+| Logging | `logging` | Logging, Log levels, Log4j2, appenders, writelog, cfadmin, CFConfig, log files |
 | Logging CFHTTP Calls | `http-logging` | cfhttp, logging, Lucee, log level, http log |
 | Logging HTTP Calls | `logging-http-calls` | cfhttp, logging, http, debugging, application log, http log |
 | Loop Labels | `loop-labels` | loop, label, for, while, continue, break |
 | Looping Through Files | `loop-through-files` | Looping through files, cffile, fileRead, fileReadBinary, Memory optimization, Lucee |
-| Lucee 5 to 6 Migration Guide | `lucee-5-to-6-migration-guide` | Migration, Lucee 5, Lucee 6, Breaking Changes, Compatibility, DeserializeJSON |
-| Lucee 7 Loader API Changes | `loader-api-changes-7` | loader, API, CFMLEngine, extensions, Java, Jakarta |
-| Lucee and REST Services | `rest-services` | REST, verbs, methods |
-| Lucee Archives (.lar files) | `archives-creating-and-deploy` | Lucee, Archives, .lar files, Deploy, Mapping, Component |
+| Lucee 5 to 6 Migration Guide | `lucee-5-to-6-migration-guide` | Migration, Lucee 5, Lucee 6, Breaking Changes, Compatibility, DeserializeJSON, Query Parameters, Precise Math, DateTimeFormat |
+| Lucee 7 Loader API Changes | `loader-api-changes-7` | loader, API, CFMLEngine, extensions, Java, Jakarta, AI, secret provider, migration |
+| Lucee and REST Services | `rest-services` | REST, RESTful, HTTP verbs, taffy, restInitApplication, CFC, JSON, API |
+| Lucee Archives (.lar files) | `archives-creating-and-deploy` | Lucee, Archives, .lar files, Deploy, Mapping, Component, CFC, CFM, compiled, source protection |
 | Lucee Extension Utilities | `extension-utilities` | Extension, Development, Utilities, CFMLEngine, Java, API |
 | Lucee Release Cycle | `release-cycle` | release, versioning, branching, development cycle, release candidate, RC |
-| Lucee Versions and Extensions | `versions` | versions, extensions, LuceeVersionsList, LuceeVersionsDetail, LuceeExtension, Maven |
-| Lucene 3 Extension | `lucene-search` | Lucene, Search, Vector, Hybrid, Semantic, Content Chunks |
+| Lucee Versions and Extensions | `versions` | versions, extensions, LuceeVersionsList, LuceeVersionsDetail, LuceeExtension, Maven, upgrade |
+| Lucene 3 Extension | `lucene-search` | Lucene, Search, Vector, Hybrid, Semantic, Content Chunks, Embeddings |
 | Mail Listeners | `mail-listener` | mail, listener, Application.cfc, component |
 | Mappings - How to define a regular Mapping | `mappings-how-to-define-a-reg-mapping` | Mapping, Filesystem, Define mapping, Application.cfc, Lucee archive |
-| Mathematical Precision | `mathematical-precision` | math, precision, BigDecimal, Lucee, Application.cfc, PrecisionEvaluate |
-| Maven Based Extensions | `maven-based-extensions` | extension, Maven, OSGi, lex, GAVSO, manifest |
+| Mathematical Precision | `mathematical-precision` | math, precision, BigDecimal, Lucee, Application.cfc, PrecisionEvaluate, preciseMath, floating point, money, currency |
+| Maven Based Extensions | `maven-based-extensions` | extension, Maven, OSGi, lex, GAVSO, manifest, TLD, FLD, BIF, classloading |
 | Migrating from Classic to Modern Local Scope Mode | `migrate.from.classic-to-modern-local-scope` | local scope, variables, migration, scope mode, classic mode, modern mode |
-| Mocking Static Functions in Lucee for Unit Testing | `static-mocking` | Static Functions, Mocking, Unit Testing |
-| Monitoring - Enable for your session | `monitoring-enable-for-your-session` | monitoring, session |
-| Monitoring/Debugging | `monitoring-debugging` | monitoring, debugging, admin, Application.cfc, cfsetting, debug |
-| MSSQL Modern Mode | `mssql-modern-mode` | mssql, sql server, raiserror, deferred exceptions, modern mode, jdbc |
+| Mocking Static Functions in Lucee for Unit Testing | `static-mocking` | Static Functions, Mocking, Unit Testing, testbox, mockStatic, component testing |
+| Monitoring - Enable for your session | `monitoring-enable-for-your-session` | monitoring, session, Application.cfc, showDebugOutput, debugging, this.monitoring |
+| Monitoring/Debugging | `monitoring-debugging` | monitoring, debugging, admin, Application.cfc, cfsetting, debug, showdebugoutput, cfapplication |
+| MSSQL Modern Mode | `mssql-modern-mode` | mssql, sql server, raiserror, deferred exceptions, modern mode, jdbc, stored procedures, t-sql |
 | New Operator | `new-operator` | new, java, classes, class, createObject, component |
 | Null Support | `null-support` | Null support, null keyword, NullValue function, isNull function, Lucee |
-| onBuild Function in Server.cfc | `docker-onbuild` | onBuild, Server.cfc, build, Docker, server, compile |
-| ORM - Caching | `orm-caching` |  |
-| ORM - Configuration | `orm-configuration` |  |
-| ORM - Entity Mapping | `orm-entity-mapping` |  |
-| ORM - Events | `orm-events` |  |
+| onBuild Function in Server.cfc | `docker-onbuild` | onBuild, Server.cfc, build, Docker, server, compile, encrypt, validate, prewarm, warmup |
+| ORM - Caching | `orm-caching` | ORM, caching, second-level cache, query cache, EHCache, cacheProvider, ormEvictEntity, Hibernate cache |
+| ORM - Configuration | `orm-configuration` | ORM, ormSettings, Hibernate, schema management, dbCreate, naming strategy, Application.cfc, cfcMapping, custom mappings |
+| ORM - Entity Mapping | `orm-entity-mapping` | ORM, entity mapping, persistent, primary key, column, fieldtype, generator, inheritance, computed property |
+| ORM - Events | `orm-events` | ORM, lifecycle events, preInsert, preUpdate, postLoad, event handler, global event handler, audit logging |
 | ORM - Getting Started | `orm-getting-started` |  |
-| ORM - Logging and Debugging | `orm-logging` |  |
-| ORM - Migration Guide | `orm-migration-guide` |  |
-| ORM - Querying | `orm-querying` |  |
-| ORM - Relationships | `orm-relationships` |  |
-| ORM - Sessions and Transactions | `orm-session-and-transactions` |  |
-| ORM - Troubleshooting | `orm-troubleshooting` |  |
-| Overwriting and Adding Built-in Functions and Tags | `overwrite-build-in-functions-tags` | function, BIF, overwrite, add functions, custom tags, Lucee customization |
+| ORM - Logging and Debugging | `orm-logging` | ORM, logging, debugging, SQL, savemapping, ormGetSession, Hibernate logging, showSql |
+| ORM - Migration Guide | `orm-migration-guide` | ORM, migration, Hibernate 5.6, Adobe ColdFusion, ACF, upgrade, breaking changes, orm extension |
+| ORM - Querying | `orm-querying` | ORM, HQL, entityLoad, ormExecuteQuery, pagination, JOIN FETCH, bulk DML, query cache |
+| ORM - Relationships | `orm-relationships` | ORM, relationships, many-to-one, one-to-many, many-to-many, cascade, lazy loading, batch loading |
+| ORM - Sessions and Transactions | `orm-session-and-transactions` | ORM, session, transaction, flush, dirty checking, ormFlush, savepoint, entity lifecycle, multi-datasource |
+| ORM - Troubleshooting | `orm-troubleshooting` | ORM, troubleshooting, performance, N+1, lazy loading, error messages, design patterns, session traps |
+| Overwriting and Adding Built-in Functions and Tags | `overwrite-build-in-functions-tags` | function, BIF, overwrite, add functions, custom tags, Lucee customization, Lucee server, backport fixes, ACF compatibility |
 | PDF Engine - Flying Saucer (CFDocument) | `pdf-engine-flying-saucer` | Flying Saucer, PDF Engine, CFDOCUMENT, HTML to PDF |
-| Precompiled Code | `precompiled-code` | Precompiled, Pre-compile code, Production server, Security, CFML, Class files |
-| Preserving Key Case in CFML Structs / Variables | `structs-preserve-key-case` | struct, dotNotationUpperCase, preserve case |
-| QoQ SQL Functions and Operators | `query-of-queries-functions` | Query of Queries, QoQ, SQL, functions, operators, HSQLDB |
+| Precompiled Code | `precompiled-code` | Precompiled, Pre-compile code, Production server, Security, CFML, Class files, Lucee |
+| Preserving Key Case in CFML Structs / Variables | `structs-preserve-key-case` | struct, dotNotationUpperCase, preserve case, JSON, REST API, processingdirective, key case |
+| QoQ SQL Functions and Operators | `query-of-queries-functions` | Query of Queries, QoQ, SQL, functions, operators, HSQLDB, Lucee |
 | Quartz Scheduler Extension for Lucee | `scheduler-quartz` | scheduler, quartz, cron, scheduled task, clustering |
 | Query Async | `query-async` | query, async, listener, thread |
-| Query Execution | `query-handling` | cfquery, queryExecute, Query, database, parameters, performance |
-| Query Indexes | `query-indexes` | query, indexes, cfquery |
+| Query Execution | `query-handling` | cfquery, queryExecute, Query, database, parameters, performance, SQL, prepared statements |
+| Query Indexes | `query-indexes` | query, indexes, cfquery, queryRowByIndex, column index, result set, queryGetCellByIndex |
 | Query Listeners | `query-listener` | query, listener, Lucee, Application.cfc, component |
 | Query of Queries (QoQ) | `query-of-queries` | Query of Queries, QoQ, SQL, In memory query, Lucee, dbtype query |
 | Query of Queries sometimes it rocks, sometimes it sucks | `query-of-query-sometime` | Query of Queries, QoQ, Performance, Query Filter, Query Sort, Lucee |
-| Query Result Logging | `query-result-threshold` | query, logging, monitoring, performance, OOM, OutOfMemory |
+| Query Result Logging | `query-result-threshold` | query, logging, monitoring, performance, OOM, OutOfMemory, database, threshold |
 | Query return type | `query-return-type` | Query return type, Array return type, Struct return type, Foreign key, Lucee |
 | Read XML with a listener Model (SAX) | `read-xml-with-a-listener-model-sax` | XML, SAX, XML Parsing, Event Driven, XML Event Parsing, XML to Struct |
 | Recommended Settings | `recommended-settings` | settings, performance, Production server, Security, config |
-| Request Timeout | `request-timeout` | request timeout, timeout, memory, cpu, Concurrent Requests, Administrator |
+| Request Timeout | `request-timeout` | request timeout, timeout, memory, cpu, Concurrent Requests, Administrator, Application.cfc, cfsetting, Threshold |
 | Retry | `retry` | Retry, Exception handling, Try catch, Lucee |
-| S3 | `s3` | S3, MinIO, object storage, VFS, virtual file system, AWS |
+| S3 | `s3` | S3, MinIO, object storage, VFS, virtual file system, AWS, Backblaze, Wasabi |
 | Script Templates | `script-templates` | CFML, script, templates, Lucee, cfs |
 | Secret Management | `secret-provider` | security, secrets, credentials, environment variables, configuration |
-| Selective Cache Invalidation | `cache-invalidation-selective` | Cache, cachedWithin, cachedWithinId, cachedWithinFlush, Query cache, Function cache |
+| Selective Cache Invalidation | `cache-invalidation-selective` | Cache, cachedWithin, cachedWithinId, cachedWithinFlush, Query cache, Function cache, HTTP cache, Cache invalidation, Performance |
 | Sending Emails | `mail-how-to-send-a-mail` | Email, Send mail, cfmail, Mail server, Mail script, Lucee |
-| Servlet Configuration | `servlet-configuration` | java, javax, jakarta, servlet, tomcat, jetty |
-| Session Handling | `session-handling` | Session Management, CFML Sessions, JEE Sessions, Session Storage, Session Security, Session Timeout |
+| Servlet Configuration | `servlet-configuration` | java, javax, jakarta, servlet, tomcat, jetty, undertow, war, docker |
+| Session Handling | `session-handling` | Session Management, CFML Sessions, JEE Sessions, Session Storage, Session Security, Session Timeout, Session Clustering, State Management |
 | Setting System Properties and Environment Variables | `setting-system-properties-and-env-vars` | Environment, Environment Variables, Properties, System Properties, setting, config |
 | Setting the Lucee Admin Password | `admin-password` | admin, password, security, LUCEE_ADMIN_PASSWORD, CFConfig |
 | Single Mode vs Multi Mode in Lucee | `single-vs-multi-mode` | Lucee, Single Mode, Multi Mode, Configuration |
 | SQL Types | `sql-types` | SQL, SQL types, CF_SQL, queryparam, queryexecute, cfsqltype |
-| Startup Listeners - Server.cfc and Web.cfc | `startup-listeners-code` | startup, warmup, prewarm, Server.cfc, Web.cfc, onServerStart |
+| Startup Listeners - Server.cfc and Web.cfc | `startup-listeners-code` | startup, warmup, prewarm, Server.cfc, Web.cfc, onServerStart, onWebStart, onBuild, initialization, bootstrap |
 | Static Scope in Components | `static-scope-in-components` | Static scope, Components, Application scope, Server scope |
-| Step Debugging Lucee with Extension Debugger | `step-debugger` | debugger, DAP, debug adapter protocol, breakpoints, step debugging, VS Code |
+| Step Debugging Lucee with Extension Debugger | `step-debugger` | debugger, DAP, debug adapter protocol, breakpoints, step debugging, VS Code, luceedebug, extension |
 | Sub Components | `sub-components` | CFML, component, sub-component, Lucee |
 | Supercharge your website | `supercharge-your-website` | Supercharge website, Performance, Caching, Template cache, Lucee |
-| Tag Islands | `tag-islands` |  |
+| Tag Islands | `tag-islands` | tag islands, cfscript, tag mode, backticks, refactoring, script component |
 | Thread Dump During Startup | `thread-dump-startup` | threads, debugging, startup, performance, monitoring, stack traces |
 | Thread Tasks | `thread-task` | Thread Tasks, Daemon Threads, Task Threads, Retry, Lucee |
 | Timeout | `timeout` | tag, timeout, listener, Lucee, cftimeout, error handling |
-| Troubleshooting Lucee Problems | `troubleshooting` | startup, deployment, logs |
+| Troubleshooting Lucee Problems | `troubleshooting` | startup, deployment, logs, troubleshooting, crash, systemOutput, WEB-INF, lucee-server |
 | Types in Lucee | `types-in-lucee` | Types, Function argument, Return value, CFParam, Lucee |
-| Untitled | `cfschedule-bulk-update` | scheduled tasks, config |
+| Untitled | `cfschedule-bulk-update` | scheduled tasks, cfschedule, bulk update, configImport, onApplicationStart, task scheduler, config reload |
 | Untitled | `check-for-changes` | Configuration, Check for changes, Lucee, Automatic update, Server context, Web context |
-| Untitled | `directory-placeholders` |  |
-| Using cachedWithin | `cached-within-request` | Cache, Query, Request cache, cachedWithin, cfquery, cfhttp |
-| Using CFML Functions and Components in Java | `convert-a-cfml-func-to-java` | conversion, cfc, function, component, Java, lambda |
+| Untitled | `directory-placeholders` | directory placeholders, lucee-web, lucee-server, lucee-config, web-root-directory, expandPath, configuration paths, portable config |
+| Using cachedWithin | `cached-within-request` | Cache, Query, Request cache, cachedWithin, cfquery, cfhttp, cffile |
+| Using CFML Functions and Components in Java | `convert-a-cfml-func-to-java` | conversion, cfc, function, component, Java, lambda, Lucee |
 | Using S3 directly for source code | `using-s3-directly-for-source-code` | S3, Source code, Credentials, Mapping, Caching |
-| Using S3 Regions in Lucee | `s3-region` | Virtual File System, VFS, S3, Regions, Buckets, Amazon S3 |
-| Virtual File Systems | `virtual-file-system` | Virtual File System, VFS, Local File System, ZIP, RAM, S3 |
-| Warmup | `warmup` | Warmup, Docker, Fail-Fast, Configuration Validation, Container, Startup |
+| Using S3 Regions in Lucee | `s3-region` | Virtual File System, VFS, S3, Regions, Buckets, Amazon S3, Wasabi, MinIO, Cloud Storage |
+| Virtual File Systems | `virtual-file-system` | Virtual File System, VFS, Local File System, ZIP, RAM, S3, FTP, git, HTTP, MinIO |
+| Warmup | `warmup` | Warmup, Docker, Fail-Fast, Configuration Validation, Container, Startup, onBuild |
 | WebSocket Client Extension | `websocket-client-extension` | Lucee, Extension, WebSocket, Client |
-| WebSocket Extension | `websocket-extension` | Lucee, Extension |
+| WebSocket Extension | `websocket-extension` | WebSocket, Extension, websocketInfo, real-time, websocketSend, websocketPublish, Server.cfc, onWebSocket |
 | XML Fast And Easy, using SAX - Listener Functions | `xml-fast-and-easy` | XML parsing, SAX, XML event listener, XMLCatalog, Lucee |
-| XML Security with xmlFeatures | `xml-security-xmlfeatures` | XML, xmlFeatures, XXE, security, xmlParse, isXml |
+| XML Security with xmlFeatures | `xml-security-xmlfeatures` | XML, xmlFeatures, XXE, security, xmlParse, isXml, external entities, DOCTYPE |
 | YAML Processing in Lucee 7 | `yaml-processing` | YAML, SnakeYAML, Maven, Java Integration |
 
 ## Guide Index
@@ -393,6 +393,7 @@ description: >
 | Lucee S3 Virtual File System — MiniStack Example | `docker/s3-ministack` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/s3-ministack/readme.md` |
 | Lucee Secret Provider - Docker Example | `docker/secret-provider` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/secret-provider/readme.md` |
 | Simple Lucee Docker Setup | `docker/basic` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/basic/readme.md` |
+| Simple Lucee Docker Setup | `docker/test` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/test/readme.md` |
 
 ## Technical Specs
 

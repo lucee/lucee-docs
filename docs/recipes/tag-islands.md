@@ -4,6 +4,12 @@
   "id": "tag-islands",
   "description": "Tag islands allow you to switch into tag mode from inside cfscript",
   "keywords": [
+    "tag islands",
+    "cfscript",
+    "tag mode",
+    "backticks",
+    "refactoring",
+    "script component"
   ],
   "categories": [
     "core",

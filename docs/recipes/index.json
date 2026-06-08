@@ -83,13 +83,15 @@
     "file": "application-context-update.md",
     "title": "Application Context update",
     "path": "/docs/recipes/application-context-update.md",
-    "hash": "873fb8751e8fb2c6ae9c5246cb0f14b5",
+    "hash": "21c56e7bdcccbd2bcd13a7c8055e39cc",
     "keywords": [
       "Application Context",
-      "Update Application",
-      "Mappings",
       "cfapplication",
+      "action update",
       "getApplicationSettings",
+      "mappings",
+      "per-request",
+      "runtime update",
       "Application.cfc"
     ]
   },
@@ -97,14 +99,22 @@
     "file": "application-cfc.md",
     "title": "Application.cfc #",
     "path": "/docs/recipes/application-cfc.md",
-    "hash": "f635190245e45ab39461438b9c83b2b4",
+    "hash": "22821e319138d7b7e3b9ffab9cbf8c94",
     "keywords": [
+      "Application.cfc",
       "Application Context",
-      "Application Listeners",
+      "Application Lifecycle",
+      "onApplicationStart",
+      "onRequestStart",
+      "onSessionStart",
+      "onError",
+      "session management",
+      "client management",
+      "application scope",
       "Mappings",
       "cfapplication",
       "getApplicationSettings",
-      "Application.cfc"
+      "CFConfig"
     ]
   },
   {
@@ -360,10 +370,15 @@
     "file": "console-logging.md",
     "title": "Console Logging",
     "path": "/docs/recipes/console-logging.md",
-    "hash": "9747616ff0c6029f1bd774f38cbb2833",
+    "hash": "56ccb01be1de7d776c93baa6c795f74d",
     "keywords": [
       "Logging",
-      "console"
+      "console",
+      "systemOutput",
+      "debugging",
+      "CLI",
+      "writelog",
+      "dump"
     ]
   },
   {
@@ -517,9 +532,16 @@
     "file": "docker.md",
     "title": "Docker",
     "path": "/docs/recipes/docker.md",
-    "hash": "8052218f572026fad0941b130b5c30ea",
+    "hash": "99723169dc781ed05e3c17d9ebd2b92a",
     "keywords": [
-      "Docker"
+      "Docker",
+      "container",
+      "lucee/lucee",
+      "docker-compose",
+      "Dockerfile",
+      "Tomcat",
+      "LUCEE_ADMIN_PASSWORD",
+      "Server.cfc"
     ]
   },
   {
@@ -886,10 +908,14 @@
     "file": "inline-components.md",
     "title": "Inline Components",
     "path": "/docs/recipes/inline-components.md",
-    "hash": "0df195672a6476656ac638933c190c0f",
+    "hash": "730ffffea3fbbc8ad2147da22fe202fc",
     "keywords": [
       "component",
-      "inline-component"
+      "inline component",
+      "closure",
+      "anonymous component",
+      "cfscript",
+      "sub-component"
     ]
   },
   {
@@ -1066,11 +1092,16 @@
     "file": "logging.md",
     "title": "Logging",
     "path": "/docs/recipes/logging.md",
-    "hash": "30503fe9d1fe68d1eac303c51b08b131",
+    "hash": "b07b0d4774ccdfa270bf88d89463280b",
     "keywords": [
       "Logging",
       "Log levels",
-      "Lucee"
+      "Log4j2",
+      "appenders",
+      "writelog",
+      "cfadmin",
+      "CFConfig",
+      "log files"
     ]
   },
   {
@@ -1166,11 +1197,16 @@
     "file": "rest-services.md",
     "title": "Lucee and REST Services",
     "path": "/docs/recipes/rest-services.md",
-    "hash": "f239e2f51192099cda87a7519c98fc7d",
+    "hash": "5f675d0c950104cb2c957dde19fb7c83",
     "keywords": [
       "REST",
-      "verbs",
-      "methods"
+      "RESTful",
+      "HTTP verbs",
+      "taffy",
+      "restInitApplication",
+      "CFC",
+      "JSON",
+      "API"
     ]
   },
   {
@@ -1332,21 +1368,28 @@
     "file": "static-mocking.md",
     "title": "Mocking Static Functions in Lucee for Unit Testing",
     "path": "/docs/recipes/static-mocking.md",
-    "hash": "ed270f266b251adc5afb371fe6052148",
+    "hash": "a12b45e6d6dc0bf7be7e89870a2349f9",
     "keywords": [
       "Static Functions",
       "Mocking",
-      "Unit Testing"
+      "Unit Testing",
+      "testbox",
+      "mockStatic",
+      "component testing"
     ]
   },
   {
     "file": "monitoring-enable-for-your-session.md",
     "title": "Monitoring - Enable for your session",
     "path": "/docs/recipes/monitoring-enable-for-your-session.md",
-    "hash": "a82a39b230d2da63893a77f2288629b1",
+    "hash": "79dfe387d4f1c75e07296558fc7372f5",
     "keywords": [
       "monitoring",
-      "session"
+      "session",
+      "Application.cfc",
+      "showDebugOutput",
+      "debugging",
+      "this.monitoring"
     ]
   },
   {
@@ -1433,78 +1476,171 @@
     "file": "orm-caching.md",
     "title": "ORM - Caching",
     "path": "/docs/recipes/orm-caching.md",
-    "hash": "e9df7d2cd7121e8f78cad92611a63dbf",
-    "keywords": []
+    "hash": "e9081ff006413ebc024107d9b6ee759d",
+    "keywords": [
+      "ORM",
+      "caching",
+      "second-level cache",
+      "query cache",
+      "EHCache",
+      "cacheProvider",
+      "ormEvictEntity",
+      "Hibernate cache"
+    ]
   },
   {
     "file": "orm-configuration.md",
     "title": "ORM - Configuration",
     "path": "/docs/recipes/orm-configuration.md",
-    "hash": "9438bbc1e63ff8c9735443b186fab5a3",
-    "keywords": []
+    "hash": "a502325b6ec2fea5c053bcb147790e16",
+    "keywords": [
+      "ORM",
+      "ormSettings",
+      "Hibernate",
+      "schema management",
+      "dbCreate",
+      "naming strategy",
+      "Application.cfc",
+      "cfcMapping",
+      "custom mappings"
+    ]
   },
   {
     "file": "orm-entity-mapping.md",
     "title": "ORM - Entity Mapping",
     "path": "/docs/recipes/orm-entity-mapping.md",
-    "hash": "e2807bc5f79e0c988c082335e02bef8d",
-    "keywords": []
+    "hash": "ed8158c9686d46c57569f0c0703db51e",
+    "keywords": [
+      "ORM",
+      "entity mapping",
+      "persistent",
+      "primary key",
+      "column",
+      "fieldtype",
+      "generator",
+      "inheritance",
+      "computed property"
+    ]
   },
   {
     "file": "orm-events.md",
     "title": "ORM - Events",
     "path": "/docs/recipes/orm-events.md",
-    "hash": "681a6605fcae252d49a3d16b4daddb58",
-    "keywords": []
+    "hash": "c068eeffc3a3864b6acd493e61b5b8a7",
+    "keywords": [
+      "ORM",
+      "lifecycle events",
+      "preInsert",
+      "preUpdate",
+      "postLoad",
+      "event handler",
+      "global event handler",
+      "audit logging"
+    ]
   },
   {
     "file": "orm-getting-started.md",
     "title": "ORM - Getting Started",
     "path": "/docs/recipes/orm-getting-started.md",
-    "hash": "73f2ea60e67a327be4197270ef9b4c67",
+    "hash": "14340bc0be02bf9456c8c30a48e214a1",
     "keywords": []
   },
   {
     "file": "orm-logging.md",
     "title": "ORM - Logging and Debugging",
     "path": "/docs/recipes/orm-logging.md",
-    "hash": "4f28917eddc3df72db5683dd3cd4def0",
-    "keywords": []
+    "hash": "415918275989016071fed2142a477431",
+    "keywords": [
+      "ORM",
+      "logging",
+      "debugging",
+      "SQL",
+      "savemapping",
+      "ormGetSession",
+      "Hibernate logging",
+      "showSql"
+    ]
   },
   {
     "file": "orm-migration-guide.md",
     "title": "ORM - Migration Guide",
     "path": "/docs/recipes/orm-migration-guide.md",
-    "hash": "d8be79811f34c0793b461798bfed10f5",
-    "keywords": []
+    "hash": "6bc470520449cb63ab5515d9beeac434",
+    "keywords": [
+      "ORM",
+      "migration",
+      "Hibernate 5.6",
+      "Adobe ColdFusion",
+      "ACF",
+      "upgrade",
+      "breaking changes",
+      "orm extension"
+    ]
   },
   {
     "file": "orm-querying.md",
     "title": "ORM - Querying",
     "path": "/docs/recipes/orm-querying.md",
-    "hash": "8c00b9c766e77d9e9614b3d1b21e6caa",
-    "keywords": []
+    "hash": "583a49f36a07f3c644a20cb8646bdaef",
+    "keywords": [
+      "ORM",
+      "HQL",
+      "entityLoad",
+      "ormExecuteQuery",
+      "pagination",
+      "JOIN FETCH",
+      "bulk DML",
+      "query cache"
+    ]
   },
   {
     "file": "orm-relationships.md",
     "title": "ORM - Relationships",
     "path": "/docs/recipes/orm-relationships.md",
-    "hash": "b463c203eebce1ca78a35e2cc13be6a1",
-    "keywords": []
+    "hash": "a9c5df11ab6459a816bf5fe4dfb91836",
+    "keywords": [
+      "ORM",
+      "relationships",
+      "many-to-one",
+      "one-to-many",
+      "many-to-many",
+      "cascade",
+      "lazy loading",
+      "batch loading"
+    ]
   },
   {
     "file": "orm-session-and-transactions.md",
     "title": "ORM - Sessions and Transactions",
     "path": "/docs/recipes/orm-session-and-transactions.md",
-    "hash": "efadb53e294a92af7881c8131e44f29c",
-    "keywords": []
+    "hash": "ce2abed07d6677018a372894f7d5deaa",
+    "keywords": [
+      "ORM",
+      "session",
+      "transaction",
+      "flush",
+      "dirty checking",
+      "ormFlush",
+      "savepoint",
+      "entity lifecycle",
+      "multi-datasource"
+    ]
   },
   {
     "file": "orm-troubleshooting.md",
     "title": "ORM - Troubleshooting",
     "path": "/docs/recipes/orm-troubleshooting.md",
-    "hash": "b4c1e8f302f70322315c36ae18bebb15",
-    "keywords": []
+    "hash": "2d9605ab35a884759eeed83548ea126a",
+    "keywords": [
+      "ORM",
+      "troubleshooting",
+      "performance",
+      "N+1",
+      "lazy loading",
+      "error messages",
+      "design patterns",
+      "session traps"
+    ]
   },
   {
     "file": "overwrite-build-in-functions-tags.md",
@@ -1554,11 +1690,15 @@
     "file": "structs-preserve-key-case.md",
     "title": "Preserving Key Case in CFML Structs / Variables",
     "path": "/docs/recipes/structs-preserve-key-case.md",
-    "hash": "7ddd18881f462a41114f9f4de8eeb587",
+    "hash": "7a8fa15ee6b969453626b27022a5ef4e",
     "keywords": [
       "struct",
       "dotNotationUpperCase",
-      "preserve case"
+      "preserve case",
+      "JSON",
+      "REST API",
+      "processingdirective",
+      "key case"
     ]
   },
   {
@@ -1621,11 +1761,15 @@
     "file": "query-indexes.md",
     "title": "Query Indexes",
     "path": "/docs/recipes/query-indexes.md",
-    "hash": "2b4d8760572f8ae0d097159af8e04bb5",
+    "hash": "535717a27a1fbf519f2130664e0724d9",
     "keywords": [
       "query",
       "indexes",
-      "cfquery"
+      "cfquery",
+      "queryRowByIndex",
+      "column index",
+      "result set",
+      "queryGetCellByIndex"
     ]
   },
   {
@@ -1992,8 +2136,15 @@
     "file": "tag-islands.md",
     "title": "Tag Islands",
     "path": "/docs/recipes/tag-islands.md",
-    "hash": "2aa56a32d8f99c5a470ca9b550ef1e96",
-    "keywords": []
+    "hash": "813860152cafb1a106bfe83908f0d5f0",
+    "keywords": [
+      "tag islands",
+      "cfscript",
+      "tag mode",
+      "backticks",
+      "refactoring",
+      "script component"
+    ]
   },
   {
     "file": "thread-dump-startup.md",
@@ -2040,11 +2191,16 @@
     "file": "troubleshooting.md",
     "title": "Troubleshooting Lucee Problems",
     "path": "/docs/recipes/troubleshooting.md",
-    "hash": "11070b17dbc50d1b9cdbfa28c4c54da0",
+    "hash": "cafe2c03f0d2db8b70d4c0c7ad1fdede",
     "keywords": [
       "startup",
       "deployment",
-      "logs"
+      "logs",
+      "troubleshooting",
+      "crash",
+      "systemOutput",
+      "WEB-INF",
+      "lucee-server"
     ]
   },
   {
@@ -2064,10 +2220,15 @@
     "file": "cfschedule-bulk-update.md",
     "title": "Untitled",
     "path": "/docs/recipes/cfschedule-bulk-update.md",
-    "hash": "0b320756063d0a88cddb60c268842009",
+    "hash": "01fdaaf103f12d07cbc05af0f580e84a",
     "keywords": [
       "scheduled tasks",
-      "config"
+      "cfschedule",
+      "bulk update",
+      "configImport",
+      "onApplicationStart",
+      "task scheduler",
+      "config reload"
     ]
   },
   {
@@ -2088,8 +2249,17 @@
     "file": "directory-placeholders.md",
     "title": "Untitled",
     "path": "/docs/recipes/directory-placeholders.md",
-    "hash": "a49f26b34a0ebf1c88f72b544987b45c",
-    "keywords": []
+    "hash": "9c8087582e43b7cf550548f7111ffb4d",
+    "keywords": [
+      "directory placeholders",
+      "lucee-web",
+      "lucee-server",
+      "lucee-config",
+      "web-root-directory",
+      "expandPath",
+      "configuration paths",
+      "portable config"
+    ]
   },
   {
     "file": "cached-within-request.md",
@@ -2214,10 +2384,16 @@
     "file": "websocket-extension.md",
     "title": "WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "7224832f451e9b31d9d17c81a4c1909e",
+    "hash": "732ca8f5053e7e958576da73b93f0205",
     "keywords": [
-      "Lucee",
-      "Extension"
+      "WebSocket",
+      "Extension",
+      "websocketInfo",
+      "real-time",
+      "websocketSend",
+      "websocketPublish",
+      "Server.cfc",
+      "onWebSocket"
     ]
   },
   {

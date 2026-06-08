@@ -11,7 +11,16 @@
     "files"
   ],
   "description": "Placeholders are uses to reference specific Lucee directories",
-  "keywords": [ ]
+  "keywords": [
+    "directory placeholders",
+    "lucee-web",
+    "lucee-server",
+    "lucee-config",
+    "web-root-directory",
+    "expandPath",
+    "configuration paths",
+    "portable config"
+  ]
 }
 -->
 

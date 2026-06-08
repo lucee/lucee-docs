@@ -6,6 +6,16 @@
     "orm"
   ],
   "description": "Entity lifecycle events, global event handlers, event firing order, and patterns for setting values in preInsert/preUpdate handlers in Lucee ORM",
+  "keywords": [
+    "ORM",
+    "lifecycle events",
+    "preInsert",
+    "preUpdate",
+    "postLoad",
+    "event handler",
+    "global event handler",
+    "audit logging"
+  ],
   "related": [
     "orm-session-and-transactions",
     "orm-entity-mapping",

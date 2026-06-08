@@ -6,6 +6,16 @@
     "orm"
   ],
   "description": "Mapping relationships between ORM entities: many-to-one, one-to-many, one-to-one, many-to-many, collections, cascade, fetching strategies, and batch loading",
+  "keywords": [
+    "ORM",
+    "relationships",
+    "many-to-one",
+    "one-to-many",
+    "many-to-many",
+    "cascade",
+    "lazy loading",
+    "batch loading"
+  ],
   "related": [
     "orm-entity-mapping",
     "orm-querying",
