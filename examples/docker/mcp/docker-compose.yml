@@ -4,7 +4,6 @@ services:
     image: lucee-mcp:latest
     environment:
       - LUCEE_ADMIN_PASSWORD=qwerty
-      - LUCEE_DOC_RECIPES_PATH=https://raw.githubusercontent.com/lucee/lucee-docs/refs/heads/master
     ports:
       - "8856:8888"  # tomcat
       - "8056:80"    # nginx

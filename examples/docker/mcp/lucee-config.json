@@ -2,20 +2,14 @@
     "mode": "single",
     "mappings": {
         "/": {
-          "physical": "{lucee-config}/context/mcp/"  
+            "physical": "{lucee-config}/context/mcp/"
         }
     },
     "extensions": [
         {
             "id": "B5059590-2112-49FB-AEDFB997252EDA18",
-            "maven": "org.lucee:mcp-server-extension:1.0.1.0-BETA",
             "name": "MCP Server",
-            "version": "1.0.1.0-BETA"
-        },
-        {
-            "id": "EFDEB172-F52E-4D84-9CD1A1F561B3DFC8",
-            "maven": "org.lucee:lucene-search-extension",
-            "name": "Lucene Search"
+            "path": "/opt/lucee/server/lucee-server/context/deploy/mcp-server-extension-1.0.1.1-BETA.lex"
         }
     ],
     "loggers": {
@@ -34,14 +28,6 @@
             },
             "layout": "classic",
             "level": "debug"
-        },
-        "search": {
-            "appender": "console",
-            "appenderArguments": {
-                "streamtype": "error"
-            },
-            "layout": "classic",
-            "level": "info"
         }
     }
 }
