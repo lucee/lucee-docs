@@ -30,13 +30,15 @@ Use Tomcat (`8856`) if Nginx is not responding in your environment.
 
 ## MCP Endpoint
 
-The webroot serves the MCP server directly:
+CFConfig maps the MCP extension to the webroot. **Use `POST /` only** — this image does not expose a separate MCP path.
 
 ```
 POST /
 ```
 
-`GET /` returns a JSON-RPC error (`only POST is supported`). The extension’s default path `/lucee/mcp/` also remains available.
+Example: `http://localhost:8856/`
+
+`GET /` returns a JSON-RPC error (`only POST is supported`).
 
 ### JSON-RPC methods
 
