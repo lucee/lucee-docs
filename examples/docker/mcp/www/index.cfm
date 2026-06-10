@@ -135,6 +135,7 @@
 	MCP_EXT_ID    = "B5059590-2112-49FB-AEDFB997252EDA18";
 	LUCENE_EXT_ID = "EFDEB172-F52E-4D84-9CD1A1F561B3DFC8";
 	MCP_SEARCH_MIN_VERSION = "1.0.0.8";
+	MCP_AST_MIN_VERSION    = "1.0.1.0";
 
 	function getExtensionStatus(required string id) {
 		var status = {
@@ -176,15 +177,21 @@
 	mcp    = getExtensionStatus(MCP_EXT_ID);
 	lucene = getExtensionStatus(LUCENE_EXT_ID);
 
+	astSupported = structKeyExists( getFunctionList(), "astFromString" );
+
 	mcpSearchReady = mcp.installed
 		&& lucene.installed
 		&& versionAtLeast(mcp.version, MCP_SEARCH_MIN_VERSION)
 		&& val(listFirst(lucene.version, ".")) >= 3;
 
-	if ( mcp.installed && !versionAtLeast(mcp.version, MCP_SEARCH_MIN_VERSION) ) {
-		mcp.note = "Installed, but search_lucee_docs needs MCP Server #MCP_SEARCH_MIN_VERSION# or later (Maven release pending).";
+	mcpAstReady = mcp.installed
+		&& versionAtLeast(mcp.version, MCP_AST_MIN_VERSION)
+		&& astSupported;
+
+	if ( mcp.installed && !versionAtLeast(mcp.version, MCP_AST_MIN_VERSION) ) {
+		mcp.note = "Installed, but AST tools need MCP Server #MCP_AST_MIN_VERSION# or later.";
 	} else if ( mcp.installed ) {
-		mcp.note = "Provides get_lucee_function, get_lucee_tag, and search_lucee_docs.";
+		mcp.note = "Provides get_lucee_function, get_lucee_tag, search_lucee_docs, parse_cfml_ast, and query_cfml_ast.";
 	}
 
 	if ( lucene.installed && val(listFirst(lucene.version, ".")) < 3 ) {
@@ -221,6 +228,11 @@
 
 	searchBadgeClass = mcpSearchReady ? "ok" : "warn";
 	searchBadgeLabel = mcpSearchReady ? "search_lucee_docs available" : "search_lucee_docs not available yet";
+
+	astBadgeClass = mcpAstReady ? "ok" : "warn";
+	astBadgeLabel = mcpAstReady
+		? "parse_cfml_ast and query_cfml_ast available"
+		: ( astSupported ? "AST tools need MCP Server #MCP_AST_MIN_VERSION#+" : "AST tools need Lucee 7.0.0.296+" );
 
 	mcpVersionLine = mcp.installed ? htmlEditFormat(mcp.name) & " " & htmlEditFormat(mcp.version) : "&mdash;";
 	luceneVersionLine = lucene.installed ? htmlEditFormat(lucene.name) & " " & htmlEditFormat(lucene.version) : "&mdash;";
@@ -265,18 +277,22 @@
 	</div>
 
 	<div class="panel">
-		<h2>Search readiness</h2>
+		<h2>Tool readiness</h2>
 		<p>
 			<span class="badge #searchBadgeClass#">#searchBadgeLabel#</span>
+			<span class="badge #astBadgeClass#">#astBadgeLabel#</span>
 		</p>
 		<p>
 			Function and tag lookups work with the MCP Server extension alone.
 			Full-text search also needs Lucene 3+ and MCP Server #MCP_SEARCH_MIN_VERSION#+.
+			AST tools need MCP Server #MCP_AST_MIN_VERSION#+ and Lucee 7.0.0.296+.
 		</p>
 		<ul class="compact">
 			<li><code>get_lucee_function</code> &mdash; FLD lookup by name</li>
 			<li><code>get_lucee_tag</code> &mdash; TLD lookup by name</li>
 			<li><code>search_lucee_docs</code> &mdash; Lucene search across functions, tags, and recipes</li>
+			<li><code>parse_cfml_ast</code> &mdash; parse CFML into an AST tree or compact summary</li>
+			<li><code>query_cfml_ast</code> &mdash; find AST nodes by type, name, line, or built-in status</li>
 		</ul>
 	</div>
 	</cfoutput>

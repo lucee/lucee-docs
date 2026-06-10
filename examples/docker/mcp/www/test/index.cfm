@@ -1,3 +1,6 @@
+<cfscript>
+	tagPrefix="cf";
+</cfscript>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -234,6 +237,42 @@
 			</div>
 
 			<div class="tool-block">
+				<h3>parse_cfml_ast</h3>
+				<p class="ai-hint">
+					<strong>AST Parser</strong> — Parse CFML source into a JSON Abstract Syntax Tree. Use <code>summary: true</code>
+					for a compact digest of functions, tags, and calls. Requires Lucee 7.0.0.296+ and MCP Server 1.0.1.0+.
+				</p>
+				<label for="astSource">CFML source</label>
+				<textarea id="astSource"></textarea>
+				<label><input id="astSummary" type="checkbox"> summary (compact digest)</label>
+				<div class="actions">
+					<button data-tool="parse_cfml_ast" data-arg-map='{"source":"astSource","summary":"astSummary"}'>Call tool</button>
+					<button data-preset="parse_cfml_ast" data-preset-id="simple-summary">simple summary</button>
+					<button data-preset="parse_cfml_ast" data-preset-id="max-depth">maxDepth 2</button>
+				</div>
+			</div>
+
+			<div class="tool-block">
+				<h3>query_cfml_ast</h3>
+				<p class="ai-hint">
+					<strong>AST Query</strong> — Search parsed CFML for nodes by <code>nodeType</code>, <code>name</code>,
+					<code>line</code>, or <code>builtInOnly</code>. Useful for finding function calls, tags, or UDF definitions.
+				</p>
+				<label for="queryAstSource">CFML source</label>
+				<textarea id="queryAstSource"></textarea>
+				<label for="queryNodeType">nodeType (optional)</label>
+				<input id="queryNodeType" type="text" value="CallExpression">
+				<label for="queryNodeName">name (optional)</label>
+				<input id="queryNodeName" type="text" value="len">
+				<div class="actions">
+					<button data-tool="query_cfml_ast" data-arg-map='{"source":"queryAstSource","nodeType":"queryNodeType","name":"queryNodeName"}'>Call tool</button>
+					<button data-preset="query_cfml_ast" data-preset-id="find-len">find len()</button>
+					<button data-preset="query_cfml_ast" data-preset-id="find-cfloop">find cfloop</button>
+					<button data-preset="query_cfml_ast" data-preset-id="builtin-calls">built-in calls only</button>
+				</div>
+			</div>
+
+			<div class="tool-block">
 				<h3>search_lucee_docs</h3>
 				<p class="ai-hint">
 					<strong>Recipe Index + Function Index + Tag Index</strong> — Use for natural-language or keyword search when
@@ -299,8 +338,38 @@
 	</div>
 </main>
 
+<cfoutput>
 <script>
 (() => {
+	const PRESETS = {
+		"parse_cfml_ast:simple-summary": {
+			source: "<#tagPrefix#set x = 1>",
+			summary: true
+		},
+		"parse_cfml_ast:max-depth": {
+			source: "<#tagPrefix#set x = 1>",
+			maxDepth: 2
+		},
+		"query_cfml_ast:find-len": {
+			source: '<#tagPrefix#script>len("a");writeOutput("x");</#tagPrefix#script>',
+			nodeType: "CallExpression",
+			name: "len"
+		},
+		"query_cfml_ast:find-cfloop": {
+			source: '<#tagPrefix#loop from="1" to="2" index="i"></#tagPrefix#loop>',
+			nodeType: "CFMLTag",
+			name: "cfloop"
+		},
+		"query_cfml_ast:builtin-calls": {
+			source: '<#tagPrefix#script>len("a");</#tagPrefix#script>',
+			builtInOnly: true
+		}
+	};
+
+	const DEFAULT_SOURCES = {
+		astSource: '<#tagPrefix#script>\nfunction greet(name) {\n    return "Hello, " & name;\n}\nwriteOutput(greet("Lucee"));\n</#tagPrefix#script>\n<#tagPrefix#loop from="1" to="2" index="i">\n\t<#tagPrefix#set arrayAppend(items, i)>\n</#tagPrefix#loop>',
+		queryAstSource: '<#tagPrefix#script>\nlen("test");\nwriteOutput(dateFormat(now(), "yyyy-mm-dd"));\n</#tagPrefix#script>\n<#tagPrefix#loop from="1" to="3" index="i"></#tagPrefix#loop>'
+	};
 	let requestId = 1;
 	const endpointEl = document.getElementById("endpoint");
 	const outputEl = document.getElementById("output");
@@ -415,6 +484,19 @@
 				if (ids[0]) args.query = document.getElementById(ids[0].trim()).value.trim();
 				if (ids[1]) args.maxResults = parseInt(document.getElementById(ids[1].trim()).value, 10) || 3;
 			}
+			if (btn.dataset.argMap) {
+				const map = JSON.parse(btn.dataset.argMap);
+				for (const [argKey, elId] of Object.entries(map)) {
+					const el = document.getElementById(elId);
+					if (!el) continue;
+					if (el.type === "checkbox") {
+						if (el.checked) args[argKey] = true;
+					} else {
+						const value = el.value.trim();
+						if (value.length) args[argKey] = value;
+					}
+				}
+			}
 
 			callTool(tool, args);
 		});
@@ -422,9 +504,20 @@
 
 	document.querySelectorAll("[data-preset]").forEach((btn) => {
 		btn.addEventListener("click", () => {
-			callTool(btn.dataset.preset, JSON.parse(btn.dataset.args), btn.dataset.preset + " preset");
+			let args;
+			if (btn.dataset.presetId) {
+				args = PRESETS[ btn.dataset.preset + ":" + btn.dataset.presetId ];
+			} else {
+				args = JSON.parse(btn.dataset.args);
+			}
+			callTool(btn.dataset.preset, args, btn.dataset.preset + " preset");
 		});
 	});
+
+	for (const [id, value] of Object.entries(DEFAULT_SOURCES)) {
+		const el = document.getElementById(id);
+		if (el) el.value = value;
+	}
 
 	document.querySelectorAll("[data-error]").forEach((btn) => {
 		btn.addEventListener("click", async () => {
@@ -455,5 +548,6 @@
 	});
 })();
 </script>
+</cfoutput>
 </body>
 </html>

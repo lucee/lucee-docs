@@ -1,13 +1,13 @@
 # Lucee MCP Server — Docker Example
 
-This example demonstrates running Lucee 7 with the [MCP Server extension](https://github.com/lucee/extension-mcp-server) and [Lucene Search extension](https://github.com/lucee/extension-lucene) installed at startup. It exposes a JSON-RPC tool endpoint for AI clients such as Claude and Cursor, including full-text search across functions, tags, and lucee-docs recipes.
+This example demonstrates running Lucee 7 with the [MCP Server extension](https://github.com/lucee/extension-mcp-server) and [Lucene Search extension](https://github.com/lucee/extension-lucene) installed at startup. It exposes a JSON-RPC tool endpoint for AI clients such as Claude and Cursor, including full-text search across functions, tags, and lucee-docs recipes, plus CFML AST parsing and querying.
 
 ## What's Included
 
 - `Dockerfile` — Lucee server image with MCP Server + Lucene extensions registered via CFConfig
 - `docker-compose.yml` — Single-service setup exposing HTTP and Tomcat ports
 - `lucee-config.json` — Registers both extensions by ID and Maven coordinates
-- `www/index.cfm` — Landing page with link to the test console
+- `www/index.cfm` — Landing page with extension and tool readiness
 - `www/test/index.cfm` — Interactive MCP test console
 
 ## Quick Start
@@ -58,6 +58,8 @@ POST /lucee/mcp/
 | `get_lucee_function` | `name` (string) | FLD descriptor for a built-in function |
 | `get_lucee_tag` | `name` (string) | TLD descriptor for a tag |
 | `search_lucee_docs` | `query` (string), `maxResults` (int, optional) | Lucene search across functions, tags, and recipes |
+| `parse_cfml_ast` | `source` or `path`, `mode`, `summary`, `maxDepth` | Parse CFML into an AST tree or compact summary |
+| `query_cfml_ast` | `source` or `path`, `nodeType`, `name`, `line`, `builtInOnly` | Find matching AST nodes in parsed CFML |
 
 The `search_lucee_docs` tool requires Lucene 3+ and indexes three sources:
 
@@ -65,7 +67,9 @@ The `search_lucee_docs` tool requires Lucene 3+ and indexes three sources:
 - **Tag Index** — CFML tag names and TLD summaries
 - **Recipe Index** — lucee-docs how-to guides (configuration, Docker, Application.cfc, migration, etc.)
 
-The test console at `/test/` provides clickable buttons for every action, including recipe search presets.
+The AST tools require Lucee 7.0.0.296+ (`astFromString` / `astFromPath`) and MCP Server 1.0.1.0+.
+
+The test console at `/test/` provides clickable buttons for every action, including AST parsing presets and recipe search.
 
 ## Configuration
 
@@ -86,7 +90,7 @@ curl -s -X POST http://localhost:8056/lucee/mcp/ \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"initialize","id":1,"params":{}}'
 
-# List tools
+# List tools (expect 5)
 curl -s -X POST http://localhost:8056/lucee/mcp/ \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"tools/list","id":2}'
@@ -100,6 +104,16 @@ curl -s -X POST http://localhost:8056/lucee/mcp/ \
 curl -s -X POST http://localhost:8056/lucee/mcp/ \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"tools/call","id":4,"params":{"name":"search_lucee_docs","arguments":{"query":"Application.cfc session management","maxResults":3}}}'
+
+# Parse CFML into a compact AST summary
+curl -s -X POST http://localhost:8056/lucee/mcp/ \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","method":"tools/call","id":5,"params":{"name":"parse_cfml_ast","arguments":{"source":"<cfscript>len(\"a\");</cfscript><cfloop from=\"1\" to=\"2\" index=\"i\"></cfloop>","summary":true}}}'
+
+# Query AST for function calls named len
+curl -s -X POST http://localhost:8056/lucee/mcp/ \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","method":"tools/call","id":6,"params":{"name":"query_cfml_ast","arguments":{"source":"<cfscript>len(\"a\");writeOutput(\"x\");</cfscript>","nodeType":"CallExpression","name":"len"}}}'
 ```
 
 ## Extension Registration
@@ -112,7 +126,8 @@ curl -s -X POST http://localhost:8056/lucee/mcp/ \
         {
             "id": "B5059590-2112-49FB-AEDFB997252EDA18",
             "maven": "org.lucee:mcp-server-extension",
-            "name": "MCP Server"
+            "name": "MCP Server",
+            "version": "1.0.1.0-BETA"
         },
         {
             "id": "EFDEB172-F52E-4D84-9CD1A1F561B3DFC8",
@@ -135,4 +150,4 @@ curl -s -X POST http://localhost:8056/lucee/mcp/ \
 }
 ```
 
-Use `search_lucee_docs` for how-to questions (recipes) and `get_lucee_function` / `get_lucee_tag` when you know the exact name.
+Use `search_lucee_docs` for how-to questions (recipes) and `get_lucee_function` / `get_lucee_tag` when you know the exact name. Use `parse_cfml_ast` and `query_cfml_ast` to analyze CFML source structure.
