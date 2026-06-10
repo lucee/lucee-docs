@@ -1335,7 +1335,7 @@
     "file": "maven-based-extensions.md",
     "title": "Maven Based Extensions",
     "path": "/docs/recipes/maven-based-extensions.md",
-    "hash": "acafbc3551af1d22b60cbeedcbb908d2",
+    "hash": "c7ae220c10da443654d51c0876f1ee9d",
     "keywords": [
       "extension",
       "Maven",
@@ -1653,23 +1653,6 @@
     ]
   },
   {
-    "file": "overwrite-build-in-functions-tags.md",
-    "title": "Overwriting and Adding Built-in Functions and Tags",
-    "path": "/docs/recipes/overwrite-build-in-functions-tags.md",
-    "hash": "76f56c37effdda0ee6cf657e96415b66",
-    "keywords": [
-      "function",
-      "BIF",
-      "overwrite",
-      "add functions",
-      "custom tags",
-      "Lucee customization",
-      "Lucee server",
-      "backport fixes",
-      "ACF compatibility"
-    ]
-  },
-  {
     "file": "osgi-to-maven-extension-migration.md",
     "title": "OSGi to Maven Extension Migration",
     "path": "/docs/recipes/osgi-to-maven-extension-migration.md",
@@ -1687,6 +1670,23 @@
       "CI",
       "Lucee Light",
       "Lucee Zero"
+    ]
+  },
+  {
+    "file": "overwrite-build-in-functions-tags.md",
+    "title": "Overwriting and Adding Built-in Functions and Tags",
+    "path": "/docs/recipes/overwrite-build-in-functions-tags.md",
+    "hash": "76f56c37effdda0ee6cf657e96415b66",
+    "keywords": [
+      "function",
+      "BIF",
+      "overwrite",
+      "add functions",
+      "custom tags",
+      "Lucee customization",
+      "Lucee server",
+      "backport fixes",
+      "ACF compatibility"
     ]
   },
   {

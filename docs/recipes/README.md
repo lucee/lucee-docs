@@ -448,13 +448,13 @@ Understanding ORM sessions, entity lifecycle states, flush behaviour, dirty chec
 
 Common ORM pitfalls, error messages decoded, performance tips, and design patterns for Lucee ORM
 
+## [OSGi to Maven Extension Migration](/docs/recipes/osgi-to-maven-extension-migration.md)
+
+Guide for converting a legacy OSGi Lucee extension to a Maven-based extension
+
 ## [Overwriting and Adding Built-in Functions and Tags](/docs/recipes/overwrite-build-in-functions-tags.md)
 
 Learn how to overwrite or add built-in functions and tags in Lucee to customize behavior or backport fixes.
-
-## [OSGi to Maven Extension Migration](/docs/recipes/osgi-to-maven-extension-migration.md)
-
-Guide for converting a legacy OSGi Lucee extension to a Maven-based extension; technical details in maven-extension-migration.yaml
 
 ## [PDF Engine - Flying Saucer (CFDocument)](/docs/recipes/pdf-engine-flying-saucer.md)
 
