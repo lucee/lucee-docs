@@ -2,12 +2,13 @@
 
 Minimal Docker image running Lucee 7.1 with the [MCP Server extension](https://github.com/lucee/extension-mcp-server). The MCP JSON-RPC endpoint is mapped to the webroot — there is no separate landing page or test UI.
 
+This image does **not** install the Lucene Search extension. `search_lucee_docs` is still listed as a tool but returns a message that Lucene is required when called.
+
 ## What's Included
 
-- `Dockerfile` — Lucee 7.1 image with CFConfig and a bundled MCP Server `.lex`
+- `Dockerfile` — Lucee 7.1 image; CFConfig only
 - `docker-compose.yml` — Exposes Tomcat (`8856`) and Nginx (`8056`)
-- `lucee-config.json` — Maps `/` to the MCP extension context
-- `extensions/` — MCP Server extension package (update after building a new release)
+- `lucee-config.json` — Maps `/` to the MCP extension context; installs MCP Server 1.0.1.0-BETA from Maven
 
 ## Quick Start
 
@@ -15,6 +16,8 @@ Minimal Docker image running Lucee 7.1 with the [MCP Server extension](https://g
 cd examples/docker/mcp
 docker compose up -d --build
 ```
+
+Lucee downloads the MCP extension on first startup. The container needs network access to Maven / the Lucee extension provider.
 
 ## Ports
 
@@ -49,6 +52,7 @@ POST /
 |------|-----------|-------------|
 | `get_lucee_function` | `name` (string) | FLD descriptor for a built-in function |
 | `get_lucee_tag` | `name` (string) | TLD descriptor for a tag |
+| `search_lucee_docs` | `query` (string), `maxResults` (int, optional) | Lucene search — **requires Lucene extension (not installed in this image)** |
 | `parse_cfml_ast` | `source` or `path`, `mode`, `summary`, `maxDepth` | Parse CFML into an AST tree or compact summary |
 | `query_cfml_ast` | `source` or `path`, `nodeType`, `name`, `line`, `builtInOnly` | Find matching AST nodes in parsed CFML |
 
@@ -70,7 +74,7 @@ curl -s -X POST http://localhost:8856/ \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"initialize","id":1,"params":{}}'
 
-# List tools (expect 4)
+# List tools (expect 5)
 curl -s -X POST http://localhost:8856/ \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"tools/list","id":2}'
@@ -88,13 +92,7 @@ curl -s -X POST http://localhost:8856/ \
 
 Replace `8856` with `8056` when using the Nginx port.
 
-## Updating the bundled extension
-
-Build a new `.lex` from the [MCP Server extension](https://github.com/lucee/extension-mcp-server) and replace `extensions/mcp-server-extension-1.0.1.1-BETA.lex`. Update `lucee-config.json` and the Dockerfile `COPY` line if the version changes.
-
 ## CFConfig
-
-The MCP extension `.lex` is bundled in the image and registered via CFConfig:
 
 ```json
 {
@@ -106,12 +104,15 @@ The MCP extension `.lex` is bundled in the image and registered via CFConfig:
     "extensions": [
         {
             "id": "B5059590-2112-49FB-AEDFB997252EDA18",
+            "maven": "org.lucee:mcp-server-extension:1.0.1.0-BETA",
             "name": "MCP Server",
-            "path": "/opt/lucee/server/lucee-server/context/deploy/mcp-server-extension-1.0.1.1-BETA.lex"
+            "version": "1.0.1.0-BETA"
         }
     ]
 }
 ```
+
+Add the Lucene Search extension to `extensions` if you need `search_lucee_docs` to work.
 
 ## Cursor / Claude MCP client config
 
