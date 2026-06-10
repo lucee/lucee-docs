@@ -1,7 +1,7 @@
 {
     "mode": "single",
     "mappings": {
-        "/mcp/": {
+        "/": {
           "physical": "{lucee-config}/context/mcp/"  
         }
     },
