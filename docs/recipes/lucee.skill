@@ -137,6 +137,7 @@ description: >
 | ORM - Relationships | `orm-relationships` | ORM, relationships, many-to-one, one-to-many, many-to-many, cascade, lazy loading, batch loading |
 | ORM - Sessions and Transactions | `orm-session-and-transactions` | ORM, session, transaction, flush, dirty checking, ormFlush, savepoint, entity lifecycle, multi-datasource |
 | ORM - Troubleshooting | `orm-troubleshooting` | ORM, troubleshooting, performance, N+1, lazy loading, error messages, design patterns, session traps |
+| OSGi to Maven Extension Migration | `osgi-to-maven-extension-migration` | extension, OSGi, Maven, migration, lex, lite extension, FLD, TLD, BIF, CI |
 | Overwriting and Adding Built-in Functions and Tags | `overwrite-build-in-functions-tags` | function, BIF, overwrite, add functions, custom tags, Lucee customization, Lucee server, backport fixes, ACF compatibility |
 | PDF Engine - Flying Saucer (CFDocument) | `pdf-engine-flying-saucer` | Flying Saucer, PDF Engine, CFDOCUMENT, HTML to PDF |
 | Precompiled Code | `precompiled-code` | Precompiled, Pre-compile code, Production server, Security, CFML, Class files, Lucee |
