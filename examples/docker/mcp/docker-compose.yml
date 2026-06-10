@@ -5,8 +5,6 @@ services:
     environment:
       - LUCEE_ADMIN_PASSWORD=qwerty
       - LUCEE_DOC_RECIPES_PATH=https://raw.githubusercontent.com/lucee/lucee-docs/refs/heads/master
-    volumes:
-      - "./www:/var/www"
     ports:
       - "8856:8888"  # tomcat
       - "8056:80"    # nginx

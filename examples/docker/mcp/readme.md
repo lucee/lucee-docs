@@ -1,28 +1,19 @@
 # Lucee MCP Server — Docker Example
 
-This example demonstrates running Lucee 7 with the [MCP Server extension](https://github.com/lucee/extension-mcp-server) and [Lucene Search extension](https://github.com/lucee/extension-lucene) installed at startup. It exposes a JSON-RPC tool endpoint for AI clients such as Claude and Cursor, including full-text search across functions, tags, and lucee-docs recipes, plus CFML AST parsing and querying.
+Minimal Docker image running Lucee 7.1 with the [MCP Server extension](https://github.com/lucee/extension-mcp-server) and [Lucene Search extension](https://github.com/lucee/extension-lucene). The MCP JSON-RPC endpoint is mapped to the webroot — there is no separate landing page or test UI.
 
 ## What's Included
 
-- `Dockerfile` — Lucee server image with MCP Server + Lucene extensions registered via CFConfig
-- `docker-compose.yml` — Single-service setup exposing HTTP and Tomcat ports
-- `lucee-config.json` — Registers both extensions by ID and Maven coordinates
-- `www/index.cfm` — Landing page with extension and tool readiness
-- `www/test/index.cfm` — Interactive MCP test console
+- `Dockerfile` — Lucee 7.1 image; CFConfig only (no `www` content)
+- `docker-compose.yml` — Exposes Tomcat (`8856`) and Nginx (`8056`)
+- `lucee-config.json` — Maps `/` to the MCP extension context; installs MCP Server 1.0.1.0-BETA and Lucene
 
 ## Quick Start
-
-This example is self-contained — run everything from this directory:
 
 ```bash
 cd examples/docker/mcp
 docker compose up -d --build
 ```
-
-When developing, `./www` is mounted for live edits.
-
-- Landing page: [http://localhost:8056/](http://localhost:8056/)
-- MCP test console: [http://localhost:8056/test/](http://localhost:8056/test/)
 
 Lucee downloads the extensions on first startup. The container needs network access to Maven / the Lucee extension provider and to GitHub (for recipe indexing).
 
@@ -35,13 +26,17 @@ On first `search_lucee_docs` call, the MCP extension builds a Lucene index from 
 | `8056` | Nginx (main HTTP) |
 | `8856` | Tomcat (direct)   |
 
+Use Tomcat (`8856`) if Nginx is not responding in your environment.
+
 ## MCP Endpoint
 
-Single JSON-RPC endpoint:
+The webroot serves the MCP server directly:
 
 ```
-POST /lucee/mcp/
+POST /
 ```
+
+`GET /` returns a JSON-RPC error (`only POST is supported`). The extension’s default path `/lucee/mcp/` also remains available.
 
 ### JSON-RPC methods
 
@@ -69,8 +64,6 @@ The `search_lucee_docs` tool requires Lucene 3+ and indexes three sources:
 
 The AST tools require Lucee 7.0.0.296+ (`astFromString` / `astFromPath`) and MCP Server 1.0.1.0+.
 
-The test console at `/test/` provides clickable buttons for every action, including AST parsing presets and recipe search.
-
 ## Configuration
 
 | Variable | Default | Purpose |
@@ -86,46 +79,53 @@ The MCP Server extension does not implement endpoint authentication.
 
 ```bash
 # Initialize
-curl -s -X POST http://localhost:8056/lucee/mcp/ \
+curl -s -X POST http://localhost:8856/ \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"initialize","id":1,"params":{}}'
 
 # List tools (expect 5)
-curl -s -X POST http://localhost:8056/lucee/mcp/ \
+curl -s -X POST http://localhost:8856/ \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"tools/list","id":2}'
 
 # Look up a function
-curl -s -X POST http://localhost:8056/lucee/mcp/ \
+curl -s -X POST http://localhost:8856/ \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"tools/call","id":3,"params":{"name":"get_lucee_function","arguments":{"name":"arraySort"}}}'
 
 # Search docs (functions, tags, and recipes)
-curl -s -X POST http://localhost:8056/lucee/mcp/ \
+curl -s -X POST http://localhost:8856/ \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"tools/call","id":4,"params":{"name":"search_lucee_docs","arguments":{"query":"Application.cfc session management","maxResults":3}}}'
 
 # Parse CFML into a compact AST summary
-curl -s -X POST http://localhost:8056/lucee/mcp/ \
+curl -s -X POST http://localhost:8856/ \
   -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","method":"tools/call","id":5,"params":{"name":"parse_cfml_ast","arguments":{"source":"<cfscript>len(\"a\");</cfscript><cfloop from=\"1\" to=\"2\" index=\"i\"></cfloop>","summary":true}}}'
+  -d '{"jsonrpc":"2.0","method":"tools/call","id":5,"params":{"name":"parse_cfml_ast","arguments":{"source":"<cfset x = 1>","summary":true}}}'
 
 # Query AST for function calls named len
-curl -s -X POST http://localhost:8056/lucee/mcp/ \
+curl -s -X POST http://localhost:8856/ \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"tools/call","id":6,"params":{"name":"query_cfml_ast","arguments":{"source":"<cfscript>len(\"a\");writeOutput(\"x\");</cfscript>","nodeType":"CallExpression","name":"len"}}}'
 ```
 
-## Extension Registration
+Replace `8856` with `8056` when using the Nginx port.
 
-`lucee-config.json` installs both extensions by ID and Maven coordinates:
+## CFConfig
+
+`lucee-config.json` maps the webroot to the MCP extension and installs both extensions:
 
 ```json
 {
+    "mappings": {
+        "/": {
+            "physical": "{lucee-config}/context/mcp/"
+        }
+    },
     "extensions": [
         {
             "id": "B5059590-2112-49FB-AEDFB997252EDA18",
-            "maven": "org.lucee:mcp-server-extension",
+            "maven": "org.lucee:mcp-server-extension:1.0.1.0-BETA",
             "name": "MCP Server",
             "version": "1.0.1.0-BETA"
         },
@@ -144,7 +144,7 @@ curl -s -X POST http://localhost:8056/lucee/mcp/ \
 {
     "mcpServers": {
         "lucee": {
-            "url": "http://localhost:8056/lucee/mcp/"
+            "url": "http://localhost:8856/"
         }
     }
 }

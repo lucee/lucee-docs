@@ -16,7 +16,7 @@ This version bundles custom extensions with the Lucee server. It shows how to in
 
 ## mcp
 
-Lucee 7 with the [MCP Server extension](https://github.com/lucee/extension-mcp-server) and [Lucene Search extension](https://github.com/lucee/extension-lucene) installed at startup. Exposes JSON-RPC at `/lucee/mcp/` with function/tag lookup and Lucene search (recipes fetched live from GitHub). Interactive test console at `/test/`.
+Lucee 7.1 with the [MCP Server extension](https://github.com/lucee/extension-mcp-server) and [Lucene Search extension](https://github.com/lucee/extension-lucene). MCP JSON-RPC is served at the webroot (`POST /`) with function/tag lookup, Lucene search, and CFML AST tools.
 
 ## s3-minio
 
