@@ -1670,6 +1670,26 @@
     ]
   },
   {
+    "file": "osgi-to-maven-extension-migration.md",
+    "title": "OSGi to Maven Extension Migration",
+    "path": "/docs/recipes/osgi-to-maven-extension-migration.md",
+    "hash": "29acc0f86cab8bc7892821f527ef5b93",
+    "keywords": [
+      "extension",
+      "OSGi",
+      "Maven",
+      "migration",
+      "lex",
+      "lite extension",
+      "FLD",
+      "TLD",
+      "BIF",
+      "CI",
+      "Lucee Light",
+      "Lucee Zero"
+    ]
+  },
+  {
     "file": "pdf-engine-flying-saucer.md",
     "title": "PDF Engine - Flying Saucer (CFDocument)",
     "path": "/docs/recipes/pdf-engine-flying-saucer.md",

@@ -315,3 +315,5 @@ These extensions demonstrate the Maven pattern and can be used as templates:
 - **[FTP](https://github.com/lucee/extension-ftp)** — similar pattern to Mail
 - **[DynamoDB](https://github.com/lucee/extension-dynamodb)** — cache handler pattern, no TLD/FLD files
 - **[Debugger](https://github.com/lucee/extension-debugger)** — debugging extension
+- **[Image](https://github.com/lucee/extension-image)** — full BIF/TLD migration from OSGi; see [[osgi-to-maven-extension-migration]] for the step-by-step playbook
+- **[S3](https://github.com/lucee/extension-s3)** — lite extension (`.lite.lex`, classifier `lite`; metadata only, no bundled `maven/` deps)

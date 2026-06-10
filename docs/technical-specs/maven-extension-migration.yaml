@@ -1,0 +1,352 @@
+name: "Maven Extension Migration (OSGi → Maven)"
+technology: "Lucee Extension Framework"
+since: "7.0"
+reference_implementation: "https://github.com/lucee/extension-image"
+spec_version: "1.0"
+
+# -----------------------------------------------------------------------------
+# Lucee core version requirements
+# -----------------------------------------------------------------------------
+
+lucee_core_version:
+  default_minimum: "7.0.0.68"
+  default_declared_example: "7.0.0.211-BETA"  # extension-s3 pom.xml luceeCoreVersion
+  manifest_field: "lucee-core-version"
+
+  by_extension_type:
+    manifest_only:
+      description: "Resource/cache/JDBC handlers — manifest JSON with maven: (no FLD/TLD)"
+      minimum: "7.0.0.68"
+      example_extension: "extension-s3"
+      example_declared: "7.0.0.211-BETA"
+
+    fld_bif_only:
+      description: "Built-in functions via FLD with maven= attribute"
+      minimum: "7.0.2.86"
+      note: "7.1.0.2+ recommended"
+
+    tld_custom_tags:
+      description: "Custom tags via TLD with maven= on tag-class — rare among extensions"
+      minimum: "7.1.0.2"
+      example_extension: "extension-image"
+      example_declared: "7.1.0.2-ALPHA"
+      reason: "TLD maven= support landed on 7.1 branch before 7.0 backport; image defines cfimage tag"
+
+    lucee_6_2:
+      description: "BIF/tag extensions on 6.2 — OSGi only, no maven= on FLD/TLD"
+      minimum: "6.2.0.285"
+      maven_folder_extraction: "6.2.0.300+"
+
+  compatibility_matrix:
+    - feature: "/maven/ folder extraction from .lex"
+      lucee_7_1: true
+      lucee_7_0: "7.0.0.68+"
+      lucee_6_2: "6.2.0.300+"
+    - feature: "manifest cache:/jdbc:/resource: with maven:"
+      lucee_7_1: true
+      lucee_7_0: "7.0.0.68+"
+      lucee_6_2: "6.2.0.285+"
+    - feature: "start-bundles: false"
+      lucee_7_1: true
+      lucee_7_0: true
+      lucee_6_2: true
+    - feature: "FLD maven= (BIF functions)"
+      lucee_7_1: "7.1.0.2+"
+      lucee_7_0: "7.0.2.86+"
+      lucee_6_2: false
+    - feature: "TLD maven= (custom tags)"
+      lucee_7_1: "7.1.0.2+"
+      lucee_7_0: "7.0.2.86+"
+      lucee_6_2: false
+
+# -----------------------------------------------------------------------------
+# Repository layout
+# -----------------------------------------------------------------------------
+
+repository_layout:
+  root:
+    - pom.xml              # packaging=pom, orchestrates build + deploy
+    - build.xml            # Ant — assembles .lex
+    - copy-parent-poms.sh
+    - maven-install.sh
+    - maven-settings.xml   # optional, CI credentials
+  source:
+    java:
+      - pom.xml            # packaging=jar, ${revision} version
+      - src/org/lucee/extension/{name}/
+    fld: "function.fld (optional)"
+    tld: "tag.tldx (optional)"
+    images: "logo.png"
+  tests: "extension tests (CFML)"
+  output: "target/"
+
+maven_artifacts:
+  library:
+    groupId: "org.lucee"
+    artifactId: "{name}"           # e.g. image
+    packaging: jar
+  extension_package:
+    groupId: "org.lucee"
+    artifactId: "{name}-extension" # e.g. image-extension — NOT extension-{name}
+    packaging: lex
+  github_repo_convention: "extension-{name}"
+  maven_artifactId_convention: "{name}-extension"
+
+# -----------------------------------------------------------------------------
+# Extension package artifacts (.lex)
+# -----------------------------------------------------------------------------
+
+lex_artifacts:
+  full:
+    filename: "{name}-extension-{version}.lex"
+    maven_coordinates: "org.lucee:{name}-extension:{version}:lex"
+    contents:
+      - "META-INF/MANIFEST.MF"
+      - "META-INF/logo.png"
+      - "flds/*.fld (optional)"
+      - "tlds/*.tldx (optional)"
+      - "maven/** (embedded Maven repository layout)"
+    use_when:
+      - "offline install"
+      - "self-contained deploy"
+      - "CI testing (script-runner extensionDir)"
+
+  lite_extension:
+    filename: "{name}-extension-{version}.lite.lex"
+    maven_coordinates: "org.lucee:{name}-extension:{version}:lite:lex"
+    maven_classifier: lite
+    packaging: lex
+    contents:
+      - "META-INF/MANIFEST.MF"
+      - "META-INF/logo.png"
+      - "flds/*.fld (optional)"
+      - "tlds/*.tldx (optional)"
+    excludes:
+      - "maven/**"
+    dependency_resolution: "Maven Central or {lucee-server}/../mvn/ at install time"
+    use_when:
+      - "Lucee Light / Lucee Zero"
+      - "Docker images with Maven repo access"
+      - "environments that deduplicate shared JARs"
+    reference: "extension-s3"
+
+  size_reference_image_3_1_0_9_BETA:
+    full_lex_mb: 9.5
+    lite_lex_kb: 76
+
+# -----------------------------------------------------------------------------
+# MANIFEST.MF
+# -----------------------------------------------------------------------------
+
+manifest:
+  required_fields:
+    - "Manifest-Version: 1.0"
+    - 'version: "{bundleversion}"'
+    - 'id: "{extension-uuid}"'
+    - 'groupId: "{mvnGroupId}"'
+    - 'artifactId: "{mvnArtifactId}"'
+    - 'name: "{label}"'
+    - 'description: "{description}"'
+    - 'lucee-core-version: "{luceeCoreVersion}"'
+    - "release-type: server"
+    - "start-bundles: false"
+  start_bundles_false:
+    purpose: "Prevents Felix OSGi from loading JARs as bundles; uses Maven classloading instead"
+  handler_registration:
+    cache: '[{"class":"...","maven":"groupId:artifactId:version"}]'
+    jdbc: '[{"class":"...","maven":"groupId:artifactId:version"}]'
+    resource: '[{"class":"...","maven":"groupId:artifactId:version"}]'
+
+# -----------------------------------------------------------------------------
+# FLD / TLD migration
+# -----------------------------------------------------------------------------
+
+fld_tld:
+  osgi_before:
+    class_element: '<class bundle-name="..." bundle-version="...">fully.qualified.Class</class>'
+    tag_element: '<tag-class bundle-name="..." bundle-version="...">fully.qualified.Class</tag-class>'
+  maven_after:
+    placeholder: '{maven}'
+    class_element: '<class maven="{maven}">fully.qualified.Class</class>'
+    tag_element: '<tag-class maven="{maven}">fully.qualified.Class</tag-class>'
+    javax_dual_tag: '<javax-tag-class maven="{maven}">fully.qualified.javax.Class</javax-tag-class>'
+    mvn_alias: "mvn= accepted as alias for maven="
+  build_substitution:
+    file: build.xml
+    target: "dist"
+    match: "\\{maven\\}"
+    replace: "{mvnGroupId}:{mvnArtifactId}:{bundleversion}"
+    files:
+      - "flds/*-functions.fld"
+      - "tlds/*-tags.tldx"
+
+# -----------------------------------------------------------------------------
+# Build pipeline
+# -----------------------------------------------------------------------------
+
+build:
+  entry: "mvn clean install -Dgoal=install"
+  ant_target_chain: "clean → dist → createManifest → copy-dependencies → maven-build → init"
+
+  init:
+    deletes:
+      - temp/
+      - target/
+    critical: "maven-build MUST depend on init — prevents stale JARs in target/extension/maven/"
+
+  maven_build:
+    steps:
+      - dir: source/java
+        command: "mvn clean {effective.goal} -Drevision={bundleversion}"
+      - dir: source/java
+        command: "mvn dependency:copy-dependencies"
+        args:
+          outputDirectory: "{temp}/dependency"
+          mdep.copyPom: true
+          mdep.useRepositoryLayout: true
+          excludeScope: provided
+      - script: copy-parent-poms.sh {temp}/dependency
+
+  copy_dependencies:
+    extension_jar_dest: "target/extension/maven/org/lucee/{mvnArtifactId}/{bundleversion}/"
+    deps_source: "temp/dependency/**/*.jar and **/*.pom"
+
+  dist:
+    full_lex:
+      ant: '<zip destfile="${dist}/${filename}-${bundleversion}.lex"><zipfileset dir="${dist}/extension"/></zip>'
+    lite_extension:
+      ant: |
+        <zip destfile="${dist}/${filename}-${bundleversion}.lite.lex">
+          <zipfileset dir="${dist}/extension">
+            <exclude name="maven/**"/>
+          </zipfileset>
+        </zip>
+
+  root_pom_plugins:
+    - maven-antrun-plugin    # runs build.xml at package
+    - build-helper-maven-plugin # attach-artifact: .lex + .lite.lex (classifier lite)
+    - maven-deploy-plugin    # default-deploy + deploy-lite
+    - maven-gpg-plugin       # sign both .lex on performRelease=true
+    - central-publishing-maven-plugin
+
+# -----------------------------------------------------------------------------
+# Dependencies
+# -----------------------------------------------------------------------------
+
+dependencies:
+  lucee_core:
+    coordinates: "org.lucee:lucee"
+    scope: provided
+    note: "Compile only; never bundled in .lex"
+  runtime:
+    scope: compile
+    bundled_in: "maven/** inside full .lex"
+  remove_on_migration:
+    - "system scope JARs in source/java/libs/"
+    - "manual build.xml copy steps for individual JARs"
+    - "org.lucee repackaged OSGi JARs when upstream Maven artifact exists"
+  image_extension_cleanup:
+    - removed: "org.lucee:jmagick"
+    - removed: "org.lucee:jai-core, jai-codec"
+      replaced_by: "TwelveMonkeys ResampleOp"
+    - removed: "org.imgscalr:imgscalr-lib"
+    - removed: "org.lucee:metadata-extractor:2.18.0"
+      replaced_by: "com.drewnoakes:metadata-extractor:2.20.0"
+    - removed: "org.lucee:commons-imaging:1.0-alpha3"
+      replaced_by: "org.apache.commons:commons-imaging:1.0.0-alpha6"
+    - removed: "TwelveMonkeys 3.9.3 org.lucee repackages"
+      replaced_by: "TwelveMonkeys 3.13.1 from Maven Central"
+
+java_source:
+  remove:
+    - "src/META-INF/MANIFEST.MF with Bundle-* headers"
+    - "Bundle-Reference / OSGi version lookups"
+  version_lookup_pattern: |
+    Package pkg = MyClass.class.getPackage();
+    if (pkg != null && pkg.getImplementationVersion() != null) {
+        info.set("version", pkg.getImplementationVersion());
+    }
+
+# -----------------------------------------------------------------------------
+# CI / testing
+# -----------------------------------------------------------------------------
+
+ci:
+  build_command: "mvn -B -e -f pom.xml clean install -Dgoal=install"
+  artifact_upload: "target/*.lex"
+  script_runner:
+    action: "lucee/script-runner@main"
+    extensionDir: "{workspace}/target"
+    note: "Installs all .lex in directory; CI tests full .lex by default"
+    env:
+      testLabels: "{extension-label}"
+      testAdditional: "{workspace}/tests"
+  matrix_variable_example: "LUCEE_TEST_VERSIONS_71"
+  deploy_rules:
+    SNAPSHOT: "mvn deploy"
+    ALPHA_BETA: "mvn install only"
+    release: "mvn deploy -DperformRelease=true"
+    gate: "master branch only"
+
+test_patterns:
+  component_labels: 'labels="{name}"'
+  internal_request:
+    correct: |
+      private string function createURI(required string calledName) {
+        return getDirectoryFromPath(contractPath(getCurrentTemplatePath())) & calledName;
+      }
+      _internalRequest(template: "#createURI('subdir')#/fixture.cfm", url: {});
+    wrong: "getDirectoryFromPath(getCurrentTemplatePath()) & 'subdir/fixture.cfm'"
+    error: "lucee.runtime.exp.MissingIncludeException in CI"
+
+# -----------------------------------------------------------------------------
+# Pitfalls
+# -----------------------------------------------------------------------------
+
+pitfalls:
+  - id: stale_jars_in_lex
+    symptom: "Removed deps still in .lex after pom.xml cleanup"
+    cause: "copy-dependencies appends; init not in build chain"
+    fix: "maven-build depends=init; rm -rf target temp before local build"
+  - id: lite_extension_offline
+    symptom: "Lite extension installs but runtime ClassNotFoundException"
+    cause: "No maven/** in .lite.lex; Maven resolution failed"
+    fix: "Use full .lex offline; or pre-populate {lucee-server}/../mvn/"
+  - id: tld_wrong_core_version
+    symptom: "Extension installs; custom tags fail on 7.0.x"
+    cause: "TLD maven= requires 7.1.0.2+ for tag-class (or 7.0.2.86+ backport)"
+    fix: "Set lucee-core-version to actual minimum; use 7.1.0.2+ if extension defines TLD tags"
+  - id: duplicate_dependency_versions
+    symptom: ".lex larger than expected; two versions of same library"
+    cause: "Legacy libs/ JARs + Maven deps; manual build.xml copies"
+    fix: "Single source of truth in source/java/pom.xml only"
+  - id: internal_request_path
+    symptom: "MissingIncludeException for .cfm fixtures in CI only"
+    cause: "Filesystem path instead of contractPath web path"
+    fix: "createURI() pattern with contractPath(getCurrentTemplatePath())"
+
+# -----------------------------------------------------------------------------
+# Reference repositories
+# -----------------------------------------------------------------------------
+
+reference_repositories:
+  - name: extension-mail
+    url: "https://github.com/lucee/extension-mail"
+    use: "Minimal Maven migration with TLD"
+  - name: extension-s3
+    url: "https://github.com/lucee/extension-s3"
+    use: "Lite extension + manifest resource: handler; luceeCoreVersion 7.0.0.211-BETA"
+  - name: extension-image
+    url: "https://github.com/lucee/extension-image"
+    use: "Full FLD+TLD migration; luceeCoreVersion 7.1.0.2+ (defines cfimage tag)"
+  - name: extension-dynamodb
+    url: "https://github.com/lucee/extension-dynamodb"
+    use: "Cache handler, no FLD/TLD"
+  - name: extension-ftp
+    url: "https://github.com/lucee/extension-ftp"
+    use: "Resource provider pattern"
+
+version_branching_strategy:
+  example: "extension-image"
+  osgi_line: "3.0.x — Lucee 6.2"
+  maven_line: "3.1.x — Lucee 7.1+"

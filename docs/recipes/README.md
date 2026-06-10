@@ -452,6 +452,10 @@ Common ORM pitfalls, error messages decoded, performance tips, and design patter
 
 Learn how to overwrite or add built-in functions and tags in Lucee to customize behavior or backport fixes.
 
+## [OSGi to Maven Extension Migration](/docs/recipes/osgi-to-maven-extension-migration.md)
+
+Guide for converting a legacy OSGi Lucee extension to a Maven-based extension; technical details in maven-extension-migration.yaml
+
 ## [PDF Engine - Flying Saucer (CFDocument)](/docs/recipes/pdf-engine-flying-saucer.md)
 
 The new CFDOCUMENT PDF engine, Flying Saucer in Lucee 5.3
