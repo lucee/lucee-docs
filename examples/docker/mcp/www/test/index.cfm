@@ -162,7 +162,7 @@
 <body>
 <header>
 	<h1>MCP Server Test Console</h1>
-	<p>Interactive tester for the <a href="https://github.com/lucee/extension-mcp-server" target="_blank" rel="noopener">Lucee MCP Server extension</a> at <code>POST /lucee/mcp/</code></p>
+	<p>Interactive tester for the <a href="https://github.com/lucee/extension-mcp-server" target="_blank" rel="noopener">Lucee MCP Server extension</a> at <code>POST /mcp/</code></p>
 </header>
 
 <main>
@@ -174,7 +174,7 @@
 				<code>Content-Type: application/json</code>. Change only if the MCP server is behind a proxy or alternate mapping.
 			</p>
 			<label for="endpoint">MCP URL</label>
-			<input id="endpoint" type="text" value="/lucee/mcp/">
+			<input id="endpoint" type="text" value="/mcp/">
 			<div class="actions">
 				<button class="primary" id="btnCustom">Send custom request</button>
 			</div>

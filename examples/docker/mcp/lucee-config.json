@@ -1,5 +1,10 @@
 {
     "mode": "single",
+    "mappings": {
+        "/mcp/": {
+          "physical": "{lucee-config}/context/mcp/"  
+        }
+    },
     "extensions": [
         {
             "id": "B5059590-2112-49FB-AEDFB997252EDA18",
