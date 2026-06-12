@@ -370,7 +370,7 @@ Learn how to enable BigDecimal-based precise math in Lucee to avoid floating poi
 
 ## [Maven Based Extensions](/docs/recipes/maven-based-extensions.md)
 
-How to build Lucee extensions using Maven instead of OSGi bundles
+How to build Lucee extensions using Maven instead of OSGi bundles, including migration from legacy OSGi extensions
 
 ## [Migrating from Classic to Modern Local Scope Mode](/docs/recipes/migrate.from.classic-to-modern-local-scope.md)
 
@@ -447,10 +447,6 @@ Understanding ORM sessions, entity lifecycle states, flush behaviour, dirty chec
 ## [ORM - Troubleshooting](/docs/recipes/orm-troubleshooting.md)
 
 Common ORM pitfalls, error messages decoded, performance tips, and design patterns for Lucee ORM
-
-## [OSGi to Maven Extension Migration](/docs/recipes/osgi-to-maven-extension-migration.md)
-
-Guide for converting a legacy OSGi Lucee extension to a Maven-based extension
 
 ## [Overwriting and Adding Built-in Functions and Tags](/docs/recipes/overwrite-build-in-functions-tags.md)
 

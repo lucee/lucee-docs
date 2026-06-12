@@ -30,7 +30,7 @@ lucee_core_version:
       minimum: "7.1.0.2"
       example_extension: "extension-image"
       example_declared: "7.1.0.2-ALPHA"
-      reason: "TLD maven= support landed on 7.1 branch before 7.0 backport; image defines cfimage tag"
+      reason: "TLD maven= support was added with Lucee 7.1; image defines cfimage tag"
 
     lucee_6_2:
       description: "BIF/tag extensions on 6.2 — OSGi only, no maven= on FLD/TLD"
@@ -56,7 +56,7 @@ lucee_core_version:
       lucee_6_2: false
     - feature: "TLD maven= (custom tags)"
       lucee_7_1: "7.1.0.2+"
-      lucee_7_0: "7.0.2.86+"
+      lucee_7_0: false
       lucee_6_2: false
 
 # -----------------------------------------------------------------------------
@@ -314,7 +314,7 @@ pitfalls:
     fix: "Use full .lex offline; or pre-populate {lucee-server}/../mvn/"
   - id: tld_wrong_core_version
     symptom: "Extension installs; custom tags fail on 7.0.x"
-    cause: "TLD maven= requires 7.1.0.2+ for tag-class (or 7.0.2.86+ backport)"
+    cause: "TLD maven= requires 7.1.0.2+ — feature was added with Lucee 7.1"
     fix: "Set lucee-core-version to actual minimum; use 7.1.0.2+ if extension defines TLD tags"
   - id: duplicate_dependency_versions
     symptom: ".lex larger than expected; two versions of same library"

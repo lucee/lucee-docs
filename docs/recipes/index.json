@@ -1340,14 +1340,19 @@
       "extension",
       "Maven",
       "OSGi",
+      "migration",
       "lex",
+      "lite extension",
       "GAVSO",
       "manifest",
       "TLD",
       "FLD",
       "BIF",
       "classloading",
-      "dependency"
+      "dependency",
+      "CI",
+      "Lucee Light",
+      "Lucee Zero"
     ]
   },
   {
@@ -1650,26 +1655,6 @@
       "error messages",
       "design patterns",
       "session traps"
-    ]
-  },
-  {
-    "file": "osgi-to-maven-extension-migration.md",
-    "title": "OSGi to Maven Extension Migration",
-    "path": "/docs/recipes/osgi-to-maven-extension-migration.md",
-    "hash": "29acc0f86cab8bc7892821f527ef5b93",
-    "keywords": [
-      "extension",
-      "OSGi",
-      "Maven",
-      "migration",
-      "lex",
-      "lite extension",
-      "FLD",
-      "TLD",
-      "BIF",
-      "CI",
-      "Lucee Light",
-      "Lucee Zero"
     ]
   },
   {

@@ -117,7 +117,7 @@ description: >
 | Mail Listeners | `mail-listener` | mail, listener, Application.cfc, component |
 | Mappings - How to define a regular Mapping | `mappings-how-to-define-a-reg-mapping` | Mapping, Filesystem, Define mapping, Application.cfc, Lucee archive |
 | Mathematical Precision | `mathematical-precision` | math, precision, BigDecimal, Lucee, Application.cfc, PrecisionEvaluate, preciseMath, floating point, money, currency |
-| Maven Based Extensions | `maven-based-extensions` | extension, Maven, OSGi, lex, GAVSO, manifest, TLD, FLD, BIF, classloading |
+| Maven Based Extensions | `maven-based-extensions` | extension, Maven, OSGi, migration, lex, lite extension, GAVSO, manifest, TLD, FLD, BIF, classloading, CI |
 | Migrating from Classic to Modern Local Scope Mode | `migrate.from.classic-to-modern-local-scope` | local scope, variables, migration, scope mode, classic mode, modern mode |
 | Mocking Static Functions in Lucee for Unit Testing | `static-mocking` | Static Functions, Mocking, Unit Testing, testbox, mockStatic, component testing |
 | Monitoring - Enable for your session | `monitoring-enable-for-your-session` | monitoring, session, Application.cfc, showDebugOutput, debugging, this.monitoring |
@@ -137,7 +137,6 @@ description: >
 | ORM - Relationships | `orm-relationships` | ORM, relationships, many-to-one, one-to-many, many-to-many, cascade, lazy loading, batch loading |
 | ORM - Sessions and Transactions | `orm-session-and-transactions` | ORM, session, transaction, flush, dirty checking, ormFlush, savepoint, entity lifecycle, multi-datasource |
 | ORM - Troubleshooting | `orm-troubleshooting` | ORM, troubleshooting, performance, N+1, lazy loading, error messages, design patterns, session traps |
-| OSGi to Maven Extension Migration | `osgi-to-maven-extension-migration` | extension, OSGi, Maven, migration, lex, lite extension, FLD, TLD, BIF, CI |
 | Overwriting and Adding Built-in Functions and Tags | `overwrite-build-in-functions-tags` | function, BIF, overwrite, add functions, custom tags, Lucee customization, Lucee server, backport fixes, ACF compatibility |
 | PDF Engine - Flying Saucer (CFDocument) | `pdf-engine-flying-saucer` | Flying Saucer, PDF Engine, CFDOCUMENT, HTML to PDF |
 | Precompiled Code | `precompiled-code` | Precompiled, Pre-compile code, Production server, Security, CFML, Class files, Lucee |

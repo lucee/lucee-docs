@@ -4,25 +4,31 @@
   "id": "maven-based-extensions",
   "since": "7.0",
   "categories": ["extensions", "java"],
-  "description": "How to build Lucee extensions using Maven instead of OSGi bundles",
+  "description": "How to build Lucee extensions using Maven instead of OSGi bundles, including migration from legacy OSGi extensions",
   "keywords": [
     "extension",
     "Maven",
     "OSGi",
+    "migration",
     "lex",
+    "lite extension",
     "GAVSO",
     "manifest",
     "TLD",
     "FLD",
     "BIF",
     "classloading",
-    "dependency"
+    "dependency",
+    "CI",
+    "Lucee Light",
+    "Lucee Zero"
   ],
   "related": [
     "extension-installation",
     "extension-provider",
     "extension-utilities",
     "loader-api-changes-7",
+    "javax-vs-jakarta",
     "maven",
     "java-class-interaction"
   ]
@@ -210,14 +216,16 @@ The recommended pattern uses embedded dependencies — the JAR is bundled with t
 
 ## TLD and FLD with Maven
 
-For extensions that provide custom tags (TLD) or Built-In Functions (FLD), the `maven=` attribute on class elements tells Lucee how to load the implementing class:
+For extensions that provide custom tags (TLD) or Built-In Functions (FLD), the `maven=` attribute on class elements tells Lucee how to load the implementing class.
+
+When migrating from OSGi, replace `bundle-name`/`bundle-version` with `maven="{maven}"` — `build.xml` substitutes the real coordinates at package time.
 
 ### TLD Example (Custom Tags)
 
 ```xml
 <tag>
     <name>mail</name>
-    <tag-class maven="org.lucee:mail:1.0.0">org.lucee.extension.mail.tag.Mail</tag-class>
+    <tag-class maven="{maven}">org.lucee.extension.mail.tag.Mail</tag-class>
     ...
 </tag>
 ```
@@ -227,20 +235,20 @@ For extensions that provide custom tags (TLD) or Built-In Functions (FLD), the `
 ```xml
 <function>
     <name>myFunction</name>
-    <class maven="org.lucee:mylib:1.0.0">org.lucee.extension.mylib.functions.MyFunction</class>
+    <class maven="{maven}">org.lucee.extension.mylib.functions.MyFunction</class>
     ...
 </function>
 ```
 
-> **Note:** `mvn=` is also accepted as an alias for `maven=` in TLD/FLD elements.
+> **Note:** `mvn=` is also accepted as an alias for `maven=` in TLD/FLD elements. Add `javax-tag-class` with `maven="{maven}"` if dual javax/jakarta tag support is needed.
 
 ### Version Requirements for TLD/FLD Maven Support
 
-The `maven=` attribute was added to TLD/FLD processing in `ClassDefinitionImpl.toClassDefinition()` at different points on each branch:
-
-- **7.1**: TLD tags added in [`d5dfad16b`](https://github.com/lucee/lucee/commit/d5dfad16b) (Nov 2025), FLD functions merged later — available from **7.1.0.2+**
-- **7.0**: Both TLD and FLD added together in [`110d788f9`](https://github.com/lucee/lucee/commit/110d788f9) (Feb 2026), follow-up [`1c3f0e2ca`](https://github.com/lucee/lucee/commit/1c3f0e2ca) added `getMavenRaw()` accessor — available from **7.0.2.86+**
+- **7.1**: TLD `maven=` on custom tags added in [`d5dfad16b`](https://github.com/lucee/lucee/commit/d5dfad16b) — available from **7.1.0.2+**
+- **7.0**: FLD `maven=` for BIF functions added in [`110d788f9`](https://github.com/lucee/lucee/commit/110d788f9) — available from **7.0.2.86+**
 - **6.2**: Not available — BIF/tag extensions must use OSGi bundles (see [Lucee 6.2 Compatibility](#lucee-62-compatibility) below)
+
+The **only** reason a Maven extension needs Lucee 7.1 is when it defines **custom tags** with `maven=` on `<tag-class>`. That feature was added with Lucee 7.1. Manifest-only handlers and FLD-based BIF functions can target Lucee 7.0.
 
 ## Build Flow
 
@@ -255,6 +263,8 @@ The typical build process for a Maven-based extension:
    - Packages everything into a `.lex` file (ZIP format)
 4. **Maven deploy** publishes both the JAR and `.lex` to Maven Central
 
+For build file snippets, CI configuration, and pitfall details, see [`/docs/technical-specs/maven-extension-migration.yaml`](/docs/technical-specs/maven-extension-migration.yaml).
+
 ## Version Compatibility
 
 | Feature | Lucee 7.1 | Lucee 7.0 | Lucee 6.2 |
@@ -264,8 +274,18 @@ The typical build process for a Maven-based extension:
 | Maven cache provider (all creation paths) | 7.1.0.93+ | 7.0.4.21+ | 6.2.7.7+ |
 | `start-bundles: false` | ✅ | ✅ | ✅ |
 | GAVSO coordinate parsing | ✅ | ✅ | ✅ |
-| TLD `maven=` (custom tags) | 7.1.0.2+ | 7.0.2.86+ | ❌ |
+| TLD `maven=` (custom tags) | 7.1.0.2+ | ❌ | ❌ |
 | FLD `maven=` (BIF functions) | 7.1.0.2+ | 7.0.2.86+ | ❌ |
+
+### Minimum `lucee-core-version`
+
+The `lucee-core-version` in `MANIFEST.MF` must reflect what your extension actually uses — not a blanket 7.1 for every Maven extension.
+
+| Extension type | Typical minimum | Example |
+| --- | --- | --- |
+| Manifest handlers only (resource, cache, JDBC) | **7.0.0.68+** | [S3](https://github.com/lucee/extension-s3) declares `7.0.0.211-BETA` |
+| BIF functions (FLD with `maven=`) | **7.0.2.86+** | Most function-only extensions |
+| **Custom tags (TLD with `maven=`)** | **7.1.0.2+** | Rare — [Image](https://github.com/lucee/extension-image) defines `<cfimage>` |
 
 ### What This Means in Practice
 
@@ -275,7 +295,7 @@ The typical build process for a Maven-based extension:
 | JDBC driver (manifest `jdbc:`) | ✅ Maven | ✅ Maven | ✅ Maven |
 | Resource provider (manifest `resource:`) | ✅ Maven | ✅ Maven | ✅ Maven |
 | BIF functions (FLD) | ✅ Maven | ❌ OSGi only | ❌ OSGi only |
-| Custom tags (TLD) | ✅ Maven | ❌ OSGi only | ❌ OSGi only |
+| Custom tags (TLD) | ✅ Maven (7.1 only) | ❌ OSGi only | ❌ OSGi only |
 
 ## Lucee 6.2 Compatibility
 
@@ -294,7 +314,7 @@ The approach:
 - Place the shaded JAR in the `/jars/` folder
 - Reference the bundle name/version in FLD/TLD files
 
-> **TL;DR:** If you need 6.2 support for BIF/tag extensions, stick with shaded OSGi bundles. For 7.0.2.86+ or 7.1.0.2+, use the Maven pattern.
+> **TL;DR:** If you need 6.2 support for BIF/tag extensions, stick with shaded OSGi bundles. For 7.0.2.86+ (FLD) or 7.1.0.2+ (TLD), use the Maven pattern.
 
 ## Legacy: Bundled JARs
 
@@ -307,13 +327,110 @@ Older extensions use `/jars/`, `/jar/`, `/bundles/`, `/bundle/`, `/lib/`, or `/l
 
 The folder name in your extension is purely organisational — Lucee auto-detects based on the JAR's manifest headers.
 
+## Migrating from OSGi
+
+This section guides maintainers through converting a legacy OSGi Lucee extension to the Maven-based model. The worked example is the **[Image extension](https://github.com/lucee/extension-image)** (`3.0.x` OSGi → `3.1.x` Maven).
+
+### When to Migrate
+
+**Migrate** when the extension targets Lucee 7+, you want standard Maven dependency management, and you are ready to drop OSGi bundle wiring.
+
+**Keep an OSGi line** when you must support Lucee 6.2 for BIF/tag extensions, or need a stable bugfix branch for older installs.
+
+A common strategy: bump the major/minor version line for the Maven branch (e.g. Image `3.0.x` for 6.2, `3.1.x` for 7+).
+
+### What Changes
+
+1. **Build** — Maven compiles the JAR; Ant assembles the `.lex`
+2. **Manifest** — `start-bundles: false`; keep the extension UUID unchanged
+3. **FLD/TLD** — replace `bundle-name`/`bundle-version` with `maven="{maven}"`; `build.xml` substitutes coordinates at package time
+4. **Dependencies** — move from `libs/` and manual copies into `source/java/pom.xml`
+5. **Artifacts** — publish a **full** `.lex` (with embedded `maven/` repo) and optionally a **lite extension** (`.lite.lex`, Maven classifier `lite`)
+
+### Migration Checklist
+
+#### 1. Build system
+- [ ] Add root `pom.xml` and `source/java/pom.xml`
+- [ ] Wire `build.xml` via `maven-antrun-plugin`
+- [ ] Ensure `maven-build` depends on `init` (wipes `target/` each build)
+- [ ] Copy dependencies with Maven repository layout; run `copy-parent-poms.sh`
+- [ ] Package full `.lex` and lite extension `.lite.lex`
+
+#### 2. Extension metadata
+- [ ] Set `start-bundles: false`
+- [ ] Set `lucee-core-version` per table above
+- [ ] Keep extension `id` (UUID) unchanged
+
+#### 3. FLD / TLD (if applicable)
+- [ ] Switch to `maven="{maven}"` on all `<class>` and `<tag-class>` entries
+- [ ] Add `javax-tag-class` if dual javax/jakarta tag support is needed
+
+#### 4. Dependencies
+- [ ] Move JARs into `pom.xml`; `provided` scope for `org.lucee:lucee`
+- [ ] Remove `system` scope, manual `build.xml` JAR copies, and legacy `org.lucee` repackages
+
+#### 5. Java source
+- [ ] Remove OSGi bundle manifest from extension JAR
+- [ ] Replace OSGi-specific version lookups
+
+#### 6. CI and testing
+- [ ] `mvn clean install -Dgoal=install`
+- [ ] Test with `lucee/script-runner`, `extensionDir: target/`
+- [ ] Upload `target/*.lex` as artifacts
+
+Details for each step: [`maven-extension-migration.yaml`](/docs/technical-specs/maven-extension-migration.yaml).
+
+### Full vs Lite Extension
+
+Most Maven extensions publish two install packages:
+
+| Package | File | Contents |
+| --- | --- | --- |
+| **Full** | `{name}-extension-{version}.lex` | Metadata + embedded `maven/**` JARs |
+| **Lite extension** | `{name}-extension-{version}.lite.lex` | Metadata only (no `maven/**`) |
+
+The **lite extension** is for Lucee Light/Zero and Docker setups where dependencies resolve from Maven Central at install time. The **full** `.lex` is for offline/self-contained installs and is what CI typically tests against.
+
+Maven coordinates for the lite extension use classifier `lite`:
+
+```
+org.lucee:image-extension:3.1.0.9-BETA:lex        # full
+org.lucee:image-extension:3.1.0.9-BETA:lite:lex   # lite extension
+```
+
+See [[extension-installation]] for install methods.
+
+### Testing
+
+```bash
+mvn -B -e -f pom.xml clean install -Dgoal=install
+ls -lh target/*.lex
+```
+
+Run extension tests via script-runner with `extensionDir` pointing at `target/`. Label test components (e.g. `labels="image"`) and pass `testAdditional` for extension-local tests.
+
+If tests use `_internalRequest` for `.cfm` fixtures, paths must use `contractPath()` — not raw filesystem paths. See the tech spec `test_patterns.internal_request` section.
+
+### Common Issues
+
+| Problem | Quick fix |
+| --- | --- |
+| Old JARs still in `.lex` after dependency removal | `maven-build` must depend on `init`; delete `target/` locally |
+| Lite extension fails at runtime offline | Use full `.lex`, or pre-populate `{lucee-server}/../mvn/` |
+| Tags fail on 7.0.x | Extension defines TLD tags — requires 7.1.0.2+ |
+| `MissingIncludeException` in CI tests | Use `contractPath()` web paths in `_internalRequest` |
+
+Full pitfall reference: tech spec `pitfalls` section.
+
 ## Reference Extensions
 
 These extensions demonstrate the Maven pattern and can be used as templates:
 
-- **[Mail](https://github.com/lucee/extension-mail)** — recommended starting point, has TLD files
-- **[FTP](https://github.com/lucee/extension-ftp)** — similar pattern to Mail
-- **[DynamoDB](https://github.com/lucee/extension-dynamodb)** — cache handler pattern, no TLD/FLD files
-- **[Debugger](https://github.com/lucee/extension-debugger)** — debugging extension
-- **[Image](https://github.com/lucee/extension-image)** — full BIF/TLD migration from OSGi; see [[osgi-to-maven-extension-migration]] for the step-by-step playbook
-- **[S3](https://github.com/lucee/extension-s3)** — lite extension (`.lite.lex`, classifier `lite`; metadata only, no bundled `maven/` deps)
+| Extension | Use as template for |
+| --- | --- |
+| [extension-mail](https://github.com/lucee/extension-mail) | Simple Maven migration with TLD |
+| [extension-s3](https://github.com/lucee/extension-s3) | Manifest-only handler, lite extension, **7.0** baseline |
+| [extension-image](https://github.com/lucee/extension-image) | FLD + TLD (custom tags), dependency cleanup, **7.1** minimum |
+| [extension-dynamodb](https://github.com/lucee/extension-dynamodb) | Cache handler, no FLD/TLD |
+| [extension-ftp](https://github.com/lucee/extension-ftp) | Resource provider |
+| [extension-debugger](https://github.com/lucee/extension-debugger) | Debugging extension |
