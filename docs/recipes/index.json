@@ -19,7 +19,7 @@
     "file": "ai.md",
     "title": "AI",
     "path": "/docs/recipes/ai.md",
-    "hash": "908e27104969e767eba329cdcefce82d",
+    "hash": "b1d4df1ccc217ccc4b1aba21239b260b",
     "keywords": [
       "AI",
       "LLM",
@@ -45,6 +45,22 @@
       "Augmentation",
       "Lucene",
       "Retrieval"
+    ]
+  },
+  {
+    "file": "ai-page-context.md",
+    "title": "AI Context from Page Content",
+    "path": "/docs/recipes/ai-page-context.md",
+    "hash": "416a8360904c2baaaa7e6cd1a50d4ac9",
+    "keywords": [
+      "AI",
+      "LLM",
+      "custom tag",
+      "context",
+      "system message",
+      "generatedContent",
+      "SerializeAISession",
+      "LoadAISession"
     ]
   },
   {
@@ -1335,7 +1351,7 @@
     "file": "maven-based-extensions.md",
     "title": "Maven Based Extensions",
     "path": "/docs/recipes/maven-based-extensions.md",
-    "hash": "c7ae220c10da443654d51c0876f1ee9d",
+    "hash": "71006ec5d8b1b25096ba301c78449599",
     "keywords": [
       "extension",
       "Maven",
@@ -2159,6 +2175,22 @@
       "backticks",
       "refactoring",
       "script component"
+    ]
+  },
+  {
+    "file": "task-event-gateway.md",
+    "title": "Tasks Event Gateway Extension",
+    "path": "/docs/recipes/task-event-gateway.md",
+    "hash": "d7582347ff817df01c7ecae8dc69c5ee",
+    "keywords": [
+      "Tasks Event Gateway",
+      "TEG",
+      "Event Gateway",
+      "background task",
+      "worker",
+      "listener",
+      "sendGatewayMessage",
+      "TasksGateway"
     ]
   },
   {

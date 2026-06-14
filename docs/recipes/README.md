@@ -12,6 +12,10 @@ AI integration for working with Large Language Models in Lucee
 
 Documentation for augmenting AI queries using Lucene search in Lucee
 
+## [AI Context from Page Content](/docs/recipes/ai-page-context.md)
+
+Capture rendered page HTML with a custom tag and use it as context for an AI session
+
 ## [AI in Documentation (Experimental)](/docs/recipes/ai-for-documentation.md)
 
 Guide to configuring AI / LLM for use in Lucee's Documentation tab.
@@ -587,6 +591,10 @@ This document explains how you can improve the performance of your website in a 
 ## [Tag Islands](/docs/recipes/tag-islands.md)
 
 Tag islands allow you to switch into tag mode from inside cfscript
+
+## [Tasks Event Gateway Extension](/docs/recipes/task-event-gateway.md)
+
+Long-running background tasks with hot reload, listeners, and cluster pause via the Tasks Event Gateway extension
 
 ## [Thread Dump During Startup](/docs/recipes/thread-dump-startup.md)
 

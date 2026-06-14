@@ -891,6 +891,7 @@ inquiryAISession(aiSession, "List all open tasks from the project board", functi
 
 ## Related Documentation
 
+- **[AI Context from Page Content](ai-page-context.md)** - Capture page HTML with a custom tag and feed it to an AI session
 - **[AI Augmentation with Lucene](ai-augmentation.md)** - Implement RAG to enhance AI with your own data
 - **[AI Session Serialization](ai-serialisation.md)** - Save and restore conversation state
 - **[AI for Documentation](ai-for-documentation.md)** - Configure AI in the Monitor Documentation tab

@@ -28,6 +28,7 @@ description: >
 | Adding Full Text Search to Your Application | `search` | search, cfcollection, cfindex, cfsearch, Lucene, full-text, indexing, collections |
 | AI | `ai` | AI, LLM, ChatGPT, Gemini, Claude, Ollama, RAG, Multipart, MCP |
 | AI Augmentation with Lucene | `ai-augmentation` | AI, LLM, RAG, Search, Augmentation, Lucene, Retrieval |
+| AI Context from Page Content | `ai-page-context` | AI, LLM, custom tag, context, system message, generatedContent, SerializeAISession, LoadAISession |
 | AI in Documentation (Experimental) | `ai-for-documentation` | AI, LLM, documentation, configuration, Monitor, experimental, admin settings, AI engines, OpenAI, Gemini |
 | AI Session Serialization | `ai-serialisation` | AI, LLM, Serialization, Session, Persistence |
 | Application Context update | `application-context-update` | Application Context, cfapplication, action update, getApplicationSettings, mappings, per-request, runtime update, Application.cfc |
@@ -117,7 +118,7 @@ description: >
 | Mail Listeners | `mail-listener` | mail, listener, Application.cfc, component |
 | Mappings - How to define a regular Mapping | `mappings-how-to-define-a-reg-mapping` | Mapping, Filesystem, Define mapping, Application.cfc, Lucee archive |
 | Mathematical Precision | `mathematical-precision` | math, precision, BigDecimal, Lucee, Application.cfc, PrecisionEvaluate, preciseMath, floating point, money, currency |
-| Maven Based Extensions | `maven-based-extensions` | extension, Maven, OSGi, migration, lex, lite extension, GAVSO, manifest, TLD, FLD, BIF, classloading, CI |
+| Maven Based Extensions | `maven-based-extensions` | extension, Maven, OSGi, migration, lex, lite extension, GAVSO, manifest, TLD, FLD |
 | Migrating from Classic to Modern Local Scope Mode | `migrate.from.classic-to-modern-local-scope` | local scope, variables, migration, scope mode, classic mode, modern mode |
 | Mocking Static Functions in Lucee for Unit Testing | `static-mocking` | Static Functions, Mocking, Unit Testing, testbox, mockStatic, component testing |
 | Monitoring - Enable for your session | `monitoring-enable-for-your-session` | monitoring, session, Application.cfc, showDebugOutput, debugging, this.monitoring |
@@ -172,6 +173,7 @@ description: >
 | Sub Components | `sub-components` | CFML, component, sub-component, Lucee |
 | Supercharge your website | `supercharge-your-website` | Supercharge website, Performance, Caching, Template cache, Lucee |
 | Tag Islands | `tag-islands` | tag islands, cfscript, tag mode, backticks, refactoring, script component |
+| Tasks Event Gateway Extension | `task-event-gateway` | Tasks Event Gateway, TEG, Event Gateway, background task, worker, listener, sendGatewayMessage, TasksGateway |
 | Thread Dump During Startup | `thread-dump-startup` | threads, debugging, startup, performance, monitoring, stack traces |
 | Thread Tasks | `thread-task` | Thread Tasks, Daemon Threads, Task Threads, Retry, Lucee |
 | Timeout | `timeout` | tag, timeout, listener, Lucee, cftimeout, error handling |
@@ -393,6 +395,7 @@ description: >
 | Lucee S3 Virtual File System — MiniStack Example | `docker/s3-ministack` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/s3-ministack/readme.md` |
 | Lucee Secret Provider - Docker Example | `docker/secret-provider` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/secret-provider/readme.md` |
 | Simple Lucee Docker Setup | `docker/basic` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/basic/readme.md` |
+| Simple Lucee Docker Setup | `docker/test` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/test/readme.md` |
 
 ## Technical Specs
 
