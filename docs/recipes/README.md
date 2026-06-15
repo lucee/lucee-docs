@@ -358,7 +358,7 @@ List and inspect available Lucee versions and extensions
 
 ## [Lucene 3 Extension](/docs/recipes/lucene-search.md)
 
-Documentation for the Lucene 3 Extension with vector and hybrid search capabilities
+Install and use the Lucene 3 Extension for keyword, vector, and hybrid search in Lucee
 
 ## [Mail Listeners](/docs/recipes/mail-listener.md)
 

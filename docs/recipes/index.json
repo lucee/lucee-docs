@@ -1290,7 +1290,7 @@
     "file": "lucene-search.md",
     "title": "Lucene 3 Extension",
     "path": "/docs/recipes/lucene-search.md",
-    "hash": "e29dd0a0442d9e7e743380e474413f05",
+    "hash": "78b89b9519a7873af806a02c946c1477",
     "keywords": [
       "Lucene",
       "Search",
@@ -1298,7 +1298,12 @@
       "Hybrid",
       "Semantic",
       "Content Chunks",
-      "Embeddings"
+      "Embeddings",
+      "cfcollection",
+      "cfindex",
+      "cfsearch",
+      "RAG",
+      "extension"
     ]
   },
   {
@@ -1403,7 +1408,7 @@
     "file": "mcp.md",
     "title": "Model Context Protocol (MCP)",
     "path": "/docs/recipes/mcp.md",
-    "hash": "019947485430cdcdf169224daa22afee",
+    "hash": "d8f495cad9c03881f3a3228404142ce7",
     "keywords": [
       "MCP",
       "Model Context Protocol",
