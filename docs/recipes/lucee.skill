@@ -113,6 +113,7 @@ description: >
 | Lucee Archives (.lar files) | `archives-creating-and-deploy` | Lucee, Archives, .lar files, Deploy, Mapping, Component, CFC, CFM, compiled, source protection |
 | Lucee Extension Utilities | `extension-utilities` | Extension, Development, Utilities, CFMLEngine, Java, API |
 | Lucee Release Cycle | `release-cycle` | release, versioning, branching, development cycle, release candidate, RC |
+| Lucee Skill for AI Assistants | `lucee-skill` | skill, lucee.skill, AI, Claude, OpenAI, Gemini, Cursor, documentation, agent, assistant |
 | Lucee Versions and Extensions | `versions` | versions, extensions, LuceeVersionsList, LuceeVersionsDetail, LuceeExtension, Maven, upgrade |
 | Lucene 3 Extension | `lucene-search` | Lucene, Search, Vector, Hybrid, Semantic, Content Chunks, Embeddings, cfcollection, cfindex, cfsearch |
 | Mail Listeners | `mail-listener` | mail, listener, Application.cfc, component |
