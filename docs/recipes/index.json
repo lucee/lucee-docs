@@ -19,7 +19,7 @@
     "file": "ai.md",
     "title": "AI",
     "path": "/docs/recipes/ai.md",
-    "hash": "b1d4df1ccc217ccc4b1aba21239b260b",
+    "hash": "25b25c5acf60a22c4700ce97e6420746",
     "keywords": [
       "AI",
       "LLM",
@@ -1397,6 +1397,24 @@
       "testbox",
       "mockStatic",
       "component testing"
+    ]
+  },
+  {
+    "file": "mcp.md",
+    "title": "Model Context Protocol (MCP)",
+    "path": "/docs/recipes/mcp.md",
+    "hash": "019947485430cdcdf169224daa22afee",
+    "keywords": [
+      "MCP",
+      "Model Context Protocol",
+      "AI",
+      "Claude",
+      "OpenAI",
+      "Gemini",
+      "tools",
+      "passthrough",
+      "admin",
+      "configuration"
     ]
   },
   {

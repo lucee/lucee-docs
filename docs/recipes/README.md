@@ -384,6 +384,10 @@ Guide for safely migrating your Lucee application from classic to modern local s
 
 How to mock static functions in Lucee for better testability without unnecessary wrappers.
 
+## [Model Context Protocol (MCP)](/docs/recipes/mcp.md)
+
+Guide to MCP in Lucee: what it is, how to configure AI connections, and the three MCP servers Lucee provides
+
 ## [Monitoring - Enable for your session](/docs/recipes/monitoring-enable-for-your-session.md)
 
 Shows you a way to enable Monitoring for your session
