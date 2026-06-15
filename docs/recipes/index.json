@@ -1272,6 +1272,24 @@
     ]
   },
   {
+    "file": "lucee-skill.md",
+    "title": "Lucee Skill for AI Assistants",
+    "path": "/docs/recipes/lucee-skill.md",
+    "hash": "f9472087962b3e04c0eaac014f42b5d2",
+    "keywords": [
+      "skill",
+      "lucee.skill",
+      "AI",
+      "Claude",
+      "OpenAI",
+      "Gemini",
+      "Cursor",
+      "documentation",
+      "agent",
+      "assistant"
+    ]
+  },
+  {
     "file": "versions.md",
     "title": "Lucee Versions and Extensions",
     "path": "/docs/recipes/versions.md",

@@ -352,6 +352,10 @@ Comprehensive guide to accessing Lucee core utilities when developing extensions
 
 Documentation for Lucee's release branching and versioning strategy
 
+## [Lucee Skill for AI Assistants](/docs/recipes/lucee-skill.md)
+
+What the Lucee skill file is, how it helps AI assistants answer CFML questions accurately, and how to configure it with Cursor, Claude, OpenAI, and Gemini
+
 ## [Lucee Versions and Extensions](/docs/recipes/versions.md)
 
 List and inspect available Lucee versions and extensions
