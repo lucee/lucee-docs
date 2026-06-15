@@ -13,7 +13,9 @@
     "clustering"
   ],
   "related": [
-    "tag-schedule"
+    "tag-schedule",
+    "quartz-vs-task-event-gateway",
+    "task-event-gateway"
   ]
 }
 -->

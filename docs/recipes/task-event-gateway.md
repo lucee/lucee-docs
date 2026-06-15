@@ -22,6 +22,7 @@
     "event-gateways-how-they-work",
     "function-sendgatewaymessage",
     "scheduler-quartz",
+    "quartz-vs-task-event-gateway",
     "extension-installation",
     "environment-variables-system-properties"
   ]
@@ -32,7 +33,7 @@
 
 The Tasks Event Gateway (TEG) runs **continuous background workers** on Lucee Server. Each task is a CFML component (or `.cfm` template) that implements a repeating loop — you control sleep intervals, concurrency, and error backoff per task.
 
-This is complementary to [[scheduler-quartz]]: use Quartz for cron-style, calendar-based jobs; use TEG for always-on loops (queue polling, sync workers, heartbeat jobs).
+This is complementary to [[scheduler-quartz]] and [[quartz-vs-task-event-gateway]]: use Quartz for cron-style, calendar-based jobs; use TEG for always-on loops (queue polling, sync workers, heartbeat jobs).
 
 ## Installation
 

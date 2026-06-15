@@ -144,6 +144,7 @@ description: >
 | Preserving Key Case in CFML Structs / Variables | `structs-preserve-key-case` | struct, dotNotationUpperCase, preserve case, JSON, REST API, processingdirective, key case |
 | QoQ SQL Functions and Operators | `query-of-queries-functions` | Query of Queries, QoQ, SQL, functions, operators, HSQLDB, Lucee |
 | Quartz Scheduler Extension for Lucee | `scheduler-quartz` | scheduler, quartz, cron, scheduled task, clustering |
+| Quartz Scheduler vs Tasks Event Gateway | `quartz-vs-task-event-gateway` | Quartz, scheduler, Tasks Event Gateway, TEG, cron, background task, worker, scheduled task, when to use |
 | Query Async | `query-async` | query, async, listener, thread |
 | Query Execution | `query-handling` | cfquery, queryExecute, Query, database, parameters, performance, SQL, prepared statements |
 | Query Indexes | `query-indexes` | query, indexes, cfquery, queryRowByIndex, column index, result set, queryGetCellByIndex |

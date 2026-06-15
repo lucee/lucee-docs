@@ -476,6 +476,10 @@ Reference for the SQL keywords, operators, and functions supported by Lucee's na
 
 Advanced task scheduling using Quartz Scheduler integration
 
+## [Quartz Scheduler vs Tasks Event Gateway](/docs/recipes/quartz-vs-task-event-gateway.md)
+
+Choose between time-based Quartz jobs and continuous Tasks Event Gateway workers for background work in Lucee
+
 ## [Query Async](/docs/recipes/query-async.md)
 
 Learn how to execute queries asynchronously in Lucee. This guide demonstrates how to set up asynchronous query execution using a simple flag. Examples include defining async execution for queries and using local listeners to handle exceptions. Additionally, function listeners introduced in Lucee 6.1 can be used for this purpose.

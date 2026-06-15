@@ -1751,13 +1751,30 @@
     "file": "scheduler-quartz.md",
     "title": "Quartz Scheduler Extension for Lucee",
     "path": "/docs/recipes/scheduler-quartz.md",
-    "hash": "f2d1d7ee6bffba2c012e2179c574606a",
+    "hash": "c868aec6a6efdfc61233a41ece5e9d8c",
     "keywords": [
       "scheduler",
       "quartz",
       "cron",
       "scheduled task",
       "clustering"
+    ]
+  },
+  {
+    "file": "quartz-vs-task-event-gateway.md",
+    "title": "Quartz Scheduler vs Tasks Event Gateway",
+    "path": "/docs/recipes/quartz-vs-task-event-gateway.md",
+    "hash": "c398c9e28b1bc55e582d7d6578dbc57b",
+    "keywords": [
+      "Quartz",
+      "scheduler",
+      "Tasks Event Gateway",
+      "TEG",
+      "cron",
+      "background task",
+      "worker",
+      "scheduled task",
+      "when to use"
     ]
   },
   {
@@ -2181,7 +2198,7 @@
     "file": "task-event-gateway.md",
     "title": "Tasks Event Gateway Extension",
     "path": "/docs/recipes/task-event-gateway.md",
-    "hash": "d7582347ff817df01c7ecae8dc69c5ee",
+    "hash": "3e873943ece5eb1aab41537deace1e94",
     "keywords": [
       "Tasks Event Gateway",
       "TEG",
