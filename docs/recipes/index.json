@@ -19,7 +19,7 @@
     "file": "ai.md",
     "title": "AI",
     "path": "/docs/recipes/ai.md",
-    "hash": "b1d4df1ccc217ccc4b1aba21239b260b",
+    "hash": "25b25c5acf60a22c4700ce97e6420746",
     "keywords": [
       "AI",
       "LLM",
@@ -1290,7 +1290,7 @@
     "file": "lucene-search.md",
     "title": "Lucene 3 Extension",
     "path": "/docs/recipes/lucene-search.md",
-    "hash": "e29dd0a0442d9e7e743380e474413f05",
+    "hash": "78b89b9519a7873af806a02c946c1477",
     "keywords": [
       "Lucene",
       "Search",
@@ -1298,7 +1298,12 @@
       "Hybrid",
       "Semantic",
       "Content Chunks",
-      "Embeddings"
+      "Embeddings",
+      "cfcollection",
+      "cfindex",
+      "cfsearch",
+      "RAG",
+      "extension"
     ]
   },
   {
@@ -1397,6 +1402,24 @@
       "testbox",
       "mockStatic",
       "component testing"
+    ]
+  },
+  {
+    "file": "mcp.md",
+    "title": "Model Context Protocol (MCP)",
+    "path": "/docs/recipes/mcp.md",
+    "hash": "d8f495cad9c03881f3a3228404142ce7",
+    "keywords": [
+      "MCP",
+      "Model Context Protocol",
+      "AI",
+      "Claude",
+      "OpenAI",
+      "Gemini",
+      "tools",
+      "passthrough",
+      "admin",
+      "configuration"
     ]
   },
   {
@@ -2415,6 +2438,23 @@
       "Cloudian HyperStore",
       "OpenIO",
       "NetApp StorageGRID"
+    ]
+  },
+  {
+    "file": "virtual-threads.md",
+    "title": "Virtual Threads",
+    "path": "/docs/recipes/virtual-threads.md",
+    "hash": "0ac3e52745dcdaf4b2b647ddc3f9fff1",
+    "keywords": [
+      "virtual threads",
+      "threads",
+      "parallel",
+      "async",
+      "concurrent",
+      "performance",
+      "cfthread",
+      "arrayMap",
+      "I/O"
     ]
   },
   {

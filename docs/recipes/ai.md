@@ -15,6 +15,9 @@
     "RAG",
     "Multipart",
     "MCP"
+  ],
+  "related": [
+    "mcp"
   ]
 }
 -->
@@ -445,7 +448,7 @@ Use the `headers` key inside `custom` to forward arbitrary HTTP headers:
 
 #### Example: Claude with MCP
 
-MCP (Model Context Protocol) is an open standard that allows AI models to connect to external tool servers — databases, APIs, or any custom logic you expose. Since Anthropic's MCP support requires a beta header and specific request body fields, it is configured entirely via the passthrough mechanism — no special Lucee support is needed.
+MCP (Model Context Protocol) is an open standard that allows AI models to connect to external tool servers — databases, APIs, or any custom logic you expose. Since Anthropic's MCP support requires a beta header and specific request body fields, it is configured entirely via the passthrough mechanism — no special Lucee support is needed. See [[mcp]] for Lucee's three MCP servers and provider-specific configuration.
 
 ```json
 "ai": {

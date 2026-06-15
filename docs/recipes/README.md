@@ -358,7 +358,7 @@ List and inspect available Lucee versions and extensions
 
 ## [Lucene 3 Extension](/docs/recipes/lucene-search.md)
 
-Documentation for the Lucene 3 Extension with vector and hybrid search capabilities
+Install and use the Lucene 3 Extension for keyword, vector, and hybrid search in Lucee
 
 ## [Mail Listeners](/docs/recipes/mail-listener.md)
 
@@ -383,6 +383,10 @@ Guide for safely migrating your Lucee application from classic to modern local s
 ## [Mocking Static Functions in Lucee for Unit Testing](/docs/recipes/static-mocking.md)
 
 How to mock static functions in Lucee for better testability without unnecessary wrappers.
+
+## [Model Context Protocol (MCP)](/docs/recipes/mcp.md)
+
+Guide to MCP in Lucee: what it is, how to configure AI connections, and the three MCP servers Lucee provides
 
 ## [Monitoring - Enable for your session](/docs/recipes/monitoring-enable-for-your-session.md)
 
@@ -651,6 +655,10 @@ Guide on configuring and interacting with specific S3 regions in Lucee using the
 ## [Virtual File Systems](/docs/recipes/virtual-file-system.md)
 
 Lucee supports the following virtual file systems: ram, file, s3, http, https, zip, and tar.
+
+## [Virtual Threads](/docs/recipes/virtual-threads.md)
+
+Use Java virtual threads in Lucee for high-concurrency, I/O-bound workloads via cfthread and parallel collection functions. Experimental in Lucee 7, official in Lucee 8.
 
 ## [Warmup](/docs/recipes/warmup.md)
 

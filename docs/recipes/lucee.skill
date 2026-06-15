@@ -114,13 +114,14 @@ description: >
 | Lucee Extension Utilities | `extension-utilities` | Extension, Development, Utilities, CFMLEngine, Java, API |
 | Lucee Release Cycle | `release-cycle` | release, versioning, branching, development cycle, release candidate, RC |
 | Lucee Versions and Extensions | `versions` | versions, extensions, LuceeVersionsList, LuceeVersionsDetail, LuceeExtension, Maven, upgrade |
-| Lucene 3 Extension | `lucene-search` | Lucene, Search, Vector, Hybrid, Semantic, Content Chunks, Embeddings |
+| Lucene 3 Extension | `lucene-search` | Lucene, Search, Vector, Hybrid, Semantic, Content Chunks, Embeddings, cfcollection, cfindex, cfsearch |
 | Mail Listeners | `mail-listener` | mail, listener, Application.cfc, component |
 | Mappings - How to define a regular Mapping | `mappings-how-to-define-a-reg-mapping` | Mapping, Filesystem, Define mapping, Application.cfc, Lucee archive |
 | Mathematical Precision | `mathematical-precision` | math, precision, BigDecimal, Lucee, Application.cfc, PrecisionEvaluate, preciseMath, floating point, money, currency |
 | Maven Based Extensions | `maven-based-extensions` | extension, Maven, OSGi, migration, lex, lite extension, GAVSO, manifest, TLD, FLD |
 | Migrating from Classic to Modern Local Scope Mode | `migrate.from.classic-to-modern-local-scope` | local scope, variables, migration, scope mode, classic mode, modern mode |
 | Mocking Static Functions in Lucee for Unit Testing | `static-mocking` | Static Functions, Mocking, Unit Testing, testbox, mockStatic, component testing |
+| Model Context Protocol (MCP) | `mcp` | MCP, Model Context Protocol, AI, Claude, OpenAI, Gemini, tools, passthrough, admin, configuration |
 | Monitoring - Enable for your session | `monitoring-enable-for-your-session` | monitoring, session, Application.cfc, showDebugOutput, debugging, this.monitoring |
 | Monitoring/Debugging | `monitoring-debugging` | monitoring, debugging, admin, Application.cfc, cfsetting, debug, showdebugoutput, cfapplication |
 | MSSQL Modern Mode | `mssql-modern-mode` | mssql, sql server, raiserror, deferred exceptions, modern mode, jdbc, stored procedures, t-sql |
@@ -188,6 +189,7 @@ description: >
 | Using S3 directly for source code | `using-s3-directly-for-source-code` | S3, Source code, Credentials, Mapping, Caching |
 | Using S3 Regions in Lucee | `s3-region` | Virtual File System, VFS, S3, Regions, Buckets, Amazon S3, Wasabi, MinIO, Cloud Storage |
 | Virtual File Systems | `virtual-file-system` | Virtual File System, VFS, Local File System, ZIP, RAM, S3, FTP, git, HTTP, MinIO |
+| Virtual Threads | `virtual-threads` | virtual threads, threads, parallel, async, concurrent, performance, cfthread, arrayMap, I/O |
 | Warmup | `warmup` | Warmup, Docker, Fail-Fast, Configuration Validation, Container, Startup, onBuild |
 | WebSocket Client Extension | `websocket-client-extension` | Lucee, Extension, WebSocket, Client |
 | WebSocket Extension | `websocket-extension` | WebSocket, Extension, websocketInfo, real-time, websocketSend, websocketPublish, Server.cfc, onWebSocket |
