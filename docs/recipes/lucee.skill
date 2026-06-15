@@ -189,6 +189,7 @@ description: >
 | Using S3 directly for source code | `using-s3-directly-for-source-code` | S3, Source code, Credentials, Mapping, Caching |
 | Using S3 Regions in Lucee | `s3-region` | Virtual File System, VFS, S3, Regions, Buckets, Amazon S3, Wasabi, MinIO, Cloud Storage |
 | Virtual File Systems | `virtual-file-system` | Virtual File System, VFS, Local File System, ZIP, RAM, S3, FTP, git, HTTP, MinIO |
+| Virtual Threads | `virtual-threads` | virtual threads, threads, parallel, async, concurrent, performance, cfthread, arrayMap, I/O |
 | Warmup | `warmup` | Warmup, Docker, Fail-Fast, Configuration Validation, Container, Startup, onBuild |
 | WebSocket Client Extension | `websocket-client-extension` | Lucee, Extension, WebSocket, Client |
 | WebSocket Extension | `websocket-extension` | WebSocket, Extension, websocketInfo, real-time, websocketSend, websocketPublish, Server.cfc, onWebSocket |

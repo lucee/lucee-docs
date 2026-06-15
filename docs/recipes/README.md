@@ -656,6 +656,10 @@ Guide on configuring and interacting with specific S3 regions in Lucee using the
 
 Lucee supports the following virtual file systems: ram, file, s3, http, https, zip, and tar.
 
+## [Virtual Threads](/docs/recipes/virtual-threads.md)
+
+Use Java virtual threads in Lucee for high-concurrency, I/O-bound workloads via cfthread and parallel collection functions. Experimental in Lucee 7, official in Lucee 8.
+
 ## [Warmup](/docs/recipes/warmup.md)
 
 Docker warmup and eager config loading for fail-fast validation in Lucee

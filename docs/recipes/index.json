@@ -2441,6 +2441,23 @@
     ]
   },
   {
+    "file": "virtual-threads.md",
+    "title": "Virtual Threads",
+    "path": "/docs/recipes/virtual-threads.md",
+    "hash": "0ac3e52745dcdaf4b2b647ddc3f9fff1",
+    "keywords": [
+      "virtual threads",
+      "threads",
+      "parallel",
+      "async",
+      "concurrent",
+      "performance",
+      "cfthread",
+      "arrayMap",
+      "I/O"
+    ]
+  },
+  {
     "file": "warmup.md",
     "title": "Warmup",
     "path": "/docs/recipes/warmup.md",
