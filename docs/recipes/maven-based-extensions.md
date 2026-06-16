@@ -135,6 +135,106 @@ Full support for all cache creation paths (including programmatic) landed in **7
 
 See **[DynamoDB](https://github.com/lucee/extension-dynamodb)** for a complete reference implementation of this pattern.
 
+## Maven Based JDBC Drivers
+
+JDBC extensions (SQL Server, PostgreSQL, MySQL, etc.) are a special case: many installs still run Lucee versions that only understand OSGi `bundleName` / `bundleVersion` in the manifest. The recommended pattern for a **dual-path** JDBC extension is therefore:
+
+1. Ship the **vendor JDBC JAR** under `/maven/` (Maven repository layout inside the `.lex`)
+2. Keep **hardcoded OSGi fallback metadata** in the manifest (`bundleName`, `bundleVersion`) so older Lucee can still resolve the driver
+3. Add **`maven:`** with the vendor coordinates so Lucee 7.1+ loads the driver via Maven
+
+### Manifest Example (MSSQL)
+
+```
+start-bundles: false
+jdbc: "[{'id':'mssql','connectionString':'jdbc:sqlserver://{host}:{port}','label':'Microsoft SQL Server (Vendor Microsoft)','class':'com.microsoft.sqlserver.jdbc.SQLServerDriver','bundleName':'org.lucee.mssql','bundleVersion':'12.10.2','maven':'com.microsoft.sqlserver:mssql-jdbc:13.4.0.jre11'}]"
+```
+
+| Field | Purpose |
+| --- | --- |
+| `bundleName` / `bundleVersion` | Fallback for Lucee 6.2 / 7.0 — points at the `org.lucee:*` OSGi wrapper on Maven Central or a bundled `/jars/` copy |
+| `maven` | Primary path on Lucee 7.1+ — loads `com.microsoft.sqlserver:mssql-jdbc` directly |
+| `class` | JDBC driver class name (same for both paths) |
+
+You do **not** need to embed the OSGi wrapper JAR in `/jars/` if `bundleVersion` references a published `org.lucee:mssql` artifact that older Lucee can download. The vendor driver itself lives under `/maven/`.
+
+> **Reference implementation:** [extension-jdbc-mssql](https://github.com/lucee/extension-jdbc-mssql) — Maven migration with dual manifest, extension CI against Lucee 6.2 / 7.0 / 7.1, and `TestDriverVersion.cfc`.
+
+### How Lucee Chooses Maven vs OSGi
+
+On **Lucee 7.1.0.184+**, when both `maven` and `bundleName` are present in a handler definition, Lucee prefers Maven ([LDEV-6413](https://luceeserver.atlassian.net/browse/LDEV-6413), [`c6fa482`](https://github.com/lucee/Lucee/commit/c6fa482e724c3af63d83eff8bcab5f30cb5a2388)):
+
+- `ClassDefinitionImpl.toClassDefinition()` returns a **Maven** `ClassDefinition` when `maven` is set
+- Extension install registers the JDBC driver via `_updateJDBCDriver()` for **both** `isBundle()` and `isMaven()` CDs (7.1.0.187+)
+- `loadJDBCDrivers()` loads Maven definitions from config into `getJDBCDrivers()`
+- `getJDBCDriverById("mssql")` returns a driver whose `cd.isMaven()` is `true` and `cd.getMavenRaw()` has the GAV string
+- Actual class loading uses `cd.getClazz()` → Maven `RPCClassLoader`
+
+On **Lucee 6.2 / 7.0**, the `maven` attribute is ignored for JDBC datasource resolution; only `bundleName` / `bundleVersion` apply.
+
+### JDBC Version Requirements
+
+| Capability | Minimum Lucee version |
+| --- | --- |
+| Manifest `jdbc:` with `maven:` (parse only) | 6.2.0.285+ / 7.0.0.68+ |
+| Datasource / inline JDBC uses `maven` coordinates | **7.1.0.184-SNAPSHOT+** |
+| Extension install registers Maven JDBC driver in config | **7.1.0.187-SNAPSHOT+** |
+| `admin action="getJDBCDrivers"` exposes `maven` column | **7.1.0.189-SNAPSHOT+** |
+
+### Verifying Registration
+
+```cfml
+var jdbc = getPageContext().getConfig().getJDBCDriverById( "mssql", nullValue() );
+
+// Lucee 7.1+ after extension install:
+// jdbc.cd.isMaven()     → true
+// jdbc.cd.isBundle()    → false
+// jdbc.cd.getMavenRaw() → "com.microsoft.sqlserver:mssql-jdbc:13.4.0.jre11"
+```
+
+Or via admin:
+
+```cfml
+admin action="getJDBCDrivers" type="server" password="..." returnVariable="drivers";
+// Query column "maven" populated; bundleName/bundleVersion empty for Maven-registered drivers
+```
+
+### Testing JDBC Extensions in CI
+
+A typical extension workflow:
+
+1. `mvn clean install` → produces `target/*.lex` (remove `*.lite.lex` from `extensionDir` if testing the full offline package)
+2. Checkout Lucee test sources (`ref: "7.0"` — **quote the ref** in GitHub Actions; unquoted `7.0` is parsed as YAML float `7`)
+3. Run `lucee/script-runner` with `extensionDir: target/`, `testLabels: mssql`, `testAdditional: tests/`
+
+Extension-local tests should:
+
+- Use `dbinfo type="version"` against the test datasource for the **runtime** driver version
+- Use `createObject( "java", class, { maven: [ gav ] } )` to load Maven driver classes — bare `createObject( "java", class )` fails because the class is not on the default classloader
+- **Not** call `bundleInfo()` on Maven-loaded classes — it only works for OSGi bundles; report GAV coordinates instead
+- Assert Maven driver version only when `resolution.mode eq "maven"`; skip version prefix checks on 6.2 / 7.0 bundle path
+
+### JDBC Pitfalls (Session Notes)
+
+| Problem | Cause | Fix |
+| --- | --- | --- |
+| Driver stays on old OSGi version (e.g. `12.2.0`) on 7.1 | [LDEV-6413](https://luceeserver.atlassian.net/browse/LDEV-6413) part 1 fixed parsing, but extension install only registered `isBundle()` CDs | Fixed in Lucee 7.1.0.187+ — register Maven CDs too |
+| `REGISTEREDJDBCDRIVER` shows bundle despite Maven mode | Test harness merged manifest `bundleName`/`bundleVersion` fallback into reporting | Read `cd.isMaven()` from `getJDBCDriverById()`; omit manifest bundle fields when Maven is active |
+| `createObject("java", driverClass)` → `ClassNotFoundException` on 7.1 | Maven driver not on default classloader | Pass `javasettings: { maven: [ "group:artifact:version" ] }` |
+| `bundleInfo()` → *not from an OSGi bundle* | Maven-loaded class | Skip `bundleInfo()` in Maven mode; use GAV from resolution or `dbinfo` |
+| `getJDBCDrivers` shows empty/wrong bundle for Maven driver | Admin query only had bundle columns | Fixed 7.1.0.189+ — added `maven` column |
+| Dual manifest still useful? | Yes — 6.2 / 7.0 ignore `maven` | Keep `bundleName`/`bundleVersion` in manifest; do not remove OSGi fallback metadata |
+
+### OSGi Fallback Without `/jars/`
+
+For JDBC, the OSGi fallback does not require shipping a Felix bundle inside the `.lex`. A common pattern:
+
+- **`maven:`** embeds `com.microsoft.sqlserver:mssql-jdbc:…` under `/maven/`
+- **`bundleName` / `bundleVersion`** reference `org.lucee:mssql:12.10.2` (or similar) published to Maven Central for legacy resolution
+- **`start-bundles: false`** — vendor JAR is never installed as an OSGi bundle
+
+This keeps the `.lex` smaller while still supporting Lucee versions that cannot use manifest `maven:` for JDBC.
+
 ## Maven Dependency Format (GAVSO)
 
 Maven coordinates in Lucee use **colon-separated** Gradle-style notation:
@@ -271,6 +371,9 @@ For build file snippets, CI configuration, and pitfall details, see [`/docs/tech
 | --- | --- | --- | --- |
 | `/maven/` folder extraction from `.lex` | ✅ | 7.0.0.68+ | 6.2.0.300+ |
 | Manifest `cache:`/`jdbc:` with `maven:` | ✅ | 7.0.0.68+ | 6.2.0.285+ |
+| JDBC datasource uses manifest `maven:` at runtime | 7.1.0.184+ | ❌ (bundle only) | ❌ (bundle only) |
+| JDBC extension install registers Maven driver | 7.1.0.187+ | ❌ | ❌ |
+| `getJDBCDriverById()` returns Maven CD | 7.1.0.187+ | ❌ | ❌ |
 | Maven cache provider (all creation paths) | 7.1.0.93+ | 7.0.4.21+ | 6.2.7.7+ |
 | `start-bundles: false` | ✅ | ✅ | ✅ |
 | GAVSO coordinate parsing | ✅ | ✅ | ✅ |
@@ -432,5 +535,6 @@ These extensions demonstrate the Maven pattern and can be used as templates:
 | [extension-s3](https://github.com/lucee/extension-s3) | Manifest-only handler, lite extension, **7.0** baseline |
 | [extension-image](https://github.com/lucee/extension-image) | FLD + TLD (custom tags), dependency cleanup, **7.1** minimum |
 | [extension-dynamodb](https://github.com/lucee/extension-dynamodb) | Cache handler, no FLD/TLD |
+| [extension-jdbc-mssql](https://github.com/lucee/extension-jdbc-mssql) | JDBC driver, dual OSGi + Maven manifest, extension CI |
 | [extension-ftp](https://github.com/lucee/extension-ftp) | Resource provider |
 | [extension-debugger](https://github.com/lucee/extension-debugger) | Debugging extension |

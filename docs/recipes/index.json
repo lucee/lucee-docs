@@ -1244,6 +1244,24 @@
     ]
   },
   {
+    "file": "config-schema.md",
+    "title": "Lucee Config Schema & Environment Variables",
+    "path": "/docs/recipes/config-schema.md",
+    "hash": "f77ca0c797a7e143d7313d9d3acb1463",
+    "keywords": [
+      "CFConfig",
+      "config-schema",
+      "env-vars",
+      "JSON Schema",
+      "Maven",
+      "environment variables",
+      "system properties",
+      "IDE",
+      "validation",
+      "AI"
+    ]
+  },
+  {
     "file": "extension-utilities.md",
     "title": "Lucee Extension Utilities",
     "path": "/docs/recipes/extension-utilities.md",
@@ -1275,7 +1293,7 @@
     "file": "lucee-skill.md",
     "title": "Lucee Skill for AI Assistants",
     "path": "/docs/recipes/lucee-skill.md",
-    "hash": "f9472087962b3e04c0eaac014f42b5d2",
+    "hash": "03edfe2a5925a4330f7dab49eef13267",
     "keywords": [
       "skill",
       "lucee.skill",

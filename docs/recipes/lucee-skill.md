@@ -20,7 +20,8 @@
   "related": [
     "mcp",
     "ai",
-    "ai-for-documentation"
+    "ai-for-documentation",
+    "config-schema"
   ]
 }
 -->

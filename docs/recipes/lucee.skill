@@ -111,6 +111,7 @@ description: >
 | Lucee 7 Loader API Changes | `loader-api-changes-7` | loader, API, CFMLEngine, extensions, Java, Jakarta, AI, secret provider, migration |
 | Lucee and REST Services | `rest-services` | REST, RESTful, HTTP verbs, taffy, restInitApplication, CFC, JSON, API |
 | Lucee Archives (.lar files) | `archives-creating-and-deploy` | Lucee, Archives, .lar files, Deploy, Mapping, Component, CFC, CFM, compiled, source protection |
+| Lucee Config Schema & Environment Variables | `config-schema` | CFConfig, config-schema, env-vars, JSON Schema, Maven, environment variables, system properties, IDE, validation, AI |
 | Lucee Extension Utilities | `extension-utilities` | Extension, Development, Utilities, CFMLEngine, Java, API |
 | Lucee Release Cycle | `release-cycle` | release, versioning, branching, development cycle, release candidate, RC |
 | Lucee Skill for AI Assistants | `lucee-skill` | skill, lucee.skill, AI, Claude, OpenAI, Gemini, Cursor, documentation, agent, assistant |
@@ -413,6 +414,9 @@ For implementation details, class names, and API signatures fetch directly:
 | JSR-223 — `ScriptEngineFactory`, engine names, MIME types, CLI, Ant | `https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/technical-specs/jsr223.yaml` |
 | Monitors — action/request/interval, `ActionMonitorCollector`, `getMonitorData()` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/technical-specs/monitors.yaml` |
 | LuCLI — CLI tool, `lucee.json`, server lifecycle, modules, secrets, deps | `https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/technical-specs/lucli-spec.md` |
+| Config schema & env-vars — what they are, IDE/CI/AI usage | `https://raw.githubusercontent.com/lucee/lucee-docs/master/docs/recipes/config-schema.md` |
+| CFConfig JSON Schema (Maven, per release — replace `{version}` with your Lucee version) | `https://repo1.maven.org/maven2/org/lucee/lucee/{version}/lucee-{version}-config-schema.json` |
+| System properties & env vars catalog (Maven, per release — replace `{version}`) | `https://repo1.maven.org/maven2/org/lucee/lucee/{version}/lucee-{version}-env-vars.json` |
 
 ## Notes
 

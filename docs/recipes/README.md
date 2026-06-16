@@ -344,6 +344,10 @@ A detailed guide on how to create REST Sevices using CFCs
 
 How to create, deploy and use Lucee Archives (.lar files) to distribute compiled CFML applications without exposing source code.
 
+## [Lucee Config Schema & Environment Variables](/docs/recipes/config-schema.md)
+
+Machine-readable JSON Schema and environment-variable catalogs published with every Lucee release on Maven Central — for IDE validation, CI, and AI assistants
+
 ## [Lucee Extension Utilities](/docs/recipes/extension-utilities.md)
 
 Comprehensive guide to accessing Lucee core utilities when developing extensions

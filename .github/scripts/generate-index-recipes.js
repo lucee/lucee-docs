@@ -14,6 +14,9 @@ const TECHNICAL_SPECS = [
   { topic: 'JSR-223 — `ScriptEngineFactory`, engine names, MIME types, CLI, Ant', file: 'docs/technical-specs/jsr223.yaml' },
   { topic: 'Monitors — action/request/interval, `ActionMonitorCollector`, `getMonitorData()`', file: 'docs/technical-specs/monitors.yaml' },
   { topic: 'LuCLI — CLI tool, `lucee.json`, server lifecycle, modules, secrets, deps', file: 'docs/technical-specs/lucli-spec.md' },
+  { topic: 'Config schema & env-vars — what they are, IDE/CI/AI usage', file: 'docs/recipes/config-schema.md' },
+  { topic: 'CFConfig JSON Schema (Maven, per release — replace `{version}` with your Lucee version)', url: 'https://repo1.maven.org/maven2/org/lucee/lucee/{version}/lucee-{version}-config-schema.json' },
+  { topic: 'System properties & env vars catalog (Maven, per release — replace `{version}`)', url: 'https://repo1.maven.org/maven2/org/lucee/lucee/{version}/lucee-{version}-env-vars.json' },
 ];
 
 const GUIDE_PAGE_FILES = new Set(['page.md', 'chapter.md']);
@@ -247,7 +250,10 @@ function generateSkill({ recipes, guides, examples }) {
   });
 
   const specRows = TECHNICAL_SPECS
-    .map((spec) => `| ${spec.topic} | \`${BASE_RAW_URL}${spec.file}\` |`)
+    .map((spec) => {
+      const url = spec.url ?? `${BASE_RAW_URL}${spec.file}`;
+      return `| ${spec.topic} | \`${url}\` |`;
+    })
     .join('\n');
 
   return `---
