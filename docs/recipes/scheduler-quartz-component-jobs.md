@@ -22,6 +22,8 @@ Execute CFML components (CFCs) as scheduled tasks with Quartz Scheduler.
 
 For general overview, see [[scheduler-quartz]].
 
+**Prerequisites:** Before creating component-based jobs, you must first install the Quartz Scheduler extension and configure a gateway instance. See the [Gateway Configuration](scheduler-quartz.md#gateway-configuration-required) section in the main Quartz Scheduler documentation.
+
 Advantages over URL-based jobs:
 
 - Full CFML capabilities

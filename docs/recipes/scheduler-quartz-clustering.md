@@ -27,6 +27,8 @@ This recipe provides detailed instructions for setting up and configuring cluste
 
 For a general overview of the Quartz Scheduler extension, see the [Quartz Scheduler documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/scheduler-quartz.md).
 
+**Prerequisites:** Before configuring clustering, you must first install the Quartz Scheduler extension and configure a gateway instance. See the [Gateway Configuration](scheduler-quartz.md#gateway-configuration-required) section in the main Quartz Scheduler documentation.
+
 ## Overview
 
 Clustering in Quartz Scheduler allows you to distribute your scheduled tasks across multiple servers, providing:

@@ -47,6 +47,26 @@ During this transition period, the legacy Scheduled Task extension is installed 
 - **JSON Configuration**: Define your tasks using flexible JSON configuration
 - **Component Integration**: Execute CFML components as scheduled tasks with dependency injection
 
+## Version Changes (v1.1.0+)
+
+**Important:** Version 1.1.0 introduces a breaking change from v1.0.x:
+
+| Feature | v1.0.x | v1.1.0+ |
+|---------|--------|---------|
+| Auto-creates gateway instance | ✅ Yes | ❌ No |
+| Manual gateway configuration | ❌ Not needed | ✅ Required |
+| Jobs work immediately after install | ✅ Yes | ❌ No (must configure gateway) |
+| Existing jobs/configs compatible | N/A | ✅ Yes |
+
+**If upgrading from v1.0:**
+Your existing jobs and configurations will continue to work, but you must manually configure a gateway instance (see [Gateway Configuration](#gateway-configuration-required) below).
+
+**Why this change?**
+- Provides more control over scheduler initialization
+- Allows installing the extension without automatically starting the scheduler
+- Better supports configuration-as-code approaches
+- Enables cleaner separation of concerns
+
 ## Installation
 
 The Quartz Scheduler extension can be installed in two ways:
@@ -66,6 +86,43 @@ The Quartz Scheduler extension can be installed in two ways:
 In Lucee 6.2, this extension is considered experimental, primarily for testing purposes. 
 
 In Lucee 7, it's fully supported as an alternative to the legacy Scheduled Task system.
+
+## Gateway Configuration (Required)
+
+**Important:** Installing the extension does NOT automatically start a Quartz instance. You must manually configure a gateway instance for the scheduler to work.
+
+### Using the Lucee Administrator
+
+1. Navigate to **Server > Event Gateways > Gateway Instances**
+2. Click **Create New Instance**
+3. Select **Quartz Scheduler** from the gateway type dropdown
+4. Set the Instance ID to `quartz-task`
+5. Enable "Startup Mode" and set it to **Automatic**
+6. Under custom settings, configure:
+   - `configFile`: `{lucee-config}/quartz/config.json`
+   - `scheduler`: `scheduler`
+7. Click **Save**
+
+### Using .CFConfig.json
+
+Add the following to your `.CFConfig.json`:
+
+```json
+{
+  "gateways": {
+    "quartz-task": {
+      "cfcPath": "org.lucee.extension.quartz.QuartzGateway",
+      "listenerCFCPath": "",
+      "startupMode": "automatic",
+      "custom": {
+        "configFile": "{lucee-config}/quartz/config.json",
+        "scheduler": "scheduler"
+      },
+      "readOnly": "false"
+    }
+  }
+}
+```
 
 ## Administration
 
