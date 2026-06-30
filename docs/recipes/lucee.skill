@@ -73,7 +73,7 @@ description: >
 | Exception - Cause | `exception-cause` | exception, error, cause, thread, parent |
 | Exception Output | `exception-output` | Exception, Output, Catch, Display exceptions, try-catch |
 | ExecutionLog | `execution-log` | executionlog, debug, performance, profiling |
-| Extension Installation | `extension-installation` | extension, install, lucee administrator, deploy directory, CFConfig.json, environment variable, system property, hot deployment, automation |
+| Extension Installation | `extension-installation` | extension, install, lucee administrator, deploy directory, CFConfig.json, environment variable, system property, hot deployment, automation, maven |
 | Extension Provider | `extension-provider` | extensions, Maven, provider, GroupId, repository, lex, CFConfig |
 | External Agent | `external-agent` | agent, instrumentation, java agent, premain, redefine, retransform |
 | Externalize Strings | `externalizing-strings` | Externalize strings, Memory reduction, Class files, Static contents, Lucee |

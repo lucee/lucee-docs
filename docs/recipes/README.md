@@ -194,7 +194,7 @@ Log details about code execution at the statement level
 
 ## [Extension Installation](/docs/recipes/extension-installation.md)
 
-A comprehensive guide on how to install extensions in Lucee.
+A comprehensive guide on how to install extensions in Lucee, including Lucee 8 maven coordinates and resource auto-discovery.
 
 ## [Extension Provider](/docs/recipes/extension-provider.md)
 
