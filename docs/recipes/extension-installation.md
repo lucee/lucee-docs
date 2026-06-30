@@ -3,7 +3,7 @@
   "title": "Extension Installation",
   "id": "extension-installation",
   "since": "6.1",
-  "description": "A comprehensive guide on how to install extensions in Lucee.",
+  "description": "A comprehensive guide on how to install extensions in Lucee, including Lucee 8 maven coordinates and resource auto-discovery.",
   "keywords": [
     "extension",
     "install",
@@ -13,7 +13,10 @@
     "environment variable",
     "system property",
     "hot deployment",
-    "automation"
+    "automation",
+    "maven",
+    "resource",
+    "lex"
   ],
   "categories": [
     "extensions"
@@ -87,7 +90,58 @@ Best for: hot deployment on a running server, scripted installs where you alread
 
 ### `.CFConfig.json`
 
-Define extensions in your `.CFConfig.json` configuration file:
+Define extensions declaratively in your `.CFConfig.json` configuration file. The supported keys differ between Lucee 7 and Lucee 8.
+
+#### Lucee 8+
+
+Lucee 8 uses Maven coordinates (`groupId:artifactId:version`) as the primary identifier:
+
+```json
+{
+  "extensions": [
+    {
+      "maven": "org.lucee:s3-extension:2.0.2.21"
+    },
+    {
+      "maven": "org.lucee:redis-extension:3.0.0.56"
+    }
+  ]
+}
+```
+
+You can also provide a `resource` pointing to a local file or any Lucee VFS path (HTTPS, S3, FTP, etc.). When the resource resolves successfully, Lucee reads the `maven` coordinates and `id` directly from the `.lex` metadata — no other fields are required:
+
+```json
+{
+  "extensions": [
+    {
+      "resource": "/opt/lucee/extensions/my-extension.lex"
+    },
+    {
+      "resource": "https://example.com/ext.lex"
+    }
+  ]
+}
+```
+
+If the resource cannot be resolved at startup, Lucee falls back to `maven` or `id` to fetch the extension from Maven. Providing both is a useful safety net:
+
+```json
+{
+  "extensions": [
+    {
+      "maven": "org.lucee:s3-extension:2.0.2.21",
+      "resource": "s3:///mybucket/extensions/s3-extension-2.0.2.21.lex"
+    }
+  ]
+}
+```
+
+`resource` is aliased as `path` and `url` — all three are equivalent.
+
+#### Lucee 7 and older
+
+Lucee 7 identifies extensions by UUID (`id`). `name` and `version` are optional:
 
 ```json
 {
@@ -107,7 +161,7 @@ Define extensions in your `.CFConfig.json` configuration file:
 }
 ```
 
-`name` is always optional. You can provide a `path` to a local file or any Lucee virtual filesystem path (HTTPS, S3, FTP, etc.) instead of resolving from Maven.
+As with Lucee 8, providing a `path`/`resource`/`url` to a reachable `.lex` file allows Lucee to read the `id`, `name`, and `version` directly from the file — they do not need to be stated explicitly.
 
 **Important:** CFConfig extensions are only processed on a fresh install. They are not re-evaluated on subsequent startups. On a fresh install, Lucee also installs the [bundled extensions](https://github.com/lucee/Lucee/blob/7.0/core/src/main/java/META-INF/MANIFEST.MF#L364). Extensions already installed but absent from the list are left in place — CFConfig only adds, it does not remove.
 
@@ -135,7 +189,7 @@ Best for: Docker/container deployments, CI/CD pipelines, infrastructure-as-code.
 
 ## Format Reference
 
-All installation methods that accept extension identifiers support the same formats.
+The `LUCEE_EXTENSIONS` environment variable and `-Dlucee.extensions` system property use a comma-separated string format. `.CFConfig.json` uses structured JSON objects (see above). Both support the same underlying identifier formats.
 
 ### UUID only (version resolved automatically)
 
@@ -151,31 +205,25 @@ All installation methods that accept extension identifiers support the same form
 671B01B8-B3B3-42B9-AC055A356BED5281;name=PostgreSQL;version=42.7.3
 ```
 
-### Gradle-style coordinates (Lucee 7.0.1+)
+### Maven / Gradle-style coordinates (Lucee 7.0.1+, primary format in Lucee 8)
+
+`groupId:artifactId:version` — version can be omitted to resolve the latest release:
 
 ```plaintext
 org.lucee:lucene-search-extension:3.0.0.163,
-org.lucee:redis-extension:3.0.0.56
+org.lucee:redis-extension:3.0.0.56,
+org.lucee:s3-extension
 ```
 
-Version can be omitted — `org.lucee:s3-extension` resolves the latest release:
+### Custom path / resource
 
-```plaintext
-org.lucee:s3-extension,
-org.lucee:redis-extension
-```
-
-### Custom path
-
-Use `;path=` to load from a specific location instead of Maven. Combine with a UUID or Gradle coordinates:
+Use `;path=` (or `;resource=` / `;url=`) to load from a specific file instead of Maven. When the file resolves successfully, `id`/`maven` are read from the `.lex` metadata and do not need to be stated. All Lucee virtual file systems are supported (local, HTTP/HTTPS, S3, FTP, ZIP/TAR, Git, RAM, etc.):
 
 ```plaintext
 60772C12-F179-D555-8E2CD2B4F7428718;path=/opt/lucee/extensions/redis.extension-3.0.0.51.lex,
 17AB52DE-B300-A94B-E058BD978511E39E;path=https://ext.lucee.org/s3-extension-2.0.1.25.lex,
 org.lucee:redis-extension:3.0.0.56;path=s3:///mybucket/extensions/redis.lex
 ```
-
-All Lucee virtual file systems are supported (local, HTTP/HTTPS, S3, FTP, ZIP/TAR, Git, RAM, etc.).
 
 ### Mixed formats
 
