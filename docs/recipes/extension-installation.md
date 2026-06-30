@@ -32,20 +32,6 @@
 
 Extensions add capabilities to Lucee — JDBC drivers, resource providers (S3, Redis), image handling, PDF generation, and more. You can find available extensions at [download.lucee.org](https://download.lucee.org).
 
-## Standard vs Light vs Zero
-
-The standard Lucee jar bundles common extensions (PDF, image, etc.) so they are available out of the box. 
-
-**Lucee Light** and **Lucee Zero** include no bundled extensions — you must explicitly declare every extension you need. This makes them ideal for containerised deployments where you want full control over what's installed.
-
-Lucee Light includes the Lucee Admin archive (`.lar`), while Zero doesn't, saving about 2Mb.
-
-In order to enable the Admin with Lucee light, you need to install the Admin Extension, which just adds a mapping to the the archive.
-
-You can disable installing the bundled extensions on deploy by setting this ENV var to `false`:
-
-[[content::sysprop-envvar#LUCEE_EXTENSIONS_INSTALL]]
-
 ## Version Resolution
 
 Version is optional in all installation methods. When omitted, Lucee resolves the latest **release** version from Maven. SNAPSHOTs are only used as a fallback if no release exists. The resolved version is written back to the server's config file on disk.
@@ -240,6 +226,20 @@ org.lucee:lucene-search-extension:3.0.0.163,
 When `LUCEE_BASE_CONFIG` is set, Lucee uses that file as the server config instead of the default `.CFConfig.json` in the server context directory. Any config updates — including resolved extension versions written back after install — go to that file.
 
 If your base config is shared, version-controlled, or read-only, this can be a problem. To install extensions without modifying your base config, drop a `.CFConfig.json` snippet into the `deploy/` directory. Lucee imports it, applies the changes to the running server's own config, then deletes the file — leaving your base config untouched.
+
+## Standard vs Light vs Zero
+
+The standard Lucee jar bundles common extensions (PDF, image, etc.) so they are available out of the box.
+
+**Lucee Light** and **Lucee Zero** include no bundled extensions — you must explicitly declare every extension you need. This makes them ideal for containerised deployments where you want full control over what's installed.
+
+Lucee Light includes the Lucee Admin archive (`.lar`), while Zero doesn't, saving about 2Mb.
+
+In order to enable the Admin with Lucee Light, you need to install the Admin Extension, which just adds a mapping to the archive.
+
+You can disable installing the bundled extensions on deploy by setting this ENV var to `false`:
+
+[[content::sysprop-envvar#LUCEE_EXTENSIONS_INSTALL]]
 
 ## Logging and Troubleshooting
 
