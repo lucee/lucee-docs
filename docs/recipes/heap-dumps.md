@@ -260,7 +260,7 @@ It uses a two-pass parser so memory overhead stays low even on large dumps. Avai
 
 ### heap-dump-tool
 
-Similar to hprof-redact, [heap-dump-tool](https://github.com/paypal/heap-dump-tool) is another tool that can remove sensitive string or other non-string data from heap dumps while preserving the object graph and instance sizes.
+Similar to hprof-redact, [heap-dump-tool](https://github.com/paypal/heap-dump-tool) is another tool that can remove sensitive string data from heap dumps while preserving the object graph and instance sizes.
 
 ```bash
 wget -O heap-dump-tool.jar https://repo1.maven.org/maven2/com/paypal/heap-dump-tool/1.3.4/heap-dump-tool-1.3.4-all.jar
@@ -270,7 +270,7 @@ java -jar heap-dump-tool.jar sanitize source.hprof output.hprof
 Key features:
 
 - **Full sanitisation**: Replaces byte/char array contents with null bytes (configurable replacement text)
-- **Selective exclusion**: Exclude specific string fields from sanitisation via `-e` (e.g. `-e "java.lang.Thread#name"`)
+- **Selective redaction**: Exclude specific string fields from sanitisation via `-e` (e.g. `-e "java.lang.Thread#name"`)
 - **Scope control**: Optionally sanitise all primitive arrays and non-array primitive fields (`--sanitize-byte-char-arrays-only=false`)
 
 ### hprof-slurp
