@@ -128,6 +128,7 @@ description: >
 | MSSQL Modern Mode | `mssql-modern-mode` | mssql, sql server, raiserror, deferred exceptions, modern mode, jdbc, stored procedures, t-sql |
 | New Operator | `new-operator` | new, java, classes, class, createObject, component |
 | Null Support | `null-support` | Null support, null keyword, NullValue function, isNull function, Lucee |
+| Null Values in Structs and Arrays | `null-structs-and-arrays` | null, struct, array, loop, for-in, isNull, NullValue, sparse array, Lucee |
 | onBuild Function in Server.cfc | `docker-onbuild` | onBuild, Server.cfc, build, Docker, server, compile, encrypt, validate, prewarm, warmup |
 | ORM - Caching | `orm-caching` | ORM, caching, second-level cache, query cache, EHCache, cacheProvider, ormEvictEntity, Hibernate cache |
 | ORM - Configuration | `orm-configuration` | ORM, ormSettings, Hibernate, schema management, dbCreate, naming strategy, Application.cfc, cfcMapping, custom mappings |
@@ -399,6 +400,7 @@ description: >
 | Lucee S3 Virtual File System — MiniStack Example | `docker/s3-ministack` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/s3-ministack/readme.md` |
 | Lucee Secret Provider - Docker Example | `docker/secret-provider` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/secret-provider/readme.md` |
 | Simple Lucee Docker Setup | `docker/basic` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/basic/readme.md` |
+| Simple Lucee Docker Setup | `docker/test` | `https://raw.githubusercontent.com/lucee/lucee-docs/master/examples/docker/test/readme.md` |
 
 ## Technical Specs
 

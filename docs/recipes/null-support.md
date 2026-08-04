@@ -9,7 +9,8 @@
     "function-structkeyexists",
     "function-serializejson",
     "function-deserializejson",
-    "tag-application"
+    "tag-application",
+    "null-structs-and-arrays"
   ],
   "description": "Understand the differences between partial and full null support - how it affects structKeyExists(), JSON serialization, queries and variable assignment.",
   "keywords": [

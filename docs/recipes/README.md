@@ -412,6 +412,10 @@ This document provides a guide on using the new operator in Lucee for creating i
 
 Understand the differences between partial and full null support - how it affects structKeyExists(), JSON serialization, queries and variable assignment.
 
+## [Null Values in Structs and Arrays](/docs/recipes/null-structs-and-arrays.md)
+
+How Lucee treats null values when looping structs versus arrays, and the recommended loop patterns.
+
 ## [onBuild Function in Server.cfc](/docs/recipes/docker-onbuild.md)
 
 The onBuild function in Server.cfc is used for tasks during the build phase in Lucee, particularly useful in Docker environments.
