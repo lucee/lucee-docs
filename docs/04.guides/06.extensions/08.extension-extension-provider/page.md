@@ -7,7 +7,7 @@ id: extensions-extension-provider
 
 Extensions are provided by the Extension Provider. An Extension Provider is a webservice that obeys a certain interface described below. Extension Provider can easily be registered in the Lucee Administrator. All you have to do is to enter and save the URL address pointing to it.
 
-Let’s have a look at the interface of the extension providers. As already said it is a webservice that can be programmed in any given technology. In our examples we are using a CFC (CF Component).
+Let's have a look at the interface of the extension providers. As already said it is a webservice that can be programmed in any given technology. In our examples we are using a CFC (CF Component).
 
 ### Interface ###
 
@@ -26,9 +26,7 @@ title | Title of the extension provider
 description | Description of the extension provider
 image | Link to an image
 url | URL for more information
-mode | Defines how the Information of the ExtensionProvider is cached in the client (Lucee Administrator). Valid values are:
-<ul><li>develop - does not cache the result of the extension provider</li>
-<li>production (or no value) - caches the result in the session scope of the consumer</li></ul>
+mode | Defines how the Information of the ExtensionProvider is cached in the client (Lucee Administrator). Valid values are: <ul><li>develop - does not cache the result of the extension provider</li><li>production (or no value) - caches the result in the session scope of the consumer</li></ul>
 
 ### listApplications ###
 
