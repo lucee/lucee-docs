@@ -165,6 +165,7 @@ description: >
 | Secret Management | `secret-provider` | security, secrets, credentials, environment variables, configuration |
 | Selective Cache Invalidation | `cache-invalidation-selective` | Cache, cachedWithin, cachedWithinId, cachedWithinFlush, Query cache, Function cache, HTTP cache, Cache invalidation, Performance |
 | Sending Emails | `mail-how-to-send-a-mail` | Email, Send mail, cfmail, Mail server, Mail script, Lucee |
+| Serving CFML Files from a Lucee Extension | `serving-cfml-from-extensions` | Extensions, LEX, Mapping, Component Mapping, lucee-server context, lucee-config, webroot, CFConfig, MCP |
 | Servlet Configuration | `servlet-configuration` | java, javax, jakarta, servlet, tomcat, jetty, undertow, war, docker |
 | Session Handling | `session-handling` | Session Management, CFML Sessions, JEE Sessions, Session Storage, Session Security, Session Timeout, Session Clustering, State Management |
 | Setting System Properties and Environment Variables | `setting-system-properties-and-env-vars` | Environment, Environment Variables, Properties, System Properties, setting, config |

@@ -2081,6 +2081,23 @@
     ]
   },
   {
+    "file": "serving-cfml-from-extensions.md",
+    "title": "Serving CFML Files from a Lucee Extension",
+    "path": "/docs/recipes/serving-cfml-from-extensions.md",
+    "hash": "af1e1e3db82faaaa4240d32e1438c93d",
+    "keywords": [
+      "Extensions",
+      "LEX",
+      "Mapping",
+      "Component Mapping",
+      "lucee-server context",
+      "lucee-config",
+      "webroot",
+      "CFConfig",
+      "MCP"
+    ]
+  },
+  {
     "file": "servlet-configuration.md",
     "title": "Servlet Configuration",
     "path": "/docs/recipes/servlet-configuration.md",

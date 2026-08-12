@@ -560,6 +560,10 @@ How to flush specific cached queries, functions, and HTTP results in Lucee witho
 
 How to send an email using Lucee with help of the tag cfmail.
 
+## [Serving CFML Files from a Lucee Extension](/docs/recipes/serving-cfml-from-extensions.md)
+
+How to ship CFML templates and components inside a Lucee extension and make them reachable in the webroot via a mapping.
+
 ## [Servlet Configuration](/docs/recipes/servlet-configuration.md)
 
 How to deploy and configure Lucee on servlet containers
