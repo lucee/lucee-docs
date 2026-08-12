@@ -10,7 +10,7 @@ while(testCondition) {
 echo(cnt);
 ```
 
-```luceescript+trycf
+```lucee+trycf
 <!--- testing condition  --->
 <cfset testCondition = true>
 <cfset cnt = 0>
@@ -40,7 +40,7 @@ WhileLabel: while (x < 10){
 writeOutput("After loop, x is #x#<br>");
 ```
 
-```luceescript+trycf
+```lucee+trycf
 <!--- breaking out using a label ---> 
 <cfset x = 0>
 <cfloop condition="x LT 10" index="i" label="WhileLabel">
