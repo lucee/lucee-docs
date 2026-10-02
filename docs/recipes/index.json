@@ -398,6 +398,25 @@
     ]
   },
   {
+    "file": "ai-engine-extension.md",
+    "title": "Creating an Extension that Provides an AI Engine",
+    "path": "/docs/recipes/ai-engine-extension.md",
+    "hash": "e0eb163ff992f0a90def0884a7063d97",
+    "keywords": [
+      "AI",
+      "LLM",
+      "AIEngine",
+      "AISession",
+      "extension",
+      "loader",
+      "OSGi",
+      "Maven",
+      "lex",
+      "custom AI provider",
+      "virtual file system"
+    ]
+  },
+  {
     "file": "scheduler-quartz-component-jobs.md",
     "title": "Creating Component-Based Jobs with Quartz Scheduler",
     "path": "/docs/recipes/scheduler-quartz-component-jobs.md",

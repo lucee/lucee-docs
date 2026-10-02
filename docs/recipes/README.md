@@ -108,6 +108,10 @@ How to configure Lucee within your application using Administrator.cfc and cfadm
 
 Use the console for debugging
 
+## [Creating an Extension that Provides an AI Engine](/docs/recipes/ai-engine-extension.md)
+
+How to implement the AI interfaces from the Lucee loader in your own Java engine, package it as an extension and use it with createAISession()
+
 ## [Creating Component-Based Jobs with Quartz Scheduler](/docs/recipes/scheduler-quartz-component-jobs.md)
 
 How to create and configure component-based jobs with the Quartz Scheduler extension
