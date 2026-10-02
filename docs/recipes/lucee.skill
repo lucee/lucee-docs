@@ -112,7 +112,7 @@ description: >
 | Lucee and REST Services | `rest-services` | REST, RESTful, HTTP verbs, taffy, restInitApplication, CFC, JSON, API |
 | Lucee Archives (.lar files) | `archives-creating-and-deploy` | Lucee, Archives, .lar files, Deploy, Mapping, Component, CFC, CFM, compiled, source protection |
 | Lucee Extension Utilities | `extension-utilities` | Extension, Development, Utilities, CFMLEngine, Java, API |
-| Lucee Release Cycle | `release-cycle` | release, versioning, branching, development cycle, release candidate, RC |
+| Lucee Release Cycle and Branching | `release-cycle` | release, versioning, branching, development cycle, release candidate, RC, SNAPSHOT, regression, pull request, merge forward |
 | Lucee Skill for AI Assistants | `lucee-skill` | skill, lucee.skill, AI, Claude, OpenAI, Gemini, Cursor, documentation, agent, assistant |
 | Lucee Versions and Extensions | `versions` | versions, extensions, LuceeVersionsList, LuceeVersionsDetail, LuceeExtension, Maven, upgrade |
 | Lucene 3 Extension | `lucene-search` | Lucene, Search, Vector, Hybrid, Semantic, Content Chunks, Embeddings, cfcollection, cfindex, cfsearch |

@@ -1262,16 +1262,21 @@
   },
   {
     "file": "release-cycle.md",
-    "title": "Lucee Release Cycle",
+    "title": "Lucee Release Cycle and Branching",
     "path": "/docs/recipes/release-cycle.md",
-    "hash": "7247fffc83a548026fd1a5393bd65e25",
+    "hash": "abeed035c4711c3eda8999d15a9b8426",
     "keywords": [
       "release",
       "versioning",
       "branching",
       "development cycle",
       "release candidate",
-      "RC"
+      "RC",
+      "SNAPSHOT",
+      "regression",
+      "pull request",
+      "merge forward",
+      "fix version"
     ]
   },
   {

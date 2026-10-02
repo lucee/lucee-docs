@@ -348,9 +348,9 @@ How to create, deploy and use Lucee Archives (.lar files) to distribute compiled
 
 Comprehensive guide to accessing Lucee core utilities when developing extensions
 
-## [Lucee Release Cycle](/docs/recipes/release-cycle.md)
+## [Lucee Release Cycle and Branching](/docs/recipes/release-cycle.md)
 
-Documentation for Lucee's release branching and versioning strategy
+How Lucee versions and branches work: minor-line branches, release cycles, RC branches, which branch a fix belongs on, merging forward and Jira fix versions
 
 ## [Lucee Skill for AI Assistants](/docs/recipes/lucee-skill.md)
 
