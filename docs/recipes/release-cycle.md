@@ -1,186 +1,141 @@
 <!--
 {
-  "title": "Lucee Release Cycle",
+  "title": "Lucee Release Cycle and Branching",
   "id": "release-cycle",
   "categories": ["development", "versioning", "server", "devops"],
-  "description": "Documentation for Lucee's release branching and versioning strategy",
+  "description": "How Lucee versions and branches work: minor-line branches, release cycles, RC branches, which branch a fix belongs on, merging forward and Jira fix versions",
   "keywords": [
     "release",
     "versioning",
     "branching",
     "development cycle",
     "release candidate",
-    "RC"
+    "RC",
+    "SNAPSHOT",
+    "regression",
+    "pull request",
+    "merge forward",
+    "fix version"
   ],
-  "related": []
+  "related": ["versions"]
 }
 -->
 
-# Lucee Release Cycle
+# Lucee Release Cycle and Branching
 
-This document describes Lucee's release branching strategy, versioning conventions, and version numbering scheme.
+This recipe describes how Lucee versions are numbered, how the branches of [lucee/Lucee](https://github.com/lucee/Lucee) are organised, which branch a fix belongs on, and how fixes move between branches.
 
-## Overview
+## Version Numbers
 
-Lucee uses a release branching model that allows active development to continue on the main branch while stabilization and release preparation happen in parallel on dedicated release branches.
+A Lucee version has four parts, `MAJOR.MINOR.PATCH.BUILD`, plus an optional suffix.
 
-## Version Numbering
+Example: `7.1.1.15-SNAPSHOT`
 
-Lucee uses a four-part version number during development: `MAJOR.MINOR.PATCH.BUILD-SNAPSHOT`
+| Part | Example | Meaning |
+|------|---------|---------|
+| `MAJOR.MINOR` | `7.1` | The minor line. Also the name of the line's branch. |
+| `PATCH` | `1` | The cycle within the line. `7.1.1` is one cycle. |
+| `BUILD` | `15` | The build number. |
 
-Example: `7.0.1.52-SNAPSHOT`
+| Suffix | Meaning | Example |
+|--------|---------|---------|
+| `-SNAPSHOT` | Development build | `7.1.1.15-SNAPSHOT` |
+| `-RC` | Release candidate | `7.0.6.9-RC` |
+| `-BETA` / `-ALPHA` | Beta / alpha build | `7.1.0.202-BETA`, `7.1.0.0-ALPHA` |
+| none | Final release | `7.1.0.204` |
 
-- **MAJOR.MINOR** (7.0): The active development branch
-- **PATCH** (1): The patch version being prepared
-- **BUILD** (52): Automatically incremented with each commit
-- **SNAPSHOT**: Indicates pre-release development version
+The current version of a branch is the `<version>` in its `loader/pom.xml`.
 
-The build number has no special meaning—it simply increments with every commit to track the exact state of the branch.
+The version is bumped when a fix lands. Changes that only touch tests never bump the version.
 
-## Active Development Branch
+## Branches
 
-At any given time, there is one **active branch** where ongoing development occurs.
+### Minor Branches
 
-**For example:** Branch `7.0` with version `7.0.1.52-SNAPSHOT`
+Each minor line has its own branch, named `MAJOR.MINOR`: for example `6.2`, `7.0`, `7.1` and `8.0`. `8.0` is the development line.
 
-All new features, improvements, and non-critical fixes are committed to this branch during active development.
+Each line works in cycles. A patch version such as `7.1.1` is one cycle. The minor branch holds the line's current cycle as a `-SNAPSHOT` version.
 
-## Creating a Release
+### Release (RC) Branches
 
-When the team decides to prepare a release candidate, the following process occurs:
+When a cycle moves to RC, a release branch named after the patch version is created from the minor branch at that point in history:
 
-### Step 1: Create Release Branch
+- `7.0.6` was created from `7.0`
+- `7.1.1` will be created from `7.1`
 
-A new release branch is created as a clone of the active branch:
+The minor branch then starts the next cycle with a new `-SNAPSHOT` version. For example, after `7.0.6` was branched off, `7.0` moved on to `7.0.7.0-SNAPSHOT`.
 
-```bash
-# Clone active branch to new release branch
-git checkout 7.0
-git checkout -b 7.0.1
-```
+Existing release branches include `7.0.0` to `7.0.6`, `7.1.0` and `6.2.9`.
 
-The release branch is named after the patch version being released (e.g., `7.0.1`).
+### Example Layout
 
-### Step 2: Bump Active Branch Version
+The branches and `loader/pom.xml` versions on 2 October 2026:
 
-The active branch immediately moves to the next patch cycle:
+| Branch | Type | `loader/pom.xml` version |
+|--------|------|--------------------------|
+| `8.0` | minor branch (development line) | `8.0.0.195-SNAPSHOT` |
+| `7.1` | minor branch, cycle `7.1.1` | `7.1.1.15-SNAPSHOT` |
+| `7.1.0` | release branch | `7.1.0.204` |
+| `7.0` | minor branch, cycle `7.0.7` | `7.0.7.0-SNAPSHOT` |
+| `7.0.6` | release branch, in RC | `7.0.6.9-RC` |
+| `7.0.5` | release branch | `7.0.5.41` |
+| `6.2` | minor branch, cycle `6.2.10` | `6.2.10.0-SNAPSHOT` |
+| `6.2.9` | release branch, in RC | `6.2.9.4-RC` |
 
-```bash
-# On branch 7.0
-# Version changes from 7.0.1.52-SNAPSHOT to 7.0.2.0-SNAPSHOT
-```
-
-Development continues uninterrupted on the `7.0` branch with the new version number.
-
-### Step 3: Stabilize Release Branch
-
-The release branch (`7.0.1`) enters stabilization phase:
-
-1. Create release candidates: `7.0.1-rc1`, `7.0.1-rc2`, etc.
-2. Perform testing and bug fixes
-3. Create final release: `7.0.1`
-
-## Branch Lifecycle
-
-A release branch follows this lifecycle:
-
-### Active Phase
-
-**Duration:** From branch creation until the release is published
-
-**Activities:**
-
-- Regression testing
-- Security fixes
-- Bug fixes for the upcoming release
-- Creating release candidates
-
-**Merge policy:** All changes made to the release branch are merged back into the active branch (`7.0`)
-
-### Maintenance Phase
-
-**Duration:** From release publication until the next patch version is released
-
-**Activities:**
-
-- Urgent security fixes only
-
-**Example:** Branch `7.0.1` enters maintenance phase when version `7.0.1` is released, and remains in maintenance until version `7.0.2` is released.
-
-### End of Life
-
-**Trigger:** When the next patch version is released
-
-**Example:** Branch `7.0.1` reaches end of life when `7.0.2` is released.
-
-## Merge-Back Strategy
-
-**Critical Rule:** Any change committed to a release branch **must** be merged back into the active branch.
-
-This ensures that bug fixes and security patches are not lost in future releases.
+This changes with every cycle. To see the current state:
 
 ```bash
-# Example: Merge changes from release branch to active branch
-git checkout 7.0
-git merge 7.0.1
+# list all branches
+git ls-remote --heads https://github.com/lucee/Lucee
+
+# show the version of a branch (here 7.1)
+gh api "repos/lucee/Lucee/contents/loader/pom.xml?ref=7.1" -q .content | base64 -d | grep -m1 "<version>"
 ```
 
-This merge-back happens continuously throughout the release branch's active phase and for any security fixes during maintenance phase.
+## Which Branch Does a Fix Go To?
 
-## Example Timeline
+A **regression** is something that worked in the previous final release of a line and broke afterwards.
 
-Here's a complete example of the release cycle in action:
+An RC/release branch only takes fixes for regressions introduced since the last final release of its line:
 
-1. **Development Phase**
-   - Branch: `7.0`
-   - Version: `7.0.1.52-SNAPSHOT`
-   - Activity: Active feature development
+| Release branch | Only takes regressions introduced since |
+|----------------|-----------------------------------------|
+| `7.1.1` (once created) | `7.1.0` final |
+| `7.0.6` | `7.0.5` final |
+| `6.2.9` | the last `6.2` final (`6.2.8`) |
 
-2. **Release Branch Created**
-   - New branch: `7.0.1` (cloned from `7.0`)
-   - Active branch: `7.0` continues with version `7.0.2.0-SNAPSHOT`
+Everything else goes into the minor branch (for example `7.1`), for the next cycle:
 
-3. **Release Candidate Phase**
-   - Branch `7.0.1`: Creates `7.0.1-rc1`, `7.0.1-rc2`
-   - Branch `7.0`: Development continues
-   - All fixes in `7.0.1` are merged to `7.0`
+- new bugs
+- older bugs, which already existed in the last final release
+- enhancements
+- extension updates that are not regression fixes
 
-4. **Release Published**
-   - Branch `7.0.1`: Version `7.0.1` released
-   - Branch `7.0.1`: Now in maintenance mode (security fixes only)
-   - Branch `7.0`: Continues active development
+New bug fixes go only into the minor branch, never into the RC branch.
 
-5. **Next Release Cycle Begins**
-   - New branch: `7.0.2` (cloned from `7.0`)
-   - Active branch: `7.0` continues with version `7.0.3.0-SNAPSHOT`
-   - Branch `7.0.1`: Reaches end of life
+## Merging Forward
 
-## Benefits
+Regression fixes are made on the RC/release branch and then merged forward:
 
-**Development Continuity:** Feature development never stops—the active branch continues while releases are stabilized in parallel.
+1. The release branch is merged into its minor branch, e.g. `7.1.1` into `7.1`, `7.0.6` into `7.0`.
+2. Lower lines are merged into higher lines: `7.0` into `7.1`, `7.1` into `8.0`.
 
-**Isolation:** Release stabilization work doesn't interfere with ongoing feature development.
+```text
+7.0.6 --> 7.0 --> 7.1 --> 8.0
+                   ^
+          7.1.1 ---+
+```
 
-**Clear Merge Path:** Bug fixes always flow from release branches back to the active branch, preventing regressions.
+The maintainer does these merges.
 
-**Parallel Releases:** Multiple release branches can exist simultaneously at different stages.
+## Pull Requests
 
-## Best Practices
+- Open **one** pull request, containing the fix and its test.
+- Target the **lowest affected branch** only. For a regression that is the RC/release branch, for anything else the minor branch.
+- Never open duplicate pull requests for the same fix against several branches. The maintainer merges the fix forward.
 
-### For Committers
+## Jira Fix Versions
 
-- Always merge release branch changes back to the active branch promptly
-- Test merged changes on the active branch to ensure compatibility
-- Document any conflicts encountered during merge-back
+The fix versions on a Jira ticket are, for each branch the fix landed on, the version in that branch's `loader/pom.xml` at the point the fix first landed there.
 
-### For Release Managers
-
-- Clearly communicate when a release branch is created
-- Monitor that all commits to release branches are merged back
-- Archive release branches only after the next patch version is released
-
-### For Users
-
-- Use snapshot versions from the active branch for testing upcoming features
-- Use release candidates for pre-production validation
-- Use official releases for production deployments
+Example: [LDEV-6490](https://luceeserver.atlassian.net/browse/LDEV-6490), a 7.0 regression, was fixed on `7.0.6` and merged forward into `7.1` and `8.0`. Its fix versions are `7.0.6.9`, `7.1.1.13` and `8.0.0.194`.
