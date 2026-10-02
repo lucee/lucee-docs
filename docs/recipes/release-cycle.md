@@ -117,19 +117,17 @@ New bug fixes go only into the minor branch, never into the RC branch.
 
 ### Worked Example: Cycles 7.1.1 and 7.1.2
 
-The minor branch always takes every fix for its current cycle. The only exception is a regression introduced since the last final release while that line's RC is still unreleased: that fix goes to the RC branch. Urgent security fixes for a released branch are covered in [Maintenance and End of Life](#maintenance-and-end-of-life).
+The minor branch always takes every fix for its current cycle. The only exception is a regression introduced since the last final release while that line's RC is still unreleased: that fix goes to the RC branch.
 
 1. **`7.1.1` is in RC, `7.1` has started cycle `7.1.2`.** A regression introduced between `7.1.0` final and `7.1.1` goes to `7.1.1`. Every other fix goes to `7.1`.
-2. **`7.1.1` is released, no `7.1.2` RC yet.** Every fix goes to `7.1`, regressions included, except urgent security fixes for `7.1.1`, which is now in maintenance.
+2. **`7.1.1` is released, no `7.1.2` RC yet.** Every fix goes to `7.1`, regressions included. `7.1.1` gets no further updates once released.
 3. **The first `7.1.2` RC is made.** The branch `7.1.2` is created from `7.1`, and `7.1` starts cycle `7.1.3`. A regression introduced between `7.1.1` final and `7.1.2` goes to `7.1.2`. Every other fix goes to `7.1`.
 
-## Maintenance and End of Life
+## After a Release
 
-Once its release is published, a release branch is in **maintenance** until the next patch version of its line is released. During maintenance it takes urgent security fixes only. These are merged forward like any other change on a release branch.
+Once a release is done, its release branch gets no further updates. Fixes go into the next cycle of the line, on the minor branch.
 
-When the next patch version is released, the release branch reaches **end of life**.
-
-Example: branch `7.0.5` entered maintenance when `7.0.5` was released, and reaches end of life when `7.0.6` is released.
+Example: once `7.1.1` is released, branch `7.1.1` gets no further updates. Fixes go into `7.1`, for the next cycle `7.1.2`.
 
 ## Merging Forward
 
