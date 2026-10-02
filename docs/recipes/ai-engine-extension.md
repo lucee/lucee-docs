@@ -189,18 +189,23 @@ public class SimpleChatEngine implements AIEngine {
 		this._default = _default;
 		this.id = id;
 
-		// the "custom" struct of the "ai" entry
-		url = cast.toString(properties.get(c.createKey("url"), null), "http://localhost:11434/v1/");
+		// the "custom" struct of the "ai" entry, empty values (for example from the Administrator) mean "not set"
+		url = str(cast, c, properties, "url", "http://localhost:11434/v1/");
 		if (!url.endsWith("/")) url += "/";
-		apiKey = cast.toString(properties.get(c.createKey("apikey"), null), null);
-		model = cast.toString(properties.get(c.createKey("model"), null), null);
-		systemMessage = cast.toString(properties.get(c.createKey("message"), null), null);
+		apiKey = str(cast, c, properties, "apikey", null);
+		model = str(cast, c, properties, "model", null);
+		systemMessage = str(cast, c, properties, "message", null);
 		connectTimeout = cast.toIntValue(properties.get(c.createKey("connectTimeout"), null), 3000);
 		socketTimeout = cast.toIntValue(properties.get(c.createKey("socketTimeout"), null), 60000);
 		conversationSizeLimit = cast.toIntValue(properties.get(c.createKey("conversationSizeLimit"), null), 50);
-		Object t = properties.get(c.createKey("temperature"), null);
+		String t = str(cast, c, properties, "temperature", null);
 		temperature = t == null ? null : cast.toDouble(t, null);
 		return this;
+	}
+
+	private static String str(Cast cast, Creation c, Struct properties, String key, String defaultValue) {
+		String value = cast.toString(properties.get(c.createKey(key), null), null);
+		return value == null || value.trim().isEmpty() ? defaultValue : value.trim();
 	}
 
 	@Override
@@ -413,7 +418,7 @@ Bundle-Name: Simple Chat AI Engine
 Export-Package: com.example.ai
 ```
 
-Put it in the `jars/` folder of the extension:
+Put it in the `jars/` folder of the extension (the optional `context/` folder for an Administrator driver is described [below](#where-the-driver-goes)):
 
 ```
 simple-chat-ai-1.0.0.0.lex
@@ -466,7 +471,7 @@ Install the extension like any other, see [[extension-installation]].
 
 ## Registering the Engine
 
-Installing the extension only makes the classes available. Unlike `resource:`, `cache:` or `jdbc:`, there is no manifest key that registers an AI engine, so add an AI connection in `.CFConfig.json` that points to the class. The class is located with the usual class definition keys:
+Installing the extension only makes the classes available. Unlike `resource:`, `cache:` or `jdbc:`, there is no manifest key that registers an AI engine, so an AI connection that points to the class has to be added to `.CFConfig.json`, or created in the Administrator if the extension provides a driver (see [Providing an Administrator Form](#providing-an-administrator-form)). The class is located with the usual class definition keys:
 
 | Key | Alternatives | Meaning |
 | --- | --- | --- |
@@ -512,7 +517,149 @@ Maven artifact:
 
 The same struct can also be defined per application with `this.ai` in `Application.cfc`.
 
-The Administrator (Services > AI) builds its list of AI drivers from CFCs in the component package `lucee-server.admin.aidriver`. Providing such a driver is optional; without one, the connection works but is configured in `.CFConfig.json` only. The core drivers (in the Lucee source at `core/src/main/java/resource/context/admin/aidriver/`) are a good template. Extensions can add files to the server context with a `context/` folder in the `.lex` (the Redis extension, for example, ships its cache driver as `context/admin/cdriver/Redis.cfc`). A driver can return the bundle with `getBundleName()` and `getBundleVersion()`, and the Administrator stores both with the connection. It has no field for `maven`.
+## Providing an Administrator Form
+
+The Administrator (Services > AI) offers a form for each engine it has an **admin driver** for. A driver is just a small component that describes the engine and the fields of its form. Each of the three built-in engines has one, and an extension can add its own by copying a CFC into the AI driver folder of the server context. The user then gets the same kind of form for your engine as for the built-in ones. A driver is optional; without one, the engine is configured in `.CFConfig.json` only.
+
+### The Built-in Drivers
+
+The drivers are in the Lucee source in `core/src/main/java/resource/context/admin/aidriver/` (links to the 7.1 branch):
+
+| File | Purpose |
+| --- | --- |
+| [`AI.cfc`](https://github.com/lucee/Lucee/blob/7.1/core/src/main/java/resource/context/admin/aidriver/AI.cfc) | Base component of all drivers, provides `field()`, `group()` and `getCustomFields()` |
+| [`Field.cfc`](https://github.com/lucee/Lucee/blob/7.1/core/src/main/java/resource/context/admin/aidriver/Field.cfc) | One form field |
+| [`Group.cfc`](https://github.com/lucee/Lucee/blob/7.1/core/src/main/java/resource/context/admin/aidriver/Group.cfc) | A heading that groups the following fields |
+| [`OpenAI.cfc`](https://github.com/lucee/Lucee/blob/7.1/core/src/main/java/resource/context/admin/aidriver/OpenAI.cfc) | Driver for `lucee.runtime.ai.openai.OpenAIEngine` |
+| [`Gemini.cfc`](https://github.com/lucee/Lucee/blob/7.1/core/src/main/java/resource/context/admin/aidriver/Gemini.cfc) | Driver for `lucee.runtime.ai.google.GeminiEngine` |
+| [`Claude.cfc`](https://github.com/lucee/Lucee/blob/7.1/core/src/main/java/resource/context/admin/aidriver/Claude.cfc) | Driver for `lucee.runtime.ai.anthropic.ClaudeEngine` |
+
+The Administrator page ([`services.ai.cfm`](https://github.com/lucee/Lucee/blob/7.1/core/src/main/cfml/context/admin/services.ai.cfm)) loads every component in the package `lucee-server.admin.aidriver` (except `AI`, `Field` and `Group`) and keys the drivers by the class name returned by `getClass()`. The form itself is rendered by [`services.ai.create.cfm`](https://github.com/lucee/Lucee/blob/7.1/core/src/main/cfml/context/admin/services.ai.create.cfm).
+
+### What a Driver Contains
+
+A driver extends `AI` (the base component in the same folder) and defines its fields in `variables.fields`. Always extend `AI`, as the Administrator calls functions of the base component (in Lucee 8, for example, `getPassthroughShortcuts()`).
+
+| Function | Required | Purpose |
+| --- | --- | --- |
+| `getClass()` | yes | Class name of the engine, stored as `class` |
+| `getLabel()` | yes | Name shown in the list of AI types and connections |
+| `getDescription()` | yes | Description shown in the list and on the form |
+| `getBundleName()` | for OSGi | `Bundle-SymbolicName` of the bundle, stored as `bundleName` |
+| `getBundleVersion()` | for OSGi | `Bundle-Version` of the bundle, stored as `bundleVersion` |
+| `getLabelLong()` | no | Longer label for the list of AI types and the form heading |
+| `getCustomFields()` | inherited | Returns `variables.fields` |
+
+The built-in drivers don't define `getBundleName()`/`getBundleVersion()` because their engines are part of core. An engine from an extension needs them, otherwise the Administrator can't load the class.
+
+Fields are created with `field(displayName, name, defaultValue, required, description, type, values)`:
+
+- `name` is the key in `custom`, the struct that is passed to `init()` of the engine.
+- `type` is one of `text`, `password`, `textarea`, `select`, `radio`, `checkbox` or `time`. Password values are shown obfuscated in the form.
+- `values` is a comma separated list of options for `select`, `radio` and `checkbox`.
+
+`group(displayName, description)` adds a heading between fields.
+
+A minimal driver for the engine above, `SimpleChat.cfc`:
+
+```javascript
+component extends="AI" {
+	variables.fields = [
+		field(displayName = "URL",
+			name = "url",
+			defaultValue = "http://localhost:11434/v1/",
+			required = true,
+			description = "URL of the OpenAI compatible API, for example [http://localhost:11434/v1/].",
+			type = "text"
+		)
+		,field(displayName = "API Key",
+			name = "apikey",
+			defaultValue = "",
+			required = false,
+			description = "Sent as Bearer token, if the endpoint needs one. You can use environment variables like this: ${MY_API_KEY}.",
+			type = "password"
+		)
+		,field(displayName = "Model",
+			name = "model",
+			defaultValue = "",
+			required = false,
+			description = "Name of the model, for example [gemma2].",
+			type = "text"
+		)
+		,field(displayName = "System Message",
+			name = "message",
+			defaultValue = "",
+			required = false,
+			description = "Initial system message sent to the AI when a session is created.",
+			type = "textarea"
+		)
+	];
+
+	public string function getClass() {
+		return "com.example.ai.SimpleChatEngine";
+	}
+
+	public string function getBundleName() {
+		return "com.example.ai.simplechat";
+	}
+
+	public string function getBundleVersion() {
+		return "1.0.0.0";
+	}
+
+	public string function getLabel() {
+		return "Simple Chat";
+	}
+
+	public string function getDescription() {
+		return "Connect to an endpoint with an OpenAI compatible chat/completions API.";
+	}
+}
+```
+
+### Where the Driver Goes
+
+Put the driver in the `context/admin/aidriver/` folder of the `.lex`:
+
+```
+simple-chat-ai-1.0.0.0.lex
+├── META-INF/
+│   └── MANIFEST.MF
+├── context/
+│   └── admin/
+│       └── aidriver/
+│           └── SimpleChat.cfc
+└── jars/
+    └── com.example.ai.simplechat-1.0.0.0.jar
+```
+
+When the extension is installed, Lucee copies the content of `context/` into the server context, so the driver ends up next to the built-in drivers in `lucee-server.admin.aidriver`.
+
+### How the Administrator Writes the Entry
+
+When the user submits the form, the Administrator calls `cfadmin action="updateAIConnection"` with `class` (from `getClass()`), `bundleName` and `bundleVersion` (from the driver, if defined), the selected `default` and a `custom` struct with one entry per field. The connection is written to `.CFConfig.json` like this:
+
+```json
+"ai": {
+  "mychat": {
+    "class": "com.example.ai.SimpleChatEngine",
+    "bundleName": "com.example.ai.simplechat",
+    "bundleVersion": "1.0.0.0",
+    "custom": {
+      "url": "http://localhost:11434/v1/",
+      "apikey": "",
+      "model": "gemma2",
+      "message": "Keep all answers as short as possible"
+    }
+  }
+}
+```
+
+Before saving, Lucee loads the class and checks that it implements `AIEngine`. Note:
+
+- All values are stored as strings, and a field left empty is stored as an empty string. The example engine therefore treats empty values as "not set".
+- The form has no field for `maven`. It only passes `bundleName` and `bundleVersion`, so for an engine that is shipped as a Maven artifact, saving fails because the class can't be found. If you want the Administrator form, ship the engine as an OSGi bundle; a Maven based engine can still be configured in `.CFConfig.json`.
+- The AI page only lists connections whose class has a driver. A connection to your engine that was added to `.CFConfig.json` directly doesn't show up there without a driver, but works anyway.
 
 ## Using the Engine
 
