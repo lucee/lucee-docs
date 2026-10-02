@@ -136,11 +136,14 @@ Regression fixes are made on the RC/release branch and then merged forward:
 
 The maintainer does these merges.
 
+Lines are merged forward only while a merge link between them is kept. Currently linked: `7.0` into `7.1` into `8.0`, plus each release branch into its minor branch. `6.2` used to be merged into `7.0`, the same way `7.1` is merged into `8.0` now, but that link was dropped. Once a link is dropped, a fix needed on both lines has to be made separately on each branch, with its own pull request per line. For example, a fix for both `6.2` and `7.0` needs one pull request for `6.2` and one for `7.0`.
+
 ## Pull Requests
 
-- Open **one** pull request, containing the fix and its test.
-- Target the **lowest affected branch** only. For a regression that an unreleased RC/release branch takes (see above), that is the RC/release branch, for anything else the minor branch.
-- Never open duplicate pull requests for the same fix against several branches. The maintainer merges the fix forward.
+- Within a linked chain (see [Merging Forward](#merging-forward)), open **one** pull request, containing the fix and its test.
+- Target the **lowest affected branch** of that chain only. For a regression that an unreleased RC/release branch takes (see above), that is the RC/release branch, for anything else the minor branch.
+- Never open duplicate pull requests for the same fix against several branches of a linked chain. The maintainer merges the fix forward.
+- Lines that are not linked need their own pull request each, e.g. one for `6.2` and one for `7.0`.
 
 ## Jira Fix Versions
 
