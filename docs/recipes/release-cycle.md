@@ -35,7 +35,7 @@ Example: `7.1.1.15-SNAPSHOT`
 |------|---------|---------|
 | `MAJOR.MINOR` | `7.1` | The minor line. Also the name of the line's branch. |
 | `PATCH` | `1` | The cycle within the line. `7.1.1` is one cycle. |
-| `BUILD` | `15` | The build number. |
+| `BUILD` | `15` | The build number. Resets to `0` when a new cycle starts. |
 
 | Suffix | Meaning | Example |
 |--------|---------|---------|
@@ -47,6 +47,8 @@ Example: `7.1.1.15-SNAPSHOT`
 The current version of a branch is the `<version>` in its `loader/pom.xml`.
 
 The version is bumped when a fix lands. Changes that only touch tests never bump the version.
+
+When a new cycle starts, `BUILD` resets to `0`. For example, `7.0` moved to `7.0.7.0-SNAPSHOT` and `6.2` to `6.2.10.0-SNAPSHOT`.
 
 ## Branches
 
