@@ -96,7 +96,7 @@ gh api "repos/lucee/Lucee/contents/loader/pom.xml?ref=7.1" -q .content | base64 
 
 A **regression** is something that worked in the previous final release of a line and broke afterwards.
 
-An RC/release branch only takes fixes for regressions introduced since the last final release of its line:
+While an RC/release branch is unreleased, it only takes fixes for regressions introduced since the last final release of its line:
 
 | Release branch | Only takes regressions introduced since |
 |----------------|-----------------------------------------|
@@ -112,6 +112,14 @@ Everything else goes into the minor branch (for example `7.1`), for the next cyc
 - extension updates that are not regression fixes
 
 New bug fixes go only into the minor branch, never into the RC branch.
+
+### Worked Example: Cycles 7.1.1 and 7.1.2
+
+The minor branch always takes every fix for its current cycle. The only exception is a regression introduced since the last final release while that line's RC is still unreleased: that fix goes to the RC branch.
+
+1. **`7.1.1` is in RC, `7.1` has started cycle `7.1.2`.** A regression introduced between `7.1.0` final and `7.1.1` goes to `7.1.1`. Every other fix goes to `7.1`.
+2. **`7.1.1` is released, no `7.1.2` RC yet.** Every fix goes to `7.1`, regressions included.
+3. **The first `7.1.2` RC is made.** The branch `7.1.2` is created from `7.1`, and `7.1` starts cycle `7.1.3`. A regression introduced between `7.1.1` final and `7.1.2` goes to `7.1.2`. Every other fix goes to `7.1`.
 
 ## Merging Forward
 
@@ -131,7 +139,7 @@ The maintainer does these merges.
 ## Pull Requests
 
 - Open **one** pull request, containing the fix and its test.
-- Target the **lowest affected branch** only. For a regression that is the RC/release branch, for anything else the minor branch.
+- Target the **lowest affected branch** only. For a regression that an unreleased RC/release branch takes (see above), that is the RC/release branch, for anything else the minor branch.
 - Never open duplicate pull requests for the same fix against several branches. The maintainer merges the fix forward.
 
 ## Jira Fix Versions
