@@ -1453,7 +1453,7 @@
     "file": "mcp.md",
     "title": "Model Context Protocol (MCP)",
     "path": "/docs/recipes/mcp.md",
-    "hash": "d8f495cad9c03881f3a3228404142ce7",
+    "hash": "1b5074e5c3b325e4545a3834b2a4d445",
     "keywords": [
       "MCP",
       "Model Context Protocol",
@@ -2108,7 +2108,7 @@
     "file": "serving-cfml-from-extensions.md",
     "title": "Serving CFML Files from a Lucee Extension",
     "path": "/docs/recipes/serving-cfml-from-extensions.md",
-    "hash": "af1e1e3db82faaaa4240d32e1438c93d",
+    "hash": "c77ded881208118dfaebfbd8b5035cd0",
     "keywords": [
       "Extensions",
       "LEX",
