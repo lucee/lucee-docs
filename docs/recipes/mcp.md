@@ -299,7 +299,7 @@ Each tool extends the base `Tool` component and implements `exec()`. The extensi
 "extensions": [
   {
     "name": "MCP Server",
-    "id": "org.lucee:mcp-server-extension:1.0.1.3-SNAPSHOT"
+    "id": "org.lucee:mcp-server-extension:1.0.1.5"
   }
 ]
 ```

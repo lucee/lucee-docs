@@ -106,9 +106,9 @@ Replace `8856` with `8056` when using the Nginx port.
     "extensions": [
         {
             "id": "B5059590-2112-49FB-AEDFB997252EDA18",
-            "maven": "org.lucee:mcp-server-extension:1.0.1.0-BETA",
+            "maven": "org.lucee:mcp-server-extension:1.0.1.5",
             "name": "MCP Server",
-            "version": "1.0.1.0-BETA"
+            "version": "1.0.1.5"
         }
     ]
 }

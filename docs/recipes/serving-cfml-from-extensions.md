@@ -186,9 +186,9 @@ A minimal `.CFConfig.json` that installs the extension and exposes it at the web
     "extensions": [
         {
             "id": "B5059590-2112-49FB-AEDFB997252EDA18",
-            "maven": "org.lucee:mcp-server-extension:1.0.1.3-SNAPSHOT",
+            "maven": "org.lucee:mcp-server-extension:1.0.1.5",
             "name": "MCP Server",
-            "version": "1.0.1.3-SNAPSHOT"
+            "version": "1.0.1.5"
         }
     ]
 }
