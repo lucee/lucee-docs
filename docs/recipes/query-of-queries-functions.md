@@ -24,7 +24,7 @@
 
 # QoQ SQL Functions and Operators
 
-Lucee's native [Query of Queries](query-of-queries) engine supports a subset of ANSI SQL92. If the native engine can't handle the query, Lucee falls back to [HSQLDB](http://hsqldb.org/doc/2.0/guide/sqlgeneral-chapt.html) (see [Choosing the QoQ Engine](qoq-options#engine-selection) for how to control this).
+Lucee's native [Query of Queries](query-of-queries) engine supports a subset of ANSI SQL92. If the native engine can't handle the query, Lucee falls back to [HSQLDB](http://hsqldb.org/doc/2.0/guide/sqlgeneral-chapt.html) (see [Choosing the QoQ Engine](/guides/lucee-7-1.html#engine-selection) for how to control this).
 
 ## Keywords and Operators
 
