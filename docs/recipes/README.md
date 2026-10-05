@@ -100,6 +100,10 @@ Best practices for configuring Lucee in various environments.
 
 Best practices for configuring Lucee 5 environments.
 
+## [Configuration Precedence](/docs/recipes/configuration-precedence.md)
+
+How Lucee resolves settings when the same value is defined as an environment variable, a Java system property, in `.CFConfig.json`, or via the Administrator.
+
 ## [Configure Lucee Programmatically](/docs/recipes/configuration-administrator-cfc.md)
 
 How to configure Lucee within your application using Administrator.cfc and cfadmin tag.
