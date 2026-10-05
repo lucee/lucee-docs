@@ -346,7 +346,7 @@
     "file": "configuration.md",
     "title": "Configuration - How to Configure Lucee",
     "path": "/docs/recipes/configuration.md",
-    "hash": "40c555213efa0dab8244b2f539a20f45",
+    "hash": "9ac7a4ab3d668faa47c01d19e966a48d",
     "keywords": [
       "configuration",
       "config",
@@ -366,6 +366,23 @@
       "lucee-server.xml",
       "lucee-web.xml",
       "Lucee 5"
+    ]
+  },
+  {
+    "file": "configuration-precedence.md",
+    "title": "Configuration Precedence - Environment Variables, System Properties and the Administrator",
+    "path": "/docs/recipes/configuration-precedence.md",
+    "hash": "9538f623325005fc235727967714a2bf",
+    "keywords": [
+      "configuration",
+      "precedence",
+      "override",
+      "environment variables",
+      "system properties",
+      "LUCEE_",
+      "CFConfig",
+      "Administrator",
+      "inspectTemplate"
     ]
   },
   {

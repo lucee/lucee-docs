@@ -50,6 +50,7 @@ description: >
 | Component Mappings | `component-mappings` | Component Mapping, CFCs, Application.cfc, Lucee archive |
 | Configuration - How to Configure Lucee | `configuration` | configuration, config, .CFConfig.json, lucee-server.xml, lucee-web.xml |
 | Configuration - Lucee 5 | `configuration-lucee5` | configuration, config, lucee-server.xml, lucee-web.xml, Lucee 5 |
+| Configuration Precedence - Environment Variables, System Properties and the Administrator | `configuration-precedence` | configuration, precedence, override, environment variables, system properties, LUCEE_, CFConfig, Administrator, inspectTemplate |
 | Configure Lucee Programmatically | `configuration-administrator-cfc` | Administrator.cfc, cfadmin, Configuration, Lucee, Web context, Server configuration |
 | Console Logging | `console-logging` | Logging, console, systemOutput, debugging, CLI, writelog, dump |
 | Creating an Extension that Provides an AI Engine | `ai-engine-extension` | AI, LLM, AIEngine, AISession, extension, loader, OSGi, Maven, lex, custom AI provider |
