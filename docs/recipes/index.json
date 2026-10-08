@@ -988,6 +988,24 @@
     ]
   },
   {
+    "file": "query-cache-invalidation.md",
+    "title": "Invalidating and Grouping Cached Queries",
+    "path": "/docs/recipes/query-cache-invalidation.md",
+    "hash": "16bd2957cc8b1809fd6fea00d1bf6f3a",
+    "keywords": [
+      "Cache",
+      "Query cache",
+      "cachedWithin",
+      "cachedWithinFlush",
+      "cacheClear",
+      "systemCacheClear",
+      "tags",
+      "Cache invalidation",
+      "Key prefix",
+      "Redis"
+    ]
+  },
+  {
     "file": "java-class-interaction.md",
     "title": "Java Class Interaction",
     "path": "/docs/recipes/java-class-interaction.md",

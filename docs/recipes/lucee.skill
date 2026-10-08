@@ -93,6 +93,7 @@ description: >
 | Import | `import` | cfimport, import, Lucee, components, java classes, custom tags, taglib |
 | Inline Components | `inline-components` | component, inline component, closure, anonymous component, cfscript, sub-component |
 | Interacting with Java Libraries | `java-libraries` | java, maven, import, Lucee, libraries, new operator |
+| Invalidating and Grouping Cached Queries | `query-cache-invalidation` | Cache, Query cache, cachedWithin, cachedWithinFlush, cacheClear, systemCacheClear, tags, Cache invalidation, Key prefix, Redis |
 | Java Class Interaction | `java-class-interaction` | Java, Classes, Objects, Interop, Static Methods, Inner Classes, Reflection |
 | Java Classes Using Lucee's Logging | `java-using-lucee-logging` | java, logging, slf4j, lucee.commons.io.log.Log |
 | Java in Functions and Closures | `java-in-functions-and-closures` | function, java, closures, components, lambda, Lucee |
