@@ -272,6 +272,10 @@ Learn how to create and use inline components in Lucee. This guide demonstrates 
 
 Guide on using Java libraries in Lucee 6.2 with Maven and import
 
+## [Invalidating and Grouping Cached Queries](/docs/recipes/query-cache-invalidation.md)
+
+How to remove a single cached query, clear cached queries by tag or all at once, and group cached queries under a key prefix so they can be cleared together cheaply.
+
 ## [Java Class Interaction](/docs/recipes/java-class-interaction.md)
 
 Documentation for interacting with Java classes and objects in Lucee
