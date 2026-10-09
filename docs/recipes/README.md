@@ -612,6 +612,10 @@ Understanding the static scope in Lucee components and how it can be used for sh
 
 How to set up and use the Extension Debugger (formerly LuceeDebug) for Lucee CFML, covering both the native extension (7.1+) and the Java agent (6.2+).
 
+## [structKeyExists vs isNull vs ParameterExists vs isDefined vs elvis operator](/docs/recipes/null-checks-comparison.md)
+
+Verified comparison of structKeyExists(), isNull(), parameterExists(), isDefined(), the elvis operator and safe navigation for null values, missing keys and undefined variables, with and without full null support.
+
 ## [Sub Components](/docs/recipes/sub-components.md)
 
 Learn how to create and use sub components in Lucee. This guide demonstrates how to define additional components within a .cfc file, making it easier to organize related components. Examples include creating a main component with sub components, and how to address/load these sub components.

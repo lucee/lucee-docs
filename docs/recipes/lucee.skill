@@ -178,6 +178,7 @@ description: >
 | Startup Listeners - Server.cfc and Web.cfc | `startup-listeners-code` | startup, warmup, prewarm, Server.cfc, Web.cfc, onServerStart, onWebStart, onBuild, initialization, bootstrap |
 | Static Scope in Components | `static-scope-in-components` | Static scope, Components, Application scope, Server scope |
 | Step Debugging Lucee with Extension Debugger | `step-debugger` | debugger, DAP, debug adapter protocol, breakpoints, step debugging, VS Code, luceedebug, extension |
+| structKeyExists vs isNull vs ParameterExists vs isDefined vs elvis operator | `null-checks-comparison` | structKeyExists, isNull, isDefined, parameterExists, elvis, safe navigation, null support, nullValue |
 | Sub Components | `sub-components` | CFML, component, sub-component, Lucee |
 | Supercharge your website | `supercharge-your-website` | Supercharge website, Performance, Caching, Template cache, Lucee |
 | Tag Islands | `tag-islands` | tag islands, cfscript, tag mode, backticks, refactoring, script component |

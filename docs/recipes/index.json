@@ -1568,7 +1568,7 @@
     "file": "null-support.md",
     "title": "Null Support",
     "path": "/docs/recipes/null-support.md",
-    "hash": "9cf2bba5ba1190db262bb3622cc2b1c1",
+    "hash": "e1f832ca8a1b05505514cb6837b9ec0e",
     "keywords": [
       "Null support",
       "null keyword",
@@ -2292,6 +2292,22 @@
       "VS Code",
       "luceedebug",
       "extension"
+    ]
+  },
+  {
+    "file": "null-checks-comparison.md",
+    "title": "structKeyExists vs isNull vs ParameterExists vs isDefined vs elvis operator",
+    "path": "/docs/recipes/null-checks-comparison.md",
+    "hash": "00cbff0c387e59b3447b4af6355fe672",
+    "keywords": [
+      "structKeyExists",
+      "isNull",
+      "isDefined",
+      "parameterExists",
+      "elvis",
+      "safe navigation",
+      "null support",
+      "nullValue"
     ]
   },
   {
