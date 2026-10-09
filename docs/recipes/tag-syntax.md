@@ -97,7 +97,7 @@ The examples below use [[tag-invokeargument]], which normally sits inside a [[ta
 
 ### Tags: unquoted values are always strings
 
-In tag syntax, an unquoted attribute value is always a literal string, exactly as if it was quoted. It is never evaluated as a number or a variable.
+In tag syntax, an unquoted attribute value is always a literal string, exactly as if it was quoted. It is never evaluated as a number or a variable. This is the same in Lucee and Adobe ColdFusion (ACF).
 
 ```html
 <cfset susi = 42>
@@ -127,7 +127,7 @@ This also explains a common error. In this example:
 
 ### Script: unquoted values are expressions
 
-In script, both in function syntax and in migration syntax, attribute values are expressions, just like function arguments. An unquoted number is a number, an unquoted name refers to a variable, and a quoted value is a string.
+In script, attribute values are expressions, just like function arguments. An unquoted number is a number, an unquoted name refers to a variable, and a quoted value is a string. The function syntax behaves the same in Lucee and ACF; Lucee's migration syntax (tags in script) follows the same rule.
 
 ```javascript
 susi = 42;
@@ -137,7 +137,7 @@ cfinvokeargument( name="tNum", value="1234" ); // string "1234"
 cfinvokeargument( name="tNum", value=1234 );   // number 1234
 cfinvokeargument( name="tNum", value=susi );   // the variable susi (42)
 
-// migration syntax
+// migration syntax (Lucee's tags in script; ACF doesn't support invokeargument in this form)
 invokeargument name="tNum" value="1234";       // string "1234"
 invokeargument name="tNum" value=1234;         // number 1234
 invokeargument name="tNum" value=susi;         // the variable susi (42)
