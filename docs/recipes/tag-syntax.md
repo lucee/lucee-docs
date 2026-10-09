@@ -16,12 +16,15 @@
     "Script",
     "throw",
     "abort",
-    "return"
+    "return",
+    "unquoted",
+    "attribute"
   ],
   "related": [
     "developing-with-lucee-server",
     "tag-script",
-    "tags"
+    "tags",
+    "lucee-5-unquoted-arguments"
   ]
 }
 -->
@@ -88,7 +91,30 @@ The migration syntax is more distinct from functions, which can make the migrati
 
 ## Differences Between Tag and Script
 
-One of the key differences between tag-based code and script-based code in Lucee is how variables are interpreted. For example, in tag-based code:
+One of the key differences between tag-based code and script-based code is how **unquoted attribute values** are interpreted.
+
+The examples below use [[tag-invokeargument]], which normally sits inside a [[tag-invoke]] call; only the argument line is shown.
+
+### Tags: unquoted values are always strings
+
+In tag syntax, an unquoted attribute value is always a literal string, exactly as if it was quoted. It is never evaluated as a number or a variable.
+
+```html
+<cfset susi = 42>
+
+<cfinvokeargument name="tNum" value=1234>      <!--- string "1234" --->
+<cfinvokeargument name="tNum" value="1234">    <!--- string "1234" --->
+<cfinvokeargument name="tNum" value=susi>      <!--- string "susi", NOT the variable susi --->
+```
+
+To pass a variable or any other expression in a tag, wrap it in `#`:
+
+```html
+<cfinvokeargument name="tNum" value="#susi#">  <!--- the variable susi (the number 42) --->
+<cfinvokeargument name="tNum" value="#1234#">  <!--- the number 1234 --->
+```
+
+This also explains a common error. In this example:
 
 ```html
 <cfset max=10>
@@ -97,9 +123,27 @@ One of the key differences between tag-based code and script-based code in Lucee
 </cfloop>
 ```
 
-The variable `max` will be interpreted as the string `"max"`, which can lead to an error like "string [max] cannot be converted to a number."
+`max` is the string `"max"`, not the variable, which leads to an error like "can't cast [max] string to a number value". Use `to="#max#"` instead.
 
-In contrast, when the same code is written in script (either migration or function syntax), the variable `max` is correctly interpreted as a variable, not a string:
+### Script: unquoted values are expressions
+
+In script, both in function syntax and in migration syntax, attribute values are expressions, just like function arguments. An unquoted number is a number, an unquoted name refers to a variable, and a quoted value is a string.
+
+```javascript
+susi = 42;
+
+// function syntax
+cfinvokeargument( name="tNum", value="1234" ); // string "1234"
+cfinvokeargument( name="tNum", value=1234 );   // number 1234
+cfinvokeargument( name="tNum", value=susi );   // the variable susi (42)
+
+// migration syntax
+invokeargument name="tNum" value="1234";       // string "1234"
+invokeargument name="tNum" value=1234;         // number 1234
+invokeargument name="tNum" value=susi;         // the variable susi (42)
+```
+
+So the loop example from above works in script without `#`:
 
 ```javascript
 max = 10;
@@ -108,7 +152,18 @@ loop from="1" to=max index="i" {
 }
 ```
 
-In this case, the `max` variable is evaluated properly, and the code runs without errors.
+### Summary
+
+| Code | Tag syntax | Script syntax |
+|---|---|---|
+| `value="1234"` | string `"1234"` | string `"1234"` |
+| `value=1234` | string `"1234"` | number `1234` |
+| `value=susi` | string `"susi"` | variable `susi` |
+| `value="#susi#"` | variable `susi` | variable `susi` |
+
+When you migrate tag code to script, check unquoted attribute values: `value=1234` and `value=susi` will mean something different in script.
+
+> **Note:** This describes the default. The Administrator's compiler settings have a "Tag attribute values" option ("Handle unquoted tag attribute values as strings"), which is enabled by default. If you disable it, unquoted tag attribute values are handled as variables instead. See [[lucee-5-unquoted-arguments]].
 
 ## Exceptions to the rules
 
