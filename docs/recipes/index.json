@@ -933,7 +933,7 @@
     "file": "tag-syntax.md",
     "title": "How to Use Tags in Script",
     "path": "/docs/recipes/tag-syntax.md",
-    "hash": "4c92646ca69d3bbea234245dad22f217",
+    "hash": "dcf0e147a79c4883542608dc6c9dde98",
     "keywords": [
       "Syntax",
       "tag",
@@ -941,7 +941,9 @@
       "Script",
       "throw",
       "abort",
-      "return"
+      "return",
+      "unquoted",
+      "attribute"
     ]
   },
   {
