@@ -102,13 +102,14 @@ dump( t );
 
 Key behavioural difference: how [[function-structkeyexists]] handles null values.
 
-**Partial support** - null keys are effectively removed:
+**Partial support** - null keys are reported as not existing, but they are still stored in the struct:
 
 ```luceescript
 s = { foo: nullValue() };
 dump( structKeyExists( s, "foo" ) ); // false
 dump( s.keyExists( "foo" ) );        // false
-dump( structCount( s ) );            // 0 - the key doesn't exist
+dump( structCount( s ) );            // 1 - the key is still stored
+dump( structKeyList( s ) );          // FOO
 ```
 
 **Full support** - keys set to `null` still exist:
@@ -125,18 +126,21 @@ This distinguishes "key exists with null value" from "key doesn't exist" - impor
 
 ## JSON Serialization
 
-**Partial support** - null values removed before serialization:
+In both modes, a key holding null is serialized as JSON `null`, so a JSON `null` survives a `deserializeJSON()` / `serializeJSON()` round trip.
+
+**Partial support**:
 
 ```luceescript
 s = { name: "John", middleName: nullValue() };
-dump( serializeJSON( s ) ); // {"name":"John"} - middleName is missing
+dump( serializeJSON( s ) ); // {"MIDDLENAME":null,"NAME":"John"}
+dump( serializeJSON( deserializeJSON( '{"a":null,"b":1}' ) ) ); // {"a":null,"b":1}
 ```
 
-**Full support** - null values serialized as JSON `null`:
+**Full support**:
 
 ```luceescript
 s = { name: "John", middleName: null };
-dump( serializeJSON( s ) ); // {"name":"John","middleName":null}
+dump( serializeJSON( s ) ); // {"MIDDLENAME":null,"NAME":"John"}
 ```
 
 Critical for APIs that expect explicit `null` values rather than missing keys.
