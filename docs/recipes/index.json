@@ -245,6 +245,20 @@
     ]
   },
   {
+    "file": "breaking-changes-8-0.md",
+    "title": "Breaking Changes between Lucee 7.1 and 8.0",
+    "path": "/docs/recipes/breaking-changes-8-0.md",
+    "hash": "433c6ed3a62e6c59df086a31af988f27",
+    "keywords": [
+      "breaking changes",
+      "Lucee 7.1",
+      "Lucee 8.0",
+      "migration",
+      "upgrade",
+      "CFConfig"
+    ]
+  },
+  {
     "file": "caches-defined-in-application-cfc.md",
     "title": "Caches defined in Application.cfc",
     "path": "/docs/recipes/caches-defined-in-application-cfc.md",
@@ -2478,6 +2492,22 @@
       "expandPath",
       "configuration paths",
       "portable config"
+    ]
+  },
+  {
+    "file": "upgrade-7-1-to-8-0-agent.md",
+    "title": "Upgrade Lucee 7.1 to 8.0: Checklist for AI Coding Agents",
+    "path": "/docs/recipes/upgrade-7-1-to-8-0-agent.md",
+    "hash": "be4c15968f005edb81d1b3359797577d",
+    "keywords": [
+      "upgrade",
+      "migration",
+      "Lucee 8.0",
+      "Lucee 7.1",
+      "AI agent",
+      "LLM",
+      "checklist",
+      "CFConfig"
     ]
   },
   {

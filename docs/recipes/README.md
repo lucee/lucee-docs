@@ -64,6 +64,10 @@ A guide to breaking changes introduced in Lucee between version 6.2 and 7.0
 
 A guide to breaking changes introduced in Lucee between version 7.0 and 7.1
 
+## [Breaking Changes between Lucee 7.1 and 8.0](/docs/recipes/breaking-changes-8-0.md)
+
+A guide to breaking changes introduced in Lucee between version 7.1 and 8.0
+
 ## [Caches defined in Application.cfc](/docs/recipes/caches-defined-in-application-cfc.md)
 
 How to add per-application caches via Application.cfc in Lucee.
@@ -663,6 +667,10 @@ Automatically check for changes in your configuration file with Lucee.
 ## [Untitled](/docs/recipes/directory-placeholders.md)
 
 Placeholders are uses to reference specific Lucee directories
+
+## [Upgrade Lucee 7.1 to 8.0: Checklist for AI Coding Agents](/docs/recipes/upgrade-7-1-to-8-0-agent.md)
+
+Step-by-step, machine-friendly checklist for AI coding agents upgrading an application or server from Lucee 7.1 to 8.0: what to search for, what to change, how to verify, and what to leave alone.
 
 ## [Using cachedWithin](/docs/recipes/cached-within-request.md)
 

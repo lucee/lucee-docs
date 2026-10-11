@@ -41,6 +41,7 @@ description: >
 | Breaking Changes between Lucee 6.1 and 6.2 | `breaking-changes-6-2` | breaking changes, Lucee 6.1, Lucee 6.2, migration, upgrade |
 | Breaking Changes between Lucee 6.2 and 7.0 | `breaking-changes-7-0` | breaking changes, Lucee 6.2, Lucee 7.0, migration, upgrade |
 | Breaking Changes between Lucee 7.0 and 7.1 | `breaking-changes-7-1` | breaking changes, Lucee 7.0, Lucee 7.1, migration, upgrade |
+| Breaking Changes between Lucee 7.1 and 8.0 | `breaking-changes-8-0` | breaking changes, Lucee 7.1, Lucee 8.0, migration, upgrade, CFConfig |
 | Caches defined in Application.cfc | `caches-defined-in-application-cfc` | Caches, Application.cfc, Per-application caches, Cache connections, Default caches, Lucee |
 | Casting Components to Java Interfaces | `java-explicit-casting` | java, cast, convert, method |
 | Checksum | `checksum` | Checksum, File validation, cfhttp, hash, fileReadBinary |
@@ -191,6 +192,7 @@ description: >
 | Untitled | `cfschedule-bulk-update` | scheduled tasks, cfschedule, bulk update, configImport, onApplicationStart, task scheduler, config reload |
 | Untitled | `check-for-changes` | Configuration, Check for changes, Lucee, Automatic update, Server context, Web context |
 | Untitled | `directory-placeholders` | directory placeholders, lucee-web, lucee-server, lucee-config, web-root-directory, expandPath, configuration paths, portable config |
+| Upgrade Lucee 7.1 to 8.0: Checklist for AI Coding Agents | `upgrade-7-1-to-8-0-agent` | upgrade, migration, Lucee 8.0, Lucee 7.1, AI agent, LLM, checklist, CFConfig |
 | Using cachedWithin | `cached-within-request` | Cache, Query, Request cache, cachedWithin, cfquery, cfhttp, cffile |
 | Using CFML Functions and Components in Java | `convert-a-cfml-func-to-java` | conversion, cfc, function, component, Java, lambda, Lucee |
 | Using S3 directly for source code | `using-s3-directly-for-source-code` | S3, Source code, Credentials, Mapping, Caching |
