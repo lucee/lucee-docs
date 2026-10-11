@@ -145,13 +145,15 @@ With `parallel="thread"`, omitting `maxConcurrency` uses a bounded pool. With `p
 Older code may pass `true`/`false` as the parallel argument. This still works but is deprecated — prefer the string modes:
 
 - `false` → `"none"`
-- `true` → `"thread"`, or `"virtual"` when the global default is enabled (see below)
+- `true` → `"virtual"` on Java 21+ (Lucee 8 default), or `"thread"` when `lucee.allow.virtual.threads` is set to `false` (see below)
 
-## Global Default
+> In **Lucee 7.1**, `true` only used virtual threads on Java 25+ with `lucee.allow.virtual.threads=true` (default `false`). In **Lucee 8**, the setting defaults to `true` and Java 21 is enough, so code that passes `parallel=true` now runs on virtual threads by default. Use `parallel="thread"` if you need platform threads for a specific call.
 
-You can make virtual threads the default without changing every call site.
+## Global Defaults
 
-**System property / environment variable:**
+Two separate settings control the defaults. Each one can be set as a system property or an environment variable.
+
+### `<cfthread>`: `lucee.thread.virtual`
 
 ```
 lucee.thread.virtual=true
@@ -161,12 +163,21 @@ lucee.thread.virtual=true
 LUCEE_THREAD_VIRTUAL=true
 ```
 
-When enabled:
+Default `false`. When enabled, `<cfthread>` without an explicit `virtual` attribute runs on virtual threads. It does **not** affect the parallel functions.
 
-- `<cfthread>` without an explicit `virtual` attribute runs on virtual threads
-- `parallel=true` (deprecated boolean) uses virtual threads instead of platform threads
+### `parallel=true`: `lucee.allow.virtual.threads`
 
-Per-call overrides always win: `virtual=false` on a thread tag, or `parallel="thread"` on a function, forces platform threads even when the global default is `true`.
+```
+lucee.allow.virtual.threads=false
+```
+
+```
+LUCEE_ALLOW_VIRTUAL_THREADS=false
+```
+
+Default `true` (Java 21+). While enabled, the deprecated `parallel=true` runs on virtual threads; set it to `false` to make `parallel=true` use platform threads. Lucee also uses this setting for some internal threads. The explicit modes `parallel="thread"` and `parallel="virtual"` are not affected.
+
+Per-call overrides always win: `virtual=false` on a thread tag, or `parallel="thread"` on a function, forces platform threads.
 
 ## See Also
 
