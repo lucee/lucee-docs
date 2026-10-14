@@ -14,7 +14,7 @@ dump(var=len(st), label="Struct");
 dump(st);
 
 q =query(a:["1,2,3"]);
-dump(var=len(st), label="Query");
+dump(var=len(q), label="Query");
 dump(q);
 ```
 

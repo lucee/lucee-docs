@@ -5,4 +5,4 @@ categories:
 - orm
 ---
 
-Returns ORM session factory instance
+Reinitializes ORM for the application. Rebuilds all entity mappings and the Hibernate SessionFactory. Development use only.

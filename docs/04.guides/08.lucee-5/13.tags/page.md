@@ -28,4 +28,4 @@ The attribute cachedWithin that you will already know from tags like `cffunction
 * cffile
 * cfhttp
 
-For more, see [[lucee-5-cached-within]].
+For more, see [[cache-a-query-for-the-curr-context]].

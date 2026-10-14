@@ -4,24 +4,26 @@ id: category-regex
 description: Regular Expression support in Lucee
 ---
 
-By default, Lucee uses the older [Oro](https://jakarta.apache.org/oro/demo.html) Regex Engine, which is compatible with ACF.
+By default, Lucee uses the older [Apache ORO](https://jakarta.apache.org/oro/) Regex Engine (also known as “Perl” mode), which is compatible with ACF.
 
-Since [5.3.8.79](https://luceeserver.atlassian.net/browse/LDEV-2892), Lucee also supports using the more modern, compatible engine built into java.
+Since [5.3.8.79](https://luceeserver.atlassian.net/browse/LDEV-2892), Lucee also supports using the more modern engine built into Java. 
+
+The Java engine is faster, supports modern features like look-behinds and named groups, and is actively maintained. See [[java-regex-engine]] for a full migration guide.
 
 You can switch engines using the following options in your [[tag-application]]
 
-```
-this.regex.engine = "java";  // default is "perl"
+```luceescript
+this.regex = { engine: “java” };  // default is “perl”
 // or
 this.useJavaAsRegexEngine = true;
 ```
 
-To switch between Regex engines on the fly (`<cfapplication>` only affects the current thread / request )
+To switch between Regex engines on the fly (`<cfapplication>` only affects the current thread / request)
 
-```
+```lucee
 <!--- do perl regex stuff --->
-<cfapplication action=“update” regex=“java”>
+<cfapplication action=”update” regex=”java”>
 <!--- do modern java regex stuff --->
-<cfapplication action=“update” regex=“perl”>
-<!--- back to cperl  regex stuff --->
+<cfapplication action=”update” regex=”perl”>
+<!--- back to perl regex stuff --->
 ```

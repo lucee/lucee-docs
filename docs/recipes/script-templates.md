@@ -2,6 +2,7 @@
 {
   "title": "Script Templates (.cfs)",
   "id": "script-templates",
+  "since": "6.0",
   "description": "Learn about script templates in Lucee. This guide explains how Lucee supports templates with the `.cfs` extension, allowing you to write direct script code without the need for the `<cfscript>` tag.",
   "keywords": [
     "CFML",
@@ -10,6 +11,7 @@
     "Lucee",
     "cfs"
   ],
+  "categories": ["core"],
   "related": [
     "tag-script"
   ]
@@ -18,6 +20,20 @@
 
 # Script Templates
 
-Since version 6.0, Lucee supports templates with the extension `.cfs`. The idea of these templates is that they contain script code, similar to `.js` files in the JavaScript world.
+`.cfs` files contain pure script code without needing `<cfscript>` tags.
 
-This allows you to write direct script code without the need for the `<cfscript>` tag.
+Traditional `.cfm` file:
+
+```cfml
+<cfscript>
+	name = "Lucee";
+	echo( "Hello #name#!" );
+</cfscript>
+```
+
+Same code as `.cfs` file:
+
+```cfs
+name = "Lucee";
+echo( "Hello #name#!" );
+```

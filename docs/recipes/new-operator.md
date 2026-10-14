@@ -25,66 +25,61 @@
 }
 -->
 
-# New Operator in Lucee
+# New Operator
 
-In Lucee, the `new` operator is primarily used to create instances of CFML components (CFCs). However, starting from Lucee 6.2, the `new` operator can also be used to instantiate Java classes directly. This enhancement bridges the gap between CFML and Java, allowing more seamless integration between the two.
+The `new` operator creates instances of CFML components (CFCs) and Java classes. It's the modern alternative to `createObject()` - cleaner syntax and works the same way across both CFML and Java.
 
 ## CFML Components
 
-CFML components are user-defined objects in Lucee that encapsulate data and behavior. Using the `new` operator, you can create an instance of a component, either by specifying the full path or by using an implicit or typed approach.
-
-### Example
-
-The following test cases demonstrate the use of the `new` operator with CFML components:
+Components are user-defined objects that encapsulate data and behavior. Use the full path, or import and use the short name:
 
 ```lucee
-query = new org.lucee.cfml.Query(); // load component provided by Lucee core
-query = new Query(); // org.lucee.cfml package always is imported automatically
-
+query = new org.lucee.cfml.Query(); // full path to Lucee core component
+query = new Query(); // org.lucee.cfml is auto-imported
 ```
 
-Importing components:
+### Imports
 
 ```cfml
-import org.lucee.extension.redis.RedisUtil; // import single component
-import org.lucee.extension.quartz.*; // import a complete package
+import org.lucee.extension.redis.RedisUtil;
+import org.lucee.extension.quartz.*;
 
-RedisUtil = new RedisUtil(); // load component defined with import
-cfc = new Quartz(); // load component from a package imported
-
+util = new RedisUtil();
+cfc = new Quartz();
 ```
 
-## Java Classes
+### Relative Paths
 
-Starting from Lucee 6.2, you can use the `new` operator to instantiate Java classes directly, similar to how you would in Java itself. This is particularly useful when you want to leverage Java libraries or classes within your CFML code without relying on `createObject`.
+To reference a component in a folder above the calling template (where there's no mapping), use quotes and slashes:
 
-### Example
+```cfml
+user = New "../model/User"(); // model folder is one level up
+```
 
-The following test cases demonstrate the use of the `new` operator with Java classes:
+## Java Classes (6.2+)
+
+Since Lucee 6.2, you can instantiate Java classes directly - useful for leveraging Java libraries without `createObject()`:
 
 ```lucee
-sb = new java.lang.StringBuilder("Susi"); // load a class from the Java core library
-sb = new StringBuilder("Susi"); // java.lang package always is imported automatically
-
+sb = new java.lang.StringBuilder("Susi"); // full path to Java class
+sb = new StringBuilder("Susi"); // java.lang is auto-imported
 ```
 
-Importing classes:
+### Java Imports
 
 ```cfml
-import lucee.runtime.type.StructImpl; // import single class
-import java.util.*; // import a complete package
+import lucee.runtime.type.StructImpl;
+import java.util.*;
 
-sct = new StructImpl(); // load class defined with import
-map = new HashMap(); // load a class from a package imported
-
+sct = new StructImpl();
+map = new HashMap();
 ```
 
-## Avoid conflicts
+## Resolve Conflicts
 
-What if you wanna Load a class that also exist as a component or the other way around? In that case you can simply define the type needed explicitly like this
+When a class and component share the same name:
 
 ```cfml
 quartzInterface = new java:Quarz(); // load class
 quartzComponent = new cfml:Quarz(); // load component
-
 ```

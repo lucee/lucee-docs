@@ -1,0 +1,1 @@
+A list of additional variables which invalidate the cache when changed.

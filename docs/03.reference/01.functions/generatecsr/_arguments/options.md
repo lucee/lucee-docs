@@ -1,0 +1,1 @@
+Optional struct: sans (array of DNS names for Subject Alternative Names), algorithm (signature algorithm, auto-detected from key type if omitted)

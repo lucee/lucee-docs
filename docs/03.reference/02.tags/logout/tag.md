@@ -3,6 +3,7 @@ title: <cflogout>
 id: tag-logout
 related:
 categories:
+- session
 ---
 
 Logs the current user out.

@@ -6,7 +6,7 @@
     "function-xmlparse"
   ],
   "categories": [
-    "XML"
+    "xml"
   ],
   "description": "This document explains how to use XML parsing in Lucee.",
   "keywords": [
@@ -21,9 +21,7 @@
 
 # XML Fast And Easy, using SAX - Listener Functions
 
-This document explains how to use XML parsing in Lucee.
-
-I have XML as shown below:
+Example XML:
 
 ```luceescript
 //catalog.xml

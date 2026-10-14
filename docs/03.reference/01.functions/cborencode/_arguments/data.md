@@ -1,0 +1,1 @@
+CFML value to encode (struct, array, string, number, binary, boolean)

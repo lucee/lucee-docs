@@ -1,0 +1,1 @@
+if set to true the secret is resolved right away, if set to false, it is resolved when used.

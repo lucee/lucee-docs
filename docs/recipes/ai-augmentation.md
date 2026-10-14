@@ -13,18 +13,23 @@
     "Augmentation",
     "Lucene",
     "Retrieval"
+  ],
+  "related": [
+    "lucene-3-extension"
   ]
 }
 -->
 
 # AI Augmentation with Lucene
 
-Lucee's AI capabilities can be enhanced with Retrieval-Augmented Generation (RAG) using the Lucene extension.
-This powerful combination allows AI models to reference your indexed content when responding to queries, creating more accurate and contextually relevant answers.
+Lucee's AI capabilities can be enhanced with Retrieval-Augmented Generation (RAG) using the [[lucene-3-extension]].
+
+This powerful combination allows AI / LLM (Large Language Models) to reference your indexed content when responding to queries, creating more accurate and contextually relevant answers.
 
 ## Overview
 
 The Lucene extension enables you to create searchable collections of content that can be used to augment AI queries with relevant context.
+
 This approach improves AI responses by providing domain-specific information from your data sources, whether they're local documentation, databases, external APIs, or other resources.
 
 ## Requirements

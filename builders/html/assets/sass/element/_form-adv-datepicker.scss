@@ -60,7 +60,7 @@
 }
 
 .picker__day--outfocus {
-	color: $white-bg-dark;
+	color: var( --text-secondary );
 }
 
 .picker__footer {
@@ -147,7 +147,7 @@
 .picker__input {
 	background-color: transparent !important;
 	border-bottom-style: solid !important;
-	color: $black-text !important;
+	color: var( --text-color ) !important;
 	cursor: text !important;
 	&.picker__input--active {
 		border-color: $link-color;
@@ -268,7 +268,7 @@
 }
 
 .picker__weekday {
-	color: $black-hint;
+	color: var( --text-hint );
 	font-weight: 300;
 }
 

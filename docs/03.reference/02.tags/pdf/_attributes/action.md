@@ -3,6 +3,7 @@
 - addWatermark
 - deletePages
 - extractText
+- extractBookmarks
 - getInfo
 - merge
 - open
@@ -13,5 +14,10 @@
 - setInfo
 - thumbnail 
 - write
+- extractimage (default)
+- extractimages (alias for `extractimage`)
 
-**Note:**  action "thumbnail" was implemented from PDF Extension version - 1.1.0.8
+**Note:**
+
+- The `thumbnail` action was implemented in PDF Extension version 1.1.0.8.  
+- The `extractBookmarks` action was implemented in PDF Extension version 1.2.0.11-SNAPSHOT.

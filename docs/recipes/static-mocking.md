@@ -2,17 +2,20 @@
 {
   "title": "Mocking Static Functions",
   "id": "mocking-static-functions-lucee",
-  "categories": ["lucee", "testing"],
+  "categories": ["lucee", "testing", "static", "component"],
   "description": "How to mock static functions in Lucee for better testability without unnecessary wrappers.",
   "keywords": [
     "Static Functions",
     "Mocking",
-    "Unit Testing"
+    "Unit Testing",
+    "testbox",
+    "mockStatic",
+    "component testing"
   ]
 }
 -->
 
-# Mocking Static Functions in Lucee
+# Mocking Static Functions in Lucee for Unit Testing
 
 ## Understanding Static Functions in Lucee
 
@@ -97,7 +100,3 @@ This means that **static and instance functions are represented the same way in 
 2. **Ease of Mocking** – Static functions can be mocked at the instance level, avoiding unnecessary wrappers.
 3. **Consistency** – Static functions ensure a uniform implementation across instances while still allowing for instance-level customization when needed.
 4. **Overlay vs. Overwrite** – When an instance function is redefined (mocked), it **overwrites** the original implementation for that instance. With static functions, defining an instance-level function of the same name **overlays** the static function for that instance only, while the original static function remains accessible via the component definition.
-
-## Conclusion
-
-Lucee’s handling of static functions provides a powerful way to structure shared functionality while maintaining flexibility in testing. Instead of introducing redundant instance function wrappers, developers can take advantage of the fact that static functions are accessible like instance functions and can be dynamically mocked per instance. Additionally, `getMetadata` provides an easy way to differentiate between static and instance functions, reinforcing the consistent handling of both in Lucee.

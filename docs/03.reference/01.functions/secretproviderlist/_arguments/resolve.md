@@ -1,0 +1,1 @@
+If set to true, all secrets are resolved immediately. If set to false (default), secrets are resolved when used.

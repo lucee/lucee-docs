@@ -14,6 +14,14 @@ This version includes a custom configuration file (`lucee-config.json`). It demo
 
 This version bundles custom extensions with the Lucee server. It shows how to include additional functionalities and features by integrating custom extensions.
 
+## mcp
+
+Lucee 7.1 with the [MCP Server extension](https://github.com/lucee/extension-mcp-server). MCP JSON-RPC is served at the webroot (`POST /`). Lucene is not installed — `search_lucee_docs` is listed but requires adding the Lucene extension.
+
+## s3-minio
+
+Lucee 7 with the S3 extension working against a local MinIO instance.
+
 # Usage
 
 Each directory contains everything you need to build and run a Lucee server with the specified setup. Navigate to the desired directory and follow the instructions provided within to build and run the Docker container.

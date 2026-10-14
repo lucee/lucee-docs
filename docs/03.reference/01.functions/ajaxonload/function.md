@@ -6,3 +6,4 @@ categories:
 ---
 
 Causes the specified JavaScript function to run when the page loads.
+(Requires AJAX extension)

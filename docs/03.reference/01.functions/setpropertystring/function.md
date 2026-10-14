@@ -5,7 +5,7 @@ related:
 - function-getpropertyfile
 - function-getpropertystring
 categories:
-
+- files
 ---
 
 Sets the value of a property entry in a properties file.

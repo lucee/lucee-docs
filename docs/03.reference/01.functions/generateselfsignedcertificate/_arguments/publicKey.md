@@ -1,0 +1,1 @@
+Public key (PEM string or Java object). Provide either privateKey+publicKey OR keyPair.

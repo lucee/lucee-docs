@@ -11,6 +11,8 @@ related:
 - function-isuserinrole
 - function-isuserloggedin
 description: A container for user login and authentication code.
+categories:
+- session
 ---
 
 A container for user login and authentication code.

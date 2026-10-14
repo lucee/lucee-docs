@@ -4,9 +4,9 @@
   "id": "mappings-component-mappings",
   "related": [
     "mappings-how-to-define-a-reg-mapping",
+    "mappings-custom-tag-mappings",
     "tag-application",
-    "function-expandpath",
-    "cookbook-application-context-set-mapping"
+    "function-expandpath"
   ],
   "categories": [
     "application",
@@ -16,7 +16,6 @@
   "description": "How to define and use component mappings in Lucee.",
   "keywords": [
     "Component Mapping",
-    "Classpath",
     "CFCs",
     "Application.cfc",
     "Lucee archive"
@@ -26,13 +25,13 @@
 
 # Component Mappings
 
-Component mappings in Lucee define locations where the server will look for CFML components (CFC files) when using the `createObject()` function or the `new` operator. They provide a way to organize and access your components without having to specify the full path each time.
+A mapping in Lucee is an alias that points to a directory - instead of using full filesystem paths, you use a short name. Lucee has three types: regular mappings (for templates/includes), custom tag mappings (for custom tags), and component mappings (for CFCs).
 
-## Understanding Component Mappings
+Component mappings define where Lucee looks for CFCs when using `createObject()` or `new`. This lets you organize and access components without specifying full paths - useful in larger applications with multiple component packages.
 
-Component mappings provide a way to organize and access your CFC files without having to specify the full path each time. This is particularly useful in large applications with multiple component packages.
+Mappings point to the root of package paths, not individual components. 
 
-**Important**: Component mappings point to the root of package paths, not to individual components. For example, if you have a mapping pointing to:
+For example, if you have a mapping pointing to:
 
 ```
 /path/to/lucee-server/context/components/
@@ -98,7 +97,7 @@ Component mappings can also be defined in the Application.cfc file, making them 
 ```cfs
 // Application.cfc
 component {
-   this.componentpaths = [
+   this.componentPaths = [
       {
          "physical": "{lucee-config}/components/",
          "archive": "",
@@ -130,7 +129,7 @@ You can package your components into a Lucee Archive (.lar) file and reference i
 ```cfs
 // Application.cfc
 component {
-   this.componentpaths = [
+   this.componentPaths = [
       {
          physical: getDirectoryFromPath(getCurrentTemplatePath()) & 'components',
          archive: getDirectoryFromPath(getCurrentTemplatePath()) & 'components.lar',
@@ -146,14 +145,16 @@ With `primary` set to "archive", Lucee first checks the .lar file for components
 
 The `inspectTemplate` attribute controls how Lucee checks for changes to your components:
 
-* **never**: Never checks for changes
-* **once**: Checks once per request
-* **always**: Always checks for changes (can impact performance)
+* **never**: Never checks for changes (best for production)
+* **once**: Checks once per request (default)
+* **always**: Always checks for changes (best for development, can impact performance)
+
+By default, mappings inherit the server-level `inspectTemplate` setting. You can override this per mapping if needed.
 
 ```cfs
 // Application.cfc
 component {
-   this.componentpaths = [
+   this.componentPaths = [
       {
          physical: getDirectoryFromPath(getCurrentTemplatePath()) & 'components',
          inspectTemplate: 'once'

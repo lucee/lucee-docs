@@ -17,8 +17,6 @@ This is the temporary location where all the new links will be added.
 
 [[configuration-directory-placeholders]]
 
-[[configuration-flex]]
-
 [[configuration-web-xml]]
 
 [[contributing-contributors-agreement]]
@@ -45,7 +43,7 @@ This is the temporary location where all the new links will be added.
 
 [[about-lucee-how-to-get-help]]
 
-[[orm-start]]
+[[orm-getting-started]]
 
 [[query-of-queries]]
 
@@ -55,15 +53,13 @@ This is the temporary location where all the new links will be added.
 
 [[lucee-with-maven]]
 
-[[rest-services-introduction]]
+[[rest-services]]
 
 [[server-2003-IIS]]
 
 [[server-2008-IIS-7.5]]
 
 [[setting-dev-environment-osx]]
-
-[[special-feeds]]
 
 [[installation-installer-documentation]]
 
@@ -74,8 +70,6 @@ This is the temporary location where all the new links will be added.
 [[tutorial-lucee]]
 
 [[Ubuntu-lucee-with-Tomcat-multi-instance]]
-
-[[useful-resources-further-reading]]
 
 [[why-lucee-server-great]]
 

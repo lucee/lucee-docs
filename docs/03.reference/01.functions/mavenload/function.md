@@ -4,11 +4,7 @@ id: function-mavenload
 related:
 - function-createobject
 categories:
-- classloading
-- dependencies
-- jars
 - java
-- maven
 ---
 
 Loads all JAR files from one or more Maven endpoints and makes them available for use within the Lucee server environment. 

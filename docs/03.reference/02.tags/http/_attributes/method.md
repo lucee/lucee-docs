@@ -1,16 +1,12 @@
 Supported methods
 
-- GET (default)
-- POST
-- HEAD
-- PUT
-- DELETE
-- OPTIONS
-- TRACE
-- PATCH
+- **GET**: Download content or create queries from text files
+- **POST**: Send data to server (requires [[tag-httpparam]])  
+- **HEAD**: Retrieve headers only, no body content
+- **PUT**: Upload/replace resource on server
+- **DELETE**: Remove resource from server
+- **OPTIONS**: Get allowed methods for resource
+- **TRACE**: Diagnostic method for request/response chain
+- **PATCH**: Partially update existing resource
 
-Use GET to download a text or binary file or to create a query from the contents of a text file.
-
-Use POST to send information to a server page or a CGI program for processing.
-
-POST requires the use of a [[tag-httpparam]] tag.
+Default is GET.

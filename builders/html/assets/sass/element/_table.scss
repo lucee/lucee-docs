@@ -1,11 +1,11 @@
 .body table, .table {
-	background-color: $white;
+	background-color: var( --bg-surface );
 	margin-top: $line-height;
 	margin-bottom: $line-height;
 	width: 100%;
 	td,
 	th {
-		border: 1px solid $black-bg;
+		border: 1px solid var( --border-color );
 		line-height: $line-height;
 		padding: (($cell-height - $line-height) / 2) $grid-gutter (($cell-height - $line-height) / 2 - 1);
 		vertical-align: top;
@@ -17,19 +17,19 @@
 	> thead {
 		td,
 		th {
-			background-color: $white-bg;
-			color: $black-sec;
+			background-color: var( --bg-color );
+			color: var( --text-secondary );
 			vertical-align: bottom;
 		}
 	}
 }
 
 .table-stripe > tbody > tr:nth-child(odd) {
-	background-color: $white-bg-light;
+	background-color: var( --bg-color );
 }
 
 .table-hover > tbody > tr:hover {
-	background-color: $white-bg-dark;
+	background-color: var( --border-color );
 }
 
 // responsive

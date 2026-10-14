@@ -1,25 +1,19 @@
 component {
-	public string function renderLink( any page, required string title ) {
-		if ( IsNull( arguments.page ) ) {
-			if (arguments.title.left(4) eq "http"){
-				return '<a href="#arguments.title#">#HtmlEditFormat( arguments.title )#</a>';
-			} else {
-				request.logger (text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]", type="WARN");
-				return '<a class="missing-link" title="missing link">#HtmlEditFormat( arguments.title )#</a>';
-			}
-		}
-		var link = arguments.page.getPath() & ".html";
-		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
+	// Cache expensive singleton instances
+	variables.buildProperties = new api.build.BuildProperties();
+
+	public string function renderContent( any docTree, required string content, required struct args, boolean markdown=false ) {
+		return docTree.renderContent( content, arguments.args, arguments.markdown );
 	}
 
 	public string function _getIssueTrackerLink(required string name) {
-		var link = Replace( new api.build.BuildProperties().getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
-		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <i class="fa fa-external-link"></i></a>';
+		var link = Replace( variables.buildProperties.getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <span class="material-symbols-outlined">open_in_new</span></a>';
 	}
 
 	public string function _getTestCasesLink(required string name) {
-		var link = Replace( new api.build.BuildProperties().getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
-		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <i class="fa fa-external-link"></i></a> (good for further, detailed examples)';
+		var link = Replace( variables.buildProperties.getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <span class="material-symbols-outlined">open_in_new</span></a> (good for further, detailed examples)';
 	}
 
 	public void function build( required any docTree, required string buildDirectory, required numeric threads) {
@@ -28,6 +22,11 @@ component {
 		request.filesWritten = 0;
 		request.filesToWrite = StructCount(pagePaths);
 
+		// purge previous build directory contents
+		if ( directoryExists( buildDirectory ) )
+			DirectoryDelete( buildDirectory, true );
+		directoryCreate( buildDirectory );
+
 		request.logger (text="Builder HTML directory: #arguments.buildDirectory#");
 
 		new api.parsers.ParserFactory().getMarkdownParser(); // so the parser in use shows up in logs
@@ -35,9 +34,25 @@ component {
 		//for ( var path in pagePaths ) {
 		each(pagePaths, function(path){
 			var tick = getTickCount();
-			_writePage( pagePaths[arguments.path].page, buildDirectory, docTree );
+			var page = pagePaths[ arguments.path ].page;
 
-			request.filesWritten++;
+			if ( page.isPage() ) {
+				if ( page.hasRedirect() ) {
+					_writeRedirectStub( page, buildDirectory, docTree );
+					_writeMarkdownRedirectStub( page, buildDirectory, docTree );
+				} else {
+					// write out full html page
+					var pageContent = renderPageContent( page, docTree, false, {} );
+					_writePage( page, buildDirectory, docTree, pageContent, {} );
+
+					// write out markdown page
+					var markdownContent = renderMarkdownContent( page, docTree );
+					_writeMarkdownPage( page, buildDirectory, markdownContent, docTree );
+				}
+
+				request.filesWritten++;
+			}
+
 			if ((request.filesWritten mod 100) eq 0){
 				request.logger(text="Rendering Documentation (#request.filesWritten# / #request.filesToWrite#)");
 			}
@@ -51,13 +66,17 @@ component {
 		_copyStaticAssets( arguments.buildDirectory );
 		_copySiteImages( arguments.buildDirectory, arguments.docTree );
 		_writeSearchIndex( arguments.docTree, arguments.buildDirectory );
+		_writeRecipesIndex( arguments.docTree, arguments.buildDirectory );
 	}
 
-	public string function renderPage( required any page, required any docTree, required boolean edit ){
+	public string function renderPageContent( required any page, required any docTree,
+			required boolean edit, required struct htmlOpts  ){
 		try {
-			var renderedPage = renderTemplate(
-				  template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
-				, args     = { page = arguments.page, docTree=arguments.docTree, edit=arguments.edit }
+			var contentArgs = { page = arguments.page, docTree=arguments.docTree, edit=arguments.edit, htmlOpts=arguments.htmlOpts };
+
+			var pageContent = renderTemplate(
+				template = "templates/#_getPageLayoutFile( arguments.page )#.cfm"
+				, args     = contentArgs
 				, helpers  = "/builders/html/helpers"
 			);
 		} catch( any e ) {
@@ -66,7 +85,33 @@ component {
 			e.additional.luceeDocsPageId = arguments.page.getid();
 			rethrow;
 		}
-		var crumbs = arguments.docTree.getPageBreadCrumbs(arguments.page);
+		return pageContent;
+	}
+
+	public string function renderMarkdownContent( required any page, required any docTree ){
+		try {
+			var contentArgs = { page = arguments.page, docTree=arguments.docTree, edit=false };
+
+			var markdownContent = renderTemplate(
+				template = "../markdown/templates/#_getPageLayoutFile( arguments.page )#.cfm"
+				, args     = contentArgs
+				, helpers  = "/builders/html/helpers"
+				, markdown = true
+			);
+		} catch( any e ) {
+			e.additional.luceeDocsTitle = arguments.page.getTitle();
+			e.additional.luceeDocsPath = arguments.page.getPath();
+			e.additional.luceeDocsPageId = arguments.page.getid();
+			rethrow;
+		}
+		return markdownContent;
+	}
+
+	public string function renderPage( required any page, required any docTree,
+			required string pageContent, required boolean edit, required struct htmlOptions ){
+
+		// systemOutput( "RENDERING PAGE: #arguments.page.getPath()# (ID: #arguments.page.getId()#)", true ); // Debug logging
+		var crumbs = arguments.docTree.getPageBreadCrumbs( arguments.page );
 		var excludeLinkMap = {}; // tracks links to exclude from See also
 		var links = [];
 		var categories = [];
@@ -112,21 +157,52 @@ component {
 					break;
 			}
 		}
+
+		var template = arguments.htmlOptions.mainTemplate ?: "main.cfm";
+		var crumbsArgs = {
+			crumbs:crumbs,
+			page: arguments.page,
+			docTree: arguments.docTree,
+			categories: categories.sort("textNoCase"),
+			edit: arguments.edit,
+			htmlOpts:  arguments.htmlOptions
+		};
+		var seeAlsoArgs = {
+			links= links,
+			htmlOpts=arguments.htmlOptions
+		}
+
 		try {
+			// Generate TOC from processed content (after WikiLinks have been replaced)
+			var tocHtml = new api.rendering.TemplateRenderer().toc( arguments.pageContent );
+
+			var args = {
+				body       = tocHtml & Trim( arguments.pageContent )
+				, htmlOpts   = arguments.htmlOptions
+				, page       = arguments.page
+				, edit       = arguments.edit
+				, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers",
+					args = crumbsArgs
+				)
+				, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , helpers  = "/builders/html/helpers",
+					args = seeAlsoArgs )
+			};
+
+			if ( !structKeyExists(arguments.htmlOptions, "no_navigation" ) ){
+				args.navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={
+					crumbs=crumbs,
+					docTree=arguments.docTree,
+					pageLineage=arguments.page.getLineage(),
+					pageLineageMap=arguments.page.getPageLineageMap()
+				} );
+			} else  {
+				args.navTree = "";
+			}
+
 			var pageContent = renderTemplate(
-				template = "layouts/main.cfm"
+				template = "layouts/#template#"
 				, helpers  = "/builders/html/helpers"
-				, args     = {
-					body       = Trim( renderedPage )
-					, page       = arguments.page
-					, edit       = arguments.edit
-					, crumbs     = renderTemplate( template="layouts/breadcrumbs.cfm", helpers  = "/builders/html/helpers", args={ crumbs=crumbs, page=arguments.page, docTree=arguments.docTree, categories=categories.sort("textNoCase"), edit= arguments.edit } )
-					, navTree    = renderTemplate( template="layouts/sideNavTree.cfm", helpers  = "/builders/html/helpers", args={
-						crumbs=crumbs, docTree=arguments.docTree, pageLineage=arguments.page.getLineage(), pageLineageMap=arguments.page.getPageLineageMap()
-					} )
-					, seeAlso    = renderTemplate( template="layouts/seeAlso.cfm"    , helpers  = "/builders/html/helpers",
-						args={ links=links } )
-				}
+				, args     = args
 			);
 		} catch( any e ) {
 			//e.additional.luceeDocsPage = arguments.page;
@@ -148,15 +224,19 @@ component {
 
 		for( var pageId in pages ) {
 			var page = pages[ pageId ];
+			if ( page.hasRedirect() )
+				continue;
 			var icon = "";
 
 			switch( page.getPageType() ){
 				case "function":
-				case "tag":
 					icon = "code";
 					break;
+				case "tag":
+					icon = "sell";
+					break;
 				default:
-					icon = "file-o";
+					icon = "description";
 			}
 
 			searchIndex.append( {
@@ -167,24 +247,45 @@ component {
 				, "type"    = page.getPageType()
 				, "icon"    = icon
 			} );
+
+			// add search entries for function aliases pointing to the primary function
+			if ( page.getPageType() == "function" && len( page.getAlias() ?: "" ) ) {
+				for ( var alias in listToArray( page.getAlias() ) ) {
+					searchIndex.append( {
+						  "value"   = page.getPath() & ".html"
+						, "display" = trim( alias ) & "()"
+						, "text"    = HtmlEditFormat( trim( alias ) )
+						, "desc"    = "#HtmlEditFormat( trim( alias ) & " - alias for " & page.getTitle() )#"
+						, "type"    = page.getPageType()
+						, "icon"    = icon
+					} );
+				}
+			}
 		}
 
 		return SerializeJson( searchIndex );
 	}
 
 // PRIVATE HELPERS
-	private void function _writePage( required any page, required string buildDirectory, required any docTree ) {
+	private void function _writePage( required any page, required string buildDirectory,
+			required any docTree, required string pageContent, required struct htmlOptions ) {
 		var filePath      = variables._getHtmlFilePath( arguments.page, arguments.buildDirectory );
 		var fileDirectory = GetDirectoryFromPath( filePath );
 
-		//var starttime = getTickCount();
 		lock name="CreateDirectory" timeout=10 {
 			if ( !DirectoryExists( fileDirectory ) ) {
 				DirectoryCreate( fileDirectory );
 			}
 		}
-		var pageContent = variables.cleanHtml(variables.renderPage( arguments.page, arguments.docTree, false ));
-		FileWrite( filePath, pageContent );
+
+		var html = variables.cleanHtml(
+			variables.renderPage( arguments.page,
+				arguments.docTree, arguments.pageContent, false ,
+				arguments.htmlOptions, arguments.buildDirectory
+			)
+		);
+		FileWrite( filePath, html );
+		_setRecipeFileDate( arguments.page, filePath, arguments.docTree );
 	}
 
 	// regex strips left over whitespace multiple new lines
@@ -201,6 +302,73 @@ component {
 		return arguments.buildDirectory & arguments.page.getPath() & ".html";
 	}
 
+	private void function _writeMarkdownPage( required any page, required string buildDirectory, required string markdownContent, required any docTree ) {
+		var filePath      = _getMarkdownFilePath( arguments.page, arguments.buildDirectory );
+		var fileDirectory = GetDirectoryFromPath( filePath );
+
+		lock name="CreateDirectory" timeout=10 {
+			if ( !DirectoryExists( fileDirectory ) ) {
+				DirectoryCreate( fileDirectory );
+			}
+		}
+
+		FileWrite( filePath, arguments.markdownContent );
+		_setRecipeFileDate( arguments.page, filePath, arguments.docTree );
+	}
+
+	private string function _getMarkdownFilePath( required any page, required string buildDirectory ) {
+		if ( arguments.page.getPath() == "/home" ) {
+			return arguments.buildDirectory & "/index.md";
+		}
+
+		return arguments.buildDirectory & arguments.page.getPath() & ".md";
+	}
+
+	private void function _writeRedirectStub( required any page, required string buildDirectory, required any docTree ) {
+		var target    = arguments.docTree.getPage( arguments.page.getRedirect() );
+		var targetUrl = target.getPath() & ".html";
+		var title     = HtmlEditFormat( target.getTitle() );
+		var filePath  = variables._getHtmlFilePath( arguments.page, arguments.buildDirectory );
+		var fileDirectory = GetDirectoryFromPath( filePath );
+
+		lock name="CreateDirectory" timeout=10 {
+			if ( !DirectoryExists( fileDirectory ) ) {
+				DirectoryCreate( fileDirectory );
+			}
+		}
+
+		var html = '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moved: #title#</title>
+<link rel="canonical" href="#targetUrl#">
+<meta http-equiv="refresh" content="0; url=#targetUrl#">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<p>This page has moved to <a href="#targetUrl#">#title#</a>.</p>
+</body>
+</html>';
+		FileWrite( filePath, html );
+	}
+
+	private void function _writeMarkdownRedirectStub( required any page, required string buildDirectory, required any docTree ) {
+		var target    = arguments.docTree.getPage( arguments.page.getRedirect() );
+		var targetUrl = target.getPath() & ".html";
+		var filePath  = _getMarkdownFilePath( arguments.page, arguments.buildDirectory );
+		var fileDirectory = GetDirectoryFromPath( filePath );
+
+		lock name="CreateDirectory" timeout=10 {
+			if ( !DirectoryExists( fileDirectory ) ) {
+				DirectoryCreate( fileDirectory );
+			}
+		}
+
+		FileWrite( filePath, "> This page has moved to [#target.getTitle()#](#targetUrl#)." & chr( 10 ) );
+	}
+
+
 	private void function _copyStaticAssets( required string buildDirectory ) {
 		updateHighlightsCss( arguments.buildDirectory );
 		var subdirs = directoryList(path=GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets", type="dir", recurse="false");
@@ -214,8 +382,18 @@ component {
 
 	private function updateHighlightsCss( required string buildDirectory ){
 		var highlighter = new api.rendering.Pygments();
-		var cssFile = path=GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/css/highlight.css";
-		fileWrite( cssFile, highlighter.getCss() );
+
+		// Light theme
+		var cssFile = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/css/highlight.css";
+		var css = highlighter.getCss();
+		if ( trim( css ) neq trim( fileRead( cssFile ) ) )
+			fileWrite( cssFile, css );
+
+		// Dark theme
+		var cssDarkFile = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/css/highlight-dark.css";
+		var cssDark = highlighter.getCssDark();
+		if ( trim( cssDark ) neq trim( fileRead( cssDarkFile ) ) )
+			fileWrite( cssDarkFile, cssDark );
 	}
 
 	private void function _copySiteImages( required string buildDirectory, required any docTree ) {
@@ -230,6 +408,8 @@ component {
 		var _searchPage = _renderStaticPage( staticPagesDir & "/search.html", "Search Lucee Documentation", arguments.docTree, arguments.baseHref, true );
 		FileWrite( arguments.buildDirectory & "/search.html", cleanHtml( _searchPage ) );
 		FileWrite( arguments.buildDirectory & "/sitemap.xml", _renderSiteMap( arguments.docTree ) );
+		DirectoryCreate( arguments.buildDirectory & "/feeds", true, true );
+		FileWrite( arguments.buildDirectory & "/feeds/recipes.xml", _renderRecipesFeed( arguments.docTree ) );
 		// google analytics for @zackster
 		FileWrite( arguments.buildDirectory & "/google4973ccb67f78b874.html", "google-site-verification: google4973ccb67f78b874.html");
 		FileWrite( arguments.buildDirectory & "/robots.txt", [
@@ -240,13 +420,42 @@ component {
 			].toList(chr(10))
 		);
 
-		FileCopy( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html", arguments.buildDirectory & "/editor.html" );
+		// Copy favicon.ico to root for browser default requests
+		var faviconSource = GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/images/favicon.png";
+		if ( FileExists( faviconSource ) ) {
+			FileCopy( faviconSource, arguments.buildDirectory & "/favicon.ico" );
+		}
+
+		// Copy editor.html and replace asset version placeholder
+		var editorTemplate = FileRead( GetDirectoryFromPath( GetCurrentTemplatePath() ) & "/assets/trycf/index.html" );
+		var editorHtml = Replace( editorTemplate, "{{assetBundleVersion}}", application.assetBundleVersion, "ALL" );
+		FileWrite( arguments.buildDirectory & "/editor.html", editorHtml );
 	}
 
 	private void function _writeSearchIndex( required any docTree, required string buildDirectory ) {
 		var searchIndexFile = arguments.buildDirectory & "/assets/js/searchIndex.json";
 
 		FileWrite( searchIndexFile, renderSearchIndex( arguments.docTree ) );
+	}
+
+	private void function _writeRecipesIndex( required any docTree, required string buildDirectory ) {
+		var recipesIndexFile = arguments.buildDirectory & "/recipes/index.json";
+		var generator = new api.reference.RecipesIndexGenerator();
+		var indexData = generator.generateIndexFromDocTree( arguments.docTree );
+
+		FileWrite( recipesIndexFile, indexData.content );
+
+		// Set the file's lastModified timestamp to match the most recent recipe
+		if ( structKeyExists( indexData, "lastModified" ) ) {
+			var lastModDate = parseDateTime( indexData.lastModified );
+			FileSetLastModified( recipesIndexFile, lastModDate );
+		}
+
+		var logMsg = "Generated recipes index: #recipesIndexFile#";
+		if ( structKeyExists( indexData, "lastModified" ) ) {
+			logMsg &= " (last modified: #indexData.lastModified#)";
+		}
+		request.logger( text=logMsg );
 	}
 
 	private string function _getPageLayoutFile( required any page ) {
@@ -295,14 +504,211 @@ component {
 
 	private string function _renderSiteMap( required any docTree ) {
 		var pages           = arguments.docTree.getPathMap();
+		var recipeDates     = arguments.docTree.getRecipeDates();
 		var siteMap     = [];
 
 		for( var path in pages ) {
+			if ( pages[ path ].hasRedirect() )
+				continue;
+			var lastMod = now();
+
+			// Use git date for recipes if available
+			if ( path.startsWith( "/recipes/" ) ) {
+				var recipeKey = listLast( path, "/" ) & ".md";
+				if ( structKeyExists( recipeDates, recipeKey ) && arrayLen( recipeDates[ recipeKey ].commits ) ) {
+					// Use most recent commit (first in array)
+					lastMod = arrayFirst( recipeDates[ recipeKey ].commits );
+				}
+			}
+
 			siteMap.append('<url><loc>#XmlFormat("https://docs.lucee.org#path#.html")#</loc>'
-			& '<lastmod>#dateFormat(now(),"yyyy-mm-dd")#</lastmod></url>');
+			& '<lastmod>#dateFormat(lastMod,"yyyy-mm-dd")#</lastmod></url>');
 		}
 
 		return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">#chr(10)#' &
 			ArrayToList(siteMap, chr(10) ) & '#chr(10)#</urlset>';
 	}
+
+	private string function _renderRecipesFeed( required any docTree ) {
+		var pages       = arguments.docTree.getPathMap();
+		var recipeDates = arguments.docTree.getRecipeDates();
+		var entries     = [];
+		var baseUrl     = "https://docs.lucee.org";
+		var nl          = chr( 10 );
+
+		for ( var path in pages ) {
+			if ( !path.startsWith( "/recipes/" ) || path == "/recipes" )
+				continue;
+			if ( pages[ path ].hasRedirect() )
+				continue;
+
+			var page      = pages[ path ];
+			var recipeKey = listLast( path, "/" ) & ".md";
+			var created   = now();
+			var updated   = now();
+
+			if ( structKeyExists( recipeDates, recipeKey ) && arrayLen( recipeDates[ recipeKey ].commits ) ) {
+				created = arrayLast( recipeDates[ recipeKey ].commits );
+				updated = arrayFirst( recipeDates[ recipeKey ].commits );
+			}
+
+			entries.append( {
+				title       = page.getTitle(),
+				description = page.getDescription(),
+				url         = baseUrl & path & ".html",
+				id          = path,
+				created     = created,
+				updated     = updated
+			} );
+		}
+
+		// sort by created date descending (newest first)
+		ArraySort( entries, function( a, b ) {
+			return DateCompare( b.created, a.created );
+		} );
+
+		var feedUpdated = arrayLen( entries ) ? entries[ 1 ].updated : now();
+		var feed = [];
+
+		feed.append( '<?xml version="1.0" encoding="UTF-8"?>' );
+		feed.append( '<feed xmlns="http://www.w3.org/2005/Atom">' );
+		feed.append( '	<title>Lucee Documentation - Recipes</title>' );
+		feed.append( '	<link href="#baseUrl#/feeds/recipes.xml" rel="self" type="application/atom+xml"/>' );
+		feed.append( '	<link href="#baseUrl#/recipes.html" rel="alternate" type="text/html"/>' );
+		feed.append( '	<id>#baseUrl#/feeds/recipes.xml</id>' );
+		feed.append( '	<updated>#dateFormat( feedUpdated, "yyyy-mm-dd" )#T#timeFormat( feedUpdated, "HH:mm:ss" )#Z</updated>' );
+
+		for ( var entry in entries ) {
+			feed.append( '	<entry>' );
+			feed.append( '		<title>#XmlFormat( entry.title )#</title>' );
+			feed.append( '		<link href="#XmlFormat( entry.url )#" rel="alternate" type="text/html"/>' );
+			feed.append( '		<id>#XmlFormat( entry.url )#</id>' );
+			feed.append( '		<published>#dateFormat( entry.created, "yyyy-mm-dd" )#T#timeFormat( entry.created, "HH:mm:ss" )#Z</published>' );
+			feed.append( '		<updated>#dateFormat( entry.updated, "yyyy-mm-dd" )#T#timeFormat( entry.updated, "HH:mm:ss" )#Z</updated>' );
+			feed.append( '		<summary>#XmlFormat( entry.description )#</summary>' );
+			feed.append( '	</entry>' );
+		}
+
+		feed.append( '</feed>' );
+		return ArrayToList( feed, nl );
+	}
+
+	public string function renderLink( any page, required string title, struct args={}, boolean markdown=false, string anchor="" ) {
+		if ( IsNull( arguments.page ) ) {
+			if ( arguments.title.left( 4 ) eq "http" ){
+				if ( arguments.markdown ) {
+					return "[#arguments.title#](#arguments.title#)";
+				}
+				return '<a href="#arguments.title#">#HtmlEditFormat( arguments.title )#</a>';
+			} else {
+				request.logger( text="Missing docs link: [[#HtmlEditFormat( arguments.title )#]]", type="WARN" );
+				if ( arguments.markdown ) {
+					return "**#arguments.title#**";
+				}
+				return '<a class="missing-link" title="missing link">#HtmlEditFormat( arguments.title )#</a>';
+			}
+		}
+
+		var extension = arguments.markdown ? ".md" : ".html";
+		var link = arguments.page.getPath() & extension;
+
+		// For markdown, use relative paths
+		if ( arguments.markdown && structKeyExists( arguments.args, "page" ) ) {
+			link = _calculateRelativePath( arguments.args.page.getPath(), arguments.page.getPath() ) & extension;
+		} else if ( structKeyExists( arguments.args, "htmlOpts" )
+				&& structKeyExists( arguments.args.htmlOpts, "base_href" ) ){
+			link = arguments.args.htmlOpts.base_href & link;
+		}
+
+		// Add anchor if present
+		if ( len( arguments.anchor ) ) {
+			link &= "##" & arguments.anchor;
+		}
+
+		if ( arguments.markdown ) {
+			return "[#arguments.title#](#link#)";
+		}
+		return '<a href="#link#">#HtmlEditFormat( arguments.title )#</a>';
+	}
+
+	private string function _calculateRelativePath( required string fromPath, required string toPath ) {
+		// Handle home page specially
+		if ( arguments.fromPath == "/home" ) {
+			arguments.fromPath = "/";
+		}
+		if ( arguments.toPath == "/home" ) {
+			arguments.toPath = "/";
+		}
+
+		// Split paths into parts (excluding filename)
+		var fromParts = listToArray( arguments.fromPath, "/" );
+		var toParts = listToArray( arguments.toPath, "/" );
+
+		// If they're in the same directory, just use the filename
+		if ( arrayLen( fromParts ) == arrayLen( toParts ) ) {
+			var samePath = true;
+			for ( var i = 1; i < arrayLen( fromParts ); i++ ) {
+				if ( fromParts[i] != toParts[i] ) {
+					samePath = false;
+					break;
+				}
+			}
+			if ( samePath ) {
+				return listLast( arguments.toPath, "/" );
+			}
+		}
+
+		// Find common prefix
+		var commonLength = 0;
+		var minLength = min( arrayLen( fromParts ) - 1, arrayLen( toParts ) - 1 );
+		for ( var i = 1; i <= minLength; i++ ) {
+			if ( fromParts[i] == toParts[i] ) {
+				commonLength = i;
+			} else {
+				break;
+			}
+		}
+
+		// Build relative path
+		var relativeParts = [];
+
+		// Go up from current location (exclude the filename itself)
+		var upLevels = arrayLen( fromParts ) - 1 - commonLength;
+		for ( var i = 1; i <= upLevels; i++ ) {
+			arrayAppend( relativeParts, ".." );
+		}
+
+		// Go down to target location
+		for ( var i = commonLength + 1; i <= arrayLen( toParts ); i++ ) {
+			arrayAppend( relativeParts, toParts[i] );
+		}
+
+		return arrayToList( relativeParts, "/" );
+	}
+
+	public string function _getIssueTrackerLink(required string name) {
+		var link = Replace( variables.buildProperties.getIssueTrackerLink(), "{search}", urlEncodedFormat(arguments.name) )
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Issue Tracker <span class="material-symbols-outlined">open_in_new</span></a>';
+	}
+
+	public string function _getTestCasesLink(required string name) {
+		var link = Replace( variables.buildProperties.getTestCasesLink(), "{search}", urlEncodedFormat(arguments.name) )
+		return '<a href="#link#" class="no-oembed" target="_blank">Search Lucee Test Cases <span class="material-symbols-outlined">open_in_new</span></a> (good for further, detailed examples)';
+	}
+
+	private void function _setRecipeFileDate( required any page, required string filePath, required any docTree ) {
+		// Set last modified date from git for recipes
+		var recipeDates = arguments.docTree.getRecipeDates();
+		var pagePath = arguments.page.getPath();
+
+		// recipeDates keys are filenames like "ai-augmentation.md", need to convert from pagePath
+		if ( pagePath.startsWith( "/recipes/" ) ) {
+			var recipeKey = listLast( pagePath, "/" ) & ".md";
+			if ( structKeyExists( recipeDates, recipeKey ) && arrayLen( recipeDates[ recipeKey ].commits ) ) {
+				// commits array: first is most recent (updated), last is oldest (created)
+				FileSetLastModified( arguments.filePath, arrayLast( recipeDates[ recipeKey ].commits ) );
+			}
+		}
+	}
+
 }

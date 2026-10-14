@@ -1,0 +1,1 @@
+JWK as a struct or JSON string

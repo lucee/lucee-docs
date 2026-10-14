@@ -1,0 +1,1 @@
+SCrypt hash to check against

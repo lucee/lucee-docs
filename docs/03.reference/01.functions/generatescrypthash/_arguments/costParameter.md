@@ -1,0 +1,1 @@
+CPU/memory cost (N) - must be power of 2

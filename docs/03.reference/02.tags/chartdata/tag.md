@@ -4,6 +4,8 @@ id: tag-chartdata
 related:
 - tag-chart
 - tag-chartseries
+categories:
+- ajax
 ---
 
 Used with the [[tag-chart]] and [[tag-chartseries]] tags. This tag defines chart data points.

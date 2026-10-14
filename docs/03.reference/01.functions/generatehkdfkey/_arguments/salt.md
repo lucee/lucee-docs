@@ -1,0 +1,1 @@
+Salt value (can be empty string or null)

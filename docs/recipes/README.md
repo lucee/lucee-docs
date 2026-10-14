@@ -1,42 +1,54 @@
 # Recipes
 
+## [Adding Full Text Search to Your Application](/docs/recipes/search.md)
+
+A practical guide to adding full-text search to your Lucee application using collections, indexing, and search
+
+## [AI](/docs/recipes/ai.md)
+
+AI integration for working with Large Language Models in Lucee
+
 ## [AI Augmentation with Lucene](/docs/recipes/ai-augmentation.md)
 
 Documentation for augmenting AI queries using Lucene search in Lucee
 
+## [AI Context from Page Content](/docs/recipes/ai-page-context.md)
+
+Capture rendered page HTML with a custom tag and use it as context for an AI session
+
 ## [AI in Documentation (Experimental)](/docs/recipes/ai-for-documentation.md)
 
-Guide to configuring AI for use in Lucee's Documentation tab, leveraging retrieval-augmented generation (RAG) and enhanced search functionality.
+Guide to configuring AI / LLM for use in Lucee's Documentation tab.
 
 ## [AI Session Serialization](/docs/recipes/ai-serialisation.md)
 
 Documentation for serializing and deserializing AI sessions in Lucee
 
-## [AI (Experimental)](/docs/recipes/ai.md)
+## [Application Context update](/docs/recipes/application-context-update.md)
 
-No description available.
+How to update your Application settings, after they have been defined in Application.cfc.
 
 ## [Application.cfc #](/docs/recipes/application-cfc.md)
 
 How to create and configure the Application.cfc
 
-## [Application Context update](/docs/recipes/application-context-update.md)
+## [AST (Abstract Syntax Tree)](/docs/recipes/ast.md)
 
-How to update your Application settings, after they have been defined in Application.cfc.
-
-## [Archives - Creating and deploying Lucee Archives (.lar files)](/docs/recipes/archives-creating-and-deploy.md)
-
-No description available.
+Generate Abstract Syntax Trees from CFML code for analysis, transformation, and tooling support
 
 ## [Basic Date - Output the current date](/docs/recipes/basic-date.md)
 
 Learn how to output the current date in Lucee.
 
-## [Breaking Changes Between Lucee 5.4 and 6.0](/docs/recipes/breaking-changes-6-0.md)
+## [Best Practices: Structs vs Inline Components](/docs/recipes/structs-vs-components.md)
+
+Performance analysis and best practices for choosing between structs and inline components in Lucee
+
+## [Breaking Changes between Lucee 5.4 and 6.0](/docs/recipes/breaking-changes-6-0.md)
 
 A guide to breaking changes introduced in Lucee between version 5.4 and 6.0
 
-## [Breaking Changes Between Lucee 6.0 and 6.1](/docs/recipes/breaking-changes-6-1.md)
+## [Breaking Changes between Lucee 6.0 and 6.1](/docs/recipes/breaking-changes-6-1.md)
 
 A guide to breaking changes introduced in Lucee between version 6.0 and 6.1
 
@@ -44,69 +56,121 @@ A guide to breaking changes introduced in Lucee between version 6.0 and 6.1
 
 A guide to breaking changes introduced in Lucee between version 6.1 and 6.2
 
-## [Breaking Changes between Lucee 6.2 and 7.0](/docs/recipes/breaking-changes-7.0.md)
+## [Breaking Changes between Lucee 6.2 and 7.0](/docs/recipes/breaking-changes-7-0.md)
 
 A guide to breaking changes introduced in Lucee between version 6.2 and 7.0
 
-## [Cache a Query for the current request](/docs/recipes/cached-within-request.md)
+## [Breaking Changes between Lucee 7.0 and 7.1](/docs/recipes/breaking-changes-7-1.md)
 
-Cache a Query for the current request in Lucee.
+A guide to breaking changes introduced in Lucee between version 7.0 and 7.1
+
+## [Breaking Changes between Lucee 7.1 and 8.0](/docs/recipes/breaking-changes-8-0.md)
+
+A guide to breaking changes introduced in Lucee between version 7.1 and 8.0
 
 ## [Caches defined in Application.cfc](/docs/recipes/caches-defined-in-application-cfc.md)
 
 How to add per-application caches via Application.cfc in Lucee.
 
-## [Untitled](/docs/recipes/check-for-changes.md)
+## [Casting Components to Java Interfaces](/docs/recipes/java-explicit-casting.md)
 
-Automatically check for changes in your configuration file with Lucee.
+Shows how to explicitly cast a component to a specific interface.
 
 ## [Checksum](/docs/recipes/checksum.md)
 
 This document explains how to use a checksum in Lucee.
 
-## [getClass() Method for Components](/docs/recipes/component-getclass-method.md)
+## [Clustering with Quartz Scheduler](/docs/recipes/scheduler-quartz-clustering.md)
 
-This document explains the getClass() method for CFML components that implement Java interfaces, enabling seamless Java interoperability.
+How to set up and configure clustering with the Quartz Scheduler extension
+
+## [Complete Guide to Threading in Lucee](/docs/recipes/thread-usage.md)
+
+Complete guide to using threads and parallel execution in Lucee
+
+## [Component Accessors](/docs/recipes/component-accessors.md)
+
+CFML component accessors=true — what gets generated, how they behave with mixins and ORM, and the gotchas that bite
 
 ## [Component Mappings](/docs/recipes/component-mappings.md)
 
 How to define and use component mappings in Lucee.
 
-## [Configure Lucee within your application](/docs/recipes/configuration-administrator-cfc.md)
+## [Configuration - How to Configure Lucee](/docs/recipes/configuration.md)
 
-How to configure Lucee within your application using Administrator.cfc and cfadmin tag.
+Best practices for configuring Lucee in various environments.
 
 ## [Configuration - Lucee 5](/docs/recipes/configuration-lucee5.md)
 
 Best practices for configuring Lucee 5 environments.
 
-## [Configuration - How to Configure Lucee](/docs/recipes/configuration.md)
+## [Configuration Precedence - Environment Variables, System Properties and the Administrator](/docs/recipes/configuration-precedence.md)
 
-Best practices for configuring Lucee in various environments.
+How Lucee resolves settings when the same value is defined as an environment variable, a Java system property, in .CFConfig.json, or via the Administrator.
 
-## [Convert a CFML Function/Component to use in Java](/docs/recipes/convert-a-cfml-func-to-java.md)
+## [Configure Lucee Programmatically](/docs/recipes/configuration-administrator-cfc.md)
 
-Learn how to convert user-defined functions or components in Lucee to use them in Java. This guide demonstrates how to define components to implement Java interfaces, pass components to Java methods, explicitly define interfaces, and use the onMissingMethod feature. It also shows how to convert user-defined functions to Java lambdas.
+How to configure Lucee within your application using Administrator.cfc and cfadmin tag.
+
+## [Console Logging](/docs/recipes/console-logging.md)
+
+Use the console for debugging
+
+## [Creating an Extension that Provides an AI Engine](/docs/recipes/ai-engine-extension.md)
+
+How to implement the AI interfaces from the Lucee loader in your own Java engine, package it as an extension and use it with createAISession()
+
+## [Creating Component-Based Jobs with Quartz Scheduler](/docs/recipes/scheduler-quartz-component-jobs.md)
+
+How to create and configure component-based jobs with the Quartz Scheduler extension
+
+## [Creating Heap Dumps in Lucee](/docs/recipes/heap-dumps.md)
+
+Documentation for creating and analyzing heap dumps in Lucee for memory troubleshooting
 
 ## [CSV Processing in Lucee 7](/docs/recipes/csv-processing.md)
 
 Simple recipe for processing CSV data in Lucee 7 using Maven integration and Apache Commons CSV
 
-## [Datasource - How to define them](/docs/recipes/datasource-how-to-define-them.md)
+## [Custom Event Gateways](/docs/recipes/event-gateway-create.md)
+
+Here you will find a short introduction into writing your own Event Gateway type.
+
+## [Custom Tag Mappings](/docs/recipes/custom-tag-mappings.md)
+
+How to define and use custom tag mappings in Lucee.
+
+## [Database Connection Management in Lucee](/docs/recipes/database-connection-management.md)
+
+Understanding how Lucee manages database connections: pooled, exclusive, and transaction-based connections
+
+## [Datasources](/docs/recipes/datasource-how-to-define-them.md)
 
 How to define a Datasource in Lucee.
 
-## [Untitled](/docs/recipes/directory-placeholders.md)
+## [Date and Time Formatting in Lucee](/docs/recipes/date-time-formatting.md)
 
-Placeholders are uses to reference specific Lucee directories
+Comprehensive guide to formatting dates and times in Lucee with locale and timezone support
 
-## [onBuild Function in Server.cfc (supported since Lucee 6.1.1)](/docs/recipes/docker-onbuild.md)
+## [Deploying Custom Tags via Extensions](/docs/recipes/custom-tags-via-extensions.md)
 
-The onBuild function in Server.cfc is used for tasks during the build phase in Lucee, particularly useful in Docker environments.
+How to bundle and deploy custom tags as part of a Lucee extension (.lex file), and how to import them using cfimport.
 
-## [Docker Information](/docs/recipes/docker.md)
+## [Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy`](/docs/recipes/concurrent-map-legacy-flag.md)
+
+The `lucee.concurrent.map.impl=legacy` flag temporarily restores the pre-7.1 struct iteration order, used as a diagnostic to confirm whether a 7.1 regression is an ordering-assumption bug in your code.
+
+## [Docker](/docs/recipes/docker.md)
 
 Guide on using and running Lucee with Docker
+
+## [Dynamic Proxy Enhancements](/docs/recipes/dynamic-proxy-enhancements.md)
+
+Lucee 7 improvements to dynamic proxy creation - all component functions and properties are now always included when implementing Java interfaces.
+
+## [DynamoDB Cache Extension](/docs/recipes/dynamodb-cache-extension.md)
+
+Documentation for using Amazon DynamoDB as a cache provider and NoSQL data store in Lucee
 
 ## [Encryption/Decryption](/docs/recipes/encryption_decryption.md)
 
@@ -115,10 +179,6 @@ This document explains about Encryption/Decryption with public and private keys 
 ## [Environment Variables / System Properties for Lucee](/docs/recipes/environment-variables-system-properties.md)
 
 This document gives you an overview over all Environment Variables and System Properties supported by Lucee.
-
-## [Custom Event Gateways](/docs/recipes/event-gateway-create.md)
-
-Here you will find a short introduction into writing your own Event Gateway type.
 
 ## [Event Gateway - How they work?](/docs/recipes/event-gateways-how-they-work.md)
 
@@ -136,7 +196,7 @@ Simple recipe for processing Excel files in Lucee 7 using Maven integration and 
 
 Lucee 6.1 improves its support for exception causes, providing better debugging and error handling capabilities.
 
-## [Exceptions Output](/docs/recipes/exception-output.md)
+## [Exception Output](/docs/recipes/exception-output.md)
 
 How to catch and display exceptions.
 
@@ -146,9 +206,17 @@ Log details about code execution at the statement level
 
 ## [Extension Installation](/docs/recipes/extension-installation.md)
 
-A comprehensive guide on how to install extensions in Lucee.
+A comprehensive guide on how to install extensions in Lucee, including Lucee 8 maven coordinates and resource auto-discovery.
 
-## [Externalize strings](/docs/recipes/externalizing-strings.md)
+## [Extension Provider](/docs/recipes/extension-provider.md)
+
+How Lucee discovers and loads extensions via Maven
+
+## [External Agent](/docs/recipes/external-agent.md)
+
+Java agent for registering the Instrumentation instance in Lucee
+
+## [Externalize Strings](/docs/recipes/externalizing-strings.md)
 
 Externalize strings from generated class files to separate files. This method is used to reduce the memory of the static contents for templates.
 
@@ -172,6 +240,14 @@ This document explains the systemoutput function with some simple examples.
 
 Learn how to get datasource drivers directly from Maven.
 
+## [getClass() Method for Components](/docs/recipes/component-getclass-method.md)
+
+Get the Java class of a component that implements a Java interface.
+
+## [Getting Started with Caching](/docs/recipes/caching-getting-started.md)
+
+An introduction to Lucee's cache layer — what it is, why you'd use it, and how to get started with the cache BIFs.
+
 ## [Global Proxy](/docs/recipes/global-proxy.md)
 
 Learn how to define a global proxy in Lucee. This guide demonstrates how to set up a global proxy in the Application.cfc file or .CFConfig.json, limit the proxy to specific hosts, and exclude specific hosts from using the proxy.
@@ -180,9 +256,13 @@ Learn how to define a global proxy in Lucee. This guide demonstrates how to set 
 
 This document explains how to declare variables, function calls with dot and bracket notation, and passing arguments via URL/form scopes as an array.
 
-## [Logging CFHTTP Calls](/docs/recipes/http-logging.md)
+## [Hooks and Monitors](/docs/recipes/hooks-and-monitors.md)
 
-Learn how Lucee logs all CFHTTP calls and how to manage these logs. This guide explains the default behavior, log file locations, and changes in logging from earlier Lucee versions.
+Configure and use hooks and monitors to extend Lucee functionality at various lifecycle points
+
+## [How to Use Tags in Script](/docs/recipes/tag-syntax.md)
+
+How to use tags in script
 
 ## [Import](/docs/recipes/import.md)
 
@@ -192,25 +272,41 @@ Guide on using import to import components, Java classes, and custom tags in Luc
 
 Learn how to create and use inline components in Lucee. This guide demonstrates how to define components directly within your CFML code, making it easier to create and use components without needing a separate .cfc file. Examples include creating an inline component and using it similarly to closures.
 
+## [Interacting with Java Libraries](/docs/recipes/java-libraries.md)
+
+Guide on using Java libraries in Lucee 6.2 with Maven and import
+
+## [Invalidating and Grouping Cached Queries](/docs/recipes/query-cache-invalidation.md)
+
+How to remove a single cached query, clear cached queries by tag or all at once, and group cached queries under a key prefix so they can be cleared together cheaply.
+
 ## [Java Class Interaction](/docs/recipes/java-class-interaction.md)
 
 Documentation for interacting with Java classes and objects in Lucee
 
-## [Java - Explicit Casting of a Component to a Specific Interface](/docs/recipes/java-explicit-casting.md)
+## [Java Classes Using Lucee's Logging](/docs/recipes/java-using-lucee-logging.md)
 
-Shows how to explicitly cast a component to a specific interface.
+How to make Java classes log through Lucee's logging system
 
 ## [Java in Functions and Closures](/docs/recipes/java-in-functions-and-closures.md)
 
 Learn how to write CFML code directly in a function or a closure with Java types in Lucee. This guide demonstrates how to define functions and components with Java types, and how to use Java lambda functions within Lucee. You will see examples of how to handle exceptions, define return types, and implement functional Java interfaces (Lambdas) seamlessly.
 
-## [Interacting with Java Libraries in Lucee 6.2](/docs/recipes/java-libraries.md)
+## [Java Regex Engine](/docs/recipes/java-regex-engine.md)
 
-Guide on using Java libraries in Lucee 6.2 with Maven and import
+How to switch from the legacy Apache ORO regex engine to Java's built-in regex engine for better performance and modern features.
 
-## [Java Settings in Application.cfc (Now with Maven Support)](/docs/recipes/java-settings.md)
+## [Java Scripting with Lucee](/docs/recipes/java-scripting.md)
+
+Documentation for using Lucee as a scripting engine in Java applications via JSR-223
+
+## [Java Settings](/docs/recipes/java-settings.md)
 
 Guide on configuring Java settings in Lucee using Application.cfc, including loading Java libraries from Maven
+
+## [javax vs jakarta Servlet Compatibility](/docs/recipes/javax-vs-jakarta.md)
+
+How Lucee handles javax and jakarta servlet APIs across versions and servlet engines
 
 ## [Language Server Protocol (LSP) for Lucee](/docs/recipes/language-server.md)
 
@@ -218,35 +314,71 @@ This document explains how to configure and use the Language Server Protocol imp
 
 ## [Lazy Queries](/docs/recipes/lazy-queries.md)
 
-How to use lazy queries
+How to stream large query result sets without loading everything into memory
 
 ## [List existing Cache Connections](/docs/recipes/list-existing-cache-conn.md)
 
-List existing Cache Connections available in Lucee.
+How to list and check for cache connections at runtime in Lucee.
+
+## [Loading Java Libraries with Maven](/docs/recipes/maven.md)
+
+Load Java libraries from Maven repositories - automatic dependency management for CFML applications.
+
+## [Logging](/docs/recipes/logging.md)
+
+How to configure and customize logging
+
+## [Logging CFHTTP Calls](/docs/recipes/http-logging.md)
+
+Learn how Lucee logs all CFHTTP calls and how to manage these logs. This guide explains the default behavior, log file locations, and changes in logging from earlier Lucee versions.
 
 ## [Logging HTTP Calls](/docs/recipes/logging-http-calls.md)
 
 This document explains how to log HTTP calls made by the cfhttp tag in Lucee.
 
-## [Logging in Lucee](/docs/recipes/logging.md)
-
-How to configure and customize logging
-
 ## [Loop Labels](/docs/recipes/loop-labels.md)
 
 Lucee supports labels for all loop tags and statements, allowing you to control the flow of nested loops more precisely.
 
-## [Looping Through File](/docs/recipes/loop-through-files.md)
+## [Looping Through Files](/docs/recipes/loop-through-files.md)
 
-No description available.
+This document explains how to handle large files in Lucee more efficiently.
+
+## [Lucee 5 to 6 Migration Guide](/docs/recipes/lucee-5-to-6-migration-guide.md)
+
+Comprehensive guide for migrating from Lucee 5 to Lucee 6, addressing breaking changes and compatibility issues
+
+## [Lucee 7 Loader API Changes](/docs/recipes/loader-api-changes-7.md)
+
+New and changed interfaces in the Lucee 7 Loader API for extension and integration developers
+
+## [Lucee and REST Services](/docs/recipes/rest-services.md)
+
+A detailed guide on how to create REST Sevices using CFCs
+
+## [Lucee Archives (.lar files)](/docs/recipes/archives-creating-and-deploy.md)
+
+How to create, deploy and use Lucee Archives (.lar files) to distribute compiled CFML applications without exposing source code.
+
+## [Lucee Extension Utilities](/docs/recipes/extension-utilities.md)
+
+Comprehensive guide to accessing Lucee core utilities when developing extensions
+
+## [Lucee Release Cycle and Branching](/docs/recipes/release-cycle.md)
+
+How Lucee versions and branches work: minor-line branches, release cycles, RC branches, which branch a fix belongs on, merging forward and Jira fix versions
+
+## [Lucee Skill for AI Assistants](/docs/recipes/lucee-skill.md)
+
+What the Lucee skill file is, how it helps AI assistants answer CFML questions accurately, and how to configure it with Cursor, Claude, OpenAI, and Gemini
+
+## [Lucee Versions and Extensions](/docs/recipes/versions.md)
+
+List and inspect available Lucee versions and extensions
 
 ## [Lucene 3 Extension](/docs/recipes/lucene-search.md)
 
-Documentation for the Lucene 3 Extension with vector and hybrid search capabilities
-
-## [Mail - How to send a Mail](/docs/recipes/mail-how-to-send-a-mail.md)
-
-How to send an email using Lucee with help of the tag cfmail.
+Install and use the Lucene 3 Extension for keyword, vector, and hybrid search in Lucee
 
 ## [Mail Listeners](/docs/recipes/mail-listener.md)
 
@@ -258,31 +390,95 @@ All about the different mappings in Lucee and how to use them.
 
 ## [Mathematical Precision](/docs/recipes/mathematical-precision.md)
 
-Learn about the switch from double to BigDecimal in Lucee 6 for more precise mathematical operations. This guide provides information on how to change the default behavior if needed.
+Learn how to enable BigDecimal-based precise math in Lucee to avoid floating point issues. Precise math is opt-in and disabled by default.
 
-## [Maven (Lucee 6.2)](/docs/recipes/maven.md)
+## [Maven Based Extensions](/docs/recipes/maven-based-extensions.md)
 
-How to use Maven in Lucee
+How to build Lucee extensions using Maven instead of OSGi bundles, including migration from legacy OSGi extensions
 
 ## [Migrating from Classic to Modern Local Scope Mode](/docs/recipes/migrate.from.classic-to-modern-local-scope.md)
 
 Guide for safely migrating your Lucee application from classic to modern local scope mode
 
+## [Mocking Static Functions in Lucee for Unit Testing](/docs/recipes/static-mocking.md)
+
+How to mock static functions in Lucee for better testability without unnecessary wrappers.
+
+## [Model Context Protocol (MCP)](/docs/recipes/mcp.md)
+
+Guide to MCP in Lucee: what it is, how to configure AI connections, and the three MCP servers Lucee provides
+
+## [Monitoring - Enable for your session](/docs/recipes/monitoring-enable-for-your-session.md)
+
+Shows you a way to enable Monitoring for your session
+
 ## [Monitoring/Debugging](/docs/recipes/monitoring-debugging.md)
 
 Learn about the changes in Lucee 6.1 regarding Monitoring and Debugging. Understand the old and new behavior, and how to configure the settings in Lucee Admin and Application.cfc.
 
-## [Monitoring - Enable for your session](/docs/recipes/monitoring-enable-for-your-session.md)
+## [MSSQL Modern Mode](/docs/recipes/mssql-modern-mode.md)
 
-No description available.
+How to enable and use MSSQL modern mode in Lucee for proper handling of RAISERROR exceptions and complex T-SQL batches
 
-## [New Operator in Lucee](/docs/recipes/new-operator.md)
+## [New Operator](/docs/recipes/new-operator.md)
 
 This document provides a guide on using the new operator in Lucee for creating instances of CFML components and Java classes.
 
 ## [Null Support](/docs/recipes/null-support.md)
 
-This document explains how to set null support in the Lucee server admin, assigning `null` value for a variable and how to use `null` and `nullvalue`.
+Understand the differences between partial and full null support - how it affects structKeyExists(), JSON serialization, queries and variable assignment.
+
+## [Null Values in Structs and Arrays](/docs/recipes/null-structs-and-arrays.md)
+
+How Lucee treats null values when looping structs versus arrays, and the recommended loop patterns.
+
+## [onBuild Function in Server.cfc](/docs/recipes/docker-onbuild.md)
+
+The onBuild function in Server.cfc is used for tasks during the build phase in Lucee, particularly useful in Docker environments.
+
+## [ORM - Caching](/docs/recipes/orm-caching.md)
+
+Configuring the Hibernate second-level cache and query cache with EHCache in Lucee ORM
+
+## [ORM - Configuration](/docs/recipes/orm-configuration.md)
+
+Complete guide to ORM settings, schema management, naming strategies, and custom Hibernate mappings in Lucee
+
+## [ORM - Entity Mapping](/docs/recipes/orm-entity-mapping.md)
+
+Defining ORM entities, property types, primary key strategies, computed properties, and inheritance patterns in Lucee
+
+## [ORM - Events](/docs/recipes/orm-events.md)
+
+Entity lifecycle events, global event handlers, event firing order, and patterns for setting values in preInsert/preUpdate handlers in Lucee ORM
+
+## [ORM - Getting Started](/docs/recipes/orm-getting-started.md)
+
+Quick start guide to using ORM in Lucee: enable ORM, define an entity, and perform CRUD operations
+
+## [ORM - Logging and Debugging](/docs/recipes/orm-logging.md)
+
+ORM logging settings, debugging techniques, inspecting generated SQL, savemapping, and advanced Hibernate session API in Lucee
+
+## [ORM - Migration Guide](/docs/recipes/orm-migration-guide.md)
+
+What's new in the 5.6 ORM extension, migrating from older versions, and migrating from Adobe ColdFusion ORM to Lucee
+
+## [ORM - Querying](/docs/recipes/orm-querying.md)
+
+HQL queries, entity loading functions, pagination, bulk DML, JOIN FETCH, aggregate functions, and query caching in Lucee ORM
+
+## [ORM - Relationships](/docs/recipes/orm-relationships.md)
+
+Mapping relationships between ORM entities: many-to-one, one-to-many, one-to-one, many-to-many, collections, cascade, fetching strategies, and batch loading
+
+## [ORM - Sessions and Transactions](/docs/recipes/orm-session-and-transactions.md)
+
+Understanding ORM sessions, entity lifecycle states, flush behaviour, dirty checking, transactions, savepoints, and multi-datasource usage in Lucee
+
+## [ORM - Troubleshooting](/docs/recipes/orm-troubleshooting.md)
+
+Common ORM pitfalls, error messages decoded, performance tips, and design patterns for Lucee ORM
 
 ## [Overwriting and Adding Built-in Functions and Tags](/docs/recipes/overwrite-build-in-functions-tags.md)
 
@@ -296,13 +492,29 @@ The new CFDOCUMENT PDF engine, Flying Saucer in Lucee 5.3
 
 How to pre-compile code for a production server while the source code is deployed to avoid compilation on the production server for security reasons.
 
+## [Preserving Key Case in CFML Structs / Variables](/docs/recipes/structs-preserve-key-case.md)
+
+How to configure preserve case for struct keys
+
+## [QoQ SQL Functions and Operators](/docs/recipes/query-of-queries-functions.md)
+
+Reference for the SQL keywords, operators, and functions supported by Lucee's native Query of Queries (QoQ) engine.
+
+## [Quartz Scheduler Extension for Lucee](/docs/recipes/scheduler-quartz.md)
+
+Advanced task scheduling using Quartz Scheduler integration
+
+## [Quartz Scheduler vs Tasks Event Gateway](/docs/recipes/quartz-vs-task-event-gateway.md)
+
+Choose between time-based Quartz jobs and continuous Tasks Event Gateway workers for background work in Lucee
+
 ## [Query Async](/docs/recipes/query-async.md)
 
 Learn how to execute queries asynchronously in Lucee. This guide demonstrates how to set up asynchronous query execution using a simple flag. Examples include defining async execution for queries and using local listeners to handle exceptions. Additionally, function listeners introduced in Lucee 6.1 can be used for this purpose.
 
-## [Query Handling in Lucee](/docs/recipes/query-handling.md)
+## [Query Execution](/docs/recipes/query-handling.md)
 
-How to do SQL Queries with Lucee.
+Complete guide to executing database queries in Lucee with performance comparisons and best practices
 
 ## [Query Indexes](/docs/recipes/query-indexes.md)
 
@@ -320,6 +532,10 @@ Query of queries (QoQ) is a technique for re-querying an existing (in memory) qu
 
 This document explains why Query of Queries (QoQ) may or may not be the best approach for your use case.
 
+## [Query Result Logging](/docs/recipes/query-result-threshold.md)
+
+Monitor and log database queries that return large result sets to prevent OutOfMemory errors
+
 ## [Query return type](/docs/recipes/query-return-type.md)
 
 This document explains the different return types for a query with some examples.
@@ -327,6 +543,10 @@ This document explains the different return types for a query with some examples
 ## [Read XML with a listener Model (SAX)](/docs/recipes/read-xml-with-a-listener-model-sax.md)
 
 Lucee not only allows you to convert an XML file to an object tree (DOM) but also supports an event-driven model (SAX).
+
+## [Recommended Settings](/docs/recipes/recommended-settings.md)
+
+A guide on how to configure your Lucee Server for the best performance and highest security.
 
 ## [Request Timeout](/docs/recipes/request-timeout.md)
 
@@ -336,21 +556,9 @@ Learn how to use request timeout correctly with Lucee.
 
 This document explains how to use retry functionality with some simple examples.
 
-## [Using S3 Regions in Lucee](/docs/recipes/s3-region.md)
+## [S3](/docs/recipes/s3.md)
 
-Guide on configuring and interacting with specific S3 regions in Lucee using the S3 extension.
-
-## [Clustering with Quartz Scheduler](/docs/recipes/scheduler-quartz-clustering.md)
-
-No description available.
-
-## [Creating Component-Based Jobs with Quartz Scheduler](/docs/recipes/scheduler-quartz-component-jobs.md)
-
-How to create and configure component-based jobs with the Quartz Scheduler extension
-
-## [Quartz Scheduler Extension for Lucee](/docs/recipes/scheduler-quartz.md)
-
-Advanced task scheduling using Quartz Scheduler integration
+S3 Virtual File System and direct S3 functions for working with S3-compatible object storage in Lucee
 
 ## [Script Templates](/docs/recipes/script-templates.md)
 
@@ -360,33 +568,57 @@ Learn about script templates in Lucee. This guide explains how Lucee supports te
 
 Managing Secrets in Lucee applications
 
+## [Selective Cache Invalidation](/docs/recipes/cache-invalidation-selective.md)
+
+How to flush specific cached queries, functions, and HTTP results in Lucee without clearing entire caches.
+
+## [Sending Emails](/docs/recipes/mail-how-to-send-a-mail.md)
+
+How to send an email using Lucee with help of the tag cfmail.
+
+## [Serving CFML Files from a Lucee Extension](/docs/recipes/serving-cfml-from-extensions.md)
+
+How to ship CFML templates and components inside a Lucee extension and make them reachable in the webroot via a mapping.
+
+## [Servlet Configuration](/docs/recipes/servlet-configuration.md)
+
+How to deploy and configure Lucee on servlet containers
+
 ## [Session Handling](/docs/recipes/session-handling.md)
 
 Comprehensive guide on session handling and configuration in Lucee, including session types, storage options, and security considerations.
 
-## [Keep all struct keys defined with "dot notation" in original case.](/docs/recipes/setting-system-properties-and-env-vars.md)
+## [Setting System Properties and Environment Variables](/docs/recipes/setting-system-properties-and-env-vars.md)
 
 How to set and use Environment Variables or System Properties to configure specific Lucee Server settings.
 
+## [Setting the Lucee Admin Password](/docs/recipes/admin-password.md)
+
+How to set, hash, and reset the Lucee Administrator password
+
 ## [Single Mode vs Multi Mode in Lucee](/docs/recipes/single-vs-multi-mode.md)
 
-Understanding the differences between single mode and multi mode in Lucee.
+Understanding the differences between Single mode and Multi mode in Lucee.
+
+## [SQL Types](/docs/recipes/sql-types.md)
+
+SQL types for query parameters
 
 ## [Startup Listeners - Server.cfc and Web.cfc](/docs/recipes/startup-listeners-code.md)
 
 Lucee supports two types of Startup Listeners: Server.cfc and Web.cfc.
 
-## [Mocking Static Functions in Lucee](/docs/recipes/static-mocking.md)
-
-How to mock static functions in Lucee for better testability without unnecessary wrappers.
-
 ## [Static Scope in Components](/docs/recipes/static-scope-in-components.md)
 
 Understanding the static scope in Lucee components and how it can be used for shared data and functions.
 
-## [Best Practices: Structs vs Inline Components](/docs/recipes/structs-vs-components.md)
+## [Step Debugging Lucee with Extension Debugger](/docs/recipes/step-debugger.md)
 
-Performance analysis and best practices for choosing between structs and inline components in Lucee
+How to set up and use the Extension Debugger (formerly LuceeDebug) for Lucee CFML, covering both the native extension (7.1+) and the Java agent (6.2+).
+
+## [structKeyExists vs isNull vs ParameterExists vs isDefined vs elvis operator](/docs/recipes/null-checks-comparison.md)
+
+Verified comparison of structKeyExists(), isNull(), parameterExists(), isDefined(), the elvis operator and safe navigation for null values, missing keys and undefined variables, with and without full null support.
 
 ## [Sub Components](/docs/recipes/sub-components.md)
 
@@ -396,17 +628,21 @@ Learn how to create and use sub components in Lucee. This guide demonstrates how
 
 This document explains how you can improve the performance of your website in a very short time with Lucee.
 
-## [How to Use Tags in Script](/docs/recipes/tag-syntax.md)
+## [Tag Islands](/docs/recipes/tag-islands.md)
 
-How to use tags in script
+Tag islands allow you to switch into tag mode from inside cfscript
+
+## [Tasks Event Gateway Extension](/docs/recipes/task-event-gateway.md)
+
+Long-running background tasks with hot reload, listeners, and cluster pause via the Tasks Event Gateway extension
+
+## [Thread Dump During Startup](/docs/recipes/thread-dump-startup.md)
+
+How to capture thread positions during Lucee startup for debugging and performance analysis
 
 ## [Thread Tasks](/docs/recipes/thread-task.md)
 
 How to use Thread Tasks
-
-## [Using Threads in Lucee](/docs/recipes/thread-usage.md)
-
-How to use threads in Lucee
 
 ## [Timeout](/docs/recipes/timeout.md)
 
@@ -420,13 +656,53 @@ A guide to diagnosing problems with Lucee
 
 This document explains types in Lucee. Lucee is still an untyped language. Types are only a check put on top of the language.
 
+## [Untitled](/docs/recipes/cfschedule-bulk-update.md)
+
+How to update scheduled tasks in a single operation
+
+## [Untitled](/docs/recipes/check-for-changes.md)
+
+Automatically check for changes in your configuration file with Lucee.
+
+## [Untitled](/docs/recipes/directory-placeholders.md)
+
+Placeholders are uses to reference specific Lucee directories
+
+## [Upgrade Lucee 7.1 to 8.0: Checklist for AI Coding Agents](/docs/recipes/upgrade-7-1-to-8-0-agent.md)
+
+Step-by-step, machine-friendly checklist for AI coding agents upgrading an application or server from Lucee 7.1 to 8.0: what to search for, what to change, how to verify, and what to leave alone.
+
+## [Using cachedWithin](/docs/recipes/cached-within-request.md)
+
+How to use the cachedWithin attribute on queries, functions, cfhttp, and cffile in Lucee.
+
+## [Using CFML Functions and Components in Java](/docs/recipes/convert-a-cfml-func-to-java.md)
+
+Pass CFML components and functions to Java code - implement Java interfaces with CFCs, use functions as Java lambdas.
+
 ## [Using S3 directly for source code](/docs/recipes/using-s3-directly-for-source-code.md)
 
 Using S3 directly for source code
 
+## [Using S3 Regions in Lucee](/docs/recipes/s3-region.md)
+
+Guide on configuring and interacting with specific S3 regions in Lucee using the S3 extension.
+
 ## [Virtual File Systems](/docs/recipes/virtual-file-system.md)
 
 Lucee supports the following virtual file systems: ram, file, s3, http, https, zip, and tar.
+
+## [Virtual Threads](/docs/recipes/virtual-threads.md)
+
+Use Java virtual threads in Lucee for high-concurrency, I/O-bound workloads via cfthread and parallel collection functions. Experimental in Lucee 7, official in Lucee 8.
+
+## [Warmup](/docs/recipes/warmup.md)
+
+Docker warmup and eager config loading for fail-fast validation in Lucee
+
+## [WebSocket Client Extension](/docs/recipes/websocket-client-extension.md)
+
+WebSocket client for Lucee — connect to any WebSocket server from CFML
 
 ## [WebSocket Extension](/docs/recipes/websocket-extension.md)
 
@@ -435,6 +711,10 @@ How to install, configure and create WebSockets
 ## [XML Fast And Easy, using SAX - Listener Functions](/docs/recipes/xml-fast-and-easy.md)
 
 This document explains how to use XML parsing in Lucee.
+
+## [XML Security with xmlFeatures](/docs/recipes/xml-security-xmlfeatures.md)
+
+How to control XML parsing security in Lucee using xmlFeatures to protect against XXE attacks and other XML vulnerabilities.
 
 ## [YAML Processing in Lucee 7](/docs/recipes/yaml-processing.md)
 

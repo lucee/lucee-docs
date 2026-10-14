@@ -10,6 +10,11 @@
     "SnakeYAML",
     "Maven",
     "Java Integration"
+  ],
+  "related": [
+    "maven",
+    "csv-processing-lucee7",
+    "excel-processing-lucee7"
   ]
 }
 -->

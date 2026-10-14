@@ -1,0 +1,1 @@
+The secret value to store. Can be a string, boolean, or integer.

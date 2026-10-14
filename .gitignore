@@ -9,3 +9,7 @@ server-luceedocsbuilder.json
 .commandbox
 server/performance.log
 /commandbox-luceedocslocalserver
+/coverage
+/.exl
+/.claude
+.env

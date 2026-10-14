@@ -1,0 +1,1 @@
+PEM string or Java X509Certificate object

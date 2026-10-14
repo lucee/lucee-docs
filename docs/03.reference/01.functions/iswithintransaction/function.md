@@ -5,8 +5,6 @@ related:
 - tag-query
 - tag-transaction
 categories:
-- datasource
-- decision
 - query
 ---
 

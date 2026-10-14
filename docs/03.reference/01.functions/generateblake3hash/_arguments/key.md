@@ -1,0 +1,1 @@
+Key for keyed hash mode (MAC), must be exactly 32 bytes

@@ -2,8 +2,9 @@
 title: GetMetricData
 id: function-getmetricdata
 related:
+- function-getsystemmetrics
 categories:
-    - server
+- server
 ---
 
-Gets server performance metrics.
+Gets server performance metrics, use [[function-getsystemmetrics]] instead.

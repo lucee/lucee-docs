@@ -1,11 +1,11 @@
 .btn {
-	background-color: $white;
+	background-color: var( --bg-surface );
 	background-image: none;
 	background-position: 50% 50%;
 	background-size: 100% 100%;
-	border: 1px solid transparent;
+	border: 1px solid var( --border-color );
 	border-radius: 2px;
-	color: $black-text;
+	color: var( --text-color );
 	cursor: pointer;
 	display: inline-block;
 	font-size: $font-size;
@@ -25,7 +25,8 @@
 	&:active,
 	&:focus,
 	&:hover {
-		color: $black-text;
+		color: var( --text-color );
+		background-color: var( --bg-elevated );
 		outline: 0;
 		text-decoration: none;
 		@include box-shadow(0 1px 5px rgba(0, 0, 0, 0.15), 0 5px 10px 1px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15));
@@ -82,12 +83,12 @@
 	&:active,
 	&:focus,
 	&:hover {
-		background-color: $black-bg;
+		background-color: var( --bg-color );
 		@include box-shadow(none);
 	}
 	&[disabled],
 	fieldset[disabled] & {
-		color: $black-text;
+		color: var( --text-color );
 	}
 }
 
@@ -110,7 +111,7 @@
 	}
 
 .btn-text {
-	color: $black-text;
+	color: var( --text-color );
 	display: inline-block;
 	font-size: $font-size;
 	font-weight: 400;

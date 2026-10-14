@@ -17,7 +17,11 @@ component {
 		request.parserFactoryCache = request.parserFactoryCache ?: {};
 
 		if ( !request.parserFactoryCache.keyExists( arguments.cacheKey ) ) {
-			request.parserFactoryCache[ arguments.cacheKey ] = arguments.generator();
+			lock name="docsParserFactoryCache_#arguments.cacheKey#" timeout=10 {
+				if ( !request.parserFactoryCache.keyExists( arguments.cacheKey ) ) {
+					request.parserFactoryCache[ arguments.cacheKey ] = arguments.generator();
+				}
+			}
 		}
 
 		return request.parserFactoryCache[ arguments.cacheKey ];

@@ -1,0 +1,1 @@
+The Maven artifact identifier. Omit when passing a gradle-style coordinate as the first argument.

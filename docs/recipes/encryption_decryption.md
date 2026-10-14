@@ -7,6 +7,7 @@
     "function-encrypt",
     "function-generatersakeys"
   ],
+  "since": "5.3",
   "categories": [
     "crypto"
   ],
@@ -25,55 +26,46 @@
 
 # Encryption/Decryption
 
-This document explains about Encryption/Decryption with public and private keys with simple examples.
+RSA is an asymmetric encryption algorithm that uses a pair of keys:
 
-Encryption/Decryption is a new functionality in Lucee 5.3. We have a new way to encrypt/decrypt string values. First we start with keys. In this case, there are two keys:
+- **Private key** - used to encrypt data (keep this secret)
+- **Public key** - used to decrypt data (can be shared)
 
-- Private key to encrypt
-- Public key to decrypt
+This lets you encrypt something that only holders of the public key can read, or prove that data came from the private key holder.
 
-## Example 1:
-
-```luceescript
-//index.cfm
-directory action="list" directory=getDirectoryFromPath(getCurrentTemplatePath()) filter="example*.cfm" name="dir";
-loop query=dir {
-	echo('<a href="#dir.name#">#dir.name#</a><br>');
-}
-```
+## Generate Keys
 
 ```luceescript
-key=generateRSAKeys();
-dump(key)
+// Generate a new RSA key pair
+key = generateRSAKeys();
+dump( key ); // struct with 'private' and 'public' keys
 ```
 
-This function generates RSA keys. Execute the example code above in the browser and a struct is returned containing the two keys: a private key and a public key. So, we can create these keys, and store them somewhere for later use.
+Store these keys securely - you'll need them for encrypt/decrypt operations.
 
-## Example 2:
+## Encrypt
 
 ```luceescript
-key=generateRSAKeys();
-raw="Hi, Hello !!!";
-enc=encrypt(raw,key.private,"rsa");
-dump(enc);
+key = generateRSAKeys();
+raw = "Hi, Hello !!!";
+
+// Encrypt with the private key using RSA algorithm
+enc = encrypt( raw, key.private, "rsa" );
+dump( enc ); // encrypted string (Base64 encoded)
 ```
 
-We now create RSA keys using the [[function-generatersakeys]] function, and then use the key to encrypt using the [[function-encrypt]] function. The encrypt() function has some arguments. It has `key.private` which defines the key as the private key, and `rsa` indicates use of the RSA encryption algorithm. Then run the dump in the browser and we see the encrypted string for your input string.
-
-## Example 3:
+## Decrypt
 
 ```luceescript
-key=generateRSAKeys();
-raw="Hi, Hello !!!";
-enc=encrypt(raw,key.private,"rsa");
-dec=decrypt(enc,key.public,"rsa");
-dump(dec);
+key = generateRSAKeys();
+raw = "Hi, Hello !!!";
+
+// Encrypt with private key
+enc = encrypt( raw, key.private, "rsa" );
+
+// Decrypt with public key - returns original string
+dec = decrypt( enc, key.public, "rsa" );
+dump( dec ); // "Hi, Hello !!!"
 ```
 
-This is a full detailed example of encrypt/decrypt functions. We create a key and we encrypt with the private key. Then we [[function-decrypt]] with the public key. Then run the dump in the browser and we see the original string returned as expected.
-
-## Footnotes
-
-Here you can see these details in the video also:
-
-[Encryption/Decryption with public and private keys](https://www.youtube.com/watch?v=2fgfq-3nWfk)
+Video: [Encryption/Decryption with RSA](https://www.youtube.com/watch?v=2fgfq-3nWfk)

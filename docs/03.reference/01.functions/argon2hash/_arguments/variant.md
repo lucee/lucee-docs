@@ -1,0 +1,1 @@
+Argon2 variant: argon2i, argon2d, or argon2id

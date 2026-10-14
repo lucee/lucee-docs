@@ -1,0 +1,1 @@
+JSONata expression string. Examples: "$sum(c)", "$.name", "orders[status='complete']", "{ 'total': $sum(items.price) }"

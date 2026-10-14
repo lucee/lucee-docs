@@ -1,0 +1,1 @@
+Memory cost in KB (8-100000). OWASP recommends 19456 (19 MB).

@@ -5,6 +5,7 @@ related:
 - tag-case
 - tag-switch
 categories:
+- flow-control
 ---
 
 Defines what happens within a [[tag-switch]] statement, when none of the [[tag-case]] statements are true.

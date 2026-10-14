@@ -1,0 +1,1 @@
+Key pair struct from GenerateKeyPair() with 'private' and 'public' keys. The public key is embedded in the CSR, the private key signs it.

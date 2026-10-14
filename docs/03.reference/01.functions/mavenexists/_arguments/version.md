@@ -1,0 +1,1 @@
+The specific version to check for. If omitted, the function returns true when any cached version of the coord is present.

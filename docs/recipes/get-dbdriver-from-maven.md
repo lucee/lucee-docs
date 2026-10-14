@@ -78,6 +78,4 @@ Here, you can also use any version that is available on [Maven](https://mvnrepos
 
 Again, if you are unsure about the exact settings, simply install the MySQL extension, create a datasource in the admin, and then check out the datasource created in `.CFConfig`. Be careful here, because when you define the datasource in the Lucee admin, Lucee will set neither `bundleName` nor `bundleVersion`, as Lucee uses what is installed by default. To get it from Maven directly, you need to define the bundle information, so always add that information.
 
-## Conclusion
-
-The benefit over simply use the MySQL extension is, you can use the newest version of MySQL or any other DB driver that is fresh from the press, if no Lucee extension exist yet for that version.
+This lets you use the newest driver version fresh from Maven, even if no Lucee extension exists yet.

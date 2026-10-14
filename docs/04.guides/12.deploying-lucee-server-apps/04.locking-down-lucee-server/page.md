@@ -3,6 +3,7 @@ title: 'Locking Down Lucee '
 id: locking-down-lucee-server
 categories:
 - server
+- devops
 description: Security best practises to lock down your Lucee server
 ---
 

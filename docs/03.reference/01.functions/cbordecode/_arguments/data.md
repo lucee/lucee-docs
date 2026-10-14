@@ -1,0 +1,1 @@
+CBOR-encoded binary data

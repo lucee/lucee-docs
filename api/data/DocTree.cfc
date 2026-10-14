@@ -10,8 +10,11 @@ component accessors=true {
 	property name="pageCache" type="any"; // tracks references
 	// tracks directly related pages ( i.e. BIF and object member, Struct.keyExists and StructKeyExists) LD-112
 	property name="directlyRelatedMap" type="struct";
-
 	property name="threads" type="numeric"; // tracks references
+	property name="recipeDates" type="struct"; // tracks the git created dates for recipes for latest content
+	property name="syspropEnvvars" type="array"; // all system properties and environment variables
+	property name="syspropByTag" type="struct"; // sysprops indexed by tag name
+	property name="syspropByFunction" type="struct"; // sysprops indexed by function name
 
 	public any function init( required string rootDirectory, required numeric threads ) {
 		variables.rootDir =  arguments.rootDirectory;
@@ -37,6 +40,9 @@ component accessors=true {
 		setCategoryMap( [:] );
 		setReferenceMap( [:] );
 		setDirectlyRelatedMap( [:] );
+		setSyspropEnvvars( [] );
+		setSyspropByTag( [:] );
+		setSyspropByFunction( [:] );
 	}
 
 	public void function updateTree() {
@@ -44,14 +50,50 @@ component accessors=true {
 	}
 
 	public any function getPage( required string id ) {
-		if ( !pageExists( arguments.id ) )
-			systemOutput( "GetPage: #id# does not exist in doctree", true );
+		if ( !pageExists( arguments.id ) ) {
+			// Debug logging - uncomment to troubleshoot broken links
+			/*
+			var debugInfo = {
+				id: arguments.id,
+				idLength: len( arguments.id ),
+				endsWithBackslash: right( arguments.id, 1 ) eq chr( 92 ),
+				endsWithForwardSlash: right( arguments.id, 1 ) eq "/",
+				lastChar: asc( right( arguments.id, 1 ) ),
+				idBytes: []
+			};
+
+			// Capture each character's ASCII value
+			for ( var i = 1; i <= len( arguments.id ); i++ ) {
+				debugInfo.idBytes.append( asc( mid( arguments.id, i, 1 ) ) );
+			}
+
+			// Only log first 5 failures with stack trace to avoid spam
+			if ( !structKeyExists( variables, "getPageFailCount" ) ) {
+				variables.getPageFailCount = 0;
+			}
+			variables.getPageFailCount++;
+
+			systemOutput( "GetPage FAILED (#variables.getPageFailCount#): " & serializeJSON( debugInfo ), true );
+
+			if ( variables.getPageFailCount <= 5 ) {
+				systemOutput( "Stack trace:", true );
+				var stack = callStackGet();
+				for ( var i = 1; i <= min( 5, arrayLen( stack ) ); i++ ) {
+					var line = structKeyExists( stack[i], "line" ) ? stack[i].line : "?";
+					systemOutput( "  #i#: #stack[i].template# line #line#", true );
+				}
+			}
+			*/
+
+			// Don't throw - just log so we can see all broken links
+		// throw( type="PageNotFound", message="Broken link: Page ID '#arguments.id#' not found in doctree. Check wiki-link references like [[#arguments.id#]] in your markdown files.", detail=arguments.id );
+		}
 		return variables.idMap[ arguments.id ] ?: NullValue();
 	}
 
 	public any function getPageByPath( required string path ) {
 		if ( !structKeyExists( variables.pathMap, arguments.path  ) )
-			systemOutput( "GetPageByPath: #path# does not exist in doctree", true );
+			; // systemOutput( "GetPageByPath: #path# does not exist in doctree", true ); // Debug logging
 		return variables.pathMap[ arguments.path ] ?: NullValue();
 	}
 
@@ -62,11 +104,13 @@ component accessors=true {
 	public array function getPagesByCategory( required string category ) {
 		var matchedPages = [];
 
-		for( var id in variables.idMap ) {
-			var pageCategories = variables.idMap[ id ].getCategories();
+		cfloop( collection=variables.idMap, item="local.page", index="local.id" ) {
+			if ( local.page.hasRedirect() )
+				continue;
+			var pageCategories = local.page.getCategories();
 
 			if ( !IsNull( pageCategories ) && pageCategories.findNoCase(arguments.category ) > 0 ) {
-				matchedPages.append( variables.idMap[ id ] );
+				matchedPages.append( local.page );
 			}
 		}
 
@@ -102,8 +146,8 @@ component accessors=true {
 
 	public array function getCategories(){
 		var cats = [];
-		for (var cat in categoryMap){
-			cats.append(cat);
+		cfloop( collection=categoryMap, index="local.cat" ) {
+			cats.append(local.cat);
 		}
 		ArraySort(cats, "textnocase");
 		return cats;
@@ -115,7 +159,10 @@ component accessors=true {
 		if ( variables.directlyRelatedMap.keyExists(arguments.page.getId()) ){
 			var related = variables.directlyRelatedMap[arguments.page.getId()];
 			for (relatedId in related){
-				crumbs.append( _getPageBreadCrumbs( getPage(relatedId) ) );
+				// Skip URLs in related field - they're external links, not page IDs
+				if ( !relatedId.startsWith( "http://" ) && !relatedId.startsWith( "https://" ) ) {
+					crumbs.append( _getPageBreadCrumbs( getPage(relatedId) ) );
+				}
 			}
 		}
 		return crumbs;
@@ -223,9 +270,16 @@ component accessors=true {
 				}
 			}, (_threads != 1), _threads);
 			request.logger (text=" #len(variables.pageCache.getPages())# Pages Parsed in #(getTickCount()-start)/1000#s");
+			if ( _threads != 1 )
+				pageCache.reSort(); // ensure parents are processed before children
 
 			_buildTreeHierarchy(false);
+			_updateRecipeDates();
+			_loadSyspropEnvvars();
 			_parseTree();
+
+			// Debug: dump idMap to disk after tree is built
+			//_debugDumpIdMap();
 		}
 	}
 
@@ -258,9 +312,9 @@ component accessors=true {
 				}
 				exists[q_source_files.path] = true;
 			}
-			for( var c in pathCache ) {
-				if (not exists.keyExists(c))
-					deleted.append(c);
+			cfloop( collection=pathCache, index="local.c" ) {
+				if (not exists.keyExists(local.c))
+					deleted.append(local.c);
 			}
 
 			if (deleted.len() gt 0){
@@ -271,15 +325,15 @@ component accessors=true {
 			if (added gt 0 or deleted.len() gt 0)
 				pageCache.reSort();
 			_buildTreeHierarchy(true);
+			_updateRecipeDates();
 			_parseTree();
 		}
 	}
-
 	private void function _buildTreeHierarchy(boolean reset="false") {
     	//var start = getTickCount();
 		var pages = variables.pageCache.getPages();
-		for (var pagePath in pages ){
-			var page = pages[ pagePath ].page;
+		cfloop( collection=pages, item="local.pageData", index="local.pagePath" ) {
+			var page = local.pageData.page;
 			if ( arguments.reset )
 				page.reset(); // clear previous structure data
 			try {
@@ -298,32 +352,47 @@ component accessors=true {
 
 	private void function _parseTree( ) {
 		// expose guides as a top level folder
-		for (var folder in variables.tree){
-			switch( folder.getId() ){
+		cfloop( array=variables.tree, item="local.folder" ) {
+			switch( local.folder.getId() ){
 				case "guides":
-					var guideTree = folder.getChildren();
-					for (var guide in guideTree){
-						if (guide.getForceSortOrder() gt 0){
-							guide.setSortOrder(guide.getForceSortOrder());
+					var guideTree = local.folder.getChildren();
+					cfloop( array=guideTree, item="local.guide" ) {
+						if (local.guide.getForceSortOrder() gt 0){
+							local.guide.setSortOrder(local.guide.getForceSortOrder());
 						} else {
-							guide.setSortOrder(6 + NumberFormat(guide.getSortOrder()/100,"0.00"));
+							local.guide.setSortOrder(6 + NumberFormat(local.guide.getSortOrder()/100,"0.00"));
 						}
-						variables.tree.append(guide);
+						variables.tree.append(local.guide);
 					}
 					break;
 				case "recipes":
-					var recipeTree = folder.getChildren();
-					for (var recipe in recipeTree){
-						if (recipe.getForceSortOrder() gt 0){
-							recipe.setSortOrder(recipe.getForceSortOrder());
+					var recipeTree = local.folder.getChildren();
+					cfloop( array=recipeTree, item="local.recipe" ) {
+						if (local.recipe.getForceSortOrder() gt 0){
+							local.recipe.setSortOrder(local.recipe.getForceSortOrder());
 						} else {
-							recipe.setSortOrder(5 + NumberFormat(recipe.getSortOrder()/100,"0.00"));
+							local.recipe.setSortOrder(5 + NumberFormat(local.recipe.getSortOrder()/100,"0.00"));
 						}
-						variables.tree.append(recipe);
+						variables.tree.append(local.recipe);
 					}
 					break;
+				/*
+				case "reference":
+					// add sysprop page to reference section (also stays in recipes)
+					if ( pageExists( "environment-variables-system-properties" ) ) {
+						var syspropPage = getPage( "environment-variables-system-properties" );
+						if ( !IsNull( syspropPage ) ) {
+							folder.addChild( syspropPage );
+							request.logger( text="Added sysprop page to reference menu" );
+						}
+					} else {
+						request.logger( text="Sysprop page not found in idMap", type="WARN" );
+					}
+					break;
+				*/
 			}
 		}
+		_validateRedirects();
 		_sortChildren( variables.tree );
 		_calculateNextAndPreviousPageLinks( variables.tree );
 		_buildRelated();
@@ -340,6 +409,11 @@ component accessors=true {
 		var pageType = arguments.page.getPageType();
 		var isPage = arguments.page.isPage(); // workaround for page types not being parsed out correctly in PageReader.readPageFile
 
+		if ( !isPage ){
+			return;
+			throw "not a page [#page.getFilePath()#]"; // only add main pages
+		}
+
 		if ( !IsNull( parent ) ) {
 			if ( isPage )
 				parent.addChild( arguments.page ); // don't add page subelements, i.e _attributes etc
@@ -352,9 +426,6 @@ component accessors=true {
 			variables.tree.append( arguments.page );
 		}
 
-		if ( !isPage ){
-			throw "not a page [#page.getFilePath()#]"; // only add main pages
-		}
 
 		if ( !StructKeyExists( variables.pageTypeMap, pageType ) )
 			variables.pageTypeMap[ pageType ] = 0;
@@ -393,8 +464,8 @@ component accessors=true {
 		} );
 
 
-		for( var child in arguments.children ) {
-			_sortChildren( child.getChildren() );
+		cfloop( array=arguments.children, item="local.child" ) {
+			_sortChildren( local.child.getChildren() );
 		}
 	}
 
@@ -421,37 +492,64 @@ component accessors=true {
 			arguments.lastPageTouched = page;
 
 			var nextParent = ( i == pageCount ) ? ( arguments.nextParentPage ?: NullValue() ) : arguments.pages[i+1];
-			for( var child in page.getChildren() ){
-				_calculateNextAndPreviousPageLinks( child.getChildren(), ( nextParent ?: NullValue() ), arguments.lastPageTouched )
+			cfloop( array=page.getChildren(), item="local.child" ) {
+				_calculateNextAndPreviousPageLinks( local.child.getChildren(), ( nextParent ?: NullValue() ), arguments.lastPageTouched )
 			}
+		}
+	}
+
+	private void function _validateRedirects() {
+		cfloop( collection=variables.idMap, item="local.page", index="local.id" ) {
+			if ( !local.page.hasRedirect() )
+				continue;
+			var targetId = local.page.getRedirect();
+			if ( !variables.idMap.keyExists( targetId ) ) {
+				throw(
+					  type    = "InvalidRedirectTarget"
+					, message = "Redirect target '#targetId#' not found for page '#local.id#' (#local.page.getPath()#)"
+					, detail  = "Set redirect: to a valid page id present in the build."
+				);
+			}
+			// Redirect stubs are never shown in nav
+			local.page.setVisible( false );
 		}
 	}
 
 	private void function _buildRelated(){
 		var related = {};
 
-		for ( var id in variables.idMap ) {
-			var relatedPageLinks = variables.idMap[ id ].getRelated();
-			var pageId = variables.idMap[ id ].getId();
+		cfloop( collection=variables.idMap, item="local.page", index="local.id" ) {
+			if ( local.page.hasRedirect() )
+				continue;
+			var relatedPageLinks = local.page.getRelated();
+			var pageId = local.page.getId();
 
 			if ( !IsNull( relatedPageLinks ) and ArrayLen(relatedPageLinks) gt 0) {
-				for( var link in relatedPageLinks ) {
-					if (len(trim(link)) gt 0){
-						if (!structKeyExists(related, id))
-							related[id] = {};
-						if (!structKeyExists(related, link))
-							related[link] = {};
-						related[link][pageId]="";
-						related[pageId][link]="";
+				cfloop( array=relatedPageLinks, item="local.link" ) {
+					// Skip URLs in related field - they're external links, not page IDs
+					if ( !local.link.startsWith( "http://" ) && !local.link.startsWith( "https://" ) ) {
+						// Skip links to redirect pages — See Also shouldn't point at stubs
+						if ( variables.idMap.keyExists( local.link )
+							&& variables.idMap[ local.link ].hasRedirect() )
+							continue;
+						// systemOutput( "Processing link [#local.link#] from page [#pageId#]", true ); // Debug logging
+						if (len(trim(local.link)) gt 0){
+							if (!structKeyExists(related, local.id))
+								related[local.id] = {};
+							if (!structKeyExists(related, local.link))
+								related[local.link] = {};
+							related[local.link][pageId]="";
+							related[pageId][local.link]="";
+						}
 					}
 				}
 			}
 		}
 		var _relatedMap = {};
-		for (var id in related){
-			var links = ListToArray( structKeyList(related[id]) );
+		cfloop( collection=related, item="local.relatedLinks", index="local.id" ) {
+			var links = ListToArray( structKeyList(local.relatedLinks) );
 			ArraySort(links,"textnocase");
-			_relatedMap[id] = links;
+			_relatedMap[local.id] = links;
 		}
 		setRelatedMap(_relatedMap);
 
@@ -459,28 +557,27 @@ component accessors=true {
 		// i.e. Struct.keyExists and StructKeyExists
 
 		var _related = {};
-		for ( var id in variables.idMap ) {
-			var page = variables.idMap[ id ];
-			if (page.getMethodObject().len() && page.getMethodName().len()){
-				var relatedId = "function-" & page.getMethodObject() & page.getMethodName();
+		cfloop( collection=variables.idMap, item="local.page", index="local.id" ) {
+			if (local.page.getMethodObject().len() && local.page.getMethodName().len()){
+				var relatedId = "function-" & local.page.getMethodObject() & local.page.getMethodName();
 				if (variables.idMap.keyExists(relatedId)){
-					if (!_related.keyExists(id) )
-						_related[id] = {};
-					_related[id][relatedId] = "";
+					if (!_related.keyExists(local.id) )
+						_related[local.id] = {};
+					_related[local.id][relatedId] = "";
 					if (!_related.keyExists(relatedId) )
 						_related[relatedId] = {};
-					_related[relatedId][id] = "";
+					_related[relatedId][local.id] = "";
 				}
 			}
-			if (page.getMethodName().len()){
-				var relatedId = "function-" & page.getMethodName();
+			if (local.page.getMethodName().len()){
+				var relatedId = "function-" & local.page.getMethodName();
 				if (variables.idMap.keyExists(relatedId)){
-					if (!_related.keyExists(id) )
-						_related[id] = {};
-					_related[id][relatedId] = "";
+					if (!_related.keyExists(local.id) )
+						_related[local.id] = {};
+					_related[local.id][relatedId] = "";
 					if (!_related.keyExists(relatedId) )
 						_related[relatedId] = {};
-					_related[relatedId][id] = "";
+					_related[relatedId][local.id] = "";
 				}
 			}
 		}
@@ -493,20 +590,170 @@ component accessors=true {
 	public struct function _buildReferenceMap() {
 		var pages = {};
 		var pagesByType = {};
-		for ( var id in idMap ) {
+		cfloop( collection=idMap, index="local.id" ) {
 			var pageType = "content";
-			if ( listLen( id, "-" ) gt 1)
-				pageType = listFirst( id,"-" );
+			if ( listLen( local.id, "-" ) gt 1)
+				pageType = listFirst( local.id,"-" );
 			if ( !structKeyExists( pages, pageType ) )
 				pages[ pageType ] = {};
-			pages[ pageType ][ id ]="";
+			pages[ pageType ][ local.id ]="";
 		}
-		for (var types in pages){
-			var ids = ListToArray( structKeyList( pages[ types ] ) );
+		cfloop( collection=pages, item="local.pageIds", index="local.types" ) {
+			var ids = ListToArray( structKeyList( local.pageIds ) );
 			ArraySort( ids,"textnocase" );
-			pagesByType[ types ] = ids;
+			pagesByType[ local.types ] = ids;
 		}
 		setReferenceMap( pagesByType );
 		return referenceMap;
+	}
+
+	
+	private void function _updateRecipeDates(){
+		var s = getTickCount()
+		var gitReader = new api.parsers.git.gitReader();
+		var repoRoot = expandPath( getDirectoryFromPath(GetCurrentTemplatePath()) & "../.." );
+		var skip = {
+			"README.md": true
+		};
+		var folder ="docs\recipes\";
+
+		setRecipeDates(gitReader.getDatesForFolderBatch( repoRoot, folder, server.luceeDocsRecipeDateCache ?: {}, skip));
+		server.luceeDocsRecipeDateCache = duplicate(getRecipeDates()); // this is expensive and docTree gets blown away on reload, plus applicationStop()
+		request.logger("Scanned git logs for recipes dates in #getTickCount()-s#ms, found #structCount(getRecipeDates())# recipes");
+	}
+
+	private void function _loadSyspropEnvvars() {
+		var s = getTickCount();
+
+		// Get all sysprops/envvars from Lucee
+		var allProps = getSystemPropOrEnvVar();
+		setSyspropEnvvars( allProps );
+
+		// Build indexes by tag and function
+		var byTag = {};
+		var byFunction = {};
+
+		cfloop( array=allProps, item="local.prop" ) {
+			// Index by tags (strip cf prefix for docs compatibility)
+			if ( structKeyExists( local.prop, "tags" ) && isArray( local.prop.tags ) ) {
+				cfloop( array=local.prop.tags, item="local.tag" ) {
+					// Strip cf prefix if present (cfquery -> query)
+					var tagKey = left( local.tag, 2 ) == "cf" ? mid( local.tag, 3 ) : local.tag;
+					if ( !structKeyExists( byTag, tagKey ) ) {
+						byTag[ tagKey ] = [];
+					}
+					arrayAppend( byTag[ tagKey ], local.prop );
+				}
+			}
+
+			// Index by functions
+			if ( structKeyExists( local.prop, "functions" ) && isArray( local.prop.functions ) ) {
+				cfloop( array=local.prop.functions, item="local.func" ) {
+					if ( !structKeyExists( byFunction, local.func ) ) {
+						byFunction[ local.func ] = [];
+					}
+					arrayAppend( byFunction[ local.func ], local.prop );
+				}
+			}
+		}
+
+		setSyspropByTag( byTag );
+		setSyspropByFunction( byFunction );
+
+		request.logger( "Loaded #arrayLen(allProps)# sysprops/envvars in #getTickCount()-s#ms" );
+	}
+
+	public array function getSyspropsByTag( required string tagName ) {
+		var byTag = getSyspropByTag();
+		return structKeyExists( byTag, arguments.tagName ) ? byTag[ arguments.tagName ] : [];
+	}
+
+	public array function getSyspropsByFunction( required string functionName ) {
+		var byFunction = getSyspropByFunction();
+		return structKeyExists( byFunction, arguments.functionName ) ? byFunction[ arguments.functionName ] : [];
+	}
+
+	// hack first cut
+	public function renderContent( required string content, required struct args, boolean markdown=false ) {
+		// Extract hash parameter if present (e.g., "sysprop-envvar#LUCEE_ADMIN_ENABLED")
+		var contentType = arguments.content;
+		var hashParam = "";
+
+		if ( find( "##", contentType ) ) {
+			hashParam = listLast( contentType, "##" );
+			contentType = listFirst( contentType, "##" );
+		}
+
+		switch (contentType){
+			case "latest-recipes":
+				return new api.rendering.content.recipes().render(this, contentType, getRecipeDates(), arguments.markdown);
+			case "latest-changelog":
+				return new api.rendering.content.changelog().render(this, hashParam, arguments.markdown);
+			case "sysprop-envvar-listing":
+				return new api.rendering.content.syspropEnvvar().render(this, contentType, arguments.args, arguments.markdown);
+			case "sysprop-envvar":
+				return new api.rendering.content.syspropEnvvarInline().render(this, contentType, arguments.args, hashParam, arguments.markdown);
+			case "sysprop-envvar-for-tag":
+				return new api.rendering.content.syspropEnvvarForTag().render(this, contentType, arguments.args, arguments.markdown);
+			case "sysprop-envvar-for-function":
+				return new api.rendering.content.syspropEnvvarForFunction().render(this, contentType, arguments.args, arguments.markdown);
+			case "page-inline":
+				return new api.rendering.content.pageInline().render(this, hashParam, arguments.markdown);
+			case "page-signature":
+				return new api.rendering.content.pageSignature().render(this, hashParam, arguments.markdown);
+			default:
+				throw("unknown content type: " & contentType);
+		}
+	}
+
+	private void function _debugDumpIdMap() {
+		// Debug function - uncomment to dump idMap contents to disk for inspection
+		// systemOutput( "=== DEBUG: Dumping idMap to disk ===", true );
+		var idMapKeys = variables.idMap.keyArray().sort( "textnocase" );
+		var debugInfo = {
+			totalIds: arrayLen( idMapKeys ),
+			functionIds: [],
+			tagIds: [],
+			otherIds: [],
+			sampleIds: []
+		};
+
+		// Categorize IDs
+		cfloop( array=idMapKeys, item="local.id" ) {
+			if ( left( local.id, 9 ) == "function-" ) {
+				debugInfo.functionIds.append( local.id );
+			} else if ( left( local.id, 4 ) == "tag-" ) {
+				debugInfo.tagIds.append( local.id );
+			} else {
+				debugInfo.otherIds.append( local.id );
+			}
+		}
+
+		// Sample some IDs for verification
+		debugInfo.sampleIds = idMapKeys.slice( 1, min( 20, arrayLen( idMapKeys ) ) );
+
+		// Check for specific broken links
+		debugInfo.missingFromBrokenList = {
+			"function-websocketinfo": variables.idMap.keyExists( "function-websocketinfo" ),
+			"function-arraypop": variables.idMap.keyExists( "function-arraypop" ),
+			"function-javacast": variables.idMap.keyExists( "function-javacast" ),
+			"tag-imap": variables.idMap.keyExists( "tag-imap" ),
+			"tag-cache": variables.idMap.keyExists( "tag-cache" )
+		};
+
+		// Write full key list
+		fileWrite( "D:\work\lucee-docs\test-output\idmap-keys.txt", idMapKeys.toList( chr( 10 ) ) );
+
+		// Write summary
+		fileWrite( "D:\work\lucee-docs\test-output\idmap-summary.json", serializeJSON( debugInfo ) );
+
+		// systemOutput( "Total IDs in map: #debugInfo.totalIds#", true );
+		// systemOutput( "Function IDs: #arrayLen( debugInfo.functionIds )#", true );
+		// systemOutput( "Tag IDs: #arrayLen( debugInfo.tagIds )#", true );
+		// systemOutput( "Other IDs: #arrayLen( debugInfo.otherIds )#", true );
+		// systemOutput( "Written to: test-output/idmap-keys.txt and test-output/idmap-summary.json", true );
+
+		// Throw to stop build and inspect
+		throw( type="DebugStop", message="IdMap dumped - stopping build for inspection" );
 	}
 }

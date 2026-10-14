@@ -1,0 +1,1 @@
+Expected counter value

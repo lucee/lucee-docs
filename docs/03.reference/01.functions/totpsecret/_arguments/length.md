@@ -1,0 +1,1 @@
+Secret length in bytes (16-128). Default 20 bytes (160-bit) for SHA1. Use 32 for SHA256 or 64 for SHA512.

@@ -9,7 +9,7 @@
 }
 
 .switch-toggle {
-	background-color: $black-hint;
+	background-color: var( --text-hint );
 	border-radius: ($font-size-h6 / 2);
 	cursor: pointer;
 	display: inline-block;

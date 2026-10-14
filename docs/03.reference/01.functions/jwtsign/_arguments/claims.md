@@ -1,0 +1,1 @@
+JWT payload claims. Standard claims: sub, iss, aud, exp, nbf, iat, jti. Custom claims allowed.

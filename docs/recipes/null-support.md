@@ -1,13 +1,18 @@
 <!--
 {
-  "title": "Null Support",
+  "title": "Null Handling in CFML",
   "id": "null_support",
   "related": [
     "function-isnull",
     "function-nullvalue",
-    "developing-with-lucee-server"
+    "developing-with-lucee-server",
+    "function-structkeyexists",
+    "function-serializejson",
+    "function-deserializejson",
+    "tag-application",
+    "null-structs-and-arrays"
   ],
-  "description": "This document explains how to set null support in the Lucee server admin, assigning `null` value for a variable and how to use `null` and `nullvalue`.",
+  "description": "Understand the differences between partial and full null support - how it affects structKeyExists(), JSON serialization, queries and variable assignment.",
   "keywords": [
     "Null support",
     "null keyword",
@@ -16,28 +21,35 @@
     "Lucee"
   ],
   "categories": [
-    "core"
+    "core",
+    "decision"
   ]
 }
 -->
 
 # Null Support
 
-This document explains how to set null support in the Lucee server admin, assigning `null` value for a variable and how to use `null` and `nullvalue`. It is an annotation of the video found here: [https://www.youtube.com/watch?v=GSlWfLR8Frs](https://www.youtube.com/watch?v=GSlWfLR8Frs)
+CFML supports two null handling modes: partial (default) and full. This recipe explains the differences.
 
-## Enabling NULL support
+Video: [https://www.youtube.com/watch?v=GSlWfLR8Frs](https://www.youtube.com/watch?v=GSlWfLR8Frs)
 
-You can enable null support via the **Lucee Server Admin** --> **Language/compiler** and setting Null support to **complete support** (exclusive to Lucee) or **partial support** (default, same as Adobe CF).
+## Enabling NULL Support
 
-Or via [[tag-application]]
+Via **Lucee Server Admin** > **Language/compiler** > **Null support**.
+
+Or per application via [[tag-application]]:
 
 ```lucee
 this.nullSupport = true;
 ```
 
-## Explanation
+Or toggle dynamically:
 
-### Illustration 1:
+```lucee
+application action="update" nullsupport="true";
+```
+
+## Function Return Values
 
 ```lucee
 <cfscript>
@@ -53,13 +65,11 @@ this.nullSupport = true;
 </cfscript>
 ```
 
-In this example, the function `test()` does not return a value. This, in effect, is the same as returning `null`. If you dump the result of the function (`dump( test() );`), you will see that the dump outputs `Empty: Null`.
+A function with no return value returns `null`. With **partial support**, referencing `t` throws "the key [T] does not exist". With **full support**, `t` is accessible and `isNull(t)` returns `true`.
 
-If we assign the function result to a variable, i.e. `t = test();`, and reference the variable, i.e. `dump( t );` an error will be thrown when using **partial support** for null: "the key [T] does not exist". If we enable **full support**, you will be able to reference the variable without error, the dump output will be `Empty: Null` and `IsNull( t )` will evaluate `true`.
+In both modes, `isNull(notexisting)` safely returns `true` for undefined variables.
 
-In all cases, `dump( isNull( notexisting ) );` will throw an error.
-
-### Illustration 2:
+## Query Column Values
 
 ```luceescript
 query datasource="test" name="qry" {
@@ -69,21 +79,97 @@ dump( qry );
 dump( qry._null );
 ```
 
-With **partial support** for NULL enabled, `dump(qry._null);` will output an **empty string**.
-With **full support**, `Empty: null` will be output and `IsNull( qry._null );` will evaluate `true`.
+**Partial support**: `qry._null` outputs empty string.
+**Full support**: outputs `Empty: null` and `isNull(qry._null)` returns `true`.
 
-## NullValue() function and null keyword
+## [[function-nullvalue]] and the null Keyword
 
-With **partial support** for NULL, the `NullValue()` function must be used to explicitly return a null value (this will work in all scenarios). For example:
+With **partial support**, use [[function-nullvalue]] to explicitly return null:
 
 ```luceescript
 var possibleVariable = functionThatMayOrMayNotReturnNull();
 return possibleVariable ?: NullValue();
 ```
 
-With **full support**, you are able to use the `null` keyword directly and, as illustrated above, can assign it to a variable directly:
+With **full support**, use the `null` keyword directly:
 
 ```luceescript
 t = null;
 dump( t );
+```
+
+## StructKeyExists Behaviour
+
+Key behavioural difference: how [[function-structkeyexists]] handles null values.
+
+**Partial support** - null keys are reported as not existing, but they are still stored in the struct:
+
+```luceescript
+s = { foo: nullValue() };
+dump( structKeyExists( s, "foo" ) ); // false
+dump( s.keyExists( "foo" ) );        // false
+dump( structCount( s ) );            // 1 - the key is still stored
+dump( structKeyList( s ) );          // FOO
+```
+
+**Full support** - keys set to `null` still exist:
+
+```luceescript
+s = { foo: null };
+dump( structKeyExists( s, "foo" ) ); // true
+dump( s.keyExists( "foo" ) );        // true
+dump( structCount( s ) );            // 1 - the key exists
+dump( isNull( s.foo ) );             // true - but the value is null
+```
+
+This distinguishes "key exists with null value" from "key doesn't exist" - important for APIs and database results.
+
+## JSON Serialization
+
+In both modes, a key holding null is serialized as JSON `null`, so a JSON `null` survives a `deserializeJSON()` / `serializeJSON()` round trip.
+
+**Partial support**:
+
+```luceescript
+s = { name: "John", middleName: nullValue() };
+dump( serializeJSON( s ) ); // {"MIDDLENAME":null,"NAME":"John"}
+dump( serializeJSON( deserializeJSON( '{"a":null,"b":1}' ) ) ); // {"a":null,"b":1}
+```
+
+**Full support**:
+
+```luceescript
+s = { name: "John", middleName: null };
+dump( serializeJSON( s ) ); // {"MIDDLENAME":null,"NAME":"John"}
+```
+
+Critical for APIs that expect explicit `null` values rather than missing keys.
+
+## Scoping and isNull()
+
+Always use scoped variable references with [[function-isnull]].
+
+When a variable with a `null` value shares a name with another variable in a scope accesssible via scope cascading, `isNull()` can return unexpected results:
+
+```lucee
+name = "default";
+
+function greet( name ) {
+    if ( isNull( name ) ) {
+        writeOutput( "Hello stranger" );
+    } else {
+        writeOutput( "Hello #name#" );
+    }
+}
+
+greet( javacast( "null", "" ) );
+// Outputs: "Hello default" - found the outer variable, not the null argument!
+```
+
+Use scoped references to reliably check for `null`:
+
+```lucee
+if ( isNull( arguments.name ) ) { ... }
+if ( isNull( local.result ) ) { ... }
+if ( isNull( variables.config ) ) { ... }
 ```

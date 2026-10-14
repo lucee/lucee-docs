@@ -11,6 +11,7 @@ component accessors=true {
 	property name="title"        type="string"  default="";
 	property name="menuTitle"    type="string"  default="";
 	property name="description"  type="string"  default="";
+	property name="extractedDescription"  type="string"  default="";
 	property name="body"         type="string"  default="";
 	property name="sortOrder"    type="numeric" default="0";
 	property name="forceSortOrder"    type="numeric" default="-1";
@@ -25,12 +26,18 @@ component accessors=true {
 	property name="nextPage"     type="any";
 	property name="previousPage" type="any";
 	property name="categories"   type="array";
+	property name="keywords"     type="array";
 
 	property name="methodObject"  type="string"  default="";
 	property name="methodName"  type="string"  default="";
 
 	property name="statusFilter"  type="string"  default="";
 	property name="hidden" 		 type="boolean"  default="false";
+	property name="redirect"     type="string"  default="";
+
+	public boolean function hasRedirect() {
+		return len( getRedirect() ) > 0;
+	}
 
 	public void function addChild( required any childPage ) {
 		getChildren().append( arguments.childPage );

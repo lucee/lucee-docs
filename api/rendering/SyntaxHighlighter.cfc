@@ -1,6 +1,17 @@
 component {
 
-	public string function renderHighlights( required string text ) {
+	variables.pygmentsInstance = "";
+
+	public string function renderHighlights( required string text, boolean markdown=false ) {
+		// For markdown mode, strip +trycf and normalize language names
+		if ( arguments.markdown ) {
+			var result = arguments.text.reReplace( "```([a-zA-Z]+)\+trycf\n", "```\1" & chr( 10 ), "all" );
+			// Replace luceescript with cfml for better LLM compatibility
+			result = result.reReplace( "```luceescript\n", "```cfml" & chr( 10 ), "all" );
+			result = result.reReplace( "```lucee\n", "```cfml" & chr( 10 ), "all" );
+			return result;
+		}
+
 		var rendered  = arguments.text;
 		var highlight = "";
 		var pos = 1;
@@ -8,7 +19,7 @@ component {
 		do {
 			highlight = _getNextHighlight( rendered, pos );
 			if ( !IsNull( highlight ) ) {
-				rendered  = Replace( rendered, highlight.rawMatch, renderHighlight( highlight.code, highlight.language ), "all" );
+				rendered  = Replace( rendered, highlight.rawMatch, renderHighlight( highlight.code, highlight.language, arguments.markdown ), "all" );
 				pos = highlight.pos;
 			}
 		} while( !IsNull( highlight ) );
@@ -16,8 +27,24 @@ component {
 		return rendered;
 	}
 
-	public string function renderHighlight( required string code, required string language ) {
-		var highlighter = new Pygments();
+	public string function renderHighlight( required string code, required string language, boolean markdown=false ) {
+		// If markdown mode, just clean up the code block and return it as markdown
+		if ( arguments.markdown ) {
+			var cleanLanguage = arguments.language.reReplace( "\+trycf$", "" );
+
+			// Normalize language names for markdown
+			if ( cleanLanguage.reFindNoCase( "^(luceescript|cfs)" ) ) {
+				cleanLanguage = "javascript";
+			} else if ( cleanLanguage.reFindNoCase( "^(lucee|cfm|coldfusion)" ) ) {
+				cleanLanguage = "html";
+			} else if ( cleanLanguage eq "yml" ) {
+				cleanLanguage = "yaml";
+			}
+
+			return "```" & cleanLanguage & chr( 10 ) & arguments.code & chr( 10 ) & "```";
+		}
+
+		var highlighter = _getPygmentsInstance();
 		var useTryCf    = reFind( "\+trycf$", arguments.language ) > 0;
 
 		// some code block types don't work, treat them as cfm for now
@@ -77,6 +104,17 @@ component {
 		}
 		//dump (local);		abort;
 		return result;
+	}
+
+	private any function _getPygmentsInstance() {
+		if ( !isObject( variables.pygmentsInstance ) ) {
+			lock name="docsPygmentsInstance" timeout=10 {
+				if ( !isObject( variables.pygmentsInstance ) ) {
+					variables.pygmentsInstance = new Pygments();
+				}
+			}
+		}
+		return variables.pygmentsInstance;
 	}
 
 	private boolean function _isWindows(){

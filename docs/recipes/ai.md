@@ -1,35 +1,57 @@
 <!--
 {
-  "title": "AI (experimental)",
+  "title": "AI",
   "id": "ai",
   "since": "6.2",
   "categories": ["ai"],
-  "description": "",
+  "description": "AI integration for working with Large Language Models in Lucee",
   "keywords": [
     "AI",
-    "LLM"
+    "LLM",
+    "ChatGPT",
+    "Gemini",
+    "Claude",
+    "Ollama",
+    "RAG",
+    "Multipart",
+    "MCP"
+  ],
+  "related": [
+    "mcp"
   ]
 }
 -->
 
-# AI (Experimental)
+# AI
 
-Lucee 6.2 includes experimental support for AI integration, which will be finalized with the release of Lucee 7. This documentation is subject to change, reflecting Lucee's aim to remain adaptable to future advancements. Feedback is welcome to help tailor functionality to users' needs.
+Lucee 7 includes full support for AI integration, allowing you to interact with various Large Language Models (LLMs) directly from your CFML code. This functionality was first introduced as experimental in Lucee 6.2 and has been refined and stabilized for the Lucee 7 release.
+
+## What's New in Lucee 7
+
+- **Multipart Content Support**: Send images, PDFs, and other documents along with text prompts
+- **Multipart Response Support**: Receive generated images and other content types from AI (currently Gemini, more providers coming soon)
+- **Structured JSON Responses**: Enforce specific JSON response schemas with Gemini beta API
+- **Simplified Function Names**: Functions are available without the `Lucee` prefix (though the prefix is still supported as an alias for backward compatibility)
+- **Stable API**: The AI functionality is no longer experimental and is ready for production use
+- **Enhanced File Handling**: Automatic detection and handling of file paths in multipart requests
+- **Session Serialization**: Save and restore conversation state across requests
+- **RAG Support**: Retrieval-Augmented Generation with Lucene integration
+- **Provider Passthrough**: Forward arbitrary request body fields and HTTP headers directly to the provider API *(added in 7.0.4.3)*
 
 ## Configuration
 
-In Lucee 6.2, AI connections can be configured similarly to datasources or caches, either in the Lucee Administrator or directly in `.CFConfig.json`. Here are sample configurations:
+AI connections in Lucee can be configured similarly to datasources or caches, either in the Lucee Administrator or directly in `.CFConfig.json`.
 
-**OpenAI (ChatGPT) Example:**
+### OpenAI (ChatGPT)
 
 ```json
 "ai": {
   "mychatgpt": {
     "class": "lucee.runtime.ai.openai.OpenAIEngine",
     "custom": {
-      "message": "Keep all answers as short as possible and in the style of Bob Marley",
+      "message": "Keep all answers as short as possible",
       "secretKey": "${CHATGPT_SECRET_KEY}",
-      "model": "gpt-4o-mini",
+      "model": "gpt-4o",
       "type": "openai",
       "timeout": 5000
     },
@@ -38,14 +60,14 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
 }
 ```
 
-**Google Gemini Example:**
+### Google Gemini
 
 ```json
 "ai": {
   "mygemini": {
     "class": "lucee.runtime.ai.google.GeminiEngine",
     "custom": {
-      "message": "Keep all answers as short as possible and in the style of Slim Shady",
+      "message": "Keep all answers concise and accurate",
       "model": "gemini-1.5-flash",
       "timeout": 5000,
       "apikey": "${GEMINI_API_KEY}"
@@ -54,23 +76,23 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
 }
 ```
 
-**Claude Anthropic Example:**
+### Claude (Anthropic)
 
 ```json
 "ai": {
   "myclaude": {
     "class": "lucee.runtime.ai.anthropic.ClaudeEngine",
     "custom": {
-      "message": "Keep all answers as short as possible",
-      "model": "claude-3-sonnet-20240229",
+      "message": "Provide helpful and accurate responses",
+      "model": "claude-3-5-sonnet-20241022",
       "timeout": 5000,
-      "apikey": "${Claude_API_KEY}"
+      "apikey": "${CLAUDE_API_KEY}"
     }
   }
 }
 ```
 
-**Ollama (Local) Example:**
+### Ollama (Local)
 
 ```json
 "ai": {
@@ -86,93 +108,819 @@ In Lucee 6.2, AI connections can be configured similarly to datasources or cache
 }
 ```
 
-In these examples, ChatGPT from OpenAI, Gemini from Google, Claude from Anthropic, and Ollama for local use are set up. The `OpenAIEngine` allows configuration for `openai` or `ollama` types and can also connect to any service using the OpenAI REST interface by specifying a URL:
+### Custom OpenAI-Compatible Endpoints
 
-**OpenAI REST Interface Example:**
+The `OpenAIEngine` can connect to any service using the OpenAI REST interface:
 
 ```json
 "ai": {
-  "lucy": {
+  "custom": {
     "class": "lucee.runtime.ai.openai.OpenAIEngine",
     "custom": {
-      "message": "Keep all answers short and in the style of Lucy Miller",
-      "model": "lucy",
-      "url": "https://ai.lucee.org/v1/",
-      "timeout": 1000
+      "message": "Keep all answers short",
+      "model": "custom-model",
+      "url": "https://your-api.example.com/v1/",
+      "secretKey": "${YOUR_API_KEY}",
+      "timeout": 5000
     }
   }
 }
 ```
 
-Currently, driver creation is internal, but Lucee 7 will expand support for creating or using extensions with additional drivers.
+### Default Types
 
-## Security
+The `default` setting determines how the AI connection is used automatically:
 
-Security is a top priority when integrating AI into Lucee. Since AI is already widely used, our goal is to improve security by offering more formalized interfaces for AI interaction.
+- `"exception"`: Used for exception analysis in error screens
+- `"documentation"`: Used in the Monitor's Documentation tab
+- `null` or omitted: Only available for direct function calls
 
-### Local AI
+## Basic Usage
 
-Lucee supports local AI hosting, which means you can run AI engines without external data transmission.
-
-### Data Redaction (Work in Progress)
-
-Future releases will further refine data redaction, filtering out sensitive data such as hardcoded usernames and passwords before sending it to an AI engine.
-
-### Logging
-
-Lucee logs all AI interactions to `ai.log`, or to `application.log` if `ai.log` is unavailable, enabling review of transmitted information.
-
-## Integration
-
-AI in Lucee can be used either directly through tags and functions or indirectly by linking it to certain functionalities, like error handling or monitoring.
-
-### Direct Integration
-
-You can interact with AI directly via Lucee functions and tags.
-At the moment, these functions use the prefix `Lucee` to avoid conflicts with existing functions in your code. With Lucee 7, we plan to remove the prefix (but still support it as an alias).
-
-**Direct Interaction Example:**
+### Simple Text Interaction
 
 ```javascript
-// start a session with a specific AI endpoint
-slim = LuceeCreateAISession(name:'gemma2', systemMessage:"Answer as Slim Shady.");
+// Create a session with a specific AI endpoint
+aiSession = createAISession(name:'mychatgpt', systemMessage:"Answer as a helpful assistant.");
 
-// Complete response at once
-dump(LuceeInquiryAISession(slim, "Who was the most influential person in your life?"));
+// Get complete response at once
+answer = inquiryAISession(aiSession, "What is the capital of France?");
+dump(answer);
 
-// Stream response
-dump(LuceeInquiryAISession(slim, "Count from 1 to 100", function(msg) {
-    dump(msg);
+// Stream response for real-time output
+inquiryAISession(aiSession, "Count from 1 to 100", function(msg) {
+    writeOutput(msg);
     cfflush(throwonerror=false);
-}));
+});
 ```
 
-This does not cover all available functionality; refer to the AI documentation tab in Lucee for the complete list of functions and tags.
+**Note for Lucee 6.2 users**: In Lucee 6.2, all functions had the `Lucee` prefix (e.g., `LuceeCreateAISession`, `LuceeInquiryAISession`) to prevent conflicts with existing user-defined functions. Lucee 7 supports both prefixed and non-prefixed versions, so your existing code will continue to work.
 
-### Exception Handling
+### Multipart Content (Images, PDFs, Documents)
 
-AI is already integration in Lucee in the exception template.
-When the exception template (orange screen) is displayed and you have defined an AI connection with the default type "exception", that AI engine will be used to analyze the exception.
-Lucee provides the AI with information about the exception, allowing it to offer insights and suggestions for resolving the issue.
-This feature is still a work in progress, and we are working to improve the quality of the AI responses by refining the input.
+New in Lucee 7, you can send images, PDFs, and other documents along with your text prompts:
 
-### Monitor Documentation Tab
+```javascript
+// Create session
+aiSession = createAISession(name:'myclaude');
 
-In the Monitor's Documentation tab, AI can answer questions about Lucee based on retrieval-augmented generation (RAG) with available documentation and links to related documents.
-This feature is also in development for enhanced input quality (read more about [https://github.com/lucee/lucee-docs/blob/master/docs/recipes/monitoring-debugging.md](Monitor Documentation) ).
+// Send image with question
+imageData = fileReadBinary(expandPath("./photo.jpg"));
+answer = inquiryAISession(aiSession, [
+    "What do you see in this image?",
+    imageData
+]);
+dump(answer);
 
-## Future Development
+// Analyze PDF document
+pdfData = fileReadBinary(expandPath("./report.pdf"));
+answer = inquiryAISession(aiSession, [
+    "Summarize the key points from this document",
+    pdfData
+]);
+dump(answer);
 
-AI integration in Lucee is actively being developed, with plans to expand functionality and add new features. Your input is encouraged.
+// File path auto-detection (Lucee automatically reads the file)
+answer = inquiryAISession(aiSession, [
+    "Analyze this image",
+    "/path/to/image.jpg"  // Lucee detects this is a file path and reads it
+]);
+
+// Multiple files
+answer = inquiryAISession(aiSession, [
+    "Compare these two images",
+    fileReadBinary("./image1.jpg"),
+    fileReadBinary("./image2.jpg")
+]);
+```
+
+#### Supported File Types by Provider (end 2025)
+
+**Claude (Anthropic)**:
+
+- Images: JPEG, PNG, GIF, WebP
+- Documents: PDF
+
+**ChatGPT (OpenAI)**:
+
+- Images: JPEG, PNG, GIF, WebP
+- Documents: Support varies by model
+
+**Gemini (Google)**:
+
+- Images: JPEG, PNG, WebP
+- Documents: PDF
+
+**Note**: File support varies by AI provider and model. Check your provider's documentation for the most current information.
+
+## Advanced Features
+
+### Session Management
+
+Sessions maintain conversation history, allowing for contextual follow-up questions:
+
+```javascript
+myAISession = createAISession(
+    name: 'mychatgpt',
+    systemMessage: "You are a helpful coding assistant.",
+    temperature: 0.7,
+    limit: 100  // Maximum conversation history size
+);
+
+// First question
+inquiryAISession(myAISession, "What is a closure in JavaScript?");
+
+// Follow-up question (AI remembers previous context)
+inquiryAISession(myAISession, "Can you show me an example?");
+
+// Another follow-up
+inquiryAISession(myAISession, "How would that work in CFML?");
+```
+
+### Multipart Responses (Images, Files)
+
+**New in Lucee 7** - AI can now generate images and other content types in response to your queries. Currently supported with **Gemini** (requires beta API and specific models), with other providers coming soon.
+
+#### Configuration for Image Generation
+
+To use image generation with Gemini, you must enable the beta API and use a compatible model:
+
+```json
+"gemini": {
+  "class": "lucee.runtime.ai.google.GeminiEngine",
+  "custom": {
+    "message": "Keep all answers concise and accurate",
+    "model": "gemini-2.5-flash-image",
+    "timeout": 120000,
+    "apikey": "${GEMINI_API_KEY}",
+    "beta": "true"
+  }
+}
+```
+
+**Important Notes:**
+
+- Set `"beta": "true"` to use the beta API endpoint (v1beta)
+- Use a model that supports image generation (e.g., `gemini-2.5-flash-image`, `gemini-2.5-flash-image-preview`)
+- Alternatively, you can specify the beta URL directly: `"url": "https://generativelanguage.googleapis.com/v1beta/"`
+- The v1 API does not yet support image generation models
+
+#### Using Multipart Responses
+
+When an AI generates multipart content (text + images, multiple images, etc.), `inquiryAISession()` returns an **array** where each element represents a content part:
+
+```javascript
+aiSession = createAISession(name: 'mygemini');
+
+// Request image generation along with text explanation
+response = inquiryAISession(aiSession, [
+    "Draw a developer with glasses wearing a t-shirt with this logo on it in comic noir art style and explain the image you created",
+    fileReadBinary(expandPath("./logo.png"))
+]);
+
+// Handle multipart response
+if (isArray(response)) {
+    loop array=response item="part" {
+        // Text content
+        if (part.contenttype == "text/plain") {
+            writeOutput("<p>#part.content#</p>");
+        }
+        // Image content
+        else if (left(part.contenttype, 6) == "image/") {
+            img = imageRead(part.content);
+            writeDump(img);
+            // Or save to file: fileWrite("./generated.png", part.content);
+        }
+        // Other content types
+        else {
+            writeDump(part);
+        }
+    }
+}
+else {
+    // Simple text response (backward compatible)
+    writeOutput(response);
+}
+```
+
+#### Response Structure
+
+Each part in the multipart response array contains:
+
+| Property | Type | Description | Example |
+|----------|------|-------------|---------|
+| **contenttype** | string | MIME type of the content | `"text/plain"`, `"image/png"`, `"image/jpeg"` |
+| **type** | string | Content category | `"text"` or `"binary"` |
+| **content** | string or binary | The actual content | Text string or Java byte array |
+
+#### String Conversion
+
+The multipart response array has special string conversion behavior for convenience:
+
+```javascript
+response = inquiryAISession(aiSession, "Create an image and describe it");
+
+// Array acts as string - concatenates all text/plain parts
+echo(response);  // Outputs only text portions
+writeOutput(toString(response));  // Same as above
+
+// Still works as array for detailed handling
+if (isArray(response)) {
+    writeOutput("Response contains #arrayLen(response)# parts");
+}
+```
+
+**Note**: This string conversion is unique to multipart AI responses - regular Lucee arrays cannot be used this way.
+
+#### Provider Support for Multipart Responses
+
+- **Gemini (Google)**: ✅ Full support for multipart responses
+- **Claude (Anthropic)**: 🔄 Coming soon
+- **ChatGPT (OpenAI)**: 🔄 Coming soon
+- **Ollama**: 🔄 Coming soon
+
+### Structured JSON Responses (Gemini Beta)
+
+**New in Lucee 7** - With Gemini's beta API, you can enforce structured JSON responses by defining a `generationConfig` with a response schema. This ensures the AI returns data in a specific, predictable format.
+
+#### Configuration
+
+Add `generationConfig` to your Gemini endpoint configuration to specify the desired response structure:
+
+```json
+"recipes": {
+  "class": "lucee.runtime.ai.google.GeminiEngine",
+  "custom": {
+    "connectTimeout": "2000",
+    "beta": true,
+    "message": "Keep all answers concise and accurate",
+    "model": "gemini-2.5-flash",
+    "apikey": "${GEMINI_API_KEY}",
+    "socketTimeout": "120000",
+    "temperature": "0.7",
+    "conversationSizeLimit": "10",
+    
+    "generationConfig": {
+      "responseMimeType": "application/json",
+      "responseSchema": {
+        "type": "ARRAY",
+        "items": {
+          "type": "OBJECT",
+          "properties": {
+            "recipeName": { "type": "STRING" },
+            "calories": { "type": "INTEGER" }
+          },
+          "required": ["recipeName", "calories"]
+        }
+      }
+    }
+  }
+}
+```
+
+**Configuration Options:**
+
+- **`responseMimeType`**: Set to `"application/json"` to enforce JSON responses
+- **`responseSchema`**: Define the expected JSON structure using a schema
+- **`generationConfig`**: All other Gemini generation config options are supported and passed directly to the API
+
+#### Usage Example
+
+```javascript
+aiSessionJson = createAISession(
+    name: "recipes",
+    limit: 100,
+    temperature: 0.2,
+    systemMessage: "Keep your answers as short as possible"
+);
+
+response = inquiryAISession(aiSessionJson, "List 3 healthy breakfast ideas.");
+dump(response);
+```
+
+**Response:**
+
+```json
+[
+  {"recipeName":"Oatmeal with berries","calories":300},
+  {"recipeName":"Greek yogurt with fruit","calories":250},
+  {"recipeName":"Scrambled eggs with spinach","calories":350}
+]
+```
+
+**Note**: This feature requires Gemini's beta API (`"beta": true` or URL set to `https://generativelanguage.googleapis.com/v1beta/`).
+
+### Provider Passthrough *(since 7.0.4.3)*
+
+All three AI engines (Claude, OpenAI, Gemini) support a **passthrough mechanism** for forwarding additional configuration directly to the provider's API. This allows you to use provider-specific features — including beta features — without needing Lucee to explicitly support them.
+
+#### How It Works
+
+When initializing an AI engine, Lucee extracts all known configuration properties (`model`, `apikey`, `temperature`, etc.) from the `custom` block. Any **remaining unknown keys** are collected and forwarded directly into the HTTP request body sent to the provider. Additionally, a `headers` key allows forwarding custom HTTP headers.
+
+This means:
+
+- New provider features work immediately via config, no Lucee update required
+- Beta APIs and experimental parameters are fully accessible
+- The passthrough respects existing keys — it will never overwrite fields Lucee sets explicitly (like `model` or `messages`)
+
+#### Passthrough Behavior by Provider
+
+| Provider | Unknown body fields | Custom headers |
+|----------|-------------------|----------------|
+| Claude (Anthropic) | Forwarded ✅ | Forwarded ✅ |
+| Gemini (Google) | Forwarded ✅ | Forwarded ✅ |
+| OpenAI / ChatGPT | Forwarded ✅ | Forwarded ✅ |
+
+**Important**: While Claude silently ignores truly unknown fields, Gemini and OpenAI will return a `400` error for fields their API does not recognize. Only forward fields that are valid for the target provider's API.
+
+#### Custom Headers
+
+Use the `headers` key inside `custom` to forward arbitrary HTTP headers:
+
+```json
+"custom": {
+  "headers": {
+    "my-custom-header": "value"
+  }
+}
+```
+
+#### Example: Claude with MCP
+
+MCP (Model Context Protocol) is an open standard that allows AI models to connect to external tool servers — databases, APIs, or any custom logic you expose. Since Anthropic's MCP support requires a beta header and specific request body fields, it is configured entirely via the passthrough mechanism — no special Lucee support is needed. See [[mcp]] for Lucee's three MCP servers and provider-specific configuration.
+
+```json
+"ai": {
+  "myclaude": {
+    "class": "lucee.runtime.ai.anthropic.ClaudeEngine",
+    "custom": {
+      "apikey": "${CLAUDE_API_KEY}",
+      "model": "claude-sonnet-4-6",
+      "message": "You are a helpful assistant.",
+      "headers": {
+        "anthropic-beta": "mcp-client-2025-11-20"
+      },
+      "mcp_servers": [
+        {
+          "type": "url",
+          "url": "https://your-mcp-server.com/mcp",
+          "name": "my-tools",
+          "authorization_token": "${MCP_TOKEN}"
+        }
+      ],
+      "tools": [
+        {
+          "type": "mcp_toolset",
+          "mcp_server_name": "my-tools"
+        }
+      ]
+    }
+  }
+}
+```
+
+Usage in CFML is identical to any other AI session — the MCP integration is transparent:
+
+```javascript
+aiSession = createAISession(name: 'myclaude');
+answer = inquiryAISession(aiSession, "What tools do you have available?");
+writeOutput(answer);
+```
+
+Claude will automatically discover the tools exposed by your MCP server and use them when relevant to answer the query.
+
+**Notes:**
+
+- The `anthropic-beta` header version (`mcp-client-2025-11-20`) may change as Anthropic promotes MCP out of beta. Update your config accordingly — no Lucee code change is needed.
+- Anthropic handles all MCP communication (tool discovery, tool calls, result handling) on their side. Lucee simply passes the server reference through.
+- For Gemini and OpenAI, MCP configuration format differs from Claude's. Refer to each provider's API documentation for the correct field names and structure.
+
+### Session Serialization
+
+Save and restore conversation state across requests. See [AI Session Serialization](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai-serialisation.md) for details.
+
+```javascript
+// Serialize session
+serializedData = serializeAISession(myAISession);
+fileWrite("session.json", serializedData);
+
+// Load session later
+restoredAISession = loadAISession('mychatgpt', fileRead("session.json"));
+
+// Continue conversation
+inquiryAISession(restoredAISession, "Can you remind me what we were discussing?");
+```
+
+### Streaming Responses
+
+Stream responses in real-time for better user experience:
+
+```javascript
+aiSession = createAISession(name:'mygemini');
+
+inquiryAISession(aiSession, "Write a short story about AI", function(chunk) {
+    writeOutput(chunk);
+    cfflush(throwonerror=false);
+});
+```
+
+### Temperature Control
+
+Control randomness/creativity of responses (0.0 = deterministic, 1.0 = creative):
+
+```javascript
+// More deterministic responses (good for factual questions)
+conservativeAISession = createAISession(
+    name: 'mychatgpt',
+    temperature: 0.2
+);
+
+// More creative responses (good for brainstorming)
+creativeAISession = createAISession(
+    name: 'mychatgpt',
+    temperature: 0.9
+);
+```
 
 ### Retrieval-Augmented Generation (RAG)
 
-We are working on RAG support directly in CFML, allowing local data indexing for AI interactions.
+Enhance AI responses with your own data using Lucene search integration. See [AI Augmentation with Lucene](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai-augmentation.md) for complete details.
 
-### Fine-Tuning
+```javascript
+// Search your indexed content
+search 
+    contextpassages=5
+    contextBytes=4000
+    name="searchResults"
+    collection="knowledge_base" 
+    criteria=userQuery;
 
-We are adding more functionality to allow fine-tuning of AI connections for improved results.
+// Add search results as context to AI query
+augmentedQuery = "Query: #userQuery#\n\nContext: #serializeJSON(searchResults)#";
+answer = inquiryAISession(aiSession, augmentedQuery);
+```
 
-### Data Redaction
+## Available Functions
 
-We are also working on support for advanced data redaction, which will not only be available with AI but as a standalone feature that can be used in other scenarios.
+Lucee 7 provides the following AI functions (all available with or without the `Lucee` prefix):
+
+### Core Functions
+
+- **`createAISession()`** / `LuceeCreateAISession()` - Create a new AI session
+  - Arguments: `name`, `systemMessage`, `temperature`, `limit`, `connectTimeout`, `socketTimeout`
+  
+- **`inquiryAISession()`** / `LuceeInquiryAISession()` - Send a query to an AI session
+  - Arguments: `session`, `question` (string or array for multipart), `listener` (optional callback)
+  - Returns: String (simple text) or Array (multipart response with text/images/files)
+  
+- **`getAIMetadata()`** / `LuceeGetAIMetadata()` - Get metadata about an AI connection
+  - Arguments: `name`, `refresh` (boolean)
+
+### Serialization Functions
+
+- **`serializeAISession()`** - Serialize an AI session to JSON
+  - Arguments: `session`, `maxlength` (optional), `condense` (boolean)
+  
+- **`loadAISession()`** - Restore an AI session from serialized data
+  - Arguments: `name`, `data` (JSON string or struct)
+
+For complete function documentation, refer to the AI functions documentation in the Lucee Administrator.
+
+## Built-in Integration
+
+### Exception Handling
+
+AI is integrated into Lucee's exception template. When an exception occurs and you have defined an AI connection with `"default": "exception"`, the AI engine will automatically analyze the exception and provide insights and suggestions for resolving the issue.
+
+```json
+"ai": {
+  "mychatgpt": {
+    "class": "lucee.runtime.ai.openai.OpenAIEngine",
+    "custom": {
+      "secretKey": "${CHATGPT_SECRET_KEY}",
+      "model": "gpt-4o-mini"
+    },
+    "default": "exception"
+  }
+}
+```
+
+When an error occurs, the exception screen will include AI-generated analysis and suggestions for fixing the issue.
+
+### Monitor Documentation
+
+In the Lucee Administrator's Monitor Documentation tab, AI can answer questions about Lucee using retrieval-augmented generation (RAG) with the available documentation. Configure with `"default": "documentation"`.
+
+See [AI for Documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai-for-documentation.md) for setup details.
+
+## Security Considerations
+
+Security is a top priority when integrating AI into Lucee.
+
+### Local AI
+
+Lucee supports local AI hosting through Ollama and other local providers, allowing you to run AI engines without external data transmission.
+
+### Logging
+
+Lucee logs all AI interactions to `ai.log`, or to `application.log` if `ai.log` is unavailable. This enables you to review what information is being transmitted to AI services.
+
+### Best Practices
+
+- Use environment variables for API keys (never hardcode them)
+- Review AI logs regularly
+- Consider using local AI for sensitive data
+- Be mindful of what data you send to external AI services
+- Implement rate limiting in production environments
+- Filter sensitive information before sending to AI (data redaction coming in future releases)
+
+## Migration from Lucee 6.2
+
+If you're upgrading from Lucee 6.2 with the experimental AI features:
+
+1. **Function names**: Your existing code using `LuceeCreateAISession`, `LuceeInquiryAISession`, etc. will continue to work. You can optionally remove the `Lucee` prefix for cleaner code.
+
+2. **Configuration**: Your existing `.CFConfig.json` AI configurations will work without changes.
+
+3. **New features**: You can now use:
+   - Multipart content (images, PDFs) in your AI queries
+   - Multipart responses (generated images and files from AI)
+   - Structured JSON responses with Gemini beta API
+   - Session serialization for persistent conversations
+   - RAG with Lucene integration
+   - Provider passthrough for beta and custom API features
+
+Example migration:
+
+```javascript
+// Lucee 6.2 (still works in Lucee 7)
+aiSession = LuceeCreateAISession(name:'mychatgpt');
+answer = LuceeInquiryAISession(aiSession, "Hello");
+
+// Lucee 7 (cleaner syntax)
+aiSession = createAISession(name:'mychatgpt');
+answer = inquiryAISession(aiSession, "Hello");
+
+// Lucee 7 (new multipart request support)
+answer = inquiryAISession(aiSession, [
+    "Analyze this image",
+    fileReadBinary("./photo.jpg")
+]);
+
+// Lucee 7 (new multipart response support - Gemini with beta API)
+response = inquiryAISession(aiSession, "Create a logo and describe it");
+if (isArray(response)) {
+    // Handle both text and generated images
+    loop array=response item="part" {
+        if (part.contenttype == "text/plain") {
+            echo(part.content);
+        }
+        else if (left(part.contenttype, 6) == "image/") {
+            fileWrite("./generated.png", part.content);
+        }
+    }
+}
+```
+
+## Examples
+
+### Chatbot
+
+```javascript
+aiSession = createAISession(
+    name: 'mychatgpt',
+    systemMessage: "You are a helpful customer service assistant."
+);
+
+form action="" method="post" {
+    textarea name="question" placeholder="Ask a question...";
+    button type="submit" { writeOutput("Send"); }
+}
+
+if (structKeyExists(form, "question")) {
+    answer = inquiryAISession(aiSession, form.question);
+    writeOutput("<div class='answer'>#answer#</div>");
+}
+```
+
+### Image Analysis
+
+```javascript
+aiSession = createAISession(name:'myclaude');
+
+// Upload form
+if (structKeyExists(form, "image")) {
+    answer = inquiryAISession(aiSession, [
+        "Describe what you see in this image in detail",
+        form.image
+    ]);
+    dump(answer);
+}
+```
+
+### Image Generation with Description
+
+```javascript
+aiSession = createAISession(name: 'mygemini');
+
+// Request AI to generate an image
+response = inquiryAISession(aiSession, 
+    "Create a logo for a coffee shop called 'Binary Beans' that combines coffee and coding themes"
+);
+
+if (isArray(response)) {
+    loop array=response item="part" {
+        if (part.contenttype == "text/plain") {
+            writeOutput("<div class='description'>#part.content#</div>");
+        }
+        else if (left(part.contenttype, 6) == "image/") {
+            // Save generated image
+            imageFile = expandPath("./generated_logo.png");
+            fileWrite(imageFile, part.content);
+            writeOutput("<img src='generated_logo.png' alt='Generated Logo'>");
+        }
+    }
+}
+else {
+    writeOutput(response);
+}
+```
+
+### Process Input and Generate Visual Output
+
+```javascript
+aiSession = createAISession(name: 'mygemini');
+
+// Analyze user's image and create a new variation
+userImage = fileReadBinary(expandPath("./user_photo.jpg"));
+
+response = inquiryAISession(aiSession, [
+    "Analyze the style of this image and create a similar one with a mountain landscape theme",
+    userImage
+]);
+
+// Extract and save generated images
+if (isArray(response)) {
+    imageCount = 0;
+    loop array=response item="part" {
+        if (left(part.contenttype, 6) == "image/") {
+            imageCount++;
+            fileWrite("./result_#imageCount#.png", part.content);
+        }
+    }
+    
+    // Output text explanation
+    writeOutput(toString(response));  // Auto-extracts text parts
+}
+```
+
+### Document Summarization
+
+```javascript
+aiSession = createAISession(name:'myclaude');
+
+// Process PDF report
+pdfPath = expandPath("./reports/Q4-2024.pdf");
+summary = inquiryAISession(aiSession, [
+    "Provide a brief summary of the key findings and recommendations from this report",
+    pdfPath  // Lucee automatically reads the file
+]);
+
+writeOutput("<h2>Executive Summary</h2>");
+writeOutput("<p>#summary#</p>");
+```
+
+### Code Review Assistant
+
+```javascript
+aiSession = createAISession(
+    name: 'mychatgpt',
+    systemMessage: "You are an expert CFML developer. Review code for best practices, security, and performance."
+);
+
+code = fileRead(expandPath("./mycomponent.cfc"));
+
+review = inquiryAISession(aiSession, 
+    "Review this CFML code and suggest improvements:\n\n#code#"
+);
+
+dump(review);
+```
+
+### Knowledge Base Assistant with RAG
+
+```javascript
+// Create session
+aiSession = createAISession(name:'myclaude');
+
+// User question
+userQuery = "How do I configure a datasource in Lucee?";
+
+// Search indexed documentation
+search 
+    contextpassages=5
+    contextBytes=4000
+    name="searchResults"
+    collection="lucee_docs" 
+    criteria=userQuery;
+
+// Build augmented query with search results
+context = [];
+loop query=searchResults {
+    arrayAppend(context, {
+        "title": searchResults.title,
+        "content": searchResults.context.passages.original
+    });
+}
+
+augmentedQuery = "Question: #userQuery#\n\nRelevant Documentation:\n#serializeJSON(context)#";
+
+// Get AI response with documentation context
+answer = inquiryAISession(aiSession, augmentedQuery);
+dump(answer);
+```
+
+### Structured Data Extraction
+
+```javascript
+// Configure Gemini with JSON schema for product data
+aiSessionJson = createAISession(
+    name: "geminijson",
+    systemMessage: "Extract product information accurately"
+);
+
+// Extract structured data from unstructured text
+productText = "The new MacBook Pro 16-inch costs $2499 and is currently in stock. Popular tags include: laptop, apple, professional.";
+
+productData = inquiryAISession(aiSessionJson, 
+    "Extract the product information from this text: #productText#"
+);
+
+// Response is guaranteed to match the schema defined in config
+dump(productData);
+// Returns: {"productName":"MacBook Pro 16-inch","price":2499,"inStock":true,"tags":["laptop","apple","professional"]}
+
+// Direct database insertion is now easy
+queryExecute(
+    "INSERT INTO products (name, price, in_stock, tags) VALUES (?, ?, ?, ?)",
+    [
+        productData.productName,
+        productData.price,
+        productData.inStock,
+        serializeJSON(productData.tags)
+    ]
+);
+```
+
+### Claude with MCP Tools
+
+```javascript
+// Configure Claude with an MCP server in .CFConfig.json (see Provider Passthrough section)
+// then use it like any other session - MCP is transparent to CFML code
+
+aiSession = createAISession(name: 'myclaude');
+
+// Claude will automatically use MCP tools when relevant
+answer = inquiryAISession(aiSession, "Check the current weather in Zurich and summarize it");
+writeOutput(answer);
+
+// Streaming also works with MCP
+inquiryAISession(aiSession, "List all open tasks from the project board", function(chunk) {
+    writeOutput(chunk);
+    cfflush(throwonerror=false);
+});
+```
+
+## Related Documentation
+
+- **[AI Context from Page Content](ai-page-context.md)** - Capture page HTML with a custom tag and feed it to an AI session
+- **[AI Augmentation with Lucene](ai-augmentation.md)** - Implement RAG to enhance AI with your own data
+- **[AI Session Serialization](ai-serialisation.md)** - Save and restore conversation state
+- **[AI for Documentation](ai-for-documentation.md)** - Configure AI in the Monitor Documentation tab
+- **[Lucene Extension](lucene-3-extension.md)** - Search and indexing functionality for RAG
+
+## Future Development
+
+AI integration in Lucee continues to be actively developed. We welcome your feedback and feature requests.
+
+### Planned Features
+
+- **Multipart Response Support**: Expanding support to Claude, ChatGPT, and Ollama
+- **Advanced Data Redaction**: Automatic filtering of sensitive data before sending to AI services
+- **Additional Providers**: Support for more AI providers and models
+- **Enhanced RAG Tools**: More built-in tools for retrieval-augmented generation
+- **Fine-Tuning Support**: More functionality for customizing AI behavior
+- **Native MCP Support**: Dedicated MCP configuration per provider beyond the current passthrough mechanism
+
+## Getting Help
+
+- **Documentation**: Refer to the AI function documentation in the Lucee Administrator
+- **Community**: Ask questions on the [Lucee Dev forum](https://dev.lucee.org)
+- **Issues**: Report bugs on the [Lucee GitHub repository](https://github.com/lucee/Lucee/issues)
+
+## See Also
+
+- [Monitoring and Debugging](monitoring-debugging.md)
+- [Lucee Administrator](lucee-administrator.md)
+- [Extensions](extensions.md)

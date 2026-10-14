@@ -3,8 +3,7 @@ title: FindLastNoCase
 id: function-findlastnocase
 related:
 categories:
-    - string
-    - find
+- string
 ---
 
 Finds the last occurrence of a substring in a string, from a

@@ -22,11 +22,9 @@
 
 # Query Listeners
 
-Since Lucee 6.0, you can define a listener in the Application.cfc to listen to or manipulate every query executed.
+Define listeners in Application.cfc to intercept or manipulate every query executed.
 
 ## Global Listeners
-
-This example shows how to define a global query listener in the Application.cfc:
 
 ```lucee
 this.query.listener = {

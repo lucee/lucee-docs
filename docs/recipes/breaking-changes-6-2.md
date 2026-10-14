@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Breaking Changes Between Lucee 6.1 and 6.2",
+  "title": "Breaking Changes between Lucee 6.1 and 6.2",
   "id": "breaking-changes-6-1-to-6-2",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 6.1 and 6.2",
@@ -13,7 +13,9 @@
 
 # Breaking Changes between Lucee 6.1 and 6.2
 
-This document outlines the breaking changes introduced when upgrading from Lucee 6.1 to Lucee 6.2. Be aware of these changes when migrating your applications to ensure smooth compatibility.
+[[lucee_6_2_overview]]
+
+This document outlines the breaking changes introduced in the upgrade from Lucee 6.1 to Lucee 6.2. Use it as a migration checklist to ensure smooth compatibility.
 
 ## Changelogs
 
@@ -53,19 +55,35 @@ Dynamically switching preciseMath on and off as required is recommended, rather 
 
 As part of this change, we updated all our test cases to test switching dynamically during a request and identified a few problems which we addressed.
 
+[[content::sysprop-envvar#LUCEE_PRECISE_MATH]]
+
 ## Support for Jakarta Servlet
 
-Lucee 6.2 adds support for Jakarta Servlet, in addition to Javax.
+Lucee 6.2 adds support for Jakarta Servlets, but it still based on javax.
 
-Javax libraries are still required for Lucee to work when deployed on a Jakarta based Servlet engine like Tomcat 10+.
+Therefore, the javax libraries are required for Lucee 6.2 to work when deployed on a Jakarta based Servlet engine like Tomcat 10+, Jetty 12, Undertow 2.3.0, etc and newer.
 
-Our Official Lucee 6.2 Installers and Docker images have been updated to bundle Tomcat 10+.
+Our Official Lucee 6.2 Installers and Docker images bundle Tomcat 10+ and these required javax libaries.
 
-Older Javax Servlet engines (i.e. Tomcat 9) are still supported as well, just make sure they are updated and still maintained.
+If you are manually deploying Lucee 6.2 to a Jakarta based servlet engine, you need to add the following javax libaries to the classpath (lib directory), otherwise, Lucee will fail to deploy.
+
+- [javax.servlet-api-4.0.1.jar](https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar) 
+- [javax.servlet.jsp-api-2.3.3.jar](https://repo1.maven.org/maven2/javax/servlet/jsp/javax.servlet.jsp-api/2.3.3/javax.servlet.jsp-api-2.3.3.jar)
+- [javax.el-api-3.0.0.jar](https://repo1.maven.org/maven2/javax/el/javax.el-api/3.0.0/javax.el-api-3.0.0.jar) 
+
+Older Javax Servlet engines (i.e. Tomcat 9) are still supported for Lucee 6.2 as well, just make sure they are updated and still maintained.
+
+Lucee 7 is Jakarta based and therefore requires a Jakarta based Servlet engine.
 
 [LDEV-4910](https://luceeserver.atlassian.net/browse/LDEV-4910)
 
 [Javax to Jakarta Namespace Ecosystem Progress](https://jakarta.ee/blogs/javax-jakartaee-namespace-ecosystem-progress/)
+
+## Latest 6.2.2+ Updates not available via the Lucee Admin
+
+Due to some upstream changes in Maven, the last visible update in the Admin maybe the 6.2.2.64-SNAPSHOT.
+
+To upgrade to 6.2.2+, you will need to perform a one off [workaround](https://dev.lucee.org/t/lucee-6-2-7-0-latest-upgrades-not-showing-in-the-admin-workaround/15299)
 
 ## Lucee 6.2 is up to 50% faster for some operations than Lucee 5.4
 
@@ -88,3 +106,19 @@ Use [[function-inspectTemplates]] instead.
 More of a bug fix than a breaking change, Lucee now adheres to the spec correctly, since with 6.2.2, making Cloudflare happier
 
 [LDEV-4314](https://luceeserver.atlassian.net/browse/LDEV-4314)
+
+## REST cfc will only look for Application.cfc in same directory
+
+Previous behaviour was deemed to be a bug.
+
+Workaround, create an Application.cfc which extends the parent Application.cfc
+
+[LDEV-5323](https://luceeserver.atlassian.net/browse/LDEV-5323)
+
+## Strict Equality Operator was sensitive to underlying java types
+
+Previously, the `===` operator checked if two values were the same Java object (identity check), rather than comparing CFML type and value.
+
+In 6.2.3.34, this was changed to compare CFML type and value, as expected. Note that string comparison with `===` is case-insensitive (matching standard CFML behavior), so `"a" === "A"` is true. This is different from JavaScript's `===` which is case-sensitive.
+
+[LDEV-5806](https://luceeserver.atlassian.net/browse/LDEV-5806) 

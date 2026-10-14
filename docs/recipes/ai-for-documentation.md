@@ -4,36 +4,40 @@
   "id": "ai-documentation-setup",
   "since": "6.2",
   "categories": [ "ai" ],
-  "description": "Guide to configuring AI for use in Lucee's Documentation tab, leveraging retrieval-augmented generation (RAG) and enhanced search functionality.",
+  "description": "Guide to configuring AI / LLM for use in Lucee's Documentation tab.",
   "keywords": [
     "AI",
     "LLM",
     "documentation",
-    "retrieval-augmented generation",
-    "RAG",
-    "setup",
     "configuration",
-    "Lucee",
     "Monitor",
     "experimental",
-    "integration",
-    "monitoring",
     "admin settings",
     "AI engines",
     "OpenAI",
     "Gemini",
     "Ollama"
+  ],
+  "related": [
+    "ai-augmentation-lucene",
+    "ai"
   ]
 }
 -->
 
 # AI in Documentation (Experimental)
 
-Lucee 6.2 introduces experimental support for AI-driven assistance in the Documentation tab of Lucee’s Monitor, aiming to provide intelligent guidance by connecting to various AI engines. This feature will see further refinement in Lucee 7. For an overview of Lucee's AI capabilities, see the [general AI documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai.md).
+Lucee 6.2 introduces experimental support for AI / LLM (Large Language Model) driven assistance in the Documentation tab of Lucee’s Monitor, aiming to provide intelligent guidance by connecting to various AI engines. 
+
+This feature will see further refinement in Lucee 7. 
+
+For an overview of Lucee's AI capabilities, see the [general AI documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/ai.md).
 
 ## Configuration for AI in Monitor/Documentation
 
-To enable AI in the Documentation tab of the Monitor, set up a compatible AI connection in the Lucee Administrator or via the `.CFConfig.json` file. Configurations for OpenAI (ChatGPT), Google Gemini, or local services like Ollama are possible.
+To enable AI in the Documentation tab of the Monitor, set up a compatible AI connection in the Lucee Administrator or via the `.CFConfig.json` file. 
+
+Configurations for OpenAI (ChatGPT), Google Gemini, or local services like Ollama are possible.
 
 ### Example Configuration
 

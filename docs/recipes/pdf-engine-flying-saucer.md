@@ -21,9 +21,7 @@
 
 # PDF Engine - Flying Saucer (CFDocument)
 
-This document provides information about the new PDF engine, [Flying Saucer](https://github.com/flyingsaucerproject/flyingsaucer) (FS) in Lucee 5.3
-
-Flying saucer is a new PDF engine in Lucee. PDF engines are mainly used to convert HTML to PDF format.
+[Flying Saucer](https://github.com/flyingsaucerproject/flyingsaucer) is Lucee's modern PDF engine for HTML to PDF conversion (5.3+).
 
 ## Benefits of moving to Flying Saucer from the old engine (PD4ML)
 
@@ -37,23 +35,21 @@ Flying saucer is a new PDF engine in Lucee. PDF engines are mainly used to conve
 
 - The generated PDF does not always look exactly the same when generated with the new FC compared to files generated with the PD4ML.
 
-If it's important that the PDF output remains exactly the same as the old PD4ML-generated file, you will need to check it manually.
+If you need exact PD4ML compatibility, use the classic engine:
 
-If you don't have time to check all PDF outputs, or you really don't care about the fancy new engine, simply add the following code to use the old PDF engine.
-
-via Application.cfc,
+**Application.cfc:**
 
 ```luceescript
 this.pdf.type = "classic";
 ```
 
-or if you are using an Application.cfm,
+**Application.cfm:**
 
 ```lucee
 <cfapplication pdf="#\{type:'classic'\}#">
 ```
 
-and since the PDF Extension 1.0.0.92-SNAPSHOT you can specify the engine using type
+**Per-document (PDF Extension 1.0.0.92+):**
 
 ```lucee
 <cfdocument type="modern">
@@ -61,51 +57,45 @@ and since the PDF Extension 1.0.0.92-SNAPSHOT you can specify the engine using t
 <cfdocument type="classic">
 ```
 
-## Features of Flying Saucer
+## Font Directory
 
-You can define a font directory where you have the fonts(.ttf,.otf) you are using in your PDF.
-
-## Define the font directory
+Specify where your fonts (.ttf, .otf) are located:
 
 ```lucee
 <cfdocument fontDirectory = "path/to/my/font">
 ```
 
-Define the font directory Application itself:
-
-via Application.cfc
+**Application.cfc:**
 
 ```luceescript
 this.pdf.fontDirectory = "path/to/my/font";
 ```
 
-or via application.cfm
+**Application.cfm:**
 
 ```lucee
 <cfapplication pdf="#\{fontDirectory	:'path/to/my/font'\}#">
 ```
 
-If the font directory isn't specified, Lucee will look for fonts in /WEB_INF/lucee/fonts and uses them if they match.
+Default location: `/WEB_INF/lucee/fonts`
 
-**Note**: Classic engine works using the font-family-name from pd4fonts.properties file. Modern (Flying saucer) engine works using the font-family-name from the .ttf file with the same case.
+**Note**: Classic engine uses font names from `pd4fonts.properties`. Flying Saucer uses font-family-name from the .ttf file (case-sensitive).
 
-### Simplify Attributes
+### Simplified Attributes
 
-Attributes with cfdocument are a mess. You can make it clearer using the following syntax:
-
-Example:
+Instead of verbose attributes:
 
 ```lucee
 <cfdocument marginTop="5" marginBottom="5" marginLeft="5" marginRight="5" pageWidth="5" pageHeight="5" pageType="A4">
 ```
 
-In Lucee you can do the following:
+Use struct syntax:
 
 ```lucee
 <cfdocument margin="#\{top:5,bottom:5,left:5,right:5\}#" page="#\{width:5,height:5,type:'A4'\}#">
 ```
 
-Or even simpler
+Or even simpler (uniform margin):
 
 ```lucee
 <cfdocument margin="5" page="#\{width:5,height:5,type:'A4'\}#">
@@ -113,15 +103,10 @@ Or even simpler
 
 ### Additional Units
 
-In addition to "inch" and "cm", the attribute unit now supports "pixel" and "points".
+Besides "inch" and "cm", now supports "pixel" and "points":
 
 ```lucee
 <cfdocument unit="in|cm|px|pt">
 ```
 
-If you find any issues while using the new PDF engine, please ask a question on the [mailing list](https://dev.lucee.org/)
-
-## Footnotes
-
-You can see the details in this video:
-[Flying saucer](https://www.youtube.com/watch?v=B3Yfa8SUKKg)
+Report issues on the [mailing list](https://dev.lucee.org/). See also: [Flying Saucer video](https://www.youtube.com/watch?v=B3Yfa8SUKKg)

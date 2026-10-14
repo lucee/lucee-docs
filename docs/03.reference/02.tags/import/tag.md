@@ -4,6 +4,8 @@ id: tag-import
 related:
 - function-createobject
 - function-mavenload
+- java-class-interaction
+- java-settings
 categories:
 - java
 ---
@@ -24,9 +26,11 @@ For importing multiple components, use the wildcard syntax:
 
 - `import "org.lucee.example.*";`
 
-For Java classes (Lucee 6.2+), the classpath is shared between components and Java classes. 
+For Java classes (Lucee 6.2+), the classpath is shared between components and Java classes.
 
-By default, Lucee first looks for cfml components and then for Java classes if not found. 
+By default, Lucee first looks for cfml components and then for Java classes if not found.
+
+**Important:** `import` only controls **naming** (letting you use short class names). It does not control **which JAR or version** is loaded. If you need a specific library version - especially when it conflicts with Lucee's bundled libraries - use `javasettings` to specify the dependency. See [[java-class-interaction]] for details.
 
 Optionally, you can explicitly specify the type:
 

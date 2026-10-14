@@ -3,6 +3,7 @@ title: <cftextinput>
 id: tag-textinput
 related:
 categories:
+- ajax
 ---
 
 Lets you place a single-line text entry box in a cfform.

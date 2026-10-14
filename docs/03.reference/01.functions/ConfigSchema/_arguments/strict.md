@@ -1,0 +1,1 @@
+`true` : canonical Lucee pse when creating or editing a config (e.g. in an IDE). `false` : also includes compatibility aliases for other CFML engines (e.g. ACF's componentPaths alonroperty names only — ugside Lucee's componentMappings) — use when reading/validating an existing config that may originate from another engine.

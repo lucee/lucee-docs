@@ -55,13 +55,36 @@ When running locally there are the following URLs available (these URLs below ar
 
 ## Working with the bundled JS and CSS files
 
-The build process for the JS and CSS bundles are found under `/builders/html/assets` and uses Sass and [Grunt](https://gruntjs.com/).
+The build process for the JS and CSS bundles are found under `/builders/html/assets`.
 
-Just run npm install, then run grunt.
+### Quick Start
+
+```bash
+cd builders/html/assets
+npm install
+npm run build
+```
+
+For development with auto-rebuild on file changes:
+
+```bash
+npm run watch
+```
+
+### Publishing Changes
 
 After you have made everything more beautiful via CSS, or added some funky new interactivity via JavaScript,
-to publish a new build of the bundles, you'll need to update `variables.assetBundleVersion` in both Application.cfc and Gruntfile.js,
-as the docs are statically deployed via Cloudfront and versioning of these files is required to break caching.
+to publish a new build of the bundles:
+
+1. Update the asset version in `builders/html/assets/package.json` (config.assetVersion)
+2. Update `variables.assetBundleVersion` in `Application.cfc` to match
+3. Update `this.assetBundleVersion` in `server/Application.cfc` to match
+4. Run `npm run build` in the assets directory
+5. Commit all files including the new versioned CSS/JS files
+
+The docs are statically deployed via CloudFront and versioning of these files is required to break caching.
+
+For detailed documentation on the asset build system, see [builders/html/assets/README.md](builders/html/assets/README.md).
 
 ## Contributing
 

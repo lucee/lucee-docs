@@ -22,70 +22,47 @@
 
 # Function SystemOutput
 
-This document explains the systemOutput function with some simple examples.
+[[function-systemOutput]] is like [[tag-dump]] for your console - supports complex types. Visible in Docker logs.
 
-It's like dump() for your console, including support for complex types.
-
-For example, if you are using Docker, you can see this output in the console logs.
-
-## Example 1:
+## Browser vs Console
 
 ```luceescript
-<cfscript>
-directory action="list" directory=getDirectoryFromPath(getCurrentTemplatePath()) filter="example*.cfm" name="dir";
-loop query=dir {
-	echo('<a href="#dir.name#">#dir.name#</a><br>');
-}
-</cfscript>
+dump(cgi); // browser output (or writeDump if you love to write more)
+echo(now()); // browser output (or writeOutput if you love to write more)
+systemOutput(cgi, true); // console output
+systemOutput(now(), true); // console output
 ```
 
-```lucee
-<cfscript>
-dump(cgi); // or writedump if you love to write more
-echo(now()); // or writeoutput if you love to write more
-</cfscript>
-```
-
-This example has a simple dump with CGI. It displays normally in the browser while we are running example1.cfm.
-
-## Example 2:
+## New Line
 
 ```luceescript
-// example2.cfm
-systemOutput(now(),true); // with new line
+systemOutput(now(), true); // with new line
 ```
 
-systemOutput() creates output content in the web browser (console). Here the systemoutput has two arguments: first argument _now()_ for current date and time, and second argument _true_ for a new line. Run this in the browser and see the content in the console.
+Second argument `true` adds a newline.
 
-## Example 3:
+## Error Stream
 
 ```luceescript
-// example3.cfm
-systemOutput(now(),true,true); // send to error stream
+systemOutput(now(), true, true); // send to error stream
 ```
 
-This example uses three arguments: first argument `now()` for current date and time, second argument `true` for a new line, and third argument for the stream. The stream argument indicates which stream the output should go. There are two streams to choose from: "Output stream" and "Error stream". A value of true in the third argument indicates the output should go to the error stream. Run this in the browser and see the contents with the output stream in the console.
+Third argument `true` writes to stderr instead of stdout.
 
-## Example 4:
+## Complex Objects
 
 ```luceescript
-// example4.cfm
-systemOutput(cgi,true); // complex object
+systemOutput(cgi, true); // complex object
 ```
 
-In addition to simple strings or simple values, you can also pass complex objects to the SystemOutput() function. In this example we pass CGI as the argument. When you run this in the browser, you get a serialized output in the console.
+Outputs serialized representation of structs, queries, etc.
 
-## Example 5:
+## Stack Trace
 
 ```luceescript
-// example5.cfm
-systemOutput("Here we are:<print-stack-trace>",true); // complex object
+systemOutput("Here we are:<print-stack-trace>", true);
 ```
 
-SystemOutput() has another good feature too. There is `<print-stack-trace>` used to show helpful information (where it is, which template, on which line number) while we mouse over the dump content. Lucee will detect and show the stack-trace if we add `<print-stack-trace>` to the SystemOutput() function in our code. When we run this in the browser, we see the stack-trace in the console.
+The `<print-stack-trace>` placeholder outputs the current stack trace.
 
-## Footnotes
-
-Here you can see these details on video also:
-
-[Function SystemOutput](https://www.youtube.com/watch?v=X_BQPFPD320)
+Video: [Function SystemOutput](https://www.youtube.com/watch?v=X_BQPFPD320)

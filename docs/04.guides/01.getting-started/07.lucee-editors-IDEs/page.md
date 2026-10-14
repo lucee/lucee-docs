@@ -1,6 +1,11 @@
 ---
 title: Lucee Editors & IDEs
 id: lucee-editors-IDEs
+categories:
+- core
+related:
+- docs-downloads
+description: Modern IDEs supporting for CFML development
 ---
 
 Here are the Modern IDEs which include support for CFML development
@@ -13,17 +18,30 @@ Here are the Modern IDEs which include support for CFML development
 
 <https://marketplace.visualstudio.com/items?itemName=CFMLEditor.cfmleditor>
 
-For complete contextual inline [Lucee help](https://dev.lucee.org/t/full-lucee-docs-for-vscode-cfmleditor/15046) with cfmleditor, there is a complete Lucee json dictionary using the [cfdocs](cfdocs.org) schema available [lucee-docs-json.zip](https://docs.lucee.org/lucee-docs-json.zip), there is also a double zipped version (stored and then zipped) [lucee-docs-json-zipped.zip](https://docs.lucee.org/lucee-docs-json-zipped.zip) which is less than half the size of the normal zipped version.
+CFML Editor has an option to use the full Lucee docs as the source for inline help, the default CFDocs only includes a subset of available tags and functions.
 
+[![Use Lucee Docs with CFMLEditor](/assets/images/ide/vscode-cfmleditor-lucee-docs.png)](https://dev.lucee.org/t/full-lucee-docs-for-vscode-cfmleditor/15046)
+ 
 <https://marketplace.visualstudio.com/items?itemName=CFMLEditor.cfmleditor-lint>
 
 <https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker>
 
-### Step debugging Lucee with VS Code (highly recommended!)
+### Step Debugging Lucee with VS Code (highly recommended!)
 
-[**LuceeDebug**](https://github.com/softwareCobbler/luceedebug) supports step debugging via breakpoints via a java agent and a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=DavidRogers.luceedebug)
+[**Extension Debugger**](https://github.com/lucee/extension-debugger) (formerly LuceeDebug) is a DAP step debugger for Lucee. On Lucee 7.1+ it runs as a native extension with zero overhead when not attached. For older versions (6.2+), it runs as a Java agent.
 
-[[lucee-step-debugger-installation-guide]]
+- [VS Code extension](https://marketplace.visualstudio.com/items?itemName=DavidRogers.luceedebug)
+- [Maven Central](https://central.sonatype.com/artifact/org.lucee/debugger-extension)
+
+[[lucee-step-debugger]]
+
+## NeoVim
+
+<https://neovim.io/>
+
+Vim and NeoVim both have built in syntax highlighting since 2017.
+
+Code completion in NeoVim can be achieved with [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) and [cfcomplete](https://codeberg.org/oricat/cfcomplete.nvim)
 
 ## Sublime Text
 

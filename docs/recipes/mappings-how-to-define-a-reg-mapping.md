@@ -3,9 +3,10 @@
   "title": "Define a mapping",
   "id": "mappings-how-to-define-a-reg-mapping",
   "related": [
+    "mappings-component-mappings",
+    "mappings-custom-tag-mappings",
     "tag-application",
-    "function-expandpath",
-    "cookbook-application-context-set-mapping"
+    "function-expandpath"
   ],
   "categories": [
     "application",
@@ -61,7 +62,7 @@ Now you can use that mapping in your code:
 
 ```coldfusion
 <cfinclude template="/shop/whatever.cfm"> <!--- load a template from the "shop" mapping --->
-<cfset cfc = new shop.Whatever()> <!--- load a CFC from the "shop" mapping (see also "this.componentpaths" for handling components) --->
+<cfset cfc = new shop.Whatever()> <!--- load a CFC from the "shop" mapping (see also "this.componentPaths" for handling components) --->
 ```
 
 # Advanced
@@ -96,8 +97,8 @@ Of course, this can be done for all mapping types:
 ```cfs
 // Application.cfc
 component {
-   this.componentpaths = [{archive: getDirectoryFromPath(getCurrentTemplatePath()) & 'testbox.lar'}]; // loading testbox from an archive
-   this.customtagpaths = [{archive: getDirectoryFromPath(getCurrentTemplatePath()) & 'helper.lar'}]; // a collection of helper custom tags
+   this.componentPaths = [{archive: getDirectoryFromPath(getCurrentTemplatePath()) & 'testbox.lar'}]; // loading testbox from an archive
+   this.customTagPaths = [{archive: getDirectoryFromPath(getCurrentTemplatePath()) & 'helper.lar'}]; // a collection of helper custom tags
 }
 ```
 

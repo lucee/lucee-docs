@@ -3,7 +3,7 @@ title: <cfsearch>
 id: tag-search
 related:
 categories:
-    - search
+- search
 ---
 
 Executes searches against data indexed

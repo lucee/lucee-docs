@@ -1,0 +1,1 @@
+Whether to use the cache, default is `TRUE`. When `FALSE` the cache ignored and still updated.

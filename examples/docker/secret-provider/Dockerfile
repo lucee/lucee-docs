@@ -1,0 +1,15 @@
+FROM lucee/lucee:7.0.2.96-SNAPSHOT
+
+# Provide test page by creating the directory and copying files
+RUN mkdir -p /var/www
+COPY www/ /var/www/
+COPY artifacts/ /opt/lucee/server/artifacts/
+
+# copy a custom lucee config in place
+COPY lucee-config.json /opt/lucee/server/lucee-server/context/.CFConfig.json
+
+# how to build it
+# docker build -t lucee-with-config .
+
+# how to run it (provides port for nginx and tomcat (optional); Lucee admin password)
+# docker run -d -p 8054:80 -p 8854:8888 -e LUCEE_ADMIN_PASSWORD=qwerty lucee-with-config

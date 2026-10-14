@@ -11,19 +11,32 @@
     "cron",
     "scheduled task",
     "clustering"
+  ],
+  "related": [
+    "tag-schedule",
+    "quartz-vs-task-event-gateway",
+    "task-event-gateway"
   ]
 }
 -->
 
 # Quartz Scheduler Extension for Lucee
 
-Lucee 6.2 and 7.0 include a powerful extension for task scheduling using the industry-standard Quartz Scheduler. This extension provides robust scheduling capabilities with clustering support, flexible job definitions, and integration with the Lucee ecosystem. The extension is written entirely in CFML (100%), showcasing the power and flexibility of the language.
+Lucee 6.2 and 7.0 include a powerful extension for task scheduling using the industry-standard Quartz Scheduler.
+
+This extension provides robust scheduling capabilities with clustering support, flexible job definitions, and integration with the Lucee ecosystem.
+
+The extension is written entirely in CFML (100%), showcasing the power and flexibility of the language.
 
 ## Overview
 
-The Quartz Scheduler extension brings industry-standard scheduling capabilities to Lucee, leveraging the most widely adopted scheduling system in the Java world. This provides access to a mature ecosystem of tools and a large community beyond the CFML world, including numerous free and commercial products for interacting with your scheduled tasks.
+The Quartz Scheduler extension brings industry-standard scheduling capabilities to Lucee, leveraging the most widely adopted scheduling system in the Java world.
 
-Starting with Lucee 7, the traditional "Scheduled Task" system has been moved to an extension, allowing you to choose between the legacy system and the new Quartz Scheduler. During this transition period, the legacy Scheduled Task extension is installed by default, while Quartz Scheduler requires explicit installation.
+This provides access to a mature ecosystem of tools and a large community beyond the CFML world, including numerous free and commercial products for interacting with your scheduled tasks.
+
+Starting with Lucee 7, the traditional "Scheduled Task" system has been moved to an extension, allowing you to choose between the legacy system and the new Quartz Scheduler.
+
+During this transition period, the legacy Scheduled Task extension is installed by default, while Quartz Scheduler requires explicit installation.
 
 ## Key Features
 
@@ -50,7 +63,9 @@ The Quartz Scheduler extension can be installed in two ways:
 2. Copy the downloaded .lex file to the Lucee deploy folder: `lucee-server/deploy`
 3. Lucee will automatically detect and install the extension within a minute
 
-In Lucee 6.2, this extension is considered experimental, primarily for testing purposes. In Lucee 7, it's fully supported as an alternative to the legacy Scheduled Task system.
+In Lucee 6.2, this extension is considered experimental, primarily for testing purposes. 
+
+In Lucee 7, it's fully supported as an alternative to the legacy Scheduled Task system.
 
 ## Administration
 
@@ -71,7 +86,9 @@ In addition to the Admin integration, a read-only standalone client is available
 
 ## Configuration
 
-The Quartz Scheduler is configured using JSON, which provides full flexibility for advanced configurations. You can define your configuration in two ways:
+The Quartz Scheduler is configured using JSON, which provides full flexibility for advanced configurations. 
+
+You can define your configuration in two ways:
 
 ### 1. Using the Configuration File
 
@@ -83,7 +100,9 @@ Create or modify the configuration file located at:
 
 ### 2. Using the Deployment Mechanism
 
-Lucee provides a "deploy" folder where you can place configuration files that Lucee will automatically pick up and install. To update your Quartz Scheduler configuration:
+Lucee provides a "deploy" folder where you can place configuration files that Lucee will automatically pick up and install. 
+
+To update your Quartz Scheduler configuration:
 
 1. Create a file named `config.quartz` with your configuration
 2. Place it in the Lucee deploy directory
@@ -107,7 +126,7 @@ The Quartz Scheduler configuration has three main sections:
 
 Jobs are the tasks that will be executed according to a schedule. Each job configuration can include:
 
-```json
+```cfml
 {
   "label": "Job description",
   "url": "/path/to/execute.cfm",  // OR
@@ -128,27 +147,27 @@ Jobs are the tasks that will be executed according to a schedule. Each job confi
 
 1. **URL Jobs**: Execute HTTP requests to internal or external URLs
 
-   ```json
+```json
    {
      "label": "Call external API",
      "url": "https://api.example.com/endpoint",
      "interval": "3600"
    }
-   ```
+```
 
 2. **Internal Path Jobs**: Execute a path local to the server (important for proper load balancing in clusters)
 
-   ```json
+```json
    {
      "label": "Process local data",
      "url": "/jobs/process-data.cfm",
      "cron": "0 0 * * * ?"
    }
-   ```
+```
 
 3. **Component Jobs**: Execute a CFML component
 
-   ```json
+```json
    {
      "label": "Database maintenance",
      "component": "com.example.tasks.DatabaseMaintenance",
@@ -156,29 +175,29 @@ Jobs are the tasks that will be executed according to a schedule. Each job confi
      "mode": "singleton",
      "dbName": "users"
    }
-   ```
+```
 
 #### Scheduling Options
 
 1. **Simple Interval**: Specify execution frequency in seconds
 
-   ```json
+```cfml
    "interval": "60"  // Execute every 60 seconds
-   ```
+```
 
 2. **Cron Expression**: Use powerful cron syntax for complex schedules
 
-   ```json
+```cfml
    "cron": "0 0 9-17 ? * MON-FRI"  // Every hour from 9am-5pm on weekdays
-   ```
+```
 
-   > **Tip**: Creating cron expressions can be challenging. AI tools like Google, ChatGPT, or Claude can help you define the correct cron expression for your specific scheduling needs. Simply ask something like "Create a cron expression that runs every Tuesday at 3 PM" to get assistance.
+> **Tip**: Creating cron expressions can be challenging. AI tools like Google, ChatGPT, or Claude can help you define the correct cron expression for your specific scheduling needs. Simply ask something like "Create a cron expression that runs every Tuesday at 3 PM" to get assistance.
 
 ### Listeners Configuration
 
 Listeners are components that monitor job execution:
 
-```json
+```cfml
 {
   "component": "path.to.ListenerComponent",
   "stream": "err"  // "err" or "out" for console output
@@ -191,12 +210,12 @@ Storage determines how job information is persisted and enables clustering:
 
 1. **In-Memory (Default)**: No configuration needed
 
-   - Jobs are stored in memory and read/saved to the config file
-   - No clustering support
+- Jobs are stored in memory and read/saved to the config file
+- No clustering support
 
 2. **Database Storage**:
 
-   ```json
+```json
    "store": {
      "type": "datasource",
      "datasource": "quartz",
@@ -205,11 +224,11 @@ Storage determines how job information is persisted and enables clustering:
      "clusterCheckinInterval": "15000",
      "misfireThreshold": "60000"
    }
-   ```
+```
 
 3. **Redis Storage**:
 
-   ```json
+```json
    "store": {
      "type": "redis",
      "host": "localhost",
@@ -224,11 +243,13 @@ Storage determines how job information is persisted and enables clustering:
      "ssl": false,
      "misfireThreshold": 60000
    }
-   ```
+```
 
 #### Database Setup for Clustering
 
-When using database storage for clustering, Quartz Scheduler needs specific tables in your database. The extension will attempt to create these tables automatically when it starts, but this requires the database user to have sufficient privileges.
+When using database storage for clustering, Quartz Scheduler needs specific tables in your database. 
+
+The extension will attempt to create these tables automatically when it starts, but this requires the database user to have sufficient privileges.
 
 If you encounter errors like `Table 'quartz.QRTZ_TRIGGERS' doesn't exist`, you may need to:
 
@@ -239,7 +260,9 @@ For detailed database setup instructions, including scripts for different databa
 
 ## Component Jobs
 
-When using components as scheduled tasks, the component must include an `execute()` method that will be called by the scheduler. You can also include an `init()` method that will receive all job configuration parameters.
+When using components as scheduled tasks, the component must include an `execute()` method that will be called by the scheduler. 
+
+You can also include an `init()` method that will receive all job configuration parameters.
 
 ### Component Example
 
@@ -253,7 +276,7 @@ component {
         variables.customBoolean = arguments.customBoolean;
         variables.customString = arguments.customString;
     }
-    
+
     // Required execute method - called when the job runs
     public void function execute() {
         // Your task logic here
@@ -267,7 +290,7 @@ component {
 1. **Transient Mode (Default)**: Creates a new instance of the component for each execution
 2. **Singleton Mode**: Creates a single instance that is reused across all executions
 
-```json
+```cfml
 {
   "component": "com.example.tasks.MyTask",
   "mode": "singleton"  // Use the same instance for all executions
@@ -291,13 +314,52 @@ One of the most powerful features of the Quartz Scheduler is clustering support,
 2. **Enable Clustering**: Set the `cluster` parameter to `true` in your storage configuration
 3. **Deploy to Multiple Servers**: Each server will coordinate with others to ensure tasks run once
 
-When clustering is enabled, the storage backend becomes the source of truth. The configuration file is used:
+For detailed instructions and best practices on setting up clustering with Quartz Scheduler, see the dedicated [[clustering-quartz-scheduler]] recipe.
 
-- As a backup for job definitions
-- To provide initial jobs only when the storage has no jobs defined
-- For listener definitions (which always come from the config file)
+### Primary Configuration Source
 
-For detailed instructions and best practices on setting up clustering with Quartz Scheduler, see the dedicated [Clustering with Quartz Scheduler](recipes/clustering-quartz-scheduler.md) recipe.
+When a store is configured, you can control which source is treated as primary for job definitions using the `primary` setting:
+
+```json
+{
+  "primary": "store"
+}
+```
+
+| Value | Default when | Behaviour |
+|-------|-------------|-----------|
+| `"store"` | A store is defined | The store is the primary source of truth. The config file is only used to seed initial jobs when the store is empty. |
+| `"file"` | No store is defined | The config file is always the primary source of truth. Jobs missing from the file will be removed from the store on startup. |
+
+This is particularly useful when you want to manage a clustered environment entirely through configuration files rather than through the Administrator UI. Set `"primary": "file"` and the config file will always win, including removals.
+
+> **Note**: Listeners always come from the config file regardless of the `primary` setting.
+
+#### Examples
+
+Store is primary (default clustered behaviour — store wins once it has jobs):
+
+```json
+{
+  "primary": "store",
+  "store": {
+    "type": "redis",
+    "host": "localhost"
+  }
+}
+```
+
+File is primary (config file is always authoritative, even with a store present):
+
+```json
+{
+  "primary": "file",
+  "store": {
+    "type": "redis",
+    "host": "localhost"
+  }
+}
+```
 
 ## Related Recipes
 
@@ -310,6 +372,7 @@ For more detailed information on specific aspects of the Quartz Scheduler extens
 
 ```json
 {
+  "primary": "store",
   "jobs": [
     {
       "label": "External API Call",
@@ -349,7 +412,9 @@ For more detailed information on specific aspects of the Quartz Scheduler extens
 
 ## Migration from Legacy Scheduled Tasks
 
-The Quartz Scheduler extension does not currently read configuration from the legacy Scheduled Task system. However, it provides similar functionality for defining tasks:
+The Quartz Scheduler extension does not currently read configuration from the legacy Scheduled Task system. 
+
+However, it provides similar functionality for defining tasks:
 
 - **URL Tasks**: Use the `url` parameter with an absolute or relative URL
 - **Interval-based Scheduling**: Use the `interval` parameter with seconds (similar to the legacy system)
@@ -357,6 +422,8 @@ The Quartz Scheduler extension does not currently read configuration from the le
 
 ## Conclusion
 
-The Quartz Scheduler extension brings robust, industry-standard scheduling capabilities to Lucee applications. With support for clustering, flexible job definitions, and powerful scheduling options, it provides a solid foundation for mission-critical scheduled tasks in your applications.
+The Quartz Scheduler extension brings robust, industry-standard scheduling capabilities to Lucee applications.
+
+With support for clustering, flexible job definitions, and powerful scheduling options, it provides a solid foundation for mission-critical scheduled tasks in your applications.
 
 As this extension continues to evolve, additional features and improvements will be added, including better migration support from the legacy Scheduled Task system.

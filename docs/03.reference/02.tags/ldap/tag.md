@@ -2,6 +2,7 @@
 title: <cfldap>
 id: tag-ldap
 categories:
+- ldap
 - protocols
 ---
 

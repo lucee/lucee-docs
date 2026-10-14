@@ -1,0 +1,1 @@
+With Lucee 6.1, the underlying encoder was switched to Use Apache Common Codec, which is stricter but more standards compliant

@@ -1,1 +1,1 @@
-Path to the Lucee XML file (lucee-server.xml or lucee-web.xml.cfm) file or the data itself as a String.
+Path to the new `.CFConfig.json` file.

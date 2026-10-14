@@ -16,11 +16,15 @@
     "Script",
     "throw",
     "abort",
-    "return"
+    "return",
+    "unquoted",
+    "attribute"
   ],
   "related": [
     "developing-with-lucee-server",
-    "tag-script"
+    "tag-script",
+    "tags",
+    "lucee-5-unquoted-arguments"
   ]
 }
 -->
@@ -28,19 +32,27 @@
 # How to Use Tags in Script
 
 Lucee is a versatile platform that supports two programming languages: a tag-based language that integrates seamlessly into HTML and a script-based language.
+
 Lucee (or CFML in general) initially started as a purely tag-based language, but over time, support for scripting has grown.
+
 More and more functionality from the tag environment has been brought into the script environment, including support for using tags directly in script syntax.
+
 This guide explains how you can use tags in scripts or migrate tag.
 
 ## History of Tags in Script
 
-Lucee supports two different tag syntaxes within scripts. The reason for this is rooted in a decision made by the "CFML Advisory Committee," which included members from Railo (now Lucee), Adobe, and BlueDragon.
-The committee agreed on one syntax for tag use in scripts, but later Adobe chose to implement a different syntax. Since Lucee had already implemented the committee's original syntax,
+Lucee supports two different tag syntaxes within scripts. 
+
+The reason for this is rooted in a decision made by the "CFML Advisory Committee," which included members from Railo (now Lucee), Adobe, and BlueDragon.
+
+The committee agreed on one syntax for tag use in scripts, but later Adobe chose to implement a different syntax. 
+
+Since Lucee had already implemented the committee's original syntax,
 it now supports both: the "Function Syntax" and the "Migration Syntax."
 
 ### Function Syntax and Migration Syntax
 
-#### Function Syntax
+#### Function Syntax (recommended)
 
 The **Function Syntax** in Lucee looks similar to regular function calls but does not support return values (yet). Here's an example:
 
@@ -79,7 +91,30 @@ The migration syntax is more distinct from functions, which can make the migrati
 
 ## Differences Between Tag and Script
 
-One of the key differences between tag-based code and script-based code in Lucee is how variables are interpreted. For example, in tag-based code:
+One of the key differences between tag-based code and script-based code is how **unquoted attribute values** are interpreted.
+
+The examples below use [[tag-invokeargument]], which normally sits inside a [[tag-invoke]] call; only the argument line is shown.
+
+### Tags: unquoted values are always strings
+
+In tag syntax, an unquoted attribute value is always a literal string, exactly as if it was quoted. It is never evaluated as a number or a variable. This is the same in Lucee and Adobe ColdFusion (ACF).
+
+```html
+<cfset susi = 42>
+
+<cfinvokeargument name="tNum" value=1234>      <!--- string "1234" --->
+<cfinvokeargument name="tNum" value="1234">    <!--- string "1234" --->
+<cfinvokeargument name="tNum" value=susi>      <!--- string "susi", NOT the variable susi --->
+```
+
+To pass a variable or any other expression in a tag, wrap it in `#`:
+
+```html
+<cfinvokeargument name="tNum" value="#susi#">  <!--- the variable susi (the number 42) --->
+<cfinvokeargument name="tNum" value="#1234#">  <!--- the number 1234 --->
+```
+
+This also explains a common error. In this example:
 
 ```html
 <cfset max=10>
@@ -88,9 +123,27 @@ One of the key differences between tag-based code and script-based code in Lucee
 </cfloop>
 ```
 
-The variable `max` will be interpreted as the string `"max"`, which can lead to an error like "string [max] cannot be converted to a number."
+`max` is the string `"max"`, not the variable, which leads to an error like "can't cast [max] string to a number value". Use `to="#max#"` instead.
 
-In contrast, when the same code is written in script (either migration or function syntax), the variable `max` is correctly interpreted as a variable, not a string:
+### Script: unquoted values are expressions
+
+In script, attribute values are expressions, just like function arguments. An unquoted number is a number, an unquoted name refers to a variable, and a quoted value is a string. The function syntax behaves the same in Lucee and ACF; Lucee's migration syntax (tags in script) follows the same rule.
+
+```javascript
+susi = 42;
+
+// function syntax
+cfinvokeargument( name="tNum", value="1234" ); // string "1234"
+cfinvokeargument( name="tNum", value=1234 );   // number 1234
+cfinvokeargument( name="tNum", value=susi );   // the variable susi (42)
+
+// migration syntax (Lucee's tags in script; ACF doesn't support invokeargument in this form)
+invokeargument name="tNum" value="1234";       // string "1234"
+invokeargument name="tNum" value=1234;         // number 1234
+invokeargument name="tNum" value=susi;         // the variable susi (42)
+```
+
+So the loop example from above works in script without `#`:
 
 ```javascript
 max = 10;
@@ -99,7 +152,18 @@ loop from="1" to=max index="i" {
 }
 ```
 
-In this case, the `max` variable is evaluated properly, and the code runs without errors.
+### Summary
+
+| Code | Tag syntax | Script syntax |
+|---|---|---|
+| `value="1234"` | string `"1234"` | string `"1234"` |
+| `value=1234` | string `"1234"` | number `1234` |
+| `value=susi` | string `"susi"` | variable `susi` |
+| `value="#susi#"` | variable `susi` | variable `susi` |
+
+When you migrate tag code to script, check unquoted attribute values: `value=1234` and `value=susi` will mean something different in script.
+
+> **Note:** This describes the default. The Administrator's compiler settings have a "Tag attribute values" option ("Handle unquoted tag attribute values as strings"), which is enabled by default. If you disable it, unquoted tag attribute values are handled as variables instead. See [[lucee-5-unquoted-arguments]].
 
 ## Exceptions to the rules
 

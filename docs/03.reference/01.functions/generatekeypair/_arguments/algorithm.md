@@ -1,0 +1,1 @@
+Algorithm string. For RSA, append key size: RSA (default 2048), RSA-4096. For EC, use curve name: EC (default P-256), P-384, P-521. For EdDSA: Ed25519, Ed448. For post-quantum: Kyber768, Dilithium3.

@@ -1,10 +1,8 @@
 <!doctype html>
 <html lang="en" ng-app="trycf">
     <head>
-        <link href="//netdna.bootstrapcdn.com/bootswatch/3.3.5/flatly/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/trycf/css/split-pane.css" rel="stylesheet">
-        <link href="assets/trycf/css/code-editor.css" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Main docs CSS with Material Symbols icons and theme support -->
+        <link href="assets/css/base.{{assetBundleVersion}}.min.css" rel="stylesheet">
     </head>
     <body>
         <div code-editor
@@ -19,16 +17,34 @@
              code="">
         </div>
 
+        <!-- jQuery, Angular, TryCF editor now bundled in main JS -->
+        <script src="assets/js/dist/base.{{assetBundleVersion}}.min.js"></script>
+        <!-- ACE Editor v1.36.5 bundle (coldfusion mode + monokai theme) -->
+        <script src="assets/trycf/js/ace/ace-bundle.{{assetBundleVersion}}.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+            // Configure ACE to not lazy-load (everything is bundled)
+            ace.config.set("useWorker", false);
+            ace.config.set("loadWorkerFromBlob", false);
+            ace.config.set("basePath", "assets/trycf/js/ace");
+            ace.config.set("modePath", "assets/trycf/js/ace");
+            ace.config.set("themePath", "assets/trycf/js/ace");
 
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="assets/trycf/js/docscodeloader.js" type="text/javascript" charset="utf-8"></script>
-        <script src="assets/trycf/js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="assets/trycf/js/ace/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
-        <script src="assets/trycf/js/ace/snippets/coldfusion.js"></script>
-        <script src="assets/trycf/js/split-pane.js"></script>
-        <script src="assets/trycf/js/angular.min.js"></script>
-        <script src="assets/trycf/js/code-editor3.js"></script>
-        <script src="assets/trycf/js/trycf.js"></script>
+            // Listen for theme changes from parent window
+            window.addEventListener('message', function(event) {
+                if (event.data && event.data.type === 'theme-change') {
+                    document.documentElement.setAttribute('data-theme', event.data.theme);
+                }
+            });
+
+            // Apply parent's theme on load
+            try {
+                var parentTheme = window.parent.document.documentElement.getAttribute('data-theme');
+                if (parentTheme) {
+                    document.documentElement.setAttribute('data-theme', parentTheme);
+                }
+            } catch (e) {
+                // Cross-origin - parent will send theme via postMessage
+            }
+        </script>
     </body>
 </html>

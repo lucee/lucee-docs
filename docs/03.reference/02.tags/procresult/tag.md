@@ -3,6 +3,7 @@ title: <cfprocresult>
 id: tag-procresult
 related:
 categories:
+- query
 ---
 
 Specifies a result set name that other tags, such as cfoutput and cftable, use to access the result set.

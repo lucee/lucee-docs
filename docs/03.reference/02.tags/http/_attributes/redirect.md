@@ -1,11 +1,9 @@
-Boolean indicating whether to redirect execution or stop execution.
+Whether to automatically follow HTTP redirects (3xx status codes).
 
-The default is Yes.
+When **true** (default): Automatically follows up to 15 redirects.
 
-If set to No and throwOnError = "yes", execution stops if cfhttp fails, and the status code and associated error message are returned in the variable cfhttp.statuscode.
+When **false**: Stops at the first redirect response. Use `cfhttp.responseHeader.LOCATION` to see the redirect target.
 
-To see where execution would have been redirected, use the variable cfhttp.responseHeader[LOCATION]. The key LOCATION identifies the path of redirection.
-
-Lucee will follow up to five redirections on a request. If this limit is exceeded, Lucee behaves as if redirect = "no".
+If redirect limit is exceeded, behaves as if set to false.
 
 If set to "Lax", filecontent for redirects for POST and DELETE requests will be returned, since **7.0.0.208**

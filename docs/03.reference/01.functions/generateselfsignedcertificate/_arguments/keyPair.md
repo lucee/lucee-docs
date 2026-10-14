@@ -1,0 +1,1 @@
+Struct with 'private' and 'public' keys (from GenerateKeyPair or Lucee's built-in GenerateRSAKeys). Provide either keyPair OR privateKey+publicKey.

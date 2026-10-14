@@ -52,7 +52,7 @@
 	}
 	a,
 	.a {
-		color: $black-text;
+		color: var( --text-color );
 		display: block;
 		padding: ($line-height / 2) $grid-gutter;
 		overflow: hidden;
@@ -62,13 +62,13 @@
 		white-space: nowrap;
 		&:focus,
 		&:hover {
-			background-color: $white-bg;
+			background-color: var( --bg-surface );
 			text-decoration: none;
 		}
 	}
 	.active > a,
 	.active > .a {
-		background-color: $white-bg;
+		background-color: var( --bg-surface );
 	}
 	li {
 		display: block;
@@ -86,7 +86,7 @@
 .dropdown-toggle {
 	@include transition(background-color 0.3s $timing);
 	.dropdown.open & {
-		background-color: $black-bg;
+		background-color: var( --border-color );
 		border-radius: 2px 2px 0 0;
 	}
 }
@@ -107,7 +107,7 @@
 	z-index: 1;
 	.dropdown.open & {
 		background-color: $white;
-		color: $black-text;
+		color: var( --text-color );
 		@include box-shadow(none);
 	}
 	~ .dropdown-menu {

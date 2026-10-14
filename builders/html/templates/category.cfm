@@ -19,12 +19,15 @@
 	];
 
 	local.missingPageTypes = {};
+	local.effectiveType = {};
 	loop array="#local.pages#" index="local.i" item="local.page" {
-		if ( !structKeyExists(local.pageTypeTitles, local.page.getPageType() ) ) {
-			request.logger (text="Unknown page type: [ #local.page.getPageType()# ] page [#local.page.getSourceFile()#] defaulting to [page.md]", type="WARN");
-			local.page.setPageType("page");
+		local.type = local.page.getPageType();
+		if ( !structKeyExists(local.pageTypeTitles, local.type ) ) {
+			request.logger (text="Unknown page type: [ #local.type# ] page [#local.page.getSourceFile()#] defaulting to [page.md]", type="WARN");
+			local.type = "page";
 		}
-		local.pageTypeTitles[local.page.getPageType()].pages++;
+		local.effectiveType[local.page.getId()] = local.type;
+		local.pageTypeTitles[local.type].pages++;
 	}
 </cfscript>
 
@@ -36,13 +39,17 @@
 	<cfif not pages.len()>
 		<p><em>There are no pages tagged with this category.</em></p>
 	<cfelse>
+		<div style="margin-bottom: 15px;">
+			<input type="text" id="category-filter" class="form-control" placeholder="Filter..." style="max-width: 300px;">
+		</div>
 		<cfloop collection="#local.pageTypeTitles#" key="local.pageTypeKey" value="local.pageType">
 			<cfif local.pageType.pages gt 0>
 				<h2>#( local.pageType.title )#</h2>
 				<ul class="list-unstyled">
 				<cfloop array="#local.pages#" index="local.i" item="local.page">
-					<cfif local.pageTypeKey eq local.page.getPageType()>
-						<li>[[#htmleditformat(local.page.getId())#]] #htmleditformat( getMetaDescription(local.page, local.page.getBody()) )#</li>
+					<cfif local.pageTypeKey eq local.effectiveType[ local.page.getId() ]>
+						<cfset desc = reReplace(getMetaDescription(local.page, local.page.getBody()), "\s*##{1,6}\s*", " ", "all")>
+						<li>[[#htmleditformat(local.page.getId())#]] <span class="list-desc">#_markdownToHtml(htmleditformat(desc))#</span></li>
 					</cfif>
 				</cfloop>
 				</ul>

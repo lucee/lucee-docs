@@ -2,8 +2,6 @@
 title: RunAsync
 id: function-runasync
 categories:
-- async
-- future
 - thread
 description: A function that returns a Future object, which is an eventual result of an asynchronous operation
 ---

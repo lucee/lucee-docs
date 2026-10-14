@@ -13,4 +13,10 @@ categories:
 - query
 ---
 
-Encodes the given string for safe output in a query to reduce the risk of SQL Injection attacks. _This method is not recommended_ - the use of query parameters are strongly encouraged. See [[tag-queryparam]].
+Encodes the given string for safe output in a query to reduce the risk of SQL Injection attacks.
+
+_This method is not recommended_ -
+
+This function is no longer suppprted by the underlying ESAPI library since 2.7.0 due to security concerns.
+
+The use of query parameters are strongly encouraged. See [[tag-queryparam]].

@@ -1,14 +1,14 @@
 .tile {
-	background-color: $white;
+	background-color: var( --bg-surface );
 	display: block;
 	position: relative;
-	@include box-shadow(0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15));
+	@include box-shadow(0 -1px 0 var( --border-color ), 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15));
 	@include clearfix();
 	&[href] {
-		color: $black-text;
+		color: var( --text-color );
 		&:focus,
 		&:hover {
-			color: $link-color;
+			color: var( --link-color );
 			text-decoration: none;
 		}
 	}
@@ -29,7 +29,7 @@
 	}
 	// no boxshadow
 		.no-boxshadow & {
-			border: 1px solid $black-bg;
+			border: 1px solid var( --border-color );
 			+ .tile {
 				margin-top: -1px;
 			}
@@ -38,7 +38,7 @@
 
 // colour
 	.tile-offwhite {
-		background-color: $white-bg;
+		background-color: var( --bg-surface );
 	}
 
 	@each $color in $palette-list {
@@ -107,8 +107,8 @@
 }
 
 .tile-footer {
-	background-color: $white-bg;
-	border-top: 1px solid $black-bg;
+	background-color: var( --bg-color );
+	border-top: 1px solid var( --border-color );
 	position: relative;
 	@include clearfix();
 	&:first-child {
@@ -122,7 +122,7 @@
 
 // colour
 	.tile-offwhite .tile-footer {
-		background-color: $white-bg-dark;
+		background-color: var( --bg-color );
 	}
 
 	@each $color in $palette-list {
@@ -164,7 +164,7 @@
 	position: relative;
 	width: 100%;
 	&:before {
-		border-top: 1px solid $black-bg;
+		border-top: 1px solid var( --border-color );
 		content: "";
 		display: block;
 		position: absolute;

@@ -1,0 +1,1 @@
+Specifies the name of the initialization method to call when the component is instantiated using the `new` operator. If not specified, the default `init()` method is called.

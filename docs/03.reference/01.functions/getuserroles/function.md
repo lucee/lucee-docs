@@ -6,6 +6,8 @@ related:
 - function-isuserinanyrole
 - function-isuserinrole
 - function-isuserloggedin
+categories:
+- session
 ---
 
 Retrieves the list of roles for the current user.

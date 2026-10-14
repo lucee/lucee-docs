@@ -1,0 +1,1 @@
+Optional struct with: preserveTags (boolean, default true) - when false, tagged values are unwrapped to just the inner value

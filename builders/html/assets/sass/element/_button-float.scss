@@ -1,8 +1,8 @@
 .fbtn {
-	background-color: $black-bg;
+	background-color: var( --border-color );
 	border-radius: 50%;
 	clear: both;
-	color: $black-text;
+	color: var( --text-color );
 	cursor: pointer;
 	display: block;
 	font-size: $line-height;
@@ -20,7 +20,7 @@
 a.fbtn {
 	&:focus,
 	&:hover {
-		color: $black-text;
+		color: var( --text-color );
 		@include box-shadow(0 3px 10px rgba(0, 0, 0, 0.5), 0 3px 15px rgba(0, 0, 0, 0.5));
 	}
 }
@@ -169,7 +169,7 @@ a.fbtn {
 }
 
 .fbtn-text {
-	background-color: $black-text;
+	background-color: var( --text-color );
 	background-color: rgba(0, 0, 0, 0.8);
 	border-radius: 2px;
 	color: $white;

@@ -3,6 +3,7 @@ title: Locking Down Tomcat
 id: locking-down-your-lucee-stack
 categories:
 - server
+- devops
 description: Restricting Access to Tomcat's Web Server
 ---
 

@@ -2,6 +2,7 @@
 title: ConfigImport
 id: function-configimport
 related:
+- function-configtranslate
 categories:
 - server
 description: Imports configuration using the "CFConfig.json" format.
@@ -19,4 +20,4 @@ The function will check for the actual values for this placeholders in 3 places 
 - System properties
 - Environment variables
 
-[[directory-placeholders]] will be passed thru and dynamically evaluated when used.
+[[configuration-directory-placeholders]] will be passed thru and dynamically evaluated when used.

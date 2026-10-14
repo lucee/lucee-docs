@@ -3,6 +3,7 @@ title: <cffeed>
 id: tag-feed
 related:
 categories:
+- protocols
 ---
 
 Reads or creates an RSS or Atom syndication feed.

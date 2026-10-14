@@ -1,6 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: Lucee Docs Builder
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 on:
   push:
     branches: [master]
@@ -17,6 +19,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-java@v4
         with:
           distribution: 'adopt'
@@ -39,9 +43,26 @@ jobs:
         with:
           webroot: ${{ github.workspace }}
           execute: /build-all.cfm
-          luceeVersion: 7.0.0.250-SNAPSHOT
-          # redis, chart, lucene, form. ajax, chart, argon2, websocket, ec2, json
-          extensions: 60772C12-F179-D555-8E2CD2B4F7428718;version=3.0.0.54-SNAPSHOT,D46B46A9-A0E3-44E1-D972A04AC3A8DC10,EFDEB172-F52E-4D84-9CD1A1F561B3DFC8,FAD67145-E3AE-30F8-1C11A6CCF544F0B7,6E2CB28F-98FB-4B51-B6BE6C64ADF35473,DF28D0A4-6748-44B9-A2FDC12E4E2E4D38,7891D723-8F78-45F5-B7E333A22F8467CA,07082C66-510A-4F0B-B5E63814E2FDF7BE,261114AC-7372-4CA8-BA7090895E01682D,A03F4335-BDEF-44DE-946FB16C47802F96,3F9DFF32-B555-449D-B0EB5DB723044045
+          luceeVersion: 7.1.0.118-SNAPSHOT
+          extensions: >-
+            org.lucee:redis-extension,
+            org.lucee:chart-extension,
+            org.lucee:s3-extension,
+            org.lucee:lucene-search-extension,
+            org.lucee:form-extension,
+            org.lucee:ajax-extension,
+            org.lucee:axis-extension,
+            org.lucee:argon2-extension,
+            org.lucee:ec2-extension,
+            org.lucee:json-extension,
+            org.lucee:websocket-extension,
+            org.lucee:websocket-client-extension,
+            org.lucee:debugger-extension,
+            org.lucee:crypto-extension,
+            org.lucee:jsonata-extension,
+            org.lucee:hibernate-extension:5.6.15.12-SNAPSHOT
+      - name: Copy skill file to build artifacts
+        run: cp docs/recipes/lucee.skill builds/artifacts/lucee.skill
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -57,9 +78,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
           AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
-      - name: Ping Search Engines with sitemaps
-        run: curl https://google.com/ping?sitemap=https://docs.lucee.org/sitemap.xml
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master'}}
       # - name: Notify slack
       #   uses: 8398a7/action-slack@v4.9.1
       #   with:

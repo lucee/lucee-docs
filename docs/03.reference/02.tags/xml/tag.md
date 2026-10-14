@@ -3,6 +3,7 @@ title: <cfxml>
 id: tag-xml
 related:
 categories:
+- xml
 ---
 
 Creates a CFML XML document object that contains the markup in the tag body.

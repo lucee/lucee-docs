@@ -1,0 +1,1 @@
+If true, simplifies the input (resolving multiple/mixed encoding) before applying the new encoding. This prevents bypass attacks using double-encoding.

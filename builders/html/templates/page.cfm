@@ -9,7 +9,7 @@
 
 <cfoutput>
 	#getEditLink(path=local.pg.getSourceFile(), edit=arguments.args.edit)#
-	#toc( body )#
+	<!--- TOC will be generated after WikiLinks are processed --->
 	<cfif structKeyExists(pg, "since")>
 		<b>Introduced:</b> #pg.since#<br>
 	</cfif>

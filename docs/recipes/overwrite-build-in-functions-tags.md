@@ -14,16 +14,22 @@
     "backport fixes",
     "ACF compatibility"
   ],
+  "categories": [
+    "server"
+  ],
   "related": [
     "tag-function",
-    "developing-with-lucee-server"
+    "developing-with-lucee-server",
+    "tips-built-in-function",
+    "function-getbuiltinfunction",
+    "function-iscustomfunction"
   ]
 }
 -->
 
 # Overwriting and Adding Built-in Functions and Tags
 
-In Lucee, you can overwrite or add built-in functions and tags with your own implementations. This is particularly useful for emulating the behavior of older Lucee versions in newer ones or for backporting fixes to older versions.
+Overwrite or add built-in functions / BIF (Built-In Functions) and tags with custom implementations - useful for backporting fixes or emulating different version behavior.
 
 ## Overwriting/Adding Functions
 

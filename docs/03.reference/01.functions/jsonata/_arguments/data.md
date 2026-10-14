@@ -1,0 +1,1 @@
+JSON data to query - can be a struct, array, or JSON string.

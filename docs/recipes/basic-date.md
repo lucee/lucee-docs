@@ -20,8 +20,6 @@
 
 # Basic Date - Output the current date
 
-The following examples show you how to output the current date.
-
 ```run
 <cfoutput>
    <p>The time is #lsdateTimeFormat(now())#</p>

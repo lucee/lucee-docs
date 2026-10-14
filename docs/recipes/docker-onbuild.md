@@ -3,12 +3,14 @@
   "title": "onBuild Function in Server.cfc",
   "id": "onbuild-function",
   "related": [
-    "startup-listeners-code"
+    "startup-listeners-code",
+    "warmup"
   ],
   "since": "6.1.1",
   "categories": [
     "server",
     "docker",
+    "devops",
     "system"
   ],
   "description": "The onBuild function in Server.cfc is used for tasks during the build phase in Lucee, particularly useful in Docker environments.",
@@ -31,22 +33,18 @@
 }
 -->
 
-# onBuild Function in Server.cfc (supported since Lucee 6.1.1)
+# onBuild Function in Server.cfc
 
-The `onBuild` function in `Server.cfc` is designed for executing specific tasks during the build phase of a Lucee server, which is particularly useful in Docker environments. This function allows you to automate various setup tasks that need to be completed when building your Lucee server image.
+The `onBuild` function in `Server.cfc` executes tasks during the build phase - particularly useful in Docker environments for automating setup tasks when building your image.
 
-## Understanding Server.cfc
+## Server.cfc Lifecycle Events
 
-`Server.cfc` is a component that can be created in the `lucee-server\context\context` directory. It contains lifecycle event functions that are triggered during the startup of the Lucee server. The `onBuild` function within this component is called when you start Lucee with specific flags or environment variables indicating a build phase.
+Create `Server.cfc` in `lucee-server\context\context`:
 
-### When is Server.cfc Triggered?
+- **onServerStart**: Triggered when Lucee starts
+- **onBuild**: Triggered during build phase. Set `LUCEE_BUILD=true` or `-Dlucee.build` to activate
 
-- **onServerStart**: Triggered when the Lucee server starts.
-- **onBuild**: Triggered during the build phase, particularly useful in Docker environments. Set the environment variable `LUCEE_BUILD` to `true` or use the system property `-Dlucee.build` to activate this function.
-
-## Creating the Server.cfc File
-
-To use the `onBuild` function, create a `Server.cfc` file in the `lucee-server\context\context` directory.
+## Example Server.cfc
 
 ```lucee
 // lucee-server\context\context\Server.cfc
@@ -82,13 +80,7 @@ component {
 }
 ```
 
-## Using onBuild with Docker
-
-To leverage the `onBuild` function in a Docker environment, set the environment variable `LUCEE_BUILD` to `true` or use the system property `-Dlucee.build`.
-
-### Dockerfile Example
-
-Here's an example of how you might configure your Dockerfile to use the `onBuild` function:
+## Dockerfile Example
 
 ```dockerfile
 FROM lucee/lucee:latest
@@ -110,3 +102,54 @@ RUN /usr/local/tomcat/bin/prewarm.sh 6.1
 
 You can find the `prewarm.sh` file [here](https://github.com/lucee/lucee-dockerfiles).
 When the Docker container is built, the `onBuild` function will execute, performing any tasks you've defined in the function.
+
+## Warming the Maven Cache at Build Time
+
+> **Since 7.1.0.98** ([LDEV-6280](https://luceeserver.atlassian.net/browse/LDEV-6280))
+
+If your app uses [[maven|Maven-loaded Java libraries]], by default those jars are downloaded on first use at **runtime**. That's fine for dev, but in Docker you want the jars baked into the image — no network on container start, no first-request latency while POI downloads.
+
+Snapshot your `/mvn/` cache on a dev machine, commit the pom, rehydrate during the Docker build:
+
+```cfml
+// dev machine, after loading everything your app needs:
+fileWrite( "/app/pom.xml", mavenExport() );
+// commit /app/pom.xml
+```
+
+```cfml
+// Server.cfc in the image
+component {
+    public function onBuild() {
+        var q = mavenImport( "/app/pom.xml" );
+        systemOutput( "Resolved " & q.recordcount & " dependencies", true );
+    }
+}
+```
+
+Round-trip is exact — the pom lists every cached jar including classifiers. See [[function-mavenexport]] / [[function-mavenimport]].
+
+## Compiling a Mapping at Build Time
+
+Precompiling every `.cfm` / `.cfc` under a mapping bakes bytecode into the image so first-hit requests don't pay compile cost. It also surfaces syntax errors in code paths your tests don't reach.
+
+The `compileMapping` admin action does this. Against the web mapping `/`:
+
+```cfml
+component {
+    public function onBuild() {
+        admin
+            action="compileMapping"
+            type="web"
+            password=request.adminPassword
+            virtual="/"
+            stoponerror="false";
+    }
+}
+```
+
+- `type="web"` compiles under a specific web context; `type="server"` walks the server-level mappings.
+- `virtual="/"` is the mapping name — pass a specific virtual path (e.g. `/app`) to limit the scope.
+- `stoponerror="false"` logs compile errors and continues. Set `true` to fail the build on the first bad file.
+
+Same pattern as the [script-runner](https://github.com/lucee/script-runner) `-Dcompile=true` flag, which uses this exact admin action to smoke-test a webroot against a given Lucee version. See [[cfadmin-docs]] for the full list of admin actions.

@@ -1,5 +1,5 @@
 "use strict";
-angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
+angular.module("code.editor", []).directive("codeEditor", ["$timeout", function ($timeout) {
   var uid = +new Date().getTime() + "-" + guid();
   var editorTemplate =
     '<div id="{{id}}-editor" class="editor-wrapper"><h2 ng-hide="!title">{{title}}</h2>' +
@@ -35,13 +35,17 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
     "	</div>" +
     "	</div>" +
     '	<div class="editor-toolbar">' +
-    '	    <button class="submit-code btn {{runBtnClass || \'btn-primary\'}} pull-left">Run <span class="hidden-xs">Code</span> <i class="icon-play icon-white"></i></button>' +
-    '	    <button ng-show="isMobileDevice()()" ng-click="saveGist()" id="save-code" class="btn btn-success pull-left">Save <span class="hidden-xs">Gist</span> <i class="icon-save icon-white"></i></button>' +
+    '	    <button class="submit-code btn {{runBtnClass || \'btn-primary\'}} pull-left">Run <span class="hidden-xs">Code</span> <span class="material-symbols-outlined">play_arrow</span></button>' +
+    '	    <button ng-show="isMobileDevice()()" ng-click="saveGist()" id="save-code" class="btn btn-success pull-left">Save <span class="hidden-xs">Gist</span> <span class="material-symbols-outlined">save</span></button>' +
     '		<span class="code-editor-help text-muted hidden-xs" style="font-size:small;">&nbsp;Ctl+Enter to Run, Ctl+S to save Gist.</span>' +
     '		<span class="code-editor-message"></span>' +
-    '	    <button class="toggle-fullscreen btn {{fullscreenbtnclass}} pull-right" ng-click="toggleFullscreen()"> <i class="icon-resize-full"></i></button>' +
-    '	    <button class="editor-options btn btn-default {{optionsbtnclass}} pull-right"> <i class="icon-gear"></i></button>' +
-    '		<span ng-hide="showResults == false || showResults == 0" class="alert alert-danger pull-right" style="padding: 5px;margin: 0px 3px 0px 3px;display: inline-block;"><span class="hidden-xs">&nbsp;</span> <span class="display-engine" style="line-height: 2.2;">></span></span>' +
+    '	    <button class="toggle-fullscreen btn {{fullscreenbtnclass}} pull-right" ng-click="toggleFullscreen()"> <span class="material-symbols-outlined icon-resize-full">fullscreen</span></button>' +
+    '		<select class="form-control engine-selector pull-right" style="width: auto; display: inline-block; margin-right: 5px;">' +
+    '			<option value="lucee7">Lucee 7 BETA</option>' +
+    '			<option value="lucee6" selected>Lucee 6 Latest</option>' +
+    '			<option value="lucee5">Lucee 5.4 (LTS)</option>' +
+    '			<option value="lucee4">Lucee 4.5 (EOL)</option>' +
+    '		</select>' +
     '		<div class="modal fade" style="display:none;" tabindex="-1" role="dialog">' +
     '		  <div class="modal-dialog">' +
     '		    <div class="modal-content">' +
@@ -208,7 +212,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
         showResults =
           typeof attrs.showResults !== "undefined"
             ? attrs.showResults === "true" || attrs.showResults === "1"
-            : t5rue,
+            : true,
         urlPool = {
           lucee4: ["https://lucee4-sbx.trycf.com/lucee4/getremote.cfm"],
           lucee5: ["https://lucee5-sbx.trycf.com/lucee5/getremote.cfm"],
@@ -231,16 +235,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
         ace.config.loadModule("ace/ext/language_tools", function () {
           aceEditor.setOptions({
             enableBasicAutocompletion: true,
-            enableSnippets: true,
-          });
-          var snippetManager = ace.require("ace/snippets").snippetManager;
-          var config = ace.require("ace/config");
-          ace.config.loadModule("ace/snippets/coldfusion", function (m) {
-            if (m) {
-              snippetManager.files.coldfusion = m;
-              m.snippets = snippetManager.parseSnippetFile(m.snippetText || "");
-              snippetManager.register(m.snippets, m.scope);
-            }
+            enableSnippets: false  // Disabled - doesn't work and causes 404s
           });
         });
         aceEditor.commands.addCommand({
@@ -348,7 +343,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
         resultsFrame.hide();
         resultsDiv
           .html(
-            '<div class="loading-title"><h1><i class="icon-rocket"></i> Working on it, <br>just a sec please...</h1></div>'
+            '<div class="loading-title"><h1><span class="material-symbols-outlined">rocket_launch</span> Working on it, <br>just a sec please...</h1></div>'
           )
           .fadeIn("fast");
         resultsFrame.on("load", frameOnLoad);
@@ -372,9 +367,20 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
           aceEditor.setTheme("ace/theme/" + $(this).val());
         });
       }
+      // Wire up toolbar engine selector dropdown
+      element.find(".engine-selector").val(scope.engine);
+      element.find(".engine-selector").on("change", function (e) {
+        scope.engine = $(this).val();
+        url =
+          urlPool[scope.engine][
+            Math.floor(Math.random() * urlPool[scope.engine].length)
+          ];
+      });
+
+      // Keep modal engine selector for backward compatibility (if modal still used)
       element.find(".luceeEngine").on("change", function (e) {
         scope.engine = $(this).val();
-        displayEngine();
+        element.find(".engine-selector").val(scope.engine);
         url =
           urlPool[scope.engine][
             Math.floor(Math.random() * urlPool[scope.engine].length)
@@ -415,7 +421,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
                 (url.indexOf("?") > 0 ? "&" : "?") + "theme=" + scope.theme;
             }
             message.html(
-              '<span class="alert alert-success" style="padding: 5px;margin: 5px 0 0 3px;display: inline-block;"><i class="icon-check icon-white"></i> Saved Gist: <a href="https://trycf.com' +
+              '<span class="alert alert-success" style="padding: 5px;margin: 5px 0 0 3px;display: inline-block;"><span class="material-symbols-outlined">check</span> Saved Gist: <a href="https://trycf.com' +
                 url +
                 '">' +
                 response.id +
@@ -432,7 +438,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
           .error(function (e) {
             console.warn("gist save error", e);
             message.html(
-              '<span class="alert alert-danger" style="padding: 5px;margin: 5px 0 0 3px;display: inline-block;"><i class="icon-warning-sign icon-white"></i> Couldn\'t save Gist: ' +
+              '<span class="alert alert-danger" style="padding: 5px;margin: 5px 0 0 3px;display: inline-block;"><span class="material-symbols-outlined">warning</span> Couldn\'t save Gist: ' +
                 e.detail +
                 "</span>"
             );
@@ -478,7 +484,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
               return;
             }
             var html =
-              '<div class="alert alert-info"><strong><i class="icon-time"></i> Oh snap</strong><br><p>Looks like someone is hogging all the resources.  Click run again and we\'ll try another server.</p>';
+              '<div class="alert alert-info"><strong><span class="material-symbols-outlined">schedule</span> Oh snap</strong><br><p>Looks like someone is hogging all the resources.  Click run again and we\'ll try another server.</p>';
             url =
               urlPool[scope.engine][
                 Math.floor(Math.random() * urlPool[scope.engine].length)
@@ -503,13 +509,13 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
                     '<div class="alert alert-warning">' + data.html + "</div>";
                 } else {
                   html =
-                    '<div class="alert alert-danger"><strong><i class="icon-bug"></i> Error:</strong><br/>' +
+                    '<div class="alert alert-danger"><strong><span class="material-symbols-outlined">bug_report</span> Error:</strong><br/>' +
                     data.error +
                     "</div>";
                 }
               } else {
                 html =
-                  '<div class="alert alert-danger"><strong><i class="icon-bug"></i> Error:</strong><br/>' +
+                  '<div class="alert alert-danger"><strong><span class="material-symbols-outlined">bug_report</span> Error:</strong><br/>' +
                   data.error +
                   " on line " +
                   data.line +
@@ -532,13 +538,13 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
               htmlFull = html;
               if (data.pattern && data.pattern != "") {
                 htmlFull +=
-                  '<div class="alert alert-info"><strong><i class="icon-code"></i> Expected Pattern:</strong><br><pre><code>' +
+                  '<div class="alert alert-info"><strong><span class="material-symbols-outlined">code</span> Expected Pattern:</strong><br><pre><code>' +
                   decodeURIComponent(data.pattern) +
                   "</code></pre>";
               }
               if (data.documentation && data.documentation != "") {
                 htmlFull +=
-                  '<strong><i class="icon-book"></i> Documentation:</strong><pre>' +
+                  '<strong><span class="material-symbols-outlined">menu_book</span> Documentation:</strong><pre>' +
                   decodeURIComponent(data.documentation) +
                   "</pre></div>";
               }
@@ -583,7 +589,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
                 }
                 if (testFailed > 0) {
                   resultList.prepend(
-                    '<li class="list-group-item alert-danger"><i class="icon-bug"></i> Hmm... Something\'s not quite right...</li>'
+                    '<li class="list-group-item alert-danger"><span class="material-symbols-outlined">bug_report</span> Hmm... Something\'s not quite right...</li>'
                   );
                   resultsDiv.html(resultList.html()).show();
                   resultsFrame.hide();
@@ -622,10 +628,12 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
       function toggleFullscreen() {
         var height;
         element.find(".editor-container").toggleClass("fullscreen");
-        element
-          .find(".toggle-fullscreen i")
-          .toggleClass("icon-resize-full")
-          .toggleClass("icon-resize-small");
+        var icon = element.find(".toggle-fullscreen .material-symbols-outlined");
+        if (icon.hasClass("icon-resize-full")) {
+          icon.removeClass("icon-resize-full").addClass("icon-resize-small").text("fullscreen_exit");
+        } else {
+          icon.removeClass("icon-resize-small").addClass("icon-resize-full").text("fullscreen");
+        }
         if (element.find(".editor-container").hasClass("fullscreen")) {
           height = 600;
           $(document).on("keyup", scope.handleEscape);
@@ -666,7 +674,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
           "z-index": 9999,
         });
         popover.popover({
-          title: "<i class='icon-warning-sign'></i> Oops...",
+          title: "<span class='material-symbols-outlined'>warning</span> Oops...",
           content: $(".results-annotations").html(),
           trigger: "manual",
           html: true,
@@ -688,7 +696,7 @@ angular.module("code.editor", []).directive("codeEditor", function ($timeout) {
       }
     },
   };
-});
+}]);
 function s4() {
   return Math.floor((1 + Math.random()) * 0x10000)
     .toString(16)

@@ -5,6 +5,7 @@ related:
 - tag-catch
 categories:
 - core
+- flow-control
 description: Used with one or more cfcatch tags, the cftry tag lets you catch and process exceptions in CFML pages.
 ---
 

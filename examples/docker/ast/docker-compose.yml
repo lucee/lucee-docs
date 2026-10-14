@@ -1,0 +1,7 @@
+services:
+  lucee-otel:
+    image: lucee/lucee:7.0.0.299-SNAPSHOT
+    volumes:
+      - "./www:/var/www"
+    ports:
+      - 8888:8888

@@ -5,4 +5,4 @@ categories:
 - orm
 ---
 
-return all loaded entities as string list
+Returns all loaded entity names as a delimited string list.

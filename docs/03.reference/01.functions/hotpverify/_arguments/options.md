@@ -1,0 +1,1 @@
+Optional struct: window (default 0 — exact match), digits (default 6), algorithm (SHA1|SHA256|SHA512, default SHA1)

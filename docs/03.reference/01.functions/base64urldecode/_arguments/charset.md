@@ -1,0 +1,1 @@
+If provided, returns decoded data as string using this charset

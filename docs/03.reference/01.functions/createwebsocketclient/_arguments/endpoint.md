@@ -1,0 +1,1 @@
+Endpoint to the websocket (Example: ws://localhost:8080/whatever/)

@@ -1,0 +1,1 @@
+Struct of query options: maxResults, offset, cacheable, cacheName, timeout, datasource.

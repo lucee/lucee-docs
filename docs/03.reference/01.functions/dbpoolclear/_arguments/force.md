@@ -1,0 +1,1 @@
+If true (default), clears all idle connections immediately. If false, only evicts connections that have exceeded their idleTimeout.

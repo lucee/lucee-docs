@@ -1,0 +1,1 @@
+Output length in bytes (1-64, default 32)

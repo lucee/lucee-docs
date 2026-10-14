@@ -6,15 +6,10 @@ related:
 - function-htmlcodeformat
 - function-htmleditformat
 categories:
-- CSS
-- DN
-- ESAPI
-- ldap
-- URL
-- VBScript
-- XML
-- HTML
-- JavaScript
+- esapi
+- html
+- xml
+- javascript
 ---
 
 Encodes the given string for safe output to stop Cross Site Scripting attacks.

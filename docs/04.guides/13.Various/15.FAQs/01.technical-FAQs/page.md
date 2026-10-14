@@ -35,10 +35,6 @@ id: technical-FAQs
 
 [[tips-dump-template]]
 
-### Q: What engine does CFSEARCH use? ###
-
-[[tips-search-engine]]
-
 ### Q: Why isn't the template cache being cleared like it should? ###
 
 [[tips-template-cache]]
@@ -49,4 +45,4 @@ id: technical-FAQs
 
 ### How to use cfmail with SSL authentication ###
 
-[[tips-cfmail-SSL-authentication]]
+[[mail-how-to-send-a-mail]]

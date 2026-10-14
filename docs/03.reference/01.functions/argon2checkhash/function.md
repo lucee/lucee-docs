@@ -6,4 +6,4 @@ categories:
 - crypto
 ---
 
-Returns hash of input using Argon2.
+Verifies a password against an Argon2 hash. For new code, prefer Argon2Verify() for consistent naming.

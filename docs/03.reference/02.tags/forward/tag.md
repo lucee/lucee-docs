@@ -4,6 +4,7 @@ id: tag-forward
 related:
 - tag-location
 categories:
+- flow-control
 ---
 
 Leads the request to a different page.

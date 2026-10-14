@@ -1,0 +1,1 @@
+COSE key as a struct (from CborDecode) or raw CBOR-encoded binary

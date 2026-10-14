@@ -13,11 +13,12 @@ component {
 	this.mappings[ "/builds"   ] = this.baseDir & "builds";
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
-	this.assetBundleVersion = 36;  // see parent application.cfc
-	
+	this.assetBundleVersion = 45;  // see parent application.cfc
+
 
 	public void function onApplicationStart()  {
-		application.assetBundleVersion = 36;
+		application.assetBundleVersion = 45;
+		systemOutput("Starting Lucee Documentation Local Server - #server.lucee.version#", true);
 		//_addChangeWatcher();
 	}
 
@@ -109,7 +110,8 @@ component {
 			_404(pagePath, "/");
 		}
 
-		WriteOutput( buildRunner.getBuilder( "html" ).renderPage( page, docTree, true ) );
+		var pageContent = buildRunner.getBuilder( "html" ).renderPageContent( page, docTree, true, {} );
+		WriteOutput( buildRunner.getBuilder( "html" ).renderPage( page, docTree, pageContent, true, {} ) );
 	}
 
 	private void function _renderSource() {
@@ -185,17 +187,37 @@ component {
 	}
 
 	private void function _renderStatic() {
-		var staticFile = listRest(_getRequestUri(), "/");
+		var requestUri = _getRequestUri();
+		var staticFile = listRest(requestUri, "/");
 		if (len(staticFile) eq 0)
 			staticFile = "index.html";
 
-		var staticAssetPath = "/builds/html/" & staticFile ;
+		// Check Accept header for content negotiation
+		var acceptHeader = cgi.http_accept ?: "";
+		var preferMarkdown = findNoCase("text/markdown", acceptHeader) gt 0;
+
+		// If markdown is preferred and requesting an HTML file, try to serve .md instead
+		if (preferMarkdown and listLast(staticFile, ".") eq "html") {
+			var baseName = listDeleteAt(staticFile, listLen(staticFile, "."), ".");
+			var mdFile = baseName & ".md";
+			var mdPath = "/builds/html/" & mdFile;
+			if (FileExists(mdPath)) {
+				staticFile = mdFile;
+			}
+		}
+
+		var staticAssetPath = "/builds/html/" & staticFile;
 
 		if ( !FileExists( staticAssetPath ) ) {
 			_404(staticAssetPath, "/static/");
 		}
 		var pageContent = fileRead(staticAssetPath);
-		pagecontent = reReplace(pagecontent, '\<a href="\/', '<a href="/static/', 'all');
+
+		// Only rewrite links for HTML files
+		var fileExt = listLast(staticFile, ".");
+		if (fileExt eq "html") {
+			pagecontent = reReplace(pagecontent, '\<a href="\/', '<a href="/static/', 'all');
+		}
 
 		header name="cache-control" value="no-cache";
 		setting showdebugoutput="no";
@@ -208,6 +230,8 @@ component {
 	private void function _renderCodeEditor() {
 		var editorPath = "/builders/html/assets/trycf/index.html";
 		var content    = FileRead( editorPath );
+		// Replace asset version placeholder in dev mode
+		content = Replace( content, "{{assetBundleVersion}}", application.assetBundleVersion, "ALL" );
 		setting showdebugoutput="no";
 		content reset=true;echo(content);abort;
 	}
@@ -320,6 +344,11 @@ component {
 	}
 
 	private string function _getRequestUri() {
+		// Check for nginx X-Original-URI header first (used in Docker)
+		var originalUri = getHTTPRequestData().headers[ "X-Original-URI" ] ?: "";
+		if ( len( originalUri ) )
+			return originalUri;
+		// Fall back to servlet forward attributes (Tuckey URL rewrite)
 		if ( structKeyExists( request, "jakarta.servlet.forward.request_uri" ) )
 			return request[ "jakarta.servlet.forward.request_uri" ] ?: "/";
 		else if ( structKeyExists( request, "javax.servlet.forward.request_uri" ) )
@@ -360,6 +389,7 @@ component {
 			case "ttf": return "application/octet-stream";
 			case "html": return "text/html";
 			case "text": return "text/plain";
+			case "md": return "text/markdown";
 		}
 
 		return "application/octet-stream";

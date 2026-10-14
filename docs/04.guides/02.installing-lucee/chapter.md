@@ -33,6 +33,11 @@ If you do not find the answers you are looking for here, we encourage you to pos
 * [[linux-ubuntu-quick-video-guide]]
 * [[linux-install-ubuntu-commandbox]]
 
+### Deploying Lucee
+
+[[deploying-lucee-server-apps]]
+[[servlet-configuration]]
+
 ### Lucee Server Administration ###
 
 **Using Lucee with multiple webserver hosts**
@@ -63,7 +68,6 @@ The following sections are intended for system administrators who want to deploy
 
 * [[preparing-your-server-linux]]
 * [[using-the-lucee-installer]]
-* [[locking-down-your-lucee-stack]]
 * [[locking-down-lucee-server]]
 * [[relocating-web-inf]]
 * [[credits-and-contributors]]
