@@ -48,7 +48,7 @@ Skills are not a full copy of the documentation. They are a **routing guide** â€
 
 Lucee publishes a ready-made skill at:
 
-**https://docs.lucee.org/lucee.skill**
+**<https://docs.lucee.org/lucee.skill>**
 
 It is auto-generated from the lucee-docs repository whenever the recipe index is rebuilt. Do not edit the published file by hand â€” add or change recipes in [lucee-docs](https://github.com/lucee/lucee-docs); the skill updates on the next docs deploy.
 
@@ -207,7 +207,7 @@ For every Lucee-specific question:
 4. Say when you are unsure rather than guessing function behaviour.
 ```
 
-4. Under **Knowledge**, click **Add files** and upload `lucee.skill` (download from https://docs.lucee.org/lucee.skill first).
+4. Under **Knowledge**, click **Add files** and upload `lucee.skill` (download from <https://docs.lucee.org/lucee.skill> first).
 5. Save the Gem and test with a concrete question.
 
 If you store the skill in Google Drive, attach it from Drive so updates to the file propagate when you replace it.
