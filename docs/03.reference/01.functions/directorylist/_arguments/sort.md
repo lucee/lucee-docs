@@ -1,4 +1,4 @@
-Query columns by which to sort a directory listing. To use sort, "listInfo" must be set to "query"!
+Query columns by which to sort a directory listing. Applies to all `listInfo` types (`query`, `name` and `path`).
 
 Delimited list of columns from query output.
 
