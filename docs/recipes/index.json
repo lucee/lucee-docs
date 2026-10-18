@@ -1353,7 +1353,7 @@
     "file": "lucee-skill.md",
     "title": "Lucee Skill for AI Assistants",
     "path": "/docs/recipes/lucee-skill.md",
-    "hash": "512ca0f81d0b18b8ad53603789529fb1",
+    "hash": "f61e31811566615477110309668abc00",
     "keywords": [
       "skill",
       "lucee.skill",
@@ -1452,7 +1452,7 @@
     "file": "maven-based-extensions.md",
     "title": "Maven Based Extensions",
     "path": "/docs/recipes/maven-based-extensions.md",
-    "hash": "71006ec5d8b1b25096ba301c78449599",
+    "hash": "27ef311fd929a78d5262194730f93e80",
     "keywords": [
       "extension",
       "Maven",
@@ -1504,7 +1504,7 @@
     "file": "mcp.md",
     "title": "Model Context Protocol (MCP)",
     "path": "/docs/recipes/mcp.md",
-    "hash": "1b5074e5c3b325e4545a3834b2a4d445",
+    "hash": "956e08d33e34f0ba72e52296f00559a3",
     "keywords": [
       "MCP",
       "Model Context Protocol",
