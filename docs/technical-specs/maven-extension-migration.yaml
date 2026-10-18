@@ -87,7 +87,7 @@ maven_artifacts:
     packaging: jar
   extension_package:
     groupId: "org.lucee"
-    artifactId: "{name}-extension" # e.g. image-extension — NOT extension-{name}
+    artifactId: "{name}-extension"  # e.g. image-extension — NOT extension-{name}
     packaging: lex
   github_repo_convention: "extension-{name}"
   maven_artifactId_convention: "{name}-extension"
@@ -224,7 +224,7 @@ build:
 
   root_pom_plugins:
     - maven-antrun-plugin    # runs build.xml at package
-    - build-helper-maven-plugin # attach-artifact: .lex + .lite.lex (classifier lite)
+    - build-helper-maven-plugin  # attach-artifact: .lex + .lite.lex (classifier lite)
     - maven-deploy-plugin    # default-deploy + deploy-lite
     - maven-gpg-plugin       # sign both .lex on performRelease=true
     - central-publishing-maven-plugin

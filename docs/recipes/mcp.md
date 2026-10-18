@@ -231,7 +231,7 @@ Replace `https://your-server.example.com` with your public HTTPS base URL. Remot
 
 ## Public MCP Server (BETA)
 
-Hosted by Lucee at **https://mcp.lucee.org/**. Gives AI agents callable access to Lucee documentation and CFML analysis — not just static context.
+Hosted by Lucee at **<https://mcp.lucee.org/>**. Gives AI agents callable access to Lucee documentation and CFML analysis — not just static context.
 
 No Lucee instance required on your side; point your AI connection passthrough at the public URL.
 

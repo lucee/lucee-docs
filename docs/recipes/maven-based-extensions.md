@@ -350,6 +350,7 @@ A common strategy: bump the major/minor version line for the Maven branch (e.g. 
 ### Migration Checklist
 
 #### 1. Build system
+
 - [ ] Add root `pom.xml` and `source/java/pom.xml`
 - [ ] Wire `build.xml` via `maven-antrun-plugin`
 - [ ] Ensure `maven-build` depends on `init` (wipes `target/` each build)
@@ -357,23 +358,28 @@ A common strategy: bump the major/minor version line for the Maven branch (e.g. 
 - [ ] Package full `.lex` and lite extension `.lite.lex`
 
 #### 2. Extension metadata
+
 - [ ] Set `start-bundles: false`
 - [ ] Set `lucee-core-version` per table above
 - [ ] Keep extension `id` (UUID) unchanged
 
 #### 3. FLD / TLD (if applicable)
+
 - [ ] Switch to `maven="{maven}"` on all `<class>` and `<tag-class>` entries
 - [ ] Add `javax-tag-class` if dual javax/jakarta tag support is needed
 
 #### 4. Dependencies
+
 - [ ] Move JARs into `pom.xml`; `provided` scope for `org.lucee:lucee`
 - [ ] Remove `system` scope, manual `build.xml` JAR copies, and legacy `org.lucee` repackages
 
 #### 5. Java source
+
 - [ ] Remove OSGi bundle manifest from extension JAR
 - [ ] Replace OSGi-specific version lookups
 
 #### 6. CI and testing
+
 - [ ] `mvn clean install -Dgoal=install`
 - [ ] Test with `lucee/script-runner`, `extensionDir: target/`
 - [ ] Upload `target/*.lex` as artifacts

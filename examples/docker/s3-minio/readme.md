@@ -53,11 +53,13 @@ These are set in `docker-compose.yml` and picked up by the Lucee container at st
 ### URL Format
 
 With env-var credentials (recommended):
+
 ```
 s3:///bucket-name/path/to/object.txt
 ```
 
 With inline credentials (useful outside Docker or for multiple endpoints):
+
 ```
 s3://ACCESS_KEY:SECRET@host:9000/bucket-name/path/to/object.txt
 ```
