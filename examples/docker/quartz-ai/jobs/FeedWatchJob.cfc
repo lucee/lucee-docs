@@ -12,8 +12,10 @@ component {
 	public void function init(
 		string aiConnection = "watcher",
 		string outputDirectory = "/opt/lucee/output",
-		string sampleFeed = ""
+		string sampleFeed = "",
+		string label = "Feed watcher"
 	) {
+		variables.label = arguments.label;
 		variables.aiConnection = arguments.aiConnection;
 		variables.outputDirectory = arguments.outputDirectory;
 		variables.sampleFeed = arguments.sampleFeed;
@@ -86,6 +88,7 @@ component {
 				& "Reply only with JSON: {""attention"": true|false, ""reason"": ""one sentence"", ""draft"": ""a short, friendly reply draft or empty""}."
 		);
 		var answer = inquiryAISession( aiSession, "Title: #item.title ?: ''#" & chr( 10 ) & "Body: #item.body ?: ''#" );
+		new listeners.JobStats().addTokens( variables.label, aiSession );
 
 		var result = parseAIAnswer( answer );
 		return {

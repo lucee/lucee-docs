@@ -1,17 +1,20 @@
 <!--
 {
-  "title": "Scheduled AI Jobs with Quartz",
+  "title": "Adding Scheduled Jobs with an AI Assistant (Quartz)",
   "id": "scheduler-quartz-ai-job",
   "since": "7.0",
-  "related": ["scheduler-quartz", "component-jobs-quartz-scheduler", "ai", "Docker", "function-createaisession", "function-inquiryaisession"],
+  "related": ["scheduler-quartz", "component-jobs-quartz-scheduler", "ai", "mcp", "lucee-skill", "Docker", "function-createaisession", "function-inquiryaisession"],
   "categories": ["extensions", "recipes", "ai"],
-  "description": "Run a Quartz job in Docker that uses an AI connection to decide which feed items need attention",
+  "description": "Add Quartz jobs to a Lucee server by asking an AI coding assistant in plain language, watch them with a job listener (duration, failures, AI token usage), and connect them to outside services with MCP or plain HTTP",
   "keywords": [
     "scheduler",
     "quartz",
     "AI",
     "AI connection",
-    "LLM",
+    "vibe coding",
+    "MCP",
+    "listener",
+    "token usage",
     "docker",
     "cron",
     "automation"
@@ -19,17 +22,22 @@
 }
 -->
 
-# Scheduled AI Jobs with Quartz
+# Adding Scheduled Jobs with an AI Assistant (Quartz)
 
-A common task: check something regularly (a feed, an API, a log), decide what matters, and prepare a reaction. With Lucee you can do all of it in CFML: the [[scheduler-quartz]] extension runs the job, an [[ai]] connection makes the judgement call.
+Many small automations follow the same pattern: every hour (or every morning) check something, decide what matters, and prepare a reaction. With the [[scheduler-quartz]] extension a job is just a component plus one entry in a JSON file, which makes it a very good fit for an AI coding assistant: you describe the job in plain language, the assistant writes the component and the schedule, you review it, done.
 
-This recipe explains a small, runnable Docker example:
+This recipe uses a small, runnable Docker example as the project you work in:
 
 > **[github.com/lucee/lucee-docs/tree/master/examples/docker/quartz-ai](https://github.com/lucee/lucee-docs/tree/master/examples/docker/quartz-ai)**
 
-The job reads a feed, picks candidates with a keyword rule, asks the AI connection whether they need attention and for a reply draft, and writes the result to a file. It never posts anything itself; that keeps a human in the loop.
+It covers:
 
-## Run It
+1. [Getting jobs in](#getting-jobs-in-ask-for-them): ask an assistant for a new job
+2. [Watching jobs](#watching-what-jobs-do-listeners): a job listener that records duration, failures and AI token usage
+3. [Reaching outside services](#reaching-outside-services-mcp-and-plain-http): MCP and plain HTTP
+4. [The example project](#the-example-project) itself
+
+## Run the Example
 
 ```bash
 cd lucee-docs/examples/docker/quartz-ai
@@ -38,159 +46,264 @@ docker compose up -d --build
 docker compose logs -f lucee
 ```
 
-Without an AI key the example still runs, using only the keyword rule.
+Without an AI key everything still runs; the example job then only uses its keyword rule.
 
-## 1. Install the Extension and Define the AI Connection
+## Getting Jobs In: Ask for Them
 
-Everything is in `.CFConfig.json` (`lucee-config.json` in the example). The Quartz extension is installed from Maven at startup, and the AI connection reads its endpoint, key and model from environment variables, so no secret ends up in the image:
+The interesting part is not one specific job, it is how new jobs get added. The project layout is deliberately simple, so an assistant can follow it:
+
+| What | Where |
+|------|-------|
+| Job components | `jobs/*.cfc` (an `init()` for the arguments, an `execute()` per run) |
+| Schedules | `quartz/config.json`, one entry per job (`component`, `cron` or `interval`, arguments) |
+| Listeners | `listeners/*.cfc`, registered in the `listeners` section of `quartz/config.json` |
+| AI connections, extensions | `lucee-config.json` |
+
+### Set Up the Session
+
+Open the example folder in an AI coding assistant (Cursor, Claude Code, or any agent that can edit files). Give it accurate Lucee knowledge, so it does not guess:
+
+- the **Lucee skill**, see [[lucee-skill]] for the install steps per tool; it routes the assistant to the right recipes, including this one and [[component-jobs-quartz-scheduler]]
+- the public **Lucee MCP server** for exact function and tag signatures, see [[mcp]]
+
+Then just ask.
+
+### Example Prompts
+
+> Set up a new job that runs every hour, reads the Lucee release feed from GitHub and writes a line to the log when there is a release it has not seen yet.
+
+> Add a job that every morning at 7:00 checks the status page `https://status.example.com/api/status.json` and, when anything is not "operational", asks the AI connection `watcher` for a short summary and appends it to `output/status.jsonl`.
+
+> The feed watcher runs too often, change it to every 15 minutes on weekdays only, and pause it on weekends.
+
+### What the Assistant Produces
+
+For the first prompt you should get a new component in `jobs/`:
+
+```cfml
+// jobs/ReleaseWatchJob.cfc
+component {
+
+	public void function init( string feedUrl = "", string outputDirectory = "/opt/lucee/output" ) {
+		variables.feedUrl = arguments.feedUrl;
+		variables.stateFile = arguments.outputDirectory & "/releases-seen.json";
+	}
+
+	public void function execute() {
+		http url=variables.feedUrl method="get" timeout=20 result="local.res";
+		if ( res.status_code != 200 ) throw "release feed returned #res.statuscode#";
+
+		var seen = fileExists( variables.stateFile ) ? deserializeJSON( fileRead( variables.stateFile ) ) : {};
+		for ( var release in deserializeJSON( res.fileContent ) ) {
+			if ( structKeyExists( seen, release.tag_name ) ) continue;
+			seen[ release.tag_name ] = now();
+			log log="scheduler" type="info" text="ReleaseWatchJob: new release #release.tag_name#";
+		}
+		fileWrite( variables.stateFile, serializeJSON( seen ) );
+	}
+}
+```
+
+and a new entry in `quartz/config.json`:
 
 ```json
 {
-	"extensions": [
-		{
-			"id": "E99E43A5-C10E-41E9-878BFC82BAAD99CE",
-			"name": "Quartz Scheduler Extension",
-			"version": "1.0.0.65"
-		}
-	],
-	"ai": {
-		"watcher": {
-			"class": "lucee.runtime.ai.anthropic.ClaudeEngine",
-			"custom": {
-				"url": "${AI_URL}",
-				"apiKey": "${AI_SECRET_KEY}",
-				"model": "${AI_MODEL}",
-				"message": "You triage short messages. Answer only with the JSON that is asked for.",
-				"timeout": 30000
-			}
-		}
-	}
+	"label": "Release watcher",
+	"component": "jobs.ReleaseWatchJob",
+	"cron": "0 0 * * * ?",
+	"mode": "transient",
+	"pause": false,
+	"feedUrl": "https://api.github.com/repos/lucee/Lucee/releases",
+	"outputDirectory": "/opt/lucee/output"
 }
 ```
 
-The example uses Claude; `url` may stay empty, then the Anthropic default is used. To use an OpenAI compatible API instead (OpenAI, Ollama, a local gateway, ...), swap the AI connection:
+- `cron` is the Quartz format with seconds: `0 0 * * * ?` is every full hour, `0 0 7 * * ?` every day at 7:00, `0 */15 * ? * MON-FRI` every 15 minutes on weekdays.
+- Every key other than the job settings (`label`, `component`, `cron`, `mode`, ...) is passed to `init()`, so the URL stays configuration, not code.
+- For the third prompt the assistant only changes `cron` and `pause` of the existing entry.
+
+### How the Change Is Picked Up
+
+The Quartz extension reads `quartz/config.json` when its event gateway (`quartz-task`) starts. It does **not** watch the file, so after an edit either:
+
+- **restart** — in the example `docker compose up -d --build`, because the files are copied into the image, or
+- **reload without restart** — tell the running gateway to re-read the file:
+
+  ```cfml
+  sendGatewayMessage( "quartz-task", { "action": "reload" } );
+  ```
+
+  Jobs and listeners are added, updated and removed to match the file; only a changed `store` restarts the scheduler. For a live reload the file has to be the one the gateway reads (in the Docker image `/opt/lucee/server/lucee-server/context/quartz/config.json`), so mount it instead of copying it if you want to work that way.
+
+New or changed job components are compiled on their next run. Alternatively, a `config.quartz` file dropped into the Lucee `deploy` folder is merged into the running configuration within about 10 seconds, see [[scheduler-quartz]].
+
+### Review Before It Runs
+
+A generated job is code that will run unattended, with your credentials, on a schedule. Read it before you deploy it:
+
+- What does it call, and with which credentials? Keys belong in environment variables, see [[environment-variables-system-properties]].
+- Does it send, post or delete anything? Start with jobs that only write drafts or log lines, and add the action later, ideally with an approval step.
+- Is the schedule what you asked for? Cron expressions are easy to get wrong; the Quartz pages in the Lucee Administrator show the next fire time.
+- Can it run twice at the same time? Use `"mode": "transient"` and keep state in a file or database.
+
+## Watching What Jobs Do: Listeners
+
+A Quartz **job listener** is called before and after every run of every job. That is the place for cross-cutting monitoring: durations, failures, and how many AI tokens a job used. See [[component-jobs-quartz-scheduler]] for the listener interface.
+
+The example ships `listeners/JobStatsListener.cfc`, registered in `quartz/config.json`:
 
 ```json
-"watcher": {
-	"class": "lucee.runtime.ai.openai.OpenAIEngine",
-	"custom": {
-		"url": "${AI_URL}",
-		"secretKey": "${AI_SECRET_KEY}",
-		"model": "${AI_MODEL}",
-		"message": "You triage short messages. Answer only with the JSON that is asked for.",
-		"timeout": 30000
+"listeners": [
+	{
+		"component": "listeners.JobStatsListener",
+		"outputDirectory": "/opt/lucee/output",
+		"tokenWarning": 5000
 	}
-}
+]
 ```
 
-and set `AI_URL` (for example `https://api.openai.com/v1/`) and `AI_MODEL` to match. Note the key name: Claude uses `apiKey`, `OpenAIEngine` uses `secretKey`. The job itself does not change, it only knows the AI connection name.
+After every run it writes one line to `output/job-stats.jsonl` and to the log, and warns when a run failed or used more than `tokenWarning` tokens:
 
-For other providers see [[ai]]. Use the current Quartz extension version from the [extension list](https://download.lucee.org/).
-
-## 2. Define the Schedule
-
-The Quartz extension reads its jobs from `{lucee-config}/quartz/config.json`. The example copies this file into the image:
+```
+JobStats: [Feed watcher] ok in 5624ms, 301 AI tokens
+```
 
 ```json
-{
-	"jobs": [
-		{
-			"label": "Feed watcher",
-			"component": "jobs.FeedWatchJob",
-			"cron": "0 */5 * * * ?",
-			"mode": "transient",
-			"pause": false,
-			"aiConnection": "watcher",
-			"outputDirectory": "/opt/lucee/output",
-			"sampleFeed": "/opt/lucee/sample-data/sample-feed.json"
-		}
-	]
+{"job":"Feed watcher","finished":"2026-10-19T19:44:50+02:00","durationMs":5624,"status":"ok","error":"","aiTokens":301}
+```
+
+The core of the listener:
+
+```cfml
+component implementsJava="org.quartz.JobListener" {
+
+	public string function getName() { return "JobStatsListener"; }
+
+	public void function jobToBeExecuted( context ) {
+		new JobStats().takeTokens( getLabel( context ) ); // start with a clean counter
+	}
+
+	public void function jobWasExecuted( context, jobException ) {
+		var run = {
+			"job": getLabel( context ),
+			"durationMs": context.getJobRunTime(),
+			"status": isNull( jobException ) ? "ok" : "error",
+			"aiTokens": new JobStats().takeTokens( getLabel( context ) )
+		};
+		fileAppend( variables.outputDirectory & "/job-stats.jsonl", serializeJSON( run ) & chr( 10 ) );
+	}
+
+	public void function jobExecutionVetoed( context ) {}
 }
 ```
 
-- `component` is resolved through the component mappings; the example puts the job into `{lucee-config}/components/jobs/`, which is mapped by default.
-- `cron` uses the Quartz format with seconds; this one runs every 5 minutes.
-- All other keys are passed to the component's `init()` as arguments.
-
-See [[component-jobs-quartz-scheduler]] for all job options.
-
-## 3. Write the Job
-
-A component job has an `init()` that receives the job arguments and an `execute()` that Quartz calls on every run. The core of `jobs/FeedWatchJob.cfc`:
+Duration and errors come from Quartz itself (a component job that throws reaches the listener as `jobException`). Token usage has to come from the job: after an AI call it reports what the session used to a small shared counter (`listeners/JobStats.cfc`), and the listener collects it after the run:
 
 ```cfml
-public void function execute() {
-	var env = server.system.environment;
-	var keywords = listToArray( env.WATCH_KEYWORDS ?: "error,crash,outage,security,urgent,down" );
-	var useAI = len( trim( env.AI_SECRET_KEY ?: "" ) ) > 0;
+var aiSession = createAISession( name: "watcher", systemMessage: "..." );
+var answer = inquiryAISession( aiSession, question );
+new listeners.JobStats().addTokens( variables.label, aiSession );
+```
 
-	for ( var item in readFeed( env.FEED_URL ?: "" ) ) {
-		// rule 1: cheap keyword pre filter, keeps AI calls low
-		var text = item.title & " " & item.body;
-		var matched = keywords.filter( ( k ) => findNoCase( trim( k ), text ) );
-		if ( !matched.len() ) continue;
+`addTokens()` adds up the token count of every answer in the session's history:
 
-		// rule 2: let the AI decide, fall back to the keyword result
-		var decision = { "attention": true, "reason": "keyword match", "draft": "", "source": "rule" };
-		if ( useAI ) {
-			try {
-				decision = askAI( item );
-			}
-			catch ( any e ) {
-				log log="scheduler" type="warn" text="AI call failed, using keyword rule only: #e.message#";
-			}
-		}
+```cfml
+for ( var conversation in aiSession.getHistory() ) {
+	tokens += conversation.getResponse().getTotalTokenUsed();
+}
+```
 
-		if ( decision.attention ) {
-			fileAppend( variables.outputDirectory & "/drafts.jsonl", serializeJSON( decision ) & chr( 10 ) );
+Note that `getHistory()` and `getTotalTokenUsed()` are Java methods of the AI session object, not documented CFML functions, so they may change between versions; the example catches a failure and then counts 0. There is no built-in CFML listener for AI connections that reports token usage; the `listener` argument of [[function-inquiryaisession]] receives the streamed answer chunks, not usage.
+
+Ideas for the same listener: a daily token budget per job (pause the job via the gateway when it is exceeded), a notification after three failures in a row, or writing the rows to a datasource for a dashboard.
+
+## Reaching Outside Services: MCP and Plain HTTP
+
+Jobs usually need data from somewhere else. Two ways work well.
+
+### Plain HTTP
+
+Most services have an HTTP API or a feed, and a job does not need more than `http` plus parsing:
+
+```cfml
+// JSON API
+http url=variables.apiUrl method="get" timeout=20 result="local.res" {
+	httpparam type="header" name="Authorization" value="Bearer #server.system.environment.MY_API_TOKEN#";
+}
+var data = deserializeJSON( res.fileContent );
+
+// RSS / Atom feed
+http url=variables.feedUrl timeout=20 result="local.res";
+var items = xmlSearch( xmlParse( res.fileContent ), "//item" );
+for ( var item in items ) {
+	log log="scheduler" text=item.title.xmlText;
+}
+```
+
+For HTML pages without an API, `htmlParse()` turns the page into XML you can query with `xmlSearch()`. Plain HTTP is predictable, cheap, and easy to test; it should be the default.
+
+### MCP
+
+When a service offers an [MCP](https://modelcontextprotocol.io) server, there are two options, see [[mcp]]:
+
+- **Let the AI connection use it.** Claude and OpenAI-compatible connections can pass MCP server references to the provider (configured in the AI connection, see [[mcp]] and [[ai]]). The model then decides which tools to call while answering `inquiryAISession()`. Note that the provider connects to the MCP server from its cloud, so the server has to be publicly reachable over HTTPS.
+- **Call the MCP server directly.** MCP over HTTP is JSON-RPC, so a job can call a tool itself with `http`, no AI involved:
+
+```cfml
+http url=variables.mcpUrl method="post" timeout=20 result="local.res" {
+	httpparam type="header" name="Content-Type" value="application/json";
+	httpparam type="body" value=serializeJSON( {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": { "name": "get_lucee_function", "arguments": { "name": "dateAdd" } }
+	} );
+}
+var result = deserializeJSON( res.fileContent ).result;
+var text = result.content[ 1 ].text;
+```
+
+Use `"method": "tools/list"` to see which tools a server offers. Servers that require a session handshake or authentication need the matching headers; check the server's documentation.
+
+## The Example Project
+
+The bundled job is only an illustration: `jobs/FeedWatchJob.cfc` runs every 5 minutes, reads a feed (a sample file by default, `FEED_URL` to change it), picks candidates with a keyword rule, asks the AI connection `watcher` whether they need attention and for a short reply draft, and writes the result to `output/drafts.jsonl`. It never sends anything.
+
+The setup is all configuration:
+
+- `lucee-config.json` installs the Quartz extension and defines the AI connection, with key, model and optional URL from environment variables:
+
+```json
+"ai": {
+	"watcher": {
+		"class": "lucee.runtime.ai.anthropic.ClaudeEngine",
+		"custom": {
+			"url": "${AI_URL}",
+			"apiKey": "${AI_SECRET_KEY}",
+			"model": "${AI_MODEL}",
+			"message": "You triage short messages. Answer only with the JSON that is asked for.",
+			"timeout": 30000
 		}
 	}
 }
 ```
 
-The AI part asks for a small JSON answer, which is easy to check in code:
+  For an OpenAI-compatible API use `lucee.runtime.ai.openai.OpenAIEngine` with `secretKey` instead of `apiKey`; the readme of the example shows the full entry. For other providers see [[ai]].
+- `quartz/config.json` holds the jobs and the listener.
+- The Dockerfile copies `jobs/` and `listeners/` into `{lucee-config}/components/`, which is mapped by default, so `jobs.FeedWatchJob` resolves without a mapping.
 
-```cfml
-private struct function askAI( required struct item ) {
-	var aiSession = createAISession(
-		name: variables.aiConnection,
-		systemMessage: "You triage messages for a small team. "
-			& "Reply only with JSON: {""attention"": true|false, ""reason"": ""one sentence"", ""draft"": ""a short reply draft or empty""}."
-	);
-	var answer = inquiryAISession( aiSession, "Title: #item.title#" & chr( 10 ) & "Body: #item.body#" );
-	var result = parseAIAnswer( answer );
-	return { "attention": result.attention ?: true, "reason": result.reason ?: "", "draft": result.draft ?: "", "source": "ai" };
-}
-```
+Patterns worth keeping when you add jobs:
 
-Models do not always answer with bare JSON: some wrap it in a code fence or add a sentence around it. `parseAIAnswer()` therefore strips a fence and parses the first `{...}` block:
-
-```cfml
-private struct function parseAIAnswer( required string answer ) {
-	var text = trim( arguments.answer );
-	text = reReplace( text, "^```[a-zA-Z]*\s*", "" );
-	text = reReplace( text, "\s*```\s*$", "" );
-	var first = find( "{", text );
-	var fromEnd = find( "}", reverse( text ) );
-	var last = fromEnd ? len( text ) - fromEnd + 1 : 0;
-	if ( !first || last <= first ) throw "AI answer contains no JSON object";
-	return deserializeJSON( mid( text, first, last - first + 1 ) );
-}
-```
-
-The full component also remembers which items it has already handled (`output/seen.json`), so every item is only checked once.
-
-## Design Notes
-
-- **Rules first, AI second.** A plain rule filters the obvious cases; the AI only sees the candidates. That keeps runs fast and cheap and makes the job work without AI.
-- **Fail soft.** A failing AI call is logged and the job continues with the rule result; one broken run does not stop the schedule.
-- **Drafts, not actions.** The job writes drafts. Sending them (mail, chat, ticket) is a separate step you add when you trust the results, ideally with an approval step in between.
-- **Secrets from the environment.** Key, model and optional endpoint come from env vars, see [[environment-variables-system-properties]].
-- **Transient jobs.** `"mode": "transient"` creates a new component instance per run, so no state leaks between runs; persistent state lives in a file (or a database).
+- **Rules first, AI second.** Cheap rules filter the obvious cases; the AI only sees the candidates.
+- **Fail soft.** A failing AI call is logged and the job continues with the rule result.
+- **Drafts, not actions.** Sending is a separate step you add once you trust the results.
+- **Secrets from the environment**, never in the config files or the image.
 
 ## Related
 
 - [[scheduler-quartz]] — Quartz overview and configuration
 - [[component-jobs-quartz-scheduler]] — component jobs and listeners
 - [[ai]] — AI connections and functions
+- [[mcp]] — MCP in Lucee
+- [[lucee-skill]] — the Lucee skill for AI assistants
 - [[Docker]] — Lucee Docker images

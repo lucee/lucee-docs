@@ -1810,15 +1810,18 @@
   },
   {
     "file": "scheduler-quartz-ai-job.md",
-    "title": "Scheduled AI Jobs with Quartz",
+    "title": "Adding Scheduled Jobs with an AI Assistant (Quartz)",
     "path": "/docs/recipes/scheduler-quartz-ai-job.md",
-    "hash": "1873066f677f0f4fbe96c00391b34885",
+    "hash": "b1fe65a0de707b3ca3fb031354d70e39",
     "keywords": [
       "scheduler",
       "quartz",
       "AI",
       "AI connection",
-      "LLM",
+      "vibe coding",
+      "MCP",
+      "listener",
+      "token usage",
       "docker",
       "cron",
       "automation"

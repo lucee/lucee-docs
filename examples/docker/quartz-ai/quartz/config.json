@@ -10,5 +10,12 @@
 			"outputDirectory": "/opt/lucee/output",
 			"sampleFeed": "/opt/lucee/sample-data/sample-feed.json"
 		}
+	],
+	"listeners": [
+		{
+			"component": "listeners.JobStatsListener",
+			"outputDirectory": "/opt/lucee/output",
+			"tokenWarning": 5000
+		}
 	]
 }

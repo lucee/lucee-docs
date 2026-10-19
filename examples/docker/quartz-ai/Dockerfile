@@ -11,5 +11,8 @@ COPY quartz/config.json /opt/lucee/server/lucee-server/context/quartz/config.jso
 # job components, {lucee-config}/components/ is mapped by default
 COPY jobs/ /opt/lucee/server/lucee-server/context/components/jobs/
 
+# job listeners: run statistics and AI token usage
+COPY listeners/ /opt/lucee/server/lucee-server/context/components/listeners/
+
 # sample feed the job checks when FEED_URL is not set
 COPY data/ /opt/lucee/sample-data/
