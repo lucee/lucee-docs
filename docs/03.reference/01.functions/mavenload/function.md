@@ -9,6 +9,7 @@ categories:
 
 Loads all JAR files from one or more Maven endpoints and makes them available for use within the Lucee server environment. 
 This function can be used to load dependencies, including transitive ones, for example at server startup.
+Like Maven, dependencies marked as optional are not loaded, unless `includeOptional` is set to true.
 
 ### Example Usage of MavenLoad Function
 
