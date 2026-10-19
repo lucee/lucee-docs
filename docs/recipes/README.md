@@ -4,10 +4,6 @@
 
 A practical guide to adding full-text search to your Lucee application using collections, indexing, and search
 
-## [Run AI Sessions in the Cloud, 24/7, Doing Your Work](/docs/recipes/scheduler-quartz-ai-job.md)
-
-Add Quartz jobs to a Lucee server by asking an AI coding assistant in plain language, watch them with a job listener (duration, failures, AI token usage), and connect them to outside services with MCP or plain HTTP
-
 ## [AI](/docs/recipes/ai.md)
 
 AI integration for working with Large Language Models in Lucee
@@ -559,6 +555,10 @@ Learn how to use request timeout correctly with Lucee.
 ## [Retry](/docs/recipes/retry.md)
 
 This document explains how to use retry functionality with some simple examples.
+
+## [Run AI Sessions in the Cloud, 24/7, Doing Your Work](/docs/recipes/scheduler-quartz-ai-job.md)
+
+Add Quartz jobs to a Lucee server by asking an AI coding assistant in plain language, watch them with a job listener (duration, failures, AI token usage), and connect them to outside services with MCP or plain HTTP
 
 ## [S3](/docs/recipes/s3.md)
 

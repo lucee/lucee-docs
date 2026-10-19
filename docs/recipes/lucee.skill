@@ -26,7 +26,6 @@ description: >
 | Title | ID | Keywords |
 |-------|-----|----------|
 | Adding Full Text Search to Your Application | `search` | search, cfcollection, cfindex, cfsearch, Lucene, full-text, indexing, collections |
-| Run AI Sessions in the Cloud, 24/7, Doing Your Work | `scheduler-quartz-ai-job` | scheduler, quartz, AI, AI connection, vibe coding, MCP, listener, token usage, docker, cron |
 | AI | `ai` | AI, LLM, ChatGPT, Gemini, Claude, Ollama, RAG, Multipart, MCP |
 | AI Augmentation with Lucene | `ai-augmentation` | AI, LLM, RAG, Search, Augmentation, Lucene, Retrieval |
 | AI Context from Page Content | `ai-page-context` | AI, LLM, custom tag, context, system message, generatedContent, SerializeAISession, LoadAISession |
@@ -165,6 +164,7 @@ description: >
 | Recommended Settings | `recommended-settings` | settings, performance, Production server, Security, config |
 | Request Timeout | `request-timeout` | request timeout, timeout, memory, cpu, Concurrent Requests, Administrator, Application.cfc, cfsetting, Threshold |
 | Retry | `retry` | Retry, Exception handling, Try catch, Lucee |
+| Run AI Sessions in the Cloud, 24/7, Doing Your Work | `scheduler-quartz-ai-job` | scheduler, quartz, AI, AI connection, vibe coding, MCP, listener, token usage, docker, cron |
 | S3 | `s3` | S3, MinIO, object storage, VFS, virtual file system, AWS, Backblaze, Wasabi |
 | Script Templates | `script-templates` | CFML, script, templates, Lucee, cfs |
 | Secret Management | `secret-provider` | security, secrets, credentials, environment variables, configuration |

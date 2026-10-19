@@ -16,25 +16,6 @@
     ]
   },
   {
-    "file": "scheduler-quartz-ai-job.md",
-    "title": "Run AI Sessions in the Cloud, 24/7, Doing Your Work",
-    "path": "/docs/recipes/scheduler-quartz-ai-job.md",
-    "hash": "88138383cf42889b4660014dbc06cf80",
-    "keywords": [
-      "scheduler",
-      "quartz",
-      "AI",
-      "AI connection",
-      "vibe coding",
-      "MCP",
-      "listener",
-      "token usage",
-      "docker",
-      "cron",
-      "automation"
-    ]
-  },
-  {
     "file": "ai.md",
     "title": "AI",
     "path": "/docs/recipes/ai.md",
@@ -2099,6 +2080,25 @@
       "Exception handling",
       "Try catch",
       "Lucee"
+    ]
+  },
+  {
+    "file": "scheduler-quartz-ai-job.md",
+    "title": "Run AI Sessions in the Cloud, 24/7, Doing Your Work",
+    "path": "/docs/recipes/scheduler-quartz-ai-job.md",
+    "hash": "88138383cf42889b4660014dbc06cf80",
+    "keywords": [
+      "scheduler",
+      "quartz",
+      "AI",
+      "AI connection",
+      "vibe coding",
+      "MCP",
+      "listener",
+      "token usage",
+      "docker",
+      "cron",
+      "automation"
     ]
   },
   {
