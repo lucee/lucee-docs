@@ -12,6 +12,8 @@
     "Gemini",
     "Claude",
     "Ollama",
+    "Groq",
+    "OpenRouter",
     "RAG",
     "Multipart",
     "MCP"
@@ -126,6 +128,72 @@ The `OpenAIEngine` can connect to any service using the OpenAI REST interface:
   }
 }
 ```
+
+### Groq
+
+[Groq](https://console.groq.com/keys) has an OpenAI-compatible API, so it works with the `OpenAIEngine` and a custom `url`:
+
+```json
+"ai": {
+  "groq": {
+    "class": "lucee.runtime.ai.openai.OpenAIEngine",
+    "custom": {
+      "url": "https://api.groq.com/openai/v1/",
+      "secretKey": "${GROQ_API_KEY}",
+      "model": "auto",
+      "modelPreference": ["llama-3.3-70b*", "openai/gpt-oss-*"]
+    }
+  }
+}
+```
+
+### OpenRouter
+
+[OpenRouter](https://openrouter.ai/settings/keys) gives access to models of many providers with one key. Model names carry the provider as prefix, for example `anthropic/claude-sonnet-4` or `meta-llama/llama-3.3-70b-instruct`. With `"model": "auto"` and no `modelPreference`, Lucee passes `openrouter/auto` through, so OpenRouter picks the model for every request.
+
+```json
+"ai": {
+  "openrouter": {
+    "class": "lucee.runtime.ai.openai.OpenAIEngine",
+    "custom": {
+      "url": "https://openrouter.ai/api/v1/",
+      "secretKey": "${OPENROUTER_API_KEY}",
+      "model": "auto",
+      "headers": {
+        "HTTP-Referer": "https://www.example.com",
+        "X-Title": "My Lucee App"
+      }
+    }
+  }
+}
+```
+
+### Automatic Model Selection *(since 8.0)*
+
+Instead of a fixed model name, `model` can be set to `auto`. Lucee then asks the provider which models are available (`GET /models` for OpenAI-compatible endpoints like OpenAI, Groq, OpenRouter, Ollama, DeepSeek or xAI, and the model lists of Gemini and Claude) and picks one. An empty `model` is treated as `auto`.
+
+The model is chosen in this order:
+
+1. **`modelPreference`**: an array or a comma-separated list of name patterns (`*` and `?` as wildcards). The first pattern that matches an available model wins. When several models match, the one with the highest version is used (for example `gpt-5.1` before `gpt-5`, and the base model `gpt-5` before variants like `gpt-5-mini`). An exact name also works as a pattern.
+2. **Provider auto**: when the provider has its own router, it is used (OpenRouter: `openrouter/auto`).
+3. **Built-in fallback**: a short list of patterns per provider (for example `claude-sonnet-*` for Claude, `gemini-*-flash` for Gemini, `gpt-*` for OpenAI), skipping models that are not made for chat (embeddings, speech, images, moderation, ...).
+4. Otherwise the first chat model the provider lists.
+
+```json
+"ai": {
+  "myai": {
+    "class": "lucee.runtime.ai.openai.OpenAIEngine",
+    "custom": {
+      "type": "openai",
+      "secretKey": "${OPENAI_API_KEY}",
+      "model": "auto",
+      "modelPreference": "gpt-5*,gpt-4.1*"
+    }
+  }
+}
+```
+
+The chosen model is written to the `ai` log at info level and kept for one hour, or until the connection configuration changes. `AIGetMetaData(name).model` returns the model in use, and `AIGetModels(name)` lists all models the provider offers, which helps to write the patterns.
 
 ### Default Types
 
@@ -563,7 +631,7 @@ answer = inquiryAISession(aiSession, augmentedQuery);
 
 ## Available Functions
 
-Lucee 7 provides the following AI functions (all available with or without the `Lucee` prefix):
+Lucee provides the following AI functions. The `Lucee` prefixed names (e.g. `LuceeCreateAISession()`) are deprecated and only kept for backward compatibility, functions added since Lucee 8.0 have no prefixed alias:
 
 ### Core Functions
 
@@ -576,6 +644,10 @@ Lucee 7 provides the following AI functions (all available with or without the `
   
 - **`getAIMetadata()`** / `LuceeGetAIMetadata()` - Get metadata about an AI connection
   - Arguments: `name`, `refresh` (boolean)
+
+- **`AIGetModels()`** - List the models a configured AI connection offers *(since 8.0)*
+  - Arguments: `name` (connection name, `default:category` or an AI session)
+  - Returns: Query with the columns `name`, `label`, `description` and `custom`
 
 ### Serialization Functions
 
