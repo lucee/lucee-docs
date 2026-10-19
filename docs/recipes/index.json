@@ -19,7 +19,7 @@
     "file": "ai.md",
     "title": "AI",
     "path": "/docs/recipes/ai.md",
-    "hash": "25b25c5acf60a22c4700ce97e6420746",
+    "hash": "8ace88c2031cd921ea37377552f4303d",
     "keywords": [
       "AI",
       "LLM",
@@ -27,6 +27,8 @@
       "Gemini",
       "Claude",
       "Ollama",
+      "Groq",
+      "OpenRouter",
       "RAG",
       "Multipart",
       "MCP"
