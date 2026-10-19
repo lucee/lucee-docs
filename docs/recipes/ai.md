@@ -631,7 +631,7 @@ answer = inquiryAISession(aiSession, augmentedQuery);
 
 ## Available Functions
 
-Lucee 7 provides the following AI functions (all available with or without the `Lucee` prefix):
+Lucee provides the following AI functions. The `Lucee` prefixed names (e.g. `LuceeCreateAISession()`) are deprecated and only kept for backward compatibility, functions added since Lucee 8.0 have no prefixed alias:
 
 ### Core Functions
 
