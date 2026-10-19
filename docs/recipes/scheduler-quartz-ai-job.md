@@ -33,12 +33,12 @@ The job reads a feed, picks candidates with a keyword rule, asks the AI connecti
 
 ```bash
 cd lucee-docs/examples/docker/quartz-ai
-cp .env.example .env    # optional, fill in AI_URL, AI_SECRET_KEY, AI_MODEL
+cp .env.example .env    # optional, set AI_SECRET_KEY (and AI_MODEL)
 docker compose up -d --build
 docker compose logs -f lucee
 ```
 
-Without an AI endpoint the example still runs, using only the keyword rule.
+Without an AI key the example still runs, using only the keyword rule.
 
 ## 1. Install the Extension and Define the AI Connection
 
@@ -55,10 +55,10 @@ Everything is in `.CFConfig.json` (`lucee-config.json` in the example). The Quar
 	],
 	"ai": {
 		"watcher": {
-			"class": "lucee.runtime.ai.openai.OpenAIEngine",
+			"class": "lucee.runtime.ai.anthropic.ClaudeEngine",
 			"custom": {
 				"url": "${AI_URL}",
-				"secretKey": "${AI_SECRET_KEY}",
+				"apiKey": "${AI_SECRET_KEY}",
 				"model": "${AI_MODEL}",
 				"message": "You triage short messages. Answer only with the JSON that is asked for.",
 				"timeout": 30000
@@ -68,7 +68,24 @@ Everything is in `.CFConfig.json` (`lucee-config.json` in the example). The Quar
 }
 ```
 
-`OpenAIEngine` works with any OpenAI compatible API. For other providers see [[ai]]. Use the current Quartz extension version from the [extension list](https://download.lucee.org/).
+The example uses Claude; `url` may stay empty, then the Anthropic default is used. To use an OpenAI compatible API instead (OpenAI, Ollama, a local gateway, ...), swap the AI connection:
+
+```json
+"watcher": {
+	"class": "lucee.runtime.ai.openai.OpenAIEngine",
+	"custom": {
+		"url": "${AI_URL}",
+		"secretKey": "${AI_SECRET_KEY}",
+		"model": "${AI_MODEL}",
+		"message": "You triage short messages. Answer only with the JSON that is asked for.",
+		"timeout": 30000
+	}
+}
+```
+
+and set `AI_URL` (for example `https://api.openai.com/v1/`) and `AI_MODEL` to match. Note the key name: Claude uses `apiKey`, `OpenAIEngine` uses `secretKey`. The job itself does not change, it only knows the AI connection name.
+
+For other providers see [[ai]]. Use the current Quartz extension version from the [extension list](https://download.lucee.org/).
 
 ## 2. Define the Schedule
 
@@ -105,7 +122,7 @@ A component job has an `init()` that receives the job arguments and an `execute(
 public void function execute() {
 	var env = server.system.environment;
 	var keywords = listToArray( env.WATCH_KEYWORDS ?: "error,crash,outage,security,urgent,down" );
-	var useAI = len( trim( env.AI_URL ?: "" ) ) && len( trim( env.AI_MODEL ?: "" ) );
+	var useAI = len( trim( env.AI_SECRET_KEY ?: "" ) ) > 0;
 
 	for ( var item in readFeed( env.FEED_URL ?: "" ) ) {
 		// rule 1: cheap keyword pre filter, keeps AI calls low
@@ -141,9 +158,23 @@ private struct function askAI( required struct item ) {
 			& "Reply only with JSON: {""attention"": true|false, ""reason"": ""one sentence"", ""draft"": ""a short reply draft or empty""}."
 	);
 	var answer = inquiryAISession( aiSession, "Title: #item.title#" & chr( 10 ) & "Body: #item.body#" );
-	// some models wrap JSON in a code fence
-	var result = deserializeJSON( reReplace( trim( answer ), "^```(json)?\s*|\s*```$", "", "all" ) );
+	var result = parseAIAnswer( answer );
 	return { "attention": result.attention ?: true, "reason": result.reason ?: "", "draft": result.draft ?: "", "source": "ai" };
+}
+```
+
+Models do not always answer with bare JSON: some wrap it in a code fence or add a sentence around it. `parseAIAnswer()` therefore strips a fence and parses the first `{...}` block:
+
+```cfml
+private struct function parseAIAnswer( required string answer ) {
+	var text = trim( arguments.answer );
+	text = reReplace( text, "^```[a-zA-Z]*\s*", "" );
+	text = reReplace( text, "\s*```\s*$", "" );
+	var first = find( "{", text );
+	var fromEnd = find( "}", reverse( text ) );
+	var last = fromEnd ? len( text ) - fromEnd + 1 : 0;
+	if ( !first || last <= first ) throw "AI answer contains no JSON object";
+	return deserializeJSON( mid( text, first, last - first + 1 ) );
 }
 ```
 
@@ -154,7 +185,7 @@ The full component also remembers which items it has already handled (`output/se
 - **Rules first, AI second.** A plain rule filters the obvious cases; the AI only sees the candidates. That keeps runs fast and cheap and makes the job work without AI.
 - **Fail soft.** A failing AI call is logged and the job continues with the rule result; one broken run does not stop the schedule.
 - **Drafts, not actions.** The job writes drafts. Sending them (mail, chat, ticket) is a separate step you add when you trust the results, ideally with an approval step in between.
-- **Secrets from the environment.** Endpoint, key and model come from env vars, see [[environment-variables-system-properties]].
+- **Secrets from the environment.** Key, model and optional endpoint come from env vars, see [[environment-variables-system-properties]].
 - **Transient jobs.** `"mode": "transient"` creates a new component instance per run, so no state leaks between runs; persistent state lives in a file (or a database).
 
 ## Related

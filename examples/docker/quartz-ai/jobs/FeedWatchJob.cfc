@@ -22,7 +22,7 @@ component {
 	public void function execute() {
 		var env = server.system.environment;
 		var keywords = listToArray( env.WATCH_KEYWORDS ?: "error,crash,outage,security,urgent,down" );
-		var useAI = len( trim( env.AI_URL ?: "" ) ) && len( trim( env.AI_MODEL ?: "" ) );
+		var useAI = len( trim( env.AI_SECRET_KEY ?: "" ) ) > 0;
 
 		if ( !directoryExists( variables.outputDirectory ) ) directoryCreate( variables.outputDirectory );
 		var stateFile = variables.outputDirectory & "/seen.json";
@@ -62,7 +62,7 @@ component {
 		}
 
 		fileWrite( stateFile, serializeJSON( seen ) );
-		log log="scheduler" type="info" text="FeedWatchJob: checked #items.len()# items, #flagged# flagged, AI #useAI ? 'on' : 'off (AI_URL/AI_MODEL not set)'#";
+		log log="scheduler" type="info" text="FeedWatchJob: checked #items.len()# items, #flagged# flagged, AI #useAI ? 'on' : 'off (AI_SECRET_KEY not set)'#";
 	}
 
 	private array function readFeed( required string feedUrl ) {
@@ -87,14 +87,29 @@ component {
 		);
 		var answer = inquiryAISession( aiSession, "Title: #item.title ?: ''#" & chr( 10 ) & "Body: #item.body ?: ''#" );
 
-		// some models wrap JSON in a code fence
-		var json = reReplace( trim( answer ), "^```(json)?\s*|\s*```$", "", "all" );
-		var result = deserializeJSON( json );
+		var result = parseAIAnswer( answer );
 		return {
-			"attention": isBoolean( result.attention ?: "" ) ? result.attention : true,
+			"attention": isBoolean( result.attention ?: "" ) ? !!result.attention : true,
 			"reason": result.reason ?: "",
 			"draft": result.draft ?: "",
 			"source": "ai"
 		};
+	}
+
+	/**
+	 * models do not always answer with plain JSON: some wrap it in a code fence or add a sentence around it.
+	 * Take the first {...} block of the answer and parse that.
+	 */
+	private struct function parseAIAnswer( required string answer ) {
+		var text = trim( arguments.answer );
+		text = reReplace( text, "^```[a-zA-Z]*\s*", "" );
+		text = reReplace( text, "\s*```\s*$", "" );
+		var first = find( "{", text );
+		var fromEnd = find( "}", reverse( text ) );
+		var last = fromEnd ? len( text ) - fromEnd + 1 : 0;
+		if ( !first || last <= first ) throw "AI answer contains no JSON object: #left( text, 200 )#";
+		var result = deserializeJSON( mid( text, first, last - first + 1 ) );
+		if ( !isStruct( result ) ) throw "AI answer is not a JSON object";
+		return result;
 	}
 }

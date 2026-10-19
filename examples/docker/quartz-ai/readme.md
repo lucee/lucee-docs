@@ -27,20 +27,42 @@ docker compose logs -f lucee
 
 Lucee downloads the Quartz extension on first startup, so the container needs network access. The first run is at the next full 5 minutes.
 
-Without an AI endpoint the job still runs: it only uses the keyword rule and logs `AI off`. If the AI call fails (wrong URL, timeout, invalid JSON), the job logs a warning and falls back to the keyword rule.
+Without an AI key the job still runs: it only uses the keyword rule and logs `AI off`. If the AI call fails (wrong key or model, timeout, no JSON in the answer), the job logs a warning and falls back to the keyword rule.
 
 ## Configuration
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `AI_URL` | empty | Base URL of an OpenAI compatible API, for example `https://api.example.com/v1/` |
-| `AI_SECRET_KEY` | empty | API key for that endpoint |
-| `AI_MODEL` | empty | Model name |
+| `AI_SECRET_KEY` | empty | API key for the AI connection; empty means AI off |
+| `AI_MODEL` | `claude-sonnet-4-6` (in `.env.example`) | Model name |
+| `AI_URL` | empty | Optional base URL; Claude defaults to `https://api.anthropic.com/v1/` |
 | `FEED_URL` | empty | JSON feed to check, an array of `{ "id", "title", "body" }`; the bundled sample is used when empty |
 | `WATCH_KEYWORDS` | `error,crash,outage,security,urgent,down` | Keywords for the pre filter |
 | `LUCEE_ADMIN_PASSWORD` | `qwerty` | Lucee Administrator password |
 
 `.env` is ignored by git, keep your key there or pass it from your secret store.
+
+## AI Provider
+
+The AI connection `watcher` uses Claude (`lucee.runtime.ai.anthropic.ClaudeEngine`) by default.
+
+To use an OpenAI compatible API instead (OpenAI, Ollama, a local gateway, ...), change the AI connection in `lucee-config.json`:
+
+```json
+"watcher": {
+	"class": "lucee.runtime.ai.openai.OpenAIEngine",
+	"custom": {
+		"url": "${AI_URL}",
+		"secretKey": "${AI_SECRET_KEY}",
+		"model": "${AI_MODEL}",
+		"message": "You triage short messages. Answer only with the JSON that is asked for.",
+		"timeout": 30000
+	}
+}
+```
+
+and set `AI_URL` (for example `https://api.openai.com/v1/`) and `AI_MODEL` to match. Note the key name: Claude uses `apiKey`, `OpenAIEngine` uses `secretKey`. The job itself does not change, it only knows the AI connection name.
+
 
 ## Ports
 

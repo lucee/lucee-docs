@@ -9,10 +9,10 @@
 	],
 	"ai": {
 		"watcher": {
-			"class": "lucee.runtime.ai.openai.OpenAIEngine",
+			"class": "lucee.runtime.ai.anthropic.ClaudeEngine",
 			"custom": {
 				"url": "${AI_URL}",
-				"secretKey": "${AI_SECRET_KEY}",
+				"apiKey": "${AI_SECRET_KEY}",
 				"model": "${AI_MODEL}",
 				"message": "You triage short messages. Answer only with the JSON that is asked for.",
 				"timeout": 30000
