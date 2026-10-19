@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Adding Scheduled Jobs with an AI Assistant (Quartz)",
+  "title": "Run AI Sessions in the Cloud, 24/7, Doing Your Work",
   "id": "scheduler-quartz-ai-job",
   "since": "7.0",
   "related": ["scheduler-quartz", "component-jobs-quartz-scheduler", "ai", "mcp", "lucee-skill", "Docker", "function-createaisession", "function-inquiryaisession"],
@@ -22,9 +22,13 @@
 }
 -->
 
-# Adding Scheduled Jobs with an AI Assistant (Quartz)
+# Run AI Sessions in the Cloud, 24/7, Doing Your Work
 
-Many small automations follow the same pattern: every hour (or every morning) check something, decide what matters, and prepare a reaction. With the [[scheduler-quartz]] extension a job is just a component plus one entry in a JSON file, which makes it a very good fit for an AI coding assistant: you describe the job in plain language, the assistant writes the component and the schedule, you review it, done.
+This recipe shows how to run an AI agent around the clock in the cloud, doing work for you, independent of your local computer. The agent is a plain Lucee server (here in Docker) with the [[scheduler-quartz]] extension and an AI connection: deploy it anywhere, and its jobs keep running whether your laptop is on or not.
+
+- **Keep token use down with a pre-filter.** Many automations follow the same pattern: every hour (or every morning) check something, decide what matters, and prepare a reaction. The example job reads a feed and first picks candidates with a cheap keyword rule; only items that match are sent to the AI connection. The AI never sees the rest, which keeps cost and token use low.
+- **Change jobs by vibe coding.** A Quartz job is just a component plus one entry in a JSON file, which makes it a very good fit for an AI coding assistant. In a local session you ask for a new job or a change to an existing one in plain language, review what it writes, and the server picks it up.
+- **Listeners keep track of runs.** A job listener records every run (duration, failures, AI token usage) and can hand that on to other jobs, for example one that reports usage daily or warns when something fails.
 
 This recipe uses a small, runnable Docker example as the project you work in:
 
@@ -91,7 +95,7 @@ component {
 
 	public void function execute() {
 		http url=variables.feedUrl method="get" timeout=20 result="local.res";
-		if ( res.status_code != 200 ) throw "release feed returned #res.statuscode#";
+		if ( res.status_code != 200 ) throw "release feed returned #res.status_code#";
 
 		var seen = fileExists( variables.stateFile ) ? deserializeJSON( fileRead( variables.stateFile ) ) : {};
 		for ( var release in deserializeJSON( res.fileContent ) ) {

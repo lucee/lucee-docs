@@ -17,9 +17,9 @@
   },
   {
     "file": "scheduler-quartz-ai-job.md",
-    "title": "Adding Scheduled Jobs with an AI Assistant (Quartz)",
+    "title": "Run AI Sessions in the Cloud, 24/7, Doing Your Work",
     "path": "/docs/recipes/scheduler-quartz-ai-job.md",
-    "hash": "b1fe65a0de707b3ca3fb031354d70e39",
+    "hash": "88138383cf42889b4660014dbc06cf80",
     "keywords": [
       "scheduler",
       "quartz",

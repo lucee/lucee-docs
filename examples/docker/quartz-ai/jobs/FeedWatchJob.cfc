@@ -71,7 +71,7 @@ component {
 		var raw = "";
 		if ( len( trim( arguments.feedUrl ) ) ) {
 			http url=arguments.feedUrl method="get" timeout=20 result="local.res";
-			if ( res.status_code != 200 ) throw "feed returned #res.statuscode#";
+			if ( res.status_code != 200 ) throw "feed returned #res.status_code#";
 			raw = res.fileContent;
 		}
 		else {

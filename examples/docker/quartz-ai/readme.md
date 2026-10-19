@@ -4,7 +4,7 @@ A small Lucee server that runs a scheduled job with the [Quartz Scheduler extens
 
 Nothing is posted anywhere. Results go to the log and to `output/drafts.jsonl`, so you decide what to do with them.
 
-The example is meant as a project to work in: add your own jobs by asking an AI coding assistant, and watch them with the included job listener. The recipe [Adding Scheduled Jobs with an AI Assistant (Quartz)](https://docs.lucee.org/recipes/scheduler-quartz-ai-job.html) explains how, including how jobs reach outside services (MCP, plain HTTP).
+The example is meant as a project to work in: add your own jobs by asking an AI coding assistant, and watch them with the included job listener. The recipe [Run AI Sessions in the Cloud, 24/7, Doing Your Work](https://docs.lucee.org/recipes/scheduler-quartz-ai-job.html) explains how, including how jobs reach outside services (MCP, plain HTTP).
 
 ## What's Included
 
