@@ -18,6 +18,10 @@ This version bundles custom extensions with the Lucee server. It shows how to in
 
 Lucee 7.1 with the [MCP Server extension](https://github.com/lucee/extension-mcp-server). MCP JSON-RPC is served at the webroot (`POST /`). Lucene is not installed — `search_lucee_docs` is listed but requires adding the Lucene extension.
 
+## quartz-ai
+
+Lucee with the [Quartz Scheduler extension](https://github.com/lucee/extension-quartz) running a scheduled job that uses an AI connection to decide which feed items need attention. Writes drafts to a file, posts nothing. See the recipe [Scheduled AI Jobs with Quartz](https://docs.lucee.org/recipes/scheduler-quartz-ai-job.html).
+
 ## s3-minio
 
 Lucee 7 with the S3 extension working against a local MinIO instance.
