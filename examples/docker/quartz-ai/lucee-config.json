@@ -1,0 +1,36 @@
+{
+	"mode": "single",
+	"extensions": [
+		{
+			"id": "E99E43A5-C10E-41E9-878BFC82BAAD99CE",
+			"name": "Quartz Scheduler Extension",
+			"version": "1.0.0.65"
+		}
+	],
+	"ai": {
+		"watcher": {
+			"class": "lucee.runtime.ai.openai.OpenAIEngine",
+			"custom": {
+				"url": "${AI_URL}",
+				"secretKey": "${AI_SECRET_KEY}",
+				"model": "${AI_MODEL}",
+				"message": "You triage short messages. Answer only with the JSON that is asked for.",
+				"timeout": 30000
+			}
+		}
+	},
+	"loggers": {
+		"application": {
+			"appender": "console",
+			"appenderArguments": { "streamtype": "output" },
+			"layout": "classic",
+			"level": "info"
+		},
+		"scheduler": {
+			"appender": "console",
+			"appenderArguments": { "streamtype": "output" },
+			"layout": "classic",
+			"level": "info"
+		}
+	}
+}

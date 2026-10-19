@@ -1809,6 +1809,22 @@
     ]
   },
   {
+    "file": "scheduler-quartz-ai-job.md",
+    "title": "Scheduled AI Jobs with Quartz",
+    "path": "/docs/recipes/scheduler-quartz-ai-job.md",
+    "hash": "2718345eaae24757409257f51ff62a06",
+    "keywords": [
+      "scheduler",
+      "quartz",
+      "AI",
+      "AI connection",
+      "LLM",
+      "docker",
+      "cron",
+      "automation"
+    ]
+  },
+  {
     "file": "scheduler-quartz.md",
     "title": "Quartz Scheduler Extension for Lucee",
     "path": "/docs/recipes/scheduler-quartz.md",
