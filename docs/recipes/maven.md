@@ -218,6 +218,19 @@ q = mavenImport( "/app/mvn-cache.xml" );
 
 Defaults to **literal** resolution (only the coords listed in the pom) so `mavenExport` → `mavenImport` round-trips exactly. Pass `includeTransitive=true` to walk the full tree per entry, same as [[function-mavenload]].
 
+### Optional dependencies
+
+Like Maven itself, Lucee skips optional dependencies of dependencies when resolving a tree. That is the default for [[function-mavenload]] and for [[function-mavenimport]] with `includeTransitive=true` (since [LDEV-6639](https://luceeserver.atlassian.net/browse/LDEV-6639) / [lucee/Lucee#3193](https://github.com/lucee/Lucee/pull/3193)).
+
+Pass `includeOptional=true` to load optional dependencies at every level as well:
+
+```cfml
+mavenLoad( "org.apache.httpcomponents:httpclient:4.5.13", includeOptional=true );
+mavenImport( "/app/mvn-cache.xml", includeTransitive=true, includeOptional=true );
+```
+
+Optional dependencies declared **directly** in an imported pom are always resolved. [[function-maveninfo]] still defaults `includeOptional` to `true` so you can inspect the full tree.
+
 ### Round-trip workflow
 
 ```cfml
