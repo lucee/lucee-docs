@@ -16,6 +16,25 @@
     ]
   },
   {
+    "file": "scheduler-quartz-ai-job.md",
+    "title": "Adding Scheduled Jobs with an AI Assistant (Quartz)",
+    "path": "/docs/recipes/scheduler-quartz-ai-job.md",
+    "hash": "b1fe65a0de707b3ca3fb031354d70e39",
+    "keywords": [
+      "scheduler",
+      "quartz",
+      "AI",
+      "AI connection",
+      "vibe coding",
+      "MCP",
+      "listener",
+      "token usage",
+      "docker",
+      "cron",
+      "automation"
+    ]
+  },
+  {
     "file": "ai.md",
     "title": "AI",
     "path": "/docs/recipes/ai.md",
@@ -1881,25 +1900,6 @@
       "operators",
       "HSQLDB",
       "Lucee"
-    ]
-  },
-  {
-    "file": "scheduler-quartz-ai-job.md",
-    "title": "Adding Scheduled Jobs with an AI Assistant (Quartz)",
-    "path": "/docs/recipes/scheduler-quartz-ai-job.md",
-    "hash": "b1fe65a0de707b3ca3fb031354d70e39",
-    "keywords": [
-      "scheduler",
-      "quartz",
-      "AI",
-      "AI connection",
-      "vibe coding",
-      "MCP",
-      "listener",
-      "token usage",
-      "docker",
-      "cron",
-      "automation"
     ]
   },
   {
