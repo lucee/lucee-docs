@@ -645,7 +645,7 @@ Lucee 7 provides the following AI functions (all available with or without the `
 - **`getAIMetadata()`** / `LuceeGetAIMetadata()` - Get metadata about an AI connection
   - Arguments: `name`, `refresh` (boolean)
 
-- **`AIGetModels()`** / `LuceeAIGetModels()` - List the models a configured AI connection offers *(since 8.0)*
+- **`AIGetModels()`** - List the models a configured AI connection offers *(since 8.0)*
   - Arguments: `name` (connection name, `default:category` or an AI session)
   - Returns: Query with the columns `name`, `label`, `description` and `custom`
 
