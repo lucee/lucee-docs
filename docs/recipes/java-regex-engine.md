@@ -20,6 +20,7 @@
     "regex"
   ],
   "related": [
+    "regex-migration-lucee-9",
     "recommended-settings",
     "function-refind",
     "function-rereplace",
@@ -34,7 +35,12 @@ How to switch Lucee from the legacy Apache ORO regex engine to Java's modern bui
 
 ## Background
 
-By default, Lucee uses the [Apache ORO](https://jakarta.apache.org/oro/) regex engine (also known as "Perl" mode) for all regex functions (`REFind`, `REReplace`, `REMatch`, etc.). This keeps compatibility with Adobe ColdFusion and older code bases.
+> **Lucee 8:** `perl` as the default engine is deprecated, and Lucee 8 logs a warning once per application that uses it ([LDEV-6660](https://luceeserver.atlassian.net/browse/LDEV-6660)).
+>
+> **Lucee 9:** `java` is the default engine, and `perl` is only available with the Perl Regex extension. See [[regex-migration-lucee-9]].
+
+
+Up to Lucee 8, by default Lucee uses the [Apache ORO](https://jakarta.apache.org/oro/) regex engine (also known as "Perl" mode) for all regex functions (`REFind`, `REReplace`, `REMatch`, etc.). This keeps compatibility with Adobe ColdFusion and older code bases.
 
 The problem is that Apache ORO was retired in 2010 and hasn't been maintained since. It lacks modern regex features like look-behinds and allocates new objects on every single regex call internally.
 
@@ -46,7 +52,7 @@ Add one line to your `Application.cfc`:
 
 ```luceescript
 component {
-    this.regex = { engine: "java" };
+    this.regex = { type: "java" }; // "engine" works as key too
 }
 ```
 

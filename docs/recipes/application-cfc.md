@@ -493,8 +493,10 @@ component displayname="Application" output="false" hint="Handle the application"
    ////////////////////////////////////////////////////////////////
    //  REGEX
    //  Defines the regular expression dialect to be used.
-   //  - modern: Modern type is the dialect used by Java itself.
-   //  - classic CFML default, the classic CFML traditional type Perl5 dialect
+   //  - java (modern): the dialect used by Java itself, default since Lucee 9
+   //  - compat: java with the Perl-style replacement syntax (\1, \U, \L)
+   //  - perl (classic): Perl5 dialect, default up to Lucee 8, deprecated,
+   //    in Lucee 9 only available with the Perl Regex extension
    ////////////////////////////////////////////////////////////////
    // this.regex.type = "perl";
 
