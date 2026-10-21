@@ -613,6 +613,27 @@
     ]
   },
   {
+    "file": "downloading-extensions.md",
+    "title": "Downloading Extensions for CI, Docker and Offline Installs",
+    "path": "/docs/recipes/downloading-extensions.md",
+    "hash": "dcd1e0eab68cabe39cafe5b9a1f2bff6",
+    "keywords": [
+      "extension",
+      "download",
+      "lex",
+      "maven",
+      "Maven Central",
+      "snapshot",
+      "pre-release",
+      "Docker",
+      "multistage",
+      "CI",
+      "offline",
+      "deploy directory",
+      "copy-dependencies"
+    ]
+  },
+  {
     "file": "dynamic-proxy-enhancements.md",
     "title": "Dynamic Proxy Enhancements",
     "path": "/docs/recipes/dynamic-proxy-enhancements.md",
@@ -752,7 +773,7 @@
     "file": "extension-installation.md",
     "title": "Extension Installation",
     "path": "/docs/recipes/extension-installation.md",
-    "hash": "95a8da739bd9c60a33d3377e8c647695",
+    "hash": "6c2d5ff0dc077191e153aff8c0d8d088",
     "keywords": [
       "extension",
       "install",
