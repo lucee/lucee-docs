@@ -66,6 +66,7 @@ description: >
 | Deploying Custom Tags via Extensions | `custom-tags-via-extensions` | Custom Tags, Extensions, LEX, cfimport, taglib, prefix, lucee-server context |
 | Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy` | `concurrent-map-legacy-flag` | ConcurrentHashMap, struct, lucee.concurrent.map.impl, legacy, struct ordering, LDEV-5098, LDEV-6288 |
 | Docker | `docker` | Docker, container, lucee/lucee, docker-compose, Dockerfile, Tomcat, LUCEE_ADMIN_PASSWORD, Server.cfc |
+| Downloading Extensions for CI, Docker and Offline Installs | `downloading-extensions` | extension, download, lex, maven, Maven Central, snapshot, pre-release, Docker, multistage, CI |
 | Dynamic Proxy Enhancements | `dynamic-proxy-enhancements` | dynamic proxy, java, interface, component, interoperability, createDynamicProxy |
 | DynamoDB Cache Extension | `dynamodb-cache-extension` | DynamoDB, Cache, AWS, NoSQL, Distributed Cache, Cloud Storage, Maven, DynamoDBCommand |
 | Encryption/Decryption | `encryption_decryption` | Encryption, Decryption, RSA, Public key, Private key, Lucee |
