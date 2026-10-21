@@ -73,6 +73,62 @@ The `.lex` file itself carries its metadata in `META-INF/MANIFEST.MF`, including
 unzip -p esapi-extension-3.1.0.1.lex META-INF/MANIFEST.MF
 ```
 
+## Option 0: Let Lucee install them itself (no download needed)
+
+Often you don't need the `.lex` files at all. You can list the extensions in `.CFConfig.json` (or the `LUCEE_EXTENSIONS` environment variable) and Lucee resolves and installs them at startup from its configured Maven repositories. The syntax differs between Lucee 7 and Lucee 8.
+
+### Lucee 7.x: `.CFConfig.json` with `id`
+
+On Lucee 7, each entry in `.CFConfig.json` is identified by the extension UUID (`id`). `version` is optional, but pinning it is recommended. An entry without a valid `id` is ignored, unless it has a `path`/`resource`/`url` pointing to a reachable `.lex` file.
+
+```json
+{
+  "extensions": [
+    {
+      "id": "60772C12-F179-D555-8E2CD2B4F7428718",
+      "version": "3.0.0.56"
+    }
+  ]
+}
+```
+
+### Lucee 8.x: `.CFConfig.json` with `maven`
+
+Lucee 8 accepts Maven coordinates (`groupId:artifactId:version`) directly with the `maven` key (alias `mvn`). An `id` is no longer required:
+
+```json
+{
+  "extensions": [
+    {
+      "maven": "org.lucee:redis-extension:3.0.0.56"
+    }
+  ]
+}
+```
+
+### `LUCEE_EXTENSIONS` (Lucee 7 and 8)
+
+The `LUCEE_EXTENSIONS` environment variable (or `-Dlucee.extensions` system property) accepts Gradle style Maven coordinates, comma separated, on both Lucee 7 and Lucee 8:
+
+```plaintext
+LUCEE_EXTENSIONS=org.lucee:s3-extension:2.0.2.21,org.lucee:redis-extension:3.0.0.56
+```
+
+See [[extension-installation]] for all formats and details, for example that `.CFConfig.json` extensions are only processed on a fresh install.
+
+### Making failed downloads visible
+
+By default a Maven download at startup is silent. Set `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP` (system property `lucee.maven.download.policy.startup`) to `warn` to log every download, or to `error` to fail instead of downloading. With `error` you can check that an image really contains everything and never downloads at startup. The same exists for runtime downloads with `LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME`.
+
+### When downloading the files is still the better choice
+
+- offline or air gapped servers and images
+- locked down networks without access to the Maven repositories
+- Docker images where you want everything baked in, so containers don't download anything at startup
+- caching extensions in CI instead of fetching them on every run
+
+For these cases, use one of the options below.
+
 ## Option 1: Maven (recommended)
 
 The best approach is to declare the extensions as Maven dependencies with the type `lex`. You can list several repositories, and Maven picks each version from wherever it lives. Lucee itself resolves extensions the same way.
