@@ -86,7 +86,7 @@ On Lucee 7, each entry in `.CFConfig.json` is identified by the extension UUID (
   "extensions": [
     {
       "id": "60772C12-F179-D555-8E2CD2B4F7428718",
-      "version": "3.0.0.56"
+      "version": "4.0.0.2"
     }
   ]
 }
@@ -96,11 +96,13 @@ On Lucee 7, each entry in `.CFConfig.json` is identified by the extension UUID (
 
 Lucee 8 accepts Maven coordinates (`groupId:artifactId:version`) directly with the `maven` key (alias `mvn`). An `id` is no longer required:
 
+> **Note:** Lucee 8 still supports the Lucee 7 syntax. Entries with `id` (and optional `version`) in `.CFConfig.json` keep working, as do UUID entries in `LUCEE_EXTENSIONS`, so you don't have to change an existing configuration when upgrading.
+
 ```json
 {
   "extensions": [
     {
-      "maven": "org.lucee:redis-extension:3.0.0.56"
+      "maven": "org.lucee:redis-extension:4.0.0.2"
     }
   ]
 }
@@ -111,7 +113,7 @@ Lucee 8 accepts Maven coordinates (`groupId:artifactId:version`) directly with t
 The `LUCEE_EXTENSIONS` environment variable (or `-Dlucee.extensions` system property) accepts Gradle style Maven coordinates, comma separated, on both Lucee 7 and Lucee 8:
 
 ```plaintext
-LUCEE_EXTENSIONS=org.lucee:s3-extension:2.0.2.21,org.lucee:redis-extension:3.0.0.56
+LUCEE_EXTENSIONS=org.lucee:s3-extension:2.0.2.21,org.lucee:redis-extension:4.0.0.2
 ```
 
 See [[extension-installation]] for all formats and details, for example that `.CFConfig.json` extensions are only processed on a fresh install.
