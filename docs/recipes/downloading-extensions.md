@@ -122,11 +122,33 @@ See [[extension-installation]] for all formats and details, for example that `.C
 
 By default a Maven download at startup is silent. Set `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP` (system property `lucee.maven.download.policy.startup`) to `warn` to log every download, or to `error` to fail instead of downloading. With `error` you can check that an image really contains everything and never downloads at startup. The same exists for runtime downloads with `LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME`.
 
+### Docker: resolve everything at build time with warmup
+
+For Docker you usually don't need to download the `.lex` files yourself. Copy your `.CFConfig.json` into the image and run Lucee's [[warmup]] in a `RUN` step. Warmup starts Lucee once, installs the extensions defined in the config, runs `onBuild` from `Server.cfc` (if present) and exits. Everything it fetched from Maven ends up in the image layer, so the container doesn't download it again at startup.
+
+```dockerfile
+FROM lucee/lucee:7.0
+
+COPY ./.CFConfig.json /opt/lucee/server/lucee-server/context/.CFConfig.json
+COPY ./app /var/www/
+
+# install extensions and resolve Maven artifacts at build time
+RUN LUCEE_ENABLE_WARMUP=true /usr/local/tomcat/bin/catalina.sh run
+```
+
+Warmup is enabled with the environment variable `LUCEE_ENABLE_WARMUP=true` or the system property `-Dlucee.enable.warmup=true`. The official `lucee/lucee` images already run it once while they are built.
+
+Maven artifacts downloaded by Lucee are stored in the `mvn` directory next to `lucee-server` (in standard Maven repository layout). If `~/.m2/repository` exists, Lucee copies artifacts from there instead of downloading them.
+
+Java libraries from `javasettings` (in `.CFConfig.json`, `Application.cfc` or a component) are resolved when they are first used. To be sure they are baked in as well, load them in `onBuild`, for example with `mavenLoad()` or `mavenImport()`. See [[maven]], [[java-settings]] and [[onbuild-function]].
+
+To make sure the running container never downloads anything, set `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP=error` at runtime (not during the warmup step). Lucee then fails instead of downloading a missing artifact, so a gap in the image shows up right away.
+
 ### When downloading the files is still the better choice
 
 - offline or air gapped servers and images
 - locked down networks without access to the Maven repositories
-- Docker images where you want everything baked in, so containers don't download anything at startup
+- Docker images where Lucee can't reach the Maven repositories during the build
 - caching extensions in CI instead of fetching them on every run
 
 For these cases, use one of the options below.

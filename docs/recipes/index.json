@@ -616,7 +616,7 @@
     "file": "downloading-extensions.md",
     "title": "Downloading Extensions for CI, Docker and Offline Installs",
     "path": "/docs/recipes/downloading-extensions.md",
-    "hash": "7cd84993c620183b0ec31f914a4ad186",
+    "hash": "111ec561ce09c1da6a539cf7bdd5ec5a",
     "keywords": [
       "extension",
       "download",
@@ -2665,7 +2665,7 @@
     "file": "warmup.md",
     "title": "Warmup",
     "path": "/docs/recipes/warmup.md",
-    "hash": "56200f3960fabf3c0db609e8f6ce2d4e",
+    "hash": "4649f5682f43b54ee3fd54da6596a3b7",
     "keywords": [
       "Warmup",
       "Docker",
