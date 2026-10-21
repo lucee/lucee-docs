@@ -635,7 +635,7 @@
     "file": "downloading-extensions.md",
     "title": "Downloading Extensions for CI, Docker and Offline Installs",
     "path": "/docs/recipes/downloading-extensions.md",
-    "hash": "111ec561ce09c1da6a539cf7bdd5ec5a",
+    "hash": "ce72b9de86ad1c351dd10ce30321cb4f",
     "keywords": [
       "extension",
       "download",
@@ -649,7 +649,10 @@
       "CI",
       "offline",
       "deploy directory",
-      "copy-dependencies"
+      "copy-dependencies",
+      "CFConfig",
+      "pin",
+      "rollback"
     ]
   },
   {
