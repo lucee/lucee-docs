@@ -16,7 +16,10 @@
     "CI",
     "offline",
     "deploy directory",
-    "copy-dependencies"
+    "copy-dependencies",
+    "CFConfig",
+    "pin",
+    "rollback"
   ],
   "categories": [
     "extensions",
@@ -258,6 +261,46 @@ The download page links work too, for example in a Dockerfile:
 ADD https://download.lucee.org/download.cfm?groupId=org.lucee&artifactId=esapi-extension&version=3.1.0.1 \
 	/opt/lucee/server/lucee-server/deploy/esapi-extension-3.1.0.1.lex
 ```
+
+## Pin your extensions in `.CFConfig.json`
+
+A simple and robust approach is to define every extension a project needs in its own `.CFConfig.json` and never install extensions any other way (no Administrator, no `deploy` folder, no `LUCEE_EXTENSIONS`). The `extensions` array then becomes the single source of truth for that server.
+
+```json
+{
+  "extensions": [
+    { "id": "CED6227E-0F49-6367-A68D21AACA6B07E8", "name": "Administrator" },
+    { "id": "66E312DD-D083-27C0-64189D16753FD6F0", "name": "PDF" },
+    { "id": "8D7FB0DF-08BB-1589-FE3975678F07DB17", "name": "Compress" },
+    { "id": "37C61C0A-5D7E-4256-8572639BE0CF5838", "name": "ESAPI" },
+    {
+      "id": "B737ABC4-D43F-4D91-8E8E973E37C40D1B",
+      "name": "Image",
+      "version": "2.0.0.33",
+      "resource": "${EXTENSION_PATH}/extensions/image-extension-2.0.0.33.lex"
+    },
+    {
+      "id": "7E673D15-D87C-41A6-8B5F1956528C605F",
+      "name": "MySQL",
+      "version": "9.3.0",
+      "resource": "${EXTENSION_PATH}/extensions/com.mysql.cj-9.3.0.lex"
+    }
+  ]
+}
+```
+
+**Bundled extensions first, without a version.** The extensions that ship with the Lucee core (here Administrator, PDF, Compress and ESAPI) are listed by `id` only. Lucee keeps the version that is already installed. If the extension isn't installed yet, Lucee installs it, preferring the copy bundled with the core. You have to list them because Lucee uninstalls any installed extension that is missing from the list (see below).
+
+**Custom extensions with `version` and `resource`.** Your other extensions get an exact `version` and a `resource` pointing to the `.lex` file, so nothing is downloaded at startup. `${EXTENSION_PATH}` is a placeholder that Lucee resolves from the system property or environment variable `EXTENSION_PATH` (`${NAME:default}` sets a fallback value). `{env:NAME}` and `{system:NAME}` work as well. If the resource can't be resolved, Lucee logs an error and installs the extension by `id` and `version` from its Maven repositories instead.
+
+**What happens to extensions that aren't listed.** Whenever the `extensions` array changes, Lucee installs what is listed and then uninstalls every installed extension that isn't in the list in any version. If an extension is listed in a different version, Lucee removes the old file. You can see this in `deploy.log`. This cleanup is on by default; you can turn it off with the system property `lucee.cleanup.extension=false` (environment variable `LUCEE_CLEANUP_EXTENSION=false`).
+
+**Why this gives you a clean rollback.** Extensions that the core requires are installed as minimum versions. A core upgrade can bump them, but a core downgrade never downgrades or removes them. Neither does anything else, so after a downgrade you are left with whatever the newer version installed. With the full list in `.CFConfig.json`, anything that isn't listed is removed, so the server ends up with exactly the extensions you defined.
+
+Caveats:
+
+- Version-less entries don't pin anything. They keep what is installed, and on a fresh install you get the version bundled with that core (or the latest release from Maven). Add a `version` if you need the exact same build everywhere.
+- The cleanup applies to the server's own config file. That is `lucee-server/context/.CFConfig.json`, or the file set with `LUCEE_BASE_CONFIG`. A `.CFConfig.json` dropped into the `deploy` folder is merged into that file, so it doesn't replace the list.
 
 ## Installing the downloaded files
 
