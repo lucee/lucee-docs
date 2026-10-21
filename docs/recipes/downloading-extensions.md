@@ -120,7 +120,14 @@ See [[extension-installation]] for all formats and details, for example that `.C
 
 ### Making failed downloads visible
 
-By default a Maven download at startup is silent. Set `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP` (system property `lucee.maven.download.policy.startup`) to `warn` to log every download, or to `error` to fail instead of downloading. With `error` you can check that an image really contains everything and never downloads at startup. The same exists for runtime downloads with `LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME`.
+Lucee has two Maven download policies with different scopes. Which one applies depends only on whether the engine has finished starting:
+
+| Setting | Applies to | Examples |
+|---------|-----------|----------|
+| `lucee.maven.download.policy.startup` / `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP` | downloads while Lucee is still starting up | extensions from `.CFConfig.json` installed on a fresh start, and anything else resolved before startup completes |
+| `lucee.maven.download.policy.runtime` / `LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME` | downloads after startup has finished | `javasettings` libraries, `mavenLoad()`, the `deploy` folder check that runs after startup |
+
+Both accept `ignore` (default, download silently), `warn` (download and log each download) or `error` (block the download and fail). In Lucee 8 they can also be set in `.CFConfig.json` as `maven.downloadPolicyStartup` and `maven.downloadPolicyRuntime`; in Lucee 7 only the system property or environment variable is available. `lucee.maven.download.policy.log.level` sets the log level used for `warn`.
 
 ### Docker: resolve everything at build time with warmup
 
@@ -142,7 +149,7 @@ Maven artifacts downloaded by Lucee are stored in the `mvn` directory next to `l
 
 Java libraries from `javasettings` (in `.CFConfig.json`, `Application.cfc` or a component) are resolved when they are first used. To be sure they are baked in as well, load them in `onBuild`, for example with `mavenLoad()` or `mavenImport()`. See [[maven]], [[java-settings]] and [[onbuild-function]].
 
-To make sure the running container never downloads anything, set `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP=error` at runtime (not during the warmup step). Lucee then fails instead of downloading a missing artifact, so a gap in the image shows up right away.
+In the final container (not during the warmup step), set `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP=error`. Startup then fails instead of downloading anything the warmup didn't bake in, so a gap in the image shows up right away. If you also want to block downloads while the application is running (for example `javasettings` libraries you didn't load in `onBuild`), set `LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME=error` as well; use `warn` first to find out what still gets downloaded.
 
 ### When downloading the files is still the better choice
 
