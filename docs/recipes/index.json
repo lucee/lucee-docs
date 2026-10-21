@@ -613,6 +613,25 @@
     ]
   },
   {
+    "file": "docker-best-practices.md",
+    "title": "Docker Image Best Practices",
+    "path": "/docs/recipes/docker-best-practices.md",
+    "hash": "b64f6506681bb2f02cdb9a09db2e2951",
+    "keywords": [
+      "Docker",
+      "Dockerfile",
+      "Container",
+      "Best Practices",
+      "Warmup",
+      "CFConfig.json",
+      "Maven",
+      "Download Policy",
+      "Healthcheck",
+      "Logging",
+      "Secrets"
+    ]
+  },
+  {
     "file": "downloading-extensions.md",
     "title": "Downloading Extensions for CI, Docker and Offline Installs",
     "path": "/docs/recipes/downloading-extensions.md",

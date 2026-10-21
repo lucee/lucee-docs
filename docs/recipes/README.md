@@ -164,6 +164,10 @@ The `lucee.concurrent.map.impl=legacy` flag temporarily restores the pre-7.1 str
 
 Guide on using and running Lucee with Docker
 
+## [Docker Image Best Practices](/docs/recipes/docker-best-practices.md)
+
+Best practices for building your own Lucee Docker images: warmup at build time, pinned versions, configuration, Maven download policies, healthchecks, logging and secrets.
+
 ## [Downloading Extensions for CI, Docker and Offline Installs](/docs/recipes/downloading-extensions.md)
 
 Where to download Lucee extensions (.lex) from, and how to fetch them with Maven, curl or a Docker multistage build.
