@@ -164,6 +164,10 @@ The `lucee.concurrent.map.impl=legacy` flag temporarily restores the pre-7.1 str
 
 Guide on using and running Lucee with Docker
 
+## [Downloading Extensions for CI, Docker and Offline Installs](/docs/recipes/downloading-extensions.md)
+
+Where to download Lucee extensions (.lex) from, and how to fetch them with Maven, curl or a Docker multistage build.
+
 ## [Dynamic Proxy Enhancements](/docs/recipes/dynamic-proxy-enhancements.md)
 
 Lucee 7 improvements to dynamic proxy creation - all component functions and properties are now always included when implementing Java interfaces.

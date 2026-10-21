@@ -23,6 +23,7 @@
   ],
   "related": [
     "deploying-lucee-server-apps",
+    "downloading-extensions",
     "troubleshooting"
   ]
 }
@@ -66,11 +67,13 @@ In a Docker image, you can download extensions at build time so they are baked i
 
 ```dockerfile
 RUN mkdir -p /opt/lucee/server/lucee-server/deploy && \
-    wget -nv https://ext.lucee.org/s3-extension-2.0.2.21.lex \
+    wget -nv https://repo1.maven.org/maven2/org/lucee/s3-extension/2.0.2.21/s3-extension-2.0.2.21.lex \
          -O /opt/lucee/server/lucee-server/deploy/s3-extension-2.0.2.21.lex && \
-    wget -nv https://ext.lucee.org/image-extension-2.0.0.29.lex \
+    wget -nv https://repo1.maven.org/maven2/org/lucee/image-extension/2.0.0.29/image-extension-2.0.0.29.lex \
          -O /opt/lucee/server/lucee-server/deploy/image-extension-2.0.0.29.lex
 ```
+
+See [[downloading-extensions]] for where to download extensions from, and for a Maven based Docker multistage example.
 
 Best for: hot deployment on a running server, scripted installs where you already have the file locally. Some extensions require a restart to take effect.
 
