@@ -266,6 +266,8 @@ ADD https://download.lucee.org/download.cfm?groupId=org.lucee&artifactId=esapi-e
 
 A simple and robust approach is to define every extension a project needs in its own `.CFConfig.json` and never install extensions any other way (no Administrator, no `deploy` folder, no `LUCEE_EXTENSIONS`). The `extensions` array then becomes the single source of truth for that server.
 
+### Lucee 7.x: extension `id`
+
 ```json
 {
   "extensions": [
@@ -292,6 +294,34 @@ A simple and robust approach is to define every extension a project needs in its
 **Bundled extensions first, without a version.** The extensions that ship with the Lucee core (here Administrator, PDF, Compress and ESAPI) are listed by `id` only. Lucee keeps the version that is already installed. If the extension isn't installed yet, Lucee installs it, preferring the copy bundled with the core. You have to list them because Lucee uninstalls any installed extension that is missing from the list (see below).
 
 **Custom extensions with `version` and `resource`.** Your other extensions get an exact `version` and a `resource` pointing to the `.lex` file, so nothing is downloaded at startup. `${EXTENSION_PATH}` is a placeholder that Lucee resolves from the system property or environment variable `EXTENSION_PATH` (`${NAME:default}` sets a fallback value). `{env:NAME}` and `{system:NAME}` work as well. If the resource can't be resolved, Lucee logs an error and installs the extension by `id` and `version` from its Maven repositories instead.
+
+### Lucee 8.x: Maven coordinates
+
+Lucee 8 still supports the Lucee 7 syntax above, so an existing list keeps working after an upgrade. It also lets you identify an extension by its Maven coordinates (`groupId:artifactId[:version]`) with the `maven` key, or its alias `mvn`, instead of `id`:
+
+```json
+{
+  "extensions": [
+    { "maven": "org.lucee:administrator-extension" },
+    { "maven": "org.lucee:pdf-extension" },
+    { "maven": "org.lucee:compress-extension" },
+    { "maven": "org.lucee:esapi-extension" },
+    {
+      "maven": "org.lucee:image-extension:2.0.0.33",
+      "resource": "${EXTENSION_PATH}/extensions/image-extension-2.0.0.33.lex"
+    },
+    { "maven": "org.lucee:mysql-jdbc-extension:9.3.0" }
+  ]
+}
+```
+
+- The version in the coordinate is optional. Bundled extensions are listed as `groupId:artifactId` only, the same way they are listed by `id` only on Lucee 7.
+- `resource` (or `path` / `url`) still works, with the same placeholders. If the file exists, Lucee installs the extension from it. If it doesn't, Lucee resolves the coordinate from its Maven repositories. In the example, MySQL has no `resource`, so Lucee downloads it from Maven.
+- `name` isn't used to identify the extension, in either version. You can keep it as a label.
+- The cleanup described below works the same way on Lucee 8. Every installed extension that isn't in the list is uninstalled, whether you listed it by `maven` or by `id`.
+- Lucee 8 bundles more extensions than Lucee 7, including MySQL, MSSQL, PostgreSQL, Image, S3, Mail, FTP, Documentation and Scheduler. Add the bundled ones you want to keep to the list. For the full list, see `Require-Extension` in the core [MANIFEST.MF](https://github.com/lucee/Lucee/blob/8.0/core/src/main/java/META-INF/MANIFEST.MF).
+
+### Cleanup and rollback (Lucee 7 and 8)
 
 **What happens to extensions that aren't listed.** Whenever the `extensions` array changes, Lucee installs what is listed and then uninstalls every installed extension that isn't in the list in any version. If an extension is listed in a different version, Lucee removes the old file. You can see this in `deploy.log`. This cleanup is on by default; you can turn it off with the system property `lucee.cleanup.extension=false` (environment variable `LUCEE_CLEANUP_EXTENSION=false`).
 
