@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "extensions"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "extensions"],
   "related": [
     "breaking-changes-7-1-to-8-0"
   ]
@@ -94,3 +94,59 @@ Extensions that use Felix classes must be updated before they can run on Lucee 9
 | Hibernate (ORM) | uses `BundleReference` since 5.6.15.21 |
 
 Check your own extensions with a search for `org.apache.felix` in the source and in the bytecode (`javap -c`), the import in a class file shows up as `org/apache/felix/`.
+
+## ASM is shaded into the Lucee core
+
+The bytecode library that Lucee uses to compile CFML (ASM) is no longer a set of separate bundles. It is **shaded** into the core: the classes are copied into the core (`.lco`) and their package is relocated from `org.objectweb.asm` to `lucee.shaded.asm`. This is the same step as for Felix above.
+
+### Lucee does not provide `org.objectweb.asm` anymore
+
+The core does not require the ASM bundles anymore (`org.objectweb.asm`, `org.objectweb.asm.commons`, `org.objectweb.asm.tree`, `org.objectweb.asm.tree.analysis`, `org.objectweb.asm.util`), and the Lucee jar does not ship them anymore. The classes in `org.objectweb.asm.*` are not visible through the core.
+
+Code that used the ASM of Lucee fails with a `ClassNotFoundException` or `NoClassDefFoundError`, for example:
+
+```
+java.lang.NoClassDefFoundError: org/objectweb/asm/ClassReader
+```
+
+The shaded classes in `lucee.shaded.asm` are internal to the core, they are not exported and must not be used.
+
+### Bring your own ASM
+
+Code that needs ASM loads its own copy, in the version it needs.
+
+In CFML, with `javaSettings` (on a component or in the `Application.cfc`), Lucee downloads the library from Maven:
+
+```cfml
+component javaSettings='{"maven":["org.ow2.asm:asm-util:9.10.1"]}' {
+
+	function getBytecodeText( required binary classBytes ) {
+		var reader = createObject( "java", "org.objectweb.asm.ClassReader" ).init( arguments.classBytes );
+		var sw = createObject( "java", "java.io.StringWriter" ).init();
+		var pw = createObject( "java", "java.io.PrintWriter" ).init( sw );
+		var visitor = createObject( "java", "org.objectweb.asm.util.TraceClassVisitor" ).init( javaCast( "null", "" ), pw );
+		reader.accept( visitor, 0 );
+		pw.flush();
+		return sw.toString();
+	}
+}
+```
+
+`asm-util` brings `asm`, `asm-tree` and `asm-analysis` as dependencies, use `org.ow2.asm:asm` alone if you only need the core classes.
+
+In an extension, require the ASM bundles in the manifest of your bundle (`Require-Bundle: org.objectweb.asm;bundle-version=9.10.1` or `Import-Package: org.objectweb.asm`) or ship them in the extension. Bundles that are required but not installed are downloaded on demand.
+
+**Offline installs:** before Lucee 9 the ASM bundles were part of the Lucee jar, now they are only downloaded when something requires them. On a server without internet access (or with `lucee.enable.bundle.download=false`) that download fails. Ship the ASM bundles with your extension, or copy the jars into the `bundles` folder of the server (`lucee-server/bundles`) before you start it.
+
+### The bytecode API uses the relocated ASM types
+
+The core exports the compiler API in `lucee.transformer.bytecode.*` (for example `BytecodeContext.getAdapter()`, which returns ASM's `GeneratorAdapter`). These classes now use the relocated types (`lucee.shaded.asm.*`), and those are not exported.
+
+Code that was compiled against this API with the original ASM types does not link anymore on Lucee 9 (`NoSuchMethodError`, `NoClassDefFoundError`). This API is internal to the compiler, no first-party extension uses it.
+
+### Migration
+
+- Search your code and extensions for `org.objectweb.asm` in the source and in the bytecode (`javap -c`), the import in a class file shows up as `org/objectweb/asm/`.
+- CFML that creates ASM objects with `createObject( "java", "org.objectweb.asm..." )`: add the ASM library with `javaSettings` (see above).
+- Extensions that used the ASM bundles of Lucee: require them explicitly in the manifest and, for offline installs, ship them with the extension.
+- Java code that extends or calls `lucee.transformer.bytecode.*`: do not depend on this API, generate your bytecode with your own copy of ASM.
