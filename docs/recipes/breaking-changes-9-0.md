@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "extensions"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions"],
   "related": [
     "breaking-changes-7-1-to-8-0"
   ]
@@ -150,3 +150,54 @@ Code that was compiled against this API with the original ASM types does not lin
 - CFML that creates ASM objects with `createObject( "java", "org.objectweb.asm..." )`: add the ASM library with `javaSettings` (see above).
 - Extensions that used the ASM bundles of Lucee: require them explicitly in the manifest and, for offline installs, ship them with the extension.
 - Java code that extends or calls `lucee.transformer.bytecode.*`: do not depend on this API, generate your bytecode with your own copy of ASM.
+
+## Libraries that Lucee does not provide anymore
+
+Lucee 9 removes third party libraries from the core that were only there for a feature that no longer needs them, or that are replaced by the JDK or by a small implementation of Lucee itself. Lucee does not provide the classes of these libraries to code that runs on Lucee anymore (CFML `createObject( "java", ... )`, extensions, bundles).
+
+| Library | Package(s) | What replaced it |
+| --- | --- | --- |
+| Apache HttpClient 4, HttpCore 4, HttpMime | `org.apache.http.*` | cfhttp runs on an HTTP engine interface, the default engine is the JDK `java.net.http.HttpClient`. The features that need Apache HttpClient 5 (the full cfhttp feature set) come with the HTTP extension, using them without the extension fails with a message that says which feature and which extension. |
+| commons-logging | `org.apache.commons.logging.*` | nothing, Lucee does not use it anymore |
+| commons-email-all (`javax.mail`, `javax.activation`, `org.apache.commons.mail`) | `javax.mail.*`, `javax.activation.*`, `org.apache.commons.mail.*` | nothing in the core, the Mail extension brings its own `jakarta.mail`, `jakarta.activation` and `commons-email2` |
+| commons-codec | `org.apache.commons.codec.*` | the JDK (`MessageDigest`, `HexFormat`) and small implementations in the core. `metaphone()` is not supported anymore and fails with a clear error, `soundex()` still works. |
+| commons-fileupload2-core | `org.apache.commons.fileupload2.*` | a small streaming multipart parser in the core. The form scope and `cffile` upload behave as before, with two differences: a truncated or corrupted multipart request is rejected (empty form scope) where the library sometimes returned a partial form, and the limit for the headers of one part is 10240 bytes (it was 512). |
+
+(commons-io and commons-pool2 are still provided for now.)
+
+Code that used one of these libraries of Lucee fails with a `ClassNotFoundException` or a `NoClassDefFoundError`, for example:
+
+```
+java.lang.NoClassDefFoundError: javax/mail/Session
+```
+
+### Bring your own copy
+
+In CFML, with `javaSettings` (on a component or in the `Application.cfc`), Lucee downloads the library from Maven:
+
+```cfml
+component javaSettings='{"maven":["com.sun.mail:javax.mail:1.6.2"]}' {
+
+	function getSession( required any props ) {
+		return createObject( "java", "javax.mail.Session" ).getInstance( arguments.props );
+	}
+}
+```
+
+In an extension, require the bundle in the manifest (for example `Require-Bundle: org.lucee.commons-email-all`, or `Import-Package` for the package you need) or ship the library in the extension. The mapping from the old bundle names to Maven is still in Lucee, so a bundle that is required but not installed is downloaded on demand.
+
+**Offline installs:** the same as for ASM above, these libraries were part of the Lucee jar before, now they are only downloaded when something requires them. Without internet access (or with `lucee.enable.bundle.download=false`) the download fails. Ship the library with your extension, or copy the jars into the `bundles` folder of the server before you start it.
+
+### Log output of libraries that bring their own commons-logging
+
+Lucee used to set the system properties `org.apache.commons.logging.LogFactory`, `org.apache.commons.logging.Log` (`SimpleLog`) and `org.apache.commons.logging.simplelog.defaultlog` (`warn`) for every commons-logging in the JVM. It does not do that anymore, because it does not provide commons-logging anymore.
+
+A library that brings its own commons-logging (for example the AWS SDK of the S3 extension or PDFBox of the PDF extension) now falls back to the discovery of commons-logging, which normally ends up in `java.util.logging` with the default level `INFO`. INFO messages of such a library can show up in the console of the servlet container (`catalina.out`) where they were suppressed before. To get the old behaviour back, set the system properties above yourself (for example in `setenv.sh` / `CATALINA_OPTS`), or configure `java.util.logging` for the package of the library.
+
+### Migration
+
+- Search your code and extensions for `javax.mail`, `org.apache.commons.mail`, `org.apache.commons.logging`, `org.apache.http`, `org.apache.commons.codec` and `org.apache.commons.fileupload2` in the source and in the bytecode (`javap -c`).
+- CFML that creates objects of one of these libraries with `createObject( "java", ... )`: add the library with `javaSettings` (see above).
+- cfhttp: nothing to change for the base feature set. If a request fails with a message that names the HTTP extension, install the extension.
+- Extensions that used one of these libraries of Lucee: require it explicitly in the manifest or ship it, and for offline installs ship it with the extension.
+- Code that calls `metaphone()`: use `soundex()` or another phonetic algorithm of your own.
