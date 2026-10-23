@@ -218,8 +218,8 @@ These `cfadmin` actions were removed:
 
 | Feature | Extension | Bundled version |
 | --- | --- | --- |
-| `MarkdownToHTML()` | [extension-markdown](https://github.com/lucee/extension-markdown) (`org.lucee:markdown-extension`, id `3AEDA748-F62B-42E3-8E8DC5AE0DDABE09`) | 1.0.0.2-RC |
-| `smb://` resources | [extension-smb](https://github.com/lucee/extension-smb) (`org.lucee:smb-extension`, id `A35C8501-FFBB-43EA-975C6883C92A7D5E`) | 1.0.0.3-RC |
+| `MarkdownToHTML()` | [extension-markdown](https://github.com/lucee/extension-markdown) (`org.lucee:markdown-extension`, id `3AEDA748-F62B-42E3-8E8DC5AE0DDABE09`) | 1.0.0.2 |
+| `smb://` resources | [extension-smb](https://github.com/lucee/extension-smb) (`org.lucee:smb-extension`, id `A35C8501-FFBB-43EA-975C6883C92A7D5E`) | 1.0.0.10 |
 
 Both are installed on a new install and when an existing install is upgraded from a version older than 8.0, the same way Mail and FTP were handled when they left core in 7.1. Your code does not need to change:
 
@@ -326,18 +326,16 @@ The bundled extensions (`Require-Extension`) changed as follows:
 
 | Extension | 7.1 | 8.0 |
 | --- | --- | --- |
-| Markdown | – | 1.0.0.2-RC (new) |
-| SMB | – | 1.0.0.3-RC (new) |
-| PDF | 2.0.1.0 | **3.0.0.2-RC** |
-| Image | 3.0.1.1 | 3.1.0.11-RC |
-| ESAPI | 3.0.0.14 | 3.1.0.1-RC |
-| S3 | 2.0.3.1 | 2.1.0.4-BETA |
-| MySQL JDBC | 9.6.0 | 9.7.0 |
+| Markdown | – | 1.0.0.2 (new) |
+| SMB | – | 1.0.0.10 (new) |
+| PDF | 2.0.1.0 | **3.0.0.2** |
+| S3 | 2.0.3.1 | 2.1.0.15 |
 | MSSQL JDBC | 13.2.1 | 13.4.0.jre11 |
-| Administrator | 1.0.0.7 | 1.0.0.9 |
-| Documentation | 1.0.0.6 | 1.0.0.7 |
+| Compress | 2.1.0.3 | 2.1.0.7 |
 
-PostgreSQL JDBC, Compress, Mail, FTP and Scheduler Classic are unchanged.
+Unchanged: MySQL JDBC (26.7.0), PostgreSQL JDBC (42.7.11), Image (3.1.0.11), ESAPI (3.1.0.7), Mail (1.1.0.17), FTP (1.0.0.9), Scheduler Classic (1.0.0.2), Administrator (1.0.0.9) and Documentation (1.0.0.8).
+
+Lucee 8.0 references the **lite** variant (Maven classifier `lite`) of all bundled extensions except Administrator, Documentation, Compress and Scheduler Classic. A lite extension contains no embedded Maven dependencies; they are resolved from the configured Maven repositories when the extension is installed. Offline or firewalled servers need access to a Maven repository (or a `maven.repository` mirror), see [[maven-based-extensions]].
 
 ## PDF extension 3.0: new rendering engine
 
@@ -350,6 +348,63 @@ Lucee 8.0 bundles PDF extension 3.0 (7.1 bundled 2.0.1). Version 3.0 replaces th
 **Who is affected:** Applications that generate PDFs with `<cfdocument>`, especially ones that used the classic (PD4ML) engine or depend on exact layout.
 
 **What to do:** Generate your important PDFs on 8.0 and compare them with the 7.1 output (page breaks, fonts, CSS, headers and footers). You can remove `type="classic"` / `this.pdf.type`, because they no longer do anything.
+
+## Perl regex engine deprecated
+
+The `perl` regex engine (Apache ORO, also called `classic`) is **deprecated** in Lucee 8.0 ([LDEV-6660](https://luceeserver.atlassian.net/browse/LDEV-6660)). It is still the default in 8.0, so regex functions (`REFind()`, `REReplace()`, `REMatch()`, etc.) behave exactly as in 7.1.
+
+What changed in 8.0:
+
+- Lucee logs a warning to the `application` log when an application uses the `perl` engine, either as the default or set explicitly. The warning is logged once per application, not on every regex call.
+- The `regexType` setting in `.CFConfig.json` (`ConfigSchema()`) and the Administrator (regex page, "CFML Default, deprecated") mark `perl` as deprecated.
+
+Lucee 9 uses `java` as the default engine, and `perl` is only available with the Perl Regex extension. See [[breaking-changes-8-0-to-9-0]].
+
+**What to do:** Test your application with the Java engine on 8.0 now:
+
+```cfc
+// Application.cfc
+this.regex = { type: "java" };   // Java regex engine, the Lucee 9 default
+this.regex = { type: "compat" }; // Java regex engine with the Perl-style replacement syntax (\1, \U, \L)
+```
+
+Server wide, set `regexType` in `.CFConfig.json` or `lucee.regex.type` / `LUCEE_REGEX_TYPE`. To stay on `perl` with Lucee 9, set the regex type `perl` explicitly and install the Perl Regex extension. See [[java-regex-engine]].
+
+## Maven coordinate strings: classifier in 4th position
+
+Maven coordinates in strings (`javasettings` `maven` entries, `MavenLoad()`, `Require-Extension` in an extension manifest) now support a classifier and an extension ([LDEV-6555](https://luceeserver.atlassian.net/browse/LDEV-6555)):
+
+```text
+groupId:artifactId:version[:classifier][@extension]
+```
+
+The positional scope form from 7.1 (`groupId:artifactId:version:scope[:optional[:checksum]]`) still works, but only when the 4th part is a known Maven scope: `compile`, `provided`, `runtime`, `test`, `system` or `import`. **Any other value in 4th position is now read as the classifier.** In 7.1, an unknown value there was taken as the scope and ignored.
+
+| String | 7.1 | 8.0 |
+| --- | --- | --- |
+| `com.example:lib:1.0` | `lib-1.0.jar` | `lib-1.0.jar` (unchanged) |
+| `com.example:lib:1.0:compile` | `lib-1.0.jar`, scope `compile` | `lib-1.0.jar`, scope `compile` (unchanged) |
+| `com.example:lib:1.0:lite` | `lib-1.0.jar` (scope `lite` ignored) | `lib-1.0-lite.jar` (classifier `lite`) |
+| `com.example:lib:1.0:lite:compile` | scope `lite`, optional `compile` | classifier `lite`, scope `compile` |
+| `com.example:lib:1.0@pom` | version `1.0@pom` | version `1.0`, extension `pom` |
+| `com.example:lib:1.0:lite:foo` | scope `lite`, optional `foo` | invalid (`foo` is not a scope) |
+
+Invalid strings make `MavenLoad()` throw an error. Invalid `maven` entries in `this.javasettings` are skipped, and a warning is logged with the type `javasettings`.
+
+A classifier with the same name as a scope (for example the `test` classifier) cannot be written as a string. Use the struct form:
+
+```cfc
+this.javasettings = {
+    maven: [
+        "org.apache.commons:commons-lang3:3.17.0",
+        { groupId: "com.example", artifactId: "lib", version: "1.0", classifier: "test" }
+    ]
+};
+```
+
+**Who is affected:** Code or extensions that put something other than a Maven scope in the 4th position of a coordinate string, or use `@` in a version.
+
+**What to do:** Search for Maven coordinate strings with four or more parts (`javasettings`, `MavenLoad()`, `Require-Extension`). Remove values in 4th position that are not a scope, or switch the entry to the struct form with explicit `scope`, `optional` and `checksum` keys.
 
 ## Not changed
 
