@@ -68,6 +68,10 @@ A guide to breaking changes introduced in Lucee between version 7.0 and 7.1
 
 A guide to breaking changes introduced in Lucee between version 7.1 and 8.0
 
+## [Breaking Changes between Lucee 8.0 and 9.0](/docs/recipes/breaking-changes-9-0.md)
+
+A guide to breaking changes introduced in Lucee between version 8.0 and 9.0
+
 ## [Caches defined in Application.cfc](/docs/recipes/caches-defined-in-application-cfc.md)
 
 How to add per-application caches via Application.cfc in Lucee.

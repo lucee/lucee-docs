@@ -42,6 +42,7 @@ description: >
 | Breaking Changes between Lucee 6.2 and 7.0 | `breaking-changes-7-0` | breaking changes, Lucee 6.2, Lucee 7.0, migration, upgrade |
 | Breaking Changes between Lucee 7.0 and 7.1 | `breaking-changes-7-1` | breaking changes, Lucee 7.0, Lucee 7.1, migration, upgrade |
 | Breaking Changes between Lucee 7.1 and 8.0 | `breaking-changes-8-0` | breaking changes, Lucee 7.1, Lucee 8.0, migration, upgrade, CFConfig |
+| Breaking Changes between Lucee 8.0 and 9.0 | `breaking-changes-9-0` | breaking changes, Lucee 8.0, Lucee 9.0, migration, upgrade, OSGi, Felix, extensions |
 | Caches defined in Application.cfc | `caches-defined-in-application-cfc` | Caches, Application.cfc, Per-application caches, Cache connections, Default caches, Lucee |
 | Casting Components to Java Interfaces | `java-explicit-casting` | java, cast, convert, method |
 | Checksum | `checksum` | Checksum, File validation, cfhttp, hash, fileReadBinary |

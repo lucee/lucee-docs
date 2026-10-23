@@ -261,6 +261,22 @@
     ]
   },
   {
+    "file": "breaking-changes-9-0.md",
+    "title": "Breaking Changes between Lucee 8.0 and 9.0",
+    "path": "/docs/recipes/breaking-changes-9-0.md",
+    "hash": "9101030df3feadf6feb6b5d4f35e9982",
+    "keywords": [
+      "breaking changes",
+      "Lucee 8.0",
+      "Lucee 9.0",
+      "migration",
+      "upgrade",
+      "OSGi",
+      "Felix",
+      "extensions"
+    ]
+  },
+  {
     "file": "caches-defined-in-application-cfc.md",
     "title": "Caches defined in Application.cfc",
     "path": "/docs/recipes/caches-defined-in-application-cfc.md",
