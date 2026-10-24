@@ -188,6 +188,16 @@ In an extension, require the bundle in the manifest (for example `Require-Bundle
 
 **Offline installs:** the same as for ASM above, these libraries were part of the Lucee jar before, now they are only downloaded when something requires them. Without internet access (or with `lucee.enable.bundle.download=false`) the download fails. Ship the library with your extension, or copy the jars into the `bundles` folder of the server before you start it.
 
+### Older extension builds that need `javax.activation` / `javax.mail`
+
+Many older, OSGi style builds of extensions embed a bundle that imports `javax.activation` and `javax.mail` (for example `bouncycastle.mail-1.38.0`) and relied on Lucee exporting these packages. They do not resolve on Lucee 9 anymore, the extension fails to load with:
+
+```
+org.osgi.framework.BundleException: Unable to resolve ... missing requirement [bouncycastle.mail ...] osgi.wiring.package; (osgi.wiring.package=javax.activation)
+```
+
+Known cases are Redis 4.1.x, PDF 2.x and S3 2.0.x. The Maven based builds bring their own libraries and are not affected (for example Mail 1.1.x, PDF 3.x, S3 2.1.x, Redis 4.2.x). **Update the extension** to a Maven based build, or ship `javax.activation` / `javax.mail` as a bundle with your own extension.
+
 ### Log output of libraries that bring their own commons-logging
 
 Lucee used to set the system properties `org.apache.commons.logging.LogFactory`, `org.apache.commons.logging.Log` (`SimpleLog`) and `org.apache.commons.logging.simplelog.defaultlog` (`warn`) for every commons-logging in the JVM. It does not do that anymore, because it does not provide commons-logging anymore.
