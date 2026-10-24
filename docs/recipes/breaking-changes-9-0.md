@@ -190,13 +190,15 @@ In an extension, require the bundle in the manifest (for example `Require-Bundle
 
 ### Older extension builds that need `javax.activation` / `javax.mail`
 
-Many older, OSGi style builds of extensions embed a bundle that imports `javax.activation` and `javax.mail` (for example `bouncycastle.mail-1.38.0`) and relied on Lucee exporting these packages. They do not resolve on Lucee 9 anymore, the extension fails to load with:
+Many older, OSGi style builds of extensions embed a bundle that imports `javax.activation` and `javax.mail` (for example `bouncycastle.mail-1.38.0`) and relied on Lucee exporting these packages. Known cases are Redis 4.1.x, Axis 1.5.x, PDF 2.x and S3 2.0.x. The Maven based builds bring their own libraries and are not affected (for example Mail 1.1.x, PDF 3.x, S3 2.1.x, Redis 4.2.x).
+
+Lucee keeps these older builds working: when an extension imports `javax.activation` or `javax.mail`, Lucee downloads the OSGi bundles `com.sun.activation:javax.activation:1.2.0` and `com.sun.mail:javax.mail:1.6.2` from Maven. This needs internet access, without it the extension fails to load with:
 
 ```
 org.osgi.framework.BundleException: Unable to resolve ... missing requirement [bouncycastle.mail ...] osgi.wiring.package; (osgi.wiring.package=javax.activation)
 ```
 
-Known cases are Redis 4.1.x, PDF 2.x and S3 2.0.x. The Maven based builds bring their own libraries and are not affected (for example Mail 1.1.x, PDF 3.x, S3 2.1.x, Redis 4.2.x). **Update the extension** to a Maven based build, or ship `javax.activation` / `javax.mail` as a bundle with your own extension.
+Offline, copy the two jars into the `bundles` folder of the server before you start it. The better fix is to update the extension to a Maven based build. Once the bundles are installed for such an extension, `javax.mail` and `javax.activation` are visible to CFML (`createObject( "java", "javax.mail.Session" )`) again.
 
 ### Log output of libraries that bring their own commons-logging
 
