@@ -250,7 +250,7 @@
     "file": "breaking-changes-8-0.md",
     "title": "Breaking Changes between Lucee 7.1 and 8.0",
     "path": "/docs/recipes/breaking-changes-8-0.md",
-    "hash": "658d4767febfecbacca7058498b12175",
+    "hash": "7a8c836b7bd0ca6733bba176e3a78d6a",
     "keywords": [
       "breaking changes",
       "Lucee 7.1",
@@ -572,7 +572,7 @@
     "file": "date-time-formatting.md",
     "title": "Date and Time Formatting in Lucee",
     "path": "/docs/recipes/date-time-formatting.md",
-    "hash": "7682e6bb25f7773f414ebcac31211db7",
+    "hash": "d9a2879a6cdcc4f32a78e3d9784f5fd5",
     "keywords": [
       "Date",
       "Time",
