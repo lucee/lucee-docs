@@ -117,7 +117,7 @@
     "file": "application-cfc.md",
     "title": "Application.cfc #",
     "path": "/docs/recipes/application-cfc.md",
-    "hash": "22821e319138d7b7e3b9ffab9cbf8c94",
+    "hash": "af5304f762c2abebbc448401505816b4",
     "keywords": [
       "Application.cfc",
       "Application Context",
@@ -250,7 +250,7 @@
     "file": "breaking-changes-8-0.md",
     "title": "Breaking Changes between Lucee 7.1 and 8.0",
     "path": "/docs/recipes/breaking-changes-8-0.md",
-    "hash": "7a8c836b7bd0ca6733bba176e3a78d6a",
+    "hash": "490e11df635c16139dd5b7e42c87f9f7",
     "keywords": [
       "breaking changes",
       "Lucee 7.1",
@@ -264,7 +264,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "70e4fdc76dcfc9c1fa74b39ea60be9a2",
+    "hash": "adeea92533b22c3a7ab9b608495a9bd9",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -277,7 +277,9 @@
       "HttpClient",
       "javax.mail",
       "commons-logging",
-      "extensions"
+      "extensions",
+      "regex",
+      "Perl Regex extension"
     ]
   },
   {
@@ -1131,7 +1133,7 @@
     "file": "java-regex-engine.md",
     "title": "Java Regex Engine",
     "path": "/docs/recipes/java-regex-engine.md",
-    "hash": "fd8a17a3dcdb033930c3ec6fc1f9e5c1",
+    "hash": "e22160529bcac21942a19615ec358a82",
     "keywords": [
       "regex",
       "regular expressions",
@@ -2109,7 +2111,7 @@
     "file": "recommended-settings.md",
     "title": "Recommended Settings",
     "path": "/docs/recipes/recommended-settings.md",
-    "hash": "0b43f41907677c1e360750b7640a939b",
+    "hash": "5943949f5e1df43f24f9d6e326f0ea22",
     "keywords": [
       "settings",
       "performance",
@@ -2785,6 +2787,24 @@
       "SnakeYAML",
       "Maven",
       "Java Integration"
+    ]
+  },
+  {
+    "file": "regex-migration-lucee-9.md",
+    "title": "Regex Migration to Lucee 9",
+    "path": "/docs/recipes/regex-migration-lucee-9.md",
+    "hash": "0790c95bffa587a729e393dc089337f5",
+    "keywords": [
+      "regex",
+      "regular expressions",
+      "Lucee 9",
+      "migration",
+      "Apache ORO",
+      "perl",
+      "java",
+      "compat",
+      "regexType",
+      "Perl Regex extension"
     ]
   }
 ]
