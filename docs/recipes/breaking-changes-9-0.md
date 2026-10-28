@@ -201,3 +201,31 @@ A library that brings its own commons-logging (for example the AWS SDK of the S3
 - cfhttp: nothing to change for the base feature set. If a request fails with a message that names the HTTP extension, install the extension.
 - Extensions that used one of these libraries of Lucee: require it explicitly in the manifest or ship it, and for offline installs ship it with the extension.
 - Code that calls `metaphone()`: use `soundex()` or another phonetic algorithm of your own.
+
+## The Railo 4 compatibility servlets are removed
+
+The servlets `railo.loader.servlet.CFMLServlet` and `railo.loader.servlet.RestServlet` do not exist anymore. They were empty subclasses of the Lucee servlets that only kept the `web.xml` of a Railo 4 installation working with Lucee.
+
+A `web.xml` that still names one of them fails to start the servlet, with a `ClassNotFoundException`:
+
+```
+java.lang.ClassNotFoundException: railo.loader.servlet.CFMLServlet
+```
+
+### Migration
+
+Replace the package `railo.loader.servlet` with `lucee.loader.servlet` in the `servlet-class` entries of your `web.xml`:
+
+Before:
+
+```xml
+<servlet-class>railo.loader.servlet.CFMLServlet</servlet-class>
+<servlet-class>railo.loader.servlet.RestServlet</servlet-class>
+```
+
+After:
+
+```xml
+<servlet-class>lucee.loader.servlet.CFMLServlet</servlet-class>
+<servlet-class>lucee.loader.servlet.RestServlet</servlet-class>
+```
