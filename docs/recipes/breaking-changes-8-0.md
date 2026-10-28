@@ -406,6 +406,16 @@ this.javasettings = {
 
 **What to do:** Search for Maven coordinate strings with four or more parts (`javasettings`, `MavenLoad()`, `Require-Extension`). Remove values in 4th position that are not a scope, or switch the entry to the struct form with explicit `scope`, `optional` and `checksum` keys.
 
+## Two-digit years use Java's sliding window
+
+All date parsing and casting now converts two-digit years the same way ([LDEV-6180](https://luceeserver.atlassian.net/browse/LDEV-6180)). The default is Java's sliding window, the one `java.text.SimpleDateFormat` uses: a two-digit year is placed within 80 years before and 20 years after the current date (in 2026, `46` becomes 2046 and `47` becomes 1947).
+
+In 7.1 the rule depended on the code path: some used a fixed pivot of 30, so `30` became 1930 (for example `createDate(30, 1, 1)`), others a pivot of 40, so `30` became 2030.
+
+**Who is affected:** Applications that parse dates with two-digit years, or call `createDate()` / `createDateTime()` with a year below 100, where the year falls between the old pivot and the new window (for example `30` to `46` in 2026).
+
+**What to do:** Use four-digit years where you can. To get a fixed pivot instead, set `lucee.date.twodigityear.pivot` / `LUCEE_DATE_TWODIGITYEAR_PIVOT` to a number from 0 to 100. Two-digit years below the pivot become 20xx, all others 19xx, so `30` gives the 7.1 behaviour of `createDate()`. See [[date-time-formatting]].
+
 ## Not changed
 
 - **Jakarta vs javax:** still Jakarta, as in 7.0/7.1.
