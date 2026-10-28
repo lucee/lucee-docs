@@ -68,6 +68,10 @@ A guide to breaking changes introduced in Lucee between version 7.0 and 7.1
 
 A guide to breaking changes introduced in Lucee between version 7.1 and 8.0
 
+## [Breaking Changes between Lucee 8.0 and 9.0](/docs/recipes/breaking-changes-9-0.md)
+
+A guide to breaking changes introduced in Lucee between version 8.0 and 9.0
+
 ## [Caches defined in Application.cfc](/docs/recipes/caches-defined-in-application-cfc.md)
 
 How to add per-application caches via Application.cfc in Lucee.
@@ -163,6 +167,14 @@ The `lucee.concurrent.map.impl=legacy` flag temporarily restores the pre-7.1 str
 ## [Docker](/docs/recipes/docker.md)
 
 Guide on using and running Lucee with Docker
+
+## [Docker Image Best Practices](/docs/recipes/docker-best-practices.md)
+
+Best practices for building your own Lucee Docker images: warmup at build time, pinned versions, configuration, Maven download policies, healthchecks, logging and secrets.
+
+## [Downloading Extensions for CI, Docker and Offline Installs](/docs/recipes/downloading-extensions.md)
+
+Where to download Lucee extensions (.lex) from, and how to fetch them with Maven, curl or a Docker multistage build.
 
 ## [Dynamic Proxy Enhancements](/docs/recipes/dynamic-proxy-enhancements.md)
 

@@ -91,6 +91,8 @@ RUN LUCEE_ENABLE_WARMUP=true /usr/local/tomcat/bin/catalina.sh run
 
 If any configuration is invalid, the `RUN` step fails and the Docker build aborts — preventing a broken image from being deployed.
 
+Warmup also installs the extensions defined in `.CFConfig.json` and stores them in the image, so the container doesn't download them at startup. See [[downloading-extensions]].
+
 ## Upgrading to Lucee 7
 
 Because Lucee 7 now validates all configuration sections during warmup, upgrading may cause your warmup to fail on settings that previously passed silently in Lucee 6.2. This is intended — it surfaces misconfigurations that were always there but hidden by lazy loading. Fix the reported settings and rebuild.

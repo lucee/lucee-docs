@@ -250,7 +250,7 @@
     "file": "breaking-changes-8-0.md",
     "title": "Breaking Changes between Lucee 7.1 and 8.0",
     "path": "/docs/recipes/breaking-changes-8-0.md",
-    "hash": "54d0cf357fe0f9cc4ea67bd1ad1bde69",
+    "hash": "490e11df635c16139dd5b7e42c87f9f7",
     "keywords": [
       "breaking changes",
       "Lucee 7.1",
@@ -258,6 +258,28 @@
       "migration",
       "upgrade",
       "CFConfig"
+    ]
+  },
+  {
+    "file": "breaking-changes-9-0.md",
+    "title": "Breaking Changes between Lucee 8.0 and 9.0",
+    "path": "/docs/recipes/breaking-changes-9-0.md",
+    "hash": "adeea92533b22c3a7ab9b608495a9bd9",
+    "keywords": [
+      "breaking changes",
+      "Lucee 8.0",
+      "Lucee 9.0",
+      "migration",
+      "upgrade",
+      "OSGi",
+      "Felix",
+      "ASM",
+      "HttpClient",
+      "javax.mail",
+      "commons-logging",
+      "extensions",
+      "regex",
+      "Perl Regex extension"
     ]
   },
   {
@@ -552,7 +574,7 @@
     "file": "date-time-formatting.md",
     "title": "Date and Time Formatting in Lucee",
     "path": "/docs/recipes/date-time-formatting.md",
-    "hash": "7682e6bb25f7773f414ebcac31211db7",
+    "hash": "d9a2879a6cdcc4f32a78e3d9784f5fd5",
     "keywords": [
       "Date",
       "Time",
@@ -610,6 +632,49 @@
       "Tomcat",
       "LUCEE_ADMIN_PASSWORD",
       "Server.cfc"
+    ]
+  },
+  {
+    "file": "docker-best-practices.md",
+    "title": "Docker Image Best Practices",
+    "path": "/docs/recipes/docker-best-practices.md",
+    "hash": "b64f6506681bb2f02cdb9a09db2e2951",
+    "keywords": [
+      "Docker",
+      "Dockerfile",
+      "Container",
+      "Best Practices",
+      "Warmup",
+      "CFConfig.json",
+      "Maven",
+      "Download Policy",
+      "Healthcheck",
+      "Logging",
+      "Secrets"
+    ]
+  },
+  {
+    "file": "downloading-extensions.md",
+    "title": "Downloading Extensions for CI, Docker and Offline Installs",
+    "path": "/docs/recipes/downloading-extensions.md",
+    "hash": "ce72b9de86ad1c351dd10ce30321cb4f",
+    "keywords": [
+      "extension",
+      "download",
+      "lex",
+      "maven",
+      "Maven Central",
+      "snapshot",
+      "pre-release",
+      "Docker",
+      "multistage",
+      "CI",
+      "offline",
+      "deploy directory",
+      "copy-dependencies",
+      "CFConfig",
+      "pin",
+      "rollback"
     ]
   },
   {
@@ -752,7 +817,7 @@
     "file": "extension-installation.md",
     "title": "Extension Installation",
     "path": "/docs/recipes/extension-installation.md",
-    "hash": "95a8da739bd9c60a33d3377e8c647695",
+    "hash": "6c2d5ff0dc077191e153aff8c0d8d088",
     "keywords": [
       "extension",
       "install",
@@ -1433,7 +1498,7 @@
     "file": "mathematical-precision.md",
     "title": "Mathematical Precision",
     "path": "/docs/recipes/mathematical-precision.md",
-    "hash": "987987843c6ceb8cd9dabe350446deee",
+    "hash": "323e06c0d7fd05501c04f190b0767a96",
     "keywords": [
       "math",
       "precision",
@@ -2644,7 +2709,7 @@
     "file": "warmup.md",
     "title": "Warmup",
     "path": "/docs/recipes/warmup.md",
-    "hash": "56200f3960fabf3c0db609e8f6ce2d4e",
+    "hash": "4649f5682f43b54ee3fd54da6596a3b7",
     "keywords": [
       "Warmup",
       "Docker",
@@ -2722,21 +2787,6 @@
       "SnakeYAML",
       "Maven",
       "Java Integration"
-    ]
-  },
-  {
-    "file": "breaking-changes-9-0.md",
-    "title": "Breaking Changes between Lucee 8.0 and 9.0",
-    "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "7eb2ac1f42003e744cb2dd5987094b8a",
-    "keywords": [
-      "breaking changes",
-      "Lucee 8.0",
-      "Lucee 9.0",
-      "migration",
-      "upgrade",
-      "regex",
-      "Perl Regex extension"
     ]
   },
   {

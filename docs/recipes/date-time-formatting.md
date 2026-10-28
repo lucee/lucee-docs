@@ -187,6 +187,33 @@ echo(dateTimeFormat(date1, "HH:mm z", "Europe/Berlin"));    // 16:30 CEST
 echo(dateTimeFormat(date2, "HH:mm z", "Europe/Berlin"));    // 14:30 CEST
 ```
 
+### Two-Digit Years
+
+When a date string has only two digits for the year (for example `6/15/45`), Lucee has to decide the century. Since Lucee 8.0 all date parsing and casting uses the same rule: `parseDateTime()`, `lsParseDateTime()` (with or without a mask), `createDate()` / `createDateTime()` with a year below 100, and implicit string-to-date casts.
+
+By default, Lucee uses the same sliding window as Java (`java.text.SimpleDateFormat`): a two-digit year is placed within 80 years before and 20 years after the current date. The window moves with the current year. In 2026, `46` becomes 2046 and `47` becomes 1947.
+
+```javascript
+// in 2026
+echo(year(parseDateTime("6/15/45")));            // 2045
+echo(year(parseDateTime("6/15/60")));            // 1960
+echo(year(lsParseDateTime("15.06.45", "de_CH"))); // 2045
+echo(year(createDate(60, 6, 15)));               // 1960
+```
+
+Four-digit years are never changed. If you control the input format, use four-digit years to avoid any ambiguity.
+
+To use a fixed pivot instead of the sliding window, set the system property `lucee.date.twodigityear.pivot` or the environment variable `LUCEE_DATE_TWODIGITYEAR_PIVOT` to a number from 0 to 100. Two-digit years below the pivot become 20xx, all others 19xx:
+
+```bash
+# 00-29 -> 2000-2029, 30-99 -> 1930-1999
+LUCEE_DATE_TWODIGITYEAR_PIVOT=30
+```
+
+The value is read once at startup and applies to the whole server. Leave it empty (or set it to `sliding`) for the default.
+
+Before Lucee 8.0, the rule depended on the code path, with a fixed pivot of either 30 or 40.
+
 ### Keep Dates as Objects
 
 The principle is to keep dates as date objects as long as possible:
