@@ -70,3 +70,34 @@ dump(myCfc); // See CFC object with properties
 jsonString = serializeJson(var=myCfc, compact=false);
 writeOutput(jsonString); // Output: {"foo":"hello","bar":42}
 ```
+
+### Date format (Lucee 9.0 and later)
+
+Define the format for dates in the `Application.cfc`:
+
+```lucee
+component {
+
+	this.name = "myApp";
+	this.timezone = "Europe/Zurich";
+
+	// "cf" (default), "iso", "isoms" or a custom mask like "yyyy-MM-dd HH:mm:ss"
+	this.serialization.dateFormat = "iso";
+
+}
+```
+
+```luceescript
+echo( serializeJSON( { "created": createDateTime( 2021, 1, 29, 11, 45, 26 ) } ) );
+// {"created":"2021-01-29T11:45:26+01:00"}
+```
+
+Or for all applications in the `.CFConfig.json`:
+
+```json
+{
+	"serialization": {
+		"dateFormat": "iso"
+	}
+}
+```
