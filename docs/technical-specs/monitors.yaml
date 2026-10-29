@@ -35,6 +35,11 @@ configuration:
         type: "string"
         required: false
         description: "OSGi bundle version"
+      maven:
+        type: "string"
+        required: false
+        format: "groupId:artifactId:version"
+        description: "Maven coordinates, alternative to bundleName and bundleVersion"
       log:
         type: "boolean"
         required: false
@@ -63,12 +68,21 @@ configuration:
         required: true
       bundleName:
         type: "string"
-        required: true
-        description: "Required in manifest format"
+        required: false
+        description: "OSGi bundle symbolic name, not needed when maven is used"
       bundleVersion:
         type: "string"
-        required: true
-        description: "Required in manifest format"
+        required: false
+        description: "OSGi bundle version, not needed when maven is used"
+      maven:
+        type: "string"
+        required: false
+        format: "groupId:artifactId:version"
+        description: "Maven coordinates, alternative to bundleName and bundleVersion"
+    notes:
+      - "Installing an extension with a monitor enables monitoring (monitoring.enabled) and registers the monitor with log=true"
+      - "The async option is not available in the manifest"
+      - "Example: monitor: \"[{'name':'BlockingRequestMonitor','type':'request','class':'com.mycompany.monitors.BlockingRequestMonitor','maven':'com.mycompany:monitor-lib:2.1.0'}]\""
 
 monitor_types:
   action:
@@ -118,14 +132,34 @@ monitor_types:
   request:
     interface: "lucee.runtime.monitor.RequestMonitor"
     base_interface: "lucee.runtime.monitor.Monitor"
-    trigger: "End of each HTTP request"
+    trigger: "Start of each HTTP request (optional init(PageContext)) and end of each HTTP request (log)"
     thread_context: "Request processing thread"
     async_support: true
 
     methods:
+      init_request:
+        signature: "public void init(PageContext pc) throws IOException, PageException"
+        optional: true
+        defined_in: "Not part of the RequestMonitor interface, looked up by reflection (getDeclaredMethod) on the monitor class"
+        requirements:
+          - "declared public on the monitor class itself, not inherited"
+          - "the class implements RequestMonitor directly, not called for objects wrapped in RequestMonitorWrap"
+        timing: "Called at the start of each request, before the Application listener (Application.cfc) runs"
+        called_when: "monitoring.enabled is true, the request is not a gateway request and isLogEnabled() is true"
+        parameters:
+          pc: "Page context of the request"
+        abort:
+          mechanism: "Throw lucee.runtime.exp.Abort (for example new Abort(Abort.SCOPE_REQUEST)) from init(PageContext)"
+          effect: "The request is aborted like an abort in onRequestStart: Application.cfc and the template are not executed, onError is not called"
+          response: "The monitor sets the status code and writes the response (pc.getHttpServletResponse().setStatus(...), pc.write(...)) before it throws"
+          only_silent_aborts: "Any other exception is handled as before and does not stop the request"
+          order: "Monitors are called in configuration order, monitors after the aborting one are not called"
+          async: "An asynchronous monitor runs in its own thread and cannot abort a request"
+          since: "Lucee 7.1, see LDEV-3792 for the exact version, earlier versions swallow every exception from init(PageContext)"
+
       log:
         signature: "void log(PageContext pc, boolean error)"
-        timing: "Called at request completion"
+        timing: "Called at the end of the request"
         parameters:
           pc: "Page context with request data"
           error: "True if request resulted in error"
@@ -162,20 +196,28 @@ base_interface:
   interface: "lucee.runtime.monitor.Monitor"
   methods:
     init:
-      signature: "void init(ConfigWeb config, String name, Map<String, String> arguments)"
+      signature: "void init(ConfigServer configServer, String name, boolean logEnabled)"
       timing: "Called after instantiation"
       parameters:
-        config: "Web configuration instance"
+        configServer: "Server configuration instance"
         name: "Monitor name from configuration"
-        arguments: "Additional configuration parameters"
+        logEnabled: "The log setting of the monitor, default true"
+
+    get_type:
+      signature: "short getType()"
+      purpose: "Return Monitor.TYPE_INTERVAL, Monitor.TYPE_REQUEST or Monitor.TYPE_ACTION"
 
     get_name:
       signature: "String getName()"
       purpose: "Return monitor identifier"
 
-    is_enabled:
-      signature: "boolean isEnabled()"
-      purpose: "Runtime enable/disable check"
+    get_clazz:
+      signature: "Class getClazz()"
+      purpose: "Return the class of the monitor"
+
+    is_log_enabled:
+      signature: "boolean isLogEnabled()"
+      purpose: "The monitor is only called when this returns true"
 
 implementation_details:
   loading_method: "ConfigFactoryImpl.loadMonitors()"
@@ -236,7 +278,7 @@ error_handling:
 
   runtime_exceptions:
     action_monitors: "Log error, continue operation"
-    request_monitors: "Log error, continue request processing"
+    request_monitors: "Log error, continue request processing, except a silent Abort thrown from init(PageContext) which aborts the request"
     interval_monitors: "Log error, continue interval cycle"
 
 threading:
@@ -247,8 +289,8 @@ threading:
 
   request_monitors:
     synchronous:
-      execution: "End of request thread"
-      blocking: "Delays request completion"
+      execution: "Request thread, at the start (init(PageContext)) and at the end (log) of the request"
+      blocking: "Delays the request, init(PageContext) can abort it"
 
     asynchronous:
       wrapper: "AsyncRequestMonitor"
@@ -266,7 +308,7 @@ type_constants:
   interval: "IntervallMonitor.TYPE_INTERVAL"
 
 class_definitions:
-  resolution_order: "OSGi bundle > Maven > Standard classpath"
+  resolution_order: "Maven > OSGi bundle > Standard classpath"
   loading: "ClassDefinition.getClazz()"
 
   formats:
