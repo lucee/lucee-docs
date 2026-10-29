@@ -353,4 +353,3 @@ Code that depends on all concurrent calls executing on a cold cache is affected,
 **What to do:** do not use `cachedWithin` for functions with side effects that must run on every call.
 
 Ticket: [LDEV-1360](https://luceeserver.atlassian.net/browse/LDEV-1360)
-
