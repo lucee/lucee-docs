@@ -41,6 +41,10 @@ implementation("org.bouncycastle:bcprov-jdk18on:1.86")
 Create a component `ScryptHasher.cfc` that generates and verifies hashes:
 
 ```cfml
+import java.security.MessageDigest;
+import java.security.SecureRandom;
+import org.bouncycastle.crypto.generators.SCrypt;
+
 component javasettings='{"maven":["org.bouncycastle:bcprov-jdk18on:1.86"]}' {
     // cost parameters, see "Choosing parameters" below
     variables.N = 131072; // CPU/memory cost, must be a power of 2 (2^17)
@@ -48,13 +52,13 @@ component javasettings='{"maven":["org.bouncycastle:bcprov-jdk18on:1.86"]}' {
     variables.p = 1;      // parallelization
     variables.keyLength = 32; // bytes
 
-    // static class, loaded from the Maven dependency above
-    variables.scrypt = createObject("java", "org.bouncycastle.crypto.generators.SCrypt");
+    // SCrypt is loaded from the Maven dependency above, and only has static methods,
+    // so it is called with the :: operator, no instance needed
 
     function generate(required string password) {
         // random 16 byte salt
-        var salt = createObject("java", "java.security.SecureRandom").generateSeed(16);
-        var hash = variables.scrypt.generate(
+        var salt = new SecureRandom().generateSeed(16);
+        var hash = SCrypt::generate(
             charsetDecode(arguments.password, "utf-8"),
             salt, variables.N, variables.r, variables.p, variables.keyLength
         );
@@ -68,12 +72,12 @@ component javasettings='{"maven":["org.bouncycastle:bcprov-jdk18on:1.86"]}' {
 
         var salt     = toBinary(parts[5]);
         var expected = toBinary(parts[6]);
-        var actual   = variables.scrypt.generate(
+        var actual   = SCrypt::generate(
             charsetDecode(arguments.password, "utf-8"),
             salt, val(parts[2]), val(parts[3]), val(parts[4]), len(expected)
         );
         // constant-time comparison, avoids timing attacks
-        return createObject("java", "java.security.MessageDigest").isEqual(actual, expected);
+        return MessageDigest::isEqual(actual, expected);
     }
 }
 ```
@@ -94,6 +98,7 @@ dump(scrypt.verify("wrong password", stored));     // false
 
 ## How it works
 
+- **No `createObject()`**: the `import` lines at the top of the file make the Java classes available by their short name. `new SecureRandom()` creates an instance, and `SCrypt::generate()` and `MessageDigest::isEqual()` call static methods. The classes of the Maven dependency are found because the component declares them in `javasettings`.
 - **Random salt**: every hash gets its own 16 byte salt from `java.security.SecureRandom`, so equal passwords produce different hashes.
 - **Parameters are stored with the hash**: the string contains N, r, p, the salt and the hash. `verify()` reads the parameters from the stored value, so you can raise the cost later and old hashes still verify. You can compare them with the current parameters on login and re-hash the password if they are weaker.
 - **Constant-time comparison**: `MessageDigest.isEqual()` takes the same time no matter where the two values differ. Don't compare the hashes with `==` or `compare()`.
