@@ -151,6 +151,26 @@ Code that was compiled against this API with the original ASM types does not lin
 - Extensions that used the ASM bundles of Lucee: require them explicitly in the manifest and, for offline installs, ship them with the extension.
 - Java code that extends or calls `lucee.transformer.bytecode.*`: do not depend on this API, generate your bytecode with your own copy of ASM.
 
+## `group` of `cfoutput` and `cfloop` compares the values as strings
+
+The `group` attribute of `cfoutput` and `cfloop` (tag and script) compared the values of the group column loosely, with numeric conversion. Values that are numerically equal but differ as text ended up in the same group: `"013"`, `"0013"` and `"13"` were one group in Lucee 8.0. In Lucee 9 the values are compared as strings, so they form separate groups, which is what Adobe ColdFusion does.
+
+```cfml
+<cfset q = queryNew( "artNr", "varchar", [ [ "013" ], [ "0013" ], [ "13" ] ] )>
+<cfoutput query="q" group="artNr">#artNr#,</cfoutput>
+<!--- 8.0: 013, --->
+<!--- 9.0: 013,0013,13, --->
+```
+
+- Only adjacent rows are grouped, as before: the query has to be sorted by the group column.
+- Case is still ignored by default, `groupCaseSensitive=true` compares the case as well.
+- Numeric columns are not affected, `13` is `13` however it was written.
+- The same applies to nested `group`.
+
+### Migration
+
+Code that relied on `"013"` and `"0013"` being one group has to make the values equal before the grouping, for example by selecting a normalized column in the query, such as `CAST( artNr AS INTEGER ) AS artNr` in the SQL, and grouping by it.
+
 ## Libraries that Lucee does not provide anymore
 
 Lucee 9 removes third party libraries from the core that were only there for a feature that no longer needs them, or that are replaced by the JDK or by a small implementation of Lucee itself. Lucee does not provide the classes of these libraries to code that runs on Lucee anymore (CFML `createObject( "java", ... )`, extensions, bundles).
