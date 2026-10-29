@@ -264,7 +264,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "5a46163c03169230219cdcaaddeb62e0",
+    "hash": "c581c8c4f59713aa6c8178dc23c09915",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -279,7 +279,9 @@
       "commons-logging",
       "extensions",
       "isJson",
-      "JSON"
+      "JSON",
+      "REST",
+      "restPath"
     ]
   },
   {
