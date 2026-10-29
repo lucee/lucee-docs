@@ -133,7 +133,7 @@ Mix partial credentials from `Application.cfc` with path values - path values ov
 
 ## HTTP/HTTPS
 
-Read-only filesystem for `get` and `head` calls. No `directoryList()` support, no credentials.
+Read-only filesystem for `get` and `head` calls. No `directoryList()` support. Authentication can be given in the path or per host in the `Application.cfc` (Lucee 9.0+, see [LDEV-3376](https://luceeserver.atlassian.net/browse/LDEV-3376)).
 
 ```lucee
 <cfscript>
@@ -141,9 +141,56 @@ dump(fileRead("https://lucee.org/index.cfm"));
 </cfscript>
 ```
 
+### Credentials
+
+Always use `https://` when you send credentials, with `http://` they travel unencrypted.
+
+#### Credentials in Path
+
+Sends the credentials as HTTP Basic authentication. Less secure - credentials may end up in logs or exceptions.
+
+```lucee
+content = fileRead("https://secretUser:secretPW@example.org/protected/file.txt");
+```
+
+#### Application.cfc
+
+Define the authentication per host with `this.vfs.http`. The key is the host, optionally with a port (`host:port`). An entry for `host:port` is used before an entry for `host`. Use bracket notation for the keys, as a host name contains dots.
+
+```lucee
+// HTTP Basic authentication
+this.vfs.http["example.org"].username = "secretUser";
+this.vfs.http["example.org"].password = "secretPW";
+
+// arbitrary request headers, e.g. a bearer token or an API key
+this.vfs.http["api.example.org:8443"].headers = {
+	"Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.EXAMPLE",
+	"X-Api-Key": "secretKey"
+};
+```
+
+```lucee
+content = fileRead("https://example.org/protected/file.txt");
+content = fileRead("https://api.example.org:8443/data.json");
+```
+
+| Key | Description |
+|-----|-------------|
+| `username` | User name for HTTP Basic authentication. |
+| `password` | Password for HTTP Basic authentication. |
+| `headers` | Struct of request headers sent with every request to the host. Values must be simple values. |
+
+Rules:
+
+- `username` and `password` are sent with the first request (preemptive), you do not need to wait for a `401` challenge.
+- If `headers` contains an `Authorization` header, it is used instead of `username` and `password`.
+- Credentials in the path override the authentication of the `Application.cfc` for that request. Other headers defined in `headers` are still sent.
+- Headers and credentials are only sent to the host they are defined for. A redirect (`301`, `302`, `303`, `307`, `308`) to another host, port or protocol is followed without them.
+- An entry that is not a struct, or `headers` that is not a struct, throws an exception.
+
 ### Pattern
 
-`https://{host}[:{port}]/{path}` e.g. `https://lucee.org/index.cfm`
+`https://[{user}:{password}@]{host}[:{port}]/{path}` e.g. `https://lucee.org/index.cfm`
 
 ## RAM/Cache
 
