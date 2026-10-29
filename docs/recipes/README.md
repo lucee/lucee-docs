@@ -588,6 +588,10 @@ S3 Virtual File System and direct S3 functions for working with S3-compatible ob
 
 Learn about script templates in Lucee. This guide explains how Lucee supports templates with the `.cfs` extension, allowing you to write direct script code without the need for the `<cfscript>` tag.
 
+## [scrypt Password Hashing in Lucee 7](/docs/recipes/scrypt-password-hashing.md)
+
+Simple recipe for hashing and verifying passwords with scrypt in Lucee 7 using Maven integration and Bouncy Castle
+
 ## [Secret Management](/docs/recipes/secret-provider.md)
 
 Managing Secrets in Lucee applications

@@ -172,6 +172,7 @@ description: >
 | Run AI Sessions in the Cloud, 24/7, Doing Your Work | `scheduler-quartz-ai-job` | scheduler, quartz, AI, AI connection, vibe coding, MCP, listener, token usage, docker, cron |
 | S3 | `s3` | S3, MinIO, object storage, VFS, virtual file system, AWS, Backblaze, Wasabi |
 | Script Templates | `script-templates` | CFML, script, templates, Lucee, cfs |
+| scrypt Password Hashing in Lucee 7 | `scrypt-password-hashing` | scrypt, GenerateSCryptHash, VerifySCryptHash, Password Hashing, Bouncy Castle, Maven, Java Integration |
 | Secret Management | `secret-provider` | security, secrets, credentials, environment variables, configuration |
 | Selective Cache Invalidation | `cache-invalidation-selective` | Cache, cachedWithin, cachedWithinId, cachedWithinFlush, Query cache, Function cache, HTTP cache, Cache invalidation, Performance |
 | Sending Emails | `mail-how-to-send-a-mail` | Email, Send mail, cfmail, Mail server, Mail script, Lucee |

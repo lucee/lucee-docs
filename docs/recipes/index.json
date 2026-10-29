@@ -2238,6 +2238,21 @@
     ]
   },
   {
+    "file": "scrypt-password-hashing.md",
+    "title": "scrypt Password Hashing in Lucee 7",
+    "path": "/docs/recipes/scrypt-password-hashing.md",
+    "hash": "f6d344863418104052535a5f9cb6ff7b",
+    "keywords": [
+      "scrypt",
+      "GenerateSCryptHash",
+      "VerifySCryptHash",
+      "Password Hashing",
+      "Bouncy Castle",
+      "Maven",
+      "Java Integration"
+    ]
+  },
+  {
     "file": "secret-provider.md",
     "title": "Secret Management",
     "path": "/docs/recipes/secret-provider.md",
