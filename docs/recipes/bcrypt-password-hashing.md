@@ -15,7 +15,8 @@
   ],
   "related": [
     "maven",
-    "yaml-processing-lucee7"
+    "yaml-processing-lucee7",
+    "scrypt-password-hashing-lucee7"
   ]
 }
 -->
@@ -39,19 +40,21 @@ implementation("at.favre.lib:bcrypt:0.10.2")
 Create a component `BcryptHasher.cfc` that generates and verifies hashes:
 
 ```cfml
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
 component javasettings='{"maven":["at.favre.lib:bcrypt:0.10.2"]}' {
 
     variables.cost = 12; // work factor, each +1 doubles the time
 
     function generate(required string password) {
         // returns a 60 character string like $2a$12$<22 char salt><31 char hash>
-        return java:at.favre.lib.crypto.bcrypt.BCrypt::withDefaults()
+        return BCrypt::withDefaults()
             .hashToString(variables.cost, arguments.password.toCharArray());
     }
 
     function verify(required string password, required string stored) {
         // the library compares the hashes in constant time
-        var result = java:at.favre.lib.crypto.bcrypt.BCrypt::verifyer()
+        var result = BCrypt::verifyer()
             .verify(arguments.password.toCharArray(), arguments.stored);
         return result.verified;
     }
@@ -63,7 +66,9 @@ component javasettings='{"maven":["at.favre.lib:bcrypt:0.10.2"]}' {
 }
 ```
 
-`BCrypt` only has static methods, so there is nothing to instantiate. The `java:` prefix with `::` calls a static method of a class loaded from the Maven dependency, no `createObject()` needed.
+`BCrypt` only has static methods, so there is nothing to instantiate. The `import` makes the class from the Maven dependency available, and `::` calls its static methods, no `createObject()` needed.
+
+The `import` must be in the same file that declares `javasettings`. The Maven dependency is only visible to the component that declares it (or to the whole application if you set `this.javasettings` in `Application.cfc`), so an `import` in another file, for example in the template that calls `new BcryptHasher()`, can't find the class.
 
 Usage:
 
