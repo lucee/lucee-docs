@@ -791,7 +791,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "95d1c98c9af7bfb5fbb359639fef192c",
+    "hash": "a6c839934e1e91b133cd23d794db85fe",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -966,6 +966,21 @@
       "Custom tag mapping",
       "Regular mapping",
       "File system"
+    ]
+  },
+  {
+    "file": "ftp-troubleshooting.md",
+    "title": "Troubleshooting FTP and SFTP connections",
+    "path": "/docs/recipes/ftp-troubleshooting.md",
+    "hash": "9a03f3af3d3e3fd30c30fe31be8c1b17",
+    "keywords": [
+      "FTP",
+      "SFTP",
+      "cfftp",
+      "debug",
+      "troubleshooting",
+      "JSch",
+      "console"
     ]
   },
   {
