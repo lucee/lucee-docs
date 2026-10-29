@@ -468,6 +468,20 @@ This allows you to control the visibility of Maven download notifications in you
 
 This setting has no effect when the download policy is set to `ignore` or `error`.
 
+#### LUCEE_MAVEN_SIGNATURE_VERIFICATION
+
+*SysProp:* `-Dlucee.maven.signature.verification`
+*EnvVar:* `LUCEE_MAVEN_SIGNATURE_VERIFICATION`
+
+Controls the verification of the OpenPGP signature (`.asc`) of the `org.lucee` artifacts (core updates, loader, extensions) that Lucee downloads. The same as the setting `maven.signatureVerification` in `.CFConfig.json`. Valid values are `verify` (default), `strict`, `warn` and `off`.
+
+- `verify`: releases must have a valid signature, pre-releases only need a valid signature if one exists
+- `strict`: pre-releases must be signed as well
+- `warn`: a failed verification is logged (log `maven`, level warn) and the install continues
+- `off`: no verification
+
+See [[breaking-changes-8-0-to-9-0]] for the details.
+
 #### FELIX_LOG_LEVEL
 
 *SysProp:* `-Dfelix.log.level`
