@@ -71,6 +71,19 @@ Say you want to filter out people under 18 and over 90, but you don't want to hi
 
 `filteredQry` contains the desired records.
 
+## SQL Comments
+
+Since Lucee 7.1.1, SQL comments are supported in QoQ: both `-- line comments` (to the end of the line) and `/* block comments */`. Comments are stripped before the SQL is parsed, and the stripping is quote-aware, so comment markers inside string literals such as `'a--b'` are left untouched.
+
+```lucee
+<cfquery name="filteredQuery" dbtype="query">
+  SELECT   Name, Age -- Location is not needed here
+  FROM     myQuery
+  /* only adults */
+  WHERE    Age >= 18
+</cfquery>
+```
+
 ## Internals
 
 Lucee uses its own fast SQL implementation (basic ANSI92 subset); if that fails, it falls back to [HSQLDB](http://hsqldb.org/doc/2.0/guide/sqlgeneral-chapt.html) (more complete but slower, as the source queries are dyanically loaded into the in memory database).
