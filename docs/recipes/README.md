@@ -100,6 +100,10 @@ CFML component accessors=true — what gets generated, how they behave with mixi
 
 How to define and use component mappings in Lucee.
 
+## [Component onMissingProperty](/docs/recipes/component-onmissingproperty.md)
+
+Define onMissingProperty( name ) in a component to handle reads of keys that don't exist, like onMissingMethod does for function calls.
+
 ## [Configuration - How to Configure Lucee](/docs/recipes/configuration.md)
 
 Best practices for configuring Lucee in various environments.

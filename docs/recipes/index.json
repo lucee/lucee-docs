@@ -383,6 +383,21 @@
     ]
   },
   {
+    "file": "component-onmissingproperty.md",
+    "title": "Component onMissingProperty",
+    "path": "/docs/recipes/component-onmissingproperty.md",
+    "hash": "d4bee553b378261afc2c2645ae6068e9",
+    "keywords": [
+      "onMissingProperty",
+      "onMissingMethod",
+      "missing key",
+      "dynamic",
+      "proxy",
+      "component",
+      "this scope"
+    ]
+  },
+  {
     "file": "configuration.md",
     "title": "Configuration - How to Configure Lucee",
     "path": "/docs/recipes/configuration.md",
