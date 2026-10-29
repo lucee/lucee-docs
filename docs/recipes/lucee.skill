@@ -35,6 +35,7 @@ description: >
 | Application.cfc # | `application-cfc` | Application.cfc, Application Context, Application Lifecycle, onApplicationStart, onRequestStart, onSessionStart, onError, session management, client management, application scope |
 | AST (Abstract Syntax Tree) | `ast` | AST, Abstract Syntax Tree, parsing, code analysis, static analysis, transformation, IDE tooling |
 | Basic Date - Output the current date | `basic-date` | Date, Current date, lsDateTimeFormat, now, setLocale, Application.cfc, Locale |
+| bcrypt Password Hashing in Lucee 7 | `bcrypt-password-hashing` | bcrypt, GenerateBCryptHash, VerifyBCryptHash, Password Hashing, Maven, Java Integration |
 | Best Practices: Structs vs Inline Components | `structs-vs-components` | struct, component, inline component, performance, memory, best practices, CFC, bean |
 | Breaking Changes between Lucee 5.4 and 6.0 | `breaking-changes-6-0` | breaking changes, Lucee 5.4, Lucee 6.0, migration, upgrade |
 | Breaking Changes between Lucee 6.0 and 6.1 | `breaking-changes-6-1` | breaking changes, Lucee 6.0, Lucee 6.1, migration, upgrade |

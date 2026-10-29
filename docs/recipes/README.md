@@ -40,6 +40,10 @@ Generate Abstract Syntax Trees from CFML code for analysis, transformation, and 
 
 Learn how to output the current date in Lucee.
 
+## [bcrypt Password Hashing in Lucee 7](/docs/recipes/bcrypt-password-hashing.md)
+
+Simple recipe for hashing and verifying passwords with bcrypt in Lucee 7 using Maven integration and the at.favre.lib bcrypt library
+
 ## [Best Practices: Structs vs Inline Components](/docs/recipes/structs-vs-components.md)
 
 Performance analysis and best practices for choosing between structs and inline components in Lucee

@@ -166,6 +166,20 @@
     ]
   },
   {
+    "file": "bcrypt-password-hashing.md",
+    "title": "bcrypt Password Hashing in Lucee 7",
+    "path": "/docs/recipes/bcrypt-password-hashing.md",
+    "hash": "def88a36e49ea089ceb0c8909b11d659",
+    "keywords": [
+      "bcrypt",
+      "GenerateBCryptHash",
+      "VerifyBCryptHash",
+      "Password Hashing",
+      "Maven",
+      "Java Integration"
+    ]
+  },
+  {
     "file": "structs-vs-components.md",
     "title": "Best Practices: Structs vs Inline Components",
     "path": "/docs/recipes/structs-vs-components.md",
