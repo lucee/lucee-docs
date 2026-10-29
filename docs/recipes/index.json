@@ -250,7 +250,7 @@
     "file": "breaking-changes-8-0.md",
     "title": "Breaking Changes between Lucee 7.1 and 8.0",
     "path": "/docs/recipes/breaking-changes-8-0.md",
-    "hash": "658d4767febfecbacca7058498b12175",
+    "hash": "7a8c836b7bd0ca6733bba176e3a78d6a",
     "keywords": [
       "breaking changes",
       "Lucee 7.1",
@@ -264,7 +264,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "70e4fdc76dcfc9c1fa74b39ea60be9a2",
+    "hash": "fd9f382ffb32ba1cc80dfac670aa282b",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -277,7 +277,9 @@
       "HttpClient",
       "javax.mail",
       "commons-logging",
-      "extensions"
+      "extensions",
+      "isJson",
+      "JSON"
     ]
   },
   {
@@ -572,7 +574,7 @@
     "file": "date-time-formatting.md",
     "title": "Date and Time Formatting in Lucee",
     "path": "/docs/recipes/date-time-formatting.md",
-    "hash": "7682e6bb25f7773f414ebcac31211db7",
+    "hash": "d9a2879a6cdcc4f32a78e3d9784f5fd5",
     "keywords": [
       "Date",
       "Time",
@@ -1496,7 +1498,7 @@
     "file": "mathematical-precision.md",
     "title": "Mathematical Precision",
     "path": "/docs/recipes/mathematical-precision.md",
-    "hash": "987987843c6ceb8cd9dabe350446deee",
+    "hash": "323e06c0d7fd05501c04f190b0767a96",
     "keywords": [
       "math",
       "precision",
