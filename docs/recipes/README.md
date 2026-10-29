@@ -160,6 +160,10 @@ Comprehensive guide to formatting dates and times in Lucee with locale and timez
 
 How to bundle and deploy custom tags as part of a Lucee extension (.lex file), and how to import them using cfimport.
 
+## [Deploying without CFML Source Code](/docs/recipes/sourceless-deployment.md)
+
+How to deploy a Lucee application without readable CFML source (the equivalent of cfencode): compile templates in place to bytecode with compileToBytecode() in Lucee 8, or ship sourceless Lucee archives.
+
 ## [Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy`](/docs/recipes/concurrent-map-legacy-flag.md)
 
 The `lucee.concurrent.map.impl=legacy` flag temporarily restores the pre-7.1 struct iteration order, used as a diagnostic to confirm whether a 7.1 regression is an ordering-assumption bug in your code.

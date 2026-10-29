@@ -65,6 +65,7 @@ description: >
 | Datasources | `datasource-how-to-define-them` | Datasource, Define datasource, Administrator, Application.cfc, Default datasource, MySQL |
 | Date and Time Formatting in Lucee | `date-time-formatting` | Date, Time, Formatting, Locale, Timezone, dateFormat, timeFormat, dateTimeFormat, lsDateFormat, createTime |
 | Deploying Custom Tags via Extensions | `custom-tags-via-extensions` | Custom Tags, Extensions, LEX, cfimport, taglib, prefix, lucee-server context |
+| Deploying without CFML Source Code | `sourceless-deployment` | cfencode, source protection, compileToBytecode, restoreToSource, bytecode, Precompiled, Archive, .lar, Deployment, Encrypt |
 | Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy` | `concurrent-map-legacy-flag` | ConcurrentHashMap, struct, lucee.concurrent.map.impl, legacy, struct ordering, LDEV-5098, LDEV-6288 |
 | Docker | `docker` | Docker, container, lucee/lucee, docker-compose, Dockerfile, Tomcat, LUCEE_ADMIN_PASSWORD, Server.cfc |
 | Docker Image Best Practices | `docker-best-practices` | Docker, Dockerfile, Container, Best Practices, Warmup, CFConfig.json, Maven, Download Policy, Healthcheck, Logging |

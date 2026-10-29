@@ -604,6 +604,24 @@
     ]
   },
   {
+    "file": "sourceless-deployment.md",
+    "title": "Deploying without CFML Source Code",
+    "path": "/docs/recipes/sourceless-deployment.md",
+    "hash": "a45404bb24be55a7cac6130a967e216e",
+    "keywords": [
+      "cfencode",
+      "source protection",
+      "compileToBytecode",
+      "restoreToSource",
+      "bytecode",
+      "Precompiled",
+      "Archive",
+      ".lar",
+      "Deployment",
+      "Encrypt"
+    ]
+  },
+  {
     "file": "concurrent-map-legacy-flag.md",
     "title": "Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy`",
     "path": "/docs/recipes/concurrent-map-legacy-flag.md",
