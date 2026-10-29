@@ -444,6 +444,10 @@ Learn about the changes in Lucee 6.1 regarding Monitoring and Debugging. Underst
 
 How to enable and use MSSQL modern mode in Lucee for proper handling of RAISERROR exceptions and complex T-SQL batches
 
+## [NanoID Generation in Lucee 7](/docs/recipes/nanoid-generation.md)
+
+Simple recipe for generating short, URL-safe unique IDs (NanoID) in Lucee 7 using Maven integration and jnanoid, as an alternative to createUUID()
+
 ## [New Operator](/docs/recipes/new-operator.md)
 
 This document provides a guide on using the new operator in Lucee for creating instances of CFML components and Java classes.

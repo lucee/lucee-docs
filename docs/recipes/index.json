@@ -1686,6 +1686,20 @@
     ]
   },
   {
+    "file": "nanoid-generation.md",
+    "title": "NanoID Generation in Lucee 7",
+    "path": "/docs/recipes/nanoid-generation.md",
+    "hash": "6d8f9eaca9a08d29beef2c2bc7507a43",
+    "keywords": [
+      "NanoID",
+      "jnanoid",
+      "createUUID",
+      "Unique ID",
+      "Maven",
+      "Java Integration"
+    ]
+  },
+  {
     "file": "new-operator.md",
     "title": "New Operator",
     "path": "/docs/recipes/new-operator.md",

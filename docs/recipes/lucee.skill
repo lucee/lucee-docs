@@ -136,6 +136,7 @@ description: >
 | Monitoring - Enable for your session | `monitoring-enable-for-your-session` | monitoring, session, Application.cfc, showDebugOutput, debugging, this.monitoring |
 | Monitoring/Debugging | `monitoring-debugging` | monitoring, debugging, admin, Application.cfc, cfsetting, debug, showdebugoutput, cfapplication |
 | MSSQL Modern Mode | `mssql-modern-mode` | mssql, sql server, raiserror, deferred exceptions, modern mode, jdbc, stored procedures, t-sql |
+| NanoID Generation in Lucee 7 | `nanoid-generation` | NanoID, jnanoid, createUUID, Unique ID, Maven, Java Integration |
 | New Operator | `new-operator` | new, java, classes, class, createObject, component |
 | Null Support | `null-support` | Null support, null keyword, NullValue function, isNull function, Lucee |
 | Null Values in Structs and Arrays | `null-structs-and-arrays` | null, struct, array, loop, for-in, isNull, NullValue, sparse array, Lucee |
