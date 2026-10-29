@@ -2417,6 +2417,23 @@
     ]
   },
   {
+    "file": "event-gateway-socket.md",
+    "title": "Socket Event Gateway",
+    "path": "/docs/recipes/event-gateway-socket.md",
+    "hash": "ded4999cb2f5315cf54c3532ab942803",
+    "keywords": [
+      "Event Gateway",
+      "Socket Gateway",
+      "SocketGateway",
+      "TCP",
+      "telnet",
+      "netcat",
+      "onIncomingMessage",
+      "sendGatewayMessage",
+      "CFConfig"
+    ]
+  },
+  {
     "file": "sql-types.md",
     "title": "SQL Types",
     "path": "/docs/recipes/sql-types.md",

@@ -636,6 +636,10 @@ How to set, hash, and reset the Lucee Administrator password
 
 Understanding the differences between Single mode and Multi mode in Lucee.
 
+## [Socket Event Gateway](/docs/recipes/event-gateway-socket.md)
+
+Use the Socket event gateway built into Lucee to accept plain TCP connections, handle each incoming line in a CFML listener and send replies back to the client.
+
 ## [SQL Types](/docs/recipes/sql-types.md)
 
 SQL types for query parameters
