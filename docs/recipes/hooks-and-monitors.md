@@ -311,8 +311,9 @@ You can define monitors directly in your `.CFConfig.json` configuration file und
       },
       {
         "name": "MyIntervalMonitor",
-        "type": "interval", 
-        "component": "monitors.SystemMonitor",
+        "type": "interval",
+        "class": "com.mycompany.monitors.IntervalMonitorImpl",
+        "maven": "com.mycompany:monitor-lib:2.1.0",
         "log": true
       }
     ]
@@ -324,8 +325,7 @@ You can define monitors directly in your `.CFConfig.json` configuration file und
 
 - `name`: Unique identifier for the monitor (required)
 - `type`: Monitor type - `action`, `request`, or `interval` (required)
-- `class`: Full Java class name (required unless using component)
-- `component`: CFML component path (alternative to class)
+- `class`: Full Java class name (required)
 - `bundleName`: OSGi bundle name (optional, for OSGi resolution)
 - `bundleVersion`: OSGi bundle version (optional, for OSGi resolution)
 - `maven`: Maven coordinates in format `groupId:artifactId:version` (alternative to OSGi)
@@ -334,10 +334,11 @@ You can define monitors directly in your `.CFConfig.json` configuration file und
 
 **Class Definition Resolution Order:**
 
-1. **OSGi Bundle** - If `bundleName` is provided
-2. **Maven Dependency** - If `maven` is provided  
-3. **CFML Component** - If `component` is provided (and `class` is null)
-4. **Standard Classpath** - Fallback for simple class loading
+1. **Maven Dependency** - If `maven` is provided
+2. **OSGi Bundle** - If `bundleName` is provided
+3. **Standard Classpath** - Fallback for simple class loading
+
+This page documents monitors implemented as Java classes. The `component` option that exists for other class definitions is not documented or tested for monitors.
 
 There are three types of monitors, each serving different monitoring needs:
 
@@ -353,12 +354,16 @@ package com.mycompany.monitors;
 import java.io.IOException;
 import java.util.Map;
 import lucee.runtime.PageContext;
+import lucee.runtime.config.ConfigServer;
 import lucee.runtime.config.ConfigWeb;
 import lucee.runtime.exp.PageException;
 import lucee.runtime.monitor.ActionMonitor;
 import lucee.runtime.type.Query;
 
 public class MyActionMonitor implements ActionMonitor {
+
+    private String name;
+    private boolean logEnabled;
     
     @Override
     public void log(PageContext pc, String type, String label, long executionTime, Object data) throws IOException {
@@ -395,18 +400,29 @@ public class MyActionMonitor implements ActionMonitor {
     
     // Base Monitor interface methods
     @Override
-    public void init(ConfigWeb config, String name, Map<String, String> arguments) throws IOException {
-        System.out.println("Initializing ActionMonitor: " + name);
+    public void init(ConfigServer configServer, String name, boolean logEnabled) {
+        this.name = name;
+        this.logEnabled = logEnabled;
     }
-    
+
+    @Override
+    public short getType() {
+        return TYPE_ACTION;
+    }
+
     @Override
     public String getName() {
-        return "MyActionMonitor";
+        return name;
     }
-    
+
     @Override
-    public boolean isEnabled() {
-        return true;
+    public Class getClazz() {
+        return getClass();
+    }
+
+    @Override
+    public boolean isLogEnabled() {
+        return logEnabled;
     }
 }
 ```
@@ -423,7 +439,12 @@ Action monitors are ideal for:
 
 ## Request Monitors
 
-Request monitors collect data about each HTTP request processed by Lucee. They are called at the end of each request and can track both successful and error requests.
+Request monitors are called for each HTTP request processed by Lucee. A request monitor can be called at two points of a request:
+
+- **Start of the request**: if the class declares a public `init(PageContext pc)` method, it is called before the Application listener (`Application.cfc`) runs. The monitor can inspect the request and can [abort it](#aborting-a-request-from-a-request-monitor).
+- **End of the request**: `log(PageContext pc, boolean error)` is called when the request has finished, for successful and for failed requests.
+
+`init(PageContext)` is optional and is not part of the `RequestMonitor` interface. Lucee looks the method up by name on the monitor class, so it must be declared on the class itself (not inherited) and be `public`. The class must also implement `RequestMonitor` directly, a plain object that is wrapped by Lucee does not get the request start call.
 
 ### Interface Implementation
 
@@ -433,58 +454,176 @@ package com.mycompany.monitors;
 import java.io.IOException;
 import java.util.Map;
 import lucee.runtime.PageContext;
+import lucee.runtime.config.ConfigServer;
 import lucee.runtime.config.ConfigWeb;
 import lucee.runtime.exp.PageException;
 import lucee.runtime.monitor.RequestMonitor;
 import lucee.runtime.type.Query;
 
 public class MyRequestMonitor implements RequestMonitor {
-    
+
+    private String name;
+    private boolean logEnabled;
+
+    // optional, called at the start of the request
+    public void init(PageContext pc) throws IOException, PageException {
+        System.out.println("Request started: " + pc.getHttpServletRequest().getRequestURI());
+    }
+
     @Override
     public void log(PageContext pc, boolean error) throws IOException {
         // Called at the end of each request
         long requestTime = System.currentTimeMillis() - pc.getStartTime();
         String requestURI = pc.getHttpServletRequest().getRequestURI();
-        
-        System.out.println("Request: " + requestURI + 
+
+        System.out.println("Request: " + requestURI +
                           " | Time: " + requestTime + "ms" +
                           " | Error: " + error);
-        
+
         // Collect additional request metrics:
         // - Memory usage during request
         // - User agent, IP address
         // - Response size
         // - Custom application metrics
     }
-    
+
     @Override
     public Query getData(ConfigWeb config, Map<String, Object> arguments) throws PageException {
         // Return request data for the specific web context
         // Filter by arguments like date range, error status, etc.
         return createRequestDataQuery(config, arguments);
     }
-    
+
     private Query createRequestDataQuery(ConfigWeb config, Map<String, Object> arguments) throws PageException {
         // Implementation to return collected request data
         // Columns typically include: timestamp, uri, executionTime, error, userAgent, etc.
         return null; // Implement based on your storage mechanism
     }
-    
+
+    // Base Monitor interface methods
     @Override
-    public void init(ConfigWeb config, String name, Map<String, String> arguments) throws IOException {
-        System.out.println("Initializing RequestMonitor: " + name + " for context: " + 
-                          config.getIdentification().getId());
+    public void init(ConfigServer configServer, String name, boolean logEnabled) {
+        this.name = name;
+        this.logEnabled = logEnabled;
     }
-    
+
+    @Override
+    public short getType() {
+        return TYPE_REQUEST;
+    }
+
     @Override
     public String getName() {
-        return "MyRequestMonitor";
+        return name;
     }
-    
+
     @Override
-    public boolean isEnabled() {
-        return true;
+    public Class getClazz() {
+        return getClass();
     }
+
+    @Override
+    public boolean isLogEnabled() {
+        return logEnabled;
+    }
+}
+```
+
+The monitor is only called when `isLogEnabled()` returns true, which is the `log` setting of the monitor (default `true`).
+
+### Aborting a Request from a Request Monitor
+
+A request monitor can stop a request before any of your code runs. If `init(PageContext)` throws a `lucee.runtime.exp.Abort` with the scope `Abort.SCOPE_REQUEST`, Lucee aborts the request the same way an `abort` in `onRequestStart` does: `Application.cfc` and the requested template are not executed and `onError` is not called. The monitor decides what the client receives, it sets the status code and writes the response before it throws.
+
+```java
+package com.mycompany.monitors;
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
+import lucee.runtime.PageContext;
+import lucee.runtime.config.ConfigServer;
+import lucee.runtime.config.ConfigWeb;
+import lucee.runtime.exp.Abort;
+import lucee.runtime.exp.PageException;
+import lucee.runtime.monitor.RequestMonitor;
+import lucee.runtime.type.Query;
+
+public class BlockingRequestMonitor implements RequestMonitor {
+
+    private static final Set<String> BLOCKED = Set.of("203.0.113.7", "203.0.113.8");
+
+    private String name;
+    private boolean logEnabled;
+
+    public void init(PageContext pc) throws IOException, PageException {
+        if (!BLOCKED.contains(pc.getHttpServletRequest().getRemoteAddr())) return;
+
+        pc.getHttpServletResponse().setStatus(403);
+        pc.write("Forbidden");
+        throw new Abort(Abort.SCOPE_REQUEST);
+    }
+
+    @Override
+    public void log(PageContext pc, boolean error) throws IOException {
+    }
+
+    @Override
+    public Query getData(ConfigWeb config, Map<String, Object> arguments) throws PageException {
+        return null;
+    }
+
+    @Override
+    public void init(ConfigServer configServer, String name, boolean logEnabled) {
+        this.name = name;
+        this.logEnabled = logEnabled;
+    }
+
+    @Override
+    public short getType() {
+        return TYPE_REQUEST;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public Class getClazz() {
+        return getClass();
+    }
+
+    @Override
+    public boolean isLogEnabled() {
+        return logEnabled;
+    }
+}
+```
+
+Notes on aborting:
+
+- Only a silent abort stops the request. Any other exception thrown from `init(PageContext)` is handled as before and does not stop the request.
+- Monitors are called in the order they are configured. After a monitor has aborted the request, the `init(PageContext)` of the monitors that follow it is not called.
+- An asynchronous monitor (`"async": true`) runs in its own thread and never blocks the request, it cannot abort a request. Do not set `async` on a monitor that blocks requests.
+- Monitoring must be enabled (`monitoring.enabled`), otherwise no request monitor is called at all.
+- Aborting from `init(PageContext)` is available in Lucee 7.1 (see [LDEV-3792](https://luceeserver.atlassian.net/browse/LDEV-3792) for the exact version). In earlier versions an exception thrown from `init(PageContext)` is swallowed and the request continues.
+
+Register the monitor like any other request monitor, for example in `.CFConfig.json`:
+
+```json
+{
+  "monitoring": {
+    "enabled": true,
+    "monitor": [
+      {
+        "name": "BlockingRequestMonitor",
+        "type": "request",
+        "class": "com.mycompany.monitors.BlockingRequestMonitor",
+        "maven": "com.mycompany:monitor-lib:2.1.0"
+      }
+    ]
+  }
 }
 ```
 
@@ -497,6 +636,7 @@ Request monitors are ideal for:
 - User behavior analysis
 - Load pattern identification
 - Security monitoring
+- Blocking unwanted requests before the application sees them (rate limiting, IP block lists)
 
 ## Interval Monitors
 
@@ -509,12 +649,15 @@ package com.mycompany.monitors;
 
 import java.io.IOException;
 import java.util.Map;
-import lucee.runtime.config.ConfigWeb;
+import lucee.runtime.config.ConfigServer;
 import lucee.runtime.exp.PageException;
 import lucee.runtime.monitor.IntervallMonitor;
 import lucee.runtime.type.Query;
 
 public class MyIntervalMonitor implements IntervallMonitor {
+
+    private String name;
+    private boolean logEnabled;
     
     @Override
     public void log() throws IOException {
@@ -549,20 +692,31 @@ public class MyIntervalMonitor implements IntervallMonitor {
         return null; // Implement based on your storage mechanism
     }
     
+    // Base Monitor interface methods
     @Override
-    public void init(ConfigWeb config, String name, Map<String, String> arguments) throws IOException {
-        System.out.println("Initializing IntervalMonitor: " + name);
-        // Setup any resources needed for system monitoring
+    public void init(ConfigServer configServer, String name, boolean logEnabled) {
+        this.name = name;
+        this.logEnabled = logEnabled;
     }
-    
+
+    @Override
+    public short getType() {
+        return TYPE_INTERVAL;
+    }
+
     @Override
     public String getName() {
-        return "MyIntervalMonitor";
+        return name;
     }
-    
+
     @Override
-    public boolean isEnabled() {
-        return true;
+    public Class getClazz() {
+        return getClass();
+    }
+
+    @Override
+    public boolean isLogEnabled() {
+        return logEnabled;
     }
 }
 ```
@@ -596,6 +750,14 @@ monitor: "[{'name':'ArgusMonitorActionMonitor','type':'action','class':'ch.rasia
  {'name':'ArgusMonitorIntervalMonitor','type':'interval','class':'ch.rasia.extension.argus.monitor.IntervalMonitorImpl','bundleName':'argus.monitor','bundleVersion':'1.0.0.176'},
   {'name':'ArgusMonitorRequestMonitor','type':'request','class':'ch.rasia.extension.argus.monitor.RequestMonitorImpl','bundleName':'argus.monitor','bundleVersion':'1.0.0.176'}]"
 ```
+
+A monitor can also be resolved from Maven instead of an OSGi bundle, use the `maven` key instead of `bundleName` and `bundleVersion`:
+
+```manifest
+monitor: "[{'name':'BlockingRequestMonitor','type':'request','class':'com.mycompany.monitors.BlockingRequestMonitor','maven':'com.mycompany:monitor-lib:2.1.0'}]"
+```
+
+Installing an extension that declares a monitor also enables monitoring (`monitoring.enabled`) and registers the monitor with logging enabled. The `async` option is not available in the manifest, set it in `.CFConfig.json` if you need it.
 
 ## Accessing Monitor Data from CFML
 
@@ -646,6 +808,7 @@ When implementing hooks and monitors, consider these security aspects:
 **Monitor Not Triggering**
 
 - Ensure monitoring is enabled in `.CFConfig.json`
+- For a request monitor that should be called at the start of the request, check that the class declares a public `init(PageContext)` and implements `RequestMonitor` directly
 - Check that the monitor interface is implemented correctly
 - Verify the extension manifest syntax is valid
 
