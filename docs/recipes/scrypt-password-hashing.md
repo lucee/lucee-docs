@@ -17,7 +17,8 @@
   "related": [
     "maven",
     "yaml-processing-lucee7",
-    "excel-processing-lucee7"
+    "excel-processing-lucee7",
+    "bcrypt-password-hashing-lucee7"
   ]
 }
 -->
