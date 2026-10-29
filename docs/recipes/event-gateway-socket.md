@@ -43,11 +43,11 @@ The Socket gateway is part of the Lucee core (it is not an extension), so there 
 ## What it does
 
 - Starts a `ServerSocket` on the configured port and accepts any number of client connections.
-- Sends the welcome message and a `> ` prompt to each client when it connects.
+- Sends the welcome message and a `>` prompt to each client when it connects.
 - Reads each connection line by line. A line is anything ended by a line break (`\n` or `\r\n`), so `telnet` and `nc` both work.
 - For every line, calls `onIncomingMessage` on the listener component.
 - If a client sends `exit`, the connection is closed and the line is not passed to the listener.
-- Every message written with [[function-sendgatewaymessage]] is followed by a new `> ` prompt.
+- Every message written with [[function-sendgatewaymessage]] is followed by a new `>` prompt.
 
 ## Configuration
 
@@ -146,7 +146,7 @@ or
 telnet localhost 1225
 ```
 
-A session looks like this (the text after each `> ` prompt is what you type):
+A session looks like this (the text after each `>` prompt is what you type):
 
 ```text
 Hello from echoSocket
