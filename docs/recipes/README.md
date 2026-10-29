@@ -378,7 +378,7 @@ Comprehensive guide to accessing Lucee core utilities when developing extensions
 
 ## [Lucee Release Cycle and Branching](/docs/recipes/release-cycle.md)
 
-How Lucee versions and branches work: minor-line branches, release cycles, RC branches, which branch a fix belongs on, merging forward and Jira fix versions
+Lucee branching and release strategy: one branch per version line, which branch a pull request targets (fixes, breaking fixes, features, security), merge-ups, versions and qualifiers, RC branches and Jira fix versions
 
 ## [Lucee Skill for AI Assistants](/docs/recipes/lucee-skill.md)
 
