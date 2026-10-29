@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation"],
   "related": [
     "breaking-changes-7-1-to-8-0"
   ]
@@ -304,3 +304,40 @@ component rest=false restPath="customers" {
 ```
 
 Or remove the `restPath` attribute.
+
+## `cfforward` ends the request
+
+The request ends after a `cfforward` (and the `forward` statement in script), like it does after `cflocation`. Before, the page continued after the forward and the output of the code after the tag was added to the forwarded response.
+
+```cfml
+echo( "before" );
+cfforward( template="target.cfm" );
+// Lucee 8: this still runs, Lucee 9: it does not
+echo( "after" );
+```
+
+`try/catch` does not catch the end of the request, `finally` blocks, `onAbort` and `onRequestEnd` behave as they do for `cflocation`.
+
+### Who is affected
+
+Pages that have code or output after a `cfforward`, for example logging, clean up or a second `cfforward` as a fallback.
+
+### Migration
+
+Move the code that must run to before the `cfforward`:
+
+Before:
+
+```cfml
+cfforward( template="target.cfm" );
+logForward( "target.cfm" );
+```
+
+After:
+
+```cfml
+logForward( "target.cfm" );
+cfforward( template="target.cfm" );
+```
+
+If the page has to continue after the other template, use `cfinclude` instead of `cfforward`.
