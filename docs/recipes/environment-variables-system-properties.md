@@ -1341,16 +1341,16 @@ Specifies the file location of the trust store that contains trusted Certificate
 
 Default character set for output streams, form, URL, and CGI scope variables, and reading/writing the header.
 
-#### LUCEE_JSCH_DEBUG
+#### LUCEE_DEBUG_JSCH
 
-*SysProp:* `-Dlucee.jsch.debug`
-*EnvVar:* `LUCEE_JSCH_DEBUG`
+*SysProp:* `-Dlucee.debug.jsch`
+*EnvVar:* `LUCEE_DEBUG_JSCH`
 
-Boolean which enables debug logging to the console for SFTP, since 7.0.0.233
+Boolean which enables debug logging to the console for SFTP, since 7.0.0.233. See [[ftp-troubleshooting]]
 
-#### LUCEE_FTP_DEBUG
+#### LUCEE_DEBUG_FTP
 
-*SysProp:* `-Dlucee.ftp.debug`
-*EnvVar:* `LUCEE_FTP_DEBUG`
+*SysProp:* `-Dlucee.debug.ftp`
+*EnvVar:* `LUCEE_DEBUG_FTP`
 
-Boolean which enables debug logging to the console for FTP, since 7.0.0.233
+Boolean which enables debug logging to the console for FTP, since 7.0.0.233. See [[ftp-troubleshooting]]
