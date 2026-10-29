@@ -169,7 +169,7 @@
     "file": "bcrypt-password-hashing.md",
     "title": "bcrypt Password Hashing in Lucee 7",
     "path": "/docs/recipes/bcrypt-password-hashing.md",
-    "hash": "def88a36e49ea089ceb0c8909b11d659",
+    "hash": "e408d585f875f98f0e21e59caf3e9f34",
     "keywords": [
       "bcrypt",
       "GenerateBCryptHash",
@@ -2272,7 +2272,7 @@
     "file": "scrypt-password-hashing.md",
     "title": "scrypt Password Hashing in Lucee 7",
     "path": "/docs/recipes/scrypt-password-hashing.md",
-    "hash": "f6d344863418104052535a5f9cb6ff7b",
+    "hash": "e8de5f289d1e8bcf4c952a6f496fe750",
     "keywords": [
       "scrypt",
       "GenerateSCryptHash",
