@@ -97,6 +97,7 @@ description: >
 | Hidden Gems | `hidden-gems` | Hidden gems, Declare variables, Function calls, Dot notation, Bracket notation, URL form scopes, Array format |
 | Hooks and Monitors | `hooks-and-monitors` | hooks, monitors, startup, extension, lifecycle, injection |
 | How to Use Tags in Script | `tag-syntax` | Syntax, tag, function, Script, throw, abort, return, unquoted, attribute |
+| Http Listeners | `http-listener` | http, cfhttp, listener, Application.cfc, component |
 | Import | `import` | cfimport, import, Lucee, components, java classes, custom tags, taglib |
 | Inline Components | `inline-components` | component, inline component, closure, anonymous component, cfscript, sub-component |
 | Interacting with Java Libraries | `java-libraries` | java, maven, import, Lucee, libraries, new operator |

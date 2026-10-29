@@ -288,6 +288,10 @@ Configure and use hooks and monitors to extend Lucee functionality at various li
 
 How to use tags in script
 
+## [Http Listeners](/docs/recipes/http-listener.md)
+
+Learn how to define http listeners in Lucee. This guide demonstrates how to set up global http listeners in the Application.cfc file or per cfhttp tag to inspect or manipulate every http request executed, modify the response or handle errors. Examples include defining listeners directly in Application.cfc and using a component as an http listener.
+
 ## [Import](/docs/recipes/import.md)
 
 Guide on using import to import components, Java classes, and custom tags in Lucee
