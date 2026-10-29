@@ -265,7 +265,7 @@ Code that decides with `isJson()` if a string can be passed to `deserializeJSON(
 
 ## A component with `restPath` is a REST component when `rest` is not set
 
-A component (or a CFC with a `component` tag) that sets the attribute `restPath` but not the attribute `rest` is now a REST component, as if `rest=true` was set. Before, it was only exposed with `rest=true`, a `restPath` alone was ignored.
+A component that sets the attribute `restPath` but not the attribute `rest` is now a REST component, as if `rest=true` was set. Before, it was only exposed with `rest=true`, a `restPath` alone was ignored.
 
 ```cfml
 // Lucee 8: not exposed, Lucee 9: exposed as /customers
@@ -283,7 +283,7 @@ This is the documented behaviour of Adobe ColdFusion, where the default of `rest
 
 ### Who is affected
 
-Components in a directory that is registered as a REST service (`restInitApplication()` or the REST mapping in the Administrator) that have a `restPath` and no `rest` attribute. These components were silently ignored before, they are now reachable with a HTTP request under the REST mapping. Check the components in your REST directories for a left-over `restPath`, for example from a refactoring or an old copy.
+Components in a directory that is registered as a REST service (`restInitApplication()` or the REST mapping in the Administrator) that have a `restPath` and no `rest` attribute. These components were silently ignored before, they are now reachable with an HTTP request under the REST mapping. Check the components in your REST directories for a left-over `restPath`, for example from a refactoring or an old copy.
 
 ### Migration
 
