@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON"],
   "related": [
     "breaking-changes-7-1-to-8-0"
   ]
@@ -201,3 +201,44 @@ A library that brings its own commons-logging (for example the AWS SDK of the S3
 - cfhttp: nothing to change for the base feature set. If a request fails with a message that names the HTTP extension, install the extension.
 - Extensions that used one of these libraries of Lucee: require it explicitly in the manifest or ship it, and for offline installs ship it with the extension.
 - Code that calls `metaphone()`: use `soundex()` or another phonetic algorithm of your own.
+
+## `isJson()` is strict by default
+
+`isJson()` used the lenient expression parser of Lucee, so it also returned `true` for input that is not valid JSON and that other JSON parsers reject (unquoted keys, single quotes, trailing commas, comments, ...). In Lucee 9 `isJson()` has the new argument `lenient` with the default `false`: only strict JSON is valid.
+
+```cfml
+isJson( '{"foo":"bar"}' ); // true
+isJson( '{foo:"bar"}' );   // true in 8.0, false in 9.0 (unquoted key)
+isJson( "{'foo':'bar'}" ); // true in 8.0, false in 9.0 (single quotes)
+isJson( '[1,2,]' );        // true in 8.0, false in 9.0 (trailing comma)
+```
+
+With the strict check the input is only validated, nothing in it is evaluated.
+
+The argument `lenient` exists since 8.0, with the default `true` (no change in 8.0), so code can already be adjusted in 8.0.
+
+### What else is affected
+
+- `isValid( "json", value )` uses the default of `isJson()` and so is strict as well.
+- `deserializeJSON()` is not changed, it stays lenient and still reads input like `{foo:"bar"}`.
+- `format="json5"` is not affected by `lenient`, JSON5 is lenient by definition.
+
+### Migration
+
+Code that needs the previous behaviour passes `lenient=true`:
+
+Before:
+
+```cfml
+isJson( '{foo:"bar"}' );
+```
+
+After:
+
+```cfml
+isJson( var='{foo:"bar"}', lenient=true );
+// or, if the input is JSON5
+isJson( '{foo:"bar"}', "json5" );
+```
+
+Code that decides with `isJson()` if a string can be passed to `deserializeJSON()` and that must also accept lenient input, needs `lenient=true` (or `format="json5"`) as well.
