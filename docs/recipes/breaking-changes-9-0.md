@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath"],
   "related": [
     "breaking-changes-7-1-to-8-0"
   ]
@@ -262,3 +262,45 @@ isJson( '{foo:"bar"}', "json5" );
 ```
 
 Code that decides with `isJson()` if a string can be passed to `deserializeJSON()` and that must also accept lenient input, needs `lenient=true` (or `format="json5"`) as well.
+
+## A component with `restPath` is a REST component when `rest` is not set
+
+A component that sets the attribute `restPath` but not the attribute `rest` is now a REST component, as if `rest=true` was set. Before, it was only exposed with `rest=true`, a `restPath` alone was ignored.
+
+```cfml
+// Lucee 8: not exposed, Lucee 9: exposed as /customers
+component restPath="customers" {
+
+	remote function list() httpMethod="GET" {
+		// ...
+	}
+}
+```
+
+An explicit `rest` attribute always wins, `rest=false` keeps the component out of the REST mapping, `rest=true` works as before. An empty `restPath` does not enable REST.
+
+This is the documented behaviour of Adobe ColdFusion, where the default of `rest` is "true if RestPath is specified" (see the `cfcomponent` reference). Code that is written for ACF behaves the same on Lucee 9 now.
+
+### Who is affected
+
+Components in a directory that is registered as a REST service (`restInitApplication()` or the REST mapping in the Administrator) that have a `restPath` and no `rest` attribute. These components were silently ignored before, they are now reachable with an HTTP request under the REST mapping. Check the components in your REST directories for a left-over `restPath`, for example from a refactoring or an old copy.
+
+### Migration
+
+Add `rest=false` to components that have a `restPath` and must not be exposed:
+
+Before:
+
+```cfml
+component restPath="customers" {
+}
+```
+
+After:
+
+```cfml
+component rest=false restPath="customers" {
+}
+```
+
+Or remove the `restPath` attribute.
