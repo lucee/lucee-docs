@@ -46,6 +46,7 @@ description: >
 | Breaking Changes between Lucee 8.0 and 9.0 | `breaking-changes-9-0` | breaking changes, Lucee 8.0, Lucee 9.0, migration, upgrade, OSGi, Felix, ASM, HttpClient, javax.mail |
 | Caches defined in Application.cfc | `caches-defined-in-application-cfc` | Caches, Application.cfc, Per-application caches, Cache connections, Default caches, Lucee |
 | Casting Components to Java Interfaces | `java-explicit-casting` | java, cast, convert, method |
+| Catching multiple exception types | `exception-multi-catch` | exception, error, catch, cfcatch, multi-catch, try |
 | Checksum | `checksum` | Checksum, File validation, cfhttp, hash, fileReadBinary |
 | Clustering with Quartz Scheduler | `scheduler-quartz-clustering` | scheduler, quartz, clustering, database, redis |
 | Complete Guide to Threading in Lucee | `thread-usage` | threads, parallel, async, concurrent, performance, cfthread |

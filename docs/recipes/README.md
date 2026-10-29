@@ -84,6 +84,10 @@ How to add per-application caches via Application.cfc in Lucee.
 
 Shows how to explicitly cast a component to a specific interface.
 
+## [Catching multiple exception types](/docs/recipes/exception-multi-catch.md)
+
+Handle several exception types in a single catch, using a pipe to separate the types.
+
 ## [Checksum](/docs/recipes/checksum.md)
 
 This document explains how to use a checksum in Lucee.

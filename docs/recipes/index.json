@@ -328,6 +328,20 @@
     ]
   },
   {
+    "file": "exception-multi-catch.md",
+    "title": "Catching multiple exception types",
+    "path": "/docs/recipes/exception-multi-catch.md",
+    "hash": "7585ce298b345ebe1bca956ca327b82c",
+    "keywords": [
+      "exception",
+      "error",
+      "catch",
+      "cfcatch",
+      "multi-catch",
+      "try"
+    ]
+  },
+  {
     "file": "checksum.md",
     "title": "Checksum",
     "path": "/docs/recipes/checksum.md",
