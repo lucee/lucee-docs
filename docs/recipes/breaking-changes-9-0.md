@@ -242,3 +242,31 @@ isJson( '{foo:"bar"}', "json5" );
 ```
 
 Code that decides with `isJson()` if a string can be passed to `deserializeJSON()` and that must also accept lenient input, needs `lenient=true` (or `format="json5"`) as well.
+
+## `new self()` creates the called component
+
+`self` is now a keyword directly after the `new` operator. `new self()` creates an instance of the component the current function was called on (see [[static-scope-in-components]]).
+
+### A component called `self` is shadowed
+
+`new self()` does not look for a component called `self` anymore. Existing code that instantiates a component `self.cfc` this way now gets the component the function was called on, or an exception outside of a component.
+
+Everything else keeps working: `self` as a function name, variable or argument name, and a component called `self` that is referenced with a path (`new my.path.self()`) or with a quoted name (`new "self"()`).
+
+### Migration
+
+Use the full path of the component or a quoted name:
+
+Before:
+
+```cfml
+cfc = new self();
+```
+
+After:
+
+```cfml
+cfc = new my.path.self();
+// or
+cfc = new "self"();
+```
