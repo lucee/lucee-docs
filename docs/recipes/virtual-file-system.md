@@ -221,6 +221,18 @@ Or in `Application.cfc`:
 this.cache.resource = "cache"; // name of the cache
 ```
 
+This setting is per application, so each application can back `ram://` with its own cache. Without it, the default "Resource" cache from the Administrator is used, or a built-in RAM cache if none is set.
+
+`this.inMemoryFileSystem` is accepted as an alias that takes a cache name:
+
+```lucee
+this.inMemoryFileSystem = "cache"; // same as this.cache.resource = "cache"
+```
+
+The alias is only used when no `resource`, `http`, `file` or `webservice` default cache is set via `this.cache`.
+
+There is no separate size setting for the RAM filesystem. Size limits and eviction come from the configuration of the backing cache.
+
 ### Pattern
 
 `ram:///{path}` e.g. `ram:///path/to/my/file.txt`
