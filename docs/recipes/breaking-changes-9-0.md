@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest"],
   "related": [
     "breaking-changes-7-1-to-8-0"
   ]
@@ -341,3 +341,45 @@ cfforward( template="target.cfm" );
 ```
 
 If the page has to continue after the other template, use `cfinclude` instead of `cfforward`.
+
+## `internalRequest()` resolves a template without a leading slash relative to the calling template
+
+The `template` argument of [[function-internalrequest]] (and `_internalRequest()`) is now resolved like a path in `cfinclude`: a path **without** a leading slash is relative to the directory of the template that calls the function. Before, such a path was resolved from the root (of the web root and the mappings), as if it had a leading slash.
+
+```cfml
+// in /app/tests/MyTest.cfc
+
+// Lucee 8: the same as "/other/page.cfm"
+// Lucee 9: /app/tests/other/page.cfm
+internalRequest( template="other/page.cfm" );
+
+// "./" and "../" work, both are relative to /app/tests
+internalRequest( template="../shared/page.cfm" );
+
+// a leading slash is unchanged, this is the same in 8.0 and 9.0
+internalRequest( template="/other/page.cfm" );
+```
+
+The directory comes from the virtual path of the calling template (the component or the page that contains the call), so templates that are found through a mapping resolve against the mapping. A path that goes above the root with `../` throws an exception.
+
+### Who is affected
+
+Code that passes a root relative path **without** the leading slash, for example `internalRequest( "app/index.cfm" )`. Such a call now looks for `app/index.cfm` in the directory of the caller and fails with a "missing include" error if the template does not exist there.
+
+### Migration
+
+Add the leading slash to the paths that are relative to the root:
+
+Before:
+
+```cfml
+internalRequest( template="app/index.cfm" );
+```
+
+After:
+
+```cfml
+internalRequest( template="/app/index.cfm" );
+```
+
+Code that already used a leading slash needs no change. See [LDEV-4038](https://luceeserver.atlassian.net/browse/LDEV-4038).
