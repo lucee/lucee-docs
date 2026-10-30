@@ -21,4 +21,3 @@ The `template` is a path to a CFML template on the same server.
 - A relative path that goes above the root with `../` throws an exception.
 
 **Breaking change in Lucee 9.0** ([LDEV-4038](https://luceeserver.atlassian.net/browse/LDEV-4038)): before Lucee 9.0 a path without a leading slash was resolved from the root. Add the leading slash to such calls, see [[breaking-changes-8-0-to-9-0]].
-
