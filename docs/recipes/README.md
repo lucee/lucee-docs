@@ -36,6 +36,10 @@ How to create and configure the Application.cfc
 
 Generate Abstract Syntax Trees from CFML code for analysis, transformation, and tooling support
 
+## [Avro Serialization in Lucee 7](/docs/recipes/avro-serialization.md)
+
+Simple recipe for serializing and deserializing Apache Avro data in Lucee 7 using Maven integration
+
 ## [Basic Date - Output the current date](/docs/recipes/basic-date.md)
 
 Learn how to output the current date in Lucee.

@@ -34,6 +34,7 @@ description: >
 | Application Context update | `application-context-update` | Application Context, cfapplication, action update, getApplicationSettings, mappings, per-request, runtime update, Application.cfc |
 | Application.cfc # | `application-cfc` | Application.cfc, Application Context, Application Lifecycle, onApplicationStart, onRequestStart, onSessionStart, onError, session management, client management, application scope |
 | AST (Abstract Syntax Tree) | `ast` | AST, Abstract Syntax Tree, parsing, code analysis, static analysis, transformation, IDE tooling |
+| Avro Serialization in Lucee 7 | `avro-serialization` | Avro, Apache Avro, serializeAvro, deserializeAvro, Maven, Java Integration |
 | Basic Date - Output the current date | `basic-date` | Date, Current date, lsDateTimeFormat, now, setLocale, Application.cfc, Locale |
 | bcrypt Password Hashing in Lucee 7 | `bcrypt-password-hashing` | bcrypt, GenerateBCryptHash, VerifyBCryptHash, Password Hashing, Maven, Java Integration |
 | Best Practices: Structs vs Inline Components | `structs-vs-components` | struct, component, inline component, performance, memory, best practices, CFC, bean |
