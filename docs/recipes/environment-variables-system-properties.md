@@ -701,7 +701,7 @@ The maximum concurrent requests that the engine allows to run at the same time b
 *SysProp:* `-Dlucee.queue.timeout`
 *EnvVar:* `LUCEE_QUEUE_TIMEOUT`
 
-The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected with an exception. If you set it to 0 seconds, the request timeout is used instead.
+The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected and not executed: Lucee logs the exception and responds with HTTP status 503 (Service Unavailable), a `Retry-After` header (the queue timeout in seconds, rounded up, minimum 1) and a short plain text body ("the server is too busy"), as long as the response is not already committed. If you set it to 0 seconds, the request timeout is used instead.
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP
 
@@ -1208,7 +1208,7 @@ The maximum concurrent requests that the engine allows to run at the same time b
 *SysProp:* `-Dlucee.queue.timeout`
 *EnvVar:* `LUCEE_QUEUE_TIMEOUT`
 
-The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected with an exception. If you set it to 0 seconds, the request timeout is used instead.
+The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected and not executed: Lucee logs the exception and responds with HTTP status 503 (Service Unavailable), a `Retry-After` header (the queue timeout in seconds, rounded up, minimum 1) and a short plain text body ("the server is too busy"), as long as the response is not already committed. If you set it to 0 seconds, the request timeout is used instead.
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP
 
