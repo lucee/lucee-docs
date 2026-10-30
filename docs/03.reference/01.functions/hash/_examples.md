@@ -50,3 +50,11 @@ timer type='inline' label='1000 SHA-512s, 10 iterations each' {
     // 1000 SHA-512s, 10 iterations each: 21ms
 };
 ```
+
+```luceescript+trycf
+// Hex is the default output, the other supported output encodings are base64 and base64url.
+input = 'This is a string to be encoded.';
+dump( hash( input = input, algorithm = 'SHA-256', outputEncoding = 'hex' ) ); // 4703F1F78E75A3C0497DA868AB75854D5FDF881CBFF943FC28749A244729456A
+dump( hash( input = input, algorithm = 'SHA-256', outputEncoding = 'base64' ) ); // RwPx9451o8BJfahoq3WFTV/fiBy/+UP8KHSaJEcpRWo=
+dump( hash( input = input, algorithm = 'SHA-256', outputEncoding = 'base64url' ) ); // RwPx9451o8BJfahoq3WFTV_fiBy_-UP8KHSaJEcpRWo
+```
