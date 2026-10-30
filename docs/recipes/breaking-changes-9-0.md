@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob"],
   "related": [
     "breaking-changes-7-1-to-8-0"
   ]
@@ -221,6 +221,43 @@ A library that brings its own commons-logging (for example the AWS SDK of the S3
 - cfhttp: nothing to change for the base feature set. If a request fails with a message that names the HTTP extension, install the extension.
 - Extensions that used one of these libraries of Lucee: require it explicitly in the manifest or ship it, and for offline installs ship it with the extension.
 - Code that calls `metaphone()`: use `soundex()` or another phonetic algorithm of your own.
+
+## COM objects moved to an extension
+
+COM/ActiveX support (Windows only) is not part of the Lucee core anymore. The Jacob library, the Lucee classes around it and the native libraries (`jacob-x64.dll`, `jacob-i586.dll`) are removed from the Lucee jar, the support moved to the [COM extension](https://github.com/lucee/extension-com). The extension is **not required** by Lucee, install it only if you need COM objects.
+
+### `createObject( "com" )` and `<cfobject type="com">` are not supported anymore
+
+Both throw an exception that points to the extension. Use the function `createComObject( className )` of the extension instead, the returned object behaves like the COM object of the core did:
+
+```cfml
+// Lucee 8 and older
+fso = createObject( "com", "Scripting.FileSystemObject" );
+
+// Lucee 9 with the COM extension
+fso = createComObject( "Scripting.FileSystemObject" );
+```
+
+```cfml
+// Lucee 8 and older
+<cfobject type="com" class="Scripting.FileSystemObject" name="fso">
+
+// Lucee 9 with the COM extension
+<cfset fso = createComObject( "Scripting.FileSystemObject" )>
+```
+
+### `releaseComObject` is part of the extension
+
+The function `releaseComObject( comObject )` is not part of the core anymore, it comes with the COM extension together with `createComObject`. Without the extension the function does not exist.
+
+### Jacob
+
+The extension uses the current official release of Jacob (1.21) and ships the native libraries itself, they are copied to `lucee-server/bin` on first use as before. `lucee.commons.jacob.*` and `lucee.runtime.com.*` do not exist in the core anymore, code that used these classes directly has to use `com.jacob.*` of the extension (or bring its own copy of Jacob).
+
+### Migration
+
+- Search your code for `createObject( "com"`, `type="com"` and `releaseComObject` and replace them with `createComObject` (see above), then install the COM extension.
+- Extensions or code that use `lucee.commons.jacob` or `lucee.runtime.com` directly: use the Jacob library `com.jacob` instead.
 
 ## `isJson()` is strict by default
 
