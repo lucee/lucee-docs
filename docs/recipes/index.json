@@ -151,6 +151,20 @@
     ]
   },
   {
+    "file": "avro-serialization.md",
+    "title": "Avro Serialization in Lucee 7",
+    "path": "/docs/recipes/avro-serialization.md",
+    "hash": "0793e607f1c82b887e3ba49e22ed1cee",
+    "keywords": [
+      "Avro",
+      "Apache Avro",
+      "serializeAvro",
+      "deserializeAvro",
+      "Maven",
+      "Java Integration"
+    ]
+  },
+  {
     "file": "basic-date.md",
     "title": "Basic Date - Output the current date",
     "path": "/docs/recipes/basic-date.md",
