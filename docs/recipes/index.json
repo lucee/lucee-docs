@@ -999,11 +999,12 @@
     "file": "get-dbdriver-from-maven.md",
     "title": "Get Datasource Drivers Directly from Maven",
     "path": "/docs/recipes/get-dbdriver-from-maven.md",
-    "hash": "77cf2855fdcbe90379e112c1af774a87",
+    "hash": "2a5b06b6618243051e402410cc16ad39",
     "keywords": [
       "datasource",
       "maven",
       "mysql",
+      "snowflake",
       "db"
     ]
   },

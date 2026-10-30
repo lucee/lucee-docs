@@ -91,7 +91,7 @@ description: >
 | File system - Mappings | `filesystem-mapping` | Mapping, Component mapping, Custom tag mapping, Regular mapping, File system |
 | Function Listeners | `function-listeners` | parallel, async, thread, function |
 | Function SystemOutput | `function-systemoutput` | SystemOutput function, Debugging, Output stream, Error stream, Stack trace |
-| Get Datasource Drivers Directly from Maven | `get-dbdriver-from-maven` | datasource, maven, mysql, db |
+| Get Datasource Drivers Directly from Maven | `get-dbdriver-from-maven` | datasource, maven, mysql, snowflake, db |
 | getClass() Method for Components | `component-getclass-method` | getClass, component, java, interface |
 | Getting Started with Caching | `caching-getting-started` | Cache, cachePut, cacheGet, cacheClear, cacheDelete, RAM cache, Object cache, Application.cfc, Getting started |
 | Global Proxy | `global-proxy` | proxy, global proxy, Lucee, Application.cfc, CFConfig |
