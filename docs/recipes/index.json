@@ -278,7 +278,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "4f696edc1bba7f905399d3200c677dbe",
+    "hash": "7dc707da7ab07a3bcf83ebd6fdac9c13",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -300,7 +300,9 @@
       "forward",
       "cflocation",
       "internalRequest",
-      "_internalRequest"
+      "_internalRequest",
+      "COM",
+      "Jacob"
     ]
   },
   {
