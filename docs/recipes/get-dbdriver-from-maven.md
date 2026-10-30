@@ -7,7 +7,8 @@
   "keywords": [
     "datasource",
     "maven",
-    "mysql"
+    "mysql",
+    "snowflake"
     ,"db"
   ],
   "categories":[
@@ -48,6 +49,22 @@ this.datasources["mysql"] = {
 You can use whatever version is available on [Maven](https://mvnrepository.com/artifact/com.mysql/mysql-connector-j).
 
 If you are unsure about the correct settings, simply install the MySQL extension, create a datasource in the Lucee admin, and at the bottom of the detail page, you will get an `Application.cfc` template for these settings.
+
+## Drivers without OSGi metadata (Snowflake example)
+
+Some JDBC drivers, for example the Snowflake driver, are plain jar files that do not contain any OSGi metadata, so there is no `bundleName` to use. For these drivers (Lucee 6.2 and later), use the `maven` key with the Maven coordinates `groupId:artifactId:version` instead of `bundleName` and `bundleVersion`. Lucee then downloads the driver from Maven and loads it from there.
+
+```lucee
+this.datasources["snowflake"] = {
+    class: "net.snowflake.client.jdbc.SnowflakeDriver",
+    maven: "net.snowflake:snowflake-jdbc:4.4.0",
+    connectionString: "jdbc:snowflake://<account>.snowflakecomputing.com/?db=<database>&warehouse=<warehouse>",
+    username: "<username>",
+    password: "encrypted:..."
+};
+```
+
+The version `4.4.0` is only an example. You can use whatever version is available on [Maven](https://mvnrepository.com/artifact/net.snowflake/snowflake-jdbc). Replace `<account>`, `<database>`, `<warehouse>` and `<username>` with your own values, and do not store a plain text password in your code.
 
 ## .CFConfig.json
 
