@@ -2053,6 +2053,20 @@
     ]
   },
   {
+    "file": "protobuf-serialization.md",
+    "title": "Protocol Buffers Serialization in Lucee 7",
+    "path": "/docs/recipes/protobuf-serialization.md",
+    "hash": "b44447f36c1210ad5ef5fe16591a5353",
+    "keywords": [
+      "Protocol Buffers",
+      "protobuf",
+      "serializeProtoBuf",
+      "deserializeProtoBuf",
+      "Maven",
+      "Java Integration"
+    ]
+  },
+  {
     "file": "query-of-queries-functions.md",
     "title": "QoQ SQL Functions and Operators",
     "path": "/docs/recipes/query-of-queries-functions.md",
