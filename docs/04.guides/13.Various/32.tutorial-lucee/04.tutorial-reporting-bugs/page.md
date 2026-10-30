@@ -70,7 +70,7 @@ You can supply a patch to be analyzed to the Lucee development team. How can you
 * Fork Lucee on GitHub
 [https://github.com/lucee/Lucee](https://github.com/lucee/Lucee).
 * Create an issue in JIRA
-* Commit your patch and send a pull request. (ask on the mailing list first if you are unsure which branch to use)
+* Commit your patch and send a pull request. (see [[release-cycle]] for which branch to use)
 * Post the link to your pull request in [JIRA](https://luceeserver.atlassian.net/) with as much details as possible so we can understand the issue.
 
 ### Lucee Website(s) Issues ###

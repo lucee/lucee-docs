@@ -291,6 +291,8 @@ transaction {
 }
 ```
 
+Setting a savepoint flushes the ORM session, so pending ORM changes are written to the database connection and are covered by the savepoint. After a rollback to a savepoint the ORM session is cleared, because it no longer matches the database. Entities that were loaded or saved earlier in the transaction become detached, so load them again if you need to keep working with them. ORM changes made after the rollback are committed normally. *(fixed in 7.1.3.64, LDEV-3657)*
+
 ### IsWithinORMTransaction()
 
 Check whether you're inside an active ORM transaction: *(new in 5.6)*

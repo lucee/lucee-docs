@@ -3,7 +3,7 @@
   "title": "Lucee Release Cycle and Branching",
   "id": "release-cycle",
   "categories": ["development", "versioning", "server", "devops"],
-  "description": "How Lucee versions and branches work: minor-line branches, release cycles, RC branches, which branch a fix belongs on, merging forward and Jira fix versions",
+  "description": "Lucee branching and release strategy: one branch per version line, which branch a pull request targets (fixes, breaking fixes, features, security), merge-ups, versions and qualifiers, RC branches and Jira fix versions",
   "keywords": [
     "release",
     "versioning",
@@ -15,7 +15,12 @@
     "regression",
     "pull request",
     "merge forward",
-    "fix version"
+    "fix version",
+    "contributing",
+    "which branch",
+    "pull request target",
+    "breaking change",
+    "extensions release"
   ],
   "related": ["versions"]
 }
@@ -23,66 +28,118 @@
 
 # Lucee Release Cycle and Branching
 
-This recipe describes how Lucee versions are numbered, how the branches of [lucee/Lucee](https://github.com/lucee/Lucee) are organised, which branch a fix belongs on, and how fixes move between branches.
+This recipe describes how Lucee is branched and released: which branch your pull request goes to, how changes move between branches, and how versions are numbered. It covers [lucee/Lucee](https://github.com/lucee/Lucee), with a short section on extensions.
+
+## Version Lines and Branches
+
+Lucee has one long-lived branch per version line, named `MAJOR.MINOR`:
+
+| Branch | Role |
+|--------|------|
+| `7.1` | The default target. Bug fixes go here. |
+| `8.0` | Fixes that are breaking changes. No new features. |
+| `9.0` | All new features. Currently built as `-ALPHA`. |
+| `7.0`, `6.2` | Older lines. They only get a change when the team asks for one, and security fixes are also backported to `6.2`. |
+
+Next to these, short-lived release branches named after a patch version (for example `7.1.2`) are used for release candidates, see [Release (RC) Branches](#release-rc-branches).
+
+Never send a pull request to `master`. Run `git ls-remote --heads https://github.com/lucee/Lucee` to see the current branches.
+
+## Where Does My Pull Request Go?
+
+| Your change | Target branch |
+|-------------|---------------|
+| Bug fix | `7.1` |
+| Fix that changes existing behaviour in a way that can break applications (a breaking change) | `8.0` |
+| New feature or enhancement | `9.0` |
+| Security fix | The branch above, and it is also backported to `6.2` |
+
+Notes:
+
+- `8.0` never gets new features.
+- Where a bug was introduced is not a reason to target an older line. Changes are not backported to `6.2`, `7.0` or release branches such as `7.1.2` unless the team asks for it.
+- The team can decide differently for a single ticket. The Jira ticket or the pull request will say so.
+- If you are unsure, target `7.1` and ask in the pull request. The team will tell you.
+
+### Merge-Ups
+
+Changes flow upwards through merge pull requests done by the team:
+
+```text
+7.1 --> 8.0 --> 9.0
+```
+
+You only open **one** pull request, against the lowest branch that applies. Do not open duplicates for `8.0` or `9.0`, a fix on `7.1` reaches them through the merge-up. `6.2` and `7.0` are not part of this chain.
+
+### Pull Request Checklist
+
+- One pull request per [LDEV ticket](https://luceeserver.atlassian.net/browse/LDEV). Create the ticket first if there is none.
+- Put the ticket key in the pull request title and in every commit message, for example `LDEV-1234 Fix NPE in cfquery with empty params`.
+- Add or update tests. See [[working-with-source-build-from-source]] for how to build Lucee and run the tests.
+- If the change affects documented behaviour, send a pull request to [lucee-docs](https://github.com/lucee/lucee-docs) as well.
+
+See also [CONTRIBUTING.md](https://github.com/lucee/Lucee/blob/7.1/CONTRIBUTING.md) in the repository.
 
 ## Version Numbers
 
-A Lucee version has four parts, `MAJOR.MINOR.PATCH.BUILD`, plus an optional suffix.
+A Lucee version has four parts, `MAJOR.MINOR.PATCH.BUILD`, plus an optional qualifier.
 
-Example: `7.1.1.15-SNAPSHOT`
+Example: `7.1.2.189-SNAPSHOT`
 
 | Part | Example | Meaning |
 |------|---------|---------|
-| `MAJOR.MINOR` | `7.1` | The minor line. Also the name of the line's branch. |
-| `PATCH` | `1` | The cycle within the line. `7.1.1` is one cycle. |
-| `BUILD` | `15` | The build number. Resets to `0` when a new cycle starts. |
+| `MAJOR.MINOR` | `7.1` | The version line. Also the name of the line's branch. |
+| `PATCH` | `2` | The cycle within the line. `7.1.2` is one cycle. |
+| `BUILD` | `189` | The build number. Starts at `0` when a new cycle starts. |
 
-| Suffix | Meaning | Example |
-|--------|---------|---------|
-| `-SNAPSHOT` | Development build | `7.1.1.15-SNAPSHOT` |
+| Qualifier | Meaning | Example |
+|-----------|---------|---------|
+| `-SNAPSHOT` | Development build | `7.1.2.189-SNAPSHOT` |
+| `-ALPHA` / `-BETA` | Early builds of a line, `9.0` is currently `-ALPHA` | `9.0.0.279-ALPHA` |
 | `-RC` | Release candidate | `7.0.6.9-RC` |
-| `-BETA` / `-ALPHA` | Beta / alpha build | `7.1.0.202-BETA`, `7.1.0.0-ALPHA` |
 | none | Final release | `7.1.0.204` |
 
-The current version of a branch is the `<version>` in its `loader/pom.xml`.
+### How Versions Are Computed
 
-The version is bumped when a fix lands. Changes that only touch tests never bump the version.
+In `loader/pom.xml` of the `7.1`, `8.0` and `9.0` branches the version is `${revision}`, a [CI-friendly version](https://maven.apache.org/guides/mini/guide-maven-ci-friendly.html), built from three properties:
 
-When a new cycle starts, `BUILD` resets to `0`. For example, `7.0` moved to `7.0.7.0-SNAPSHOT` and `6.2` to `6.2.10.0-SNAPSHOT`.
+```xml
+<lucee.version.base>7.1.3</lucee.version.base>
+<lucee.version.build>0</lucee.version.build>
+<lucee.version.qualifier>-SNAPSHOT</lucee.version.qualifier>
+```
 
-## Branches
+The build number is not edited by hand. When the GitHub Action publishes a build, it takes the highest existing build number for the current `lucee.version.base` (from the git tags, or from the published Maven metadata if there are no tags yet), adds one, and uses `base.build` plus the qualifier as the version of that build.
 
-### Minor Branches
+On `7.1`:
 
-Each minor line has its own branch, named `MAJOR.MINOR`: for example `6.2`, `7.0`, `7.1` and `8.0`. `8.0` is the development line.
+- Every push publishes a `-SNAPSHOT` build.
+- A release candidate or a final release is published by running the workflow manually, with `deploy` ticked and the qualifier set to `RC` or `release` (the options are `SNAPSHOT`, `BETA`, `RC` and `release`).
+- Pull requests only build and run the tests, they never publish.
 
-Each line works in cycles. A patch version such as `7.1.1` is one cycle. The minor branch holds the line's current cycle as a `-SNAPSHOT` version.
+Changes that only touch tests do not need a version bump. The `lucee.version.base` of a branch only changes when a new cycle starts, for example from `7.1.2` to `7.1.3` once the `7.1.2` release candidate was branched off.
 
-### Release (RC) Branches
+### From Snapshot to Final
 
-When a cycle moves to RC, a release branch named after the patch version is created from the minor branch at that point in history:
+A change goes through these stages:
 
-- `7.0.6` was created from `7.0`
-- `7.1.1` will be created from `7.1`
+1. **SNAPSHOT**: every merged pull request produces a new snapshot build.
+2. **RC**: when a cycle is ready, a release candidate is built. It is then soaked for about 10 days, so it can be tested before it is final. During that time only regression fixes go into it, see below.
+3. **Final**: after the soak period the final version is released, without a qualifier.
 
-The minor branch then starts the next cycle with a new `-SNAPSHOT` version. For example, after `7.0.6` was branched off, `7.0` moved on to `7.0.7.0-SNAPSHOT`.
+Only final versions are meant for production use. Release candidates and snapshots are published for testing.
 
-Existing release branches include `7.0.0` to `7.0.6`, `7.1.0` and `6.2.9`.
+### Current State
 
-### Example Layout
+Properties in `loader/pom.xml` on 29 October 2026:
 
-The branches and `loader/pom.xml` versions on 2 October 2026:
+| Branch | `lucee.version.base` | `lucee.version.qualifier` |
+|--------|----------------------|---------------------------|
+| `9.0` | `9.0.0` | `-ALPHA` |
+| `8.0` | `8.0.1` | `-SNAPSHOT` |
+| `7.1` | `7.1.3` | `-SNAPSHOT` |
 
-| Branch | Type | `loader/pom.xml` version |
-|--------|------|--------------------------|
-| `8.0` | minor branch (development line) | `8.0.0.195-SNAPSHOT` |
-| `7.1` | minor branch, cycle `7.1.1` | `7.1.1.15-SNAPSHOT` |
-| `7.1.0` | release branch | `7.1.0.204` |
-| `7.0` | minor branch, cycle `7.0.7` | `7.0.7.0-SNAPSHOT` |
-| `7.0.6` | release branch, in RC | `7.0.6.9-RC` |
-| `7.0.5` | release branch | `7.0.5.41` |
-| `6.2` | minor branch, cycle `6.2.10` | `6.2.10.0-SNAPSHOT` |
-| `6.2.9` | release branch, in RC | `6.2.9.4-RC` |
+`7.0` and `6.2` still use the version directly in the pom (`7.0.7.3-SNAPSHOT` and `6.2.10.0-SNAPSHOT` on that date).
 
 This changes with every cycle. To see the current state:
 
@@ -90,30 +147,32 @@ This changes with every cycle. To see the current state:
 # list all branches
 git ls-remote --heads https://github.com/lucee/Lucee
 
-# show the version of a branch (here 7.1)
-gh api "repos/lucee/Lucee/contents/loader/pom.xml?ref=7.1" -q .content | base64 -d | grep -m1 "<version>"
+# show the version properties of a branch (here 7.1)
+gh api "repos/lucee/Lucee/contents/loader/pom.xml?ref=7.1" -q .content | base64 -d | grep "lucee.version"
 ```
 
-## Which Branch Does a Fix Go To?
+## Release (RC) Branches
+
+When a cycle moves to RC, a release branch named after the patch version is created from the version line's branch at that point in history, for example `7.1.2` from `7.1`. The version line's branch then starts the next cycle (`7.1.3`).
+
+A release branch only exists to stabilise one release candidate. See the next section for what goes into it.
+
+## Regressions in a Release Candidate
 
 A **regression** is something that worked in the previous final release of a line and broke afterwards.
 
 While an RC/release branch is unreleased, it only takes fixes for regressions introduced since the last final release of its line:
 
-| Release branch | Only takes regressions introduced since |
-|----------------|-----------------------------------------|
-| `7.1.1` (once created) | `7.1.0` final |
-| `7.0.6` | `7.0.5` final |
-| `6.2.9` | the last `6.2` final (`6.2.8`) |
+For example, release branch `7.1.1` only takes regressions introduced since `7.1.0` final.
 
-Everything else goes into the minor branch (for example `7.1`), for the next cycle:
+Everything else goes into the version line's branch (for example `7.1`), for the next cycle:
 
 - new bugs
 - older bugs, which already existed in the last final release
 - enhancements
 - extension updates that are not regression fixes
 
-New bug fixes go only into the minor branch, never into the RC branch.
+New bug fixes go only into the version line's branch, never into the RC branch. This is the only exception to the [target branch table](#where-does-my-pull-request-go), and the team will tell you if it applies to your change.
 
 ### Worked Example: Cycles 7.1.1 and 7.1.2
 
@@ -131,30 +190,25 @@ Example: once `7.1.1` is released, branch `7.1.1` gets no further updates. Fixes
 
 ## Merging Forward
 
-Regression fixes are made on the RC/release branch and then merged forward:
+The team merges changes upwards, so they reach every line that needs them:
 
-1. The release branch is merged into its minor branch, e.g. `7.1.1` into `7.1`, `7.0.6` into `7.0`.
-2. Lower lines are merged into higher lines: `7.0` into `7.1`, `7.1` into `8.0`.
+1. A release branch is merged into its version line, for example `7.1.1` into `7.1`.
+2. `7.1` is merged into `8.0`, and `8.0` into `9.0`.
 
 ```text
-7.0.6 --> 7.0 --> 7.1 --> 8.0
-                   ^
-          7.1.1 ---+
+7.1.1 --> 7.1 --> 8.0 --> 9.0
 ```
 
-The maintainer does these merges.
+Merge-ups are pull requests like any other, so CI has to pass before they are merged. Contributors do not open them.
 
-Lines are merged forward only while a merge link between them is kept. Currently linked: `7.0` into `7.1` into `8.0`, plus each release branch into its minor branch. `6.2` used to be merged into `7.0`, the same way `7.1` is merged into `8.0` now, but that link was dropped. Once a link is dropped, a fix needed on both lines has to be made separately on each branch, with its own pull request per line. For example, a fix for both `6.2` and `7.0` needs one pull request for `6.2` and one for `7.0`.
-
-## Pull Requests
-
-- Within a linked chain (see [Merging Forward](#merging-forward)), open **one** pull request, containing the fix and its test.
-- Target the **lowest affected branch** of that chain only. For a regression that an unreleased RC/release branch takes (see above), that is the RC/release branch, for anything else the minor branch.
-- Never open duplicate pull requests for the same fix against several branches of a linked chain. The maintainer merges the fix forward.
-- Lines that are not linked need their own pull request each, e.g. one for `6.2` and one for `7.0`.
+Changes that only belong in `8.0` or `9.0` (breaking fixes, new features) are made on that branch and merged up from there. `6.2` and `7.0` are not merged forward: a change that is needed on one of them is made there with its own pull request, and only when the team asks for it.
 
 ## Jira Fix Versions
 
 The fix versions on a Jira ticket are, for each branch the fix landed on, the version in that branch's `loader/pom.xml` at the point the fix first landed there.
 
 Example: [LDEV-6490](https://luceeserver.atlassian.net/browse/LDEV-6490), a 7.0 regression, was fixed on `7.0.6` and merged forward into `7.1` and `8.0`. Its fix versions are `7.0.6.9`, `7.1.1.13` and `8.0.0.194`.
+
+## Extensions
+
+Extensions follow the same idea. Extensions that use the standard release action, like [extension-redis](https://github.com/lucee/extension-redis), publish a `-SNAPSHOT` build with an automatically incremented build number on every push to the default branch. A manual run of the action with `deploy` ticked publishes the build you pick with the qualifier option (`SNAPSHOT`, `RC` or `release`, among others). See [[maven-based-extensions]] for how to build an extension.

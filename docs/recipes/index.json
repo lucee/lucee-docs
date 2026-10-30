@@ -166,6 +166,20 @@
     ]
   },
   {
+    "file": "bcrypt-password-hashing.md",
+    "title": "bcrypt Password Hashing in Lucee 7",
+    "path": "/docs/recipes/bcrypt-password-hashing.md",
+    "hash": "e408d585f875f98f0e21e59caf3e9f34",
+    "keywords": [
+      "bcrypt",
+      "GenerateBCryptHash",
+      "VerifyBCryptHash",
+      "Password Hashing",
+      "Maven",
+      "Java Integration"
+    ]
+  },
+  {
     "file": "structs-vs-components.md",
     "title": "Best Practices: Structs vs Inline Components",
     "path": "/docs/recipes/structs-vs-components.md",
@@ -264,7 +278,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "70e4fdc76dcfc9c1fa74b39ea60be9a2",
+    "hash": "4f696edc1bba7f905399d3200c677dbe",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -277,7 +291,16 @@
       "HttpClient",
       "javax.mail",
       "commons-logging",
-      "extensions"
+      "extensions",
+      "isJson",
+      "JSON",
+      "REST",
+      "restPath",
+      "cfforward",
+      "forward",
+      "cflocation",
+      "internalRequest",
+      "_internalRequest"
     ]
   },
   {
@@ -304,6 +327,20 @@
       "cast",
       "convert",
       "method"
+    ]
+  },
+  {
+    "file": "exception-multi-catch.md",
+    "title": "Catching multiple exception types",
+    "path": "/docs/recipes/exception-multi-catch.md",
+    "hash": "7585ce298b345ebe1bca956ca327b82c",
+    "keywords": [
+      "exception",
+      "error",
+      "catch",
+      "cfcatch",
+      "multi-catch",
+      "try"
     ]
   },
   {
@@ -376,6 +413,21 @@
       "CFCs",
       "Application.cfc",
       "Lucee archive"
+    ]
+  },
+  {
+    "file": "component-onmissingproperty.md",
+    "title": "Component onMissingProperty",
+    "path": "/docs/recipes/component-onmissingproperty.md",
+    "hash": "d4bee553b378261afc2c2645ae6068e9",
+    "keywords": [
+      "onMissingProperty",
+      "onMissingMethod",
+      "missing key",
+      "dynamic",
+      "proxy",
+      "component",
+      "this scope"
     ]
   },
   {
@@ -602,6 +654,24 @@
     ]
   },
   {
+    "file": "sourceless-deployment.md",
+    "title": "Deploying without CFML Source Code",
+    "path": "/docs/recipes/sourceless-deployment.md",
+    "hash": "a45404bb24be55a7cac6130a967e216e",
+    "keywords": [
+      "cfencode",
+      "source protection",
+      "compileToBytecode",
+      "restoreToSource",
+      "bytecode",
+      "Precompiled",
+      "Archive",
+      ".lar",
+      "Deployment",
+      "Encrypt"
+    ]
+  },
+  {
     "file": "concurrent-map-legacy-flag.md",
     "title": "Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy`",
     "path": "/docs/recipes/concurrent-map-legacy-flag.md",
@@ -723,7 +793,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "95d1c98c9af7bfb5fbb359639fef192c",
+    "hash": "8db6752ea6092e2dbce3a0c9402b6cfb",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -929,11 +999,12 @@
     "file": "get-dbdriver-from-maven.md",
     "title": "Get Datasource Drivers Directly from Maven",
     "path": "/docs/recipes/get-dbdriver-from-maven.md",
-    "hash": "77cf2855fdcbe90379e112c1af774a87",
+    "hash": "2a5b06b6618243051e402410cc16ad39",
     "keywords": [
       "datasource",
       "maven",
       "mysql",
+      "snowflake",
       "db"
     ]
   },
@@ -1023,6 +1094,19 @@
       "return",
       "unquoted",
       "attribute"
+    ]
+  },
+  {
+    "file": "http-listener.md",
+    "title": "Http Listeners",
+    "path": "/docs/recipes/http-listener.md",
+    "hash": "5f32df69e9e22a67d21c0727d63746bd",
+    "keywords": [
+      "http",
+      "cfhttp",
+      "listener",
+      "Application.cfc",
+      "component"
     ]
   },
   {
@@ -1399,7 +1483,7 @@
     "file": "release-cycle.md",
     "title": "Lucee Release Cycle and Branching",
     "path": "/docs/recipes/release-cycle.md",
-    "hash": "51c77381ad5b16ebc5a0e7b2730ab91f",
+    "hash": "afc472ee2ce6656838e47633b960163f",
     "keywords": [
       "release",
       "versioning",
@@ -1411,7 +1495,12 @@
       "regression",
       "pull request",
       "merge forward",
-      "fix version"
+      "fix version",
+      "contributing",
+      "which branch",
+      "pull request target",
+      "breaking change",
+      "extensions release"
     ]
   },
   {
@@ -1630,6 +1719,20 @@
     ]
   },
   {
+    "file": "nanoid-generation.md",
+    "title": "NanoID Generation in Lucee 7",
+    "path": "/docs/recipes/nanoid-generation.md",
+    "hash": "6d8f9eaca9a08d29beef2c2bc7507a43",
+    "keywords": [
+      "NanoID",
+      "jnanoid",
+      "createUUID",
+      "Unique ID",
+      "Maven",
+      "Java Integration"
+    ]
+  },
+  {
     "file": "new-operator.md",
     "title": "New Operator",
     "path": "/docs/recipes/new-operator.md",
@@ -1845,7 +1948,7 @@
     "file": "orm-session-and-transactions.md",
     "title": "ORM - Sessions and Transactions",
     "path": "/docs/recipes/orm-session-and-transactions.md",
-    "hash": "ce2abed07d6677018a372894f7d5deaa",
+    "hash": "baea9c0bedc7a74e2a9793efc67b9b74",
     "keywords": [
       "ORM",
       "session",
@@ -2038,7 +2141,7 @@
     "file": "query-of-queries.md",
     "title": "Query of Queries (QoQ)",
     "path": "/docs/recipes/query-of-queries.md",
-    "hash": "43117e711166ceac9f3aa734e4f8aeef",
+    "hash": "ac5a61cdd4a32ebdf1fd988dc3dc8511",
     "keywords": [
       "Query of Queries",
       "QoQ",
@@ -2196,6 +2299,21 @@
     ]
   },
   {
+    "file": "scrypt-password-hashing.md",
+    "title": "scrypt Password Hashing in Lucee 7",
+    "path": "/docs/recipes/scrypt-password-hashing.md",
+    "hash": "e8de5f289d1e8bcf4c952a6f496fe750",
+    "keywords": [
+      "scrypt",
+      "GenerateSCryptHash",
+      "VerifySCryptHash",
+      "Password Hashing",
+      "Bouncy Castle",
+      "Maven",
+      "Java Integration"
+    ]
+  },
+  {
     "file": "secret-provider.md",
     "title": "Secret Management",
     "path": "/docs/recipes/secret-provider.md",
@@ -2326,6 +2444,23 @@
       "Single Mode",
       "Multi Mode",
       "Configuration"
+    ]
+  },
+  {
+    "file": "event-gateway-socket.md",
+    "title": "Socket Event Gateway",
+    "path": "/docs/recipes/event-gateway-socket.md",
+    "hash": "ded4999cb2f5315cf54c3532ab942803",
+    "keywords": [
+      "Event Gateway",
+      "Socket Gateway",
+      "SocketGateway",
+      "TCP",
+      "telnet",
+      "netcat",
+      "onIncomingMessage",
+      "sendGatewayMessage",
+      "CFConfig"
     ]
   },
   {
@@ -2658,7 +2793,7 @@
     "file": "virtual-file-system.md",
     "title": "Virtual File Systems",
     "path": "/docs/recipes/virtual-file-system.md",
-    "hash": "d0f50f0894cc56d85dce594afebb727e",
+    "hash": "838805b440061e62e88fe17e1be91d30",
     "keywords": [
       "Virtual File System",
       "VFS",

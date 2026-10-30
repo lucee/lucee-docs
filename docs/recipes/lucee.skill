@@ -35,6 +35,7 @@ description: >
 | Application.cfc # | `application-cfc` | Application.cfc, Application Context, Application Lifecycle, onApplicationStart, onRequestStart, onSessionStart, onError, session management, client management, application scope |
 | AST (Abstract Syntax Tree) | `ast` | AST, Abstract Syntax Tree, parsing, code analysis, static analysis, transformation, IDE tooling |
 | Basic Date - Output the current date | `basic-date` | Date, Current date, lsDateTimeFormat, now, setLocale, Application.cfc, Locale |
+| bcrypt Password Hashing in Lucee 7 | `bcrypt-password-hashing` | bcrypt, GenerateBCryptHash, VerifyBCryptHash, Password Hashing, Maven, Java Integration |
 | Best Practices: Structs vs Inline Components | `structs-vs-components` | struct, component, inline component, performance, memory, best practices, CFC, bean |
 | Breaking Changes between Lucee 5.4 and 6.0 | `breaking-changes-6-0` | breaking changes, Lucee 5.4, Lucee 6.0, migration, upgrade |
 | Breaking Changes between Lucee 6.0 and 6.1 | `breaking-changes-6-1` | breaking changes, Lucee 6.0, Lucee 6.1, migration, upgrade |
@@ -45,11 +46,13 @@ description: >
 | Breaking Changes between Lucee 8.0 and 9.0 | `breaking-changes-9-0` | breaking changes, Lucee 8.0, Lucee 9.0, migration, upgrade, OSGi, Felix, ASM, HttpClient, javax.mail |
 | Caches defined in Application.cfc | `caches-defined-in-application-cfc` | Caches, Application.cfc, Per-application caches, Cache connections, Default caches, Lucee |
 | Casting Components to Java Interfaces | `java-explicit-casting` | java, cast, convert, method |
+| Catching multiple exception types | `exception-multi-catch` | exception, error, catch, cfcatch, multi-catch, try |
 | Checksum | `checksum` | Checksum, File validation, cfhttp, hash, fileReadBinary |
 | Clustering with Quartz Scheduler | `scheduler-quartz-clustering` | scheduler, quartz, clustering, database, redis |
 | Complete Guide to Threading in Lucee | `thread-usage` | threads, parallel, async, concurrent, performance, cfthread |
 | Component Accessors | `component-accessors` | accessors, getter, setter, cfproperty, property, component, bean, fluent API, mixin, virtual inheritance |
 | Component Mappings | `component-mappings` | Component Mapping, CFCs, Application.cfc, Lucee archive |
+| Component onMissingProperty | `component-onmissingproperty` | onMissingProperty, onMissingMethod, missing key, dynamic, proxy, component, this scope |
 | Configuration - How to Configure Lucee | `configuration` | configuration, config, .CFConfig.json, lucee-server.xml, lucee-web.xml |
 | Configuration - Lucee 5 | `configuration-lucee5` | configuration, config, lucee-server.xml, lucee-web.xml, Lucee 5 |
 | Configuration Precedence - Environment Variables, System Properties and the Administrator | `configuration-precedence` | configuration, precedence, override, environment variables, system properties, LUCEE_, CFConfig, Administrator, inspectTemplate |
@@ -65,6 +68,7 @@ description: >
 | Datasources | `datasource-how-to-define-them` | Datasource, Define datasource, Administrator, Application.cfc, Default datasource, MySQL |
 | Date and Time Formatting in Lucee | `date-time-formatting` | Date, Time, Formatting, Locale, Timezone, dateFormat, timeFormat, dateTimeFormat, lsDateFormat, createTime |
 | Deploying Custom Tags via Extensions | `custom-tags-via-extensions` | Custom Tags, Extensions, LEX, cfimport, taglib, prefix, lucee-server context |
+| Deploying without CFML Source Code | `sourceless-deployment` | cfencode, source protection, compileToBytecode, restoreToSource, bytecode, Precompiled, Archive, .lar, Deployment, Encrypt |
 | Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy` | `concurrent-map-legacy-flag` | ConcurrentHashMap, struct, lucee.concurrent.map.impl, legacy, struct ordering, LDEV-5098, LDEV-6288 |
 | Docker | `docker` | Docker, container, lucee/lucee, docker-compose, Dockerfile, Tomcat, LUCEE_ADMIN_PASSWORD, Server.cfc |
 | Docker Image Best Practices | `docker-best-practices` | Docker, Dockerfile, Container, Best Practices, Warmup, CFConfig.json, Maven, Download Policy, Healthcheck, Logging |
@@ -87,13 +91,14 @@ description: >
 | File system - Mappings | `filesystem-mapping` | Mapping, Component mapping, Custom tag mapping, Regular mapping, File system |
 | Function Listeners | `function-listeners` | parallel, async, thread, function |
 | Function SystemOutput | `function-systemoutput` | SystemOutput function, Debugging, Output stream, Error stream, Stack trace |
-| Get Datasource Drivers Directly from Maven | `get-dbdriver-from-maven` | datasource, maven, mysql, db |
+| Get Datasource Drivers Directly from Maven | `get-dbdriver-from-maven` | datasource, maven, mysql, snowflake, db |
 | getClass() Method for Components | `component-getclass-method` | getClass, component, java, interface |
 | Getting Started with Caching | `caching-getting-started` | Cache, cachePut, cacheGet, cacheClear, cacheDelete, RAM cache, Object cache, Application.cfc, Getting started |
 | Global Proxy | `global-proxy` | proxy, global proxy, Lucee, Application.cfc, CFConfig |
 | Hidden Gems | `hidden-gems` | Hidden gems, Declare variables, Function calls, Dot notation, Bracket notation, URL form scopes, Array format |
 | Hooks and Monitors | `hooks-and-monitors` | hooks, monitors, startup, extension, lifecycle, injection |
 | How to Use Tags in Script | `tag-syntax` | Syntax, tag, function, Script, throw, abort, return, unquoted, attribute |
+| Http Listeners | `http-listener` | http, cfhttp, listener, Application.cfc, component |
 | Import | `import` | cfimport, import, Lucee, components, java classes, custom tags, taglib |
 | Inline Components | `inline-components` | component, inline component, closure, anonymous component, cfscript, sub-component |
 | Interacting with Java Libraries | `java-libraries` | java, maven, import, Lucee, libraries, new operator |
@@ -133,6 +138,7 @@ description: >
 | Monitoring - Enable for your session | `monitoring-enable-for-your-session` | monitoring, session, Application.cfc, showDebugOutput, debugging, this.monitoring |
 | Monitoring/Debugging | `monitoring-debugging` | monitoring, debugging, admin, Application.cfc, cfsetting, debug, showdebugoutput, cfapplication |
 | MSSQL Modern Mode | `mssql-modern-mode` | mssql, sql server, raiserror, deferred exceptions, modern mode, jdbc, stored procedures, t-sql |
+| NanoID Generation in Lucee 7 | `nanoid-generation` | NanoID, jnanoid, createUUID, Unique ID, Maven, Java Integration |
 | New Operator | `new-operator` | new, java, classes, class, createObject, component |
 | Null Support | `null-support` | Null support, null keyword, NullValue function, isNull function, Lucee |
 | Null Values in Structs and Arrays | `null-structs-and-arrays` | null, struct, array, loop, for-in, isNull, NullValue, sparse array, Lucee |
@@ -170,6 +176,7 @@ description: >
 | Run AI Sessions in the Cloud, 24/7, Doing Your Work | `scheduler-quartz-ai-job` | scheduler, quartz, AI, AI connection, vibe coding, MCP, listener, token usage, docker, cron |
 | S3 | `s3` | S3, MinIO, object storage, VFS, virtual file system, AWS, Backblaze, Wasabi |
 | Script Templates | `script-templates` | CFML, script, templates, Lucee, cfs |
+| scrypt Password Hashing in Lucee 7 | `scrypt-password-hashing` | scrypt, GenerateSCryptHash, VerifySCryptHash, Password Hashing, Bouncy Castle, Maven, Java Integration |
 | Secret Management | `secret-provider` | security, secrets, credentials, environment variables, configuration |
 | Selective Cache Invalidation | `cache-invalidation-selective` | Cache, cachedWithin, cachedWithinId, cachedWithinFlush, Query cache, Function cache, HTTP cache, Cache invalidation, Performance |
 | Sending Emails | `mail-how-to-send-a-mail` | Email, Send mail, cfmail, Mail server, Mail script, Lucee |
@@ -179,6 +186,7 @@ description: >
 | Setting System Properties and Environment Variables | `setting-system-properties-and-env-vars` | Environment, Environment Variables, Properties, System Properties, setting, config |
 | Setting the Lucee Admin Password | `admin-password` | admin, password, security, LUCEE_ADMIN_PASSWORD, CFConfig |
 | Single Mode vs Multi Mode in Lucee | `single-vs-multi-mode` | Lucee, Single Mode, Multi Mode, Configuration |
+| Socket Event Gateway | `event-gateway-socket` | Event Gateway, Socket Gateway, SocketGateway, TCP, telnet, netcat, onIncomingMessage, sendGatewayMessage, CFConfig |
 | SQL Types | `sql-types` | SQL, SQL types, CF_SQL, queryparam, queryexecute, cfsqltype |
 | Startup Listeners - Server.cfc and Web.cfc | `startup-listeners-code` | startup, warmup, prewarm, Server.cfc, Web.cfc, onServerStart, onWebStart, onBuild, initialization, bootstrap |
 | Static Scope in Components | `static-scope-in-components` | Static scope, Components, Application scope, Server scope |

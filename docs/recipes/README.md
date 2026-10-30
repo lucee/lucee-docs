@@ -40,6 +40,10 @@ Generate Abstract Syntax Trees from CFML code for analysis, transformation, and 
 
 Learn how to output the current date in Lucee.
 
+## [bcrypt Password Hashing in Lucee 7](/docs/recipes/bcrypt-password-hashing.md)
+
+Simple recipe for hashing and verifying passwords with bcrypt in Lucee 7 using Maven integration and the at.favre.lib bcrypt library
+
 ## [Best Practices: Structs vs Inline Components](/docs/recipes/structs-vs-components.md)
 
 Performance analysis and best practices for choosing between structs and inline components in Lucee
@@ -80,6 +84,10 @@ How to add per-application caches via Application.cfc in Lucee.
 
 Shows how to explicitly cast a component to a specific interface.
 
+## [Catching multiple exception types](/docs/recipes/exception-multi-catch.md)
+
+Handle several exception types in a single catch, using a pipe to separate the types.
+
 ## [Checksum](/docs/recipes/checksum.md)
 
 This document explains how to use a checksum in Lucee.
@@ -99,6 +107,10 @@ CFML component accessors=true — what gets generated, how they behave with mixi
 ## [Component Mappings](/docs/recipes/component-mappings.md)
 
 How to define and use component mappings in Lucee.
+
+## [Component onMissingProperty](/docs/recipes/component-onmissingproperty.md)
+
+Define onMissingProperty( name ) in a component to handle reads of keys that don't exist, like onMissingMethod does for function calls.
 
 ## [Configuration - How to Configure Lucee](/docs/recipes/configuration.md)
 
@@ -159,6 +171,10 @@ Comprehensive guide to formatting dates and times in Lucee with locale and timez
 ## [Deploying Custom Tags via Extensions](/docs/recipes/custom-tags-via-extensions.md)
 
 How to bundle and deploy custom tags as part of a Lucee extension (.lex file), and how to import them using cfimport.
+
+## [Deploying without CFML Source Code](/docs/recipes/sourceless-deployment.md)
+
+How to deploy a Lucee application without readable CFML source (the equivalent of cfencode): compile templates in place to bytecode with compileToBytecode() in Lucee 8, or ship sourceless Lucee archives.
 
 ## [Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy`](/docs/recipes/concurrent-map-legacy-flag.md)
 
@@ -276,6 +292,10 @@ Configure and use hooks and monitors to extend Lucee functionality at various li
 
 How to use tags in script
 
+## [Http Listeners](/docs/recipes/http-listener.md)
+
+Learn how to define http listeners in Lucee. This guide demonstrates how to set up global http listeners in the Application.cfc file or per cfhttp tag to inspect or manipulate every http request executed, modify the response or handle errors. Examples include defining listeners directly in Application.cfc and using a component as an http listener.
+
 ## [Import](/docs/recipes/import.md)
 
 Guide on using import to import components, Java classes, and custom tags in Lucee
@@ -378,7 +398,7 @@ Comprehensive guide to accessing Lucee core utilities when developing extensions
 
 ## [Lucee Release Cycle and Branching](/docs/recipes/release-cycle.md)
 
-How Lucee versions and branches work: minor-line branches, release cycles, RC branches, which branch a fix belongs on, merging forward and Jira fix versions
+Lucee branching and release strategy: one branch per version line, which branch a pull request targets (fixes, breaking fixes, features, security), merge-ups, versions and qualifiers, RC branches and Jira fix versions
 
 ## [Lucee Skill for AI Assistants](/docs/recipes/lucee-skill.md)
 
@@ -431,6 +451,10 @@ Learn about the changes in Lucee 6.1 regarding Monitoring and Debugging. Underst
 ## [MSSQL Modern Mode](/docs/recipes/mssql-modern-mode.md)
 
 How to enable and use MSSQL modern mode in Lucee for proper handling of RAISERROR exceptions and complex T-SQL batches
+
+## [NanoID Generation in Lucee 7](/docs/recipes/nanoid-generation.md)
+
+Simple recipe for generating short, URL-safe unique IDs (NanoID) in Lucee 7 using Maven integration and jnanoid, as an alternative to createUUID()
 
 ## [New Operator](/docs/recipes/new-operator.md)
 
@@ -580,6 +604,10 @@ S3 Virtual File System and direct S3 functions for working with S3-compatible ob
 
 Learn about script templates in Lucee. This guide explains how Lucee supports templates with the `.cfs` extension, allowing you to write direct script code without the need for the `<cfscript>` tag.
 
+## [scrypt Password Hashing in Lucee 7](/docs/recipes/scrypt-password-hashing.md)
+
+Simple recipe for hashing and verifying passwords with scrypt in Lucee 7 using Maven integration and Bouncy Castle
+
 ## [Secret Management](/docs/recipes/secret-provider.md)
 
 Managing Secrets in Lucee applications
@@ -615,6 +643,10 @@ How to set, hash, and reset the Lucee Administrator password
 ## [Single Mode vs Multi Mode in Lucee](/docs/recipes/single-vs-multi-mode.md)
 
 Understanding the differences between Single mode and Multi mode in Lucee.
+
+## [Socket Event Gateway](/docs/recipes/event-gateway-socket.md)
+
+Use the Socket event gateway built into Lucee to accept plain TCP connections, handle each incoming line in a CFML listener and send replies back to the client.
 
 ## [SQL Types](/docs/recipes/sql-types.md)
 
