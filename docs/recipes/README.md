@@ -536,6 +536,10 @@ How to pre-compile code for a production server while the source code is deploye
 
 How to configure preserve case for struct keys
 
+## [Protocol Buffers Serialization in Lucee 7](/docs/recipes/protobuf-serialization.md)
+
+Simple recipe for serializing and deserializing Protocol Buffers (protobuf) data in Lucee 7 using Maven integration
+
 ## [QoQ SQL Functions and Operators](/docs/recipes/query-of-queries-functions.md)
 
 Reference for the SQL keywords, operators, and functions supported by Lucee's native Query of Queries (QoQ) engine.
