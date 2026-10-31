@@ -65,7 +65,6 @@ To use an OpenAI compatible API instead (OpenAI, Ollama, a local gateway, ...), 
 
 and set `AI_URL` (for example `https://api.openai.com/v1/`) and `AI_MODEL` to match. Note the key name: Claude uses `apiKey`, `OpenAIEngine` uses `secretKey`. The job itself does not change, it only knows the AI connection name.
 
-
 ## Ports
 
 | Port   | Service           |
