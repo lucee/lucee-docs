@@ -809,7 +809,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "8db6752ea6092e2dbce3a0c9402b6cfb",
+    "hash": "3a39afab818f38a012a1f2ce878870a6",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -2891,7 +2891,7 @@
     "file": "warmup.md",
     "title": "Warmup",
     "path": "/docs/recipes/warmup.md",
-    "hash": "007bf521f019d99612e0456d098e4939",
+    "hash": "bf3d819c961e3bad95709cbf8662755a",
     "keywords": [
       "Warmup",
       "Docker",
