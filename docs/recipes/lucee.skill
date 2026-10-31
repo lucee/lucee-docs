@@ -214,7 +214,7 @@ description: >
 | Using S3 Regions in Lucee | `s3-region` | Virtual File System, VFS, S3, Regions, Buckets, Amazon S3, Wasabi, MinIO, Cloud Storage |
 | Virtual File Systems | `virtual-file-system` | Virtual File System, VFS, Local File System, ZIP, RAM, S3, FTP, git, HTTP, MinIO |
 | Virtual Threads | `virtual-threads` | virtual threads, threads, parallel, async, concurrent, performance, cfthread, arrayMap, I/O |
-| Warmup | `warmup` | Warmup, Docker, Fail-Fast, Configuration Validation, Container, Startup, onBuild |
+| Warmup | `warmup` | Warmup, Docker, Fail-Fast, Configuration Validation, Container, Startup, onBuild, javaSettings, Maven |
 | WebSocket Client Extension | `websocket-client-extension` | Lucee, Extension, WebSocket, Client |
 | WebSocket Extension | `websocket-extension` | WebSocket, Extension, websocketInfo, real-time, websocketSend, websocketPublish, Server.cfc, onWebSocket |
 | XML Fast And Easy, using SAX - Listener Functions | `xml-fast-and-easy` | XML parsing, SAX, XML event listener, XMLCatalog, Lucee |

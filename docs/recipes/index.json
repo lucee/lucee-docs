@@ -722,7 +722,7 @@
     "file": "docker-best-practices.md",
     "title": "Docker Image Best Practices",
     "path": "/docs/recipes/docker-best-practices.md",
-    "hash": "b64f6506681bb2f02cdb9a09db2e2951",
+    "hash": "16971e5cb7a46ed1159d8dea382bf173",
     "keywords": [
       "Docker",
       "Dockerfile",
@@ -741,7 +741,7 @@
     "file": "downloading-extensions.md",
     "title": "Downloading Extensions for CI, Docker and Offline Installs",
     "path": "/docs/recipes/downloading-extensions.md",
-    "hash": "ce72b9de86ad1c351dd10ce30321cb4f",
+    "hash": "1e4f6f13983ddc97ed2d7d560a812481",
     "keywords": [
       "extension",
       "download",
@@ -1334,7 +1334,7 @@
     "file": "maven.md",
     "title": "Loading Java Libraries with Maven",
     "path": "/docs/recipes/maven.md",
-    "hash": "a4244548f4d21e2a401c70b8b6febfac",
+    "hash": "eda6f6280b5b0a7bec804dbb0e406dc6",
     "keywords": [
       "Maven",
       "Java",
@@ -2891,7 +2891,7 @@
     "file": "warmup.md",
     "title": "Warmup",
     "path": "/docs/recipes/warmup.md",
-    "hash": "4649f5682f43b54ee3fd54da6596a3b7",
+    "hash": "007bf521f019d99612e0456d098e4939",
     "keywords": [
       "Warmup",
       "Docker",
@@ -2899,7 +2899,9 @@
       "Configuration Validation",
       "Container",
       "Startup",
-      "onBuild"
+      "onBuild",
+      "javaSettings",
+      "Maven"
     ]
   },
   {
