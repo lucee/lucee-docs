@@ -1343,10 +1343,29 @@
     ]
   },
   {
+    "file": "log-files.md",
+    "title": "Log Files",
+    "path": "/docs/recipes/log-files.md",
+    "hash": "93f8f82adafc55f8af07b55885fbbbc1",
+    "keywords": [
+      "Log files",
+      "application.log",
+      "exception.log",
+      "datasource.log",
+      "requesttimeout.log",
+      "deploy.log",
+      "scheduler.log",
+      "out.log",
+      "err.log",
+      "felix.log",
+      "troubleshooting"
+    ]
+  },
+  {
     "file": "logging.md",
     "title": "Logging",
     "path": "/docs/recipes/logging.md",
-    "hash": "b07b0d4774ccdfa270bf88d89463280b",
+    "hash": "785d24aa61d27ad29b9e3ee91e891c56",
     "keywords": [
       "Logging",
       "Log levels",

@@ -115,6 +115,7 @@ description: >
 | Lazy Queries | `lazy-queries` | Lazy Queries, Regular Queries, Performance, Memory Optimization, Lucee |
 | List existing Cache Connections | `list-existing-cache-conn` | Cache, Cache connections, List cache, getApplicationSettings, Lucee |
 | Loading Java Libraries with Maven | `maven` | Maven, Java, javaSettings, dependencies |
+| Log Files | `log-files` | Log files, application.log, exception.log, datasource.log, requesttimeout.log, deploy.log, scheduler.log, out.log, err.log, felix.log |
 | Logging | `logging` | Logging, Log levels, Log4j2, appenders, writelog, cfadmin, CFConfig, log files |
 | Logging CFHTTP Calls | `http-logging` | cfhttp, logging, Lucee, log level, http log |
 | Logging HTTP Calls | `logging-http-calls` | cfhttp, logging, http, debugging, application log, http log |

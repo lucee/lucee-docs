@@ -360,6 +360,10 @@ How to list and check for cache connections at runtime in Lucee.
 
 Load Java libraries from Maven repositories - automatic dependency management for CFML applications.
 
+## [Log Files](/docs/recipes/log-files.md)
+
+What each default Lucee log file contains, what writes to it, where it lives, and when to look at it, including out.log, err.log and felix.log
+
 ## [Logging](/docs/recipes/logging.md)
 
 How to configure and customize logging
