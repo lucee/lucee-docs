@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "datasource", "allow", "allowed_select", "SQL restrictions"],
   "related": [
     "breaking-changes-7-1-to-8-0"
   ]
@@ -420,3 +420,34 @@ internalRequest( template="/app/index.cfm" );
 ```
 
 Code that already used a leading slash needs no change. See [LDEV-4038](https://luceeserver.atlassian.net/browse/LDEV-4038).
+
+## Per-datasource SQL restrictions are removed
+
+A datasource could restrict the statement types that are allowed on it: select, insert, update, delete, create, drop, revoke, grant and alter. These restrictions were deprecated for a long time, Lucee 9 does not enforce them anymore. Every statement is sent to the database, whatever was set for the datasource. A statement that was rejected with an error like `access denied to execute "Insert" SQL statement for datasource mydsn` runs now.
+
+Restrict the operations on the database side, with the roles and permissions of the database user that the datasource connects with.
+
+### What changed
+
+- The Administrator does not show the checkboxes for the allowed statement types of a datasource anymore.
+- `cfadmin`/`admin` `action="getDatasource"` does not return the keys `select`, `insert`, `update`, `delete`, `create`, `drop`, `grant`, `revoke` and `alter` anymore.
+- `cfadmin`/`admin` `action="updateDatasource"` and `Administrator.updateDatasource()` do not store the `allowed_*`/`allowed*` values anymore. A stored `allow` value of an existing datasource is removed when the datasource is updated.
+- In the loader API, `DataSource.ALLOW_*`, `DataSource.hasAllow(int)` and `DataSource.hasSQLRestriction()` are deprecated. They still exist, `hasAllow()` always returns `true` and `hasSQLRestriction()` always returns `false`.
+
+### What keeps working
+
+Existing configurations and code do not fail, the values are accepted and ignored:
+
+- the `allow` and `allowSelect`, `allowInsert`, ... keys of a datasource in `.CFConfig.json` and `configImport()`
+- the `allow` key of a datasource defined in the `Application.cfc` (`this.datasources`) or passed as a struct
+- the `allowed_*` attributes of `cfadmin`/`admin` and the `allowed*` arguments of `Administrator.updateDatasource()`
+
+### Migration
+
+Code that relied on a restricted datasource to block a statement type has to enforce this on the database. A datasource that only reads data, for example, connects with a database user that has only the `SELECT` privilege:
+
+```sql
+GRANT SELECT ON mydb.* TO 'reporting'@'%';
+```
+
+Remove the `allow` settings from your configuration and `Application.cfc` files when you update them, they have no effect anymore. See [LDEV-5705](https://luceeserver.atlassian.net/browse/LDEV-5705).
