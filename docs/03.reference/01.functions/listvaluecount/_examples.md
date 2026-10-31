@@ -5,3 +5,11 @@ writeDump(ListValueCount(list, "luceeExt")); // It return's 1 because it case se
 List2 = "lucee@ACF@luceeExt@lucee@ext@LUCEEEXT";
 writeDump(ListValueCount(list2, "lucee", "@"));
 ```
+
+### Multi-character delimiter
+
+By default every character of `delimiters` is a delimiter. With `multiCharacterDelimiter=true` the whole string is one delimiter.
+
+```luceescript
+writeOutput( listValueCount( "a::b::a", "a", "::", false, true ) ); // 2
+```
