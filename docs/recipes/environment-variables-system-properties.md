@@ -247,10 +247,12 @@ previously `LUCEE_READ_CFID_FROM_URL`
 *SysProp:* `-Dlucee.cfid.url.allow` (previously `-Dlucee.read.cfid.from.url`)
 *EnvVar:* `LUCEE_CFID_URL_ALLOW` (previously `LUCEE_READ_CFID_FROM_URL`)
 
-Controls whether Lucee accepts CFID values from URL query strings. Set to false to enhance security by requiring CFIDs to be passed via cookies only.
+Controls whether Lucee accepts CFID and CFTOKEN values from URL query strings. If disabled, they are only accepted from cookies.
 The previous property names are still supported for backward compatibility, but the new names are preferred starting with Lucee 6.2.1.59.
 
-*Setting this to `false` is strongly recommended for all production environments.*
+The default is `false` since Lucee 9.0, before it was `true`. This is a breaking change for applications that pass CFID and CFTOKEN in the URL, see [[breaking-changes-8-0-to-9-0]].
+Set it to `true` to accept them from the URL again, this is not recommended for production environments.
+If the legacy property `lucee.read.cfid.from.url` is also set, it takes precedence.
 
 #### LUCEE_CFID_URL_LOG
 
