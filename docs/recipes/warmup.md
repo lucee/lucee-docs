@@ -93,6 +93,12 @@ If any configuration is invalid, the `RUN` step fails and the Docker build abort
 
 Warmup also installs the extensions defined in `.CFConfig.json` and stores them in the image, so the container doesn't download them at startup. See [[downloading-extensions]].
 
+### Invalid `LUCEE_EXTENSIONS` *(Lucee 9)*
+
+If an extension defined in `LUCEE_EXTENSIONS` (`lucee.extensions`) cannot be installed, or an entry of that list cannot be parsed, warmup fails: the error is written to stderr and the deploy log, `onBuild` is not called and Lucee exits with a non-zero exit code, so the Docker build aborts instead of producing an image with missing extensions.
+
+Outside of warmup, the same failure is only logged by default. Set `LUCEE_EXTENSIONS_FAIL_ON_ERROR=true` (`lucee.extensions.fail.on.error`) to abort a normal startup as well. See [[environment-variables-system-properties]].
+
 ## Upgrading to Lucee 7
 
 Because Lucee 7 now validates all configuration sections during warmup, upgrading may cause your warmup to fail on settings that previously passed silently in Lucee 6.2. This is intended — it surfaces misconfigurations that were always there but hidden by lazy loading. Fix the reported settings and rebuild.
