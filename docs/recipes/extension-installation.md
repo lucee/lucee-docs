@@ -77,7 +77,7 @@ See [[downloading-extensions]] for where to download extensions from, and for a 
 
 Best for: hot deployment on a running server, scripted installs where you already have the file locally. Some extensions require a restart to take effect.
 
-Lucee processes the `deploy` directory once at startup and then checks it every 10 seconds for new files. On a production server, where nothing is dropped into the folder while it runs, you can turn off the periodic check (Lucee 8 and later). The `deploy` directory is still processed once at startup, so extensions baked into an image keep working.
+Lucee processes the `deploy` directory once at startup and then checks it every 10 seconds for new files. On a production server, where nothing is dropped into the folder while it runs, you can turn off the periodic check. The `deploy` directory is still processed once at startup, so extensions baked into an image keep working.
 
 Set `deployWatch` to `false` in your `.CFConfig.json`:
 
