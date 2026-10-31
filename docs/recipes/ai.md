@@ -593,6 +593,28 @@ inquiryAISession(aiSession, "Write a short story about AI", function(chunk) {
 });
 ```
 
+#### Cancelling a streaming inquiry
+
+Return `false` from the listener to cancel the inquiry *(since 9.0)*. Lucee stops reading the response, closes the connection to the AI and returns what was received so far (including the chunk the listener returned `false` for). Returning nothing, `true` or any other value continues as before. This works with all built-in engines (OpenAI and compatible endpoints like Ollama, Claude and Gemini).
+
+```javascript
+aiSession = createAISession(name:'mygemini');
+
+received = "";
+answer = inquiryAISession(aiSession, "Write a short story about AI", function(chunk) {
+    received &= chunk;
+    writeOutput(chunk);
+    cfflush(throwonerror=false);
+
+    // stop when the user asked to cancel, or enough was received
+    if (len(received) > 500) return false;
+});
+
+// answer holds the text received before the cancel
+```
+
+The partial answer stays in the history of the session, so follow-up questions work as usual.
+
 ### Temperature Control
 
 Control randomness/creativity of responses (0.0 = deterministic, 1.0 = creative):
@@ -639,7 +661,7 @@ Lucee provides the following AI functions. The `Lucee` prefixed names (e.g. `Luc
   - Arguments: `name`, `systemMessage`, `temperature`, `limit`, `connectTimeout`, `socketTimeout`
   
 - **`inquiryAISession()`** / `LuceeInquiryAISession()` - Send a query to an AI session
-  - Arguments: `session`, `question` (string or array for multipart), `listener` (optional callback)
+  - Arguments: `session`, `question` (string or array for multipart), `listener` (optional callback, return `false` to cancel since 9.0)
   - Returns: String (simple text) or Array (multipart response with text/images/files)
   
 - **`getAIMetadata()`** / `LuceeGetAIMetadata()` - Get metadata about an AI connection
