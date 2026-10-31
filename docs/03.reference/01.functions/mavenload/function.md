@@ -27,3 +27,17 @@ mavenLoad([
 }
 ]);
 ```
+#### Skipping Transitive Dependencies (9.0+)
+
+Each struct accepts two optional keys to limit what is loaded: `transitive` (set to `false` to load only that artifact, default `true`) and `exclusions` (an array of `groupId:artifactId` entries, `*` is a wildcard) to skip artifacts and the dependencies they bring in. See [[java-settings]] for details.
+
+```cfml
+mavenLoad([
+{
+"groupId": "org.apache.tika",
+"artifactId": "tika-parsers-standard-package",
+"version": "3.0.0",
+"exclusions": [ "org.bouncycastle:*" ]
+}
+]);
+```
