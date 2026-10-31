@@ -87,6 +87,15 @@ Defines a comma-separated list of Lucee extensions to install when starting up.
 
 The current list of installed extensions is available via the Lucee admin.
 
+#### LUCEE_EXTENSIONS_FAIL_ON_ERROR
+
+*SysProp:* `-Dlucee.extensions.fail.on.error`
+*EnvVar:* `LUCEE_EXTENSIONS_FAIL_ON_ERROR`
+
+A boolean value (default `false`) that makes an invalid `LUCEE_EXTENSIONS` fatal on startup. When `true`, the startup is aborted if an extension defined in `LUCEE_EXTENSIONS` cannot be installed or an entry of the list cannot be parsed. When `false`, the error is written to the deploy log and to stderr and the startup continues.
+
+In warmup mode (`LUCEE_ENABLE_WARMUP`) such a failure always makes the process exit with a non-zero exit code, independent of this setting.
+
 #### LUCEE_EXTENSIONS_CONFIG_ONLY
 
 *SysProp:* `-Dlucee.extensions.config.only`
