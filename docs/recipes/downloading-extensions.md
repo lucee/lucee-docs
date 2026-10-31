@@ -143,7 +143,7 @@ Warmup is enabled with the environment variable `LUCEE_ENABLE_WARMUP=true` or th
 
 Maven artifacts downloaded by Lucee are stored in the `mvn` directory next to `lucee-server` (in standard Maven repository layout). If `~/.m2/repository` exists, Lucee copies artifacts from there instead of downloading them.
 
-Java libraries from `javasettings` (in `.CFConfig.json`, `Application.cfc` or a component) are resolved when they are first used. To be sure they are baked in as well, load them in `onBuild`, for example with `mavenLoad()` or `mavenImport()`. See [[maven]], [[java-settings]] and [[onbuild-function]].
+Java libraries from `javasettings` (in `.CFConfig.json`, `Application.cfc` or a component) are resolved when they are first used. The literal `javasettings` attribute of a component is also downloaded when the component is compiled during warmup, see [[warmup]]. To be sure the others are baked in as well, load them in `onBuild`, for example with `mavenLoad()` or `mavenImport()`. See [[maven]], [[java-settings]] and [[onbuild-function]].
 
 To make sure the running container never downloads anything, set `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP=error` at runtime (not during the warmup step). Lucee then fails instead of downloading a missing artifact, so a gap in the image shows up right away.
 

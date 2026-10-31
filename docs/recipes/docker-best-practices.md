@@ -65,7 +65,7 @@ Warmup is enabled with the environment variable `LUCEE_ENABLE_WARMUP=true` or th
 
 Only set the variable for the `RUN` step, never with `ENV`. With `ENV`, every container started from the image would run warmup and then exit.
 
-Java libraries from `javasettings` are resolved when they are first used, not at startup. To bake them in too, load them in `onBuild`, for example with `mavenLoad()` or `mavenImport()`. See [[maven]].
+Java libraries from `javasettings` are resolved when they are first used, not at startup. The literal `javasettings` attribute of a component is downloaded when the component is compiled during warmup, see [[warmup]]. To bake the others in too, load them in `onBuild`, for example with `mavenLoad()` or `mavenImport()`. See [[maven]].
 
 For more on where extensions come from, and how to download `.lex` files yourself (Maven, Docker multistage builds, curl), see [[downloading-extensions]].
 
