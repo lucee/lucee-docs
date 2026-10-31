@@ -875,6 +875,13 @@ Specifies the file location of the trust store that contains trusted Certificate
 
 Default character set for output streams, form-, URL-, and CGI scope variables, and reading/writing the header.
 
+#### LUCEE_DEPLOY_WATCH
+
+*SysProp:* `-Dlucee.deploy.watch`
+*EnvVar:* `LUCEE_DEPLOY_WATCH`
+
+Default true. By default Lucee checks the deploy folder (extensions, archives, config snippets) every 10 seconds for new files. Set to false to disable this periodic check, for example on a production server. The deploy folder is still processed once at startup. The same setting is available in `.CFConfig.json` as `deployWatch`.
+
 #### LUCEE_CONTROLLER_GC
 
 *SysProp:* `-Dlucee.controller.gc`
