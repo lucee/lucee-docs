@@ -248,5 +248,5 @@ See the [[onbuild-function]] recipe for using this in Docker builds.
 
 ## Limitations
 
-- **Runtime download** — libraries are fetched when first needed. For Docker, warm the cache at build time via `Server.cfc->onBuild` using `mavenImport` or guarded `mavenLoad` calls — see [[onbuild-function]].
+- **Runtime download** — libraries are fetched when first needed. For Docker, warm the cache at build time: the literal `javasettings` attribute of a component is resolved when the component is compiled during [[warmup]], other definitions can be loaded via `Server.cfc->onBuild` using `mavenImport` or guarded `mavenLoad` calls — see [[onbuild-function]].
 - **CFML only** — can't use this in Java-based Lucee extensions (yet).
