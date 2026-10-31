@@ -77,6 +77,20 @@ See [[downloading-extensions]] for where to download extensions from, and for a 
 
 Best for: hot deployment on a running server, scripted installs where you already have the file locally. Some extensions require a restart to take effect.
 
+Lucee processes the `deploy` directory once at startup and then checks it every 10 seconds for new files. On a production server, where nothing is dropped into the folder while it runs, you can turn off the periodic check (Lucee 8 and later). The `deploy` directory is still processed once at startup, so extensions baked into an image keep working.
+
+Set `deployWatch` to `false` in your `.CFConfig.json`:
+
+```json
+{
+  "deployWatch": false
+}
+```
+
+Like every other setting in `.CFConfig.json`, it can also be set with a system property or environment variable, which takes precedence over the config file:
+
+[[content::sysprop-envvar#LUCEE_DEPLOY_WATCH]]
+
 ### `.CFConfig.json`
 
 Define extensions declaratively in your `.CFConfig.json` configuration file. The supported keys differ between Lucee 7 and Lucee 8.
