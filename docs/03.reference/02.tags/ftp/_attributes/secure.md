@@ -1,1 +1,3 @@
-Secure connection (sftp|shh) or not.
+- "false" (default): the connection is not encrypted
+- "true": the connection is secured using SSH (SFTP)
+- "ftps": the connection is secured using FTPS (TLS explicit mode)
