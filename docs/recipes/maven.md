@@ -56,6 +56,7 @@ Lucee downloads POI and all its dependencies automatically.
 | **Component attribute** | Isolate dependencies to a single component |
 | **Application.cfc** | Share across your application |
 | **`.CFConfig.json`** | Server-wide defaults |
+| **Deploy folder** | Server-wide, install the dependencies of a `pom.xml` |
 | **createObject()** | One-off dynamic loading |
 
 ### Component (recommended for isolation)
@@ -94,6 +95,39 @@ this.javaSettings = {
 	}
 }
 ```
+
+### Deploy folder (server-wide)
+
+Like an extension (`.lex`), a `pom.xml` or `*.pom` file dropped into the `deploy` folder of the Lucee server installs the dependencies it declares:
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example</groupId>
+	<artifactId>app</artifactId>
+	<version>1.0.0</version>
+	<dependencies>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+	</dependencies>
+</project>
+```
+
+Lucee downloads the dependencies including their transitive dependencies and, once all of them are downloaded, adds them to the server-wide `javaSettings` `maven` setting of the server configuration, so they are available to all applications, as if you had defined them in `.CFConfig.json`. Nothing is added if one of the dependencies can not be downloaded.
+
+The pom is then moved to the `deployed-poms` folder of the server configuration directory. If the pom can not be installed (invalid XML, a dependency without a version, an unresolved `${placeholder}`, an artifact that can not be downloaded) the error is written to the `deploy` log and the pom is moved to the `failed-to-deploy` folder inside the deploy folder.
+
+How the pom is read:
+
+- Versions can be given directly, with `${property}` placeholders (including `${project.version}`) or by `dependencyManagement`.
+- Only dependencies needed at runtime are installed. Dependencies with the scope `test`, `provided`, `system` or `import`, optional dependencies and dependencies that are not a jar (`<type>`) are skipped.
+- The parent pom and the `<repositories>` of the deployed pom are ignored, Lucee uses its own Maven configuration. Properties and versions that are only defined in a parent pom are not available.
+- If the server already has the same dependency with a different version, the higher version is kept.
+
+The deploy folder is checked at startup and periodically while Lucee is running, exactly as for extensions, see [[extension-installation]].
 
 ### createObject() (dynamic)
 
