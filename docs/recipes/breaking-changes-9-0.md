@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "CFID", "CFTOKEN", "session", "cfid.url.allow"],
   "related": [
     "breaking-changes-7-1-to-8-0"
   ]
@@ -420,3 +420,34 @@ internalRequest( template="/app/index.cfm" );
 ```
 
 Code that already used a leading slash needs no change. See [LDEV-4038](https://luceeserver.atlassian.net/browse/LDEV-4038).
+
+## CFID and CFTOKEN in the URL are not accepted by default
+
+Lucee no longer accepts `cfid` and `cftoken` from the URL query string by default. The default of the setting `lucee.cfid.url.allow` (`LUCEE_CFID_URL_ALLOW`) is now `false`, before it was `true`. The session is only linked to a request through cookies. Accepting an identifier from the URL makes session fixation easier, for example with a link that carries a chosen `cfid`.
+
+```cfml
+// https://example.com/index.cfm?cfid=3C7A0C6E-0B5D-4B7C-9E2D-0123456789AB&cftoken=0
+
+// Lucee 8: the request uses the session of that cfid
+// Lucee 9: cfid and cftoken of the URL are ignored, the request gets a new session (or the one of the cookies)
+```
+
+Cookies are not affected.
+
+### Who is affected
+
+Applications that pass `cfid` and `cftoken` in the URL and expect the session to be found, for example:
+
+- Clients that do not accept cookies, with the session identifier added to every link (`urlToken` / `session.urlToken`).
+- A redirect to another host, an SSO flow or a callback that carries the session identifier in the URL.
+- Links with an embedded session, from emails or from another application.
+
+`cfhttp` and `internalRequest()` with `addToken` are not affected, they pass the identifiers as cookies.
+
+The setting `lucee.cfid.url.log` logs every request in which a `cfid` of the URL is read and used, set it in Lucee 8 (or earlier) to find the code that depends on it, see [[environment-variables-system-properties]].
+
+### Migration
+
+- Change the code so the session is linked with the cookie only. This is the recommended way.
+- Or restore the previous behaviour with the system property `-Dlucee.cfid.url.allow=true` or the environment variable `LUCEE_CFID_URL_ALLOW=true`. This is not recommended for production environments.
+- If the previous property `lucee.read.cfid.from.url` (`LUCEE_READ_CFID_FROM_URL`) is set, it still takes precedence over `lucee.cfid.url.allow`.
