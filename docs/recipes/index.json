@@ -292,7 +292,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "7dc707da7ab07a3bcf83ebd6fdac9c13",
+    "hash": "3d6d04cb68c0905070483c4019c146b7",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -316,7 +316,11 @@
       "internalRequest",
       "_internalRequest",
       "COM",
-      "Jacob"
+      "Jacob",
+      "CFID",
+      "CFTOKEN",
+      "session",
+      "cfid.url.allow"
     ]
   },
   {
@@ -809,7 +813,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "3a39afab818f38a012a1f2ce878870a6",
+    "hash": "0d236f42e07dbff3a71302567d91cbc5",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -2261,7 +2265,7 @@
     "file": "recommended-settings.md",
     "title": "Recommended Settings",
     "path": "/docs/recipes/recommended-settings.md",
-    "hash": "0b43f41907677c1e360750b7640a939b",
+    "hash": "c0246e12a3057e950cf277557a208e20",
     "keywords": [
       "settings",
       "performance",
@@ -2444,7 +2448,7 @@
     "file": "session-handling.md",
     "title": "Session Handling",
     "path": "/docs/recipes/session-handling.md",
-    "hash": "de3b0ccf64b1f4a29c15886cdf750ee3",
+    "hash": "4c4014e085d20080be8fe54f18308bce",
     "keywords": [
       "Session Management",
       "CFML Sessions",
