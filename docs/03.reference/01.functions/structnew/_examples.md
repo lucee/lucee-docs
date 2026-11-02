@@ -33,6 +33,22 @@ st = [
 dump(st);
 ```
 
+**Observable struct** ( since Lucee 9.0.0.564 )
+
+```luceescript
+log = [];
+
+sct = structNew( type="observable", onChange=function( key, oldValue, newValue, struct ) {
+    log.append( key & ": " & ( oldValue ?: "null" ) & " -> " & ( newValue ?: "null" ) );
+} );
+
+sct.name = "Lucee";   // NAME: null -> Lucee
+sct.name = "Gian";    // NAME: Lucee -> Gian
+sct.delete( "name" ); // NAME: Gian -> null
+
+dump( log );
+```
+
 **Lucee Tags**
 
 ```lucee+trycf

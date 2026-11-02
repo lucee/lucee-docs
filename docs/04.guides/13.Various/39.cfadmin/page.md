@@ -197,7 +197,7 @@ getDatasourceDriverList	| Returns the list of all datasource drivers for the cur
 getDatasources | Returns the datasources for the current context
 getDatasourceSetting | Returns the settings for a datasource for the current context
 getDebug | |
-getDebugData | |
+getDebugData | Returns the debugging data of the current request. The `queries` query has the columns `sql` (parameter values inlined), `sqlPattern` (parameters inlined with their type), `sqlRaw` (the SQL with `?` placeholders, Lucee 9.0+, use it to group identical statements) and `paramValue` / `paramType` (the parameters as arrays)
 getDebuggingList | |
 getDefaultPassword | |
 getDefaultSecurityManager | |
