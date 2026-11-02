@@ -1,0 +1,1 @@
+The value to output without it being encoded by the encodeFor attribute of the surrounding cfoutput tag.
