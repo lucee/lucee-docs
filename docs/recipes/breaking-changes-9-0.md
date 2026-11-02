@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration", "compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "regex", "Perl Regex extension", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "CFID", "CFTOKEN", "session", "cfid.url.allow"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "regex", "Perl Regex extension", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "CFID", "CFTOKEN", "session", "cfid.url.allow", "OSGi extension", "osgi-extension", "lucee.osgi.autoinstall"],
   "related": [
     "regex-migration-lucee-9",
     "java-regex-engine",
@@ -472,3 +472,32 @@ The setting `lucee.cfid.url.log` logs every request in which a `cfid` of the URL
 - Change the code so the session is linked with the cookie only. This is the recommended way.
 - Or restore the previous behaviour with the system property `-Dlucee.cfid.url.allow=true` or the environment variable `LUCEE_CFID_URL_ALLOW=true`. This is not recommended for production environments.
 - If the previous property `lucee.read.cfid.from.url` (`LUCEE_READ_CFID_FROM_URL`) is set, it still takes precedence over `lucee.cfid.url.allow`.
+
+## OSGi is moving to an extension, Lucee installs it when it is needed
+
+[LDEV-6829](https://luceeserver.atlassian.net/browse/LDEV-6829)
+
+OSGi (Apache Felix) is moving out of the core into the OSGi extension (`org.lucee:osgi-extension`). Extensions that ship OSGi bundles, or that define a class with a bundle name (cache, datasource, search, ORM, resource and so on), still work, they need OSGi.
+
+When something needs OSGi and no OSGi implementation is available, Lucee installs the OSGi extension in server scope by itself and then goes on with what it was doing. The extension is looked for offline first (already installed, a bundled `.lex`, the `extensions/available` folder), then in the Maven repositories. This happens when:
+
+- an extension with bundles, or with a bundle class definition, is installed or loaded (including bundled `.lex` and `deploy` folder extensions)
+- a class is loaded from a bundle, for example a datasource, cache or search class definition in the configuration (the first time the class is loaded)
+- a mapping uses an archive
+- code calls the `BundleService`
+
+The OSGi extension is installed first, the extension that needs it follows.
+
+### What can go wrong
+
+If the OSGi extension can not be resolved (no internet and no `.lex` available) or can not be installed, the operation fails with an error and nothing is installed:
+
+```
+OSGi is needed for the extension [...] but is not available (...). Please install the OSGi extension (org.lucee:osgi-extension).
+```
+
+### Migration
+
+- On a server that has no internet access at runtime, put the OSGi extension (the `.lex`) into the `deploy` folder or the `extensions/available` folder, or list it in `LUCEE_EXTENSIONS` / `extensions` of the configuration, so it is installed without a download.
+- To turn the automatic installation off, set the system property `-Dlucee.osgi.autoinstall=false` or the environment variable `LUCEE_OSGI_AUTOINSTALL=false`. Lucee then installs nothing and throws the error above, naming the setting, when OSGi is needed. See [[environment-variables-system-properties]].
+- Extension and bundle authors do not have to change anything.
