@@ -293,6 +293,7 @@ The setup is all configuration:
 ```
 
   For an OpenAI-compatible API use `lucee.runtime.ai.openai.OpenAIEngine` with `secretKey` instead of `apiKey`; the readme of the example shows the full entry. For other providers see [[ai]].
+
 - `quartz/config.json` holds the jobs and the listener.
 - The Dockerfile copies `jobs/` and `listeners/` into `{lucee-config}/components/`, which is mapped by default, so `jobs.FeedWatchJob` resolves without a mapping.
 
