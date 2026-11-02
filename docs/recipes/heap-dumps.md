@@ -258,9 +258,24 @@ Three redaction modes:
 
 It uses a two-pass parser so memory overhead stays low even on large dumps. Available via GitHub releases or jbang.
 
+### heap-dump-tool
+
+Similar to hprof-redact, [heap-dump-tool](https://github.com/paypal/heap-dump-tool) is another tool that can remove sensitive string data from heap dumps while preserving the object graph and instance sizes.
+
+```bash
+wget -O heap-dump-tool.jar https://repo1.maven.org/maven2/com/paypal/heap-dump-tool/1.3.4/heap-dump-tool-1.3.4-all.jar
+java -jar heap-dump-tool.jar sanitize source.hprof output.hprof
+```
+
+Key features:
+
+- **Full sanitisation**: Replaces byte/char array contents with null bytes (configurable replacement text)
+- **Selective redaction**: Exclude specific string fields from sanitisation via `-e` (e.g. `-e "java.lang.Thread#name"`)
+- **Scope control**: Optionally sanitise all primitive arrays and non-array primitive fields (`--sanitize-byte-char-arrays-only=false`)
+
 ### hprof-slurp
 
-[hprof-slurp](https://github.com/agourlay/hprof-slurp) is a Rust-based analyser that gives you a quick summary of instance counts per class straight from the CLI — useful when you want a first-pass look at what's in a dump without firing up MAT.
+[hprof-slurp](https://github.com/agourlay/hprof-slurp) is a Rust-based analyser that gives you a quick summary of instance counts per class straight from the CLI — useful when you want a first-pass look at what's in a dump without interactively creating reports in Eclipse MAT ui. (Note that it's possible to non-interactively create reports with Eclipse MAT in cli [batch](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/tasks/batch.html) [mode](https://gist.github.com/DaveyDevOps/438746bd123dc3313810d09c0056e42e#analysis))
 
 ### Further Reading
 
