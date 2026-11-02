@@ -600,6 +600,10 @@ Lucee not only allows you to convert an XML file to an object tree (DOM) but als
 
 A guide on how to configure your Lucee Server for the best performance and highest security.
 
+## [Regex Migration to Lucee 9](/docs/recipes/regex-migration-lucee-9.md)
+
+Lucee 9 uses the Java regex engine by default and moves the Perl5 (Apache ORO) engine into the Perl Regex extension. What changes, how to migrate your patterns, and how to stay on perl.
+
 ## [Request Timeout](/docs/recipes/request-timeout.md)
 
 Learn how to use request timeout correctly with Lucee.

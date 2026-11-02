@@ -37,6 +37,7 @@ Upgrading with an AI coding agent? Point it to [[upgrade-7-1-to-8-0-agent]], a s
 - [[breaking-changes-6-1-to-6-2]]
 - [[breaking-changes-6-2-to-7-0]]
 - [[breaking-changes-7-0-to-7-1]]
+- [[breaking-changes-8-0-to-9-0]]
 
 ## Java 21 Required
 

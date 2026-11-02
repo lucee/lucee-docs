@@ -175,6 +175,7 @@ description: >
 | Query return type | `query-return-type` | Query return type, Array return type, Struct return type, Foreign key, Lucee |
 | Read XML with a listener Model (SAX) | `read-xml-with-a-listener-model-sax` | XML, SAX, XML Parsing, Event Driven, XML Event Parsing, XML to Struct |
 | Recommended Settings | `recommended-settings` | settings, performance, Production server, Security, config |
+| Regex Migration to Lucee 9 | `regex-migration-lucee-9` | regex, regular expressions, Lucee 9, migration, Apache ORO, perl, java, compat, regexType, Perl Regex extension |
 | Request Timeout | `request-timeout` | request timeout, timeout, memory, cpu, Concurrent Requests, Administrator, Application.cfc, cfsetting, Threshold |
 | Retry | `retry` | Retry, Exception handling, Try catch, Lucee |
 | Run AI Sessions in the Cloud, 24/7, Doing Your Work | `scheduler-quartz-ai-job` | scheduler, quartz, AI, AI connection, vibe coding, MCP, listener, token usage, docker, cron |

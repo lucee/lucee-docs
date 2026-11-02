@@ -1,1 +1,1 @@
-If true, then java is used as regex engine. false(default) use default engine(perl) as regex engine.
+If true, then java is used as regex engine. false (default up to Lucee 8) uses the perl engine, which is deprecated: Lucee 9 uses java as default and perl is only available with the Perl Regex extension, see [[regex-migration-lucee-9]]. Use the attribute `regex` instead.

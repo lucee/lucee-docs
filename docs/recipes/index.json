@@ -117,7 +117,7 @@
     "file": "application-cfc.md",
     "title": "Application.cfc #",
     "path": "/docs/recipes/application-cfc.md",
-    "hash": "22821e319138d7b7e3b9ffab9cbf8c94",
+    "hash": "af5304f762c2abebbc448401505816b4",
     "keywords": [
       "Application.cfc",
       "Application Context",
@@ -278,7 +278,7 @@
     "file": "breaking-changes-8-0.md",
     "title": "Breaking Changes between Lucee 7.1 and 8.0",
     "path": "/docs/recipes/breaking-changes-8-0.md",
-    "hash": "7a8c836b7bd0ca6733bba176e3a78d6a",
+    "hash": "490e11df635c16139dd5b7e42c87f9f7",
     "keywords": [
       "breaking changes",
       "Lucee 7.1",
@@ -292,7 +292,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "3d6d04cb68c0905070483c4019c146b7",
+    "hash": "37ef268f55e6d8c48e49e7d5b9a86161",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -306,6 +306,8 @@
       "javax.mail",
       "commons-logging",
       "extensions",
+      "regex",
+      "Perl Regex extension",
       "isJson",
       "JSON",
       "REST",
@@ -835,7 +837,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "0d236f42e07dbff3a71302567d91cbc5",
+    "hash": "9bedca9b311958bb5315c604554085c1",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -927,7 +929,7 @@
     "file": "extension-installation.md",
     "title": "Extension Installation",
     "path": "/docs/recipes/extension-installation.md",
-    "hash": "6c2d5ff0dc077191e153aff8c0d8d088",
+    "hash": "7cb17fa9df07e5b2310f2c2050d7b5b0",
     "keywords": [
       "extension",
       "install",
@@ -1257,7 +1259,7 @@
     "file": "java-regex-engine.md",
     "title": "Java Regex Engine",
     "path": "/docs/recipes/java-regex-engine.md",
-    "hash": "fd8a17a3dcdb033930c3ec6fc1f9e5c1",
+    "hash": "e22160529bcac21942a19615ec358a82",
     "keywords": [
       "regex",
       "regular expressions",
@@ -2287,13 +2289,31 @@
     "file": "recommended-settings.md",
     "title": "Recommended Settings",
     "path": "/docs/recipes/recommended-settings.md",
-    "hash": "c0246e12a3057e950cf277557a208e20",
+    "hash": "e90efd06c0854b4078c2fd7ffb2ff87c",
     "keywords": [
       "settings",
       "performance",
       "Production server",
       "Security",
       "config"
+    ]
+  },
+  {
+    "file": "regex-migration-lucee-9.md",
+    "title": "Regex Migration to Lucee 9",
+    "path": "/docs/recipes/regex-migration-lucee-9.md",
+    "hash": "0790c95bffa587a729e393dc089337f5",
+    "keywords": [
+      "regex",
+      "regular expressions",
+      "Lucee 9",
+      "migration",
+      "Apache ORO",
+      "perl",
+      "java",
+      "compat",
+      "regexType",
+      "Perl Regex extension"
     ]
   },
   {

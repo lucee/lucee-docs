@@ -75,7 +75,7 @@ For the best performance in production, "Inspect Templates" should be set to `ne
 }
 ```
 
-For new projects, consider using Java's built-in regex engine instead of the default Apache ORO. 
+For new projects, consider using Java's built-in regex engine instead of the default Apache ORO. ORO as the default is deprecated in Lucee 8, and Lucee 9 uses the Java engine by default, see [[regex-migration-lucee-9]].
 
 It's faster and supports modern features like look-behinds, but existing regexes may need changes — see [[java-regex-engine]] for the migration guide.
 
