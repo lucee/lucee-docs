@@ -364,6 +364,28 @@
     ]
   },
   {
+    "file": "cfml-keywords.md",
+    "title": "CFML Keywords",
+    "path": "/docs/recipes/cfml-keywords.md",
+    "hash": "16ac37ed8354542fb476bcfa4798447f",
+    "keywords": [
+      "keywords",
+      "reserved words",
+      "syntax highlighting",
+      "operators",
+      "scopes",
+      "modifiers",
+      "return",
+      "break",
+      "continue",
+      "abort",
+      "rethrow",
+      "editor",
+      "UDL",
+      "language definition"
+    ]
+  },
+  {
     "file": "checksum.md",
     "title": "Checksum",
     "path": "/docs/recipes/checksum.md",
