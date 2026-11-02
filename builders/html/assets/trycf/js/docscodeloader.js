@@ -19,6 +19,13 @@
 			code = "<cfscript>\n" + code + "\n</cfscript>";
 		}
 		editor.setAttribute( "code", code );
+
+		preview = parent.document.getElementById( "result-" + codeContainer.id );
+		if ( preview ){
+			editor.setAttribute( "preview", atob(preview.innerHTML) );
+		} else {
+			console.error("failed to load example preview");
+		}
 	}
 
 } )();
