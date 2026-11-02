@@ -96,7 +96,7 @@ git add .cursor/skills/lucee-docs/SKILL.md
 
 Cursor loads the skill automatically when your question matches the description (Lucee, CFML, configuration, tags, etc.). Re-run `curl` periodically to pick up new recipes.
 
-**Optional:** add the [Lucee MCP server](https://mcp.lucee.org/) in Cursor MCP settings for live function/tag search alongside the skill.
+**Optional:** add the [Lucee MCP server](https://mcp.lucee-services.com/) in Cursor MCP settings for live function/tag search alongside the skill.
 
 ---
 
@@ -178,7 +178,7 @@ Pass the skill's core instructions as the `system` message (or `instructions` on
   {
     "type": "mcp",
     "server_label": "lucee",
-    "server_url": "https://mcp.lucee.org/",
+    "server_url": "https://mcp.lucee-services.com/",
     "require_approval": "never"
   }
 ]
