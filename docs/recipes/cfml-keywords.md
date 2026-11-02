@@ -210,7 +210,7 @@ The same applies to the compiler keywords on this page. There is no version meta
 
 ## Lucee MCP service
 
-Lucee runs a public MCP service that gives AI tools and scripts the same function and tag definitions, full-text search over the documentation, and CFML AST parsing. The tools are `get_lucee_function`, `get_lucee_tag`, `search_lucee_docs`, `parse_cfml_ast` and `query_cfml_ast`. See [[mcp]] for the endpoint and how to connect a client.
+Lucee runs a public MCP service at `https://mcp.lucee-services.com/` that gives AI tools and scripts the same function and tag definitions, full-text search over the documentation, and CFML AST parsing. The tools are `get_lucee_function`, `get_lucee_tag`, `search_lucee_docs`, `parse_cfml_ast` and `query_cfml_ast`. See [[mcp]] for how to connect a client.
 
 ## AST functions
 
