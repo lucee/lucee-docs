@@ -98,4 +98,4 @@ component {
 }
 ```
 
-Setting the env var `LUCEE_CFID_URL_ALLOW=false` to prevent sessions being loaded via urls.
+Setting the env var `LUCEE_CFID_URL_ALLOW=false` prevents sessions being loaded via urls. This is the default since Lucee 9.0, set it explicitly on earlier versions.

@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration", "compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "regex", "Perl Regex extension"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "regex", "Perl Regex extension", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "CFID", "CFTOKEN", "session", "cfid.url.allow"],
   "related": [
     "regex-migration-lucee-9",
     "java-regex-engine",
@@ -172,6 +172,26 @@ Code that was compiled against this API with the original ASM types does not lin
 - Extensions that used the ASM bundles of Lucee: require them explicitly in the manifest and, for offline installs, ship them with the extension.
 - Java code that extends or calls `lucee.transformer.bytecode.*`: do not depend on this API, generate your bytecode with your own copy of ASM.
 
+## `group` of `cfoutput` and `cfloop` compares the values as strings
+
+The `group` attribute of `cfoutput` and `cfloop` (tag and script) compared the values of the group column loosely, with numeric conversion. Values that are numerically equal but differ as text ended up in the same group: `"013"`, `"0013"` and `"13"` were one group in Lucee 8.0. In Lucee 9 the values are compared as strings, so they form separate groups, which is what Adobe ColdFusion does.
+
+```cfml
+<cfset q = queryNew( "artNr", "varchar", [ [ "013" ], [ "0013" ], [ "13" ] ] )>
+<cfoutput query="q" group="artNr">#artNr#,</cfoutput>
+<!--- 8.0: 013, --->
+<!--- 9.0: 013,0013,13, --->
+```
+
+- Only adjacent rows are grouped, as before: the query has to be sorted by the group column.
+- Case is still ignored by default, `groupCaseSensitive=true` compares the case as well.
+- Numeric columns are not affected, `13` is `13` however it was written.
+- The same applies to nested `group`.
+
+### Migration
+
+Code that relied on `"013"` and `"0013"` being one group has to make the values equal before the grouping, for example by selecting a normalized column in the query, such as `CAST( artNr AS INTEGER ) AS artNr` in the SQL, and grouping by it.
+
 ## Libraries that Lucee does not provide anymore
 
 Lucee 9 removes third party libraries from the core that were only there for a feature that no longer needs them, or that are replaced by the JDK or by a small implementation of Lucee itself. Lucee does not provide the classes of these libraries to code that runs on Lucee anymore (CFML `createObject( "java", ... )`, extensions, bundles).
@@ -222,3 +242,233 @@ A library that brings its own commons-logging (for example the AWS SDK of the S3
 - cfhttp: nothing to change for the base feature set. If a request fails with a message that names the HTTP extension, install the extension.
 - Extensions that used one of these libraries of Lucee: require it explicitly in the manifest or ship it, and for offline installs ship it with the extension.
 - Code that calls `metaphone()`: use `soundex()` or another phonetic algorithm of your own.
+
+## COM objects moved to an extension
+
+COM/ActiveX support (Windows only) is not part of the Lucee core anymore. The Jacob library, the Lucee classes around it and the native libraries (`jacob-x64.dll`, `jacob-i586.dll`) are removed from the Lucee jar, the support moved to the [COM extension](https://github.com/lucee/extension-com). The extension is **not required** by Lucee, install it only if you need COM objects.
+
+### `createObject( "com" )` and `<cfobject type="com">` are not supported anymore
+
+Both throw an exception that points to the extension. Use the function `createComObject( className )` of the extension instead, the returned object behaves like the COM object of the core did:
+
+```cfml
+// Lucee 8 and older
+fso = createObject( "com", "Scripting.FileSystemObject" );
+
+// Lucee 9 with the COM extension
+fso = createComObject( "Scripting.FileSystemObject" );
+```
+
+```cfml
+// Lucee 8 and older
+<cfobject type="com" class="Scripting.FileSystemObject" name="fso">
+
+// Lucee 9 with the COM extension
+<cfset fso = createComObject( "Scripting.FileSystemObject" )>
+```
+
+### `releaseComObject` is part of the extension
+
+The function `releaseComObject( comObject )` is not part of the core anymore, it comes with the COM extension together with `createComObject`. Without the extension the function does not exist.
+
+### Jacob
+
+The extension uses the current official release of Jacob (1.21) and ships the native libraries itself, they are copied to `lucee-server/bin` on first use as before. `lucee.commons.jacob.*` and `lucee.runtime.com.*` do not exist in the core anymore, code that used these classes directly has to use `com.jacob.*` of the extension (or bring its own copy of Jacob).
+
+### Migration
+
+- Search your code for `createObject( "com"`, `type="com"` and `releaseComObject` and replace them with `createComObject` (see above), then install the COM extension.
+- Extensions or code that use `lucee.commons.jacob` or `lucee.runtime.com` directly: use the Jacob library `com.jacob` instead.
+
+## `isJson()` is strict by default
+
+`isJson()` used the lenient expression parser of Lucee, so it also returned `true` for input that is not valid JSON and that other JSON parsers reject (unquoted keys, single quotes, trailing commas, comments, ...). In Lucee 9 `isJson()` has the new argument `lenient` with the default `false`: only strict JSON is valid.
+
+```cfml
+isJson( '{"foo":"bar"}' ); // true
+isJson( '{foo:"bar"}' );   // true in 8.0, false in 9.0 (unquoted key)
+isJson( "{'foo':'bar'}" ); // true in 8.0, false in 9.0 (single quotes)
+isJson( '[1,2,]' );        // true in 8.0, false in 9.0 (trailing comma)
+```
+
+With the strict check the input is only validated, nothing in it is evaluated.
+
+The argument `lenient` exists since 8.0, with the default `true` (no change in 8.0), so code can already be adjusted in 8.0.
+
+### What else is affected
+
+- `isValid( "json", value )` uses the default of `isJson()` and so is strict as well.
+- `deserializeJSON()` is not changed, it stays lenient and still reads input like `{foo:"bar"}`.
+- `format="json5"` is not affected by `lenient`, JSON5 is lenient by definition.
+
+### Migration
+
+Code that needs the previous behaviour passes `lenient=true`:
+
+Before:
+
+```cfml
+isJson( '{foo:"bar"}' );
+```
+
+After:
+
+```cfml
+isJson( var='{foo:"bar"}', lenient=true );
+// or, if the input is JSON5
+isJson( '{foo:"bar"}', "json5" );
+```
+
+Code that decides with `isJson()` if a string can be passed to `deserializeJSON()` and that must also accept lenient input, needs `lenient=true` (or `format="json5"`) as well.
+
+## A component with `restPath` is a REST component when `rest` is not set
+
+A component that sets the attribute `restPath` but not the attribute `rest` is now a REST component, as if `rest=true` was set. Before, it was only exposed with `rest=true`, a `restPath` alone was ignored.
+
+```cfml
+// Lucee 8: not exposed, Lucee 9: exposed as /customers
+component restPath="customers" {
+
+	remote function list() httpMethod="GET" {
+		// ...
+	}
+}
+```
+
+An explicit `rest` attribute always wins, `rest=false` keeps the component out of the REST mapping, `rest=true` works as before. An empty `restPath` does not enable REST.
+
+This is the documented behaviour of Adobe ColdFusion, where the default of `rest` is "true if RestPath is specified" (see the `cfcomponent` reference). Code that is written for ACF behaves the same on Lucee 9 now.
+
+### Who is affected
+
+Components in a directory that is registered as a REST service (`restInitApplication()` or the REST mapping in the Administrator) that have a `restPath` and no `rest` attribute. These components were silently ignored before, they are now reachable with an HTTP request under the REST mapping. Check the components in your REST directories for a left-over `restPath`, for example from a refactoring or an old copy.
+
+### Migration
+
+Add `rest=false` to components that have a `restPath` and must not be exposed:
+
+Before:
+
+```cfml
+component restPath="customers" {
+}
+```
+
+After:
+
+```cfml
+component rest=false restPath="customers" {
+}
+```
+
+Or remove the `restPath` attribute.
+
+## `cfforward` ends the request
+
+The request ends after a `cfforward` (and the `forward` statement in script), like it does after `cflocation`. Before, the page continued after the forward and the output of the code after the tag was added to the forwarded response.
+
+```cfml
+echo( "before" );
+cfforward( template="target.cfm" );
+// Lucee 8: this still runs, Lucee 9: it does not
+echo( "after" );
+```
+
+`try/catch` does not catch the end of the request, `finally` blocks, `onAbort` and `onRequestEnd` behave as they do for `cflocation`.
+
+### Who is affected
+
+Pages that have code or output after a `cfforward`, for example logging, clean up or a second `cfforward` as a fallback.
+
+### Migration
+
+Move the code that must run to before the `cfforward`:
+
+Before:
+
+```cfml
+cfforward( template="target.cfm" );
+logForward( "target.cfm" );
+```
+
+After:
+
+```cfml
+logForward( "target.cfm" );
+cfforward( template="target.cfm" );
+```
+
+If the page has to continue after the other template, use `cfinclude` instead of `cfforward`.
+
+## `internalRequest()` resolves a template without a leading slash relative to the calling template
+
+The `template` argument of [[function-internalrequest]] (and `_internalRequest()`) is now resolved like a path in `cfinclude`: a path **without** a leading slash is relative to the directory of the template that calls the function. Before, such a path was resolved from the root (of the web root and the mappings), as if it had a leading slash.
+
+```cfml
+// in /app/tests/MyTest.cfc
+
+// Lucee 8: the same as "/other/page.cfm"
+// Lucee 9: /app/tests/other/page.cfm
+internalRequest( template="other/page.cfm" );
+
+// "./" and "../" work, both are relative to /app/tests
+internalRequest( template="../shared/page.cfm" );
+
+// a leading slash is unchanged, this is the same in 8.0 and 9.0
+internalRequest( template="/other/page.cfm" );
+```
+
+The directory comes from the virtual path of the calling template (the component or the page that contains the call), so templates that are found through a mapping resolve against the mapping. A path that goes above the root with `../` throws an exception.
+
+### Who is affected
+
+Code that passes a root relative path **without** the leading slash, for example `internalRequest( "app/index.cfm" )`. Such a call now looks for `app/index.cfm` in the directory of the caller and fails with a "missing include" error if the template does not exist there.
+
+### Migration
+
+Add the leading slash to the paths that are relative to the root:
+
+Before:
+
+```cfml
+internalRequest( template="app/index.cfm" );
+```
+
+After:
+
+```cfml
+internalRequest( template="/app/index.cfm" );
+```
+
+Code that already used a leading slash needs no change. See [LDEV-4038](https://luceeserver.atlassian.net/browse/LDEV-4038).
+
+## CFID and CFTOKEN in the URL are not accepted by default
+
+Lucee no longer accepts `cfid` and `cftoken` from the URL query string by default. The default of the setting `lucee.cfid.url.allow` (`LUCEE_CFID_URL_ALLOW`) is now `false`, before it was `true`. The session is only linked to a request through cookies. Accepting an identifier from the URL makes session fixation easier, for example with a link that carries a chosen `cfid`.
+
+```cfml
+// https://example.com/index.cfm?cfid=3C7A0C6E-0B5D-4B7C-9E2D-0123456789AB&cftoken=0
+
+// Lucee 8: the request uses the session of that cfid
+// Lucee 9: cfid and cftoken of the URL are ignored, the request gets a new session (or the one of the cookies)
+```
+
+Cookies are not affected.
+
+### Who is affected
+
+Applications that pass `cfid` and `cftoken` in the URL and expect the session to be found, for example:
+
+- Clients that do not accept cookies, with the session identifier added to every link (`urlToken` / `session.urlToken`).
+- A redirect to another host, an SSO flow or a callback that carries the session identifier in the URL.
+- Links with an embedded session, from emails or from another application.
+
+`cfhttp` and `internalRequest()` with `addToken` are not affected, they pass the identifiers as cookies.
+
+The setting `lucee.cfid.url.log` logs every request in which a `cfid` of the URL is read and used, set it in Lucee 8 (or earlier) to find the code that depends on it, see [[environment-variables-system-properties]].
+
+### Migration
+
+- Change the code so the session is linked with the cookie only. This is the recommended way.
+- Or restore the previous behaviour with the system property `-Dlucee.cfid.url.allow=true` or the environment variable `LUCEE_CFID_URL_ALLOW=true`. This is not recommended for production environments.
+- If the previous property `lucee.read.cfid.from.url` (`LUCEE_READ_CFID_FROM_URL`) is set, it still takes precedence over `lucee.cfid.url.allow`.
