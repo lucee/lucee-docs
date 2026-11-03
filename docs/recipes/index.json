@@ -1098,6 +1098,26 @@
     ]
   },
   {
+    "file": "hardening-missing-template-probes.md",
+    "title": "Hardening against probing for missing templates",
+    "path": "/docs/recipes/hardening-missing-template-probes.md",
+    "hash": "f3d6b27b98a3b894e66a1228869411e1",
+    "keywords": [
+      "security",
+      "hardening",
+      "missinginclude",
+      "web shell",
+      "probe",
+      "bot",
+      "onMissingTemplate",
+      "nginx",
+      "apache",
+      "try_files",
+      "mod_rewrite",
+      "404"
+    ]
+  },
+  {
     "file": "hidden-gems.md",
     "title": "Hidden Gems",
     "path": "/docs/recipes/hidden-gems.md",
