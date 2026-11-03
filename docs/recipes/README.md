@@ -288,6 +288,10 @@ An introduction to Lucee's cache layer — what it is, why you'd use it, and how
 
 Learn how to define a global proxy in Lucee. This guide demonstrates how to set up a global proxy in the Application.cfc file or .CFConfig.json, limit the proxy to specific hosts, and exclude specific hosts from using the proxy.
 
+## [Hardening against probing for missing templates](/docs/recipes/hardening-missing-template-probes.md)
+
+What web shell probes for non-existent .cfm files look like, why a missinginclude error is harmless, and how to reject them at Nginx or Apache before they reach Lucee.
+
 ## [Hidden Gems](/docs/recipes/hidden-gems.md)
 
 This document explains how to declare variables, function calls with dot and bracket notation, and passing arguments via URL/form scopes as an array.

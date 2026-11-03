@@ -97,6 +97,7 @@ description: >
 | getClass() Method for Components | `component-getclass-method` | getClass, component, java, interface |
 | Getting Started with Caching | `caching-getting-started` | Cache, cachePut, cacheGet, cacheClear, cacheDelete, RAM cache, Object cache, Application.cfc, Getting started |
 | Global Proxy | `global-proxy` | proxy, global proxy, Lucee, Application.cfc, CFConfig |
+| Hardening against probing for missing templates | `hardening-missing-template-probes` | security, hardening, missinginclude, web shell, probe, bot, onMissingTemplate, nginx, apache, try_files |
 | Hidden Gems | `hidden-gems` | Hidden gems, Declare variables, Function calls, Dot notation, Bracket notation, URL form scopes, Array format |
 | Hooks and Monitors | `hooks-and-monitors` | hooks, monitors, startup, extension, lifecycle, injection |
 | How to Use Tags in Script | `tag-syntax` | Syntax, tag, function, Script, throw, abort, return, unquoted, attribute |
