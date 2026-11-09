@@ -273,15 +273,7 @@
 	}
 }
 
-// Theme toggle icon visibility (controlled by JS - don't use !important so JS can override)
-.theme-toggle .theme-icon-light,
-.theme-toggle .theme-icon-dark,
-.theme-toggle .theme-icon-auto {
-	display: none;
-}
-
-// Remove dropdown-style circular backgrounds from theme toggle, random page button, and mobile search
-.theme-toggle,
+// Remove dropdown-style circular backgrounds from random page button and mobile search
 .menu-random,
 .menu-search-icon .menu-toggle {
 	&:after {

@@ -85,14 +85,9 @@ h2.error{font-size:1em;margin-top:2em;text-align:center;color:#c5bcb4;line-heigh
 }
 
 // Invert iframe content colors in dark mode to make black text light
-[data-theme="dark"] .results-wrapper iframe,
-[data-theme="dark"] #document {
-	filter: invert(0.9) hue-rotate(180deg);
-}
-
 @media (prefers-color-scheme: dark) {
-	:root:not([data-theme="light"]) .results-wrapper iframe,
-	:root:not([data-theme="light"]) #document {
+	.results-wrapper iframe,
+	#document {
 		filter: invert(0.9) hue-rotate(180deg);
 	}
 }

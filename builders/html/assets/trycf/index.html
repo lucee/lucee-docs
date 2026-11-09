@@ -29,22 +29,6 @@
             ace.config.set("modePath", "assets/trycf/js/ace");
             ace.config.set("themePath", "assets/trycf/js/ace");
 
-            // Listen for theme changes from parent window
-            window.addEventListener('message', function(event) {
-                if (event.data && event.data.type === 'theme-change') {
-                    document.documentElement.setAttribute('data-theme', event.data.theme);
-                }
-            });
-
-            // Apply parent's theme on load
-            try {
-                var parentTheme = window.parent.document.documentElement.getAttribute('data-theme');
-                if (parentTheme) {
-                    document.documentElement.setAttribute('data-theme', parentTheme);
-                }
-            } catch (e) {
-                // Cross-origin - parent will send theme via postMessage
-            }
         </script>
     </body>
 </html>

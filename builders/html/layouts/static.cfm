@@ -30,8 +30,8 @@
 		</cfif>
 
 		<link href="/assets/css/base.#application.assetBundleVersion#.min.css" rel="stylesheet">
-		<link href="/assets/css/highlight.#application.assetBundleVersion#.css" rel="stylesheet" class="highlight-theme-light">
-		<link href="/assets/css/highlight-dark.#application.assetBundleVersion#.css" rel="stylesheet" class="highlight-theme-dark">
+		<link href="/assets/css/highlight.#application.assetBundleVersion#.css" rel="stylesheet" media="not all and (prefers-color-scheme: dark)">
+		<link href="/assets/css/highlight-dark.#application.assetBundleVersion#.css" rel="stylesheet" media="(prefers-color-scheme: dark)">
 		<link rel="icon" type="image/png" href="/assets/images/favicon.png">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

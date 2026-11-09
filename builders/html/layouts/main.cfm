@@ -115,13 +115,6 @@
 						</noscript>
 					</div>
 				</li>
-				<li>
-					<a class="theme-toggle" href="javascript:void(0)" title="Toggle theme">
-						<span class="access-hide">Toggle theme</span>
-						<span class="material-symbols-outlined theme-icon-light">light_mode</span>
-						<span class="material-symbols-outlined theme-icon-dark">dark_mode</span>
-					</a>
-				</li>
 				<li class="menu-search-icon">
 					<a class="menu-toggle" href="##search">
 						<span class="access-hide">Search</span>

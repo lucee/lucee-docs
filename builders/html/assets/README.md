@@ -89,7 +89,7 @@ When you make changes that need to bust the CloudFront cache:
 
 ```json
 "config": {
-   "assetVersion": "45"
+   "assetVersion": "46"
 }
 ```
 
@@ -127,7 +127,6 @@ assets/
 ├── js/
 │   ├── src/          # JavaScript source files
 │   │   ├── luceeDocsSearch.js  # Algolia autocomplete search
-│   │   ├── theme-switcher.js   # Light/dark/auto theme toggle
 │   │   ├── collapse.js         # Collapse/expand functionality
 │   │   └── ...       # Other component scripts
 │   ├── dist/         # Minified versioned JS output
@@ -155,13 +154,12 @@ assets/
 
 ### Dark Mode Support
 
-The site now includes a comprehensive dark mode with light/dark/auto theme switching:
+Dark mode follows the system preference (`prefers-color-scheme`). There is no in-page theme switch:
+a stored choice cannot be shared with lucee.org / download / skill / mcp (different origins).
 
 - CSS custom properties (`--text-color`, `--bg-color`, etc.) for all colors
-- Auto mode respects system preferences via `prefers-color-scheme`
-- Theme preference stored in localStorage
-- Separate syntax highlighting for light and dark modes
-- Smooth transitions between themes
+- Dark tokens applied under `@media (prefers-color-scheme: dark)`
+- Separate syntax highlighting stylesheets selected via `media` attributes
 
 ### Modern Search
 

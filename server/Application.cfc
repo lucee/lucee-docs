@@ -13,11 +13,11 @@ component {
 	this.mappings[ "/builds"   ] = this.baseDir & "builds";
 	this.mappings[ "/docs"     ] = this.baseDir & "docs";
 	this.mappings[ "/listener" ] = this.baseDir;
-	this.assetBundleVersion = 45;  // see parent application.cfc
+	this.assetBundleVersion = 46;  // see parent application.cfc
 
 
 	public void function onApplicationStart()  {
-		application.assetBundleVersion = 45;
+		application.assetBundleVersion = 46;
 		systemOutput("Starting Lucee Documentation Local Server - #server.lucee.version#", true);
 		//_addChangeWatcher();
 	}
