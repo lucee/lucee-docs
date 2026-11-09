@@ -196,9 +196,9 @@ Guide on using and running Lucee with Docker
 
 Best practices for building your own Lucee Docker images: warmup at build time, pinned versions, configuration, Maven download policies, healthchecks, logging and secrets.
 
-## [Downloading Extensions for CI, Docker and Offline Installs](/docs/recipes/downloading-extensions.md)
+## [Downloading Lucee and Extensions for CI, Docker and Offline Installs](/docs/recipes/downloading-extensions.md)
 
-Where to download Lucee extensions (.lex) from, and how to fetch them with Maven, curl or a Docker multistage build.
+Where to download Lucee core artifacts (.lco, jars, pom) and extensions (.lex) from, and how to fetch them with Maven, curl or a Docker multistage build.
 
 ## [Dynamic Proxy Enhancements](/docs/recipes/dynamic-proxy-enhancements.md)
 
