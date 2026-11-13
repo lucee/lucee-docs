@@ -444,6 +444,8 @@ component displayname="Application" output="false" hint="Handle the application"
    //  be raised. This means that the execution of the request
    //  will be stopped. This setting can be overridden using the
    //  "cfsetting" tag or script equivalent.
+   //  Deprecated since Lucee 7.1.3: it can only interrupt the
+   //  request thread; set a timeout on the query or http call instead.
    ////////////////////////////////////////////////////////////////
    // this.requestTimeout=createTimeSpan(0,0,0,50);
 
