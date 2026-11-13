@@ -1843,7 +1843,7 @@
     "file": "null-support.md",
     "title": "Null Support",
     "path": "/docs/recipes/null-support.md",
-    "hash": "e1f832ca8a1b05505514cb6837b9ec0e",
+    "hash": "8bb9332425a18668cae3872e05fb5119",
     "keywords": [
       "Null support",
       "null keyword",
@@ -2967,7 +2967,7 @@
     "file": "warmup.md",
     "title": "Warmup",
     "path": "/docs/recipes/warmup.md",
-    "hash": "bf3d819c961e3bad95709cbf8662755a",
+    "hash": "11a5f46069c74ceef3c337b7d3ea03e5",
     "keywords": [
       "Warmup",
       "Docker",
