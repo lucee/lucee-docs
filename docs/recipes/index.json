@@ -1439,7 +1439,7 @@
     "file": "http-logging.md",
     "title": "Logging CFHTTP Calls",
     "path": "/docs/recipes/http-logging.md",
-    "hash": "c53e1769aff2b36d8529d3d3d5277cea",
+    "hash": "1c6d2411b966a1d8a09842207ee1cf16",
     "keywords": [
       "cfhttp",
       "logging",
@@ -1600,7 +1600,7 @@
     "file": "lucee-skill.md",
     "title": "Lucee Skill for AI Assistants",
     "path": "/docs/recipes/lucee-skill.md",
-    "hash": "39c94f2432ba947ba6684884cb08481e",
+    "hash": "2e3e57df32089caa53f63c96c51e9bc9",
     "keywords": [
       "skill",
       "lucee.skill",

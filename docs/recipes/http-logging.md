@@ -3,6 +3,7 @@
   "title": "Logging CFHTTP Calls",
   "id": "logging-cfhttp-calls",
   "since": "6.1.0.135",
+  "categories": ["logging", "debugging", "http"],
   "description": "Learn how Lucee logs all CFHTTP calls and how to manage these logs. This guide explains the default behavior, log file locations, and changes in logging from earlier Lucee versions.",
   "keywords": [
     "cfhttp",
