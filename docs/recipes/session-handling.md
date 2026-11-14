@@ -219,9 +219,21 @@ if (authentication.success) {
 
 Sessions are linked via `CFID` (in URL or cookie). `CFTOKEN` exists only for ACF compatibility.
 
-Lucee checks URL first, then cookies. Since 6.1, URL-based CFID only accepted if session is active in memory (up to 1 minute with non-memory storage).
+If CFID in the URL is allowed, Lucee checks URL first, then cookies. Since 6.1, URL-based CFID only accepted if session is active in memory (up to 1 minute with non-memory storage).
 
-Block CFID in URL entirely (since 6.1):
+Since Lucee 9.0, CFID and CFTOKEN in the URL are **not accepted by default**, only cookies are used (see [[breaking-changes-8-0-to-9-0]]). To accept them again:
+
+```properties
+-Dlucee.cfid.url.allow=true
+```
+
+or:
+
+```bash
+LUCEE_CFID_URL_ALLOW=true
+```
+
+Before Lucee 9.0 the default was to accept them, block CFID in URL entirely (since 6.1, `lucee.cfid.url.allow` since 6.2.1.59):
 
 ```properties
 -Dlucee.read.cfid.from.url=false

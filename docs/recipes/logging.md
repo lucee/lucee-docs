@@ -15,7 +15,8 @@
   ],
   "related": [
     "tag-log",
-    "function-writelog"
+    "function-writelog",
+    "log-files"
   ],
   "categories": [
     "server"
@@ -52,6 +53,10 @@ Since Lucee 6.2, override log levels and appender via environment variables:
 LUCEE_LOGGING_FORCE_LEVEL=info
 LUCEE_LOGGING_FORCE_APPENDER=console
 ```
+
+### Default Log Files
+
+For a description of each default log file, what writes to it and when to look at it, see [[log-files]].
 
 ### Adding or Modifying Logs
 
