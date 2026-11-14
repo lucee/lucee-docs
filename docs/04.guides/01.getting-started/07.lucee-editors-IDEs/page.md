@@ -36,12 +36,12 @@ CFML Editor has an option to use the full Lucee docs as the source for inline he
 [[lucee-step-debugger]]
 
 ## JetBrains IDEs
+
 <https://plugins.jetbrains.com/plugin/35485-lucee-cfml>
 
-The IntelliLucee (Lucee CFML) plugin for JetBrains IDEs including IDEA, PyCharm, and WebStorm.  Provides syntax highlighting, built-in docs, code completion, and debugging.
+The IntelliLucee (Lucee CFML) plugin for JetBrains IDEs including IDEA, PyCharm, and WebStorm. Provides syntax highlighting, built-in docs, code completion, and debugging.
 
-Installation Docs and Usage can be found here : <https://github.com/quetwo/intellilucee/wiki>
-
+Installation Docs and Usage can be found here: <https://github.com/quetwo/intellilucee/wiki>
 
 ## NeoVim
 
