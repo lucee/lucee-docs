@@ -37,6 +37,7 @@ Upgrading with an AI coding agent? Point it to [[upgrade-7-1-to-8-0-agent]], a s
 - [[breaking-changes-6-1-to-6-2]]
 - [[breaking-changes-6-2-to-7-0]]
 - [[breaking-changes-7-0-to-7-1]]
+- [[breaking-changes-8-0-to-9-0]]
 
 ## Java 21 Required
 
@@ -415,6 +416,20 @@ In 7.1 the rule depended on the code path: some used a fixed pivot of 30, so `30
 **Who is affected:** Applications that parse dates with two-digit years, or call `createDate()` / `createDateTime()` with a year below 100, where the year falls between the old pivot and the new window (for example `30` to `46` in 2026).
 
 **What to do:** Use four-digit years where you can. To get a fixed pivot instead, set `lucee.date.twodigityear.pivot` / `LUCEE_DATE_TWODIGITYEAR_PIVOT` to a number from 0 to 100. Two-digit years below the pivot become 20xx, all others 19xx, so `30` gives the 7.1 behaviour of `createDate()`. See [[date-time-formatting]].
+
+## Negative `cf_sql_tinyint` values rejected on MSSQL
+
+On Microsoft SQL Server, `tinyint` is unsigned (0 to 255). In 7.1, a negative value passed as `cf_sql_tinyint` was silently wrapped by the driver, so `-1` was stored as `255` and `-128` as `128`. Lucee 8.0 now throws an error instead ([LDEV-3118](https://luceeserver.atlassian.net/browse/LDEV-3118)):
+
+```text
+Invalid data [-1] for CFSQLTYPE CF_SQL_TINYINT
+```
+
+This matches Adobe ColdFusion. Databases with a signed `tinyint` (MySQL, MariaDB, H2) still accept -128 to 127, because those values are valid there.
+
+**Who is affected:** Code that passes a negative value as `cf_sql_tinyint` to MSSQL, for example with `<cfqueryparam>` or `queryExecute()`. This used to corrupt the data without any error.
+
+**What to do:** Fix the value that is passed in. If the column really needs negative numbers, use a `smallint` column and `cf_sql_smallint`.
 
 ## Not changed
 

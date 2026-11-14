@@ -8,6 +8,7 @@ on:
       - "docs/recipes/**"
       - "docs/04.guides/**"
       - "examples/**"
+      - "docs/technical-specs/**"
       - ".github/scripts/generate-index-recipes.js"
   workflow_dispatch:
 
@@ -39,7 +40,7 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git config --local user.email "action@github.com"
             git config --local user.name "Lucee Docs GitHub Action"
-            git add docs/recipes/index.json docs/recipes/README.md docs/recipes/lucee.skill
+            git add docs/recipes/index.json docs/recipes/README.md docs/recipes/lucee.skill skill/
             git commit -m "Update recipes index, skill and README"
             git push origin $BRANCH_NAME
           else
