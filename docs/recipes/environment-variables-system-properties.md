@@ -270,6 +270,8 @@ This helps identify code that needs to be updated before URL-based CFID is disab
 
 A boolean value. If false, Lucee will disable request timeouts.
 
+**Deprecated** since 7.1.3, see [[request-timeout]].
+
 #### LUCEE_REQUESTTIMEOUT_CONCURRENTREQUESTTHRESHOLD
 
 *SysProp:* `-Dlucee.requesttimeout.concurrentrequestthreshold`
@@ -277,12 +279,16 @@ A boolean value. If false, Lucee will disable request timeouts.
 
 Concurrent request threshold to enforce a request timeout. If a request reaches the timeout, Lucee will only enforce it if this threshold is also reached. For example, setting it to `100` means the timeout is enforced only if there are at least 99 other requests running.
 
+**Deprecated** since 7.1.3, see [[request-timeout]].
+
 #### LUCEE_REQUESTTIMEOUT_CPUTHRESHOLD
 
 *SysProp:* `-Dlucee.requesttimeout.cputhreshold`
 *EnvVar:* `LUCEE.REQUESTTIMEOUT.CPUTHRESHOLD`
 
 A floating-point number between 0 and 1. CPU threshold to enforce a request timeout. If a request reaches the timeout, Lucee will only enforce it if the CPU usage of the current core is at least the specified threshold. For example, setting it to `0.5` enforces the timeout if the CPU is at least 50%.
+
+**Deprecated** since 7.1.3, see [[request-timeout]].
 
 #### LUCEE_SERVER_DIR
 

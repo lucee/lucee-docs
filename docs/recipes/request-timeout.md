@@ -31,6 +31,8 @@
 
 Lucee allows you to define a request timeout for every request. **Never accept request timeouts as normal behavior** - always investigate and fix them.
 
+> **Deprecated:** Since Lucee 7.1.3, the request timeout settings described here (`this.requestTimeout`, the `requestTimeout` attribute of `cfsetting`, the Administrator setting, the `RequestTimeout` URL parameter and the `lucee.requesttimeout*` system properties) are deprecated ([LDEV-6919](https://luceeserver.atlassian.net/browse/LDEV-6919)). They still work and nothing has been removed, but a request timeout cannot reliably stop a request (see [Limitations](#limitations)). Set a timeout on the operation itself instead, as described in [Set a timeout on the operation](#set-a-timeout-on-the-operation).
+
 ## Configuration
 
 ### Lucee Administrator
