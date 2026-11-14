@@ -87,6 +87,15 @@ Defines a comma-separated list of Lucee extensions to install when starting up.
 
 The current list of installed extensions is available via the Lucee admin.
 
+#### LUCEE_EXTENSIONS_FAIL_ON_ERROR
+
+*SysProp:* `-Dlucee.extensions.fail.on.error`
+*EnvVar:* `LUCEE_EXTENSIONS_FAIL_ON_ERROR`
+
+A boolean value (default `false`) that makes an invalid `LUCEE_EXTENSIONS` fatal on startup. When `true`, the startup is aborted if an extension defined in `LUCEE_EXTENSIONS` cannot be installed or an entry of the list cannot be parsed. When `false`, the error is written to the deploy log and to stderr and the startup continues.
+
+In warmup mode (`LUCEE_ENABLE_WARMUP`) such a failure always makes the process exit with a non-zero exit code, independent of this setting.
+
 #### LUCEE_EXTENSIONS_CONFIG_ONLY
 
 *SysProp:* `-Dlucee.extensions.config.only`
@@ -238,10 +247,12 @@ previously `LUCEE_READ_CFID_FROM_URL`
 *SysProp:* `-Dlucee.cfid.url.allow` (previously `-Dlucee.read.cfid.from.url`)
 *EnvVar:* `LUCEE_CFID_URL_ALLOW` (previously `LUCEE_READ_CFID_FROM_URL`)
 
-Controls whether Lucee accepts CFID values from URL query strings. Set to false to enhance security by requiring CFIDs to be passed via cookies only.
+Controls whether Lucee accepts CFID and CFTOKEN values from URL query strings. If disabled, they are only accepted from cookies.
 The previous property names are still supported for backward compatibility, but the new names are preferred starting with Lucee 6.2.1.59.
 
-*Setting this to `false` is strongly recommended for all production environments.*
+The default is `false` since Lucee 9.0, before it was `true`. This is a breaking change for applications that pass CFID and CFTOKEN in the URL, see [[breaking-changes-8-0-to-9-0]].
+Set it to `true` to accept them from the URL again, this is not recommended for production environments.
+If the legacy property `lucee.read.cfid.from.url` is also set, it takes precedence.
 
 #### LUCEE_CFID_URL_LOG
 
@@ -259,6 +270,8 @@ This helps identify code that needs to be updated before URL-based CFID is disab
 
 A boolean value. If false, Lucee will disable request timeouts.
 
+**Deprecated** since 7.1.3, see [[request-timeout]].
+
 #### LUCEE_REQUESTTIMEOUT_CONCURRENTREQUESTTHRESHOLD
 
 *SysProp:* `-Dlucee.requesttimeout.concurrentrequestthreshold`
@@ -266,12 +279,16 @@ A boolean value. If false, Lucee will disable request timeouts.
 
 Concurrent request threshold to enforce a request timeout. If a request reaches the timeout, Lucee will only enforce it if this threshold is also reached. For example, setting it to `100` means the timeout is enforced only if there are at least 99 other requests running.
 
+**Deprecated** since 7.1.3, see [[request-timeout]].
+
 #### LUCEE_REQUESTTIMEOUT_CPUTHRESHOLD
 
 *SysProp:* `-Dlucee.requesttimeout.cputhreshold`
 *EnvVar:* `LUCEE.REQUESTTIMEOUT.CPUTHRESHOLD`
 
 A floating-point number between 0 and 1. CPU threshold to enforce a request timeout. If a request reaches the timeout, Lucee will only enforce it if the CPU usage of the current core is at least the specified threshold. For example, setting it to `0.5` enforces the timeout if the CPU is at least 50%.
+
+**Deprecated** since 7.1.3, see [[request-timeout]].
 
 #### LUCEE_SERVER_DIR
 
@@ -467,6 +484,20 @@ Specifies the log level used when the Maven download policy is set to `warn`. Va
 This allows you to control the visibility of Maven download notifications in your logs. For example, set to `info` for less prominent logging during development, or `error` to ensure download notifications are highly visible without fully blocking them.
 
 This setting has no effect when the download policy is set to `ignore` or `error`.
+
+#### LUCEE_MAVEN_SIGNATURE_VERIFICATION
+
+*SysProp:* `-Dlucee.maven.signature.verification`
+*EnvVar:* `LUCEE_MAVEN_SIGNATURE_VERIFICATION`
+
+Controls the verification of the OpenPGP signature (`.asc`) of the `org.lucee` artifacts (core updates, loader, extensions) that Lucee downloads. The same as the setting `maven.signatureVerification` in `.CFConfig.json`. Valid values are `verify` (default), `strict`, `warn` and `off`.
+
+- `verify`: releases must have a valid signature, pre-releases only need a valid signature if one exists
+- `strict`: pre-releases must be signed as well
+- `warn`: a failed verification is logged (log `maven`, level warn) and the install continues
+- `off`: no verification
+
+See [[breaking-changes-8-0-to-9-0]] for the details.
 
 #### FELIX_LOG_LEVEL
 
@@ -701,7 +732,7 @@ The maximum concurrent requests that the engine allows to run at the same time b
 *SysProp:* `-Dlucee.queue.timeout`
 *EnvVar:* `LUCEE_QUEUE_TIMEOUT`
 
-The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected with an exception. If you set it to 0 seconds, the request timeout is used instead.
+The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected and not executed: Lucee logs the exception and responds with HTTP status 503 (Service Unavailable), a `Retry-After` header (the queue timeout in seconds, rounded up, minimum 1) and a short plain text body ("the server is too busy"), as long as the response is not already committed. If you set it to 0 seconds, the request timeout is used instead.
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP
 
@@ -874,6 +905,13 @@ Specifies the file location of the trust store that contains trusted Certificate
 *EnvVar:* `LUCEE_WEB_CHARSET`
 
 Default character set for output streams, form-, URL-, and CGI scope variables, and reading/writing the header.
+
+#### LUCEE_DEPLOY_WATCH
+
+*SysProp:* `-Dlucee.deploy.watch`
+*EnvVar:* `LUCEE_DEPLOY_WATCH`
+
+Default true. By default Lucee checks the deploy folder (extensions, archives, config snippets) every 10 seconds for new files. Set to false to disable this periodic check, for example on a production server. The deploy folder is still processed once at startup. The same setting is available in `.CFConfig.json` as `deployWatch`.
 
 #### LUCEE_CONTROLLER_GC
 
@@ -1208,7 +1246,7 @@ The maximum concurrent requests that the engine allows to run at the same time b
 *SysProp:* `-Dlucee.queue.timeout`
 *EnvVar:* `LUCEE_QUEUE_TIMEOUT`
 
-The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected with an exception. If you set it to 0 seconds, the request timeout is used instead.
+The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected and not executed: Lucee logs the exception and responds with HTTP status 503 (Service Unavailable), a `Retry-After` header (the queue timeout in seconds, rounded up, minimum 1) and a short plain text body ("the server is too busy"), as long as the response is not already committed. If you set it to 0 seconds, the request timeout is used instead.
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP
 

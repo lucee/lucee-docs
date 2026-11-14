@@ -75,7 +75,7 @@ For the best performance in production, "Inspect Templates" should be set to `ne
 }
 ```
 
-For new projects, consider using Java's built-in regex engine instead of the default Apache ORO. 
+For new projects, consider using Java's built-in regex engine instead of the default Apache ORO. ORO as the default is deprecated in Lucee 8, and Lucee 9 uses the Java engine by default, see [[regex-migration-lucee-9]].
 
 It's faster and supports modern features like look-behinds, but existing regexes may need changes — see [[java-regex-engine]] for the migration guide.
 
@@ -98,4 +98,4 @@ component {
 }
 ```
 
-Setting the env var `LUCEE_CFID_URL_ALLOW=false` to prevent sessions being loaded via urls.
+Setting the env var `LUCEE_CFID_URL_ALLOW=false` prevents sessions being loaded via urls. This is the default since Lucee 9.0, set it explicitly on earlier versions.

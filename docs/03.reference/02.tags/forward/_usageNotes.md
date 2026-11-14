@@ -1,0 +1,1 @@
+The request ends after the forward, like it does after [[tag-location]]. Code after the tag is not executed (Lucee 9.0 and newer, see [[breaking-changes-8-0-to-9-0]]). Use [[tag-include]] if the page has to continue after the other template.

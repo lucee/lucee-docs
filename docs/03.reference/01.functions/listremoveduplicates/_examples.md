@@ -6,3 +6,11 @@ writeoutput("<hr>");
 lst = ListRemoveDuplicates(lst);
 writeoutput(lst);
 ```
+
+### Multi-character delimiter
+
+By default every character of `delimiters` is a delimiter. With `multiCharacterDelimiter=true` the whole string is one delimiter.
+
+```luceescript
+writeOutput( listRemoveDuplicates( "a::b::a", "::", false, true ) ); // a::b
+```
