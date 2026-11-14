@@ -36,6 +36,10 @@ How to create and configure the Application.cfc
 
 Generate Abstract Syntax Trees from CFML code for analysis, transformation, and tooling support
 
+## [Avro Serialization in Lucee 7](/docs/recipes/avro-serialization.md)
+
+Simple recipe for serializing and deserializing Apache Avro data in Lucee 7 using Maven integration
+
 ## [Basic Date - Output the current date](/docs/recipes/basic-date.md)
 
 Learn how to output the current date in Lucee.
@@ -87,6 +91,10 @@ Shows how to explicitly cast a component to a specific interface.
 ## [Catching multiple exception types](/docs/recipes/exception-multi-catch.md)
 
 Handle several exception types in a single catch, using a pipe to separate the types.
+
+## [CFML Keywords](/docs/recipes/cfml-keywords.md)
+
+The keywords the Lucee compiler understands in script and tag syntax, grouped, plus where to get tag and function lists at runtime
 
 ## [Checksum](/docs/recipes/checksum.md)
 
@@ -188,9 +196,9 @@ Guide on using and running Lucee with Docker
 
 Best practices for building your own Lucee Docker images: warmup at build time, pinned versions, configuration, Maven download policies, healthchecks, logging and secrets.
 
-## [Downloading Extensions for CI, Docker and Offline Installs](/docs/recipes/downloading-extensions.md)
+## [Downloading Lucee and Extensions for CI, Docker and Offline Installs](/docs/recipes/downloading-extensions.md)
 
-Where to download Lucee extensions (.lex) from, and how to fetch them with Maven, curl or a Docker multistage build.
+Where to download Lucee core artifacts (.lco, jars, pom) and extensions (.lex) from, and how to fetch them with Maven, curl or a Docker multistage build.
 
 ## [Dynamic Proxy Enhancements](/docs/recipes/dynamic-proxy-enhancements.md)
 
@@ -280,6 +288,10 @@ An introduction to Lucee's cache layer — what it is, why you'd use it, and how
 
 Learn how to define a global proxy in Lucee. This guide demonstrates how to set up a global proxy in the Application.cfc file or .CFConfig.json, limit the proxy to specific hosts, and exclude specific hosts from using the proxy.
 
+## [Hardening against probing for missing templates](/docs/recipes/hardening-missing-template-probes.md)
+
+What web shell probes for non-existent .cfm files look like, why a missinginclude error is harmless, and how to reject them at Nginx or Apache before they reach Lucee.
+
 ## [Hidden Gems](/docs/recipes/hidden-gems.md)
 
 This document explains how to declare variables, function calls with dot and bracket notation, and passing arguments via URL/form scopes as an array.
@@ -355,6 +367,10 @@ How to list and check for cache connections at runtime in Lucee.
 ## [Loading Java Libraries with Maven](/docs/recipes/maven.md)
 
 Load Java libraries from Maven repositories - automatic dependency management for CFML applications.
+
+## [Log Files](/docs/recipes/log-files.md)
+
+What each default Lucee log file contains, what writes to it, where it lives, and when to look at it, including out.log, err.log and felix.log
 
 ## [Logging](/docs/recipes/logging.md)
 
@@ -532,6 +548,10 @@ How to pre-compile code for a production server while the source code is deploye
 
 How to configure preserve case for struct keys
 
+## [Protocol Buffers Serialization in Lucee 7](/docs/recipes/protobuf-serialization.md)
+
+Simple recipe for serializing and deserializing Protocol Buffers (protobuf) data in Lucee 7 using Maven integration
+
 ## [QoQ SQL Functions and Operators](/docs/recipes/query-of-queries-functions.md)
 
 Reference for the SQL keywords, operators, and functions supported by Lucee's native Query of Queries (QoQ) engine.
@@ -583,6 +603,10 @@ Lucee not only allows you to convert an XML file to an object tree (DOM) but als
 ## [Recommended Settings](/docs/recipes/recommended-settings.md)
 
 A guide on how to configure your Lucee Server for the best performance and highest security.
+
+## [Regex Migration to Lucee 9](/docs/recipes/regex-migration-lucee-9.md)
+
+Lucee 9 uses the Java regex engine by default and moves the Perl5 (Apache ORO) engine into the Perl Regex extension. What changes, how to migrate your patterns, and how to stay on perl.
 
 ## [Request Timeout](/docs/recipes/request-timeout.md)
 

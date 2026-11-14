@@ -76,7 +76,7 @@ Claude's remote MCP connector requires the `mcp-client-2025-11-20` beta header a
       "mcp_servers": [
         {
           "type": "url",
-          "url": "https://mcp.lucee.org/",
+          "url": "https://mcp.lucee-services.com/",
           "name": "lucee"
         }
       ],
@@ -111,7 +111,7 @@ OpenAI-compatible endpoints use the Responses API MCP tool format in passthrough
         {
           "type": "mcp",
           "server_label": "lucee",
-          "server_url": "https://mcp.lucee.org/",
+          "server_url": "https://mcp.lucee-services.com/",
           "require_approval": "never"
         }
       ]
@@ -157,7 +157,7 @@ Lucee provides three MCP solutions for different use cases. All use JSON-RPC 2.0
 | Server | Endpoint | Good for |
 |--------|----------|----------|
 | Admin MCP | `{host}/lucee/admin/mcp.cfm` | Managing Lucee **server configuration** via AI |
-| Public MCP (BETA) | `https://mcp.lucee.org/` | Lucee **docs**, functions, tags, CFML AST |
+| Public MCP (BETA) | `https://mcp.lucee-services.com/` | Lucee **docs**, functions, tags, CFML AST |
 | Custom MCP (Extension) | `{host}/lucee/mcp/` (default) | **Your own tools** — data, APIs, business logic |
 
 ---
@@ -231,7 +231,7 @@ Replace `https://your-server.example.com` with your public HTTPS base URL. Remot
 
 ## Public MCP Server (BETA)
 
-Hosted by Lucee at **<https://mcp.lucee.org/>**. Gives AI agents callable access to Lucee documentation and CFML analysis — not just static context.
+Hosted by Lucee at **<https://mcp.lucee-services.com/>**. Gives AI agents callable access to Lucee documentation and CFML analysis — not just static context.
 
 No Lucee instance required on your side; point your AI connection passthrough at the public URL.
 
@@ -254,7 +254,7 @@ No Lucee instance required on your side; point your AI connection passthrough at
 "mcp_servers": [
   {
     "type": "url",
-    "url": "https://mcp.lucee.org/",
+    "url": "https://mcp.lucee-services.com/",
     "name": "lucee"
   }
 ],
@@ -335,12 +335,12 @@ Each tool extends the base `Tool` component and implements `exec()`. The extensi
 | Analyze CFML source code (AST) | Public MCP or Custom MCP extension |
 | Read or change Lucee server settings | Admin MCP (`LUCEE_ADMIN_MCP_ACCESS=read` or `write`) |
 | Custom tools for your application | Custom MCP extension |
-| No Lucee server to host | Public MCP at `mcp.lucee.org` |
+| No Lucee server to host | Public MCP at `mcp.lucee-services.com` |
 
 For local testing of MCP endpoints without an AI provider, POST JSON-RPC requests directly:
 
 ```bash
-curl -s -X POST https://mcp.lucee.org/ \
+curl -s -X POST https://mcp.lucee-services.com/ \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
 ```

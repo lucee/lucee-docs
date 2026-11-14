@@ -2,10 +2,14 @@
 {
   "title": "Breaking Changes between Lucee 8.0 and 9.0",
   "id": "breaking-changes-8-0-to-9-0",
-  "categories": ["breaking changes", "migration","compat"],
+  "categories": ["breaking changes", "migration", "compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "regex", "Perl Regex extension", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "CFID", "CFTOKEN", "session", "cfid.url.allow", "OSGi extension", "osgi-extension", "lucee.osgi.autoinstall", "datasource", "allow", "allowed_select", "SQL restrictions", "signature", "PGP", "maven.signatureVerification", "cachedWithin", "array"],
   "related": [
+    "regex-migration-lucee-9",
+    "java-regex-engine",
+    "extension-installation",
+    "environment-variables-system-properties",
     "breaking-changes-7-1-to-8-0"
   ]
 }
@@ -15,6 +19,8 @@
 
 This document outlines the breaking changes introduced when upgrading from Lucee 8.0 to Lucee 9.0. Lucee 9.0 is under development (alpha), this page is extended with every change that can break existing code, extensions or configurations.
 
+[9.0 Changelog](https://download.lucee.org/changelog/?version=9.0)
+
 ## Other Breaking Changes in Lucee Releases
 
 - [[breaking-changes-5-4-to-6-0]]
@@ -23,6 +29,21 @@ This document outlines the breaking changes introduced when upgrading from Lucee
 - [[breaking-changes-6-2-to-7-0]]
 - [[breaking-changes-7-0-to-7-1]]
 - [[breaking-changes-7-1-to-8-0]]
+
+## Regex: Java Is the Default Engine, Perl Moved to an Extension
+
+[LDEV-6632](https://luceeserver.atlassian.net/browse/LDEV-6632)
+
+- The default regex engine changed from `perl` (Apache ORO) to `java`.
+- The `perl` engine (aliases `perl5`, `classic`, `oro`) is no longer part of the core. It is available with the [Perl Regex extension](https://github.com/lucee/extension-perlregex) (`org.lucee:perlregex-extension`).
+- `perl` stays a valid setting. Without the extension, a regex call fails with "The regex engine [perl] is not available".
+- `useJavaAsRegexEngine=false` means `perl`, so it needs the extension too.
+
+Applications without a regex setting now run on `java` without an error, but some patterns give different results, for example POSIX classes like `[[:alpha:]]`, `\1` in replacements and `.` across newlines.
+
+Lucee 8 logs a deprecation warning when an application uses `perl` ([LDEV-6660](https://luceeserver.atlassian.net/browse/LDEV-6660)), so check the `application` log of your Lucee 8 servers for `RegexDeprecation` before upgrading.
+
+**What to do:** move your patterns to `java` (or `compat` to keep the Perl-style replacement syntax), or install the Perl Regex extension and set `this.regex.type="perl"`. All steps and the differences between the engines are in [[regex-migration-lucee-9]].
 
 ## Apache Felix is shaded into the Lucee jar
 
@@ -222,6 +243,43 @@ A library that brings its own commons-logging (for example the AWS SDK of the S3
 - Extensions that used one of these libraries of Lucee: require it explicitly in the manifest or ship it, and for offline installs ship it with the extension.
 - Code that calls `metaphone()`: use `soundex()` or another phonetic algorithm of your own.
 
+## COM objects moved to an extension
+
+COM/ActiveX support (Windows only) is not part of the Lucee core anymore. The Jacob library, the Lucee classes around it and the native libraries (`jacob-x64.dll`, `jacob-i586.dll`) are removed from the Lucee jar, the support moved to the [COM extension](https://github.com/lucee/extension-com). The extension is **not required** by Lucee, install it only if you need COM objects.
+
+### `createObject( "com" )` and `<cfobject type="com">` are not supported anymore
+
+Both throw an exception that points to the extension. Use the function `createComObject( className )` of the extension instead, the returned object behaves like the COM object of the core did:
+
+```cfml
+// Lucee 8 and older
+fso = createObject( "com", "Scripting.FileSystemObject" );
+
+// Lucee 9 with the COM extension
+fso = createComObject( "Scripting.FileSystemObject" );
+```
+
+```cfml
+// Lucee 8 and older
+<cfobject type="com" class="Scripting.FileSystemObject" name="fso">
+
+// Lucee 9 with the COM extension
+<cfset fso = createComObject( "Scripting.FileSystemObject" )>
+```
+
+### `releaseComObject` is part of the extension
+
+The function `releaseComObject( comObject )` is not part of the core anymore, it comes with the COM extension together with `createComObject`. Without the extension the function does not exist.
+
+### Jacob
+
+The extension uses the current official release of Jacob (1.21) and ships the native libraries itself, they are copied to `lucee-server/bin` on first use as before. `lucee.commons.jacob.*` and `lucee.runtime.com.*` do not exist in the core anymore, code that used these classes directly has to use `com.jacob.*` of the extension (or bring its own copy of Jacob).
+
+### Migration
+
+- Search your code for `createObject( "com"`, `type="com"` and `releaseComObject` and replace them with `createComObject` (see above), then install the COM extension.
+- Extensions or code that use `lucee.commons.jacob` or `lucee.runtime.com` directly: use the Jacob library `com.jacob` instead.
+
 ## `isJson()` is strict by default
 
 `isJson()` used the lenient expression parser of Lucee, so it also returned `true` for input that is not valid JSON and that other JSON parsers reject (unquoted keys, single quotes, trailing commas, comments, ...). In Lucee 9 `isJson()` has the new argument `lenient` with the default `false`: only strict JSON is valid.
@@ -341,3 +399,246 @@ cfforward( template="target.cfm" );
 ```
 
 If the page has to continue after the other template, use `cfinclude` instead of `cfforward`.
+
+## `internalRequest()` resolves a template without a leading slash relative to the calling template
+
+The `template` argument of [[function-internalrequest]] (and `_internalRequest()`) is now resolved like a path in `cfinclude`: a path **without** a leading slash is relative to the directory of the template that calls the function. Before, such a path was resolved from the root (of the web root and the mappings), as if it had a leading slash.
+
+```cfml
+// in /app/tests/MyTest.cfc
+
+// Lucee 8: the same as "/other/page.cfm"
+// Lucee 9: /app/tests/other/page.cfm
+internalRequest( template="other/page.cfm" );
+
+// "./" and "../" work, both are relative to /app/tests
+internalRequest( template="../shared/page.cfm" );
+
+// a leading slash is unchanged, this is the same in 8.0 and 9.0
+internalRequest( template="/other/page.cfm" );
+```
+
+The directory comes from the virtual path of the calling template (the component or the page that contains the call), so templates that are found through a mapping resolve against the mapping. A path that goes above the root with `../` throws an exception.
+
+### Who is affected
+
+Code that passes a root relative path **without** the leading slash, for example `internalRequest( "app/index.cfm" )`. Such a call now looks for `app/index.cfm` in the directory of the caller and fails with a "missing include" error if the template does not exist there.
+
+### Migration
+
+Add the leading slash to the paths that are relative to the root:
+
+Before:
+
+```cfml
+internalRequest( template="app/index.cfm" );
+```
+
+After:
+
+```cfml
+internalRequest( template="/app/index.cfm" );
+```
+
+Code that already used a leading slash needs no change. See [LDEV-4038](https://luceeserver.atlassian.net/browse/LDEV-4038).
+
+## CFID and CFTOKEN in the URL are not accepted by default
+
+Lucee no longer accepts `cfid` and `cftoken` from the URL query string by default. The default of the setting `lucee.cfid.url.allow` (`LUCEE_CFID_URL_ALLOW`) is now `false`, before it was `true`. The session is only linked to a request through cookies. Accepting an identifier from the URL makes session fixation easier, for example with a link that carries a chosen `cfid`.
+
+```cfml
+// https://example.com/index.cfm?cfid=3C7A0C6E-0B5D-4B7C-9E2D-0123456789AB&cftoken=0
+
+// Lucee 8: the request uses the session of that cfid
+// Lucee 9: cfid and cftoken of the URL are ignored, the request gets a new session (or the one of the cookies)
+```
+
+Cookies are not affected.
+
+### Who is affected
+
+Applications that pass `cfid` and `cftoken` in the URL and expect the session to be found, for example:
+
+- Clients that do not accept cookies, with the session identifier added to every link (`urlToken` / `session.urlToken`).
+- A redirect to another host, an SSO flow or a callback that carries the session identifier in the URL.
+- Links with an embedded session, from emails or from another application.
+
+`cfhttp` and `internalRequest()` with `addToken` are not affected, they pass the identifiers as cookies.
+
+The setting `lucee.cfid.url.log` logs every request in which a `cfid` of the URL is read and used, set it in Lucee 8 (or earlier) to find the code that depends on it, see [[environment-variables-system-properties]].
+
+### Migration
+
+- Change the code so the session is linked with the cookie only. This is the recommended way.
+- Or restore the previous behaviour with the system property `-Dlucee.cfid.url.allow=true` or the environment variable `LUCEE_CFID_URL_ALLOW=true`. This is not recommended for production environments.
+- If the previous property `lucee.read.cfid.from.url` (`LUCEE_READ_CFID_FROM_URL`) is set, it still takes precedence over `lucee.cfid.url.allow`.
+
+## OSGi is moving to an extension, Lucee installs it when it is needed
+
+[LDEV-6829](https://luceeserver.atlassian.net/browse/LDEV-6829)
+
+OSGi (Apache Felix) is moving out of the core into the OSGi extension (`org.lucee:osgi-extension`). Extensions that ship OSGi bundles, or that define a class with a bundle name (cache, datasource, search, ORM, resource and so on), still work, they need OSGi.
+
+When something needs OSGi and no OSGi implementation is available, Lucee installs the OSGi extension in server scope by itself and then goes on with what it was doing. The extension is looked for offline first (already installed, a bundled `.lex`, the `extensions/available` folder), then in the Maven repositories. This happens when:
+
+- an extension with bundles, or with a bundle class definition, is installed or loaded (including bundled `.lex` and `deploy` folder extensions)
+- a class is loaded from a bundle, for example a datasource, cache or search class definition in the configuration (the first time the class is loaded)
+- a mapping uses an archive
+- code calls the `BundleService`
+
+The OSGi extension is installed first, the extension that needs it follows.
+
+### What can go wrong
+
+If the OSGi extension can not be resolved (no internet and no `.lex` available) or can not be installed, the operation fails with an error and nothing is installed:
+
+```
+OSGi is needed for the extension [...] but is not available (...). Please install the OSGi extension (org.lucee:osgi-extension).
+```
+
+### Migration
+
+- On a server that has no internet access at runtime, put the OSGi extension (the `.lex`) into the `deploy` folder or the `extensions/available` folder, or list it in `LUCEE_EXTENSIONS` / `extensions` of the configuration, so it is installed without a download.
+- To turn the automatic installation off, set the system property `-Dlucee.osgi.autoinstall=false` or the environment variable `LUCEE_OSGI_AUTOINSTALL=false`. Lucee then installs nothing and throws the error above, naming the setting, when OSGi is needed. See [[environment-variables-system-properties]].
+- Extension and bundle authors do not have to change anything.
+
+## Per-datasource SQL restrictions are removed
+
+A datasource could restrict the statement types that are allowed on it: select, insert, update, delete, create, drop, revoke, grant and alter. These restrictions were deprecated for a long time, Lucee 9 does not enforce them anymore. Every statement is sent to the database, whatever was set for the datasource. A statement that was rejected with an error like `access denied to execute "Insert" SQL statement for datasource mydsn` runs now.
+
+Restrict the operations on the database side, with the roles and permissions of the database user that the datasource connects with.
+
+### What changed
+
+- The Administrator does not show the checkboxes for the allowed statement types of a datasource anymore.
+- `cfadmin`/`admin` `action="getDatasource"` does not return the keys `select`, `insert`, `update`, `delete`, `create`, `drop`, `grant`, `revoke` and `alter` anymore.
+- `cfadmin`/`admin` `action="updateDatasource"` and `Administrator.updateDatasource()` do not store the `allowed_*`/`allowed*` values anymore. A stored `allow` value of an existing datasource is removed when the datasource is updated.
+- In the loader API, `DataSource.ALLOW_*`, `DataSource.hasAllow(int)` and `DataSource.hasSQLRestriction()` are deprecated. They still exist, `hasAllow()` always returns `true` and `hasSQLRestriction()` always returns `false`.
+
+### What keeps working
+
+Existing configurations and code do not fail, the values are accepted and ignored:
+
+- the `allow` and `allowSelect`, `allowInsert`, ... keys of a datasource in `.CFConfig.json` and `configImport()`
+- the `allow` key of a datasource defined in the `Application.cfc` (`this.datasources`) or passed as a struct
+- the `allowed_*` attributes of `cfadmin`/`admin` and the `allowed*` arguments of `Administrator.updateDatasource()`
+
+### Migration
+
+Code that relied on a restricted datasource to block a statement type has to enforce this on the database. A datasource that only reads data, for example, connects with a database user that has only the `SELECT` privilege:
+
+```sql
+GRANT SELECT ON mydb.* TO 'reporting'@'%';
+```
+
+Remove the `allow` settings from your configuration and `Application.cfc` files when you update them, they have no effect anymore. See [LDEV-5705](https://luceeserver.atlassian.net/browse/LDEV-5705).
+
+## Signatures of updates and extensions are verified
+
+Lucee 9 verifies the OpenPGP signature of the official artifacts it downloads before it installs them. Until now a download was only protected by HTTPS and the checksum headers of the server.
+
+The signature is the detached `.asc` file that Maven Central already requires next to every artifact. It is checked against the Lucee release key ("Lucee <info@lucee.org>"), which is bundled with Lucee. The key is not downloaded from anywhere.
+
+### What is verified
+
+| Download | Verified |
+| --- | --- |
+| Lucee core and loader updates | yes |
+| Extensions (`.lex`), also the dependencies that an extension requires, and the `lucee.extensions` environment variable | yes |
+| Artifacts (`.jar`, `.lco`, `.lex`, `.pom`) of any other group than `org.lucee` | no |
+| `SNAPSHOT` versions | no |
+| Pre-releases of `org.lucee` (a version with a qualifier like `-RC`, `-BETA`) | only if a signature exists, then it must be valid. With `strict` (see below) a signature is required. |
+| Local files (deploy folder, uploads, artifacts that are already in `~/.m2`) | no, they are not downloads |
+
+OSGi bundles and artifacts of third party groups are not verified.
+
+A release of `org.lucee` **without a valid signature is rejected**, the install fails with an error like this:
+
+```
+The signature of [org.lucee:jtds-jdbc-extension:1.3.1:lex] could not be verified: there is no signature at [...]
+Lucee only installs org.lucee artifacts that are signed with the Lucee release key.
+To change this, set the setting 'maven.signatureVerification' in .CFConfig.json, the system property
+lucee.maven.signature.verification or the environment variable LUCEE_MAVEN_SIGNATURE_VERIFICATION to 'warn' or 'off'.
+```
+
+A rejected artifact is not retried, Lucee does not fall back to another repository and the downloaded file is deleted.
+
+### Releases that only exist on the Lucee repository fail now
+
+Older releases that were never published to Maven Central exist only on the Lucee repository (`maven.lucee-services.com`) and have no `.asc` file. They can not be verified, so they can not be installed anymore with the default setting. For example `org.lucee:jtds-jdbc-extension:1.3.1` has no signature, `1.3.1.1` is on Maven Central and is signed.
+
+**What to do:** install a version that is on Maven Central, in most cases that is the latest version of the extension. If you must install an unsigned release, set `maven.signatureVerification` to `warn` or `off` (see below) for the install.
+
+### The setting `maven.signatureVerification`
+
+| Value | Behaviour |
+| --- | --- |
+| `verify` (default) | releases of `org.lucee` must have a valid signature, pre-releases only need a valid signature if one exists |
+| `strict` | like `verify`, but pre-releases must be signed as well |
+| `warn` | verify, but on a failure log a warning to the `maven` log and continue with the install |
+| `off` | no verification |
+
+Set it in the `.CFConfig.json`:
+
+```json
+{
+	"maven": {
+		"signatureVerification": "warn"
+	}
+}
+```
+
+or with a system property or an environment variable (see [[environment-variables-system-properties]]):
+
+```
+-Dlucee.maven.signature.verification=warn
+LUCEE_MAVEN_SIGNATURE_VERIFICATION=warn
+```
+
+The core update that runs in the loader before the configuration is read only knows the system property and the environment variable, not the `.CFConfig.json`.
+
+Third party extension providers or repositories do not need any change, artifacts of other groups than `org.lucee` are not verified. Mirrors of Maven Central must mirror the `.asc` files, otherwise releases of `org.lucee` fail.
+
+Ticket: [LDEV-1554](https://luceeserver.atlassian.net/browse/LDEV-1554)
+
+## `a[1] = x` on an undefined variable creates an array
+
+Assigning with a positive integer literal as index to a variable that does not exist yet creates an **array**, like ACF does. Lucee 8 created a **struct** with the key `"1"`.
+
+```cfml
+a[ 1 ] = "x";
+// Lucee 8: struct { "1": "x" }
+// Lucee 9: array [ "x" ]
+```
+
+This applies when the variable, or the intermediate member, does not exist yet:
+
+| Code | Lucee 9 |
+| --- | --- |
+| `a[ 1 ] = x`, `variables.a[ 1 ] = x`, `local.a[ 1 ] = x`, `s.b[ 1 ] = x` | creates an array |
+| `a[ 1 ][ "Qty" ] = x` | creates an array that holds a struct |
+| `a[ 3 ] = x` | creates an array with 3 elements, the gap is filled with null, like arrays already do |
+| `a[ "1" ] = x`, `a[ i ] = x` (variable as index), `a.b = x` | unchanged, creates a struct |
+| any assignment to a variable that already exists (struct or array) | unchanged |
+
+Code that relied on `a[ 1 ] = x` to create a struct now gets an array: functions like `structKeyExists()`, `structCount()`, `structKeyList()` or a `for ( key in a )` loop on it behave differently, and `isStruct( a )` is `false`.
+
+**What to do:** create the struct explicitly (`a = {}` or `structNew()`) before you assign, or use a string key (`a[ "1" ] = x`).
+
+Ticket: [LDEV-1329](https://luceeserver.atlassian.net/browse/LDEV-1329)
+
+## `cachedWithin` functions are single-flight on a cold cache
+
+On a cold `cachedWithin` function cache, only one call per cache key executes the function now. Concurrent callers with the same arguments wait for it and use the cached result. Before, all concurrent callers executed the function.
+
+- Always on, there is no setting or argument to turn it off.
+- The key is the function and its arguments, per web context. There is no global lock, calls with different keys run in parallel.
+- Waiters wait at most the request timeout. If the first call fails or its result is not cached, each waiter executes the function itself, so nobody waits forever.
+- A function that calls itself with the same arguments does not wait for itself.
+- `cfquery` with `cachedWithin` is not affected.
+
+Code that depends on all concurrent calls executing on a cold cache is affected, for example a function with side effects (a counter, a log entry, a call to another system) that is called at the same time with the same arguments. It is now executed once. Concurrent requests that were served in parallel on a cold cache now wait for the first one, a slow function delays the others.
+
+**What to do:** do not use `cachedWithin` for functions with side effects that must run on every call.
+
+Ticket: [LDEV-1360](https://luceeserver.atlassian.net/browse/LDEV-1360)

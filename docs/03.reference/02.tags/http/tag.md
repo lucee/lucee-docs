@@ -17,7 +17,6 @@ Using cfhttp, you can execute standard GET operations and create a query object 
 
 POST operations lets you upload MIME file types to a server, or post cookie, formfield, URL, file, or CGI variables directly to a specified server.
 
-
 ## Request details in the result
 
 The result struct contains a `request` key (Lucee 9.0 and later) that describes the request that was sent, useful for debugging dynamically built requests.

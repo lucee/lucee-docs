@@ -83,3 +83,4 @@ Description here.
 - `/api/data/Page.cfc`: Page object model
 - `/builders/html/Builder.cfc`: HTML output builder (multi-threaded, Pygments highlighting)
 - `/api/rendering/SyntaxHighlighter.cfc`: Code block highlighting via Jython/Pygments
+- `/.github/scripts/generate-index-recipes.js`: Generates `docs/recipes/index.json`, `README.md`, the `lucee.skill` router and the per-topic skill files in `/skill` (published to `https://docs.lucee.org/skill/`). Recipes are assigned to skill topics by their `categories`.
