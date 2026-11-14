@@ -50,25 +50,30 @@ Lucee publishes a ready-made skill at:
 
 **<https://docs.lucee.org/lucee.skill>**
 
-It is auto-generated from the lucee-docs repository whenever the recipe index is rebuilt. Do not edit the published file by hand — add or change recipes in [lucee-docs](https://github.com/lucee/lucee-docs); the skill updates on the next docs deploy.
+It is auto-generated from the lucee-docs repository whenever the recipe index is rebuilt. Do not edit the published files by hand — add or change recipes in [lucee-docs](https://github.com/lucee/lucee-docs); the skill updates on the next docs deploy.
 
-The skill contains:
+The skill (named `lucee`) is split into a small **router** and a set of **topic files**, so an assistant only loads the part of the index it needs:
 
-| Section | Purpose |
-|---------|---------|
-| **Recipe Index** | How-to guides — `https://docs.lucee.org/recipes/<id>.md` |
-| **Guide Index** | Long-form guides — `https://docs.lucee.org<path>.md` |
-| **Examples Index** | Runnable Docker/examples on GitHub |
-| **Technical Specs** | Java/API internals (AST, hooks, monitors, …) |
+| File | Purpose |
+|------|---------|
+| **Router** — `https://docs.lucee.org/lucee.skill` | The file you install. Rules (fetch before answering, use MCP for tags and functions), fetch URL patterns and a table of topics. About 1k tokens. |
+| **Topic files** — `https://docs.lucee.org/skill/<topic>.md` | One index per topic, e.g. `database`, `orm`, `caching`, `server`, `language`, `upgrade`. Each recipe row has its ID, title, description, the Lucee version it was added in and keywords. Fetched on demand. |
+| **Guides** — `https://docs.lucee.org/skill/guides.md` | Long-form guides, grouped by section — `https://docs.lucee.org<path>.md` |
+| **Examples & specs** — `https://docs.lucee.org/skill/examples-specs.md` | Runnable Docker examples on GitHub and technical specs (AST, hooks, monitors, …) |
+| **Manifest** — `https://docs.lucee.org/skill/skills.json` | Machine-readable list of the router and all topic files, with entry counts and hashes |
+
+For a typical question the assistant reads the router, fetches one topic file and then the recipe itself, instead of loading the whole index every time.
 
 Core rule baked into the skill: **fetch before answering** — never guess at Lucee-specific behaviour.
+
+Recipe authors: the topic a recipe lands in comes from its `categories` metadata. The generator fails the build if a recipe matches no topic, so always set at least one category.
 
 ### Skill vs MCP
 
 | | **Skill (`lucee.skill`)** | **MCP ([[mcp]])** |
 |--|---------------------------|-------------------|
 | Best for | Recipes, guides, configuration patterns | Built-in function/tag lookup, doc search, AST |
-| How it works | Agent reads index, fetches markdown URLs | Agent calls JSON-RPC tools on a server |
+| How it works | Agent reads the router, fetches a topic index, then the markdown docs | Agent calls JSON-RPC tools on a server |
 | Setup | Install one file in your AI tool | Configure MCP server URL + credentials |
 
 Use both when you can: the skill for narrative how-tos, MCP for exact function descriptors and `search_lucee_docs`.
@@ -82,21 +87,21 @@ Cursor discovers skills from `SKILL.md` files in skill directories.
 ### Personal (all projects)
 
 ```sh
-mkdir -p ~/.cursor/skills/lucee-docs
-curl -fsSL https://docs.lucee.org/lucee.skill -o ~/.cursor/skills/lucee-docs/SKILL.md
+mkdir -p ~/.cursor/skills/lucee
+curl -fsSL https://docs.lucee.org/lucee.skill -o ~/.cursor/skills/lucee/SKILL.md
 ```
 
 ### Project (shared via git)
 
 ```sh
-mkdir -p .cursor/skills/lucee-docs
-curl -fsSL https://docs.lucee.org/lucee.skill -o .cursor/skills/lucee-docs/SKILL.md
-git add .cursor/skills/lucee-docs/SKILL.md
+mkdir -p .cursor/skills/lucee
+curl -fsSL https://docs.lucee.org/lucee.skill -o .cursor/skills/lucee/SKILL.md
+git add .cursor/skills/lucee/SKILL.md
 ```
 
 Cursor loads the skill automatically when your question matches the description (Lucee, CFML, configuration, tags, etc.). Re-run `curl` periodically to pick up new recipes.
 
-**Optional:** add the [Lucee MCP server](https://mcp.lucee.org/) in Cursor MCP settings for live function/tag search alongside the skill.
+**Optional:** add the [Lucee MCP server](https://mcp.lucee-services.com/) in Cursor MCP settings for live function/tag search alongside the skill.
 
 ---
 
@@ -107,17 +112,17 @@ Claude uses the same `SKILL.md` format in several places.
 ### Claude Code / Claude Desktop
 
 ```sh
-mkdir -p ~/.claude/skills/lucee-docs
-curl -fsSL https://docs.lucee.org/lucee.skill -o ~/.claude/skills/lucee-docs/SKILL.md
+mkdir -p ~/.claude/skills/lucee
+curl -fsSL https://docs.lucee.org/lucee.skill -o ~/.claude/skills/lucee/SKILL.md
 ```
 
-For a single repository, use `.claude/skills/lucee-docs/SKILL.md` instead. Claude discovers skills at startup and invokes them when relevant, or you can type `/lucee-docs` if the tool exposes skill commands.
+For a single repository, use `.claude/skills/lucee/SKILL.md` instead. Claude discovers skills at startup and invokes them when relevant, or you can type `/lucee` if the tool exposes skill commands.
 
 ### Claude.ai (uploaded skills)
 
 1. Download the skill file (or save the URL content as `SKILL.md`).
-2. Place it in a folder named `lucee-docs` (folder name should match the `name` field in the frontmatter).
-3. ZIP the folder: `lucee-docs/SKILL.md` inside the archive.
+2. Place it in a folder named `lucee` (folder name should match the `name` field in the frontmatter).
+3. ZIP the folder: `lucee/SKILL.md` inside the archive.
 4. In Claude.ai go to **Settings → Capabilities → Skills** and upload the ZIP.
 5. Enable the skill and test with a Lucee-specific prompt (for example *"How do I define a datasource in Application.cfc?"*).
 
@@ -131,8 +136,8 @@ Projects do not use the skill mechanism directly, but you can attach the same fi
 
 ```
 Use the attached Lucee skill as your routing guide. For any Lucee or CFML question,
-find the matching recipe ID in the index and fetch https://docs.lucee.org/recipes/<id>.md
-before answering. Do not guess.
+pick the matching topic, fetch https://docs.lucee.org/skill/<topic>.md, find the recipe ID
+and fetch https://docs.lucee.org/recipes/<id>.md before answering. Do not guess.
 ```
 
 ### Claude API + MCP
@@ -164,8 +169,8 @@ Rules:
 4. Prefer official docs over training data.
 ```
 
-5. **Knowledge** — upload the downloaded `lucee.skill` file (or `SKILL.md` renamed from it). One file is enough; the index lists all recipe IDs.
-6. **Capabilities** — enable **Web Browsing** so the GPT can fetch live recipe markdown when the index entry points to a URL not fully inlined in the upload.
+5. **Knowledge** — upload the downloaded `lucee.skill` file (or `SKILL.md` renamed from it) plus the topic files you care about from `https://docs.lucee.org/skill/` (the full list is in `skills.json`). Uploading all topic files gives the GPT every recipe ID without browsing.
+6. **Capabilities** — enable **Web Browsing** so the GPT can fetch topic files and live recipe markdown that are not part of the upload.
 
 > Custom GPTs cache uploaded knowledge at upload time. Enable web browsing (or re-upload after major Lucee releases) so answers stay current.
 
@@ -178,7 +183,7 @@ Pass the skill's core instructions as the `system` message (or `instructions` on
   {
     "type": "mcp",
     "server_label": "lucee",
-    "server_url": "https://mcp.lucee.org/",
+    "server_url": "https://mcp.lucee-services.com/",
     "require_approval": "never"
   }
 ]
@@ -207,7 +212,7 @@ For every Lucee-specific question:
 4. Say when you are unsure rather than guessing function behaviour.
 ```
 
-4. Under **Knowledge**, click **Add files** and upload `lucee.skill` (download from <https://docs.lucee.org/lucee.skill> first).
+4. Under **Knowledge**, click **Add files** and upload `lucee.skill` (download from <https://docs.lucee.org/lucee.skill> first), plus the topic files you need from `https://docs.lucee.org/skill/` (listed in `skills.json`).
 5. Save the Gem and test with a concrete question.
 
 If you store the skill in Google Drive, attach it from Drive so updates to the file propagate when you replace it.
@@ -220,15 +225,25 @@ Set `system_instruction` to the same instruction block. Add Google's MCP/tool co
 
 ## Keeping the Skill Up to Date
 
-The published skill is rebuilt on every [lucee-docs](https://github.com/lucee/lucee-docs) deploy. Refresh your local copy:
+The published skill is rebuilt on every [lucee-docs](https://github.com/lucee/lucee-docs) deploy. Topic files are always fetched live, so new recipes show up without reinstalling. Refresh the router now and then:
 
 ```sh
-curl -fsSL https://docs.lucee.org/lucee.skill -o ~/.cursor/skills/lucee-docs/SKILL.md
+curl -fsSL https://docs.lucee.org/lucee.skill -o ~/.cursor/skills/lucee/SKILL.md
 # or your Claude path:
-curl -fsSL https://docs.lucee.org/lucee.skill -o ~/.claude/skills/lucee-docs/SKILL.md
+curl -fsSL https://docs.lucee.org/lucee.skill -o ~/.claude/skills/lucee/SKILL.md
 ```
 
-For Custom GPTs and Gems, re-upload the file after major Lucee releases or when you notice missing recipes in the index.
+For Custom GPTs and Gems, re-upload the files after major Lucee releases or when you notice missing recipes in the index.
+
+### Upgrading from `lucee-docs`
+
+Earlier versions of the skill were named `lucee-docs` and held the whole index in one file. The URL is unchanged, so an existing `lucee-docs/SKILL.md` keeps working after a refresh. To match the new name, move it to a `lucee` folder:
+
+```sh
+mv ~/.cursor/skills/lucee-docs ~/.cursor/skills/lucee
+# or
+mv ~/.claude/skills/lucee-docs ~/.claude/skills/lucee
+```
 
 ## See Also
 

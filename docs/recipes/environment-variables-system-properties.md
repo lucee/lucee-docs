@@ -87,6 +87,15 @@ Defines a comma-separated list of Lucee extensions to install when starting up.
 
 The current list of installed extensions is available via the Lucee admin.
 
+#### LUCEE_EXTENSIONS_FAIL_ON_ERROR
+
+*SysProp:* `-Dlucee.extensions.fail.on.error`
+*EnvVar:* `LUCEE_EXTENSIONS_FAIL_ON_ERROR`
+
+A boolean value (default `false`) that makes an invalid `LUCEE_EXTENSIONS` fatal on startup. When `true`, the startup is aborted if an extension defined in `LUCEE_EXTENSIONS` cannot be installed or an entry of the list cannot be parsed. When `false`, the error is written to the deploy log and to stderr and the startup continues.
+
+In warmup mode (`LUCEE_ENABLE_WARMUP`) such a failure always makes the process exit with a non-zero exit code, independent of this setting.
+
 #### LUCEE_EXTENSIONS_CONFIG_ONLY
 
 *SysProp:* `-Dlucee.extensions.config.only`
@@ -238,10 +247,12 @@ previously `LUCEE_READ_CFID_FROM_URL`
 *SysProp:* `-Dlucee.cfid.url.allow` (previously `-Dlucee.read.cfid.from.url`)
 *EnvVar:* `LUCEE_CFID_URL_ALLOW` (previously `LUCEE_READ_CFID_FROM_URL`)
 
-Controls whether Lucee accepts CFID values from URL query strings. Set to false to enhance security by requiring CFIDs to be passed via cookies only.
+Controls whether Lucee accepts CFID and CFTOKEN values from URL query strings. If disabled, they are only accepted from cookies.
 The previous property names are still supported for backward compatibility, but the new names are preferred starting with Lucee 6.2.1.59.
 
-*Setting this to `false` is strongly recommended for all production environments.*
+The default is `false` since Lucee 9.0, before it was `true`. This is a breaking change for applications that pass CFID and CFTOKEN in the URL, see [[breaking-changes-8-0-to-9-0]].
+Set it to `true` to accept them from the URL again, this is not recommended for production environments.
+If the legacy property `lucee.read.cfid.from.url` is also set, it takes precedence.
 
 #### LUCEE_CFID_URL_LOG
 
@@ -715,7 +726,7 @@ The maximum concurrent requests that the engine allows to run at the same time b
 *SysProp:* `-Dlucee.queue.timeout`
 *EnvVar:* `LUCEE_QUEUE_TIMEOUT`
 
-The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected with an exception. If you set it to 0 seconds, the request timeout is used instead.
+The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected and not executed: Lucee logs the exception and responds with HTTP status 503 (Service Unavailable), a `Retry-After` header (the queue timeout in seconds, rounded up, minimum 1) and a short plain text body ("the server is too busy"), as long as the response is not already committed. If you set it to 0 seconds, the request timeout is used instead.
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP
 
@@ -888,6 +899,13 @@ Specifies the file location of the trust store that contains trusted Certificate
 *EnvVar:* `LUCEE_WEB_CHARSET`
 
 Default character set for output streams, form-, URL-, and CGI scope variables, and reading/writing the header.
+
+#### LUCEE_DEPLOY_WATCH
+
+*SysProp:* `-Dlucee.deploy.watch`
+*EnvVar:* `LUCEE_DEPLOY_WATCH`
+
+Default true. By default Lucee checks the deploy folder (extensions, archives, config snippets) every 10 seconds for new files. Set to false to disable this periodic check, for example on a production server. The deploy folder is still processed once at startup. The same setting is available in `.CFConfig.json` as `deployWatch`.
 
 #### LUCEE_CONTROLLER_GC
 
@@ -1222,7 +1240,7 @@ The maximum concurrent requests that the engine allows to run at the same time b
 *SysProp:* `-Dlucee.queue.timeout`
 *EnvVar:* `LUCEE_QUEUE_TIMEOUT`
 
-The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected with an exception. If you set it to 0 seconds, the request timeout is used instead.
+The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected and not executed: Lucee logs the exception and responds with HTTP status 503 (Service Unavailable), a `Retry-After` header (the queue timeout in seconds, rounded up, minimum 1) and a short plain text body ("the server is too busy"), as long as the response is not already committed. If you set it to 0 seconds, the request timeout is used instead.
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP
 

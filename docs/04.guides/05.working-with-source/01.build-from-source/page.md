@@ -12,7 +12,7 @@ See [[building-testing-extensions]] for instructions regarding Extensions
 
 ### 1. Before you get started
 
-Lucee 5.4 is in LTS mode, any new submissions should target the 6.2 branch
+Lucee 5.4 is in LTS mode. Which branch a pull request targets (fixes, breaking changes, new features) is described in [[release-cycle]].
 
 Before you can start building Lucee from source, you will need a few things installed on your machine:
 
@@ -31,7 +31,7 @@ Before you can start building Lucee from source, you will need a few things inst
 
 Lucee's source code is version-controlled with Git, [Lucee GitHub repository](https://github.com/lucee/lucee).
 
-The repository contains a few branches, with the most important ones being "Master" (current release) and "Develop" (alpha and beta releases), currently the main branch for development is the *6.1 branch*, so best start there.
+The repository has one branch per version line (for example `7.1`, `8.0` and `9.0`), see [[release-cycle]] for which one to start from.
 
 So fork the Lucee repo and then checkout your forked repo locally
 
@@ -95,7 +95,7 @@ See **deployLco** below
 ### 5. Submitting Pull Requests (PRs)
 
 - Create an new [issue/ticket](https://issues.lucee.org)
-- Create a [Pull Request](https://github.com/lucee/Lucee/) against the *6.0 Branch* with the issue number in the title (i.e Fix error deserialising JSON LDEV-101) and include the issue URL in the description
+- Create a [Pull Request](https://github.com/lucee/Lucee/) against the branch described in [[release-cycle]] with the issue number in the title (i.e Fix error deserialising JSON LDEV-101) and include the issue URL in the description
 - Finally add the URL to the Pull Request to the issue
 - Please include tests!
 

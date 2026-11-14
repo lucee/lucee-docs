@@ -11,7 +11,9 @@
     "Configuration Validation",
     "Container",
     "Startup",
-    "onBuild"
+    "onBuild",
+    "javaSettings",
+    "Maven"
   ],
   "related": [
     "deploying-lucee-server-apps"
@@ -77,6 +79,61 @@ component {
 
 For more details and examples, see [Docker onBuild](docker-onbuild.md).
 
+## Pre-downloading Maven Dependencies
+
+Java libraries declared in `javasettings` are normally resolved when they are first used, so the first request that needs them waits for the download (and fails if the container has no access to a Maven repository). Warmup can download them ahead of time, depending on where they are declared and which Lucee version you are running.
+
+### Server-level javasettings (Lucee 8)
+
+On Lucee 8, warmup eagerly loads the whole configuration. Server-level `javasettings` in `.CFConfig.json` are resolved then, and the Maven artifacts, including their transitive dependencies, are downloaded into the `mvn` directory under `lucee-server`.
+
+You do not need an extra setting for this during warmup. The same full config load can be forced on a normal start with `LUCEE_CONFIG_VALIDATE=true` (system property `lucee.config.validate`); see [Breaking Changes between Lucee 7.1 and 8.0](breaking-changes-8-0.md).
+
+### Component javasettings (Lucee 9)
+
+Since Lucee 9, when a component with a literal `javasettings` attribute is compiled during warmup, Lucee resolves and downloads the Maven dependencies it declares, including their transitive dependencies, into the same `mvn` directory:
+
+```cfml
+// models/Spreadsheet.cfc
+component javaSettings='{"maven":["org.apache.poi:poi-ooxml:5.2.5"]}' {
+	import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+	import java.io.FileInputStream;
+
+	function readFirstCell( path ) {
+		var workbook = new XSSFWorkbook( new FileInputStream( arguments.path ) );
+		return workbook.getSheetAt( 0 ).getRow( 0 ).getCell( 0 ).getStringCellValue();
+	}
+}
+```
+
+Components are compiled during warmup when `onBuild` loads them, or for all templates of your mappings when you also set `LUCEE_ENABLE_WARMUP_COMPILE=true` (system property `lucee.enable.warmup.compile`):
+
+```dockerfile
+RUN LUCEE_ENABLE_WARMUP=true LUCEE_ENABLE_WARMUP_COMPILE=true /usr/local/tomcat/bin/catalina.sh run
+```
+
+This only happens during warmup, a normal compile never touches the network.
+
+- An invalid Maven coordinate or an artifact that can not be downloaded fails the warmup with a non zero exit code, so the `RUN` step fails and the image is not built with a missing library. All other templates that fail to compile in `LUCEE_ENABLE_WARMUP_COMPILE` are only logged.
+- Only a literal `javasettings` attribute of a component is handled at compile time. Dependencies defined in `Application.cfc` (`this.javaSettings`), in a `javasettings` that points to a `.json` file or passed to `createObject()` are not known at compile time. Server-level `javasettings` in `.CFConfig.json` are already covered on Lucee 8, as described above.
+
+### Alternative: onBuild and mavenLoad
+
+On Lucee 8 and earlier, use this approach for component-level `javasettings`. It also covers dependencies that are not handled at compile time, or when you do not want to compile your templates during warmup. Load them explicitly in `onBuild` with [[function-mavenload]]. An exception in `onBuild` fails the warmup as well:
+
+```cfml
+// Server.cfc
+component {
+
+	public function onBuild( reload ) {
+		mavenLoad( [ "org.apache.poi:poi-ooxml:5.2.5" ] );
+	}
+
+}
+```
+
+See [[maven]] for more about Maven dependencies in Lucee.
+
 ## Docker Example
 
 ```dockerfile
@@ -91,7 +148,13 @@ RUN LUCEE_ENABLE_WARMUP=true /usr/local/tomcat/bin/catalina.sh run
 
 If any configuration is invalid, the `RUN` step fails and the Docker build aborts — preventing a broken image from being deployed.
 
-Warmup also installs the extensions defined in `.CFConfig.json` and stores them in the image, so the container doesn't download them at startup. See [[downloading-extensions]].
+Warmup also installs the extensions defined in `.CFConfig.json` or `LUCEE_EXTENSIONS` (`lucee.extensions`) before `onBuild` runs, and stores them in the image, so the container doesn't download them at startup. See [[downloading-extensions]].
+
+### Invalid `LUCEE_EXTENSIONS` *(Lucee 9)*
+
+If an extension defined in `LUCEE_EXTENSIONS` (`lucee.extensions`) cannot be installed, or an entry of that list cannot be parsed, warmup fails: the error is written to stderr and the deploy log, `onBuild` is not called and Lucee exits with a non-zero exit code, so the Docker build aborts instead of producing an image with missing extensions.
+
+Outside of warmup, the same failure is only logged by default. Set `LUCEE_EXTENSIONS_FAIL_ON_ERROR=true` (`lucee.extensions.fail.on.error`) to abort a normal startup as well. See [[environment-variables-system-properties]].
 
 ## Upgrading to Lucee 7
 
@@ -101,7 +164,9 @@ Because Lucee 7 now validates all configuration sections during warmup, upgradin
 
 - **[Running Lucee with Docker](docker.md)** - Complete Docker setup and configuration guide
 - **[Docker onBuild](docker-onbuild.md)** - The `onBuild` lifecycle hook in detail
+- **[Maven](maven.md)** - Loading Java libraries with Maven
 - **[Extensions](extensions.md)** - Managing Lucee extensions
+- **[Breaking Changes between Lucee 7.1 and 8.0](breaking-changes-8-0.md)** - Includes `LUCEE_CONFIG_VALIDATE`
 
 ## Getting Help
 
