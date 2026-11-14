@@ -35,6 +35,14 @@ CFML Editor has an option to use the full Lucee docs as the source for inline he
 
 [[lucee-step-debugger]]
 
+## JetBrains IDEs
+
+<https://plugins.jetbrains.com/plugin/35485-lucee-cfml>
+
+The IntelliLucee (Lucee CFML) plugin for JetBrains IDEs including IDEA, PyCharm, and WebStorm. Provides syntax highlighting, built-in docs, code completion, and debugging.
+
+Installation Docs and Usage can be found here: <https://github.com/quetwo/intellilucee/wiki>
+
 ## NeoVim
 
 <https://neovim.io/>
@@ -96,6 +104,8 @@ here is a sample .cflintrc file which reduces the noise
 <https://www.fusion-reactor.com/>
 
 <http://www.fusion-debug.com/>
+
+<https://github.com/cfmleditor/clif> CLIF Project (LSP server, Linter, MCP server, etc.)
 
 ## Lucee Dictionaries
 
