@@ -2,7 +2,7 @@
 {
   "title": "Java Flight Recorder (JFR) Support",
   "id": "jfr_support",
-  "since": "7.0",
+  "since": "8.0",
   "categories": ["debugging", "performance"],
   "description": "Emit custom JFR events from Lucee for low-overhead production profiling",
   "keywords": [
@@ -47,7 +47,7 @@ Java Flight Recorder (JFR) is a low-overhead profiling and diagnostics framework
 - [Using JFR to Monitor Applications](https://bell-sw.com/announcements/2021/04/09/using-java-flight-recorder-to-monitor-applications/) - Practical monitoring guide
 - [JFR Command Reference](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jfr.html) - Command-line tool documentation
 
-Lucee 7.0+ adds native support for emitting custom JFR events from your CFML code, allowing you to:
+Lucee 8.0+ adds native support for emitting custom JFR events from your CFML code, allowing you to:
 
 - Track business-critical operations alongside JVM metrics
 - Correlate application behavior with system performance
