@@ -1,0 +1,1 @@
+Keystore type (JKS, PKCS12). Auto-detected if omitted.

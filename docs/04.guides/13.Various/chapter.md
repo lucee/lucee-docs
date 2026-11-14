@@ -17,8 +17,6 @@ This is the temporary location where all the new links will be added.
 
 [[configuration-directory-placeholders]]
 
-[[configuration-flex]]
-
 [[configuration-web-xml]]
 
 [[contributing-contributors-agreement]]
@@ -45,7 +43,7 @@ This is the temporary location where all the new links will be added.
 
 [[about-lucee-how-to-get-help]]
 
-[[orm-start]]
+[[orm-getting-started]]
 
 [[query-of-queries]]
 
@@ -63,8 +61,6 @@ This is the temporary location where all the new links will be added.
 
 [[setting-dev-environment-osx]]
 
-[[special-feeds]]
-
 [[installation-installer-documentation]]
 
 [[tips-lucee]]
@@ -74,8 +70,6 @@ This is the temporary location where all the new links will be added.
 [[tutorial-lucee]]
 
 [[Ubuntu-lucee-with-Tomcat-multi-instance]]
-
-[[useful-resources-further-reading]]
 
 [[why-lucee-server-great]]
 

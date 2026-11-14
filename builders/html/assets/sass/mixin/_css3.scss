@@ -14,9 +14,7 @@
 }
 
 @mixin box-sizing($sizing) {
-	-webkit-box-sizing: $sizing;
-	   -moz-box-sizing: $sizing;
-	        box-sizing: $sizing;
+	box-sizing: $sizing;
 }
 
 @mixin opacity($alpha) {
@@ -28,19 +26,28 @@
 @mixin placeholder($color) {
 	&:-ms-input-placeholder {
 		color: $color;
+		font-style: italic;
+		opacity: 0.8;
 	}
 	&::-moz-placeholder {
 		color: $color;
-		opacity: 1;
+		font-style: italic;
+		opacity: 0.8;
 	}
 	&::-webkit-input-placeholder {
 		color: $color;
+		font-style: italic;
+		opacity: 0.8;
+	}
+	&::placeholder {
+		color: $color;
+		font-style: italic;
+		opacity: 0.8;
 	}
 }
 
 @mixin transform($transform...) {
 	-webkit-transform: $transform;
-	    -ms-transform: $transform;
 	        transform: $transform;
 }
 
@@ -51,7 +58,5 @@
 
 @mixin user-select($select) {
 	-webkit-user-select: $select;
-	   -moz-user-select: $select;
-	    -ms-user-select: $select;
 	        user-select: $select;
 }

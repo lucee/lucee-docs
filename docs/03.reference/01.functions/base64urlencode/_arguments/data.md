@@ -1,0 +1,1 @@
+String or binary data to encode

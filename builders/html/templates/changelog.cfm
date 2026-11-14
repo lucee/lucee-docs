@@ -12,23 +12,41 @@
 	q = QueryNew("type,ref,name,introduced,sort,description");
 
 	function addChangeLog(q, page, ref, name, introduced, description){
-		var r = queryAddRow(q);
-		querySetCell(q,"type", arguments.page.getPageType());
-		querySetCell(q,"ref", arguments.ref);
-		querySetCell(q,"name", arguments.name);
-		querySetCell(q,"introduced", arguments.introduced);
-
-		var sort=[];
-		var intro = [];
-		loop list="#arguments.introduced#" delimiters="." item="local.v" {
-			if (v eq "000") v = 0;
-			arrayAppend(sort, numberFormat(v, "0000"));
-			arrayAppend(intro, v);
+	// systemOutput( "addChangeLog: ref=[#arguments.ref#], name=[#arguments.name#], introduced=[#arguments.introduced#]", true ); // Debug logging
+	var r = queryAddRow(q);
+	querySetCell(q,"type", arguments.page.getPageType());
+	
+	// Format reference based on page type
+	var formattedRef = arguments.ref;
+	if (arguments.page.getPageType() == "function") {
+		if (arguments.ref contains "function-") {
+			formattedRef = replaceNocase(arguments.ref, "function-", "functions/");
+		} else {
+			formattedRef = "functions/" & arguments.ref;
 		}
-		querySetCell(q,"introduced", intro.toList("."));
-		querySetCell(q,"sort", sort.toList(""));
-		querySetCell(q,"description", arguments.description);
+	} else if (arguments.page.getPageType() == "tag") {
+		if (arguments.ref contains "tag-") {
+			formattedRef = replaceNocase(arguments.ref, "tag-", "tags/");
+		} else {
+			formattedRef = "tags/" & arguments.ref;
+		}
 	}
+	
+	querySetCell(q,"ref", formattedRef);
+	querySetCell(q,"name", arguments.name);
+	querySetCell(q,"introduced", arguments.introduced);
+
+	var sort=[];
+	var intro = [];
+	loop list="#arguments.introduced#" delimiters="." item="local.v" {
+		if (v eq "000") v = 0;
+		arrayAppend(sort, numberFormat(v, "0000"));
+		arrayAppend(intro, v);
+	}
+	querySetCell(q,"introduced", intro.toList("."));
+	querySetCell(q,"sort", sort.toList(""));
+	querySetCell(q,"description", arguments.description);
+}
 </cfscript>
 
 <cfloop collection="#pc#" key="key" value="value">
@@ -36,7 +54,8 @@
 		<cfset changed = false>
 		<cfif len(value.page.getIntroduced()) gt 0>
 			<cfscript>
-				addChangeLog(q, value.page, key, value.page.getTitle(), value.page.getIntroduced(), "");
+				// systemOutput( "Page with introduced: id=[#value.page.getId()#], title=[#value.page.getTitle()#], type=[#value.page.getPageType()#], introduced=[#value.page.getIntroduced()#]", true ); // Debug logging
+				addChangeLog(q, value.page, value.page.getId(), value.page.getTitle(), value.page.getIntroduced(), "");
 			</cfscript>
 		<cfelseif value.page.getPageType() eq "tag">
 			<!--- check attributes --->
@@ -49,7 +68,8 @@
 				<cfloop array="#tagAttr#" item="attr">
 					<cfif len(attr.introduced?:"")>
 						<cfscript>
-							addChangeLog(q, value.page, key, value.page.getName(), attr.introduced,
+							// systemOutput( "Tag attribute with introduced: tagId=[#value.page.getId()#], tagName=[#value.page.getName()#], attrName=[#attr.name#], introduced=[#attr.introduced#]", true ); // Debug logging
+							addChangeLog(q, value.page, value.page.getId(), value.page.getName(), attr.introduced,
 								'&lt;cf#value.page.getName()# #attr.name#="#attr.type#"&gt;'
 							);
 						</cfscript>
@@ -65,7 +85,7 @@
 				<cfloop array="#funcArg#" item="arg">
 					<cfif len(arg.introduced?:"")>
 						<cfscript>
-							addChangeLog(q, value.page, key, value.page.getName(), arg.introduced,
+							addChangeLog(q, value.page, value.page.getId(), value.page.getName(), arg.introduced,
 								'#listFirst(value.page.getTitle(),"()")#( #arg.name#="#arg.type#")'
 							);
 						</cfscript>
@@ -95,7 +115,7 @@
 		<ul>
 		<cfoutput>
 			<li>
-				<a href="#q.ref#.html">
+				<a href="/reference/#q.ref#.html">
 				<cfif len(q.description)>
 					#q.description#
 				<cfelse>

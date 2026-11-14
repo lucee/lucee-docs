@@ -4,6 +4,8 @@ id: tag-rethrow
 related:
 - tag-catch
 - tag-try
+categories:
+- flow-control
 ---
 
 Rethrows the currently active exception.

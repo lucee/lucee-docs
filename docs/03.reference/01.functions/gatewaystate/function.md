@@ -2,7 +2,7 @@
 title: GatewayState
 id: function-gatewaystate
 categories:
-- gateways
+- event-gateways
 ---
 
 Return the current state for the given gateway id.

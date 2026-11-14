@@ -1,0 +1,1 @@
+Account identifier, typically an email address

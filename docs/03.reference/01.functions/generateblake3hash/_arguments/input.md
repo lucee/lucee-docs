@@ -1,0 +1,1 @@
+Data to hash (string or binary)

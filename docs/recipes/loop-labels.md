@@ -11,6 +11,10 @@
     "continue",
     "break"
   ],
+  "categories": [
+    "iterator",
+    "flow-control"
+  ],
   "related": [
     "tag-loop"
   ]
@@ -23,11 +27,7 @@ Lucee supports labels for all loop tags and statements, allowing you to control 
 
 Labels are particularly useful when using the `break` or `continue` statements to avoid affecting only the nearest enclosing loop.
 
-### Example
-
-Consider the following examples:
-
-### Tag-Based Example
+## Tag-Based Example
 
 In this example, the `break` statement is used with a label to exit the outer loop:
 
@@ -42,7 +42,7 @@ In this example, the `break` statement is used with a label to exit the outer lo
 
 Here, the `cfbreak` statement with the `outerLoop` label causes the loop to break out of the outer loop, not just the inner loop. As a result, only a single time value is printed.
 
-### Script-Based Example
+## Script-Based Example
 
 Similarly, you can use labels in script-based loops:
 
@@ -59,8 +59,23 @@ outerloop:for(hour=0; hour<=4; hour++) {
 
 In this example, the `continue outerloop` statement causes the loop to skip to the next iteration of the outer loop, effectively restarting the outer loop and ignoring the remaining iterations of the inner loop.
 
-### Summary
+## While Loop Example
 
-Using labels with `break` and `continue` statements in Lucee allows you to control nested loops more effectively by specifying which loop to break out of or continue. This provides greater flexibility and clarity in managing complex looping structures.
+Labels work the same way with `while` loops:
 
-If you have any questions or need further clarification, feel free to ask!
+```cfscript
+hour = 0;
+outerloop: while( hour <= 4 ) {
+    minute = 1;
+    while( minute <= 60 ) {
+        echo( "time: " & hour & ":" & minute & "<br>" );
+        minute++;
+        if( minute > 3 ) break outerloop; // exits both while loops
+    }
+    echo( "in outer loop<br>" ); // never executed
+    hour++;
+}
+echo( hour ); // outputs 0
+```
+
+`break outerloop` exits both `while` loops immediately — the outer loop body after the inner loop is never reached, and `hour` is never incremented.

@@ -1,4 +1,8 @@
 component {
+	// Cache expensive singleton instances
+	variables.yamlParser = new api.parsers.ParserFactory().getYamlParser();
+	variables.referenceReaderFactory = new api.reference.ReferenceReaderFactory();
+
 	public any function preparePageObject(required string rootDir, required string pageType, required string pageDir, required string pagePath ) {
 		var page = "";
 		var pageData = readPageFile(arguments.rootDir, arguments.pageType, arguments.pageDir );
@@ -29,52 +33,62 @@ component {
 					default:
 						page = new Page( argumentCollection=pageData );
 				}
+
+				cfloop( collection=pageData, item="local.value", index="local.key" ) {
+					if ( !IsNull( local.value ) ) {
+						page[ local.key ] = local.value;
+					}
+				}
 			}
+		
+			// hack to restructure recipes as docs content
+			if ( listFirst( page.getPath(), "/" ) eq "recipes" ){
+				page.setSlug( page.getPageType() )
+				
+				if (page.getPageType() eq "README"){
+					page.setPath( page.getPath() );
+					page.setPageType( "listing" );
+					page.setListingStyle( "flat" );
+					page.setVisible( true );
+					page.setReference( true );
+					page.setBody( "Detailed Recipes showing you how to take advantage of the wide range of features in Lucee" );
+					page.setMenuTitle( "Recipes" );
+					page.setTitle( "Lucee Recipes" );
+					page.setDescription( "Detailed Recipes showing you how to take advantage of the wide range of features in Lucee" );
+					page.setForceSortOrder( 5.5 );
+					page.setSortOrder( 4.5 );
+					page.setSlug("recipes");
+					page.setId("recipes");
+				} else {
+					page.setPath( page.getPath() & "/" & replace( page.getPageType(), ".md", "" ) );
+					page.setPageType( "page" );
+				}
+			} else {
+				page.setPath( arguments.pagePath );
+			}
+
+			if ( !page.getId().len() ) {
+				if ( page.isPage()
+					&& arguments.pageType != "homepage.md"
+					&& !page.getPath().startsWith("/technical-specs")
+					&& !page.getPath().contains("/_arguments")
+					&& !page.getPath().contains("/_attributes") ) {
+					throw(
+						type = "MissingPageId",
+						message = "Page is missing 'id' field in metadata: Path=#page.getPath()#, File=#arguments.pageDir##arguments.pageType#"
+					);
+				}
+				page.setId( page.getPath() );
+			}
+
+			page.setChildren( [] );
+			page.setDepth( ListLen( page.getPath(), "/" ) );
 		} catch (any e) {
-			writeOutput("Error preparing page: " & pageFilePath);
-			dump( pageData );
+			systemOutput("Error preparing page: " & pageFilePath & ", " & e.stacktrace);
+			writeOutput("Error preparing page: " & pageFilePath & ", " & e.stacktrace);
 			echo( e );
 			abort;
 		}
-
-		for( var key in pageData ) {
-			if ( !IsNull( pageData[ key ] ) ) {
-				page[ key ] = pageData[ key ];
-			}
-		}
-
-		// hack to restructure recipes as docs content
-		if ( listFirst( page.getPath(), "/" ) eq "recipes" ){
-			page.setSlug( page.getPageType() )
-			
-			if (page.getPageType() eq "README"){
-				page.setPath( page.getPath() );
-				page.setPageType( "listing" );
-				page.setListingStyle( "flat" );
-				page.setVisible( true );
-				page.setReference( true );
-				page.setBody( "Detailed Recipes showing you how to take advantage of the wide range of features in Lucee" );
-				page.setMenuTitle( "Recipes" );
-				page.setTitle( "Lucee Recipes" );
-				page.setDescription( "Detailed Recipes showing you how to take advantage of the wide range of features in Lucee" );
-				page.setForceSortOrder( 5.5 );
-				page.setSortOrder( 4.5 );
-				page.setSlug("recipes");
-				page.setId("recipes");
-			} else {
-				page.setPath( page.getPath() & "/" & replace( page.getPageType(), ".md", "" ) );
-				page.setPageType( "page" );
-			}
-		} else {
-			page.setPath( arguments.pagePath );
-		}
-
-		if ( !page.getId().len() ) {
-			page.setId( page.getPath() );
-		}
-
-		page.setChildren( [] );
-		page.setDepth( ListLen( page.getPath(), "/" ) );
 		return page;
 	}
 
@@ -120,6 +134,12 @@ component {
 		//_extractMarkdownLinks(data.related, data.body);
 		//new api.parsers.ParserFactory().getMarkdownParser().validateMarkdown( data );
 
+		// Extract meta description from body if not explicitly set in YAML
+		// Store in separate property so it doesn't appear as custom description when editing
+		if ( !len( trim( data.description ?: "" ) ) && len( trim( data.body ?: "" ) ) ) {
+			data.extractedDescription = _extractDescriptionFromBody( data.body );
+		}
+
 		return data;
 	}
 
@@ -159,11 +179,11 @@ component {
 	}
 
 	private struct function _splitYamlAndBody( required string pageContent, string filePath ) {
-		var splitterRegex = "^(\-\-\-\n(.*?)\n\-\-\-\n)?(.*)$";
+		var splitterRegex = "(?s)^(\-\-\-\n(.*?)\n\-\-\-\n)?(.*)$";
 
 		return {
-			  yaml = Trim( ReReplace( arguments.pageContent, splitterRegex, "\2" ) )
-			, body = Trim( ReReplace( arguments.pageContent, splitterRegex, "\3" ) )
+			  yaml = Trim( ReReplace( arguments.pageContent, splitterRegex, "$2" ) )
+			, body = Trim( ReReplace( arguments.pageContent, splitterRegex, "$3" ) )
 		}
 	}
 
@@ -209,11 +229,11 @@ component {
 	}
 
 	private struct function _parseYaml( required string yaml ) {
-		return new api.parsers.ParserFactory().getYamlParser().yamlToCfml( arguments.yaml );
+		return variables.yamlParser.yamlToCfml( arguments.yaml );
 	}
 
 	private string function _toYaml( required any data ) {
-		return new api.parsers.ParserFactory().getYamlParser().cfmlToYaml( arguments.data );
+		return variables.yamlParser.cfmlToYaml( arguments.data );
 	}
 
 	private boolean function _isWindows(){
@@ -233,8 +253,9 @@ component {
             }
         }
 		// add any other remaining properties which don't have an order defined
-        for (var other in props)
-            orderedProps[other] = props[other];
+        cfloop( collection=props, item="local.value", index="local.key" ) {
+            orderedProps[local.key] = local.value;
+		}
 
 		return orderedProps;
 	}
@@ -254,11 +275,47 @@ component {
 		var attributesDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributes/";
 		var attrFiles = getFilesInDirectory(attributesDir);
 
-		for( var attrib in attributes ) {
-			if (structKeyExists(attrFiles, attrib.name & ".md" )){
-				var attribDescriptionFile = attributesDir & attrFiles[attrib.name & ".md"]; // avoid file system case problems
-				attrib.descriptionOriginal = attrib.description;
-				attrib.description = FileReadAsUnix( attribDescriptionFile );
+		cfloop( array=attributes, item="local.attrib" ) {
+			if (structKeyExists(attrFiles, local.attrib.name & ".md" )){
+				var attribDescriptionFile = attributesDir & attrFiles[local.attrib.name & ".md"]; // avoid file system case problems
+				local.attrib.descriptionOriginal = local.attrib.description;
+				local.attrib.description = FileReadAsUnix( attribDescriptionFile );
+			}
+		}
+
+		// LDEV-5901: Merge attribute group markdown files with TLD data
+		var attributeGroups = tag.attributeGroups ?: [];
+		var attributeGroupsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_attributeGroups/";
+		var groupFiles = getFilesInDirectory( attributeGroupsDir );
+
+		cfloop( array=attributeGroups, item="local.group" ) {
+			if ( structKeyExists( groupFiles, local.group.name & ".md" ) ) {
+				var groupFile = attributeGroupsDir & groupFiles[ local.group.name & ".md" ];
+				var groupContent = FileReadAsUnix( groupFile );
+
+				// Parse frontmatter for label
+				if ( groupContent.trim().startsWith( "---" ) ) {
+					var parts = groupContent.split( "---" );
+					if ( arrayLen( parts ) >= 3 ) {
+						var frontmatter = parts[ 2 ].trim();
+						var body = arrayLen( parts ) > 3 ? parts.slice( 4 ).toList( "---" ) : parts[ 3 ];
+
+						// Extract label from frontmatter
+						var labelMatch = reFind( "label:\s*(.+)", frontmatter, 1, true );
+						if ( labelMatch.pos[ 2 ] > 0 ) {
+							local.group.labelOriginal = local.group.label;
+							local.group.label = mid( frontmatter, labelMatch.pos[ 2 ], labelMatch.len[ 2 ] ).trim();
+						}
+
+						// Use body as description
+						local.group.descriptionOriginal = local.group.description;
+						local.group.description = body.trim();
+					}
+				} else {
+					// No frontmatter, just override description
+					local.group.descriptionOriginal = local.group.description;
+					local.group.description = groupContent.trim();
+				}
 			}
 		}
 
@@ -282,11 +339,11 @@ component {
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
 		var argsFiles = getFilesInDirectory(argsDir);
 
-		for( var arg in args ) {
-			if (structKeyExists(argsFiles, arg.name & ".md" )){
-				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
-				arg.descriptionOriginal = arg.description;
-				arg.description = FileReadAsUnix( argDescriptionFile );
+		cfloop( array=args, item="local.arg" ) {
+			if (structKeyExists(argsFiles, local.arg.name & ".md" )){
+				var argDescriptionFile = argsDir & argsFiles[local.arg.name & ".md"]; // avoid file system case problems
+				local.arg.descriptionOriginal = local.arg.description;
+				local.arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
 
@@ -315,17 +372,22 @@ component {
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
 		var argsFiles = getFilesInDirectory(argsDir);
 
-		for( var arg in args ) {
-			if (structKeyExists(argsFiles, arg.name & ".md" )){
-				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
-				arg.descriptionOriginal = arg.description;
-				arg.description = FileReadAsUnix( argDescriptionFile );
+		cfloop( array=args, item="local.arg" ) {
+			if (structKeyExists(argsFiles, local.arg.name & ".md" )){
+				var argDescriptionFile = argsDir & argsFiles[local.arg.name & ".md"]; // avoid file system case problems
+				local.arg.descriptionOriginal = local.arg.description;
+				local.arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
 
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
 		if ( FileExists( examplesFile ) ) {
 			obj.examples = FileReadAsUnix( examplesFile );
+		}
+
+		var usageNotesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_usageNotes.md";
+		if ( FileExists( usageNotesFile ) ) {
+			obj.usageNotes = FileReadAsUnix( usageNotesFile );
 		}
 
 		return obj;
@@ -338,12 +400,12 @@ component {
 		var argsDir = GetDirectoryFromPath( arguments.pageFilePath ) & "_arguments/";
 		var argsFiles = getFilesInDirectory(argsDir);
 
-		for( var arg in args ) {
-			var argDescriptionFile = argsDir & arg.name & ".md";
-			if (structKeyExists(argsFiles, arg.name & ".md" )){
-				var argDescriptionFile = argsDir & argsFiles[arg.name & ".md"]; // avoid file system case problems
-				arg.descriptionOriginal = arg.description;
-				arg.description = FileReadAsUnix( argDescriptionFile );
+		cfloop( array=args, item="local.arg" ) {
+			var argDescriptionFile = argsDir & local.arg.name & ".md";
+			if (structKeyExists(argsFiles, local.arg.name & ".md" )){
+				argDescriptionFile = argsDir & argsFiles[local.arg.name & ".md"]; // avoid file system case problems
+				local.arg.descriptionOriginal = local.arg.description;
+				local.arg.description = FileReadAsUnix( argDescriptionFile );
 			}
 		}
 		var examplesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_examples.md";
@@ -351,24 +413,75 @@ component {
 			meth.examples = FileReadAsUnix( examplesFile );
 		}
 
+		var usageNotesFile = GetDirectoryFromPath( arguments.pageFilePath ) & "_usageNotes.md";
+		if ( FileExists( usageNotesFile ) ) {
+			meth.usageNotes = FileReadAsUnix( usageNotesFile );
+		}
+
 		return meth;
 	}
 
 	private any function _getFunctionReferenceReader() {
-		return new api.reference.ReferenceReaderFactory().getFunctionReferenceReader();
+		return variables.referenceReaderFactory.getFunctionReferenceReader();
 	}
 
 	private any function _getObjectReferenceReader() {
-		return new api.reference.ReferenceReaderFactory().getObjectReferenceReader();
+		return variables.referenceReaderFactory.getObjectReferenceReader();
 	}
 
 	private any function _getMethodReferenceReader() {
-		return new api.reference.ReferenceReaderFactory().getMethodReferenceReader();
+		return variables.referenceReaderFactory.getMethodReferenceReader();
 	}
 
 	private any function _getTagReferenceReader() {
 		//var buildProperties = new api.build.BuildProperties();
-		return new api.reference.ReferenceReaderFactory().getTagReferenceReader();
+		return variables.referenceReaderFactory.getTagReferenceReader();
+	}
+
+	private string function _extractDescriptionFromBody( required string body ) {
+		var description = arguments.body;
+
+		// Extract first paragraph from markdown (content before first blank line or until reasonable length)
+		var lines = ListToArray( description, chr(10) & chr(13), false, true );
+		var firstPara = "";
+
+		for ( var line in lines ) {
+			line = Trim( line );
+			// Skip empty lines at start
+			if ( !Len( line ) && !Len( firstPara ) ) {
+				continue;
+			}
+			// Stop at first empty line after content starts
+			if ( !Len( line ) && Len( firstPara ) ) {
+				break;
+			}
+			// Skip code blocks and headers
+			if ( Left( line, 3 ) == "```" || Left( line, 1 ) == "##" ) {
+				continue;
+			}
+			firstPara &= " " & line;
+		}
+
+		description = Trim( firstPara );
+
+		// Convert wiki links [[tag]] to plain text
+		description = ReReplace( description, "\[\[([^\]]+)\]\]", "$1", "all" );
+
+		// Remove markdown formatting
+		description = ReReplace( description, "\*\*([^\*]+)\*\*", "$1", "all" ); // bold
+		description = ReReplace( description, "\*([^\*]+)\*", "$1", "all" ); // italic
+		description = ReReplace( description, "`([^`]+)`", "$1", "all" ); // code
+
+		// Clean up whitespace
+		description = ReReplace( description, "\s+", " ", "all" );
+		description = Trim( description );
+
+		// Limit to reasonable length (160 chars is SEO best practice)
+		if ( Len( description ) > 160 ) {
+			description = Left( description, 157 ) & "...";
+		}
+
+		return description;
 	}
 
 }

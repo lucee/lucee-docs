@@ -1,6 +1,9 @@
 ---
 title: Lockdown Guide
 id: cookbook-lockdown-guide
+categories:
+- server
+- devops
 ---
 
 # Lockdown Guide #

@@ -2,7 +2,7 @@
 title: GatewayAction
 id: function-gatewayaction
 categories:
-- gateways
+- event-gateways
 ---
 
 Executes a specific action for a gateway instance.

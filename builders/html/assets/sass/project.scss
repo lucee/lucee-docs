@@ -29,17 +29,18 @@
 		// border-radius : 10px;
 		width         : 400px;
 		max-height    : 550px;
-		overflow-y : scroll;
+		overflow-y : auto;
 		text-overflow: ellipsis;
 
-		background-color: $white;
-		@include box-shadow(0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15));
+		background-color: var( --bg-surface );
+		border: 1px solid var( --border-color );
+		@include box-shadow(0 -1px 0 var( --border-color ), 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15));
 		@include clearfix();
 		&[href] {
-			color: $black-text;
+			color: var( --text-color );
 			&:focus,
 			&:hover {
-				color: $link-color;
+				color: var( --link-color );
 				text-decoration: none;
 			}
 		}
@@ -54,8 +55,13 @@
 		}
 
 		.toc-list a {
-			font-size   : 85%;
-			line-height : 1;
+			font-size: 85%;
+			line-height: 1.4;
+			display: block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			padding: 4px 0;
 		}
 	}
 }

@@ -22,13 +22,11 @@
 
 # Sub Components
 
-Since Lucee 6.0, Lucee allows you to create Sub Components.
+Since Lucee 6.0, you can create sub components - additional components defined in a `.cfc` file after the main component. Before this, CFML required every component to be in a separate file.
 
-These are additional components created in a `.cfc` after the main component.
+This is useful when a component needs closely-related sub components, like an Address component with a Person sub component inside.
 
-Before this was introduced, CFML was limited to requiring every component to be placed in a separate CFC file.
-
-After the main component, simply add as many additional components as you like with the attribute "name" like this:
+Add components after the main one with the `name` attribute:
 
 ```lucee
 component {
@@ -43,9 +41,7 @@ component name="Sub" {
 }
 ```
 
-This is useful when a component needs sub components, like an Address component could have a Person component inside.
-
-Here is an example of how you can address/load these sub components:
+Access sub components using `$` notation:
 
 ```lucee
 cfc = new MyCFC();

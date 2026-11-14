@@ -1,0 +1,1 @@
+Hash algorithm: SHA256, SHA384, or SHA512

@@ -5,6 +5,8 @@ related:
 - tag-catch
 - tag-throw
 - tag-try
+categories:
+- flow-control
 ---
 
 Used inside a cftry tag.

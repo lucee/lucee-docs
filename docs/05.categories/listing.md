@@ -1,7 +1,7 @@
 ---
 title: Categories
 id: categories
-listingStyle: a-z
+listingStyle: flat
 forceSortOrder: 4
 ---
 

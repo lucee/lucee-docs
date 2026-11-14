@@ -1,7 +1,7 @@
 
 <!--
 {
-  "title": "Breaking Changes Between Lucee 5.4 and 6.0",
+  "title": "Breaking Changes between Lucee 5.4 and 6.0",
   "id": "breaking-changes-5-4-to-6-0",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 5.4 and 6.0",
@@ -10,9 +10,9 @@
 }
 -->
 
-# Breaking Changes Between Lucee 5.4 and 6.0
+# Breaking Changes between Lucee 5.4 and 6.0
 
-This document outlines all the breaking changes which you should be aware with when upgrading from Lucee 5.4 to Lucee 6.0. 
+This document outlines all the breaking changes you need to know for your upgrade from Lucee 5.4 to Lucee 6.0. Use it as a migration checklist. 
 
 The decision to make breaking changes are not made lightly, generally speaking, they are made to align Lucee with ACF where possible, address performance or edge cases which can lead to problems, and also to address potential security issues.
 
@@ -74,7 +74,7 @@ With Lucee 6, we have changed this behaviour to match ACF, as this can introduce
 
 This behaviour for VARCHAR values remains unchanged.
 
-For compatibility, there is an environment variable `LUCEE_QUERY_ALLOWEMPTYASNULL=TRUE` which can be set to re-enable the older behavior.
+**Restore old behavior (if needed):** [[content::sysprop-envvar#LUCEE_QUERY_ALLOWEMPTYASNULL]]
 
 [LDEV-4410](https://luceeserver.atlassian.net/browse/LDEV-4410)
 
@@ -88,7 +88,7 @@ The order of the arguments for the member function [[method-datetime-diff]] was 
 
 Prior to Lucee 6, Lucee would bundle its own `cacerts` file, which caused problems over time as newer root certificates wouldn't be accepted.
 
-There is an environment variable `LUCEE.USE.LUCEE.SSL.TRUSTSTORE=TRUE` which can be set to re-enable the older behavior.
+**Restore old behavior (if needed):** [[content::sysprop-envvar#LUCEE_USE_LUCEE_SSL_TRUSTSTORE]]
 
 Since this change, [[function-sslcertificateinstall]] no longer works
 
@@ -120,7 +120,7 @@ You can revert this change by setting custom values.
 
 The previous behaviour lead to problems on Linux systems
 
-To revert to the previous behaviour, use the environment variable `LUCEE_MAPPING_FIRST=FALSE`
+**Restore old behavior (if needed):** [[content::sysprop-envvar#LUCEE_MAPPING_FIRST]]
 
 [LDEV-1718](https://luceeserver.atlassian.net/browse/LDEV-1718)
 
@@ -150,7 +150,7 @@ Previously the `.query.map()` member function would modify the query, rather tha
 
 For better performance and memory usage, an empty session or client scope is no longer saved.
 
-To restore previous behaviour, use the environment variables `LUCEE_STORE_EMPTY=TRUE`
+**Restore old behavior (if needed):** [[content::sysprop-envvar#LUCEE_STORE_EMPTY]]
 
 [[session-handling]]
 
@@ -212,11 +212,9 @@ This was changed to match modern security expectations, as session tokens should
 
 [LDEV-3453](https://luceeserver.atlassian.net/browse/LDEV-3453)
 
-### Query.addRow() member function now returns the updated query
+### ACF Compatibility Query.addRow(), Query.addColumn(), Query.deleteRow(), Query.deleteColumn()
 
-Previously it returned the number of rows, this was changed to match ACF
-
-[[method-query-addrow]]
+For ACF compatibility, the member functions `Query.addRow()`, `Query.addColumn()`, `Query.deleteRow()`, and `Query.deleteColumn()` return the updated query (allowing method chaining).
 
 [LDEV-3581](https://luceeserver.atlassian.net/browse/LDEV-3581)
 
@@ -237,6 +235,22 @@ Lucee 7 adds an additional argument, `useBrackets` to control this behavior
 [LDEV-3743](https://luceeserver.atlassian.net/browse/LDEV-3743)
 
 ### String member functions assume list instead of char array like Adobe
+
+In Lucee 6, string member functions were changed to iterate character by character (treating strings as character arrays) to match Adobe ColdFusion behavior.
+
+Prior to Lucee 6, these functions treated strings as delimited lists.
+
+Affected functions:
+
+- [[function-stringeach]]
+- [[function-stringmap]]
+- [[function-stringreduce]]
+- [[function-stringfilter]]
+- [[function-stringsort]]
+- [[function-stringsome]]
+- [[function-stringevery]]
+
+For list-based iteration with delimiters, use the list variants instead: [[function-listeach]], [[function-listmap]], [[function-listreduce]], etc.
 
 [LDEV-3747](https://luceeserver.atlassian.net/browse/LDEV-3747)
 

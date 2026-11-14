@@ -1,6 +1,9 @@
 ---
 title: Lucee Security Best Practices
 id: securing-lucee-server-apps
+categories:
+- server
+- devops
 ---
 
 ## Security ##

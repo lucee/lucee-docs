@@ -1,24 +1,51 @@
 ---
-title: Lucee with Maven
+title: Embedding Lucee in Java Applications
 id: lucee-with-maven
 categories:
 - java
+description: How to embed Lucee as a dependency in your Java projects using Maven
 ---
 
-<https://mvnrepository.com/artifact/org.lucee/lucee>
+Lucee is published to Maven Central, making it easy to embed the CFML engine directly into your Java applications. This is useful when you want to:
 
-<https://search.maven.org/artifact/org.lucee/lucee>
+- Execute CFML templates from within a Java application
+- Build custom tooling that needs to parse or analyse CFML code
+- Create hybrid applications that leverage both Java and CFML
+- Develop and test Lucee extensions
 
-You can add Lucee to your Maven pom.xml files via the following:
+## Maven Coordinates
 
-And the dependency via:
+Lucee artifacts are available on Maven Central:
 
-```lucee
+- <https://mvnrepository.com/artifact/org.lucee/lucee>
+- <https://search.maven.org/artifact/org.lucee/lucee>
+
+## Adding Lucee to Your Project
+
+Add the following dependency to your `pom.xml`:
+
+```xml
 <dependency>
   <groupId>org.lucee</groupId>
   <artifactId>lucee</artifactId>
-  <version>5.3.8.206</version>
+  <version>7.0.0.395</version>
 </dependency>
 ```
 
-Or the single Lucee jar artifactId is "lucee-jar". (The above has all the dependencies, with the exception of database drivers which are marked as "optional", thus not included by default.)
+This pulls in Lucee with all its dependencies, except database drivers which are marked as optional.
+
+### Minimal JAR
+
+If you only need the core Lucee classes without transitive dependencies, use the `lucee-jar` artifact instead:
+
+```xml
+<dependency>
+  <groupId>org.lucee</groupId>
+  <artifactId>lucee-jar</artifactId>
+  <version>7.0.0.395</version>
+</dependency>
+```
+
+## Related
+
+If you're a CFML developer looking to load Java libraries into your Lucee application at runtime, see the [Maven recipe](../../recipes/maven.md) which covers the `this.javasettings` approach introduced in Lucee 6.2.

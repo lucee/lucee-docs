@@ -1,0 +1,117 @@
+Buildfile: D:\work\script-runner\build.xml
+
+phony:
+
+normalize-webroot:
+     [echo] Webroot (used by Java): D:\work\lucee-docs
+     [echo] webroot.abs = D:\work\lucee-docs
+
+resolve-version-input:
+
+use-local-jar:
+
+use-version:
+
+query-version:
+
+detect-version-type:
+     [echo] Detected jakarta servlet API for Lucee 7 (from: 7.0.1.100)
+
+setEnv:
+
+set-unique-working-dir:
+
+check-lucee-jar:
+
+download-lucee-jar:
+
+run-cfml:
+     [echo] Java: 21.0.10, C:\Program Files\Eclipse Adoptium\jdk-21.0.10.7-hotspot
+     [echo] Lucee: 7.0.1.100
+     [echo] luceeJar: 
+     [echo] Working Dir: D:\work\script-runner\temp
+     [echo] Webroot: .
+     [echo] Webroot (normalized): D:\work\lucee-docs
+     [echo] Execute: test-cache-recipe.cfm
+     [echo] ExtensionDir: 
+     [echo] Extensions: 
+     [echo] executeScriptByInclude: 
+     [echo] luceeCFConfig: 
+     [echo] javaDebugger: 
+     [echo] 
+   [delete] Deleting directory D:\work\script-runner\temp
+    [mkdir] Created dir: D:\work\script-runner\temp
+    [mkdir] Created dir: D:\work\script-runner\temp\lucee
+    [mkdir] Created dir: D:\work\script-runner\temp\lucee\web
+    [mkdir] Created dir: D:\work\script-runner\temp\lucee\lucee-server\context
+    [mkdir] Created dir: D:\work\script-runner\temp\lucee\lucee-server\deploy
+     [java] Buildfile: D:\work\script-runner\build-run-cfml.xml
+     [java] 
+     [java] all:
+     [java]      [echo] ---------- 2026-04-15 12:44:47 - Lucee Starting ----------
+     [java]    [script] ---------- 2026-04-15 12:44:49 - Lucee Started ----------
+     [java]    [script] 7.0.1.100
+     [java]    [script] Set Web admin password
+     [java]    [script] write access is protected
+     [java]    [script] -------------- Mappings --------------
+     [java]    [script] /lucee 	 {lucee-config}/context/ [{lucee-config}/context/lucee-context.lar] (auto)
+     [java]    [script] /lucee/admin 	 {lucee-config}/context/admin [{lucee-config}/context/lucee-admin.lar] (once)
+     [java]    [script] /lucee-server 	 {lucee-server}/context/ (auto)
+     [java]    [script] /lucee/doc 	  [{lucee-config}/context/lucee-doc.lar] (once)
+     [java]    [script] / 	 D:\work\lucee-docs 
+     [java]    [script] -------------- Lucee Initialized --------------
+     [java]    [script] 
+     [java]    [script] Running [test-cache-recipe.cfm]
+     [java]    [script] 
+     [java]    [script] 
+     [java]    [script] Variables
+     [java]    [script] 	webroot: D:\work\lucee-docs
+     [java]    [script] 	extensionDir: 
+     [java]    [script] 	compile: 
+     [java]    [script] 	basedir: D:\work\script-runner
+     [java]    [script] 	execute: test-cache-recipe.cfm
+     [java]    [script] 	executeScriptByInclude: 
+     [java]    [script] 	DSTAMP: 20260415
+     [java]    [script] 	TSTAMP: 1244
+     [java]    [script] 	TODAY: April 15 2026
+     [java]    [script] 
+     [java]    [script] === Setup ===
+     [java]    [script] greeting = G'day!
+     [java]    [script] === Storing and retrieving ===
+     [java]    [script] user:42 name = Zac
+     [java]    [script] === Check before get ===
+     [java]    [script] user:99 exists = false
+     [java]    [script] user:99 not cached
+     [java]    [script] === Remove single entry ===
+     [java]    [script] count before delete = 2
+     [java]    [script] count after delete = 1
+     [java]    [script] === Exploring ===
+     [java]    [script] count = 3
+     [java]    [script] all ids = CONFIG:THEME,USER:43,USER:42
+     [java]    [script] user ids = USER:43,USER:42
+     [java]    [script] user getAll keys = USER:43,USER:42
+     [java]    [script] === Clearing ===
+     [java]    [script] count after clear user:* = 1
+     [java]    [script] count after clear all = 0
+     [java]    [script] === Expiration ===
+     [java]    [script] api:weather exists = true
+     [java]    [script] session:abc exists = true
+     [java]    [script] === Named caches ===
+     [java]    [script] weather temp = 22
+     [java]    [script] features darkMode = true
+     [java]    [script] 
+     [java]    [script] ALL EXAMPLES PASSED
+     [java]    [script] 
+     [java]    [script] -------------- Finished --------------
+     [java]      [echo] ---------- 2026-04-15 12:44:49 - Lucee Stopping ----------
+     [java] 
+     [java] BUILD SUCCESSFUL
+     [java] Total time: 2 seconds
+     [echo] 
+   [delete] Deleting directory D:\work\script-runner\temp
+     [echo] Finished!
+
+core:
+
+BUILD SUCCESSFUL
+Total time: 3 seconds

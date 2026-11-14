@@ -12,7 +12,8 @@
     "config"
   ],
   "categories": [
-    "server"
+    "server",
+    "devops"
   ]
 }
 -->
@@ -86,7 +87,28 @@ Defines a comma-separated list of Lucee extensions to install when starting up.
 
 The current list of installed extensions is available via the Lucee admin.
 
-This can be a simple list of IDs, then whatever the latest version(s) will be installed (SNAPSHOT or STABLE):
+#### LUCEE_EXTENSIONS_FAIL_ON_ERROR
+
+*SysProp:* `-Dlucee.extensions.fail.on.error`
+*EnvVar:* `LUCEE_EXTENSIONS_FAIL_ON_ERROR`
+
+A boolean value (default `false`) that makes an invalid `LUCEE_EXTENSIONS` fatal on startup. When `true`, the startup is aborted if an extension defined in `LUCEE_EXTENSIONS` cannot be installed or an entry of the list cannot be parsed. When `false`, the error is written to the deploy log and to stderr and the startup continues.
+
+In warmup mode (`LUCEE_ENABLE_WARMUP`) such a failure always makes the process exit with a non-zero exit code, independent of this setting.
+
+#### LUCEE_EXTENSIONS_CONFIG_ONLY
+
+*SysProp:* `-Dlucee.extensions.config.only`
+*EnvVar:* `LUCEE_EXTENSIONS_CONFIG_ONLY`
+
+When enabled, the config file (e.g. `.cfconfig.json` / `config.json`) is the sole source of truth for extension management on every startup. Extensions defined in the config are installed; extensions absent from the config are not installed. Extensions that are currently installed but no longer present in the config will be automatically uninstalled on the next startup.
+By default (disabled), Lucee installs manifest-required extensions on a fresh install and the config file takes over from subsequent starts onward.
+
+##### Installation Methods
+
+###### 1. Simple ID List
+
+A simple list of extension IDs, which will install the latest available release version (SNAPSHOTs are only used as a fallback if no release exists). See [[extension-installation]] for full details.
 
 ```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6,
@@ -94,7 +116,9 @@ This can be a simple list of IDs, then whatever the latest version(s) will be in
 2BCD080F-4E1E-48F5-BEFE794232A21AF6
 ```
 
-Or with more specific information like version and label (for better readability) like this:
+###### 2. Detailed Specification
+
+With specific information like version and label (for better readability):
 
 ```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;name=MSSQL;label=MS SQL Server;version=12.2.0.jre8,
@@ -103,6 +127,79 @@ Or with more specific information like version and label (for better readability
 ```
 
 **It's recommended to always specify the exact version for consistent results**
+
+###### 3. Gradle-Style Coordinates (Lucee 7.0.1+)
+
+Starting with Lucee 7.0.1, you can use Gradle/Maven-style coordinates in the format `groupId:artifactId:version`:
+
+```plaintext
+org.lucee:lucene-search-extension:3.0.0.163,
+org.lucee:redis-extension:3.0.0.56
+```
+
+###### 4. Custom Path 
+
+You can specify a custom path to load an extension file (.lex) from a specific location using the `;path=` parameter. This must be combined with either an extension ID or gradle-style coordinates:
+
+**With Extension ID:**
+
+```plaintext
+EFDEB172-F52E-4D84-9CD1A1F561B3DFC8;path=/local/extensions/custom-extension-2.1.0.lex
+```
+
+**With Gradle-style coordinates (Lucee 7.0.1+):**
+
+```plaintext
+org.lucee:lucene-search-extension:3.0.0.163;path=/opt/lucee/extensions/lucene.lex
+```
+
+This allows Lucee to load the extension directly from the specified location without downloading it.
+
+##### Virtual File System Support
+
+When using the `;path=` parameter, all Lucee virtual file systems are supported (local, HTTP/HTTPS, FTP, S3, ZIP/TAR, Git, RAM, etc.). 
+
+For complete documentation on virtual file systems and their configuration, see: [Virtual File Systems Documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/virtual-file-system.md)
+
+**Quick examples:**
+
+```plaintext
+EFDEB172-F52E-4D84-9CD1A1F561B3DFC8;path=/opt/lucee/extensions/my-extension-1.0.0.lex
+99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;path=https://myserver.com/extensions/my-extension-1.0.0.lex
+671B01B8-B3B3-42B9-AC055A356BED5281;path=s3:///mybucket/extensions/my-extension-1.0.0.lex
+2BCD080F-4E1E-48F5-BEFE794232A21AF6;path=zip:///opt/extensions.zip!/my-extension-1.0.0.lex
+org.lucee:redis-extension:3.0.0.56;path=ftp://user:pass@ftp.example.com/extensions/redis.lex
+```
+
+##### Examples
+
+**Mixed configuration with IDs, gradle coordinates, and custom paths:**
+
+```plaintext
+99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;version=12.2.0.jre8,
+org.lucee:lucene-search-extension:3.0.0.163,
+EFDEB172-F52E-4D84-9CD1A1F561B3DFC8;path=/local/extensions/custom-extension-2.1.0.lex,
+671B01B8-B3B3-42B9-AC055A356BED5281;path=https://cdn.example.com/lucee/extensions/another-extension-1.5.2.lex,
+2BCD080F-4E1E-48F5-BEFE794232A21AF6;path=s3://myaws@/lucee-extensions/database-extension-3.0.0.lex
+```
+
+**Gradle-style with custom path (Lucee 7.0.1+):**
+
+```plaintext
+org.lucee:redis-extension:3.0.0.56;path=/opt/lucee/custom-extensions/redis.lex
+```
+
+**Extension ID with version and custom path:**
+
+```plaintext
+99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;version=12.2.0.jre8;path=/custom/location/mssql.lex
+```
+
+##### Notes
+
+- Extensions loaded via path must be valid .lex (Lucee Extension) files
+- When using virtual file systems, ensure appropriate credentials are configured (see [VFS documentation](https://github.com/lucee/lucee-docs/blob/master/docs/recipes/virtual-file-system.md))
+- Gradle-style coordinates (`groupId:artifactId:version`) require Lucee 7.0.1 or later
 
 #### LUCEE_ENABLE_BUNDLE_DOWNLOAD
 
@@ -150,10 +247,12 @@ previously `LUCEE_READ_CFID_FROM_URL`
 *SysProp:* `-Dlucee.cfid.url.allow` (previously `-Dlucee.read.cfid.from.url`)
 *EnvVar:* `LUCEE_CFID_URL_ALLOW` (previously `LUCEE_READ_CFID_FROM_URL`)
 
-Controls whether Lucee accepts CFID values from URL query strings. Set to false to enhance security by requiring CFIDs to be passed via cookies only.
+Controls whether Lucee accepts CFID and CFTOKEN values from URL query strings. If disabled, they are only accepted from cookies.
 The previous property names are still supported for backward compatibility, but the new names are preferred starting with Lucee 6.2.1.59.
 
-*Setting this to `false` is strongly recommended for all production environments.*
+The default is `false` since Lucee 9.0, before it was `true`. This is a breaking change for applications that pass CFID and CFTOKEN in the URL, see [[breaking-changes-8-0-to-9-0]].
+Set it to `true` to accept them from the URL again, this is not recommended for production environments.
+If the legacy property `lucee.read.cfid.from.url` is also set, it takes precedence.
 
 #### LUCEE_CFID_URL_LOG
 
@@ -171,6 +270,8 @@ This helps identify code that needs to be updated before URL-based CFID is disab
 
 A boolean value. If false, Lucee will disable request timeouts.
 
+**Deprecated** since 7.1.3, see [[request-timeout]].
+
 #### LUCEE_REQUESTTIMEOUT_CONCURRENTREQUESTTHRESHOLD
 
 *SysProp:* `-Dlucee.requesttimeout.concurrentrequestthreshold`
@@ -178,12 +279,16 @@ A boolean value. If false, Lucee will disable request timeouts.
 
 Concurrent request threshold to enforce a request timeout. If a request reaches the timeout, Lucee will only enforce it if this threshold is also reached. For example, setting it to `100` means the timeout is enforced only if there are at least 99 other requests running.
 
+**Deprecated** since 7.1.3, see [[request-timeout]].
+
 #### LUCEE_REQUESTTIMEOUT_CPUTHRESHOLD
 
 *SysProp:* `-Dlucee.requesttimeout.cputhreshold`
 *EnvVar:* `LUCEE.REQUESTTIMEOUT.CPUTHRESHOLD`
 
 A floating-point number between 0 and 1. CPU threshold to enforce a request timeout. If a request reaches the timeout, Lucee will only enforce it if the CPU usage of the current core is at least the specified threshold. For example, setting it to `0.5` enforces the timeout if the CPU is at least 50%.
+
+**Deprecated** since 7.1.3, see [[request-timeout]].
 
 #### LUCEE_SERVER_DIR
 
@@ -294,6 +399,20 @@ Specifies a path to an alternate location for your `.CFConfig.json` file, otherw
 
 Settings that are nice to know, but not that important.
 
+#### LUCEE_BASE_DIR
+
+*SysProp:* `-Dlucee.base.dir`
+*EnvVar:* `LUCEE_BASE_DIR`
+
+Location of the Lucee main context folder (`lucee-server`), if not defined Lucee set it relative to the location of the lucee.jar.
+
+#### LUCEE_WEB_DIR
+
+*SysProp:* `-Dlucee.web.dir`
+*EnvVar:* `LUCEE_WEB_DIR`
+
+Location of the webroot, in case you run multiple context use placeholders in that value like `/whatever/{web-context-hash}/`.
+
 #### LUCEE_QUERY_RESULT_THRESHOLD
 
 *SysProp:* `-Dlucee.query.result.threshold`
@@ -324,6 +443,61 @@ Specifies a comma-separated list of Maven repository URLs to use before the defa
 - Repositories specified will be added at the beginning of Lucee's repository list
 - Can be used to specify local repositories accessible to the server
 - Particularly valuable for servers behind firewalls with limited external access
+
+#### LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP
+
+*SysProp:* `-Dlucee.maven.download.policy.startup`
+*EnvVar:* `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP`
+
+Controls whether Lucee is allowed to download Maven artifacts during startup. Valid values:
+
+- `ignore` - (Default) Lucee can download Maven artifacts silently during startup.
+- `warn` - Lucee can download Maven artifacts but logs a warning for each download.
+- `error` - Lucee will not download any Maven artifacts during startup and throws an exception instead.
+
+Using `error` during startup may prevent Lucee from starting if required artifacts are missing locally. If you need to block runtime downloads but still allow startup to succeed, use `error` for the runtime policy and `warn` or `ignore` here.
+
+If not set, falls back to `LUCEE_MAVEN_DOWNLOAD_POLICY` if defined, otherwise defaults to `ignore`.
+
+#### LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME
+
+*SysProp:* `-Dlucee.maven.download.policy.runtime`
+*EnvVar:* `LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME`
+
+Controls whether Lucee is allowed to download Maven artifacts at runtime (after startup is complete). Valid values:
+
+- `ignore` - (Default) Lucee can download Maven artifacts silently at runtime.
+- `warn` - Lucee can download Maven artifacts but logs a warning for each download.
+- `error` - Lucee will not download any Maven artifacts at runtime and throws an exception instead.
+
+Use `error` in production environments to prevent unexpected network calls during request processing. Missing artifacts will result in an exception that includes the artifact coordinates and instructions for manual resolution.
+
+If not set, falls back to `LUCEE_MAVEN_DOWNLOAD_POLICY` if defined, otherwise defaults to `ignore`.
+
+#### LUCEE_MAVEN_DOWNLOAD_POLICY_LOG_LEVEL
+
+*SysProp:* `-Dlucee.maven.download.policy.log.level`
+*EnvVar:* `LUCEE_MAVEN_DOWNLOAD_POLICY_LOG_LEVEL`
+
+Specifies the log level used when the Maven download policy is set to `warn`. Valid values are: `trace`, `debug`, `info`, `warn`, `error`. Default is `warn`.
+
+This allows you to control the visibility of Maven download notifications in your logs. For example, set to `info` for less prominent logging during development, or `error` to ensure download notifications are highly visible without fully blocking them.
+
+This setting has no effect when the download policy is set to `ignore` or `error`.
+
+#### LUCEE_MAVEN_SIGNATURE_VERIFICATION
+
+*SysProp:* `-Dlucee.maven.signature.verification`
+*EnvVar:* `LUCEE_MAVEN_SIGNATURE_VERIFICATION`
+
+Controls the verification of the OpenPGP signature (`.asc`) of the `org.lucee` artifacts (core updates, loader, extensions) that Lucee downloads. The same as the setting `maven.signatureVerification` in `.CFConfig.json`. Valid values are `verify` (default), `strict`, `warn` and `off`.
+
+- `verify`: releases must have a valid signature, pre-releases only need a valid signature if one exists
+- `strict`: pre-releases must be signed as well
+- `warn`: a failed verification is logged (log `maven`, level warn) and the install continues
+- `off`: no verification
+
+See [[breaking-changes-8-0-to-9-0]] for the details.
 
 #### FELIX_LOG_LEVEL
 
@@ -558,7 +732,7 @@ The maximum concurrent requests that the engine allows to run at the same time b
 *SysProp:* `-Dlucee.queue.timeout`
 *EnvVar:* `LUCEE_QUEUE_TIMEOUT`
 
-The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected with an exception. If you set it to 0 seconds, the request timeout is used instead.
+The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected and not executed: Lucee logs the exception and responds with HTTP status 503 (Service Unavailable), a `Retry-After` header (the queue timeout in seconds, rounded up, minimum 1) and a short plain text body ("the server is too busy"), as long as the response is not already committed. If you set it to 0 seconds, the request timeout is used instead.
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP
 
@@ -623,6 +797,21 @@ A boolean value. If disabled, returns a 200 status code to the client even if an
 
 A boolean value. If enabled, does not store empty sessions to the client or session storage.
 
+#### LUCEE_STORAGE_WARN_COMPLEX_VALUES
+
+*SysProp:* `-Dlucee.storage.warn.complex.values`
+*EnvVar:* `LUCEE_STORAGE_WARN_COMPLEX_VALUES`
+
+**Lucee 6 only** - Controls whether Lucee logs a warning when complex values (structs, arrays, queries, etc.) are stored in session or client scope. When complex values are present, Lucee 6 cannot properly detect changes and must update the storage on every request, which may impact performance.
+
+By default, this warning is enabled (`true`) to alert developers about potential performance implications. Set to `false` to suppress the warning once you understand and accept this behavior, particularly useful in production environments or when using frameworks that intentionally store complex values in these scopes (e.g., FW/1).
+
+The warning is logged to `application.log` with the message: "the session scope contains complex values, Lucee cannot proper detect changes in the values and because of that updates the storage with every request."
+
+**Default:** `true` (warnings enabled)
+
+**Note:** This setting only applies to Lucee 6. Lucee 7 natively supports complex values in session and client scopes with proper change detection, so this warning does not occur and this setting has no effect.
+
 #### LUCEE_SUPPRESS_WS_BEFORE_ARG
 
 *SysProp:* `-Dlucee.suppress.ws.before.arg`
@@ -668,6 +857,27 @@ Defines the maximum number of elements that can be stored in the cfthread scope.
 
 Default character set used to read templates (`.cfm` and `.cfc` files).
 
+#### LUCEE_TEMPLATE_CLASSLOADER_INSPECTION_COUNT
+
+*SysProp:* `-Dlucee.template.classloader.inspection.count`
+*EnvVar:* `LUCEE_TEMPLATE_CLASSLOADER_INSPECTION_COUNT`
+
+Defines the threshold number of loaded classes that triggers an inspection to determine if the physical classloader should be flushed. When the total number of loaded classes (including all renamed versions) exceeds this value, Lucee checks the ratio of total classes to unique classes to determine if a flush is needed. The default value is 1000.
+
+#### LUCEE_TEMPLATE_CLASSLOADER_INSPECTION_SIZE
+
+*SysProp:* `-Dlucee.template.classloader.inspection.size`
+*EnvVar:* `LUCEE_TEMPLATE_CLASSLOADER_INSPECTION_SIZE`
+
+Defines the memory size threshold (in megabytes) of loaded classes that triggers a classloader flush. When the total size of all loaded classes (including all renamed versions) exceeds this value, the classloader is flushed to free memory occupied by obsolete class versions. This provides an additional memory-based check alongside the count-based threshold. The default value is 100 MB.
+
+#### LUCEE_TEMPLATE_CLASSLOADER_INSPECTION_RATIO
+
+*SysProp:* `-Dlucee.template.classloader.inspection.ratio`
+*EnvVar:* `LUCEE_TEMPLATE_CLASSLOADER_INSPECTION_RATIO`
+
+Defines the ratio threshold that indicates excessive memory usage from obsolete class versions. When templates are updated during development, Lucee loads new versions while old versions remain in memory, creating a "leak". This ratio (total loaded classes / unique loaded classes) measures this accumulation. A ratio of 3 means on average each unique class has 3 versions loaded. When both the inspection count and this ratio threshold are exceeded, the classloader is flushed to free memory occupied by obsolete class versions. The default value is 3.
+
 #### LUCEE_TYPE_CHECKING
 
 *SysProp:* `-Dlucee.type.checking`
@@ -695,6 +905,13 @@ Specifies the file location of the trust store that contains trusted Certificate
 *EnvVar:* `LUCEE_WEB_CHARSET`
 
 Default character set for output streams, form-, URL-, and CGI scope variables, and reading/writing the header.
+
+#### LUCEE_DEPLOY_WATCH
+
+*SysProp:* `-Dlucee.deploy.watch`
+*EnvVar:* `LUCEE_DEPLOY_WATCH`
+
+Default true. By default Lucee checks the deploy folder (extensions, archives, config snippets) every 10 seconds for new files. Set to false to disable this periodic check, for example on a production server. The deploy folder is still processed once at startup. The same setting is available in `.CFConfig.json` as `deployWatch`.
 
 #### LUCEE_CONTROLLER_GC
 
@@ -939,6 +1156,22 @@ Which kind of Application Listener is supported?
 
 Name of the main logger used by Lucee, for example, a non-existing logger is defined.
 
+#### LUCEE_SYSTEM_LOG_LEVEL
+
+*SysProp:* `-Dlucee.system.log.level`
+*EnvVar:* `LUCEE_SYSTEM_LOG_LEVEL`
+
+Controls the minimum log level written to `out.log` and `err.log`. These files capture output from code executed before the Lucee core is fully loaded (i.e. before the regular log configuration is available). Valid values are:
+
+- `trace`
+- `debug`
+- `info`
+- `warn` (default)
+- `error`
+- `fatal`
+
+Levels below the threshold are silently dropped. The default of `warn` suppresses `info` and `debug` messages such as the `ConfigFactoryImpl read the config file` startup noise. Set to `info` or `debug` to restore full startup visibility when debugging early initialization issues.
+
 #### LUCEE_MAPPING_FIRST
 
 *SysProp:* `-Dlucee.mapping.first`
@@ -992,6 +1225,8 @@ A boolean value. If enabled, this improves the accuracy of floating-point calcul
 
 A boolean value. If true, Lucee will not convert variable names used in "dot notation" to UPPER CASE.
 
+In Lucee 7.0.0, [this was unfortunately buggy](https://luceeserver.atlassian.net/browse/LDEV-5889)
+
 #### LUCEE_QUEUE_ENABLE
 
 *SysProp:* `-Dlucee.queue.enable`
@@ -1011,7 +1246,7 @@ The maximum concurrent requests that the engine allows to run at the same time b
 *SysProp:* `-Dlucee.queue.timeout`
 *EnvVar:* `LUCEE_QUEUE_TIMEOUT`
 
-The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected with an exception. If you set it to 0 seconds, the request timeout is used instead.
+The time in milliseconds a request is held in the queue. If the time is reached, the request is rejected and not executed: Lucee logs the exception and responds with HTTP status 503 (Service Unavailable), a `Retry-After` header (the queue timeout in seconds, rounded up, minimum 1) and a short plain text body ("the server is too busy"), as long as the response is not already committed. If you set it to 0 seconds, the request timeout is used instead.
 
 #### LUCEE_REQUEST_LIMIT_CONCURRENT_MAXNOSLEEP
 
@@ -1144,16 +1379,16 @@ Specifies the file location of the trust store that contains trusted Certificate
 
 Default character set for output streams, form, URL, and CGI scope variables, and reading/writing the header.
 
-#### LUCEE_JSCH_DEBUG
+#### LUCEE_DEBUG_JSCH
 
-*SysProp:* `-Dlucee.jsch.debug`
-*EnvVar:* `LUCEE_JSCH_DEBUG`
+*SysProp:* `-Dlucee.debug.jsch`
+*EnvVar:* `LUCEE_DEBUG_JSCH`
 
-Boolean which enables debug logging to the console for SFTP, since 7.0.0.233
+Boolean which enables debug logging to the console for SFTP, since 7.0.0.233. See [[ftp-troubleshooting]]
 
-#### LUCEE_FTP_DEBUG
+#### LUCEE_DEBUG_FTP
 
-*SysProp:* `-Dlucee.ftp.debug`
-*EnvVar:* `LUCEE_FTP_DEBUG`
+*SysProp:* `-Dlucee.debug.ftp`
+*EnvVar:* `LUCEE_DEBUG_FTP`
 
-Boolean which enables debug logging to the console for FTP, since 7.0.0.233
+Boolean which enables debug logging to the console for FTP, since 7.0.0.233. See [[ftp-troubleshooting]]

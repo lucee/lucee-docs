@@ -3,6 +3,7 @@ title: GetClientVariablesList
 id: function-getclientvariableslist
 related:
 categories:
+- scopes
 ---
 
 Finds the client variables to which a page has write access.

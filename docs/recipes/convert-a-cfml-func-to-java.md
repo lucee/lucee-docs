@@ -1,8 +1,8 @@
 <!--
 {
-  "title": "Convert a CFML Function/Component to use in Java",
+  "title": "Using CFML Functions and Components in Java",
   "id": "convert-a-cfml-func-to-java",
-  "description": "Learn how to convert user-defined functions or components in Lucee to use them in Java. This guide demonstrates how to define components to implement Java interfaces, pass components to Java methods, explicitly define interfaces, and use the onMissingMethod feature. It also shows how to convert user-defined functions to Java lambdas.",
+  "description": "Pass CFML components and functions to Java code - implement Java interfaces with CFCs, use functions as Java lambdas.",
   "since": "6.0",
   "keywords": [
     "conversion",
@@ -13,74 +13,81 @@
     "lambda",
     "Lucee"
   ],
-  "categories":[
+  "categories": [
     "java"
   ],
   "related": [
-    "tag-component"
+    "tag-component",
+    "dynamic-proxy-enhancements",
+    "java-explicit-casting"
   ]
 }
 -->
 
-# Convert a CFML Function/Component to use in Java
+# Using CFML Functions and Components in Java
 
-Lucee allows you to convert user-defined functions or components so you can use them in Java.
+Many Java libraries accept objects that implement specific *interfaces* - contracts defining what methods an object must have. Lucee lets you pass CFML components and functions directly to Java code.
 
-## Component to Java Class
+**Java terms:** A *Java interface* defines method signatures a class must implement (like a blueprint). A *lambda* is a shorthand for a single-method interface - Java 8+ uses these heavily for callbacks and streaming APIs.
 
-You simply add all functions defined for a Java interface to a component like this:
+## Component to Java Interface
+
+Implement the interface's methods in your component:
 
 ```lucee
-// Component that implements all methods from interface CharSequence
+// MyString.cfc - implements CharSequence interface
 component {
-    function init(String str) {
-        variables.str = reverse(arguments.str);
-    }
-    function length() {
-        SystemOutput("MyString.length:" & str.length(), 1, 1);
-        return str.length();
-    }
-    // ... more functions here
+	function init( String str ) {
+		variables.str = reverse( arguments.str );
+	}
+
+	function length() {
+		return str.length();
+	}
+
+	// ... implement other CharSequence methods
 }
 ```
 
-### Pass to Java
-
-Then you can pass that component to a Java method needing a specific interface/class.
+Then pass it to Java methods expecting that interface:
 
 ```lucee
-// This class has a method that takes as an argument a CharSequence.
-// This way we can force Lucee to convert/wrap our component to that interface.
-HashUtil = createObject("java", "lucee.commons.digest.HashUtil");
+HashUtil = createObject( "java", "lucee.commons.digest.HashUtil" );
+cfc = new MyString( "Susi Sorglos" );
 
-// This component implements all necessary functions for the CharSequence
-cfc = new MyString("Susi Sorglos");
-
-// Calling the method HashUtil.create64BitHashAsString(CharSequence cs) with our component as an argument
-hash = HashUtil.create64BitHashAsString(cfc);
-dump(hash);
+// HashUtil.create64BitHashAsString() expects CharSequence - Lucee converts automatically
+hash = HashUtil.create64BitHashAsString( cfc );
+dump( hash );
 ```
 
-### Explicit Definition and "onMissingMethod"
+### Using implementsJava and onMissingMethod
 
-Of course, you can also define the interface you want to implement explicitly and you can use “onMissingMethod” so you do not have to implement every single function separately.
+Declare the interface explicitly and handle method calls dynamically:
 
 ```lucee
 component implementsJava="java.util.List" {
-    function onMissingMethod(name, args) {
-        if (name == "size") return 10;
-        throw "method #name# is not supported!";
-    }
+	function onMissingMethod( name, args ) {
+		if ( name == "size" ) return 10;
+		throw "method #name# is not supported!";
+	}
 }
 ```
 
-## User-Defined Function to Java (as Lambda)
+See [[java-explicit-casting]] for when you need to cast components to specific interfaces.
 
-Functions get converted to a Lambda interface when the interface matches automatically. You can do the same with regular functions, but here the conversion happens when passing to Java.
+## Functions as Java Lambdas
+
+When a Java method expects a *functional interface* (an interface with one method), you can pass a CFML function directly. Lucee converts it automatically:
 
 ```lucee
-numeric function echoInt(numeric i) {
-    if (i == 1) throw "Test output!!!";
-    return i * 2;
+numeric function doubleIt( numeric i ) {
+	return i * 2;
 }
+
+// Java's IntStream.map() expects IntUnaryOperator (one method: int applyAsInt(int))
+import java.util.stream.IntStream;
+result = IntStream::of( 1, 2, 3 ).map( doubleIt ).sum();
+dump( result ); // 12 (2 + 4 + 6)
 ```
+
+See [[java-in-functions-and-closures]] for more on Java lambdas and the `type="java"` function attribute.

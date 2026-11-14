@@ -1,5 +1,3 @@
-The HTML to prepend to search terms in the context
-summary. Use this attribute in conjunction with
-contextHighlightEnd to highlight search terms in the
-context summary.
-Default: </b>
+The HTML to append to search terms in the context summary.
+Use this attribute in conjunction with contextHighlightBegin to highlight search terms in the context summary.
+Default: `</b>`

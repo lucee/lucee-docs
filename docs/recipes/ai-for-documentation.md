@@ -4,32 +4,30 @@
   "id": "ai-documentation-setup",
   "since": "6.2",
   "categories": [ "ai" ],
-  "description": "Guide to configuring AI for use in Lucee's Documentation tab, leveraging retrieval-augmented generation (RAG) and enhanced search functionality.",
+  "description": "Guide to configuring AI / LLM for use in Lucee's Documentation tab.",
   "keywords": [
     "AI",
     "LLM",
     "documentation",
-    "retrieval-augmented generation",
-    "RAG",
-    "setup",
     "configuration",
-    "Lucee",
     "Monitor",
     "experimental",
-    "integration",
-    "monitoring",
     "admin settings",
     "AI engines",
     "OpenAI",
     "Gemini",
     "Ollama"
+  ],
+  "related": [
+    "ai-augmentation-lucene",
+    "ai"
   ]
 }
 -->
 
 # AI in Documentation (Experimental)
 
-Lucee 6.2 introduces experimental support for AI-driven assistance in the Documentation tab of Lucee’s Monitor, aiming to provide intelligent guidance by connecting to various AI engines. 
+Lucee 6.2 introduces experimental support for AI / LLM (Large Language Model) driven assistance in the Documentation tab of Lucee’s Monitor, aiming to provide intelligent guidance by connecting to various AI engines. 
 
 This feature will see further refinement in Lucee 7. 
 

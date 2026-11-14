@@ -19,11 +19,11 @@
 
 # File Extensions
 
-Lucee supports several file extensions for different types of templates and components. The most common extensions are `.cfm`, `.cfc`, `.cfml`, and `.cfs`. Each serves a specific purpose in CFML development.
+Lucee processes several file types, each serving a different purpose in CFML development. Knowing when to use each helps keep your code organized.
 
 ## .cfm
 
-The `.cfm` extension is used for CFML templates. These files contain CFML code that is processed by the server to generate dynamic web pages.
+The standard CFML template extension. These files mix CFML tags and HTML to generate dynamic web pages - the workhorse of most CFML applications.
 
 ### Example
 
@@ -44,7 +44,7 @@ The `.cfm` extension is used for CFML templates. These files contain CFML code t
 
 ## .cfc
 
-The `.cfc` extension is used for CFML Components (CFCs). These files define reusable components that encapsulate functionality in methods, similar to classes in object-oriented programming.
+CFML Components define reusable objects that encapsulate data and behavior - similar to classes in other languages. Use these for your business logic, models, and services.
 
 ### Example
 
@@ -58,11 +58,11 @@ component {
 
 ## .cfml
 
-The `.cfml` extension is an alternative to `.cfm` and can be used for CFML templates. It serves the same purpose as `.cfm` but is less commonly used.
+Alternative extension for CFML templates - functionally identical to `.cfm`. Some developers prefer the explicit `.cfml` extension, but `.cfm` is far more common.
 
 ## .cfs
 
-Since version 6.0, Lucee supports templates with the extension `.cfs`. These templates contain script code, similar to `.js` files in the JavaScript world. This allows you to write direct script code without the need for the `<cfscript>` tag.
+Script-only templates introduced in Lucee 6.0. Like `.js` files in the JavaScript world, these contain pure script code without needing `<cfscript>` tags. Great for scripts, utilities, and developers who prefer script syntax over tags.
 
 ### Example
 

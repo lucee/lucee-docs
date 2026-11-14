@@ -1,7 +1,6 @@
 component {
 	property name="_markdownProcessor" type="object";
 	property name="_noticeBoxRenderer" type="object";
-	property name="flexmark" type="boolean" default="false";
 
 	public any function init() {
 		_setupNoticeBoxRenderer();
@@ -10,6 +9,10 @@ component {
 	}
 
 	public string function _markdownToHtml( required string markdown, required boolean stripParagraph=false) {
+		if ( !len( trim( arguments.markdown ) ) ) {
+			return "";
+		}
+
 		// TODO code blocks with spaces or pre tags cause problems here
 		var html = variables.markdownRender.render( arguments.markdown );
 

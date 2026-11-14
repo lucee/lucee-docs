@@ -1,0 +1,1 @@
+If false (default), only the literal `<dependency>` entries in the pom are resolved. If true, the full transitive dependency tree is resolved for each entry.

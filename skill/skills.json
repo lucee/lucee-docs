@@ -1,0 +1,140 @@
+{
+  "name": "lucee",
+  "router": {
+    "url": "https://docs.lucee.org/lucee.skill",
+    "sha256": "d43edf02f865c5c52c4bf1b1368f8aaf96bd6023cd8081637145d7e2429d8807",
+    "approxTokens": 924
+  },
+  "topics": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "description": "AI sessions and engines, RAG, MCP, AI serialisation, using Lucee docs with AI assistants",
+      "url": "https://docs.lucee.org/skill/ai.md",
+      "path": "skill/ai.md",
+      "entries": 9,
+      "sha256": "2ebe10cc48ff375fcc36ff53fc2e20b1b37c2ac351ab8882141c12e83e41228a",
+      "approxTokens": 626
+    },
+    {
+      "id": "upgrade",
+      "title": "Upgrading",
+      "description": "Breaking changes per version, migration guides, compatibility flags, release cycle",
+      "url": "https://docs.lucee.org/skill/upgrade.md",
+      "path": "skill/upgrade.md",
+      "entries": 13,
+      "sha256": "022c39627d93cd01041a2ba4117aaa4ddf8a6e6acf5cc143081eddafab86dc12",
+      "approxTokens": 989
+    },
+    {
+      "id": "database",
+      "title": "Database",
+      "description": "Datasources, JDBC drivers, queries, query of queries, query listeners, connection pooling",
+      "url": "https://docs.lucee.org/skill/database.md",
+      "path": "skill/database.md",
+      "entries": 15,
+      "sha256": "741552fd6bb59fda07ebd5bd8c02c1f4b535c65191e0d9496fb92bd5ab4014bf",
+      "approxTokens": 1039
+    },
+    {
+      "id": "orm",
+      "title": "ORM",
+      "description": "Hibernate ORM: setup, entity mapping, relationships, sessions, transactions, troubleshooting",
+      "url": "https://docs.lucee.org/skill/orm.md",
+      "path": "skill/orm.md",
+      "entries": 11,
+      "sha256": "98935b561bbe2134d9bdfac73dd7722aaa2a96dee8d1bdfb826139b8e075c299",
+      "approxTokens": 822
+    },
+    {
+      "id": "caching",
+      "title": "Caching",
+      "description": "Cache connections, cachedWithin, query cache invalidation, cache extensions",
+      "url": "https://docs.lucee.org/skill/caching.md",
+      "path": "skill/caching.md",
+      "entries": 7,
+      "sha256": "0b67234d6e3daa803dff1f7b79ae5c2a1c3e5aed1c289736cbf95f09dfc373bf",
+      "approxTokens": 537
+    },
+    {
+      "id": "debugging",
+      "title": "Debugging & logging",
+      "description": "Debugging, monitoring, logging, exceptions, heap and thread dumps, step debugger, dev tooling",
+      "url": "https://docs.lucee.org/skill/debugging.md",
+      "path": "skill/debugging.md",
+      "entries": 20,
+      "sha256": "8e49cc69f71c0f2ba190da6181532cc13d2f3e7ea02a5a64c4f7ec6166b9ea1c",
+      "approxTokens": 1186
+    },
+    {
+      "id": "java",
+      "title": "Java",
+      "description": "Calling Java, Maven dependencies, Java libraries, casting, proxies, data formats via Java",
+      "url": "https://docs.lucee.org/skill/java.md",
+      "path": "skill/java.md",
+      "entries": 20,
+      "sha256": "8dc6cd2bece379e25a94fbfae1b8a27f6978f44d43d807bdbab2ed94bec30ea6",
+      "approxTokens": 1282
+    },
+    {
+      "id": "extensions",
+      "title": "Extensions",
+      "description": "Installing, building and configuring extensions, scheduler (Quartz), hooks",
+      "url": "https://docs.lucee.org/skill/extensions.md",
+      "path": "skill/extensions.md",
+      "entries": 12,
+      "sha256": "7f3677355cd8ca6e46644e59cc3ad4428130f8192ed72acd58b1454c7e7b1dc5",
+      "approxTokens": 804
+    },
+    {
+      "id": "integrations",
+      "title": "Protocols & integrations",
+      "description": "Mail, HTTP, REST, S3 and virtual file systems, websockets, event gateways, XML, PDF, search",
+      "url": "https://docs.lucee.org/skill/integrations.md",
+      "path": "skill/integrations.md",
+      "entries": 22,
+      "sha256": "44b36bdd5724d5eacf857cca84c38264a41378422d2183a43857700854757971",
+      "approxTokens": 1426
+    },
+    {
+      "id": "server",
+      "title": "Server & configuration",
+      "description": "Configuration (.CFConfig.json), env vars, mappings, Docker, deployment, security hardening, startup",
+      "url": "https://docs.lucee.org/skill/server.md",
+      "path": "skill/server.md",
+      "entries": 35,
+      "sha256": "0b929b875758334cde5801df8a2545a7410ad39a57eefed9d0f5163fb9b51153",
+      "approxTokens": 2269
+    },
+    {
+      "id": "language",
+      "title": "CFML language",
+      "description": "Syntax, components, scopes, null handling, dates, threads, regex, Application.cfc",
+      "url": "https://docs.lucee.org/skill/language.md",
+      "path": "skill/language.md",
+      "entries": 35,
+      "sha256": "93294a7513a467df3dedf1ff087eca502a891b0737abf55c4a592bd15a211fc9",
+      "approxTokens": 2243
+    },
+    {
+      "id": "guides",
+      "title": "Guides",
+      "description": "Long-form guides: installing, updating, deploying, extensions, Lucee 5 era docs, release notes",
+      "url": "https://docs.lucee.org/skill/guides.md",
+      "path": "skill/guides.md",
+      "entries": 179,
+      "sha256": "271d664d540ca1bd95607235e018d93442851b3a848f6d0ffc94bcf819cac0f1",
+      "approxTokens": 4094
+    },
+    {
+      "id": "examples-specs",
+      "title": "Examples & technical specs",
+      "description": "Runnable Docker examples and technical specs (AST, hooks, JSR-223, monitors, LuCLI)",
+      "url": "https://docs.lucee.org/skill/examples-specs.md",
+      "path": "skill/examples-specs.md",
+      "entries": 21,
+      "sha256": "3bb2d21a74f3c459cbfbc9c15f0a354e725fd89d48cf15cecc97859c24349252",
+      "approxTokens": 940
+    }
+  ]
+}

@@ -27,7 +27,7 @@ component accessors=true {
 		for( var functionName in functionNames ) {
 			var convertedFunc = _getFunctionDefinition( functionName );
 
-			if ( convertedFunc.status neq "hidden" )
+			if ( convertedFunc.status neq "hidden" && !len( convertedFunc.aliasOf ) )
 				functions[ functionName ] = convertedFunc;
 		}
 
@@ -52,6 +52,7 @@ component accessors=true {
 		parsedFunction.keywords     = coreDefinition.keywords ?: [];
 		parsedFunction.introduced   = coreDefinition.introduced ?: "";
 		parsedFunction.alias        = coreDefinition.alias ?: "";
+		parsedFunction.aliasOf      = coreDefinition.aliasOf ?: "";
 		parsedFunction.arguments    = [];
 
 		if ( structKeyExists( variables.extensionMap, coreDefinition.name ) )
@@ -79,56 +80,35 @@ component accessors=true {
 	}
 
 	private void function _loadExtensionInfo(){
-		// load java tags
 		variables.extensionMap = {};
 		var cfg = getPageContext().getConfig();
-		var flds = cfg.getFLDs();
-		var ff = flds.getFunctions();
-		for (var fname in ff){
-			var bi = bundleInfo( ff[fname].getBIF() );
-			if ( bi.name != "lucee.core" ) {
-				var e = getExtensionOfBundle( bi.name );
-				variables.extensionMap[ fname ] = {
-					name: e.getName(),
-					id: e._getId(),
-					version: e._getVersion()
-				}
-			}
-		}
-
-		// load cfml tags
-		var extensions = extensionList();
-		loop query="extensions" {
-			local.e = queryRowData ( extensions, extensions.currentrow, "struct" );
-			if (len(e.functions) ){
-				for ( fname in e.functions ){
-					variables.extensionMap[ listFirst(fname,".") ] = {
-						name: e.name,
-						id: e.id,
-						version: e.version
-					}
-				}
-			}
-		}
-	}
-
-	private any function getExtensionOfBundle( bundleName ) {
-		var cfg = getPageContext().getConfig();
+		var configDir = cfg.getConfigDir().toString();
+		var fldDir = configDir & "/library/fld/";
 		var extensions = cfg.getAllRHExtensions();
-		var luceeMajor = listFirst( server.lucee.version, "." );
-		var bundles = "";
+
+		// map functions to extensions by parsing each extension's FLD files
 		loop collection=extensions.iterator() item="local.ext" {
-			if (luceeMajor gte 7)
-				bundles = ext.getMetadata().getBundles();
-			else {
-				bundles = ext.bundles;
-			}
-			
-			loop array=bundles item="local.bundle" {
-				if ( bundle.getSymbolicName() == bundleName ) return ext.getMetadata();
+			var md = ext.getMetadata();
+			var fldNames = md.getFlds();
+			if ( arrayLen( fldNames ) == 0 ) continue;
+
+			var extInfo = {
+				name: md.getName(),
+				id: md._getId(),
+				version: md._getVersion()
+			};
+
+			for ( var fldName in fldNames ) {
+				var fldPath = fldDir & fldName;
+				if ( !fileExists( fldPath ) ) continue;
+
+				var xml = xmlParse( fileRead( fldPath ), false, { "http://apache.org/xml/features/disallow-doctype-decl": false } );
+				var funcs = xmlSearch( xml, "//function/name" );
+				for ( var f in funcs ) {
+					variables.extensionMap[ lCase( f.xmlText ) ] = extInfo;
+				}
 			}
 		}
-		throw "could not find extension for bundle [#bundleName#]";
 	}
 
 }

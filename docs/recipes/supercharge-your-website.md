@@ -28,14 +28,13 @@ This is great when you are developing, but it's usually not needed for productio
 
 For production servers, if you know your server does not produce or change any source files, using Inspect Templates `NEVER` avoids that overhead.
 
-## Example:
+## Example
 
 ```luceescript
-// index.cfm
 writeDump(now());
 ```
 
-Run the above `index.cfm`, and you get a timestamp. Now change that file and call it again, the changes are automatically picked up.
+Run the above code in `index.cfm`, and you get a timestamp. Now change that file and call it again, the changes are automatically picked up.
 
 Whenever we call our file, by default, Lucee checks once at every request if a file has changed or not (for files currently residing in the template cache).
 

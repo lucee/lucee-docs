@@ -3,6 +3,7 @@ title: SetEncoding
 id: function-setencoding
 related:
 categories:
+- string
 ---
 
 Sets the character encoding (character set) of Form and URL scope variable values.

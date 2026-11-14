@@ -2,6 +2,8 @@
 title: NullValue
 id: function-nullvalue
 description: returns null
+categories:
+- core
 ---
 
 returns null

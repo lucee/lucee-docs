@@ -1,0 +1,1 @@
+Boolean unique flag (if params provided) or struct of query options.

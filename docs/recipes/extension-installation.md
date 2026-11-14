@@ -3,7 +3,7 @@
   "title": "Extension Installation",
   "id": "extension-installation",
   "since": "6.1",
-  "description": "A comprehensive guide on how to install extensions in Lucee.",
+  "description": "A comprehensive guide on how to install extensions in Lucee, including Lucee 8 maven coordinates and resource auto-discovery.",
   "keywords": [
     "extension",
     "install",
@@ -13,155 +13,251 @@
     "environment variable",
     "system property",
     "hot deployment",
-    "automation"
+    "automation",
+    "maven",
+    "resource",
+    "lex"
   ],
   "categories": [
     "extensions"
+  ],
+  "related": [
+    "deploying-lucee-server-apps",
+    "downloading-extensions",
+    "troubleshooting"
   ]
 }
 -->
 
 # Extension Installation
 
-In Lucee, there are multiple ways to install an extension. This recipe will show you all the possibilities along with their pros and cons.
+Extensions add capabilities to Lucee — JDBC drivers, resource providers (S3, Redis), image handling, PDF generation, and more. You can find available extensions at [download.lucee.org](https://download.lucee.org).
 
-The standard Lucee jar, (known as the far jar) bundles a number of common extensions (pdf, image etc).
+## Version Resolution
 
-If you want to control which extensions are installed, use Lucee Light (core and admin) or Lucee Zero (core only).
+Version is optional in all installation methods. When omitted, Lucee resolves the latest **release** version from Maven. SNAPSHOTs are only used as a fallback if no release exists. The resolved version is written back to the server's config file on disk.
 
-## Lucee Administrator
+> **Note (since 7.0.3.10):** Prior to this fix, a SNAPSHOT would be installed if one existed with a higher version number than the latest release.
 
-You can install an extension in the Lucee Administrator by navigating to Extensions/Applications in the Lucee (Server) Administrator and installing or uninstalling the extension you need.
+**Pinning versions is strongly recommended.** An unpinned extension may install a different version after an upgrade or redeploy
 
-### Pros
+Pinned versions also deploy faster as version resolution requires a remote lookup — pinning avoids that overhead at deploy time.
 
-- No physical access to the server needed
-- User-friendly interface
-- Immediate feedback on the installation process
+### Bootstrapping pinned versions
 
-### Cons
+A useful workflow for setting up a new environment:
 
-- Manual process that is not easily repeatable
-- Requires access to the Lucee Administrator interface
+1. Deploy with extension IDs only (no version)
+2. Lucee resolves and installs the latest release, writing the resolved version back to the config file
+3. Extract the `extensions` block from the server's `.CFConfig.json` and use those pinned versions in your build config
 
-## `deploy` Directory
+## Installation Methods
 
-Simply copy the extension you want to install into the folder `{lucee-installation}/lucee-server/deploy`. Lucee will pick it up at startup or within a minute after startup and install it. You can find extensions to install under [download.lucee.org](https://download.lucee.org).
+### Lucee Administrator
 
-### Pros
+Navigate to **Extensions > Applications** in the Lucee Server Administrator to install or uninstall extensions interactively.
 
-- Hot deployment on a running server possible with no restart needed (except for some extensions)
-- Can be automated with scripts
+Best for: one-off installs and exploration. Not suitable for automated deployments.
 
-### Cons
+### `deploy` Directory
 
-- Requires physical or SSH access to the server
-- Some extensions may require a restart to work properly
+Copy an extension file (`.lex`) into `{lucee-installation}/lucee-server/deploy`. Lucee picks it up at startup or within a minute and installs it.
 
-## `.CFConfig.json` Configuration (Lucee 6 Only)
+In a Docker image, you can download extensions at build time so they are baked into the image:
 
-With Lucee 6, you can define the extensions you need in the `.CFConfig.json` file that holds all your configurations.
+```dockerfile
+RUN mkdir -p /opt/lucee/server/lucee-server/deploy && \
+    wget -nv https://repo1.maven.org/maven2/org/lucee/s3-extension/2.0.2.21/s3-extension-2.0.2.21.lex \
+         -O /opt/lucee/server/lucee-server/deploy/s3-extension-2.0.2.21.lex && \
+    wget -nv https://repo1.maven.org/maven2/org/lucee/image-extension/2.0.0.29/image-extension-2.0.0.29.lex \
+         -O /opt/lucee/server/lucee-server/deploy/image-extension-2.0.0.29.lex
+```
+
+See [[downloading-extensions]] for where to download extensions from, and for a Maven based Docker multistage example.
+
+Best for: hot deployment on a running server, scripted installs where you already have the file locally. Some extensions require a restart to take effect.
+
+Lucee processes the `deploy` directory once at startup and then checks it every 10 seconds for new files. On a production server, where nothing is dropped into the folder while it runs, you can turn off the periodic check. The `deploy` directory is still processed once at startup, so extensions baked into an image keep working.
+
+Set `deployWatch` to `false` in your `.CFConfig.json`:
 
 ```json
 {
-    "extensions": [
-        {
-            "name": "Websocket",
-            "id": "07082C66-510A-4F0B-B5E63814E2FDF7BE",
-            "version": "1.0.0.11"
-        },
-        {
-            "name": "Redis",
-            "path": "/opt/lucee/extensions/redis.extension-3.0.0.51.lex",
-            "id": "60772C12-F179-D555-8E2CD2B4F7428718"
-        },
-        {
-            "name": "S3 Resource Extension",
-            "id": "17AB52DE-B300-A94B-E058BD978511E39E",
-            "path": "https://ext.lucee.org/s3-extension-2.0.1.25.lex"
-        }
-    ]
+  "deployWatch": false
 }
 ```
 
-You can define the `id` and `version` like in the first example (name is always optional), or provide a local path to the extension. Lucee supports virtual filesystems, so you can also define a virtual filesystem path, such as "https", "s3", or "ftp".
+Like every other setting in `.CFConfig.json`, it can also be set with a system property or environment variable, which takes precedence over the config file:
 
-On a fresh install of Lucee, Lucee will install the [bundled extensions](https://github.com/lucee/Lucee/blob/6.1/core/src/main/java/META-INF/MANIFEST.MF#L364) in addition to these extensions and update the `.CFConfig.json` file. On an existing installation, Lucee will remove all extensions installed that are not on this list.
+[[content::sysprop-envvar#LUCEE_DEPLOY_WATCH]]
 
-With Lucee 6.1, the "id" attribute is no longer necessary when you define a path.
+### `.CFConfig.json`
 
-### Important Notes for Multi-Mode (Server and Web Admin Enabled)
+Define extensions declaratively in your `.CFConfig.json` configuration file. The supported keys differ between Lucee 7 and Lucee 8.
 
-- If you run Lucee in Multi-Mode (Server and Web Admin enabled), you need to add the extension configuration to the root of the server context JSON file located at `{lucee-installation}/lucee-server/context/.CFConfig.json` and not in the web context JSON file.
+#### Lucee 8+
 
-### Pros
+Lucee 8 uses Maven coordinates (`groupId:artifactId:version`) as the primary identifier:
 
-- You can automate the process
-- Easy to manage configurations and extensions in one place
+```json
+{
+  "extensions": [
+    {
+      "maven": "org.lucee:s3-extension:2.0.2.21"
+    },
+    {
+      "maven": "org.lucee:redis-extension:3.0.0.56"
+    }
+  ]
+}
+```
 
-### Cons
+You can also provide a `resource` pointing to a local file or any Lucee VFS path (HTTPS, S3, FTP, etc.). When the resource resolves successfully, Lucee reads the `maven` coordinates and `id` directly from the `.lex` metadata — no other fields are required:
 
-- No hot deployment
-- Requires configuration file management
+```json
+{
+  "extensions": [
+    {
+      "resource": "/opt/lucee/extensions/my-extension.lex"
+    },
+    {
+      "resource": "https://example.com/ext.lex"
+    }
+  ]
+}
+```
 
-## Environment Variable / System Property
+If the resource cannot be resolved at startup, Lucee falls back to `maven` or `id` to fetch the extension from Maven. Providing both is a useful safety net:
 
-You can also define the extension in an environment variable or system property. This option is similar to the `.CFConfig.json` option.
+```json
+{
+  "extensions": [
+    {
+      "maven": "org.lucee:s3-extension:2.0.2.21",
+      "resource": "s3:///mybucket/extensions/s3-extension-2.0.2.21.lex"
+    }
+  ]
+}
+```
 
-Define a comma-separated list of Lucee extensions to install when starting up. This can be a simple list of IDs, in which case the latest versions will be installed:
+`resource` is aliased as `path` and `url` — all three are equivalent.
+
+#### Lucee 7 and older
+
+Lucee 7 identifies extensions by UUID (`id`). `name` and `version` are optional:
+
+```json
+{
+  "extensions": [
+    {
+      "id": "07082C66-510A-4F0B-B5E63814E2FDF7BE",
+      "version": "1.0.0.11"
+    },
+    {
+      "id": "60772C12-F179-D555-8E2CD2B4F7428718",
+      "path": "/opt/lucee/extensions/redis.extension-3.0.0.51.lex"
+    },
+    {
+      "id": "17AB52DE-B300-A94B-E058BD978511E39E"
+    }
+  ]
+}
+```
+
+As with Lucee 8, providing a `path`/`resource`/`url` to a reachable `.lex` file allows Lucee to read the `id`, `name`, and `version` directly from the file — they do not need to be stated explicitly.
+
+**Important:** CFConfig extensions are only processed on a fresh install. They are not re-evaluated on subsequent startups. On a fresh install, Lucee also installs the [bundled extensions](https://github.com/lucee/Lucee/blob/7.0/core/src/main/java/META-INF/MANIFEST.MF#L364). Extensions already installed but absent from the list are left in place — CFConfig only adds, it does not remove.
+
+For Multi-Mode (Server and Web Admin enabled, Lucee 6), add extensions to the server context config at `{lucee-installation}/lucee-server/context/.CFConfig.json`, not the web context.
+
+Best for: declarative, config-as-code setups.
+
+### Environment Variable / System Property
+
+Set `LUCEE_EXTENSIONS` (env var) or `-Dlucee.extensions` (system property) to a comma-separated list of extensions. Lucee re-processes it when the value changes (checked every 10 seconds).
+
+```plaintext
+LUCEE_EXTENSIONS=99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;version=12.2.0.jre8,671B01B8-B3B3-42B9-AC055A356BED5281;version=42.7.3
+```
+
+Or with Gradle-style coordinates (7.0.1+):
+
+```plaintext
+LUCEE_EXTENSIONS=org.lucee:s3-extension:2.0.2.21,org.lucee:redis-extension:3.0.0.56
+```
+
+[[content::sysprop-envvar#LUCEE_EXTENSIONS_INSTALL]]
+
+Best for: Docker/container deployments, CI/CD pipelines, infrastructure-as-code.
+
+## Format Reference
+
+The `LUCEE_EXTENSIONS` environment variable and `-Dlucee.extensions` system property use a comma-separated string format. `.CFConfig.json` uses structured JSON objects (see above). Both support the same underlying identifier formats.
+
+### UUID only (version resolved automatically)
 
 ```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6,
-671B01B8-B3B3-42B9-AC055A356BED5281,
-2BCD080F-4E1E-48F5-BEFE794232A21AF6
+671B01B8-B3B3-42B9-AC055A356BED5281
 ```
 
-Or with more specific information like version and label (for better readability):
+### UUID with attributes
 
 ```plaintext
 99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;name=MSSQL;label=MS SQL Server;version=12.2.0.jre8,
-671B01B8-B3B3-42B9-AC055A356BED5281;name=PostgreSQL;label=PostgreSQL;version=42.7.3,
-2BCD080F-4E1E-48F5-BEFE794232A21AF6;name=JDTsSQL;label=jTDS (MSSQL);version=1.3.1
+671B01B8-B3B3-42B9-AC055A356BED5281;name=PostgreSQL;version=42.7.3
 ```
 
-You can also define a path to the extension in the same way as with `.CFConfig.json`:
+### Maven / Gradle-style coordinates (Lucee 7.0.1+, primary format in Lucee 8)
+
+`groupId:artifactId:version` — version can be omitted to resolve the latest release:
 
 ```plaintext
-60772C12-F179-D555-8E2CD2B4F7428718;name=Redis;path=/opt/lucee/extensions/redis.extension-3.0.0.51.lex,
-17AB52DE-B300-A94B-E058BD978511E39E;name=S3 Resource Extension;path=https://ext.lucee.org/s3-extension-2.0.1.25.lex
+org.lucee:lucene-search-extension:3.0.0.163,
+org.lucee:redis-extension:3.0.0.56,
+org.lucee:s3-extension
 ```
 
-### Setting System Property
+### Custom path / resource
 
-To set a system property for Lucee extensions, you can use the `-D` option with the Java command that starts your Lucee server.
-
-Example command to start Lucee with system properties:
+Use `;path=` (or `;resource=` / `;url=`) to load from a specific file instead of Maven. When the file resolves successfully, `id`/`maven` are read from the `.lex` metadata and do not need to be stated. All Lucee virtual file systems are supported (local, HTTP/HTTPS, S3, FTP, ZIP/TAR, Git, RAM, etc.):
 
 ```plaintext
-java -Dlucee.extensions="99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;name=MSSQL;version=12.2.0.jre8,671B01B8-B3B3-42B9-AC055A356BED5281;name=PostgreSQL;version=42.7.3" -jar lucee.jar
+60772C12-F179-D555-8E2CD2B4F7428718;path=/opt/lucee/extensions/redis.extension-3.0.0.51.lex,
+17AB52DE-B300-A94B-E058BD978511E39E;path=https://ext.lucee.org/s3-extension-2.0.1.25.lex,
+org.lucee:redis-extension:3.0.0.56;path=s3:///mybucket/extensions/redis.lex
 ```
 
-### Pros
+### Mixed formats
 
-- Can be used in various deployment environments (e.g., Docker, cloud services)
-- Supports automation and infrastructure as code practices
+You can combine formats freely:
 
-### Cons
+```plaintext
+99A4EF8D-F2FD-40C8-8FB8C2E67A4EEEB6;version=12.2.0.jre8,
+org.lucee:lucene-search-extension:3.0.0.163,
+671B01B8-B3B3-42B9-AC055A356BED5281;path=s3:///mybucket/extensions/postgresql.lex
+```
 
-- No hot deployment
-- Requires setting environment variables or system properties, which might be complex in some environments
+## LUCEE_BASE_CONFIG Interaction
+
+When `LUCEE_BASE_CONFIG` is set, Lucee uses that file as the server config instead of the default `.CFConfig.json` in the server context directory. Any config updates — including resolved extension versions written back after install — go to that file.
+
+If your base config is shared, version-controlled, or read-only, this can be a problem. To install extensions without modifying your base config, drop a `.CFConfig.json` snippet into the `deploy/` directory. Lucee imports it, applies the changes to the running server's own config, then deletes the file — leaving your base config untouched.
+
+## Standard vs Light vs Zero
+
+The standard Lucee jar bundles common extensions (PDF, image, etc.) so they are available out of the box.
+
+**Lucee Light** and **Lucee Zero** include no bundled extensions — you must explicitly declare every extension you need. This makes them ideal for containerised deployments where you want full control over what's installed.
+
+Lucee Light includes the Lucee Admin archive (`.lar`), while Zero doesn't, saving about 2Mb.
+
+In order to enable the Admin with Lucee Light, you need to install the Admin Extension, which just adds a mapping to the archive.
+
+You can disable installing the bundled extensions on deploy by setting this ENV var to `false`:
+
+[[content::sysprop-envvar#LUCEE_EXTENSIONS_INSTALL]]
 
 ## Logging and Troubleshooting
 
-If you encounter issues while installing extensions, you can check the log at `{lucee-installation}/lucee-server/context/logs/deploy.log` not only for any errors reported but also to see what actions were performed. This log is by default set to info level and should contain all details about the installation process.
-
-## Conclusion
-
-Lucee offers several methods to install extensions, each with its own advantages and disadvantages. Choose the method that best fits your deployment and management workflow:
-
-- **Lucee Administrator**: Best for manual, ad-hoc installations.
-- **`deploy` Directory**: Good for automated deployments with script support.
-- **`.CFConfig.json` Configuration**: Ideal for managing configurations and extensions together.
-- **Environment Variable / System Property**: Suitable for modern deployment environments like Docker and cloud services.
-
-By understanding the pros and cons of each method, you can effectively manage Lucee extensions in your environment.
+Check `{lucee-installation}/lucee-server/context/logs/deploy.log` for details on what was installed and any errors. It defaults to info level and logs all deploy actions including resolved versions.

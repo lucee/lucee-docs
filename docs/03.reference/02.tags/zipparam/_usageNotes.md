@@ -1,0 +1,1 @@
+Since Lucee 7.1, zip functionality moved from core to the Compress extension. It is included in the full jar.

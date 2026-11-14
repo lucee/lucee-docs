@@ -11,19 +11,22 @@ The Lucee Installer for Linux has been tested on many systems, and should functi
 
 The Lucee Installer has been tested on following Linux OS's and are known to work without any known issues:
 
-* Almalinux 8 / 9
-* Rocky Linux 9 / 9
+* AlmaLinux 8 / 9
+* Rocky Linux 8 / 9
 * Redhat Enterprise Linux 8 / 9
 * Debian 10 / 11 / 12
-* Fedora 38/ 39 / 40 / 41
-* Ubuntu 20.X / 21.X / 22.X
+* Fedora 38 / 39 / 40 / 41
+* Ubuntu 20.X / 22.X / 24.X
+* Arch Linux
 * Pop!_OS
 * Mint Linux
 * Slackware
 * OpenSuse
 * Zorin
 
-additional Linux OS's should work just fine provided that the Apache directories are specified correctly during the install process.
+Additional Linux distributions should work just fine provided that the Apache directories are specified correctly during the install process.
+
+The installer automatically detects whether your system uses **systemd** (all modern distros) or legacy **SysVinit** and configures the service registration accordingly.
   
 ### Memory ###
 
@@ -49,4 +52,6 @@ It's important to realize that the memory requirements stated here are for Lucee
 
 ### Tomcat Support ###
 
+* Tomcat 11.X (bundled with current installer)
+* Tomcat 10.X
 * Tomcat 9.X

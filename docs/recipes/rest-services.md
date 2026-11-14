@@ -5,8 +5,13 @@
   "description": "A detailed guide on how to create REST Sevices using CFCs",
   "keywords": [
     "REST",
-    "verbs",
-    "methods"
+    "RESTful",
+    "HTTP verbs",
+    "taffy",
+    "restInitApplication",
+    "CFC",
+    "JSON",
+    "API"
   ],
   "categories": [
     "rest",
@@ -23,17 +28,13 @@
 }
 -->
 
-## Lucee and REST Services
+# Lucee and REST Services
 
-This documentation shows how to setup and configure Lucee Server to serve REST (Representation State Transfer).
+REST (Representational State Transfer) is an architecture for stateless data transfer over HTTP.
 
-### Introduction
+Lucee lets you define REST services using CFCs with REST-specific attributes - you add attributes to your components and functions, and Lucee's RestServlet handles routing requests to them.
 
-REST is an application architecture which defines stateless data transfer over networked services. In the context of the web REST is commonly implemented over HTTP as it is a RESTful protocol. 
-
-Lucee Server gives you the ability to define REST Services using collection of CFC components by using a set of REST specific attributes; and then configuring Lucee about which REST path should be used to access the service.
-
-Following you will learn how to setup REST in Lucee by adding a small example REST application with a REST service mapped to the name **metrics** ( which will be served by accessing the URL `http://localhost:8888/rest/metrics/` ).
+This guide walks through setting up a REST service mapped to `/rest/metrics/`.
 
 ### Setting up REST services with Lucee
 
@@ -178,6 +179,49 @@ component restPath="/api/products" rest="true" {
 
 Falling back to using function names as the REST Path, when no `restPath` is defined, was implemented in 7.0.0.366
 
+### REST request routing
+
+Since 7.1.0.116
+
+When two or more REST CFCs in the same mapping have overlapping `restPath`
+values, Lucee picks the most-specific match:
+
+* a literal path segment outranks a regex-constrained path-variable, which
+  outranks an unconstrained path-variable. So for `/users/123` the order
+  is `/users/me` (no, "me" doesn't match) > `/users/{id:[0-9]+}` >
+  `/users/{id}`
+* a longer match wins over a shorter one, so `/api/v2` wins over `/api`
+  for a request to `/api/v2/ping`, which lets you run versioned APIs
+  (`/api/v1`, `/api/v2`) alongside a generic `/api` catch-all
+* ties are broken deterministically by raw `restPath` then by the component
+  path, so dispatch never depends on filesystem order
+
+This brings Lucee in line with the JAX-RS resource-matching rules used by
+Adobe ColdFusion (via Jersey). Earlier versions returned the first match
+in disk-iteration order, which varied by filesystem — alphabetical on
+NTFS, inode-creation order on ext4 — meaning a deployment that worked on a
+Windows dev box could fail on a Linux production host with no warning.
+See [LDEV-6306](https://luceeserver.atlassian.net/browse/LDEV-6306).
+
+#### Duplicate restpaths fail at registration
+
+Since 7.1.0.116
+
+If two CFCs in the same REST mapping declare the same `restPath`, Lucee
+now refuses to register the mapping and throws an `ApplicationException`
+naming both files. Pre-7.1 builds silently shadowed one of the CFCs and
+which one won depended on filesystem order — so a deployment could work
+in dev and then route to the wrong handler in production.
+
+```text
+REST mapping [/api] has duplicate restpaths: duplicate REST path [/users]
+in mapping [/api]: /webroot/rest/UsersA.cfc, /webroot/rest/UsersB.cfc
+```
+
+Each duplicate is also written to the `rest` log at `error` level so the
+problem surfaces in monitoring dashboards even if the request that
+triggered it never reaches the user.
+
 ### Configuring your web server to serve Lucee's REST services
 
 In the preceding steps we have added a REST service mapping named "metrics" serving REST resources with a CFC component
@@ -263,7 +307,7 @@ remote string function echoGET() httpMethod="GET,HEAD" restpath="echoGET" {
 
 * **rest (boolean):** enables/disables the component as an accessible rest component. Default value is `true`. Set it to false if you wish to disable a component from serving REST services.
 * **restpath (string):** defines the path that invokes the component. Use this to define your own REST path in case you don't want to use the components name.
-* **httpMethod (string):** defines the http method to access the component. All values that are supported and allowed by the server can be used. Common values are `GET | POST | PUT | UPDATE | DELETE | HEAD | OPTIONS`, multiple methods are supported since 6.1.0.155.
+* **httpMethod (string):** defines the HTTP verb (method) used to access the component. All values that are supported and allowed by the server can be used. Common verbs are `GET | POST | PUT | UPDATE | DELETE | HEAD | OPTIONS`, multiple methods are supported since 6.1.0.155.
 
 #### CFFUNCTION attributes
 

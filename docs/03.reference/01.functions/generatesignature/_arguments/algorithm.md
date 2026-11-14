@@ -1,0 +1,1 @@
+Signature algorithm (e.g., SHA256withRSA, SHA256withECDSA, Ed25519). Auto-detected if omitted.

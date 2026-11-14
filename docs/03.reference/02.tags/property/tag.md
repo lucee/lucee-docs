@@ -3,6 +3,7 @@ title: <cfproperty>
 id: tag-property
 related:
 categories:
+- component
 ---
 
 Defines components as complex types that are used for web services authoring.

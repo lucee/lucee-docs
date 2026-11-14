@@ -1,0 +1,1 @@
+Since Lucee 7.1, mail functionality moved from core to the Mail extension. It is included in the full jar.

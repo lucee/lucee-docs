@@ -1,6 +1,8 @@
 ---
 title: <cfupdate>
 id: tag-update
+categories:
+- query
 ---
 
 Updates existing records in data sources.

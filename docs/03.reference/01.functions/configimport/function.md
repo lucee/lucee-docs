@@ -20,4 +20,4 @@ The function will check for the actual values for this placeholders in 3 places 
 - System properties
 - Environment variables
 
-[[directory-placeholders]] will be passed thru and dynamically evaluated when used.
+[[configuration-directory-placeholders]] will be passed thru and dynamically evaluated when used.

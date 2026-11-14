@@ -3,6 +3,7 @@ title: QuotedValueList
 id: function-quotedvaluelist
 related:
 categories:
+- string
 ---
 
 Returns a quoted list of all the values, for a given column within the query, delimited by the value given.

@@ -7,64 +7,100 @@ related:
 - windows-start-stop-lucee
 ---
 
-In a Linux environment, Lucee can be controlled by using the provided [lucee_ctl](https://github.com/lucee/lucee-installer/blob/master/lucee/linux/sys/engine_ctl_template) script, which is configured by the installer according to your choices.
+In a Linux environment, Lucee can be controlled by using the provided [lucee_ctl](https://github.com/lucee/lucee-installer/blob/master/lucee/linux/sys/lucee_ctl_template) script, which is configured by the installer according to your choices.
 
-During a standard install, it is possible for two (2) copies of this file to be created.
-
-One copy of the control script will always be created right in the root wherever you installed Lucee (usually /opt/lucee/ - so the control script would be in /opt/lucee/lucee_ctl by default), and if you opt to have Lucee start at boot time, another will be created in your /etc/init.d/ directory, and used as an init script. 
-
-Even though there are two copies of the file, there are no difference between the two. You can use whichever copy you prefer to use.
+The control script is created in the root of your Lucee installation directory (usually `/opt/lucee/lucee_ctl` by default). If you opted to have Lucee start at boot time, the installer will also register this as a system service.
 
 ### Permissions ###
 
-In all installations, root-level privileges are required to use the `lucee_ctl` script. This means you have to either be logged in directly as root, su to root, or sudo to root. This is important because it usually effects how to run the `lucee_ctl` script.
+Root-level privileges are required to use the `lucee_ctl` script. This means you have to either be logged in directly as root, su to root, or sudo to root.
 
-You can use the bundled Tomcat shell scripts (`startup.sh`, `shutdown.sh` and `catalina.sh`), **but make sure you are running as root**, otherwise, it can causes problem, therefore, it's best to use `lucee_ctl`**
+You can use the bundled Tomcat shell scripts (`startup.sh`, `shutdown.sh` and `catalina.sh`), **but make sure you are running as the correct user**, otherwise it can cause permission problems. It's best to use `lucee_ctl`.
 
-### On RHEL, CentOS, Fedora, etc ###
+## Using systemd (Modern Linux - Recommended) ##
 
-To start Lucee (and Tomcat) in a RHEL-based distribution, you can run the following command (*assumes you are logged in as "root"*):
+> **Note:** systemd support was added in Lucee Installer 7.0.1 and 6.2.4. Earlier versions use the legacy SysVinit method.
 
-```bash
-/opt/lucee/lucee_ctl start
-```
+All modern Linux distributions (RHEL/CentOS 7+, Debian 8+, Ubuntu 15.04+, Arch, Fedora, AlmaLinux, etc.) use **systemd** as their init system. When you install Lucee with `--startatboot true`, the installer automatically creates a systemd service file.
 
-To Stop Lucee:
+### Starting and Stopping with systemctl ###
 
 ```bash
-/opt/lucee/lucee_ctl stop
+# Start Lucee
+sudo systemctl start lucee_ctl
+
+# Stop Lucee
+sudo systemctl stop lucee_ctl
+
+# Restart Lucee
+sudo systemctl restart lucee_ctl
+
+# Check status
+sudo systemctl status lucee_ctl
+
+# View logs
+sudo journalctl -u lucee_ctl
 ```
 
-And to Restart Lucee:
+### Enable/Disable Auto-Start at Boot ###
 
 ```bash
-/opt/lucee/lucee_ctl restart
+# Enable auto-start at boot
+sudo systemctl enable lucee_ctl
+
+# Disable auto-start at boot
+sudo systemctl disable lucee_ctl
 ```
 
-You can also use the script to check the server's running status:
+### Custom Service Names ###
+
+If you installed Lucee with a custom service name (using `--servicename`), use that name instead:
 
 ```bash
-/opt/lucee/lucee_ctl status
+sudo systemctl start my_app_ctl
+sudo systemctl status my_app_ctl
 ```
 
-Lastly, if for some reason Tomcat/Lucee hangs, get stuck, etc, you can insta-kill it with:
+This is useful when running multiple Lucee instances on the same server.
+
+### The systemd Service File ###
+
+The systemd service file is created at `/etc/systemd/system/lucee_ctl.service` (or `/etc/systemd/system/{servicename}_ctl.service` for custom names). You can view it with:
 
 ```bash
-/opt/lucee/lucee_ctl forcequit
+cat /etc/systemd/system/lucee_ctl.service
 ```
 
-### Using sudo, when not logged in as a root user, on Ubuntu, Debian, Alma etc ###
+## Using the lucee_ctl Script Directly ##
+
+You can also control Lucee directly using the `lucee_ctl` script:
 
 ```bash
-$ sudo /opt/lucee/lucee_ctl restart
+sudo /opt/lucee/lucee_ctl start
+sudo /opt/lucee/lucee_ctl stop
+sudo /opt/lucee/lucee_ctl restart
+sudo /opt/lucee/lucee_ctl status
+sudo /opt/lucee/lucee_ctl forcequit
 ```
 
-### Using the "service" command ###
+> **Warning:** If you have Lucee registered as a systemd service, you should use `systemctl` commands instead of calling `lucee_ctl` directly. Starting or stopping Lucee outside of systemd can cause systemd to lose track of the process, leading to issues like:
+>
+> - `systemctl status` showing incorrect state
+> - `systemctl start` failing because Lucee is already running (but systemd doesn't know)
+> - PID file ownership conflicts
+>
+> If you get into this state, stop Lucee with `sudo /opt/lucee/lucee_ctl stop`, then use `systemctl start lucee_ctl` to let systemd manage it properly.
 
-If you opted to have Lucee start at boot time, that would have configured the init script to be added to `/etc/init.d/`. 
+## Legacy Init Systems (SysVinit) ##
 
-When a script is present there, some distributions, like CentOS, offer the `service` command:
+On older Linux systems that don't use systemd, the installer falls back to the legacy SysVinit method, copying the script to `/etc/init.d/`.
+
+### Using the service command ###
 
 ```bash
-$ service lucee_ctl restart
+sudo service lucee_ctl start
+sudo service lucee_ctl stop
+sudo service lucee_ctl restart
 ```
+
+This method is only used on systems without systemd (e.g., older RHEL 6, Debian 7, etc.).

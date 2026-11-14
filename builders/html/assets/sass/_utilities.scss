@@ -293,7 +293,7 @@ body.el-loading {
 
 // color
 	.text-bg {
-		color: $black-bg;
+		color: var( --border-color );
 	}
 
 	.text-black {
@@ -301,15 +301,15 @@ body.el-loading {
 	}
 
 	.text-default {
-		color: $black-text;
+		color: var( --text-color );
 	}
 
 	.text-hint {
-		color: $black-hint;
+		color: var( --text-hint );
 	}
 
 	.text-sec {
-		color: $black-sec;
+		color: var( --text-secondary );
 	}
 
 	.text-white {

@@ -1,6 +1,8 @@
 ---
 title: GetTemplatePath
 id: function-gettemplatepath
+categories:
+- server
 ---
 
 This function is deprecated.

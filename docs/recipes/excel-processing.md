@@ -12,6 +12,11 @@
     "XLSX",
     "XLS",
     "Spreadsheet"
+  ],
+  "related": [
+    "maven",
+    "csv-processing-lucee7",
+    "yaml-processing-lucee7"
   ]
 }
 -->

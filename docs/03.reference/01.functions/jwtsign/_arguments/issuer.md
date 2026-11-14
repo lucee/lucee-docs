@@ -1,0 +1,1 @@
+Token issuer. Sets the 'iss' claim (overrides claims struct).

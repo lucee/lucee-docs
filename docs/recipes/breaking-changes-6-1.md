@@ -12,9 +12,9 @@
 }
 -->
 
-# Breaking Changes Between Lucee 6.0 and 6.1
+# Breaking Changes between Lucee 6.0 and 6.1
 
-This document outlines the breaking changes introduced when upgrading from Lucee 6.0 to Lucee 6.1. Be aware of these changes when migrating your applications to ensure smooth compatibility.
+This document outlines the breaking changes introduced in the upgrade from Lucee 6.0 to Lucee 6.1. Use it as a migration checklist to ensure smooth compatibility.
 
 ## Changelogs
 

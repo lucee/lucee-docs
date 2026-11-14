@@ -16,11 +16,11 @@
 	&.disabled,
 	fieldset[disabled] & {
 		.circle {
-			border-color: $black-hint !important;
+			border-color: var( --text-hint ) !important;
 		}
 	}
 	input.access-hide:focus ~ .circle {
-		border-color: $black-text;
+		border-color: var( --text-color );
 	}
 	input.access-hide:checked ~ .circle {
 		border-color: $brand-color;
@@ -47,7 +47,7 @@
 	&.disabled,
 	fieldset[disabled] & {
 		.circle-check:after {
-			background-color: $black-hint;
+			background-color: var( --text-hint );
 		}
 	}
 	input.access-hide:checked ~ .circle-check {
@@ -76,7 +76,7 @@
 	&.disabled,
 	fieldset[disabled] & {
 		input.access-hide:checked ~ .circle-icon {
-			background-color: $black-hint;
+			background-color: var( --text-hint );
 		}
 	}
 }
@@ -92,7 +92,7 @@
 	&.disabled,
 	fieldset[disabled] & {
 		input.access-hide:checked ~ .circle-check {
-			background-color: $black-hint;
+			background-color: var( --text-hint );
 		}
 	}
 }

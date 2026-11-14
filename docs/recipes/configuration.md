@@ -7,9 +7,11 @@
   "description": "Best practices for configuring Lucee in various environments.",
   "keywords": ["configuration", "config", ".CFConfig.json", "lucee-server.xml", "lucee-web.xml"],
   "categories":[
-    "server"
+    "server",
+    "devops"
   ],
   "related": [
+    "configuration-precedence",
     "function-configimport",
     "function-configtranslate",
     "tag-application",
@@ -82,6 +84,8 @@ Lucee follows a configuration hierarchy:
 5. **Per Request**
 
 Each level extends or overrides the previous one.
+
+For how environment variables and system properties interact with `.CFConfig.json` and the Administrator (including which wins when both an env var and a system property are set, and how Lucee 7 vs 8 show this in the Admin), see [[configuration-precedence]].
 
 ## Environment Variables / System Properties
 

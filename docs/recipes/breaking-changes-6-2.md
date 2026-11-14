@@ -1,6 +1,6 @@
 <!--
 {
-  "title": "Breaking Changes Between Lucee 6.1 and 6.2",
+  "title": "Breaking Changes between Lucee 6.1 and 6.2",
   "id": "breaking-changes-6-1-to-6-2",
   "categories": ["breaking changes", "migration","compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 6.1 and 6.2",
@@ -13,7 +13,9 @@
 
 # Breaking Changes between Lucee 6.1 and 6.2
 
-This document outlines the breaking changes introduced when upgrading from Lucee 6.1 to Lucee 6.2. Be aware of these changes when migrating your applications to ensure smooth compatibility.
+[[lucee_6_2_overview]]
+
+This document outlines the breaking changes introduced in the upgrade from Lucee 6.1 to Lucee 6.2. Use it as a migration checklist to ensure smooth compatibility.
 
 ## Changelogs
 
@@ -52,6 +54,8 @@ So, we decided to switch the default back to preciseMath=false, which really imp
 Dynamically switching preciseMath on and off as required is recommended, rather than using it all the time.
 
 As part of this change, we updated all our test cases to test switching dynamically during a request and identified a few problems which we addressed.
+
+[[content::sysprop-envvar#LUCEE_PRECISE_MATH]]
 
 ## Support for Jakarta Servlet
 
@@ -113,8 +117,8 @@ Workaround, create an Application.cfc which extends the parent Application.cfc
 
 ## Strict Equality Operator was sensitive to underlying java types
 
-Lucee 6 improved the `===` operator to compare type and value, but was checking only the underlying java type, rather than cfml type, so numbers might fail
+Previously, the `===` operator checked if two values were the same Java object (identity check), rather than comparing CFML type and value.
 
-In 6.2.3.34, this was changes to compare cfml type and value, as expected
+In 6.2.3.34, this was changed to compare CFML type and value, as expected. Note that string comparison with `===` is case-insensitive (matching standard CFML behavior), so `"a" === "A"` is true. This is different from JavaScript's `===` which is case-sensitive.
 
 [LDEV-5806](https://luceeserver.atlassian.net/browse/LDEV-5806) 

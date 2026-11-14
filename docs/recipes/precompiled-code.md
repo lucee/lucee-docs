@@ -13,20 +13,20 @@
     "Lucee"
   ],
   "categories":[
-    "server"
+    "server",
+    "devops"
   ]
 }
 -->
 
 # Precompiled Code
 
-This document explains how to pre-compile code for a production server while the source code is deployed. This method avoids compilation on the production server for security reasons. We explain this method with a simple example below:
+Deploy pre-compiled bytecode instead of source files — avoids compilation on production servers and improves security by keeping CFML source out of the deployment.
 
-Example:
+## Example
 
 ```lucee
-//index.cfm page in current instance location like \webapps\ROOT\sample\index.cfm
-
+<!--- index.cfm - location: \webapps\ROOT\sample\index.cfm --->
 Time is <cfscript>
 writeoutput(now());
 </cfscript>

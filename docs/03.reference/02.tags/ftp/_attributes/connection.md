@@ -1,1 +1,1 @@
-the name for the connection, used to cache the connection
+the name for the connection, used to cache the connection within the current request

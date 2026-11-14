@@ -1,0 +1,1 @@
+Key to convert: PublicKey, PrivateKey, SecretKey, PEM string, or key pair struct from GenerateKeyPair()

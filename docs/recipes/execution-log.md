@@ -18,7 +18,7 @@
 
 ## Introduction
 
-ExecutionLog in Lucee provides detailed information about the execution time of individual code expressions and statements. Unlike standard debugging which only captures template execution times, ExecutionLog tracks execution at a much more granular level, allowing you to identify performance bottlenecks within your code.
+ExecutionLog is Lucee's built-in profiling tool, providing detailed information about the execution time of individual code expressions and statements. Unlike standard debugging which only captures template execution times, ExecutionLog tracks execution at a much more granular level, allowing you to identify performance bottlenecks within your code.
 
 When enabled, Lucee injects bytecode into the runtime-compiled CFML to track and log performance metrics. Lucee will recompile all CFML code when this feature is first enabled.
 
@@ -169,6 +169,9 @@ When configuring any ExecutionLog implementation, you can specify these argument
 | Property | Description | Default | Notes |
 |----------|-------------|---------|-------|
 | `directory` | Specifies where log files should be stored. If not provided, Lucee will use a temp directory. For persistent logs, specify an absolute path. Lucee's virtual filesystem support means you can write to various destinations (S3, HTTP, etc.). | Lucee temp directory | `"/var/logs/lucee"`, `"s3://my-bucket/logs"` |
+| `buffer-size` | Controls when to flush log content to disk to prevent out-of-memory errors with large execution logs. Specifies the number of characters to buffer before writing to file. | `100000` characters (~200KB) | Since Lucee 7.0.1.9 |
+
+**Note:** The `buffer-size` argument prevents memory issues when execution logs become very large by periodically flushing content to a temporary file instead of keeping everything in memory.
 
 ### LogExecutionLog Arguments
 

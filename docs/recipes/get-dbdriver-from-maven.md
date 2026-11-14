@@ -7,7 +7,8 @@
   "keywords": [
     "datasource",
     "maven",
-    "mysql"
+    "mysql",
+    "snowflake"
     ,"db"
   ],
   "categories":[
@@ -49,6 +50,22 @@ You can use whatever version is available on [Maven](https://mvnrepository.com/a
 
 If you are unsure about the correct settings, simply install the MySQL extension, create a datasource in the Lucee admin, and at the bottom of the detail page, you will get an `Application.cfc` template for these settings.
 
+## Drivers without OSGi metadata (Snowflake example)
+
+Some JDBC drivers, for example the Snowflake driver, are plain jar files that do not contain any OSGi metadata, so there is no `bundleName` to use. For these drivers (Lucee 6.2 and later), use the `maven` key with the Maven coordinates `groupId:artifactId:version` instead of `bundleName` and `bundleVersion`. Lucee then downloads the driver from Maven and loads it from there.
+
+```lucee
+this.datasources["snowflake"] = {
+    class: "net.snowflake.client.jdbc.SnowflakeDriver",
+    maven: "net.snowflake:snowflake-jdbc:4.4.0",
+    connectionString: "jdbc:snowflake://<account>.snowflakecomputing.com/?db=<database>&warehouse=<warehouse>",
+    username: "<username>",
+    password: "encrypted:..."
+};
+```
+
+The version `4.4.0` is only an example. You can use whatever version is available on [Maven](https://mvnrepository.com/artifact/net.snowflake/snowflake-jdbc). Replace `<account>`, `<database>`, `<warehouse>` and `<username>` with your own values, and do not store a plain text password in your code.
+
 ## .CFConfig.json
 
 For `.CFConfig.json`, your settings will look like this:
@@ -78,6 +95,4 @@ Here, you can also use any version that is available on [Maven](https://mvnrepos
 
 Again, if you are unsure about the exact settings, simply install the MySQL extension, create a datasource in the admin, and then check out the datasource created in `.CFConfig`. Be careful here, because when you define the datasource in the Lucee admin, Lucee will set neither `bundleName` nor `bundleVersion`, as Lucee uses what is installed by default. To get it from Maven directly, you need to define the bundle information, so always add that information.
 
-## Conclusion
-
-The benefit over simply use the MySQL extension is, you can use the newest version of MySQL or any other DB driver that is fresh from the press, if no Lucee extension exist yet for that version.
+This lets you use the newest driver version fresh from Maven, even if no Lucee extension exists yet.

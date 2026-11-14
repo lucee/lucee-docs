@@ -5,6 +5,7 @@ related:
 - tag-defaultcase
 categories:
 - core
+- flow-control
 ---
 
 Used with [[tag-case]] and [[tag-defaultcase]].

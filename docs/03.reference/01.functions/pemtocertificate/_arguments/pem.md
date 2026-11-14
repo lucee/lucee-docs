@@ -1,0 +1,1 @@
+PEM-encoded certificate string

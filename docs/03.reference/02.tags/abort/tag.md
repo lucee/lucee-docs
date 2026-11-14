@@ -4,6 +4,7 @@ id: tag-abort
 related:
 categories:
 - core
+- flow-control
 ---
 
 Stops processing of a page at the tag location.

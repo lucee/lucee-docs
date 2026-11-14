@@ -5,15 +5,22 @@
   "id": "troubleshooting",
   "categories": [
     "server",
-    "debugging"
+    "debugging",
+    "devops"
   ],
   "description": "A guide to diagnosing problems with Lucee",
   "keywords": [
     "startup",
     "deployment",
-    "logs"
+    "logs",
+    "troubleshooting",
+    "crash",
+    "systemOutput",
+    "WEB-INF",
+    "lucee-server"
   ],
-  "related":[
+  "related": [
+    "function-systemoutput"
   ]
 }
 -->
@@ -72,6 +79,8 @@ The best first step when debugging a Lucee Server is start Tomcat manually, in a
 In the `tomcat/bin` directory, there's a bash/batch file called `catalina.sh` or `catalina.bat` which can be run with the run option, i.e `./cataline.sh run` or `catalina run`
 
 By default, this will show all the `catalina.log` information in the console.
+
+You can also use [[function-systemoutput]] to write to that log ( or console).
 
 Since Lucee 6.2, you can also redirect all the log4j logging to the console. (TODO out.log and err.log!)
 

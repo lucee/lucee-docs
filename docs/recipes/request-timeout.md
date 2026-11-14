@@ -15,7 +15,8 @@
     "Threshold"
   ],
   "categories": [
-    "server"
+    "server",
+    "flow-control"
   ],
   "related":[
     "tag-timeout",
@@ -28,45 +29,41 @@
 
 # Request Timeout
 
-Lucee allows you to define a request timeout for every request made to Lucee. **Never accept request timeouts as a regular behavior of your application; always try to resolve any request timeout that occurs.**
+Lucee allows you to define a request timeout for every request. **Never accept request timeouts as normal behavior** - always investigate and fix them.
 
-## Setting Request Timeout
+> **Deprecated:** Since Lucee 7.1.3, the request timeout settings described here (`this.requestTimeout`, the `requestTimeout` attribute of `cfsetting`, the Administrator setting, the `RequestTimeout` URL parameter and the `lucee.requesttimeout*` system properties) are deprecated ([LDEV-6919](https://luceeserver.atlassian.net/browse/LDEV-6919)). They still work and nothing has been removed, but a request timeout cannot reliably stop a request (see [Limitations](#limitations)). Set a timeout on the operation itself instead, as described in [Set a timeout on the operation](#set-a-timeout-on-the-operation).
+
+## Configuration
 
 ### Lucee Administrator
 
-You can set the request timeout in the Lucee Administrator under "Settings/Request".
+Settings > Request
 
 ### Application.cfc
-
-You can also set the request timeout in the `Application.cfc` as follows:
 
 ```luceescript
 this.requestTimeout = createTimeSpan(0, 0, 0, 49);
 ```
 
-### Tag cfsetting
+### cfsetting tag
 
-Alternatively, you can set the request timeout using the `<cfsetting>` tag:
-
-```luceetag
+```lucee
 <cfsetting requestTimeout="#createTimeSpan(0, 0, 0, 49)#">
 ```
 
-or with script syntax:
+Or in script:
 
 ```luceescript
-setting requesttimeout=60; //integer for seconds
+setting requesttimeout=60; // seconds as integer
 ```
 
 ## Thresholds
 
-Lucee includes several additional thresholds that requests must meet before they are terminated due to a timeout. These thresholds help prevent unnecessary termination of requests, which can pose risks such as deadlocks and open monitors. If a request timeout is reached but the thresholds are not met, Lucee will log the event in the "requesttimeout" log instead of terminating the request.
+Lucee has additional thresholds that requests must meet before being terminated. These help prevent unnecessary termination, which can cause deadlocks and open monitors. If a timeout is reached but thresholds aren't met, Lucee logs to the "requesttimeout" log instead of terminating.
 
-### Concurrent Requests Threshold
+### Concurrent Requests
 
-This setting allows you to specify the number of concurrent requests Lucee can handle before enforcing request timeouts. Adjusting this threshold can help manage request timeouts under varying loads. A higher threshold allows more concurrent requests to be processed without enforcing timeouts, potentially improving performance under heavy loads at the risk of longer request times. The default threshold is set to 0, meaning request timeouts are enforced immediately for all requests.
-
-Set this threshold via the System Property:
+How many concurrent requests Lucee handles before enforcing timeouts. A higher threshold lets more requests process without timeout enforcement - useful under heavy load, but risks longer request times. Default: 0 (enforce immediately).
 
 ```sh
 -Dlucee.requesttimeout.concurrentrequestthreshold=100
@@ -78,11 +75,9 @@ or the Environment Variable:
 LUCEE_REQUESTTIMEOUT_CONCURRENTREQUESTTHRESHOLD=100
 ```
 
-### CPU Usage Threshold
+### CPU Usage
 
-This option allows you to set a CPU usage threshold that Lucee monitors before enforcing request timeouts. The threshold value is a float ranging from 0.0 (0% CPU usage) to 1.0 (100% CPU usage). When the system's CPU usage is below this threshold, Lucee processes requests without applying the request timeout rule. This helps manage resource allocation and maintain application responsiveness during high demand or limited system resources. The default setting is 0.0, which means request timeouts are applied regardless of CPU usage.
-
-Set this threshold via the System Property:
+Set a CPU usage threshold before enforcing timeouts. Value is 0.0 (0%) to 1.0 (100%). When CPU is below this threshold, requests process without timeout enforcement - helps maintain responsiveness during high demand. Default: 0.0 (always enforce regardless of CPU).
 
 ```sh
 -Dlucee.requesttimeout.cputhreshold=0.9
@@ -94,11 +89,9 @@ or the Environment Variable:
 LUCEE_REQUESTTIMEOUT_CPUTHRESHOLD=0.9
 ```
 
-### Memory Usage Threshold
+### Memory Usage
 
-This setting allows you to establish a memory usage threshold, guiding Lucee on when to enforce request timeouts based on current memory consumption. The threshold value is a float from 0.0 (0% memory usage) to 1.0 (100% memory usage). By monitoring memory usage against this threshold, Lucee decides whether to enforce or relax request timeouts dynamically. This prevents system overloads and ensures stable performance by not strictly applying timeouts when memory usage is below the defined threshold. The default threshold is set to 0.0, meaning Lucee will apply request timeouts without considering memory usage.
-
-Set this threshold via the System Property:
+Set a memory usage threshold before enforcing timeouts. Value is 0.0 (0%) to 1.0 (100%). When memory is below this threshold, requests process without timeout enforcement - prevents system overloads and maintains stable performance. Default: 0.0 (always enforce regardless of memory).
 
 ```sh
 -Dlucee.requesttimeout.memorythreshold=0.8
@@ -109,3 +102,53 @@ or the Environment Variable:
 ```sh
 LUCEE_REQUESTTIMEOUT_MEMORYTHRESHOLD=0.8
 ```
+
+## Limitations
+
+A request timeout can only stop the request thread at points where that thread can be interrupted. It is not meant to bound a single query, HTTP call, or other blocking operation.
+
+Lucee enforces the timeout by interrupting the request thread. That works when the thread is in an interruptible Java wait, such as `sleep()`, `wait()`, or `join()`. It does not stop the thread when it is:
+
+- blocked in network I/O that ignores interrupts, including most JDBC driver reads
+- running native (JNI) code
+- waiting to acquire some locks
+
+In those cases the request can keep running until the underlying operation returns on its own, even though the request timeout has already been reached. The same is true of any long-running Java call that never returns to Lucee: the timeout is only observed once the thread can be interrupted or reaches a Lucee checkpoint.
+
+### Modern Java
+
+On earlier Java versions, Lucee could use `Thread.stop()` as a last resort to force a timed-out request to end. Since Java 20, `Thread.stop()` throws `UnsupportedOperationException` and is no longer available. Lucee therefore relies on `Thread.interrupt()`, which has the limitations above. This is a Java platform restriction, not a Lucee setting you can turn back on.
+
+### Set a timeout on the operation
+
+To bound a query or HTTP call, set a timeout on that operation itself.
+
+Per query, in seconds:
+
+```lucee
+<cfquery datasource="myds" timeout="10">
+    SELECT ...
+</cfquery>
+```
+
+```luceescript
+queryExecute("SELECT ...", {}, { datasource: "myds", timeout: 10 });
+```
+
+An application default for every query:
+
+```luceescript
+this.tag.cfquery.timeout = createTimeSpan(0, 0, 0, 10);
+// this.tag.query.timeout works the same way
+```
+
+Alternatively, set `alwaysSetTimeout` on the datasource. When that flag is enabled, Lucee uses the remaining request timeout as the query timeout. It is off by default in Lucee and in `this.datasources`:
+
+```luceescript
+this.datasources["myds"] = {
+    // ...
+    alwaysSetTimeout: true
+};
+```
+
+For HTTP, set a timeout on `cfhttp` / `http`. Lucee also caps `cfhttp` to the remaining request timeout; an explicit `timeout` is still the way to set a tighter bound. Other HTTP clients or raw socket calls are not cancelled automatically.

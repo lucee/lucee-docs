@@ -195,6 +195,18 @@ categories:
 			filesCreated += variables._createFileIfNotExists( tagDir & "_attributes/#attrib.name#.md", Trim( attrib.description ?: "" ) );
 		}
 
+		// LDEV-5901: Create stub files for attribute groups
+		var groups = arguments.tag.attributeGroups ?: [];
+		for( var group in groups ) {
+			var groupContent =
+"---
+label: #Trim( group.label ?: '' )#
+---
+
+#Trim( group.description ?: '' )#";
+			filesCreated += variables._createFileIfNotExists( tagDir & "_attributeGroups/#group.name#.md", groupContent );
+		}
+
 		return filesCreated;
 	}
 

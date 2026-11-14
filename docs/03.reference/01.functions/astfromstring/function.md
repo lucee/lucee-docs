@@ -3,9 +3,7 @@ title: astFromString
 id: function-astfromstring
 related:
 categories:
-    - ast
-    - transform
-    - compile
+- parsing
 ---
 
 **Parses CFML source code from a string and returns its Abstract Syntax Tree (AST) representation.**

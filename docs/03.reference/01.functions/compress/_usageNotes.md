@@ -1,0 +1,1 @@
+Since Lucee 7.1, compress/extract functionality moved from core to the Compress extension. Basic zip and gzip support remains available in core using built-in JRE capabilities. Other formats (bzip, bzip2, tar, tbz, tbz2, tgz) require the Compress extension. It is included in the full jar. ([LDEV-5959](https://luceeserver.atlassian.net/browse/LDEV-5959))

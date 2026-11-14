@@ -1,0 +1,39 @@
+services:
+  lucee:
+    build: .
+    image: lucee-s3-ministack:latest
+    environment:
+      - LUCEE_ADMIN_PASSWORD=qwerty
+      # Point Lucee's S3 extension at MiniStack
+      - LUCEE_S3_ACCESSKEYID=test
+      - LUCEE_S3_SECRETACCESSKEY=test
+      - LUCEE_S3_HOST=ministack:4566
+      - LUCEE_S3_REGION=us-east-1
+    volumes:
+      - "./www:/var/www"
+    ports:
+      - "8854:8888"  # tomcat
+      - "8054:80"    # nginx
+    depends_on:
+      ministack:
+        condition: service_healthy
+      ministack-init:
+        condition: service_completed_successfully
+
+  ministack:
+    image: ministackorg/ministack:latest
+    ports:
+      - "4566:4566"   # AWS API endpoint
+
+  # One-shot container that seeds MiniStack with buckets and example objects
+  ministack-init:
+    image: amazon/aws-cli:latest
+    depends_on:
+      ministack:
+        condition: service_healthy
+    volumes:
+      - "./ministack-init:/init"
+    entrypoint: ["/bin/sh", "/init/init.sh"]
+
+# how to run it
+# docker compose up -d

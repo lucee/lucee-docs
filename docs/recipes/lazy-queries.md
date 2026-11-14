@@ -5,7 +5,7 @@
   "categories": [
     "query"
   ],
-  "description": "How to use lazy queries",
+  "description": "How to stream large query result sets without loading everything into memory",
   "keywords": [
     "Lazy Queries",
     "Regular Queries",
@@ -14,6 +14,8 @@
     "Lucee"
   ],
   "related": [
+	"function-querylazy",
+	"function-queryclose",
 	"tag-query"
   ]
 }
@@ -21,36 +23,60 @@
 
 # Lazy Queries
 
-This document explains about lazy queries with some simple examples as follows:
+Regular queries load all data into memory upfront. Lazy queries keep a database cursor open and stream rows on demand, which is useful for large report exports or any time the full result set is too big to materialise.
 
-## Example 1
+> **Note:** The `lazy=true` attribute on `cfquery` is **deprecated**. Use the [[function-querylazy]] function instead — it has the same streaming behaviour but a bounded connection lifecycle (the cursor is closed when the function returns) and a callback-based API that suits row-at-a-time processing.
 
-**Regular query**: Regular query tags/functions load all data inside a two-dimensional structure to use.
+## Recommended: queryLazy()
+
+`queryLazy()` calls a listener function for each row (or each block of rows, if you set `blockfactor`). The listener can return `false` to stop iteration early.
 
 ```luceescript
-//regularQuery.cfm
-query name="qry" returntype="query" {
-	echo("select * from lazyQuery");
-}
-dump(numberFormat(qry.getColumnCount()*qry.getRowCount()));
-loop query=qry {
-	dump(qry.val);
-	if(qry.currentrow==10) break;
-}
+queryLazy(
+	sql: "select id, name, total from orders order by id"
+	,listener: function( row ){
+		systemOutput( row.id & " " & row.name & " " & row.total, true );
+	}
+);
 ```
 
-1. In this example, we have a simple task. All statements return a result set with 200,000 records. We output the first ten. Then we make a break when we add ten rows.
+### Block processing
 
-2. We execute this in the browser and we get the expected result.
-
-## Example 2
-
-**Lazy query**: Lazy queries keep a pointer to the database and only load the data on demand. If you loop through a query, the data is loaded on the spot. It does not create a two-dimensional struct to store all the data beforehand. When the query tag is done, it keeps a pointer to the database.
-
-As a lazy query loops through, it loads the data on demand so you do not have to wait until it has loaded all the data. It is faster when you only load the first 10 rows as you don't have to wait until it's done loading everything.
+Set `blockfactor` to receive rows in batches as a query, array, or struct. This is much more efficient than row-at-a-time when you're writing to a stream or sending to an external system.
 
 ```luceescript
-//lazyQuery.cfm
+queryLazy(
+	sql: "select id, name, total from orders order by id"
+	,listener: function( rows ){
+		// rows is a query containing up to 500 rows
+		loop query=rows {
+			// write row to output
+		}
+	}
+	,options: { blockfactor: 500 }
+);
+```
+
+### Aborting early
+
+```luceescript
+var found = "";
+queryLazy(
+	sql: "select id, name from orders order by id"
+	,listener: function( row ){
+		if ( row.name contains "lucee" ) {
+			found = row.id;
+			return false; // stop iterating
+		}
+	}
+);
+```
+
+## Deprecated: cfquery lazy=true
+
+The `lazy` attribute on `cfquery` returns a query object backed by a live ResultSet. Iterating the query streams rows from the database, but the underlying connection is held until the request ends or [[function-queryclose]] is called.
+
+```luceescript
 query name="qry" returntype="query" lazy=true {
 	echo("select * from lazyQuery");
 }
@@ -58,46 +84,13 @@ loop query=qry {
 	dump(qry.val);
 	if(qry.currentrow==10) break;
 }
+queryClose( qry ); // release the connection
 ```
 
-This example is similar to a regular query, but we define `lazy=true`. So that Lucee knows to do a lazy query.
+Limitations:
 
-I have removed the column count from the example. Record count is no longer possible because it does not read all the data initially. It does not know how many records there are. When you loop, you can count the records, so you know the total number of records at the end, but not at the start.
+- No record count until iteration completes
+- Cannot be combined with `cachewithin`, `cacheafter` or `result`
+- Connection is held until the request ends unless `queryClose()` is called explicitly
 
-There is not really a difference between a regular query and a lazy query, just some limitations (you cannot get the record count in the beginning, and you cannot use cache) within a lazy query.
-
-With a lazy query, we do not have to wait until Lucee has loaded all the data into a two-dimensional structure, and it is also better for memory because you do not have to store all the older data in the memory until you are ready to use it. So there are some benefits.
-
-## Example 3
-
-A comparison of lazy queries and regular queries follows:
-
-```luceescript
-types=['regular':false,'lazy':true];
-results=structNew("ordered");
-loop struct=types index="type" item="lazy" {
-	loop from=1 to=10 index="i" {
-		start=getTickCount('nano');
-		query name="qry" returntype="query" lazy=lazy {
-			echo("select * from lazyQuery");
-		}
-		x=qry.val;
-		time=getTickCount('nano')-start;
-
-		if(isNull(results[type]) || results[type]>time)results[type]=time;
-	}
-}
-// format results
-results.regular=decimalFormat(results.regular/1000000)&"ms";
-results.lazy=decimalFormat(results.lazy/1000000)&"ms";
-dump(results);
-```
-
-This example compares lazy queries with regular queries. It has a loop that loops two times: once for a regular query and a second one for a lazy query. The `type` is used here with `lazy=lazy`, So it sets true or false and does that ten times, once for every time the loops execute. It stores the execution time but you only get the fastest execution time of the ten tries.
-
-Execute that example in the browser. The regular query takes 41 milliseconds and the lazy query takes 27 milliseconds. So we see the benefits of the lazy queries.
-
-## Footnotes
-
-You can see the details in this video:
-[Lazy Query](https://youtu.be/X8_TB1py8n0)
+Video: [Lazy Query](https://youtu.be/X8_TB1py8n0)

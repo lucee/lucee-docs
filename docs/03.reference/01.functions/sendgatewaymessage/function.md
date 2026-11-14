@@ -2,7 +2,7 @@
 title: SendGatewayMessage
 id: function-sendgatewaymessage
 categories:
-- gateways
+- event-gateways
 ---
 
 Sends an outgoing message through an event gateway.

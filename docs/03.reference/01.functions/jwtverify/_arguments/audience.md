@@ -1,0 +1,1 @@
+Required audience (aud claim). Validation fails if audience is not in token's audience list.

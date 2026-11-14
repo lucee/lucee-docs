@@ -1,4 +1,3 @@
-
 <!--
 {
   "title": "JavaSettings in Application.cfc, Components and CFConfig.json",
@@ -18,197 +17,203 @@
   "related": [
     "tag-application",
     "tag-component",
-    "function-createobject"
+    "function-createobject",
+    "maven",
+    "java-libraries",
+    "java-class-interaction"
   ]
 }
 -->
 
-# Java Settings in Application.cfc (Now with Maven Support)
+# Java Settings
 
-This document provides information about configuring Java settings in Lucee using `Application.cfc`, and other new places like `.CFConfig.json`, `createObject`, and components.
+The `javasettings` configuration tells Lucee where to find Java libraries. You can load JARs from local paths, pull dependencies from Maven automatically, or use OSGi bundles for advanced modular deployments.
 
-## Introduction
+Configure it in `Application.cfc` (app-wide), on individual components (isolated), in `.CFConfig.json` (server-wide), or inline with `createObject`.
 
-The `this.javasettings` settings in `Application.cfc` allow you to define Java library paths, OSGi bundle paths, Maven libraries, and other Java-related configurations. These settings cannot be configured through the Lucee admin or environment variables.
+## Application.cfc
 
-Starting with Lucee 6.2, we’ve extended Java settings to support Maven libraries and expanded their use in additional contexts, including `.CFConfig.json`, `createObject`, and individual components.
-
-## Configuring Java Settings
-
-You can configure Java settings in `Application.cfc`, `.CFConfig.json`, within components, or using the `createObject` function.
-
-### Load Paths
-
-You can define regular JARs (not OSGi) by specifying the path to a directory or the JAR file itself.
-
-```cfml
-this.javasettings.loadPaths = [
-    "/my/local/path/to/whatever/lib/",
-    "/my/local/path/to/whatever/lib/xyz.jar"
-];
-```
-
-### Bundle Paths
-
-You can load local OSGi bundles in a similar way.
-
-```cfml
-this.javasettings.bundlePaths = [
-    "/my/local/path/to/whatever/lib/",
-    "/my/local/path/to/whatever/lib/xyz.jar"
-];
-```
-
-### Maven Support
-
-Starting in Lucee 6.2, Maven support has been added to `this.javasettings`, allowing you to define Maven dependencies directly. Maven manages libraries by automatically handling their retrieval and versioning.
-
-```cfml
-this.javasettings.maven = [
-    {
-      "groupId": "org.quartz-scheduler",
-      "artifactId": "quartz",
-      "version": "2.3.2"
-    },
-    {
-      "groupId": "commons-beanutils",
-      "artifactId": "commons-beanutils",
-      "version": "1.9.4"
-    }
-];
-```
-
-If the `version` is omitted, Lucee will use the latest available version of the Maven artifact.
-
-## Java Settings in `.CFConfig.json`
-
-You can also define Java settings globally for all applications through the `.CFConfig.json` configuration file. This is especially useful when managing Docker environments.
-
-```json
-{
-  "javasettings": {
-    "maven": [
-      {
-        "groupId": "org.quartz-scheduler",
-        "artifactId": "quartz",
-        "version": "2.3.2"
-      },
-      {
-        "groupId": "commons-beanutils",
-        "artifactId": "commons-beanutils",
-        "version": "1.9.4"
-      }
-    ],
-    "loadPaths": [
-      "/my/local/path/to/whatever/lib/",
-      "/my/local/path/to/whatever/lib/xyz.jar"
-    ],
-    "bundlePaths": [
-      "/my/local/path/to/whatever/lib/",
-      "/my/local/path/to/whatever/lib/xyz.jar"
-    ]
-  }
-}
-```
-
-### Using Java Settings in `Application.cfc`
-
-In your [[tag-Application]], you can define or override Java settings specific to your application.
-
-This is the primary way to configure Java dependencies at the application level.
+The most common approach - makes libraries available to your entire application:
 
 ```cfml
 this.javasettings = {
-  "maven": [
-    {
-      "groupid": "commons-beanutils",
-      "artifactid": "commons-beanutils",
-      "version": "1.9.4"
-    }
-  ],
-  "loadPaths": [
-    "/my/local/path/to/libs/",
-    "/my/local/path/to/libs/example.jar"
-  ],
-  "bundlePaths": [
-    "/my/local/path/to/bundles/"
-  ],
-  "reloadOnChange": true,
-  "watchInterval": 60,
-  "watchExtensions": ["jar", "class"]
+	"maven": [
+		{
+			"groupId": "org.quartz-scheduler",
+			"artifactId": "quartz",
+			"version": "2.3.2"
+		}
+	],
+	"loadPaths": [
+		"/my/local/path/to/libs/",
+		"/my/local/path/to/libs/example.jar"
+	],
+	"reloadOnChange": true,
+	"watchInterval": 60,
+	"watchExtensions": ["jar", "class"]
 };
 ```
 
-This method gives you flexibility to handle specific Java dependencies within each application, ensuring that classloaders are configured per application.
+## Maven Dependencies (6.2+)
 
-### Using Java Settings in a Component
-
-Maven dependencies and other Java settings can also be defined as part of a [[tag-component]].
-
-This ensures that only the classes loaded within that component will use the specified settings, isolating it from the rest of the application and avoiding conflicts.
+Pull libraries from Maven Central automatically - no manual JAR management:
 
 ```cfml
-component javaSettings = '{
-  "maven": [
-    {
-      "groupId": "commons-beanutils",
-      "artifactId": "commons-beanutils",
-      "version": "1.9.4"
-    }
-  ]
+this.javasettings.maven = [
+	{
+		"groupId": "org.quartz-scheduler",
+		"artifactId": "quartz",
+		"version": "2.3.2"
+	},
+	{
+		"groupId": "commons-beanutils",
+		"artifactId": "commons-beanutils",
+		"version": "1.9.4"
+	}
+];
+```
+
+### Shorthand Syntax
+
+Use `group:artifact:version` strings for brevity:
+
+```cfml
+this.javasettings.maven = [
+	"org.quartz-scheduler:quartz:2.3.2",
+	"commons-beanutils:commons-beanutils:1.9.4"
+];
+```
+
+Omit `version` for latest (e.g., `"commons-beanutils:commons-beanutils"`).
+
+### Limiting Transitive Dependencies (9.0+)
+
+By default Lucee downloads a Maven dependency together with everything it depends on. Some libraries pull in a large tree of dependencies you don't need (for example Apache Tika 3). Two optional keys on a Maven entry limit what is downloaded:
+
+- `transitive` - set to `false` to download only that artifact and none of its dependencies (default: `true`)
+- `exclusions` - an array of `groupId:artifactId` entries that are skipped during resolution. `*` is a wildcard in either part, so `org.apache.logging.*:*` or `*:*-test` also work. A comma separated list is accepted as well.
+
+An excluded artifact is not downloaded and neither are the dependencies only it would have brought in. Exclusions apply to the whole dependency tree of that entry, including dependencies inherited from a parent POM.
+
+```cfml
+// Application.cfc
+this.javasettings.maven = [
+	// only tika-core itself
+	{
+		"groupId": "org.apache.tika",
+		"artifactId": "tika-core",
+		"version": "3.0.0",
+		"transitive": false
+	},
+	// everything except the excluded artifacts
+	{
+		"groupId": "org.apache.tika",
+		"artifactId": "tika-parsers-standard-package",
+		"version": "3.0.0",
+		"exclusions": [ "org.bouncycastle:*", "org.apache.logging.log4j:*" ]
+	}
+];
+```
+
+The same keys work in the component `javasettings` attribute:
+
+```cfml
+component javasettings='{
+	"maven": [
+		{ "groupId": "org.apache.tika", "artifactId": "tika-core", "version": "3.0.0", "transitive": false }
+	]
 }' {
-  // Component logic
+	// ...
 }
 ```
 
-This method is useful for encapsulating components with specific versions of libraries, preventing conflicts with other parts of the application.
+and in `.CFConfig.json`:
 
-### Using Java Settings in `createObject`
+```json
+{
+	"javasettings": {
+		"maven": [
+			{
+				"groupId": "org.apache.tika",
+				"artifactId": "tika-parsers-standard-package",
+				"version": "3.0.0",
+				"exclusions": [ "org.bouncycastle:*" ]
+			}
+		]
+	}
+}
+```
 
-Java settings can also be defined dynamically when creating Java objects using the [[function-createObject]] function.
+They are also supported by [[function-mavenload]]. When you exclude or skip a dependency, you are responsible for providing any class the library needs at runtime, a missing class shows up as a `ClassNotFoundException` when it is first used. An invalid `transitive` value or exclusion that is not in the `groupId:artifactId` format throws an error.
+
+## Load Paths
+
+Point to local JAR files or directories containing JARs:
 
 ```cfml
-createObject("java", "org.apache.commons.beanutils.BeanUtils", {
-  "maven": [
-    {
-      "groupId": "commons-beanutils",
-      "artifactId": "commons-beanutils",
-      "version": "1.9.4"
-    }
-  ]
+this.javasettings.loadPaths = [
+	"/my/local/path/to/whatever/lib/",
+	"/my/local/path/to/whatever/lib/xyz.jar"
+];
+```
+
+## Bundle Paths
+
+For OSGi bundles (modular JARs with explicit dependency metadata). Most applications don't need this - use `loadPaths` for regular JARs:
+
+```cfml
+this.javasettings.bundlePaths = [
+	"/my/local/path/to/whatever/lib/",
+	"/my/local/path/to/whatever/lib/xyz.jar"
+];
+```
+
+## Component-Level
+
+Isolate libraries to a single component. The attribute value must be a JSON string:
+
+```cfml
+component javasettings='{
+	"maven": ["commons-beanutils:commons-beanutils:1.9.4"]
+}' {
+	// Only this component has access to beanutils
+}
+```
+
+See [[java-libraries]] for more on using Maven dependencies in components.
+
+## createObject
+
+Load a library inline when creating a Java object:
+
+```cfml
+obj = createObject( "java", "org.apache.commons.beanutils.BeanUtils", {
+	"maven": ["commons-beanutils:commons-beanutils:1.9.4"]
 });
 ```
 
-This approach provides the flexibility to load Java classes and dependencies at runtime.
+## .CFConfig.json
 
-## Classloader Recycling
+Server-wide settings in your CFConfig file:
 
-Lucee automatically generates a unique hash based on the defined Java settings and maintains a pool of corresponding classloaders. This means that classloaders are reused efficiently, reducing resource consumption and improving performance.
-
-## Reload On Change
-
-The setting `this.javasettings.reloadOnChange` indicates whether to reload updated classes and JARs dynamically, without restarting Lucee. The default value is `false`.
-
-```cfml
-this.javasettings.reloadOnChange = false;
+```json
+{
+	"javasettings": {
+		"maven": [
+			"org.quartz-scheduler:quartz:2.3.2",
+			"commons-beanutils:commons-beanutils:1.9.4"
+		],
+		"loadPaths": [
+			"/my/local/path/to/libs/"
+		]
+	}
+}
 ```
 
-## Watch Interval
+## Additional Settings
 
-The setting `this.javasettings.watchInterval` defines the interval in seconds that Lucee looks for changes. The default value is `60`.
+- `reloadOnChange` - Reload updated classes/JARs without restart (default: `false`)
+- `watchInterval` - Seconds between change checks (default: `60`)
+- `watchExtensions` - Extensions to watch (default: `["jar", "class"]`)
 
-```cfml
-this.javasettings.watchInterval = 60;
-```
-
-## Watch Extensions
-
-The setting `this.javasettings.watchExtensions` defines the extensions Lucee looks for when you list a directory with `loadPaths` or `bundlePaths`. The default value is `["jar", "class"]`.
-
-```cfml
-this.javasettings.watchExtensions = ["jar", "class"];
-```
-
-## Conclusion
-
-With the introduction of Maven support and the ability to define Java settings in multiple contexts such as `.CFConfig.json`, `Application.cfc`, components, and `createObject`, Lucee provides enhanced flexibility for integrating and managing Java libraries. These features help avoid conflicts and ensure that your Java dependencies are managed efficiently across various parts of your application.
+Lucee pools classloaders based on settings hash for efficient reuse.

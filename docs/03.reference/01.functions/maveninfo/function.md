@@ -4,11 +4,7 @@ id: function-maveninfo
 related:
 - function-mavenload
 categories:
-- maven
-- classloading
-- dependencies
 - java
-- server
 ---
 
 Retrieves information about a Maven artifact and its dependencies.

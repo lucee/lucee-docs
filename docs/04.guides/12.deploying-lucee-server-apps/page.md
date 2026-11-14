@@ -3,6 +3,7 @@ title: Deploying Lucee
 id: deploying-lucee-server-apps
 categories:
 - server
+- devops
 related:
 - running-lucee-system-properties
 - locking-down-lucee-server
@@ -60,19 +61,17 @@ The `/patches` folder is where Lucee's core `.lco` jars are kept.  When Lucee st
 
 ## Setting the Admin password
 
-Drop a `password.txt` into the `lucee-server/context` directory (only works when no password set, i.e. no `hspw` set in `.CFConfig.json`
+Drop a `password.txt` into the `lucee-server/context` directory containing your plaintext password. This only works when no password is already set (i.e., no `hspw` in `.CFConfig.json`). Lucee will hash the password and delete the file on startup.
 
-Using `.CFConfig.json` you can set an unencrypted password using:
+Alternatively, use the `LUCEE_ADMIN_PASSWORD` environment variable for automated deployments.
 
-```
-{
-    "pw": "topSecret"
-}
-```
+The hashed password is stored in `.CFConfig.json` as `hspw` with a `salt` value.
 
-The encrypted password is stored under `hspw`.
+**Note:** The `pw` key in `.CFConfig.json` expects an already-hashed value, not plaintext. For plaintext passwords, use `password.txt` or the environment variable.
 
-For further information, as Lucee is open source, refer to the implementation [PasswordImpl.java](https://github.com/lucee/Lucee/blob/6.2/core/src/main/java/lucee/runtime/config/PasswordImpl.java)
+See [[admin-password]] for more details.
+
+For implementation details, refer to [PasswordImpl.java](https://github.com/lucee/Lucee/blob/6.2/core/src/main/java/lucee/runtime/config/PasswordImpl.java)
 
 ## Starting and Stopping Lucee / Tomcat
 
@@ -85,6 +84,14 @@ For further information, as Lucee is open source, refer to the implementation [P
 You can place jars in the the `context/lib` directly.
 
 If the file is available on Maven, it's recommended to use `javasettings` in `CFconfig.json` or via a [[tag-component]] via the new [[Maven]] support in Lucee 6.2.
+
+### Pre-populating the Maven cache
+
+For firewalled or air-gapped deploys, the `/mvn/` cache can be snapshotted on a machine with network access and shipped alongside the install. 
+
+Since Lucee 7.1.0.98, [[function-mavenexport]] writes the cache to a portable `pom.xml` and [[function-mavenimport]] rehydrates it — see the [[maven]] recipe. 
+
+In Docker, run the import from `Server.cfc->onBuild` (see [[onbuild-function]]) so jars are baked into the image rather than fetched on first request.
 
 ## Lucee Distributions 
 

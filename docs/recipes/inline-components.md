@@ -5,10 +5,12 @@
   "since": "6.0",
   "description": "Learn how to create and use inline components in Lucee. This guide demonstrates how to define components directly within your CFML code, making it easier to create and use components without needing a separate .cfc file. Examples include creating an inline component and using it similarly to closures.",
   "keywords": [
-    "CFML",
     "component",
-    "inline-component",
-    "Lucee"
+    "inline component",
+    "closure",
+    "anonymous component",
+    "cfscript",
+    "sub-component"
   ],
   "categories": [
     "component"
@@ -22,13 +24,7 @@
 
 # Inline Components
 
-Since Lucee 6.0, Lucee allows you to create inline components.
-
-These are components you can create directly in your CFML code, with no need to create a `.cfc` file for it.
-
-This feature allows you to directly use them, similar to closures, enabling more dynamic programming approaches.
-
-This example shows how to create an inline component and then use it:
+Inline components let you define a component directly in your code without a separate `.cfc` file. Think of them like closures, but with full component capabilities - properties, methods, inheritance. Useful for quick one-off objects, callbacks, or when a full CFC feels like overkill.
 
 ```run
 <cfscript>

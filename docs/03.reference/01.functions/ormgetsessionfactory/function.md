@@ -5,4 +5,4 @@ categories:
 - orm
 ---
 
-Returns ORM session factory instance
+Returns the Hibernate SessionFactory for the given datasource.

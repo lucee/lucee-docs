@@ -1,0 +1,1 @@
+If true (default), throws on invalid token. If false, returns struct with valid, claims, error. Note: defaults to true unlike hash verify functions, since JWT validation failures typically indicate a security issue.

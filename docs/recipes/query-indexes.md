@@ -7,7 +7,11 @@
   "keywords": [
     "query",
     "indexes",
-    "cfquery"
+    "cfquery",
+    "queryRowByIndex",
+    "column index",
+    "result set",
+    "queryGetCellByIndex"
   ],
   "categories": [
     "query"
@@ -26,8 +30,6 @@
 Since Lucee 6.0, you can set an index for a query result, which you can then use down the line.
 
 ## Setting an Index
-
-This example shows how to define a query with an index:
 
 ```lucee
 <cfquery name="qry" datasource="mysql" indexName="id">

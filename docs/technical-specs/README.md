@@ -31,3 +31,14 @@ This directory contains technical specification documents optimized for rapid co
 These specifications assume familiarity with the base technology (e.g., JSR-223, JDBC, OSGi) and focus exclusively on Lucee-specific implementation details, configuration requirements, and integration parameters.
 
 Example: JSR-223 spec contains engine names, required JARs, system properties, and usage patterns - not explanations of what JSR-223 is or why to use it.
+
+## Available Specifications
+
+| File | Topic |
+| --- | --- |
+| `ast.yaml` | Abstract Syntax Tree |
+| `hooks.yaml` | Startup hooks |
+| `java-scripting.yaml` | JSR-223 scripting |
+| `lucli-spec.md` | LuCLI |
+| `maven-extension-migration.yaml` | OSGi → Maven extension migration |
+| `monitors.yaml` | Monitors |

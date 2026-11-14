@@ -13,6 +13,12 @@ All of the source files for this documentation can be found in the `/docs` folde
 
 For more information on how the folder structure and various page types work, see [[docs-structure]].
 
+## LLM Friendly
+
+All the html pages are also available as markdown, simply replace the `.html` with `.md`.
+
+LLMs request documentation with an accept header for `text/markdown` which are then served the compiled markdown content, which is easier for them to process and requires less tokens, as it's much less verbose than the html markup.
+
 ## Markdown
 
 The system uses Markdown files to provide the bulk of the documentation.

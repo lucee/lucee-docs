@@ -7,7 +7,8 @@
   ],
   "categories": [
     "server",
-    "system"
+    "system",
+    "devops"
   ],
   "description": "Lucee supports two types of Startup Listeners: Server.cfc and Web.cfc.",
   "menuTitle": "Startup Listeners",

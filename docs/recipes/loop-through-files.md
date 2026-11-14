@@ -1,21 +1,30 @@
----
-title: Looping Through Files
-id: loop_through_files
-related:
-- tag-loop
-categories:
-- files
-description: This document explains how to handle large files in Lucee more efficiently.
-keywords: Looping through files,cffile,fileRead,fileReadBinary,Memory optimization,Lucee
----
+<!--
+{
+	"title": "Looping Through Files",
+	"id": "loop_through_files",
+	"related": [
+		"tag-loop"
+	],
+	"categories": [
+		"files"
+	],
+	"description": "This document explains how to handle large files in Lucee more efficiently.",
+	"keywords": [
+		"Looping through files",
+		"cffile",
+		"fileRead",
+		"fileReadBinary",
+		"Memory optimization",
+		"Lucee"
+	]
+}
+-->
 
-
-
-# Looping Through File
+# Looping Through Files
 
 This document explains how to handle big files in Lucee in a better way. The classic way that you are familiar with uses cffile tag, fileRead, and fileReadBinary functions to read the file into memory. This is a simple solution, but it consumes a lot of memory.
 
-## Example: Handle files with cffile tag, fileRead, and fileReadBinary functions
+## Traditional Approach Using fileRead
 
 ```luceescript
 include "_getPath2BigFile.cfm";
@@ -49,7 +58,7 @@ Use cfloop file. It allows you to read a file line by line, so you do not have t
 <cfloop file="...">
 ```
 
-## Example Using Loop
+## Memory-Efficient Approach Using Loop
 
 ```luceescript
 include "_getPath2BigFile.cfm";

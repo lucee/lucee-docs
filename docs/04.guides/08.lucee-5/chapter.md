@@ -37,13 +37,11 @@ Lucee 5 provides the following core language enhancements:
 
 * [[lucee-5-tags]] - New and modified tags in Lucee 5.
 
-* [[lucee-5-cached-within]] - We not only added the attribute `cachedWithin` to the tag `cffile` and `cfhttp`, we have also added an interface to Lucee to make your own `cachedwithin` implementation.
+* [[cache-a-query-for-the-curr-context]] - The `cachedWithin` attribute is supported on queries, functions, `cfhttp`, and `cffile`.
 
 * [[lucee-5-unquoted-arguments]]
 
 * [[lucee-5-dialect-lucee]] - In addition to the existing "CFML" language dialect, Lucee 5 comes with a completely new dialect simply called "Lucee".
-
-* [[lucee-5-java-interface]] - (TODO) - Lucee provides an interface to interact with Lucee from within Java, Lucee 5 has extended this interface with lots of new functionality, which makes it far easier to write Extensions for Lucee.
 
 ## Extensions ##
 

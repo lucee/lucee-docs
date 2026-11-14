@@ -4,9 +4,7 @@ id: function-astfrompath
 related:
     - function-astfromstring
 categories:
-    - ast
-    - transform
-    - compile
+- parsing
 ---
 
 Parses a CFML file and returns its Abstract Syntax Tree (AST) representation.

@@ -6,6 +6,7 @@ related:
 - function-createuuid
 categories:
 - core
+- query
 description: Generates a ULID (Universally Unique Lexicographically Sortable Identifier)
 ---
 

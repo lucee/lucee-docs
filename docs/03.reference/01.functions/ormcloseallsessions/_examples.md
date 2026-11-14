@@ -1,1 +1,4 @@
-*There are currently no examples for this function.*
+```luceescript
+// Close all ORM sessions
+ormCloseAllSessions();
+```

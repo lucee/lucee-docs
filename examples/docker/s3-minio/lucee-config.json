@@ -1,0 +1,46 @@
+{
+    "mode": "single",
+    "extensions": [
+        {
+          "id": "17AB52DE-B300-A94B-E058BD978511E39E",
+          "name": "S3 Resource Extension",
+          "version": "2.1.0.6-SNAPSHOT"
+        }
+    ],
+    "resourceProviders": [
+        {
+            "bundleName": "org.lucee.s3.extension",
+            "arguments": {
+                "lock-timeout": "10000"
+            },
+            "scheme": "s3",
+            "class": "org.lucee.extension.resource.s3.S3ResourceProvider"
+        }
+    ],
+    "loggers": {
+        "application": {
+          "appender": "console",
+          "appenderArguments": {
+            "streamtype": "error"
+          },
+          "layout": "classic",
+          "level": "debug"
+        },
+        "s3": {
+          "appender": "console",
+          "appenderArguments": {
+            "streamtype": "error"
+          },
+          "layout": "classic",
+          "level": "debug"
+        },
+        "deploy": {
+          "appender": "console",
+          "appenderArguments": {
+            "streamtype": "error"
+          },
+          "layout": "classic",
+          "level": "debug"
+        }
+    }
+}

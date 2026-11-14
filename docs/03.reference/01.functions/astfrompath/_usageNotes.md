@@ -1,0 +1,1 @@
+This function may fail on files which aren't under a mapping.

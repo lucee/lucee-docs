@@ -1,0 +1,1 @@
+Token expiration in seconds from now. Sets the 'exp' claim.

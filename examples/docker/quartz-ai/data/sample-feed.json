@@ -1,0 +1,6 @@
+[
+	{ "id": "1", "title": "Release notes published", "body": "The release notes for the new version are online." },
+	{ "id": "2", "title": "Login page down after update", "body": "Since this morning users get an error 500 when they log in." },
+	{ "id": "3", "title": "Question about date formatting", "body": "How do I format a date as ISO 8601?" },
+	{ "id": "4", "title": "Typo in the error message docs", "body": "The page about error handling has a typo in the second example." }
+]

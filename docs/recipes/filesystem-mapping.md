@@ -25,6 +25,5 @@ We distinguish 3 different mapping types:
 - "regular mappings" for the rest ([[tag-include]], [[tag-file]] ...).
 
 * [[mappings-how-to-define-a-reg-mapping]]
-* [[cookbook-application-context-set-mapping]]
 * [[mappings-component-mappings]]
-* Define a custom tag Mapping (TODO)
+* [[mappings-custom-tag-mappings]]

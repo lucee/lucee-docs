@@ -3,6 +3,8 @@ title: Lucee Editors & IDEs
 id: lucee-editors-IDEs
 categories:
 - core
+related:
+- docs-downloads
 description: Modern IDEs supporting for CFML development
 ---
 
@@ -24,11 +26,22 @@ CFML Editor has an option to use the full Lucee docs as the source for inline he
 
 <https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker>
 
-### Step debugging Lucee with VS Code (highly recommended!)
+### Step Debugging Lucee with VS Code (highly recommended!)
 
-[**LuceeDebug**](https://github.com/softwareCobbler/luceedebug) supports step debugging via breakpoints via a java agent and a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=DavidRogers.luceedebug)
+[**Extension Debugger**](https://github.com/lucee/extension-debugger) (formerly LuceeDebug) is a DAP step debugger for Lucee. On Lucee 7.1+ it runs as a native extension with zero overhead when not attached. For older versions (6.2+), it runs as a Java agent.
 
-[[lucee-step-debugger-installation-guide]]
+- [VS Code extension](https://marketplace.visualstudio.com/items?itemName=DavidRogers.luceedebug)
+- [Maven Central](https://central.sonatype.com/artifact/org.lucee/debugger-extension)
+
+[[lucee-step-debugger]]
+
+## JetBrains IDEs
+
+<https://plugins.jetbrains.com/plugin/35485-lucee-cfml>
+
+The IntelliLucee (Lucee CFML) plugin for JetBrains IDEs including IDEA, PyCharm, and WebStorm. Provides syntax highlighting, built-in docs, code completion, and debugging.
+
+Installation Docs and Usage can be found here: <https://github.com/quetwo/intellilucee/wiki>
 
 ## NeoVim
 
@@ -91,6 +104,8 @@ here is a sample .cflintrc file which reduces the noise
 <https://www.fusion-reactor.com/>
 
 <http://www.fusion-debug.com/>
+
+<https://github.com/cfmleditor/clif> CLIF Project (LSP server, Linter, MCP server, etc.)
 
 ## Lucee Dictionaries
 

@@ -3,6 +3,7 @@ title: <cfauthenticate>
 id: tag-authenticate
 related:
 categories:
+- session
 ---
 
 Authenticates a user, setting a security context for the application.

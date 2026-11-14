@@ -91,9 +91,26 @@ Minimum (mb)
 **Default:** [none]  
 Maximum (mb)
 
-**--servicename**  
-**Default:** [Lucee]  
-Set the service name
+**--servicename**
+**Default:** [lucee]
+Sets the service name prefix for the Lucee control script and system service. The control script will be named `{servicename}_ctl` (e.g., `lucee_ctl` by default).
+
+This is useful when running multiple Lucee instances on the same server - each instance can have its own service name:
+
+```bash
+# Install first instance
+sudo ./lucee-installer.run --mode unattended --luceepass mypass --servicename app1 --prefix /opt/app1
+
+# Install second instance
+sudo ./lucee-installer.run --mode unattended --luceepass mypass --servicename app2 --prefix /opt/app2
+```
+
+You can then manage them independently:
+
+```bash
+sudo systemctl start app1_ctl
+sudo systemctl start app2_ctl
+```
 
 **--systemuser**  
 **Default Value:** [root]  
@@ -111,10 +128,16 @@ The Tomcat shutdown port number. This port should not be open to the Internet.
 **Default Value:** [8009]  
 This is the port the AJP listener will be connecting to. This port is used by mod_jk and mod_proxy_ajp and is required to be available to your apache server if you are using either of those connection methods.
 
-**--startatboot**  
-**Default Value:** [true]  
+**--startatboot**
+**Default Value:** [true]
 This is a BOOLEAN value, meaning it must be true or false.
-The default setting of "true" will copy the lucee_ctl script to the /etc/init.d/ directory and use system commands to set the service to start at boot time. Setting the variable to "false" will cause the script to only exist in the installation directory. /opt/lucee/lucee_ctl for example.
+
+When set to "true", the installer registers Lucee as a system service that starts automatically at boot:
+
+- On **systemd** systems (all modern distros): Creates a service file at `/etc/systemd/system/{servicename}_ctl.service` and enables it with `systemctl enable`
+- On **legacy SysVinit** systems: Copies the control script to `/etc/init.d/` and registers it with `chkconfig` or `update-rc.d`
+
+When set to "false", the control script is only created in the installation directory (e.g., `/opt/lucee/lucee_ctl`) and you must start Lucee manually.
 
 **--installiis**  
 **Default Value:** [true]  

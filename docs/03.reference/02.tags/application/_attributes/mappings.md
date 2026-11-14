@@ -2,4 +2,4 @@ A structure that contains mappings. Each element in the structure consists of a 
 
 The logical path is the key and the absolute path is the value.
 
-[[cookbook-filesystem-mapping-define-mapping]]
+[[mappings-how-to-define-a-reg-mapping]]

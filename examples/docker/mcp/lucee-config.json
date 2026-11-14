@@ -1,0 +1,34 @@
+{
+    "mode": "single",
+    "mappings": {
+        "/": {
+            "physical": "{lucee-config}/context/mcp/"
+        }
+    },
+    "extensions": [
+        {
+            "id": "B5059590-2112-49FB-AEDFB997252EDA18",
+            "maven": "org.lucee:mcp-server-extension:1.0.1.5",
+            "name": "MCP Server",
+            "version": "1.0.1.5"
+        }
+    ],
+    "loggers": {
+        "application": {
+            "appender": "console",
+            "appenderArguments": {
+                "streamtype": "error"
+            },
+            "layout": "classic",
+            "level": "info"
+        },
+        "deploy": {
+            "appender": "console",
+            "appenderArguments": {
+                "streamtype": "error"
+            },
+            "layout": "classic",
+            "level": "debug"
+        }
+    }
+}

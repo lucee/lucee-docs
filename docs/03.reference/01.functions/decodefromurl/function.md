@@ -3,8 +3,7 @@ title: DecodeFromURL
 id: function-decodefromurl
 related:
 categories:
-- ESAPI
-- URL
+- esapi
 ---
 
 Decodes a string that has been encoded in the URL using the encodeForURL.

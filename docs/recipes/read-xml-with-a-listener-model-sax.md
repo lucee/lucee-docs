@@ -23,11 +23,9 @@
 
 # Read XML with a listener Model (SAX)
 
-Lucee not only allows you to convert an XML file to an object tree (DOM) but also supports an event-driven model (SAX).
+While `XMLParse` creates an object tree (DOM), the SAX event-driven model is more memory-efficient for large XML documents - it processes events as they occur without loading the entire document.
 
-The function `XMLParse` is handy to get an object representation of a complete XML document. However, for large XML documents, this can cause memory issues. This method is an overhead if you simply need to read some data from an XML file and convert it to something else. For this, the SAX event-driven model is a very handy and lightweight way to do this. Here is an example.
-
-Let's say we want to read in the following XML document:
+Example XML document:
 
 ```lucee
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -51,7 +49,7 @@ Let's say we want to read in the following XML document:
 </catalog>
 ```
 
-To read this, we need to define a component that looks like the following, and you need to add functions that are listening to certain events of the XML parser (startDocument, startElement, body, endElements, ...). It is completely up to your code to store the data for later use.
+Define a component with listener functions for parser events (startDocument, startElement, body, endElement, etc.):
 
 ```cfs
 component {
@@ -139,7 +137,7 @@ component {
 }
 ```
 
-Now we simply can invoke that component to parse the XML file and get the result as an array of structs:
+Invoke the component to parse and get results:
 
 ```coldfusion
 <!---

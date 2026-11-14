@@ -19,11 +19,9 @@ id: tips-lucee
 
 * [[tips-dump-template]]
 
-* [[tips-search-engine]]
-
 * [[tips-template-cache]]
 
-* [[tips-cfmail-SSL-authentication]]
+* [[mail-how-to-send-a-mail]]
 
 * [[tips-serialize-data]]
 

@@ -88,14 +88,19 @@ component accessors=true {
 
 		arguments.builder.injectMethod = this.injectMethod;
 
-		arguments.builder.injectMethod( "renderLinks", function( required string text ){
-			return new api.rendering.WikiLinksRenderer( docTree=variables.docTree ).renderLinks( text=arguments.text, builder=variables._builder );
+		arguments.builder.injectMethod( "renderLinks", function( required string text, required struct args, boolean markdown=false ){
+			return new api.rendering.WikiLinksRenderer( docTree=variables.docTree ).renderLinks(
+				text = arguments.text,
+				builder = variables._builder,
+				args = arguments.args,
+				markdown = arguments.markdown
+			);
 		} );
-		arguments.builder.injectMethod( "renderTemplate", function( required string template, struct args={} ){
+		arguments.builder.injectMethod( "renderTemplate", function( required string template, struct args={}, boolean markdown=false ){
 			var renderer = new api.rendering.TemplateRenderer();
-			var rendered = renderer.render( argumentCollection=arguments, template=_rootPathForRenderer & arguments.template );
+			var rendered = renderer.render( argumentCollection=arguments, template=_rootPathForRenderer & arguments.template, markdown=arguments.markdown );
 
-			return builder.renderLinks( rendered );
+			return builder.renderLinks( rendered, args, arguments.markdown );
 		} );
 
 		StructDelete( arguments.builder, "injectMethod" );

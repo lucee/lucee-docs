@@ -5,4 +5,4 @@ categories:
 - orm
 ---
 
-return all loaded entities as array
+Returns all loaded entity names as an array.

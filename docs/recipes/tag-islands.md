@@ -4,9 +4,16 @@
   "id": "tag-islands",
   "description": "Tag islands allow you to switch into tag mode from inside cfscript",
   "keywords": [
+    "tag islands",
+    "cfscript",
+    "tag mode",
+    "backticks",
+    "refactoring",
+    "script component"
   ],
   "categories": [
-  
+    "core",
+    "flow-control"
   ],
   "related": [
     "tag-script",
@@ -15,7 +22,7 @@
 }
 -->
 
-## Tag Islands
+# Tag Islands
 
 Tag Islands allows you to switch to tag mode, i.e. like a `.cfm` file, from within [[tag-script]]
 

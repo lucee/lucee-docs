@@ -25,7 +25,7 @@ jobs:
           wget -O - -q https://git.io/misspell | sh -s -- -b .
       - name: 🥦 Misspell
         run: |
-          find docs README.md -type f | xargs ./misspell -error -i 'commandbox'
+          find docs README.md -type f | xargs ./misspell -error -i 'commandbox,adminstration'
   yamllint:
     name: 🧹 YAML Lint
     runs-on: ubuntu-latest

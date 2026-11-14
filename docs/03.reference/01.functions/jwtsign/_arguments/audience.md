@@ -1,0 +1,1 @@
+Token audience. Sets the 'aud' claim (overrides claims struct).

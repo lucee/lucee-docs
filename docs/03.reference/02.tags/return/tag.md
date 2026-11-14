@@ -6,6 +6,7 @@ related:
 categories:
 - component
 - core
+- flow-control
 ---
 
 Returns result values from a component method.

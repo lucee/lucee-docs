@@ -12,10 +12,12 @@
   "description": "How to update your Application settings, after they have been defined in Application.cfc.",
   "keywords": [
     "Application Context",
-    "Update Application",
-    "Mappings",
     "cfapplication",
+    "action update",
     "getApplicationSettings",
+    "mappings",
+    "per-request",
+    "runtime update",
     "Application.cfc"
   ]
 }

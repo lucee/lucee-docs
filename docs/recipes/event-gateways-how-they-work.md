@@ -3,14 +3,13 @@
   "title": "Event Gateways",
   "id": "event-gateways-how-they-work",
   "categories": [
-    "gateways"
+    "event-gateways"
   ],
   "description": "Overview of how Event Gateways work in Lucee.",
   "keywords": [
     "Event Gateway",
     "Directory Watcher",
     "Mail Watcher",
-    "Lucee",
     "cfadmin",
     "File Changes"
   ]
@@ -27,7 +26,7 @@ This looping and sleeping does not count for all types of event gateways. For ex
 
 This "doing what it is designed for" will be explained in more detail underneath.
 
-# Which gateways are available?
+## Which gateways are available?
 
 Lucee comes with 2 gateways: a Directory watcher and a Mail watcher.
 

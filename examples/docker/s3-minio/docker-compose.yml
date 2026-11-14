@@ -1,0 +1,54 @@
+services:
+  lucee:
+    build: .
+    image: lucee-s3-minio:latest
+    environment:
+      - LUCEE_ADMIN_PASSWORD=qwerty
+      # Point Lucee's S3 extension at MinIO
+      - LUCEE_S3_ACCESSKEYID=minioadmin
+      - LUCEE_S3_SECRETACCESSKEY=minioadmin
+      - LUCEE_S3_HOST=minio:9000
+      - LUCEE_S3_REGION=us-east-1
+    volumes:
+      - "./www:/var/www"
+    ports:
+      - "8854:8888"  # tomcat
+      - "8054:80"    # nginx
+    depends_on:
+      minio:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    ports:
+      - "9000:9000"   # S3 API
+      - "9001:9001"   # MinIO Console UI
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # One-shot container that seeds MinIO with buckets and example objects
+  minio-init:
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_healthy
+    volumes:
+      - "./minio-init:/init"
+    entrypoint: ["/bin/sh", "/init/init.sh"]
+
+volumes:
+  minio_data:
+
+# how to run it
+# docker compose up -d

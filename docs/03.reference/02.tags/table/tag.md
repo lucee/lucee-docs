@@ -3,6 +3,7 @@ title: <cftable>
 id: tag-table
 related:
 categories:
+- ajax
 ---
 
 Builds a table in a CFML page.

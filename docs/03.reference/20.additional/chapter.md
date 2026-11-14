@@ -9,8 +9,6 @@ The following tags are specific to Lucee:
 
 * [[tag-authenticate]]
 * [[tag-forward]]
-* [[tag-graph]]
-* [[tag-graphdata]]
 * [[tag-htmlbody]]
 * [[tag-pageencoding]]
 * [[tag-retry]]
@@ -18,10 +16,6 @@ The following tags are specific to Lucee:
 * [[tag-servletparam]]
 * [[tag-sleep]]
 * [[tag-stopwatch]]
-* [[tag-textinput]]
-* [[tag-video]]
-* [[tag-videoplayer]]
-* [[tag-videoplayerparam]]
 * [[tag-while]]
 
 # Functions
@@ -106,8 +100,6 @@ The following functions are specific to Lucee:
 * [[function-invoke]]
 * [[function-isempty]]
 * [[function-isipinrange]]
-* [[function-isnotmap]]
-* [[function-isvideofile]]
 * [[function-iszipfile]]
 * [[function-listavg]]
 * [[function-listcompact]]

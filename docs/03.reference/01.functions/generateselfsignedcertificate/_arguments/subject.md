@@ -1,0 +1,1 @@
+X.500 distinguished name (e.g., CN=localhost, O=My Company, C=AU)

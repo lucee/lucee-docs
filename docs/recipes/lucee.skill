@@ -1,0 +1,45 @@
+---
+name: lucee
+description: >
+  Lucee CFML documentation router: recipes, guides, examples and technical specs for configuration,
+  datasources, ORM, caching, extensions, AI, Java integration, upgrading and the CFML language.
+  Use this skill whenever the user asks anything about Lucee or CFML. Load the matching topic
+  index, then fetch the doc before answering — never guess at Lucee-specific behaviour.
+  For tags and functions use the Lucee MCP server.
+---
+
+# Lucee
+
+## Rules
+
+1. Never guess at Lucee-specific behaviour, settings or signatures. Fetch the doc first, then answer from it.
+2. Tags, functions and full-text doc search: use the Lucee MCP server (`https://mcp.lucee-services.com/`) when it is available. Without it, fetch `https://docs.lucee.org/reference/functions/<name>.md` or `https://docs.lucee.org/reference/tags/<name>.md` (lower case, tags without the `cf` prefix).
+3. Everything else: pick one or more topics below, fetch the topic index, choose the matching entries by ID, title, description and keywords, then fetch those docs.
+4. Check the "Since" column against the Lucee version the user runs.
+5. Cross-cutting questions often need two topics (e.g. `server` + `examples-specs` for a Docker setup).
+6. If a fetch fails, say so and mark the answer as unverified.
+
+## Fetch URLs
+
+- Topic index: `https://docs.lucee.org/skill/<topic>.md`
+- Recipe: `https://docs.lucee.org/recipes/<id>.md`
+- Guide: `https://docs.lucee.org<path>.md` (path has a leading slash, e.g. `/guides/getting-started/first-steps`)
+- Examples and technical specs: the URL listed in the `examples-specs` index
+
+## Topics
+
+| Topic | Use for | Entries | Index |
+|-------|---------|---------|-------|
+| `ai` | AI sessions and engines, RAG, MCP, AI serialisation, using Lucee docs with AI assistants | 9 | `https://docs.lucee.org/skill/ai.md` |
+| `upgrade` | Breaking changes per version, migration guides, compatibility flags, release cycle | 13 | `https://docs.lucee.org/skill/upgrade.md` |
+| `database` | Datasources, JDBC drivers, queries, query of queries, query listeners, connection pooling | 15 | `https://docs.lucee.org/skill/database.md` |
+| `orm` | Hibernate ORM: setup, entity mapping, relationships, sessions, transactions, troubleshooting | 11 | `https://docs.lucee.org/skill/orm.md` |
+| `caching` | Cache connections, cachedWithin, query cache invalidation, cache extensions | 7 | `https://docs.lucee.org/skill/caching.md` |
+| `debugging` | Debugging, monitoring, logging, exceptions, heap and thread dumps, step debugger, dev tooling | 20 | `https://docs.lucee.org/skill/debugging.md` |
+| `java` | Calling Java, Maven dependencies, Java libraries, casting, proxies, data formats via Java | 20 | `https://docs.lucee.org/skill/java.md` |
+| `extensions` | Installing, building and configuring extensions, scheduler (Quartz), hooks | 12 | `https://docs.lucee.org/skill/extensions.md` |
+| `integrations` | Mail, HTTP, REST, S3 and virtual file systems, websockets, event gateways, XML, PDF, search | 22 | `https://docs.lucee.org/skill/integrations.md` |
+| `server` | Configuration (.CFConfig.json), env vars, mappings, Docker, deployment, security hardening, startup | 35 | `https://docs.lucee.org/skill/server.md` |
+| `language` | Syntax, components, scopes, null handling, dates, threads, regex, Application.cfc | 35 | `https://docs.lucee.org/skill/language.md` |
+| `guides` | Long-form guides: installing, updating, deploying, extensions, Lucee 5 era docs, release notes | 179 | `https://docs.lucee.org/skill/guides.md` |
+| `examples-specs` | Runnable Docker examples and technical specs (AST, hooks, JSR-223, monitors, LuCLI) | 21 | `https://docs.lucee.org/skill/examples-specs.md` |

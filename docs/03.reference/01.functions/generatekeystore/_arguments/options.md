@@ -1,0 +1,1 @@
+Optional struct with: keystoreType (PKCS12|JKS), keyPassword, validityDays

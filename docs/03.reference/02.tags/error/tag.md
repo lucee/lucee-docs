@@ -3,6 +3,7 @@ title: <cferror>
 id: tag-error
 related:
 categories:
+- debugging
 ---
 
 Enables the display of customized HTML pages when errors occur.

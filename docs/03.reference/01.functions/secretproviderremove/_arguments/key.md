@@ -1,0 +1,1 @@
+Key of the secret to remove (e.g., "database.password", "api.key")

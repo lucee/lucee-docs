@@ -1,0 +1,1 @@
+Required issuer (iss claim). Validation fails if token issuer doesn't match.

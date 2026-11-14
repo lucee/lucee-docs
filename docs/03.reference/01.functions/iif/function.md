@@ -3,6 +3,7 @@ title: IIf
 id: function-iif
 related:
 categories:
+- decision
 ---
 
 Evaluates a Boolean conditional dynamic expression. Depending

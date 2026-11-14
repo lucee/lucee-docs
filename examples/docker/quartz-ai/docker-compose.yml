@@ -1,0 +1,19 @@
+services:
+  lucee:
+    build: .
+    image: lucee-quartz-ai:latest
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      - LUCEE_ADMIN_PASSWORD=${LUCEE_ADMIN_PASSWORD:-qwerty}
+    volumes:
+      - "./output:/opt/lucee/output"  # drafts and state written by the job
+    ports:
+      - "8857:8888"  # tomcat
+      - "8057:80"    # nginx
+
+# how to run it
+# cp .env.example .env   (optional, fill in your AI endpoint)
+# docker compose up -d --build
+# docker compose logs -f lucee
