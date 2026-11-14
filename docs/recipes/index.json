@@ -292,7 +292,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "f014afdae63c03e642b6412bd2cbe9bd",
+    "hash": "853cc08e5ef9c1176769bfb1f3309ef1",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -325,7 +325,16 @@
       "cfid.url.allow",
       "OSGi extension",
       "osgi-extension",
-      "lucee.osgi.autoinstall"
+      "lucee.osgi.autoinstall",
+      "datasource",
+      "allow",
+      "allowed_select",
+      "SQL restrictions",
+      "signature",
+      "PGP",
+      "maven.signatureVerification",
+      "cachedWithin",
+      "array"
     ]
   },
   {
@@ -847,7 +856,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "9bedca9b311958bb5315c604554085c1",
+    "hash": "af039781293a999a5193c496ca539f3f",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -1439,7 +1448,7 @@
     "file": "http-logging.md",
     "title": "Logging CFHTTP Calls",
     "path": "/docs/recipes/http-logging.md",
-    "hash": "c53e1769aff2b36d8529d3d3d5277cea",
+    "hash": "1c6d2411b966a1d8a09842207ee1cf16",
     "keywords": [
       "cfhttp",
       "logging",
@@ -1600,7 +1609,7 @@
     "file": "lucee-skill.md",
     "title": "Lucee Skill for AI Assistants",
     "path": "/docs/recipes/lucee-skill.md",
-    "hash": "39c94f2432ba947ba6684884cb08481e",
+    "hash": "2e3e57df32089caa53f63c96c51e9bc9",
     "keywords": [
       "skill",
       "lucee.skill",
@@ -2379,7 +2388,7 @@
     "file": "scheduler-quartz-ai-job.md",
     "title": "Run AI Sessions in the Cloud, 24/7, Doing Your Work",
     "path": "/docs/recipes/scheduler-quartz-ai-job.md",
-    "hash": "88138383cf42889b4660014dbc06cf80",
+    "hash": "733cc6da2aeac5abc2657987d9134d98",
     "keywords": [
       "scheduler",
       "quartz",

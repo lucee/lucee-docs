@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration", "compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "regex", "Perl Regex extension", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "CFID", "CFTOKEN", "session", "cfid.url.allow", "OSGi extension", "osgi-extension", "lucee.osgi.autoinstall"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "regex", "Perl Regex extension", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "CFID", "CFTOKEN", "session", "cfid.url.allow", "OSGi extension", "osgi-extension", "lucee.osgi.autoinstall", "datasource", "allow", "allowed_select", "SQL restrictions", "signature", "PGP", "maven.signatureVerification", "cachedWithin", "array"],
   "related": [
     "regex-migration-lucee-9",
     "java-regex-engine",
@@ -501,3 +501,144 @@ OSGi is needed for the extension [...] but is not available (...). Please instal
 - On a server that has no internet access at runtime, put the OSGi extension (the `.lex`) into the `deploy` folder or the `extensions/available` folder, or list it in `LUCEE_EXTENSIONS` / `extensions` of the configuration, so it is installed without a download.
 - To turn the automatic installation off, set the system property `-Dlucee.osgi.autoinstall=false` or the environment variable `LUCEE_OSGI_AUTOINSTALL=false`. Lucee then installs nothing and throws the error above, naming the setting, when OSGi is needed. See [[environment-variables-system-properties]].
 - Extension and bundle authors do not have to change anything.
+
+## Per-datasource SQL restrictions are removed
+
+A datasource could restrict the statement types that are allowed on it: select, insert, update, delete, create, drop, revoke, grant and alter. These restrictions were deprecated for a long time, Lucee 9 does not enforce them anymore. Every statement is sent to the database, whatever was set for the datasource. A statement that was rejected with an error like `access denied to execute "Insert" SQL statement for datasource mydsn` runs now.
+
+Restrict the operations on the database side, with the roles and permissions of the database user that the datasource connects with.
+
+### What changed
+
+- The Administrator does not show the checkboxes for the allowed statement types of a datasource anymore.
+- `cfadmin`/`admin` `action="getDatasource"` does not return the keys `select`, `insert`, `update`, `delete`, `create`, `drop`, `grant`, `revoke` and `alter` anymore.
+- `cfadmin`/`admin` `action="updateDatasource"` and `Administrator.updateDatasource()` do not store the `allowed_*`/`allowed*` values anymore. A stored `allow` value of an existing datasource is removed when the datasource is updated.
+- In the loader API, `DataSource.ALLOW_*`, `DataSource.hasAllow(int)` and `DataSource.hasSQLRestriction()` are deprecated. They still exist, `hasAllow()` always returns `true` and `hasSQLRestriction()` always returns `false`.
+
+### What keeps working
+
+Existing configurations and code do not fail, the values are accepted and ignored:
+
+- the `allow` and `allowSelect`, `allowInsert`, ... keys of a datasource in `.CFConfig.json` and `configImport()`
+- the `allow` key of a datasource defined in the `Application.cfc` (`this.datasources`) or passed as a struct
+- the `allowed_*` attributes of `cfadmin`/`admin` and the `allowed*` arguments of `Administrator.updateDatasource()`
+
+### Migration
+
+Code that relied on a restricted datasource to block a statement type has to enforce this on the database. A datasource that only reads data, for example, connects with a database user that has only the `SELECT` privilege:
+
+```sql
+GRANT SELECT ON mydb.* TO 'reporting'@'%';
+```
+
+Remove the `allow` settings from your configuration and `Application.cfc` files when you update them, they have no effect anymore. See [LDEV-5705](https://luceeserver.atlassian.net/browse/LDEV-5705).
+
+## Signatures of updates and extensions are verified
+
+Lucee 9 verifies the OpenPGP signature of the official artifacts it downloads before it installs them. Until now a download was only protected by HTTPS and the checksum headers of the server.
+
+The signature is the detached `.asc` file that Maven Central already requires next to every artifact. It is checked against the Lucee release key ("Lucee <info@lucee.org>"), which is bundled with Lucee. The key is not downloaded from anywhere.
+
+### What is verified
+
+| Download | Verified |
+| --- | --- |
+| Lucee core and loader updates | yes |
+| Extensions (`.lex`), also the dependencies that an extension requires, and the `lucee.extensions` environment variable | yes |
+| Artifacts (`.jar`, `.lco`, `.lex`, `.pom`) of any other group than `org.lucee` | no |
+| `SNAPSHOT` versions | no |
+| Pre-releases of `org.lucee` (a version with a qualifier like `-RC`, `-BETA`) | only if a signature exists, then it must be valid. With `strict` (see below) a signature is required. |
+| Local files (deploy folder, uploads, artifacts that are already in `~/.m2`) | no, they are not downloads |
+
+OSGi bundles and artifacts of third party groups are not verified.
+
+A release of `org.lucee` **without a valid signature is rejected**, the install fails with an error like this:
+
+```
+The signature of [org.lucee:jtds-jdbc-extension:1.3.1:lex] could not be verified: there is no signature at [...]
+Lucee only installs org.lucee artifacts that are signed with the Lucee release key.
+To change this, set the setting 'maven.signatureVerification' in .CFConfig.json, the system property
+lucee.maven.signature.verification or the environment variable LUCEE_MAVEN_SIGNATURE_VERIFICATION to 'warn' or 'off'.
+```
+
+A rejected artifact is not retried, Lucee does not fall back to another repository and the downloaded file is deleted.
+
+### Releases that only exist on the Lucee repository fail now
+
+Older releases that were never published to Maven Central exist only on the Lucee repository (`maven.lucee-services.com`) and have no `.asc` file. They can not be verified, so they can not be installed anymore with the default setting. For example `org.lucee:jtds-jdbc-extension:1.3.1` has no signature, `1.3.1.1` is on Maven Central and is signed.
+
+**What to do:** install a version that is on Maven Central, in most cases that is the latest version of the extension. If you must install an unsigned release, set `maven.signatureVerification` to `warn` or `off` (see below) for the install.
+
+### The setting `maven.signatureVerification`
+
+| Value | Behaviour |
+| --- | --- |
+| `verify` (default) | releases of `org.lucee` must have a valid signature, pre-releases only need a valid signature if one exists |
+| `strict` | like `verify`, but pre-releases must be signed as well |
+| `warn` | verify, but on a failure log a warning to the `maven` log and continue with the install |
+| `off` | no verification |
+
+Set it in the `.CFConfig.json`:
+
+```json
+{
+	"maven": {
+		"signatureVerification": "warn"
+	}
+}
+```
+
+or with a system property or an environment variable (see [[environment-variables-system-properties]]):
+
+```
+-Dlucee.maven.signature.verification=warn
+LUCEE_MAVEN_SIGNATURE_VERIFICATION=warn
+```
+
+The core update that runs in the loader before the configuration is read only knows the system property and the environment variable, not the `.CFConfig.json`.
+
+Third party extension providers or repositories do not need any change, artifacts of other groups than `org.lucee` are not verified. Mirrors of Maven Central must mirror the `.asc` files, otherwise releases of `org.lucee` fail.
+
+Ticket: [LDEV-1554](https://luceeserver.atlassian.net/browse/LDEV-1554)
+
+## `a[1] = x` on an undefined variable creates an array
+
+Assigning with a positive integer literal as index to a variable that does not exist yet creates an **array**, like ACF does. Lucee 8 created a **struct** with the key `"1"`.
+
+```cfml
+a[ 1 ] = "x";
+// Lucee 8: struct { "1": "x" }
+// Lucee 9: array [ "x" ]
+```
+
+This applies when the variable, or the intermediate member, does not exist yet:
+
+| Code | Lucee 9 |
+| --- | --- |
+| `a[ 1 ] = x`, `variables.a[ 1 ] = x`, `local.a[ 1 ] = x`, `s.b[ 1 ] = x` | creates an array |
+| `a[ 1 ][ "Qty" ] = x` | creates an array that holds a struct |
+| `a[ 3 ] = x` | creates an array with 3 elements, the gap is filled with null, like arrays already do |
+| `a[ "1" ] = x`, `a[ i ] = x` (variable as index), `a.b = x` | unchanged, creates a struct |
+| any assignment to a variable that already exists (struct or array) | unchanged |
+
+Code that relied on `a[ 1 ] = x` to create a struct now gets an array: functions like `structKeyExists()`, `structCount()`, `structKeyList()` or a `for ( key in a )` loop on it behave differently, and `isStruct( a )` is `false`.
+
+**What to do:** create the struct explicitly (`a = {}` or `structNew()`) before you assign, or use a string key (`a[ "1" ] = x`).
+
+Ticket: [LDEV-1329](https://luceeserver.atlassian.net/browse/LDEV-1329)
+
+## `cachedWithin` functions are single-flight on a cold cache
+
+On a cold `cachedWithin` function cache, only one call per cache key executes the function now. Concurrent callers with the same arguments wait for it and use the cached result. Before, all concurrent callers executed the function.
+
+- Always on, there is no setting or argument to turn it off.
+- The key is the function and its arguments, per web context. There is no global lock, calls with different keys run in parallel.
+- Waiters wait at most the request timeout. If the first call fails or its result is not cached, each waiter executes the function itself, so nobody waits forever.
+- A function that calls itself with the same arguments does not wait for itself.
+- `cfquery` with `cachedWithin` is not affected.
+
+Code that depends on all concurrent calls executing on a cold cache is affected, for example a function with side effects (a counter, a log entry, a call to another system) that is called at the same time with the same arguments. It is now executed once. Concurrent requests that were served in parallel on a cold cache now wait for the first one, a slow function delays the others.
+
+**What to do:** do not use `cachedWithin` for functions with side effects that must run on every call.
+
+Ticket: [LDEV-1360](https://luceeserver.atlassian.net/browse/LDEV-1360)
