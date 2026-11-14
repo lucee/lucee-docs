@@ -10,7 +10,8 @@
     "function-serializejson",
     "function-deserializejson",
     "tag-application",
-    "null-structs-and-arrays"
+    "null-structs-and-arrays",
+    "scopes"
   ],
   "description": "Understand the differences between partial and full null support - how it affects structKeyExists(), JSON serialization, queries and variable assignment.",
   "keywords": [
@@ -173,3 +174,5 @@ if ( isNull( arguments.name ) ) { ... }
 if ( isNull( local.result ) ) { ... }
 if ( isNull( variables.config ) ) { ... }
 ```
+
+Under default (partial) null support, a null in `local` or `variables` does not stop an unscoped lookup; the search continues through the remaining cascaded scopes. Adobe ColdFusion stops at the nearer-scope null. This is intentional in Lucee. See [[scopes|Scope Cascading]] for the behaviour and workarounds (`isNull(local.myVar)`, `this.scopeCascading="strict"`, or `this.nullSupport=true`).

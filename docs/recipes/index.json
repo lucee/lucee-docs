@@ -292,7 +292,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "f014afdae63c03e642b6412bd2cbe9bd",
+    "hash": "853cc08e5ef9c1176769bfb1f3309ef1",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -325,7 +325,16 @@
       "cfid.url.allow",
       "OSGi extension",
       "osgi-extension",
-      "lucee.osgi.autoinstall"
+      "lucee.osgi.autoinstall",
+      "datasource",
+      "allow",
+      "allowed_select",
+      "SQL restrictions",
+      "signature",
+      "PGP",
+      "maven.signatureVerification",
+      "cachedWithin",
+      "array"
     ]
   },
   {
@@ -770,15 +779,22 @@
   },
   {
     "file": "downloading-extensions.md",
-    "title": "Downloading Extensions for CI, Docker and Offline Installs",
+    "title": "Downloading Lucee and Extensions for CI, Docker and Offline Installs",
     "path": "/docs/recipes/downloading-extensions.md",
-    "hash": "4756af4ea4e87d252255248aad1ad139",
+    "hash": "700cfd95866d93e026b88e2ba000defa",
     "keywords": [
       "extension",
       "download",
       "lex",
+      "lco",
+      "jar",
+      "light",
+      "zero",
+      "core",
       "maven",
       "Maven Central",
+      "maven.lucee-services.com",
+      "cdn.lucee.org",
       "snapshot",
       "pre-release",
       "Docker",
@@ -840,7 +856,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "9bedca9b311958bb5315c604554085c1",
+    "hash": "af039781293a999a5193c496ca539f3f",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -1432,7 +1448,7 @@
     "file": "http-logging.md",
     "title": "Logging CFHTTP Calls",
     "path": "/docs/recipes/http-logging.md",
-    "hash": "c53e1769aff2b36d8529d3d3d5277cea",
+    "hash": "1c6d2411b966a1d8a09842207ee1cf16",
     "keywords": [
       "cfhttp",
       "logging",
@@ -1593,7 +1609,7 @@
     "file": "lucee-skill.md",
     "title": "Lucee Skill for AI Assistants",
     "path": "/docs/recipes/lucee-skill.md",
-    "hash": "39c94f2432ba947ba6684884cb08481e",
+    "hash": "2e3e57df32089caa53f63c96c51e9bc9",
     "keywords": [
       "skill",
       "lucee.skill",
@@ -1836,7 +1852,7 @@
     "file": "null-support.md",
     "title": "Null Support",
     "path": "/docs/recipes/null-support.md",
-    "hash": "e1f832ca8a1b05505514cb6837b9ec0e",
+    "hash": "8bb9332425a18668cae3872e05fb5119",
     "keywords": [
       "Null support",
       "null keyword",
@@ -2343,7 +2359,7 @@
     "file": "request-timeout.md",
     "title": "Request Timeout",
     "path": "/docs/recipes/request-timeout.md",
-    "hash": "4f6019eb0f4efa34dd69f2cddd4a7ed7",
+    "hash": "b3cff9eaff6e223043a8efc33699e26c",
     "keywords": [
       "request timeout",
       "timeout",
@@ -2372,7 +2388,7 @@
     "file": "scheduler-quartz-ai-job.md",
     "title": "Run AI Sessions in the Cloud, 24/7, Doing Your Work",
     "path": "/docs/recipes/scheduler-quartz-ai-job.md",
-    "hash": "88138383cf42889b4660014dbc06cf80",
+    "hash": "733cc6da2aeac5abc2657987d9134d98",
     "keywords": [
       "scheduler",
       "quartz",
@@ -2960,7 +2976,7 @@
     "file": "warmup.md",
     "title": "Warmup",
     "path": "/docs/recipes/warmup.md",
-    "hash": "bf3d819c961e3bad95709cbf8662755a",
+    "hash": "11a5f46069c74ceef3c337b7d3ea03e5",
     "keywords": [
       "Warmup",
       "Docker",
