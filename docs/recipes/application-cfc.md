@@ -54,7 +54,7 @@ So, for example, if you only have one Application.cfc in the webroot, define "Ro
 
 ## Configuation Hierarchy
 
-The base Lucee configuation is configured via the `.CFConfig.json` / the Admin.
+The base Lucee configuration is configured via the `.CFConfig.json` / the Admin.
 
 Each `Application.cfc` can then override / customise these settings per Application.
 
@@ -251,7 +251,7 @@ component {
 
 Below you can find an Application.cfc template that may serve as a starting point for your own applications settings with Lucee CFML engine.
 
-When creating an Application.cfc for the first time, you can configure all the settings within the Lucee Server or Web Administrator and use its "Export" tool ( Lucee Adminisitrator => Settings => Export )  to move (by copy and paste) the settings to your Application.cfc.
+When creating an Application.cfc for the first time, you can configure all the settings within the Lucee Server or Web Administrator and use its "Export" tool ( Lucee Administrator => Settings => Export )  to move (by copy and paste) the settings to your Application.cfc.
 
 ```cfs
 component displayname="Application" output="false" hint="Handle the application" {
@@ -270,7 +270,7 @@ component displayname="Application" output="false" hint="Handle the application"
     *
     *  When creating an Application.cfc for the first time, you can configure
     *  all the settings within the Lucee Server or Web Administrator
-    *  and use its "Export" tool ( Lucee Adminisitrator => Settings => Export )
+    *  and use its "Export" tool ( Lucee Administrator => Settings => Export )
     *  to move (by copy and paste) the settings to your Application.cfc.
     *
     *  For further reference please see the following documentation at:
