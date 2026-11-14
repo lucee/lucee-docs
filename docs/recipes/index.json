@@ -292,7 +292,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "4538ca82520f392884afc59e0b0031a1",
+    "hash": "853cc08e5ef9c1176769bfb1f3309ef1",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -329,7 +329,12 @@
       "datasource",
       "allow",
       "allowed_select",
-      "SQL restrictions"
+      "SQL restrictions",
+      "signature",
+      "PGP",
+      "maven.signatureVerification",
+      "cachedWithin",
+      "array"
     ]
   },
   {
@@ -851,7 +856,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "9bedca9b311958bb5315c604554085c1",
+    "hash": "af039781293a999a5193c496ca539f3f",
     "keywords": [
       "Environment",
       "Environment Variables",
