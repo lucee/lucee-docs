@@ -643,6 +643,34 @@ Code that depends on all concurrent calls executing on a cold cache is affected,
 
 Ticket: [LDEV-1360](https://luceeserver.atlassian.net/browse/LDEV-1360)
 
+## `new self()` creates the called component
+
+`self` is now a keyword directly after the `new` operator. `new self()` creates an instance of the component the current function was called on (see [[static-scope-in-components]]).
+
+### A component called `self` is shadowed
+
+`new self()` does not look for a component called `self` anymore. Existing code that instantiates a component `self.cfc` this way now gets the component the function was called on, or an exception outside of a component.
+
+Everything else keeps working: `self` as a function name, variable or argument name, and a component called `self` that is referenced with a path (`new my.path.self()`) or with a quoted name (`new "self"()`).
+
+### Migration
+
+Use the full path of the component or a quoted name:
+
+Before:
+
+```cfml
+cfc = new self();
+```
+
+After:
+
+```cfml
+cfc = new my.path.self();
+// or
+cfc = new "self"();
+```
+
 ## The Railo 4 compatibility servlets are removed
 
 The servlets `railo.loader.servlet.CFMLServlet` and `railo.loader.servlet.RestServlet` do not exist anymore. They were empty subclasses of the Lucee servlets that only kept the `web.xml` of a Railo 4 installation working with Lucee.

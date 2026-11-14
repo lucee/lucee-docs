@@ -84,6 +84,39 @@ dump( obj.utility() );      // works
 dump( Example::utility() ); // same thing
 ```
 
+## Factory Methods with `new self()`
+
+`new self()` creates an instance of the component the function was **called on**, not of the component the function is written in. A factory method in a base component therefore returns the subcomponent when it is called on the subcomponent:
+
+```cfml
+// Base.cfc
+component {
+	public static function create() {
+		return new self();
+	}
+
+	public function init( a = 0 ) {
+		variables.a = a;
+		return this;
+	}
+}
+
+// Child.cfc
+component extends="Base" {
+}
+
+// Usage
+base = Base::create();   // a Base
+child = Child::create(); // a Child
+```
+
+Arguments are passed to the constructor, as with any other `new`: `new self( a=1 )`.
+
+- It works in static and in instance functions, instance functions use the component of the instance (`child.someFunction()` creates a `Child`).
+- `self` is only a keyword directly after `new`. `self` as a function name, variable or argument name works as before.
+- `new self()` outside of a component throws an exception.
+- The same abstract and constructor rules as for `new` apply, `new self()` on an abstract component throws.
+
 ## Mocking Static Functions
 
 You can override a static function on an instance for testing without affecting the component:
