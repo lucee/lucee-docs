@@ -444,6 +444,8 @@ component displayname="Application" output="false" hint="Handle the application"
    //  be raised. This means that the execution of the request
    //  will be stopped. This setting can be overridden using the
    //  "cfsetting" tag or script equivalent.
+   //  Deprecated since Lucee 7.1.3: it can only interrupt the
+   //  request thread; set a timeout on the query or http call instead.
    ////////////////////////////////////////////////////////////////
    // this.requestTimeout=createTimeSpan(0,0,0,50);
 
@@ -493,8 +495,10 @@ component displayname="Application" output="false" hint="Handle the application"
    ////////////////////////////////////////////////////////////////
    //  REGEX
    //  Defines the regular expression dialect to be used.
-   //  - modern: Modern type is the dialect used by Java itself.
-   //  - classic CFML default, the classic CFML traditional type Perl5 dialect
+   //  - java (modern): the dialect used by Java itself, default since Lucee 9
+   //  - compat: java with the Perl-style replacement syntax (\1, \U, \L)
+   //  - perl (classic): Perl5 dialect, default up to Lucee 8, deprecated,
+   //    in Lucee 9 only available with the Perl Regex extension
    ////////////////////////////////////////////////////////////////
    // this.regex.type = "perl";
 

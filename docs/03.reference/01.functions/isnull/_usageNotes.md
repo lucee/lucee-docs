@@ -25,4 +25,4 @@ if ( isNull( local.result ) ) { ... }
 if ( isNull( variables.config ) ) { ... }
 ```
 
-See [[null_support]] for more information on null handling in CFML.
+Under default (partial) null support, a null in `local` or `variables` does not stop an unscoped lookup; the search continues through the remaining cascaded scopes. Adobe ColdFusion stops at the nearer-scope null. This is intentional in Lucee. See [[scopes|Scope Cascading]] and [[null_support]].
