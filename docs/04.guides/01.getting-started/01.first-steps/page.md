@@ -3,7 +3,7 @@ title: First steps
 id: getting-started-first-steps
 ---
 
-Welcome to Lucee, a Free and Open Source, high peformance cfml engine.
+Welcome to Lucee, a Free and Open Source, high performance cfml engine.
 
 ## Lucee Developer Forum
 

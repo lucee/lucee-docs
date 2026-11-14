@@ -129,6 +129,6 @@ writeOutput( settings.dotNotationUpperCase );  // true or false
 
 ## Things to Consider
 
-When set via the Lucee Admin / `CFConfig.json`, keep in mind this is server wide configuation. 
+When set via the Lucee Admin / `CFConfig.json`, keep in mind this is server wide configuration. 
 
 If you're working with legacy code that assumes uppercase keys, switching to preserve case could break things. Test thoroughly.
