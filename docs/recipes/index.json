@@ -117,7 +117,7 @@
     "file": "application-cfc.md",
     "title": "Application.cfc #",
     "path": "/docs/recipes/application-cfc.md",
-    "hash": "22821e319138d7b7e3b9ffab9cbf8c94",
+    "hash": "af5304f762c2abebbc448401505816b4",
     "keywords": [
       "Application.cfc",
       "Application Context",
@@ -278,7 +278,7 @@
     "file": "breaking-changes-8-0.md",
     "title": "Breaking Changes between Lucee 7.1 and 8.0",
     "path": "/docs/recipes/breaking-changes-8-0.md",
-    "hash": "7a8c836b7bd0ca6733bba176e3a78d6a",
+    "hash": "7771a3698c25bbe1f8a9e690e2ca8231",
     "keywords": [
       "breaking changes",
       "Lucee 7.1",
@@ -292,7 +292,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "7dc707da7ab07a3bcf83ebd6fdac9c13",
+    "hash": "f014afdae63c03e642b6412bd2cbe9bd",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -306,6 +306,8 @@
       "javax.mail",
       "commons-logging",
       "extensions",
+      "regex",
+      "Perl Regex extension",
       "isJson",
       "JSON",
       "REST",
@@ -316,7 +318,14 @@
       "internalRequest",
       "_internalRequest",
       "COM",
-      "Jacob"
+      "Jacob",
+      "CFID",
+      "CFTOKEN",
+      "session",
+      "cfid.url.allow",
+      "OSGi extension",
+      "osgi-extension",
+      "lucee.osgi.autoinstall"
     ]
   },
   {
@@ -357,6 +366,28 @@
       "cfcatch",
       "multi-catch",
       "try"
+    ]
+  },
+  {
+    "file": "cfml-keywords.md",
+    "title": "CFML Keywords",
+    "path": "/docs/recipes/cfml-keywords.md",
+    "hash": "16ac37ed8354542fb476bcfa4798447f",
+    "keywords": [
+      "keywords",
+      "reserved words",
+      "syntax highlighting",
+      "operators",
+      "scopes",
+      "modifiers",
+      "return",
+      "break",
+      "continue",
+      "abort",
+      "rethrow",
+      "editor",
+      "UDL",
+      "language definition"
     ]
   },
   {
@@ -739,15 +770,22 @@
   },
   {
     "file": "downloading-extensions.md",
-    "title": "Downloading Extensions for CI, Docker and Offline Installs",
+    "title": "Downloading Lucee and Extensions for CI, Docker and Offline Installs",
     "path": "/docs/recipes/downloading-extensions.md",
-    "hash": "1e4f6f13983ddc97ed2d7d560a812481",
+    "hash": "700cfd95866d93e026b88e2ba000defa",
     "keywords": [
       "extension",
       "download",
       "lex",
+      "lco",
+      "jar",
+      "light",
+      "zero",
+      "core",
       "maven",
       "Maven Central",
+      "maven.lucee-services.com",
+      "cdn.lucee.org",
       "snapshot",
       "pre-release",
       "Docker",
@@ -809,7 +847,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "3a39afab818f38a012a1f2ce878870a6",
+    "hash": "9bedca9b311958bb5315c604554085c1",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -901,7 +939,7 @@
     "file": "extension-installation.md",
     "title": "Extension Installation",
     "path": "/docs/recipes/extension-installation.md",
-    "hash": "6c2d5ff0dc077191e153aff8c0d8d088",
+    "hash": "7cb17fa9df07e5b2310f2c2050d7b5b0",
     "keywords": [
       "extension",
       "install",
@@ -1064,6 +1102,26 @@
       "Lucee",
       "Application.cfc",
       "CFConfig"
+    ]
+  },
+  {
+    "file": "hardening-missing-template-probes.md",
+    "title": "Hardening against probing for missing templates",
+    "path": "/docs/recipes/hardening-missing-template-probes.md",
+    "hash": "f3d6b27b98a3b894e66a1228869411e1",
+    "keywords": [
+      "security",
+      "hardening",
+      "missinginclude",
+      "web shell",
+      "probe",
+      "bot",
+      "onMissingTemplate",
+      "nginx",
+      "apache",
+      "try_files",
+      "mod_rewrite",
+      "404"
     ]
   },
   {
@@ -1231,7 +1289,7 @@
     "file": "java-regex-engine.md",
     "title": "Java Regex Engine",
     "path": "/docs/recipes/java-regex-engine.md",
-    "hash": "fd8a17a3dcdb033930c3ec6fc1f9e5c1",
+    "hash": "e22160529bcac21942a19615ec358a82",
     "keywords": [
       "regex",
       "regular expressions",
@@ -1265,7 +1323,7 @@
     "file": "java-settings.md",
     "title": "Java Settings",
     "path": "/docs/recipes/java-settings.md",
-    "hash": "830f112bb0a9041668559d6b4961bb37",
+    "hash": "669faa2a0f63dbadf9568e14ae1cea38",
     "keywords": [
       "Java settings",
       "Application.cfc",
@@ -1334,7 +1392,7 @@
     "file": "maven.md",
     "title": "Loading Java Libraries with Maven",
     "path": "/docs/recipes/maven.md",
-    "hash": "eda6f6280b5b0a7bec804dbb0e406dc6",
+    "hash": "7ac41609be37013315506ebb9dd5a837",
     "keywords": [
       "Maven",
       "Java",
@@ -1381,7 +1439,7 @@
     "file": "http-logging.md",
     "title": "Logging CFHTTP Calls",
     "path": "/docs/recipes/http-logging.md",
-    "hash": "c53e1769aff2b36d8529d3d3d5277cea",
+    "hash": "1c6d2411b966a1d8a09842207ee1cf16",
     "keywords": [
       "cfhttp",
       "logging",
@@ -1542,7 +1600,7 @@
     "file": "lucee-skill.md",
     "title": "Lucee Skill for AI Assistants",
     "path": "/docs/recipes/lucee-skill.md",
-    "hash": "f61e31811566615477110309668abc00",
+    "hash": "2e3e57df32089caa53f63c96c51e9bc9",
     "keywords": [
       "skill",
       "lucee.skill",
@@ -1693,7 +1751,7 @@
     "file": "mcp.md",
     "title": "Model Context Protocol (MCP)",
     "path": "/docs/recipes/mcp.md",
-    "hash": "956e08d33e34f0ba72e52296f00559a3",
+    "hash": "1baf52205e04cb91376a3e266ef4dabd",
     "keywords": [
       "MCP",
       "Model Context Protocol",
@@ -1785,7 +1843,7 @@
     "file": "null-support.md",
     "title": "Null Support",
     "path": "/docs/recipes/null-support.md",
-    "hash": "e1f832ca8a1b05505514cb6837b9ec0e",
+    "hash": "8bb9332425a18668cae3872e05fb5119",
     "keywords": [
       "Null support",
       "null keyword",
@@ -2261,7 +2319,7 @@
     "file": "recommended-settings.md",
     "title": "Recommended Settings",
     "path": "/docs/recipes/recommended-settings.md",
-    "hash": "0b43f41907677c1e360750b7640a939b",
+    "hash": "e90efd06c0854b4078c2fd7ffb2ff87c",
     "keywords": [
       "settings",
       "performance",
@@ -2271,10 +2329,28 @@
     ]
   },
   {
+    "file": "regex-migration-lucee-9.md",
+    "title": "Regex Migration to Lucee 9",
+    "path": "/docs/recipes/regex-migration-lucee-9.md",
+    "hash": "0790c95bffa587a729e393dc089337f5",
+    "keywords": [
+      "regex",
+      "regular expressions",
+      "Lucee 9",
+      "migration",
+      "Apache ORO",
+      "perl",
+      "java",
+      "compat",
+      "regexType",
+      "Perl Regex extension"
+    ]
+  },
+  {
     "file": "request-timeout.md",
     "title": "Request Timeout",
     "path": "/docs/recipes/request-timeout.md",
-    "hash": "4f6019eb0f4efa34dd69f2cddd4a7ed7",
+    "hash": "b3cff9eaff6e223043a8efc33699e26c",
     "keywords": [
       "request timeout",
       "timeout",
@@ -2303,7 +2379,7 @@
     "file": "scheduler-quartz-ai-job.md",
     "title": "Run AI Sessions in the Cloud, 24/7, Doing Your Work",
     "path": "/docs/recipes/scheduler-quartz-ai-job.md",
-    "hash": "88138383cf42889b4660014dbc06cf80",
+    "hash": "733cc6da2aeac5abc2657987d9134d98",
     "keywords": [
       "scheduler",
       "quartz",
@@ -2444,7 +2520,7 @@
     "file": "session-handling.md",
     "title": "Session Handling",
     "path": "/docs/recipes/session-handling.md",
-    "hash": "de3b0ccf64b1f4a29c15886cdf750ee3",
+    "hash": "4c4014e085d20080be8fe54f18308bce",
     "keywords": [
       "Session Management",
       "CFML Sessions",
@@ -2891,7 +2967,7 @@
     "file": "warmup.md",
     "title": "Warmup",
     "path": "/docs/recipes/warmup.md",
-    "hash": "bf3d819c961e3bad95709cbf8662755a",
+    "hash": "11a5f46069c74ceef3c337b7d3ea03e5",
     "keywords": [
       "Warmup",
       "Docker",

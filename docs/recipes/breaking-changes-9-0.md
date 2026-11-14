@@ -2,10 +2,14 @@
 {
   "title": "Breaking Changes between Lucee 8.0 and 9.0",
   "id": "breaking-changes-8-0-to-9-0",
-  "categories": ["breaking changes", "migration","compat"],
+  "categories": ["breaking changes", "migration", "compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "datasource", "allow", "allowed_select", "SQL restrictions"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "regex", "Perl Regex extension", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "CFID", "CFTOKEN", "session", "cfid.url.allow", "OSGi extension", "osgi-extension", "lucee.osgi.autoinstall", "datasource", "allow", "allowed_select", "SQL restrictions"],
   "related": [
+    "regex-migration-lucee-9",
+    "java-regex-engine",
+    "extension-installation",
+    "environment-variables-system-properties",
     "breaking-changes-7-1-to-8-0"
   ]
 }
@@ -15,6 +19,8 @@
 
 This document outlines the breaking changes introduced when upgrading from Lucee 8.0 to Lucee 9.0. Lucee 9.0 is under development (alpha), this page is extended with every change that can break existing code, extensions or configurations.
 
+[9.0 Changelog](https://download.lucee.org/changelog/?version=9.0)
+
 ## Other Breaking Changes in Lucee Releases
 
 - [[breaking-changes-5-4-to-6-0]]
@@ -23,6 +29,21 @@ This document outlines the breaking changes introduced when upgrading from Lucee
 - [[breaking-changes-6-2-to-7-0]]
 - [[breaking-changes-7-0-to-7-1]]
 - [[breaking-changes-7-1-to-8-0]]
+
+## Regex: Java Is the Default Engine, Perl Moved to an Extension
+
+[LDEV-6632](https://luceeserver.atlassian.net/browse/LDEV-6632)
+
+- The default regex engine changed from `perl` (Apache ORO) to `java`.
+- The `perl` engine (aliases `perl5`, `classic`, `oro`) is no longer part of the core. It is available with the [Perl Regex extension](https://github.com/lucee/extension-perlregex) (`org.lucee:perlregex-extension`).
+- `perl` stays a valid setting. Without the extension, a regex call fails with "The regex engine [perl] is not available".
+- `useJavaAsRegexEngine=false` means `perl`, so it needs the extension too.
+
+Applications without a regex setting now run on `java` without an error, but some patterns give different results, for example POSIX classes like `[[:alpha:]]`, `\1` in replacements and `.` across newlines.
+
+Lucee 8 logs a deprecation warning when an application uses `perl` ([LDEV-6660](https://luceeserver.atlassian.net/browse/LDEV-6660)), so check the `application` log of your Lucee 8 servers for `RegexDeprecation` before upgrading.
+
+**What to do:** move your patterns to `java` (or `compat` to keep the Perl-style replacement syntax), or install the Perl Regex extension and set `this.regex.type="perl"`. All steps and the differences between the engines are in [[regex-migration-lucee-9]].
 
 ## Apache Felix is shaded into the Lucee jar
 
@@ -420,6 +441,66 @@ internalRequest( template="/app/index.cfm" );
 ```
 
 Code that already used a leading slash needs no change. See [LDEV-4038](https://luceeserver.atlassian.net/browse/LDEV-4038).
+
+## CFID and CFTOKEN in the URL are not accepted by default
+
+Lucee no longer accepts `cfid` and `cftoken` from the URL query string by default. The default of the setting `lucee.cfid.url.allow` (`LUCEE_CFID_URL_ALLOW`) is now `false`, before it was `true`. The session is only linked to a request through cookies. Accepting an identifier from the URL makes session fixation easier, for example with a link that carries a chosen `cfid`.
+
+```cfml
+// https://example.com/index.cfm?cfid=3C7A0C6E-0B5D-4B7C-9E2D-0123456789AB&cftoken=0
+
+// Lucee 8: the request uses the session of that cfid
+// Lucee 9: cfid and cftoken of the URL are ignored, the request gets a new session (or the one of the cookies)
+```
+
+Cookies are not affected.
+
+### Who is affected
+
+Applications that pass `cfid` and `cftoken` in the URL and expect the session to be found, for example:
+
+- Clients that do not accept cookies, with the session identifier added to every link (`urlToken` / `session.urlToken`).
+- A redirect to another host, an SSO flow or a callback that carries the session identifier in the URL.
+- Links with an embedded session, from emails or from another application.
+
+`cfhttp` and `internalRequest()` with `addToken` are not affected, they pass the identifiers as cookies.
+
+The setting `lucee.cfid.url.log` logs every request in which a `cfid` of the URL is read and used, set it in Lucee 8 (or earlier) to find the code that depends on it, see [[environment-variables-system-properties]].
+
+### Migration
+
+- Change the code so the session is linked with the cookie only. This is the recommended way.
+- Or restore the previous behaviour with the system property `-Dlucee.cfid.url.allow=true` or the environment variable `LUCEE_CFID_URL_ALLOW=true`. This is not recommended for production environments.
+- If the previous property `lucee.read.cfid.from.url` (`LUCEE_READ_CFID_FROM_URL`) is set, it still takes precedence over `lucee.cfid.url.allow`.
+
+## OSGi is moving to an extension, Lucee installs it when it is needed
+
+[LDEV-6829](https://luceeserver.atlassian.net/browse/LDEV-6829)
+
+OSGi (Apache Felix) is moving out of the core into the OSGi extension (`org.lucee:osgi-extension`). Extensions that ship OSGi bundles, or that define a class with a bundle name (cache, datasource, search, ORM, resource and so on), still work, they need OSGi.
+
+When something needs OSGi and no OSGi implementation is available, Lucee installs the OSGi extension in server scope by itself and then goes on with what it was doing. The extension is looked for offline first (already installed, a bundled `.lex`, the `extensions/available` folder), then in the Maven repositories. This happens when:
+
+- an extension with bundles, or with a bundle class definition, is installed or loaded (including bundled `.lex` and `deploy` folder extensions)
+- a class is loaded from a bundle, for example a datasource, cache or search class definition in the configuration (the first time the class is loaded)
+- a mapping uses an archive
+- code calls the `BundleService`
+
+The OSGi extension is installed first, the extension that needs it follows.
+
+### What can go wrong
+
+If the OSGi extension can not be resolved (no internet and no `.lex` available) or can not be installed, the operation fails with an error and nothing is installed:
+
+```
+OSGi is needed for the extension [...] but is not available (...). Please install the OSGi extension (org.lucee:osgi-extension).
+```
+
+### Migration
+
+- On a server that has no internet access at runtime, put the OSGi extension (the `.lex`) into the `deploy` folder or the `extensions/available` folder, or list it in `LUCEE_EXTENSIONS` / `extensions` of the configuration, so it is installed without a download.
+- To turn the automatic installation off, set the system property `-Dlucee.osgi.autoinstall=false` or the environment variable `LUCEE_OSGI_AUTOINSTALL=false`. Lucee then installs nothing and throws the error above, naming the setting, when OSGi is needed. See [[environment-variables-system-properties]].
+- Extension and bundle authors do not have to change anything.
 
 ## Per-datasource SQL restrictions are removed
 

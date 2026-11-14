@@ -1,14 +1,21 @@
 <!--
 {
-  "title": "Downloading Extensions for CI, Docker and Offline Installs",
+  "title": "Downloading Lucee and Extensions for CI, Docker and Offline Installs",
   "id": "downloading-extensions",
-  "description": "Where to download Lucee extensions (.lex) from, and how to fetch them with Maven, curl or a Docker multistage build.",
+  "description": "Where to download Lucee core artifacts (.lco, jars, pom) and extensions (.lex) from, and how to fetch them with Maven, curl or a Docker multistage build.",
   "keywords": [
     "extension",
     "download",
     "lex",
+    "lco",
+    "jar",
+    "light",
+    "zero",
+    "core",
     "maven",
     "Maven Central",
+    "maven.lucee-services.com",
+    "cdn.lucee.org",
     "snapshot",
     "pre-release",
     "Docker",
@@ -23,7 +30,8 @@
   ],
   "categories": [
     "extensions",
-    "devops"
+    "devops",
+    "server"
   ],
   "related": [
     "extension-installation",
@@ -33,13 +41,130 @@
 }
 -->
 
-# Downloading Extensions for CI, Docker and Offline Installs
+# Downloading Lucee and Extensions for CI, Docker and Offline Installs
 
-Sometimes you want the extension files (`.lex`) themselves, for example to bake them into a Docker image, to cache them in a CI pipeline, or to install Lucee on a machine without internet access.
+Sometimes you want the Lucee files themselves, for example to bake them into a Docker image, to cache them in a CI pipeline, or to install Lucee on a machine without internet access. That covers both the Lucee core artifacts (`.lco`, `lucee.jar`, `lucee-light.jar`, `lucee-zero.jar`, `.pom`) and the extension files (`.lex`).
 
-This recipe shows where to download extensions from and how to do it reliably.
+This recipe shows where each of those is published and how to download them reliably.
 
-If you only want Lucee to install extensions for you at startup, see [[extension-installation]] instead.
+If you only want Lucee to install extensions for you at startup, see [[extension-installation]] instead. For the usual installers, Express, WAR and Docker images, see [download.lucee.org](https://download.lucee.org) and the [GitHub releases](https://github.com/lucee/Lucee/releases).
+
+## Where Lucee core artifacts are published
+
+The Lucee core is published as the Maven artifact `org.lucee:lucee`. The available files differ by repository:
+
+| Artifact | What it is | Maven Central | maven.lucee-services.com | CDN / GitHub Releases |
+| --- | --- | --- | --- | --- |
+| `.pom` | Maven metadata for the release | yes | yes | — |
+| `.lco` | Lucee core OSGi bundle (what Lucee itself downloads to update) | yes | yes | yes |
+| `lucee.jar` | Full loader JAR | no (current releases) | yes | yes |
+| `lucee-light.jar` | Light loader JAR | no (current releases) | yes | yes |
+| `lucee-zero.jar` | Zero loader JAR | no (current releases) | yes | yes |
+| Installer / WAR / Express | Platform installers and packs | no | no | GitHub Releases only |
+
+A few things to know:
+
+- Because of size limits on Maven Central, current Lucee core releases there only carry the `.pom` and the `.lco`. The `.lco` is the only artifact Lucee itself downloads from Central when it updates. Older releases on Central may still have the JARs as well.
+- All of the core artifacts (`.pom`, `.lco`, `lucee.jar`, light and zero) are on the Lucee Maven repository at `https://maven.lucee-services.com/`. Prefer that repository whenever you need the JARs.
+- [cdn.lucee.org](https://cdn.lucee.org) and the [GitHub release](https://github.com/lucee/Lucee/releases) of the same version also host the `.lco` and the JARs. GitHub Releases additionally have the installers, WAR and Express packs.
+- File names differ slightly between Maven and CDN / GitHub. Maven uses classifiers (`lucee-7.1.2.191-light.jar`, `lucee-7.1.2.191-zero.jar`). CDN and GitHub use `lucee-light-7.1.2.191.jar` and `lucee-zero-7.1.2.191.jar`. The `.lco` is `lucee-7.1.2.191.lco` on Maven and `7.1.2.191.lco` on CDN / GitHub.
+
+Example URLs for `7.1.2.191`:
+
+| Source | Example |
+| --- | --- |
+| Maven Central (`.lco` only for current releases) | [lucee-7.1.2.191.lco](https://repo1.maven.org/maven2/org/lucee/lucee/7.1.2.191/lucee-7.1.2.191.lco) |
+| Lucee Maven repository (all artifacts) | [org/lucee/lucee/7.1.2.191/](https://maven.lucee-services.com/org/lucee/lucee/7.1.2.191/) |
+| CDN | [7.1.2.191.lco](https://cdn.lucee.org/7.1.2.191.lco), [lucee-7.1.2.191.jar](https://cdn.lucee.org/lucee-7.1.2.191.jar) |
+| GitHub Releases | [7.1.2.191](https://github.com/lucee/Lucee/releases/tag/7.1.2.191) |
+
+### Download the core with Maven
+
+Add the Lucee Maven repository (needed for the JARs), then declare the artifacts you want. The `.lco` uses `<type>lco</type>`; light and zero use a classifier:
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>local</groupId>
+	<artifactId>lucee-core</artifactId>
+	<version>1</version>
+	<packaging>pom</packaging>
+
+	<repositories>
+		<repository>
+			<id>lucee</id>
+			<url>https://maven.lucee-services.com/</url>
+		</repository>
+		<repository>
+			<id>central</id>
+			<url>https://repo1.maven.org/maven2/</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<!-- full loader JAR -->
+		<dependency>
+			<groupId>org.lucee</groupId>
+			<artifactId>lucee</artifactId>
+			<version>7.1.2.191</version>
+		</dependency>
+		<!-- light loader JAR -->
+		<dependency>
+			<groupId>org.lucee</groupId>
+			<artifactId>lucee</artifactId>
+			<version>7.1.2.191</version>
+			<classifier>light</classifier>
+		</dependency>
+		<!-- core OSGi bundle -->
+		<dependency>
+			<groupId>org.lucee</groupId>
+			<artifactId>lucee</artifactId>
+			<version>7.1.2.191</version>
+			<type>lco</type>
+		</dependency>
+	</dependencies>
+</project>
+```
+
+Then copy them somewhere useful:
+
+```bash
+mvn -q dependency:copy-dependencies -DoutputDirectory=./lucee-artifacts
+```
+
+Without `maven.lucee-services.com`, Maven will only see the Central packaging (`.pom` plus the attached `.lco`) and will not find the JARs for current releases.
+
+### Download the core with curl
+
+Maven layout on `maven.lucee-services.com` (and Central for the `.lco`):
+
+```bash
+VER=7.1.2.191
+BASE=https://maven.lucee-services.com/org/lucee/lucee/${VER}
+
+curl -fsSL -O "${BASE}/lucee-${VER}.jar"
+curl -fsSL -O "${BASE}/lucee-${VER}-light.jar"
+curl -fsSL -O "${BASE}/lucee-${VER}-zero.jar"
+curl -fsSL -O "${BASE}/lucee-${VER}.lco"
+# or the .lco from Central:
+# curl -fsSL -O "https://repo1.maven.org/maven2/org/lucee/lucee/${VER}/lucee-${VER}.lco"
+```
+
+CDN / GitHub naming (note light and zero):
+
+```bash
+VER=7.1.2.191
+
+curl -fsSL -O "https://cdn.lucee.org/${VER}.lco"
+curl -fsSL -O "https://cdn.lucee.org/lucee-${VER}.jar"
+curl -fsSL -O "https://cdn.lucee.org/lucee-light-${VER}.jar"
+curl -fsSL -O "https://cdn.lucee.org/lucee-zero-${VER}.jar"
+
+# same names on the GitHub release:
+# https://github.com/lucee/Lucee/releases/download/${VER}/...
+```
+
+Use `-f` so that a failed download fails your build instead of saving an error page.
 
 ## Where extensions are published
 
@@ -48,14 +173,14 @@ All Lucee extensions are published as Maven artifacts with the group id `org.luc
 | Source | What you find there | URL |
 | --- | --- | --- |
 | Maven Central | Final releases | `https://repo1.maven.org/maven2/org/lucee/` |
-| Lucee Maven repository | Pre-releases (betas and RCs) | `https://maven.lucee-services.com/org/lucee/` |
+| Lucee Maven repository | Pre-releases (betas and RCs), and also final releases | `https://maven.lucee-services.com/org/lucee/` |
 | Sonatype snapshot repository | Snapshots, kept for 90 days | `https://central.sonatype.com/repository/maven-snapshots/` |
 | GitHub Releases | Final releases, attached to each release of the extension repository | e.g. [extension-esapi 3.1.0.1](https://github.com/lucee/extension-esapi/releases/tag/3.1.0.1) |
 | download.lucee.org | Download links for any published version | e.g. [esapi-extension 3.1.0.1](https://download.lucee.org/download.cfm?groupId=org.lucee&artifactId=esapi-extension&version=3.1.0.1) |
 
 A few things to know:
 
-- Starting November 2026, only final releases are deployed to Maven Central. Betas, RCs and snapshots are not.
+- Starting November 2026, only final releases are deployed to Maven Central. Betas, RCs and snapshots are not. Final extension `.lex` files continue to be published to Central.
 - Starting March 2027, `maven.lucee-services.com` no longer has any snapshots. Snapshots are then only available from the Sonatype snapshot repository, which already keeps them for 90 days today. Pre-releases may also get a limited lifespan, see [Snapshot retention](https://dev.lucee.org/t/17631).
 - The repositories are not exact mirrors of each other. They complement each other, with some overlap. Older history was backfilled, but not completely, so some versions only exist in one of them. Listing several repositories (see below) takes care of that.
 
@@ -63,7 +188,7 @@ A few things to know:
 
 ## Finding the artifactId and version
 
-The artifactId is the extension's Maven name, for example `mail-extension`, `esapi-extension` or `s3-extension`.
+For the Lucee core the artifactId is always `lucee` (`org.lucee:lucee`). For extensions, the artifactId is the extension's Maven name, for example `mail-extension`, `esapi-extension` or `s3-extension`.
 
 - Browse the repositories directly: [Maven Central](https://repo1.maven.org/maven2/org/lucee/) and [maven.lucee-services.com](https://maven.lucee-services.com/org/lucee/) list every extension as a folder, and every version as a subfolder.
 - Each extension has a `maven-metadata.xml` listing all versions and the latest release, for example [mail-extension](https://repo1.maven.org/maven2/org/lucee/mail-extension/maven-metadata.xml).
@@ -123,7 +248,14 @@ See [[extension-installation]] for all formats and details, for example that `.C
 
 ### Making failed downloads visible
 
-By default a Maven download at startup is silent. Set `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP` (system property `lucee.maven.download.policy.startup`) to `warn` to log every download, or to `error` to fail instead of downloading. With `error` you can check that an image really contains everything and never downloads at startup. The same exists for runtime downloads with `LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME`.
+Lucee has two Maven download policies with different scopes. Which one applies depends only on whether the engine has finished starting:
+
+| Setting | Applies to | Examples |
+|---------|-----------|----------|
+| `lucee.maven.download.policy.startup` / `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP` | downloads while Lucee is still starting up | extensions from `.CFConfig.json` installed on a fresh start, and anything else resolved before startup completes |
+| `lucee.maven.download.policy.runtime` / `LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME` | downloads after startup has finished | `javasettings` libraries, `mavenLoad()`, the `deploy` folder check that runs after startup |
+
+Both accept `ignore` (default, download silently), `warn` (download and log each download) or `error` (block the download and fail). In Lucee 8 they can also be set in `.CFConfig.json` as `maven.downloadPolicyStartup` and `maven.downloadPolicyRuntime`; in Lucee 7 only the system property or environment variable is available. `lucee.maven.download.policy.log.level` sets the log level used for `warn`.
 
 ### Docker: resolve everything at build time with warmup
 
@@ -145,7 +277,7 @@ Maven artifacts downloaded by Lucee are stored in the `mvn` directory next to `l
 
 Java libraries from `javasettings` (in `.CFConfig.json`, `Application.cfc` or a component) are resolved when they are first used. The literal `javasettings` attribute of a component is also downloaded when the component is compiled during warmup, see [[warmup]]. To be sure the others are baked in as well, load them in `onBuild`, for example with `mavenLoad()` or `mavenImport()`. See [[maven]], [[java-settings]] and [[onbuild-function]].
 
-To make sure the running container never downloads anything, set `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP=error` at runtime (not during the warmup step). Lucee then fails instead of downloading a missing artifact, so a gap in the image shows up right away.
+In the final container (not during the warmup step), set `LUCEE_MAVEN_DOWNLOAD_POLICY_STARTUP=error`. Startup then fails instead of downloading anything the warmup didn't bake in, so a gap in the image shows up right away. If you also want to block downloads while the application is running (for example `javasettings` libraries you didn't load in `onBuild`), set `LUCEE_MAVEN_DOWNLOAD_POLICY_RUNTIME=error` as well; use `warn` first to find out what still gets downloaded.
 
 ### When downloading the files is still the better choice
 
@@ -158,9 +290,9 @@ For these cases, use one of the options below.
 
 ## Option 1: Maven (recommended)
 
-The best approach is to declare the extensions as Maven dependencies with the type `lex`. You can list several repositories, and Maven picks each version from wherever it lives. Lucee itself resolves extensions the same way.
+The best approach for extensions is to declare them as Maven dependencies with the type `lex`. You can list several repositories, and Maven picks each version from wherever it lives. Lucee itself resolves extensions the same way. The same repositories also cover the core artifacts described above.
 
-Create a small `pom.xml` that only lists your extensions:
+Create a small `pom.xml` that lists your extensions (add `org.lucee:lucee` the same way if you also need the core JAR or `.lco`):
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
@@ -234,7 +366,7 @@ The extensions are downloaded once, when the image is built, and are part of the
 
 ## Option 3: Plain download with curl
 
-For a single file, download it directly from Maven Central. The URL follows the Maven layout:
+For a single extension file, download it directly from Maven Central. The URL follows the Maven layout:
 
 ```plaintext
 https://repo1.maven.org/maven2/org/lucee/<artifactId>/<version>/<artifactId>-<version>.lex
@@ -342,8 +474,9 @@ Alternatively, you can let Lucee download extensions itself with the `LUCEE_EXTE
 
 ## Best practices
 
-- **Download once, not on every start.** Download extensions when you build the image, or cache them in CI. A container that downloads its extensions on every start can end up downloading them thousands of times a day if it gets stuck in a restart loop.
+- **Download once, not on every start.** Download core artifacts and extensions when you build the image, or cache them in CI. A container that downloads them on every start can end up downloading them thousands of times a day if it gets stuck in a restart loop.
 - **Pin versions.** Always use an exact version. For anything long-lived, such as production images and CI pipelines, pin final releases.
+- **Use `maven.lucee-services.com` for core JARs.** Current releases on Maven Central only have the `.pom` and the `.lco`. The JARs (full, light, zero) live on the Lucee Maven repository, on CDN and on GitHub Releases.
 - **Don't depend on snapshots or pre-releases long term.** Snapshots are removed after 90 days, and pre-releases may get a limited lifespan too. They are meant for testing.
 - **List several repositories** when you use Maven, so every version is found wherever it is published.
 - **Fail on errors.** Make sure a failed download fails the build, for example with `curl -f`.

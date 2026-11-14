@@ -86,6 +86,66 @@ this.javasettings.maven = [
 
 Omit `version` for latest (e.g., `"commons-beanutils:commons-beanutils"`).
 
+### Limiting Transitive Dependencies (9.0+)
+
+By default Lucee downloads a Maven dependency together with everything it depends on. Some libraries pull in a large tree of dependencies you don't need (for example Apache Tika 3). Two optional keys on a Maven entry limit what is downloaded:
+
+- `transitive` - set to `false` to download only that artifact and none of its dependencies (default: `true`)
+- `exclusions` - an array of `groupId:artifactId` entries that are skipped during resolution. `*` is a wildcard in either part, so `org.apache.logging.*:*` or `*:*-test` also work. A comma separated list is accepted as well.
+
+An excluded artifact is not downloaded and neither are the dependencies only it would have brought in. Exclusions apply to the whole dependency tree of that entry, including dependencies inherited from a parent POM.
+
+```cfml
+// Application.cfc
+this.javasettings.maven = [
+	// only tika-core itself
+	{
+		"groupId": "org.apache.tika",
+		"artifactId": "tika-core",
+		"version": "3.0.0",
+		"transitive": false
+	},
+	// everything except the excluded artifacts
+	{
+		"groupId": "org.apache.tika",
+		"artifactId": "tika-parsers-standard-package",
+		"version": "3.0.0",
+		"exclusions": [ "org.bouncycastle:*", "org.apache.logging.log4j:*" ]
+	}
+];
+```
+
+The same keys work in the component `javasettings` attribute:
+
+```cfml
+component javasettings='{
+	"maven": [
+		{ "groupId": "org.apache.tika", "artifactId": "tika-core", "version": "3.0.0", "transitive": false }
+	]
+}' {
+	// ...
+}
+```
+
+and in `.CFConfig.json`:
+
+```json
+{
+	"javasettings": {
+		"maven": [
+			{
+				"groupId": "org.apache.tika",
+				"artifactId": "tika-parsers-standard-package",
+				"version": "3.0.0",
+				"exclusions": [ "org.bouncycastle:*" ]
+			}
+		]
+	}
+}
+```
+
+They are also supported by [[function-mavenload]]. When you exclude or skip a dependency, you are responsible for providing any class the library needs at runtime, a missing class shows up as a `ClassNotFoundException` when it is first used. An invalid `transitive` value or exclusion that is not in the `groupId:artifactId` format throws an error.
+
 ## Load Paths
 
 Point to local JAR files or directories containing JARs:

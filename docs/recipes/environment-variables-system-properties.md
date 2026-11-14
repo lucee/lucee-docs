@@ -247,10 +247,12 @@ previously `LUCEE_READ_CFID_FROM_URL`
 *SysProp:* `-Dlucee.cfid.url.allow` (previously `-Dlucee.read.cfid.from.url`)
 *EnvVar:* `LUCEE_CFID_URL_ALLOW` (previously `LUCEE_READ_CFID_FROM_URL`)
 
-Controls whether Lucee accepts CFID values from URL query strings. Set to false to enhance security by requiring CFIDs to be passed via cookies only.
+Controls whether Lucee accepts CFID and CFTOKEN values from URL query strings. If disabled, they are only accepted from cookies.
 The previous property names are still supported for backward compatibility, but the new names are preferred starting with Lucee 6.2.1.59.
 
-*Setting this to `false` is strongly recommended for all production environments.*
+The default is `false` since Lucee 9.0, before it was `true`. This is a breaking change for applications that pass CFID and CFTOKEN in the URL, see [[breaking-changes-8-0-to-9-0]].
+Set it to `true` to accept them from the URL again, this is not recommended for production environments.
+If the legacy property `lucee.read.cfid.from.url` is also set, it takes precedence.
 
 #### LUCEE_CFID_URL_LOG
 
@@ -883,6 +885,13 @@ Specifies the file location of the trust store that contains trusted Certificate
 *EnvVar:* `LUCEE_WEB_CHARSET`
 
 Default character set for output streams, form-, URL-, and CGI scope variables, and reading/writing the header.
+
+#### LUCEE_DEPLOY_WATCH
+
+*SysProp:* `-Dlucee.deploy.watch`
+*EnvVar:* `LUCEE_DEPLOY_WATCH`
+
+Default true. By default Lucee checks the deploy folder (extensions, archives, config snippets) every 10 seconds for new files. Set to false to disable this periodic check, for example on a production server. The deploy folder is still processed once at startup. The same setting is available in `.CFConfig.json` as `deployWatch`.
 
 #### LUCEE_CONTROLLER_GC
 
