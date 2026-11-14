@@ -305,6 +305,7 @@ Add `jfr="true"` to emit trace information as JFR events:
 ```
 
 This creates a JFR event with:
+
 - Event type, category, and text
 - Template path and line number
 - Variable name and value (if specified)
@@ -322,6 +323,7 @@ Add `jfr="true"` to emit timer duration as a JFR event:
 ```
 
 This creates a JFR duration event with:
+
 - Timer label
 - Execution duration
 - Success/failure status
