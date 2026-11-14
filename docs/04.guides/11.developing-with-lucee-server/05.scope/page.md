@@ -9,6 +9,8 @@ related:
 - local-scope-migration
 - using-scopes-explicitly-in-code
 - static-scope-in-components
+- function-isnull
+- null_support
 description: local, arguments, query, variables, this, cgi, cffile, url, form, cookie, client, thread, caller, request
 menuTitle: Scopes
 ---
@@ -94,6 +96,12 @@ The available scope cascading modes are:
 Unlike ACF, Lucee has never included the `CFFILE` scope in the cascaded scopes.
 
 **Strict is recommended for the best performance and security**, but requires testing and refactoring your code to ensure every variable is properly scoped.
+
+Under Lucee's default (partial) [[null_support|null support]], a null value is treated as not present. If an unscoped lookup finds a null in `local` or `variables`, the search continues through the remaining cascaded scopes (`cgi`, `url`, `form`, `cookie` in Standard mode). Adobe ColdFusion stops at the nearer-scope null and does not continue. This is intentional in Lucee and will not be changed to match ACF.
+
+To check only the local variable, write `isNull(local.myVar)` (or another explicit scope). To stop implicit scope searching, set `this.scopeCascading="strict"`. To treat null as a real existing value that stops the cascade, enable full null support (`this.nullSupport=true`).
+
+[LDEV-3523](https://luceeserver.atlassian.net/browse/LDEV-3523)
 
 ## Form and URL scope struct behaviour
 
