@@ -161,6 +161,7 @@ if (jfrEnabled()) {
 Emits an instant event (point in time).
 
 **Arguments:**
+
 - `category` (string, required): Event category for grouping
 - `label` (string, required): Event name/description
 - `data` (struct, optional): Additional event data (JSON serialized)
@@ -181,6 +182,7 @@ jfrEmit("cache", "Cache Miss", {
 Starts a duration event. Returns an event ID.
 
 **Arguments:**
+
 - `category` (string, required): Event category
 - `label` (string, required): Event name
 - `data` (struct, optional): Initial event data
@@ -199,6 +201,7 @@ var eventId = jfrBegin("api", "External API Call", {
 Completes a duration event started with `jfrBegin()`.
 
 **Arguments:**
+
 - `eventId` (string, required): Event ID from `jfrBegin()`
 - `data` (struct, optional): Additional/final event data
 
@@ -218,6 +221,7 @@ catch (any e) {
 Starts a new JFR recording programmatically.
 
 **Arguments:**
+
 - `options` (struct, optional): Recording configuration
   - `name` (string): Recording name
   - `maxAge` (numeric): Max age in seconds
@@ -239,6 +243,7 @@ recordingId = jfrStartRecording({
 Stops an active recording and optionally saves it.
 
 **Arguments:**
+
 - `recordingId` (numeric, required): Recording ID from `jfrStartRecording()`
 - `destination` (string, optional): File path to save recording
 
@@ -253,6 +258,7 @@ jfrStopRecording(recordingId, "/var/logs/recording.jfr");
 Analyzes a JFR recording file and extracts events.
 
 **Arguments:**
+
 - `jfrFile` (string, required): Path to .jfr file
 - `returnType` (string, optional): "array" (default) or "query"
 - `options` (struct, optional): Filtering and output options
@@ -500,6 +506,7 @@ JFR is designed for production use with minimal overhead:
 - **Events only emitted if recording active**: Your `jfrEmit()` calls have near-zero cost when no recording is running
 
 **Best Practices:**
+
 - Check `jfrEnabled()` before emitting high-frequency events
 - Use categories to filter events during analysis
 - Limit stack trace collection to when needed
