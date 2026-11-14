@@ -185,7 +185,7 @@ Application -> Request Timeout. It is recommended you change it from 50 seconds 
 
 Lucee's built-in Script-Protect feature is designed to protect your site from cross-site scripting attacks. Script-Protect will automatically filter dangerous tags in incoming variable scopes like CGI, cookie, form, and URL scopes.
 
-To ensure Lucee's Script-Protect feature is enabled, log in to the Lucee server administrator and go to Settings -> Application -> Script-Protect and ensure it's set to "all".
+To ensure Lucee's Script-Protect feature is enabled, log in to the Lucee server administrator and go to Settings -> Request -> Script-Protect and ensure it's set to "all".
 
 Note: This setting does not provide comprehensive cross-site scripting prevention, additional steps must be taken in your custom source code to alleviate risk.
 
