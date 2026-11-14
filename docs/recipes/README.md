@@ -332,6 +332,10 @@ Documentation for interacting with Java classes and objects in Lucee
 
 How to make Java classes log through Lucee's logging system
 
+## [Java Flight Recorder (JFR) Support](/docs/recipes/jfr-support.md)
+
+Emit custom JFR events from Lucee for low-overhead production profiling
+
 ## [Java in Functions and Closures](/docs/recipes/java-in-functions-and-closures.md)
 
 Learn how to write CFML code directly in a function or a closure with Java types in Lucee. This guide demonstrates how to define functions and components with Java types, and how to use Java lambda functions within Lucee. You will see examples of how to handle exceptions, define return types, and implement functional Java interfaces (Lambdas) seamlessly.

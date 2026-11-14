@@ -117,7 +117,7 @@
     "file": "application-cfc.md",
     "title": "Application.cfc #",
     "path": "/docs/recipes/application-cfc.md",
-    "hash": "a38f5ba9784b0c2966c0f27f799b166e",
+    "hash": "7e5438b931bc995644bfcc38e6b166cf",
     "keywords": [
       "Application.cfc",
       "Application Context",
@@ -292,7 +292,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "102dc033405e636a35dc7fd5688e8a93",
+    "hash": "6170d9787bf37343cc61e262ecd433bc",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -595,7 +595,7 @@
     "file": "heap-dumps.md",
     "title": "Creating Heap Dumps in Lucee",
     "path": "/docs/recipes/heap-dumps.md",
-    "hash": "b9a0f8de29c4b823c6d7d6b730f4766b",
+    "hash": "41b37995438c7df53bcc1f2a7bc89569",
     "keywords": [
       "Heap Dump",
       "Memory",
@@ -1278,6 +1278,21 @@
       "logging",
       "slf4j",
       "lucee.commons.io.log.Log"
+    ]
+  },
+  {
+    "file": "jfr-support.md",
+    "title": "Java Flight Recorder (JFR) Support",
+    "path": "/docs/recipes/jfr-support.md",
+    "hash": "99bc11686f2098a18bc2a5f1e4931ba8",
+    "keywords": [
+      "jfr",
+      "flight recorder",
+      "profiling",
+      "performance",
+      "monitoring",
+      "production",
+      "observability"
     ]
   },
   {
@@ -2127,7 +2142,7 @@
     "file": "structs-preserve-key-case.md",
     "title": "Preserving Key Case in CFML Structs / Variables",
     "path": "/docs/recipes/structs-preserve-key-case.md",
-    "hash": "7a8fa15ee6b969453626b27022a5ef4e",
+    "hash": "983eb405cbd27163a1a7929fed7b85e8",
     "keywords": [
       "struct",
       "dotNotationUpperCase",
@@ -2156,7 +2171,7 @@
     "file": "query-of-queries-functions.md",
     "title": "QoQ SQL Functions and Operators",
     "path": "/docs/recipes/query-of-queries-functions.md",
-    "hash": "62513a1d7378d93613fc26dfe595b168",
+    "hash": "4df9462eb0be1f956976a3ac53ee6c27",
     "keywords": [
       "Query of Queries",
       "QoQ",
@@ -2545,7 +2560,7 @@
     "file": "setting-system-properties-and-env-vars.md",
     "title": "Setting System Properties and Environment Variables",
     "path": "/docs/recipes/setting-system-properties-and-env-vars.md",
-    "hash": "17153b8b318bf0571f771992e4e08581",
+    "hash": "355d55ef82d264da620c777809a793c1",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -2792,7 +2807,7 @@
     "file": "troubleshooting.md",
     "title": "Troubleshooting Lucee Problems",
     "path": "/docs/recipes/troubleshooting.md",
-    "hash": "cafe2c03f0d2db8b70d4c0c7ad1fdede",
+    "hash": "8c9c28a0d91f91d7d087e1ba82dd108a",
     "keywords": [
       "startup",
       "deployment",

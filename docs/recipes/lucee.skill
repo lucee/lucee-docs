@@ -35,7 +35,7 @@ description: >
 | `database` | Datasources, JDBC drivers, queries, query of queries, query listeners, connection pooling | 15 | `https://docs.lucee.org/skill/database.md` |
 | `orm` | Hibernate ORM: setup, entity mapping, relationships, sessions, transactions, troubleshooting | 11 | `https://docs.lucee.org/skill/orm.md` |
 | `caching` | Cache connections, cachedWithin, query cache invalidation, cache extensions | 7 | `https://docs.lucee.org/skill/caching.md` |
-| `debugging` | Debugging, monitoring, logging, exceptions, heap and thread dumps, step debugger, dev tooling | 20 | `https://docs.lucee.org/skill/debugging.md` |
+| `debugging` | Debugging, monitoring, logging, exceptions, heap and thread dumps, step debugger, dev tooling | 21 | `https://docs.lucee.org/skill/debugging.md` |
 | `java` | Calling Java, Maven dependencies, Java libraries, casting, proxies, data formats via Java | 20 | `https://docs.lucee.org/skill/java.md` |
 | `extensions` | Installing, building and configuring extensions, scheduler (Quartz), hooks | 12 | `https://docs.lucee.org/skill/extensions.md` |
 | `integrations` | Mail, HTTP, REST, S3 and virtual file systems, websockets, event gateways, XML, PDF, search | 22 | `https://docs.lucee.org/skill/integrations.md` |

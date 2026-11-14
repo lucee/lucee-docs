@@ -2,7 +2,7 @@
   "name": "lucee",
   "router": {
     "url": "https://docs.lucee.org/lucee.skill",
-    "sha256": "d43edf02f865c5c52c4bf1b1368f8aaf96bd6023cd8081637145d7e2429d8807",
+    "sha256": "51f9e0da7f74fecfc6fb1cc572614af798b009feeaf044b9ce7566031ccc7bbb",
     "approxTokens": 924
   },
   "topics": [
@@ -62,9 +62,9 @@
       "description": "Debugging, monitoring, logging, exceptions, heap and thread dumps, step debugger, dev tooling",
       "url": "https://docs.lucee.org/skill/debugging.md",
       "path": "skill/debugging.md",
-      "entries": 20,
-      "sha256": "8e49cc69f71c0f2ba190da6181532cc13d2f3e7ea02a5a64c4f7ec6166b9ea1c",
-      "approxTokens": 1186
+      "entries": 21,
+      "sha256": "b8121eceb6116f1d2672822220e048a1103ad6773f62198e0ec22b21485a3e07",
+      "approxTokens": 1242
     },
     {
       "id": "java",
