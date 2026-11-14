@@ -39,7 +39,7 @@ description: >
 | `java` | Calling Java, Maven dependencies, Java libraries, casting, proxies, data formats via Java | 20 | `https://docs.lucee.org/skill/java.md` |
 | `extensions` | Installing, building and configuring extensions, scheduler (Quartz), hooks | 12 | `https://docs.lucee.org/skill/extensions.md` |
 | `integrations` | Mail, HTTP, REST, S3 and virtual file systems, websockets, event gateways, XML, PDF, search | 22 | `https://docs.lucee.org/skill/integrations.md` |
-| `server` | Configuration (.CFConfig.json), env vars, mappings, Docker, deployment, security hardening, startup | 34 | `https://docs.lucee.org/skill/server.md` |
+| `server` | Configuration (.CFConfig.json), env vars, mappings, Docker, deployment, security hardening, startup | 35 | `https://docs.lucee.org/skill/server.md` |
 | `language` | Syntax, components, scopes, null handling, dates, threads, regex, Application.cfc | 35 | `https://docs.lucee.org/skill/language.md` |
 | `guides` | Long-form guides: installing, updating, deploying, extensions, Lucee 5 era docs, release notes | 179 | `https://docs.lucee.org/skill/guides.md` |
 | `examples-specs` | Runnable Docker examples and technical specs (AST, hooks, JSR-223, monitors, LuCLI) | 21 | `https://docs.lucee.org/skill/examples-specs.md` |

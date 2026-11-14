@@ -720,6 +720,10 @@ How to use Thread Tasks
 
 Learn how to use the <cftimeout> tag in Lucee. This guide demonstrates how to define a timeout specific to a code block, handle timeouts with a listener, and handle errors within the timeout block.
 
+## [Troubleshooting FTP and SFTP connections](/docs/recipes/ftp-troubleshooting.md)
+
+How to see what is happening on the wire when cfftp or an ftp:// path fails, using the FTP and SFTP debug switches.
+
 ## [Troubleshooting Lucee Problems](/docs/recipes/troubleshooting.md)
 
 A guide to diagnosing problems with Lucee

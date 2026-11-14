@@ -2,7 +2,7 @@
   "name": "lucee",
   "router": {
     "url": "https://docs.lucee.org/lucee.skill",
-    "sha256": "6f0f7504f11cd3a4b34211e23532f87563198cf04d2f63a1a3740c65448e10f0",
+    "sha256": "d43edf02f865c5c52c4bf1b1368f8aaf96bd6023cd8081637145d7e2429d8807",
     "approxTokens": 924
   },
   "topics": [
@@ -102,9 +102,9 @@
       "description": "Configuration (.CFConfig.json), env vars, mappings, Docker, deployment, security hardening, startup",
       "url": "https://docs.lucee.org/skill/server.md",
       "path": "skill/server.md",
-      "entries": 34,
-      "sha256": "fa7210a69350217c30e49a1d50014b8d466c5cab4cd920f68c11eb7271ffd2bb",
-      "approxTokens": 2207
+      "entries": 35,
+      "sha256": "0b929b875758334cde5801df8a2545a7410ad39a57eefed9d0f5163fb9b51153",
+      "approxTokens": 2269
     },
     {
       "id": "language",

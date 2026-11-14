@@ -292,7 +292,7 @@
     "file": "breaking-changes-9-0.md",
     "title": "Breaking Changes between Lucee 8.0 and 9.0",
     "path": "/docs/recipes/breaking-changes-9-0.md",
-    "hash": "853cc08e5ef9c1176769bfb1f3309ef1",
+    "hash": "a498d2872f216b42e614bca9793feafa",
     "keywords": [
       "breaking changes",
       "Lucee 8.0",
@@ -856,7 +856,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "2b0887d40169630d75aff5c22546aa8e",
+    "hash": "06a2b2bfda300cef0ea38c926f42680c",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -2637,7 +2637,7 @@
     "file": "static-scope-in-components.md",
     "title": "Static Scope in Components",
     "path": "/docs/recipes/static-scope-in-components.md",
-    "hash": "11825d009e6af341c846e414b0fb84e4",
+    "hash": "d0e6e36f5fa83c3ef69f72e0b0c95124",
     "keywords": [
       "Static scope",
       "Components",
@@ -2771,6 +2771,21 @@
       "Lucee",
       "cftimeout",
       "error handling"
+    ]
+  },
+  {
+    "file": "ftp-troubleshooting.md",
+    "title": "Troubleshooting FTP and SFTP connections",
+    "path": "/docs/recipes/ftp-troubleshooting.md",
+    "hash": "9a03f3af3d3e3fd30c30fe31be8c1b17",
+    "keywords": [
+      "FTP",
+      "SFTP",
+      "cfftp",
+      "debug",
+      "troubleshooting",
+      "JSch",
+      "console"
     ]
   },
   {
