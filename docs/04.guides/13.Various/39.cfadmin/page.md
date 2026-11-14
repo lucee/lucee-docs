@@ -18,15 +18,15 @@ Attribute name | Description
  _ type | Application type for installable Lucee extensions
 access_read |	Defines the general access to the Lucee configuration read
 access_write |	Defines the general access to the Lucee configuration write
-allowed_alter |	Database connection property
-allowed_create | Database connection property
-allowed_delete | Database connection property
-allowed_drop |	Database connection property
-allowed_grant |	Database connection property
-allowed_insert | Database connection property
-allowed_revoke | Database connection property
-allowed_select | Database connection property
-allowed_update | Database connection property
+allowed_alter | Deprecated, ignored since Lucee 9 (per-datasource SQL restrictions were removed)
+allowed_create | Deprecated, ignored since Lucee 9 (per-datasource SQL restrictions were removed)
+allowed_delete | Deprecated, ignored since Lucee 9 (per-datasource SQL restrictions were removed)
+allowed_drop | Deprecated, ignored since Lucee 9 (per-datasource SQL restrictions were removed)
+allowed_grant | Deprecated, ignored since Lucee 9 (per-datasource SQL restrictions were removed)
+allowed_insert | Deprecated, ignored since Lucee 9 (per-datasource SQL restrictions were removed)
+allowed_revoke | Deprecated, ignored since Lucee 9 (per-datasource SQL restrictions were removed)
+allowed_select | Deprecated, ignored since Lucee 9 (per-datasource SQL restrictions were removed)
+allowed_update | Deprecated, ignored since Lucee 9 (per-datasource SQL restrictions were removed)
 allowImplicidQueryCall | Defines whether the query names must be provided (scoping)
 AllowURLRequestTimeout | Defines whether a requesttimeout is allowed as an url variable
 append | Sets whether a compiled archive should be associated with a mapping
@@ -959,15 +959,6 @@ Below you will find all the actions sorted alphabetically embedded in examples f
 	    connectionTimeout="#form.connectionTimeout#"
 	    blob="#getForm('blob',false)#"
 	    clob="#getForm('clob',false)#"
-	    allowed_select="#getForm('allowed_select',false)#"
-	    allowed_insert="#getForm('allowed_insert',false)#"
-	    allowed_update="#getForm('allowed_update',false)#"
-	    allowed_delete="#getForm('allowed_delete',false)#"
-	    allowed_alter="#getForm('allowed_alter',false)#"
-	    allowed_drop="#getForm('allowed_drop',false)#"
-	    allowed_revoke="#getForm('allowed_revoke',false)#"
-	    allowed_create="#getForm('allowed_create',false)#"
-	    allowed_grant="#getForm('allowed_grant',false)#"
 	    custom="#custom#"
 	    remoteClients="arrayOfClients">
 
