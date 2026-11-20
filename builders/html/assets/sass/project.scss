@@ -19,7 +19,8 @@
 	}
 }
 
-@media only screen and (min-width: 1720px) {
+// only float the TOC when the viewport is wide enough that it can't cover the page content
+@media only screen and (min-width: 1920px) {
 	.toc-navigation {
 		position : fixed;
 		right    : 20px;
