@@ -1,7 +1,7 @@
 component {
 	this.name = "luceeDocumentationBuilder-" & Hash( GetCurrentTemplatePath() );
 
-	variables.assetBundleVersion = 45 // must match lucee-docs\builders\html\assets\package.json config.assetVersion
+	variables.assetBundleVersion = 46 // must match lucee-docs\builders\html\assets\package.json config.assetVersion
 
 	this.cwd = GetDirectoryFromPath( GetCurrentTemplatePath() )
 	this.regex = { engine: "java" };

@@ -383,6 +383,10 @@
 						// position
 							left: ($grid-gutter * 15);
 					}
+					// the header is sticky, so left has no effect; keep it (and the page title in it) clear of the menu
+					~ .header {
+						margin-left: ($grid-gutter * 15);
+					}
 				}
 			// menu right
 				&.menu-right {
