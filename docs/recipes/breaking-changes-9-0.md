@@ -45,23 +45,23 @@ Lucee 8 logs a deprecation warning when an application uses `perl` ([LDEV-6660](
 
 **What to do:** move your patterns to `java` (or `compat` to keep the Perl-style replacement syntax), or install the Perl Regex extension and set `this.regex.type="perl"`. All steps and the differences between the engines are in [[regex-migration-lucee-9]].
 
-## Apache Felix is shaded into the Lucee jar
+## OSGi (Apache Felix) is not part of the Lucee jar anymore
 
-The OSGi framework that Lucee uses (Apache Felix) is no longer merged into the Lucee jar as it is. It is **shaded**: the classes are copied into the jar and their package is relocated from `org.apache.felix` to `lucee.shaded.felix`. This is the first step to a single jar with shaded libraries, OSGi itself will move to an extension later (and is deprecated).
+[LDEV-6627](https://luceeserver.atlassian.net/browse/LDEV-6627)
 
-OSGi stays fully supported for extensions and bundles, the OSGi API (`org.osgi.*`) is **not** relocated, bundles and extensions import it from the framework as before. What changes are the names and types of the framework implementation.
+The OSGi framework (Apache Felix) is not merged or shaded into the Lucee jar anymore and the loader does not start it. The core only knows the interface `lucee.runtime.osgi.OSGiService`, the implementation is in the OSGi extension (`org.lucee:osgi-extension`), see the section "OSGi is moving to an extension, Lucee installs it when it is needed" below for the installation. The framework is started when the first bundle is needed, not when Lucee starts. Lucee itself runs without OSGi.
 
-### The `org.apache.felix` packages do not exist anymore
+OSGi stays supported for extensions and bundles, an extension that ships OSGi bundles does not have to change. What changes is where the framework classes are, and the loader API.
 
-Classes in `org.apache.felix.*` are not available to the core, to extensions and to bundles. This includes the `org.apache.felix` exports of the system bundle and the boot delegation to them.
+### Felix and the `org.osgi` API are not in the Lucee jar
 
-Code that imports or casts to a Felix class fails with a `NoClassDefFoundError`, for example:
+Classes in `org.apache.felix.*` and `org.osgi.*` are not part of the Lucee jar, they come with the OSGi extension. A class in your own code that is loaded without OSGi and imports or casts to a Felix class fails with a `NoClassDefFoundError`, for example:
 
 ```
 java.lang.NoClassDefFoundError: org/apache/felix/framework/BundleWiringImpl$BundleClassLoader
 ```
 
-The most common case is a cast of a class loader to Felix's `BundleClassLoader` to get the bundle of a class. Use the OSGi API instead, `org.osgi.framework.BundleReference` works with every Lucee version, with every OSGi framework:
+The most common case is a cast of a class loader to Felix's `BundleClassLoader` to get the bundle of a class. Use the OSGi API instead, `org.osgi.framework.BundleReference` works with every Lucee version and every OSGi framework:
 
 Before:
 
@@ -84,27 +84,29 @@ Bundle bundle = ((BundleReference) cl).getBundle();
 // BundleWiring wiring = bundle.adapt(BundleWiring.class);
 ```
 
-The same applies to the other Felix classes (`org.apache.felix.framework.Logger`, `org.apache.felix.framework.Felix`, ...), use the `org.osgi.*` API (`org.osgi.framework.launch.Framework` for the framework itself) or your own logger.
+The same applies to the other Felix classes (`org.apache.felix.framework.Logger`, `org.apache.felix.framework.Felix`, ...), use the `org.osgi.*` API (`org.osgi.framework.launch.Framework` for the framework itself) or your own logger. Code that has to run on Lucee 8 and 9 can use `BundleReference` in both.
 
-An extension that has to run on Lucee 8 and 9 can use `BundleReference` in both, it is available in every Lucee version.
+### Loader API: Felix and the bundle loading classes are removed
 
-### The symbolic name of the system bundle changed
+The loader (`lucee.loader`) does not start Felix anymore, the classes for it are removed:
 
-The system bundle (the framework itself, bundle id `0`) had the symbolic name `org.apache.felix.framework`, it is now `lucee.shaded.felix.framework`. This is visible in `BundleInfo()`, in the bundle listings of the Administrator and in `Bundle.getSymbolicName()`.
+| Class / method | Status |
+| --- | --- |
+| `lucee.loader.engine.CFMLEngineFactory.getFelix(File, Map)` | removed |
+| `lucee.loader.osgi.BundleCollection` | removed |
+| `lucee.loader.osgi.BundleLoader` | removed |
+| `lucee.loader.osgi.BundleUtil` | removed |
+| `lucee.loader.osgi.LoggerImpl` | moved to `lucee.loader.engine.LoggerImpl`, `CFMLEngineFactory.getLogger()` returns the new type |
 
-- Do not compare the symbolic name to detect the system bundle, check the bundle id: `bundle.getBundleId() == 0`.
-- A manifest with `Require-Bundle: org.apache.felix.framework` does not resolve anymore. Require the packages you need (`Import-Package`) instead, which is what you should do in any case.
+The core of a patch (`.lco`) is loaded with a plain class loader on top of the loader class loader, not as a bundle. The version and build information of Lucee (`server.lucee.version`, `getInfo()`) is read from the manifest of the Lucee core and has the same values as before.
 
-### Loader API: `getFelix` and `BundleCollection` use `Framework`
+Code that called `getFelix` or used `BundleCollection` must move to the `OSGiService`, or to the OSGi API of the OSGi extension. Check your own code with a search for `lucee.loader.osgi` and `getFelix`.
 
-The public classes of the loader do not expose Felix types anymore:
+The log level of the loader log (`felix.log.level`, `FELIX_LOG_LEVEL`) is still read for the log of the loader, it takes the level names (`DEBUG`, `INFO`, `WARNING`, `ERROR`) and the numbers 1 to 4.
 
-| Class | Before | Now |
-| --- | --- | --- |
-| `lucee.loader.engine.CFMLEngineFactory` | `Felix getFelix(File, Map)` | `org.osgi.framework.launch.Framework getFelix(File, Map)` |
-| `lucee.loader.osgi.BundleCollection` | `public final Felix felix`, constructor `BundleCollection(Felix, Bundle, List<Bundle>)` | `public final Framework felix`, constructor `BundleCollection(Framework, Bundle, List<Bundle>)` |
+### The Felix cache is only used by the OSGi extension
 
-`Framework` is the interface that Felix implements, code that only used the OSGi methods of the returned object keeps working after a recompile. Code that used methods that exist only in the Felix class does not.
+The cache directory of the framework is created by the OSGi extension when the framework starts. The Lucee loader does not touch it anymore. The recovery for a damaged cache ("Error creating bundle cache", [LDEV-6144](https://luceeserver.atlassian.net/browse/LDEV-6144)) is done by the OSGi extension: it deletes the cache and starts the framework again.
 
 ### Extensions
 
@@ -118,7 +120,7 @@ Check your own extensions with a search for `org.apache.felix` in the source and
 
 ## ASM is shaded into the Lucee core
 
-The bytecode library that Lucee uses to compile CFML (ASM) is no longer a set of separate bundles. It is **shaded** into the core: the classes are copied into the core (`.lco`) and their package is relocated from `org.objectweb.asm` to `lucee.shaded.asm`. This is the same step as for Felix above.
+The bytecode library that Lucee uses to compile CFML (ASM) is no longer a set of separate bundles. It is **shaded** into the core: the classes are copied into the core (`.lco`) and their package is relocated from `org.objectweb.asm` to `lucee.shaded.asm`. 
 
 ### Lucee does not provide `org.objectweb.asm` anymore
 
