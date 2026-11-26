@@ -4,7 +4,7 @@
   "id": "breaking-changes-8-0-to-9-0",
   "categories": ["breaking changes", "migration", "compat"],
   "description": "A guide to breaking changes introduced in Lucee between version 8.0 and 9.0",
-  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "regex", "Perl Regex extension", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "CFID", "CFTOKEN", "session", "cfid.url.allow", "OSGi extension", "osgi-extension", "lucee.osgi.autoinstall", "datasource", "allow", "allowed_select", "SQL restrictions", "signature", "PGP", "maven.signatureVerification", "cachedWithin", "array"],
+  "keywords": ["breaking changes", "Lucee 8.0", "Lucee 9.0", "migration", "upgrade", "OSGi", "Felix", "ASM", "HttpClient", "javax.mail", "commons-logging", "extensions", "regex", "Perl Regex extension", "isJson", "JSON", "REST", "restPath", "cfforward", "forward", "cflocation", "internalRequest", "_internalRequest", "COM", "Jacob", "CFID", "CFTOKEN", "session", "cfid.url.allow", "OSGi extension", "osgi-extension", "lucee.osgi.autoinstall", "datasource", "allow", "allowed_select", "SQL restrictions", "signature", "PGP", "maven.signatureVerification", "cachedWithin", "array", "listFirst", "listLast", "list", "delimiter"],
   "related": [
     "regex-migration-lucee-9",
     "java-regex-engine",
@@ -712,3 +712,40 @@ After:
 <servlet-class>lucee.loader.servlet.CFMLServlet</servlet-class>
 <servlet-class>lucee.loader.servlet.RestServlet</servlet-class>
 ```
+
+## `listFirst()` and `listLast()` with an empty delimiter return single characters
+
+An empty delimiter of [[function-listfirst]] and [[function-listlast]] no longer falls back to the default comma. Like `listToArray( list, "" )`, the string is split into single characters, so `listFirst( list, "" )` is the same as `listToArray( list, "" ).first()` and `listLast( list, "" )` is the same as `listToArray( list, "" ).last()`.
+
+```cfml
+listFirst( "dev,LAS,lucee", "" ); // Lucee 8: "dev"  /  Lucee 9: "d"
+listLast( "dev,LAS,lucee", "" );  // Lucee 8: "lucee"  /  Lucee 9: "e"
+
+// unchanged when the delimiter is omitted or not empty
+listFirst( "dev,LAS,lucee" );      // "dev"
+listFirst( "dev,LAS,lucee", "," ); // "dev"
+```
+
+### Who is affected
+
+Code that passed an empty string as the delimiter and relied on it behaving like the default comma, for example `listFirst( "aa,bb", "" )` returning `aa`.
+
+### Migration
+
+Pass `","` (or omit the delimiter) when you want the default list behaviour:
+
+Before:
+
+```cfml
+listFirst( "aa,bb", "" );
+```
+
+After:
+
+```cfml
+listFirst( "aa,bb" );
+// or
+listFirst( "aa,bb", "," );
+```
+
+Use an empty delimiter only when you want the first or last characters of the string. See [LDEV-4596](https://luceeserver.atlassian.net/browse/LDEV-4596).
